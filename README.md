@@ -48,7 +48,7 @@ Keep in mind this is still a work in progress, with these end goals:
 
 ## Issues
 
-All uBO Lite-related issues (including filter-related ones) [go here](https://github.com/uBlockOrigin/uBOL-issues/issues).
+All uBO Lite-related issues (including filter-related ones) [go here](https://github.com/uBlockOrigin/uBOL-home/issues).
 
 ## Admin policies
 
