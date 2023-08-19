@@ -48,7 +48,9 @@ Keep in mind this is still a work in progress, with these end goals:
 
 ## Changelog
 
-See [Releases section](https://github.com/uBlockOrigin/uBOL-home/releases).
+See [_Releases_ section](https://github.com/uBlockOrigin/uBOL-home/releases).
+
+Previous releases can be found in [_Releases_ section of uBlock repo](https://github.com/gorhill/uBlock/releases?q=uBOL_).
 
 ## Issues
 
