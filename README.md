@@ -46,6 +46,10 @@ Keep in mind this is still a work in progress, with these end goals:
 
 - Entirely declarative for reliability and CPU/memory efficiency.
 
+## Changelog
+
+See [Releases section](https://github.com/uBlockOrigin/uBOL-home/releases).
+
 ## Issues
 
 All uBO Lite-related issues (including filter-related ones) [go here](https://github.com/uBlockOrigin/uBOL-home/issues).
