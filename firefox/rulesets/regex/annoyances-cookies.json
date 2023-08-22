@@ -1,0 +1,15 @@
+[
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "complianz-gdpr-premium\\/cookiebanner",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 1662
+ }
+]

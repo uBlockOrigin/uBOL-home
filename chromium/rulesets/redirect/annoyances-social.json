@@ -1,0 +1,22 @@
+[
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop.js"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "stagecoachbus.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||addthis.com/js/*/addthis_widget.js"
+  },
+  "id": 543,
+  "priority": 2
+ }
+]

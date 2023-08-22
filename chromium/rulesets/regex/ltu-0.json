@@ -1,0 +1,18 @@
+[
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "delfi.lt"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "\\.dcdn\\.lt\\/images\\/[a-z]{4}\\/",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 447
+ }
+]

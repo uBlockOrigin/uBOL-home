@@ -1,0 +1,84 @@
+[
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop.txt"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "telsu.fi"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||adservice.google.com/adsid/integrator.js"
+  },
+  "id": 154,
+  "priority": 2
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop.txt"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "puhekupla.com"
+   ],
+   "requestDomains": [
+    "doubleclick.net"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 155,
+  "priority": 2
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ruutu.fi"
+   ],
+   "requestDomains": [
+    "freewheel-jitt.sanoma.fi",
+    "sanoma-prod.integration-x.com"
+   ],
+   "resourceTypes": [
+    "media"
+   ]
+  },
+  "id": 156,
+  "priority": 2
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ruutu.fi",
+    "supla.fi"
+   ],
+   "resourceTypes": [
+    "media"
+   ],
+   "urlFilter": "||nelonenmedia-pmd-ads-*.nm-stream.nelonenmedia.fi^"
+  },
+  "id": 157,
+  "priority": 2
+ }
+]

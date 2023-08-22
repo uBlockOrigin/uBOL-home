@@ -1,0 +1,278 @@
+{
+  "extName": {
+    "message": "uBlock Origin Lite",
+    "description": "extension name."
+  },
+  "extShortDesc": {
+    "message": "Փորձարարական բովանդակության արգելափակիչ, որը չի պահանջում թույլտվություններ։ Արգելափակում է ազդերը, հետագծիչները, մայներները և շատ ավելին։",
+    "description": "this will be in the Chrome web store: must be 132 characters or less"
+  },
+  "perRulesetStats": {
+    "message": "{{ruleCount}} կանոն, որոնք փոխարկված են {{filterCount}} ցանցային զտիչներից",
+    "description": "Appears aside each filter list in the _3rd-party filters_ pane"
+  },
+  "dashboardName": {
+    "message": "uBO Lite — Կառավահան",
+    "description": "English: uBO Lite — Dashboard"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Ուշադրությո՛ւն։ Դուք չպահպանված փոփոխություններ ունեք։",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Մնալ",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Անտեսել",
+    "description": "Label for button to ignore unsaved changes"
+  },
+  "settingsPageName": {
+    "message": "Կարգավորումներ",
+    "description": "appears as tab name in dashboard"
+  },
+  "3pPageName": {
+    "message": "Զտիչների ցանկեր",
+    "description": "appears as tab name in dashboard"
+  },
+  "1pPageName": {
+    "message": "Իմ զտիչները",
+    "description": "appears as tab name in dashboard"
+  },
+  "whitelistPageName": {
+    "message": "Վստահված կայքեր",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPageName": {
+    "message": "Ընդլայնման մասին",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPrivacyPolicy": {
+    "message": "Գաղտնիության քաղաքականություն",
+    "description": "Link to privacy policy on GitHub (English)"
+  },
+  "popupFilteringModeLabel": {
+    "message": "filtering mode",
+    "description": "Label in the popup panel for the current filtering mode"
+  },
+  "popupTipDashboard": {
+    "message": "Բացել կառավահանը",
+    "description": "English: Click to open the dashboard"
+  },
+  "popupTipZapper": {
+    "message": "Տարրի ակնթարթային ժամանակավոր թաքցման ռեժիմ",
+    "description": "Tooltip for the element-zapper icon in the popup panel"
+  },
+  "popupTipPicker": {
+    "message": "Գործարկել տարրերի ընտրության ռեժիմը",
+    "description": "English: Enter element picker mode"
+  },
+  "popupTipReport": {
+    "message": "Հաղորդել կայքում առաջացած խնդրի մասին",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
+  "popupTipSaveRules": {
+    "message": "Կտտացրեք՝ փոփոխությունները պահպանելու համար։",
+    "description": "Tooltip when hovering over the padlock in the dynamic filtering pane."
+  },
+  "popupTipRevertRules": {
+    "message": "Կտտացրեք՝ փոփոխությունները հետարկելու համար։",
+    "description": "Tooltip when hovering over the eraser in the dynamic filtering pane."
+  },
+  "popupMoreButton": {
+    "message": "Ավելին",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupGrantGreatPowers": {
+    "message": "Կտտացրեք՝ uBO Lite-ին այս կայքում լրացուցիչ թույլտվություններ տրամադրելու համար։\nԴրանք թույլ են տալիս էլ ավելի արդյունավետ արգելափակել բովանդակությունը։",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupRevokeGreatPowers": {
+    "message": "Կտտացրեք՝ այս կայքում լրացուցիչ թույլտվությունները հետ կանչելու համար",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupLessButton": {
+    "message": "Պակաս",
+    "description": "Label to be used to hide popup panel sections"
+  },
+  "settingsIconBadgePrompt": {
+    "message": "Ցուցադրել արգելափակված հայտերի քանակը պատկերակի վրա",
+    "description": "English: Show the number of blocked requests on the icon"
+  },
+  "settingsAppearance": {
+    "message": "Արտաքին տեսք",
+    "description": "Section for controlling user interface appearance"
+  },
+  "settingsThemeLabel": {
+    "message": "Թեմա",
+    "description": "Label for checkbox to enable a custom dark theme"
+  },
+  "settingsThemeAccent0Label": {
+    "message": "Ընտրովի շեշտային գույն",
+    "description": "Label for checkbox to pick an accent color"
+  },
+  "settingsNoCSPReportsPrompt": {
+    "message": "Արգելափակել CSP հաշվետվությունները",
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
+  },
+  "omnipotenceLabel": {
+    "message": "Միացնել ընդլայնված զտումը բոլոր կայքերում",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "omnipotenceLegend": {
+    "message": "uBO Lite-ը կարող է կիրառել ընդլայնված զտումն այս կայքում միայն այն բանից հետո, երբ Դուք բացահայտորեն թույլտվություն կհաք ընդլայնմանը՝ այս կայքում տվյալները փոխելու համար։ Այս տարբերակը թույլ է տալիս զտման ընդլայնված թույլտվություններ տրամադրել միանգամից բոլոր կայքերին։",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupDefault": {
+    "message": "Լռելյայն",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAds": {
+    "message": "Գովազդ",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupPrivacy": {
+    "message": "Գաղտնիություն",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMalware": {
+    "message": "Վնասակար տիրույթներ",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAnnoyances": {
+    "message": "Ջղայնացնող տարրեր",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMisc": {
+    "message": "Տարբեր",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupRegions": {
+    "message": "Տարածաշրջաններ, լեզուներ",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "1pFormatHint": {
+    "message": "Մեկ կանոն մեկ տողում։ Կանոնը կարող է լինել կայքի անվանումը կամ EasyList-համատեղելի զտիչը։ <code>!</code>-ով սկսվող տողերը կանտեսվեն։",
+    "description": "Short information about how to create custom filters"
+  },
+  "1pImport": {
+    "message": "Ներմուծել և հավելել",
+    "description": "English: Import and append"
+  },
+  "1pExport": {
+    "message": "Արտահանել",
+    "description": "English: Export"
+  },
+  "1pExportFilename": {
+    "message": "my-ublock-static-filters_{{datetime}}.txt",
+    "description": "English: my-ublock-static-filters_{{datetime}}.txt"
+  },
+  "whitelistPrompt": {
+    "message": "Վստահելի կայքերի գրառումները թելադրում են, թե որ վեբ էջերում պետք է անջատվի uBO Lite-ը։ Մեկ գրառում մեկ տողում։",
+    "description": "A concise description of the 'Trusted sites' pane."
+  },
+  "whitelistImport": {
+    "message": "Ներմուծել և հավելել",
+    "description": "English: Import and append"
+  },
+  "whitelistExport": {
+    "message": "Արտահանել",
+    "description": "English: Export"
+  },
+  "whitelistExportFilename": {
+    "message": "my-ublock-trusted-sites_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
+  },
+  "aboutChangelog": {
+    "message": "Փոփոխությունների մատյան",
+    "description": ""
+  },
+  "aboutCode": {
+    "message": "Աղբյուրի կոդ (GPLv3)",
+    "description": "English: Source code (GPLv3)"
+  },
+  "aboutContributors": {
+    "message": "Մասնակիցներ",
+    "description": "English: Contributors"
+  },
+  "aboutSourceCode": {
+    "message": "Աղբյուրի կոդ",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Թարգմանություն",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Զտիչների ցանկեր",
+    "description": "Link text to uBO's own filter lists repo"
+  },
+  "aboutDependencies": {
+    "message": "Արտաքին կախվածություններ (GPLv3-համատեղելի)՝",
+    "description": "Shown in the About pane"
+  },
+  "genericSubmit": {
+    "message": "Հաստատել",
+    "description": "for generic 'Submit' buttons"
+  },
+  "genericApplyChanges": {
+    "message": "Կիրառել փոփոխությունները",
+    "description": "for generic 'Apply changes' buttons"
+  },
+  "genericRevert": {
+    "message": "Հետադարձել",
+    "description": "for generic 'Revert' buttons"
+  },
+  "firstRunSectionLabel": {
+    "message": "Բարի գալուստ",
+    "description": "The header text for the welcome message section"
+  },
+  "firstRunDescription": {
+    "message": "Դուք հենց նոր տեղադրեցիք uBO Lite-ը։ Այստեղ Դուք կարող եք զտման ստանդարտ ռեժիմ ընտրել բոլոր կայքերի համար։\n\nԼռելյայն կերպով ընտրված է <em>հիմնական</em> ռեժիմը, քանի որ այն չի պահանջում տվյալների ընթերցման և փոփոխման թույլտվություն։ Եթե վստահում եք uBO Lite-ին, կարող եք տալ դրան բոլոր կայքերում տվյալների ընթերցման և փոփոխման լայն իրավունքներ՝ բոլոր կայքերի համար զտման ավելի առաջադեմ հնարավորությունները լռելյայն կերպով միացնելու համար։",
+    "description": "Descriptive text shown at first install time only "
+  },
+  "defaultFilteringModeSectionLabel": {
+    "message": "Զտման լռելյայն ռեժիմ",
+    "description": "The header text for the default filtering mode section"
+  },
+  "defaultFilteringModeDescription": {
+    "message": "Զտման լռելյայն ռեժիմը վերասահմանվում է յուրաքանչյուր կայքի զտման ռեժիմներով։ Դուք կարող եք ջոկել ամենաարդյունավետ զտման ռեժիմը ցանկացած կայքում։ Յուրաքանչյուր ռեժիմ ունի իր առավելություններն ու թերությունները։",
+    "description": "This describes the default filtering mode setting"
+  },
+  "filteringMode0Name": {
+    "message": "առանց զտման",
+    "description": "Name of blocking mode 0"
+  },
+  "filteringMode1Name": {
+    "message": "հիմնական",
+    "description": "Name of blocking mode 1"
+  },
+  "filteringMode2Name": {
+    "message": "գերադասելի",
+    "description": "Name of blocking mode 2"
+  },
+  "filteringMode3Name": {
+    "message": "ամբողջական",
+    "description": "Name of blocking mode 3"
+  },
+  "basicFilteringModeDescription": {
+    "message": "Ցանցային հիմնական զտում ըստ ընտրված զտիչների ցուցակների։\n\nԿայքերում տվյալները կարդալու և փոփոխելու թույլտվություն չի պահանջում։",
+    "description": "This describes the 'basic' filtering mode"
+  },
+  "optimalFilteringModeDescription": {
+    "message": "Ընդլայնված ցանցային զտում՝ ընտրված զտիչների ցուցակների համաձայն հատուկ զտման հետ միասին։\n\nՊահանջում է տվյալները բոլոր կայքերում կարդալու և փոփոխելու թույլտվություն։",
+    "description": "This describes the 'optimal' filtering mode"
+  },
+  "completeFilteringModeDescription": {
+    "message": "Ընդլայնված ցանցային զտում, ինչպես նաև հատուկ և առաջադեմ ընդհանուր զտում ընտրված զտիչների ցանկերի համաձայն։\n\nՊահանջում է բոլոր կայքերում տվյալները կարդալու և փոփոխելու թույլտվություն։\n\nԱռաջադեմ ընդհանուր զտումը կարող է առաջացնել վեբ էջի կողմից ռեսուրսների սպառման ավելացում:",
+    "description": "This describes the 'complete' filtering mode"
+  },
+  "behaviorSectionLabel": {
+    "message": "Վարք",
+    "description": "The header text for the 'Behavior' section"
+  },
+  "autoReloadLabel": {
+    "message": "Զտման ռեժիմը փոխելիս ինքնաշխատորեն վերաբեռնել էջը",
+    "description": "Label for a checkbox in the options page"
+  }
+}

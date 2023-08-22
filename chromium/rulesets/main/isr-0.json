@@ -1,0 +1,3803 @@
+[
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "requestDomains": [
+    "213.8.137.51",
+    "a.walla.co.il",
+    "ads.one.co.il",
+    "adserv.mako.co.il",
+    "alipim.net",
+    "banners.news1.co.il",
+    "exposeboxwallashops.blob.core.windows.net",
+    "fringantlarn8.live",
+    "hasdarot.cc",
+    "hasdarot.club",
+    "hasdarot.co",
+    "hasdarot.com",
+    "hasdarot.info",
+    "hasdarot.life",
+    "hasdarot.live",
+    "hasdarot.me",
+    "hasdarot.net",
+    "hasdarot.pro",
+    "hasdarot.space",
+    "hasdarot.tv",
+    "hasdarot.vip",
+    "hasdarot.xyz",
+    "houdini.haaretz.co.il",
+    "jor-el.net",
+    "lauyn.info",
+    "losittooday.info",
+    "mporli.info",
+    "pinukim.net",
+    "sdarotil.top",
+    "sdc.mako.co.il",
+    "seret.live",
+    "totalmedia2.ynet.co.il",
+    "wrtm.walla.co.il"
+   ]
+  },
+  "id": 1
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||shorter.co.il/js/fp.js.php"
+  },
+  "id": 2
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "excludedResourceTypes": [
+    "main_frame",
+    "script"
+   ],
+   "initiatorDomains": [
+    "6days.walla.co.il",
+    "animals.walla.co.il",
+    "astrology.walla.co.il",
+    "b.walla.co.il",
+    "buzzit.walla.co.il",
+    "calendar.walla.co.il",
+    "cars.walla.co.il",
+    "celebs.walla.co.il",
+    "e.walla.co.il",
+    "elections.walla.co.il",
+    "euro.walla.co.il",
+    "fashion.walla.co.il",
+    "finance.walla.co.il",
+    "food.walla.co.il",
+    "forums.walla.co.il",
+    "fun.walla.co.il",
+    "healthy.walla.co.il",
+    "home.walla.co.il",
+    "judaism.walla.co.il",
+    "kids.walla.co.il",
+    "mag.walla.co.il",
+    "maps.walla.co.il",
+    "milon.walla.co.il",
+    "movies.walla.co.il",
+    "mundial.walla.co.il",
+    "nadlan.walla.co.il",
+    "news.walla.co.il",
+    "nick.walla.co.il",
+    "olympics.walla.co.il",
+    "search.walla.co.il",
+    "sports.walla.co.il",
+    "tags.walla.co.il",
+    "tech.walla.co.il",
+    "translate.walla.co.il",
+    "travel.walla.co.il",
+    "tv-guide.walla.co.il",
+    "tv.walla.co.il",
+    "usaelections.walla.co.il",
+    "viva.walla.co.il",
+    "vod.walla.co.il",
+    "weather.walla.co.il",
+    "www.mako.co.il",
+    "www.walla.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "|blob:"
+  },
+  "id": 3
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||fus.walla.co.il/report/"
+  },
+  "id": 4
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "forums.walla.co.il",
+    "tv-guide.walla.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||fus.walla.co.il/script.js?1"
+  },
+  "id": 5
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||fus.walla.co.il/vast/"
+  },
+  "id": 6
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "walla.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||live.sekindo.com/uploads/users/"
+  },
+  "id": 7
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||x.walla.co.il^*.mp4|"
+  },
+  "id": 8
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "walla.co.il"
+   ],
+   "requestDomains": [
+    "xwne.wcdn.co.il"
+   ]
+  },
+  "id": 9
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "/cdamarkettextlinks_"
+  },
+  "id": 10
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "/cdamarketinglink/"
+  },
+  "id": 11
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||alljobs.co.il/partners/ynet/engine.aspx"
+  },
+  "id": 12
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||article.yedioth.co.il/assets/banners"
+  },
+  "id": 13
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||go.ynet.co.il/short/demos/*/ads/"
+  },
+  "id": 14
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||go.ynet.co.il/short/content/2013/career/sidejobs/"
+  },
+  "id": 15
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||infomed.co.il/ynet/sidebox.aspx?"
+  },
+  "id": 16
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "calcalist.co.il",
+    "mako.co.il",
+    "ynet.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||psakdin.co.il/externalframes/"
+  },
+  "id": 17
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mako.co.il",
+    "n12.co.il",
+    "tvbee.co.il"
+   ],
+   "requestDomains": [
+    "api.conduit.com",
+    "localhost"
+   ]
+  },
+  "id": 18
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||apps.mako.co.il/minicampaigns/"
+  },
+  "id": 19
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||mako.co.il/makotv/loginsocialconfig.json"
+  },
+  "id": 20
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||rcs.mako.co.il/js/player/*/artimedia/artimediaadmanager.js"
+  },
+  "id": 21
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||shironet.mako.co.il/jsp/images/main_strip_ad_box_718.gif"
+  },
+  "id": 22
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||haaretz.co.il/htz/images/bg/ad_bg.gif"
+  },
+  "id": 23
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||haaretz.co.il/st/media"
+  },
+  "id": 24
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||haaretz.co.il^*/ab/aby.gif"
+  },
+  "id": 25
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||haaretz.co.il^*/banners/"
+  },
+  "id": 26
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||haaretz.co.il^*/houdini/"
+  },
+  "id": 27
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||images.haarets.co.il/image/upload/w_227,h_112,c_crop/q_auto,h_98,w_227,c_fill,f_auto/fl_lossy.any_format.preserve_transparency.progressive:none/v1548162519/1.6867261.518501105.jpg"
+  },
+  "id": 28
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||themarker.com/dclk/"
+  },
+  "id": 29
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||themarker.com/st/media"
+  },
+  "id": 30
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||themarker.com/tm/js/resp/header_scripts/internal/util/z_adblockutil.js"
+  },
+  "id": 31
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||themarker.com^*/houdini/"
+  },
+  "id": 32
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||sport5.co.il/banners2/"
+  },
+  "id": 33
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||a7.org/cdn/sdk"
+  },
+  "id": 34
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||a7.org/adblock/"
+  },
+  "id": 35
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||a7.org/scripts/maavaron.js"
+  },
+  "id": 36
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||dwnmedia.a7.org/inntv/media/"
+  },
+  "id": 37
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "inn.co.il"
+   ],
+   "requestDomains": [
+    "info.a7.org"
+   ]
+  },
+  "id": 38
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||inn.co.il/info_en/"
+  },
+  "id": 39
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||inn.co.il/leads/content/upload/"
+  },
+  "id": 40
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||kipa.co.il/banner/"
+  },
+  "id": 41
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||kipasruga.com/banner/"
+  },
+  "id": 42
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "homeprices.yad2.co.il",
+    "my.yad2.co.il",
+    "pricelist.yad2.co.il",
+    "www.yad2.co.il",
+    "yad1.yad2.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "|blob:"
+  },
+  "id": 43
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||my.yad2.co.il/banner/"
+  },
+  "id": 44
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||my.yad2.co.il/dfpv3/script/desktopmediamanager.js"
+  },
+  "id": 45
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||yad2.co.il/js-new/blockpirsum.js"
+  },
+  "id": 46
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||rotter.net/banners/"
+  },
+  "id": 47
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||rotter.net/edit/text/"
+  },
+  "id": 48
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||beaverscripts.com/openwindow.js"
+  },
+  "id": 49
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||bhol.co.il/rich_banners/"
+  },
+  "id": 50
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||bladna.co.il/public/flash/"
+  },
+  "id": 51
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||cdn.shorte.st/link-converter.min.js"
+  },
+  "id": 52
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||ch10.co.il/wp-content/plugins/arti-banners/components/arti-banner-popup/"
+  },
+  "id": 53
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "trusted-software.com"
+   ],
+   "requestDomains": [
+    "googleusercontent.com"
+   ]
+  },
+  "id": 54
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||kikarhashabat.co.il/data/auto/images/landing_pages_"
+  },
+  "id": 55
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||leadim4u.com/accounts/default1/banners/"
+  },
+  "id": 56
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||negishim.com/accessibility/"
+  },
+  "id": 57
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||psakdin.co.il/pictures/banners/"
+  },
+  "id": 58
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||raddar.co.il/bannersa.php"
+  },
+  "id": 59
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||shoofoo.co.il/banners"
+  },
+  "id": 60
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||wcdn.co.il/banners/"
+  },
+  "id": 61
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||admin.applicaster.com/v12//7047/channel0_android_banners"
+  },
+  "id": 62
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||apps.mako.co.il/mobile/config/android/sport5/ad_config.xml"
+  },
+  "id": 63
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||apps.mako.co.il/mobile/config/android/sport5/banner_config.xml"
+  },
+  "id": 64
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||fus.walla.co.il/json/5804468/mint.walla_android.homepage/spons"
+  },
+  "id": 65
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||images.yad2.co.il/pic/yad2new/homepage_promotions/prom"
+  },
+  "id": 66
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||live.sekindo.com/uploads/users/*/ads/"
+  },
+  "id": 67
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||m.sport5.co.il/images/dreamteam320x40.png"
+  },
+  "id": 68
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||resources.fortvision.com/staticfiles"
+  },
+  "id": 69
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||sport5.co.il/cm8ads/"
+  },
+  "id": 70
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||static.fortvision.com/staticfiles/fb-web/"
+  },
+  "id": 71
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||ext.bhol.co.il/uploads/"
+  },
+  "id": 72
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mail.walla.co.il"
+   ],
+   "requestDomains": [
+    "x.walla.co.il"
+   ],
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 73
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||img.mako.co.il/2018/*/*/970x90a.jpg|"
+  },
+  "id": 74
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "requestDomains": [
+    "xwbe.wcdn.co.il"
+   ],
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 76
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "walla.co.il",
+    "ynet.co.il"
+   ],
+   "requestDomains": [
+    "browsiprod.com"
+   ],
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 77
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||fus.walla.co.il/js/purcf/walla.friends.rashi.main"
+  },
+  "id": 78
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mynetbatyam.co.il",
+    "mynethadera.co.il",
+    "mynetherzliya.co.il",
+    "mynethodhasharon.co.il",
+    "mynetholon.co.il",
+    "mynetjerusalem.co.il",
+    "mynetkfarsaba.co.il",
+    "mynetkibbutz.co.il",
+    "mynetnetanya.co.il",
+    "mynetpetahtikva.co.il",
+    "mynetraanana.co.il",
+    "mynetrehovot.co.il",
+    "mynetrishon.co.il",
+    "mynetroshhaayin.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "/bannerscripts.js?"
+  },
+  "id": 79
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ynet.co.il"
+   ],
+   "requestDomains": [
+    "cloudfront.net",
+    "dynamicyield.com"
+   ],
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 80
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "bizportal.co.il",
+    "calcalist.co.il",
+    "globes.co.il",
+    "ynet.co.il"
+   ],
+   "requestDomains": [
+    "s3.amazonaws.com"
+   ],
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 81
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||themarker.com/abc"
+  },
+  "id": 82
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||a7.org/media"
+  },
+  "id": 83
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "inn.co.il"
+   ],
+   "requestDomains": [
+    "a7.org"
+   ],
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 84
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "zap.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||cdn1.zoomanalytics.co/js"
+  },
+  "id": 85
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "0404.co.il",
+    "13news.co.il",
+    "13tv.co.il",
+    "calcalist.co.il",
+    "globes.co.il",
+    "inn.co.il",
+    "mako.co.il",
+    "tapuz.co.il",
+    "walla.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ],
+   "urlFilter": "/amsdk.js"
+  },
+  "id": 86
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||cooldays.net/app/vod-blocker"
+  },
+  "id": 87
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||mishpati.co.il/-partners/walla-form"
+  },
+  "id": 88
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "walla.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||walla.yad2.co.il/*banner"
+  },
+  "id": 89
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ynet.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||ynetbanneradmin.yit.co.il/assets/"
+  },
+  "id": 90
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "inn.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||a7.org/*.html"
+  },
+  "id": 91
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||moodaot.kipa.co.il/userfiles/moods/"
+  },
+  "id": 92
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ch10.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||player.vimeo.com/video/383596619|"
+  },
+  "id": 93
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||walla.co.il/rotteriframe|"
+  },
+  "id": 94
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "/dfp."
+  },
+  "id": 95
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "/dfp/"
+  },
+  "id": 96
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "6days.walla.co.il",
+    "animals.walla.co.il",
+    "astrology.walla.co.il",
+    "b.walla.co.il",
+    "buzzit.walla.co.il",
+    "calendar.walla.co.il",
+    "cars.walla.co.il",
+    "celebs.walla.co.il",
+    "e.walla.co.il",
+    "elections.walla.co.il",
+    "euro.walla.co.il",
+    "fashion.walla.co.il",
+    "finance.walla.co.il",
+    "food.walla.co.il",
+    "forums.walla.co.il",
+    "fun.walla.co.il",
+    "healthy.walla.co.il",
+    "home.walla.co.il",
+    "judaism.walla.co.il",
+    "kids.walla.co.il",
+    "mag.walla.co.il",
+    "maps.walla.co.il",
+    "milon.walla.co.il",
+    "movies.walla.co.il",
+    "mundial.walla.co.il",
+    "nadlan.walla.co.il",
+    "news.walla.co.il",
+    "nick.walla.co.il",
+    "olympics.walla.co.il",
+    "search.walla.co.il",
+    "sports.walla.co.il",
+    "tags.walla.co.il",
+    "tech.walla.co.il",
+    "translate.walla.co.il",
+    "travel.walla.co.il",
+    "tv-guide.walla.co.il",
+    "tv.walla.co.il",
+    "usaelections.walla.co.il",
+    "viva.walla.co.il",
+    "vod.walla.co.il",
+    "weather.walla.co.il",
+    "www.walla.co.il"
+   ],
+   "requestDomains": [
+    "walla.co.il"
+   ],
+   "resourceTypes": [
+    "websocket"
+   ]
+  },
+  "id": 97
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "www.ynet.co.il"
+   ],
+   "requestDomains": [
+    "www.ynet.co.il"
+   ],
+   "resourceTypes": [
+    "websocket"
+   ]
+  },
+  "id": 98
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "www.mako.co.il"
+   ],
+   "requestDomains": [
+    "www.mako.co.il"
+   ],
+   "resourceTypes": [
+    "websocket"
+   ]
+  },
+  "id": 99
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "www.globes.co.il"
+   ],
+   "requestDomains": [
+    "www.globes.co.il"
+   ],
+   "resourceTypes": [
+    "websocket"
+   ]
+  },
+  "id": 100
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "www.calcalist.co.il"
+   ],
+   "requestDomains": [
+    "www.calcalist.co.il"
+   ],
+   "resourceTypes": [
+    "websocket"
+   ]
+  },
+  "id": 101
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "13news.co.il"
+   ],
+   "requestDomains": [
+    "13news.co.il"
+   ],
+   "resourceTypes": [
+    "websocket"
+   ]
+  },
+  "id": 102
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "13tv.co.il"
+   ],
+   "requestDomains": [
+    "13tv.co.il"
+   ],
+   "resourceTypes": [
+    "websocket"
+   ]
+  },
+  "id": 103
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "sport5.co.il"
+   ],
+   "requestDomains": [
+    "sport5.co.il"
+   ],
+   "resourceTypes": [
+    "websocket"
+   ]
+  },
+  "id": 104
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "inn.co.il"
+   ],
+   "requestDomains": [
+    "inn.co.il"
+   ],
+   "resourceTypes": [
+    "websocket"
+   ]
+  },
+  "id": 105
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "homeprices.yad2.co.il",
+    "my.yad2.co.il",
+    "pricelist.yad2.co.il",
+    "www.yad2.co.il",
+    "yad1.yad2.co.il"
+   ],
+   "requestDomains": [
+    "yad2.co.il"
+   ],
+   "resourceTypes": [
+    "websocket"
+   ]
+  },
+  "id": 106
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "www.bizportal.co.il"
+   ],
+   "requestDomains": [
+    "www.bizportal.co.il"
+   ],
+   "resourceTypes": [
+    "websocket"
+   ]
+  },
+  "id": 107
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "requestDomains": [
+    "07af698ea8a2a5a789b79c2d75ba83d3.com",
+    "102320fef81194c7b0c7c6bbe64d845d.com",
+    "11a5ade414a6a4b9969685db9e96b193.com",
+    "122949d67b35f6c3372bfa3b4a3b8a1e.com",
+    "166460e61382a8ab15094a0fb111cc1b.com",
+    "1f50dd61ec6bc6a1b98ae412ea4d812f.com",
+    "21635bfdc5175ce523de634889b83c39.com",
+    "22e83777b5823d5a95d63948737fb965.com",
+    "29aac8974ae5d04e1df65c27f4405615.com",
+    "48c5d27faef8b635e99e00ef9b5fd0cd.com",
+    "530d4fe852707f9c754106c40642dbba.com",
+    "65c95461c6e393d6c0d692e3dfb1bcb0.com",
+    "7795bfb724d4b16306823af218bc11fd.com",
+    "activated.co.il",
+    "activetrail.biz",
+    "adland.co.il",
+    "agecdn.me",
+    "akamhd.com",
+    "amazuk.com",
+    "apiscdn.com",
+    "asermtawlfs.xyz",
+    "bakkels.com",
+    "bargainpricedude.com",
+    "beerforthepipl.com",
+    "benchmarkingstuff.com",
+    "bluesli.de",
+    "bool.bid",
+    "boostquery.com",
+    "boritra.com",
+    "bostonparadise.com",
+    "bostonwall.com",
+    "bulgarine.com",
+    "cdn.mdigital.co.il",
+    "cdnic.site",
+    "clickon.co.il",
+    "cloodfront.com",
+    "cloudbit.rocks",
+    "cloudboost.co.il",
+    "cloudflame.co.il",
+    "corruptcy.com",
+    "d8737fad2b67f17837092e422ff435c7.com",
+    "dascasdw.xyz",
+    "depresis.com",
+    "dfskgmrepts.com",
+    "ea737463bdf5d652a88657bc3846c56b.com",
+    "enstatic.net",
+    "erate.co.il",
+    "gitam.1host.co.il",
+    "goodluckblockingthis.com",
+    "hallucius.com",
+    "havinates.com",
+    "helpkidsnow.xyz",
+    "heravda.com",
+    "houstion.com",
+    "hulahooprect.com",
+    "ifreedns.org",
+    "ilovedomains.pw",
+    "indeterman.com",
+    "iystorage.com",
+    "jacquarter.com",
+    "jor-el.net",
+    "jquerycdn.co.il",
+    "jquerymin.co.il",
+    "jscloudnow.com",
+    "klnrew.site",
+    "kmrnkjer.xyz",
+    "kofpag.com",
+    "kozikar.com",
+    "loopmaze.com",
+    "madas-ads.securest.org",
+    "maskoter.com",
+    "media.adextent.com",
+    "media.foxweb.co.il",
+    "mimgoal.com",
+    "mitbahon.co.il",
+    "mohengdu.com",
+    "nepohita.com",
+    "newyorkwhil.com",
+    "next-net.co.il",
+    "njkiho.info",
+    "nothering.com",
+    "nullenabler.com",
+    "numberthreebear.com",
+    "oversailor.com",
+    "portavivo.com",
+    "pullcdn.pw",
+    "regi.site",
+    "regi.tech",
+    "retrayan.com",
+    "rkgnmwre.site",
+    "sekindo.com",
+    "shakesider.com",
+    "sharedcdn.site",
+    "sprawley.com",
+    "srvjar.com",
+    "storagecdncloud.co",
+    "syntetech.com",
+    "talkahead.com",
+    "texasboston.com",
+    "trustmedia.co.il",
+    "typication.com",
+    "umamdmo.com",
+    "upapi.net",
+    "urodakt.com",
+    "uvinory.com",
+    "uzotli.com",
+    "valuad.cloud",
+    "webeatyouradblocker.com",
+    "wesell.co.il",
+    "wodoka.com",
+    "ws.walla.co.il",
+    "yathmoth.com",
+    "ymakeseb.club",
+    "zinovila.com",
+    "zipodita.com"
+   ]
+  },
+  "id": 108
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedResourceTypes": [
+    "font",
+    "main_frame"
+   ],
+   "requestDomains": [
+    "jwtdigital-media.co.il"
+   ]
+  },
+  "id": 109
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||webid.co.il/b144/"
+  },
+  "id": 110
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "askoli.co.il"
+   ],
+   "requestDomains": [
+    "wee.co.il"
+   ]
+  },
+  "id": 111
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "maple-team.com"
+   ],
+   "requestDomains": [
+    "3dots.co.il"
+   ]
+  },
+  "id": 112
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "walla.co.il"
+   ],
+   "requestDomains": [
+    "artipbox.net",
+    "azureedge.net",
+    "cooladata.com",
+    "elasticbeanstalk.com",
+    "firebaseio.com",
+    "logidea.info"
+   ]
+  },
+  "id": 113
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "6days.walla.co.il",
+    "animals.walla.co.il",
+    "b.walla.co.il",
+    "cars.walla.co.il",
+    "celebs.walla.co.il",
+    "e.walla.co.il",
+    "elections.walla.co.il",
+    "euro.walla.co.il",
+    "fashion.walla.co.il",
+    "finance.walla.co.il",
+    "food.walla.co.il",
+    "healthy.walla.co.il",
+    "home.walla.co.il",
+    "judaism.walla.co.il",
+    "kids.walla.co.il",
+    "mag.walla.co.il",
+    "mundial.walla.co.il",
+    "nadlan.walla.co.il",
+    "news.walla.co.il",
+    "nick.walla.co.il",
+    "olympics.walla.co.il",
+    "sports.walla.co.il",
+    "tech.walla.co.il",
+    "travel.walla.co.il",
+    "usaelections.walla.co.il",
+    "viva.walla.co.il",
+    "vod.walla.co.il",
+    "www.walla.co.il"
+   ],
+   "requestDomains": [
+    "kxcdn.com"
+   ]
+  },
+  "id": 114
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "ynet.co.il"
+   ],
+   "requestDomains": [
+    "trace.events"
+   ]
+  },
+  "id": 115
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "mako.co.il"
+   ],
+   "requestDomains": [
+    "activetrail.com",
+    "adoric-ads.com",
+    "analytics.edgesuite.net",
+    "logger.logidea.info",
+    "netdna-ssl.com"
+   ]
+  },
+  "id": 116
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "mako.co.il",
+    "n12.co.il",
+    "tvbee.co.il"
+   ],
+   "requestDomains": [
+    "valuad.cloud"
+   ]
+  },
+  "id": 117
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il"
+   ],
+   "requestDomains": [
+    "viewbix.com"
+   ]
+  },
+  "id": 118
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "sport5.co.il"
+   ],
+   "requestDomains": [
+    "g-static.gdn",
+    "shopupz.com",
+    "sporty.gdn"
+   ]
+  },
+  "id": 119
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||ban.d-group.co.il/banners/"
+  },
+  "id": 120
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "0-15.co.il",
+    "2b-bari.co.il",
+    "50plus.co.il",
+    "abortion.org.il",
+    "acnecenter.co.il",
+    "add-syndrome.co.il",
+    "allergy.org.il",
+    "alzheimer.co.il",
+    "asthma.org.il",
+    "autism.org.il",
+    "bariatric.org.il",
+    "blinds.org.il",
+    "blood.co.il",
+    "burn.org.il",
+    "candidafree.co.il",
+    "cfs.org.il",
+    "cholesterol.org.il",
+    "cold.co.il",
+    "colon.org.il",
+    "commitment.org.il",
+    "committee.co.il",
+    "degeneration.co.il",
+    "dementia.co.il",
+    "dermatology.co.il",
+    "dialysis.org.il",
+    "ear.org.il",
+    "east-west.co.il",
+    "emun.org.il",
+    "ent.org.il",
+    "epilepsy.co.il",
+    "feeling.co.il",
+    "fms.org.il",
+    "gastro-israel.org.il",
+    "genes.co.il",
+    "human.co.il",
+    "hyperhidrosis.org.il",
+    "iaawh.co.il",
+    "ibd.org.il",
+    "ifeel.co.il",
+    "ilsi.org.il",
+    "immunology.org.il",
+    "implants.org.il",
+    "ioh.org.il",
+    "isala.org.il",
+    "israrights.com",
+    "le-la.co.il",
+    "linshom.org.il",
+    "liver.org.il",
+    "lung.org.il",
+    "lupus.org.il",
+    "maane.co.il",
+    "matnachim.co.il",
+    "matnachim.org.il",
+    "medicalcannabis.co.il",
+    "mifrakim.co.il",
+    "multiplesclerosis.org.il",
+    "my-rights.org.il",
+    "myeyes.co.il",
+    "myhealth.co.il",
+    "myheart.co.il",
+    "myrights.co.il",
+    "nashy.co.il",
+    "neurology.org.il",
+    "noga.org.il",
+    "obesity.org.il",
+    "oncology.org.il",
+    "pain.org.il",
+    "parkinsons.org.il",
+    "pediatrics.co.il",
+    "pigur.co.il",
+    "pso.org.il",
+    "psychiatrist.org.il",
+    "psychiatry.org.il",
+    "stdinfo.co.il",
+    "stroke.org.il",
+    "sukarti.co.il",
+    "takana.co.il",
+    "tevalife.co.il",
+    "urinary.co.il",
+    "urine.org.il",
+    "voices.co.il",
+    "womenonly.co.il"
+   ],
+   "requestDomains": [
+    "netform.co.il",
+    "virtualspirits.com",
+    "whats-new.co.il"
+   ]
+  },
+  "id": 121
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "requestDomains": [
+    "takana.co.il"
+   ],
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 123
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "fxp.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||widget.walla.co.il/wallaplayer"
+  },
+  "id": 125
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "kikar.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||akamai.advsnx.net/cdn/"
+  },
+  "id": 126
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||akamai.advsnx.net/cdn/walla/"
+  },
+  "id": 127
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "one.co.il",
+    "walla.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||akamai.advsnx.net/crossdomain.xml"
+  },
+  "id": 128
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "cinema-city.co.il",
+    "cinemacity.co.il"
+   ],
+   "requestDomains": [
+    "banners.hosting-il.com",
+    "pas-rahav.com"
+   ]
+  },
+  "id": 129
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||bhol.co.il/flash/vaad"
+  },
+  "id": 130
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||bhol.co.il/imagebank/400x250"
+  },
+  "id": 131
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||bipbip.co.il/style/ads.css"
+  },
+  "id": 132
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||clalit.co.il/adimages"
+  },
+  "id": 133
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||globes.co.il/js/ads.js"
+  },
+  "id": 134
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||globes.co.il/news/inc/banners/show_ads.js"
+  },
+  "id": 135
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "haaretz.co.il",
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||googlesyndication.com/pagead/osd.js"
+  },
+  "id": 136
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il",
+    "nifgashim.net"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||googletagservices.com/tag/js/gpt.js"
+  },
+  "id": 137
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||gplanet.co.il/js/adx.js"
+  },
+  "id": 138
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||haaretz.co.il/htz/images/favicon-160x160.png"
+  },
+  "id": 139
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||haaretz.co.il/htz/images/logos/htz-logo.v2.svg"
+  },
+  "id": 140
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||haaretz.co.il/htz/js/resp/minified/header-scripts-int.js"
+  },
+  "id": 141
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||haaretz.co.il/st/c/work/ab/aby.gif"
+  },
+  "id": 142
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "holmesplace.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||holmesplace.co.il/sites/all/modules"
+  },
+  "id": 143
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||kikar.co.il/js/ads.js"
+  },
+  "id": 144
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||lamehadrin.co.il/_layouts/shufersal.yesh/scripts/gtm.js"
+  },
+  "id": 145
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mako.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||lb.advsnx.net/adserver/?zoneid="
+  },
+  "id": 146
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mako.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||lb.advsnx.net/as"
+  },
+  "id": 147
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mako.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||lb.advsnx.net/crossdomain.xml"
+  },
+  "id": 148
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||matrix.ynet.co.il/js/ga/ads_controller.js"
+  },
+  "id": 149
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "sport5.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||pagead2.googlesyndication.com/pagead/js/*/show_ads_impl.js"
+  },
+  "id": 150
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "isramedia.net",
+    "mako.co.il",
+    "sport5.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+  },
+  "id": 151
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "pitaronfree.blogspot.co.il",
+    "pitaronfree.blogspot.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||pagead2.googlesyndication.com/pagead/show_ads.js"
+  },
+  "id": 152
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||pas-rahav.com/creativitys"
+  },
+  "id": 153
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ynet.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||pubads.g.doubleclick.net/gampad/ad"
+  },
+  "id": 154
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mako.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||pubads.g.doubleclick.net/gampad/ads?ad_rule="
+  },
+  "id": 155
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mako.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||pubads.g.doubleclick.net/gampad/adx?iu="
+  },
+  "id": 156
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||qamesh.com/images/advert.png"
+  },
+  "id": 157
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "kikar.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||s3.kikar.net/js/jquery.dfp.js"
+  },
+  "id": 158
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||shukitv.ucoz.com/script/ads.js"
+  },
+  "id": 159
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||themarker.com/st/c/prod/tm/2017/donorsmap/"
+  },
+  "id": 160
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||tornado-top.co.il/template/images/"
+  },
+  "id": 161
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "stylesheet"
+   ],
+   "urlFilter": "||haaretz.co.il/htz/css/teasers.css?"
+  },
+  "id": 162
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "stylesheet"
+   ],
+   "urlFilter": "||jdn.co.il/wp-content/plugins/jdn_ads/js/info.css"
+  },
+  "id": 163
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "calcalist.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "stylesheet"
+   ],
+   "urlFilter": "||player.ynet.co.il/videojs-ima/videojs.ads.css"
+  },
+  "id": 164
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "/advert."
+  },
+  "id": 165
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "isramedia.net"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||admedia.com/images/cross_channel_arrows.png"
+  },
+  "id": 166
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||ads.yad2.co.il/adpic.png"
+  },
+  "id": 167
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "haaretz.co.il",
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||haaretz.co.il/polopoly_fs/*/landscape"
+  },
+  "id": 168
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "haaretz.co.il",
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||haaretz.co.il/polopoly_fs/*/size"
+  },
+  "id": 169
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "haaretz.co.il",
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||haaretz.co.il/st/c/"
+  },
+  "id": 170
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "haaretz.co.il",
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||haaretz.co.il/st/inter/global/dailyedition/today/"
+  },
+  "id": 171
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "inn.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||info.a7.org/info/delivery/lg*.php?"
+  },
+  "id": 172
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||israelsport.co.il/digiweb/userfiles/images/ads/getty"
+  },
+  "id": 173
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "sport5.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image",
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||securepubads.g.doubleclick.net/gampad/ads?"
+  },
+  "id": 174
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "haaretz.co.il",
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||themarker.com/images/negative.png"
+  },
+  "id": 175
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "haaretz.co.il",
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||themarker.com/images/positive.png"
+  },
+  "id": 176
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "wizdom.xyz"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||thetvdb.com/banners/"
+  },
+  "id": 177
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "maccabi4u.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||translate.google.*/gen204?"
+  },
+  "id": 178
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "requestDomains": [
+    "sfx-images.mozilla.org"
+   ],
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 179
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "kikar.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "object"
+   ],
+   "urlFilter": "||sekindo.com/content/pop/sekindopopunderoverlay-"
+  },
+  "id": 180
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "haaretz.co.il",
+    "mouse.co.il",
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ],
+   "urlFilter": "/advertisement."
+  },
+  "id": 182
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "haaretz.co.il",
+    "mouse.co.il",
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ],
+   "urlFilter": "/dfp/"
+  },
+  "id": 183
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "hamal.co.il",
+    "mako.co.il",
+    "ynet.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||2mdn.net/instream/video/client.js"
+  },
+  "id": 184
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "inn.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||a7.org/combine.js"
+  },
+  "id": 185
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "inn.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||a7.org/cab/*.min.js"
+  },
+  "id": 186
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "inn.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||a7.org/scripts/forecast.js"
+  },
+  "id": 187
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "inn.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||a7.org/scripts/jquery/"
+  },
+  "id": 188
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "inn.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||a7.org/scripts/mosaic_"
+  },
+  "id": 189
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il",
+    "hamal.co.il",
+    "sheee.co.il",
+    "walla.co.il",
+    "ynet.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||adservice.google.co.il/adsid/integrator.js?"
+  },
+  "id": 190
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il",
+    "hamal.co.il",
+    "sheee.co.il",
+    "walla.co.il",
+    "ynet.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||adservice.google.com/adsid/integrator.js?"
+  },
+  "id": 191
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||akamai.advsnx.net/cdn/arutz7/"
+  },
+  "id": 192
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "israelhayom-cdnwiz.com",
+    "israelhayom.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||akamai.advsnx.net/cdn/israelhayom/html5/amsdk.js"
+  },
+  "id": 193
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||akamai.advsnx.net/cdn/reshet/html5/amsdk.js"
+  },
+  "id": 194
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mako.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||akamai.advsnx.net/cdn/sdk/*-min.js?"
+  },
+  "id": 195
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "israelhayom-cdnwiz.com",
+    "israelhayom.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||akamai.advsnx.net/cdn/sdk/plugins/*/plugin.js"
+  },
+  "id": 196
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il",
+    "israelhayom-cdnwiz.com",
+    "israelhayom.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||akamai.advsnx.net/cdn/sdk/plugins/kaltura/plugin.js"
+  },
+  "id": 197
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "20il.co.il",
+    "ch20-cdnwiz.com",
+    "hamal.co.il",
+    "sheee.co.il",
+    "walla.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||akamai.advsnx.net/cdn/sdk/plugins/vjs/plugin.js"
+  },
+  "id": 198
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mako.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||akamai.advsnx.net/cdn/sdk/system-scripts/sys-moat.js"
+  },
+  "id": 199
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ynet.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||cdn.flowplayer.com/releases/native/stable/plugins/google-analytics.min.js"
+  },
+  "id": 200
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "one.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||cdn.permutive.com/"
+  },
+  "id": 201
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "hamal.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||cdn.taboola.com/libtrc/wallail-hamal/loader.js"
+  },
+  "id": 202
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "hamal.co.il",
+    "sheee.co.il",
+    "walla.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/"
+  },
+  "id": 203
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||dmag.co.il/pub/shvii/"
+  },
+  "id": 204
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "one.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||googletagmanager.com/gtag/js"
+  },
+  "id": 205
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "one.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||googletagmanager.com/gtm.js"
+  },
+  "id": 206
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il",
+    "calcalist.co.il",
+    "hamal.co.il",
+    "maariv.co.il",
+    "mako.co.il",
+    "n12.co.il",
+    "one.co.il",
+    "sdarot.buzz",
+    "sdarot.tw",
+    "tvbee.co.il",
+    "ynet.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
+  },
+  "id": 207
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "inn.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||info.a7.org/info/a7delivery_f.php"
+  },
+  "id": 208
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||info.jdn.co.il/r/a7delivery_f.php?func=floadone"
+  },
+  "id": 209
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||jdn.co.il/wp-content/plugins/jdn_ads/js/info.js"
+  },
+  "id": 210
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mako.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||mako.co.il/js/dfp/dfp.js"
+  },
+  "id": 211
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ynet.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||pagead2.googlesyndication.com/omsdk/"
+  },
+  "id": 212
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il",
+    "haaretz.co.il",
+    "one.co.il",
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||partner.googleadservices.com/gpt/pubads_"
+  },
+  "id": 213
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||rcs.mako.co.il/js/ads.js"
+  },
+  "id": 214
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il",
+    "nifgashim.net"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||securepubads.g.doubleclick.net/gampad/ads?gdfp_"
+  },
+  "id": 215
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il",
+    "nifgashim.net"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||securepubads.g.doubleclick.net/gpt/"
+  },
+  "id": 216
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||securepubads.g.doubleclick.net/tag/js/"
+  },
+  "id": 217
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "one.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||static.site24x7rum.com/beacon/site24x7rum-min.js"
+  },
+  "id": 218
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||trc.taboola.com/globes-il/"
+  },
+  "id": 219
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||yad2.co.il/ads.js"
+  },
+  "id": 220
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ynet.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||ynet.co.il/dc/dcloadads/"
+  },
+  "id": 221
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||ampproject.org/amp4ads-"
+  },
+  "id": 222
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "playern.sport5.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||adtest.advsnx.net^*?"
+  },
+  "id": 223
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mako.co.il"
+   ],
+   "requestDomains": [
+    "akamai.advsnx.net"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 224
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||cdnwiz.com/ads.js"
+  },
+  "id": 225
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ynet.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||errors.snackly.co/_.gif|"
+  },
+  "id": 226
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "haaretz.co.il",
+    "mouse.co.il",
+    "themarker.com"
+   ],
+   "requestDomains": [
+    "haaretz.co.il",
+    "mouse.co.il",
+    "themarker.com"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 227
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||imaot.co.il/recipe/"
+  },
+  "id": 228
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||player.bizportal.co.il/handlers/advertising.ashx?"
+  },
+  "id": 229
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mako.co.il",
+    "n12.co.il",
+    "tvbee.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||rcs.mako.co.il/js/prebid-"
+  },
+  "id": 230
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "haaretz.co.il",
+    "themarker.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||tpc.googlesyndication.com/simgad/"
+  },
+  "id": 231
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "requestDomains": [
+    "one.co.il"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 232
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "requestDomains": [
+    "old-games.org",
+    "taimeod.co.il"
+   ],
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 233
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||bipbip.co.il/images/ads/"
+  },
+  "id": 234
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "stylesheet"
+   ],
+   "urlFilter": "||hamal.co.il/public/assets/ads/"
+  },
+  "id": 235
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "stylesheet"
+   ],
+   "urlFilter": "||sheee.co.il/public/assets/videojsads/videojs-contrib-ads."
+  },
+  "id": 236
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "sdarot.buzz",
+    "sdarot.tw"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script",
+    "stylesheet"
+   ],
+   "urlFilter": "||static.sdarot.*^*/plugins/*/videojs.ads."
+  },
+  "id": 237
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "stylesheet"
+   ],
+   "urlFilter": "||walla.co.il/public/assets/videojsads/videojs-contrib-ads."
+  },
+  "id": 238
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script",
+    "stylesheet"
+   ],
+   "urlFilter": "||ynet.co.il/common/api/scripts/video/videojs.ads."
+  },
+  "id": 239
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||isramedia.net/images/header/"
+  },
+  "id": 240
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||yad2.co.il/assets/mobile/ui/adpage/"
+  },
+  "id": 241
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "/ads.js?"
+  },
+  "id": 242
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "/ads.min.js?"
+  },
+  "id": 243
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "/adunits."
+  },
+  "id": 244
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||b-share.com/wp-content/*/advertisement."
+  },
+  "id": 245
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||hamal.co.il/advertising/ads/gtm.js|"
+  },
+  "id": 246
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||hwzone.co.il/wp-content/plugins/wpadverts/assets/js/adverts-frontend.js"
+  },
+  "id": 247
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||isramedia.net/ads.js"
+  },
+  "id": 248
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||sport5.co.il^*/dfp."
+  },
+  "id": 249
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||sport5.co.il^*/dfp/"
+  },
+  "id": 250
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||weather2day.co.il/ads.js?"
+  },
+  "id": 251
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||foodsdictionary.co.il/static/"
+  },
+  "id": 252
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "sdarot.buzz",
+    "sdarot.tw"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "?pageurl="
+  },
+  "id": 253
+ }
+]

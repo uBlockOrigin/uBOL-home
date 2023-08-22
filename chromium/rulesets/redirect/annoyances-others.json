@@ -1,0 +1,19 @@
+[
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop.txt"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||hentaidude.com/wp-admin/admin-ajax.php?action=geocheck"
+  },
+  "id": 393,
+  "priority": 2
+ }
+]

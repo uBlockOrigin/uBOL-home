@@ -1,0 +1,70 @@
+[
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "upgrade-insecure-requests"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "|http://vimedbarn.se^"
+  },
+  "id": 1232
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "img-src 'self' *.wordpress.com *.wp.com *.gravatar.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "matorama.se"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 1233
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "worker-src 'none'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "opulens.se",
+    "skogsforum.se",
+    "stegforhalsa.se",
+    "sv.picmix.com",
+    "tripadvisor.se"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 1234
+ }
+]

@@ -1,0 +1,193 @@
+[
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "Thumbs\\/A_dvertisement"
+  },
+  "id": 85
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "hdfilmfullizle.com",
+    "hdfilmifullizle.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "\\/(1xbbb|bettogoal)\\.webp"
+  },
+  "id": 313
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "kibrisgercek.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "\\/(.*-980X100|980-x120-.*|kirni_yenireklam-[0-9]?|teknogold|1080x120|ezic|giynik-sonnnnn-[0-9]?)\\.(gif|jpg|png)"
+  },
+  "id": 453
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "pusuhaber.net"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "(dikey|horay)\\.jpg"
+  },
+  "id": 519
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "320volt.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "320volt\\.com\\/images\\/(pcbway-turkiye-pcb-uretim|jlc-pcb-service|PCBONLINE-PCB-assembly|robolink-elektronik-market|direncnet-2)\\.(gif|png)"
+  },
+  "id": 520
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "youtubemp3donusturucu.co"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "\\/youtubemp3donusturucu.co\\/\\d+.js"
+  },
+  "id": 543
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ha-ber.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "\\/.*banner(-\\d)?\\.(gif|jpg)"
+  },
+  "id": 551
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "frmtr.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "frmtr\\.com\\/images\\/\\w{0,2}\\d?.gif"
+  },
+  "id": 554
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "r10.net"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "(lftstatic|footicimax)\\.gif"
+  },
+  "id": 569
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "avrupaturkgazetesi.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "\\/(orka-hotels-sentido|Werken-Bij-300x250|corendon-banner-reclame)\\.(gif|jpg)"
+  },
+  "id": 660
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "egeyonhaber.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "\\/(ikiler-gif|karpol-poliuretan)\\.gif"
+  },
+  "id": 672
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "halklailiskiler.com.tr"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "\\/images\\/uploads\\/ad\\d+"
+  },
+  "id": 725
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "afsinhabermerkezi.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "afsinhabermerkezi.com\\/wp-content\\/uploads\\/.*(-emlak|aad.jpg|ak-suY|PAM%C4%B0RA)"
+  },
+  "id": 755
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "filmmodu10.com",
+    "filmmodu11.com",
+    "filmmodu12.com",
+    "filmmodu13.com",
+    "filmmodu14.com",
+    "filmmodu15.com",
+    "filmmodu16.com",
+    "filmmodu17.com",
+    "filmmodu18.com",
+    "filmmodu19.com",
+    "filmmodu20.com",
+    "filmmodu9.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "\\/pageskin\\/[a-z]{2}1\\.jpg"
+  },
+  "id": 1127
+ }
+]

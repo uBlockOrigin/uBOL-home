@@ -1,0 +1,47 @@
+[
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "giadinhonline.vn\\/files\\/qc"
+  },
+  "id": 9
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "storage.adpia.vn",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 265
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "\\w{2}\\.\\w+\\.com\\/\\w{15,}\\/\\w{5}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 364
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "tinhocdongthap.com\\/wp-content\\/plugins\\/wp-[\\w-]+\\/[\\w-]+\\.js",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 369
+ }
+]

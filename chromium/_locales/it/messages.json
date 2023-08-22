@@ -1,0 +1,278 @@
+{
+  "extName": {
+    "message": "uBlock Origin Lite",
+    "description": "extension name."
+  },
+  "extShortDesc": {
+    "message": "Un blocco sperimentale che non richiede permessi. Blocca pubblicità, tracker, cryptominer e altro ancora.",
+    "description": "this will be in the Chrome web store: must be 132 characters or less"
+  },
+  "perRulesetStats": {
+    "message": "{{ruleCount}} regole, convertite da {{filterCount}} filtri di rete",
+    "description": "Appears aside each filter list in the _3rd-party filters_ pane"
+  },
+  "dashboardName": {
+    "message": "uBO Lite — Cruscotto",
+    "description": "English: uBO Lite — Dashboard"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Avviso! Ci sono alcune modifiche non salvate",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Resta",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Ignora",
+    "description": "Label for button to ignore unsaved changes"
+  },
+  "settingsPageName": {
+    "message": "Opzioni",
+    "description": "appears as tab name in dashboard"
+  },
+  "3pPageName": {
+    "message": "Elenco dei filtri",
+    "description": "appears as tab name in dashboard"
+  },
+  "1pPageName": {
+    "message": "Filtri personalizzati",
+    "description": "appears as tab name in dashboard"
+  },
+  "whitelistPageName": {
+    "message": "Siti affidabili",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPageName": {
+    "message": "Informazioni",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPrivacyPolicy": {
+    "message": "Informativa sulla privacy",
+    "description": "Link to privacy policy on GitHub (English)"
+  },
+  "popupFilteringModeLabel": {
+    "message": "Modalità di filtraggio",
+    "description": "Label in the popup panel for the current filtering mode"
+  },
+  "popupTipDashboard": {
+    "message": "Accedi al cruscotto",
+    "description": "English: Click to open the dashboard"
+  },
+  "popupTipZapper": {
+    "message": "Accedi alla modalità blocco rapido",
+    "description": "Tooltip for the element-zapper icon in the popup panel"
+  },
+  "popupTipPicker": {
+    "message": "Accedi alla modalità di selezione",
+    "description": "English: Enter element picker mode"
+  },
+  "popupTipReport": {
+    "message": "Segnala un problema con questo sito",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
+  "popupTipSaveRules": {
+    "message": "Clicca per rendere definitive le modifiche.",
+    "description": "Tooltip when hovering over the padlock in the dynamic filtering pane."
+  },
+  "popupTipRevertRules": {
+    "message": "Clicca per annullare i cambiamenti.",
+    "description": "Tooltip when hovering over the eraser in the dynamic filtering pane."
+  },
+  "popupMoreButton": {
+    "message": "Altro",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupGrantGreatPowers": {
+    "message": "Clicca per estendere le autorizzazioni di uBO Lite su questo sito.\nLe autorizzazioni estese permettono un controllo migliore sui contenuti da bloccare.",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupRevokeGreatPowers": {
+    "message": "Clicca per revocare i permessi estesi su questo sito",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupLessButton": {
+    "message": "Nascondi",
+    "description": "Label to be used to hide popup panel sections"
+  },
+  "settingsIconBadgePrompt": {
+    "message": "Mostra sull'icona il numero di elementi bloccati",
+    "description": "English: Show the number of blocked requests on the icon"
+  },
+  "settingsAppearance": {
+    "message": "Aspetto",
+    "description": "Section for controlling user interface appearance"
+  },
+  "settingsThemeLabel": {
+    "message": "Tema",
+    "description": "Label for checkbox to enable a custom dark theme"
+  },
+  "settingsThemeAccent0Label": {
+    "message": "Colore elementi evidenziati",
+    "description": "Label for checkbox to pick an accent color"
+  },
+  "settingsNoCSPReportsPrompt": {
+    "message": "Blocca i rapporti CSP",
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
+  },
+  "omnipotenceLabel": {
+    "message": "Attiva il filtro esteso ovunque",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "omnipotenceLegend": {
+    "message": "uBO Lite applica il filtro esteso su uno determinato sito web dopo che hai concesso le autorizzazioni ad operare su di esso. Questa impostazione ti permette di concedere le autorizzazioni al filtro esteso su tutti i siti in una sola volta.",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupDefault": {
+    "message": "Predefinite",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAds": {
+    "message": "Pubblicità",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupPrivacy": {
+    "message": "Privacy",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMalware": {
+    "message": "Domini che diffondono virus",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAnnoyances": {
+    "message": "Scocciature",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMisc": {
+    "message": "Generici",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupRegions": {
+    "message": "Lingue e regioni",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "1pFormatHint": {
+    "message": "Solo un filtro per rigo. Un filtro può indicare un nome host o una stringa compatibile con EasyList. Ogni rigo che inizia con <code>!</code> sarà ignorato.",
+    "description": "Short information about how to create custom filters"
+  },
+  "1pImport": {
+    "message": "Importa e aggiungi",
+    "description": "English: Import and append"
+  },
+  "1pExport": {
+    "message": "Esporta",
+    "description": "English: Export"
+  },
+  "1pExportFilename": {
+    "message": "{{datetime}}-ublock-filtri-personalizzati.txt",
+    "description": "English: my-ublock-static-filters_{{datetime}}.txt"
+  },
+  "whitelistPrompt": {
+    "message": "Disattiva uBO Lite nell'elenco dei siti web considerati affidabili. Un solo sito per ogni rigo.",
+    "description": "A concise description of the 'Trusted sites' pane."
+  },
+  "whitelistImport": {
+    "message": "Importa e aggiungi",
+    "description": "English: Import and append"
+  },
+  "whitelistExport": {
+    "message": "Esporta",
+    "description": "English: Export"
+  },
+  "whitelistExportFilename": {
+    "message": "ublock-whitelist_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
+  },
+  "aboutChangelog": {
+    "message": "Registro delle modifiche",
+    "description": ""
+  },
+  "aboutCode": {
+    "message": "Codice sorgente (GPLv3)",
+    "description": "English: Source code (GPLv3)"
+  },
+  "aboutContributors": {
+    "message": "Collaboratori",
+    "description": "English: Contributors"
+  },
+  "aboutSourceCode": {
+    "message": "Codice sorgente",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Traduzioni",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Elenco filtri",
+    "description": "Link text to uBO's own filter lists repo"
+  },
+  "aboutDependencies": {
+    "message": "Dipendenze esterne (in linea con la GPL v3):",
+    "description": "Shown in the About pane"
+  },
+  "genericSubmit": {
+    "message": "Invia",
+    "description": "for generic 'Submit' buttons"
+  },
+  "genericApplyChanges": {
+    "message": "Salva modifiche",
+    "description": "for generic 'Apply changes' buttons"
+  },
+  "genericRevert": {
+    "message": "Ripristina",
+    "description": "for generic 'Revert' buttons"
+  },
+  "firstRunSectionLabel": {
+    "message": "Ciao",
+    "description": "The header text for the welcome message section"
+  },
+  "firstRunDescription": {
+    "message": "Hai installato uBO Lite. Scegli il filtro predefinito da usare ovunque.\n\nL'impostazione di fabbrica prevede la modalità <em>Basilare</em> che non richiede alcun tipo di autorizzazione. Puoi decidere di attivare il filtro avanzato se vuoi concedere a uBO Lite l'autorizzazione a rielaborare i dati di  tutti i siti web che visiti, in modo da avere un sistema di filtraggio con altre funzioni in più.",
+    "description": "Descriptive text shown at first install time only "
+  },
+  "defaultFilteringModeSectionLabel": {
+    "message": "Filtro predefinito",
+    "description": "The header text for the default filtering mode section"
+  },
+  "defaultFilteringModeDescription": {
+    "message": "Il filtraggio predefinito può essere sostituito dal filtraggio personalizzato. Puoi regolare il filtraggio per ogni singolo sito web al fine di ottenere il risultato migliore. Ognuno dei filtraggi presenta vantaggi e svantaggi.",
+    "description": "This describes the default filtering mode setting"
+  },
+  "filteringMode0Name": {
+    "message": "nessun filtraggio",
+    "description": "Name of blocking mode 0"
+  },
+  "filteringMode1Name": {
+    "message": "di base",
+    "description": "Name of blocking mode 1"
+  },
+  "filteringMode2Name": {
+    "message": "ottimale",
+    "description": "Name of blocking mode 2"
+  },
+  "filteringMode3Name": {
+    "message": "completo",
+    "description": "Name of blocking mode 3"
+  },
+  "basicFilteringModeDescription": {
+    "message": "Filtro di rete basilare basato su un elenco selezionato di filtri.\n\nNon servono autorizzazioni per rielaborare i dati dei siti web.",
+    "description": "This describes the 'basic' filtering mode"
+  },
+  "optimalFilteringModeDescription": {
+    "message": "Filtro di rete avanzato in aggiunta al filtro avanzato basato su un elenco selezionato di filtri.\n\nRichiede delle autorizzazioni specifiche per rielaborare i dati dei siti web.",
+    "description": "This describes the 'optimal' filtering mode"
+  },
+  "completeFilteringModeDescription": {
+    "message": "Filtro avanzato di rete in aggiunta al filtro esteso basato su un elenco selezionato di filtri.\n\nRichiede autorizzazioni estese per leggere e modificare i dati da ogni sito web.\n\nIl filtro esteso richiede più memoria e un maggiore impegno del processore.",
+    "description": "This describes the 'complete' filtering mode"
+  },
+  "behaviorSectionLabel": {
+    "message": "Comportamento",
+    "description": "The header text for the 'Behavior' section"
+  },
+  "autoReloadLabel": {
+    "message": "Ricarica la pagina quando scegli un altro metodo di filtraggio",
+    "description": "Label for a checkbox in the options page"
+  }
+}

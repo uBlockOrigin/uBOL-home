@@ -1,0 +1,278 @@
+{
+  "extName": {
+    "message": "uBlock Origin Lite",
+    "description": "extension name."
+  },
+  "extShortDesc": {
+    "message": "Блокатор садржаја који не захтева дозволе. Блокира рекламе, праћења, рударе криптовалута и друго.",
+    "description": "this will be in the Chrome web store: must be 132 characters or less"
+  },
+  "perRulesetStats": {
+    "message": "{{ruleCount}} правила, конвертована из {{filterCount}} мрежних филтера",
+    "description": "Appears aside each filter list in the _3rd-party filters_ pane"
+  },
+  "dashboardName": {
+    "message": "uBO Lite — Контролна табла",
+    "description": "English: uBO Lite — Dashboard"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Упозорење! Имате несачуване промене",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Остани",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Занемари",
+    "description": "Label for button to ignore unsaved changes"
+  },
+  "settingsPageName": {
+    "message": "Подешавања",
+    "description": "appears as tab name in dashboard"
+  },
+  "3pPageName": {
+    "message": "Листе филтера",
+    "description": "appears as tab name in dashboard"
+  },
+  "1pPageName": {
+    "message": "Моји филтери",
+    "description": "appears as tab name in dashboard"
+  },
+  "whitelistPageName": {
+    "message": "Поуздани сајтови",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPageName": {
+    "message": "О апликацији",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPrivacyPolicy": {
+    "message": "Политика приватности",
+    "description": "Link to privacy policy on GitHub (English)"
+  },
+  "popupFilteringModeLabel": {
+    "message": "режим филтрирања",
+    "description": "Label in the popup panel for the current filtering mode"
+  },
+  "popupTipDashboard": {
+    "message": "Отвори контролну таблу",
+    "description": "English: Click to open the dashboard"
+  },
+  "popupTipZapper": {
+    "message": "Уђи у режим уклањања елемената",
+    "description": "Tooltip for the element-zapper icon in the popup panel"
+  },
+  "popupTipPicker": {
+    "message": "Уђи у режим избора елемената",
+    "description": "English: Enter element picker mode"
+  },
+  "popupTipReport": {
+    "message": "Пријавите проблем на овом веб сајту",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
+  "popupTipSaveRules": {
+    "message": "Кликните да бисте своје промене учинили трајним.",
+    "description": "Tooltip when hovering over the padlock in the dynamic filtering pane."
+  },
+  "popupTipRevertRules": {
+    "message": "Кликните да бисте вратили промене.",
+    "description": "Tooltip when hovering over the eraser in the dynamic filtering pane."
+  },
+  "popupMoreButton": {
+    "message": "Више",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupGrantGreatPowers": {
+    "message": "Кликните да бисте uBO Lite доделили проширене дозволе на овом сајту.\nПроширене дозволе омогућују ефикасније блокирање садржаја.",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupRevokeGreatPowers": {
+    "message": "Кликните да бисте опозвали проширене дозволе на овом сајту.",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupLessButton": {
+    "message": "Мање",
+    "description": "Label to be used to hide popup panel sections"
+  },
+  "settingsIconBadgePrompt": {
+    "message": "Прикажи број блокираних захтева на иконици",
+    "description": "English: Show the number of blocked requests on the icon"
+  },
+  "settingsAppearance": {
+    "message": "Изглед",
+    "description": "Section for controlling user interface appearance"
+  },
+  "settingsThemeLabel": {
+    "message": "Тема",
+    "description": "Label for checkbox to enable a custom dark theme"
+  },
+  "settingsThemeAccent0Label": {
+    "message": "Прилагођена наглашена боја",
+    "description": "Label for checkbox to pick an accent color"
+  },
+  "settingsNoCSPReportsPrompt": {
+    "message": "Блокирај CSP  извештаје",
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
+  },
+  "omnipotenceLabel": {
+    "message": "Омогући проширено филтрирање на свим веб сајтовима",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "omnipotenceLegend": {
+    "message": "uBO Lite може да примени проширено филтрирање на датом веб сајту само након што изричито доделите дозволе проширењу за измену података на том веб сајту. Ово подешавање вам омогућује да доделите дозволе за проширено филтрирање на свим веб сајтовима одједном.",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupDefault": {
+    "message": "Подразумевано",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAds": {
+    "message": "Рекламе",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupPrivacy": {
+    "message": "Приватност",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMalware": {
+    "message": "Злонамерни домени",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAnnoyances": {
+    "message": "Сметње",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMisc": {
+    "message": "Разно",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupRegions": {
+    "message": "Регионални, језички",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "1pFormatHint": {
+    "message": "Један филтер по реду. Филтер може бити обично име хоста или филтер компатибилан са EasyList-ом. Редови са префиксом <code>!</code> ће бити занемарени.",
+    "description": "Short information about how to create custom filters"
+  },
+  "1pImport": {
+    "message": "Увези и додај",
+    "description": "English: Import and append"
+  },
+  "1pExport": {
+    "message": "Извези",
+    "description": "English: Export"
+  },
+  "1pExportFilename": {
+    "message": "моји-ublock-статични-филтери_{{datetime}}.txt",
+    "description": "English: my-ublock-static-filters_{{datetime}}.txt"
+  },
+  "whitelistPrompt": {
+    "message": "Смернице поузданих сајтова диктирају на којим веб страницама uBO Lite треба да буде онемогућен. Један унос по реду.",
+    "description": "A concise description of the 'Trusted sites' pane."
+  },
+  "whitelistImport": {
+    "message": "Увези и додај",
+    "description": "English: Import and append"
+  },
+  "whitelistExport": {
+    "message": "Извези",
+    "description": "English: Export"
+  },
+  "whitelistExportFilename": {
+    "message": "моји-ublock-поуздани-сајтови{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
+  },
+  "aboutChangelog": {
+    "message": "Списак измена",
+    "description": ""
+  },
+  "aboutCode": {
+    "message": "Изворни код (GPLv3)",
+    "description": "English: Source code (GPLv3)"
+  },
+  "aboutContributors": {
+    "message": "Сарадници",
+    "description": "English: Contributors"
+  },
+  "aboutSourceCode": {
+    "message": "Изворни код",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Преводи",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Листе филтера",
+    "description": "Link text to uBO's own filter lists repo"
+  },
+  "aboutDependencies": {
+    "message": "Спољне зависности (компатибилно са GPLv3):",
+    "description": "Shown in the About pane"
+  },
+  "genericSubmit": {
+    "message": "Проследи",
+    "description": "for generic 'Submit' buttons"
+  },
+  "genericApplyChanges": {
+    "message": "Примени промене",
+    "description": "for generic 'Apply changes' buttons"
+  },
+  "genericRevert": {
+    "message": "Врати",
+    "description": "for generic 'Revert' buttons"
+  },
+  "firstRunSectionLabel": {
+    "message": "Добродошли",
+    "description": "The header text for the welcome message section"
+  },
+  "firstRunDescription": {
+    "message": "Управо сте инсталирали uBO Lite. Овде можете изабрати подразумевани режим филтрирања који ће се користити на свим сајтовима.\n\nПодразумевано је изабран <em>основни</em> режим јер он не захтева дозволу за читање и мењање података. Ако верујете uBO Lite-у, можете му дати широку дозволу за читање и мењање података како би се подразумевано омогућиле напредније могућности филтрирања за све сајтове.",
+    "description": "Descriptive text shown at first install time only "
+  },
+  "defaultFilteringModeSectionLabel": {
+    "message": "Подразумевани режим филтрирања",
+    "description": "The header text for the default filtering mode section"
+  },
+  "defaultFilteringModeDescription": {
+    "message": "Подразумевани режим филтрирања ће бити замењен режимима филтрирања по појединачним веб сајтовима. Можете прилагодити режим филтрирања на било ком веб сајту у складу са режимом који најбоље функционише на том веб сајту. Сваки режим има своје предности и мане.",
+    "description": "This describes the default filtering mode setting"
+  },
+  "filteringMode0Name": {
+    "message": "без филтрирања",
+    "description": "Name of blocking mode 0"
+  },
+  "filteringMode1Name": {
+    "message": "основно",
+    "description": "Name of blocking mode 1"
+  },
+  "filteringMode2Name": {
+    "message": "оптимално",
+    "description": "Name of blocking mode 2"
+  },
+  "filteringMode3Name": {
+    "message": "комплетно",
+    "description": "Name of blocking mode 3"
+  },
+  "basicFilteringModeDescription": {
+    "message": "Основно мрежно филтрирање са изабраних листа филтера.\n\nНе захтева дозволу за читање и мењање података на сајтовима.",
+    "description": "This describes the 'basic' filtering mode"
+  },
+  "optimalFilteringModeDescription": {
+    "message": "Напредно мрежно и специфично проширено филтрирање са изабраних листа филтера.\n\nЗахтева широку дозволу за читање и мењање података на свим сајтовима.",
+    "description": "This describes the 'optimal' filtering mode"
+  },
+  "completeFilteringModeDescription": {
+    "message": "Напредно мрежно и специфично и генеричко проширено филтрирање са изабраних листа филтера.\n\nЗахтева широку дозволу за читање и мењање података на свим сајтовима.\n\nГенеричко филтрирање може довести до већег коришћења ресурса веб странице.",
+    "description": "This describes the 'complete' filtering mode"
+  },
+  "behaviorSectionLabel": {
+    "message": "Понашање",
+    "description": "The header text for the 'Behavior' section"
+  },
+  "autoReloadLabel": {
+    "message": "Аутоматски поново учитај страницу при промени режима филтрирања",
+    "description": "Label for a checkbox in the options page"
+  }
+}

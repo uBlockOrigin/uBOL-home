@@ -1,0 +1,52 @@
+[
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "shatter-box.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": ":\\/\\/shatter-box\\.com\\/wp-content\\/uploads\\/[A-Za-z0-9]+\\/[A-Za-z0-9]+\\.js"
+  },
+  "id": 25
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "infopedia.su",
+    "lektsii.org",
+    "mydocx.ru",
+    "studopedia.com.ua",
+    "studopedia.info",
+    "studopedia.net",
+    "studopedia.org",
+    "studopedia.ru",
+    "studopedia.su"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": ":\\/\\/studopedia\\.(org|su|info)\\/\\w{32}.js"
+  },
+  "id": 26
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "sovetromantica.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "googleads.g.doubleclick.net\\/[a-z0-9]*$",
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 1420
+ }
+]

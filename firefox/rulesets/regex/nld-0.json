@@ -1,0 +1,78 @@
+[
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "^https\\:\\/\\/dutchitchannel\\.nl\\/media\\/\\d{6}\\/\\d{10}\\.jpg$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 343
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "^https?:\\/\\/statics\\.(?:ad|bd|bndestem|destentor|ed|gelderlander|hln|tubantia|pzc)\\.(?:nl|be)\\/js\\/advertising-[\\w]+\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 479
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "^https?:\\/\\/(?:www\\.)?webcams?\\-?[a-z]+\\.nl\\/media\\/banners2?\\/",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 503
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "regexFilter": "https\\:\\/\\/pt\\.[\\w]{6}\\.com\\/embed\\/tbplyr\\/",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 576
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "regexFilter": "https\\:\\/\\/pt\\.[\\w]{6}\\.com\\/api\\/video-promotion\\/v1\\/get-content-url\\/",
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "undefined": [
+    "/pt\\.[\\w]{6}\\.com/"
+   ]
+  },
+  "id": 597
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "regexFilter": "https\\:\\/\\/pt\\.[\\w]{6}\\.com\\/tube-player\\/",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 605
+ }
+]
