@@ -68,4 +68,6 @@ An array of hostnames (string) for which no filtering will occur.
 
 A boolean which if set to `true` will prevent uBOL's first-run page to be opened.
 
+## Frequently asked questions (FAQ)
 
+See [_Wiki_](https://github.com/uBlockOrigin/uBOL-home/wiki/Frequently-asked-questions-(FAQ)).
