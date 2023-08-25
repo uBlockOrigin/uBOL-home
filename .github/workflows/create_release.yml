@@ -67,7 +67,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ env.UBLOCK_CHROMIUM_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
+          asset_path: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
           asset_name: uBOLite_${{ env.TAGNAME }}.chromium.mv3.zip
           asset_content_type: application/octet-stream
       - name: Upload Firefox uBOLite MV3 package
@@ -76,6 +76,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ env.UBLOCK_FIREFOX_REPO_DIR }}/dist/build/${{ env.FIREFOX_PACKAGE }}
+          asset_path: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.FIREFOX_PACKAGE }}
           asset_name: uBOLite_${{ env.TAGNAME }}.firefox.mv3.xpi
           asset_content_type: application/octet-stream
