@@ -88,8 +88,8 @@ jobs:
             
             #### Manual installation:
             
-            - Chromium: Download the `${{ env.TAGNAME }}.chromium.mv3.zip ` package below, unzip, navigate to `chrome://extensions/` in your browser, then [tell the browser to load the extension](https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outside-the-chrome-web-store/24577660#24577660). You will have to update the extension manually.
-            - Firefox: Click [${{ env.TAGNAME }}.firefox.signed.mv3.xpi](https://github.com/gorhill/uBlock/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.firefox.signed.mv3.xpi)
+            - Chromium: Download the [${{ env.TAGNAME }}.chromium.mv3.zip](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.chromium.mv3.xpi) package below, unzip, navigate to `chrome://extensions/` in your browser, then [tell the browser to load the extension](https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outside-the-chrome-web-store/24577660#24577660). You will have to update the extension manually.
+            - Firefox: Click [${{ env.TAGNAME }}.firefox.signed.mv3.xpi](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.firefox.signed.mv3.xpi)
       - name: Upload Chromium uBOLite MV3 package
         uses: actions/upload-release-asset@v1
         env:
@@ -97,7 +97,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
-          asset_name: uBOLite_${{ env.TAGNAME }}.chromium.mv3.zip
+          asset_name: ${{ env.TAGNAME }}.chromium.mv3.zip
           asset_content_type: application/octet-stream
       - name: Upload Firefox uBOLite MV3 package
         uses: actions/upload-release-asset@v1
@@ -106,5 +106,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.FIREFOX_PACKAGE }}
-          asset_name: uBOLite_${{ env.TAGNAME }}.firefox.mv3.xpi
+          asset_name: ${{ env.TAGNAME }}.firefox.mv3.xpi
           asset_content_type: application/octet-stream
