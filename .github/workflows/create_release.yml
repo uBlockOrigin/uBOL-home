@@ -1,0 +1,82 @@
+name: uBO Lite release
+
+on: workflow_dispatch
+
+permissions:
+  contents: read
+
+# I used the following project as template to get started:
+# https://github.com/dessant/search-by-image/blob/master/.github/workflows/ci.yml
+
+jobs:
+  build:
+    permissions:
+      contents: write # for creating release
+    name: Build packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      # https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
+      # Chromium
+      - name: Build Chromium uBOLite MV3 packages
+        run: |
+          UBLOCK_CHROMIUM_REPO_DIR=$(mktemp -d)
+          echo "UBLOCK_CHROMIUM_REPO_DIR=$UBLOCK_CHROMIUM_REPO_DIR" >> $GITHUB_ENV
+          git clone --depth 1 https://github.com/gorhill/uBlock.git $UBLOCK_CHROMIUM_REPO_DIR
+          cd $UBLOCK_CHROMIUM_REPO_DIR
+          tools/make-mv3.sh chromium full
+          echo "TAGNAME=$(basename $(ls dist/build/uBOLite_*.chromium.mv3.zip) .chromium.mv3.zip)" >> $GITHUB_ENV
+          echo "CHROMIUM_PACKAGE=$(basename $(ls dist/build/uBOLite_*.chromium.mv3.zip))" >> $GITHUB_ENV
+          cd - > /dev/null
+          RELEASENAME=${TAGNAME/_/ }
+          echo "RELEASENAME=$RELEASENAME" >> $GITHUB_ENV
+          rm -rf chromium
+          mv "$UBLOCK_CHROMIUM_REPO_DIR/dist/build/uBOLite.chromium" chromium
+          cp "$UBLOCK_CHROMIUM_REPO_DIR/dist/build/mv3-data/log.txt" chromium/
+      # Firefox
+      - name: Build Firefox uBOLite MV3 packages
+        run: |
+          UBLOCK_FIREFOX_REPO_DIR=$(mktemp -d)
+          echo "UBLOCK_FIREFOX_REPO_DIR=$UBLOCK_FIREFOX_REPO_DIR" >> $GITHUB_ENV
+          git clone --depth 1 https://github.com/gorhill/uBlock.git $UBLOCK_FIREFOX_REPO_DIR
+          cd $UBLOCK_FIREFOX_REPO_DIR
+          tools/make-mv3.sh firefox full
+          echo "FIREFOX_PACKAGE=$(basename $(ls dist/build/uBOLite_*.firefox.mv3.xpi))" >> $GITHUB_ENV
+          cd - > /dev/null
+          rm -rf firefox
+          mv "$UBLOCK_FIREFOX_REPO_DIR/dist/build/uBOLite.firefox" firefox
+          cp "$UBLOCK_FIREFOX_REPO_DIR/dist/build/mv3-data/log.txt" firefox/
+      - name: Commit uBOLite MV3 package files
+        # https://github.com/marketplace/actions/github-action-for-committing-changes-to-a-repository
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: Update uBOLite MV3 package files
+      - name: Create GitHub release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ env.TAGNAME }}
+          prerelease: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Chromium uBOLite MV3 package
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ env.UBLOCK_CHROMIUM_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
+          asset_name: uBOLite_${{ env.TAGNAME }}.chromium.mv3.zip
+          asset_content_type: application/octet-stream
+      - name: Upload Firefox uBOLite MV3 package
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ env.UBLOCK_FIREFOX_REPO_DIR }}/dist/build/${{ env.FIREFOX_PACKAGE }}
+          asset_name: uBOLite_${{ env.TAGNAME }}.firefox.mv3.xpi
+          asset_content_type: application/octet-stream
