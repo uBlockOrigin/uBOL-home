@@ -34,6 +34,7 @@ jobs:
       # Chromium
       - name: Build Chromium uBOLite MV3 packages
         run: |
+          export UBO_VERSION=${{ env.UBO_VERSION }}
           cd $UBLOCK_REPO_DIR
           tools/make-mv3.sh chromium full
           echo "TAGNAME=$(basename $(ls dist/build/uBOLite_*.chromium.mv3.zip) .chromium.mv3.zip)" >> $GITHUB_ENV
@@ -47,6 +48,7 @@ jobs:
       # Firefox
       - name: Build Firefox uBOLite MV3 packages
         run: |
+          export UBO_VERSION=${{ env.UBO_VERSION }}
           cd $UBLOCK_REPO_DIR
           tools/make-mv3.sh firefox full
           echo "FIREFOX_PACKAGE=$(basename $(ls dist/build/uBOLite_*.firefox.mv3.xpi))" >> $GITHUB_ENV
