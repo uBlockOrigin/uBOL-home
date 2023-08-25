@@ -76,6 +76,7 @@ jobs:
             
             - Updated filter lists
             - [Commit history](https://github.com/uBlockOrigin/uBOL-home/commits/${{ env.TAGNAME }})
+            - Based on <https://github.com/gorhill/uBlock/tree/${{ env.UBO_VERSION }}>
             
             ---
             
