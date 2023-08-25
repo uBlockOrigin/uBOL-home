@@ -115,18 +115,24 @@ function abortCurrentScriptCore(
         return text;
     };
     const validate = ( ) => {
-        if ( debug ) { debugger; }  // jshint ignore: line
         const e = document.currentScript;
         if ( e instanceof HTMLScriptElement === false ) { return; }
         if ( e === thisScript ) { return; }
-        if ( context !== '' && reContext.test(e.src) === false ) { return; }
+        if ( context !== '' && reContext.test(e.src) === false ) {
+            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }  // jshint ignore: line
+            return;
+        }
         if ( log && e.src !== '' ) { safe.uboLog(`matched src: ${e.src}`); }
         const scriptText = getScriptText(e);
-        if ( reNeedle.test(scriptText) === false ) { return; }
+        if ( reNeedle.test(scriptText) === false ) {
+            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }  // jshint ignore: line
+            return;
+        }
         if ( log ) { safe.uboLog(`matched script text: ${scriptText}`); }
+        if ( debug === 'match' || debug === 'all' ) { debugger; }  // jshint ignore: line
         throw new ReferenceError(exceptionToken);
     };
-    if ( debug ) { debugger; }  // jshint ignore: line
+    if ( debug === 'install' ) { debugger; }  // jshint ignore: line
     try {
         Object.defineProperty(owner, prop, {
             get: function() {
@@ -179,12 +185,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -344,8 +352,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

@@ -44,7 +44,7 @@ const scriptletGlobals = new Map(); // jshint ignore: line
 
 const argsList = [["/advert.js"],["static.doubleclick.net/instream/ad_status.js"],["pagead2.googlesyndication.com"],["spotxchange.com"]];
 
-const hostnamesMap = new Map([["kuponuna143.com",0],["kuponuna144.com",0],["kuponuna145.com",0],["kuponuna146.com",0],["kuponuna147.com",0],["kuponuna148.com",0],["kuponuna149.com",0],["kuponuna150.com",0],["kuponuna151.com",0],["kuponuna152.com",0],["kuponuna153.com",0],["kuponuna154.com",0],["kuponuna155.com",0],["kuponuna156.com",0],["kuponuna157.com",0],["kuponuna158.com",0],["kuponuna159.com",0],["kuponuna160.com",0],["kuponuna161.com",0],["kuponuna162.com",0],["kuponuna163.com",0],["kuponuna164.com",0],["kuponuna165.com",0],["kuponuna166.com",0],["kuponuna167.com",0],["kuponuna168.com",0],["kuponuna169.com",0],["kuponuna170.com",0],["canlitribun40.com",0],["canlitribun41.com",0],["canlitribun42.com",0],["canlitribun43.com",0],["canlitribun44.com",0],["canlitribun45.com",0],["canlitribun46.com",0],["canlitribun47.com",0],["canlitribun48.com",0],["canlitribun49.com",0],["canlitribun50.com",0],["canlitribun51.com",0],["canlitribun52.com",0],["canlitribun53.com",0],["canlitribun54.com",0],["canlitribun55.com",0],["canlitribun56.com",0],["canlitribun57.com",0],["canlitribun58.com",0],["canlitribun59.com",0],["canlitribun60.com",0],["canlitribun61.com",0],["canlitribun62.com",0],["canlitribun63.com",0],["canlitribun64.com",0],["canlitribun65.com",0],["canlitribun66.com",0],["canlitribun67.com",0],["canlitribun68.com",0],["canlitribun69.com",0],["canlitribun70.com",0],["mangawt.com",1],["uzaymanga.com",2],["ruyamanga.com",2],["tv8.com.tr",3]]);
+const hostnamesMap = new Map([["kuponuna148.com",0],["kuponuna149.com",0],["kuponuna150.com",0],["kuponuna151.com",0],["kuponuna152.com",0],["kuponuna153.com",0],["kuponuna154.com",0],["kuponuna155.com",0],["kuponuna156.com",0],["kuponuna157.com",0],["kuponuna158.com",0],["kuponuna159.com",0],["kuponuna160.com",0],["kuponuna161.com",0],["kuponuna162.com",0],["kuponuna163.com",0],["kuponuna164.com",0],["kuponuna165.com",0],["kuponuna166.com",0],["kuponuna167.com",0],["kuponuna168.com",0],["kuponuna169.com",0],["kuponuna170.com",0],["canlitribun40.com",0],["canlitribun41.com",0],["canlitribun42.com",0],["canlitribun43.com",0],["canlitribun44.com",0],["canlitribun45.com",0],["canlitribun46.com",0],["canlitribun47.com",0],["canlitribun48.com",0],["canlitribun49.com",0],["canlitribun50.com",0],["canlitribun51.com",0],["canlitribun52.com",0],["canlitribun53.com",0],["canlitribun54.com",0],["canlitribun55.com",0],["canlitribun56.com",0],["canlitribun57.com",0],["canlitribun58.com",0],["canlitribun59.com",0],["canlitribun60.com",0],["canlitribun61.com",0],["canlitribun62.com",0],["canlitribun63.com",0],["canlitribun64.com",0],["canlitribun65.com",0],["canlitribun66.com",0],["canlitribun67.com",0],["canlitribun68.com",0],["canlitribun69.com",0],["canlitribun70.com",0],["mangawt.com",1],["uzaymanga.com",2],["ruyamanga.com",2],["tv8.com.tr",3]]);
 
 const entitiesMap = new Map([]);
 
@@ -57,6 +57,7 @@ function noXhrIf(
     directive = ''
 ) {
     if ( typeof propsToMatch !== 'string' ) { return; }
+    const safe = safeSelf();
     const xhrInstances = new WeakMap();
     const propNeedles = parsePropertiesToMatch(propsToMatch, 'url');
     const log = propNeedles.size === 0 ? console.log.bind(console) : undefined;
@@ -80,7 +81,7 @@ function noXhrIf(
                 if ( warSecret !== undefined ) {
                     fullpath.push('?secret=', warSecret);
                 }
-                const warXHR = new XMLHttpRequest();
+                const warXHR = new safe.XMLHttpRequest();
                 warXHR.responseType = 'text';
                 warXHR.onloadend = ev => {
                     resolve(ev.target.responseText || '');
@@ -227,12 +228,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -382,8 +385,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

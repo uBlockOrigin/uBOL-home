@@ -42,11 +42,11 @@ const uBOL_abortCurrentScript = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["addEventListener","displayMessage"],["document.getElementsByTagName","adsbygoogle.js"],["document.createElement","Adblock"],["document.createElement","adblock"],["$","blockWall"],["document.createElement","adsbygoogle.js"],["$","!document.getElementById("],["EventTarget.prototype.addEventListener","adblock"],["onload","AdBlock"],["EventTarget.prototype.addEventListener","blocker_detector"],["document.getElementById","block"],["$","Adblock"],["document.addEventListener","/;return \\{clear:function\\(\\)\\{/"],["onload","google_tag"],["document.querySelector","BLOQUEADOR"],["setTimeout","BLOQUEADOR"],["EventTarget.prototype.addEventListener","BLOQUEADOR"],["$","window.open"],["enlace","document.write"],["document.oncontextmenu","location.replace"],["decodeURIComponent","0x"],["$","notficationAd"],["open","document.getElementById"],["document.addEventListener","create_"],["onbeforeunload","popit"],["document.getElementsByTagName","onclick"],["$","ads_enabled"],["host","window.btoa"],["$",".one(\"click\""]];
+const argsList = [["addEventListener","displayMessage"],["document.getElementsByTagName","adsbygoogle.js"],["document.createElement","Adblock"],["document.createElement","adblock"],["$","blockWall"],["document.addEventListener",".innerHTML"],["document.createElement","adsbygoogle.js"],["$","!document.getElementById("],["EventTarget.prototype.addEventListener","adblock"],["onload","AdBlock"],["EventTarget.prototype.addEventListener","blocker_detector"],["document.getElementById","block"],["$","Adblock"],["document.addEventListener","/;return \\{clear:function\\(\\)\\{/"],["onload","google_tag"],["document.querySelector","BLOQUEADOR"],["setTimeout","BLOQUEADOR"],["EventTarget.prototype.addEventListener","BLOQUEADOR"],["$","window.open"],["enlace","document.write"],["document.oncontextmenu","location.replace"],["decodeURIComponent","0x"],["$","notficationAd"],["open","document.getElementById"],["document.addEventListener","create_"],["onbeforeunload","popit"],["document.getElementsByTagName","onclick"],["$","ads_enabled"],["host","window.btoa"],["$",".one(\"click\""]];
 
-const hostnamesMap = new Map([["canalnatelinhaonline.blogspot.com",0],["hinatasoul.com",1],["buscalinks.xyz",2],["gamesviatorrent.top",2],["inuyashadowns.com.br",3],["link.baixedetudo.net.br",3],["oliberal.com",4],["gamestorrents.one",5],["csrevo.com",6],["oceans14.com.br",7],["illamadas.es",8],["audiotools.in",9],["lacalleochotv.org",10],["ecartelera.com",11],["animeshouse.net",12],["yesmangas1.com",[13,14,15,16]],["mangahost4.com",[13,14,15,16]],["mangahosted.com",[13,14,15,16]],["mangahost2.com",[13,14,15,16]],["mangahost1.com",[14,15,16]],["mangahostbr.net",[14,15,16]],["mangahostbr.com",[14,15,16]],["playpaste.com",[17,18]],["pasfox.com",[18,26]],["directvxx.com",19],["piratefilmeshd.net",20],["suaurl.com",[21,22]],["tiohentai.xyz",23],["palaygo.site",24],["seireshd.com",27],["hentai-id.tv",28]]);
+const hostnamesMap = new Map([["canalnatelinhaonline.blogspot.com",0],["hinatasoul.com",1],["buscalinks.xyz",2],["gamesviatorrent.top",2],["inuyashadowns.com.br",3],["link.baixedetudo.net.br",3],["oliberal.com",4],["suaads.com",5],["reidoplacar.com",5],["suaurl.com",[5,22,23]],["gamestorrents.one",6],["csrevo.com",7],["oceans14.com.br",8],["illamadas.es",9],["audiotools.in",10],["lacalleochotv.org",11],["ecartelera.com",12],["animeshouse.net",13],["yesmangas1.com",[14,15,16,17]],["mangahost4.com",[14,15,16,17]],["mangahosted.com",[14,15,16,17]],["mangahost2.com",[14,15,16,17]],["mangahost1.com",[15,16,17]],["mangahostbr.net",[15,16,17]],["mangahostbr.com",[15,16,17]],["playpaste.com",[18,19]],["pasfox.com",[19,27]],["directvxx.com",20],["piratefilmeshd.net",21],["tiohentai.xyz",24],["palaygo.site",25],["seireshd.com",28],["hentai-id.tv",29]]);
 
-const entitiesMap = new Map([["movidy",25]]);
+const entitiesMap = new Map([["movidy",26]]);
 
 const exceptionsMap = new Map([]);
 
@@ -115,18 +115,24 @@ function abortCurrentScriptCore(
         return text;
     };
     const validate = ( ) => {
-        if ( debug ) { debugger; }  // jshint ignore: line
         const e = document.currentScript;
         if ( e instanceof HTMLScriptElement === false ) { return; }
         if ( e === thisScript ) { return; }
-        if ( context !== '' && reContext.test(e.src) === false ) { return; }
+        if ( context !== '' && reContext.test(e.src) === false ) {
+            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }  // jshint ignore: line
+            return;
+        }
         if ( log && e.src !== '' ) { safe.uboLog(`matched src: ${e.src}`); }
         const scriptText = getScriptText(e);
-        if ( reNeedle.test(scriptText) === false ) { return; }
+        if ( reNeedle.test(scriptText) === false ) {
+            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }  // jshint ignore: line
+            return;
+        }
         if ( log ) { safe.uboLog(`matched script text: ${scriptText}`); }
+        if ( debug === 'match' || debug === 'all' ) { debugger; }  // jshint ignore: line
         throw new ReferenceError(exceptionToken);
     };
-    if ( debug ) { debugger; }  // jshint ignore: line
+    if ( debug === 'install' ) { debugger; }  // jshint ignore: line
     try {
         Object.defineProperty(owner, prop, {
             get: function() {
@@ -179,12 +185,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -344,8 +352,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

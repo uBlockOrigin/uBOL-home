@@ -9,7 +9,7 @@
    ],
    "regexFilter": "smart-facebook-page-like-overlay-pro"
   },
-  "id": 515
+  "id": 513
  },
  {
   "action": {
@@ -21,7 +21,7 @@
    ],
    "regexFilter": "wp-content\\/plugins\\/my-popup"
   },
-  "id": 519
+  "id": 517
  },
  {
   "action": {
@@ -34,7 +34,7 @@
    ],
    "regexFilter": "wp-content\\/plugins\\/socialer"
   },
-  "id": 523
+  "id": 521
  },
  {
   "action": {
@@ -46,7 +46,7 @@
    ],
    "regexFilter": "default\\/vbanners"
   },
-  "id": 618
+  "id": 616
  },
  {
   "action": {
@@ -60,7 +60,7 @@
    ],
    "regexFilter": "a-detector"
   },
-  "id": 3412
+  "id": 3417
  },
  {
   "action": {
@@ -77,7 +77,7 @@
     "image"
    ]
   },
-  "id": 3556
+  "id": 3561
  },
  {
   "action": {
@@ -92,7 +92,7 @@
     "image"
    ]
   },
-  "id": 3557
+  "id": 3562
  },
  {
   "action": {
@@ -107,7 +107,7 @@
     "image"
    ]
   },
-  "id": 3564
+  "id": 3569
  },
  {
   "action": {
@@ -125,7 +125,7 @@
     "image"
    ]
   },
-  "id": 3738
+  "id": 3746
  },
  {
   "action": {
@@ -163,7 +163,7 @@
     "script"
    ]
   },
-  "id": 3824
+  "id": 3832
  },
  {
   "action": {
@@ -178,7 +178,7 @@
     "script"
    ]
   },
-  "id": 3885
+  "id": 3893
  },
  {
   "action": {
@@ -194,7 +194,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 4079
+  "id": 4087
  },
  {
   "action": {
@@ -203,6 +203,7 @@
   "condition": {
    "initiatorDomains": [
     "widgets.kinopoisk.ru",
+    "www.kinopoisk.ru",
     "yastatic.net"
    ],
    "regexFilter": "^https?:\\/\\/strm\\.yandex\\.ru\\/get\\/[^\\s]{1300,}$",
@@ -210,7 +211,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 4372
+  "id": 4380
  },
  {
   "action": {
@@ -223,7 +224,7 @@
     "script"
    ]
   },
-  "id": 4458
+  "id": 4467
  },
  {
   "action": {
@@ -236,7 +237,7 @@
     "script"
    ]
   },
-  "id": 4785
+  "id": 4794
  },
  {
   "action": {
@@ -252,7 +253,7 @@
     "script"
    ]
   },
-  "id": 4786
+  "id": 4795
  },
  {
   "action": {
@@ -265,7 +266,7 @@
     "script"
    ]
   },
-  "id": 4787
+  "id": 4796
  },
  {
   "action": {
@@ -283,7 +284,7 @@
     "script"
    ]
   },
-  "id": 4788
+  "id": 4797
  },
  {
   "action": {
@@ -311,7 +312,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 4909
+  "id": 4918
  },
  {
   "action": {
@@ -324,7 +325,7 @@
     "sub_frame"
    ]
   },
-  "id": 4920
+  "id": 4929
  },
  {
   "action": {
@@ -347,7 +348,7 @@
     "sub_frame"
    ]
   },
-  "id": 4922
+  "id": 4931
  },
  {
   "action": {
@@ -362,6 +363,6 @@
    ],
    "regexFilter": "upload\\/banners"
   },
-  "id": 4964
+  "id": 4973
  }
 ]

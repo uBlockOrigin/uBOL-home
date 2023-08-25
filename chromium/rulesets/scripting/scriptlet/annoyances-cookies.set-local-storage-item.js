@@ -42,9 +42,9 @@ const uBOL_setLocalStorageItem = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["contao-privacy-center.hidden","1"],["hide-cookie-permission-1","true"],["hasAcceptedGdpr","true"],["cookies-accept","true"],["load-scripts-v2","2"],["acceptsAnalyticsCookies","false"],["acceptsNecessaryCookies","true"],["pg-accept-cookies","true"],["__EOBUWIE__consents_accepted","true","","reload","1"],["analytics","false"],["FP_cookiesAccepted","true"],["VISITED_0","true"],["OPTIONAL_COOKIES_ACCEPTED_0","true"]];
+const argsList = [["ascookie--decision","true"],["contao-privacy-center.hidden","1"],["hide-cookie-permission-1","true"],["userAcceptsCookies","1"],["grnk-cookies-accepted","true"],["cookieConsent","true"],["acceptCookies","no"],["hasAcceptedGdpr","true"],["cookies-accept","true"],["load-scripts-v2","2"],["acceptsAnalyticsCookies","false"],["acceptsNecessaryCookies","true"],["display_cookie_modal","false"],["pg-accept-cookies","true"],["__EOBUWIE__consents_accepted","true","","reload","1"],["analytics","false"],["FP_cookiesAccepted","true"],["VISITED_0","true"],["OPTIONAL_COOKIES_ACCEPTED_0","true"]];
 
-const hostnamesMap = new Map([["eezy.nrw",0],["bahnland-bayern.de",0],["hitado.de",1],["learngerman.dw.com",2],["gostanford.com",3],["namensetiketten.de",4],["drafthound.com",[5,6]],["bidup.amtrak.com",7],["eschuhe.de",8],["revanced.app",9],["flyingpapers.com",10],["beta.character.ai",[11,12]]]);
+const hostnamesMap = new Map([["andsafe.de",0],["eezy.nrw",1],["bahnland-bayern.de",1],["hitado.de",2],["inselberlin.de",3],["gronkh.tv",4],["parrotsec.org",5],["adfilteringdevsummit.com",6],["learngerman.dw.com",7],["gostanford.com",8],["namensetiketten.de",9],["drafthound.com",[10,11]],["wokularach.pl",12],["bidup.amtrak.com",13],["eschuhe.de",14],["revanced.app",15],["flyingpapers.com",16],["beta.character.ai",[17,18]]]);
 
 const entitiesMap = new Map([]);
 
@@ -175,8 +175,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

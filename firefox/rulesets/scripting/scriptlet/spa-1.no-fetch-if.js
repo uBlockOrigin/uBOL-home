@@ -42,9 +42,9 @@ const uBOL_noFetchIf = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["method:HEAD"],["securepubads.g.doubleclick.net/pagead/ppub_config"],["pagead2.googlesyndication.com"],["adsbygoogle"],["call-zone-adxs"],["/pagead2\\.googlesyndication\\.com|ads-api\\.twitter\\.com/"],["ads-twitter.com"],["static.ads-twitter.com"],["www3.doubleclick.net"],["/adsbygoogle.js"]];
+const argsList = [["method:HEAD"],["securepubads.g.doubleclick.net/pagead/ppub_config"],["pagead2.googlesyndication.com"],["adsbygoogle"],["call-zone-adxs"],["/pagead2\\.googlesyndication\\.com|ads-api\\.twitter\\.com/"],["/^(?!.*(chrome-extension:)).*$/ method:HEAD"],["ads-twitter.com"],["static.ads-twitter.com"],["www3.doubleclick.net"],["/adsbygoogle.js"]];
 
-const hostnamesMap = new Map([["mega-enlace.com",0],["enlacito.com",0],["acortame-esto.com",0],["netcine.to",0],["reidoplacar.com",0],["suaurl.com",0],["redbolivision.tv.bo",1],["independentespanol.com",1],["animesonline.nz",2],["los40.com",2],["negociosecommerce.com",[2,4]],["puromarketing.com",[2,4]],["todostartups.com",[2,4]],["pobre.wtf",2],["acortalo.net",2],["link-descarga.site",2],["meutimao.com.br",2],["discografias.net",2],["listas.pro",2],["emperorscan.com",2],["lawebdelprogramador.com",2],["dicasgostosas.com",2],["yesmangas1.com",2],["mangahost4.com",2],["mangahosted.com",2],["mangahost2.com",2],["mangahost1.com",2],["mangahostbr.net",2],["mangahostbr.com",2],["downloads.sayrodigital.com",3],["teleculinaria.pt",3],["nptmedia.tv",5],["costumbresmexico.com",6],["desbloqueador.site",6],["notipostingt.com",7],["tivify.tv",8],["netmovies.com.br",9]]);
+const hostnamesMap = new Map([["mega-enlace.com",0],["enlacito.com",0],["acortame-esto.com",0],["netcine.to",0],["redbolivision.tv.bo",1],["independentespanol.com",1],["animesonline.nz",2],["los40.com",2],["negociosecommerce.com",[2,4]],["puromarketing.com",[2,4]],["todostartups.com",[2,4]],["pobre.wtf",2],["acortalo.net",2],["link-descarga.site",2],["meutimao.com.br",2],["discografias.net",2],["listas.pro",2],["emperorscan.com",2],["lawebdelprogramador.com",2],["dicasgostosas.com",2],["yesmangas1.com",2],["mangahost4.com",2],["mangahosted.com",2],["mangahost2.com",2],["mangahost1.com",2],["mangahostbr.net",2],["mangahostbr.com",2],["downloads.sayrodigital.com",3],["teleculinaria.pt",3],["nptmedia.tv",5],["suaads.com",6],["reidoplacar.com",6],["suaurl.com",6],["costumbresmexico.com",7],["desbloqueador.site",7],["notipostingt.com",8],["tivify.tv",9],["netmovies.com.br",10]]);
 
 const entitiesMap = new Map([]);
 
@@ -121,12 +121,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -276,8 +278,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

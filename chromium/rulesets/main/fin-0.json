@@ -1523,6 +1523,22 @@
   },
   "condition": {
    "initiatorDomains": [
+    "seutumajakka.fi"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "/common-column-ads"
+  },
+  "id": 112
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
     "pkank.fi"
    ],
    "isUrlFilterCaseSensitive": false,
@@ -1531,7 +1547,7 @@
    ],
    "urlFilter": "/neoproxy.dll"
   },
-  "id": 112
+  "id": 113
  },
  {
   "action": {
@@ -1547,7 +1563,7 @@
    ],
    "urlFilter": "||cfapi.voikukka.fi/graphql?operationname=citrusad&"
   },
-  "id": 113
+  "id": 114
  },
  {
   "action": {
@@ -1563,7 +1579,7 @@
    ],
    "urlFilter": "||kaksplus.fi/wp-json/feeds/ad-feed"
   },
-  "id": 114
+  "id": 115
  },
  {
   "action": {
@@ -1579,7 +1595,7 @@
    ],
    "urlFilter": "||kotikarjala.fi/eneo?tem=ndap_ilmoitus&"
   },
-  "id": 115
+  "id": 116
  },
  {
   "action": {
@@ -1592,7 +1608,7 @@
    ],
    "urlFilter": "||tokentube.net/vast?t=vjs&v="
   },
-  "id": 116
+  "id": 117
  },
  {
   "action": {
@@ -1608,7 +1624,7 @@
    ],
    "urlFilter": "||asuntorauma.fi/iframe/uusimmat"
   },
-  "id": 117
+  "id": 118
  },
  {
   "action": {
@@ -1621,7 +1637,7 @@
    ],
    "urlFilter": "||feed.autotalli.com/bannerdata/html/*.html"
   },
-  "id": 118
+  "id": 119
  },
  {
   "action": {
@@ -1634,7 +1650,7 @@
    ],
    "urlFilter": "||feed.etuovi.com/etuovi/html/*.html"
   },
-  "id": 119
+  "id": 120
  },
  {
   "action": {
@@ -1647,7 +1663,7 @@
    ],
    "urlFilter": "||hintaseuranta.fi/*/tripsteri_boxes/"
   },
-  "id": 120
+  "id": 121
  },
  {
   "action": {
@@ -1663,7 +1679,7 @@
    ],
    "urlFilter": "||kalamies.com/?_dnid="
   },
-  "id": 121
+  "id": 122
  },
  {
   "action": {
@@ -1679,7 +1695,7 @@
    ],
    "urlFilter": "||m.riemurasia.net/reklaami.php"
   },
-  "id": 122
+  "id": 123
  },
  {
   "action": {
@@ -1695,7 +1711,7 @@
    ],
    "urlFilter": "||nettiauto.com/en/ampparitbanner*.php"
   },
-  "id": 123
+  "id": 124
  },
  {
   "action": {
@@ -1708,7 +1724,7 @@
    ],
    "urlFilter": "||superskills.fi/fi*?isiframe=true"
   },
-  "id": 124
+  "id": 125
  },
  {
   "action": {
@@ -1721,7 +1737,7 @@
    ],
    "urlFilter": "||testeri.fi/ext_telsu"
   },
-  "id": 125
+  "id": 126
  },
  {
   "action": {
@@ -1734,7 +1750,7 @@
    ],
    "urlFilter": "||vg.is.fi/autotie-is-*/"
   },
-  "id": 126
+  "id": 127
  },
  {
   "action": {
@@ -1753,7 +1769,7 @@
    ],
    "urlFilter": "_300x300_*.mp4"
   },
-  "id": 127
+  "id": 128
  },
  {
   "action": {
@@ -1770,7 +1786,7 @@
     "media"
    ]
   },
-  "id": 128
+  "id": 129
  },
  {
   "action": {
@@ -1783,7 +1799,7 @@
    ],
    "urlFilter": "||com-wakedynamite-production-publish.s3.amazonaws.com/publish/"
   },
-  "id": 129
+  "id": 130
  },
  {
   "action": {
@@ -1796,7 +1812,7 @@
    ],
    "urlFilter": "||nelonenmedia-pmd-ads-*.nm-stream.nelonenmedia.fi^"
   },
-  "id": 130
+  "id": 131
  },
  {
   "action": {
@@ -1810,7 +1826,7 @@
     "media"
    ]
   },
-  "id": 131
+  "id": 132
  },
  {
   "action": {
@@ -1821,7 +1837,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fcdn.lauta.media/adform.js"
   },
-  "id": 132
+  "id": 133
  },
  {
   "action": {
@@ -1848,7 +1864,7 @@
     "revimages.motouutiset.fi"
    ]
   },
-  "id": 135
+  "id": 136
  },
  {
   "action": {
@@ -1859,7 +1875,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cloudfront.net/images/backgroundimages/backgroundimage^"
   },
-  "id": 136
+  "id": 137
  },
  {
   "action": {
@@ -1876,7 +1892,7 @@
     "script"
    ]
   },
-  "id": 137
+  "id": 138
  },
  {
   "action": {
@@ -1885,19 +1901,6 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fi-mtv3.videoplaza.tv/proxy/pulse-sdk-html5/*/latest.min.js"
-  },
-  "id": 138
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "mtvuutiset.fi"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "leiki.com/mtv3/mwidget"
   },
   "id": 139
  },
@@ -1910,9 +1913,22 @@
     "mtvuutiset.fi"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "leiki.com/mtv3/widgets/loader/"
+   "urlFilter": "leiki.com/mtv3/mwidget"
   },
   "id": 140
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mtvuutiset.fi"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "leiki.com/mtv3/widgets/loader/"
+  },
+  "id": 141
  },
  {
   "action": {
@@ -1927,7 +1943,7 @@
     "leiki.com"
    ]
   },
-  "id": 141
+  "id": 142
  },
  {
   "action": {
@@ -1937,7 +1953,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tags.tiqcdn.com/utag/sanoma-fi/*/utag.js"
   },
-  "id": 142
+  "id": 143
  },
  {
   "action": {
@@ -1948,7 +1964,7 @@
     "netstat.ayy.fi"
    ]
   },
-  "id": 143
+  "id": 144
  },
  {
   "action": {
@@ -1964,7 +1980,7 @@
    ],
    "urlFilter": "||adservicemedia.dk/"
   },
-  "id": 144
+  "id": 145
  },
  {
   "action": {
@@ -1981,7 +1997,7 @@
     "script"
    ]
   },
-  "id": 145
+  "id": 146
  },
  {
   "action": {
@@ -2004,7 +2020,7 @@
    ],
    "urlFilter": "||googletagmanager.com/gtm.js"
   },
-  "id": 146
+  "id": 147
  },
  {
   "action": {
@@ -2020,7 +2036,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js"
   },
-  "id": 147
+  "id": 148
  },
  {
   "action": {
@@ -2036,7 +2052,7 @@
    ],
    "urlFilter": "||adserve.adcoin.com/display/ad_block/"
   },
-  "id": 148
+  "id": 149
  },
  {
   "action": {
@@ -2052,7 +2068,7 @@
    ],
    "urlFilter": "||power.fi/umbraco/api/tracking/trackorder"
   },
-  "id": 149
+  "id": 150
  },
  {
   "action": {
@@ -2068,7 +2084,7 @@
    ],
    "urlFilter": "||track.adform.net/*dna.fi/"
   },
-  "id": 150
+  "id": 151
  },
  {
   "action": {
@@ -2080,7 +2096,7 @@
     "click.redditmail.com"
    ]
   },
-  "id": 151
+  "id": 152
  },
  {
   "action": {
@@ -2094,6 +2110,6 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googletagmanager.com/gtm.js?"
   },
-  "id": 152
+  "id": 153
  }
 ]

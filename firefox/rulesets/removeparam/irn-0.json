@@ -24,7 +24,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 554
+  "id": 564
  },
  {
   "action": {
@@ -49,7 +49,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 555
+  "id": 565
  },
  {
   "action": {
@@ -75,7 +75,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 556
+  "id": 566
  },
  {
   "action": {
@@ -100,7 +100,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 557
+  "id": 567
  },
  {
   "action": {
@@ -125,7 +125,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 558
+  "id": 568
  },
  {
   "action": {
@@ -148,7 +148,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 559
+  "id": 569
  },
  {
   "action": {
@@ -169,7 +169,7 @@
    ],
    "urlFilter": "||podbean.com/player^"
   },
-  "id": 560
+  "id": 570
  },
  {
   "action": {
@@ -190,7 +190,7 @@
    ],
    "urlFilter": "||podbean.com/pb^"
   },
-  "id": 561
+  "id": 572
  },
  {
   "action": {
@@ -213,7 +213,28 @@
     "main_frame"
    ]
   },
-  "id": 562
+  "id": 573
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "search_id"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame"
+   ],
+   "urlFilter": "||api.torob.com/v4/product-page/redirect^"
+  },
+  "id": 574
  },
  {
   "action": {
@@ -237,7 +258,8 @@
        "shop_rank",
        "source",
        "suid",
-       "uid"
+       "uid",
+       "user_id"
       ]
      }
     }
@@ -250,10 +272,11 @@
     "api.torob.com"
    ],
    "resourceTypes": [
+    "main_frame",
     "xmlhttprequest"
    ]
   },
-  "id": 563
+  "id": 575
  },
  {
   "action": {
@@ -277,6 +300,6 @@
    ],
    "urlFilter": "||tamasha.com/embed^"
   },
-  "id": 564
+  "id": 576
  }
 ]

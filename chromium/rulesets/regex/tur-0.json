@@ -7,7 +7,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "Thumbs\\/A_dvertisement"
   },
-  "id": 85
+  "id": 86
  },
  {
   "action": {
@@ -125,7 +125,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "\\/(orka-hotels-sentido|Werken-Bij-300x250|corendon-banner-reclame)\\.(gif|jpg)"
   },
-  "id": 660
+  "id": 659
  },
  {
   "action": {
@@ -138,7 +138,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "\\/(ikiler-gif|karpol-poliuretan)\\.gif"
   },
-  "id": 672
+  "id": 671
  },
  {
   "action": {
@@ -151,7 +151,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "\\/images\\/uploads\\/ad\\d+"
   },
-  "id": 725
+  "id": 723
  },
  {
   "action": {
@@ -164,7 +164,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "afsinhabermerkezi.com\\/wp-content\\/uploads\\/.*(-emlak|aad.jpg|ak-suY|PAM%C4%B0RA)"
   },
-  "id": 755
+  "id": 753
  },
  {
   "action": {
@@ -188,6 +188,22 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "\\/pageskin\\/[a-z]{2}1\\.jpg"
   },
-  "id": 1127
+  "id": 1125
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "itemci.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "cdn.itemci.com\\/storage\\/images\\/content\\/[-a-z0-9]{10,}\\.(jpg|gif)",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 1134
  }
 ]

@@ -35,7 +35,7 @@
 
 const argsList = [["{\"selector\":\"html\",\"action\":[\"style\",\"overflow: auto!important\"]}"],["{\"selector\":\"#header\",\"action\":[\"style\",\"margin-top: 0 !important\"]}"],["{\"selector\":\"div.layout.pt-mobi-top\",\"action\":[\"style\",\"padding-top: 0 !important\"]}","{\"selector\":\"header.bg-white\",\"action\":[\"style\",\"margin-top: 0px !important\"]}"]];
 
-const hostnamesMap = new Map([["banhkhuc6.com",0],["khomuc9.fun",0],["90phut9.live",0],["thapcam.net",0],["90phuttvpro.org",0],["vebo3.org",0],["90phutz.tv",0],["bongcam.tv",0],["cakhia365.tv",0],["mitomz.tv",0],["veboz.tv",0],["xoilac78.tv",0],["chotlo.me",1],["saostar.vn",2]]);
+const hostnamesMap = new Map([["banhkhuc6.com",0],["khomuc9.fun",0],["90phut9.live",0],["mitom7.net",0],["thapcam.net",0],["90phuttvpro.org",0],["vebo3.org",0],["90phutz.tv",0],["bongcam.tv",0],["cakhia365.tv",0],["veboz.tv",0],["xoilac79.tv",0],["chotlo.me",1],["saostar.vn",2]]);
 
 const entitiesMap = new Map(undefined);
 

@@ -21,7 +21,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16879
+  "id": 16683
  },
  {
   "action": {
@@ -49,7 +49,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16880
+  "id": 16684
  },
  {
   "action": {
@@ -74,7 +74,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16882
+  "id": 16686
  },
  {
   "action": {
@@ -102,7 +102,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16883
+  "id": 16687
  },
  {
   "action": {
@@ -127,7 +127,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16885
+  "id": 16689
  },
  {
   "action": {
@@ -153,7 +153,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16886
+  "id": 16690
  },
  {
   "action": {
@@ -176,7 +176,7 @@
    ],
    "urlFilter": "||play.google.com/store/apps/*referrer"
   },
-  "id": 16887
+  "id": 16691
  },
  {
   "action": {
@@ -199,7 +199,7 @@
    ],
    "urlFilter": "||apps.apple.com/*/app/*referrer"
   },
-  "id": 16888
+  "id": 16692
  },
  {
   "action": {
@@ -223,7 +223,123 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16889
+  "id": 16693
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "__hsfp",
+       "__hssc",
+       "__hstc",
+       "_hsenc",
+       "_openstat",
+       "bsft_aaid",
+       "bsft_clkid",
+       "bsft_eid",
+       "bsft_ek",
+       "bsft_mid",
+       "bsft_uid",
+       "dclid",
+       "fb_action_ids",
+       "fb_action_types",
+       "fb_comment_id",
+       "fb_ref",
+       "fb_source",
+       "fbclid",
+       "gbraid",
+       "gclid",
+       "gclsrc",
+       "guce_referrer",
+       "guce_referrer_sig",
+       "hsCtaTracking",
+       "hsa_acc",
+       "hsa_ad",
+       "hsa_cam",
+       "hsa_grp",
+       "hsa_kw",
+       "hsa_la",
+       "hsa_mt",
+       "hsa_net",
+       "hsa_ol",
+       "hsa_src",
+       "hsa_tgt",
+       "hsa_ver",
+       "mc_eid",
+       "ml_subscriber",
+       "ml_subscriber_hash",
+       "msclkid",
+       "mtm_campaign",
+       "mtm_cid",
+       "mtm_content",
+       "mtm_group",
+       "mtm_keyword",
+       "mtm_medium",
+       "mtm_placement",
+       "mtm_source",
+       "oft_c",
+       "oft_ck",
+       "oft_d",
+       "oft_id",
+       "oft_ids",
+       "oft_k",
+       "oft_lk",
+       "oft_sk",
+       "oly_anon_id",
+       "oly_enc_id",
+       "pk_campaign",
+       "pk_medium",
+       "pk_source",
+       "rb_clickid",
+       "s_cid",
+       "twclid",
+       "vero_conv",
+       "vero_id",
+       "wbraid",
+       "wickedid",
+       "yclid",
+       "ysclid"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16695
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "rdt"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "requestDomains": [
+    "reddit.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16696
  },
  {
   "action": {
@@ -248,7 +364,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16892
+  "id": 16698
  },
  {
   "action": {
@@ -271,7 +387,7 @@
     "image"
    ]
   },
-  "id": 16912
+  "id": 16720
  },
  {
   "action": {
@@ -291,7 +407,7 @@
    ],
    "urlFilter": "||track1.aniview.com/track?"
   },
-  "id": 16913
+  "id": 16721
  },
  {
   "action": {
@@ -314,7 +430,7 @@
    ],
    "urlFilter": "||hktvmall.com/yuicombo?"
   },
-  "id": 17018
+  "id": 16822
  },
  {
   "action": {
@@ -340,7 +456,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 17067
+  "id": 16871
  },
  {
   "action": {
@@ -366,7 +482,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 17069
+  "id": 16873
  },
  {
   "action": {
@@ -390,7 +506,7 @@
    ],
    "urlFilter": "||brightcove.com/playback/*/*?ad_config_id"
   },
-  "id": 17083
+  "id": 16887
  },
  {
   "action": {
@@ -414,7 +530,7 @@
    ],
    "urlFilter": "||brightcovecdn.com/playback/*/*?ad_config_id"
   },
-  "id": 17084
+  "id": 16888
  },
  {
   "action": {
@@ -437,7 +553,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 17085
+  "id": 16889
  },
  {
   "action": {
@@ -465,7 +581,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 17086
+  "id": 16890
  },
  {
   "action": {
@@ -486,7 +602,7 @@
    ],
    "urlFilter": "||cxm-api.fifa.com/fifaplusweb/api/video/"
   },
-  "id": 17087
+  "id": 16891
  },
  {
   "action": {
@@ -510,7 +626,7 @@
    ],
    "urlFilter": "||hbo.yspsvc-na.net/csm/*&caid="
   },
-  "id": 17089
+  "id": 16893
  },
  {
   "action": {
@@ -534,7 +650,7 @@
    ],
    "urlFilter": "&caid="
   },
-  "id": 17090
+  "id": 16894
  },
  {
   "action": {
@@ -560,7 +676,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 17092
+  "id": 16896
  },
  {
   "action": {
@@ -584,7 +700,7 @@
    ],
    "urlFilter": "||warnermediacdn.com/csm/*&caid="
   },
-  "id": 17094
+  "id": 16898
  },
  {
   "action": {
@@ -608,7 +724,7 @@
    ],
    "urlFilter": "||warnermediacdn.com/csm/*afid="
   },
-  "id": 17095
+  "id": 16899
  },
  {
   "action": {
@@ -632,7 +748,7 @@
    ],
    "urlFilter": "||warnermediacdn.com/csm/*app_csid="
   },
-  "id": 17096
+  "id": 16900
  },
  {
   "action": {
@@ -656,7 +772,7 @@
    ],
    "urlFilter": "||warnermediacdn.com/csm/*conf_csid="
   },
-  "id": 17097
+  "id": 16901
  },
  {
   "action": {
@@ -680,7 +796,7 @@
    ],
    "urlFilter": "||medium.ngtv.io/v2/media/*&ssaiprofile="
   },
-  "id": 17098
+  "id": 16902
  },
  {
   "action": {
@@ -704,7 +820,7 @@
    ],
    "urlFilter": "||googleads.g.doubleclick.net/pagead/ads"
   },
-  "id": 17138
+  "id": 16941
  },
  {
   "action": {
@@ -726,7 +842,7 @@
    ],
    "urlFilter": "||hentai-party.com/*?view="
   },
-  "id": 17232
+  "id": 17035
  },
  {
   "action": {
@@ -748,7 +864,7 @@
    ],
    "urlFilter": "||hentaicomics.pro/*?code="
   },
-  "id": 17233
+  "id": 17036
  },
  {
   "action": {
@@ -770,7 +886,7 @@
    ],
    "urlFilter": "||xxx-comics.pro/*?view="
   },
-  "id": 17234
+  "id": 17037
  },
  {
   "action": {
@@ -796,7 +912,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 17278
+  "id": 17079
  },
  {
   "action": {
@@ -817,6 +933,6 @@
    ],
    "urlFilter": "*gdpr_consent"
   },
-  "id": 17282
+  "id": 17082
  }
 ]

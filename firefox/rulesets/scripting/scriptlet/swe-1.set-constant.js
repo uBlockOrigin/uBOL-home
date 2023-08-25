@@ -42,7 +42,7 @@ const uBOL_setConstant = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["mi_track_user","false"],["getAdblockerStatus","noopFunc"],["adsAreBlocked","noopFunc"],["checkYin","noopFunc"],["checkYinPlaus","noopFunc"],["dovideostuffAD","noopFunc"],["setYinYang","noopFunc"],["testPrebid","noopFunc"],["adblock","false"],["adblockEnabled","falseFunc"],["em_track_user","false"],["exactmetrics_frontend","undefined"],["showAds","false"],["trap","noopFunc"],["checkAdblocker","noopFunc"],["ispremium","trueFunc"],["NWS.config.enableAdblockerDetection","false"],["ai_run_scripts","noopFunc"],["ab_disp","noopFunc"],["googletag","1"],["yieldwrapper.refreshPage","noopFunc"],["checkAdsBlocked","noopFunc"],["canShowAds","true"],["detect","noopFunc"]];
+const argsList = [["mi_track_user","false"],["getAdblockerStatus","noopFunc"],["adsAreBlocked","noopFunc"],["checkYin","noopFunc"],["checkYinPlaus","noopFunc"],["dovideostuffAD","noopFunc"],["setYinYang","noopFunc"],["testPrebid","noopFunc"],["adblock","false"],["adblockEnabled","falseFunc"],["em_track_user","false"],["exactmetrics_frontend","undefined"],["showAds","false"],["trap","noopFunc"],["checkAdblocker","noopFunc"],["ispremium","trueFunc"],["NWS.config.enableAdblockerDetection","false"],["ai_run_scripts","noopFunc"],["ab_disp","noopFunc"],["googletag","1"],["window.WURFL","1"],["checkAdsBlocked","noopFunc"],["canShowAds","true"],["detect","noopFunc"]];
 
 const hostnamesMap = new Map([["boktugg.se",0],["dinbyggare.se",0],["ettgottskratt.se",0],["humorbibeln.se",0],["lakartidningen.se",0],["matsafari.nu",0],["newsner.com",0],["sportbibeln.se",0],["trafiksakerhet.se",0],["villalivet.se",0],["zeinaskitchen.se",0],["di.se",1],["elevspel.se",2],["feber.se",[3,4,5,6]],["tjock.se",[3,4,5,6]],["findit.se",7],["fssweden.se",8],["fz.se",8],["gamereactor.se",9],["heleneholmsif.se",[10,11]],["melodifestivalklubben.se",[10,11]],["morotsliv.com",[10,11]],["thorengruppen.se",[10,11]],["trafikskola.se",[10,11]],["utslappsratt.se",[10,11]],["kamrat.com",[12,13]],["kritiker.se",[14,15]],["mitti.se",16],["mobilanyheter.net",17],["ordbokpro.se",18],["spray.se",[19,20]],["swedroid.se",21],["thatsup.se",22],["www.expressen.se",23]]);
 
@@ -60,25 +60,12 @@ function setConstant(
 
 function setConstantCore(
     trusted = false,
-    arg1 = '',
-    arg2 = '',
-    arg3 = ''
+    chain = '',
+    cValue = ''
 ) {
-    const details = typeof arg1 !== 'object'
-        ? { prop: arg1, value: arg2 }
-        : arg1;
-    if ( arg3 !== '' ) {
-        if ( /^\d$/.test(arg3) ) {
-            details.options = [ arg3 ];
-        } else {
-            details.options = Array.from(arguments).slice(3);
-        }
-    }
-    const { prop: chain = '', value: cValue = '' } = details;
-    if ( typeof chain !== 'string' ) { return; }
     if ( chain === '' ) { return; }
-    const options = details.options || [];
     const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
     function setConstant(chain, cValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -144,14 +131,16 @@ function setConstantCore(
         } else {
             return;
         }
-        if ( options.includes('asFunction') ) {
-            cValue = ( ) => cValue;
-        } else if ( options.includes('asCallback') ) {
-            cValue = ( ) => (( ) => cValue);
-        } else if ( options.includes('asResolved') ) {
-            cValue = Promise.resolve(cValue);
-        } else if ( options.includes('asRejected') ) {
-            cValue = Promise.reject(cValue);
+        if ( extraArgs.as !== undefined ) {
+            if ( extraArgs.as === 'function' ) {
+                cValue = ( ) => cValue;
+            } else if ( extraArgs.as === 'callback' ) {
+                cValue = ( ) => (( ) => cValue);
+            } else if ( extraArgs.as === 'resolved' ) {
+                cValue = Promise.resolve(cValue);
+            } else if ( extraArgs.as === 'rejected' ) {
+                cValue = Promise.reject(cValue);
+            }
         }
         let aborted = false;
         const mustAbort = function(v) {
@@ -247,7 +236,7 @@ function setConstantCore(
     }
     runAt(( ) => {
         setConstant(chain, cValue);
-    }, options);
+    }, extraArgs.runAt);
 }
 
 function runAt(fn, when) {
@@ -283,12 +272,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -438,8 +429,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

@@ -42,9 +42,9 @@ const uBOL_abortOnPropertyRead = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["nocontext"],["faPa"],["vc_url"],["SGPB_POPUP_PARAMS"],["needpop"],["banner"],["bannerAsJson"],["window.LOCO_DATA.copyrightTranslation"]];
+const argsList = [["nocontext"],["faPa"],["vc_url"],["SGPB_POPUP_PARAMS"],["needpop"],["banner"],["window.LOCO_DATA.copyrightTranslation"]];
 
-const hostnamesMap = new Map([["coffeeapps.ir",0],["sclinic.ir",0],["farsroid.com",1],["nab-music.com",2],["tak3da.com",3],["yeknet.ir",4],["zoomg.ir",5],["zoomit.ir",6],["oila.tj",7]]);
+const hostnamesMap = new Map([["coffeeapps.ir",0],["sclinic.ir",0],["farsroid.com",1],["nab-music.com",2],["tak3da.com",3],["yeknet.ir",4],["zoomg.ir",5],["zoomit.ir",5],["oila.tj",6]]);
 
 const entitiesMap = new Map([]);
 
@@ -185,8 +185,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

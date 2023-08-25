@@ -42,13 +42,13 @@ const uBOL_jsonPrune = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds","playabilityStatus.liveStreamability"],["playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds","playerResponse.playabilityStatus.liveStreamability"],["playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds","adPlacements.1"],["playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds","playerResponse.adPlacements.1"],["playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds","responseContext.serviceTrackingParams.1"],["playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds","playerResponse.responseContext.serviceTrackingParams.1"],["playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds important"],["enabled","force_disabled"],["adBlockWallEnabled"],["0"],["adtagparameter","enabled"],["adEnabled"],["Playlist.ContentBreaks"],["adRenderers"],["urls","urls.0"],["breaks pause_ads video_metadata.end_credits_time","pause_ads"],["breaks pause_ads video_metadata.end_credits_time","breaks"],["cuepointPlaylist"],["value.media.ad_breaks"],["data.device.adSponsorshipTemplate data.device.adsParams"],["data.[].vast_url"],["data.meta.require_addon data.meta.require_captcha data.meta.require_notifications data.meta.require_og_ads data.meta.require_video data.meta.require_web data.meta.require_related_topics data.meta.require_custom_ad_step data.meta.og_ads_offers data.meta.addon_url data.displayAds data.linkCustomAdOffers"],["enabled","testhide"],["adParam"],["adProvider"],["playlist.movie.advertising.ad_server"],["ad_pods.0.ads.0.segments.0.media ad_pods.1.ads.1.segments.1.media ad_pods.2.ads.2.segments.2.media ad_pods.3.ads.3.segments.3.media ad_pods.4.ads.4.segments.4.media ad_pods.5.ads.5.segments.5.media ad_pods.6.ads.6.segments.6.media ad_pods.7.ads.7.segments.7.media ad_pods.8.ads.8.segments.8.media"],["ads.servers.[].apiAddress"],["clickAnywhere urls"],["meta.advertise"],["data.attributes.config.freewheel data.attributes.config.featureFlags.dPlayer"],["data.attributes.ssaiInfo.forecastTimeline data.attributes.ssaiInfo.vendorAttributes.nonLinearAds data.attributes.ssaiInfo.vendorAttributes.videoView data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adMetadata data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adParameters data.attributes.ssaiInfo.vendorAttributes.breaks.[].timeOffset"],["movie.advertising.ad_server playlist.movie.advertising.ad_server"],["cuepoints","cuepoints.[].start cuepoints.[].end cuepoints.[].start_float cuepoints.[].end_float"],["testadtags ad"],["ads"],["ssaiInfo fallback.ssaiInfo"],["result.ads"],["stream.insertion.adSession"],["stream.insertion.points"],["stream.insertion"],["stream.sources.*.insertion"],["pods.0.ads"],["*.tanya_video_ads"],["web_share_ads_adsterra_config wap_short_link_middle_page_ad wap_short_link_middle_page_show_time data.ads_cpm_info"],["success.page.spaces.player.widget_wrappers.[].widget.data.intervention_data"],["avails"],["data.reg"],["data.*.elements.edges.[].node.outboundLink"],["data.children.[].data.outbound_link"],["dataLayer.trackingId user.trackingId"],["config.globalInteractions.[].bsData"]];
+const argsList = [["playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots","playabilityStatus.liveStreamability"],["playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots","playerResponse.playabilityStatus.liveStreamability"],["playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots","attestation.playerAttestationRenderer.botguardData.interpreterSafeUrl.privateDoNotAccessOrElseTrustedResourceUrlWrappedValue"],["playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots important"],["enabled","force_disabled"],["adBlockWallEnabled"],["0"],["adtagparameter","enabled"],["adEnabled"],["Playlist.ContentBreaks"],["adRenderers"],["urls","urls.0"],["breaks pause_ads video_metadata.end_credits_time","pause_ads"],["breaks pause_ads video_metadata.end_credits_time","breaks"],["cuepointPlaylist"],["value.media.ad_breaks"],["data.device.adSponsorshipTemplate data.device.adsParams"],["data.[].vast_url"],["data.meta.require_addon data.meta.require_captcha data.meta.require_notifications data.meta.require_og_ads data.meta.require_video data.meta.require_web data.meta.require_related_topics data.meta.require_custom_ad_step data.meta.og_ads_offers data.meta.addon_url data.displayAds data.linkCustomAdOffers"],["vastUrl"],["adReinsertion"],["enabled","testhide"],["adParam"],["adProvider"],["playlist.movie.advertising.ad_server"],["ad_pods.0.ads.0.segments.0.media ad_pods.1.ads.1.segments.1.media ad_pods.2.ads.2.segments.2.media ad_pods.3.ads.3.segments.3.media ad_pods.4.ads.4.segments.4.media ad_pods.5.ads.5.segments.5.media ad_pods.6.ads.6.segments.6.media ad_pods.7.ads.7.segments.7.media ad_pods.8.ads.8.segments.8.media"],["ads.servers.[].apiAddress"],["*","ad_unit_path"],["clickAnywhere urls"],["meta.advertise"],["data.attributes.config.freewheel data.attributes.config.featureFlags.dPlayer"],["data.attributes.ssaiInfo.forecastTimeline data.attributes.ssaiInfo.vendorAttributes.nonLinearAds data.attributes.ssaiInfo.vendorAttributes.videoView data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adMetadata data.attributes.ssaiInfo.vendorAttributes.breaks.[].ads.[].adParameters data.attributes.ssaiInfo.vendorAttributes.breaks.[].timeOffset"],["movie.advertising.ad_server playlist.movie.advertising.ad_server"],["cuepoints","cuepoints.[].start cuepoints.[].end cuepoints.[].start_float cuepoints.[].end_float"],["testadtags ad"],["ads"],["ssaiInfo fallback.ssaiInfo"],["result.ads"],["stream.insertion.adSession"],["stream.insertion.points"],["stream.insertion"],["stream.sources.*.insertion"],["pods.0.ads"],["*.tanya_video_ads"],["web_share_ads_adsterra_config wap_short_link_middle_page_ad wap_short_link_middle_page_show_time data.ads_cpm_info"],["success.page.spaces.player.widget_wrappers.[].widget.data.intervention_data"],["avails"],["data.reg"],["playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds"],["data.*.elements.edges.[].node.outboundLink"],["data.children.[].data.outbound_link"],["dataLayer.trackingId user.trackingId"],["config.globalInteractions.[].bsData"]];
 
-const hostnamesMap = new Map([["youtube.com",[0,1,2,3,4,5]],["youtubekids.com",[0,1,2,3,4,5]],["youtube-nocookie.com",[0,1,2,3,4,5]],["music.youtube.com",6],["chip.de",7],["focus.de",7],["bild.de",8],["video.gjirafa.com",9],["winfuture.de",10],["popcornflix.com",11],["itv.com",12],["funimation.com",13],["hulu.com",[15,16]],["www.amazon.co.jp",17],["www.amazon.com",17],["crunchyroll.com",18],["crackle.com",19],["vvvvid.it",20],["linkvertise.com",21],["tv2.no",22],["doomovie-hd.com",23],["sonyliv.com",24],["tvn24.pl",25],["art19.com",26],["domoplus.pl",27],["kuchniaplus.pl",27],["miniminiplus.pl",27],["teletoonplus.pl",27],["vlive.tv",29],["go.discovery.com",31],["tvn.pl",32],["10play.com.au",33],["player.stv.tv",34],["fox.com",35],["foxsports.com",35],["play.max.com",36],["sportstiger.com",37],["disneyplus.com",[38,39,40,41,42]],["colearn.id",43],["hotmediahub.com",44],["terabox.fun",44],["hotstar.com",45],["nbc.com",46],["play.history.com",47],["reddit.com",[48,49]],["nypost.com",50],["pagesix.com",50],["stories.los40.com",51]]);
+const hostnamesMap = new Map([["youtube.com",[0,1,2]],["youtubekids.com",[0,1,2]],["youtube-nocookie.com",[0,1,2]],["music.youtube.com",3],["chip.de",4],["focus.de",4],["bild.de",5],["video.gjirafa.com",6],["winfuture.de",7],["popcornflix.com",8],["itv.com",9],["funimation.com",10],["hulu.com",[12,13]],["www.amazon.co.jp",14],["www.amazon.com",14],["crunchyroll.com",15],["crackle.com",16],["vvvvid.it",17],["linkvertise.com",18],["welt.de",19],["plus.rtl.de",20],["tv2.no",21],["doomovie-hd.com",22],["sonyliv.com",23],["tvn24.pl",24],["art19.com",25],["domoplus.pl",26],["kuchniaplus.pl",26],["miniminiplus.pl",26],["teletoonplus.pl",26],["citytv.com",27],["vlive.tv",29],["go.discovery.com",31],["tvn.pl",32],["10play.com.au",33],["player.stv.tv",34],["fox.com",35],["foxsports.com",35],["play.max.com",36],["sportstiger.com",37],["disneyplus.com",[38,39,40,41,42]],["colearn.id",43],["hotmediahub.com",44],["terabox.fun",44],["hotstar.com",45],["nbc.com",46],["play.history.com",47],["eu-proxy.startpage.com",48],["reddit.com",[49,50]],["nypost.com",51],["pagesix.com",51],["stories.los40.com",52]]);
 
-const entitiesMap = new Map([["elixx",14],["shorttey",28],["discoveryplus",[30,31]]]);
+const entitiesMap = new Map([["elixx",11],["shorttey",28],["discoveryplus",[30,31]]]);
 
-const exceptionsMap = new Map([["old.reddit.com",[48,49]]]);
+const exceptionsMap = new Map([["dutyfarm.welt.de",[19]],["old.reddit.com",[49,50]]]);
 
 /******************************************************************************/
 
@@ -60,53 +60,17 @@ function jsonPrune(
     const safe = safeSelf();
     const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
     const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    const logLevel = shouldLog(extraArgs);
-    const fetchPropNeedles = parsePropertiesToMatch(extraArgs.fetchPropsToMatch, 'url');
-    if (
-        fetchPropNeedles.size === 0 ||
-        matchObjectProperties(fetchPropNeedles, { url: 'undefined' })
-    ) {
-        JSON.parse = new Proxy(JSON.parse, {
-            apply: function(target, thisArg, args) {
-                const objBefore = Reflect.apply(target, thisArg, args);
-                const objAfter = objectPrune(
-                    objBefore,
-                    rawPrunePaths,
-                    rawNeedlePaths,
-                    stackNeedleDetails,
-                    extraArgs
-               );
-               return objAfter || objBefore;
-            },
-        });
-    }
-    Response.prototype.json = new Proxy(Response.prototype.json, {
+    JSON.parse = new Proxy(JSON.parse, {
         apply: function(target, thisArg, args) {
-            const dataPromise = Reflect.apply(target, thisArg, args);
-            let outcome = 'match';
-            if ( fetchPropNeedles.size !== 0 ) {
-                if ( matchObjectProperties(fetchPropNeedles, thisArg) === false ) {
-                    outcome = 'nomatch';
-                }
-            }
-            if ( outcome === logLevel || logLevel === 'all' ) {
-                safe.uboLog(
-                    `json-prune / Response.json() (${outcome})`,
-                    `\n\tfetchPropsToMatch: ${JSON.stringify(Array.from(fetchPropNeedles)).slice(1,-1)}`,
-                    '\n\tprops:', thisArg,
-                );
-            }
-            if ( outcome === 'nomatch' ) { return dataPromise; }
-            return dataPromise.then(objBefore => {
-                const objAfter = objectPrune(
-                    objBefore,
-                    rawPrunePaths,
-                    rawNeedlePaths,
-                    stackNeedleDetails,
-                    extraArgs
-                );
-               return objAfter || objBefore;
-            });
+            const objBefore = Reflect.apply(target, thisArg, args);
+            const objAfter = objectPrune(
+                objBefore,
+                rawPrunePaths,
+                rawNeedlePaths,
+                stackNeedleDetails,
+                extraArgs
+           );
+           return objAfter || objBefore;
         },
     });
 }
@@ -258,12 +222,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -476,8 +442,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

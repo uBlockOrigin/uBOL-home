@@ -44,7 +44,7 @@ const scriptletGlobals = new Map(); // jshint ignore: line
 
 const argsList = [["jscd","{}"],["document.URL","undefined"],["document.referrer","undefined"],["chromeOS","true"],["ShowPopUp","false"],["openTelegram","noopFunc"],["blurred","false"],["time1","0"],["time30","0"],["KetabrahPopup","noopFunc"],["customnotify","noopFunc"],["window.screen.width","0"],["window.screen.height","0"],["navigator.appVersion",""],["navigator.userAgent",""],["navigator.appName",""],["needpop","0"],["count","0"],["socketUrl","undefined"],["VASTEnabled","false"],["vastURL","[]"],["disable_copy","noopFunc"],["disable_drag_text","noopFunc"],["disable_hot_keys","noopFunc"],["disable_drag_images","noopFunc"],["dealWithPrintScrKey","noopFunc"],["_paq","[]"],["_paq.push","noopFunc"]];
 
-const hostnamesMap = new Map([["anaj.ir",[0,1,2]],["salamatnews.com",[0,1,2]],["ac.ir",3],["androidgozar.com",4],["binanews.ir",5],["1da.ir",6],["1ea.ir",6],["2ad.ir",6],["fontyab.com",[7,8]],["ketabesabz.com",9],["lahzeakhar.com",10],["my.mci.ir",[11,12,13,14,15]],["pwa.mci.ir",[11,12,13,14,15]],["msbmusic.ir",16],["myhastidl.cam",16],["netgasht.com",16],["subf2m.ir",16],["opizo.me",17],["xip.li",17],["tamasha.com",[18,19,20]],["takmili.com",[21,22,23,24,25]],["takhfifan.com",[26,27]]]);
+const hostnamesMap = new Map([["anaj.ir",[0,1,2]],["salamatnews.com",[0,1,2]],["ac.ir",3],["androidgozar.com",4],["binanews.ir",5],["1da.ir",6],["1ea.ir",6],["2ad.ir",6],["fontyab.com",[7,8]],["ketabesabz.com",9],["lahzeakhar.com",10],["my.mci.ir",[11,12,13,14,15]],["pwa.mci.ir",[11,12,13,14,15]],["msbmusic.ir",16],["myhastidl.cam",16],["netgasht.com",16],["opizo.me",17],["xip.li",17],["tamasha.com",[18,19,20]],["takmili.com",[21,22,23,24,25]],["takhfifan.com",[26,27]]]);
 
 const entitiesMap = new Map([]);
 
@@ -60,25 +60,12 @@ function setConstant(
 
 function setConstantCore(
     trusted = false,
-    arg1 = '',
-    arg2 = '',
-    arg3 = ''
+    chain = '',
+    cValue = ''
 ) {
-    const details = typeof arg1 !== 'object'
-        ? { prop: arg1, value: arg2 }
-        : arg1;
-    if ( arg3 !== '' ) {
-        if ( /^\d$/.test(arg3) ) {
-            details.options = [ arg3 ];
-        } else {
-            details.options = Array.from(arguments).slice(3);
-        }
-    }
-    const { prop: chain = '', value: cValue = '' } = details;
-    if ( typeof chain !== 'string' ) { return; }
     if ( chain === '' ) { return; }
-    const options = details.options || [];
     const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
     function setConstant(chain, cValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -144,14 +131,16 @@ function setConstantCore(
         } else {
             return;
         }
-        if ( options.includes('asFunction') ) {
-            cValue = ( ) => cValue;
-        } else if ( options.includes('asCallback') ) {
-            cValue = ( ) => (( ) => cValue);
-        } else if ( options.includes('asResolved') ) {
-            cValue = Promise.resolve(cValue);
-        } else if ( options.includes('asRejected') ) {
-            cValue = Promise.reject(cValue);
+        if ( extraArgs.as !== undefined ) {
+            if ( extraArgs.as === 'function' ) {
+                cValue = ( ) => cValue;
+            } else if ( extraArgs.as === 'callback' ) {
+                cValue = ( ) => (( ) => cValue);
+            } else if ( extraArgs.as === 'resolved' ) {
+                cValue = Promise.resolve(cValue);
+            } else if ( extraArgs.as === 'rejected' ) {
+                cValue = Promise.reject(cValue);
+            }
         }
         let aborted = false;
         const mustAbort = function(v) {
@@ -247,7 +236,7 @@ function setConstantCore(
     }
     runAt(( ) => {
         setConstant(chain, cValue);
-    }, options);
+    }, extraArgs.runAt);
 }
 
 function runAt(fn, when) {
@@ -283,12 +272,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -438,8 +429,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

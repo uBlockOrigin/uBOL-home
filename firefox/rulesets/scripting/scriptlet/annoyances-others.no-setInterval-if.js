@@ -42,9 +42,9 @@ const uBOL_noSetIntervalIf = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["scrollTo"],["nocopy"],["/\\.css\\(\\'user-select\\'\\)/"]];
+const argsList = [["debugger;"],["scrollTo"],["nocopy"],["/\\.css\\(\\'user-select\\'\\)/"]];
 
-const hostnamesMap = new Map([["imgqec.online",0],["imgwbfh.online",0],["imgyer.store",0],["imgxuh.cfd",0],["imgngc.sbs",0],["imgezx.sbs",0],["imgxza.store",0],["imgwqr.online",0],["instiz.net",1],["novelpia.com",2]]);
+const hostnamesMap = new Map([["nicekkk.com",0],["imgqec.online",1],["imgwbfh.online",1],["imgyer.store",1],["imgxuh.cfd",1],["imgngc.sbs",1],["imgezx.sbs",1],["imgxza.store",1],["imgwqr.online",1],["instiz.net",2],["novelpia.com",3]]);
 
 const entitiesMap = new Map([]);
 
@@ -104,12 +104,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -259,8 +261,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

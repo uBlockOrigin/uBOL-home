@@ -42,9 +42,9 @@ const uBOL_spoofCSS = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["iframe.a","opacity","1","pointer-events","auto"],["#topbox","display","block","height","286px","visibility","visible"],["#afterbox","display","block","height","255px","visibility","visible"],["ins.adsbygoogle iframe","display","block","height","284px"],["[class^=\"caca-\"], .sssh, .ssh, .sh, .show, h1[class$=\"text-center fs28\"] + p + p[class], ins.adsbygoogle, #beforebox","visibility","visible"],["div[id^=\"showtheadsfatf_\"], div[id^=\"imgyad\"], .showtheadsfatf, a[href=\"https://searchenginereports.net/gmadads\"]","display","block"]];
+const argsList = [["iframe.a","opacity","1","pointer-events","auto"],["div[id^=\"showtheadsfatf_\"], div[id^=\"imgyad\"], .showtheadsfatf, a[href=\"https://searchenginereports.net/gmadads\"]","display","block"]];
 
-const hostnamesMap = new Map([["ylilauta.org",0],["plagiarismchecker.co",[1,2,3,4]],["searchenginereports.net",5]]);
+const hostnamesMap = new Map([["ylilauta.org",0],["searchenginereports.net",1]]);
 
 const entitiesMap = new Map([]);
 
@@ -146,12 +146,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -301,8 +303,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

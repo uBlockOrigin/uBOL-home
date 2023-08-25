@@ -15,19 +15,9 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "regexFilter": "banners.*\\/go\\/page"
-  },
-  "id": 2124
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
    "regexFilter": "(https?:\\/\\/)104\\.154\\..{100,}"
   },
-  "id": 4378
+  "id": 4095
  },
  {
   "action": {
@@ -37,7 +27,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "(https?:\\/\\/)104\\.197\\..{100,}"
   },
-  "id": 4379
+  "id": 4096
  },
  {
   "action": {
@@ -47,7 +37,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "(https?:\\/\\/)104\\.198\\..{100,}"
   },
-  "id": 4380
+  "id": 4097
  },
  {
   "action": {
@@ -57,7 +47,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "(https?:\\/\\/)130\\.211\\..{100,}"
   },
-  "id": 4381
+  "id": 4098
  },
  {
   "action": {
@@ -67,7 +57,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "(https?:\\/\\/)142\\.91\\.159\\..{100,}"
   },
-  "id": 4382
+  "id": 4099
  },
  {
   "action": {
@@ -77,7 +67,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "(https?:\\/\\/)213\\.32\\.115\\..{100,}"
   },
-  "id": 4383
+  "id": 4100
  },
  {
   "action": {
@@ -87,7 +77,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "(https?:\\/\\/)216\\.21\\..{100,}"
   },
-  "id": 4384
+  "id": 4101
  },
  {
   "action": {
@@ -97,7 +87,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "(https?:\\/\\/)217\\.182\\.11\\..{100,}"
   },
-  "id": 4385
+  "id": 4102
  },
  {
   "action": {
@@ -107,7 +97,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "(https?:\\/\\/)51\\.195\\.31\\..{100,}"
   },
-  "id": 4386
+  "id": 4103
  },
  {
   "action": {
@@ -139,7 +129,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/.*bit(ly)?\\.(com|ly)\\/"
   },
-  "id": 5133
+  "id": 4861
  },
  {
   "action": {
@@ -181,7 +171,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/.*\\.(club|news|live|online|store|tech|guru|cloud|bid|xyz|site|pro|info|online|icu|monster|buzz|fun|website|photos|re|casa|top|today|space|network|live|work|systems|ml|world|life)\\/.*"
   },
-  "id": 5548
+  "id": 5280
  },
  {
   "action": {
@@ -194,7 +184,23 @@
     "image"
    ]
   },
-  "id": 12374
+  "id": 12118
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "torrentgalaxy.to"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "^https:\\/\\/img\\.wonkychickens\\.org\\/data\\/cover\\/imdb\\/[\\/A-Za-z0-9]+_",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12185
  },
  {
   "action": {
@@ -210,7 +216,7 @@
     "image"
    ]
   },
-  "id": 12455
+  "id": 12201
  },
  {
   "action": {
@@ -226,7 +232,7 @@
     "image"
    ]
   },
-  "id": 12456
+  "id": 12202
  },
  {
   "action": {
@@ -242,7 +248,7 @@
     "image"
    ]
   },
-  "id": 12457
+  "id": 12203
  },
  {
   "action": {
@@ -258,7 +264,7 @@
     "image"
    ]
   },
-  "id": 12458
+  "id": 12204
  },
  {
   "action": {
@@ -274,7 +280,7 @@
     "image"
    ]
   },
-  "id": 12459
+  "id": 12205
  },
  {
   "action": {
@@ -290,7 +296,7 @@
     "image"
    ]
   },
-  "id": 12460
+  "id": 12206
  },
  {
   "action": {
@@ -306,7 +312,7 @@
     "image"
    ]
   },
-  "id": 12461
+  "id": 12207
  },
  {
   "action": {
@@ -322,7 +328,7 @@
     "image"
    ]
   },
-  "id": 12462
+  "id": 12208
  },
  {
   "action": {
@@ -338,7 +344,7 @@
     "image"
    ]
   },
-  "id": 12463
+  "id": 12209
  },
  {
   "action": {
@@ -375,7 +381,7 @@
     "image"
    ]
   },
-  "id": 12464
+  "id": 12210
  },
  {
   "action": {
@@ -393,6 +399,7 @@
     "in-porn.com",
     "inporn.com",
     "javdaddy.com",
+    "manysex.com",
     "mrgay.tube",
     "porn555.com",
     "pornclassic.tube",
@@ -424,7 +431,7 @@
     "script"
    ]
   },
-  "id": 12670
+  "id": 12416
  },
  {
   "action": {
@@ -437,7 +444,7 @@
     "script"
    ]
   },
-  "id": 12723
+  "id": 12468
  },
  {
   "action": {
@@ -446,7 +453,6 @@
   "condition": {
    "initiatorDomains": [
     "1337x.to",
-    "anonfiles.com",
     "cashurl.in",
     "clicknupload.click",
     "cloudvideo.tv",
@@ -501,7 +507,7 @@
     "script"
    ]
   },
-  "id": 12849
+  "id": 12593
  },
  {
   "action": {
@@ -555,7 +561,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 12858
+  "id": 12602
  },
  {
   "action": {
@@ -656,7 +662,7 @@
     "sub_frame"
    ]
   },
-  "id": 12859
+  "id": 12603
  },
  {
   "action": {
@@ -672,7 +678,7 @@
     "script"
    ]
   },
-  "id": 12860
+  "id": 12604
  },
  {
   "action": {
@@ -688,7 +694,7 @@
     "script"
    ]
   },
-  "id": 12909
+  "id": 12653
  },
  {
   "action": {
@@ -704,7 +710,7 @@
     "script"
    ]
   },
-  "id": 12910
+  "id": 12654
  },
  {
   "action": {
@@ -721,7 +727,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 12911
+  "id": 12655
  },
  {
   "action": {
@@ -739,7 +745,7 @@
     "script"
    ]
   },
-  "id": 12912
+  "id": 12656
  },
  {
   "action": {
@@ -755,7 +761,7 @@
     "script"
    ]
   },
-  "id": 12913
+  "id": 12657
  },
  {
   "action": {
@@ -772,7 +778,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 12914
+  "id": 12658
  },
  {
   "action": {
@@ -786,7 +792,7 @@
     "sub_frame"
    ]
   },
-  "id": 13046
+  "id": 12790
  },
  {
   "action": {
@@ -799,7 +805,7 @@
     "sub_frame"
    ]
   },
-  "id": 13052
+  "id": 12796
  },
  {
   "action": {
@@ -812,7 +818,7 @@
     "sub_frame"
    ]
   },
-  "id": 13053
+  "id": 12797
  },
  {
   "action": {
@@ -825,7 +831,7 @@
     "main_frame"
    ]
   },
-  "id": 13109
+  "id": 12854
  },
  {
   "action": {
@@ -838,7 +844,7 @@
     "main_frame"
    ]
   },
-  "id": 13157
+  "id": 12903
  },
  {
   "action": {
@@ -851,7 +857,7 @@
     "main_frame"
    ]
   },
-  "id": 13158
+  "id": 12904
  },
  {
   "action": {
@@ -864,7 +870,7 @@
     "main_frame"
    ]
   },
-  "id": 13186
+  "id": 12932
  },
  {
   "action": {
@@ -882,7 +888,7 @@
     "main_frame"
    ]
   },
-  "id": 13197
+  "id": 12943
  },
  {
   "action": {
@@ -898,7 +904,7 @@
     "main_frame"
    ]
   },
-  "id": 13198
+  "id": 12944
  },
  {
   "action": {
@@ -914,7 +920,7 @@
     "main_frame"
    ]
   },
-  "id": 13199
+  "id": 12945
  },
  {
   "action": {
@@ -930,7 +936,7 @@
     "main_frame"
    ]
   },
-  "id": 13203
+  "id": 12949
  },
  {
   "action": {
@@ -945,7 +951,7 @@
     "main_frame"
    ]
   },
-  "id": 13208
+  "id": 12954
  },
  {
   "action": {
@@ -958,7 +964,7 @@
     "main_frame"
    ]
   },
-  "id": 13219
+  "id": 12965
  },
  {
   "action": {
@@ -974,7 +980,7 @@
     "main_frame"
    ]
   },
-  "id": 13233
+  "id": 12979
  },
  {
   "action": {
@@ -992,7 +998,7 @@
     "main_frame"
    ]
   },
-  "id": 13240
+  "id": 12986
  },
  {
   "action": {
@@ -1010,24 +1016,38 @@
     "main_frame"
    ]
   },
-  "id": 13241
+  "id": 12987
  },
  {
   "action": {
    "type": "block"
   },
   "condition": {
-   "domainType": "firstParty",
    "initiatorDomains": [
-    "69games.xxx"
+    "top"
    ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "\\/n0cvd19n0fun\\/(?:336x768-|dsw\\d|s[a-z]_w3_).*",
+   "regexFilter": "^https:\\/\\/[a-z]{5,7}\\.[0-9a-z]{12}\\.top\\/[0-9a-f]{32}\\/[0-9-a-f]{32}\\/$",
    "resourceTypes": [
-    "image"
+    "main_frame"
    ]
   },
-  "id": 13271
+  "id": 12990
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "com",
+    "top"
+   ],
+   "regexFilter": "\\/[0-9a-f]{32}\\/maq\\/$",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12991
  },
  {
   "action": {
@@ -1044,7 +1064,7 @@
     "image"
    ]
   },
-  "id": 13278
+  "id": 13024
  },
  {
   "action": {
@@ -1061,7 +1081,7 @@
     "image"
    ]
   },
-  "id": 13287
+  "id": 13033
  },
  {
   "action": {
@@ -1078,7 +1098,7 @@
     "image"
    ]
   },
-  "id": 13288
+  "id": 13034
  },
  {
   "action": {
@@ -1095,7 +1115,7 @@
     "image"
    ]
   },
-  "id": 13290
+  "id": 13036
  },
  {
   "action": {
@@ -1108,7 +1128,7 @@
     "script"
    ]
   },
-  "id": 13329
+  "id": 13074
  },
  {
   "action": {
@@ -1128,7 +1148,7 @@
     "script"
    ]
   },
-  "id": 13332
+  "id": 13077
  },
  {
   "action": {
@@ -1145,7 +1165,7 @@
     "script"
    ]
   },
-  "id": 13368
+  "id": 13113
  },
  {
   "action": {
@@ -1162,7 +1182,7 @@
     "script"
    ]
   },
-  "id": 13374
+  "id": 13119
  },
  {
   "action": {
@@ -1179,7 +1199,7 @@
     "script"
    ]
   },
-  "id": 13510
+  "id": 13255
  },
  {
   "action": {
@@ -1196,7 +1216,7 @@
     "script"
    ]
   },
-  "id": 13514
+  "id": 13259
  },
  {
   "action": {
@@ -1213,7 +1233,7 @@
     "script"
    ]
   },
-  "id": 13521
+  "id": 13266
  },
  {
   "action": {
@@ -1232,7 +1252,7 @@
     "script"
    ]
   },
-  "id": 13525
+  "id": 13270
  },
  {
   "action": {
@@ -1249,7 +1269,7 @@
     "script"
    ]
   },
-  "id": 13543
+  "id": 13288
  },
  {
   "action": {
@@ -1266,7 +1286,7 @@
     "script"
    ]
   },
-  "id": 13555
+  "id": 13300
  },
  {
   "action": {
@@ -1280,7 +1300,7 @@
     "script"
    ]
   },
-  "id": 13556
+  "id": 13301
  },
  {
   "action": {
@@ -1294,7 +1314,7 @@
     "script"
    ]
   },
-  "id": 13560
+  "id": 13305
  },
  {
   "action": {
@@ -1311,7 +1331,7 @@
     "script"
    ]
   },
-  "id": 13562
+  "id": 13307
  },
  {
   "action": {
@@ -1328,7 +1348,7 @@
     "script"
    ]
   },
-  "id": 13570
+  "id": 13315
  },
  {
   "action": {
@@ -1345,7 +1365,7 @@
     "script"
    ]
   },
-  "id": 13573
+  "id": 13318
  },
  {
   "action": {
@@ -1359,7 +1379,7 @@
     "script"
    ]
   },
-  "id": 13574
+  "id": 13319
  },
  {
   "action": {
@@ -1373,7 +1393,7 @@
     "script"
    ]
   },
-  "id": 13575
+  "id": 13320
  },
  {
   "action": {
@@ -1387,7 +1407,7 @@
     "script"
    ]
   },
-  "id": 13576
+  "id": 13321
  },
  {
   "action": {
@@ -1401,7 +1421,7 @@
     "script"
    ]
   },
-  "id": 13577
+  "id": 13322
  },
  {
   "action": {
@@ -1415,7 +1435,7 @@
     "script"
    ]
   },
-  "id": 13578
+  "id": 13323
  },
  {
   "action": {
@@ -1429,7 +1449,7 @@
     "script"
    ]
   },
-  "id": 13579
+  "id": 13324
  },
  {
   "action": {
@@ -1443,7 +1463,7 @@
     "script"
    ]
   },
-  "id": 13580
+  "id": 13325
  },
  {
   "action": {
@@ -1461,7 +1481,7 @@
     "script"
    ]
   },
-  "id": 13581
+  "id": 13326
  },
  {
   "action": {
@@ -1477,7 +1497,7 @@
     "script"
    ]
   },
-  "id": 13584
+  "id": 13329
  },
  {
   "action": {
@@ -1491,7 +1511,7 @@
     "script"
    ]
   },
-  "id": 13588
+  "id": 13333
  },
  {
   "action": {
@@ -1525,7 +1545,7 @@
     "script"
    ]
   },
-  "id": 13589
+  "id": 13334
  },
  {
   "action": {
@@ -1533,7 +1553,7 @@
   },
   "condition": {
    "domainType": "firstParty",
-   "regexFilter": "^https:\\/\\/www\\.reddit\\.com\\/svc\\/shreddit\\/[a-z0-9]{8}$",
+   "regexFilter": "^https:\\/\\/www\\.reddit\\.com\\/svc\\/shreddit\\/[0-9a-z]{8,14}$",
    "requestMethods": [
     "post"
    ],
@@ -1541,7 +1561,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 13641
+  "id": 13386
  },
  {
   "action": {
@@ -1561,7 +1581,7 @@
     "sub_frame"
    ]
   },
-  "id": 13652
+  "id": 13397
  },
  {
   "action": {
@@ -1630,7 +1650,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/.*\\.(club|bid|biz|xyz|site|pro|info|online|icu|monster|buzz|website|biz|re|casa|top|one|space|network|live|systems|ml|world|life|co)\\/.*"
   },
-  "id": 13866
+  "id": 13613
  },
  {
   "action": {
@@ -1686,6 +1706,7 @@
     "dood.wf",
     "dood.ws",
     "dood.yt",
+    "doods.pro",
     "dooood.com",
     "dramacool.sr",
     "drivebuzz.icu",
@@ -1847,13 +1868,14 @@
     "watch-free.tv",
     "watchkobe.info",
     "watchserieshd.live",
+    "x2download.com",
     "yesmovies.mn",
     "youtube4kdownloader.com"
    ],
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/[0-9a-z]{5,}\\.com\\/.*"
   },
-  "id": 13867
+  "id": 13614
  },
  {
   "action": {
@@ -1864,7 +1886,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/.*(com|net|top|xyz)\\/(bundle|warning|style|bootstrap|brand|reset|jquery-ui|styles|error|logo|index|favicon|star|header)\\.(png|css)\\?[A-Za-z0-9]{30,}.*"
   },
-  "id": 13868
+  "id": 13615
  },
  {
   "action": {
@@ -1877,7 +1899,7 @@
     "stylesheet"
    ]
   },
-  "id": 14039
+  "id": 13786
  },
  {
   "action": {
@@ -1890,7 +1912,7 @@
     "stylesheet"
    ]
   },
-  "id": 14040
+  "id": 13787
  },
  {
   "action": {
@@ -1903,7 +1925,7 @@
     "image"
    ]
   },
-  "id": 14049
+  "id": 13796
  },
  {
   "action": {
@@ -1916,7 +1938,7 @@
     "image"
    ]
   },
-  "id": 14050
+  "id": 13797
  },
  {
   "action": {
@@ -1929,7 +1951,7 @@
     "image"
    ]
   },
-  "id": 14052
+  "id": 13799
  },
  {
   "action": {
@@ -1942,7 +1964,7 @@
     "image"
    ]
   },
-  "id": 14053
+  "id": 13800
  },
  {
   "action": {
@@ -1955,7 +1977,7 @@
     "image"
    ]
   },
-  "id": 14054
+  "id": 13801
  },
  {
   "action": {
@@ -1968,7 +1990,7 @@
     "image"
    ]
   },
-  "id": 14055
+  "id": 13802
  },
  {
   "action": {
@@ -1981,7 +2003,7 @@
     "image"
    ]
   },
-  "id": 14056
+  "id": 13803
  },
  {
   "action": {
@@ -1995,7 +2017,7 @@
     "script"
    ]
   },
-  "id": 14149
+  "id": 13897
  },
  {
   "action": {
@@ -2010,7 +2032,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14150
+  "id": 13898
  },
  {
   "action": {
@@ -2025,7 +2047,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14151
+  "id": 13899
  },
  {
   "action": {
@@ -2039,7 +2061,7 @@
     "script"
    ]
   },
-  "id": 14152
+  "id": 13900
  },
  {
   "action": {
@@ -2053,7 +2075,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14153
+  "id": 13901
  },
  {
   "action": {
@@ -2067,7 +2089,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14154
+  "id": 13902
  },
  {
   "action": {
@@ -2081,7 +2103,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14155
+  "id": 13903
  },
  {
   "action": {
@@ -2095,7 +2117,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14156
+  "id": 13904
  },
  {
   "action": {
@@ -2109,7 +2131,7 @@
     "script"
    ]
   },
-  "id": 14180
+  "id": 13928
  },
  {
   "action": {
@@ -2123,7 +2145,7 @@
     "script"
    ]
   },
-  "id": 14181
+  "id": 13929
  },
  {
   "action": {
@@ -2132,12 +2154,12 @@
   "condition": {
    "domainType": "thirdParty",
    "isUrlFilterCaseSensitive": false,
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.(?:com|net|xyz)\\/5\\/\\d{6,7}(?:\\?_=\\d+)?$",
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.[a-z]{2,3}\\/5\\/\\d{6,7}(?:\\?_=\\d+)?$",
    "resourceTypes": [
     "script"
    ]
   },
-  "id": 14203
+  "id": 13951
  },
  {
   "action": {
@@ -2151,7 +2173,7 @@
     "script"
    ]
   },
-  "id": 14204
+  "id": 13952
  },
  {
   "action": {
@@ -2165,7 +2187,7 @@
     "script"
    ]
   },
-  "id": 14205
+  "id": 13953
  },
  {
   "action": {
@@ -2179,7 +2201,7 @@
     "script"
    ]
   },
-  "id": 14206
+  "id": 13954
  },
  {
   "action": {
@@ -2196,7 +2218,7 @@
     "script"
    ]
   },
-  "id": 14241
+  "id": 13989
  },
  {
   "action": {
@@ -2210,7 +2232,7 @@
     "script"
    ]
   },
-  "id": 14243
+  "id": 13991
  },
  {
   "action": {
@@ -2227,7 +2249,7 @@
     "script"
    ]
   },
-  "id": 14250
+  "id": 13998
  },
  {
   "action": {
@@ -2241,7 +2263,7 @@
     "script"
    ]
   },
-  "id": 14264
+  "id": 14012
  },
  {
   "action": {
@@ -2258,7 +2280,7 @@
     "script"
    ]
   },
-  "id": 14282
+  "id": 14030
  },
  {
   "action": {
@@ -2271,7 +2293,7 @@
     "script"
    ]
   },
-  "id": 14283
+  "id": 14031
  },
  {
   "action": {
@@ -2284,7 +2306,7 @@
     "script"
    ]
   },
-  "id": 14290
+  "id": 14038
  },
  {
   "action": {
@@ -2297,7 +2319,7 @@
     "script"
    ]
   },
-  "id": 14291
+  "id": 14039
  },
  {
   "action": {
@@ -2310,7 +2332,7 @@
     "script"
    ]
   },
-  "id": 14292
+  "id": 14040
  },
  {
   "action": {
@@ -2324,7 +2346,7 @@
     "script"
    ]
   },
-  "id": 14293
+  "id": 14041
  },
  {
   "action": {
@@ -2338,7 +2360,7 @@
     "script"
    ]
   },
-  "id": 14294
+  "id": 14042
  },
  {
   "action": {
@@ -2346,13 +2368,13 @@
   },
   "condition": {
    "domainType": "thirdParty",
-   "regexFilter": "^https:\\/\\/[a-z]{3,5}\\.[a-z]{10,14}\\.top\\/[a-z]{10,16}\\/[a-z]{5,6}$",
+   "regexFilter": "^https:\\/\\/[a-z]{3,5}\\.[a-z]{10,14}\\.top\\/[a-z]{10,16}\\/[a-z]{5,6}(?:\\?d=0)?$",
    "resourceTypes": [
     "script",
     "xmlhttprequest"
    ]
   },
-  "id": 14306
+  "id": 14054
  },
  {
   "action": {
@@ -2365,7 +2387,7 @@
     "script"
    ]
   },
-  "id": 14327
+  "id": 14077
  },
  {
   "action": {
@@ -2379,7 +2401,7 @@
     "script"
    ]
   },
-  "id": 14333
+  "id": 14083
  },
  {
   "action": {
@@ -2397,7 +2419,21 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14336
+  "id": 14086
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "\\/[0-9a-f]{32}\\/invoke\\.js",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14088
  },
  {
   "action": {
@@ -2417,7 +2453,7 @@
     "script"
    ]
   },
-  "id": 14338
+  "id": 14089
  },
  {
   "action": {
@@ -2445,7 +2481,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14339
+  "id": 14090
  },
  {
   "action": {
@@ -2459,7 +2495,7 @@
     "script"
    ]
   },
-  "id": 14340
+  "id": 14091
  },
  {
   "action": {
@@ -2482,7 +2518,7 @@
     "script"
    ]
   },
-  "id": 14346
+  "id": 14097
  },
  {
   "action": {
@@ -2496,7 +2532,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14363
+  "id": 14114
  },
  {
   "action": {
@@ -2510,7 +2546,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14364
+  "id": 14115
  },
  {
   "action": {
@@ -2523,7 +2559,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14365
+  "id": 14116
  },
  {
   "action": {
@@ -2536,7 +2572,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14366
+  "id": 14117
  },
  {
   "action": {
@@ -2550,7 +2586,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14369
+  "id": 14120
  },
  {
   "action": {
@@ -2587,7 +2623,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14383
+  "id": 14135
  },
  {
   "action": {
@@ -2600,7 +2636,7 @@
     "sub_frame"
    ]
   },
-  "id": 14394
+  "id": 14146
  },
  {
   "action": {
@@ -2613,7 +2649,7 @@
     "sub_frame"
    ]
   },
-  "id": 14395
+  "id": 14147
  },
  {
   "action": {
@@ -2627,7 +2663,7 @@
     "sub_frame"
    ]
   },
-  "id": 14397
+  "id": 14149
  },
  {
   "action": {
@@ -2641,7 +2677,7 @@
     "sub_frame"
    ]
   },
-  "id": 14402
+  "id": 14154
  },
  {
   "action": {
@@ -2654,7 +2690,7 @@
     "sub_frame"
    ]
   },
-  "id": 14403
+  "id": 14155
  },
  {
   "action": {
@@ -2667,7 +2703,7 @@
     "sub_frame"
    ]
   },
-  "id": 14404
+  "id": 14156
  },
  {
   "action": {
@@ -2680,7 +2716,7 @@
     "sub_frame"
    ]
   },
-  "id": 14405
+  "id": 14157
  },
  {
   "action": {
@@ -2693,7 +2729,7 @@
     "sub_frame"
    ]
   },
-  "id": 14406
+  "id": 14158
  },
  {
   "action": {
@@ -2706,6 +2742,6 @@
     "sub_frame"
    ]
   },
-  "id": 14407
+  "id": 14159
  }
 ]

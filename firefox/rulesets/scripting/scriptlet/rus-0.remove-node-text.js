@@ -44,7 +44,7 @@ const scriptletGlobals = new Map(); // jshint ignore: line
 
 const argsList = [["script","AdBlocker"],["script","hidemy.name"],["style","/body[\\s]{1}{[\\s][\\t][\\t]*background-color:|body{background-color:/"],["script","\"Shadow"]];
 
-const hostnamesMap = new Map([["sports.ru",0],["2ip.ua",1],["root-nation.com",2],["avtovod.com.ua",3],["bigmir.net",3],["buhgalter.com.ua",3],["buhgalter911.com",3],["censor.net",3],["dengi.ua",3],["ditey.com",3],["epravda.com.ua",3],["eurointegration.com.ua",3],["facenews.ua",3],["gazeta.ua",3],["gismeteo.ua",3],["gorod.dp.ua",3],["hvylya.net",3],["i.ua",3],["inforesist.org",3],["isport.ua",3],["ivona.ua",3],["kolobok.ua",3],["kriminal.tv",3],["meteo.ua",3],["meteofor.com.ua",3],["nnovosti.info",3],["nv.ua",3],["panno4ka.net",3],["pogodaua.com",3],["pravda.com.ua",3],["real-vin.com",3],["smak.ua",3],["stravy.net",3],["tochka.net",3],["tv.ua",3],["viva.ua",3],["vsetv.com",3],["www.ukr.net",3]]);
+const hostnamesMap = new Map([["sports.ru",0],["2ip.ua",1],["root-nation.com",2],["avtovod.com.ua",3],["bigmir.net",3],["buhgalter.com.ua",3],["buhgalter911.com",3],["censor.net",3],["dengi.ua",3],["ditey.com",3],["epravda.com.ua",3],["eurointegration.com.ua",3],["facenews.ua",3],["gazeta.ua",3],["gorod.dp.ua",3],["hvylya.net",3],["i.ua",3],["inforesist.org",3],["isport.ua",3],["ivona.ua",3],["kolobok.ua",3],["kriminal.tv",3],["meteo.ua",3],["meteofor.com.ua",3],["nnovosti.info",3],["nv.ua",3],["panno4ka.net",3],["pogodaua.com",3],["pravda.com.ua",3],["real-vin.com",3],["smak.ua",3],["stravy.net",3],["tochka.net",3],["tv.ua",3],["viva.ua",3],["vsetv.com",3],["www.ukr.net",3]]);
 
 const entitiesMap = new Map([]);
 
@@ -168,12 +168,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -323,8 +325,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

@@ -42,9 +42,9 @@ const uBOL_setConstant = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["blockId","0"],["all520dddaaa2022ccc","true"],["canRunAds","true"],["flgDisplay","false"],["adsbygoogle.loaded","true"],["gptScriptLoaded","true"],["alert","noopFunc"],["adblock","false"],["document.write","noopFunc"],["SERVER_SIDE_URL",""],["adPopupStatus","false"],["endInterstitialShow","true"],["geparams.custom.enableYdn",""],["PREMIUM","true"],["geoAvailable","true"],["FIRST_DELAY","0"],["NEXT_DELAY","0"],["sec","0"]];
+const argsList = [["adBlockerDetected","false"],["blockId","0"],["all520dddaaa2022ccc","true"],["canRunAds","true"],["flgDisplay","false"],["adsbygoogle.loaded","true"],["gptScriptLoaded","true"],["alert","noopFunc"],["adblock","false"],["document.write","noopFunc"],["SERVER_SIDE_URL",""],["adPopupStatus","false"],["endInterstitialShow","true"],["geparams.custom.enableYdn",""],["PREMIUM","true"],["geoAvailable","true"],["FIRST_DELAY","0"],["NEXT_DELAY","0"],["sec","0"]];
 
-const hostnamesMap = new Map([["bridalgown.work",0],["contents-group.work",0],["heisei-housewarming.work",0],["liquidfoundation.work",0],["nailcolor.work",0],["studioglass.work",0],["tapestry.work",0],["teaceremony.work",0],["weddinghall.work",0],["520call.me",1],["520cc.cc",1],["dropbooks.net",2],["coolpan.net",3],["g-pc.info",4],["realtime-chart.info",[4,6]],["intaa.net",5],["sekai-kabuka.com",6],["goldencocco.jp",[7,17]],["mottonoutore.jp",[7,17]],["jav380.com",8],["webdevqa.jp.net",9],["sukima.me",[10,11,12,13]],["sonae.sankei.co.jp",14],["ponta.abstractpainting.work",[15,16]],["dotti2.jp",17],["pochitto2.jp",17],["gotouchi.jp",17],["cmnw.jp",17]]);
+const hostnamesMap = new Map([["egotter.com",0],["bridalgown.work",1],["contents-group.work",1],["heisei-housewarming.work",1],["liquidfoundation.work",1],["nailcolor.work",1],["studioglass.work",1],["tapestry.work",1],["teaceremony.work",1],["weddinghall.work",1],["520call.me",2],["520cc.cc",2],["dropbooks.net",3],["coolpan.net",4],["g-pc.info",5],["realtime-chart.info",[5,7]],["intaa.net",6],["sekai-kabuka.com",7],["goldencocco.jp",[8,18]],["mottonoutore.jp",[8,18]],["jav380.com",9],["webdevqa.jp.net",10],["sukima.me",[11,12,13,14]],["sonae.sankei.co.jp",15],["ponta.abstractpainting.work",[16,17]],["dotti2.jp",18],["pochitto2.jp",18],["gotouchi.jp",18],["cmnw.jp",18]]);
 
 const entitiesMap = new Map([]);
 
@@ -60,25 +60,12 @@ function setConstant(
 
 function setConstantCore(
     trusted = false,
-    arg1 = '',
-    arg2 = '',
-    arg3 = ''
+    chain = '',
+    cValue = ''
 ) {
-    const details = typeof arg1 !== 'object'
-        ? { prop: arg1, value: arg2 }
-        : arg1;
-    if ( arg3 !== '' ) {
-        if ( /^\d$/.test(arg3) ) {
-            details.options = [ arg3 ];
-        } else {
-            details.options = Array.from(arguments).slice(3);
-        }
-    }
-    const { prop: chain = '', value: cValue = '' } = details;
-    if ( typeof chain !== 'string' ) { return; }
     if ( chain === '' ) { return; }
-    const options = details.options || [];
     const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
     function setConstant(chain, cValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -144,14 +131,16 @@ function setConstantCore(
         } else {
             return;
         }
-        if ( options.includes('asFunction') ) {
-            cValue = ( ) => cValue;
-        } else if ( options.includes('asCallback') ) {
-            cValue = ( ) => (( ) => cValue);
-        } else if ( options.includes('asResolved') ) {
-            cValue = Promise.resolve(cValue);
-        } else if ( options.includes('asRejected') ) {
-            cValue = Promise.reject(cValue);
+        if ( extraArgs.as !== undefined ) {
+            if ( extraArgs.as === 'function' ) {
+                cValue = ( ) => cValue;
+            } else if ( extraArgs.as === 'callback' ) {
+                cValue = ( ) => (( ) => cValue);
+            } else if ( extraArgs.as === 'resolved' ) {
+                cValue = Promise.resolve(cValue);
+            } else if ( extraArgs.as === 'rejected' ) {
+                cValue = Promise.reject(cValue);
+            }
         }
         let aborted = false;
         const mustAbort = function(v) {
@@ -247,7 +236,7 @@ function setConstantCore(
     }
     runAt(( ) => {
         setConstant(chain, cValue);
-    }, options);
+    }, extraArgs.runAt);
 }
 
 function runAt(fn, when) {
@@ -283,12 +272,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -438,8 +429,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

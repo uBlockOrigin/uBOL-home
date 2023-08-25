@@ -42,9 +42,9 @@ const uBOL_noSetTimeoutIf = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["adblock_tip"],["/\\.height\\(\\) == 0|adsbygoogle/"],["myModal"],["loadErrorTip"],["ins.adsbygoogle"],["_0x"],["adblock"],["发现严重BUG"],["checker"],["/tpc[0-9]?Html/"],["/home/?adblock="],["ad_load_fail"],["ad_num_show"],["killads.offsetHeight === 0"],["adsbygoogle"],["ad_ids"],["checkSiteNormalLoad"],["/ad block stop|warm_msg/"],["getCookie(\""],["location.href","3000"],["/document\\.getElementById[\\s\\S]*?\\.style\\.display\\.indexOf/"]];
+const argsList = [["adblock_tip"],["/\\.height\\(\\) == 0|adsbygoogle/"],["myModal"],["loadErrorTip"],["ins.adsbygoogle"],["_0x"],["adblock"],["发现严重BUG"],["checker"],["/tpc[0-9]?Html/"],["/home/?adblock="],["ad_load_fail"],["ad_num_show"],["adsbygoogle"],["ad_ids"],["checkSiteNormalLoad"],["/ad block stop|warm_msg/"],["getCookie(\""],["location.href","3000"],["/document\\.getElementById[\\s\\S]*?\\.style\\.display\\.indexOf/"]];
 
-const hostnamesMap = new Map([["itdog.cn",0],["xbeibeix.com",1],["520cc.cc",[2,19]],["colamanhua.com",3],["cocomanga.com",[3,16]],["ekamus.info",4],["logi.im",4],["moeci.com",5],["tingfm.com",6],["233tw.com",7],["ruanyifeng.com",8],["t66y.com",9],["tsubasa.im",10],["zhenbuka3.com",11],["zhenbuka2.com",11],["bukaivip.com",11],["league-funny.com",12],["blog.reh.tw",13],["haoweichi.com",14],["zhenbuka.com",15],["ohmanhua.com",16],["onemanhua.com",16],["5278.cc",17],["hboav.com",17],["axutongxue.net",18],["nfmovies.com",20]]);
+const hostnamesMap = new Map([["itdog.cn",0],["xbeibeix.com",1],["520cc.cc",[2,18]],["colamanhua.com",3],["cocomanga.com",[3,15]],["ekamus.info",4],["logi.im",4],["moeci.com",5],["tingfm.com",6],["233tw.com",7],["ruanyifeng.com",8],["t66y.com",9],["tsubasa.im",10],["zhenbuka3.com",11],["zhenbuka2.com",11],["bukaivip.com",11],["league-funny.com",12],["haoweichi.com",13],["zhenbuka.com",14],["ohmanhua.com",15],["onemanhua.com",15],["5278.cc",16],["hboav.com",16],["axutongxue.net",17],["nfmovies.com",19]]);
 
 const entitiesMap = new Map([]);
 
@@ -104,12 +104,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -259,8 +261,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

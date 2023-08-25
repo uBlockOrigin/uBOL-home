@@ -42,13 +42,13 @@ const uBOL_setConstant = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["SbsHtml5PlayerContainer.prototype.renderAdSequence","noopFunc"],["pum_vars","undefined"],["searchDataFactory.rcmdPrdList","{}"],["searchDataFactory.focusPrdList","{}"],["searchDataFactory.powerPrdList","{}"],["searchDataFactory.plusPrdList","{}"],["player.renderAdSequence","undefined"],["bannerpop.popup","noopFunc"],["admode","0"],["player.advertisement_finished","true"],["reple_dori","noopFunc"],["DANAWA_MOBILE_AD_MANAGER","{}"],["getAdcrUrl",""],["random_imglink","noopFunc"],["vrixadsdk","undefined"],["PartnersCoupang","undefined"],["adsBlocked","noopFunc"],["DHAntiAdBlocker","true"],["checkAds","noopFunc"]];
+const argsList = [["$is.powerLink.loadPowerLink","noopFunc"],["SbsHtml5PlayerContainer.prototype.renderAdSequence","noopFunc"],["pum_vars","undefined"],["searchDataFactory.rcmdPrdList","{}"],["searchDataFactory.focusPrdList","{}"],["searchDataFactory.powerPrdList","{}"],["searchDataFactory.plusPrdList","{}"],["player.renderAdSequence","undefined"],["bannerpop.popup","noopFunc"],["admode","0"],["player.advertisement_finished","true"],["reple_dori","noopFunc"],["DANAWA_MOBILE_AD_MANAGER","{}"],["getAdcrUrl",""],["random_imglink","noopFunc"],["vrixadsdk","undefined"],["PartnersCoupang","undefined"],["adsBlocked","noopFunc"],["DHAntiAdBlocker","true"],["checkAds","noopFunc"]];
 
-const hostnamesMap = new Map([["sbs.co.kr",[0,6]],["timecoffee.co.kr",1],["333aaa.site",1],["search.11st.co.kr",[2,3,4,5]],["domin.co.kr",7],["uwayapply.com",8],["tvchosun.com",9],["m.dcinside.com",10],["m.danawa.com",11],["naver.com",12],["koreapas.com",13],["imbc.com",14],["meeco.kr",16],["sogirl.so",17],["tistory.com",18],["sajuplus.net",18]]);
+const hostnamesMap = new Map([["shopping.interpark.com",0],["sbs.co.kr",[1,7]],["timecoffee.co.kr",2],["333aaa.site",2],["search.11st.co.kr",[3,4,5,6]],["domin.co.kr",8],["uwayapply.com",9],["tvchosun.com",10],["m.dcinside.com",11],["m.danawa.com",12],["naver.com",13],["koreapas.com",14],["imbc.com",15],["meeco.kr",17],["sogirl.so",18],["tistory.com",19],["sajuplus.net",19]]);
 
 const entitiesMap = new Map([]);
 
-const exceptionsMap = new Map([["coupang.com",[15]],["coupangcdn.com",[15]]]);
+const exceptionsMap = new Map([["coupang.com",[16]],["coupangcdn.com",[16]]]);
 
 /******************************************************************************/
 
@@ -60,25 +60,12 @@ function setConstant(
 
 function setConstantCore(
     trusted = false,
-    arg1 = '',
-    arg2 = '',
-    arg3 = ''
+    chain = '',
+    cValue = ''
 ) {
-    const details = typeof arg1 !== 'object'
-        ? { prop: arg1, value: arg2 }
-        : arg1;
-    if ( arg3 !== '' ) {
-        if ( /^\d$/.test(arg3) ) {
-            details.options = [ arg3 ];
-        } else {
-            details.options = Array.from(arguments).slice(3);
-        }
-    }
-    const { prop: chain = '', value: cValue = '' } = details;
-    if ( typeof chain !== 'string' ) { return; }
     if ( chain === '' ) { return; }
-    const options = details.options || [];
     const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
     function setConstant(chain, cValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -144,14 +131,16 @@ function setConstantCore(
         } else {
             return;
         }
-        if ( options.includes('asFunction') ) {
-            cValue = ( ) => cValue;
-        } else if ( options.includes('asCallback') ) {
-            cValue = ( ) => (( ) => cValue);
-        } else if ( options.includes('asResolved') ) {
-            cValue = Promise.resolve(cValue);
-        } else if ( options.includes('asRejected') ) {
-            cValue = Promise.reject(cValue);
+        if ( extraArgs.as !== undefined ) {
+            if ( extraArgs.as === 'function' ) {
+                cValue = ( ) => cValue;
+            } else if ( extraArgs.as === 'callback' ) {
+                cValue = ( ) => (( ) => cValue);
+            } else if ( extraArgs.as === 'resolved' ) {
+                cValue = Promise.resolve(cValue);
+            } else if ( extraArgs.as === 'rejected' ) {
+                cValue = Promise.reject(cValue);
+            }
         }
         let aborted = false;
         const mustAbort = function(v) {
@@ -247,7 +236,7 @@ function setConstantCore(
     }
     runAt(( ) => {
         setConstant(chain, cValue);
-    }, options);
+    }, extraArgs.runAt);
 }
 
 function runAt(fn, when) {
@@ -283,12 +272,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -438,8 +429,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

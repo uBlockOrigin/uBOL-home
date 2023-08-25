@@ -46,7 +46,7 @@ const argsList = [["scroll","#sticky-video"],["openFloatingPlayer","FloatingPlay
 
 const hostnamesMap = new Map([["reuters.com",0],["abczdrowie.pl",1],["dobreprogramy.pl",1],["wp.pl",1],["pudelek.pl",1],["pysznosci.pl",1],["www.wp.pl",2],["m.interia.pl",[3,4]],["m.lenta.ru",5],["lenta.ru",6],["vebma.com",7],["pinloker.com",7],["sekilastekno.com",7],["mein-schoener-garten.de",8],["me.fo",9],["dizipal580.com",10],["dizipal581.com",10],["dizipal582.com",10],["dizipal583.com",10],["dizipal584.com",10],["dizipal585.com",10],["dizipal586.com",10],["dizipal587.com",10],["dizipal588.com",10],["dizipal589.com",10],["dizipal590.com",10],["dizipal591.com",10],["dizipal592.com",10],["dizipal593.com",10],["dizipal594.com",10],["dizipal595.com",10],["dizipal596.com",10],["dizipal597.com",10],["dizipal598.com",10],["dizipal599.com",10],["dizipal600.com",10],["dizipal607.com",10],["dizipal608.com",10],["dizipal609.com",10],["dizipal610.com",10],["dizipal611.com",10],["dizipal612.com",10],["dizipal613.com",10],["dizipal614.com",10],["dizipal615.com",10],["dizipal616.com",10],["dizipal617.com",10],["dizipal618.com",10],["dizipal619.com",10],["dizipal620.com",10],["dizipal621.com",10],["dizipal622.com",10],["dizipal623.com",10],["dizipal624.com",10],["dizipal625.com",10],["dizipal626.com",10],["dizipal627.com",10],["dizipal628.com",10],["dizipal629.com",10],["dizipal630.com",10],["dizipal631.com",10],["dizipal632.com",10],["dizipal633.com",10],["dizipal634.com",10],["dizipal635.com",10],["dizipal636.com",10],["dizipal637.com",10],["dizipal638.com",10],["dizipal639.com",10],["dizipal640.com",10],["dizipal641.com",10],["dizipal642.com",10],["dizipal643.com",10],["dizipal644.com",10],["dizipal645.com",10],["dizipal646.com",10],["dizipal647.com",10],["dizipal648.com",10],["dizipal649.com",10],["dizipal650.com",10],["dizipal651.com",10],["dizipal652.com",10],["dizipal653.com",10],["dizipal654.com",10],["dizipal655.com",10],["dizipal656.com",10],["dizipal657.com",10],["dizipal658.com",10],["dizipal659.com",10],["dizipal660.com",10],["dizipal661.com",10],["dizipal662.com",10],["dizipal663.com",10],["dizipal664.com",10],["dizipal665.com",10],["dizipal666.com",10],["dizipal667.com",10],["dizipal668.com",10],["dizipal669.com",10],["dizipal670.com",10],["dizipal671.com",10],["dizipal672.com",10],["dizipal673.com",10],["dizipal674.com",10],["dizipal675.com",10],["dizipal676.com",10],["dizipal677.com",10],["dizipal678.com",10],["dizipal679.com",10],["dizipal680.com",10],["dizipal681.com",10],["dizipal682.com",10],["dizipal683.com",10],["dizipal684.com",10],["dizipal685.com",10],["dizipal686.com",10],["dizipal687.com",10],["dizipal688.com",10],["dizipal689.com",10],["dizipal690.com",10],["dizipal691.com",10],["dizipal692.com",10],["dizipal693.com",10],["dizipal694.com",10],["dizipal695.com",10],["dizipal696.com",10],["dizipal697.com",10],["dizipal698.com",10],["dizipal699.com",10],["dizipal700.com",10],["my.pcloud.com",10],["blisseyhusband.in",10],["kapiert.de",10],["verdragonball.online",10],["fakazaduo.com",11],["gimy.app",11],["ruyashoujo.com",11],["nhk.or.jp",11],["mangabtt.com",11],["careet.net",11],["contents.premium.naver.com",[11,15]],["r114.com",[11,12,16]],["app.kartra.com",11],["box-manga.com",11],["lover91.net",11],["leouve.com.br",11],["novelpia.com",11],["comico.jp",11],["tappytoon.com",11],["toonnbook.nate.com",11],["tapas.io",11],["kakaowebtoon.com",[11,12]],["lapandilladelarejilla.es",11],["lezhinus.com",11],["lezhin.com",11],["grafolio.naver.com",11],["webtoon.kakao.com",11],["page.kakao.com",[11,12]],["hk01.com",13],["economia.uol.com.br",14],["123pan.com",17],["ufchgu.ru",18],["mi-faq.ru",18],["top10mais.org",19],["recantodasletras.com.br",20],["readcomiconline.li",21],["nusantararom.org",21],["estadao.com.br",22],["atribuna.com.br",22],["braziljournal.com",22],["revistapesquisa.fapesp.br",22],["migalhas.com.br",22],["tweaktown.com",23],["opovo.com.br",24],["brasilescola.uol.com.br",24],["forbes.com.br",24],["abril.com.br",24],["noticiasdlb.com",25],["melodelaa.link",26],["read.qidian.com",27],["invado.pl",27],["ogznet.com",28],["solidfile.net",29],["downloadtutorials.net",29],["moboreader.net",30],["leg.br",31],["gamefinity.id",32],["pashplus.jp",33],["digitalfernsehen.de",33],["mundodonghua.com",33],["ukrainianwall.com",34],["osomatsusan.hatenablog.com",35],["kutub3lpdf.com",35],["nullslide.com",35],["ifdreamscametrue.com",36],["cq.ru",37],["reinodekovel.com",37],["babelnovel.com",38],["cafe.daum.net",39],["ohmygirl.ml",39],["emailfake.com",40],["omgkpop.top",41],["software-on.com",42]]);
 
-const entitiesMap = new Map([["streamtape",33],["strcloud",33]]);
+const entitiesMap = new Map([["camcaps",11],["streamtape",33],["strcloud",33]]);
 
 const exceptionsMap = new Map([["1login.wp.pl",[1]],["pilot.wp.pl",[1]]]);
 
@@ -134,12 +134,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -299,8 +301,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

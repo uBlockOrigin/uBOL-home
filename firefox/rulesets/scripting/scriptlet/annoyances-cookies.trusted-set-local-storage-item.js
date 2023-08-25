@@ -42,9 +42,9 @@ const uBOL_trustedSetLocalStorageItem = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["CMPList","$currentDate$"],["cookieConsent","{\"spem\":1}"],["didomi_token","eyJ1c2VyX2lkIjoiIiwiY3JlYXRlZCI6IjIwMjMtMDctMDVUMTY6MTI6MzcuMjA5WiIsInVwZGF0ZWQiOiIyMDIzLTA3LTA1VDE2OjEyOjM3LjIwOVoiLCJ2ZW5kb3JzIjp7ImVuYWJsZWQiOlsidHdpdHRlciIsImdvb2dsZSIsImM6YmF0Y2giLCJjOm5vbmxpIiwiYzp0eXBlZm9ybSJdfSwidmVyc2lvbiI6MiwiYWMiOiIifQ=="]];
+const argsList = [["CMPList","$currentDate$"],["cookieConsent","{\"spem\":1}"],["didomi_token","eyJ1c2VyX2lkIjoiIiwiY3JlYXRlZCI6IjIwMjMtMDctMDVUMTY6MTI6MzcuMjA5WiIsInVwZGF0ZWQiOiIyMDIzLTA3LTA1VDE2OjEyOjM3LjIwOVoiLCJ2ZW5kb3JzIjp7ImVuYWJsZWQiOlsidHdpdHRlciIsImdvb2dsZSIsImM6YmF0Y2giLCJjOm5vbmxpIiwiYzp0eXBlZm9ybSJdfSwidmVyc2lvbiI6MiwiYWMiOiIifQ=="],["cookieSettings","{\"technical\":true,\"bugsnag\":false,\"adjust\":false}"]];
 
-const hostnamesMap = new Map([["express.co.uk",0],["aamulehti.fi",1],["etlehti.fi",1],["gloria.fi",1],["hs.fi",1],["hyvaterveys.fi",1],["is.fi",1],["jamsanseutu.fi",1],["janakkalansanomat.fi",1],["kankaanpaanseutu.fi",1],["kmvlehti.fi",1],["kodinkuvalehti.fi",1],["merikarvialehti.fi",1],["nokianuutiset.fi",1],["rannikkoseutu.fi",1],["satakunnankansa.fi",1],["soppa365.fi",1],["suurkeuruu.fi",1],["sydansatakunta.fi",1],["tyrvaansanomat.fi",1],["valkeakoskensanomat.fi",1],["vauva.fi",1],["rfi.fr",2]]);
+const hostnamesMap = new Map([["express.co.uk",0],["aamulehti.fi",1],["etlehti.fi",1],["gloria.fi",1],["hs.fi",1],["hyvaterveys.fi",1],["is.fi",1],["jamsanseutu.fi",1],["janakkalansanomat.fi",1],["kankaanpaanseutu.fi",1],["kmvlehti.fi",1],["kodinkuvalehti.fi",1],["merikarvialehti.fi",1],["nokianuutiset.fi",1],["rannikkoseutu.fi",1],["satakunnankansa.fi",1],["soppa365.fi",1],["suurkeuruu.fi",1],["sydansatakunta.fi",1],["tyrvaansanomat.fi",1],["valkeakoskensanomat.fi",1],["vauva.fi",1],["rfi.fr",2],["app.solit-kapital.de",3]]);
 
 const entitiesMap = new Map([]);
 
@@ -175,8 +175,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

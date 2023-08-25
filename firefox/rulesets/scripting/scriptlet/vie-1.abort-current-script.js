@@ -42,9 +42,9 @@ const uBOL_abortCurrentScript = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["decodeURIComponent","escape"],["atob","ai_block_class"],["JSON.parse","break;case $."],["document.addEventListener","popunder"],["$","homeModal"],["navigator","devtoolsDetector"],["document.createElement",";break;case"],["setInterval","offsetHeight"],["addEvent","popunder"],["jQuery","click_time"],["document.getElementById","chpadblock"],["$","open"],["document.createElement","script"],["$","PopUnder"],["encodeURIComponent","popunder"],["jQuery","popurl"],["i6H","Math"],["$","urlAdsMbIntro"],["$","youtube-modal"],["document.documentElement","break;case $."],["document.querySelectorAll","popMagic"],["$","window.open"],["eval"],["document.createElement","checkIntersection"],["$","btpop"],["WebAssembly","instantiate"],["document.write","snow"],["setTimeout","window.location"],["jQuery","overlay"]];
+const argsList = [["atob","ai_block_class"],["JSON.parse","break;case $."],["document.addEventListener","popunder"],["$","homeModal"],["navigator","devtoolsDetector"],["document.createElement",";break;case"],["setInterval","offsetHeight"],["addEvent","popunder"],["jQuery","click_time"],["document.getElementById","chpadblock"],["$","open"],["document.createElement","script"],["$","PopUnder"],["encodeURIComponent","popunder"],["jQuery","popurl"],["i6H","Math"],["$","urlAdsMbIntro"],["$","youtube-modal"],["document.documentElement","break;case $."],["document.querySelectorAll","popMagic"],["$","window.open"],["eval"],["jQuery","click_ads"],["document.createElement","checkIntersection"],["$","btpop"],["WebAssembly","instantiate"],["document.write","snow"],["setTimeout","window.location"],["jQuery","overlay"]];
 
-const hostnamesMap = new Map([["anonyviet.com",[0,10]],["azrom.net",1],["downloadsachmienphi.com",2],["dualeotruyenz.com",[3,25]],["gametv.vn",4],["gotphim.com",5],["hh3dhay.com",6],["hh3dhay.xyz",6],["ios.codevn.net",7],["khoaiphim.com",[8,9]],["khohieu.com",10],["linkneverdie.net",[11,12]],["lxmanga.net",13],["nguontv1.com",14],["phimgivn.net",15],["ophimhdvn1.net",15],["mephimnhez.net",15],["phimlau.online",16],["phimmoipro.net",17],["plus.gtv.vn",18],["protruyen.com",19],["animevietsub.moe",19],["rphang.tv",20],["mrcong.com",20],["tinsoikeo.vip",21],["truyen2u.net",22],["truyengihotday.com",23],["truyentuan.com",24],["viet69.vc",25],["ungtycomicsvip.com",25],["vlxx.moe",25],["vungoctuan.vn",26],["xnxx-sex-videos.com",27],["xoilac78.tv",28]]);
+const hostnamesMap = new Map([["azrom.net",0],["downloadsachmienphi.com",1],["dualeotruyenk.com",[2,25]],["gametv.vn",3],["gotphim.com",4],["hh3dhay.com",5],["hh3dhay.xyz",5],["ios.codevn.net",6],["khoaiphim.com",[7,8]],["khohieu.com",9],["linkneverdie.net",[10,11]],["lxmanga.net",12],["nguontv1.com",13],["phimgi1.net",14],["ophimhdvn1.net",14],["mephimnhez.net",14],["phimlau.online",15],["phimmoipro.net",16],["plus.gtv.vn",17],["protruyen.com",18],["animevietsub.moe",18],["rphang.tv",19],["mrcong.com",19],["tinsoikeo.vip",20],["truyen2u.net",21],["truyen35.vn",22],["truyengihotday.net",23],["truyentuan.com",24],["viet69.vc",25],["ungtycomicsvip.com",25],["vlxx.moe",25],["vungoctuan.vn",26],["xnxx-sex-videos.com",27],["xoilac79.tv",28]]);
 
 const entitiesMap = new Map([]);
 
@@ -115,18 +115,24 @@ function abortCurrentScriptCore(
         return text;
     };
     const validate = ( ) => {
-        if ( debug ) { debugger; }  // jshint ignore: line
         const e = document.currentScript;
         if ( e instanceof HTMLScriptElement === false ) { return; }
         if ( e === thisScript ) { return; }
-        if ( context !== '' && reContext.test(e.src) === false ) { return; }
+        if ( context !== '' && reContext.test(e.src) === false ) {
+            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }  // jshint ignore: line
+            return;
+        }
         if ( log && e.src !== '' ) { safe.uboLog(`matched src: ${e.src}`); }
         const scriptText = getScriptText(e);
-        if ( reNeedle.test(scriptText) === false ) { return; }
+        if ( reNeedle.test(scriptText) === false ) {
+            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }  // jshint ignore: line
+            return;
+        }
         if ( log ) { safe.uboLog(`matched script text: ${scriptText}`); }
+        if ( debug === 'match' || debug === 'all' ) { debugger; }  // jshint ignore: line
         throw new ReferenceError(exceptionToken);
     };
-    if ( debug ) { debugger; }  // jshint ignore: line
+    if ( debug === 'install' ) { debugger; }  // jshint ignore: line
     try {
         Object.defineProperty(owner, prop, {
             get: function() {
@@ -179,12 +185,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -344,8 +352,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

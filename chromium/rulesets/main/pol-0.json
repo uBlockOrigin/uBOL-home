@@ -242,8 +242,14 @@
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "halowies.pl",
+    "tygodnik-rolniczy.pl",
+    "wiadomoscihandlowe.pl",
+    "wiadomoscikosmetyczne.pl"
+   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "|http://pix2.services.tvn.pl/pix2.js"
+   "urlFilter": "/templates/site/js/ads.js"
   },
   "id": 21
  },
@@ -253,7 +259,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||5v.pl/ads.php"
+   "urlFilter": "|http://pix2.services.tvn.pl/pix2.js"
   },
   "id": 22
  },
@@ -263,7 +269,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||ad.adview.pl/ad/"
+   "urlFilter": "||5v.pl/ads.php"
   },
   "id": 23
  },
@@ -273,7 +279,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||aff.mediarotate.com/click^"
+   "urlFilter": "||ad.adview.pl/ad/"
   },
   "id": 24
  },
@@ -283,7 +289,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||alemiasto.pl/adds/"
+   "urlFilter": "||aff.mediarotate.com/click^"
   },
   "id": 25
  },
@@ -293,7 +299,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||anime24.pl/includes/jquery/colorbox/jquery.colorbox-min.js"
+   "urlFilter": "||alemiasto.pl/adds/"
   },
   "id": 26
  },
@@ -303,7 +309,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||antyweb.pl/wp-content/themes/antyweb.autentika/aadv/js/aadv.js"
+   "urlFilter": "||anime24.pl/includes/jquery/colorbox/jquery.colorbox-min.js"
   },
   "id": 27
  },
@@ -313,7 +319,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||antyweb.pl/wp-content/themes/antyweb.autentika/horizon/"
+   "urlFilter": "||antyweb.pl/wp-content/themes/antyweb.autentika/aadv/js/aadv.js"
   },
   "id": 28
  },
@@ -323,7 +329,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||aparat.cam/pu/*.js"
+   "urlFilter": "||antyweb.pl/wp-content/themes/antyweb.autentika/horizon/"
   },
   "id": 29
  },
@@ -333,7 +339,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||api-content-generator.gazeta.pl/content-generator/published/frame/generate?frameid="
+   "urlFilter": "||aparat.cam/pu/*.js"
   },
   "id": 30
  },
@@ -343,7 +349,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||bdr.wpcdn.pl/tag/gaftag.html"
+   "urlFilter": "||api-content-generator.gazeta.pl/content-generator/published/frame/generate?frameid="
   },
   "id": 31
  },
@@ -353,7 +359,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cda.pl/player.php"
+   "urlFilter": "||bdr.wpcdn.pl/tag/gaftag.html"
   },
   "id": 32
  },
@@ -363,7 +369,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cdn.gallery/pic/assets/uploads/files/*tlo*.jpg"
+   "urlFilter": "||cda.pl/player.php"
   },
   "id": 33
  },
@@ -373,9 +379,19 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cdn.syndication.twitter.com/widgets/tweetbutton/"
+   "urlFilter": "||cdn.gallery/pic/assets/uploads/files/*tlo*.jpg"
   },
   "id": 34
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||cdn.syndication.twitter.com/widgets/tweetbutton/"
+  },
+  "id": 35
  },
  {
   "action": {
@@ -388,7 +404,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cloudfront.net/"
   },
-  "id": 35
+  "id": 36
  },
  {
   "action": {
@@ -402,7 +418,7 @@
     "ebrokerpartner.pl"
    ]
   },
-  "id": 36
+  "id": 37
  },
  {
   "action": {
@@ -412,7 +428,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||elka.pl/audiovideo/banners/"
   },
-  "id": 37
+  "id": 38
  },
  {
   "action": {
@@ -422,7 +438,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||evertiq.pl/bin/evqnewstop.js"
   },
-  "id": 38
+  "id": 39
  },
  {
   "action": {
@@ -432,7 +448,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||evertiq.pl/bin/evqreadbot.js"
   },
-  "id": 39
+  "id": 40
  },
  {
   "action": {
@@ -442,7 +458,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fechallenge.com/images/*/brand"
   },
-  "id": 40
+  "id": 41
  },
  {
   "action": {
@@ -452,7 +468,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fechallenge.com/images/*/partners"
   },
-  "id": 41
+  "id": 42
  },
  {
   "action": {
@@ -462,7 +478,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||filmweb.pl/*/background.jpg"
   },
-  "id": 42
+  "id": 43
  },
  {
   "action": {
@@ -472,7 +488,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||filmweb.pl/*videoid*player*sas.noad"
   },
-  "id": 43
+  "id": 44
  },
  {
   "action": {
@@ -482,7 +498,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||forms.e-petrol.pl/abc/html/logo/"
   },
-  "id": 44
+  "id": 45
  },
  {
   "action": {
@@ -492,7 +508,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||forum.pasja-informatyki.pl/images/quesflo.png"
   },
-  "id": 45
+  "id": 46
  },
  {
   "action": {
@@ -502,7 +518,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||freeware.info.pl/wiejskie.js"
   },
-  "id": 46
+  "id": 47
  },
  {
   "action": {
@@ -512,7 +528,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gazeta-mlawska.pl/resources/user/*350x600px*.jpg"
   },
-  "id": 47
+  "id": 48
  },
  {
   "action": {
@@ -522,7 +538,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gfx.antyradio.pl/var/antyradio/storage/images/linki-graficzne/"
   },
-  "id": 48
+  "id": 49
  },
  {
   "action": {
@@ -536,7 +552,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||glogow.pl/rek/"
   },
-  "id": 49
+  "id": 50
  },
  {
   "action": {
@@ -550,7 +566,7 @@
     "goprediction.com"
    ]
   },
-  "id": 50
+  "id": 51
  },
  {
   "action": {
@@ -560,7 +576,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gorzowianin.com/data/rotator/"
   },
-  "id": 51
+  "id": 52
  },
  {
   "action": {
@@ -570,7 +586,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gra.pl/screening"
   },
-  "id": 52
+  "id": 53
  },
  {
   "action": {
@@ -580,7 +596,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||haloursynow.pl/img/banery/"
   },
-  "id": 53
+  "id": 54
  },
  {
   "action": {
@@ -590,7 +606,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hotcash.pl/bannery/*.gif"
   },
-  "id": 54
+  "id": 55
  },
  {
   "action": {
@@ -600,7 +616,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hyipforum.pl/uploads/set_resources_2/*.js"
   },
-  "id": 55
+  "id": 56
  },
  {
   "action": {
@@ -610,7 +626,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||inframe.platform.onet.pl/v1/"
   },
-  "id": 56
+  "id": 57
  },
  {
   "action": {
@@ -620,7 +636,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.jaslo4u.pl/static/news/*/*/reklama_tlo/strefapodlog*.gif"
   },
-  "id": 57
+  "id": 58
  },
  {
   "action": {
@@ -633,7 +649,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jastrzebieonline.pl/files/banners/"
   },
-  "id": 58
+  "id": 59
  },
  {
   "action": {
@@ -643,7 +659,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||klikplej.pl/a_d/banner.gif"
   },
-  "id": 59
+  "id": 60
  },
  {
   "action": {
@@ -653,7 +669,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ladnydom.pl/aliasy/ladnydom/adblock_prompt.htm"
   },
-  "id": 60
+  "id": 61
  },
  {
   "action": {
@@ -663,7 +679,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ladnydom.pl/pub/ips/"
   },
-  "id": 61
+  "id": 62
  },
  {
   "action": {
@@ -673,7 +689,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||leszczynscy.nazwa.pl/*/adv/"
   },
-  "id": 62
+  "id": 63
  },
  {
   "action": {
@@ -683,7 +699,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lowcygier.pl/wp-content/uploads/20*/*/background.jpg"
   },
-  "id": 63
+  "id": 64
  },
  {
   "action": {
@@ -693,7 +709,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lubin.pl/wp-content/themes/supernews-provider/adrotate_group.php"
   },
-  "id": 64
+  "id": 65
  },
  {
   "action": {
@@ -703,7 +719,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lubliniec.net/kampania_reklamowa/"
   },
-  "id": 65
+  "id": 66
  },
  {
   "action": {
@@ -713,7 +729,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lubliniec.info/kampania_reklamowa/"
   },
-  "id": 66
+  "id": 67
  },
  {
   "action": {
@@ -723,7 +739,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||marketing.wfirma.pl/display.js"
   },
-  "id": 67
+  "id": 68
  },
  {
   "action": {
@@ -733,7 +749,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mierzyn24.pl/bannery_reklamowe/"
   },
-  "id": 68
+  "id": 69
  },
  {
   "action": {
@@ -743,7 +759,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mojaolesnica.pl/reklamy/"
   },
-  "id": 69
+  "id": 70
  },
  {
   "action": {
@@ -762,7 +778,7 @@
     "moviads.pl"
    ]
   },
-  "id": 70
+  "id": 71
  },
  {
   "action": {
@@ -772,7 +788,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||muratordom.pl/media/desktop/zpr_videos_web/js/video_blocker.js"
   },
-  "id": 71
+  "id": 72
  },
  {
   "action": {
@@ -782,7 +798,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mylead.eu/banner/"
   },
-  "id": 72
+  "id": 73
  },
  {
   "action": {
@@ -795,7 +811,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nadmorski24.pl/dynamicad"
   },
-  "id": 73
+  "id": 74
  },
  {
   "action": {
@@ -805,7 +821,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||napisy24.pl/images/bg-allplayer-*.png"
   },
-  "id": 74
+  "id": 75
  },
  {
   "action": {
@@ -815,7 +831,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||napisy24.pl/run/js/all_corners.js"
   },
-  "id": 75
+  "id": 76
  },
  {
   "action": {
@@ -825,7 +841,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||naszarola.pl/wp-content/uploads/201*/*/*1200x200*.jpg"
   },
-  "id": 76
+  "id": 77
  },
  {
   "action": {
@@ -835,7 +851,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||naszarola.pl/wp-content/uploads/201*/*/reklam*.jpg"
   },
-  "id": 77
+  "id": 78
  },
  {
   "action": {
@@ -845,7 +861,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||naszarola.pl/wp-content/uploads/201*/*/baner*.jpg"
   },
-  "id": 78
+  "id": 79
  },
  {
   "action": {
@@ -855,7 +871,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||naszarola.pl/wp-content/uploads/201*/*/*-baner-1200na250.jpg"
   },
-  "id": 79
+  "id": 80
  },
  {
   "action": {
@@ -865,7 +881,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ototorun.pl/adserver/"
   },
-  "id": 80
+  "id": 81
  },
  {
   "action": {
@@ -875,7 +891,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pan-doradca.pl/index/noaidb/"
   },
-  "id": 81
+  "id": 82
  },
  {
   "action": {
@@ -885,7 +901,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||partner.rankomat.pl/tracking/"
   },
-  "id": 82
+  "id": 83
  },
  {
   "action": {
@@ -895,7 +911,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pclab.pl/img/special/*.jpg"
   },
-  "id": 83
+  "id": 84
  },
  {
   "action": {
@@ -905,7 +921,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||picsrv.fora.pl/cdn/tri*trizer"
   },
-  "id": 84
+  "id": 85
  },
  {
   "action": {
@@ -919,7 +935,7 @@
     "placehold.it"
    ]
   },
-  "id": 85
+  "id": 86
  },
  {
   "action": {
@@ -929,7 +945,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pogodynka.onet.pl/apiinfos/htmlwarn/"
   },
-  "id": 86
+  "id": 87
  },
  {
   "action": {
@@ -939,7 +955,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||portalmorski.pl/images/banners/"
   },
-  "id": 87
+  "id": 88
  },
  {
   "action": {
@@ -949,7 +965,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||portalplock.pl/banery/"
   },
-  "id": 88
+  "id": 89
  },
  {
   "action": {
@@ -963,7 +979,7 @@
     "pp.funhub.pl"
    ]
   },
-  "id": 89
+  "id": 90
  },
  {
   "action": {
@@ -973,7 +989,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||prv.pl/prv_billboard"
   },
-  "id": 90
+  "id": 91
  },
  {
   "action": {
@@ -983,7 +999,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pttk.pl/grafika/liniag.gif"
   },
-  "id": 91
+  "id": 92
  },
  {
   "action": {
@@ -1000,7 +1016,7 @@
     "quantcast.mgr.consensu.org"
    ]
   },
-  "id": 92
+  "id": 93
  },
  {
   "action": {
@@ -1013,7 +1029,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||redir.atmcdn.pl*swf"
   },
-  "id": 93
+  "id": 94
  },
  {
   "action": {
@@ -1026,7 +1042,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||repostuj.pl/static/repostujpl/arrow_right.jpg"
   },
-  "id": 94
+  "id": 95
  },
  {
   "action": {
@@ -1036,7 +1052,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sadeczanin.info/sites/default/files/wsb_0.png"
   },
-  "id": 95
+  "id": 96
  },
  {
   "action": {
@@ -1046,7 +1062,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||satkurier.pl/getrandombanner"
   },
-  "id": 96
+  "id": 97
  },
  {
   "action": {
@@ -1056,7 +1072,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||satkurier.pl/laravel/banery/"
   },
-  "id": 97
+  "id": 98
  },
  {
   "action": {
@@ -1069,7 +1085,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||socialpress.pl/wp-content/uploads/*reklama.png"
   },
-  "id": 98
+  "id": 99
  },
  {
   "action": {
@@ -1079,7 +1095,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||spottedskarzysko.pl/images/data/*/uninet-maj2.gif"
   },
-  "id": 99
+  "id": 100
  },
  {
   "action": {
@@ -1089,7 +1105,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stalowemiasto.pl/colada2/"
   },
-  "id": 100
+  "id": 101
  },
  {
   "action": {
@@ -1099,7 +1115,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static*.jelonka.com^"
   },
-  "id": 101
+  "id": 102
  },
  {
   "action": {
@@ -1112,7 +1128,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.biedronka.pl/*/background/"
   },
-  "id": 102
+  "id": 103
  },
  {
   "action": {
@@ -1125,7 +1141,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.gazeta.pl/static/video/playerjs/deploy/app/*/misc/uponit-*.min.jsgz"
   },
-  "id": 103
+  "id": 104
  },
  {
   "action": {
@@ -1135,7 +1151,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.wizaz.pl/dynamic/shopping/shopping-kwc.html"
   },
-  "id": 104
+  "id": 105
  },
  {
   "action": {
@@ -1145,7 +1161,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.sat-charts.eu/banerdvbt.gif"
   },
-  "id": 105
+  "id": 106
  },
  {
   "action": {
@@ -1155,7 +1171,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||szubin24.pl/photos/adv_"
   },
-  "id": 106
+  "id": 107
  },
  {
   "action": {
@@ -1165,7 +1181,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||r.trojmiasto.pl/*/json.php?zoneid="
   },
-  "id": 107
+  "id": 108
  },
  {
   "action": {
@@ -1175,7 +1191,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||trybunaczestochowska.pl/wp-content/plugins/popup-maker/assets/js/site.min.js"
   },
-  "id": 108
+  "id": 109
  },
  {
   "action": {
@@ -1185,7 +1201,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tugazeta.pl/reklamy_new/"
   },
-  "id": 109
+  "id": 110
  },
  {
   "action": {
@@ -1195,7 +1211,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||turek.net.pl/js/magnific/jquery.magnific-popup.min.js"
   },
-  "id": 110
+  "id": 111
  },
  {
   "action": {
@@ -1205,7 +1221,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||urbanone-widget.pl/widget/"
   },
-  "id": 111
+  "id": 112
  },
  {
   "action": {
@@ -1215,7 +1231,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wbj.pl/adv/"
   },
-  "id": 112
+  "id": 113
  },
  {
   "action": {
@@ -1225,7 +1241,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||web-rynek.pl/baners/"
   },
-  "id": 113
+  "id": 114
  },
  {
   "action": {
@@ -1235,7 +1251,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||webstat.pl/js.php"
   },
-  "id": 114
+  "id": 115
  },
  {
   "action": {
@@ -1249,7 +1265,7 @@
     "www.adfreestyle.pl"
    ]
   },
-  "id": 115
+  "id": 116
  },
  {
   "action": {
@@ -1259,7 +1275,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.audiostereo.pl/banery/"
   },
-  "id": 116
+  "id": 117
  },
  {
   "action": {
@@ -1269,7 +1285,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.koscian.net/photos/adv_"
   },
-  "id": 117
+  "id": 118
  },
  {
   "action": {
@@ -1279,7 +1295,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.one-solution.pl/images/banner.png"
   },
-  "id": 118
+  "id": 119
  },
  {
   "action": {
@@ -1289,7 +1305,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.poloniainfo.se/obrazki/skin/reklama1*.gif"
   },
-  "id": 119
+  "id": 120
  },
  {
   "action": {
@@ -1299,7 +1315,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.portalmorski.pl/modules/mod_ijoomla_adagency_zone/"
   },
-  "id": 120
+  "id": 121
  },
  {
   "action": {
@@ -1309,7 +1325,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.portalprzemyski.pl/wp-content/re/"
   },
-  "id": 121
+  "id": 122
  },
  {
   "action": {
@@ -1319,7 +1335,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zaufanatrzeciastrona.pl/aruba.gif"
   },
-  "id": 122
+  "id": 123
  },
  {
   "action": {
@@ -1329,7 +1345,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zaufanatrzeciastrona.pl/wp-content/uploads/*/desktop_ta_la_*_0*.jpg"
   },
-  "id": 123
+  "id": 124
  },
  {
   "action": {
@@ -1339,7 +1355,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zaufanatrzeciastrona.pl/wp-content/uploads/*/q2s.gif"
   },
-  "id": 124
+  "id": 125
  },
  {
   "action": {
@@ -1349,7 +1365,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zaufanatrzeciastrona.pl/wp-content/uploads/2017/03/a.jpg"
   },
-  "id": 125
+  "id": 126
  },
  {
   "action": {
@@ -1359,7 +1375,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zaufanatrzeciastrona.pl/wp-content/uploads/2017/03/b.jpg"
   },
-  "id": 126
+  "id": 127
  },
  {
   "action": {
@@ -1369,7 +1385,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zaufanatrzeciastrona.pl/wp-content/uploads/2017/03/c.jpg"
   },
-  "id": 127
+  "id": 128
  },
  {
   "action": {
@@ -1379,7 +1395,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zaufanatrzeciastrona.pl/wp-content/uploads/2017/03/d.jpg"
   },
-  "id": 128
+  "id": 129
  },
  {
   "action": {
@@ -1389,7 +1405,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zaufanatrzeciastrona.pl/wp-content/uploads/2017/03/e.gif"
   },
-  "id": 129
+  "id": 130
  },
  {
   "action": {
@@ -1399,7 +1415,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zaufanatrzeciastrona.pl/wp-content/uploads/2017/10/aruba2.jpg"
   },
-  "id": 130
+  "id": 131
  },
  {
   "action": {
@@ -1409,7 +1425,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zaufanatrzeciastrona.pl/wp-content/uploads/2018/04/exatel.jpg"
   },
-  "id": 131
+  "id": 132
  },
  {
   "action": {
@@ -1419,7 +1435,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zulawyimierzeja24.pl/assets/js/jwplayer/jwplayer.html5.js"
   },
-  "id": 132
+  "id": 133
  },
  {
   "action": {
@@ -1429,7 +1445,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zw.pl/ads/"
   },
-  "id": 133
+  "id": 134
  },
  {
   "action": {
@@ -1443,7 +1459,7 @@
     "betegy.com"
    ]
   },
-  "id": 134
+  "id": 135
  },
  {
   "action": {
@@ -1453,7 +1469,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||extragoals.com/media/js/videojs.xyz.js"
   },
-  "id": 135
+  "id": 136
  },
  {
   "action": {
@@ -1463,7 +1479,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||extragoals.com/media/js/videojs_*.vast.vpaid.js"
   },
-  "id": 136
+  "id": 137
  },
  {
   "action": {
@@ -1476,7 +1492,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||players.brightcove.net/videojs-overlay/"
   },
-  "id": 137
+  "id": 138
  },
  {
   "action": {
@@ -1486,7 +1502,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||moja24.pl/wp-content/uploads/2017/01/reklama-moja-mala*.png"
   },
-  "id": 138
+  "id": 139
  },
  {
   "action": {
@@ -1496,7 +1512,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ocs-pl.oktawave.com/*/*/bezprawnik/*/*_screening_smeo_promocja_*.png"
   },
-  "id": 139
+  "id": 140
  },
  {
   "action": {
@@ -1506,7 +1522,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||foto.stalowka.net/design/opel.jpg"
   },
-  "id": 140
+  "id": 141
  },
  {
   "action": {
@@ -1516,7 +1532,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||media.dziennikzwiazkowy.com/wp-content/uploads/2019/04/*.gif"
   },
-  "id": 141
+  "id": 142
  },
  {
   "action": {
@@ -1526,7 +1542,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.ppe.pl/i/default/ppe_sonyps5.gif"
   },
-  "id": 142
+  "id": 143
  },
  {
   "action": {
@@ -1536,7 +1552,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wykop.pl/adverts^"
   },
-  "id": 143
+  "id": 144
  },
  {
   "action": {
@@ -1546,7 +1562,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wykop.pl/tracker"
   },
-  "id": 144
+  "id": 145
  },
  {
   "action": {
@@ -1556,7 +1572,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wykop.pl/api/v*/ads"
   },
-  "id": 145
+  "id": 146
  },
  {
   "action": {
@@ -1566,7 +1582,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cda.pl/xml_pool/*pool*.php"
   },
-  "id": 146
+  "id": 147
  },
  {
   "action": {
@@ -1581,7 +1597,7 @@
     "click.aliexpress.com"
    ]
   },
-  "id": 147
+  "id": 148
  },
  {
   "action": {
@@ -1591,7 +1607,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/apu.php?zoneid"
   },
-  "id": 148
+  "id": 149
  },
  {
   "action": {
@@ -1601,7 +1617,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "privatestream.tv/images/player_logo.png"
   },
-  "id": 149
+  "id": 150
  },
  {
   "action": {
@@ -1611,7 +1627,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||assets.bro.adca.st/cuadrado.html"
   },
-  "id": 150
+  "id": 151
  },
  {
   "action": {
@@ -1621,7 +1637,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||assets.bro.adca.st/rectangular.html"
   },
-  "id": 151
+  "id": 152
  },
  {
   "action": {
@@ -1631,7 +1647,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||privatestream.tv/adl^"
   },
-  "id": 152
+  "id": 153
  },
  {
   "action": {
@@ -1641,7 +1657,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||privatestream.tv/logo^"
   },
-  "id": 153
+  "id": 154
  },
  {
   "action": {
@@ -1651,7 +1667,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.wp.pl/*.okazje-kokpit.chunk.js"
   },
-  "id": 154
+  "id": 155
  },
  {
   "action": {
@@ -1661,7 +1677,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "tapeciarnia.pl#?@#div[style*=\"text-align:center;\"]:-abp-contains(reklama)"
   },
-  "id": 155
+  "id": 156
  },
  {
   "action": {
@@ -1671,7 +1687,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||docer.pl/aserver/"
   },
-  "id": 157
+  "id": 158
  },
  {
   "action": {
@@ -1681,7 +1697,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hqq.tv/js/betterj/ban^"
   },
-  "id": 158
+  "id": 159
  },
  {
   "action": {
@@ -1691,7 +1707,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vidoza*.github.io/*/*.wasm"
   },
-  "id": 159
+  "id": 160
  },
  {
   "action": {
@@ -1705,7 +1721,7 @@
     "www.comperialead.pl"
    ]
   },
-  "id": 160
+  "id": 161
  },
  {
   "action": {
@@ -1715,7 +1731,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pclab.pl/css/extra"
   },
-  "id": 161
+  "id": 162
  },
  {
   "action": {
@@ -1725,7 +1741,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||calcoolator.pl/inc/js/adblockill_copy.js"
   },
-  "id": 162
+  "id": 163
  },
  {
   "action": {
@@ -1735,7 +1751,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cosplayjav.pl/wp-content/themes/cosplayjav/js/fuckadblock"
   },
-  "id": 163
+  "id": 164
  },
  {
   "action": {
@@ -1748,7 +1764,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||devhub.pl/count"
   },
-  "id": 164
+  "id": 165
  },
  {
   "action": {
@@ -1758,7 +1774,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||eostroleka.pl/luba/main/ajax_fuckadbloker.php"
   },
-  "id": 165
+  "id": 166
  },
  {
   "action": {
@@ -1768,7 +1784,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||forum.android.com.pl/uploads/*fuckadblock.min.js"
   },
-  "id": 166
+  "id": 167
  },
  {
   "action": {
@@ -1778,7 +1794,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wgrane.pl/html/_pl/adblock_top.txt"
   },
-  "id": 167
+  "id": 168
  },
  {
   "action": {
@@ -1788,7 +1804,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||z4y.pl/js/badb.js"
   },
-  "id": 168
+  "id": 169
  },
  {
   "action": {
@@ -1802,7 +1818,7 @@
     "gemius.pl"
    ]
   },
-  "id": 169
+  "id": 170
  },
  {
   "action": {
@@ -1815,7 +1831,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/adblockcheck.js"
   },
-  "id": 170
+  "id": 171
  },
  {
   "action": {
@@ -1828,7 +1844,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tvp.pl/video/vod/reklamy/"
   },
-  "id": 171
+  "id": 172
  },
  {
   "action": {
@@ -1838,7 +1854,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vod.*.tvp.pl/video/vod/reklamy/"
   },
-  "id": 172
+  "id": 173
  },
  {
   "action": {
@@ -1848,7 +1864,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fwcdn.pl/adv/*.jpg"
   },
-  "id": 173
+  "id": 174
  },
  {
   "action": {
@@ -1858,7 +1874,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fwcdn.pl/adv/*.png"
   },
-  "id": 174
+  "id": 175
  },
  {
   "action": {
@@ -2008,7 +2024,7 @@
     "zukxd6fkxqn.com"
    ]
   },
-  "id": 175
+  "id": 176
  },
  {
   "action": {
@@ -2022,7 +2038,7 @@
    ],
    "urlFilter": "/wp-content/plugins/bsa-pro-scripteo/"
   },
-  "id": 176
+  "id": 177
  },
  {
   "action": {
@@ -2036,7 +2052,7 @@
    ],
    "urlFilter": "/wp-content/plugins/unblock-adsense/*/adunblock"
   },
-  "id": 177
+  "id": 178
  },
  {
   "action": {
@@ -2050,7 +2066,7 @@
    ],
    "urlFilter": "||bi.adview.pl/"
   },
-  "id": 178
+  "id": 179
  },
  {
   "action": {
@@ -2064,7 +2080,7 @@
    ],
    "urlFilter": "||lechia.net/modules/mod_adblockdetector/js/"
   },
-  "id": 181
+  "id": 182
  },
  {
   "action": {
@@ -2077,7 +2093,7 @@
    ],
    "urlFilter": ".*sales*.pl/offers/"
   },
-  "id": 182
+  "id": 183
  },
  {
   "action": {
@@ -2095,7 +2111,7 @@
    ],
    "urlFilter": "/files/rek/"
   },
-  "id": 183
+  "id": 184
  },
  {
   "action": {
@@ -2114,7 +2130,7 @@
    ],
    "urlFilter": ".pl/data/cameras/banner_"
   },
-  "id": 184
+  "id": 185
  },
  {
   "action": {
@@ -2127,7 +2143,7 @@
    ],
    "urlFilter": ".pl/images/reklama120x60.jpg"
   },
-  "id": 185
+  "id": 186
  },
  {
   "action": {
@@ -2145,7 +2161,7 @@
    ],
    "urlFilter": "/adv/"
   },
-  "id": 187
+  "id": 188
  },
  {
   "action": {
@@ -2161,7 +2177,7 @@
    ],
    "urlFilter": "/affiliates/"
   },
-  "id": 188
+  "id": 189
  },
  {
   "action": {
@@ -2179,7 +2195,7 @@
    ],
    "urlFilter": "/baner/"
   },
-  "id": 189
+  "id": 190
  },
  {
   "action": {
@@ -2195,7 +2211,7 @@
    ],
    "urlFilter": "/baners/"
   },
-  "id": 190
+  "id": 191
  },
  {
   "action": {
@@ -2263,7 +2279,7 @@
    ],
    "urlFilter": "/banery/"
   },
-  "id": 191
+  "id": 192
  },
  {
   "action": {
@@ -2276,7 +2292,7 @@
    ],
    "urlFilter": "/*baner-bohema-*.jpg"
   },
-  "id": 192
+  "id": 193
  },
  {
   "action": {
@@ -2293,7 +2309,7 @@
    ],
    "urlFilter": "/banery_nowe/"
   },
-  "id": 193
+  "id": 194
  },
  {
   "action": {
@@ -2324,7 +2340,7 @@
    ],
    "urlFilter": "/banners/"
   },
-  "id": 194
+  "id": 195
  },
  {
   "action": {
@@ -2357,7 +2373,7 @@
    ],
    "urlFilter": "/bannery/"
   },
-  "id": 195
+  "id": 196
  },
  {
   "action": {
@@ -2376,7 +2392,7 @@
    ],
    "urlFilter": "/data/ap3bo6/*.gif"
   },
-  "id": 196
+  "id": 197
  },
  {
   "action": {
@@ -2395,7 +2411,7 @@
    ],
    "urlFilter": "/data/ap3bo6/*.jpg"
   },
-  "id": 197
+  "id": 198
  },
  {
   "action": {
@@ -2411,7 +2427,7 @@
    ],
    "urlFilter": "/images/reklama/"
   },
-  "id": 198
+  "id": 199
  },
  {
   "action": {
@@ -2427,7 +2443,7 @@
    ],
    "urlFilter": "/overlay*.png"
   },
-  "id": 199
+  "id": 200
  },
  {
   "action": {
@@ -2443,7 +2459,7 @@
    ],
    "urlFilter": "/reklama/"
   },
-  "id": 200
+  "id": 201
  },
  {
   "action": {
@@ -2463,7 +2479,7 @@
    ],
    "urlFilter": "/reklamy/"
   },
-  "id": 201
+  "id": 202
  },
  {
   "action": {
@@ -2479,7 +2495,7 @@
    ],
    "urlFilter": "/screening/"
   },
-  "id": 202
+  "id": 203
  },
  {
   "action": {
@@ -2496,7 +2512,7 @@
    ],
    "urlFilter": "/wp-content/uploads/*/*/banner"
   },
-  "id": 203
+  "id": 204
  },
  {
   "action": {
@@ -2512,7 +2528,7 @@
    ],
    "urlFilter": "/wp-content/uploads/*/*300x600"
   },
-  "id": 204
+  "id": 205
  },
  {
   "action": {
@@ -2534,7 +2550,7 @@
    ],
    "urlFilter": "://*.*/banery_foto/"
   },
-  "id": 205
+  "id": 206
  },
  {
   "action": {
@@ -2556,7 +2572,7 @@
    ],
    "urlFilter": "\\//"
   },
-  "id": 206
+  "id": 207
  },
  {
   "action": {
@@ -2573,7 +2589,7 @@
    ],
    "urlFilter": "\\/images/banner\\/"
   },
-  "id": 207
+  "id": 208
  },
  {
   "action": {
@@ -2589,7 +2605,7 @@
    ],
    "urlFilter": "/uploads/banner/"
   },
-  "id": 208
+  "id": 209
  },
  {
   "action": {
@@ -2605,7 +2621,7 @@
    ],
    "urlFilter": "pl/*/rodzinnawycieczka/"
   },
-  "id": 209
+  "id": 210
  },
  {
   "action": {
@@ -2625,7 +2641,7 @@
    ],
    "urlFilter": "/tmpl/images/"
   },
-  "id": 210
+  "id": 211
  },
  {
   "action": {
@@ -2641,7 +2657,7 @@
    ],
    "urlFilter": "/zaufali_nam/"
   },
-  "id": 211
+  "id": 212
  },
  {
   "action": {
@@ -2657,7 +2673,7 @@
    ],
    "urlFilter": "/*300x300"
   },
-  "id": 212
+  "id": 213
  },
  {
   "action": {
@@ -2673,7 +2689,7 @@
    ],
    "urlFilter": "/fotosy/inne/"
   },
-  "id": 213
+  "id": 214
  },
  {
   "action": {
@@ -2689,7 +2705,7 @@
    ],
    "urlFilter": "/grafika/banerki_reklamowe/"
   },
-  "id": 214
+  "id": 215
  },
  {
   "action": {
@@ -2710,7 +2726,7 @@
    ],
    "urlFilter": "/images/tapeta_s.jpg"
   },
-  "id": 215
+  "id": 216
  },
  {
   "action": {
@@ -2729,7 +2745,7 @@
    ],
    "urlFilter": "/uploads/*tapeta*.jpg"
   },
-  "id": 216
+  "id": 217
  },
  {
   "action": {
@@ -2746,7 +2762,7 @@
    ],
    "urlFilter": "/vardata/obrazki/"
   },
-  "id": 217
+  "id": 218
  },
  {
   "action": {
@@ -2767,7 +2783,7 @@
    ],
    "urlFilter": "/wp-content/uploads/*/baner"
   },
-  "id": 218
+  "id": 219
  },
  {
   "action": {
@@ -2780,7 +2796,7 @@
    ],
    "urlFilter": "||24opole.pl/bimg/"
   },
-  "id": 219
+  "id": 220
  },
  {
   "action": {
@@ -2793,7 +2809,7 @@
    ],
    "urlFilter": "||40ton.net/wp-content/uploads/*.gif"
   },
-  "id": 220
+  "id": 221
  },
  {
   "action": {
@@ -2806,7 +2822,7 @@
    ],
    "urlFilter": "||40ton.net/wp-content/uploads/*.png"
   },
-  "id": 221
+  "id": 222
  },
  {
   "action": {
@@ -2819,7 +2835,7 @@
    ],
    "urlFilter": "||4lomza.pl/banner/"
   },
-  "id": 222
+  "id": 223
  },
  {
   "action": {
@@ -2832,7 +2848,7 @@
    ],
    "urlFilter": "||4lomza.pl/i/tlo/"
   },
-  "id": 223
+  "id": 224
  },
  {
   "action": {
@@ -2845,7 +2861,7 @@
    ],
    "urlFilter": "||4media.com/data/aqwzxtvn/"
   },
-  "id": 224
+  "id": 225
  },
  {
   "action": {
@@ -2858,7 +2874,7 @@
    ],
    "urlFilter": "||allegrostatic.pl/showcaseservice/static/images/placeholders/1200x400.png"
   },
-  "id": 225
+  "id": 226
  },
  {
   "action": {
@@ -2871,7 +2887,7 @@
    ],
    "urlFilter": "||antyweb.pl/wp-content/uploads/2017/03/horizon-cover.jpg"
   },
-  "id": 226
+  "id": 227
  },
  {
   "action": {
@@ -2884,7 +2900,7 @@
    ],
    "urlFilter": "||aptekacentrum.lublin.pl/images/*1920x1080.jpg"
   },
-  "id": 227
+  "id": 228
  },
  {
   "action": {
@@ -2897,7 +2913,7 @@
    ],
    "urlFilter": "||arpass.nazwa.pl/pliki/swf/"
   },
-  "id": 228
+  "id": 229
  },
  {
   "action": {
@@ -2910,7 +2926,7 @@
    ],
    "urlFilter": "||atrexpress.com.pl/fileadmin/user_upload/grafika/baner"
   },
-  "id": 229
+  "id": 230
  },
  {
   "action": {
@@ -2923,7 +2939,7 @@
    ],
    "urlFilter": "||autotrader.pl/resources/images/credit-agricole/"
   },
-  "id": 230
+  "id": 231
  },
  {
   "action": {
@@ -2936,7 +2952,7 @@
    ],
    "urlFilter": "||baxu.pl/storage/partner/"
   },
-  "id": 231
+  "id": 232
  },
  {
   "action": {
@@ -2949,7 +2965,7 @@
    ],
    "urlFilter": "||benchmark.pl/uploads/backend_img/*/*screening*.jpg"
   },
-  "id": 232
+  "id": 233
  },
  {
   "action": {
@@ -2962,7 +2978,7 @@
    ],
    "urlFilter": "||bham.pl/rek_images/"
   },
-  "id": 233
+  "id": 234
  },
  {
   "action": {
@@ -2975,7 +2991,7 @@
    ],
    "urlFilter": "||bithub.pl/polecamy/"
   },
-  "id": 234
+  "id": 235
  },
  {
   "action": {
@@ -2988,7 +3004,7 @@
    ],
    "urlFilter": "||blogomaniak.pl/i/techmaniak-ceneo-sidebar"
   },
-  "id": 235
+  "id": 236
  },
  {
   "action": {
@@ -3001,7 +3017,7 @@
    ],
    "urlFilter": "||bolec.info/pictures/reklamowe/"
   },
-  "id": 236
+  "id": 237
  },
  {
   "action": {
@@ -3014,7 +3030,7 @@
    ],
    "urlFilter": "||botpanel.pl/*u/*."
   },
-  "id": 237
+  "id": 238
  },
  {
   "action": {
@@ -3027,7 +3043,7 @@
    ],
    "urlFilter": "||czasdzieci.pl/b-2-d-2/r1234/"
   },
-  "id": 238
+  "id": 239
  },
  {
   "action": {
@@ -3040,7 +3056,7 @@
    ],
    "urlFilter": "||cdn.avt.pl/webs/*/750x250_*."
   },
-  "id": 239
+  "id": 240
  },
  {
   "action": {
@@ -3053,7 +3069,7 @@
    ],
    "urlFilter": "||cdn.forumpc.pl/partner"
   },
-  "id": 240
+  "id": 241
  },
  {
   "action": {
@@ -3066,7 +3082,7 @@
    ],
    "urlFilter": "||cdn.gallery/pic/assets/uploads/files/*-300-x-250.png"
   },
-  "id": 241
+  "id": 242
  },
  {
   "action": {
@@ -3082,7 +3098,7 @@
    ],
    "urlFilter": "||cdn.gallery/pic/assets/uploads/files/*-kafelek.jpg"
   },
-  "id": 242
+  "id": 243
  },
  {
   "action": {
@@ -3098,7 +3114,7 @@
    ],
    "urlFilter": "||cdn.pkwteile.de/uploads/stock/"
   },
-  "id": 243
+  "id": 244
  },
  {
   "action": {
@@ -3111,7 +3127,7 @@
    ],
    "urlFilter": "||chlodnictwoiklimatyzacja.pl/images/tlo_"
   },
-  "id": 244
+  "id": 245
  },
  {
   "action": {
@@ -3124,7 +3140,7 @@
    ],
    "urlFilter": "||chozoba.pl/images/baner"
   },
-  "id": 245
+  "id": 246
  },
  {
   "action": {
@@ -3137,7 +3153,7 @@
    ],
    "urlFilter": "||ciechocinek.biz/banery_"
   },
-  "id": 246
+  "id": 247
  },
  {
   "action": {
@@ -3150,7 +3166,7 @@
    ],
    "urlFilter": "||cdn-lubimyczytac.pl/upload/wallpapers/"
   },
-  "id": 247
+  "id": 248
  },
  {
   "action": {
@@ -3163,7 +3179,7 @@
    ],
    "urlFilter": "||codziennypoznan.pl/wp-content/uploads/angwp/items/"
   },
-  "id": 248
+  "id": 249
  },
  {
   "action": {
@@ -3176,7 +3192,7 @@
    ],
    "urlFilter": "||dowcip.net/x.png"
   },
-  "id": 249
+  "id": 250
  },
  {
   "action": {
@@ -3189,7 +3205,7 @@
    ],
    "urlFilter": "||e-aptekarodzinna.pl/images/*1366x768.jpg"
   },
-  "id": 250
+  "id": 251
  },
  {
   "action": {
@@ -3202,7 +3218,7 @@
    ],
    "urlFilter": "||e-krajna.pl/banery_"
   },
-  "id": 251
+  "id": 252
  },
  {
   "action": {
@@ -3215,7 +3231,7 @@
    ],
    "urlFilter": "||efilmy.tv/adsvid/"
   },
-  "id": 252
+  "id": 253
  },
  {
   "action": {
@@ -3228,7 +3244,7 @@
    ],
    "urlFilter": "||eluban.pl/uploads/baners/"
   },
-  "id": 253
+  "id": 254
  },
  {
   "action": {
@@ -3246,7 +3262,7 @@
    ],
    "urlFilter": "||emisja.contentstream.pl/"
   },
-  "id": 254
+  "id": 255
  },
  {
   "action": {
@@ -3260,7 +3276,7 @@
    ],
    "urlFilter": "||eostroleka.pl/luba/dane/pliki/cache-*/"
   },
-  "id": 255
+  "id": 256
  },
  {
   "action": {
@@ -3273,7 +3289,7 @@
    ],
    "urlFilter": "||eurogol.pl/images/banner.jpg"
   },
-  "id": 256
+  "id": 257
  },
  {
   "action": {
@@ -3286,7 +3302,7 @@
    ],
    "urlFilter": "||evertiq.pl/bximg/*.png"
   },
-  "id": 257
+  "id": 258
  },
  {
   "action": {
@@ -3299,7 +3315,7 @@
    ],
    "urlFilter": "||evertiq.pl/bximg/*/tapeta*.jpg"
   },
-  "id": 258
+  "id": 259
  },
  {
   "action": {
@@ -3312,7 +3328,7 @@
    ],
    "urlFilter": "||ewf.h1.pl/images/tlo-tytul*.jpg"
   },
-  "id": 259
+  "id": 260
  },
  {
   "action": {
@@ -3328,7 +3344,7 @@
    ],
    "urlFilter": "||f01.esfr.pl/si_upload/gfx/*.png"
   },
-  "id": 260
+  "id": 261
  },
  {
   "action": {
@@ -3341,7 +3357,7 @@
    ],
    "urlFilter": "||filmweb.pl/*tapeta.jpg"
   },
-  "id": 261
+  "id": 262
  },
  {
   "action": {
@@ -3354,7 +3370,7 @@
    ],
    "urlFilter": "||forum.haszysz.com/baner_"
   },
-  "id": 262
+  "id": 263
  },
  {
   "action": {
@@ -3367,7 +3383,7 @@
    ],
    "urlFilter": "||g.gazetaprawna.pl/gp/sgp/img/gp/kyocera-logo.png"
   },
-  "id": 263
+  "id": 264
  },
  {
   "action": {
@@ -3380,7 +3396,7 @@
    ],
    "urlFilter": "||getionary.pl/images/tlo-box.png"
   },
-  "id": 264
+  "id": 265
  },
  {
   "action": {
@@ -3393,7 +3409,7 @@
    ],
    "urlFilter": "||gf24.pl/wp-content/uploads/20*/*/*1000x200px*.jpg"
   },
-  "id": 265
+  "id": 266
  },
  {
   "action": {
@@ -3406,7 +3422,7 @@
    ],
    "urlFilter": "||glos.live/content/other/banner_"
   },
-  "id": 266
+  "id": 267
  },
  {
   "action": {
@@ -3422,7 +3438,7 @@
    ],
    "urlFilter": "||googleusercontent.com/"
   },
-  "id": 267
+  "id": 268
  },
  {
   "action": {
@@ -3435,7 +3451,7 @@
    ],
    "urlFilter": "||goniecpolski.nl/wp-content/uploads/*/reklama"
   },
-  "id": 268
+  "id": 269
  },
  {
   "action": {
@@ -3448,7 +3464,7 @@
    ],
    "urlFilter": "||gorzow24.pl/img/ims/"
   },
-  "id": 269
+  "id": 270
  },
  {
   "action": {
@@ -3464,7 +3480,7 @@
    ],
    "urlFilter": "||gowork.pl/images/top_img/"
   },
-  "id": 270
+  "id": 271
  },
  {
   "action": {
@@ -3477,7 +3493,7 @@
    ],
    "urlFilter": "||gram.pl/ad/"
   },
-  "id": 271
+  "id": 272
  },
  {
   "action": {
@@ -3493,7 +3509,7 @@
    ],
    "urlFilter": "||gram.pl/reklamy_assets/intel_iris/inteliris_"
   },
-  "id": 272
+  "id": 273
  },
  {
   "action": {
@@ -3506,7 +3522,7 @@
    ],
    "urlFilter": "||gramwzielone.pl/uploads/ad/"
   },
-  "id": 273
+  "id": 274
  },
  {
   "action": {
@@ -3522,7 +3538,7 @@
    ],
    "urlFilter": "||gry-online.pl/im/zmieniarka/"
   },
-  "id": 274
+  "id": 275
  },
  {
   "action": {
@@ -3535,7 +3551,7 @@
    ],
    "urlFilter": "||haker.com.pl/s*.gif"
   },
-  "id": 275
+  "id": 276
  },
  {
   "action": {
@@ -3548,7 +3564,7 @@
    ],
    "urlFilter": "||hd-opinie.pl/wp-content/themes/hdopinie/images/rightcol_shadow.png"
   },
-  "id": 276
+  "id": 277
  },
  {
   "action": {
@@ -3561,7 +3577,7 @@
    ],
    "urlFilter": "||hipek.pl/kreacje/"
   },
-  "id": 277
+  "id": 278
  },
  {
   "action": {
@@ -3574,7 +3590,7 @@
    ],
    "urlFilter": "||hiperogloszenia.pl/sys/ri.gif"
   },
-  "id": 278
+  "id": 279
  },
  {
   "action": {
@@ -3587,7 +3603,7 @@
    ],
    "urlFilter": "||historia.org.pl/wp-content/uploads/20*/*1680x1050.jpg"
   },
-  "id": 279
+  "id": 280
  },
  {
   "action": {
@@ -3603,7 +3619,7 @@
    ],
    "urlFilter": "||i.imgur.com/"
   },
-  "id": 280
+  "id": 281
  },
  {
   "action": {
@@ -3620,7 +3636,7 @@
    ],
    "urlFilter": "||ib.gazeta.pl/abc/"
   },
-  "id": 281
+  "id": 282
  },
  {
   "action": {
@@ -3637,7 +3653,7 @@
    ],
    "urlFilter": "||ifotos.pl/img/"
   },
-  "id": 282
+  "id": 283
  },
  {
   "action": {
@@ -3650,7 +3666,7 @@
    ],
    "urlFilter": "||ilawa24.pl/photos/skyscraper.jpg"
   },
-  "id": 283
+  "id": 284
  },
  {
   "action": {
@@ -3663,7 +3679,7 @@
    ],
    "urlFilter": "||igrit.pl/extra-content/"
   },
-  "id": 284
+  "id": 285
  },
  {
   "action": {
@@ -3676,7 +3692,7 @@
    ],
    "urlFilter": "||image.ceneostatic.pl/data/footer_widget/"
   },
-  "id": 285
+  "id": 286
  },
  {
   "action": {
@@ -3692,7 +3708,7 @@
    ],
    "urlFilter": "||image2.ceneo.pl/data/banners/"
   },
-  "id": 286
+  "id": 287
  },
  {
   "action": {
@@ -3708,7 +3724,7 @@
    ],
    "urlFilter": "||img.targeo.pl/i/cache/a/"
   },
-  "id": 287
+  "id": 288
  },
  {
   "action": {
@@ -3721,7 +3737,7 @@
    ],
    "urlFilter": "||info.elblag.pl/media/layout/tla/"
   },
-  "id": 288
+  "id": 289
  },
  {
   "action": {
@@ -3734,7 +3750,7 @@
    ],
    "urlFilter": "||info.stargard.pl/~tomi/"
   },
-  "id": 289
+  "id": 290
  },
  {
   "action": {
@@ -3747,7 +3763,7 @@
    ],
    "urlFilter": "||inowroclaw.info.pl/static/files/inline_images/123/"
   },
-  "id": 290
+  "id": 291
  },
  {
   "action": {
@@ -3760,7 +3776,7 @@
    ],
    "urlFilter": "||ipolska24.pl/wp-content/uploads/angwp/items/"
   },
-  "id": 291
+  "id": 292
  },
  {
   "action": {
@@ -3773,7 +3789,7 @@
    ],
    "urlFilter": "||ipon.pl/web/temp/baner/"
   },
-  "id": 292
+  "id": 293
  },
  {
   "action": {
@@ -3786,7 +3802,7 @@
    ],
    "urlFilter": "||iv.pl/rkm/"
   },
-  "id": 293
+  "id": 294
  },
  {
   "action": {
@@ -3799,7 +3815,7 @@
    ],
    "urlFilter": "||jarock.pl/wp-content/uploads/*/banner-"
   },
-  "id": 294
+  "id": 295
  },
  {
   "action": {
@@ -3815,7 +3831,7 @@
    ],
    "urlFilter": "||kampanie.etransport.pl/"
   },
-  "id": 295
+  "id": 296
  },
  {
   "action": {
@@ -3828,7 +3844,7 @@
    ],
    "urlFilter": "||kcynia.info/img/"
   },
-  "id": 296
+  "id": 297
  },
  {
   "action": {
@@ -3841,7 +3857,7 @@
    ],
    "urlFilter": "||ki24.info/banery_extra/"
   },
-  "id": 297
+  "id": 298
  },
  {
   "action": {
@@ -3855,7 +3871,7 @@
    ],
    "urlFilter": "||kopaczka.pl/ban/"
   },
-  "id": 298
+  "id": 299
  },
  {
   "action": {
@@ -3868,7 +3884,7 @@
    ],
    "urlFilter": "||kronikiwsi.powiatgostyn.pl/kronikiwsi/photos/adv_"
   },
-  "id": 299
+  "id": 300
  },
  {
   "action": {
@@ -3881,7 +3897,7 @@
    ],
    "urlFilter": "||leczna24.pl/f/*.gif"
   },
-  "id": 300
+  "id": 301
  },
  {
   "action": {
@@ -3894,7 +3910,7 @@
    ],
    "urlFilter": "||leczna24.pl/f/navb*.jpg"
   },
-  "id": 301
+  "id": 302
  },
  {
   "action": {
@@ -3907,7 +3923,7 @@
    ],
    "urlFilter": "||leczna24.pl/*/*_tlo_*.png"
   },
-  "id": 302
+  "id": 303
  },
  {
   "action": {
@@ -3920,7 +3936,7 @@
    ],
    "urlFilter": "||lidl.pl/statics/lidl-pl/ds_img/layout/tapeta_"
   },
-  "id": 303
+  "id": 304
  },
  {
   "action": {
@@ -3933,7 +3949,7 @@
    ],
    "urlFilter": "||listaserwerowmc.pl/*baner"
   },
-  "id": 304
+  "id": 305
  },
  {
   "action": {
@@ -3946,7 +3962,7 @@
    ],
    "urlFilter": "||lubartow24.pl/f/*.gif"
   },
-  "id": 305
+  "id": 306
  },
  {
   "action": {
@@ -3959,7 +3975,7 @@
    ],
    "urlFilter": "||lubartow24.pl/f/navb*.jpg"
   },
-  "id": 306
+  "id": 307
  },
  {
   "action": {
@@ -3972,7 +3988,7 @@
    ],
    "urlFilter": "||lubuskie24.pl/data/rotator/"
   },
-  "id": 307
+  "id": 308
  },
  {
   "action": {
@@ -3985,7 +4001,7 @@
    ],
    "urlFilter": "||lubin.pl/wp-content/uploads/baner"
   },
-  "id": 308
+  "id": 309
  },
  {
   "action": {
@@ -3998,7 +4014,7 @@
    ],
    "urlFilter": "||lubin.pl/wp-content/uploads/reklama_"
   },
-  "id": 309
+  "id": 310
  },
  {
   "action": {
@@ -4011,7 +4027,7 @@
    ],
    "urlFilter": "||lubliniak.com.pl/images/re/"
   },
-  "id": 310
+  "id": 311
  },
  {
   "action": {
@@ -4024,7 +4040,7 @@
    ],
    "urlFilter": "||meczenazywo.pl/imghttps/tapeta"
   },
-  "id": 311
+  "id": 312
  },
  {
   "action": {
@@ -4040,7 +4056,7 @@
    ],
    "urlFilter": "||media.empik.com/content/new_event/"
   },
-  "id": 312
+  "id": 313
  },
  {
   "action": {
@@ -4053,7 +4069,7 @@
    ],
    "urlFilter": "||mediaexpert.pl/temp/filemanager_up/*tlo_"
   },
-  "id": 313
+  "id": 314
  },
  {
   "action": {
@@ -4066,7 +4082,7 @@
    ],
    "urlFilter": "||medserwis.pl/grafika/banery/"
   },
-  "id": 314
+  "id": 315
  },
  {
   "action": {
@@ -4079,7 +4095,7 @@
    ],
    "urlFilter": "||medycznamarihuana.com/wp-content/uploads/*_330x250"
   },
-  "id": 315
+  "id": 316
  },
  {
   "action": {
@@ -4092,7 +4108,7 @@
    ],
    "urlFilter": "||microsms.pl/img/reklama"
   },
-  "id": 316
+  "id": 317
  },
  {
   "action": {
@@ -4105,7 +4121,7 @@
    ],
    "urlFilter": "||miedzyrzec.info/media_site/banery/"
   },
-  "id": 317
+  "id": 318
  },
  {
   "action": {
@@ -4118,7 +4134,7 @@
    ],
    "urlFilter": "||mmanews.pl/wp-content/uploads/20*/*/*tapeta"
   },
-  "id": 318
+  "id": 319
  },
  {
   "action": {
@@ -4131,7 +4147,7 @@
    ],
    "urlFilter": "||mmania.pl/cdn/partner/"
   },
-  "id": 319
+  "id": 320
  },
  {
   "action": {
@@ -4144,7 +4160,7 @@
    ],
    "urlFilter": "||mojprzewodnik.pl/upload/mp/footer/ksero_col.jpg"
   },
-  "id": 320
+  "id": 321
  },
  {
   "action": {
@@ -4157,7 +4173,7 @@
    ],
    "urlFilter": "||money.pl/*/ad/direct/*.jpg"
   },
-  "id": 321
+  "id": 322
  },
  {
   "action": {
@@ -4170,7 +4186,7 @@
    ],
    "urlFilter": "||money.wpcdn.pl/*/ad/"
   },
-  "id": 322
+  "id": 323
  },
  {
   "action": {
@@ -4183,7 +4199,7 @@
    ],
    "urlFilter": "||mybboard.pl/images/promo/"
   },
-  "id": 323
+  "id": 324
  },
  {
   "action": {
@@ -4196,7 +4212,7 @@
    ],
    "urlFilter": "||mylomza.pl/images/baner_"
   },
-  "id": 324
+  "id": 325
  },
  {
   "action": {
@@ -4209,7 +4225,7 @@
    ],
    "urlFilter": "||nacjonalista.pl/wp-content/uploads/20*/*/*.gif"
   },
-  "id": 325
+  "id": 326
  },
  {
   "action": {
@@ -4222,7 +4238,7 @@
    ],
    "urlFilter": "||naekranie.pl/wp-content/uploads/2019/06/st3scrd_5d1379da037fe.jpeg"
   },
-  "id": 326
+  "id": 327
  },
  {
   "action": {
@@ -4235,7 +4251,7 @@
    ],
    "urlFilter": "||naekranie.pl/*/cda-lokowanie_"
   },
-  "id": 327
+  "id": 328
  },
  {
   "action": {
@@ -4250,7 +4266,7 @@
    ],
    "urlFilter": "||naszamlawa.pl/images/banner/"
   },
-  "id": 328
+  "id": 329
  },
  {
   "action": {
@@ -4263,7 +4279,7 @@
    ],
    "urlFilter": "||naszarola.pl/wp-content/uploads/20*/*/*1200x250"
   },
-  "id": 329
+  "id": 330
  },
  {
   "action": {
@@ -4276,7 +4292,7 @@
    ],
    "urlFilter": "||naszarola.pl/wp-content/uploads/2020/01/nasza-rola-nowy.jpg"
   },
-  "id": 330
+  "id": 331
  },
  {
   "action": {
@@ -4289,7 +4305,7 @@
    ],
    "urlFilter": "||naszarola.pl/wp-content/uploads/20*/*/*-240-x-540-px.jpg"
   },
-  "id": 331
+  "id": 332
  },
  {
   "action": {
@@ -4302,7 +4318,7 @@
    ],
    "urlFilter": "||naszawielkopolska.pl/wp-content/uploads/*/reklama"
   },
-  "id": 332
+  "id": 333
  },
  {
   "action": {
@@ -4315,7 +4331,7 @@
    ],
    "urlFilter": "||niebiescy.pl/bild/"
   },
-  "id": 333
+  "id": 334
  },
  {
   "action": {
@@ -4328,7 +4344,7 @@
    ],
    "urlFilter": "||nizanskie.info/banery_foto/1628.jpg"
   },
-  "id": 334
+  "id": 335
  },
  {
   "action": {
@@ -4341,7 +4357,7 @@
    ],
    "urlFilter": "||nowywyszkowiak.pl/materialy/system_banerowy"
   },
-  "id": 335
+  "id": 336
  },
  {
   "action": {
@@ -4354,7 +4370,7 @@
    ],
    "urlFilter": "||nuteczki.eu/templates/klubowamuza/images/pobierz.png"
   },
-  "id": 336
+  "id": 337
  },
  {
   "action": {
@@ -4367,7 +4383,7 @@
    ],
    "urlFilter": "||oglaszamy24.pl/adstorage/"
   },
-  "id": 337
+  "id": 338
  },
  {
   "action": {
@@ -4380,7 +4396,7 @@
    ],
    "urlFilter": "||ogloszenia.nowy-sacz.pl/rek/"
   },
-  "id": 338
+  "id": 339
  },
  {
   "action": {
@@ -4393,7 +4409,7 @@
    ],
    "urlFilter": "||ono24.info/web/files/site/sad/"
   },
-  "id": 339
+  "id": 340
  },
  {
   "action": {
@@ -4406,7 +4422,7 @@
    ],
    "urlFilter": "||ostrzeszowinfo.pl/files/*reklama"
   },
-  "id": 340
+  "id": 341
  },
  {
   "action": {
@@ -4419,7 +4435,7 @@
    ],
    "urlFilter": "||ozoneo.pl/templates/images/description/5901/image/"
   },
-  "id": 341
+  "id": 342
  },
  {
   "action": {
@@ -4432,7 +4448,7 @@
    ],
    "urlFilter": "||ozoneo.pl/templates/images/rotators/"
   },
-  "id": 342
+  "id": 343
  },
  {
   "action": {
@@ -4445,7 +4461,7 @@
    ],
    "urlFilter": "||pakietbudowlany.pl/modules/tptncolbanner/images/"
   },
-  "id": 343
+  "id": 344
  },
  {
   "action": {
@@ -4458,7 +4474,7 @@
    ],
    "urlFilter": "||panele5.llog.pl/"
   },
-  "id": 344
+  "id": 345
  },
  {
   "action": {
@@ -4474,7 +4490,7 @@
    ],
    "urlFilter": "||pclab.pl/img/extra/"
   },
-  "id": 345
+  "id": 346
  },
  {
   "action": {
@@ -4491,7 +4507,7 @@
    ],
    "urlFilter": "||pclab.pl/partners/"
   },
-  "id": 346
+  "id": 347
  },
  {
   "action": {
@@ -4504,7 +4520,7 @@
    ],
    "urlFilter": "||pfhb.pl/fileadmin/user_upload/baner_strona_glowna/"
   },
-  "id": 347
+  "id": 348
  },
  {
   "action": {
@@ -4517,7 +4533,7 @@
    ],
    "urlFilter": "||pilkanozna.pl/images/r-gol/"
   },
-  "id": 348
+  "id": 349
  },
  {
   "action": {
@@ -4530,7 +4546,7 @@
    ],
    "urlFilter": "||pilkanozna.pl/images/reklamy_*.jpg"
   },
-  "id": 349
+  "id": 350
  },
  {
   "action": {
@@ -4543,7 +4559,7 @@
    ],
    "urlFilter": "||plonskwsieci.pl/images/reklamy_"
   },
-  "id": 350
+  "id": 351
  },
  {
   "action": {
@@ -4559,7 +4575,7 @@
    ],
    "urlFilter": "||pobierak.jeja.pl/aban/"
   },
-  "id": 351
+  "id": 352
  },
  {
   "action": {
@@ -4572,7 +4588,7 @@
    ],
    "urlFilter": "||podhale24.pl/images/partners/"
   },
-  "id": 352
+  "id": 353
  },
  {
   "action": {
@@ -4585,7 +4601,7 @@
    ],
    "urlFilter": "||podhale24.pl/uploads/r/"
   },
-  "id": 353
+  "id": 354
  },
  {
   "action": {
@@ -4599,7 +4615,7 @@
    ],
    "urlFilter": "||podlasie24.pl/upl/ban*/"
   },
-  "id": 354
+  "id": 355
  },
  {
   "action": {
@@ -4612,7 +4628,7 @@
    ],
    "urlFilter": "||polacywewloszech.com/wp-content/uploads/20*/*/*reklama*.jpg"
   },
-  "id": 355
+  "id": 356
  },
  {
   "action": {
@@ -4625,7 +4641,7 @@
    ],
    "urlFilter": "||powernet.pl/mm/260/0/image_files/sidebar/"
   },
-  "id": 356
+  "id": 357
  },
  {
   "action": {
@@ -4638,7 +4654,7 @@
    ],
    "urlFilter": "||powiat24.pl/photos/adv_"
   },
-  "id": 357
+  "id": 358
  },
  {
   "action": {
@@ -4654,7 +4670,7 @@
    ],
    "urlFilter": "||ppstatic.pl/*/showcase/"
   },
-  "id": 358
+  "id": 359
  },
  {
   "action": {
@@ -4667,7 +4683,7 @@
    ],
    "urlFilter": "||ppstatic.pl/*/tymczasowe/"
   },
-  "id": 359
+  "id": 360
  },
  {
   "action": {
@@ -4680,7 +4696,7 @@
    ],
    "urlFilter": "||prl24.co.uk/res/rotate/"
   },
-  "id": 360
+  "id": 361
  },
  {
   "action": {
@@ -4693,7 +4709,7 @@
    ],
    "urlFilter": "||q4.pl/media/20/*.gif"
   },
-  "id": 361
+  "id": 362
  },
  {
   "action": {
@@ -4706,7 +4722,7 @@
    ],
    "urlFilter": "||racjonalista.pl/img/strony/"
   },
-  "id": 362
+  "id": 363
  },
  {
   "action": {
@@ -4719,7 +4735,7 @@
    ],
    "urlFilter": "||radio-wrzesnia.pl/wp-content/uploads/*/*/walll_"
   },
-  "id": 363
+  "id": 364
  },
  {
   "action": {
@@ -4732,7 +4748,7 @@
    ],
    "urlFilter": "||radioduch.pl/up_files/oferta/"
   },
-  "id": 364
+  "id": 365
  },
  {
   "action": {
@@ -4745,7 +4761,7 @@
    ],
    "urlFilter": "||rajdy.autoklub.pl/banner/"
   },
-  "id": 365
+  "id": 366
  },
  {
   "action": {
@@ -4758,7 +4774,7 @@
    ],
    "urlFilter": "||redcoon.pl/res/image/special"
   },
-  "id": 366
+  "id": 367
  },
  {
   "action": {
@@ -4771,7 +4787,7 @@
    ],
    "urlFilter": "||redcoon.pl/res/outer/201*/"
   },
-  "id": 367
+  "id": 368
  },
  {
   "action": {
@@ -4787,7 +4803,7 @@
    ],
    "urlFilter": "||redir.atmcdn.pl/scale/o2/tvn/web-content/m/p2/i/81c8727c62e800be708dbf37c4695dff/"
   },
-  "id": 368
+  "id": 369
  },
  {
   "action": {
@@ -4800,7 +4816,7 @@
    ],
    "urlFilter": "||reklamy.s3.amazonaws.com/bcg/"
   },
-  "id": 369
+  "id": 370
  },
  {
   "action": {
@@ -4813,7 +4829,7 @@
    ],
    "urlFilter": "||rpinfo.pl/_reklamy/cen_www_reklamy_"
   },
-  "id": 370
+  "id": 371
  },
  {
   "action": {
@@ -4826,7 +4842,7 @@
    ],
    "urlFilter": "||sadeczanin.info/sites/default/files/journos/user14/2020/*.gif"
   },
-  "id": 371
+  "id": 372
  },
  {
   "action": {
@@ -4839,7 +4855,7 @@
    ],
    "urlFilter": "||skiny.pl/*.gif"
   },
-  "id": 372
+  "id": 373
  },
  {
   "action": {
@@ -4855,7 +4871,7 @@
    ],
    "urlFilter": "||sklep.gry-online.pl/imgs/tapeta/"
   },
-  "id": 373
+  "id": 374
  },
  {
   "action": {
@@ -4871,7 +4887,7 @@
    ],
    "urlFilter": "||solutions4ad.com/partner"
   },
-  "id": 374
+  "id": 375
  },
  {
   "action": {
@@ -4884,7 +4900,7 @@
    ],
    "urlFilter": "||sportslaski.pl/materialy/foto_tlo/"
   },
-  "id": 375
+  "id": 376
  },
  {
   "action": {
@@ -4900,7 +4916,7 @@
    ],
    "urlFilter": "||static.dpcdn.pl/*/assets/img/*.jpg"
   },
-  "id": 376
+  "id": 377
  },
  {
   "action": {
@@ -4913,7 +4929,7 @@
    ],
    "urlFilter": "||static.cda.pl/screening/"
   },
-  "id": 377
+  "id": 378
  },
  {
   "action": {
@@ -4926,7 +4942,7 @@
    ],
    "urlFilter": "||static.cda.pl/bg/films/*/screening-*.jpg"
   },
-  "id": 378
+  "id": 379
  },
  {
   "action": {
@@ -4939,7 +4955,7 @@
    ],
    "urlFilter": "||static.cda.pl/bg*/films/*/*x1080*.jpg"
   },
-  "id": 379
+  "id": 380
  },
  {
   "action": {
@@ -4952,7 +4968,7 @@
    ],
    "urlFilter": "||static.evertiq.pl/bximg/cbtg/"
   },
-  "id": 380
+  "id": 381
  },
  {
   "action": {
@@ -4965,7 +4981,7 @@
    ],
    "urlFilter": "||static.evertiq.pl/bximg/digi-key/"
   },
-  "id": 381
+  "id": 382
  },
  {
   "action": {
@@ -4978,7 +4994,7 @@
    ],
    "urlFilter": "||static.evertiq.pl/images/other/"
   },
-  "id": 382
+  "id": 383
  },
  {
   "action": {
@@ -4991,7 +5007,7 @@
    ],
    "urlFilter": "||static.lokalna24.pl/data/wysiwig/"
   },
-  "id": 383
+  "id": 384
  },
  {
   "action": {
@@ -5007,7 +5023,7 @@
    ],
    "urlFilter": "||static.osemka.pl/pixad/"
   },
-  "id": 384
+  "id": 385
  },
  {
   "action": {
@@ -5020,7 +5036,7 @@
    ],
    "urlFilter": "||static.pogonsportnet.pl/*banery-"
   },
-  "id": 385
+  "id": 386
  },
  {
   "action": {
@@ -5036,7 +5052,7 @@
    ],
    "urlFilter": "||statics.d404.pl/bundles/spoonsite/"
   },
-  "id": 386
+  "id": 387
  },
  {
   "action": {
@@ -5049,7 +5065,7 @@
    ],
    "urlFilter": "||strzal.pl/wp-content/uploads/2020/*1140x*"
   },
-  "id": 387
+  "id": 388
  },
  {
   "action": {
@@ -5062,7 +5078,7 @@
    ],
    "urlFilter": "||studentnews.pl/img/ban/b*.jpg"
   },
-  "id": 388
+  "id": 389
  },
  {
   "action": {
@@ -5078,7 +5094,7 @@
    ],
    "urlFilter": "||superfilm.pl/branding/"
   },
-  "id": 389
+  "id": 390
  },
  {
   "action": {
@@ -5091,7 +5107,7 @@
    ],
    "urlFilter": "||swiat-gier.com/themes/swiat-gier/img/background"
   },
-  "id": 390
+  "id": 391
  },
  {
   "action": {
@@ -5104,7 +5120,7 @@
    ],
    "urlFilter": "||swiat-szkla.pl/images/stories/aktyalnosci*/"
   },
-  "id": 391
+  "id": 392
  },
  {
   "action": {
@@ -5117,7 +5133,7 @@
    ],
    "urlFilter": "||swiat-szkla.pl/images/*750x100*.gif"
   },
-  "id": 392
+  "id": 393
  },
  {
   "action": {
@@ -5130,7 +5146,7 @@
    ],
    "urlFilter": "||swiecie24.pl/banery_"
   },
-  "id": 393
+  "id": 394
  },
  {
   "action": {
@@ -5146,7 +5162,7 @@
    ],
    "urlFilter": "||szczecinek.com/static/files/inline_images/110/inline_*.gif"
   },
-  "id": 394
+  "id": 395
  },
  {
   "action": {
@@ -5159,7 +5175,7 @@
    ],
    "urlFilter": "||t-mobile-trendy.pl/graph/backgrounds/"
   },
-  "id": 395
+  "id": 396
  },
  {
   "action": {
@@ -5172,7 +5188,7 @@
    ],
    "urlFilter": "||tabletowo.pl/wp-content/uploads/2020/10/7-pro-preorder.jpg"
   },
-  "id": 396
+  "id": 397
  },
  {
   "action": {
@@ -5188,7 +5204,7 @@
    ],
    "urlFilter": "||tanidedyk.pl/templates/"
   },
-  "id": 397
+  "id": 398
  },
  {
   "action": {
@@ -5201,7 +5217,7 @@
    ],
    "urlFilter": "||tarnowiak.pl/grafika/super_*/"
   },
-  "id": 398
+  "id": 399
  },
  {
   "action": {
@@ -5214,7 +5230,7 @@
    ],
    "urlFilter": "||techsetter.pl/wp-content/uploads/20*/*/*banner*.jpg"
   },
-  "id": 399
+  "id": 400
  },
  {
   "action": {
@@ -5227,7 +5243,7 @@
    ],
    "urlFilter": "||techsetter.pl/wp-content/uploads/20*/*/baner*.jpg"
   },
-  "id": 400
+  "id": 401
  },
  {
   "action": {
@@ -5240,7 +5256,7 @@
    ],
    "urlFilter": "||tipnet.pl/data/aqwzxtvn/"
   },
-  "id": 401
+  "id": 402
  },
  {
   "action": {
@@ -5253,7 +5269,7 @@
    ],
    "urlFilter": "||tractors.pl/banner*.png"
   },
-  "id": 402
+  "id": 403
  },
  {
   "action": {
@@ -5266,7 +5282,7 @@
    ],
    "urlFilter": "||turinfo.pl/zdjecia/*.gif"
   },
-  "id": 403
+  "id": 404
  },
  {
   "action": {
@@ -5279,7 +5295,7 @@
    ],
    "urlFilter": "||tvgry.pl/images/tapeta_reklama/"
   },
-  "id": 404
+  "id": 405
  },
  {
   "action": {
@@ -5292,7 +5308,7 @@
    ],
    "urlFilter": "||tvnights.pl/assets/img/bg/"
   },
-  "id": 405
+  "id": 406
  },
  {
   "action": {
@@ -5308,7 +5324,7 @@
    ],
    "urlFilter": "||tvsat-sklep.com/baner/"
   },
-  "id": 406
+  "id": 407
  },
  {
   "action": {
@@ -5321,7 +5337,7 @@
    ],
    "urlFilter": "||tvwlodawa.pl/wp-content/uploads/*/*/logo-"
   },
-  "id": 407
+  "id": 408
  },
  {
   "action": {
@@ -5334,7 +5350,7 @@
    ],
    "urlFilter": "||twojahistoria.pl/uploads/20*/*/*-bg.jpg"
   },
-  "id": 408
+  "id": 409
  },
  {
   "action": {
@@ -5347,7 +5363,7 @@
    ],
    "urlFilter": "||up.4clubbers.pl/out.php/"
   },
-  "id": 409
+  "id": 410
  },
  {
   "action": {
@@ -5360,7 +5376,7 @@
    ],
    "urlFilter": "||webstat.pl/rkm/"
   },
-  "id": 410
+  "id": 411
  },
  {
   "action": {
@@ -5373,7 +5389,7 @@
    ],
    "urlFilter": "||wiocha.pl/img/tapety/"
   },
-  "id": 411
+  "id": 412
  },
  {
   "action": {
@@ -5386,7 +5402,7 @@
    ],
    "urlFilter": "||wp.com/luzyce.info/wp-content/uploads/20*/*/*.gif"
   },
-  "id": 412
+  "id": 413
  },
  {
   "action": {
@@ -5402,7 +5418,7 @@
    ],
    "urlFilter": "||wp.com/niestatystyczny.pl/wp-content/uploads/*/tlo"
   },
-  "id": 413
+  "id": 414
  },
  {
   "action": {
@@ -5415,7 +5431,7 @@
    ],
    "urlFilter": "||wp.pl/*/reklamawp-"
   },
-  "id": 414
+  "id": 415
  },
  {
   "action": {
@@ -5428,7 +5444,7 @@
    ],
    "urlFilter": "||www.24opole.pl/cimg/"
   },
-  "id": 415
+  "id": 416
  },
  {
   "action": {
@@ -5441,7 +5457,7 @@
    ],
    "urlFilter": "||www.24opole.pl/dimg/"
   },
-  "id": 416
+  "id": 417
  },
  {
   "action": {
@@ -5454,7 +5470,7 @@
    ],
    "urlFilter": "||www.brief.pl/img,banner"
   },
-  "id": 417
+  "id": 418
  },
  {
   "action": {
@@ -5467,7 +5483,7 @@
    ],
    "urlFilter": "||www.cadblog.pl/*.gif"
   },
-  "id": 418
+  "id": 419
  },
  {
   "action": {
@@ -5480,7 +5496,7 @@
    ],
    "urlFilter": "||www.centrumxp.pl/api/images/grafikiosadzone/osadzony_"
   },
-  "id": 419
+  "id": 420
  },
  {
   "action": {
@@ -5493,7 +5509,7 @@
    ],
    "urlFilter": "||www.cenyrolnicze.pl/images/*reklamy*/"
   },
-  "id": 420
+  "id": 421
  },
  {
   "action": {
@@ -5506,7 +5522,7 @@
    ],
    "urlFilter": "||www.cgm.pl/_photo_vault/specials/files/"
   },
-  "id": 421
+  "id": 422
  },
  {
   "action": {
@@ -5519,7 +5535,7 @@
    ],
    "urlFilter": "||www.cgm.pl/_vault/_adver/"
   },
-  "id": 422
+  "id": 423
  },
  {
   "action": {
@@ -5532,7 +5548,7 @@
    ],
    "urlFilter": "||www.chwaszczyno.pl/templates/chwaszczyno*/images/designer/*_baner*.jpg"
   },
-  "id": 423
+  "id": 424
  },
  {
   "action": {
@@ -5545,7 +5561,7 @@
    ],
    "urlFilter": "||www.comperialead.pl/upload/"
   },
-  "id": 424
+  "id": 425
  },
  {
   "action": {
@@ -5558,7 +5574,7 @@
    ],
    "urlFilter": "||www.czarnkow.info/kir/ogl/"
   },
-  "id": 425
+  "id": 426
  },
  {
   "action": {
@@ -5571,7 +5587,7 @@
    ],
    "urlFilter": "||www.dobreprogramy.pl/cdn/*/huawei/bg-mobile.jpg"
   },
-  "id": 426
+  "id": 427
  },
  {
   "action": {
@@ -5584,7 +5600,7 @@
    ],
    "urlFilter": "||www.dobreprogramy.pl/cdn/*/huawei/huawei-"
   },
-  "id": 427
+  "id": 428
  },
  {
   "action": {
@@ -5597,7 +5613,7 @@
    ],
    "urlFilter": "||www.ekobiety.pl/wp-content/uploads/*/reklama"
   },
-  "id": 428
+  "id": 429
  },
  {
   "action": {
@@ -5610,7 +5626,7 @@
    ],
    "urlFilter": "||www.ekspertbudowlany.pl/banneryhtml/"
   },
-  "id": 429
+  "id": 430
  },
  {
   "action": {
@@ -5623,7 +5639,7 @@
    ],
    "urlFilter": "||www.elondyn.co.uk/mainpage/data/event_buttons/plik/"
   },
-  "id": 430
+  "id": 431
  },
  {
   "action": {
@@ -5636,7 +5652,7 @@
    ],
    "urlFilter": "||www.eostroleka.pl/tlo-j*.jpg"
   },
-  "id": 431
+  "id": 432
  },
  {
   "action": {
@@ -5649,7 +5665,7 @@
    ],
    "urlFilter": "||www.fight24.pl/wp-content/themes/gazette/images/*_background"
   },
-  "id": 432
+  "id": 433
  },
  {
   "action": {
@@ -5662,7 +5678,7 @@
    ],
    "urlFilter": "||www.glosgminny.pl/wp-content/uploads/*.gif"
   },
-  "id": 433
+  "id": 434
  },
  {
   "action": {
@@ -5675,7 +5691,7 @@
    ],
    "urlFilter": "||www.goal.pl/ban/"
   },
-  "id": 434
+  "id": 435
  },
  {
   "action": {
@@ -5688,7 +5704,7 @@
    ],
    "urlFilter": "||www.grymel.pl/image/subpages/*bg*.jpg"
   },
-  "id": 435
+  "id": 436
  },
  {
   "action": {
@@ -5701,7 +5717,7 @@
    ],
    "urlFilter": "||www.igrit.pl/bany/"
   },
-  "id": 436
+  "id": 437
  },
  {
   "action": {
@@ -5714,7 +5730,7 @@
    ],
    "urlFilter": "||www.ikrotoszyn.pl/tmpl/images/"
   },
-  "id": 437
+  "id": 438
  },
  {
   "action": {
@@ -5727,7 +5743,7 @@
    ],
    "urlFilter": "||www.ikrotoszyn.pl/userfiles/images/reporter/"
   },
-  "id": 438
+  "id": 439
  },
  {
   "action": {
@@ -5740,7 +5756,7 @@
    ],
    "urlFilter": "||www.infoarchitekta.pl/promocja/"
   },
-  "id": 439
+  "id": 440
  },
  {
   "action": {
@@ -5756,7 +5772,7 @@
    ],
    "urlFilter": "||www.kupbon.pl/banner/"
   },
-  "id": 440
+  "id": 441
  },
  {
   "action": {
@@ -5769,7 +5785,7 @@
    ],
    "urlFilter": "||www.labotiga.pl/modules/*background*/images/*.jpg"
   },
-  "id": 441
+  "id": 442
  },
  {
   "action": {
@@ -5782,7 +5798,7 @@
    ],
    "urlFilter": "||www.laskonline.pl/banery-reklamowe/"
   },
-  "id": 442
+  "id": 443
  },
  {
   "action": {
@@ -5795,7 +5811,7 @@
    ],
    "urlFilter": "||www.locomobit.pl/media/sn/banner_"
   },
-  "id": 443
+  "id": 444
  },
  {
   "action": {
@@ -5808,7 +5824,7 @@
    ],
    "urlFilter": "||www.maratonypolskie.pl/logo/20*/"
   },
-  "id": 444
+  "id": 445
  },
  {
   "action": {
@@ -5821,7 +5837,7 @@
    ],
    "urlFilter": "||www.medme.pl/zdjecie/banner"
   },
-  "id": 445
+  "id": 446
  },
  {
   "action": {
@@ -5836,7 +5852,7 @@
    ],
    "urlFilter": "||www.moja-ostroleka.pl/uploads/banery/"
   },
-  "id": 446
+  "id": 447
  },
  {
   "action": {
@@ -5849,7 +5865,7 @@
    ],
    "urlFilter": "||www.moja-ostroleka.pl/uploads/wybory-2018/"
   },
-  "id": 447
+  "id": 448
  },
  {
   "action": {
@@ -5862,7 +5878,7 @@
    ],
    "urlFilter": "||www.nbi.com.pl/assets/bannery/"
   },
-  "id": 448
+  "id": 449
  },
  {
   "action": {
@@ -5875,7 +5891,7 @@
    ],
    "urlFilter": "||www.nightcity.love/build/images/pop/"
   },
-  "id": 449
+  "id": 450
  },
  {
   "action": {
@@ -5888,7 +5904,7 @@
    ],
    "urlFilter": "||www.nowawrzesnia.pl/images/"
   },
-  "id": 450
+  "id": 451
  },
  {
   "action": {
@@ -5901,7 +5917,7 @@
    ],
    "urlFilter": "||www.optymalizacja.com/img/"
   },
-  "id": 451
+  "id": 452
  },
  {
   "action": {
@@ -5914,7 +5930,7 @@
    ],
    "urlFilter": "||www.pgt.pl/rekl/"
   },
-  "id": 452
+  "id": 453
  },
  {
   "action": {
@@ -5927,7 +5943,7 @@
    ],
    "urlFilter": "||www.pielegniarki.info.pl/images/boxes/"
   },
-  "id": 453
+  "id": 454
  },
  {
   "action": {
@@ -5940,7 +5956,7 @@
    ],
    "urlFilter": "||www.piszanin.pl/img/img_bannery/"
   },
-  "id": 454
+  "id": 455
  },
  {
   "action": {
@@ -5953,7 +5969,7 @@
    ],
    "urlFilter": "||www.powiatsuski24.pl/banners/"
   },
-  "id": 455
+  "id": 456
  },
  {
   "action": {
@@ -5966,7 +5982,7 @@
    ],
    "urlFilter": "||www.prostozopolskiego.pl/rekl/"
   },
-  "id": 456
+  "id": 457
  },
  {
   "action": {
@@ -5979,7 +5995,7 @@
    ],
    "urlFilter": "||www.przemyslak.pl/rek/"
   },
-  "id": 457
+  "id": 458
  },
  {
   "action": {
@@ -5995,7 +6011,7 @@
    ],
    "urlFilter": "||www.purepc.pl/e404.php"
   },
-  "id": 458
+  "id": 459
  },
  {
   "action": {
@@ -6011,7 +6027,7 @@
    ],
    "urlFilter": "||www.purepc.pl/files/image/*04x04.jpg"
   },
-  "id": 459
+  "id": 460
  },
  {
   "action": {
@@ -6024,7 +6040,7 @@
    ],
    "urlFilter": "||www.scigacz.pl/codeimgs/*/screening_"
   },
-  "id": 460
+  "id": 461
  },
  {
   "action": {
@@ -6037,7 +6053,7 @@
    ],
    "urlFilter": "||www.scigacz.pl/codeimgs/20*/*_tlo_1600x900*.jpg"
   },
-  "id": 461
+  "id": 462
  },
  {
   "action": {
@@ -6050,7 +6066,7 @@
    ],
    "urlFilter": "||www.scigacz.pl/codeimgs/202*_screening/*_tlo.jpg"
   },
-  "id": 462
+  "id": 463
  },
  {
   "action": {
@@ -6063,7 +6079,7 @@
    ],
    "urlFilter": "||www.strefawalkingdead.pl/graf/"
   },
-  "id": 463
+  "id": 464
  },
  {
   "action": {
@@ -6076,7 +6092,7 @@
    ],
    "urlFilter": "||www.suwalki.info/flash/"
   },
-  "id": 464
+  "id": 465
  },
  {
   "action": {
@@ -6089,7 +6105,7 @@
    ],
    "urlFilter": "||www.suwalki24.pl/_uploads/*/ban_"
   },
-  "id": 465
+  "id": 466
  },
  {
   "action": {
@@ -6102,7 +6118,7 @@
    ],
    "urlFilter": "||www.suwalki24.pl/admaster/"
   },
-  "id": 466
+  "id": 467
  },
  {
   "action": {
@@ -6118,7 +6134,7 @@
    ],
    "urlFilter": "||www.tv.pl/images/"
   },
-  "id": 467
+  "id": 468
  },
  {
   "action": {
@@ -6134,7 +6150,7 @@
    ],
    "urlFilter": "||www.tv.pl/images/b12.jpg"
   },
-  "id": 468
+  "id": 469
  },
  {
   "action": {
@@ -6147,7 +6163,7 @@
    ],
    "urlFilter": "||www.tworzywa.pl/gfx/tworzywa/userfiles/_public/"
   },
-  "id": 469
+  "id": 470
  },
  {
   "action": {
@@ -6161,7 +6177,7 @@
    ],
    "urlFilter": "||www.uniejow.net.pl/p4banners/baner/"
   },
-  "id": 470
+  "id": 471
  },
  {
   "action": {
@@ -6174,7 +6190,7 @@
    ],
    "urlFilter": "||www.wgmedia.eu/images/klienci/"
   },
-  "id": 471
+  "id": 472
  },
  {
   "action": {
@@ -6187,7 +6203,7 @@
    ],
    "urlFilter": "||www.wprost.pl/*/ad/"
   },
-  "id": 472
+  "id": 473
  },
  {
   "action": {
@@ -6200,7 +6216,7 @@
    ],
    "urlFilter": "||www.wolterskluwer.pl/c/document_library/get_file"
   },
-  "id": 473
+  "id": 474
  },
  {
   "action": {
@@ -6213,7 +6229,7 @@
    ],
    "urlFilter": "||www.zielonanews.pl/wp-content/uploads/201*/*/*-baner-*.jpg"
   },
-  "id": 474
+  "id": 475
  },
  {
   "action": {
@@ -6226,7 +6242,7 @@
    ],
    "urlFilter": "||wychowawcy.pl/hosting_plikow/"
   },
-  "id": 475
+  "id": 476
  },
  {
   "action": {
@@ -6239,7 +6255,7 @@
    ],
    "urlFilter": "||xlomza.pl/site/assets/files/*/*.gif"
   },
-  "id": 476
+  "id": 477
  },
  {
   "action": {
@@ -6256,7 +6272,7 @@
    ],
    "urlFilter": "||zamioculcas.org/"
   },
-  "id": 477
+  "id": 478
  },
  {
   "action": {
@@ -6269,7 +6285,7 @@
    ],
    "urlFilter": "||zap-hosting.com/interface/media/banner/"
   },
-  "id": 478
+  "id": 479
  },
  {
   "action": {
@@ -6282,7 +6298,7 @@
    ],
    "urlFilter": "||zlotymotocyklowe.pl/boxy/"
   },
-  "id": 479
+  "id": 480
  },
  {
   "action": {
@@ -6295,7 +6311,7 @@
    ],
    "urlFilter": "||zyciesokolowa.pl/banery_"
   },
-  "id": 480
+  "id": 481
  },
  {
   "action": {
@@ -6311,7 +6327,7 @@
    ],
    "urlFilter": "||zamioculcas2.org/"
   },
-  "id": 481
+  "id": 482
  },
  {
   "action": {
@@ -6324,7 +6340,7 @@
    ],
    "urlFilter": "||betonline.net.pl/images/"
   },
-  "id": 483
+  "id": 484
  },
  {
   "action": {
@@ -6337,7 +6353,7 @@
    ],
    "urlFilter": "||futbol.pl/img/milenium.jpg"
   },
-  "id": 484
+  "id": 485
  },
  {
   "action": {
@@ -6350,7 +6366,7 @@
    ],
    "urlFilter": "||mecze24.pl/img/tapeta"
   },
-  "id": 485
+  "id": 486
  },
  {
   "action": {
@@ -6363,7 +6379,7 @@
    ],
    "urlFilter": "||meczelive.tv/images/tapeta_"
   },
-  "id": 486
+  "id": 487
  },
  {
   "action": {
@@ -6376,7 +6392,7 @@
    ],
    "urlFilter": "||meczelive.tv/imghttps/"
   },
-  "id": 487
+  "id": 488
  },
  {
   "action": {
@@ -6389,7 +6405,7 @@
    ],
    "urlFilter": "||meczenazywo.pl/img/tapeta"
   },
-  "id": 488
+  "id": 489
  },
  {
   "action": {
@@ -6405,7 +6421,7 @@
    ],
    "urlFilter": "||meczyki.pl/image_upload/background/"
   },
-  "id": 489
+  "id": 490
  },
  {
   "action": {
@@ -6418,7 +6434,7 @@
    ],
    "urlFilter": "||skrotymeczow.pl/media/"
   },
-  "id": 490
+  "id": 491
  },
  {
   "action": {
@@ -6431,7 +6447,7 @@
    ],
    "urlFilter": "||asa.allegrostatic.com/display-pl/2018/8429/allegro-1200x400_showcase_22.02_final"
   },
-  "id": 491
+  "id": 492
  },
  {
   "action": {
@@ -6444,7 +6460,7 @@
    ],
    "urlFilter": "||https://cont6.naekranie.pl/wp-content/uploads/2018/04/westworld_sd.jpg"
   },
-  "id": 492
+  "id": 493
  },
  {
   "action": {
@@ -6457,7 +6473,7 @@
    ],
    "urlFilter": "||mma.pl/wp-content/uploads/*/*-tlo.jpg"
   },
-  "id": 493
+  "id": 494
  },
  {
   "action": {
@@ -6470,7 +6486,7 @@
    ],
    "urlFilter": "||ocs-pl.oktawave.com/v1/auth_*_screening_*.jpg"
   },
-  "id": 494
+  "id": 495
  },
  {
   "action": {
@@ -6483,7 +6499,7 @@
    ],
    "urlFilter": "||ocs-pl.oktawave.com/v1/auth_*/*-screening-wallpaper_*.jpg"
   },
-  "id": 495
+  "id": 496
  },
  {
   "action": {
@@ -6495,22 +6511,6 @@
     "image"
    ],
    "urlFilter": "||ocs-pl.oktawave.com/v1/auth_2887234e-384a-4873-8bc5-405211db13a2/spidersweb/2019/01/380x1035.jpg"
-  },
-  "id": 496
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "www.wykop.pl"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||imgwykop.pl/*/*/paylink_"
   },
   "id": 497
  },
@@ -6526,9 +6526,25 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||www.wykop.pl/img/campaign/"
+   "urlFilter": "||imgwykop.pl/*/*/paylink_"
   },
   "id": 498
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "www.wykop.pl"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||www.wykop.pl/img/campaign/"
+  },
+  "id": 499
  },
  {
   "action": {
@@ -6541,7 +6557,7 @@
    ],
    "urlFilter": "||www.wykop.pl/*/adblock_"
   },
-  "id": 499
+  "id": 500
  },
  {
   "action": {
@@ -6557,7 +6573,7 @@
    ],
    "urlFilter": "||wykop.pl/paylink/emiter/"
   },
-  "id": 500
+  "id": 501
  },
  {
   "action": {
@@ -6573,7 +6589,7 @@
    ],
    "urlFilter": "||v.wpimg.pl/m*fxc*=="
   },
-  "id": 502
+  "id": 503
  },
  {
   "action": {
@@ -6586,7 +6602,7 @@
    ],
    "urlFilter": "||overwatch.pl/wp-content/uploads/20*/*/250x700*.png"
   },
-  "id": 503
+  "id": 504
  },
  {
   "action": {
@@ -6599,7 +6615,7 @@
    ],
    "urlFilter": "||bestcontent.solutions/images/baner"
   },
-  "id": 504
+  "id": 505
  },
  {
   "action": {
@@ -6612,7 +6628,7 @@
    ],
    "urlFilter": "||filmozercy.com/img/adblock/"
   },
-  "id": 505
+  "id": 506
  },
  {
   "action": {
@@ -6625,7 +6641,7 @@
    ],
    "urlFilter": "||lowcygier.pl/wp-content/themes/graphene/images/adblockers"
   },
-  "id": 507
+  "id": 508
  },
  {
   "action": {
@@ -6641,7 +6657,7 @@
    ],
    "urlFilter": "||c.trojmiasto.pl/adblock/detected/"
   },
-  "id": 508
+  "id": 509
  },
  {
   "action": {
@@ -6661,7 +6677,7 @@
     "image"
    ]
   },
-  "id": 509
+  "id": 510
  },
  {
   "action": {
@@ -6680,7 +6696,7 @@
    ],
    "urlFilter": "/data/ap3bo6/*.swf"
   },
-  "id": 510
+  "id": 511
  },
  {
   "action": {
@@ -6696,7 +6712,7 @@
    ],
    "urlFilter": "||reklamy.sterta.pl/"
   },
-  "id": 511
+  "id": 512
  },
  {
   "action": {
@@ -6713,7 +6729,7 @@
    ],
    "urlFilter": "||filmweb.pl/spot/*.mp4"
   },
-  "id": 512
+  "id": 513
  },
  {
   "action": {
@@ -6727,7 +6743,7 @@
    ],
    "urlFilter": "||info.elblag.pl/images/banerki"
   },
-  "id": 513
+  "id": 514
  },
  {
   "action": {
@@ -6743,7 +6759,7 @@
    ],
    "urlFilter": "||media.spidersweb.pl/wp-content/uploads/*.swf"
   },
-  "id": 514
+  "id": 515
  },
  {
   "action": {
@@ -6759,7 +6775,7 @@
    ],
    "urlFilter": "||nazwa.pl/a.php?"
   },
-  "id": 515
+  "id": 516
  },
  {
   "action": {
@@ -6776,7 +6792,7 @@
    ],
    "urlFilter": "||nazwa.pl/video/"
   },
-  "id": 516
+  "id": 517
  },
  {
   "action": {
@@ -6789,7 +6805,7 @@
    ],
    "urlFilter": "||nokaut.pl/wigetyflash/"
   },
-  "id": 517
+  "id": 518
  },
  {
   "action": {
@@ -6802,7 +6818,7 @@
    ],
    "urlFilter": "||ocs-pl.oktawave.com/v1/auth_*/reklamy/"
   },
-  "id": 518
+  "id": 519
  },
  {
   "action": {
@@ -6819,7 +6835,7 @@
    ],
    "urlFilter": "||statics.tarsago.pl/"
   },
-  "id": 519
+  "id": 520
  },
  {
   "action": {
@@ -6832,7 +6848,7 @@
    ],
    "urlFilter": "||superfilm.pl/vast/comeon.xml"
   },
-  "id": 520
+  "id": 521
  },
  {
   "action": {
@@ -6845,7 +6861,7 @@
    ],
    "urlFilter": "||www.eostroleka.pl/luba/dane/pliki/*.swf"
   },
-  "id": 521
+  "id": 522
  },
  {
   "action": {
@@ -6858,7 +6874,7 @@
    ],
    "urlFilter": "||www.locomobit.pl/right_mm.php"
   },
-  "id": 522
+  "id": 523
  },
  {
   "action": {
@@ -6871,7 +6887,7 @@
    ],
    "urlFilter": "||www.viva-tv.pl/assets/gemius-*.swf"
   },
-  "id": 523
+  "id": 524
  },
  {
   "action": {
@@ -6884,7 +6900,7 @@
    ],
    "urlFilter": "||www.zielonanews.pl/wp-content/uploads/201*/*/*.swf"
   },
-  "id": 524
+  "id": 525
  },
  {
   "action": {
@@ -6897,7 +6913,7 @@
    ],
    "urlFilter": ".pl/www/sys/ajs*.php?"
   },
-  "id": 526
+  "id": 527
  },
  {
   "action": {
@@ -6910,7 +6926,7 @@
    ],
    "urlFilter": "pl/popup.js|"
   },
-  "id": 527
+  "id": 528
  },
  {
   "action": {
@@ -6926,7 +6942,7 @@
    ],
    "urlFilter": "/ads.js"
   },
-  "id": 528
+  "id": 529
  },
  {
   "action": {
@@ -6940,7 +6956,7 @@
    ],
    "urlFilter": "/aserver/"
   },
-  "id": 529
+  "id": 530
  },
  {
   "action": {
@@ -6957,7 +6973,7 @@
    ],
    "urlFilter": "/videoplayer.js"
   },
-  "id": 530
+  "id": 531
  },
  {
   "action": {
@@ -6970,7 +6986,7 @@
    ],
    "urlFilter": "||a5.cba.pl/js.js"
   },
-  "id": 531
+  "id": 532
  },
  {
   "action": {
@@ -6986,7 +7002,7 @@
    ],
    "urlFilter": "||ad.gazeta.pl/cpc"
   },
-  "id": 532
+  "id": 533
  },
  {
   "action": {
@@ -6999,7 +7015,7 @@
    ],
    "urlFilter": "||adsb4track.com/?"
   },
-  "id": 533
+  "id": 534
  },
  {
   "action": {
@@ -7012,7 +7028,7 @@
    ],
    "urlFilter": "||adserwer.xwords.pl/"
   },
-  "id": 534
+  "id": 535
  },
  {
   "action": {
@@ -7025,7 +7041,7 @@
    ],
    "urlFilter": "||animes.pl/jscripts/myadvertisements.js"
   },
-  "id": 535
+  "id": 536
  },
  {
   "action": {
@@ -7038,7 +7054,7 @@
    ],
    "urlFilter": "||businessclick.*/"
   },
-  "id": 536
+  "id": 537
  },
  {
   "action": {
@@ -7051,7 +7067,7 @@
    ],
    "urlFilter": "||cdn.dtxngr.com/"
   },
-  "id": 537
+  "id": 538
  },
  {
   "action": {
@@ -7067,7 +7083,7 @@
    ],
    "urlFilter": "||cdn.gallery/ad"
   },
-  "id": 538
+  "id": 539
  },
  {
   "action": {
@@ -7080,7 +7096,7 @@
    ],
    "urlFilter": "||cdn.salesmedia.pl/codes/"
   },
-  "id": 539
+  "id": 540
  },
  {
   "action": {
@@ -7096,7 +7112,7 @@
    ],
    "urlFilter": "||contextad.pl/"
   },
-  "id": 540
+  "id": 541
  },
  {
   "action": {
@@ -7109,7 +7125,7 @@
    ],
    "urlFilter": "||converti.se/convertext.js"
   },
-  "id": 541
+  "id": 542
  },
  {
   "action": {
@@ -7122,7 +7138,7 @@
    ],
    "urlFilter": "||czasdzieci.pl/_j/ad_"
   },
-  "id": 542
+  "id": 543
  },
  {
   "action": {
@@ -7135,7 +7151,7 @@
    ],
    "urlFilter": "||ec.bankier.pl/show"
   },
-  "id": 543
+  "id": 544
  },
  {
   "action": {
@@ -7151,7 +7167,7 @@
    ],
    "urlFilter": "||egnatius-ear.com/"
   },
-  "id": 544
+  "id": 545
  },
  {
   "action": {
@@ -7167,7 +7183,7 @@
    ],
    "urlFilter": "||emea.viavideo.digital/tag/load.js?sid="
   },
-  "id": 545
+  "id": 546
  },
  {
   "action": {
@@ -7180,7 +7196,7 @@
    ],
    "urlFilter": "||emisja.adsearch.pl/_/intext_static/"
   },
-  "id": 546
+  "id": 547
  },
  {
   "action": {
@@ -7193,7 +7209,7 @@
    ],
    "urlFilter": "||exs.pl/ads.js"
   },
-  "id": 547
+  "id": 548
  },
  {
   "action": {
@@ -7214,7 +7230,7 @@
    ],
    "urlFilter": "||exs.pl/embed*.php"
   },
-  "id": 548
+  "id": 549
  },
  {
   "action": {
@@ -7230,7 +7246,7 @@
    ],
    "urlFilter": "||filmweb.pl/*welcomescreenjs"
   },
-  "id": 549
+  "id": 550
  },
  {
   "action": {
@@ -7243,7 +7259,7 @@
    ],
    "urlFilter": "||freedisc.pl/static/player/*/vast.js"
   },
-  "id": 550
+  "id": 551
  },
  {
   "action": {
@@ -7256,7 +7272,7 @@
    ],
    "urlFilter": "||gazetalubliniecka.pl/wp-content/plugins/popup-maker/assets/js/site.min.js"
   },
-  "id": 551
+  "id": 552
  },
  {
   "action": {
@@ -7269,7 +7285,7 @@
    ],
    "urlFilter": "||interia.pl/*/ads-sidebar"
   },
-  "id": 552
+  "id": 553
  },
  {
   "action": {
@@ -7285,7 +7301,7 @@
    ],
    "urlFilter": "||jastrzebieonline.pl/js/scripts.js"
   },
-  "id": 553
+  "id": 554
  },
  {
   "action": {
@@ -7301,7 +7317,7 @@
    ],
    "urlFilter": "||js.iplsc.com/inpl.adb/*/inpl.adb.js"
   },
-  "id": 554
+  "id": 555
  },
  {
   "action": {
@@ -7315,7 +7331,7 @@
    ],
    "urlFilter": "||lib.onet.pl/s.csr/external/iframe"
   },
-  "id": 555
+  "id": 556
  },
  {
   "action": {
@@ -7328,7 +7344,7 @@
    ],
    "urlFilter": "||mbank.net.pl/adserwer/"
   },
-  "id": 556
+  "id": 557
  },
  {
   "action": {
@@ -7341,7 +7357,7 @@
    ],
    "urlFilter": "||meczelive.tv/media/js/init12.js"
   },
-  "id": 557
+  "id": 558
  },
  {
   "action": {
@@ -7354,7 +7370,7 @@
    ],
    "urlFilter": "||napiprojekt.pl/js/ads-*.js"
   },
-  "id": 558
+  "id": 559
  },
  {
   "action": {
@@ -7367,7 +7383,7 @@
    ],
    "urlFilter": "||opensubtitles.org/*=.js"
   },
-  "id": 559
+  "id": 560
  },
  {
   "action": {
@@ -7383,7 +7399,7 @@
    ],
    "urlFilter": "||popclck.org/"
   },
-  "id": 560
+  "id": 561
  },
  {
   "action": {
@@ -7396,7 +7412,7 @@
    ],
    "urlFilter": "||ppstatic.pl/*/reklamy/"
   },
-  "id": 561
+  "id": 562
  },
  {
   "action": {
@@ -7409,7 +7425,7 @@
    ],
    "urlFilter": "||ppwidget.skapiec.pl/widget/"
   },
-  "id": 562
+  "id": 563
  },
  {
   "action": {
@@ -7425,7 +7441,7 @@
    ],
    "urlFilter": "||qjse.quartic.pl/qjs/"
   },
-  "id": 563
+  "id": 564
  },
  {
   "action": {
@@ -7441,7 +7457,7 @@
    ],
    "urlFilter": "||rkantor.com/widget/"
   },
-  "id": 564
+  "id": 565
  },
  {
   "action": {
@@ -7454,7 +7470,7 @@
    ],
    "urlFilter": "||rtbnowads.com/"
   },
-  "id": 565
+  "id": 566
  },
  {
   "action": {
@@ -7467,7 +7483,7 @@
    ],
    "urlFilter": "||static.gazetaprawna.pl/dziennik/required/build/js/adexonloader.js"
   },
-  "id": 566
+  "id": 567
  },
  {
   "action": {
@@ -7483,7 +7499,7 @@
    ],
    "urlFilter": "||static.gazetaprawna.pl/dziennik/required/build/js/scrollredirect.js"
   },
-  "id": 567
+  "id": 568
  },
  {
   "action": {
@@ -7499,7 +7515,7 @@
    ],
    "urlFilter": "||static.mailerlite.com/data/*/*_popups.js"
   },
-  "id": 568
+  "id": 569
  },
  {
   "action": {
@@ -7512,7 +7528,7 @@
    ],
    "urlFilter": "||vider.pl/static/player/v*/vast.js"
   },
-  "id": 569
+  "id": 570
  },
  {
   "action": {
@@ -7528,7 +7544,7 @@
    ],
    "urlFilter": "||viralseedmedia.com/"
   },
-  "id": 570
+  "id": 571
  },
  {
   "action": {
@@ -7541,7 +7557,7 @@
    ],
    "urlFilter": "||wbj.pl/wp-content/plugins/adkingpro/js/adkingpro-functions.js"
   },
-  "id": 571
+  "id": 572
  },
  {
   "action": {
@@ -7557,7 +7573,7 @@
    ],
    "urlFilter": "||widgets.moneteasy.pl/widget/"
   },
-  "id": 572
+  "id": 573
  },
  {
   "action": {
@@ -7570,7 +7586,7 @@
    ],
    "urlFilter": "||www.benchmark.pl/js/header.ad.js"
   },
-  "id": 573
+  "id": 574
  },
  {
   "action": {
@@ -7583,7 +7599,7 @@
    ],
    "urlFilter": "||www.pch24.pl/js/banery.js"
   },
-  "id": 574
+  "id": 575
  },
  {
   "action": {
@@ -7596,7 +7612,7 @@
    ],
    "urlFilter": "||zolti.pl/ajax/affiliate-generator.php?"
   },
-  "id": 575
+  "id": 576
  },
  {
   "action": {
@@ -7609,7 +7625,7 @@
    ],
    "urlFilter": "||livemecz.*/u3/ads.js"
   },
-  "id": 580
+  "id": 581
  },
  {
   "action": {
@@ -7622,7 +7638,7 @@
    ],
    "urlFilter": "||userload.co/maroc.js"
   },
-  "id": 581
+  "id": 582
  },
  {
   "action": {
@@ -7635,7 +7651,7 @@
    ],
    "urlFilter": "||electro-torrent.pl/over*.js"
   },
-  "id": 582
+  "id": 583
  },
  {
   "action": {
@@ -7648,7 +7664,7 @@
    ],
    "urlFilter": "||electro-torrent.pl/resizeiframe.js"
   },
-  "id": 583
+  "id": 584
  },
  {
   "action": {
@@ -7661,7 +7677,7 @@
    ],
    "urlFilter": "||webshark.pl/apcu/*.js"
   },
-  "id": 584
+  "id": 585
  },
  {
   "action": {
@@ -7677,7 +7693,7 @@
    ],
    "urlFilter": "||cloudfront.net/atrk.js"
   },
-  "id": 585
+  "id": 586
  },
  {
   "action": {
@@ -7690,7 +7706,7 @@
    ],
    "urlFilter": "||playtube.ws/js/pop.js"
   },
-  "id": 586
+  "id": 587
  },
  {
   "action": {
@@ -7706,7 +7722,7 @@
    ],
    "urlFilter": "/wp-content/plugins/wp-words-links-change/"
   },
-  "id": 597
+  "id": 598
  },
  {
   "action": {
@@ -7724,7 +7740,7 @@
     "script"
    ]
   },
-  "id": 599
+  "id": 600
  },
  {
   "action": {
@@ -7740,7 +7756,7 @@
    ],
    "urlFilter": "||i.wp.pl/*/stg/wpjslib-nojq.js"
   },
-  "id": 600
+  "id": 601
  },
  {
   "action": {
@@ -7753,7 +7769,7 @@
    ],
    "urlFilter": "||pebx.pl/js/donate.js"
   },
-  "id": 602
+  "id": 603
  },
  {
   "action": {
@@ -7769,7 +7785,7 @@
    ],
    "urlFilter": "||affiliate44.com.pl/widget/"
   },
-  "id": 603
+  "id": 604
  },
  {
   "action": {
@@ -7785,7 +7801,7 @@
    ],
    "urlFilter": "||addthis.com/*/addthis_widget.js"
   },
-  "id": 604
+  "id": 605
  },
  {
   "action": {
@@ -7822,7 +7838,7 @@
    ],
    "urlFilter": "||ppstatic.pl/*/reklama.js"
   },
-  "id": 605
+  "id": 606
  },
  {
   "action": {
@@ -7839,7 +7855,7 @@
     "script"
    ]
   },
-  "id": 606
+  "id": 607
  },
  {
   "action": {
@@ -7852,7 +7868,7 @@
    ],
    "urlFilter": "||bankier.pl/static/js/kichot.js"
   },
-  "id": 607
+  "id": 608
  },
  {
   "action": {
@@ -7865,7 +7881,7 @@
    ],
    "urlFilter": "||blog.nowebrzmienia.pl/wp-content/themes/awaken/js/scripts.js"
   },
-  "id": 608
+  "id": 609
  },
  {
   "action": {
@@ -7881,7 +7897,7 @@
    ],
    "urlFilter": "||flakyfeast.com/"
   },
-  "id": 609
+  "id": 610
  },
  {
   "action": {
@@ -7894,7 +7910,7 @@
    ],
    "urlFilter": "||gizchina.com.pl/*fuckadblock.min.js"
   },
-  "id": 610
+  "id": 611
  },
  {
   "action": {
@@ -7907,7 +7923,7 @@
    ],
    "urlFilter": "||napisy24.pl/run/js/blad*.js"
   },
-  "id": 611
+  "id": 612
  },
  {
   "action": {
@@ -7920,7 +7936,7 @@
    ],
    "urlFilter": "||niepoprawni.pl/sites/all/libraries/copier/bck.js"
   },
-  "id": 612
+  "id": 613
  },
  {
   "action": {
@@ -7937,7 +7953,7 @@
    ],
    "urlFilter": "/test_block.js"
   },
-  "id": 613
+  "id": 614
  },
  {
   "action": {
@@ -7953,7 +7969,7 @@
    ],
    "urlFilter": "||www.poradnikzdrowie.pl/media/desktop/zpr_videos_web/js/video_blocker.js"
   },
-  "id": 614
+  "id": 615
  },
  {
   "action": {
@@ -7966,7 +7982,7 @@
    ],
    "urlFilter": "/wp-content/plugins/pause-adblocker"
   },
-  "id": 615
+  "id": 616
  },
  {
   "action": {
@@ -7979,7 +7995,7 @@
    ],
    "urlFilter": "/wp-content/plugins/wp-adblock-dedect/dedect.js"
   },
-  "id": 616
+  "id": 617
  },
  {
   "action": {
@@ -7992,7 +8008,7 @@
    ],
    "urlFilter": "||xperiasite.pl/public/js/antyadblock.js"
   },
-  "id": 618
+  "id": 619
  },
  {
   "action": {
@@ -8015,7 +8031,7 @@
     "script"
    ]
   },
-  "id": 619
+  "id": 620
  },
  {
   "action": {
@@ -8028,7 +8044,7 @@
    ],
    "urlFilter": "||zalukaj.com/sdm.php"
   },
-  "id": 620
+  "id": 621
  },
  {
   "action": {
@@ -8041,7 +8057,7 @@
    ],
    "urlFilter": "||converti.se/comparison/"
   },
-  "id": 621
+  "id": 622
  },
  {
   "action": {
@@ -8057,7 +8073,7 @@
    ],
    "urlFilter": "||dfp.gazeta.pl/c.servlet?cn=dfpreferrer&cv=direct"
   },
-  "id": 622
+  "id": 623
  },
  {
   "action": {
@@ -8073,7 +8089,7 @@
    ],
    "urlFilter": "||embed.wprost.pl/ad/"
   },
-  "id": 623
+  "id": 624
  },
  {
   "action": {
@@ -8086,7 +8102,7 @@
    ],
    "urlFilter": "||evertiq.pl/include/ad-block/"
   },
-  "id": 624
+  "id": 625
  },
  {
   "action": {
@@ -8099,7 +8115,7 @@
    ],
    "urlFilter": "||g.cda.pl/*.php?ax"
   },
-  "id": 625
+  "id": 626
  },
  {
   "action": {
@@ -8112,7 +8128,7 @@
    ],
    "urlFilter": "||hdtvpolska.com/forum/welcome-screen.js"
   },
-  "id": 626
+  "id": 627
  },
  {
   "action": {
@@ -8128,7 +8144,7 @@
    ],
    "urlFilter": "||mgsm.pl/js/get*ads.xhtml"
   },
-  "id": 627
+  "id": 628
  },
  {
   "action": {
@@ -8144,7 +8160,7 @@
    ],
    "urlFilter": "||news.targeo.pl/oarm.php"
   },
-  "id": 628
+  "id": 629
  },
  {
   "action": {
@@ -8157,7 +8173,7 @@
    ],
    "urlFilter": "||request.dqst.pl/"
   },
-  "id": 629
+  "id": 630
  },
  {
   "action": {
@@ -8173,7 +8189,7 @@
    ],
    "urlFilter": "||rmfstream.pl/metadata?type=json&cb=*&details=1"
   },
-  "id": 630
+  "id": 631
  },
  {
   "action": {
@@ -8186,7 +8202,7 @@
    ],
    "urlFilter": "||wp.pl/staticad/"
   },
-  "id": 631
+  "id": 632
  },
  {
   "action": {
@@ -8203,7 +8219,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 632
+  "id": 633
  },
  {
   "action": {
@@ -8216,7 +8232,7 @@
    ],
    "urlFilter": "||onlystream.tv/srt/empty.vtt"
   },
-  "id": 633
+  "id": 634
  },
  {
   "action": {
@@ -8229,7 +8245,7 @@
    ],
    "urlFilter": "||wpkoszyk.wp.pl/api/koszyk"
   },
-  "id": 637
+  "id": 638
  },
  {
   "action": {
@@ -8245,7 +8261,7 @@
    ],
    "urlFilter": "||xml.enovatis.pl/mrdsl/json.php"
   },
-  "id": 638
+  "id": 639
  },
  {
   "action": {
@@ -8258,7 +8274,7 @@
    ],
    "urlFilter": "||vidoza.net/dl?op=view&*adb="
   },
-  "id": 640
+  "id": 641
  },
  {
   "action": {
@@ -8272,7 +8288,7 @@
    ],
    "urlFilter": "||vidoza.net/srt/empty.srt"
   },
-  "id": 641
+  "id": 642
  },
  {
   "action": {
@@ -8286,7 +8302,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 642
+  "id": 643
  },
  {
   "action": {
@@ -8303,7 +8319,7 @@
    ],
    "urlFilter": "/rotator.php"
   },
-  "id": 643
+  "id": 644
  },
  {
   "action": {
@@ -8319,7 +8335,7 @@
    ],
    "urlFilter": "||antygrupa.pl/adv/"
   },
-  "id": 644
+  "id": 645
  },
  {
   "action": {
@@ -8332,7 +8348,7 @@
    ],
    "urlFilter": "||avanti.fashion/pub/ips/"
   },
-  "id": 645
+  "id": 646
  },
  {
   "action": {
@@ -8345,7 +8361,7 @@
    ],
    "urlFilter": "||avanti24.pl/pub/ips/"
   },
-  "id": 646
+  "id": 647
  },
  {
   "action": {
@@ -8361,7 +8377,7 @@
    ],
    "urlFilter": "||bitbay.net/"
   },
-  "id": 647
+  "id": 648
  },
  {
   "action": {
@@ -8374,7 +8390,7 @@
    ],
    "urlFilter": "||converti.se/recommendations/loader/"
   },
-  "id": 648
+  "id": 649
  },
  {
   "action": {
@@ -8390,7 +8406,7 @@
    ],
    "urlFilter": "||czasdzieci.home.pl/mailingi/iframe/"
   },
-  "id": 649
+  "id": 650
  },
  {
   "action": {
@@ -8403,7 +8419,7 @@
    ],
    "urlFilter": "||elka.pl/modules/banneryswiffy.php"
   },
-  "id": 650
+  "id": 651
  },
  {
   "action": {
@@ -8416,7 +8432,7 @@
    ],
    "urlFilter": "||epoznan.pl/adsys_reklamy"
   },
-  "id": 651
+  "id": 652
  },
  {
   "action": {
@@ -8436,7 +8452,7 @@
    ],
    "urlFilter": "||exs.pl/frame*.php"
   },
-  "id": 652
+  "id": 653
  },
  {
   "action": {
@@ -8449,7 +8465,7 @@
    ],
    "urlFilter": "||extremehobby.eu/banner/"
   },
-  "id": 653
+  "id": 654
  },
  {
   "action": {
@@ -8462,7 +8478,7 @@
    ],
    "urlFilter": "||fwcdn.pl/adv/"
   },
-  "id": 654
+  "id": 655
  },
  {
   "action": {
@@ -8475,7 +8491,7 @@
    ],
    "urlFilter": "||fwcdn.pl/*/mediaexpert.html"
   },
-  "id": 655
+  "id": 656
  },
  {
   "action": {
@@ -8488,7 +8504,7 @@
    ],
    "urlFilter": "||gwiazdybasketu.pl/iframe/"
   },
-  "id": 656
+  "id": 657
  },
  {
   "action": {
@@ -8501,7 +8517,7 @@
    ],
    "urlFilter": "||home.pl/nowemedia/public/www/shadowtactic/screening/"
   },
-  "id": 657
+  "id": 658
  },
  {
   "action": {
@@ -8514,7 +8530,7 @@
    ],
    "urlFilter": "||hotmoda.pl/sklep/getiframe"
   },
-  "id": 658
+  "id": 659
  },
  {
   "action": {
@@ -8527,7 +8543,7 @@
    ],
    "urlFilter": "||hyperreal.info/acid/frame/"
   },
-  "id": 659
+  "id": 660
  },
  {
   "action": {
@@ -8540,7 +8556,7 @@
    ],
    "urlFilter": "||interia.pl/iframe"
   },
-  "id": 660
+  "id": 661
  },
  {
   "action": {
@@ -8557,7 +8573,7 @@
     "sub_frame"
    ]
   },
-  "id": 661
+  "id": 662
  },
  {
   "action": {
@@ -8570,7 +8586,7 @@
    ],
    "urlFilter": "||lublin112.pl/ads-content/"
   },
-  "id": 662
+  "id": 663
  },
  {
   "action": {
@@ -8583,7 +8599,7 @@
    ],
    "urlFilter": "||matrixmedia.pl/iframes/"
   },
-  "id": 663
+  "id": 664
  },
  {
   "action": {
@@ -8599,7 +8615,7 @@
    ],
    "urlFilter": "||ocdn.eu/*.html"
   },
-  "id": 664
+  "id": 665
  },
  {
   "action": {
@@ -8615,7 +8631,7 @@
    ],
    "urlFilter": "||ocs-pl.oktawave.com/*/reklamy"
   },
-  "id": 665
+  "id": 666
  },
  {
   "action": {
@@ -8628,7 +8644,7 @@
    ],
    "urlFilter": "||pasaz.goryonline.com/?k="
   },
-  "id": 666
+  "id": 667
  },
  {
   "action": {
@@ -8641,7 +8657,7 @@
    ],
    "urlFilter": "||rpinfo.pl/_slides/_slides_stat_frame.php"
   },
-  "id": 667
+  "id": 668
  },
  {
   "action": {
@@ -8654,7 +8670,7 @@
    ],
    "urlFilter": "||s-nk.pl/files/offers/"
   },
-  "id": 668
+  "id": 669
  },
  {
   "action": {
@@ -8671,7 +8687,7 @@
     "sub_frame"
    ]
   },
-  "id": 669
+  "id": 670
  },
  {
   "action": {
@@ -8684,7 +8700,7 @@
    ],
    "urlFilter": "||shopeasy.by/redirect/"
   },
-  "id": 670
+  "id": 671
  },
  {
   "action": {
@@ -8697,7 +8713,7 @@
    ],
    "urlFilter": "||shoperia.pl/"
   },
-  "id": 671
+  "id": 672
  },
  {
   "action": {
@@ -8710,7 +8726,7 @@
    ],
    "urlFilter": "||speedtest.pl/files/"
   },
-  "id": 672
+  "id": 673
  },
  {
   "action": {
@@ -8723,7 +8739,7 @@
    ],
    "urlFilter": "||spidersweb.pl/*reklamy/"
   },
-  "id": 673
+  "id": 674
  },
  {
   "action": {
@@ -8739,7 +8755,7 @@
    ],
    "urlFilter": "||spidersweb.pl/wp-content/themes/new_sw_v3_git/others/"
   },
-  "id": 674
+  "id": 675
  },
  {
   "action": {
@@ -8752,7 +8768,7 @@
    ],
    "urlFilter": "||static.wizaz.pl/system/kwc/promo/kwc_promo_box_*.html"
   },
-  "id": 675
+  "id": 676
  },
  {
   "action": {
@@ -8765,7 +8781,7 @@
    ],
    "urlFilter": "||urban.one/widget/widget-"
   },
-  "id": 676
+  "id": 677
  },
  {
   "action": {
@@ -8781,7 +8797,7 @@
    ],
    "urlFilter": "||v.wpimg.pl/"
   },
-  "id": 677
+  "id": 678
  },
  {
   "action": {
@@ -8794,7 +8810,7 @@
    ],
    "urlFilter": "||wirtualnygarwolin.pl/images/banners/*.html"
   },
-  "id": 678
+  "id": 679
  },
  {
   "action": {
@@ -8807,7 +8823,7 @@
    ],
    "urlFilter": "||www.ebelchatow.pl/sites/default/files/html5_baners/"
   },
-  "id": 679
+  "id": 680
  },
  {
   "action": {
@@ -8820,7 +8836,7 @@
    ],
    "urlFilter": "||www.js.pl/promo/iframenew.php"
   },
-  "id": 680
+  "id": 681
  },
  {
   "action": {
@@ -8833,7 +8849,7 @@
    ],
    "urlFilter": "||www.sfd.pl/sklep/program-partnerski/"
   },
-  "id": 681
+  "id": 682
  },
  {
   "action": {
@@ -8846,7 +8862,7 @@
    ],
    "urlFilter": "||www.stepstone.pl/poweredbys/searchbox/"
   },
-  "id": 682
+  "id": 683
  },
  {
   "action": {
@@ -8859,7 +8875,7 @@
    ],
    "urlFilter": "||www.wiocha.pl/subpages/*.php"
   },
-  "id": 683
+  "id": 684
  },
  {
   "action": {
@@ -8872,7 +8888,7 @@
    ],
    "urlFilter": "||xml.enovatis.pl/mrdsl/content.php"
   },
-  "id": 684
+  "id": 685
  },
  {
   "action": {
@@ -8885,7 +8901,7 @@
    ],
    "urlFilter": "||nowwatchtvlive.co/matomyads"
   },
-  "id": 689
+  "id": 690
  },
  {
   "action": {
@@ -8898,7 +8914,7 @@
    ],
    "urlFilter": "/everynight/backup/"
   },
-  "id": 691
+  "id": 692
  },
  {
   "action": {
@@ -8915,7 +8931,7 @@
     "sub_frame"
    ]
   },
-  "id": 692
+  "id": 693
  },
  {
   "action": {
@@ -8928,7 +8944,7 @@
    ],
    "urlFilter": "||vulcanm.home.pl/_uonetads/vulcan_lekcja"
   },
-  "id": 693
+  "id": 694
  },
  {
   "action": {
@@ -8944,7 +8960,7 @@
    ],
    "urlFilter": "/ad-"
   },
-  "id": 694
+  "id": 695
  },
  {
   "action": {
@@ -8963,7 +8979,7 @@
     "sub_frame"
    ]
   },
-  "id": 695
+  "id": 696
  },
  {
   "action": {
@@ -8981,7 +8997,7 @@
     "media"
    ]
   },
-  "id": 696
+  "id": 697
  },
  {
   "action": {
@@ -8997,7 +9013,7 @@
    ],
    "urlFilter": "||fm.tuba.pl/tuba3/_spots/*.mp4"
   },
-  "id": 699
+  "id": 700
  },
  {
   "action": {
@@ -9011,7 +9027,7 @@
    ],
    "urlFilter": "||iturek.net/images/1reklama/"
   },
-  "id": 700
+  "id": 701
  },
  {
   "action": {
@@ -9029,7 +9045,7 @@
    ],
    "urlFilter": "/media/js/jquery.pu.js"
   },
-  "id": 701
+  "id": 702
  },
  {
   "action": {
@@ -9049,7 +9065,7 @@
    ],
    "urlFilter": "/index/noaidb/"
   },
-  "id": 702
+  "id": 703
  },
  {
   "action": {
@@ -9067,7 +9083,7 @@
     "shoplov.in"
    ]
   },
-  "id": 703
+  "id": 704
  },
  {
   "action": {
@@ -9083,7 +9099,7 @@
     "adglare.org"
    ]
   },
-  "id": 704
+  "id": 705
  },
  {
   "action": {
@@ -9098,7 +9114,7 @@
     "smart.idmnet.pl"
    ]
   },
-  "id": 705
+  "id": 706
  },
  {
   "action": {
@@ -9113,7 +9129,7 @@
     "script"
    ]
   },
-  "id": 706
+  "id": 707
  },
  {
   "action": {
@@ -9136,7 +9152,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/advertisingmodule."
   },
-  "id": 707
+  "id": 708
  },
  {
   "action": {
@@ -9149,7 +9165,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "reklama"
   },
-  "id": 708
+  "id": 709
  },
  {
   "action": {
@@ -9162,7 +9178,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adocean.pl/files/js/ado.js|"
   },
-  "id": 709
+  "id": 710
  },
  {
   "action": {
@@ -9175,7 +9191,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adtaily.pl/wp-content/themes/adtaily_*/"
   },
-  "id": 710
+  "id": 711
  },
  {
   "action": {
@@ -9185,7 +9201,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||angielskie-slowka.pl/speecher/advert/*.mp3"
   },
-  "id": 711
+  "id": 712
  },
  {
   "action": {
@@ -9195,7 +9211,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||anime-odcinki.pl/sites/default/files/styles/medium-smaller__200x200_/public/okladki"
   },
-  "id": 712
+  "id": 713
  },
  {
   "action": {
@@ -9208,7 +9224,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||av-cdn-*.wpimg.pl/*:wp*.stream^"
   },
-  "id": 713
+  "id": 714
  },
  {
   "action": {
@@ -9218,7 +9234,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.gamer-network.net/2017/scripts/ads.js"
   },
-  "id": 714
+  "id": 715
  },
  {
   "action": {
@@ -9231,7 +9247,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cz.search.etargetnet.com/|"
   },
-  "id": 715
+  "id": 716
  },
  {
   "action": {
@@ -9241,7 +9257,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dot.wp.pl/redir?sn=facebook_o2"
   },
-  "id": 716
+  "id": 717
  },
  {
   "action": {
@@ -9254,7 +9270,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||emisja.contentstream.pl/_/jsonapi/?prefix=adart"
   },
-  "id": 717
+  "id": 718
  },
  {
   "action": {
@@ -9264,7 +9280,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||epoznan.pl/ajax/get_adsys_code.php"
   },
-  "id": 718
+  "id": 719
  },
  {
   "action": {
@@ -9279,7 +9295,7 @@
     "exs.pl"
    ]
   },
-  "id": 719
+  "id": 720
  },
  {
   "action": {
@@ -9292,7 +9308,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||go.eu.bbelements.com/please/code|"
   },
-  "id": 720
+  "id": 721
  },
  {
   "action": {
@@ -9310,7 +9326,7 @@
     "google-analytics.com"
    ]
   },
-  "id": 721
+  "id": 722
  },
  {
   "action": {
@@ -9320,7 +9336,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||guce.advertising.com/collectidentifiers?sessionid="
   },
-  "id": 722
+  "id": 723
  },
  {
   "action": {
@@ -9333,7 +9349,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ia.hit.interia.pl/*/date?"
   },
-  "id": 723
+  "id": 724
  },
  {
   "action": {
@@ -9343,7 +9359,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lokalna24.pl^*^lokalna24_logo_"
   },
-  "id": 724
+  "id": 725
  },
  {
   "action": {
@@ -9365,7 +9381,7 @@
     "pagead2.googlesyndication.com"
    ]
   },
-  "id": 725
+  "id": 726
  },
  {
   "action": {
@@ -9375,7 +9391,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||partech.pl/modules/blockadvertising/advertising.jpg"
   },
-  "id": 726
+  "id": 727
  },
  {
   "action": {
@@ -9385,7 +9401,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||polsatnews.pl/templates/pnews/js/fingerprint2.min.js"
   },
-  "id": 727
+  "id": 728
  },
  {
   "action": {
@@ -9409,7 +9425,7 @@
     "rtax.criteo.com"
    ]
   },
-  "id": 728
+  "id": 729
  },
  {
   "action": {
@@ -9422,7 +9438,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sascdn.com/diff/video"
   },
-  "id": 729
+  "id": 730
  },
  {
   "action": {
@@ -9432,7 +9448,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ssl.allegro.pl/order/^"
   },
-  "id": 730
+  "id": 731
  },
  {
   "action": {
@@ -9442,7 +9458,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tradedoubler.com/*www.mediaexpert.pl"
   },
-  "id": 731
+  "id": 732
  },
  {
   "action": {
@@ -9452,7 +9468,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wikimedia.org/"
   },
-  "id": 732
+  "id": 733
  },
  {
   "action": {
@@ -9465,7 +9481,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||myao.adocean.pl/*ad.xml"
   },
-  "id": 733
+  "id": 734
  },
  {
   "action": {
@@ -9478,7 +9494,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adocean.pl/ad.xml"
   },
-  "id": 734
+  "id": 735
  },
  {
   "action": {
@@ -9491,7 +9507,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adocean.pl/*ad.xml"
   },
-  "id": 735
+  "id": 736
  },
  {
   "action": {
@@ -9504,7 +9520,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||plista.com/"
   },
-  "id": 736
+  "id": 737
  },
  {
   "action": {
@@ -9518,7 +9534,7 @@
     "adsup.pl"
    ]
   },
-  "id": 737
+  "id": 738
  },
  {
   "action": {
@@ -9528,7 +9544,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||aptekarski.com/advertisement-item/"
   },
-  "id": 738
+  "id": 739
  },
  {
   "action": {
@@ -9541,7 +9557,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||onesignal.com/"
   },
-  "id": 739
+  "id": 740
  },
  {
   "action": {
@@ -9551,7 +9567,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||erpxt.pl/scripts/code/"
   },
-  "id": 741
+  "id": 742
  },
  {
   "action": {
@@ -9561,7 +9577,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.dorzeczy.pl/dorzeczy/_i/button-125x40-app-store.png"
   },
-  "id": 742
+  "id": 743
  },
  {
   "action": {
@@ -9571,7 +9587,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.dorzeczy.pl/dorzeczy/_i/button-125x40-google-play.png"
   },
-  "id": 743
+  "id": 744
  },
  {
   "action": {
@@ -9581,7 +9597,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||konkurs24h.pl^*^advalue"
   },
-  "id": 744
+  "id": 745
  },
  {
   "action": {
@@ -9598,7 +9614,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/reklama."
   },
-  "id": 745
+  "id": 746
  },
  {
   "action": {
@@ -9611,7 +9627,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||reklama.grajewo.net.pl/"
   },
-  "id": 746
+  "id": 747
  },
  {
   "action": {
@@ -9641,7 +9657,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 747
+  "id": 748
  },
  {
   "action": {
@@ -9654,7 +9670,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||olx.org/ads/offer-eligibility"
   },
-  "id": 748
+  "id": 749
  },
  {
   "action": {
@@ -9668,7 +9684,7 @@
     "liveads.pl"
    ]
   },
-  "id": 749
+  "id": 750
  },
  {
   "action": {
@@ -9678,7 +9694,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fastwhitecat.com/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-download-tracker.js"
   },
-  "id": 750
+  "id": 751
  },
  {
   "action": {
@@ -9692,7 +9708,7 @@
     "wpfc.ml"
    ]
   },
-  "id": 751
+  "id": 752
  },
  {
   "action": {
@@ -9709,7 +9725,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googletagservices.com/tag/js/gpt.js"
   },
-  "id": 752
+  "id": 753
  },
  {
   "action": {
@@ -9722,7 +9738,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googleads.g.doubleclick.net/pagead/id"
   },
-  "id": 753
+  "id": 754
  },
  {
   "action": {
@@ -9735,7 +9751,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/ads.css"
   },
-  "id": 754
+  "id": 755
  },
  {
   "action": {
@@ -9750,7 +9766,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/ad/banner/_adsense_/_adserver/_adview_.ad.json"
   },
-  "id": 755
+  "id": 756
  },
  {
   "action": {
@@ -9763,7 +9779,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/advertise.js"
   },
-  "id": 756
+  "id": 757
  },
  {
   "action": {
@@ -9784,7 +9800,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/advertisement.js"
   },
-  "id": 757
+  "id": 758
  },
  {
   "action": {
@@ -9797,7 +9813,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/images/ad"
   },
-  "id": 758
+  "id": 759
  },
  {
   "action": {
@@ -9807,7 +9823,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/jannah/*js/advertisement.js"
   },
-  "id": 759
+  "id": 760
  },
  {
   "action": {
@@ -9821,7 +9837,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/reklama.js"
   },
-  "id": 760
+  "id": 761
  },
  {
   "action": {
@@ -9834,7 +9850,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/showad_.js"
   },
-  "id": 761
+  "id": 762
  },
  {
   "action": {
@@ -9848,7 +9864,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adservice.google.*/adsid/integrator.js"
   },
-  "id": 762
+  "id": 763
  },
  {
   "action": {
@@ -9858,7 +9874,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||anyfiles.pl/pageloading/*-loader.jsp?ads=true"
   },
-  "id": 763
+  "id": 764
  },
  {
   "action": {
@@ -9868,7 +9884,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||app.convertiser.com/scripts/*.advert.js"
   },
-  "id": 764
+  "id": 765
  },
  {
   "action": {
@@ -9878,7 +9894,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||burzowo.info/*.js?*ad"
   },
-  "id": 765
+  "id": 766
  },
  {
   "action": {
@@ -9888,7 +9904,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||code.skript.pl/*.js?ad_type=skript"
   },
-  "id": 766
+  "id": 767
  },
  {
   "action": {
@@ -9901,7 +9917,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||csr.onet.pl/"
   },
-  "id": 767
+  "id": 768
  },
  {
   "action": {
@@ -9911,7 +9927,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dziennikwschodni.pl/*/*ads."
   },
-  "id": 768
+  "id": 769
  },
  {
   "action": {
@@ -9921,7 +9937,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fm.tuba.pl/adblockdetector.js"
   },
-  "id": 769
+  "id": 770
  },
  {
   "action": {
@@ -9935,7 +9951,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googletagmanager.com/gtm.js"
   },
-  "id": 770
+  "id": 771
  },
  {
   "action": {
@@ -9945,7 +9961,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||istotne.pl/ajax/adverts.json"
   },
-  "id": 771
+  "id": 772
  },
  {
   "action": {
@@ -9959,7 +9975,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||iwa3.hit.interia.pl^*/iwa_core?ts="
   },
-  "id": 772
+  "id": 773
  },
  {
   "action": {
@@ -9972,7 +9988,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||js.iplsc.com/inpl.adb/*/empt.js?*&adserv="
   },
-  "id": 773
+  "id": 774
  },
  {
   "action": {
@@ -9986,7 +10002,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||js.iplsc.com/inpl.abd/latest/ads.js?"
   },
-  "id": 774
+  "id": 775
  },
  {
   "action": {
@@ -9996,7 +10012,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||manjaro.pl/abd/adserver/adlogger_tracker.php"
   },
-  "id": 775
+  "id": 776
  },
  {
   "action": {
@@ -10006,7 +10022,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ogloszenia.plock.pl/build/js/ads.*.js"
   },
-  "id": 776
+  "id": 777
  },
  {
   "action": {
@@ -10016,7 +10032,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||online-tv.pl/wp-content/plugins/pause-adblocker/inc/pause-front.css"
   },
-  "id": 777
+  "id": 778
  },
  {
   "action": {
@@ -10026,7 +10042,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ovh.webshark.pl/adserver/*/main_script.js?advertise_check=1"
   },
-  "id": 778
+  "id": 779
  },
  {
   "action": {
@@ -10040,7 +10056,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/r*/show_ads_impl.js"
   },
-  "id": 779
+  "id": 780
  },
  {
   "action": {
@@ -10056,7 +10072,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pagead2.googlesyndication.com/pagead/show_ads.js"
   },
-  "id": 780
+  "id": 781
  },
  {
   "action": {
@@ -10066,7 +10082,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||skript.pl/ads.php"
   },
-  "id": 781
+  "id": 782
  },
  {
   "action": {
@@ -10076,7 +10092,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||towideo.pl/assets/ads_configs/ajax/sasplugindata.js"
   },
-  "id": 782
+  "id": 783
  },
  {
   "action": {
@@ -10089,7 +10105,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.advert.com/advert"
   },
-  "id": 783
+  "id": 784
  },
  {
   "action": {
@@ -10099,7 +10115,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.telepolis.pl/js/ads_adv_telepolis_skrypt.js"
   },
-  "id": 784
+  "id": 785
  },
  {
   "action": {
@@ -10109,7 +10125,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bham.pl/templates/bham_res/js/advscript.js"
   },
-  "id": 785
+  "id": 786
  },
  {
   "action": {
@@ -10123,7 +10139,7 @@
     "moviads.pl"
    ]
   },
-  "id": 786
+  "id": 787
  },
  {
   "action": {
@@ -10136,7 +10152,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||securepubads.g.doubleclick.net/gpt/pubads_impl_"
   },
-  "id": 787
+  "id": 788
  },
  {
   "action": {
@@ -10149,7 +10165,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||spolecznosci.net/js/core*-min.js"
   },
-  "id": 788
+  "id": 789
  },
  {
   "action": {
@@ -10162,7 +10178,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||spolecznosci.net/js/modules/*.js"
   },
-  "id": 789
+  "id": 790
  },
  {
   "action": {
@@ -10175,7 +10191,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||a.spolecznosci.net/pet?s=shinden"
   },
-  "id": 790
+  "id": 791
  },
  {
   "action": {
@@ -10188,7 +10204,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||spolecznosci.net/core/*/main.js"
   },
-  "id": 791
+  "id": 792
  },
  {
   "action": {
@@ -10201,7 +10217,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adocean-pl.hit.gemius.pl/*redataredir?url=*myao.adocean.pl*ad.xml"
   },
-  "id": 792
+  "id": 793
  },
  {
   "action": {
@@ -10214,7 +10230,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tvn.adocean.pl/*ad.xml"
   },
-  "id": 793
+  "id": 794
  },
  {
   "action": {
@@ -10229,7 +10245,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||redefineadpl.hit.gemius.pl/*redataredir?url=*ipla.hit.stat24.com*ad.xml"
   },
-  "id": 794
+  "id": 795
  },
  {
   "action": {
@@ -10238,19 +10254,6 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ppstatic.pl/assets/nsk/*/js/compiled/atoms/ads/branding-video.js"
-  },
-  "id": 795
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "ipla.tv"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||imasdk.googleapis.com/js/core/bridge*.html"
   },
   "id": 796
  },
@@ -10263,7 +10266,7 @@
     "ipla.tv"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||gapl.hit.gemius.pl/gplayer.js"
+   "urlFilter": "||imasdk.googleapis.com/js/core/bridge*.html"
   },
   "id": 797
  },
@@ -10276,9 +10279,22 @@
     "ipla.tv"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
+   "urlFilter": "||gapl.hit.gemius.pl/gplayer.js"
   },
   "id": 798
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ipla.tv"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
+  },
+  "id": 799
  },
  {
   "action": {
@@ -10288,7 +10304,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kursjs.pl/js/ads-prebid.js"
   },
-  "id": 799
+  "id": 800
  },
  {
   "action": {
@@ -10300,7 +10316,7 @@
     "telekonsultacje-v2.neuca.pl"
    ]
   },
-  "id": 800
+  "id": 801
  },
  {
   "action": {
@@ -10320,7 +10336,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 801
+  "id": 802
  },
  {
   "action": {
@@ -10336,7 +10352,7 @@
    ],
    "urlFilter": "||www.buliba.pl/css/overlayad.css"
   },
-  "id": 802
+  "id": 803
  },
  {
   "action": {
@@ -10353,7 +10369,7 @@
    ],
    "urlFilter": ".pl/ads/*/static/"
   },
-  "id": 803
+  "id": 804
  },
  {
   "action": {
@@ -10375,7 +10391,7 @@
    ],
    "urlFilter": "/ads.reklama.728x90"
   },
-  "id": 804
+  "id": 805
  },
  {
   "action": {
@@ -10391,7 +10407,7 @@
    ],
    "urlFilter": "|http://myao.adocean.pl/files/zbqhhlsggp/"
   },
-  "id": 806
+  "id": 807
  },
  {
   "action": {
@@ -10404,7 +10420,7 @@
    ],
    "urlFilter": "|http://razem.tv/scripts/insysplayer.v0.1.0/adtest.png"
   },
-  "id": 807
+  "id": 808
  },
  {
   "action": {
@@ -10420,7 +10436,7 @@
    ],
    "urlFilter": "||lulektv.app.insyscd.net/content/player/insysplayer/adtest.png"
   },
-  "id": 808
+  "id": 809
  },
  {
   "action": {
@@ -10439,7 +10455,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 809
+  "id": 810
  },
  {
   "action": {
@@ -10452,7 +10468,7 @@
    ],
    "urlFilter": "||optimus.pl/temp/adrotator_miniatury/"
   },
-  "id": 810
+  "id": 811
  },
  {
   "action": {
@@ -10465,7 +10481,7 @@
    ],
    "urlFilter": "||ostrowmaz.com/uploads/small_ad_photo/"
   },
-  "id": 811
+  "id": 812
  },
  {
   "action": {
@@ -10478,7 +10494,7 @@
    ],
    "urlFilter": "||prostozmostu.pl/imgcache/300x250/"
   },
-  "id": 812
+  "id": 813
  },
  {
   "action": {
@@ -10494,7 +10510,7 @@
    ],
    "urlFilter": "||pubads.g.doubleclick.net/gampad/ad"
   },
-  "id": 813
+  "id": 814
  },
  {
   "action": {
@@ -10510,7 +10526,7 @@
    ],
    "urlFilter": "||staticpics2.allegrostatic.pl/adverts/otomoto_pl/*128x96"
   },
-  "id": 814
+  "id": 815
  },
  {
   "action": {
@@ -10526,7 +10542,7 @@
    ],
    "urlFilter": "||tpc.googlesyndication.com/pagead/imgad"
   },
-  "id": 815
+  "id": 816
  },
  {
   "action": {
@@ -10542,7 +10558,7 @@
    ],
    "urlFilter": "||websystem.pl/environment/cache/images/300_250_"
   },
-  "id": 816
+  "id": 817
  },
  {
   "action": {
@@ -10558,7 +10574,7 @@
    ],
    "urlFilter": "||myao.adocean.pl/files/"
   },
-  "id": 817
+  "id": 818
  },
  {
   "action": {
@@ -10574,7 +10590,7 @@
    ],
    "urlFilter": "-300x250-2.jpg"
   },
-  "id": 818
+  "id": 819
  },
  {
   "action": {
@@ -10590,7 +10606,7 @@
    ],
    "urlFilter": "/google-adwords"
   },
-  "id": 819
+  "id": 820
  },
  {
   "action": {
@@ -10606,7 +10622,7 @@
    ],
    "urlFilter": "||fs.siteor.com/gsmonline/articles/photo1s/123526/large/honor_reklama_edytowany-11.jpg?1541424368"
   },
-  "id": 821
+  "id": 822
  },
  {
   "action": {
@@ -10631,7 +10647,7 @@
    ],
    "urlFilter": "||img.dladealera.pl/ads/"
   },
-  "id": 822
+  "id": 823
  },
  {
   "action": {
@@ -10647,7 +10663,7 @@
    ],
    "urlFilter": "||ocs-pl.oktawave.com/*_reklama_"
   },
-  "id": 823
+  "id": 824
  },
  {
   "action": {
@@ -10660,7 +10676,7 @@
    ],
    "urlFilter": "||spedycje.pl/img/icon_reklama_2017.png"
   },
-  "id": 824
+  "id": 825
  },
  {
   "action": {
@@ -10673,7 +10689,7 @@
    ],
    "urlFilter": "||wpolityce24.pl/imgcache/300x250/*/uploads/news/"
   },
-  "id": 825
+  "id": 826
  },
  {
   "action": {
@@ -10689,7 +10705,7 @@
    ],
    "urlFilter": "||biznes2biznes.com/reklama/"
   },
-  "id": 826
+  "id": 827
  },
  {
   "action": {
@@ -10705,7 +10721,7 @@
    ],
    "urlFilter": "/images/ads/puszczatv/"
   },
-  "id": 827
+  "id": 828
  },
  {
   "action": {
@@ -10721,7 +10737,7 @@
    ],
    "urlFilter": "||hdtvpolska.com^*300x250"
   },
-  "id": 828
+  "id": 829
  },
  {
   "action": {
@@ -10737,7 +10753,7 @@
    ],
    "urlFilter": "/wp-content/uploads/*/*-300x250-"
   },
-  "id": 829
+  "id": 830
  },
  {
   "action": {
@@ -10753,7 +10769,7 @@
    ],
    "urlFilter": "||ts.tradetracker.net/?cid="
   },
-  "id": 830
+  "id": 831
  },
  {
   "action": {
@@ -10769,7 +10785,7 @@
    ],
    "urlFilter": "||smushcdn.com/*/blank.gif"
   },
-  "id": 831
+  "id": 832
  },
  {
   "action": {
@@ -10785,7 +10801,7 @@
    ],
    "urlFilter": "?ads="
   },
-  "id": 832
+  "id": 833
  },
  {
   "action": {
@@ -10801,7 +10817,7 @@
    ],
    "urlFilter": "ads"
   },
-  "id": 833
+  "id": 834
  },
  {
   "action": {
@@ -10819,7 +10835,7 @@
    ],
    "urlFilter": "/adsby."
   },
-  "id": 834
+  "id": 835
  },
  {
   "action": {
@@ -10832,7 +10848,7 @@
    ],
    "urlFilter": "||bejsment.com/wp-content/plugins/classifieds/img/ads/banner.gif"
   },
-  "id": 835
+  "id": 836
  },
  {
   "action": {
@@ -10848,7 +10864,7 @@
    ],
    "urlFilter": "||blog.programyzadarmo.net.pl/images/ad/*.gif"
   },
-  "id": 836
+  "id": 837
  },
  {
   "action": {
@@ -10861,7 +10877,7 @@
    ],
    "urlFilter": "||waw4free.pl/images/ikona_dzwonek.svg"
   },
-  "id": 837
+  "id": 838
  },
  {
   "action": {
@@ -10877,7 +10893,7 @@
    ],
    "urlFilter": "||www.sc7.pl/media/graphics/sc7_468x60.png"
   },
-  "id": 838
+  "id": 839
  },
  {
   "action": {
@@ -10894,7 +10910,7 @@
     "image"
    ]
   },
-  "id": 839
+  "id": 840
  },
  {
   "action": {
@@ -10907,7 +10923,7 @@
    ],
    "urlFilter": "||s.tvp.pl/files/tvplayer/*/advertisement.gif"
   },
-  "id": 840
+  "id": 841
  },
  {
   "action": {
@@ -10922,7 +10938,7 @@
     "image"
    ]
   },
-  "id": 841
+  "id": 842
  },
  {
   "action": {
@@ -10938,7 +10954,7 @@
    ],
    "urlFilter": "||diff3.smartadserver.com/diff/"
   },
-  "id": 842
+  "id": 843
  },
  {
   "action": {
@@ -10954,7 +10970,7 @@
    ],
    "urlFilter": "||sascdn.com/video/flowplayer-plugin.swf"
   },
-  "id": 843
+  "id": 844
  },
  {
   "action": {
@@ -10974,7 +10990,7 @@
     "script"
    ]
   },
-  "id": 844
+  "id": 845
  },
  {
   "action": {
@@ -11010,7 +11026,7 @@
    ],
    "urlFilter": "/ads.js"
   },
-  "id": 845
+  "id": 846
  },
  {
   "action": {
@@ -11027,7 +11043,7 @@
    ],
    "urlFilter": "/advertise*.js"
   },
-  "id": 846
+  "id": 847
  },
  {
   "action": {
@@ -11043,7 +11059,7 @@
    ],
    "urlFilter": "/videojs.ads."
   },
-  "id": 847
+  "id": 848
  },
  {
   "action": {
@@ -11059,7 +11075,7 @@
    ],
    "urlFilter": "|http://adx.advertise.cda.pl/vast*.js?ads"
   },
-  "id": 848
+  "id": 849
  },
  {
   "action": {
@@ -11075,7 +11091,7 @@
    ],
    "urlFilter": "|http://w.iplsc.com/internal/inpl.intad/"
   },
-  "id": 849
+  "id": 850
  },
  {
   "action": {
@@ -11091,7 +11107,7 @@
    ],
    "urlFilter": "*cda.pl/*advertise.js"
   },
-  "id": 850
+  "id": 851
  },
  {
   "action": {
@@ -11107,7 +11123,7 @@
    ],
    "urlFilter": "||adserver.kresy.pl/www/delivery/*.php"
   },
-  "id": 851
+  "id": 852
  },
  {
   "action": {
@@ -11124,7 +11140,7 @@
     "script"
    ]
   },
-  "id": 852
+  "id": 853
  },
  {
   "action": {
@@ -11137,7 +11153,7 @@
    ],
    "urlFilter": "||cda.pl/rekl-adv*.js"
   },
-  "id": 853
+  "id": 854
  },
  {
   "action": {
@@ -11153,7 +11169,7 @@
    ],
    "urlFilter": "||cdn.dtxngr.com/init.js"
   },
-  "id": 854
+  "id": 855
  },
  {
   "action": {
@@ -11169,7 +11185,7 @@
    ],
    "urlFilter": "||cdn.flurry.com/js/flurry.js"
   },
-  "id": 855
+  "id": 856
  },
  {
   "action": {
@@ -11185,7 +11201,7 @@
    ],
    "urlFilter": "||cdn.gamer-network.net/plugins/dfp/"
   },
-  "id": 856
+  "id": 857
  },
  {
   "action": {
@@ -11201,7 +11217,7 @@
    ],
    "urlFilter": "||cloud.ideabank.pl/js/libs/angular-google-plus.js"
   },
-  "id": 857
+  "id": 858
  },
  {
   "action": {
@@ -11217,7 +11233,7 @@
    ],
    "urlFilter": "||czytadelko.pl/js/show_ads.js"
   },
-  "id": 858
+  "id": 859
  },
  {
   "action": {
@@ -11230,7 +11246,7 @@
    ],
    "urlFilter": "||emspartner.pl/wp-content/plugins/duracelltomi-google-tag-manager/js/"
   },
-  "id": 859
+  "id": 860
  },
  {
   "action": {
@@ -11243,7 +11259,7 @@
    ],
    "urlFilter": "||everafterhigh.com/static/js/ga-script.js"
   },
-  "id": 860
+  "id": 861
  },
  {
   "action": {
@@ -11256,7 +11272,7 @@
    ],
    "urlFilter": "||gazetabilgoraj.pl/wp-content/plugins/better-adsmanager/js/advertising.min.js"
   },
-  "id": 861
+  "id": 862
  },
  {
   "action": {
@@ -11273,7 +11289,7 @@
    ],
    "urlFilter": "||googletagmanager.com/gtag/"
   },
-  "id": 862
+  "id": 863
  },
  {
   "action": {
@@ -11300,7 +11316,7 @@
    ],
    "urlFilter": "||googletagmanager.com/gtm.js"
   },
-  "id": 863
+  "id": 864
  },
  {
   "action": {
@@ -11316,7 +11332,7 @@
    ],
    "urlFilter": "||googletagservices.com/tag/js/gpt.js"
   },
-  "id": 864
+  "id": 865
  },
  {
   "action": {
@@ -11333,7 +11349,7 @@
    ],
    "urlFilter": "||hit.gemius.pl/gplayer.js"
   },
-  "id": 865
+  "id": 866
  },
  {
   "action": {
@@ -11349,7 +11365,7 @@
    ],
    "urlFilter": "||hotelscombined.com/script/"
   },
-  "id": 866
+  "id": 867
  },
  {
   "action": {
@@ -11365,7 +11381,7 @@
    ],
    "urlFilter": "||hotelscombined.com/searchbox/"
   },
-  "id": 867
+  "id": 868
  },
  {
   "action": {
@@ -11381,7 +11397,7 @@
    ],
    "urlFilter": "||js-agent.newrelic.com/"
   },
-  "id": 868
+  "id": 869
  },
  {
   "action": {
@@ -11394,7 +11410,7 @@
    ],
    "urlFilter": "||remiza.com.pl/ads/haft/jquery.slides.min.js"
   },
-  "id": 869
+  "id": 870
  },
  {
   "action": {
@@ -11410,7 +11426,7 @@
    ],
    "urlFilter": "||s-nk.pl/script/nk/ads/"
   },
-  "id": 870
+  "id": 871
  },
  {
   "action": {
@@ -11429,7 +11445,7 @@
     "script"
    ]
   },
-  "id": 871
+  "id": 872
  },
  {
   "action": {
@@ -11445,7 +11461,7 @@
    ],
    "urlFilter": "||techpedia.pl/js/show_ads.js"
   },
-  "id": 872
+  "id": 873
  },
  {
   "action": {
@@ -11461,7 +11477,7 @@
    ],
    "urlFilter": "||cdn.onesignal.com/sdks/"
   },
-  "id": 873
+  "id": 874
  },
  {
   "action": {
@@ -11478,7 +11494,7 @@
    ],
    "urlFilter": "||addthisedge.com/live"
   },
-  "id": 876
+  "id": 877
  },
  {
   "action": {
@@ -11491,7 +11507,7 @@
    ],
    "urlFilter": "||rentcars.pl/build/js/user-tracking.js?psv=11"
   },
-  "id": 877
+  "id": 878
  },
  {
   "action": {
@@ -11552,7 +11568,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
   },
-  "id": 878
+  "id": 879
  },
  {
   "action": {
@@ -11569,7 +11585,7 @@
    ],
    "urlFilter": "||staty.portalradiowy.pl/wstats/wstats.php"
   },
-  "id": 879
+  "id": 880
  },
  {
   "action": {
@@ -11586,7 +11602,7 @@
    ],
    "urlFilter": "||www.googletagmanager.com/gtag/js"
   },
-  "id": 880
+  "id": 881
  },
  {
   "action": {
@@ -11605,7 +11621,7 @@
    ],
    "urlFilter": "||www.google-analytics.com/analytics.js"
   },
-  "id": 881
+  "id": 882
  },
  {
   "action": {
@@ -11622,7 +11638,7 @@
    ],
    "urlFilter": "||www.google-analytics.com/gtm/js"
   },
-  "id": 882
+  "id": 883
  },
  {
   "action": {
@@ -11638,7 +11654,7 @@
    ],
    "urlFilter": "||ceneo.pl/scripts/dist/desktop/base/custom/basket/analytics.js"
   },
-  "id": 883
+  "id": 884
  },
  {
   "action": {
@@ -11655,7 +11671,7 @@
    ],
    "urlFilter": "||www.googletagmanager.com/gtm.js"
   },
-  "id": 884
+  "id": 885
  },
  {
   "action": {
@@ -11671,7 +11687,7 @@
    ],
    "urlFilter": "||online.mbank.pl/venezia/fingerprint.js"
   },
-  "id": 885
+  "id": 886
  },
  {
   "action": {
@@ -11687,7 +11703,7 @@
    ],
    "urlFilter": "||ticket.energylandia.pl/static/prod/scripts/modules/analytics.js"
   },
-  "id": 886
+  "id": 887
  },
  {
   "action": {
@@ -11703,7 +11719,7 @@
    ],
    "urlFilter": "||exacttarget.com/cloudpages/lib/smartcapture-formjs.js"
   },
-  "id": 887
+  "id": 888
  },
  {
   "action": {
@@ -11720,7 +11736,7 @@
     "script"
    ]
   },
-  "id": 888
+  "id": 889
  },
  {
   "action": {
@@ -11733,7 +11749,7 @@
    ],
    "urlFilter": "||national-geographic.pl/bundles/burdacore/js/adv.js"
   },
-  "id": 889
+  "id": 890
  },
  {
   "action": {
@@ -11746,7 +11762,7 @@
    ],
    "urlFilter": "||a-o.ninja/mnads1.js"
   },
-  "id": 890
+  "id": 891
  },
  {
   "action": {
@@ -11762,7 +11778,7 @@
    ],
    "urlFilter": "||addthis.com/live/"
   },
-  "id": 891
+  "id": 892
  },
  {
   "action": {
@@ -11775,7 +11791,7 @@
    ],
    "urlFilter": "/wp-content/*/plugins/dh-anti-adblocker"
   },
-  "id": 892
+  "id": 893
  },
  {
   "action": {
@@ -11791,7 +11807,7 @@
    ],
    "urlFilter": "/scripts/ads.js"
   },
-  "id": 893
+  "id": 894
  },
  {
   "action": {
@@ -11829,7 +11845,7 @@
    ],
    "urlFilter": "/adblockdetect/"
   },
-  "id": 895
+  "id": 896
  },
  {
   "action": {
@@ -11849,7 +11865,7 @@
    ],
    "urlFilter": "/adframe.js"
   },
-  "id": 896
+  "id": 897
  },
  {
   "action": {
@@ -11871,7 +11887,7 @@
    ],
    "urlFilter": "/adsense.js"
   },
-  "id": 897
+  "id": 898
  },
  {
   "action": {
@@ -11896,7 +11912,7 @@
    ],
    "urlFilter": "/advert.js"
   },
-  "id": 898
+  "id": 899
  },
  {
   "action": {
@@ -11920,7 +11936,7 @@
    ],
    "urlFilter": "/advertisement*.js"
   },
-  "id": 899
+  "id": 900
  },
  {
   "action": {
@@ -11937,7 +11953,7 @@
    ],
    "urlFilter": "/advertising.js"
   },
-  "id": 900
+  "id": 901
  },
  {
   "action": {
@@ -11954,7 +11970,7 @@
    ],
    "urlFilter": "/assets/ads_"
   },
-  "id": 901
+  "id": 902
  },
  {
   "action": {
@@ -11970,7 +11986,7 @@
    ],
    "urlFilter": "/js/adblock.js"
   },
-  "id": 902
+  "id": 903
  },
  {
   "action": {
@@ -12082,7 +12098,7 @@
    ],
    "urlFilter": "/js/ads.js"
   },
-  "id": 903
+  "id": 904
  },
  {
   "action": {
@@ -12099,7 +12115,7 @@
    ],
    "urlFilter": "/js/ads.min.js"
   },
-  "id": 904
+  "id": 905
  },
  {
   "action": {
@@ -12117,7 +12133,7 @@
    ],
    "urlFilter": "/js/adv."
   },
-  "id": 905
+  "id": 906
  },
  {
   "action": {
@@ -12134,7 +12150,7 @@
    ],
    "urlFilter": "/js/adverts.js"
   },
-  "id": 906
+  "id": 907
  },
  {
   "action": {
@@ -12175,7 +12191,7 @@
    ],
    "urlFilter": "/show_ads.js"
   },
-  "id": 907
+  "id": 908
  },
  {
   "action": {
@@ -12198,7 +12214,7 @@
    ],
    "urlFilter": "/showads.js"
   },
-  "id": 908
+  "id": 909
  },
  {
   "action": {
@@ -12214,7 +12230,7 @@
    ],
    "urlFilter": "/wp-content/plugins/jgc-adblocker-detector/js/jgcabd-detect-adblock.js"
   },
-  "id": 910
+  "id": 911
  },
  {
   "action": {
@@ -12230,7 +12246,7 @@
    ],
    "urlFilter": "||adv.wp.pl/rm/box/*/inline-videostar.js"
   },
-  "id": 911
+  "id": 912
  },
  {
   "action": {
@@ -12243,7 +12259,7 @@
    ],
    "urlFilter": "||anime-odcinki.pl/wp-content/plugins/jgc-adblocker-detector/js/jgcabd-detect-adblock.js"
   },
-  "id": 912
+  "id": 913
  },
  {
   "action": {
@@ -12256,7 +12272,7 @@
    ],
    "urlFilter": "||cdn.cmc-gallery.pl/static/js/ads.js"
   },
-  "id": 913
+  "id": 914
  },
  {
   "action": {
@@ -12272,7 +12288,7 @@
    ],
    "urlFilter": "||cdnjs.cloudflare.com/ajax/libs/fuckadblock/*/fuckadblock.min.js"
   },
-  "id": 914
+  "id": 915
  },
  {
   "action": {
@@ -12288,7 +12304,7 @@
    ],
    "urlFilter": "||cdnjs.cloudflare.com/ajax/libs/blockadblock/*/blockadblock.js"
   },
-  "id": 915
+  "id": 916
  },
  {
   "action": {
@@ -12304,7 +12320,7 @@
    ],
    "urlFilter": "||contextual.media.net/dmedianet.js"
   },
-  "id": 916
+  "id": 917
  },
  {
   "action": {
@@ -12317,7 +12333,7 @@
    ],
    "urlFilter": "||epiotrkow.pl/reklama/*majkiit*.js"
   },
-  "id": 917
+  "id": 918
  },
  {
   "action": {
@@ -12329,22 +12345,6 @@
     "script"
    ],
    "urlFilter": "||eskago.pl/html/js/ads*.js"
-  },
-  "id": 918
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "games.softgames.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||games.softgames.com/assets/advertisement.js"
   },
   "id": 919
  },
@@ -12360,9 +12360,25 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||games.softgames.com/assets/showads.js"
+   "urlFilter": "||games.softgames.com/assets/advertisement.js"
   },
   "id": 920
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "games.softgames.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||games.softgames.com/assets/showads.js"
+  },
+  "id": 921
  },
  {
   "action": {
@@ -12386,7 +12402,7 @@
    ],
    "urlFilter": "||gapl.hit.gemius.pl/gemiuslib.js"
   },
-  "id": 921
+  "id": 922
  },
  {
   "action": {
@@ -12411,7 +12427,7 @@
    ],
    "urlFilter": "||gapl.hit.gemius.pl/gplayer.js"
   },
-  "id": 922
+  "id": 923
  },
  {
   "action": {
@@ -12430,7 +12446,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 923
+  "id": 924
  },
  {
   "action": {
@@ -12446,7 +12462,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/vpaid_adapter.js"
   },
-  "id": 924
+  "id": 925
  },
  {
   "action": {
@@ -12459,7 +12475,7 @@
    ],
    "urlFilter": "||imged.pl/subframe/js/*/adblock-advertisement.js"
   },
-  "id": 925
+  "id": 926
  },
  {
   "action": {
@@ -12476,7 +12492,7 @@
    ],
    "urlFilter": "||iwa3.hit.interia.pl/iwa_core?ts="
   },
-  "id": 926
+  "id": 927
  },
  {
   "action": {
@@ -12489,7 +12505,7 @@
    ],
    "urlFilter": "||kawalekkodu.pl/bl-plugins/cookie-consent/js/advert.js"
   },
-  "id": 927
+  "id": 928
  },
  {
   "action": {
@@ -12505,7 +12521,7 @@
    ],
    "urlFilter": "||kubofonista.net/r/ad.htm"
   },
-  "id": 928
+  "id": 929
  },
  {
   "action": {
@@ -12521,7 +12537,7 @@
    ],
    "urlFilter": "||lib.wtg-ads.com/lib.min.js"
   },
-  "id": 929
+  "id": 930
  },
  {
   "action": {
@@ -12537,7 +12553,7 @@
    ],
    "urlFilter": "||myao.adocean.pl/files/js/ado.js"
   },
-  "id": 930
+  "id": 931
  },
  {
   "action": {
@@ -12553,7 +12569,7 @@
    ],
    "urlFilter": "||ocdn.eu/skom/quiz-abbyy/v2/adcode.js"
   },
-  "id": 931
+  "id": 932
  },
  {
   "action": {
@@ -12565,30 +12581,6 @@
     "script"
    ],
    "urlFilter": "||oglaszamy24.pl/js-css/reklamy/bannery/google_ads/ad/banner/adv.js"
-  },
-  "id": 932
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "auto-swiat.pl",
-    "businessinsider.com.pl",
-    "fakt.pl",
-    "forbes.pl",
-    "komputerswiat.pl",
-    "noizz.pl",
-    "onet.pl",
-    "plejada.pl",
-    "vod.pl"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||onet.hit.gemius.pl/*/redot.js"
   },
   "id": 933
  },
@@ -12612,9 +12604,33 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||onet.hit.gemius.pl/*/rexdot.js"
+   "urlFilter": "||onet.hit.gemius.pl/*/redot.js"
   },
   "id": 934
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "auto-swiat.pl",
+    "businessinsider.com.pl",
+    "fakt.pl",
+    "forbes.pl",
+    "komputerswiat.pl",
+    "noizz.pl",
+    "onet.pl",
+    "plejada.pl",
+    "vod.pl"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||onet.hit.gemius.pl/*/rexdot.js"
+  },
+  "id": 935
  },
  {
   "action": {
@@ -12631,7 +12647,7 @@
    ],
    "urlFilter": "||pc-sos.pl/ad.htm"
   },
-  "id": 935
+  "id": 936
  },
  {
   "action": {
@@ -12647,7 +12663,7 @@
    ],
    "urlFilter": "||portel.pl/*/*adv*.js"
   },
-  "id": 936
+  "id": 937
  },
  {
   "action": {
@@ -12663,7 +12679,7 @@
    ],
    "urlFilter": "||portel.pl/adex.js"
   },
-  "id": 937
+  "id": 938
  },
  {
   "action": {
@@ -12676,7 +12692,7 @@
    ],
    "urlFilter": "||ppstatic.pl/lib/adblockdetect/"
   },
-  "id": 938
+  "id": 939
  },
  {
   "action": {
@@ -12689,7 +12705,7 @@
    ],
    "urlFilter": "||rodzinnywyjazd.pl/gads.js"
   },
-  "id": 939
+  "id": 940
  },
  {
   "action": {
@@ -12705,7 +12721,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/tag/js/gpt.js"
   },
-  "id": 940
+  "id": 941
  },
  {
   "action": {
@@ -12738,7 +12754,7 @@
    ],
    "urlFilter": "||s-pt.ppstatic.pl/*/reklama.js"
   },
-  "id": 941
+  "id": 942
  },
  {
   "action": {
@@ -12754,7 +12770,7 @@
    ],
    "urlFilter": "||sascdn.com/diff/"
   },
-  "id": 942
+  "id": 943
  },
  {
   "action": {
@@ -12767,7 +12783,7 @@
    ],
    "urlFilter": "||telewizjastk.pl/libs/adsbygoogle.js"
   },
-  "id": 943
+  "id": 944
  },
  {
   "action": {
@@ -12783,7 +12799,7 @@
    ],
    "urlFilter": "||tibiopedia.pl/js/show_ads.js"
   },
-  "id": 944
+  "id": 945
  },
  {
   "action": {
@@ -12799,7 +12815,7 @@
    ],
    "urlFilter": "||video.onnetwork.tv/adblock_notify.js"
   },
-  "id": 945
+  "id": 946
  },
  {
   "action": {
@@ -12812,7 +12828,7 @@
    ],
    "urlFilter": "||virpe.com/includes/js/adver.js"
   },
-  "id": 946
+  "id": 947
  },
  {
   "action": {
@@ -12825,7 +12841,7 @@
    ],
    "urlFilter": "||vodnews.pl/wp-content/themes/jannah/assets/js/ad.js"
   },
-  "id": 947
+  "id": 948
  },
  {
   "action": {
@@ -12841,7 +12857,7 @@
    ],
    "urlFilter": "||webshark.pl/adserver/*advertise_check=1"
   },
-  "id": 948
+  "id": 949
  },
  {
   "action": {
@@ -12857,7 +12873,7 @@
    ],
    "urlFilter": "||webshark.pl/adsrv/*main.js"
   },
-  "id": 949
+  "id": 950
  },
  {
   "action": {
@@ -12870,7 +12886,7 @@
    ],
    "urlFilter": "||wpimg.pl/*/wpjslib-prebid.js"
   },
-  "id": 950
+  "id": 951
  },
  {
   "action": {
@@ -12883,7 +12899,7 @@
    ],
    "urlFilter": "||wtkplay.pl/javascript/ads.js"
   },
-  "id": 951
+  "id": 952
  },
  {
   "action": {
@@ -12896,7 +12912,7 @@
    ],
    "urlFilter": "||www.benchmark.pl/*/b.ads.js"
   },
-  "id": 952
+  "id": 953
  },
  {
   "action": {
@@ -12912,7 +12928,7 @@
    ],
    "urlFilter": "||www.bravebeaver.pl/wp-content/plugins/ad-inserter/js/*.js"
   },
-  "id": 953
+  "id": 954
  },
  {
   "action": {
@@ -12928,7 +12944,7 @@
    ],
    "urlFilter": "||www.gala.pl/bundles/burdacore/js/adv.js"
   },
-  "id": 954
+  "id": 955
  },
  {
   "action": {
@@ -12941,7 +12957,7 @@
    ],
    "urlFilter": "||www.nadajemy.pl/js-css/adsense/ad/banner/adv.js"
   },
-  "id": 955
+  "id": 956
  },
  {
   "action": {
@@ -12954,7 +12970,7 @@
    ],
    "urlFilter": "||www.wakacyjnipiraci.pl/static/tarteaucitron/advertising.js"
   },
-  "id": 956
+  "id": 957
  },
  {
   "action": {
@@ -12970,7 +12986,7 @@
    ],
    "urlFilter": "||zakupek.pl/wp-content/themes/zakupek/bannery/adbanner.htm"
   },
-  "id": 957
+  "id": 958
  },
  {
   "action": {
@@ -12989,7 +13005,7 @@
     "script"
    ]
   },
-  "id": 958
+  "id": 959
  },
  {
   "action": {
@@ -13005,7 +13021,7 @@
    ],
    "urlFilter": "||faucet-doge.u7u.pl/libs/advertisement.js"
   },
-  "id": 959
+  "id": 960
  },
  {
   "action": {
@@ -13022,7 +13038,7 @@
    ],
    "urlFilter": "||infobel.*/custom/ads-"
   },
-  "id": 960
+  "id": 961
  },
  {
   "action": {
@@ -13038,7 +13054,7 @@
    ],
    "urlFilter": "||ced-ns.sascdn.com/diff/templates/js/"
   },
-  "id": 961
+  "id": 962
  },
  {
   "action": {
@@ -13054,7 +13070,7 @@
    ],
    "urlFilter": "||rtbnowads.com/publisher/header"
   },
-  "id": 962
+  "id": 963
  },
  {
   "action": {
@@ -13070,7 +13086,7 @@
    ],
    "urlFilter": "||smartadserver.com/*ac"
   },
-  "id": 963
+  "id": 964
  },
  {
   "action": {
@@ -13089,7 +13105,7 @@
    ],
    "urlFilter": "/fuckadblock*.js"
   },
-  "id": 964
+  "id": 965
  },
  {
   "action": {
@@ -13105,7 +13121,7 @@
    ],
    "urlFilter": "||spolecznosci.mgr.consensu.org/js/cmp.stable.min.js"
   },
-  "id": 965
+  "id": 966
  },
  {
   "action": {
@@ -13121,7 +13137,7 @@
    ],
    "urlFilter": "||adservice.google.pl/adsid/integrator.js"
   },
-  "id": 966
+  "id": 967
  },
  {
   "action": {
@@ -13137,7 +13153,7 @@
    ],
    "urlFilter": "||r.sascdn.com/config.js"
   },
-  "id": 967
+  "id": 968
  },
  {
   "action": {
@@ -13153,7 +13169,7 @@
    ],
    "urlFilter": "||ced-ns.sascdn.com/diff/js/smart.js"
   },
-  "id": 968
+  "id": 969
  },
  {
   "action": {
@@ -13169,7 +13185,7 @@
    ],
    "urlFilter": "||gfx.filmweb.pl/adbetween/adx.js"
   },
-  "id": 969
+  "id": 970
  },
  {
   "action": {
@@ -13184,7 +13200,7 @@
     "script"
    ]
   },
-  "id": 970
+  "id": 971
  },
  {
   "action": {
@@ -13200,7 +13216,7 @@
    ],
    "urlFilter": "/tvn-adserver/*.mp4"
   },
-  "id": 971
+  "id": 972
  },
  {
   "action": {
@@ -13213,7 +13229,7 @@
    ],
    "urlFilter": "||cdntvn.pl/adscript.js"
   },
-  "id": 972
+  "id": 973
  },
  {
   "action": {
@@ -13232,7 +13248,7 @@
    ],
    "urlFilter": "||tvn.adocean.pl/*ad.xml"
   },
-  "id": 973
+  "id": 974
  },
  {
   "action": {
@@ -13245,7 +13261,7 @@
    ],
    "urlFilter": "||gryna2.pl/engine/scripts/ads.js"
   },
-  "id": 974
+  "id": 975
  },
  {
   "action": {
@@ -13258,7 +13274,7 @@
    ],
    "urlFilter": "||sso.ppapi.pl/rodo.js"
   },
-  "id": 975
+  "id": 976
  },
  {
   "action": {
@@ -13277,7 +13293,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 976
+  "id": 977
  },
  {
   "action": {
@@ -13293,7 +13309,7 @@
    ],
    "urlFilter": "/js/ads.js"
   },
-  "id": 977
+  "id": 978
  },
  {
   "action": {
@@ -13331,7 +13347,7 @@
    ],
    "urlFilter": "/js/ads.show.min.js"
   },
-  "id": 978
+  "id": 979
  },
  {
   "action": {
@@ -13347,7 +13363,7 @@
    ],
    "urlFilter": "/redataredir"
   },
-  "id": 979
+  "id": 980
  },
  {
   "action": {
@@ -13363,7 +13379,7 @@
    ],
    "urlFilter": "||adv.wp.pl/adverts"
   },
-  "id": 980
+  "id": 981
  },
  {
   "action": {
@@ -13379,7 +13395,7 @@
    ],
    "urlFilter": "||eskago.pl/ad/banner/_adsense_/_adserver/_adview_.ad.json"
   },
-  "id": 981
+  "id": 982
  },
  {
   "action": {
@@ -13396,7 +13412,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 982
+  "id": 983
  },
  {
   "action": {
@@ -13414,7 +13430,7 @@
    ],
    "urlFilter": "||ipla.hit.stat24.com/*ad.xml"
   },
-  "id": 983
+  "id": 984
  },
  {
   "action": {
@@ -13440,7 +13456,7 @@
    ],
    "urlFilter": "||lib.wtg-ads.com/prebid/prebid_*.js"
   },
-  "id": 984
+  "id": 985
  },
  {
   "action": {
@@ -13456,7 +13472,7 @@
    ],
    "urlFilter": "||request.dqst.pl/v1/"
   },
-  "id": 985
+  "id": 986
  },
  {
   "action": {
@@ -13473,7 +13489,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 986
+  "id": 987
  },
  {
   "action": {
@@ -13486,7 +13502,7 @@
    ],
    "urlFilter": "||rek.www.wp.pl/vad.xml"
   },
-  "id": 987
+  "id": 988
  },
  {
   "action": {
@@ -13502,7 +13518,7 @@
    ],
    "urlFilter": "||static-pilot.wp.pl/static/assets/js/ads.js"
   },
-  "id": 988
+  "id": 989
  },
  {
   "action": {
@@ -13518,7 +13534,7 @@
    ],
    "urlFilter": "||video.gazeta.pl/cdn/ads/ad/banner/_adsense_/_adserver/_adview_.ad.json"
   },
-  "id": 989
+  "id": 990
  },
  {
   "action": {
@@ -13534,7 +13550,7 @@
    ],
    "urlFilter": "||adocean-pl.hit.gemius.pl/*redataredir?url=*myao.adocean.pl*ad."
   },
-  "id": 990
+  "id": 991
  },
  {
   "action": {
@@ -13550,7 +13566,7 @@
    ],
    "urlFilter": "||adx.adform.net/adx/"
   },
-  "id": 991
+  "id": 992
  },
  {
   "action": {
@@ -13566,7 +13582,7 @@
    ],
    "urlFilter": "||myao.adocean.pl/*ad.*?"
   },
-  "id": 992
+  "id": 993
  },
  {
   "action": {
@@ -13582,7 +13598,7 @@
    ],
    "urlFilter": "||myao.adocean.pl/_*/ad.xml"
   },
-  "id": 993
+  "id": 994
  },
  {
   "action": {
@@ -13599,7 +13615,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 994
+  "id": 995
  },
  {
   "action": {
@@ -13614,23 +13630,6 @@
     "xmlhttprequest"
    ],
    "urlFilter": "||secure.adnxs.com/ptv?id=*&cb=*&pubclick="
-  },
-  "id": 995
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "fakty.tvn24.pl",
-    "tvn.pl"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||tvn.adocean.pl/ad.xml"
   },
   "id": 996
  },
@@ -13647,9 +13646,26 @@
    "resourceTypes": [
     "xmlhttprequest"
    ],
-   "urlFilter": "||tvn.adocean.pl/__/ad.xml"
+   "urlFilter": "||tvn.adocean.pl/ad.xml"
   },
   "id": 997
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "fakty.tvn24.pl",
+    "tvn.pl"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||tvn.adocean.pl/__/ad.xml"
+  },
+  "id": 998
  },
  {
   "action": {
@@ -13665,7 +13681,7 @@
    ],
    "urlFilter": "||doubleclick.net/pagead/"
   },
-  "id": 998
+  "id": 999
  },
  {
   "action": {
@@ -13682,7 +13698,7 @@
     "sub_frame"
    ]
   },
-  "id": 999
+  "id": 1000
  },
  {
   "action": {
@@ -13698,7 +13714,7 @@
    ],
    "urlFilter": "||get.x-link.pl/"
   },
-  "id": 1000
+  "id": 1001
  },
  {
   "action": {
@@ -13714,7 +13730,7 @@
    ],
    "urlFilter": "||advert-serv.johnmorris.me/adserver/adlogger_tracker.php"
   },
-  "id": 1001
+  "id": 1002
  },
  {
   "action": {
@@ -13730,7 +13746,7 @@
    ],
    "urlFilter": "||ads.allegro.pl/dist/"
   },
-  "id": 1002
+  "id": 1003
  },
  {
   "action": {
@@ -13747,7 +13763,7 @@
     "websocket"
    ]
   },
-  "id": 1003
+  "id": 1004
  },
  {
   "action": {
@@ -13760,7 +13776,7 @@
    ],
    "urlFilter": "||adocean-pl.hit.gemius.pl/*/url=http://sport.tvp.pl/"
   },
-  "id": 1004
+  "id": 1005
  },
  {
   "action": {
@@ -13777,7 +13793,7 @@
    ],
    "urlFilter": "||tv.wp.pl/do/*/dotn?sw="
   },
-  "id": 1005
+  "id": 1006
  },
  {
   "action": {
@@ -13791,7 +13807,7 @@
    ],
    "urlFilter": "||naekranie.pl/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-download-tracker.js"
   },
-  "id": 1006
+  "id": 1007
  },
  {
   "action": {
@@ -13805,7 +13821,7 @@
    ],
    "urlFilter": "||login.ingbank.pl/mojeing/app/assets/js/vendor/dtm/*/satellitelib-"
   },
-  "id": 1007
+  "id": 1008
  },
  {
   "action": {
@@ -13822,7 +13838,7 @@
    ],
    "urlFilter": "||polfan.pl/*/fingerprint2.min.js"
   },
-  "id": 1008
+  "id": 1009
  },
  {
   "action": {
@@ -13839,6 +13855,6 @@
    ],
    "urlFilter": "||vitalia.pl/gfx/*/reklama/danie.png"
   },
-  "id": 1009
+  "id": 1010
  }
 ]

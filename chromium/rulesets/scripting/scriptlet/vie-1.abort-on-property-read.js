@@ -42,9 +42,9 @@ const uBOL_abortOnPropertyRead = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["parseInt"],["adsBlocked"],["document.cookie"],["Math.round"],["matchMedia"],["ads"],["adsPlayer"],["adsPopupPlayer"],["adsTvc"],["keyPlayer"],["localStorage"],["sessionStorage"],["open"],["__Y"],["atob"],["adtimaConfig"]];
+const argsList = [["parseInt"],["adsBlocked"],["document.cookie"],["Math.round"],["matchMedia"],["ads"],["adsPlayer"],["adsPopupPlayer"],["adsTvc"],["keyPlayer"],["localStorage"],["sessionStorage"],["open"],["atob"],["adtimaConfig"]];
 
-const hostnamesMap = new Map([["aoe.vn",0],["azrom.net",1],["cafenau.com",1],["blog.abit.vn",2],["truyensieuhay.com",2],["phimmoivn.pro",2],["tvhaye.org",2],["phimmoipro.net",2],["quangcaoyenbai.com",2],["javnong.cc",3],["phimhot365.vip",4],["plvb.xyz",[5,6,7,8,9]],["subnhanhvl.pro",10],["subnhanh.vip",10],["phimmoi4s.com",10],["phimdinhcao.net",10],["phimlongtieng.net",10],["phimdinhcao.com",10],["ophim.vip",10],["tinsoikeo.vip",11],["viettoons.tv",12],["phimmoiaz.cc",12],["zo3x.us",12],["m.blogtruyen.vn",12],["watchsb.com",13],["ytstv.me",14],["yts.do",14],["yts.mx",14],["yts.movie",14],["yts.rs",14],["zingnews.vn",15]]);
+const hostnamesMap = new Map([["aoe.vn",0],["azrom.net",1],["cafenau.com",1],["blog.abit.vn",2],["truyensieuhay.com",2],["phimmoivn.pro",2],["tvhaye.org",2],["phimmoipro.net",2],["quangcaoyenbai.com",2],["javnong.cc",3],["phimhot365.vip",4],["plvb.xyz",[5,6,7,8,9]],["subnhanhvl.pro",10],["subnhanh.vip",10],["phimmoi4s.com",10],["phimdinhcao.net",10],["phimlongtieng.net",10],["phimdinhcao.com",10],["ophim.vip",10],["tinsoikeo.vip",11],["viettoons.tv",12],["phimmoiaz.cc",12],["zo3x.us",12],["m.blogtruyen.vn",12],["vinaurl.net",12],["ytstv.me",13],["yts.do",13],["yts.mx",13],["yts.rs",13],["zingnews.vn",14]]);
 
 const entitiesMap = new Map([]);
 
@@ -185,8 +185,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

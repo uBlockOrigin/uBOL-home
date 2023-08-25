@@ -44,7 +44,7 @@ const scriptletGlobals = new Map(); // jshint ignore: line
 
 const argsList = [[],["bit.ly"],["google.com/url?"]];
 
-const hostnamesMap = new Map([["lgrmdr8asu8l.buzz",0],["kc2uta38qg2t.buzz",0],["agb3nquu6rzw.buzz",0],["worldinmotionvr.com",0],["yvt2bm7hzgtt.cloud",0],["breakingbadizle.com",0],["elzemfilm.org",0],["movietube32.xyz",0],["erotikizlefilm.com",0],["turkerotikfilm.com",0],["yetiskinfilmizle.net",0],["diziwatch.net",0],["hdizlefilmleri.com",0],["4kfilmizlesene.xyz",0],["izleorg3.org",0],["youtubemp3.us",0],["filmizlemetv.org",0],["filmfiz.net",0],["hizlitv.club",0],["pchocasi.com.tr",1],["sinema.cc",2]]);
+const hostnamesMap = new Map([["d3xg9jm5zucs.buzz",0],["fwlcqyxc88qx.buzz",0],["lgrmdr8asu8l.buzz",0],["kc2uta38qg2t.buzz",0],["agb3nquu6rzw.buzz",0],["worldinmotionvr.com",0],["yvt2bm7hzgtt.cloud",0],["breakingbadizle.com",0],["elzemfilm.org",0],["movietube32.xyz",0],["erotikizlefilm.com",0],["turkerotikfilm.com",0],["yetiskinfilmizle.net",0],["diziwatch.net",0],["hdizlefilmleri.com",0],["4kfilmizlesene.xyz",0],["izleorg3.org",0],["youtubemp3.us",0],["filmizlemetv.org",0],["filmfiz.net",0],["hizlitv.club",0],["pchocasi.com.tr",1],["sinema.cc",2]]);
 
 const entitiesMap = new Map([["jetfilmizle",0],["altyazilifilm",0],["yabancidizitv",0],["hddiziport",0],["filmyani",0]]);
 
@@ -131,12 +131,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -291,8 +293,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

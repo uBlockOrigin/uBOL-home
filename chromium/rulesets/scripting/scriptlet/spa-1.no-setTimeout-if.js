@@ -42,9 +42,9 @@ const uBOL_noSetTimeoutIf = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["placebo"],["checkAdblockUser"],["_0x"],["Por favor, desative"],["hasAdblock"],["]]=== 0"],[".adsbygoogle"],["adsbygoogle"],["0=== _0x"],["test.offsetHeight"],["blocker"],["cicklow_"],["/Tamamo_Blocker|aadb_recheck/"],["window.location.href"],["adsdirect"]];
+const argsList = [["placebo"],["checkAdblockUser"],["_0x"],["Por favor, desative"],["hasAdblock"],["]]=== 0"],[".adsbygoogle"],["adsbygoogle"],["0=== _0x"],["blocker"],["cicklow_"],["/Tamamo_Blocker|aadb_recheck/"],["window.location.href"],["adsdirect"]];
 
-const hostnamesMap = new Map([["verasoul.com",0],["zona-leros.com",1],["xerifetech.com",2],["reidoplacar.com",3],["suaurl.com",[3,13]],["guianoticiario.net",4],["resenhasglobais.com",5],["tecword.info",5],["smartdoing.tech",5],["vivercomsaude.online",5],["escplus.es",6],["genshinpro.com.br",7],["it-swarm-es.com",7],["manchetehoje.xyz",8],["eletronicabr.com",9],["mundocracking.net",9],["unsurcoenlasombra.com",10],["hartico.com",11],["seriesdonghua.com",12],["mundodonghua.com",12],["seriesgratis.biz",14]]);
+const hostnamesMap = new Map([["verasoul.com",0],["zona-leros.com",1],["xerifetech.com",2],["suaads.com",3],["reidoplacar.com",3],["suaurl.com",[3,12]],["guianoticiario.net",4],["resenhasglobais.com",5],["tecword.info",5],["smartdoing.tech",5],["vivercomsaude.online",5],["escplus.es",6],["genshinpro.com.br",7],["it-swarm-es.com",7],["manchetehoje.xyz",8],["unsurcoenlasombra.com",9],["hartico.com",10],["seriesdonghua.com",11],["mundodonghua.com",11],["seriesgratis.biz",13]]);
 
 const entitiesMap = new Map([]);
 
@@ -104,12 +104,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -259,8 +261,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

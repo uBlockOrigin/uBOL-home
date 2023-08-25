@@ -44,7 +44,7 @@ const scriptletGlobals = new Map(); // jshint ignore: line
 
 const argsList = [["script","copyprotect"],["script","stopRefreshSite"],["script","nocontextmenu"],["script","devtoolsDetector"],["script","debugger"],["script","contextmenu"],["script","console.clear"],["script","wccp_pro"],["script","initPopup"],["style","user-select"],["script","/contextmenu|devtool/"],["script","preventDefault"],["script","wccp"],["script","isadb"]];
 
-const hostnamesMap = new Map([["skidrowreloaded.com",0],["jpost.com",1],["teamkong.tk",2],["sekaikomik.bio",2],["moviesapi.club",3],["animesaga.in",3],["camcaps.io",4],["seriesperu.com",5],["sbot.cf",6],["fjordd.com",8],["playertv.net",10],["warungkomik.com",11],["themeslide.com",11],["terramirabilis.ro",12],["161.97.70.5",13]]);
+const hostnamesMap = new Map([["skidrowreloaded.com",0],["jpost.com",1],["teamkong.tk",2],["sekaikomik.bio",2],["moviesapi.club",3],["animesaga.in",3],["camcaps.io",4],["nicekkk.com",4],["seriesperu.com",5],["sbot.cf",6],["fjordd.com",8],["playertv.net",10],["warungkomik.com",11],["themeslide.com",11],["terramirabilis.ro",12],["161.97.70.5",13]]);
 
 const entitiesMap = new Map([["vidmoly",3],["oploverz",[5,9]],["tvhay",7]]);
 
@@ -168,12 +168,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -323,8 +325,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

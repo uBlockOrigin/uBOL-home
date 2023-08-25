@@ -44,7 +44,7 @@ const scriptletGlobals = new Map(); // jshint ignore: line
 
 const argsList = [["/^bda|^bltsr/"],["/^bltsr$|^JPIqApiY$|^specific$|^substantial$/"],["/adblock_/"],["isab"],["jtnews_a_template"],["yadb"],["aablc"]];
 
-const hostnamesMap = new Map([["relax-fm.ru",0],["rg.ru",0],["sm.news",0],["ura.news",0],["yandex.by",1],["yandex.kz",1],["yandex.ru",1],["yandex.uz",1],["yapx.ru",2],["24smi.org",3],["www.e1.ru",4],["kakprosto.ru",5],["sports.ru",6]]);
+const hostnamesMap = new Map([["kufar.by",0],["relax-fm.ru",0],["rg.ru",0],["sm.news",0],["ura.news",0],["yandex.by",1],["yandex.kz",1],["yandex.ru",1],["yandex.uz",1],["yapx.ru",2],["24smi.org",3],["www.e1.ru",4],["kakprosto.ru",5],["sports.ru",6]]);
 
 const entitiesMap = new Map([]);
 
@@ -101,12 +101,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -256,8 +258,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {

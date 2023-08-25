@@ -18,7 +18,7 @@
    ],
    "urlFilter": ".infox.sg^"
   },
-  "id": 5784
+  "id": 5791
  },
  {
   "action": {
@@ -39,7 +39,7 @@
    ],
    "urlFilter": "/gateway/ahr0c"
   },
-  "id": 5785
+  "id": 5792
  },
  {
   "action": {
@@ -65,7 +65,7 @@
    ],
    "urlFilter": "|http*//fastpic.org/"
   },
-  "id": 5786
+  "id": 5793
  },
  {
   "action": {
@@ -86,7 +86,7 @@
    ],
    "urlFilter": "||24smi-*/top/"
   },
-  "id": 5787
+  "id": 5794
  },
  {
   "action": {
@@ -107,7 +107,7 @@
    ],
    "urlFilter": "||24smi.*/top/"
   },
-  "id": 5788
+  "id": 5795
  },
  {
   "action": {
@@ -128,7 +128,7 @@
    ],
    "urlFilter": "||24top.*/top/"
   },
-  "id": 5789
+  "id": 5796
  },
  {
   "action": {
@@ -149,7 +149,7 @@
    ],
    "urlFilter": "||an.yandex.ru/count/"
   },
-  "id": 5790
+  "id": 5797
  },
  {
   "action": {
@@ -179,7 +179,7 @@
     "sub_frame"
    ]
   },
-  "id": 5791
+  "id": 5798
  },
  {
   "action": {
@@ -201,7 +201,7 @@
     "sub_frame"
    ]
   },
-  "id": 5792
+  "id": 5799
  },
  {
   "action": {
@@ -222,7 +222,7 @@
    ],
    "urlFilter": "||crossout.net/*free?*&r="
   },
-  "id": 5793
+  "id": 5800
  },
  {
   "action": {
@@ -243,7 +243,7 @@
    ],
    "urlFilter": "||d3ward.github.io/toolz/adblock"
   },
-  "id": 5794
+  "id": 5801
  },
  {
   "action": {
@@ -264,7 +264,7 @@
    ],
    "urlFilter": "||drive.google.com/file/d/1vmzdhlb_-dcnbtubkfqpnnvsep_2gnsy/"
   },
-  "id": 5795
+  "id": 5802
  },
  {
   "action": {
@@ -297,7 +297,7 @@
     "sub_frame"
    ]
   },
-  "id": 5796
+  "id": 5803
  },
  {
   "action": {
@@ -318,7 +318,7 @@
    ],
    "urlFilter": "||forum.ru-board.com/*.cgi?*=5&topic=51141"
   },
-  "id": 5797
+  "id": 5804
  },
  {
   "action": {
@@ -339,7 +339,32 @@
    ],
    "urlFilter": "||gdz-ru.work/subscribe/"
   },
-  "id": 5798
+  "id": 5805
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.amazonaws.com *.cloudflare.com apis.google.com cse.google.com www.google.com *.google.com/complete/ *.googleapis.com *.googletagmanager.com *.instagram.com *.net *.io *.jquery.com *.keycaptcha.com *.ru *.twitter.com *.ua"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "inforesist.org",
+    "life.pravda.com.ua",
+    "tabloid.pravda.com.ua",
+    "vikna.tv"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 5806
  },
  {
   "action": {
@@ -360,7 +385,7 @@
    ],
    "urlFilter": "||lis-gor.com/"
   },
-  "id": 5799
+  "id": 5807
  },
  {
   "action": {
@@ -384,7 +409,7 @@
     "sub_frame"
    ]
   },
-  "id": 5800
+  "id": 5808
  },
  {
   "action": {
@@ -405,7 +430,7 @@
    ],
    "urlFilter": "||modsfire.com/download/*/"
   },
-  "id": 5801
+  "id": 5809
  },
  {
   "action": {
@@ -427,7 +452,7 @@
     "sub_frame"
    ]
   },
-  "id": 5802
+  "id": 5810
  },
  {
   "action": {
@@ -448,7 +473,7 @@
    ],
    "urlFilter": "||nsportal.ru/download/"
   },
-  "id": 5803
+  "id": 5811
  },
  {
   "action": {
@@ -470,7 +495,7 @@
     "sub_frame"
    ]
   },
-  "id": 5804
+  "id": 5812
  },
  {
   "action": {
@@ -492,7 +517,7 @@
     "sub_frame"
    ]
   },
-  "id": 5805
+  "id": 5813
  },
  {
   "action": {
@@ -516,29 +541,7 @@
     "sub_frame"
    ]
   },
-  "id": 5806
- },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.amazonaws.com *.cloudflare.com apis.google.com cse.google.com www.google.com *.google.com/complete/ *.googleapis.com *.googletagmanager.com *.net *.io *.jquery.com *.keycaptcha.com *.ru *.twitter.com *.ua"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "vikna.tv"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 5807
+  "id": 5814
  },
  {
   "action": {
@@ -560,7 +563,7 @@
     "sub_frame"
    ]
   },
-  "id": 5808
+  "id": 5815
  },
  {
   "action": {
@@ -581,7 +584,7 @@
    ],
    "urlFilter": "||yandex.ru/turbo?text=https*fishki.net"
   },
-  "id": 5809
+  "id": 5816
  },
  {
   "action": {
@@ -602,7 +605,7 @@
    ],
    "urlFilter": "||yandex.ru/mapuid/"
   },
-  "id": 5810
+  "id": 5817
  },
  {
   "action": {
@@ -623,7 +626,7 @@
    ],
    "urlFilter": "||www.liveinternet.ru/|"
   },
-  "id": 5821
+  "id": 5828
  },
  {
   "action": {
@@ -645,6 +648,6 @@
     "sub_frame"
    ]
   },
-  "id": 5825
+  "id": 5832
  }
 ]

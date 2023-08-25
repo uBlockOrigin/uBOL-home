@@ -42,11 +42,11 @@ const uBOL_noFetchIf = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["pagead2.googlesyndication.com"],["nitropay.com"],["analytics"],["www3.doubleclick.net"],["ads-twitter.com"],["adsbygoogle"],["securepubads.g.doubleclick.net/pagead/ppub_config"],["googlesyndication"],["ads"]];
+const argsList = [["pagead2.googlesyndication.com"],["nitropay.com"],["analytics"],["www3.doubleclick.net"],["ads-twitter.com"],["adsbygoogle"],["securepubads.g.doubleclick.net/pagead/ppub_config"],["googlesyndication"],["ads"],["ad.php"]];
 
-const hostnamesMap = new Map([["thejakartapost.com",0],["crdroid.net",0],["maxedtech.com",0],["dizipal1000.com",0],["slazag.pl",0],["bytomski.pl",0],["piekary.info",0],["twojknurow.pl",0],["nowinytyskie.pl",0],["ngs24.pl",0],["24kato.pl",0],["rudzianin.pl",0],["zabrzenews.pl",0],["chorzowski.pl",0],["tarnowskiegory.info",0],["24zaglebie.pl",0],["insidermonkey.com",0],["poedb.tw",0],["stakingrewards.com",0],["udocz.com",0],["gamebrew.org",1],["photosonic.writesonic.com",3],["tuttoandroid.net",3],["psy.pl",3],["koty.pl",3],["intibia.com",3],["simkl.com",4],["xhamster20.desi",5],["xhwebsite2.com",5],["xhamster18.desi",5],["xhadult3.com",5],["xhadult2.com",5],["xhmoon5.com",5],["xhwide1.com",5],["xhwide8.com",5],["xhamster3.com",5],["xhplanet2.com",5],["xhtab2.com",5],["xhamster5.desi",5],["xhamster9.com",5],["xhamster.desi",5],["xhamster.one",5],["xhamster.com",5],["weather.com",6],["socialcounts.org",7],["theonegenerator.com",8]]);
+const hostnamesMap = new Map([["thejakartapost.com",0],["crdroid.net",0],["maxedtech.com",0],["dizipal1000.com",0],["slazag.pl",0],["bytomski.pl",0],["piekary.info",0],["twojknurow.pl",0],["nowinytyskie.pl",0],["ngs24.pl",0],["24kato.pl",0],["rudzianin.pl",0],["zabrzenews.pl",0],["chorzowski.pl",0],["tarnowskiegory.info",0],["24zaglebie.pl",0],["insidermonkey.com",0],["poedb.tw",0],["stakingrewards.com",0],["udocz.com",0],["gamebrew.org",1],["photosonic.writesonic.com",3],["tuttoandroid.net",3],["psy.pl",3],["koty.pl",3],["intibia.com",3],["simkl.com",4],["xhamster20.desi",5],["xhwebsite2.com",[5,9]],["xhamster18.desi",5],["xhadult3.com",[5,9]],["xhadult2.com",[5,9]],["xhmoon5.com",[5,9]],["xhwide1.com",[5,9]],["xhwide8.com",[5,9]],["xhamster3.com",5],["xhplanet2.com",[5,9]],["xhtab2.com",[5,9]],["xhamster5.desi",5],["xhamster9.com",5],["xhamster.desi",5],["xhamster.one",5],["xhamster.com",5],["weather.com",6],["socialcounts.org",7],["bypass.city",7],["theonegenerator.com",8],["fullxh.com",9],["megaxh.com",9],["unlockxh4.com",9],["xhadult4.com",9],["xhadult5.com",9],["xhamster46.com",9],["xhday.com",9],["xhday1.com",9],["xhplanet1.com",9],["xhreal2.com",9],["xhreal3.com",9],["xhvictory.com",9],["xhwebsite.com",9]]);
 
-const entitiesMap = new Map([["ddys",2],["xhamster18",5],["xhamster17",5],["hamsterix",5],["xhamster13",5]]);
+const entitiesMap = new Map([["ddys",2],["xhamster18",[5,9]],["xhamster17",[5,9]],["hamsterix",[5,9]],["xhamster13",[5,9]],["xhamster",9],["xhamster1",9],["xhamster10",9],["xhamster11",9],["xhamster12",9],["xhamster14",9],["xhamster15",9],["xhamster16",9],["xhamster19",9],["xhamster20",9],["xhamster2",9],["xhamster3",9],["xhamster4",9],["xhamster5",9],["xhamster7",9],["xhamster8",9]]);
 
 const exceptionsMap = new Map([]);
 
@@ -121,12 +121,14 @@ function safeSelf() {
     if ( scriptletGlobals.has('safeSelf') ) {
         return scriptletGlobals.get('safeSelf');
     }
+    const self = globalThis;
     const safe = {
         'Error': self.Error,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
+        'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
@@ -276,8 +278,8 @@ argsList.length = 0;
 // Inject code
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   `MAIN` world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when enviroment in Firefox.
+//   'MAIN' world not yet supported in Firefox, so we inject the code into
+//   'MAIN' ourself when environment in Firefox.
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {
