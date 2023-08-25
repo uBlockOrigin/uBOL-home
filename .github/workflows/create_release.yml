@@ -25,6 +25,14 @@ jobs:
           UBLOCK_REPO_DIR=$(mktemp -d)
           echo "UBLOCK_REPO_DIR=$UBLOCK_REPO_DIR" >> $GITHUB_ENV
           git clone --depth 1 https://github.com/gorhill/uBlock.git $UBLOCK_REPO_DIR
+      # Set uBO version to use
+      - name: uBO version to use
+        run: |
+            cd $UBLOCK_REPO_DIR
+            UBO_VERSION_URL=$(cat ubo-version)
+            UBO_VERSION=${UBO_VERSION_URL: -40}
+            echo "UBO_VERSION=$UBO_VERSION" >> $GITHUB_ENV
+            cd - > /dev/null
       # Chromium
       - name: Build Chromium uBOLite MV3 packages
         run: |
@@ -60,7 +68,30 @@ jobs:
         with:
           tag: ${{ env.TAGNAME }}
           prerelease: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            **uBO Lite** (uBOL), a **permission-less** [MV3 API-based](https://developer.chrome.com/docs/extensions/mv3/intro/) content blocker.
+            
+            - [Synopsis](https://github.com/uBlockOrigin/uBOL-issues#readme)
+            - [Documentation](https://github.com/uBlockOrigin/uBOL-home/wiki)
+            
+            ## Release notes
+            
+            - Updated filter lists
+            - [Commit history](https://github.com/uBlockOrigin/uBOL-home/commits/${{ env.TAGNAME }})
+            
+            ---
+            
+            ## Installation
+            
+            - Chromium-based browsers: Install [from the Chrome Web Store](https://chrome.google.com/webstore/detail/ddkjiahejlhfcafbddmgiahcphecmpfh)
+            - Firefox: [Install from AMO](https://addons.mozilla.org/firefox/addon/ublock-origin-lite/)
+            
+            The extension will auto-update when a new version is published.
+            
+            #### Manual installation:
+            
+            - Chromium: Download the `${{ env.TAGNAME }}.chromium.mv3.zip ` package below, unzip, navigate to `chrome://extensions/` in your browser, then [tell the browser to load the extension](https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outside-the-chrome-web-store/24577660#24577660). You will have to update the extension manually.
+            - Firefox: Click [${{ env.TAGNAME }}.firefox.signed.mv3.xpi](https://github.com/gorhill/uBlock/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.firefox.signed.mv3.xpi)
       - name: Upload Chromium uBOLite MV3 package
         uses: actions/upload-release-asset@v1
         env:
