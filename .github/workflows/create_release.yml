@@ -19,20 +19,18 @@ jobs:
         uses: actions/checkout@v3
         with:
           persist-credentials: false
+      # Set uBO version to use
+      - name: uBO version to use
+        run: |
+          UBO_VERSION_URL=$(cat ubo-version)
+          UBO_VERSION=${UBO_VERSION_URL: -40}
+          echo "UBO_VERSION=$UBO_VERSION" >> $GITHUB_ENV
       # https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
       - name: Clone uBO repo
         run: |
           UBLOCK_REPO_DIR=$(mktemp -d)
           echo "UBLOCK_REPO_DIR=$UBLOCK_REPO_DIR" >> $GITHUB_ENV
           git clone --depth 1 https://github.com/gorhill/uBlock.git $UBLOCK_REPO_DIR
-      # Set uBO version to use
-      - name: uBO version to use
-        run: |
-            cd $UBLOCK_REPO_DIR
-            UBO_VERSION_URL=$(cat ubo-version)
-            UBO_VERSION=${UBO_VERSION_URL: -40}
-            echo "UBO_VERSION=$UBO_VERSION" >> $GITHUB_ENV
-            cd - > /dev/null
       # Chromium
       - name: Build Chromium uBOLite MV3 packages
         run: |
