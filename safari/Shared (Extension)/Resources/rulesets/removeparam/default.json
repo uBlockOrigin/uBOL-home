@@ -1,0 +1,938 @@
+[
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "aternos.org"
+   ],
+   "requestDomains": [
+    "fastlane.rubiconproject.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16683
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "r"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "aternos.org"
+   ],
+   "requestDomains": [
+    "htlb.casalemedia.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16684
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "id"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "requestDomains": [
+    "sextgem.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16686
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "ad_config_id"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "player.stv.tv"
+   ],
+   "requestDomains": [
+    "brightcove.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16687
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "src"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "requestDomains": [
+    "wuzhuiso.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16689
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "hybrid_search_extra",
+       "hybrid_search_source"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "requestDomains": [
+    "zhihu.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16690
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "referrer"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||play.google.com/store/apps/*referrer"
+  },
+  "id": 16691
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "referrer"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||apps.apple.com/*/app/*referrer"
+  },
+  "id": 16692
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "excludedInitiatorDomains": [
+    "mediaite.com"
+   ],
+   "requestDomains": [
+    "adthrive.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16693
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "__hsfp",
+       "__hssc",
+       "__hstc",
+       "_hsenc",
+       "_openstat",
+       "bsft_aaid",
+       "bsft_clkid",
+       "bsft_eid",
+       "bsft_ek",
+       "bsft_mid",
+       "bsft_uid",
+       "dclid",
+       "fb_action_ids",
+       "fb_action_types",
+       "fb_comment_id",
+       "fb_ref",
+       "fb_source",
+       "fbclid",
+       "gbraid",
+       "gclid",
+       "gclsrc",
+       "guce_referrer",
+       "guce_referrer_sig",
+       "hsCtaTracking",
+       "hsa_acc",
+       "hsa_ad",
+       "hsa_cam",
+       "hsa_grp",
+       "hsa_kw",
+       "hsa_la",
+       "hsa_mt",
+       "hsa_net",
+       "hsa_ol",
+       "hsa_src",
+       "hsa_tgt",
+       "hsa_ver",
+       "mc_eid",
+       "ml_subscriber",
+       "ml_subscriber_hash",
+       "msclkid",
+       "mtm_campaign",
+       "mtm_cid",
+       "mtm_content",
+       "mtm_group",
+       "mtm_keyword",
+       "mtm_medium",
+       "mtm_placement",
+       "mtm_source",
+       "oft_c",
+       "oft_ck",
+       "oft_d",
+       "oft_id",
+       "oft_ids",
+       "oft_k",
+       "oft_lk",
+       "oft_sk",
+       "oly_anon_id",
+       "oly_enc_id",
+       "pk_campaign",
+       "pk_medium",
+       "pk_source",
+       "rb_clickid",
+       "s_cid",
+       "twclid",
+       "vero_conv",
+       "vero_id",
+       "wbraid",
+       "wickedid",
+       "yclid",
+       "ysclid"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16695
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "rdt"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "requestDomains": [
+    "reddit.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16696
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "traffic_source"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "requestDomains": [
+    "adweek.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16698
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "client.falixnodes.net"
+   ],
+   "requestDomains": [
+    "3lift.com",
+    "securepubads.g.doubleclick.net"
+   ],
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 16720
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "client.falixnodes.net"
+   ],
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||track1.aniview.com/track?"
+  },
+  "id": 16721
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "/_ui/shared/common/js/InappCommunicationManager.js",
+       "/_ui/shared/common/js/analytics/with-intersection-track.js",
+       "/_ui/shared/common/js/util/jquery.analytics-utils.js"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||hktvmall.com/yuicombo?"
+  },
+  "id": 16822
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "caid"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "nba.com"
+   ],
+   "requestDomains": [
+    "clips-manifests-aka.warnermediacdn.com"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16871
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "prof"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "amc.com"
+   ],
+   "requestDomains": [
+    "ssaimanifest.prod.boltdns.net"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16873
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "ad_config_id"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "tvnz.co.nz"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||brightcove.com/playback/*/*?ad_config_id"
+  },
+  "id": 16887
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "ad_config_id"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "tvnz.co.nz"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||brightcovecdn.com/playback/*/*?ad_config_id"
+  },
+  "id": 16888
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "ad_config_id"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "telequebec.tv"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16889
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "ad_config_id"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "9now.com.au",
+    "mech-plus.com",
+    "threenow.co.nz"
+   ],
+   "requestDomains": [
+    "edge.api.brightcove.com"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16890
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "adConfig"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||cxm-api.fifa.com/fifaplusweb/api/video/"
+  },
+  "id": 16891
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "caid"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "play.hbomax.com"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||hbo.yspsvc-na.net/csm/*&caid="
+  },
+  "id": 16893
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "caid"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "max.com"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "&caid="
+  },
+  "id": 16894
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "ad_config_id"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "roosterteeth.com"
+   ],
+   "requestDomains": [
+    "brightcove.com"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 16896
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "caid"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "cnn.com"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||warnermediacdn.com/csm/*&caid="
+  },
+  "id": 16898
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "afid"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "cnn.com"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||warnermediacdn.com/csm/*afid="
+  },
+  "id": 16899
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "app_csid"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "cnn.com"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||warnermediacdn.com/csm/*app_csid="
+  },
+  "id": 16900
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "conf_csid"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "cnn.com"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||warnermediacdn.com/csm/*conf_csid="
+  },
+  "id": 16901
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "ssaiProfile"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "excludedInitiatorDomains": [
+    "cnn.com"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||medium.ngtv.io/v2/media/*&ssaiprofile="
+  },
+  "id": 16902
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "p"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "tamrieltradecentre.com"
+   ],
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||googleads.g.doubleclick.net/pagead/ads"
+  },
+  "id": 16941
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "view"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "other"
+   ],
+   "urlFilter": "||hentai-party.com/*?view="
+  },
+  "id": 17035
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "code"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "other"
+   ],
+   "urlFilter": "||hentaicomics.pro/*?code="
+  },
+  "id": 17036
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "view"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "other"
+   ],
+   "urlFilter": "||xxx-comics.pro/*?view="
+  },
+  "id": 17037
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "cid"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "requestDomains": [
+    "connatix.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 17079
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "client.falixnodes.net"
+   ],
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "*gdpr_consent"
+  },
+  "id": 17082
+ }
+]

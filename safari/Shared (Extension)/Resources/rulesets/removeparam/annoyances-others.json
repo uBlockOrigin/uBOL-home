@@ -1,0 +1,51 @@
+[
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autoplay"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "kooora.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||player.octivid.com/*/video?*&autoplay="
+  },
+  "id": 398
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autoplay"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||dailymotion.com/embed/video/"
+  },
+  "id": 399
+ }
+]

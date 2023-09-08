@@ -1,0 +1,113 @@
+[
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "amatorialeporno.it",
+    "amoreporno.com",
+    "clipdisesso.com",
+    "culonudo.com",
+    "granditetteporno.it",
+    "listasitiporno.it",
+    "matrignaporno.it",
+    "matureporno.it",
+    "milfporno.it",
+    "peneporno.com",
+    "porno-anale.it",
+    "porno-gay.it",
+    "porno-hardcore.it",
+    "porno-lesbica.it",
+    "pornoadolescente.it",
+    "pornoamica.com",
+    "pornocategorie.com",
+    "pornoculi.com",
+    "pornomatura.it",
+    "pornotreno.com",
+    "scopateitaliane.com",
+    "scopateitaliane.it",
+    "sessoromantico.com",
+    "videoporno-gratis.it"
+   ],
+   "regexFilter": "^https?:\\/\\/.*\\/[a-z0-9A-Z_]{2,15}\\.(php|jx|jsx|1ph|jsf|jz|jsm|j$)",
+   "resourceTypes": [
+    "image",
+    "script",
+    "sub_frame"
+   ]
+  },
+  "id": 3123
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "pornototale.com"
+   ],
+   "regexFilter": "^https?:\\/\\/.*\\/.*sw[0-9._].*",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 3130
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedResourceTypes": [
+    "main_frame",
+    "media"
+   ],
+   "initiatorDomains": [
+    "altadefinizione-01.info",
+    "altadefinizione.immo",
+    "altd.uno",
+    "animeforce.it",
+    "cb01.pizza",
+    "cb01.taxi",
+    "cbo1.bar",
+    "cineblog01.hair",
+    "cineblog01.sale",
+    "cineblog01.taxi",
+    "cineblog01.trade",
+    "eurekaddl.cfd",
+    "eurekaddl.lol",
+    "eurekaddl.mom",
+    "eurostreaming.cc",
+    "eurostreaming.pics",
+    "eurostreaming.rodeo",
+    "eurostreaming.sbs",
+    "eurostreaming.voyage",
+    "guardaserie01.click",
+    "ilgeniodellostreaming.live",
+    "nuovoindirizzo.com",
+    "pepperlive.info"
+   ],
+   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
+  },
+  "id": 3190
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedResourceTypes": [
+    "main_frame",
+    "media"
+   ],
+   "initiatorDomains": [
+    "socceron.name"
+   ],
+   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*"
+  },
+  "id": 3191
+ }
+]

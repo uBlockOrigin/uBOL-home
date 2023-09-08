@@ -1,0 +1,1481 @@
+[
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "3dmili.com",
+    "cloudgallery.net",
+    "file-upload.com",
+    "imghot.net",
+    "lnk.news",
+    "lnk.parts",
+    "rule34.top",
+    "watchx.top",
+    "yusepjaelani.blogspot.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16906
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "worker-src 'none'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "alltube.pl",
+    "alltube.tv",
+    "assia1.tv",
+    "centrum-dramy.pl",
+    "coinfaucet.eu",
+    "crictime.com",
+    "crictime.is",
+    "doodcdn.com",
+    "estream.to",
+    "flashx.pw",
+    "fullxh.com",
+    "gomo.to",
+    "hdvid.fun",
+    "hdvid.tv",
+    "hitomi.la",
+    "kinox.to",
+    "lewd.ninja",
+    "megapastes.com",
+    "megaxh.com",
+    "milujivareni.cz",
+    "nflbite.com",
+    "pirateproxy.live",
+    "plytv.me",
+    "potomy.ru",
+    "powvideo.cc",
+    "powvideo.net",
+    "putlocker.to",
+    "reactor.cc",
+    "rojadirecta.direct",
+    "sickrage.ca",
+    "streamtape.com",
+    "thehiddenbay.com",
+    "thepiratebay.org",
+    "thepiratebay10.org",
+    "torlock.com",
+    "tpb.party",
+    "unblocktheship.org",
+    "unlockxh4.com",
+    "uptomega.me",
+    "ustream.to",
+    "vidoza.co",
+    "vidoza.net",
+    "wallpoper.com",
+    "wearesaudis.net",
+    "xhadult2.com",
+    "xhadult3.com",
+    "xhadult4.com",
+    "xhadult5.com",
+    "xhamster46.com",
+    "xhday.com",
+    "xhday1.com",
+    "xhmoon5.com",
+    "xhplanet1.com",
+    "xhplanet2.com",
+    "xhreal2.com",
+    "xhreal3.com",
+    "xhtab2.com",
+    "xhvictory.com",
+    "xhwebsite.com",
+    "xhwebsite2.com",
+    "xhwide1.com",
+    "xhwide8.com",
+    "yazilir.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16907
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "worker-src 'none';"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||steamplay."
+  },
+  "id": 16908
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "worker-src 'none';"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "feet9.com",
+    "leitor.net",
+    "revdl.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16910
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: https://disqus.com *.disqus.com *.google-analytics.com *.disquscdn.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "hotscope.tv"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16911
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.gstatic.com *.google.com *.googletagmanager.com *.recaptcha.net"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "uii.io"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16912
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "connect-src 'self'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "porndoe.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16913
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' data:"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "xxxwebdlxxx.org"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16914
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "frame-src"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||pornid."
+  },
+  "id": 16915
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-eval' 'unsafe-inline' data: *.googletagservices.com *.google-analytics.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "uppit.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16916
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "child-src *.google.com *.gstatic.com *.arc.io"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "pradjadj.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16917
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googletagservices.com *.wp.com *.air.tv *.addthis.com *.cloudflare.com *.facebook.net *.facebook.com *.gstatic.com *.youtube.com *.ytimg.com *.google.com *.googletagmanager.com *.instagram.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "goodnewsnetwork.org"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16918
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "frame-src"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "shrink-service.it",
+    "vidia.tv"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16919
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'self' 'unsafe-inline' *.googleapis.com *.google.com *.gstatic.com *.google-analytics.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "onlineproxy.eu"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16920
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' *.gstatic.com *.google.com *.googletagmanager.com *.googleapis.com;frame-src 'self' *.google.com;connect-src 'self'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "shon.xyz"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16921
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' blob: *.cloudflare.com *.google-analytics.com *.googleapis.com *.gstatic.com *.radiantmediatechs.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||upclips.online*"
+  },
+  "id": 16922
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "child-src *"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "bodysize.org",
+    "heavy-r.com",
+    "porngo.com",
+    "showbiz.cz"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16923
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src * 'unsafe-inline'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "cloudgallery.net",
+    "filmovi.ws",
+    "imghot.net",
+    "serijefilmovi.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16924
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation"
+    },
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src * 'unsafe-inline'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||imgzong."
+  },
+  "id": 16925
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src *"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "2conv.com",
+    "classicpornbest.com",
+    "flvto.biz",
+    "sportkart.xyz"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16926
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "connect-src https: http:"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "4chan.org"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16927
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src * 'unsafe-inline'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||xtits."
+  },
+  "id": 16928
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'self' 'unsafe-inline' *.gstatic.com *.googleapis.com *.bootstrapcdn.com *.fontawesome.com *.cloudflare.com *.youtube.com *.ytimg.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "nollyverse.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16929
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'self' *.favicon.cc *.google.com *.gstatic.com *.googleapis.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||shortlinkto."
+  },
+  "id": 16930
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'self' 'unsafe-inline' *.dropbox.com *.dropbox-dns.com *.gstatic.com *.googleapis.com *.google.com ytpp3.com *.youtube.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "mp3juices.cc"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16932
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "xxxbule.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16933
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'unsafe-inline' 'self' data: *.ytimg.com *.facebook.com *.google.com *.gstatic.com *.youtube.com *.googleapis.com *.wp.com *.gospeljingle.com *.googletagmanager.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "gospeljingle.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16934
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'unsafe-inline' 'self' *.google.com *.gstatic.com *.googleapis.com *.wp.com *.googletagmanager.com *.jquery.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "krunkercentral.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16935
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'unsafe-inline' 'self' https://extraimage.net *.extraimage.info *.imgur.com *.wikimedia.org *.dyncdn.cc *.picturedent.org https://checkmy.pictures *.dirp.me *.googleapis.com *.gstatic.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "dirp.me"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16936
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'self' *.favicon.cc *.google.com *.gstatic.com *.googleapis.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||uptobhai."
+  },
+  "id": 16937
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'self'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||coolmoviez."
+  },
+  "id": 16939
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'unsafe-inline' 'self' *.bootstrapcdn.com *.gstatic.com *.googleapis.com *.ytimg.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "ytix.xyz"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16940
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "style-src *"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "blog.coinscap.info",
+    "blog.cryptowidgets.net",
+    "blog.insurancegold.in",
+    "blog.wiki-topia.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16942
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||iranicard.ir/%d8%ae%d8%b1%db%8c%d8%af-%d8%a7%da%a9%d8%a7%d9%86%d8%aa-%d8%a7%d8%b3%d9%be%d8%a7%d8%aa%db%8c%d9%81%d8%a7%db%8c-spotify-2/?utm_medium=banner^"
+  },
+  "id": 16943
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||asiatech.ir/tabestan1401/?utm_medium=referral^"
+  },
+  "id": 16944
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||limoo.host/?utm_medium=sidebar2-banner^"
+  },
+  "id": 16945
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "style-src *"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "networkhint.com",
+    "suaurl.com",
+    "terafly.me",
+    "videolyrics.in"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16946
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'unsafe-inline' 'self' *.gstatic.com *.googleapis.com *.jquery.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||tirexo."
+  },
+  "id": 16947
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "style-src *"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||blog.carsmania.net/post/"
+  },
+  "id": 16948
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "style-src *"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||blog.carstopia.net/post/"
+  },
+  "id": 16949
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "style-src *"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||blog.coinsvalue.net/post/"
+  },
+  "id": 16950
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "style-src *"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||blog.cookinguide.net/post/"
+  },
+  "id": 16951
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "style-src *"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||blog.freeoseocheck.com/post/"
+  },
+  "id": 16952
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "style-src *"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||blog.makeupguide.net/post/"
+  },
+  "id": 16953
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' * 'unsafe-inline'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "intercelestial.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16954
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "worker-src 'none'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "hdvid.tv",
+    "inside-out.xyz",
+    "potomy.ru",
+    "qtoptens.com",
+    "sickrage.ca",
+    "sorteosrd.com",
+    "void.cat"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16955
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "child-src 'none';frame-src 'self' *;worker-src 'none';"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "fileone.tv"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16956
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "worker-src 'none';"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||thevideo."
+  },
+  "id": 16957
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "worker-src 'none'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||dragonballzpolo."
+  },
+  "id": 16958
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "worker-src 'none';"
+    },
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "connect-src 'none';"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||firstonetv."
+  },
+  "id": 16959
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "worker-src 'none';"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||firstone."
+  },
+  "id": 16960
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' '*' 'unsafe-inline'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "downloadpirate.com",
+    "linksmore.site",
+    "pirateproxy.live",
+    "thehiddenbay.com",
+    "thepiratebay10.org",
+    "ukpass.co"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16961
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data:"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "1337x.to"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16962
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' '*' 'unsafe-inline'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "convertfiles.com",
+    "moviewatcher.is"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16963
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' '*' 'unsafe-inline' *.gstatic.com *.google.com *.googleapis.com *.bootstrapcdn.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "gelbooru.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16964
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' https://hcaptcha.com *.hcaptcha.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "pirateiro.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16965
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src *.leadpages.net *.gstatic.com *.google.com *.googleapis.com *.playwire.com *.facebook.com *.bootstrapcdn.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "activistpost.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16966
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "child-src 'none'; frame-src 'self' *; worker-src 'none'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "fileone.tv",
+    "theappguruz.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16967
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "child-src 'none'; frame-src *; worker-src 'none'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "thepiratebay.org",
+    "vidoza.net"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 16968
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "default-src 'unsafe-inline' 'unsafe-eval' 'self' *.google.com *.gstatic.com *.googleapis.com *.googletagmanager.com *.jquery.com *.bootstrapcdn.com *.jsdelivr.net *.cloudflare.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "just-upload.com"
+   ],
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 17038
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.cloudflare.com *.google.com *.addthis.com *.addthisedge.com *.facebook.net *.twitter.com *.jquery.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "kinos.to",
+    "kinox.am",
+    "kinox.bz",
+    "kinox.click",
+    "kinox.cloud",
+    "kinox.club",
+    "kinox.digital",
+    "kinox.direct",
+    "kinox.express",
+    "kinox.fun",
+    "kinox.fyi",
+    "kinox.gratis",
+    "kinox.io",
+    "kinox.lol",
+    "kinox.me",
+    "kinox.mobi",
+    "kinox.pub",
+    "kinox.sh",
+    "kinox.sx",
+    "kinox.to",
+    "kinox.tube",
+    "kinox.tv",
+    "kinox.wtf",
+    "kinoz.to"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 17074
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "refresh",
+     "operation": "remove"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "satoshi-win.xyz"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 17117
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "location",
+     "operation": "remove"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "cdn.hostdl.com",
+    "eturbonews.com",
+    "tyfloswiat.pl",
+    "viserve.com",
+    "xxxxsx.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 17118
+ }
+]

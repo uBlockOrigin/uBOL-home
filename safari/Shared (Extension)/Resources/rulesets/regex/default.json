@@ -1,0 +1,2682 @@
+[
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "^https?:\\/\\/.*\\/easylist\\/[0-9]{5}"
+  },
+  "id": 1
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "(https?:\\/\\/)104\\.154\\..{100,}"
+  },
+  "id": 4095
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "(https?:\\/\\/)104\\.197\\..{100,}"
+  },
+  "id": 4096
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "(https?:\\/\\/)104\\.198\\..{100,}"
+  },
+  "id": 4097
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "(https?:\\/\\/)130\\.211\\..{100,}"
+  },
+  "id": 4098
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "(https?:\\/\\/)142\\.91\\.159\\..{100,}"
+  },
+  "id": 4099
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "(https?:\\/\\/)213\\.32\\.115\\..{100,}"
+  },
+  "id": 4100
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "(https?:\\/\\/)216\\.21\\..{100,}"
+  },
+  "id": 4101
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "(https?:\\/\\/)217\\.182\\.11\\..{100,}"
+  },
+  "id": 4102
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "(https?:\\/\\/)51\\.195\\.31\\..{100,}"
+  },
+  "id": 4103
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "1337x.to",
+    "cryptobriefing.com",
+    "eztv.io",
+    "eztv.tf",
+    "eztv.yt",
+    "fmovies.taxi",
+    "fmovies.world",
+    "limetorrents.info",
+    "megaup.net",
+    "mrunlock.kim",
+    "newser.com",
+    "sendit.cloud",
+    "torlock.com",
+    "uiz.io",
+    "userscloud.com",
+    "vev.red",
+    "vidbull.tv",
+    "vidop.icu",
+    "vidup.io",
+    "yourbittorrent2.com"
+   ],
+   "regexFilter": "^https?:\\/\\/.*bit(ly)?\\.(com|ly)\\/"
+  },
+  "id": 4861
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "1vag.com",
+    "4tube.com",
+    "asianpornmovies.com",
+    "getsex.xxx",
+    "glam0ur.com",
+    "hclips.com",
+    "hdzog.com",
+    "homemadevids.org",
+    "hotmovs.com",
+    "milfzr.com",
+    "porn555.com",
+    "pornforrelax.com",
+    "pornj.com",
+    "pornl.com",
+    "puporn.com",
+    "see.xxx",
+    "shemalez.com",
+    "sss.xxx",
+    "streanplay.cc",
+    "thegay.com",
+    "thegay.porn",
+    "tits-guru.com",
+    "tubepornclassic.com",
+    "tuberel.com",
+    "txxx.com",
+    "txxx.tube",
+    "upornia.com",
+    "vjav.com",
+    "voyeurhit.com",
+    "xozilla.com"
+   ],
+   "regexFilter": "^https?:\\/\\/.*\\.(club|news|live|online|store|tech|guru|cloud|bid|xyz|site|pro|info|online|icu|monster|buzz|fun|website|photos|re|casa|top|today|space|network|live|work|systems|ml|world|life)\\/.*"
+  },
+  "id": 5280
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "^https:\\/\\/([a-z]+\\.)?sythe\\.org\\/[\\w\\W]{30,}",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12118
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "torrentgalaxy.to"
+   ],
+   "regexFilter": "^https:\\/\\/img\\.wonkychickens\\.org\\/data\\/cover\\/imdb\\/[\\/A-Za-z0-9]+_",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12185
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ipatriot.com"
+   ],
+   "regexFilter": "^https?:\\/\\/(.+?\\.)?ipatriot\\.com[\\/]{1,}.*[a-zA-Z0-9]{9,}\\/[a-zA-Z0-9]{6,}\\/.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12201
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "letocard.fr"
+   ],
+   "regexFilter": "^https?:\\/\\/(.+?\\.)?letocard\\.fr[\\/]{1,}.*[a-zA-Z0-9]{3,7}\\/[a-zA-Z0-9]{6,}\\/.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12202
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "letocard.fr"
+   ],
+   "regexFilter": "^https?:\\/\\/(.+?\\.)?letocard\\.fr\\/[a-zA-Z0-9]{3,7}\\/[a-zA-Z0-9]{6,}\\/.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12203
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "lovezin.fr"
+   ],
+   "regexFilter": "^https?:\\/\\/(.+?\\.)?lovezin\\.fr[\\/]{1,}.*[a-zA-Z0-9]{7,9}\\/[a-zA-Z0-9]{10,}\\/.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12204
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "naturalblaze.com"
+   ],
+   "regexFilter": "^https?:\\/\\/(.+?\\.)?naturalblaze\\.com\\/wp-content\\/uploads\\/.*[a-zA-Z0-9]{14,}\\.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12205
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "rightwingnews.com"
+   ],
+   "regexFilter": "^https?:\\/\\/(.+?\\.)?rightwingnews\\.com[\\/]{1,9}.*[a-zA-Z0-9]{8,}\\/[a-zA-Z0-9]{6,}\\/.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12206
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "topminceur.fr"
+   ],
+   "regexFilter": "^https?:\\/\\/(.+?\\.)?topminceur\\.fr\\/[a-zA-Z0-9]{6,}\\/[a-zA-Z0-9]{3,}\\/.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12207
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "vitamiiin.com"
+   ],
+   "regexFilter": "^https?:\\/\\/(.+?\\.)?vitamiiin\\.com\\/[\\/][\\/a-zA-Z0-9]{3,}\\/[a-zA-Z0-9]{6,}\\/.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12208
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "writerscafe.org"
+   ],
+   "regexFilter": "^https?:\\/\\/(.+?\\.)?writerscafe\\.org[\\/]{1,}.*[a-zA-Z0-9]{3,7}\\/[a-zA-Z0-9]{6,}\\/.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12209
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "allthingsvegas.com",
+    "aupetitparieur.com",
+    "beforeitsnews.com",
+    "bigleaguepolitics.com",
+    "canadafreepress.com",
+    "concomber.com",
+    "conservativefiringline.com",
+    "dailylol.com",
+    "ipatriot.com",
+    "mamieastuce.com",
+    "meilleurpronostic.fr",
+    "miaminewtimes.com",
+    "naturalblaze.com",
+    "patriotnationpress.com",
+    "populistpress.com",
+    "thegatewaypundit.com",
+    "thelibertydaily.com",
+    "toptenz.net",
+    "vitamiiin.com",
+    "westword.com",
+    "wltreport.com",
+    "writerscafe.org"
+   ],
+   "regexFilter": "^https?:\\/\\/.*\\.(com|net|org|fr)\\/[A-Za-z0-9]{1,}\\/[A-Za-z0-9]{1,}\\/[A-Za-z0-9]{2,}\\/.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12210
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "555.porn",
+    "asiantv.fun",
+    "bdsmx.tube",
+    "bigdick.tube",
+    "blackporn.tube",
+    "hclips.com",
+    "imzog.com",
+    "in-porn.com",
+    "inporn.com",
+    "javdaddy.com",
+    "manysex.com",
+    "mrgay.tube",
+    "porn555.com",
+    "pornclassic.tube",
+    "pornforrelax.com",
+    "porngo.tube",
+    "pornhits.com",
+    "pornj.com",
+    "pornl.com",
+    "pornq.com",
+    "porntop.com",
+    "pornzog.com",
+    "privatehomeclips.com",
+    "puporn.com",
+    "see.xxx",
+    "senzuri.tube",
+    "sextu.com",
+    "shemalez.com",
+    "sss.xxx",
+    "teenorgy.video",
+    "tubepornclassic.com",
+    "tuberel.com",
+    "txxxporn.tube",
+    "vxxx.com",
+    "xmilf.com"
+   ],
+   "regexFilter": "\\.[a-z]{3,5}\\/[a-z]{8,12}\\/[a-z]{8,12}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 12416
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "\\/t\\/[0-9]{3}\\/[0-9]{3}\\/a[0-9]{4,9}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 12468
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "1337x.to",
+    "cashurl.in",
+    "clicknupload.click",
+    "cloudvideo.tv",
+    "downloadpirate.com",
+    "fmovies.taxi",
+    "fmovies.world",
+    "hurawatch.at",
+    "igg-games.com",
+    "indishare.org",
+    "linksly.co",
+    "megaup.net",
+    "mixdrop.ch",
+    "mixdrop.co",
+    "mixdrp.to",
+    "mp3-convert.org",
+    "nutritioninsight.com",
+    "ouo.press",
+    "pcgamestorrents.com",
+    "pcgamestorrents.org",
+    "powvideo.net",
+    "powvldeo.cc",
+    "primewire.sc",
+    "proxyer.org",
+    "sendit.cloud",
+    "sendspace.com",
+    "shrinke.me",
+    "shrinkhere.xyz",
+    "solarmovie.to",
+    "theproxy.ws",
+    "uiz.io",
+    "up-load.io",
+    "upload.ac",
+    "uploadever.com",
+    "uploadproper.net",
+    "uploadrar.com",
+    "uploadrive.com",
+    "uplovd.com",
+    "upstream.to",
+    "userscloud.com",
+    "vidbull.tv",
+    "vidoza.co",
+    "vidoza.net",
+    "vidup.io",
+    "vumoo.life",
+    "xtits.com",
+    "yourbittorrent2.com",
+    "ziperto.com"
+   ],
+   "regexFilter": "^https?:\\/\\/.*\\/.*(sw[0-9a-z._-]{1,6}|\\.notify\\.).*",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 12593
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "1vag.com",
+    "4tube.com",
+    "adult-channels.com",
+    "analdin.com",
+    "biguz.net",
+    "bogrodius.com",
+    "chikiporn.com",
+    "fantasti.cc",
+    "fuqer.com",
+    "fux.com",
+    "hclips.com",
+    "heavy-r.com",
+    "hog.tv",
+    "megapornx.com",
+    "milfzr.com",
+    "mypornhere.com",
+    "niceporn.xxx",
+    "porn555.com",
+    "pornchimp.com",
+    "pornerbros.com",
+    "pornj.com",
+    "pornl.com",
+    "pornototale.com",
+    "porntube.com",
+    "sexu.com",
+    "sss.xxx",
+    "thisav.com",
+    "titkino.net",
+    "tubepornclassic.com",
+    "tuberel.com",
+    "tubev.sex",
+    "txxx.com",
+    "vidmo.org",
+    "vpornvideos.com",
+    "xozilla.com",
+    "youporn.lc",
+    "youpornhub.it",
+    "yourdailypornstars.com"
+   ],
+   "regexFilter": "^https?:\\/\\/.*\\/.*sw[0-9._].*",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 12602
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "4kporn.xxx",
+    "4tube.com",
+    "alotporn.com",
+    "alphaporno.com",
+    "alrincon.com",
+    "amateur8.com",
+    "anyporn.com",
+    "badjojo.com",
+    "bdsmstreak.com",
+    "bestfreetube.xxx",
+    "bigtitslust.com",
+    "bravotube.net",
+    "cockmeter.com",
+    "crazyporn.xxx",
+    "daftporn.com",
+    "ebony8.com",
+    "erome.com",
+    "exoav.com",
+    "fantasti.cc",
+    "fapality.com",
+    "fapnado.com",
+    "fetishshrine.com",
+    "freeporn8.com",
+    "gfsvideos.com",
+    "gotporn.com",
+    "hdporn24.org",
+    "hdpornmax.com",
+    "hdtube.porn",
+    "hellporno.com",
+    "hottorrent.org",
+    "hqsextube.xxx",
+    "hqtube.xxx",
+    "iceporn.com",
+    "imgderviches.work",
+    "imx.to",
+    "its.porn",
+    "katestube.com",
+    "lesbian8.com",
+    "love4porn.com",
+    "lustypuppy.com",
+    "manhwa18.cc",
+    "maturetubehere.com",
+    "megatube.xxx",
+    "milffox.com",
+    "momxxxfun.com",
+    "openloadporn.co",
+    "orsm.net",
+    "pervclips.com",
+    "porn-plus.com",
+    "porndr.com",
+    "pornicom.com",
+    "pornid.xxx",
+    "pornotrack.net",
+    "pornrabbit.com",
+    "pornwatchers.com",
+    "pornwhite.com",
+    "pussy.org",
+    "redhdtube.xxx",
+    "rule34.art",
+    "sexvid.porn",
+    "sexvid.pro",
+    "sexvid.xxx",
+    "sexytorrents.info",
+    "shameless.com",
+    "sleazyneasy.com",
+    "smutty.com",
+    "sortporn.com",
+    "stepmom.one",
+    "stileproject.com",
+    "str8ongay.com",
+    "tnaflix.com",
+    "urgayporn.com",
+    "vikiporn.com",
+    "wankoz.com",
+    "xbabe.com",
+    "xcafe.com",
+    "xhqxmovies.com",
+    "xxx-torrent.net",
+    "xxxdessert.com",
+    "xxxextreme.org",
+    "xxxonxxx.com",
+    "yourlust.com",
+    "youx.xxx",
+    "zbporn.com",
+    "zbporn.tv"
+   ],
+   "regexFilter": "^https?:\\/\\/.*\\/[a-z0-9A-Z_]{2,15}\\.(php|jx|jsx|1ph|jsf|jz|jsm|j$)",
+   "resourceTypes": [
+    "script",
+    "sub_frame"
+   ]
+  },
+  "id": 12603
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "eporner.com"
+   ],
+   "regexFilter": "^https?:\\/\\/.*\\.eporner\\.com\\/[0-9a-f]{10,}\\/$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 12604
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "kleinanzeigen.de"
+   ],
+   "regexFilter": "^https?:\\/\\/fdts\\.ebay-kleinanzeigen\\.de\\/[a-z0-9]{13,18}\\.js\\?",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 12653
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "spectrum.net"
+   ],
+   "regexFilter": "^https?:\\/\\/pov\\.spectrum\\.net\\/[a-zA-Z0-9]{14,}\\.js",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 12654
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "tjx.com"
+   ],
+   "regexFilter": "^https?:\\/\\/tjmaxx\\.tjx\\.com\\/libraries\\/[a-z0-9]{20,}",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 12655
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mbna.ca",
+    "td.com",
+    "tdbank.com"
+   ],
+   "regexFilter": "^https?:\\/\\/tmx\\.(td|tdbank)\\.com\\/[a-z0-9]{14,18}\\.js.*",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 12656
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "kleinanzeigen.de"
+   ],
+   "regexFilter": "^https?:\\/\\/www\\.ebay-kleinanzeigen\\.de\\/[a-z0-9]{8}\\-[0-9a-f]{4}\\-",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 12657
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "kroger.com"
+   ],
+   "regexFilter": "^https?:\\/\\/www\\.kroger\\.com\\/content\\/{20,}",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 12658
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "^https?:\\/\\/(?:ak\\.)?[a-z]{6,12}\\.(?:com|net)\\/4\\/\\d{7}",
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 12790
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[0-9a-z]*\\.?[-0-9a-z]{4,}\\.[a-z]{2,11}\\/(?:[0-9a-z]{6,8}\\/)?\\/?(?:article\\d{4}\\.doc)?\\?u=[0-9a-z]{7}&o=[0-9a-z]{7}",
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 12796
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[0-9a-z]*\\.?[-0-9a-z]{4,}\\.[a-z]{2,11}\\/(?:[0-9a-z]{6,8}\\/)?\\/?(?:article\\d{4}\\.doc)?\\?o=[0-9a-z]{7}&u=[0-9a-z]{7}",
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 12797
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "\\/[0-9a-z]{8,10}\\?shu=[0-9a-z]{150,}",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12854
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "\\/(?:[0-9a-z]{7,25}-){9,13}[0-9a-z]{10,15}\\/(?:[0-9a-z]+\\/)+index\\.php",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12903
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "_dating\\d\\/index\\.html\\?aref=",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12904
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "\\.com\\/proc\\.php\\?[0-9a-f]{40}$",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12932
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "life",
+    "live",
+    "top",
+    "xyz"
+   ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/[0-9a-z]{3,}\\.[-a-z]{10,}\\.(?:li[fv]e|top|xyz)\\/[a-z]{8}\\/\\?utm_campaign=\\w{40,}",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12943
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "biz"
+   ],
+   "regexFilter": "^https:\\/\\/[a-z]{2,3}\\d\\.biz\\/go\\/[0-9a-z]{15,18}$",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12944
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "biz"
+   ],
+   "regexFilter": "^https:\\/\\/to\\ds\\.biz\\/\\?p=",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12945
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "biz"
+   ],
+   "regexFilter": "^https:\\/\\/serch\\d{2}\\.biz\\/\\?p=",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12949
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "com"
+   ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^http:\\/\\/[a-z]{5}\\.[a-z]{5}\\.com\\/[a-z]{10}\\.apk$",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12954
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "^https:\\/\\/[a-z]+\\.com\\/away\\.php\\?url=[%0-9A-z]{100,}$",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12965
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "one",
+    "top"
+   ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/(?:www\\.)?[a-z]{8,15}\\.[a-z]{3}\\/V1\\/$",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12979
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "site",
+    "top",
+    "website"
+   ],
+   "regexFilter": "^https:\\/\\/[-a-z]{12,20}\\.[a-z]{3,7}\\/[-0-9A-Za-z]{60,}\\d{4}\\/001\\/",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12986
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "site",
+    "top",
+    "website"
+   ],
+   "regexFilter": "^https:\\/\\/[-a-z]{12,20}\\.[a-z]{3,7}\\/[-0-9A-Za-z]{60,}\\d{4}\\/004\\/",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12987
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "top"
+   ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/[a-z]{5,7}\\.[0-9a-z]{12}\\.top\\/[0-9a-f]{32}\\/[0-9-a-f]{32}\\/$",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12990
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "com",
+    "top"
+   ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "\\/[0-9a-f]{32}\\/maq\\/$",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 12991
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "hottystop.com"
+   ],
+   "regexFilter": "\\.com\\/[_0-9a-zA-Z]+\\.jpg$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 13024
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "playsexgames.xxx"
+   ],
+   "regexFilter": "xxx\\/(?:[a-z]+[_-]){1,2}[a-z]+\\.(?:gif|jpg)$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 13033
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "palcomix.com"
+   ],
+   "regexFilter": "\\.com\\/(full)?ad[0-9a-z]+\\.(?:gif|jpg)$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 13034
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "thesquarshers.com"
+   ],
+   "regexFilter": "\\/images\\/(?:Banner\\d{1,2}\\.|[a-z]{3}\\/)",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 13036
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "\\/[A-Z]{1,2}\\/[-0-9a-z]{5,}\\.com\\/(?:[0-9a-f]{2}\\/){3}[0-9a-f]{32}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13074
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "imgadult.com",
+    "imgdrive.net",
+    "imgtaxi.com",
+    "imgwallet.com"
+   ],
+   "regexFilter": "(?:com|net)\\/[0-9a-f]{12}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13077
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "hentai2w.com"
+   ],
+   "regexFilter": "\\.com\\/\\d+\\/[0-9a-z]+\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13113
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "camvideos.org"
+   ],
+   "regexFilter": "\\/[0-9a-f]{12}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13119
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "povaddict.com"
+   ],
+   "regexFilter": "\\.com\\/[a-zA-Z]{10}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13255
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "zetporn.com"
+   ],
+   "regexFilter": "\\.com\\/[A-Za-z]{9,}\\/[A-Za-z]{9,}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13259
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "rule34porn.net"
+   ],
+   "regexFilter": "\\/wp-content\\/plugins\\/\\S{40,}\\.js\\?ver=",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13266
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "teen-hd-sex.com",
+    "tube-teen-18.com",
+    "xxx-asian-tube.com"
+   ],
+   "regexFilter": "\\.com\\/[0-9a-z]{12,}\\/[0-9a-z]{12,}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13270
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "fleshed.com"
+   ],
+   "regexFilter": "\\/static\\/[0-9a-z]+\\/[0-9a-z]+\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13288
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "eropics.to"
+   ],
+   "regexFilter": "eropics\\.to\\/[a-zA-Z0-9]{8}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13300
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "^https:\\/\\/www.ennovelas.com\\/[a-z0-9]{10}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13301
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "\\/assets\\/jquery\\/jquery-\\d\\.\\d\\.(?:\\d\\.)?min\\.js\\?(?:v=2)?&?type=(?:adult|mainstream)$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13305
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "com"
+   ],
+   "regexFilter": "\\/js\\/\\d{2,3}eka\\d{2,3}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13307
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "joysporn.sex"
+   ],
+   "regexFilter": "\\/js\\/[a-z]j\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13315
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "dataunlocker.com"
+   ],
+   "regexFilter": "[a-z0-9]{12}(\\.admin)?\\.dataunlocker\\.com\\/",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13318
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "^\\w+:\\/\\/[\\w.\\-]+\\.www\\.cybernetman\\.com\\/",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13319
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "^\\w+:\\/\\/[\\w.\\-]+\\.www\\.logology\\.co\\/",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13320
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "^\\w+:\\/\\/[\\w.\\-]+\\.www\\.atlaslane\\.com\\/",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13321
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "^\\w+:\\/\\/[0-9a-z]{12}\\.adria\\.gg\\/",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13322
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "^\\w+:\\/\\/[0-9a-z]{11}\\.taxliencode\\.com\\/",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13323
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "^\\w+:\\/\\/[0-9a-z]{12}\\.www\\.sidsplumbing\\.ie\\/",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13324
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "^\\w+:\\/\\/[0-9a-z]{12}\\.www\\.kodalia\\.com\\/",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13325
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "gu-global.com",
+    "uniqlo.com"
+   ],
+   "regexFilter": "\\.com\\/[-_0-9a-zA-Z]{4,}\\/[-\\/_0-9a-zA-Z]{25,}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13326
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "kick.com"
+   ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/kick\\.com\\/[0-9A-z]{16}\\/[0-9A-z]{16}\\?apiKey=",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13329
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "regexFilter": "^https?:\\/\\/.*\\/sw\\.js\\?[a-zA-Z0-9%]{50,}",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13333
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "bdsmx.tube",
+    "bigdick.tube",
+    "desiporn.tube",
+    "hclips.com",
+    "hdzog.com",
+    "hdzog.tube",
+    "hotmovs.com",
+    "inporn.com",
+    "porn555.com",
+    "pornzog.com",
+    "shemalez.com",
+    "tporn.xxx",
+    "tubepornclassic.com",
+    "txxx.com",
+    "upornia.com",
+    "vjav.com",
+    "vxxx.com",
+    "youteenporn.net"
+   ],
+   "regexFilter": "^https?:\\/\\/.*\\/[a-z]{4,}\\/[a-z]{4,}\\.js",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13334
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/www\\.reddit\\.com\\/svc\\/shreddit\\/[0-9a-z]{8,14}$",
+   "requestMethods": [
+    "post"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13386
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "initiatorDomains": [
+    "imgadult.com",
+    "imgdrive.net",
+    "imgtaxi.com",
+    "imgwallet.com"
+   ],
+   "regexFilter": "(?:com|net)\\/[a-z-]{3,10}\\.html$",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 13397
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedResourceTypes": [
+    "image",
+    "main_frame",
+    "media",
+    "sub_frame"
+   ],
+   "initiatorDomains": [
+    "123movies.net",
+    "1cloudfile.com",
+    "adblockstreamtape.art",
+    "adblockstreamtape.site",
+    "baomay01.com",
+    "bowfile.com",
+    "clipconverter.cc",
+    "cricplay2.xyz",
+    "desiupload.co",
+    "dood.la",
+    "dood.pm",
+    "dood.so",
+    "dood.to",
+    "dood.watch",
+    "dood.ws",
+    "dopebox.to",
+    "downloadpirate.com",
+    "drivebuzz.icu",
+    "dulu.to",
+    "embedstream.me",
+    "eplayvid.net",
+    "fmovies.ps",
+    "fmovies.to",
+    "gdriveplayer.us",
+    "gospeljingle.com",
+    "hexupload.net",
+    "hurawatch.at",
+    "kiss-anime.org",
+    "krunkercentral.com",
+    "movies2watch.tv",
+    "myflixer.it",
+    "myflixer.pw",
+    "myflixer.to",
+    "myflixer.today",
+    "myflixertv.to",
+    "powvideo.net",
+    "proxyer.org",
+    "scloud.online",
+    "sflix.to",
+    "skidrowcodex.net",
+    "streamtape.com",
+    "theproxy.ws",
+    "uptobhai.ink",
+    "vidbam.org",
+    "vidembed.cc",
+    "vidembed.io",
+    "videobin.co",
+    "vidlii.com",
+    "vidoo.org",
+    "vipbox.lc"
+   ],
+   "regexFilter": "^https?:\\/\\/.*\\.(club|bid|biz|xyz|site|pro|info|online|icu|monster|buzz|website|biz|re|casa|top|one|space|network|live|systems|ml|world|life|co)\\/.*"
+  },
+  "id": 13613
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedResourceTypes": [
+    "main_frame",
+    "media",
+    "sub_frame"
+   ],
+   "initiatorDomains": [
+    "123movies.tw",
+    "19turanosephantasia.com",
+    "1cloudfile.com",
+    "20demidistance9elongations.com",
+    "745mingiestblissfully.com",
+    "9xupload.asia",
+    "adblockeronstape.me",
+    "adblockeronstreamtape.me",
+    "adblockeronstrtape.xyz",
+    "adblockplustape.xyz",
+    "adblockstreamtape.art",
+    "adblockstreamtape.fr",
+    "adblockstreamtape.site",
+    "adblocktape.online",
+    "adblocktape.store",
+    "adblocktape.wiki",
+    "allsport.icu",
+    "allsports.icu",
+    "animepl.xyz",
+    "aotonline.co",
+    "asianstream.pro",
+    "audaciousdefaulthouse.com",
+    "bowfile.com",
+    "clicknupload.to",
+    "cloudvideo.tv",
+    "coloredmanga.com",
+    "cr7sports.us",
+    "cut-y.net",
+    "daddylivehd.sx",
+    "dailyuploads.net",
+    "databasegdriveplayer.xyz",
+    "deltabit.co",
+    "dood.la",
+    "dood.pm",
+    "dood.re",
+    "dood.sh",
+    "dood.so",
+    "dood.to",
+    "dood.watch",
+    "dood.wf",
+    "dood.ws",
+    "dood.yt",
+    "doods.pro",
+    "dooood.com",
+    "dramacool.sr",
+    "drivebuzz.icu",
+    "dslayeronline.com",
+    "dulu.to",
+    "dum.to",
+    "embedplayer.site",
+    "embedsb.com",
+    "embedsito.com",
+    "embedstream.me",
+    "enjoy4k.xyz",
+    "eplayvid.net",
+    "evoload.io",
+    "f123movies.com",
+    "fembed-hd.com",
+    "fileclub.cyou",
+    "filemoon.sx",
+    "files.im",
+    "filmy4wap.ink",
+    "flexy.stream",
+    "fmovies.ps",
+    "footyhunter3.xyz",
+    "gameshdlive.xyz",
+    "gamovideo.com",
+    "gaybeeg.info",
+    "gdriveplayer.pro",
+    "givemenbastreams.com",
+    "gogoanimes.org",
+    "gogohd.net",
+    "goload.io",
+    "gomo.to",
+    "goodstream.org",
+    "greaseball6eventual20.com",
+    "hdtoday.ru",
+    "hexupload.net",
+    "housecardsummerbutton.com",
+    "hurawatch.at",
+    "ive.zone",
+    "kesini.in",
+    "kickassanime.ro",
+    "kickasstorrents.to",
+    "letsupload.io",
+    "linkhub.icu",
+    "linksafe.cc",
+    "livetvon.click",
+    "lookmyimg.com",
+    "luxubu.review",
+    "mangageko.com",
+    "mangareader.cc",
+    "mangareader.to",
+    "mangovideo.pw",
+    "maxsport.one",
+    "membed.net",
+    "meomeo.pw",
+    "mirrorace.org",
+    "mixdroop.bz",
+    "mixdrop.bz",
+    "mixdrop.ch",
+    "mixdrop.click",
+    "mixdrop.club",
+    "mixdrop.co",
+    "mixdrop.sx",
+    "mixdrop.to",
+    "mixdrops.xyz",
+    "mixdrp.co",
+    "movies2watch.tv",
+    "mp4upload.com",
+    "myflixer.to",
+    "nelion.me",
+    "nsw2u.org",
+    "onlinevideoconverter.com",
+    "ovagames.com",
+    "owodeuwu.xyz",
+    "pahaplayers.click",
+    "papahd.club",
+    "pcgamestorrents.com",
+    "pouvideo.cc",
+    "proxyer.org",
+    "putlocker-website.com",
+    "reputationsheriffkennethsand.com",
+    "rintor.space",
+    "rojadirecta.direct",
+    "scloud.online",
+    "send.cm",
+    "sflix.to",
+    "shavetape.cash",
+    "skidrowcodex.net",
+    "smallencode.me",
+    "soccerstreamslive.co",
+    "sportshighlights.club",
+    "stapadblockuser.art",
+    "stapadblockuser.click",
+    "stapadblockuser.info",
+    "stapadblockuser.xyz",
+    "stape.fun",
+    "stapewithadblock.beauty",
+    "stapewithadblock.monster",
+    "stapewithadblock.xyz",
+    "stayonline.pro",
+    "strcloud.in",
+    "streamadblocker.com",
+    "streamadblocker.store",
+    "streamadblocker.xyz",
+    "streamingsite.net",
+    "streamlare.com",
+    "streamta.pe",
+    "streamta.site",
+    "streamtape.com",
+    "streamtape.to",
+    "streamtape.xyz",
+    "streamtapeadblock.art",
+    "streamtapeadblockuser.art",
+    "streamtapeadblockuser.homes",
+    "streamtapeadblockuser.monster",
+    "streamtapeadblockuser.xyz",
+    "strikeout.ws",
+    "strtape.cloud",
+    "strtape.tech",
+    "strtapeadblock.club",
+    "strtapeadblocker.xyz",
+    "strtapewithadblock.art",
+    "strtapewithadblock.xyz",
+    "supervideo.tv",
+    "tapewithadblock.com",
+    "tapewithadblock.org",
+    "telyn610zoanthropy.com",
+    "thepiratebay0.org",
+    "theproxy.ws",
+    "thevideome.com",
+    "toxitabellaeatrebates306.com",
+    "un-block-voe.net",
+    "upbam.org",
+    "upload-4ever.com",
+    "uproxy.to",
+    "upstream.to",
+    "uptobhai.ink",
+    "uqload.co",
+    "userscloud.com",
+    "v-o-e-unblock.com",
+    "vidbam.org",
+    "vido.lol",
+    "vidshar.org",
+    "vidsrc.me",
+    "vidsrc.stream",
+    "vipleague.im",
+    "vipleague.st",
+    "voe-unblock.net",
+    "voe.bar",
+    "voe.sx",
+    "voeun-block.net",
+    "voeunbl0ck.com",
+    "voeunblck.com",
+    "voeunblk.com",
+    "voeunblock.com",
+    "vostfree.online",
+    "vudeo.io",
+    "vudeo.net",
+    "vumoo.to",
+    "watch-free.tv",
+    "watchkobe.info",
+    "watchserieshd.live",
+    "x2download.com",
+    "yesmovies.mn",
+    "youtube4kdownloader.com"
+   ],
+   "regexFilter": "^https?:\\/\\/[0-9a-z]{5,}\\.com\\/.*"
+  },
+  "id": 13614
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/.*(com|net|top|xyz)\\/(bundle|warning|style|bootstrap|brand|reset|jquery-ui|styles|error|logo|index|favicon|star|header)\\.(png|css)\\?[A-Za-z0-9]{30,}.*"
+  },
+  "id": 13615
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.top\\/[-a-z]{4,}\\.css\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
+   "resourceTypes": [
+    "stylesheet"
+   ]
+  },
+  "id": 13786
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz\\/[-a-z]{4,}\\.css\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
+   "resourceTypes": [
+    "stylesheet"
+   ]
+  },
+  "id": 13787
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.top\\/[a-z]{4,}\\.png\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 13796
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz\\/[a-z]{4,}\\.png\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 13797
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.buzz\\/[+\\/0-9a-zA-Z]{140,}$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 13799
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.info\\/[+\\/0-9a-zA-Z]{140,}$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 13800
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.lol\\/[+\\/0-9a-zA-Z]{140,}$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 13801
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.one\\/[+\\/0-9a-zA-Z]{140,}$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 13802
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.xyz\\/[+\\/0-9a-zA-Z]{140,}$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 13803
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "[0-9a-f]{32}\\/invoke\\.js",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13897
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/(?:www\\.|[0-9a-z]{7,10}\\.)?[-0-9a-z]{5,}\\.com\\/\\/?(?:[0-9a-f]{2}\\/){2,3}[0-9a-f]{32}\\.js",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13898
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[0-9a-z]{13,14}\\.cloudfront\\.net\\/\\?[a-z]{3,5}=\\d{6}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13899
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/[0-9a-f]{10}\\.[0-9a-f]{10}\\.com\\/[0-9a-f]{32}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13900
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.com?\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13901
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.info\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13902
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.pro\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13903
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.xyz\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13904
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/(?:cdn77\\.)?aj[0-9a-z]{2}\\d{2}\\.online\\/[0-9a-z]{8}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13928
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/(?:cdn77\\.)?aj[0-9a-z]{2}\\d{2}\\.bid\\/[0-9a-z]{8}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13929
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.[a-z]{2,3}\\/5\\/\\d{6,7}(?:\\?_=\\d+)?$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13951
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/[-a-z]{8,15}\\.(?:com|net)\\/400\\/\\d{7}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13952
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/[-a-z]{8,15}\\.(?:com|net)\\/401\\/\\d{7}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13953
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.(?:com|net)\\/tag\\.min\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13954
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "edu",
+    "gov"
+   ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{5,7}\\.com\\/script\\/[-_0-9a-z]+(\\.min)?\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13989
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[a-z]{6,12}\\.com\\/script\\/n[a-z]su\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13991
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "edu",
+    "gov"
+   ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/www\\.[a-z]{8,14}\\.com\\/[a-z]{1,4}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13998
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/[a-z]{8}\\.xyz\\/main\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14012
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "edu",
+    "gov"
+   ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/cdn\\.[a-z]{5,7}\\.com\\/app\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14030
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/cdn\\.[a-z]{4,6}\\.xyz\\/app\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14031
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.club\\/[%0-9a-zA-Z]{170,}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14038
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.fun\\/[%0-9a-zA-Z]{170,}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14039
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.hair\\/[%0-9a-zA-Z]{170,}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14040
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.work\\/[%0-9a-zA-Z]{170,}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14041
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz\\/[%0-9a-zA-Z]{170,}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14042
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/[a-z]{3,5}\\.[a-z]{10,14}\\.top\\/[a-z]{10,16}\\/[a-z]{5,6}(?:\\?d=0)?$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 14054
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/cdn\\.jsdelivr\\.net\\/npm\\/[-a-z_]{4,22}@latest\\/dist\\/script\\.min\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14077
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "(https?:\\/\\/)\\w{30,}\\.me\\/\\w{30,}\\.",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14083
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "amazon.com"
+   ],
+   "regexFilter": "^https?:\\/\\/s3\\.*.*\\.amazonaws\\.com\\/[a-f0-9]{45,}\\/[a-f,0-9]{8,10}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 14086
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "\\/[0-9a-f]{32}\\/invoke\\.js",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14088
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "deltabit.co",
+    "nzbstars.com",
+    "papahd.club",
+    "vostfree.online"
+   ],
+   "regexFilter": "^https?:\\/\\/www\\..*.com\\/[a-z]{1,}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14089
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "127.0.0.1",
+    "bitrix24.life",
+    "ccc.ac",
+    "jacksonchen666.com",
+    "lemmy.world",
+    "localhost",
+    "mempool.space",
+    "scribble.ninja",
+    "scribble.website",
+    "spacepub.space",
+    "traineast.co.uk"
+   ],
+   "regexFilter": "^https?:\\/\\/[0-9a-z]{5,}\\.(digital|website|life|guru|space)\\/[a-z0-9]{6,}\\/",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 14090
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/cdn\\.[0-9a-z]{3,6}\\.xyz\\/[a-z0-9]{8,}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14091
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "dood.la",
+    "dood.pm",
+    "dood.sh",
+    "dood.so",
+    "dood.to",
+    "dood.watch",
+    "dood.ws"
+   ],
+   "regexFilter": "^https?:\\/\\/www\\.[0-9a-z]{8,}\\.com\\/[0-9a-z]{1,4}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 14097
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[0-9a-f]{50,}\\.s3\\.amazonaws\\.com\\/[0-9a-f]{10}$",
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 14114
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/s3\\.us-east-1\\.amazonaws\\.com\\/[0-9a-f]{50,}\\/[0-9a-f]{10}$",
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 14115
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.top\\/[a-z]{4,}\\.json$",
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 14116
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz\\/[a-z]{4,}\\.json$",
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 14117
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/[-a-z]{8,15}\\.(?:com|net)\\/500\\/\\d{7}\\?",
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 14120
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "1link.club",
+    "2embed.to",
+    "apiyoutube.cc",
+    "bestmp3converter.com",
+    "clicknupload.red",
+    "clicknupload.to",
+    "daddyhd.com",
+    "dood.wf",
+    "gameshdlive.xyz",
+    "hitstreams.live",
+    "mp4upload.com",
+    "poscitech.click",
+    "poscitech.com",
+    "sportcast.life",
+    "sportskart.click",
+    "streamhub.to",
+    "streamvid.net",
+    "tvshows88.live",
+    "uploadbank.com",
+    "wecast.to",
+    "worldstreams.click"
+   ],
+   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*",
+   "resourceTypes": [
+    "xmlhttprequest"
+   ]
+  },
+  "id": 14135
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.top(\\/(?:\\d{1,5}|0NaN|articles?|browse|index|movie|news|pages?|static|view|web|wiki)){1,4}(?:\\.html|\\/)$",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 14146
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz(\\/(?:\\d{1,5}|0NaN|articles?|browse|index|movie|news|pages?|static|view|web|wiki)){1,4}(?:\\.html|\\/)$",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 14147
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/(?:cdn77\\.)?aj[0-9a-z]{2}\\d{2}\\.online\\/[-_0-9a-zA-Z]{70,}$",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 14149
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[-0-9a-z]{5,}\\.com\\/[0-9a-z]{8,10}\\?key=[0-9a-f]{32}$",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 14154
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.buzz\\/[+\\/0-9a-zA-Z]{400,}$",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 14155
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.info\\/[+\\/0-9a-zA-Z]{400,}$",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 14156
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.lol\\/[+\\/0-9a-zA-Z]{400,}$",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 14157
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.one\\/[+\\/0-9a-zA-Z]{400,}$",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 14158
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.xyz\\/[+\\/0-9a-zA-Z]{400,}$",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 14159
+ }
+]

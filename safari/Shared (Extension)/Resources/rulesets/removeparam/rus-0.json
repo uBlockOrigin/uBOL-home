@@ -1,0 +1,301 @@
+[
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||amedia.online/templates/animedia/js/libs.js"
+  },
+  "id": 5785
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||1plus1.video/*/embed/*autoplay=1"
+  },
+  "id": 5819
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "geoblock"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "requestDomains": [
+    "aniqit.com",
+    "kodik.info"
+   ],
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 5820
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autoplay"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||cosmonova-broadcast.tv/player?autoplay="
+  },
+  "id": 5821
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "excludedInitiatorDomains": [
+    "music.yandex.ru"
+   ],
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||frontend.vh.yandex.ru/player/*autoplay=1"
+  },
+  "id": 5822
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autoplay"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||ipcamlive.com/player/player.php?*autoplay=true"
+  },
+  "id": 5823
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autoplay"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||my.mail.ru/video/embed/*autoplay=1"
+  },
+  "id": 5824
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||sportrecs.com/embed/*autoplay=1"
+  },
+  "id": 5826
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||u-stream.in/start/*&autoplay=1"
+  },
+  "id": 5827
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autostart",
+       "skin_name"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||video.matchtv.ru/iframe/feed/*autostart=1"
+  },
+  "id": 5828
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autoplay"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "weukraine.tv"
+   ],
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||youtube-nocookie.com/embed/*autoplay=1"
+  },
+  "id": 5830
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autoplay"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||youtube.com/embed/*autoplay=1"
+  },
+  "id": 5831
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||ok.ru/videoembed/*autoplay=1"
+  },
+  "id": 5832
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||dzen.ru/embed/*autoplay=1"
+  },
+  "id": 5838
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autoplay"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||vk.com/video_ext.php?"
+  },
+  "id": 5839
+ }
+]

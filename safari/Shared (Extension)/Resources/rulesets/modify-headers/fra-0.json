@@ -1,0 +1,170 @@
+[
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "worker-src 'none'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "atk-exotics.com",
+    "atkebony.com",
+    "centrum-dramy.pl",
+    "chemikino.ru",
+    "clipwatching.com",
+    "coinfaucet.eu",
+    "cracklists.com",
+    "crictime.com",
+    "crictime.is",
+    "crimedocumentary.com",
+    "deltabit.co",
+    "descargas2020.com",
+    "domnuleprimar.ro",
+    "fileone.tv",
+    "filmovix.com",
+    "filmovix.net",
+    "filmovix.org",
+    "firstone.tv",
+    "firstonetv.eu",
+    "firstonetv.live",
+    "flashx.net",
+    "flashx.pw",
+    "flashx.tv",
+    "funtik.tv",
+    "genashowalter.com",
+    "hdvid.tv",
+    "ianimes.org",
+    "lewd.ninja",
+    "luckybitco.in",
+    "nahnoji.cz",
+    "neurozinzin.com",
+    "novator.az",
+    "onion.ly",
+    "onion.pet",
+    "openload.cc",
+    "ovid.tv",
+    "peliculas24.me",
+    "powvideo.net",
+    "salon.com",
+    "shush.se",
+    "sickrage.ca",
+    "skytorrents.me",
+    "studio100.it",
+    "tapemovie.com",
+    "theappguruz.com",
+    "thepiratebay.cr",
+    "thepiratebay.org",
+    "thepiratebay.vip",
+    "tomadivx.tv",
+    "torrentrapid.com",
+    "tubetitties.com",
+    "vidoza.co",
+    "vidtodo.com",
+    "void.cat"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 6547
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "frame-src 'none' http: https:"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "istreamsport.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 6548
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' apis.google.com www.ultimedia.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "pblv-plusbellelavie.fr"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 6549
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "img-src 'none' http: https:"
+    },
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "media-src 'none' http: https:"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "porndoe.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 6550
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' *.google.com *.gstatic.com *.wp.com"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "streamingqc.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 6551
+ }
+]

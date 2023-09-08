@@ -1,0 +1,80 @@
+[
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "loskatchorros\\.com\\.br\\/forum\\/uploads\\/set_resources_\\d+\\/[a-z0-9]+_[a-zA-Z0-9]+\\.js"
+  },
+  "id": 26
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "iptvnow.top"
+   ],
+   "regexFilter": "\\/img\\/(160600|72890)\\.png"
+  },
+  "id": 288
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "tvcanales.cf"
+   ],
+   "regexFilter": "qvncc.tvcanales.cf\\/js\\/[_-a-zA-Z0-9]{5,}.js"
+  },
+  "id": 351
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "zubby.com"
+   ],
+   "regexFilter": "zubby.com\\/[a-z-]+-\\d+\\/\\?_=",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 635
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ddmix.net"
+   ],
+   "regexFilter": "^https:\\/\\/(ddmix.net)\\/[a-z0-9_]*\\.js",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 636
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ddmix.net"
+   ],
+   "regexFilter": "^https:\\/\\/(ddmix.net)\\/js\\/[a-z0-9_]*\\.js",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 637
+ }
+]
