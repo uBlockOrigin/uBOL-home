@@ -1,0 +1,1016 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3FE200C02AAAB5F300D793D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE200BF2AAAB5F300D793D7 /* AppDelegate.swift */; };
+		3FE200C22AAAB5F300D793D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE200C12AAAB5F300D793D7 /* SceneDelegate.swift */; };
+		3FE200C52AAAB5F300D793D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200C32AAAB5F300D793D7 /* LaunchScreen.storyboard */; };
+		3FE200C82AAAB5F300D793D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200C62AAAB5F300D793D7 /* Main.storyboard */; };
+		3FE200D12AAAB5F300D793D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE200D02AAAB5F300D793D7 /* AppDelegate.swift */; };
+		3FE200D42AAAB5F300D793D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200D22AAAB5F300D793D7 /* Main.storyboard */; };
+		3FE200DC2AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3FE200DB2AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3FE200E62AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3FE200E52AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3FE200EC2AAAB5F300D793D7 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200AF2AAAB5F200D793D7 /* Main.html */; };
+		3FE200ED2AAAB5F300D793D7 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200AF2AAAB5F200D793D7 /* Main.html */; };
+		3FE200EE2AAAB5F300D793D7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200B12AAAB5F200D793D7 /* Icon.png */; };
+		3FE200EF2AAAB5F300D793D7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200B12AAAB5F200D793D7 /* Icon.png */; };
+		3FE200F02AAAB5F300D793D7 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200B22AAAB5F200D793D7 /* Style.css */; };
+		3FE200F12AAAB5F300D793D7 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200B22AAAB5F200D793D7 /* Style.css */; };
+		3FE200F22AAAB5F300D793D7 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200B32AAAB5F200D793D7 /* Script.js */; };
+		3FE200F32AAAB5F300D793D7 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200B32AAAB5F200D793D7 /* Script.js */; };
+		3FE200F42AAAB5F300D793D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE200B42AAAB5F200D793D7 /* ViewController.swift */; };
+		3FE200F52AAAB5F300D793D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE200B42AAAB5F200D793D7 /* ViewController.swift */; };
+		3FE200F62AAAB5F300D793D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200B52AAAB5F300D793D7 /* Assets.xcassets */; };
+		3FE200F72AAAB5F300D793D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE200B52AAAB5F300D793D7 /* Assets.xcassets */; };
+		3FE200F82AAAB5F300D793D7 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE200B72AAAB5F300D793D7 /* SafariWebExtensionHandler.swift */; };
+		3FE200F92AAAB5F300D793D7 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE200B72AAAB5F300D793D7 /* SafariWebExtensionHandler.swift */; };
+		3FE2011B2AAAB5F400D793D7 /* web_accessible_resources in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2010B2AAAB5F400D793D7 /* web_accessible_resources */; };
+		3FE2011C2AAAB5F400D793D7 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2010C2AAAB5F400D793D7 /* about.html */; };
+		3FE2011D2AAAB5F400D793D7 /* css in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2010D2AAAB5F400D793D7 /* css */; };
+		3FE2011E2AAAB5F400D793D7 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2010E2AAAB5F400D793D7 /* js */; };
+		3FE2011F2AAAB5F400D793D7 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2010F2AAAB5F400D793D7 /* popup.html */; };
+		3FE201202AAAB5F400D793D7 /* managed_storage.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201102AAAB5F400D793D7 /* managed_storage.json */; };
+		3FE201212AAAB5F400D793D7 /* dashboard.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201112AAAB5F400D793D7 /* dashboard.html */; };
+		3FE201222AAAB5F400D793D7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201122AAAB5F400D793D7 /* README.md */; };
+		3FE201232AAAB5F400D793D7 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201132AAAB5F400D793D7 /* img */; };
+		3FE201242AAAB5F400D793D7 /* log.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201142AAAB5F400D793D7 /* log.txt */; };
+		3FE201252AAAB5F400D793D7 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201152AAAB5F400D793D7 /* manifest.json */; };
+		3FE201262AAAB5F400D793D7 /* background.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201162AAAB5F400D793D7 /* background.html */; };
+		3FE201272AAAB5F400D793D7 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201172AAAB5F400D793D7 /* _locales */; };
+		3FE201282AAAB5F400D793D7 /* rulesets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201182AAAB5F400D793D7 /* rulesets */; };
+		3FE201292AAAB5F400D793D7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201192AAAB5F400D793D7 /* LICENSE.txt */; };
+		3FE2012A2AAAB5F400D793D7 /* settings.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2011A2AAAB5F400D793D7 /* settings.html */; };
+		3FE2012B2AAAB5F400D793D7 /* web_accessible_resources in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2010B2AAAB5F400D793D7 /* web_accessible_resources */; };
+		3FE2012C2AAAB5F400D793D7 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2010C2AAAB5F400D793D7 /* about.html */; };
+		3FE2012D2AAAB5F400D793D7 /* css in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2010D2AAAB5F400D793D7 /* css */; };
+		3FE2012E2AAAB5F400D793D7 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2010E2AAAB5F400D793D7 /* js */; };
+		3FE2012F2AAAB5F400D793D7 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2010F2AAAB5F400D793D7 /* popup.html */; };
+		3FE201302AAAB5F400D793D7 /* managed_storage.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201102AAAB5F400D793D7 /* managed_storage.json */; };
+		3FE201312AAAB5F400D793D7 /* dashboard.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201112AAAB5F400D793D7 /* dashboard.html */; };
+		3FE201322AAAB5F400D793D7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201122AAAB5F400D793D7 /* README.md */; };
+		3FE201332AAAB5F400D793D7 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201132AAAB5F400D793D7 /* img */; };
+		3FE201342AAAB5F400D793D7 /* log.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201142AAAB5F400D793D7 /* log.txt */; };
+		3FE201352AAAB5F400D793D7 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201152AAAB5F400D793D7 /* manifest.json */; };
+		3FE201362AAAB5F400D793D7 /* background.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201162AAAB5F400D793D7 /* background.html */; };
+		3FE201372AAAB5F400D793D7 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201172AAAB5F400D793D7 /* _locales */; };
+		3FE201382AAAB5F400D793D7 /* rulesets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201182AAAB5F400D793D7 /* rulesets */; };
+		3FE201392AAAB5F400D793D7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FE201192AAAB5F400D793D7 /* LICENSE.txt */; };
+		3FE2013A2AAAB5F400D793D7 /* settings.html in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2011A2AAAB5F400D793D7 /* settings.html */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3FE200DD2AAAB5F300D793D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FE200A92AAAB5F200D793D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FE200DA2AAAB5F300D793D7;
+			remoteInfo = "uBlock Origin Lite Extension (iOS)";
+		};
+		3FE200E72AAAB5F300D793D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FE200A92AAAB5F200D793D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FE200E42AAAB5F300D793D7;
+			remoteInfo = "uBlock Origin Lite Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3FE200FF2AAAB5F300D793D7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3FE200DC2AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE201062AAAB5F300D793D7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3FE200E62AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3FE200B02AAAB5F200D793D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		3FE200B12AAAB5F200D793D7 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		3FE200B22AAAB5F200D793D7 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		3FE200B32AAAB5F200D793D7 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		3FE200B42AAAB5F200D793D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3FE200B52AAAB5F300D793D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3FE200B72AAAB5F300D793D7 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		3FE200BC2AAAB5F300D793D7 /* uBlock Origin Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uBlock Origin Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FE200BF2AAAB5F300D793D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3FE200C12AAAB5F300D793D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3FE200C42AAAB5F300D793D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3FE200C72AAAB5F300D793D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3FE200C92AAAB5F300D793D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FE200CE2AAAB5F300D793D7 /* uBlock Origin Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uBlock Origin Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FE200D02AAAB5F300D793D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3FE200D32AAAB5F300D793D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3FE200D52AAAB5F300D793D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FE200D62AAAB5F300D793D7 /* uBlock Origin Lite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "uBlock Origin Lite.entitlements"; sourceTree = "<group>"; };
+		3FE200DB2AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "uBlock Origin Lite Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FE200E02AAAB5F300D793D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FE200E52AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "uBlock Origin Lite Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FE200EA2AAAB5F300D793D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FE200EB2AAAB5F300D793D7 /* uBlock Origin Lite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "uBlock Origin Lite.entitlements"; sourceTree = "<group>"; };
+		3FE2010B2AAAB5F400D793D7 /* web_accessible_resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web_accessible_resources; path = Resources/web_accessible_resources; sourceTree = "<group>"; };
+		3FE2010C2AAAB5F400D793D7 /* about.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = about.html; path = Resources/about.html; sourceTree = "<group>"; };
+		3FE2010D2AAAB5F400D793D7 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = Resources/css; sourceTree = "<group>"; };
+		3FE2010E2AAAB5F400D793D7 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js; path = Resources/js; sourceTree = "<group>"; };
+		3FE2010F2AAAB5F400D793D7 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = Resources/popup.html; sourceTree = "<group>"; };
+		3FE201102AAAB5F400D793D7 /* managed_storage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = managed_storage.json; path = Resources/managed_storage.json; sourceTree = "<group>"; };
+		3FE201112AAAB5F400D793D7 /* dashboard.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = dashboard.html; path = Resources/dashboard.html; sourceTree = "<group>"; };
+		3FE201122AAAB5F400D793D7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = Resources/README.md; sourceTree = "<group>"; };
+		3FE201132AAAB5F400D793D7 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; name = img; path = Resources/img; sourceTree = "<group>"; };
+		3FE201142AAAB5F400D793D7 /* log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = log.txt; path = Resources/log.txt; sourceTree = "<group>"; };
+		3FE201152AAAB5F400D793D7 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = Resources/manifest.json; sourceTree = "<group>"; };
+		3FE201162AAAB5F400D793D7 /* background.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = background.html; path = Resources/background.html; sourceTree = "<group>"; };
+		3FE201172AAAB5F400D793D7 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = Resources/_locales; sourceTree = "<group>"; };
+		3FE201182AAAB5F400D793D7 /* rulesets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = rulesets; path = Resources/rulesets; sourceTree = "<group>"; };
+		3FE201192AAAB5F400D793D7 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.txt; path = Resources/LICENSE.txt; sourceTree = "<group>"; };
+		3FE2011A2AAAB5F400D793D7 /* settings.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = settings.html; path = Resources/settings.html; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FE200B92AAAB5F300D793D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE200CB2AAAB5F300D793D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE200D82AAAB5F300D793D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE200E22AAAB5F300D793D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FE200A82AAAB5F200D793D7 = {
+			isa = PBXGroup;
+			children = (
+				3FE200AD2AAAB5F200D793D7 /* Shared (App) */,
+				3FE200B62AAAB5F300D793D7 /* Shared (Extension) */,
+				3FE200BE2AAAB5F300D793D7 /* iOS (App) */,
+				3FE200CF2AAAB5F300D793D7 /* macOS (App) */,
+				3FE200DF2AAAB5F300D793D7 /* iOS (Extension) */,
+				3FE200E92AAAB5F300D793D7 /* macOS (Extension) */,
+				3FE200BD2AAAB5F300D793D7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3FE200AD2AAAB5F200D793D7 /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				3FE200B42AAAB5F200D793D7 /* ViewController.swift */,
+				3FE200B52AAAB5F300D793D7 /* Assets.xcassets */,
+				3FE200AE2AAAB5F200D793D7 /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		3FE200AE2AAAB5F200D793D7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FE200AF2AAAB5F200D793D7 /* Main.html */,
+				3FE200B12AAAB5F200D793D7 /* Icon.png */,
+				3FE200B22AAAB5F200D793D7 /* Style.css */,
+				3FE200B32AAAB5F200D793D7 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3FE200B62AAAB5F300D793D7 /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				3FE2010A2AAAB5F400D793D7 /* Resources */,
+				3FE200B72AAAB5F300D793D7 /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		3FE200BD2AAAB5F300D793D7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FE200BC2AAAB5F300D793D7 /* uBlock Origin Lite.app */,
+				3FE200CE2AAAB5F300D793D7 /* uBlock Origin Lite.app */,
+				3FE200DB2AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex */,
+				3FE200E52AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FE200BE2AAAB5F300D793D7 /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				3FE200BF2AAAB5F300D793D7 /* AppDelegate.swift */,
+				3FE200C12AAAB5F300D793D7 /* SceneDelegate.swift */,
+				3FE200C32AAAB5F300D793D7 /* LaunchScreen.storyboard */,
+				3FE200C62AAAB5F300D793D7 /* Main.storyboard */,
+				3FE200C92AAAB5F300D793D7 /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		3FE200CF2AAAB5F300D793D7 /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				3FE200D02AAAB5F300D793D7 /* AppDelegate.swift */,
+				3FE200D22AAAB5F300D793D7 /* Main.storyboard */,
+				3FE200D52AAAB5F300D793D7 /* Info.plist */,
+				3FE200D62AAAB5F300D793D7 /* uBlock Origin Lite.entitlements */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		3FE200DF2AAAB5F300D793D7 /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				3FE200E02AAAB5F300D793D7 /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		3FE200E92AAAB5F300D793D7 /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				3FE200EA2AAAB5F300D793D7 /* Info.plist */,
+				3FE200EB2AAAB5F300D793D7 /* uBlock Origin Lite.entitlements */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		3FE2010A2AAAB5F400D793D7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FE2010B2AAAB5F400D793D7 /* web_accessible_resources */,
+				3FE2010C2AAAB5F400D793D7 /* about.html */,
+				3FE2010D2AAAB5F400D793D7 /* css */,
+				3FE2010E2AAAB5F400D793D7 /* js */,
+				3FE2010F2AAAB5F400D793D7 /* popup.html */,
+				3FE201102AAAB5F400D793D7 /* managed_storage.json */,
+				3FE201112AAAB5F400D793D7 /* dashboard.html */,
+				3FE201122AAAB5F400D793D7 /* README.md */,
+				3FE201132AAAB5F400D793D7 /* img */,
+				3FE201142AAAB5F400D793D7 /* log.txt */,
+				3FE201152AAAB5F400D793D7 /* manifest.json */,
+				3FE201162AAAB5F400D793D7 /* background.html */,
+				3FE201172AAAB5F400D793D7 /* _locales */,
+				3FE201182AAAB5F400D793D7 /* rulesets */,
+				3FE201192AAAB5F400D793D7 /* LICENSE.txt */,
+				3FE2011A2AAAB5F400D793D7 /* settings.html */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3FE200BB2AAAB5F300D793D7 /* uBlock Origin Lite (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FE201002AAAB5F300D793D7 /* Build configuration list for PBXNativeTarget "uBlock Origin Lite (iOS)" */;
+			buildPhases = (
+				3FE200B82AAAB5F300D793D7 /* Sources */,
+				3FE200B92AAAB5F300D793D7 /* Frameworks */,
+				3FE200BA2AAAB5F300D793D7 /* Resources */,
+				3FE200FF2AAAB5F300D793D7 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FE200DE2AAAB5F300D793D7 /* PBXTargetDependency */,
+			);
+			name = "uBlock Origin Lite (iOS)";
+			productName = "uBlock Origin Lite (iOS)";
+			productReference = 3FE200BC2AAAB5F300D793D7 /* uBlock Origin Lite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3FE200CD2AAAB5F300D793D7 /* uBlock Origin Lite (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FE201072AAAB5F300D793D7 /* Build configuration list for PBXNativeTarget "uBlock Origin Lite (macOS)" */;
+			buildPhases = (
+				3FE200CA2AAAB5F300D793D7 /* Sources */,
+				3FE200CB2AAAB5F300D793D7 /* Frameworks */,
+				3FE200CC2AAAB5F300D793D7 /* Resources */,
+				3FE201062AAAB5F300D793D7 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FE200E82AAAB5F300D793D7 /* PBXTargetDependency */,
+			);
+			name = "uBlock Origin Lite (macOS)";
+			productName = "uBlock Origin Lite (macOS)";
+			productReference = 3FE200CE2AAAB5F300D793D7 /* uBlock Origin Lite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3FE200DA2AAAB5F300D793D7 /* uBlock Origin Lite Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FE200FC2AAAB5F300D793D7 /* Build configuration list for PBXNativeTarget "uBlock Origin Lite Extension (iOS)" */;
+			buildPhases = (
+				3FE200D72AAAB5F300D793D7 /* Sources */,
+				3FE200D82AAAB5F300D793D7 /* Frameworks */,
+				3FE200D92AAAB5F300D793D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "uBlock Origin Lite Extension (iOS)";
+			productName = "uBlock Origin Lite Extension (iOS)";
+			productReference = 3FE200DB2AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		3FE200E42AAAB5F300D793D7 /* uBlock Origin Lite Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FE201032AAAB5F300D793D7 /* Build configuration list for PBXNativeTarget "uBlock Origin Lite Extension (macOS)" */;
+			buildPhases = (
+				3FE200E12AAAB5F300D793D7 /* Sources */,
+				3FE200E22AAAB5F300D793D7 /* Frameworks */,
+				3FE200E32AAAB5F300D793D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "uBlock Origin Lite Extension (macOS)";
+			productName = "uBlock Origin Lite Extension (macOS)";
+			productReference = 3FE200E52AAAB5F300D793D7 /* uBlock Origin Lite Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FE200A92AAAB5F200D793D7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					3FE200BB2AAAB5F300D793D7 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					3FE200CD2AAAB5F300D793D7 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					3FE200DA2AAAB5F300D793D7 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					3FE200E42AAAB5F300D793D7 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 3FE200AC2AAAB5F200D793D7 /* Build configuration list for PBXProject "uBlock Origin Lite" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3FE200A82AAAB5F200D793D7;
+			productRefGroup = 3FE200BD2AAAB5F300D793D7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FE200BB2AAAB5F300D793D7 /* uBlock Origin Lite (iOS) */,
+				3FE200CD2AAAB5F300D793D7 /* uBlock Origin Lite (macOS) */,
+				3FE200DA2AAAB5F300D793D7 /* uBlock Origin Lite Extension (iOS) */,
+				3FE200E42AAAB5F300D793D7 /* uBlock Origin Lite Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3FE200BA2AAAB5F300D793D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE200EE2AAAB5F300D793D7 /* Icon.png in Resources */,
+				3FE200C52AAAB5F300D793D7 /* LaunchScreen.storyboard in Resources */,
+				3FE200EC2AAAB5F300D793D7 /* Main.html in Resources */,
+				3FE200F22AAAB5F300D793D7 /* Script.js in Resources */,
+				3FE200F62AAAB5F300D793D7 /* Assets.xcassets in Resources */,
+				3FE200C82AAAB5F300D793D7 /* Main.storyboard in Resources */,
+				3FE200F02AAAB5F300D793D7 /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE200CC2AAAB5F300D793D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE200EF2AAAB5F300D793D7 /* Icon.png in Resources */,
+				3FE200F12AAAB5F300D793D7 /* Style.css in Resources */,
+				3FE200D42AAAB5F300D793D7 /* Main.storyboard in Resources */,
+				3FE200F32AAAB5F300D793D7 /* Script.js in Resources */,
+				3FE200F72AAAB5F300D793D7 /* Assets.xcassets in Resources */,
+				3FE200ED2AAAB5F300D793D7 /* Main.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE200D92AAAB5F300D793D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE201332AAAB5F400D793D7 /* img in Resources */,
+				3FE2013A2AAAB5F400D793D7 /* settings.html in Resources */,
+				3FE2012D2AAAB5F400D793D7 /* css in Resources */,
+				3FE201302AAAB5F400D793D7 /* managed_storage.json in Resources */,
+				3FE201392AAAB5F400D793D7 /* LICENSE.txt in Resources */,
+				3FE2012F2AAAB5F400D793D7 /* popup.html in Resources */,
+				3FE201312AAAB5F400D793D7 /* dashboard.html in Resources */,
+				3FE201382AAAB5F400D793D7 /* rulesets in Resources */,
+				3FE201352AAAB5F400D793D7 /* manifest.json in Resources */,
+				3FE201342AAAB5F400D793D7 /* log.txt in Resources */,
+				3FE2012C2AAAB5F400D793D7 /* about.html in Resources */,
+				3FE2012B2AAAB5F400D793D7 /* web_accessible_resources in Resources */,
+				3FE201322AAAB5F400D793D7 /* README.md in Resources */,
+				3FE201362AAAB5F400D793D7 /* background.html in Resources */,
+				3FE201372AAAB5F400D793D7 /* _locales in Resources */,
+				3FE2012E2AAAB5F400D793D7 /* js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE200E32AAAB5F300D793D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE201232AAAB5F400D793D7 /* img in Resources */,
+				3FE2012A2AAAB5F400D793D7 /* settings.html in Resources */,
+				3FE2011D2AAAB5F400D793D7 /* css in Resources */,
+				3FE201202AAAB5F400D793D7 /* managed_storage.json in Resources */,
+				3FE201292AAAB5F400D793D7 /* LICENSE.txt in Resources */,
+				3FE2011F2AAAB5F400D793D7 /* popup.html in Resources */,
+				3FE201212AAAB5F400D793D7 /* dashboard.html in Resources */,
+				3FE201282AAAB5F400D793D7 /* rulesets in Resources */,
+				3FE201252AAAB5F400D793D7 /* manifest.json in Resources */,
+				3FE201242AAAB5F400D793D7 /* log.txt in Resources */,
+				3FE2011C2AAAB5F400D793D7 /* about.html in Resources */,
+				3FE2011B2AAAB5F400D793D7 /* web_accessible_resources in Resources */,
+				3FE201222AAAB5F400D793D7 /* README.md in Resources */,
+				3FE201262AAAB5F400D793D7 /* background.html in Resources */,
+				3FE201272AAAB5F400D793D7 /* _locales in Resources */,
+				3FE2011E2AAAB5F400D793D7 /* js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3FE200B82AAAB5F300D793D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE200F42AAAB5F300D793D7 /* ViewController.swift in Sources */,
+				3FE200C02AAAB5F300D793D7 /* AppDelegate.swift in Sources */,
+				3FE200C22AAAB5F300D793D7 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE200CA2AAAB5F300D793D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE200F52AAAB5F300D793D7 /* ViewController.swift in Sources */,
+				3FE200D12AAAB5F300D793D7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE200D72AAAB5F300D793D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE200F82AAAB5F300D793D7 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FE200E12AAAB5F300D793D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE200F92AAAB5F300D793D7 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3FE200DE2AAAB5F300D793D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FE200DA2AAAB5F300D793D7 /* uBlock Origin Lite Extension (iOS) */;
+			targetProxy = 3FE200DD2AAAB5F300D793D7 /* PBXContainerItemProxy */;
+		};
+		3FE200E82AAAB5F300D793D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FE200E42AAAB5F300D793D7 /* uBlock Origin Lite Extension (macOS) */;
+			targetProxy = 3FE200E72AAAB5F300D793D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3FE200AF2AAAB5F200D793D7 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FE200B02AAAB5F200D793D7 /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		3FE200C32AAAB5F300D793D7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FE200C42AAAB5F300D793D7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3FE200C62AAAB5F300D793D7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FE200C72AAAB5F300D793D7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3FE200D22AAAB5F300D793D7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FE200D32AAAB5F300D793D7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3FE200FA2AAAB5F300D793D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3FE200FB2AAAB5F300D793D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		3FE200FD2AAAB5F300D793D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.uBlock-Origin-Lite.Extension";
+				PRODUCT_NAME = "uBlock Origin Lite Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FE200FE2AAAB5F300D793D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.uBlock-Origin-Lite.Extension";
+				PRODUCT_NAME = "uBlock Origin Lite Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FE201012AAAB5F300D793D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.uBlock-Origin-Lite";
+				PRODUCT_NAME = "uBlock Origin Lite";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FE201022AAAB5F300D793D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.uBlock-Origin-Lite";
+				PRODUCT_NAME = "uBlock Origin Lite";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FE201042AAAB5F300D793D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/uBlock Origin Lite.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.uBlock-Origin-Lite.Extension";
+				PRODUCT_NAME = "uBlock Origin Lite Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3FE201052AAAB5F300D793D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/uBlock Origin Lite.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.uBlock-Origin-Lite.Extension";
+				PRODUCT_NAME = "uBlock Origin Lite Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3FE201082AAAB5F300D793D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/uBlock Origin Lite.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.uBlock-Origin-Lite";
+				PRODUCT_NAME = "uBlock Origin Lite";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3FE201092AAAB5F300D793D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/uBlock Origin Lite.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourCompany.uBlock-Origin-Lite";
+				PRODUCT_NAME = "uBlock Origin Lite";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FE200AC2AAAB5F200D793D7 /* Build configuration list for PBXProject "uBlock Origin Lite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FE200FA2AAAB5F300D793D7 /* Debug */,
+				3FE200FB2AAAB5F300D793D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FE200FC2AAAB5F300D793D7 /* Build configuration list for PBXNativeTarget "uBlock Origin Lite Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FE200FD2AAAB5F300D793D7 /* Debug */,
+				3FE200FE2AAAB5F300D793D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FE201002AAAB5F300D793D7 /* Build configuration list for PBXNativeTarget "uBlock Origin Lite (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FE201012AAAB5F300D793D7 /* Debug */,
+				3FE201022AAAB5F300D793D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FE201032AAAB5F300D793D7 /* Build configuration list for PBXNativeTarget "uBlock Origin Lite Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FE201042AAAB5F300D793D7 /* Debug */,
+				3FE201052AAAB5F300D793D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FE201072AAAB5F300D793D7 /* Build configuration list for PBXNativeTarget "uBlock Origin Lite (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FE201082AAAB5F300D793D7 /* Debug */,
+				3FE201092AAAB5F300D793D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3FE200A92AAAB5F200D793D7 /* Project object */;
+}
