@@ -1,0 +1,278 @@
+{
+  "extName": {
+    "message": "uBlock Origin Lite",
+    "description": "extension name."
+  },
+  "extShortDesc": {
+    "message": "Experimentální blokovač obsahu vyžadující méně oprávnění. Blokuje reklamy, sledovače, těžaře a jiné ihned po instalaci.",
+    "description": "this will be in the Chrome web store: must be 132 characters or less"
+  },
+  "perRulesetStats": {
+    "message": "{{ruleCount}} pravidel, převedeno z {{filterCount}} síťových filtrů",
+    "description": "Appears aside each filter list in the _3rd-party filters_ pane"
+  },
+  "dashboardName": {
+    "message": "uBO Lite — Ovládací panel",
+    "description": "English: uBO Lite — Dashboard"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Varování! Máte neuložené změny",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Zůstat",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Ignorovat",
+    "description": "Label for button to ignore unsaved changes"
+  },
+  "settingsPageName": {
+    "message": "Nastavení",
+    "description": "appears as tab name in dashboard"
+  },
+  "3pPageName": {
+    "message": "Filtry třetích stran",
+    "description": "appears as tab name in dashboard"
+  },
+  "1pPageName": {
+    "message": "Vaše filtry",
+    "description": "appears as tab name in dashboard"
+  },
+  "whitelistPageName": {
+    "message": "Povolené domény",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPageName": {
+    "message": "O rozšíření",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPrivacyPolicy": {
+    "message": "Ochrana soukromí",
+    "description": "Link to privacy policy on GitHub (English)"
+  },
+  "popupFilteringModeLabel": {
+    "message": "Režim filtrování",
+    "description": "Label in the popup panel for the current filtering mode"
+  },
+  "popupTipDashboard": {
+    "message": "Otevřít ovládací panel",
+    "description": "English: Click to open the dashboard"
+  },
+  "popupTipZapper": {
+    "message": "Zapnout režim likvidace prvků",
+    "description": "Tooltip for the element-zapper icon in the popup panel"
+  },
+  "popupTipPicker": {
+    "message": "Zapnout režim výběru prvků",
+    "description": "English: Enter element picker mode"
+  },
+  "popupTipReport": {
+    "message": "Nahlásit problém na této webové stránce",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
+  "popupTipSaveRules": {
+    "message": "Kliknutím natrvalo uložíte provedené změny.",
+    "description": "Tooltip when hovering over the padlock in the dynamic filtering pane."
+  },
+  "popupTipRevertRules": {
+    "message": "Kliknutím zrušíte provedené změny.",
+    "description": "Tooltip when hovering over the eraser in the dynamic filtering pane."
+  },
+  "popupMoreButton": {
+    "message": "Více",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupGrantGreatPowers": {
+    "message": "Kliknutím udělíte rozšířená oprávnění uBO Lite na tomto webu.\nRozšířená oprávnění umožňují efektivnější blokování obsahu.",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupRevokeGreatPowers": {
+    "message": "Kliknutím odeberete rozšířená oprávnění na tomto webu",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupLessButton": {
+    "message": "Méně",
+    "description": "Label to be used to hide popup panel sections"
+  },
+  "settingsIconBadgePrompt": {
+    "message": "Zobrazit počet blokovaných požadavků u ikony",
+    "description": "English: Show the number of blocked requests on the icon"
+  },
+  "settingsAppearance": {
+    "message": "Vzhled",
+    "description": "Section for controlling user interface appearance"
+  },
+  "settingsThemeLabel": {
+    "message": "Motiv",
+    "description": "Label for checkbox to enable a custom dark theme"
+  },
+  "settingsThemeAccent0Label": {
+    "message": "Vlastní barva motivu",
+    "description": "Label for checkbox to pick an accent color"
+  },
+  "settingsNoCSPReportsPrompt": {
+    "message": "Blokovat CSP reporty",
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
+  },
+  "omnipotenceLabel": {
+    "message": "Zapnout rozšířené filtrování na všech webových stránkách",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "omnipotenceLegend": {
+    "message": "uBO Lite může použít rozšířené filtrování na dané webové stránce pouze poté, co výslovně udělíte oprávnění k úpravě dat na této webové stránce. Toto nastavení umožňuje udělit oprávnění pro rozšířené filtrování všem webům najednou.",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupDefault": {
+    "message": "Výchozí",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAds": {
+    "message": "Reklamy",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupPrivacy": {
+    "message": "Soukromí",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMalware": {
+    "message": "Malware domény",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAnnoyances": {
+    "message": "Dotěrnosti",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMisc": {
+    "message": "Ostatní",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupRegions": {
+    "message": "Regionální, jazykové",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "1pFormatHint": {
+    "message": "Jeden filtr na řádek. Filtr může být prostý název hostitele nebo filtr kompatibilní s Adblock Plus. Řádky začínající vykřičníkem <code>!</code> budou ignorovány.",
+    "description": "Short information about how to create custom filters"
+  },
+  "1pImport": {
+    "message": "Importovat a připojit",
+    "description": "English: Import and append"
+  },
+  "1pExport": {
+    "message": "Exportovat",
+    "description": "English: Export"
+  },
+  "1pExportFilename": {
+    "message": "ublock-me-vlastni-filtry_{{datetime}}.txt",
+    "description": "English: my-ublock-static-filters_{{datetime}}.txt"
+  },
+  "whitelistPrompt": {
+    "message": "Pravidla v seznamu povolených domén určují, pro které webové stránky bude uBO Lite vypnutý. Jedna položka na řádek. Neplatná pravidla budou tiše ignorována a zakomentována.",
+    "description": "A concise description of the 'Trusted sites' pane."
+  },
+  "whitelistImport": {
+    "message": "Importovat a připojit",
+    "description": "English: Import and append"
+  },
+  "whitelistExport": {
+    "message": "Exportovat",
+    "description": "English: Export"
+  },
+  "whitelistExportFilename": {
+    "message": "ublock-muj-whitelist_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
+  },
+  "aboutChangelog": {
+    "message": "Přehled změn",
+    "description": ""
+  },
+  "aboutCode": {
+    "message": "Zdrojový kód (GPLv3)",
+    "description": "English: Source code (GPLv3)"
+  },
+  "aboutContributors": {
+    "message": "Přispěvatelé",
+    "description": "English: Contributors"
+  },
+  "aboutSourceCode": {
+    "message": "Zdrojový kód",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Překlady",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Seznam filtrů",
+    "description": "Link text to uBO's own filter lists repo"
+  },
+  "aboutDependencies": {
+    "message": "Externí závislosti (kompatibilní s GPLv3):",
+    "description": "Shown in the About pane"
+  },
+  "genericSubmit": {
+    "message": "Odeslat",
+    "description": "for generic 'Submit' buttons"
+  },
+  "genericApplyChanges": {
+    "message": "Použít změny",
+    "description": "for generic 'Apply changes' buttons"
+  },
+  "genericRevert": {
+    "message": "Vrátit",
+    "description": "for generic 'Revert' buttons"
+  },
+  "firstRunSectionLabel": {
+    "message": "Vítejte",
+    "description": "The header text for the welcome message section"
+  },
+  "firstRunDescription": {
+    "message": "Právě jste nainstalovali uBO Lite. Zde si můžete vybrat výchozí režim filtrování pro použití na všech webových stránkách.\n\nVe výchozím nastavení je vybrán režim <em>Základní</em>, protože nevyžaduje oprávnění ke čtení a změně dat. Pokud důvěřujete uBO Lite, můžete mu udělit široké oprávnění číst a měnit data na všech webových stránkách, abyste ve výchozím nastavení povolili pokročilejší možnosti filtrování pro všechny webové stránky.",
+    "description": "Descriptive text shown at first install time only "
+  },
+  "defaultFilteringModeSectionLabel": {
+    "message": "Výchozí režim filtrování",
+    "description": "The header text for the default filtering mode section"
+  },
+  "defaultFilteringModeDescription": {
+    "message": "Výchozí režim filtrování bude přepsán režimy filtrování pro jednotlivé webové stránky. Režim filtrování na libovolném webu můžete upravit podle toho, který režim na daném webu funguje nejlépe. Každý režim má své výhody a nevýhody.",
+    "description": "This describes the default filtering mode setting"
+  },
+  "filteringMode0Name": {
+    "message": "žádné filtrování",
+    "description": "Name of blocking mode 0"
+  },
+  "filteringMode1Name": {
+    "message": "základní",
+    "description": "Name of blocking mode 1"
+  },
+  "filteringMode2Name": {
+    "message": "optimální",
+    "description": "Name of blocking mode 2"
+  },
+  "filteringMode3Name": {
+    "message": "kompletní",
+    "description": "Name of blocking mode 3"
+  },
+  "basicFilteringModeDescription": {
+    "message": "Základní filtrování sítě z vybraných seznamů filtrů.\n\nNevyžaduje oprávnění ke čtení a změně údajů na webových stránkách.",
+    "description": "This describes the 'basic' filtering mode"
+  },
+  "optimalFilteringModeDescription": {
+    "message": "Pokročilé síťové filtrování plus specificky rozšířené filtrování z vybraných seznamů filtrů.\n\nVyžaduje rozsáhlé oprávnění ke čtení a změně dat na všech webech.",
+    "description": "This describes the 'optimal' filtering mode"
+  },
+  "completeFilteringModeDescription": {
+    "message": "Pokročilé síťové filtrování plus specificky a obecně rozšířené filtrování z vybraných seznamů filtrů.\n\nVyžaduje rozsáhlé oprávnění ke čtení a změně dat na všech webech.\n\nObecně rozšířené filtrování může způsobit vyšší využití zdrojů webových stránek.",
+    "description": "This describes the 'complete' filtering mode"
+  },
+  "behaviorSectionLabel": {
+    "message": "Chování",
+    "description": "The header text for the 'Behavior' section"
+  },
+  "autoReloadLabel": {
+    "message": "Automaticky znovu načíst stránku při změně filtračního režimu",
+    "description": "Label for a checkbox in the options page"
+  }
+}

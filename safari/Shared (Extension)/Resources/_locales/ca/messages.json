@@ -1,0 +1,278 @@
+{
+  "extName": {
+    "message": "uBlock Origin Lite",
+    "description": "extension name."
+  },
+  "extShortDesc": {
+    "message": "Un blocador de contingut lleuger experimental i sense permisos: bloca anuncis, rastrejadors, miners i molt més per defecte.",
+    "description": "this will be in the Chrome web store: must be 132 characters or less"
+  },
+  "perRulesetStats": {
+    "message": "{{ruleCount}} regles, convertides a partir de {{filterCount}} filtres de xarxa",
+    "description": "Appears aside each filter list in the _3rd-party filters_ pane"
+  },
+  "dashboardName": {
+    "message": "uBO Lite — Tauler",
+    "description": "English: uBO Lite — Dashboard"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Atenció! Hi ha canvis sense desar",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Roman",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Ignora",
+    "description": "Label for button to ignore unsaved changes"
+  },
+  "settingsPageName": {
+    "message": "Configuració",
+    "description": "appears as tab name in dashboard"
+  },
+  "3pPageName": {
+    "message": "Llistat de filtres",
+    "description": "appears as tab name in dashboard"
+  },
+  "1pPageName": {
+    "message": "Els meus filtres",
+    "description": "appears as tab name in dashboard"
+  },
+  "whitelistPageName": {
+    "message": "Llocs de confiança",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPageName": {
+    "message": "Quant a",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPrivacyPolicy": {
+    "message": "Política de privadesa",
+    "description": "Link to privacy policy on GitHub (English)"
+  },
+  "popupFilteringModeLabel": {
+    "message": "mode de filtre",
+    "description": "Label in the popup panel for the current filtering mode"
+  },
+  "popupTipDashboard": {
+    "message": "Obre el tauler",
+    "description": "English: Click to open the dashboard"
+  },
+  "popupTipZapper": {
+    "message": "Accedeix al mode d'eliminació d'elements",
+    "description": "Tooltip for the element-zapper icon in the popup panel"
+  },
+  "popupTipPicker": {
+    "message": "Accedeix al mode de selecció d'elements",
+    "description": "English: Enter element picker mode"
+  },
+  "popupTipReport": {
+    "message": "Informa d'un problema en aquest lloc web",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
+  "popupTipSaveRules": {
+    "message": "Feu clic per fer que els vostres canvis siguin permanents.",
+    "description": "Tooltip when hovering over the padlock in the dynamic filtering pane."
+  },
+  "popupTipRevertRules": {
+    "message": "Feu clic per revertir els canvis.",
+    "description": "Tooltip when hovering over the eraser in the dynamic filtering pane."
+  },
+  "popupMoreButton": {
+    "message": "Més",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupGrantGreatPowers": {
+    "message": "Feu clic per concedir permisos ampliats a l'uBO Lite en aquest web.\nEls permisos ampliats permeten un bloqueig de contingut més efectiu.",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupRevokeGreatPowers": {
+    "message": "Feu clic per revocar els permisos ampliats en aquest web",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupLessButton": {
+    "message": "Menys",
+    "description": "Label to be used to hide popup panel sections"
+  },
+  "settingsIconBadgePrompt": {
+    "message": "Mostra el nombre de sol·licituds blocades a la icona",
+    "description": "English: Show the number of blocked requests on the icon"
+  },
+  "settingsAppearance": {
+    "message": "Aparença",
+    "description": "Section for controlling user interface appearance"
+  },
+  "settingsThemeLabel": {
+    "message": "Tema",
+    "description": "Label for checkbox to enable a custom dark theme"
+  },
+  "settingsThemeAccent0Label": {
+    "message": "Color d'accent personalitzat",
+    "description": "Label for checkbox to pick an accent color"
+  },
+  "settingsNoCSPReportsPrompt": {
+    "message": "Bloca els informes CSP",
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
+  },
+  "omnipotenceLabel": {
+    "message": "Habilita el filtratge addicional a tots els llocs web",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "omnipotenceLegend": {
+    "message": "L'uBO Lite pot aplicar el filtratge estès a un lloc web determinat, només després que concediu permisos al complement per modificar les dades de forma explícita. Aquesta configuració us permet concedir permisos de filtratge estès a tots els llocs web alhora.",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupDefault": {
+    "message": "Per defecte",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAds": {
+    "message": "Anuncis",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupPrivacy": {
+    "message": "Privadesa",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMalware": {
+    "message": "Dominis de programari maliciós",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAnnoyances": {
+    "message": "Elements molestos",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMisc": {
+    "message": "Miscel·lània",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupRegions": {
+    "message": "Regions, llengües",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "1pFormatHint": {
+    "message": "Un filtre per línia. Un filtre pot ser un nom d'amfitrió simple o un filtre compatible amb EasyList. Les línies amb el prefix <code>!</code> seran ignorades.",
+    "description": "Short information about how to create custom filters"
+  },
+  "1pImport": {
+    "message": "Importa i annexa",
+    "description": "English: Import and append"
+  },
+  "1pExport": {
+    "message": "Exporta",
+    "description": "English: Export"
+  },
+  "1pExportFilename": {
+    "message": "my-ublock-static-filters_{{datetime}}.txt",
+    "description": "English: my-ublock-static-filters_{{datetime}}.txt"
+  },
+  "whitelistPrompt": {
+    "message": "Les directives del lloc de confiança dicten en quines pàgines web s'ha de desactivar l'uBO Lite. Una entrada per línia.",
+    "description": "A concise description of the 'Trusted sites' pane."
+  },
+  "whitelistImport": {
+    "message": "Importa i annexa",
+    "description": "English: Import and append"
+  },
+  "whitelistExport": {
+    "message": "Exporta",
+    "description": "English: Export"
+  },
+  "whitelistExportFilename": {
+    "message": "my-ublock-trusted-sites_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
+  },
+  "aboutChangelog": {
+    "message": "Registre de canvis",
+    "description": ""
+  },
+  "aboutCode": {
+    "message": "Codi font (GPLv3)",
+    "description": "English: Source code (GPLv3)"
+  },
+  "aboutContributors": {
+    "message": "Col·laboradors",
+    "description": "English: Contributors"
+  },
+  "aboutSourceCode": {
+    "message": "Codi font",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Traduccions",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Llistat de filtres",
+    "description": "Link text to uBO's own filter lists repo"
+  },
+  "aboutDependencies": {
+    "message": "Dependències externes (compatibles amb GPLv3):",
+    "description": "Shown in the About pane"
+  },
+  "genericSubmit": {
+    "message": "Envia",
+    "description": "for generic 'Submit' buttons"
+  },
+  "genericApplyChanges": {
+    "message": "Aplica els canvis",
+    "description": "for generic 'Apply changes' buttons"
+  },
+  "genericRevert": {
+    "message": "Desfés",
+    "description": "for generic 'Revert' buttons"
+  },
+  "firstRunSectionLabel": {
+    "message": "Us donem la benvinguda",
+    "description": "The header text for the welcome message section"
+  },
+  "firstRunDescription": {
+    "message": "Acabeu d'instal·lar l'uBO Lite. Aquí podeu triar el mode de filtrat per defecte per utilitzar-lo a tots els llocs web.\n\nPer defecte, el mode <em>Bàsic</em> està seleccionat perquè no requereix permís per llegir i canviar dades. Si confieu en l'uBO Lite, podeu donar-li un ampli permís per llegir i canviar dades a tots els llocs web per tal d'activar capacitats de filtratge més avançades per a tots els llocs web per defecete.",
+    "description": "Descriptive text shown at first install time only "
+  },
+  "defaultFilteringModeSectionLabel": {
+    "message": "Mode de filtratge per defecte",
+    "description": "The header text for the default filtering mode section"
+  },
+  "defaultFilteringModeDescription": {
+    "message": "El mode de filtratge per defecte serà substituït pels modes de filtrat per lloc web. Podeu ajustar el mode de filtratge a qualsevol lloc web segons el qual funcioni millor en aquest lloc web. Cada mode té els seus avantatges i desavantatges.",
+    "description": "This describes the default filtering mode setting"
+  },
+  "filteringMode0Name": {
+    "message": "sense filtres",
+    "description": "Name of blocking mode 0"
+  },
+  "filteringMode1Name": {
+    "message": "bàsic",
+    "description": "Name of blocking mode 1"
+  },
+  "filteringMode2Name": {
+    "message": "òptim",
+    "description": "Name of blocking mode 2"
+  },
+  "filteringMode3Name": {
+    "message": "complet",
+    "description": "Name of blocking mode 3"
+  },
+  "basicFilteringModeDescription": {
+    "message": "Filtratge bàsic de xarxa a partir de llistes de filtres seleccionades.\n\nNo requereix permís per llegir i canviar dades als llocs web.",
+    "description": "This describes the 'basic' filtering mode"
+  },
+  "optimalFilteringModeDescription": {
+    "message": "Filtratge de xarxa avançat més un filtratge ampli específic de les llistes de filtres seleccionades.\n\nRequereix un ampli permís per llegir i canviar dades a tots els llocs web.",
+    "description": "This describes the 'optimal' filtering mode"
+  },
+  "completeFilteringModeDescription": {
+    "message": "Filtratge de xarxa avançat més un filtratge estès específic i genèric de les llistes de filtres seleccionades.\n\nRequereix un ampli permís per llegir i canviar dades a tots els llocs web.\n\nEl filtratge estès genèric pot provocar un ús més elevat dels recursos de la pàgina web.",
+    "description": "This describes the 'complete' filtering mode"
+  },
+  "behaviorSectionLabel": {
+    "message": "Comportament",
+    "description": "The header text for the 'Behavior' section"
+  },
+  "autoReloadLabel": {
+    "message": "Recarrega automàticament la pàgina quan canvieu el mode de filtratge",
+    "description": "Label for a checkbox in the options page"
+  }
+}

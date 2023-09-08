@@ -1,0 +1,278 @@
+{
+  "extName": {
+    "message": "uBlock Origin Lite",
+    "description": "extension name."
+  },
+  "extShortDesc": {
+    "message": "Блокировщик контента, не требующий разрешений. Сразу после инсталляции блокирует рекламу, трекеры, майнеры и многое другое.",
+    "description": "this will be in the Chrome web store: must be 132 characters or less"
+  },
+  "perRulesetStats": {
+    "message": "{{ruleCount}} правил, преобразованных из {{filterCount}} сетевых фильтров",
+    "description": "Appears aside each filter list in the _3rd-party filters_ pane"
+  },
+  "dashboardName": {
+    "message": "uBO Lite — Панель управления",
+    "description": "English: uBO Lite — Dashboard"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Внимание! У вас есть несохранённые изменения",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Остаться",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Игнорировать",
+    "description": "Label for button to ignore unsaved changes"
+  },
+  "settingsPageName": {
+    "message": "Настройки",
+    "description": "appears as tab name in dashboard"
+  },
+  "3pPageName": {
+    "message": "Списки фильтров",
+    "description": "appears as tab name in dashboard"
+  },
+  "1pPageName": {
+    "message": "Мои фильтры",
+    "description": "appears as tab name in dashboard"
+  },
+  "whitelistPageName": {
+    "message": "Доверенные сайты",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPageName": {
+    "message": "О расширении",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPrivacyPolicy": {
+    "message": "Политика конфиденциальности",
+    "description": "Link to privacy policy on GitHub (English)"
+  },
+  "popupFilteringModeLabel": {
+    "message": "режим фильтрации",
+    "description": "Label in the popup panel for the current filtering mode"
+  },
+  "popupTipDashboard": {
+    "message": "Открыть панель управления",
+    "description": "English: Click to open the dashboard"
+  },
+  "popupTipZapper": {
+    "message": "Режим мгновенного временного скрытия элемента",
+    "description": "Tooltip for the element-zapper icon in the popup panel"
+  },
+  "popupTipPicker": {
+    "message": "Войти в режим выбора элементов",
+    "description": "English: Enter element picker mode"
+  },
+  "popupTipReport": {
+    "message": "Сообщить о проблеме на данном сайте",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
+  "popupTipSaveRules": {
+    "message": "Нажмите, чтобы сохранить изменения.",
+    "description": "Tooltip when hovering over the padlock in the dynamic filtering pane."
+  },
+  "popupTipRevertRules": {
+    "message": "Нажмите, чтобы отменить изменения.",
+    "description": "Tooltip when hovering over the eraser in the dynamic filtering pane."
+  },
+  "popupMoreButton": {
+    "message": "Больше",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupGrantGreatPowers": {
+    "message": "Нажмите, чтобы предоставить uBO Lite дополнительные разрешения на этом сайте.\nДополнительные разрешения позволяют эффективнее блокировать контент.",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupRevokeGreatPowers": {
+    "message": "Нажмите, чтобы отозвать дополнительные разрешения на этом сайте",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupLessButton": {
+    "message": "Меньше",
+    "description": "Label to be used to hide popup panel sections"
+  },
+  "settingsIconBadgePrompt": {
+    "message": "Показывать количество заблокированных запросов на иконке",
+    "description": "English: Show the number of blocked requests on the icon"
+  },
+  "settingsAppearance": {
+    "message": "Внешний вид",
+    "description": "Section for controlling user interface appearance"
+  },
+  "settingsThemeLabel": {
+    "message": "Тема",
+    "description": "Label for checkbox to enable a custom dark theme"
+  },
+  "settingsThemeAccent0Label": {
+    "message": "Пользовательский цветовой акцент",
+    "description": "Label for checkbox to pick an accent color"
+  },
+  "settingsNoCSPReportsPrompt": {
+    "message": "Блокировать CSP отчеты",
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
+  },
+  "omnipotenceLabel": {
+    "message": "Включить расширенную фильтрацию на всех веб-сайтах",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "omnipotenceLegend": {
+    "message": "uBO Lite может применять расширенную фильтрацию на данном веб-сайте только после того, как вы явно предоставите расширению разрешения на изменение данных на этом веб-сайте. Этот параметр позволяет вам предоставлять разрешения на расширенную фильтрацию сразу всем веб-сайтам.",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupDefault": {
+    "message": "По умолчанию",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAds": {
+    "message": "Реклама",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupPrivacy": {
+    "message": "Приватность",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMalware": {
+    "message": "Вредоносные домены",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAnnoyances": {
+    "message": "Раздражающие элементы",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMisc": {
+    "message": "Разное",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupRegions": {
+    "message": "Регионы, языки",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "1pFormatHint": {
+    "message": "Одно правило на строку. Правилом может быть имя сайта, или EasyList-совместимый фильтр. Строки, начинающиеся с <code>!</code>, будут проигнорированы.",
+    "description": "Short information about how to create custom filters"
+  },
+  "1pImport": {
+    "message": "Импортировать и добавить",
+    "description": "English: Import and append"
+  },
+  "1pExport": {
+    "message": "Экспортировать",
+    "description": "English: Export"
+  },
+  "1pExportFilename": {
+    "message": "my-ublock-static-filters_{{datetime}}.txt",
+    "description": "English: my-ublock-static-filters_{{datetime}}.txt"
+  },
+  "whitelistPrompt": {
+    "message": "Записи доверенных сайтов указывают на каких веб-страницах uBO Lite должен быть отключён. Одна запись на строку.",
+    "description": "A concise description of the 'Trusted sites' pane."
+  },
+  "whitelistImport": {
+    "message": "Импортировать и добавить",
+    "description": "English: Import and append"
+  },
+  "whitelistExport": {
+    "message": "Экспортировать",
+    "description": "English: Export"
+  },
+  "whitelistExportFilename": {
+    "message": "my-ublock-trusted-sites_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
+  },
+  "aboutChangelog": {
+    "message": "Список изменений",
+    "description": ""
+  },
+  "aboutCode": {
+    "message": "Исходный код (GPLv3)",
+    "description": "English: Source code (GPLv3)"
+  },
+  "aboutContributors": {
+    "message": "Участники",
+    "description": "English: Contributors"
+  },
+  "aboutSourceCode": {
+    "message": "Исходный код",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Перевод",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Списки фильтров",
+    "description": "Link text to uBO's own filter lists repo"
+  },
+  "aboutDependencies": {
+    "message": "Внешние зависимости (совместимые с GPLv3):",
+    "description": "Shown in the About pane"
+  },
+  "genericSubmit": {
+    "message": "Подтвердить",
+    "description": "for generic 'Submit' buttons"
+  },
+  "genericApplyChanges": {
+    "message": "Применить изменения",
+    "description": "for generic 'Apply changes' buttons"
+  },
+  "genericRevert": {
+    "message": "Вернуть",
+    "description": "for generic 'Revert' buttons"
+  },
+  "firstRunSectionLabel": {
+    "message": "Добро пожаловать",
+    "description": "The header text for the welcome message section"
+  },
+  "firstRunDescription": {
+    "message": "Вы только что установили uBO Lite. Здесь вы можете выбрать стандартный режим фильтрации для всех веб-сайтов.\n\nПо умолчанию выбран режим <em>Базовый</em>, так как он не требует разрешения на чтение и изменение данных. Если вы доверяете uBO Lite, вы можете дать ему широкие права на чтение и изменение данных на всех веб-сайтах, чтобы включить более продвинутые возможности фильтрации для всех веб-сайтов по умолчанию.",
+    "description": "Descriptive text shown at first install time only "
+  },
+  "defaultFilteringModeSectionLabel": {
+    "message": "Режим фильтрации по умолчанию",
+    "description": "The header text for the default filtering mode section"
+  },
+  "defaultFilteringModeDescription": {
+    "message": "Стандартный режим фильтрации перезаписывается режимом настройки конкретного сайта. Вы можете подобрать наиболее эффективный режим фильтрации на любом сайте. У каждого режима есть свои преимущества и недостатки.",
+    "description": "This describes the default filtering mode setting"
+  },
+  "filteringMode0Name": {
+    "message": "без фильтрации",
+    "description": "Name of blocking mode 0"
+  },
+  "filteringMode1Name": {
+    "message": "базовый",
+    "description": "Name of blocking mode 1"
+  },
+  "filteringMode2Name": {
+    "message": "оптимальный",
+    "description": "Name of blocking mode 2"
+  },
+  "filteringMode3Name": {
+    "message": "полный",
+    "description": "Name of blocking mode 3"
+  },
+  "basicFilteringModeDescription": {
+    "message": "Основная сетевая фильтрация по выбранным спискам фильтров.\n\nНе требует разрешения на чтение и изменение данных на веб-сайтах.",
+    "description": "This describes the 'basic' filtering mode"
+  },
+  "optimalFilteringModeDescription": {
+    "message": "Расширенная сетевая фильтрация вместе со специальной фильтрацией по выбранным спискам фильтров.\n\nТребуется разрешение на чтение и изменение данных на всех веб-сайтах.",
+    "description": "This describes the 'optimal' filtering mode"
+  },
+  "completeFilteringModeDescription": {
+    "message": "Расширенная сетевая фильтрация вместе со специальной, и усиленной общей фильтрацией по выбранным спискам фильтров.\n\nТребуется разрешение на чтение и изменение данных на всех веб-сайтах.\n\nУсиленная общая фильтрация может стать причиной повышенного потребления ресурсов веб-страницей.",
+    "description": "This describes the 'complete' filtering mode"
+  },
+  "behaviorSectionLabel": {
+    "message": "Поведение",
+    "description": "The header text for the 'Behavior' section"
+  },
+  "autoReloadLabel": {
+    "message": "Автоматически перезагружать страницу при изменении режима фильтрации",
+    "description": "Label for a checkbox in the options page"
+  }
+}

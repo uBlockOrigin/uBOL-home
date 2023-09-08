@@ -1,0 +1,278 @@
+{
+  "extName": {
+    "message": "uBlock Origin Lite",
+    "description": "extension name."
+  },
+  "extShortDesc": {
+    "message": "En behörighetslös innehållsblockerare.  Blockerar annonser, spårare, miners och mer omedelbart efter installationen.",
+    "description": "this will be in the Chrome web store: must be 132 characters or less"
+  },
+  "perRulesetStats": {
+    "message": "{{ruleCount}} regler, konverterat från {{filterCount}} nätverksfilter",
+    "description": "Appears aside each filter list in the _3rd-party filters_ pane"
+  },
+  "dashboardName": {
+    "message": "uBO Lite — Kontrollpanel",
+    "description": "English: uBO Lite — Dashboard"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Varning! Du har inte sparat dina ändringar",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Stanna kvar",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Ignorera",
+    "description": "Label for button to ignore unsaved changes"
+  },
+  "settingsPageName": {
+    "message": "Inställningar",
+    "description": "appears as tab name in dashboard"
+  },
+  "3pPageName": {
+    "message": "Filterlistor",
+    "description": "appears as tab name in dashboard"
+  },
+  "1pPageName": {
+    "message": "Mina filter",
+    "description": "appears as tab name in dashboard"
+  },
+  "whitelistPageName": {
+    "message": "Betrodda webbplatser",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPageName": {
+    "message": "Om",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPrivacyPolicy": {
+    "message": "Integritetspolicy",
+    "description": "Link to privacy policy on GitHub (English)"
+  },
+  "popupFilteringModeLabel": {
+    "message": "filtreringsläge",
+    "description": "Label in the popup panel for the current filtering mode"
+  },
+  "popupTipDashboard": {
+    "message": "Öppna kontrollpanelen",
+    "description": "English: Click to open the dashboard"
+  },
+  "popupTipZapper": {
+    "message": "Gå till elementzapperläge",
+    "description": "Tooltip for the element-zapper icon in the popup panel"
+  },
+  "popupTipPicker": {
+    "message": "Gå till elementväljarläge",
+    "description": "English: Enter element picker mode"
+  },
+  "popupTipReport": {
+    "message": "Rapportera ett problem på denna webbplats",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
+  "popupTipSaveRules": {
+    "message": "Klicka för att göra dina ändringar permanenta.",
+    "description": "Tooltip when hovering over the padlock in the dynamic filtering pane."
+  },
+  "popupTipRevertRules": {
+    "message": "Klicka för att ångra dina ändringar.",
+    "description": "Tooltip when hovering over the eraser in the dynamic filtering pane."
+  },
+  "popupMoreButton": {
+    "message": "Mer",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupGrantGreatPowers": {
+    "message": "Klicka för att ge uBO Lite utökade behörigheter på den här webbplatsen.\nMed utökade behörigheter blir innehållsblockering mer effektiv.",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupRevokeGreatPowers": {
+    "message": "Klicka för att återkalla utökade behörigheter på den här webbplatsen",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupLessButton": {
+    "message": "Mindre",
+    "description": "Label to be used to hide popup panel sections"
+  },
+  "settingsIconBadgePrompt": {
+    "message": "Visa antalet blockerade förfrågningar på ikonen",
+    "description": "English: Show the number of blocked requests on the icon"
+  },
+  "settingsAppearance": {
+    "message": "Utseende",
+    "description": "Section for controlling user interface appearance"
+  },
+  "settingsThemeLabel": {
+    "message": "Tema",
+    "description": "Label for checkbox to enable a custom dark theme"
+  },
+  "settingsThemeAccent0Label": {
+    "message": "Anpassad accentfärg",
+    "description": "Label for checkbox to pick an accent color"
+  },
+  "settingsNoCSPReportsPrompt": {
+    "message": "Blockera CSP-rapporter",
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
+  },
+  "omnipotenceLabel": {
+    "message": "Aktivera utökad filtrering på alla webbplatser",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "omnipotenceLegend": {
+    "message": "uBO Lite kan endast använda utökad filtrering på en given webbplats efter att du uttryckligen har gett tilläggsbehörighet att ändra data på den webbplatsen. Med den här inställningen kan du ge behörigheter för utökad filtrering till alla webbplatser samtidigt.",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupDefault": {
+    "message": "Standard",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAds": {
+    "message": "Annonser",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupPrivacy": {
+    "message": "Integritet",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMalware": {
+    "message": "Domäner med skadlig kod (malware)",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAnnoyances": {
+    "message": "Störande",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMisc": {
+    "message": "Diverse",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupRegions": {
+    "message": "Regioner, språk",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "1pFormatHint": {
+    "message": "Ett filter per rad. Ett filter kan vara ett vanligt värdnamn eller ett EasyList-kompatibelt filter. Rader med prefixet <code>!</code> ignoreras.",
+    "description": "Short information about how to create custom filters"
+  },
+  "1pImport": {
+    "message": "Importera och lägg till",
+    "description": "English: Import and append"
+  },
+  "1pExport": {
+    "message": "Exportera",
+    "description": "English: Export"
+  },
+  "1pExportFilename": {
+    "message": "mina-ublock-statiska-filter_{{datetime}}.txt",
+    "description": "English: my-ublock-static-filters_{{datetime}}.txt"
+  },
+  "whitelistPrompt": {
+    "message": "Direktiven för betrodda webbplatser anger vilka webbsidor som uBlock Origin ska inaktiveras på. En post per rad.",
+    "description": "A concise description of the 'Trusted sites' pane."
+  },
+  "whitelistImport": {
+    "message": "Importera och lägg till",
+    "description": "English: Import and append"
+  },
+  "whitelistExport": {
+    "message": "Exportera",
+    "description": "English: Export"
+  },
+  "whitelistExportFilename": {
+    "message": "mina-ublock-betrodda-webbplatser_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
+  },
+  "aboutChangelog": {
+    "message": "Ändringslogg",
+    "description": ""
+  },
+  "aboutCode": {
+    "message": "Källkod (GPLv3)",
+    "description": "English: Source code (GPLv3)"
+  },
+  "aboutContributors": {
+    "message": "Bidragsgivare",
+    "description": "English: Contributors"
+  },
+  "aboutSourceCode": {
+    "message": "Källkod",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Översättningar",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Filterlistor",
+    "description": "Link text to uBO's own filter lists repo"
+  },
+  "aboutDependencies": {
+    "message": "Externa beroenden (GPLv3-kompatibla):",
+    "description": "Shown in the About pane"
+  },
+  "genericSubmit": {
+    "message": "Skicka",
+    "description": "for generic 'Submit' buttons"
+  },
+  "genericApplyChanges": {
+    "message": "Verkställ ändringar",
+    "description": "for generic 'Apply changes' buttons"
+  },
+  "genericRevert": {
+    "message": "Ångra",
+    "description": "for generic 'Revert' buttons"
+  },
+  "firstRunSectionLabel": {
+    "message": "Välkommen",
+    "description": "The header text for the welcome message section"
+  },
+  "firstRunDescription": {
+    "message": "Du har precis installerat uBO Lite. Här kan du välja standardfiltreringsläget som ska användas på alla webbplatser.\n\nSom standard är läget <em>Grundläggande</em> valt eftersom det inte kräver behörighet att läsa och ändra data. Om du litar på uBO Lite kan du ge den högre behörighet att läsa och ändra data på alla webbplatser för att som standard aktivera mer avancerade filtreringsmöjligheter för alla webbplatser.",
+    "description": "Descriptive text shown at first install time only "
+  },
+  "defaultFilteringModeSectionLabel": {
+    "message": "Standardfiltreringsläge",
+    "description": "The header text for the default filtering mode section"
+  },
+  "defaultFilteringModeDescription": {
+    "message": "Standardfiltreringsläget kommer att åsidosättas av filtreringslägen per webbplats. Du kan justera filtreringsläget på vilken webbplats som helst enligt vilket läge som fungerar bäst på den webbplatsen. Varje läge har sina fördelar och nackdelar.",
+    "description": "This describes the default filtering mode setting"
+  },
+  "filteringMode0Name": {
+    "message": "ingen filtrering",
+    "description": "Name of blocking mode 0"
+  },
+  "filteringMode1Name": {
+    "message": "grundläggande",
+    "description": "Name of blocking mode 1"
+  },
+  "filteringMode2Name": {
+    "message": "optimal",
+    "description": "Name of blocking mode 2"
+  },
+  "filteringMode3Name": {
+    "message": "fullständig",
+    "description": "Name of blocking mode 3"
+  },
+  "basicFilteringModeDescription": {
+    "message": "Grundläggande nätverksfiltrering från valda filterlistor.\n\nKräver ingen behörighet för att läsa och ändra data på webbplatser.",
+    "description": "This describes the 'basic' filtering mode"
+  },
+  "optimalFilteringModeDescription": {
+    "message": "Avancerad nätverksfiltrering plus specifik utökad filtrering från utvalda filterlistor.\n\nKräver högre behörighet för att läsa och ändra data på alla webbplatser.",
+    "description": "This describes the 'optimal' filtering mode"
+  },
+  "completeFilteringModeDescription": {
+    "message": "Avancerad nätverksfiltrering plus specifik och allmän utökad filtrering från utvalda filterlistor.\n\nKräver bred behörighet för att läsa och ändra data på alla webbplatser.\n\nAllmän utökad filtrering kan orsaka högre användning av webbsidors resurser.",
+    "description": "This describes the 'complete' filtering mode"
+  },
+  "behaviorSectionLabel": {
+    "message": "Beteende",
+    "description": "The header text for the 'Behavior' section"
+  },
+  "autoReloadLabel": {
+    "message": "Ladda automatiskt om sidan när du byter filtreringsläge",
+    "description": "Label for a checkbox in the options page"
+  }
+}
