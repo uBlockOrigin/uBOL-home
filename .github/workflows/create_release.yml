@@ -31,16 +31,19 @@ jobs:
           UBLOCK_REPO_DIR=$(mktemp -d)
           echo "UBLOCK_REPO_DIR=$UBLOCK_REPO_DIR" >> $GITHUB_ENV
           git clone --depth 1 https://github.com/gorhill/uBlock.git $UBLOCK_REPO_DIR
+      # Version, time-based
+      - name: Create unique time-based version
+        run: |
+          TAGNAME=uBOLite_$(date -u "+%Y.%-m.%-d.")$(date -u "+%H*60+%M" | bc)
+          echo "TAGNAME=$TAGNAME" >> $GITHUB_ENV
+          echo "Version: $TAGNAME"
       # Chromium
       - name: Build Chromium uBOLite MV3 packages
         run: |
           cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh chromium full
-          echo "TAGNAME=$(basename $(ls dist/build/uBOLite_*.chromium.mv3.zip) .chromium.mv3.zip)" >> $GITHUB_ENV
-          echo "CHROMIUM_PACKAGE=$(basename $(ls dist/build/uBOLite_*.chromium.mv3.zip))" >> $GITHUB_ENV
+          tools/make-mv3.sh chromium ${{ env.TAGNAME }}
+          echo "CHROMIUM_PACKAGE=${{ env.TAGNAME }}.chromium.mv3.zip" >> $GITHUB_ENV
           cd - > /dev/null
-          RELEASENAME=${TAGNAME/_/ }
-          echo "RELEASENAME=$RELEASENAME" >> $GITHUB_ENV
           rm -rf chromium
           mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
           cp "$UBLOCK_REPO_DIR/dist/build/mv3-data/log.txt" chromium/
@@ -48,8 +51,8 @@ jobs:
       - name: Build Firefox uBOLite MV3 packages
         run: |
           cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh firefox full
-          echo "FIREFOX_PACKAGE=$(basename $(ls dist/build/uBOLite_*.firefox.mv3.xpi))" >> $GITHUB_ENV
+          tools/make-mv3.sh firefox ${{ env.TAGNAME }}
+          echo "FIREFOX_PACKAGE=${{ env.TAGNAME }}.firefox.mv3.xpi" >> $GITHUB_ENV
           cd - > /dev/null
           rm -rf firefox
           mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.firefox" firefox
