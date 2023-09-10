@@ -44,7 +44,7 @@ const scriptletGlobals = new Map(); // jshint ignore: line
 
 const argsList = [[]];
 
-const hostnamesMap = new Map([["kiryuu.id",0]]);
+const hostnamesMap = new Map([["subindojav.cc",0],["anichin.top",0],["kimcilonly.site",0],["kiryuu.id",0]]);
 
 const entitiesMap = new Map([]);
 

@@ -2145,14 +2145,11 @@
    "type": "block"
   },
   "condition": {
-   "initiatorDomains": [
-    "bpiautosok.hu"
-   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||cdn.performax.cz/acc/insert_rtb.js"
+   "urlFilter": "||onlinestream.live/js/adb.js"
   },
   "id": 177
  },
@@ -2161,11 +2158,14 @@
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "bpiautosok.hu"
+   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "/gemius.js^"
+   "urlFilter": "||cdn.performax.cz/acc/insert_rtb.js"
   },
   "id": 178
  },
@@ -2178,7 +2178,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "/gemius.min.js^"
+   "urlFilter": "/gemius.js^"
   },
   "id": 179
  },
@@ -2191,7 +2191,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "/traffic.js"
+   "urlFilter": "/gemius.min.js^"
   },
   "id": 180
  },
@@ -2204,7 +2204,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "/traffic.min.js"
+   "urlFilter": "/traffic.js"
   },
   "id": 181
  },
@@ -2217,7 +2217,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "/xgemius.js^"
+   "urlFilter": "/traffic.min.js"
   },
   "id": 182
  },
@@ -2230,7 +2230,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "/xgemius.min.js^"
+   "urlFilter": "/xgemius.js^"
   },
   "id": 183
  },
@@ -2243,7 +2243,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||infostart.hu/js/ga.js"
+   "urlFilter": "/xgemius.min.js^"
   },
   "id": 184
  },
@@ -2256,7 +2256,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||onlinestream.live/js/adb.js"
+   "urlFilter": "||infostart.hu/js/ga.js"
   },
   "id": 185
  },
@@ -2492,5 +2492,22 @@
    "urlFilter": "||pro.hit.gemius.pl/gstream.js"
   },
   "id": 198
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "menetrendek.hu"
+   ],
+   "requestDomains": [
+    "adocean.pl"
+   ],
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 199
  }
 ]

@@ -42,9 +42,9 @@ const uBOL_removeClass = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["hidden","button"],["twig-body"],["hidden","video"],["get-link",".ybtn.get-link[target=\"_blank\"]","stay"],["get-link",".btn-success.get-link[target=\"_blank\"]","stay"],["has-sidebar-adz|DashboardPage-inner","div[class^=\"DashboardPage-inner\"]","stay"],["hasStickyAd","div.hasStickyAd[class^=\"SetPage\"]","stay"],["has-adz","div.has-adz","stay"],["cnx-ad-container|cnx-ad-bid-slot"],["disabled","#skip-btn"],["vjs-hidden",".vjs-control-bar","stay"],["hidden",".panel-body > .text-center > button"],["disabled","a#redirect-btn"],["disabled",".get-link"],["td-ad-background-link"],["download-font-button2",".download-font-button"],["unclickable","","stay"],["is-hidden"]];
+const argsList = [["hidden","button"],["twig-body"],["get-link",".ybtn.get-link[target=\"_blank\"]","stay"],["get-link",".btn-success.get-link[target=\"_blank\"]","stay"],["has-sidebar-adz|DashboardPage-inner","div[class^=\"DashboardPage-inner\"]","stay"],["hasStickyAd","div.hasStickyAd[class^=\"SetPage\"]","stay"],["has-adz","div.has-adz","stay"],["cnx-ad-container|cnx-ad-bid-slot"],["disabled","#skip-btn"],["vjs-hidden",".vjs-control-bar","stay"],["hidden",".panel-body > .text-center > button"],["disabled","a#redirect-btn"],["disabled",".get-link"],["td-ad-background-link"],["download-font-button2",".download-font-button"],["unclickable","","stay"],["is-hidden"]];
 
-const hostnamesMap = new Map([["apps2app.com",0],["appsmodz.com",0],["xda-developers.com",1],["rechub.tv",2],["paid4.link",3],["go.gets4link.com",4],["quizlet.com",[5,6,7]],["funker530.com",8],["tinyurl.is",9],["av01.tv",10],["so1.asia",11],["top1iq.com",12],["freebrightsoft.com",13],["artribune.com",14],["bestfonts.pro",15],["falatron.com",16],["sinonimos.de",17]]);
+const hostnamesMap = new Map([["apps2app.com",0],["appsmodz.com",0],["xda-developers.com",1],["paid4.link",2],["go.gets4link.com",3],["quizlet.com",[4,5,6]],["funker530.com",7],["tinyurl.is",8],["av01.tv",9],["so1.asia",10],["top1iq.com",11],["freebrightsoft.com",12],["artribune.com",13],["bestfonts.pro",14],["falatron.com",15],["sinonimos.de",16]]);
 
 const entitiesMap = new Map([]);
 

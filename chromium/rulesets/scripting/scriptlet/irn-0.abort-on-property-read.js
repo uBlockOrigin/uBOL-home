@@ -44,7 +44,7 @@ const scriptletGlobals = new Map(); // jshint ignore: line
 
 const argsList = [["nocontext"],["faPa"],["vc_url"],["SGPB_POPUP_PARAMS"],["needpop"],["banner"],["window.LOCO_DATA.copyrightTranslation"]];
 
-const hostnamesMap = new Map([["coffeeapps.ir",0],["sclinic.ir",0],["farsroid.com",1],["nab-music.com",2],["tak3da.com",3],["yeknet.ir",4],["zoomg.ir",5],["zoomit.ir",5],["oila.tj",6]]);
+const hostnamesMap = new Map([["coffeeapps.ir",0],["sclinic.ir",0],["farsroid.com",1],["nab-music.com",2],["tak3da.com",3],["yeknet.ir",4],["zoomg.ir",5],["oila.tj",6]]);
 
 const entitiesMap = new Map([]);
 

@@ -42,7 +42,7 @@ const uBOL_jsonPrune = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["props.pageProps.contentfulState.frontPage.sections.[].fields.hasCitrusAdSlot"]];
+const argsList = [["props.pageProps.contentfulState.frontPage.sections.[].fields.hasCitrusAdSlot props.pageProps.contentfulState.frontPage.sections.[].fields.isCitrusAdGrid"]];
 
 const hostnamesMap = new Map([["s-kaupat.fi",0]]);
 

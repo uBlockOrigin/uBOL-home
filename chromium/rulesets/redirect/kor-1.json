@@ -11,7 +11,7 @@
     "video.veilduck.app"
    ]
   },
-  "id": 863,
+  "id": 868,
   "priority": 2
  },
  {
@@ -25,7 +25,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||smrmembers-smr.smartmediarep.com/smc/smrmembers/"
   },
-  "id": 864,
+  "id": 869,
   "priority": 2
  },
  {
@@ -39,7 +39,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||news.mobfeed.co.kr/front/personal/coupang"
   },
-  "id": 865,
+  "id": 870,
   "priority": 2
  },
  {
@@ -53,7 +53,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bigkinds.or.kr/resources/files/banner/"
   },
-  "id": 866,
+  "id": 871,
   "priority": 2
  },
  {
@@ -67,7 +67,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bigkinds.or.kr/assets/*/img/content/*banner"
   },
-  "id": 867,
+  "id": 872,
   "priority": 2
  },
  {
@@ -86,7 +86,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/videoads\\.kakao\\.com\\/adserver\\/api\\/v[0-9]+\\/vmap"
   },
-  "id": 868,
+  "id": 873,
   "priority": 2
  },
  {
@@ -105,7 +105,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/embed/player/image/ads.png"
   },
-  "id": 869,
+  "id": 874,
   "priority": 2
  },
  {
@@ -122,7 +122,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||advimg.ad-mapps.com/sdk/m_plus/image/"
   },
-  "id": 870,
+  "id": 875,
   "priority": 2
  },
  {
@@ -139,7 +139,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ad.smartmediarep.com/netinsight/video/"
   },
-  "id": 871,
+  "id": 876,
   "priority": 2
  },
  {
@@ -156,7 +156,24 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adimg.nate.com/img/*?n="
   },
-  "id": 872,
+  "id": 877,
+  "priority": 2
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/google-ima.js"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "laftel.net"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
+  },
+  "id": 878,
   "priority": 2
  },
  {
@@ -173,7 +190,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
   },
-  "id": 873,
+  "id": 879,
   "priority": 2
  },
  {
@@ -193,7 +210,7 @@
    ],
    "urlFilter": "||via.placeholder.com/"
   },
-  "id": 875,
+  "id": 881,
   "priority": 2
  },
  {
@@ -214,7 +231,7 @@
    ],
    "urlFilter": "||ssl.pstatic.net/tveta/libs/glad/prod/gfp-core.js"
   },
-  "id": 876,
+  "id": 882,
   "priority": 2
  },
  {
@@ -231,7 +248,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 877,
+  "id": 883,
   "priority": 2
  },
  {
@@ -248,7 +265,7 @@
    ],
    "urlFilter": "||amazon-adsystem.com/aax2/apstag.js"
   },
-  "id": 878,
+  "id": 884,
   "priority": 2
  },
  {
@@ -265,7 +282,7 @@
    ],
    "urlFilter": "||googletagservices.com/tag/js/gpt.js"
   },
-  "id": 879,
+  "id": 885,
   "priority": 2
  },
  {
@@ -282,7 +299,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/tag/js/gpt.js"
   },
-  "id": 880,
+  "id": 886,
   "priority": 2
  },
  {
@@ -302,7 +319,7 @@
    ],
    "urlFilter": "||ssl.pstatic.net/tveta/libs/ssp-video/prod/ssp.web.sdk_"
   },
-  "id": 881,
+  "id": 887,
   "priority": 2
  },
  {
@@ -322,7 +339,7 @@
    ],
    "urlFilter": "||mtag.mman.kr/get_ad.mezzo/"
   },
-  "id": 882,
+  "id": 888,
   "priority": 2
  },
  {
@@ -342,7 +359,7 @@
    ],
    "urlFilter": "||googleads.g.doubleclick.net/pagead/ads"
   },
-  "id": 883,
+  "id": 889,
   "priority": 2
  },
  {
@@ -359,7 +376,7 @@
    ],
    "urlFilter": "||advod.sbs.co.kr/sbsad/"
   },
-  "id": 884,
+  "id": 890,
   "priority": 2
  }
 ]

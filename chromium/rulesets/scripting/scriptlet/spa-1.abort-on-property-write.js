@@ -42,9 +42,9 @@ const uBOL_abortOnPropertyWrite = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["ADS_URL"],["adregain_wall"],["adblock"],["ai_front"],["exopop"],["protData"],["pUrlArray"],["pfcu1"]];
+const argsList = [["ADS_URL"],["adregain_wall"],["adblock"],["ai_front"],["redirectpage"],["exopop"],["protData"],["pUrlArray"],["pfcu1"]];
 
-const hostnamesMap = new Map([["raulprietofernandez.net",[0,6]],["tunovelaligera.com",1],["manga-mx.com",2],["meuwindows.com",3],["superhq.net",[4,5]],["hentaikai.com",5],["mrpiracy.top",7]]);
+const hostnamesMap = new Map([["raulprietofernandez.net",[0,7]],["tunovelaligera.com",1],["manga-mx.com",2],["meuwindows.com",3],["animesbr.cc",4],["superhq.net",[5,6]],["hentaikai.com",6],["mrpiracy.top",8]]);
 
 const entitiesMap = new Map([]);
 

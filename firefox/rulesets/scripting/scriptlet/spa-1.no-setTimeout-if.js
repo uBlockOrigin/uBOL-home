@@ -42,7 +42,7 @@ const uBOL_noSetTimeoutIf = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["placebo"],["checkAdblockUser"],["_0x"],["Por favor, desative"],["hasAdblock"],["]]=== 0"],[".adsbygoogle"],["adsbygoogle"],["0=== _0x"],["blocker"],["cicklow_"],["/Tamamo_Blocker|aadb_recheck/"],["window.location.href"],["adsdirect"]];
+const argsList = [["placebo"],["checkAdblockUser"],["_0x"],["Por favor, desative"],["/Adblock|\\.height\\(\\)/"],["]]=== 0"],[".adsbygoogle"],["adsbygoogle"],["0=== _0x"],["blocker"],["cicklow_"],["/Tamamo_Blocker|aadb_recheck/"],["window.location.href"],["adsdirect"]];
 
 const hostnamesMap = new Map([["verasoul.com",0],["zona-leros.com",1],["xerifetech.com",2],["suaads.com",3],["reidoplacar.com",3],["suaurl.com",[3,12]],["guianoticiario.net",4],["resenhasglobais.com",5],["tecword.info",5],["smartdoing.tech",5],["vivercomsaude.online",5],["escplus.es",6],["genshinpro.com.br",7],["it-swarm-es.com",7],["manchetehoje.xyz",8],["unsurcoenlasombra.com",9],["hartico.com",10],["seriesdonghua.com",11],["mundodonghua.com",11],["seriesgratis.biz",13]]);
 

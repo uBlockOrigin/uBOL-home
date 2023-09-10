@@ -42,13 +42,13 @@ const uBOL_addEventListenerDefuser = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["/^(?:contextmenu|keydown)$/"],["/click|load/","popMagic"],["/click|mousedown/","popunder"],["DOMContentLoaded",".j-mini-player__video"],["DOMContentLoaded","/smartweek/"],["DOMContentLoaded","0x"],["click","[native code]"],["click","matches"],["copy","getSelection"],["getexoloader"],["load","AdBlock"],["load","mamydirect"],["scroll","/Creepy/"],["scroll","getBoundingClientRect"],["scroll","players"],["scroll","window.history.pushState"]];
+const argsList = [["/^(?:contextmenu|keydown)$/"],["/click|load/","popMagic"],["/click|mousedown/","popunder"],["DOMContentLoaded",".j-mini-player__video"],["DOMContentLoaded","/smartweek/"],["DOMContentLoaded","0x"],["click","[native code]"],["click","matches"],["copy","getSelection"],["copy","pagelink"],["getexoloader"],["load","AdBlock"],["load","mamydirect"],["scroll","/Creepy/"],["scroll","getBoundingClientRect"],["scroll","players"],["scroll","window.history.pushState"]];
 
-const hostnamesMap = new Map([["7days.ru",0],["fastpic.org",[1,9]],["biqle.org",2],["biqle.ru",2],["rambler.ru",3],["sibnet.ru",4],["sports.ru",5],["softonic.ru",6],["smotrim.ru",7],["ufchgu.ru",8],["romakatya.ru",10],["overclockers.ru",11],["gazeta.ru",12],["m.lenta.ru",13],["www.vesti.ru",14],["lenta.ru",15]]);
+const hostnamesMap = new Map([["7days.ru",0],["fastpic.org",[1,10]],["biqle.org",2],["biqle.ru",2],["rambler.ru",3],["sibnet.ru",4],["sports.ru",5],["softonic.ru",6],["smotrim.ru",7],["ufchgu.ru",8],["iptv.org.ua",9],["romakatya.ru",11],["overclockers.ru",12],["gazeta.ru",13],["m.lenta.ru",14],["www.vesti.ru",15],["lenta.ru",16]]);
 
 const entitiesMap = new Map([]);
 
-const exceptionsMap = new Map([["new.fastpic.org",[1,9]],["id.rambler.ru",[3]],["vp.rambler.ru",[3]],["player.smotrim.ru",[7]]]);
+const exceptionsMap = new Map([["new.fastpic.org",[1,10]],["id.rambler.ru",[3]],["vp.rambler.ru",[3]],["player.smotrim.ru",[7]]]);
 
 /******************************************************************************/
 

@@ -42,9 +42,9 @@ const uBOL_hrefSanitizer = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["a[href*=\"/away.php?to=\"]","?to"],["a[href^=\"//www.ixbt.com/click/?c=\"]","[title]"],["a[href^=\"/redir/\"]","?exturl"],["a[href^=\"/redir/\"]","?vzurl"],["a[href^=\"https://disq.us/url?url=\"]","[title]"],["[href^=\"https://checklink.mail.ru/proxy?\"]","?url"],["[href^=\"https://click.mail.ru/redir?u=\"]","?u"]];
+const argsList = [["a[href*=\"/away.php?to=\"]","?to"],["a[href*=\"/go.php\"]","?url"],["a[href^=\"//www.ixbt.com/click/?c=\"]","[title]"],["a[href^=\"/redir/\"]","?exturl"],["a[href^=\"/redir/\"]","?vzurl"],["a[href^=\"https://disq.us/url?url=\"]","[title]"],["[href^=\"https://checklink.mail.ru/proxy?\"]","?url"],["[href^=\"https://click.mail.ru/redir?u=\"]","?u"]];
 
-const hostnamesMap = new Map([["vk.com",0],["vk.ru",0],["www.ixbt.com",1],["vz.ru",[2,3]],["disqus.com",4],["light.mail.ru",[5,6]]]);
+const hostnamesMap = new Map([["vk.com",0],["vk.ru",0],["game4you.top",1],["games-pc.top",1],["innal.top",1],["naylo.top",1],["rustorka.com",1],["rustorka.net",1],["rustorka.top",1],["rustorkacom.lib",1],["www.ixbt.com",2],["vz.ru",[3,4]],["disqus.com",5],["light.mail.ru",[6,7]]]);
 
 const entitiesMap = new Map([]);
 

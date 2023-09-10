@@ -42,9 +42,9 @@ const uBOL_abortCurrentScript = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["vc_url"],["watermarkAdData"],["document.onclick","checkCookie"],["disableSelection","reEnable"],["eif"],["document.onclick","Hamisheonlinepaps"],["jQuery","Drupal"],["jQuery","contextmenu"],["reEnable"],["document.oncontextmenu"],["jQuery","wccp_pro"],["clear_body_at_all_for_extentions"],["pa_vc_url"],["document.oncontextmenu","","/^data:/"],["document.getElementById","style.display"],["document.write","renderAds"],["document.getElementById","ad"]];
+const argsList = [["vc_url"],["watermarkAdData"],["document.onclick","checkCookie"],["disableSelection","reEnable"],["eif"],["document.onclick","Hamisheonlinepaps"],["jQuery","Drupal"],["jQuery","contextmenu"],["reEnable"],["document.oncontextmenu"],["jQuery","wccp_pro"],["clear_body_at_all_for_extentions"],["pa_vc_url"],["document.oncontextmenu","","/^data:/"],["document.write","renderAds"],["document.getElementById","ad"]];
 
-const hostnamesMap = new Map([["androidparsi.ir",0],["dailymobile.ir",0],["tarfandha.org",0],["alaatv.com",1],["bandmoviez.one",2],["coffeeapps.ir",3],["farnet.io",4],["hamisheonline.com",5],["iranstar.com",6],["itarfand.com",7],["jafekri.com",[8,9,10,11]],["jeyran.net",9],["searchline.ir",9],["takmili.com",9],["vakil.net",9],["mybia4music.com",12],["public-psychology.ir",13],["p30download.ir",14],["sclinic.ir",3],["tabnak.ir",15],["tgju.org",16]]);
+const hostnamesMap = new Map([["androidparsi.ir",0],["dailymobile.ir",0],["tarfandha.org",0],["alaatv.com",1],["bandmoviez.one",2],["coffeeapps.ir",3],["farnet.io",4],["hamisheonline.com",5],["iranstar.com",6],["itarfand.com",7],["jafekri.com",[8,9,10,11]],["jeyran.net",9],["searchline.ir",9],["takmili.com",9],["vakil.net",9],["mybia4music.com",12],["public-psychology.ir",13],["sclinic.ir",3],["tabnak.ir",14],["tgju.org",15]]);
 
 const entitiesMap = new Map([]);
 

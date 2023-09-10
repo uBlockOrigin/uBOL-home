@@ -44,7 +44,7 @@ const scriptletGlobals = new Map(); // jshint ignore: line
 
 const argsList = [["/#EXT-X-DISCONTINUITY.{1,100}#EXT-X-DISCONTINUITY/gm","mixed.m3u8"]];
 
-const hostnamesMap = new Map([["mephimtv.org",0]]);
+const hostnamesMap = new Map([["mephimtv.net",0]]);
 
 const entitiesMap = new Map([]);
 

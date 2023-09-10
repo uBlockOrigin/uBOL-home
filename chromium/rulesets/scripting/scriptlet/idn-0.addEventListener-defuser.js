@@ -44,7 +44,7 @@ const scriptletGlobals = new Map(); // jshint ignore: line
 
 const argsList = [["click","linkOpened"]];
 
-const hostnamesMap = new Map([["info.mapsaddress.com",0]]);
+const hostnamesMap = new Map([["info.mapsaddress.com",0],["info.vebma.com",0]]);
 
 const entitiesMap = new Map([]);
 

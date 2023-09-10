@@ -42,9 +42,9 @@ const uBOL_removeNodeText = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["script","AdBlocker"],["script","hidemy.name"],["style","/body[\\s]{1}{[\\s][\\t][\\t]*background-color:|body{background-color:/"],["script","\"Shadow"]];
+const argsList = [["script","/gtag\\('event'/"],["script","AdBlocker"],["script","hidemy.name"],["script","message_ads"],["style","/body[\\s]{1}{[\\s][\\t][\\t]*background-color:|body{background-color:/"],["script","\"Shadow"]];
 
-const hostnamesMap = new Map([["sports.ru",0],["2ip.ua",1],["root-nation.com",2],["avtovod.com.ua",3],["bigmir.net",3],["buhgalter.com.ua",3],["buhgalter911.com",3],["censor.net",3],["dengi.ua",3],["ditey.com",3],["epravda.com.ua",3],["eurointegration.com.ua",3],["facenews.ua",3],["gazeta.ua",3],["gorod.dp.ua",3],["hvylya.net",3],["i.ua",3],["inforesist.org",3],["isport.ua",3],["ivona.ua",3],["kolobok.ua",3],["kriminal.tv",3],["meteo.ua",3],["meteofor.com.ua",3],["nnovosti.info",3],["nv.ua",3],["panno4ka.net",3],["pogodaua.com",3],["pravda.com.ua",3],["real-vin.com",3],["smak.ua",3],["stravy.net",3],["tochka.net",3],["tv.ua",3],["viva.ua",3],["vsetv.com",3],["www.ukr.net",3]]);
+const hostnamesMap = new Map([["inforesist.org",[0,5]],["sports.ru",1],["2ip.ua",2],["gsm.in.ua",3],["root-nation.com",4],["avtovod.com.ua",5],["bigmir.net",5],["buhgalter.com.ua",5],["buhgalter911.com",5],["censor.net",5],["dengi.ua",5],["ditey.com",5],["epravda.com.ua",5],["eurointegration.com.ua",5],["facenews.ua",5],["gazeta.ua",5],["gorod.dp.ua",5],["hvylya.net",5],["i.ua",5],["isport.ua",5],["ivona.ua",5],["kolobok.ua",5],["kriminal.tv",5],["meteo.ua",5],["meteofor.com.ua",5],["nnovosti.info",5],["nv.ua",5],["panno4ka.net",5],["pogodaua.com",5],["pravda.com.ua",5],["real-vin.com",5],["smak.ua",5],["stravy.net",5],["tochka.net",5],["tv.ua",5],["viva.ua",5],["vsetv.com",5],["www.ukr.net",5]]);
 
 const entitiesMap = new Map([]);
 

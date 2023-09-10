@@ -21,7 +21,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16683
+  "id": 15832
  },
  {
   "action": {
@@ -49,7 +49,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16684
+  "id": 15833
  },
  {
   "action": {
@@ -74,7 +74,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16686
+  "id": 15835
  },
  {
   "action": {
@@ -102,7 +102,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16687
+  "id": 15836
  },
  {
   "action": {
@@ -127,7 +127,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16689
+  "id": 15838
  },
  {
   "action": {
@@ -153,7 +153,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16690
+  "id": 15839
  },
  {
   "action": {
@@ -176,7 +176,7 @@
    ],
    "urlFilter": "||play.google.com/store/apps/*referrer"
   },
-  "id": 16691
+  "id": 15840
  },
  {
   "action": {
@@ -199,7 +199,7 @@
    ],
    "urlFilter": "||apps.apple.com/*/app/*referrer"
   },
-  "id": 16692
+  "id": 15841
  },
  {
   "action": {
@@ -223,7 +223,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16693
+  "id": 15842
  },
  {
   "action": {
@@ -288,7 +288,6 @@
        "oft_lk",
        "oft_sk",
        "oly_anon_id",
-       "oly_enc_id",
        "pk_campaign",
        "pk_medium",
        "pk_source",
@@ -314,7 +313,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16695
+  "id": 15844
  },
  {
   "action": {
@@ -322,7 +321,35 @@
     "transform": {
      "queryTransform": {
       "removeParams": [
-       "rdt"
+       "asc_campaign",
+       "asc_refurl",
+       "asc_source"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "aboutamazon.com",
+    "amzn.to"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 15845
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "mod"
       ]
      }
     }
@@ -331,7 +358,7 @@
   },
   "condition": {
    "requestDomains": [
-    "reddit.com"
+    "wsj.com"
    ],
    "resourceTypes": [
     "main_frame",
@@ -339,7 +366,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16696
+  "id": 15846
  },
  {
   "action": {
@@ -364,7 +391,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16698
+  "id": 15848
  },
  {
   "action": {
@@ -387,7 +414,7 @@
     "image"
    ]
   },
-  "id": 16720
+  "id": 15870
  },
  {
   "action": {
@@ -407,7 +434,7 @@
    ],
    "urlFilter": "||track1.aniview.com/track?"
   },
-  "id": 16721
+  "id": 15871
  },
  {
   "action": {
@@ -430,7 +457,7 @@
    ],
    "urlFilter": "||hktvmall.com/yuicombo?"
   },
-  "id": 16822
+  "id": 15973
  },
  {
   "action": {
@@ -456,7 +483,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16871
+  "id": 16022
  },
  {
   "action": {
@@ -482,7 +509,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16873
+  "id": 16024
  },
  {
   "action": {
@@ -506,7 +533,7 @@
    ],
    "urlFilter": "||brightcove.com/playback/*/*?ad_config_id"
   },
-  "id": 16887
+  "id": 16038
  },
  {
   "action": {
@@ -530,7 +557,7 @@
    ],
    "urlFilter": "||brightcovecdn.com/playback/*/*?ad_config_id"
   },
-  "id": 16888
+  "id": 16039
  },
  {
   "action": {
@@ -553,7 +580,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16889
+  "id": 16040
  },
  {
   "action": {
@@ -581,7 +608,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16890
+  "id": 16041
  },
  {
   "action": {
@@ -602,7 +629,7 @@
    ],
    "urlFilter": "||cxm-api.fifa.com/fifaplusweb/api/video/"
   },
-  "id": 16891
+  "id": 16042
  },
  {
   "action": {
@@ -626,7 +653,7 @@
    ],
    "urlFilter": "||hbo.yspsvc-na.net/csm/*&caid="
   },
-  "id": 16893
+  "id": 16044
  },
  {
   "action": {
@@ -650,7 +677,7 @@
    ],
    "urlFilter": "&caid="
   },
-  "id": 16894
+  "id": 16045
  },
  {
   "action": {
@@ -676,7 +703,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16896
+  "id": 16047
  },
  {
   "action": {
@@ -700,7 +727,7 @@
    ],
    "urlFilter": "||warnermediacdn.com/csm/*&caid="
   },
-  "id": 16898
+  "id": 16049
  },
  {
   "action": {
@@ -724,7 +751,7 @@
    ],
    "urlFilter": "||warnermediacdn.com/csm/*afid="
   },
-  "id": 16899
+  "id": 16050
  },
  {
   "action": {
@@ -748,7 +775,7 @@
    ],
    "urlFilter": "||warnermediacdn.com/csm/*app_csid="
   },
-  "id": 16900
+  "id": 16051
  },
  {
   "action": {
@@ -772,7 +799,7 @@
    ],
    "urlFilter": "||warnermediacdn.com/csm/*conf_csid="
   },
-  "id": 16901
+  "id": 16052
  },
  {
   "action": {
@@ -796,7 +823,7 @@
    ],
    "urlFilter": "||medium.ngtv.io/v2/media/*&ssaiprofile="
   },
-  "id": 16902
+  "id": 16053
  },
  {
   "action": {
@@ -820,7 +847,7 @@
    ],
    "urlFilter": "||googleads.g.doubleclick.net/pagead/ads"
   },
-  "id": 16941
+  "id": 16092
  },
  {
   "action": {
@@ -842,7 +869,7 @@
    ],
    "urlFilter": "||hentai-party.com/*?view="
   },
-  "id": 17035
+  "id": 16189
  },
  {
   "action": {
@@ -864,7 +891,7 @@
    ],
    "urlFilter": "||hentaicomics.pro/*?code="
   },
-  "id": 17036
+  "id": 16190
  },
  {
   "action": {
@@ -886,7 +913,30 @@
    ],
    "urlFilter": "||xxx-comics.pro/*?view="
   },
-  "id": 17037
+  "id": 16191
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "rdt"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "requestDomains": [
+    "reddit.com"
+   ],
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 16193
  },
  {
   "action": {
@@ -912,7 +962,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 17079
+  "id": 16234
  },
  {
   "action": {
@@ -933,6 +983,6 @@
    ],
    "urlFilter": "*gdpr_consent"
   },
-  "id": 17082
+  "id": 16237
  }
 ]

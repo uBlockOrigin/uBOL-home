@@ -15,7 +15,29 @@
    ],
    "urlFilter": "||amedia.online/templates/animedia/js/libs.js"
   },
-  "id": 5784
+  "id": 5787
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "geoblock"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "(aniqit|kodik).",
+   "resourceTypes": [
+    "sub_frame"
+   ]
+  },
+  "id": 5825
  },
  {
   "action": {
@@ -33,31 +55,7 @@
    ],
    "urlFilter": "||1plus1.video/*/embed/*autoplay=1"
   },
-  "id": 5818
- },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "geoblock"
-      ]
-     }
-    }
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "requestDomains": [
-    "aniqit.com",
-    "kodik.info"
-   ],
-   "resourceTypes": [
-    "sub_frame"
-   ]
-  },
-  "id": 5819
+  "id": 5826
  },
  {
   "action": {
@@ -79,7 +77,7 @@
    ],
    "urlFilter": "||cosmonova-broadcast.tv/player?autoplay="
   },
-  "id": 5820
+  "id": 5827
  },
  {
   "action": {
@@ -100,7 +98,7 @@
    ],
    "urlFilter": "||frontend.vh.yandex.ru/player/*autoplay=1"
   },
-  "id": 5821
+  "id": 5828
  },
  {
   "action": {
@@ -122,7 +120,7 @@
    ],
    "urlFilter": "||ipcamlive.com/player/player.php?*autoplay=true"
   },
-  "id": 5822
+  "id": 5829
  },
  {
   "action": {
@@ -144,7 +142,7 @@
    ],
    "urlFilter": "||my.mail.ru/video/embed/*autoplay=1"
   },
-  "id": 5823
+  "id": 5830
  },
  {
   "action": {
@@ -162,7 +160,7 @@
    ],
    "urlFilter": "||sportrecs.com/embed/*autoplay=1"
   },
-  "id": 5825
+  "id": 5832
  },
  {
   "action": {
@@ -180,7 +178,7 @@
    ],
    "urlFilter": "||u-stream.in/start/*&autoplay=1"
   },
-  "id": 5826
+  "id": 5833
  },
  {
   "action": {
@@ -203,7 +201,7 @@
    ],
    "urlFilter": "||video.matchtv.ru/iframe/feed/*autostart=1"
   },
-  "id": 5827
+  "id": 5834
  },
  {
   "action": {
@@ -228,7 +226,7 @@
    ],
    "urlFilter": "||youtube-nocookie.com/embed/*autoplay=1"
   },
-  "id": 5829
+  "id": 5835
  },
  {
   "action": {
@@ -250,7 +248,7 @@
    ],
    "urlFilter": "||youtube.com/embed/*autoplay=1"
   },
-  "id": 5830
+  "id": 5836
  },
  {
   "action": {
@@ -268,7 +266,7 @@
    ],
    "urlFilter": "||ok.ru/videoembed/*autoplay=1"
   },
-  "id": 5831
+  "id": 5837
  },
  {
   "action": {
@@ -287,7 +285,7 @@
    ],
    "urlFilter": "||dzen.ru/embed/*autoplay=1"
   },
-  "id": 5837
+  "id": 5843
  },
  {
   "action": {
@@ -310,6 +308,6 @@
    ],
    "urlFilter": "||vk.com/video_ext.php?"
   },
-  "id": 5838
+  "id": 5844
  }
 ]

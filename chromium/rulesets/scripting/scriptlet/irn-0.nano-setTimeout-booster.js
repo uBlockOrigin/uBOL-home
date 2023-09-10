@@ -42,9 +42,9 @@ const uBOL_nanoSetTimeoutBooster = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["document.getElementById","*","0.01"],["","","0"]];
+const argsList = [["document.getElementById","*","0.01"]];
 
-const hostnamesMap = new Map([["khabarpu.com",0],["trainbit.com",1]]);
+const hostnamesMap = new Map([["khabarpu.com",0]]);
 
 const entitiesMap = new Map([]);
 

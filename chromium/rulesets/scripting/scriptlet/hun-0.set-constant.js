@@ -42,9 +42,9 @@ const uBOL_setConstant = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["adblock","false"],["AdHandler.adblocked","0"],["AdHandler.adBlockEnabled","0"],["AdHandler.checkAdblock","noopFunc"],["gemiusStream","{}"],["gemiusStream.event","noopFunc"],["window.ado","null"],["tie.ad_blocker_detector","undefined"]];
+const argsList = [["adblock","false"],["AdHandler.adblocked","0"],["AdHandler.adBlockEnabled","0"],["AdHandler.checkAdblock","noopFunc"],["tie.ad_blocker_detector","undefined"],["gemiusStream","{}"],["gemiusStream.event","noopFunc"],["window.ado","null"]];
 
-const hostnamesMap = new Map([["angol-magyar-szotar.hu",0],["embed.indavideo.hu",[1,2,3]],["embed.rtl.hu",[4,5]],["femina.hu",6],["huaweiblog.hu",7]]);
+const hostnamesMap = new Map([["angol-magyar-szotar.hu",0],["embed.indavideo.hu",[1,2,3]],["huaweiblog.hu",4],["embed.rtl.hu",[5,6]],["femina.hu",7]]);
 
 const entitiesMap = new Map([]);
 

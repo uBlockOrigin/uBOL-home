@@ -20,7 +20,7 @@
     "sub_frame"
    ]
   },
-  "id": 1506
+  "id": 1508
  },
  {
   "action": {
@@ -42,7 +42,7 @@
     "sub_frame"
    ]
   },
-  "id": 1507
+  "id": 1509
  },
  {
   "action": {
@@ -64,7 +64,7 @@
     "sub_frame"
    ]
   },
-  "id": 1508
+  "id": 1510
  },
  {
   "action": {
@@ -86,7 +86,7 @@
     "sub_frame"
    ]
   },
-  "id": 1509
+  "id": 1511
  },
  {
   "action": {
@@ -109,30 +109,6 @@
     "sub_frame"
    ]
   },
-  "id": 1510
- },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "frame-src"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "chromeactions.com",
-    "mixesoft.com",
-    "mycinema.pro"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 1511
+  "id": 1512
  }
 ]

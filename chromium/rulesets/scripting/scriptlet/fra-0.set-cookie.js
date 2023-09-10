@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: irn-0
+// ruleset: fra-0
 
 /******************************************************************************/
 
@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_noSetTimeoutIf = function() {
+const uBOL_setCookie = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["show_modal"]];
+const argsList = [["warnadb","1"],["q_pop_noel","true"],["mpf_popup_desktop","true"]];
 
-const hostnamesMap = new Map([["skinak.ir",0]]);
+const hostnamesMap = new Map([["pianoweb.fr",0],["lexpress.fr",1],["monpetitforfait.com",2]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,52 +52,35 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function noSetTimeoutIf(
-    needle = '',
-    delay = ''
+function setCookie(
+    name = '',
+    value = '',
+    path = ''
 ) {
-    if ( typeof needle !== 'string' ) { return; }
-    const safe = safeSelf();
-    const needleNot = needle.charAt(0) === '!';
-    if ( needleNot ) { needle = needle.slice(1); }
-    if ( delay === '' ) { delay = undefined; }
-    let delayNot = false;
-    if ( delay !== undefined ) {
-        delayNot = delay.charAt(0) === '!';
-        if ( delayNot ) { delay = delay.slice(1); }
-        delay = parseInt(delay, 10);
+    if ( name === '' ) { return; }
+    name = encodeURIComponent(name);
+
+    const validValues = [
+        'true', 'false',
+        'yes', 'y', 'no', 'n',
+        'ok',
+        'accept', 'reject',
+        'allow', 'deny',
+    ];
+    if ( validValues.includes(value.toLowerCase()) === false ) {
+        if ( /^\d+$/.test(value) === false ) { return; }
+        const n = parseInt(value, 10);
+        if ( n > 15 ) { return; }
     }
-    const log = needleNot === false && needle === '' && delay === undefined
-        ? console.log
-        : undefined;
-    const reNeedle = safe.patternToRegex(needle);
-    self.setTimeout = new Proxy(self.setTimeout, {
-        apply: function(target, thisArg, args) {
-            const a = String(args[0]);
-            const b = args[1];
-            if ( log !== undefined ) {
-                log('uBO: setTimeout("%s", %s)', a, b);
-            } else {
-                let defuse;
-                if ( needle !== '' ) {
-                    defuse = reNeedle.test(a) !== needleNot;
-                }
-                if ( defuse !== false && delay !== undefined ) {
-                    defuse = (b === delay || isNaN(b) && isNaN(delay) ) !== delayNot;
-                }
-                if ( defuse ) {
-                    args[0] = function(){};
-                }
-            }
-            return Reflect.apply(target, thisArg, args);
-        },
-        get(target, prop, receiver) {
-            if ( prop === 'toString' ) {
-                return target.toString.bind(target);
-            }
-            return Reflect.get(target, prop, receiver);
-        },
-    });
+    value = encodeURIComponent(value);
+
+    setCookieHelper(
+        name,
+        value,
+        '',
+        path,
+        safeSelf().getExtraArgs(Array.from(arguments), 3)
+    );
 }
 
 function safeSelf() {
@@ -186,6 +169,43 @@ function safeSelf() {
     return safe;
 }
 
+function setCookieHelper(
+    name = '',
+    value = '',
+    expires = '',
+    path = '',
+    options = {},
+) {
+    const cookieExists = (name, value) => {
+        return document.cookie.split(/\s*;\s*/).some(s => {
+            const pos = s.indexOf('=');
+            if ( pos === -1 ) { return false; }
+            if ( s.slice(0, pos) !== name ) { return false; }
+            if ( s.slice(pos+1) !== value ) { return false; }
+            return true;
+        });
+    };
+
+    if ( options.reload && cookieExists(name, value) ) { return; }
+
+    const cookieParts = [ name, '=', value ];
+    if ( expires !== '' ) {
+        cookieParts.push('; expires=', expires);
+    }
+
+    if ( path === '' ) { path = '/'; }
+    else if ( path === 'none' ) { path = ''; }
+    if ( path !== '' && path !== '/' ) { return; }
+    if ( path === '/' ) {
+        cookieParts.push('; path=/');
+    }
+    document.cookie = cookieParts.join('');
+
+    if ( options.reload && cookieExists(name, value) ) {
+        window.location.reload();
+    }
+}
+
 /******************************************************************************/
 
 const hnParts = [];
@@ -246,7 +266,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { noSetTimeoutIf(...argsList[i]); }
+    try { setCookie(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -266,7 +286,7 @@ argsList.length = 0;
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {
-    return uBOL_noSetTimeoutIf();
+    return uBOL_setCookie();
 }
 
 // Firefox
@@ -274,11 +294,11 @@ if ( typeof wrappedJSObject !== 'object' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_noSetTimeoutIf = cloneInto([
-            [ '(', uBOL_noSetTimeoutIf.toString(), ')();' ],
+        page.uBOL_setCookie = cloneInto([
+            [ '(', uBOL_setCookie.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_noSetTimeoutIf);
+        const blob = new page.Blob(...page.uBOL_setCookie);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -292,7 +312,7 @@ if ( typeof wrappedJSObject !== 'object' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_noSetTimeoutIf;
+    delete page.uBOL_setCookie;
 }
 
 /******************************************************************************/

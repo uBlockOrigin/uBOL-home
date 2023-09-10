@@ -42,9 +42,9 @@ const uBOL_removeClass = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["modal-open","body"],["bottom-l","body","stay"],["bottom-s","body","stay"],["modal-open","body","stay"],["have-ad","body"],["darken","body"],["blurry","body > :not(.m-fbPopup)","stay"]];
+const argsList = [["modal-open","body"],["bottom-l","body","stay"],["bottom-s","body","stay"],["modal-open","body","stay"],["darken","body"],["blurry","body > :not(.m-fbPopup)","stay"],["have-ad","body"]];
 
-const hostnamesMap = new Map([["hetek.hu",0],["magyarorszag.hu",[1,2]],["mandiner.hu",3],["pcworld.hu",4],["traffihunter.hu",5],["vezess.hu",6]]);
+const hostnamesMap = new Map([["hetek.hu",0],["magyarorszag.hu",[1,2]],["mandiner.hu",3],["traffihunter.hu",4],["vezess.hu",5],["pcworld.hu",6]]);
 
 const entitiesMap = new Map([]);
 

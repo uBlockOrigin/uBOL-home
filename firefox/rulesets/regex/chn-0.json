@@ -5,11 +5,23 @@
   },
   "condition": {
    "initiatorDomains": [
+    "h-ciyuan.com"
+   ],
+   "regexFilter": "secureserver.net\\/.*[-\\/]\\d+x\\d+\\.gif"
+  },
+  "id": 33
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
     "meitui.org"
    ],
    "regexFilter": "meitui.org\\/[a-z][a-z].js"
   },
-  "id": 198
+  "id": 203
  },
  {
   "action": {
@@ -21,7 +33,7 @@
    ],
    "regexFilter": "meitui.org\\/[a-z].js"
   },
-  "id": 199
+  "id": 204
  },
  {
   "action": {
@@ -33,7 +45,7 @@
    ],
    "regexFilter": "\\/upload\\/[a-z0-9]{7}\\/[0-9]+-[0-9]?\\/[a-z0-9]{32}\\.gif"
   },
-  "id": 324
+  "id": 329
  },
  {
   "action": {
@@ -45,7 +57,7 @@
    ],
    "regexFilter": "dngz.net\\/g\\d+.js"
   },
-  "id": 346
+  "id": 351
  },
  {
   "action": {
@@ -57,7 +69,7 @@
    ],
    "regexFilter": "\\/theme\\/js\\/[a-z0-9]{5,}\\.js\\?v="
   },
-  "id": 1070
+  "id": 1079
  },
  {
   "action": {
@@ -74,7 +86,7 @@
     "script"
    ]
   },
-  "id": 5440
+  "id": 5446
  },
  {
   "action": {
@@ -314,7 +326,7 @@
     "xszww8.net",
     "xuanjiezhimen.org",
     "xuessex.com",
-    "xunsilu.org",
+    "xunsilu86.com",
     "xwdsc.com",
     "xxbiqudu.com",
     "xygwh.cc",
@@ -337,7 +349,7 @@
     "script"
    ]
   },
-  "id": 5447
+  "id": 5453
  },
  {
   "action": {
@@ -350,7 +362,7 @@
     "image"
    ]
   },
-  "id": 5505
+  "id": 5511
  },
  {
   "action": {
@@ -363,7 +375,7 @@
     "script"
    ]
   },
-  "id": 5560
+  "id": 5568
  },
  {
   "action": {
@@ -376,7 +388,7 @@
     "script"
    ]
   },
-  "id": 5561
+  "id": 5569
  },
  {
   "action": {
@@ -389,6 +401,6 @@
     "xmlhttprequest"
    ]
   },
-  "id": 5594
+  "id": 5602
  }
 ]

@@ -42,9 +42,9 @@ const uBOL_abortCurrentScript = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["window._ceCTSData","hirdetések"],["document.head","currentScript.remove"],["window._ceCTSData","a2blckLayer"],["document.addEventListener","ai_run_"],["document.getElementById","ai_run_"],["document.createElement","setTimeout"]];
+const argsList = [["document.createElement","setTimeout"],["window._ceCTSData","hirdetések"],["document.head","currentScript.remove"],["window._ceCTSData","a2blckLayer"],["document.addEventListener","ai_run_"],["document.getElementById","ai_run_"]];
 
-const hostnamesMap = new Map([["24.hu",0],["divany.hu",1],["totalcar.hu",1],["totalbike.hu",1],["hazipatika.com",2],["magyarhang.org",[3,4]],["hang.hu",[3,4]],["napiszar.com",5]]);
+const hostnamesMap = new Map([["napiszar.com",0],["24.hu",1],["divany.hu",2],["totalcar.hu",2],["totalbike.hu",2],["hazipatika.com",3],["magyarhang.org",[4,5]],["hang.hu",[4,5]]]);
 
 const entitiesMap = new Map([]);
 

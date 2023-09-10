@@ -42,9 +42,9 @@ const uBOL_noWindowOpenIf = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["/bit\\.ly|kbtv/"],["0","qciss.net"],[],["88p2p.com"]];
+const argsList = [[],["/bit\\.ly|kbtv/"],["0","qciss.net"],["88p2p.com"]];
 
-const hostnamesMap = new Map([["iwatchme2u.com",0],["qciss.net",1],["88files.net",2],["freejavbt.com",2],["85st.com",2],["5278.cc",3]]);
+const hostnamesMap = new Map([["embedrise.com",0],["88files.net",0],["freejavbt.com",0],["85st.com",0],["iwatchme2u.com",1],["qciss.net",2],["5278.cc",3]]);
 
 const entitiesMap = new Map([]);
 

@@ -42,9 +42,9 @@ const uBOL_nanoSetTimeoutBooster = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["SkipMsg()","*","0.02"]];
+const argsList = [["SkipMsg()","*","0.02"],["count"]];
 
-const hostnamesMap = new Map([["coolpc.com.tw",0],["coolpc.tw",0]]);
+const hostnamesMap = new Map([["coolpc.com.tw",0],["coolpc.tw",0],["store.kde.org",1]]);
 
 const entitiesMap = new Map([]);
 

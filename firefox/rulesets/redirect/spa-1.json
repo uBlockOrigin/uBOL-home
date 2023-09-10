@@ -21,7 +21,7 @@
    ],
    "urlFilter": "||static.criteo.net/js/px.js?ch="
   },
-  "id": 929,
+  "id": 934,
   "priority": 12
  },
  {
@@ -46,8 +46,49 @@
    ],
    "urlFilter": "||cas.criteo.com/delivery/ajs.php"
   },
-  "id": 930,
+  "id": 935,
   "priority": 12
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop.js"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "southpark.lat",
+    "southparkstudios.com.br"
+   ],
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||imasdk.googleapis.com/pal/sdkloader/pal.js"
+  },
+  "id": 936,
+  "priority": 2
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/google-ima.js"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "niusdiario.es",
+    "southpark.lat",
+    "southparkstudios.com.br"
+   ],
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
+  },
+  "id": 937,
+  "priority": 2
  },
  {
   "action": {
@@ -74,7 +115,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 931,
+  "id": 938,
   "priority": 2
  },
  {
@@ -93,7 +134,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 932,
+  "id": 939,
   "priority": 2
  },
  {
@@ -114,7 +155,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 933,
+  "id": 940,
   "priority": 12
  },
  {
@@ -126,6 +167,7 @@
   },
   "condition": {
    "initiatorDomains": [
+    "descargaseriestv.com",
     "tvguia.es",
     "yesmangas1.com"
    ],
@@ -134,7 +176,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 934,
+  "id": 941,
   "priority": 12
  },
  {
@@ -156,7 +198,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 935,
+  "id": 942,
   "priority": 12
  },
  {
@@ -178,7 +220,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 936,
+  "id": 943,
   "priority": 12
  },
  {
@@ -198,7 +240,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
   },
-  "id": 937,
+  "id": 944,
   "priority": 2
  },
  {
@@ -217,7 +259,7 @@
    ],
    "urlFilter": "||static.vocento.com/dab/latest/strategy.js"
   },
-  "id": 938,
+  "id": 945,
   "priority": 12
  },
  {
@@ -237,7 +279,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 939,
+  "id": 946,
   "priority": 2
  },
  {
@@ -259,7 +301,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 940,
+  "id": 947,
   "priority": 2
  },
  {
@@ -278,7 +320,7 @@
    ],
    "urlFilter": "||st.bebi.com/bebi_v*.js"
   },
-  "id": 941,
+  "id": 948,
   "priority": 2
  },
  {
@@ -298,7 +340,7 @@
    ],
    "urlFilter": "||cdn.adtrue.com/rtb/async.js"
   },
-  "id": 942,
+  "id": 949,
   "priority": 12
  },
  {
@@ -318,7 +360,7 @@
    ],
    "urlFilter": "||cdn.onesignal.com/sdks/onesignalsdk.js"
   },
-  "id": 943,
+  "id": 950,
   "priority": 12
  },
  {
@@ -337,26 +379,7 @@
    ],
    "urlFilter": "/tghr.js"
   },
-  "id": 944,
-  "priority": 2
- },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/google-ima.js"
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "niusdiario.es"
-   ],
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
-  },
-  "id": 945,
+  "id": 951,
   "priority": 2
  },
  {
@@ -375,7 +398,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/tag/js/gpt.js"
   },
-  "id": 946,
+  "id": 952,
   "priority": 2
  },
  {
@@ -394,7 +417,7 @@
    ],
    "urlFilter": "||googletagservices.com/tag/js/gpt.js"
   },
-  "id": 947,
+  "id": 953,
   "priority": 12
  },
  {
@@ -415,7 +438,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 948,
+  "id": 954,
   "priority": 2
  },
  {
@@ -434,7 +457,7 @@
    ],
    "urlFilter": "||ads-twitter.com/uwt.js"
   },
-  "id": 949,
+  "id": 955,
   "priority": 12
  },
  {
@@ -450,7 +473,7 @@
    ],
    "urlFilter": "||mahimeta.com/networks/ad_code.php"
   },
-  "id": 950,
+  "id": 956,
   "priority": 2
  },
  {
@@ -469,7 +492,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 951,
+  "id": 957,
   "priority": 12
  },
  {
@@ -488,7 +511,7 @@
    ],
    "urlFilter": "||cloud.mail.ru/weblink/view/*?advideo"
   },
-  "id": 952,
+  "id": 958,
   "priority": 2
  },
  {
@@ -507,7 +530,7 @@
    ],
    "urlFilter": "||baixarhentais.com/*/*-pre-roll-*.mp4"
   },
-  "id": 953,
+  "id": 959,
   "priority": 2
  },
  {
@@ -523,7 +546,7 @@
    ],
    "urlFilter": "||pobre.tv/videos/bt.mp4"
   },
-  "id": 954,
+  "id": 960,
   "priority": 2
  },
  {
@@ -539,7 +562,7 @@
    ],
    "urlFilter": "||hentaiporno.xxx/wp-content/uploads/*/*_video.mp4.mp4"
   },
-  "id": 955,
+  "id": 961,
   "priority": 2
  }
 ]

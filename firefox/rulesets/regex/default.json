@@ -15,7 +15,7 @@
   "condition": {
    "regexFilter": "(https?:\\/\\/)104\\.154\\..{100,}"
   },
-  "id": 4095
+  "id": 3360
  },
  {
   "action": {
@@ -24,7 +24,7 @@
   "condition": {
    "regexFilter": "(https?:\\/\\/)104\\.197\\..{100,}"
   },
-  "id": 4096
+  "id": 3361
  },
  {
   "action": {
@@ -33,7 +33,7 @@
   "condition": {
    "regexFilter": "(https?:\\/\\/)104\\.198\\..{100,}"
   },
-  "id": 4097
+  "id": 3362
  },
  {
   "action": {
@@ -42,7 +42,7 @@
   "condition": {
    "regexFilter": "(https?:\\/\\/)130\\.211\\..{100,}"
   },
-  "id": 4098
+  "id": 3363
  },
  {
   "action": {
@@ -51,7 +51,7 @@
   "condition": {
    "regexFilter": "(https?:\\/\\/)142\\.91\\.159\\..{100,}"
   },
-  "id": 4099
+  "id": 3364
  },
  {
   "action": {
@@ -60,7 +60,7 @@
   "condition": {
    "regexFilter": "(https?:\\/\\/)213\\.32\\.115\\..{100,}"
   },
-  "id": 4100
+  "id": 3365
  },
  {
   "action": {
@@ -69,7 +69,7 @@
   "condition": {
    "regexFilter": "(https?:\\/\\/)216\\.21\\..{100,}"
   },
-  "id": 4101
+  "id": 3366
  },
  {
   "action": {
@@ -78,7 +78,7 @@
   "condition": {
    "regexFilter": "(https?:\\/\\/)217\\.182\\.11\\..{100,}"
   },
-  "id": 4102
+  "id": 3367
  },
  {
   "action": {
@@ -87,7 +87,7 @@
   "condition": {
    "regexFilter": "(https?:\\/\\/)51\\.195\\.31\\..{100,}"
   },
-  "id": 4103
+  "id": 3368
  },
  {
   "action": {
@@ -118,7 +118,7 @@
    ],
    "regexFilter": "^https?:\\/\\/.*bit(ly)?\\.(com|ly)\\/"
   },
-  "id": 4861
+  "id": 4144
  },
  {
   "action": {
@@ -159,7 +159,7 @@
    ],
    "regexFilter": "^https?:\\/\\/.*\\.(club|news|live|online|store|tech|guru|cloud|bid|xyz|site|pro|info|online|icu|monster|buzz|fun|website|photos|re|casa|top|today|space|network|live|work|systems|ml|world|life)\\/.*"
   },
-  "id": 5280
+  "id": 4579
  },
  {
   "action": {
@@ -171,22 +171,7 @@
     "image"
    ]
   },
-  "id": 12118
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "torrentgalaxy.to"
-   ],
-   "regexFilter": "^https:\\/\\/img\\.wonkychickens\\.org\\/data\\/cover\\/imdb\\/[\\/A-Za-z0-9]+_",
-   "resourceTypes": [
-    "image"
-   ]
-  },
-  "id": 12185
+  "id": 11231
  },
  {
   "action": {
@@ -201,7 +186,7 @@
     "image"
    ]
   },
-  "id": 12201
+  "id": 11317
  },
  {
   "action": {
@@ -216,7 +201,7 @@
     "image"
    ]
   },
-  "id": 12202
+  "id": 11318
  },
  {
   "action": {
@@ -231,7 +216,7 @@
     "image"
    ]
   },
-  "id": 12203
+  "id": 11319
  },
  {
   "action": {
@@ -246,7 +231,7 @@
     "image"
    ]
   },
-  "id": 12204
+  "id": 11320
  },
  {
   "action": {
@@ -261,7 +246,22 @@
     "image"
    ]
   },
-  "id": 12205
+  "id": 11321
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "newser.com"
+   ],
+   "regexFilter": "^https?:\\/\\/(.+?\\.)?newser\\.com[\\/]{1,}.*[a-zA-Z0-9]{3,7}\\/[a-zA-Z0-9]{6,}\\/.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 11322
  },
  {
   "action": {
@@ -276,7 +276,7 @@
     "image"
    ]
   },
-  "id": 12206
+  "id": 11323
  },
  {
   "action": {
@@ -291,7 +291,7 @@
     "image"
    ]
   },
-  "id": 12207
+  "id": 11324
  },
  {
   "action": {
@@ -306,7 +306,7 @@
     "image"
    ]
   },
-  "id": 12208
+  "id": 11325
  },
  {
   "action": {
@@ -321,7 +321,7 @@
     "image"
    ]
   },
-  "id": 12209
+  "id": 11326
  },
  {
   "action": {
@@ -357,7 +357,7 @@
     "image"
    ]
   },
-  "id": 12210
+  "id": 11327
  },
  {
   "action": {
@@ -377,6 +377,7 @@
     "javdaddy.com",
     "manysex.com",
     "mrgay.tube",
+    "onlyporn.tube",
     "porn555.com",
     "pornclassic.tube",
     "pornforrelax.com",
@@ -401,12 +402,12 @@
     "vxxx.com",
     "xmilf.com"
    ],
-   "regexFilter": "\\.[a-z]{3,5}\\/[a-z]{8,12}\\/[a-z]{8,12}\\.js$",
+   "regexFilter": "\\.[a-z]{3,5}\\/[0-9a-z]{8,12}\\/[0-9a-z]{8,12}\\.js$",
    "resourceTypes": [
     "script"
    ]
   },
-  "id": 12416
+  "id": 11538
  },
  {
   "action": {
@@ -418,7 +419,7 @@
     "script"
    ]
   },
-  "id": 12468
+  "id": 11590
  },
  {
   "action": {
@@ -480,7 +481,7 @@
     "script"
    ]
   },
-  "id": 12593
+  "id": 11718
  },
  {
   "action": {
@@ -533,7 +534,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 12602
+  "id": 11727
  },
  {
   "action": {
@@ -633,7 +634,7 @@
     "sub_frame"
    ]
   },
-  "id": 12603
+  "id": 11728
  },
  {
   "action": {
@@ -648,7 +649,7 @@
     "script"
    ]
   },
-  "id": 12604
+  "id": 11729
  },
  {
   "action": {
@@ -663,7 +664,7 @@
     "script"
    ]
   },
-  "id": 12653
+  "id": 11777
  },
  {
   "action": {
@@ -678,7 +679,7 @@
     "script"
    ]
   },
-  "id": 12654
+  "id": 11778
  },
  {
   "action": {
@@ -694,7 +695,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 12655
+  "id": 11779
  },
  {
   "action": {
@@ -711,7 +712,7 @@
     "script"
    ]
   },
-  "id": 12656
+  "id": 11780
  },
  {
   "action": {
@@ -726,7 +727,7 @@
     "script"
    ]
   },
-  "id": 12657
+  "id": 11781
  },
  {
   "action": {
@@ -742,7 +743,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 12658
+  "id": 11782
  },
  {
   "action": {
@@ -755,7 +756,7 @@
     "sub_frame"
    ]
   },
-  "id": 12790
+  "id": 11916
  },
  {
   "action": {
@@ -769,7 +770,7 @@
     "sub_frame"
    ]
   },
-  "id": 12796
+  "id": 11923
  },
  {
   "action": {
@@ -783,7 +784,7 @@
     "sub_frame"
    ]
   },
-  "id": 12797
+  "id": 11924
  },
  {
   "action": {
@@ -795,7 +796,7 @@
     "main_frame"
    ]
   },
-  "id": 12854
+  "id": 11982
  },
  {
   "action": {
@@ -807,7 +808,7 @@
     "main_frame"
    ]
   },
-  "id": 12903
+  "id": 12031
  },
  {
   "action": {
@@ -819,7 +820,7 @@
     "main_frame"
    ]
   },
-  "id": 12904
+  "id": 12032
  },
  {
   "action": {
@@ -831,7 +832,7 @@
     "main_frame"
    ]
   },
-  "id": 12932
+  "id": 12060
  },
  {
   "action": {
@@ -850,7 +851,7 @@
     "main_frame"
    ]
   },
-  "id": 12943
+  "id": 12072
  },
  {
   "action": {
@@ -865,7 +866,7 @@
     "main_frame"
    ]
   },
-  "id": 12944
+  "id": 12073
  },
  {
   "action": {
@@ -880,7 +881,7 @@
     "main_frame"
    ]
   },
-  "id": 12945
+  "id": 12074
  },
  {
   "action": {
@@ -895,7 +896,7 @@
     "main_frame"
    ]
   },
-  "id": 12949
+  "id": 12078
  },
  {
   "action": {
@@ -911,7 +912,7 @@
     "main_frame"
    ]
   },
-  "id": 12954
+  "id": 12083
  },
  {
   "action": {
@@ -923,7 +924,7 @@
     "main_frame"
    ]
   },
-  "id": 12965
+  "id": 12093
  },
  {
   "action": {
@@ -940,7 +941,7 @@
     "main_frame"
    ]
   },
-  "id": 12979
+  "id": 12107
  },
  {
   "action": {
@@ -957,7 +958,7 @@
     "main_frame"
    ]
   },
-  "id": 12986
+  "id": 12114
  },
  {
   "action": {
@@ -974,7 +975,7 @@
     "main_frame"
    ]
   },
-  "id": 12987
+  "id": 12115
  },
  {
   "action": {
@@ -990,7 +991,7 @@
     "main_frame"
    ]
   },
-  "id": 12990
+  "id": 12118
  },
  {
   "action": {
@@ -1007,7 +1008,7 @@
     "main_frame"
    ]
   },
-  "id": 12991
+  "id": 12119
  },
  {
   "action": {
@@ -1023,7 +1024,7 @@
     "image"
    ]
   },
-  "id": 13024
+  "id": 12157
  },
  {
   "action": {
@@ -1039,7 +1040,7 @@
     "image"
    ]
   },
-  "id": 13033
+  "id": 12166
  },
  {
   "action": {
@@ -1055,7 +1056,7 @@
     "image"
    ]
   },
-  "id": 13034
+  "id": 12167
  },
  {
   "action": {
@@ -1071,7 +1072,22 @@
     "image"
    ]
   },
-  "id": 13036
+  "id": 12169
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "im\\.chip\\.de\\/ii\\/[0-9]{3}\\/[0-9a-zA-Z\\/\\.]{54,59}\\?im=AspectCrop.*&hash=[0-9a-z]{27}",
+   "resourceTypes": [
+    "image",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 12183
  },
  {
   "action": {
@@ -1085,7 +1101,7 @@
     "script"
    ]
   },
-  "id": 13074
+  "id": 12206
  },
  {
   "action": {
@@ -1104,7 +1120,7 @@
     "script"
    ]
   },
-  "id": 13077
+  "id": 12209
  },
  {
   "action": {
@@ -1120,7 +1136,7 @@
     "script"
    ]
   },
-  "id": 13113
+  "id": 12245
  },
  {
   "action": {
@@ -1136,7 +1152,7 @@
     "script"
    ]
   },
-  "id": 13119
+  "id": 12251
  },
  {
   "action": {
@@ -1152,7 +1168,7 @@
     "script"
    ]
   },
-  "id": 13255
+  "id": 12386
  },
  {
   "action": {
@@ -1168,7 +1184,7 @@
     "script"
    ]
   },
-  "id": 13259
+  "id": 12390
  },
  {
   "action": {
@@ -1184,7 +1200,7 @@
     "script"
    ]
   },
-  "id": 13266
+  "id": 12397
  },
  {
   "action": {
@@ -1202,7 +1218,7 @@
     "script"
    ]
   },
-  "id": 13270
+  "id": 12401
  },
  {
   "action": {
@@ -1218,7 +1234,7 @@
     "script"
    ]
   },
-  "id": 13288
+  "id": 12419
  },
  {
   "action": {
@@ -1234,7 +1250,7 @@
     "script"
    ]
   },
-  "id": 13300
+  "id": 12431
  },
  {
   "action": {
@@ -1247,7 +1263,7 @@
     "script"
    ]
   },
-  "id": 13301
+  "id": 12432
  },
  {
   "action": {
@@ -1260,7 +1276,7 @@
     "script"
    ]
   },
-  "id": 13305
+  "id": 12436
  },
  {
   "action": {
@@ -1276,7 +1292,7 @@
     "script"
    ]
   },
-  "id": 13307
+  "id": 12438
  },
  {
   "action": {
@@ -1292,7 +1308,7 @@
     "script"
    ]
   },
-  "id": 13315
+  "id": 12446
  },
  {
   "action": {
@@ -1308,7 +1324,7 @@
     "script"
    ]
   },
-  "id": 13318
+  "id": 12449
  },
  {
   "action": {
@@ -1321,7 +1337,7 @@
     "script"
    ]
   },
-  "id": 13319
+  "id": 12450
  },
  {
   "action": {
@@ -1334,7 +1350,7 @@
     "script"
    ]
   },
-  "id": 13320
+  "id": 12451
  },
  {
   "action": {
@@ -1347,7 +1363,7 @@
     "script"
    ]
   },
-  "id": 13321
+  "id": 12452
  },
  {
   "action": {
@@ -1360,7 +1376,7 @@
     "script"
    ]
   },
-  "id": 13322
+  "id": 12453
  },
  {
   "action": {
@@ -1373,7 +1389,7 @@
     "script"
    ]
   },
-  "id": 13323
+  "id": 12454
  },
  {
   "action": {
@@ -1386,7 +1402,7 @@
     "script"
    ]
   },
-  "id": 13324
+  "id": 12455
  },
  {
   "action": {
@@ -1399,7 +1415,7 @@
     "script"
    ]
   },
-  "id": 13325
+  "id": 12456
  },
  {
   "action": {
@@ -1416,7 +1432,7 @@
     "script"
    ]
   },
-  "id": 13326
+  "id": 12457
  },
  {
   "action": {
@@ -1433,7 +1449,7 @@
     "script"
    ]
   },
-  "id": 13329
+  "id": 12460
  },
  {
   "action": {
@@ -1446,7 +1462,7 @@
     "script"
    ]
   },
-  "id": 13333
+  "id": 12464
  },
  {
   "action": {
@@ -1466,7 +1482,6 @@
     "porn555.com",
     "pornzog.com",
     "shemalez.com",
-    "tporn.xxx",
     "tubepornclassic.com",
     "txxx.com",
     "upornia.com",
@@ -1479,7 +1494,7 @@
     "script"
    ]
   },
-  "id": 13334
+  "id": 12466
  },
  {
   "action": {
@@ -1487,8 +1502,7 @@
   },
   "condition": {
    "domainType": "firstParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https:\\/\\/www\\.reddit\\.com\\/svc\\/shreddit\\/[0-9a-z]{8,14}$",
+   "regexFilter": "^https:\\/\\/www\\.reddit\\.com\\/svc\\/shreddit\\/[-/0-9A-z]{9,}$",
    "requestMethods": [
     "post"
    ],
@@ -1496,7 +1510,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 13386
+  "id": 12518
  },
  {
   "action": {
@@ -1515,7 +1529,7 @@
     "sub_frame"
    ]
   },
-  "id": 13397
+  "id": 12529
  },
  {
   "action": {
@@ -1583,7 +1597,7 @@
    ],
    "regexFilter": "^https?:\\/\\/.*\\.(club|bid|biz|xyz|site|pro|info|online|icu|monster|buzz|website|biz|re|casa|top|one|space|network|live|systems|ml|world|life|co)\\/.*"
   },
-  "id": 13613
+  "id": 12745
  },
  {
   "action": {
@@ -1591,11 +1605,570 @@
   },
   "condition": {
    "domainType": "thirdParty",
-   "excludedResourceTypes": [
-    "main_frame",
-    "media",
-    "sub_frame"
+   "regexFilter": "^https?:\\/\\/.*(com|net|top|xyz)\\/(bundle|warning|style|bootstrap|brand|reset|jquery-ui|styles|error|logo|index|favicon|star|header)\\.(png|css)\\?[A-Za-z0-9]{30,}.*"
+  },
+  "id": 12746
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.top\\/[-a-z]{4,}\\.css\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
+   "resourceTypes": [
+    "stylesheet"
+   ]
+  },
+  "id": 12917
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz\\/[-a-z]{4,}\\.css\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
+   "resourceTypes": [
+    "stylesheet"
+   ]
+  },
+  "id": 12918
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.top\\/[a-z]{4,}\\.png\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12927
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz\\/[a-z]{4,}\\.png\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12928
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.buzz\\/[+\\/0-9a-zA-Z]{140,}$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12930
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.info\\/[+\\/0-9a-zA-Z]{140,}$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12931
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.lol\\/[+\\/0-9a-zA-Z]{140,}$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12932
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.one\\/[+\\/0-9a-zA-Z]{140,}$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12933
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.xyz\\/[+\\/0-9a-zA-Z]{140,}$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 12934
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/(?:www\\.|[0-9a-z]{7,10}\\.)?[-0-9a-z]{5,}\\.com\\/\\/?(?:[0-9a-f]{2}\\/){2,3}[0-9a-f]{32}\\.js",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13027
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[0-9a-z]{13,14}\\.cloudfront\\.net\\/\\?[a-z]{3,5}=\\d{6}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13028
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/[0-9a-f]{10}\\.[0-9a-f]{10}\\.com\\/[0-9a-f]{32}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13029
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.com?\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13030
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.info\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13031
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.pro\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13032
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.xyz\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13033
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/(?:cdn77\\.)?aj[0-9a-z]{2}\\d{2}\\.online\\/[0-9a-z]{8}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13057
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/(?:cdn77\\.)?aj[0-9a-z]{2}\\d{2}\\.bid\\/[0-9a-z]{8}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13058
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.[a-z]{2,3}\\/5\\/\\d{6,7}(?:\\?_=\\d+)?$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13078
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/[-a-z]{8,15}\\.(?:com|net)\\/400\\/\\d{7}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13079
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/[-a-z]{8,15}\\.(?:com|net)\\/401\\/\\d{7}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13080
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.(?:com|net)\\/tag\\.min\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13081
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "edu",
+    "gov"
    ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{5,7}\\.com\\/script\\/[-_0-9a-z]+(\\.min)?\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13116
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[a-z]{6,12}\\.com\\/script\\/n[a-z]su\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13118
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "edu",
+    "gov"
+   ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/www\\.[a-z]{8,14}\\.com\\/[a-z]{1,4}\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13125
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/www\\.[a-z]{10,16}\\.com\\/(?:[a-z]{5,10}\\.){1,2}(?:min\\.)?js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13126
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https:\\/\\/[a-z]{8}\\.xyz\\/main\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13140
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "edu",
+    "gov"
+   ],
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/cdn\\.[a-z]{5,7}\\.com\\/app\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13158
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/cdn\\.[a-z]{4,6}\\.xyz\\/app\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13159
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.club\\/[%0-9a-zA-Z]{170,}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13166
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.fun\\/[%0-9a-zA-Z]{170,}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13167
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.hair\\/[%0-9a-zA-Z]{170,}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13168
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.work\\/[%0-9a-zA-Z]{170,}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13169
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz\\/[%0-9a-zA-Z]{170,}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13170
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/[a-z]{3,5}\\.[a-z]{10,14}\\.top\\/[a-z]{10,16}\\/[a-z]{5,6}(?:\\?d=\\d)?$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13182
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/[a-z]{10,12}\\.com\\/[\\/a-z]{2,}\\?id=19\\d{5}$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13185
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": true,
+   "regexFilter": "^https:\\/\\/cdn\\.jsdelivr\\.net\\/npm\\/[-a-z_]{4,22}@latest\\/dist\\/script\\.min\\.js$",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13208
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "regexFilter": "(https?:\\/\\/)\\w{30,}\\.me\\/\\w{30,}\\.",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 13214
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "amazon.com"
+   ],
+   "regexFilter": "^https?:\\/\\/s3\\.*.*\\.amazonaws\\.com\\/[a-f0-9]{45,}\\/[a-f,0-9]{8,10}$",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 13218
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
    "initiatorDomains": [
     "123movies.tw",
     "19turanosephantasia.com",
@@ -1777,6 +2350,7 @@
     "upstream.to",
     "uptobhai.ink",
     "uqload.co",
+    "uqload.io",
     "userscloud.com",
     "v-o-e-unblock.com",
     "vidbam.org",
@@ -1805,558 +2379,13 @@
     "yesmovies.mn",
     "youtube4kdownloader.com"
    ],
-   "regexFilter": "^https?:\\/\\/[0-9a-z]{5,}\\.com\\/.*"
-  },
-  "id": 13614
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https?:\\/\\/.*(com|net|top|xyz)\\/(bundle|warning|style|bootstrap|brand|reset|jquery-ui|styles|error|logo|index|favicon|star|header)\\.(png|css)\\?[A-Za-z0-9]{30,}.*"
-  },
-  "id": 13615
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.top\\/[-a-z]{4,}\\.css\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
-   "resourceTypes": [
-    "stylesheet"
-   ]
-  },
-  "id": 13786
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz\\/[-a-z]{4,}\\.css\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
-   "resourceTypes": [
-    "stylesheet"
-   ]
-  },
-  "id": 13787
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.top\\/[a-z]{4,}\\.png\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
-   "resourceTypes": [
-    "image"
-   ]
-  },
-  "id": 13796
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz\\/[a-z]{4,}\\.png\\?aHR0c[\\/0-9a-zA-Z]{33,}=?=?$",
-   "resourceTypes": [
-    "image"
-   ]
-  },
-  "id": 13797
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.buzz\\/[+\\/0-9a-zA-Z]{140,}$",
-   "resourceTypes": [
-    "image"
-   ]
-  },
-  "id": 13799
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.info\\/[+\\/0-9a-zA-Z]{140,}$",
-   "resourceTypes": [
-    "image"
-   ]
-  },
-  "id": 13800
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.lol\\/[+\\/0-9a-zA-Z]{140,}$",
-   "resourceTypes": [
-    "image"
-   ]
-  },
-  "id": 13801
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.one\\/[+\\/0-9a-zA-Z]{140,}$",
-   "resourceTypes": [
-    "image"
-   ]
-  },
-  "id": 13802
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{7,16}\\.xyz\\/[+\\/0-9a-zA-Z]{140,}$",
-   "resourceTypes": [
-    "image"
-   ]
-  },
-  "id": 13803
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "[0-9a-f]{32}\\/invoke\\.js",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 13897
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https?:\\/\\/(?:www\\.|[0-9a-z]{7,10}\\.)?[-0-9a-z]{5,}\\.com\\/\\/?(?:[0-9a-f]{2}\\/){2,3}[0-9a-f]{32}\\.js",
+   "regexFilter": "^https?:\\/\\/[0-9a-z]{5,}\\.com\\/.*",
    "resourceTypes": [
     "script",
     "xmlhttprequest"
    ]
   },
-  "id": 13898
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https?:\\/\\/[0-9a-z]{13,14}\\.cloudfront\\.net\\/\\?[a-z]{3,5}=\\d{6}$",
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 13899
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https:\\/\\/[0-9a-f]{10}\\.[0-9a-f]{10}\\.com\\/[0-9a-f]{32}\\.js$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 13900
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.com?\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 13901
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.info\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 13902
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.pro\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 13903
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[-a-z]{6,}\\.xyz\\/[a-d][-\\.\\/_A-Za-z][DHWXm][-\\.\\/_A-Za-z][59FVZ][-\\.\\/_A-Za-z][6swyz][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z][-\\.\\/_A-Za-z][-\\/_0-9a-zA-Z]{22,162}$",
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 13904
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https:\\/\\/(?:cdn77\\.)?aj[0-9a-z]{2}\\d{2}\\.online\\/[0-9a-z]{8}\\.js$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 13928
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https:\\/\\/(?:cdn77\\.)?aj[0-9a-z]{2}\\d{2}\\.bid\\/[0-9a-z]{8}\\.js$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 13929
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.[a-z]{2,3}\\/5\\/\\d{6,7}(?:\\?_=\\d+)?$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 13951
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https:\\/\\/[-a-z]{8,15}\\.(?:com|net)\\/400\\/\\d{7}$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 13952
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https:\\/\\/[-a-z]{8,15}\\.(?:com|net)\\/401\\/\\d{7}$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 13953
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.(?:com|net)\\/tag\\.min\\.js$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 13954
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "excludedInitiatorDomains": [
-    "edu",
-    "gov"
-   ],
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{5,7}\\.com\\/script\\/[-_0-9a-z]+(\\.min)?\\.js$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 13989
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https?:\\/\\/[a-z]{6,12}\\.com\\/script\\/n[a-z]su\\.js$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 13991
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "excludedInitiatorDomains": [
-    "edu",
-    "gov"
-   ],
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https:\\/\\/www\\.[a-z]{8,14}\\.com\\/[a-z]{1,4}\\.js$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 13998
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https:\\/\\/[a-z]{8}\\.xyz\\/main\\.js$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 14012
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "excludedInitiatorDomains": [
-    "edu",
-    "gov"
-   ],
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/cdn\\.[a-z]{5,7}\\.com\\/app\\.js$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 14030
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/cdn\\.[a-z]{4,6}\\.xyz\\/app\\.js$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 14031
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.club\\/[%0-9a-zA-Z]{170,}$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 14038
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.fun\\/[%0-9a-zA-Z]{170,}$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 14039
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.hair\\/[%0-9a-zA-Z]{170,}$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 14040
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.work\\/[%0-9a-zA-Z]{170,}$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 14041
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz\\/[%0-9a-zA-Z]{170,}$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 14042
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https:\\/\\/[a-z]{3,5}\\.[a-z]{10,14}\\.top\\/[a-z]{10,16}\\/[a-z]{5,6}(?:\\?d=0)?$",
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 14054
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https:\\/\\/cdn\\.jsdelivr\\.net\\/npm\\/[-a-z_]{4,22}@latest\\/dist\\/script\\.min\\.js$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 14077
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": "(https?:\\/\\/)\\w{30,}\\.me\\/\\w{30,}\\.",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 14083
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "excludedInitiatorDomains": [
-    "amazon.com"
-   ],
-   "regexFilter": "^https?:\\/\\/s3\\.*.*\\.amazonaws\\.com\\/[a-f0-9]{45,}\\/[a-f,0-9]{8,10}$",
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 14086
+  "id": 13220
  },
  {
   "action": {
@@ -2369,7 +2398,7 @@
     "script"
    ]
   },
-  "id": 14088
+  "id": 13221
  },
  {
   "action": {
@@ -2388,7 +2417,7 @@
     "script"
    ]
   },
-  "id": 14089
+  "id": 13222
  },
  {
   "action": {
@@ -2415,7 +2444,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14090
+  "id": 13223
  },
  {
   "action": {
@@ -2428,7 +2457,7 @@
     "script"
    ]
   },
-  "id": 14091
+  "id": 13224
  },
  {
   "action": {
@@ -2450,7 +2479,7 @@
     "script"
    ]
   },
-  "id": 14097
+  "id": 13230
  },
  {
   "action": {
@@ -2463,7 +2492,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14114
+  "id": 13247
  },
  {
   "action": {
@@ -2476,35 +2505,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14115
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.top\\/[a-z]{4,}\\.json$",
-   "resourceTypes": [
-    "xmlhttprequest"
-   ]
-  },
-  "id": 14116
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": true,
-   "regexFilter": "^https?:\\/\\/[a-z]{8,15}\\.xyz\\/[a-z]{4,}\\.json$",
-   "resourceTypes": [
-    "xmlhttprequest"
-   ]
-  },
-  "id": 14117
+  "id": 13248
  },
  {
   "action": {
@@ -2517,7 +2518,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14120
+  "id": 13251
  },
  {
   "action": {
@@ -2545,6 +2546,7 @@
     "streamvid.net",
     "tvshows88.live",
     "uploadbank.com",
+    "uqload.io",
     "wecast.to",
     "worldstreams.click"
    ],
@@ -2553,7 +2555,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14135
+  "id": 13267
  },
  {
   "action": {
@@ -2567,7 +2569,7 @@
     "sub_frame"
    ]
   },
-  "id": 14146
+  "id": 13278
  },
  {
   "action": {
@@ -2581,7 +2583,7 @@
     "sub_frame"
    ]
   },
-  "id": 14147
+  "id": 13279
  },
  {
   "action": {
@@ -2594,7 +2596,7 @@
     "sub_frame"
    ]
   },
-  "id": 14149
+  "id": 13281
  },
  {
   "action": {
@@ -2607,7 +2609,7 @@
     "sub_frame"
    ]
   },
-  "id": 14154
+  "id": 13286
  },
  {
   "action": {
@@ -2621,7 +2623,7 @@
     "sub_frame"
    ]
   },
-  "id": 14155
+  "id": 13287
  },
  {
   "action": {
@@ -2635,7 +2637,7 @@
     "sub_frame"
    ]
   },
-  "id": 14156
+  "id": 13288
  },
  {
   "action": {
@@ -2649,7 +2651,7 @@
     "sub_frame"
    ]
   },
-  "id": 14157
+  "id": 13289
  },
  {
   "action": {
@@ -2663,7 +2665,7 @@
     "sub_frame"
    ]
   },
-  "id": 14158
+  "id": 13290
  },
  {
   "action": {
@@ -2677,6 +2679,6 @@
     "sub_frame"
    ]
   },
-  "id": 14159
+  "id": 13291
  }
 ]

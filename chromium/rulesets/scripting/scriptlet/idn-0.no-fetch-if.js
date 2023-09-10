@@ -44,7 +44,7 @@ const scriptletGlobals = new Map(); // jshint ignore: line
 
 const argsList = [["adsbygoogle"],["clarity.ms"]];
 
-const hostnamesMap = new Map([["info.gambar.pro",0],["info.mapsaddress.com",0],["thejakartapost.com",0],["netq.me",1]]);
+const hostnamesMap = new Map([["info.gambar.pro",0],["info.mapsaddress.com",0],["info.vebma.com",0],["thejakartapost.com",0],["netq.me",1]]);
 
 const entitiesMap = new Map([]);
 

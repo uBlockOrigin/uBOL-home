@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: default
+// ruleset: annoyances-overlays
 
 /******************************************************************************/
 
@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_adflyDefuser = function() {
+const uBOL_setSessionStorageItem = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [[]];
+const argsList = [["altses","false"],["modalViewed","true"],["anonSessionNotific","1"],["hasViewedReduceNotifications","true"],["coachmarkShown","true"],["showEventsBanner","false"],["socialProofDisabled","1"],["pharmaLeaveIntentPopup","true"],["HPLWClosedPerSessionCount","1"],["popup-closed","true"]];
 
-const hostnamesMap = new Map([["coaptoov.net",0],["bee.anime-loads.org",0],["gdanstum.net",0],["taraa.xyz",0],["mineiroloko.co",0],["aporasal.net",0],["hurirk.net",0],["regecish.net",0],["zeybui.net",0],["download.cracksurl.com",0],["darenjarvis.pro",0],["xervoo.net",0]]);
+const hostnamesMap = new Map([["makemytrip.com",0],["fantasyfootballhub.co.uk",1],["northcasino.com",2],["dream.ai",3],["imdb.com",4],["ringover.com",5],["eneba.com",6],["1mg.com",7],["flipkart.com",8],["maxicours.com",9]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,63 +52,51 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function adflyDefuser() {
-    // Based on AdsBypasser
-    // License:
-    //   https://github.com/adsbypasser/adsbypasser/blob/master/LICENSE
-    var isDigit = /^\d$/;
-    var handler = function(encodedURL) {
-        var var1 = "", var2 = "", i;
-        for (i = 0; i < encodedURL.length; i++) {
-            if (i % 2 === 0) {
-                var1 = var1 + encodedURL.charAt(i);
-            } else {
-                var2 = encodedURL.charAt(i) + var2;
-            }
+function setSessionStorageItem(key = '', value = '') {
+    setLocalStorageItemCore('session', false, key, value);
+}
+
+function setLocalStorageItemCore(
+    which = 'local',
+    trusted = false,
+    key = '',
+    value = '',
+) {
+    if ( key === '' ) { return; }
+
+    const trustedValues = [
+        '',
+        'undefined', 'null',
+        'false', 'true',
+        'yes', 'no',
+        '{}', '[]', '""',
+        '$remove$',
+    ];
+
+    if ( trusted ) {
+        if ( value === '$now$' ) {
+            value = Date.now();
+        } else if ( value === '$currentDate$' ) {
+            value = `${Date()}`;
+        } else if ( value === '$currentISODate$' ) {
+            value = (new Date()).toISOString();
         }
-        var data = (var1 + var2).split("");
-        for (i = 0; i < data.length; i++) {
-            if (isDigit.test(data[i])) {
-                for (var ii = i + 1; ii < data.length; ii++) {
-                    if (isDigit.test(data[ii])) {
-                        var temp = parseInt(data[i],10) ^ parseInt(data[ii],10);
-                        if (temp < 10) {
-                            data[i] = temp.toString();
-                        }
-                        i = ii;
-                        break;
-                    }
-                }
-            }
+    } else {
+        if ( trustedValues.includes(value.toLowerCase()) === false ) {
+            if ( /^\d+$/.test(value) === false ) { return; }
+            value = parseInt(value, 10);
+            if ( value > 32767 ) { return; }
         }
-        data = data.join("");
-        var decodedURL = window.atob(data).slice(16, -16);
-        window.stop();
-        window.onbeforeunload = null;
-        window.location.href = decodedURL;
-    };
+    }
+
     try {
-        var val;
-        var flag = true;
-        window.Object.defineProperty(window, "ysmm", {
-            configurable: false,
-            set: function(value) {
-                if (flag) {
-                    flag = false;
-                    try {
-                        if (typeof value === "string") {
-                            handler(value);
-                        }
-                    } catch (err) { }
-                }
-                val = value;
-            },
-            get: function() {
-                return val;
-            }
-        });
-    } catch (err) {
-        window.console.error("Failed to set up Adfly bypasser!");
+        const storage = `${which}Storage`;
+        if ( value === '$remove$' ) {
+            self[storage].removeItem(key);
+        } else {
+            self[storage].setItem(key, `${value}`);
+        }
+    } catch(ex) {
     }
 }
 
@@ -172,7 +160,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { adflyDefuser(...argsList[i]); }
+    try { setSessionStorageItem(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -192,7 +180,7 @@ argsList.length = 0;
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' ) {
-    return uBOL_adflyDefuser();
+    return uBOL_setSessionStorageItem();
 }
 
 // Firefox
@@ -200,11 +188,11 @@ if ( typeof wrappedJSObject !== 'object' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_adflyDefuser = cloneInto([
-            [ '(', uBOL_adflyDefuser.toString(), ')();' ],
+        page.uBOL_setSessionStorageItem = cloneInto([
+            [ '(', uBOL_setSessionStorageItem.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_adflyDefuser);
+        const blob = new page.Blob(...page.uBOL_setSessionStorageItem);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -218,7 +206,7 @@ if ( typeof wrappedJSObject !== 'object' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_adflyDefuser;
+    delete page.uBOL_setSessionStorageItem;
 }
 
 /******************************************************************************/

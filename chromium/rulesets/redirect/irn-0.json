@@ -1,0 +1,39 @@
+[
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop.txt"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "requestDomains": [
+    "khabarchin.basalam.com"
+   ]
+  },
+  "id": 576,
+  "priority": 2
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "tmk.ir"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "media"
+   ],
+   "urlFilter": "||tamashakhoneh.ir/src/video/intro.mp4^"
+  },
+  "id": 579,
+  "priority": 2
+ }
+]

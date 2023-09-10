@@ -35,7 +35,7 @@
 
 const argsList = [["{\"selector\":\"[id=\\\"__next\\\"] > div\",\"tasks\":[[\"has\",{\"selector\":\"#BaoMoi_Masthead\"}]]}"],["{\"selector\":\"[id^=\\\"bdaia-widget-html\\\"]\",\"tasks\":[[\"has\",{\"selector\":\".widget-inner > [href*=\\\"premiumvns.com\\\"]\"}]]}"],["{\"selector\":\"body\",\"action\":[\"remove-attr\",\"data-pop1\"]}","{\"selector\":\"body\",\"action\":[\"remove-attr\",\"data-pop2\"]}"],["{\"selector\":\"body\",\"action\":[\"remove-class\",\"compensate-for-scrollbar\"]}"],["{\"selector\":\".col\",\"tasks\":[[\"has\",{\"selector\":\"span\",\"tasks\":[[\"has-text\",\"Tin tài trợ\"]]}]]}","{\"selector\":\"div.pos-rel\",\"tasks\":[[\"has\",{\"selector\":\"a[rel=\\\"nofollow sponsored\\\"]\"}]]}"],["{\"selector\":\".hsdn > li\",\"tasks\":[[\"has\",{\"selector\":\".adsbygoogle\"}]]}"],["{\"selector\":\".block\",\"tasks\":[[\"has\",{\"selector\":\".block-container > .block-body > a[href]\"}]]}","{\"selector\":\".block\",\"tasks\":[[\"has\",{\"selector\":\".block-container > .block-body > ins\"}]]}"]];
 
-const hostnamesMap = new Map([["baomoi.com",0],["linkerpt.com",1],["boophim.org",2],["mephimtv.org",3],["24h.com.vn",4],["hosocongty.vn",5],["techrum.vn",6]]);
+const hostnamesMap = new Map([["baomoi.com",0],["linkerpt.com",1],["boophim.net",2],["mephimtv.net",3],["24h.com.vn",4],["hosocongty.vn",5],["techrum.vn",6]]);
 
 const entitiesMap = new Map(undefined);
 

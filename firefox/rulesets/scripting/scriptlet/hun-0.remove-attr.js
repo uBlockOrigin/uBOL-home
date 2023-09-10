@@ -42,9 +42,9 @@ const uBOL_removeAttr = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["style","body","stay"],["class","section[class=\"life-section l-section-main article-section l-section-article\"]"],["oncontextmenu"],["href","[href*=\"ad.adverticum.net\"]"],["style","body"]];
+const argsList = [["style","body","stay"],["oncontextmenu"],["href","[href*=\"ad.adverticum.net\"]"],["class","section[class=\"life-section l-section-main article-section l-section-article\"]"],["style","body"]];
 
-const hostnamesMap = new Map([["blikk.hu",0],["life.hu",1],["lifestory.hu",2],["mindmegette.hu",3],["sorozatwiki.hu",4]]);
+const hostnamesMap = new Map([["blikk.hu",0],["lifestory.hu",1],["mindmegette.hu",2],["life.hu",3],["sorozatwiki.hu",4]]);
 
 const entitiesMap = new Map([]);
 
