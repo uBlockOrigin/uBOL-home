@@ -1,0 +1,52 @@
+[
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "trafictube.ro"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "trafictube\\.ro\\/[a-zA-Z0-9=,.?&]+$",
+   "resourceTypes": [
+    "image",
+    "script"
+   ]
+  },
+  "id": 220
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "razvanbb.ro"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "razvanbb\\.ro\\/[a-zA-Z0-9=,.?&-]+$",
+   "resourceTypes": [
+    "image",
+    "script"
+   ]
+  },
+  "id": 221
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "luju.ro"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "luju\\.ro\\/static\\/images\\/[a-zA-Z0-9=,.?&]+$",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 233
+ }
+]

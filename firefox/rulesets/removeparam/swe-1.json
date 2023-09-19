@@ -24,7 +24,7 @@
    ],
    "urlFilter": "||se-tv4.videoplaza.tv/proxy/distributor"
   },
-  "id": 1234
+  "id": 1236
  },
  {
   "action": {
@@ -49,7 +49,7 @@
    ],
    "urlFilter": "&autoplay"
   },
-  "id": 1235
+  "id": 1237
  },
  {
   "action": {
@@ -73,7 +73,7 @@
    ],
    "urlFilter": "?autoplay"
   },
-  "id": 1236
+  "id": 1238
  },
  {
   "action": {
@@ -97,7 +97,28 @@
    ],
    "urlFilter": "?autoplay=true"
   },
-  "id": 1237
+  "id": 1239
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autoplay"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||embed.viaplay.com/*autoplay=true"
+  },
+  "id": 1240
  },
  {
   "action": {
@@ -121,6 +142,6 @@
    ],
    "urlFilter": "||youtube.com/embed/*autoplay"
   },
-  "id": 1241
+  "id": 1244
  }
 ]

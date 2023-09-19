@@ -23,7 +23,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1461,
+  "id": 1462,
   "priority": 12
  },
  {
@@ -48,7 +48,7 @@
    ],
    "urlFilter": "||googleads.g.doubleclick.net/pagead/"
   },
-  "id": 1462,
+  "id": 1463,
   "priority": 12
  },
  {
@@ -73,7 +73,7 @@
    ],
    "urlFilter": "||snigel-d.openx.net/*/arj|"
   },
-  "id": 1463,
+  "id": 1464,
   "priority": 12
  },
  {
@@ -98,7 +98,7 @@
    ],
    "urlFilter": "||tlx.3lift.com/header/auction|"
   },
-  "id": 1464,
+  "id": 1465,
   "priority": 12
  },
  {
@@ -123,7 +123,7 @@
    ],
    "urlFilter": "||as-sec.casalemedia.com/cygnus|"
   },
-  "id": 1465,
+  "id": 1466,
   "priority": 12
  },
  {
@@ -148,7 +148,7 @@
    ],
    "urlFilter": "||fastlane.rubiconproject.com/a/api/fastlane.json|"
   },
-  "id": 1466,
+  "id": 1467,
   "priority": 12
  },
  {
@@ -173,7 +173,7 @@
    ],
    "urlFilter": "||flashtalking.com/lgc|"
   },
-  "id": 1467,
+  "id": 1468,
   "priority": 12
  },
  {
@@ -198,7 +198,7 @@
    ],
    "urlFilter": "||pubads.g.doubleclick.net/gampad/adx?*/ad-blk"
   },
-  "id": 1468,
+  "id": 1469,
   "priority": 12
  },
  {
@@ -218,7 +218,7 @@
    ],
    "urlFilter": "||cm.g.doubleclick.net/pixel"
   },
-  "id": 1469,
+  "id": 1470,
   "priority": 2
  },
  {
@@ -238,7 +238,7 @@
    ],
    "urlFilter": "||tpc.googlesyndication.com/pagead/images/x_button_blue2.svg"
   },
-  "id": 1470,
+  "id": 1471,
   "priority": 2
  },
  {
@@ -257,7 +257,7 @@
    ],
    "urlFilter": "||vi.freewheel.tv/static/creatives/fw-ad-300x250.jpg"
   },
-  "id": 1471,
+  "id": 1472,
   "priority": 2
  },
  {
@@ -279,22 +279,6 @@
     "xmlhttprequest"
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-  },
-  "id": 1472,
-  "priority": 2
- },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop.js"
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||succeedscene.com/ads_*/ads.load.js"
   },
   "id": 1473,
   "priority": 2

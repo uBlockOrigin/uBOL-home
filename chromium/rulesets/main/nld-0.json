@@ -2414,7 +2414,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||reformatorischeomroep.nl/*/*banner"
+   "urlFilter": "||ecobioliving.eu/*bol.com/nl/upload/partnerprogramma/"
   },
   "id": 229
  },
@@ -2427,7 +2427,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/1mg_banni%c3%a8re_autonieuws_v1-"
+   "urlFilter": "||reformatorischeomroep.nl/*/*banner"
   },
   "id": 230
  },
@@ -2440,7 +2440,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/325_x_325_nl-"
+   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/1mg_banni%c3%a8re_autonieuws_v1-"
   },
   "id": 231
  },
@@ -2453,7 +2453,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/800_x_172_px_nl-"
+   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/325_x_325_nl-"
   },
   "id": 232
  },
@@ -2466,7 +2466,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/athlon_logo-"
+   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/800_x_172_px_nl-"
   },
   "id": 233
  },
@@ -2479,7 +2479,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/athlon_banner"
+   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/athlon_logo-"
   },
   "id": 234
  },
@@ -2492,7 +2492,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/bel_march23_b2c_xceed_800x172_nl-"
+   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/athlon_banner"
   },
   "id": 235
  },
@@ -2505,7 +2505,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||i0.wp.com/www.appletips.nl/wp-content/uploads/hm.jpg"
+   "urlFilter": "||autonieuws.be/templates/yootheme/cache/*/bel_march23_b2c_xceed_800x172_nl-"
   },
   "id": 236
  },
@@ -2518,7 +2518,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||onlinecorrectie.nl/cnc/"
+   "urlFilter": "||i0.wp.com/www.appletips.nl/wp-content/uploads/hm.jpg"
   },
   "id": 237
  },
@@ -2531,7 +2531,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||boottesten.nl/wp-content/uploads/*/banner"
+   "urlFilter": "||onlinecorrectie.nl/cnc/"
   },
   "id": 238
  },
@@ -2544,7 +2544,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||dehavengids.nl/wordpress/wp-content/uploads/*/*banner"
+   "urlFilter": "||boottesten.nl/wp-content/uploads/*/banner"
   },
   "id": 239
  },
@@ -2557,7 +2557,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||watersport-tv.nl/content/*/pages/clnt/*_org"
+   "urlFilter": "||dehavengids.nl/wordpress/wp-content/uploads/*/*banner"
   },
   "id": 240
  },
@@ -2570,7 +2570,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||proshop.nl/images/topbanner"
+   "urlFilter": "||watersport-tv.nl/content/*/pages/clnt/*_org"
   },
   "id": 241
  },
@@ -2583,9 +2583,22 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||cvandaag.nl/resources/uploads/banner/"
+   "urlFilter": "||proshop.nl/images/topbanner"
   },
   "id": 242
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||cvandaag.nl/resources/uploads/banner/"
+  },
+  "id": 243
  },
  {
   "action": {
@@ -2601,7 +2614,7 @@
    ],
    "urlFilter": "||cmtt.nl/advertisement/"
   },
-  "id": 243
+  "id": 244
  },
  {
   "action": {
@@ -2614,7 +2627,7 @@
    ],
    "urlFilter": "||advocatie.nl/content/uploads//mediation-basis"
   },
-  "id": 244
+  "id": 245
  },
  {
   "action": {
@@ -2627,7 +2640,7 @@
    ],
    "urlFilter": "||alphens.nl/resize/upload/*/*banner"
   },
-  "id": 245
+  "id": 246
  },
  {
   "action": {
@@ -2640,7 +2653,7 @@
    ],
    "urlFilter": "||alphens.nl/resize/upload/*/leaderbord"
   },
-  "id": 246
+  "id": 247
  },
  {
   "action": {
@@ -2653,7 +2666,7 @@
    ],
    "urlFilter": "||alphens.nl/upload/*/*banner"
   },
-  "id": 247
+  "id": 248
  },
  {
   "action": {
@@ -2666,7 +2679,7 @@
    ],
    "urlFilter": "||diecourant.co.za/wp-content/uploads/*-20*-1024x*.jpg^"
   },
-  "id": 248
+  "id": 249
  },
  {
   "action": {
@@ -2679,7 +2692,7 @@
    ],
    "urlFilter": "||pen.nl/wp-content/uploads/*/cityplaza360x96.jpg"
   },
-  "id": 249
+  "id": 250
  },
  {
   "action": {
@@ -2692,7 +2705,7 @@
    ],
    "urlFilter": "||pen.nl/wp-content/uploads/*/banner*"
   },
-  "id": 250
+  "id": 251
  },
  {
   "action": {
@@ -2705,7 +2718,7 @@
    ],
    "urlFilter": "||pen.nl/wp-content/uploads/*/*adv"
   },
-  "id": 251
+  "id": 252
  },
  {
   "action": {
@@ -2718,7 +2731,7 @@
    ],
    "urlFilter": "||racesport.nl/wp-content/uploads/*/*banner"
   },
-  "id": 252
+  "id": 253
  },
  {
   "action": {
@@ -2730,22 +2743,6 @@
     "image"
    ],
    "urlFilter": "||racesport.nl/wp-content/uploads/*/*.gif"
-  },
-  "id": 253
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "sexguide.nl"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||cdn.citytourgirls.com/static/bn/"
   },
   "id": 254
  },
@@ -2761,7 +2758,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||cdn.topescort.com/static/bn/"
+   "urlFilter": "||cdn.citytourgirls.com/static/bn/"
   },
   "id": 255
  },
@@ -2770,11 +2767,14 @@
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "sexguide.nl"
+   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||wegdamnieuws.nl/wp-content/uploads/*/*/*.gif"
+   "urlFilter": "||cdn.topescort.com/static/bn/"
   },
   "id": 256
  },
@@ -2787,7 +2787,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||culturescope.nl/wp-content/uploads/2016/11/fairy-*.png"
+   "urlFilter": "||wegdamnieuws.nl/wp-content/uploads/*/*/*.gif"
   },
   "id": 257
  },
@@ -2800,7 +2800,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||admin.ditjesendatjes.nl/wp-content/uploads/vignet_coveroblente-1.jpg"
+   "urlFilter": "||culturescope.nl/wp-content/uploads/2016/11/fairy-*.png"
   },
   "id": 258
  },
@@ -2813,7 +2813,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||admin.ditjesendatjes.nl/wp-content/uploads/vignet_lekkerdoenlente.jpg"
+   "urlFilter": "||admin.ditjesendatjes.nl/wp-content/uploads/vignet_coveroblente-1.jpg"
   },
   "id": 259
  },
@@ -2826,7 +2826,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||admin.ditjesendatjes.nl/wp-content/uploads/*-footer-dend.png"
+   "urlFilter": "||admin.ditjesendatjes.nl/wp-content/uploads/vignet_lekkerdoenlente.jpg"
   },
   "id": 260
  },
@@ -2839,7 +2839,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||admin.ditjesendatjes.nl/wp-content/uploads/dirk"
+   "urlFilter": "||admin.ditjesendatjes.nl/wp-content/uploads/*-footer-dend.png"
   },
   "id": 261
  },
@@ -2852,9 +2852,22 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||admin.ditjesendatjes.nl/wp-content/uploads/logo_dirck"
+   "urlFilter": "||admin.ditjesendatjes.nl/wp-content/uploads/dirk"
   },
   "id": 262
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||admin.ditjesendatjes.nl/wp-content/uploads/logo_dirck"
+  },
+  "id": 263
  },
  {
   "action": {
@@ -2870,7 +2883,7 @@
    ],
    "urlFilter": "||qmusic.medialaancdn.be/*/*/*banner*"
   },
-  "id": 263
+  "id": 264
  },
  {
   "action": {
@@ -2883,7 +2896,7 @@
    ],
    "urlFilter": "||top40.nl/*/widget/uploads/ankeiler/"
   },
-  "id": 264
+  "id": 265
  },
  {
   "action": {
@@ -2896,7 +2909,7 @@
    ],
    "urlFilter": "||cdn.amateursexstart.nl/wp-content/uploads/*/*.gif"
   },
-  "id": 265
+  "id": 266
  },
  {
   "action": {
@@ -2912,7 +2925,7 @@
    ],
    "urlFilter": "||cdn77.org/*/banners/crimesite/"
   },
-  "id": 266
+  "id": 267
  },
  {
   "action": {
@@ -2925,7 +2938,7 @@
    ],
    "urlFilter": "||dailypic.nl/banners/"
   },
-  "id": 267
+  "id": 268
  },
  {
   "action": {
@@ -2938,7 +2951,7 @@
    ],
    "urlFilter": "||kicxstart.nl/wp-content/uploads/*/*1300x150"
   },
-  "id": 268
+  "id": 269
  },
  {
   "action": {
@@ -2951,7 +2964,7 @@
    ],
    "urlFilter": "||kinkymedia.nl/wp-content/uploads/kousenenpanties-lingerie*.jpg"
   },
-  "id": 269
+  "id": 270
  },
  {
   "action": {
@@ -2964,7 +2977,7 @@
    ],
    "urlFilter": "||milfdatingnederland.nl/banner"
   },
-  "id": 270
+  "id": 271
  },
  {
   "action": {
@@ -2977,7 +2990,7 @@
    ],
    "urlFilter": "||motokicx.com/wp-content/uploads/*/motokicx*.gif"
   },
-  "id": 271
+  "id": 272
  },
  {
   "action": {
@@ -2990,7 +3003,7 @@
    ],
    "urlFilter": "||motorrijder.be/wp-content/uploads/*/*1300x150"
   },
-  "id": 272
+  "id": 273
  },
  {
   "action": {
@@ -3003,7 +3016,7 @@
    ],
    "urlFilter": "||msa.paginabanner.nl/banners/"
   },
-  "id": 273
+  "id": 274
  },
  {
   "action": {
@@ -3019,7 +3032,7 @@
    ],
    "urlFilter": "||wp.com/noordernieuws.nl/wp-content/uploads/*/*.gif"
   },
-  "id": 274
+  "id": 275
  },
  {
   "action": {
@@ -3032,7 +3045,7 @@
    ],
    "urlFilter": "||partyflock.nl/images/*/*_i*_"
   },
-  "id": 275
+  "id": 276
  },
  {
   "action": {
@@ -3045,7 +3058,7 @@
    ],
    "urlFilter": "||thekinkyweb.nl/wp-content/uploads/*/banner"
   },
-  "id": 276
+  "id": 277
  },
  {
   "action": {
@@ -3058,7 +3071,7 @@
    ],
    "urlFilter": "||thekinkyweb.nl/wp-content/uploads/*/logo-redropes-erotische-verhale"
   },
-  "id": 277
+  "id": 278
  },
  {
   "action": {
@@ -3071,7 +3084,7 @@
    ],
    "urlFilter": "||vives.nl/wp-content/uploads/*banner"
   },
-  "id": 278
+  "id": 279
  },
  {
   "action": {
@@ -3084,7 +3097,7 @@
    ],
    "urlFilter": "||wp.com/gostreaming.nl/wp-content/uploads/*.gif"
   },
-  "id": 279
+  "id": 280
  },
  {
   "action": {
@@ -3097,7 +3110,7 @@
    ],
    "urlFilter": "||xmissy.nl/skins/_customplayers/*/*overlay"
   },
-  "id": 280
+  "id": 281
  },
  {
   "action": {
@@ -3110,7 +3123,7 @@
    ],
    "urlFilter": "||xmissy.nl/skins/_customplayers/*/*top"
   },
-  "id": 281
+  "id": 282
  },
  {
   "action": {
@@ -3126,7 +3139,7 @@
    ],
    "urlFilter": "||402automotive.com/files/*/files/images/banners/*."
   },
-  "id": 282
+  "id": 283
  },
  {
   "action": {
@@ -3139,7 +3152,7 @@
    ],
    "urlFilter": "||autosport.nl/dist/images/banner"
   },
-  "id": 283
+  "id": 284
  },
  {
   "action": {
@@ -3152,7 +3165,7 @@
    ],
    "urlFilter": "||autosport.nl/images/banner"
   },
-  "id": 284
+  "id": 285
  },
  {
   "action": {
@@ -3165,7 +3178,7 @@
    ],
    "urlFilter": "||basketbal.vlaanderen/files/tmp/logo*.png"
   },
-  "id": 285
+  "id": 286
  },
  {
   "action": {
@@ -3178,7 +3191,7 @@
    ],
    "urlFilter": "||beeldbelsex.com/wp-content/uploads/*/*islive*.gif"
   },
-  "id": 286
+  "id": 287
  },
  {
   "action": {
@@ -3191,7 +3204,7 @@
    ],
    "urlFilter": "||beeldbelsex.com/wp-content/uploads/*/beeldbellesex"
   },
-  "id": 287
+  "id": 288
  },
  {
   "action": {
@@ -3203,22 +3216,6 @@
     "image"
    ],
    "urlFilter": "||flirtmee.nl/profiel/banners/"
-  },
-  "id": 288
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "frontline.digital"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||acties.nl/uploads/nl/ckeditor/*-af-"
   },
   "id": 289
  },
@@ -3234,7 +3231,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||kortingsimages.kortingscop.nl/banners/"
+   "urlFilter": "||acties.nl/uploads/nl/ckeditor/*-af-"
   },
   "id": 290
  },
@@ -3243,11 +3240,14 @@
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "frontline.digital"
+   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||glutenvrij.nl/l/library/download/urn*ncv*?scaletype=1"
+   "urlFilter": "||kortingsimages.kortingscop.nl/banners/"
   },
   "id": 291
  },
@@ -3260,7 +3260,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||golf.be/images/*_950x90_cta"
+   "urlFilter": "||glutenvrij.nl/l/library/download/urn*ncv*?scaletype=1"
   },
   "id": 292
  },
@@ -3273,7 +3273,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||klasse.be/wp/wp-content/images/*_lb_*full."
+   "urlFilter": "||golf.be/images/*_950x90_cta"
   },
   "id": 293
  },
@@ -3286,7 +3286,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||kookboekennieuws.nl/wp-content/uploads/*/*banner*"
+   "urlFilter": "||klasse.be/wp/wp-content/images/*_lb_*full."
   },
   "id": 294
  },
@@ -3299,7 +3299,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||knhs.nl/imagegen.ashx?image=/media/*/*banner*&width=550&constrain=true"
+   "urlFilter": "||kookboekennieuws.nl/wp-content/uploads/*/*banner*"
   },
   "id": 295
  },
@@ -3312,7 +3312,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||knhs.nl/imagegen.ashx?image=/media/*/*banner*&width=360&constrain=true"
+   "urlFilter": "||knhs.nl/imagegen.ashx?image=/media/*/*banner*&width=550&constrain=true"
   },
   "id": 296
  },
@@ -3325,7 +3325,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||oisterwijknieuws.nl/wp-content/uploads/*/50-plus-makelaar-*.jpg"
+   "urlFilter": "||knhs.nl/imagegen.ashx?image=/media/*/*banner*&width=360&constrain=true"
   },
   "id": 297
  },
@@ -3338,7 +3338,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||oisterwijknieuws.nl/wp-content/uploads/*/boogaers-2018-125.png"
+   "urlFilter": "||oisterwijknieuws.nl/wp-content/uploads/*/50-plus-makelaar-*.jpg"
   },
   "id": 298
  },
@@ -3351,7 +3351,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||oisterwijknieuws.nl/wp-content/uploads/*/mba-regiobank-*.gif"
+   "urlFilter": "||oisterwijknieuws.nl/wp-content/uploads/*/boogaers-2018-125.png"
   },
   "id": 299
  },
@@ -3364,7 +3364,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||oisterwijknieuws.nl/wp-content/uploads/*/ondernemers-oisterwijk.png"
+   "urlFilter": "||oisterwijknieuws.nl/wp-content/uploads/*/mba-regiobank-*.gif"
   },
   "id": 300
  },
@@ -3377,7 +3377,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||oisterwijknieuws.nl/wp-content/uploads/*/steenwitgoed-270x324-*.jpg"
+   "urlFilter": "||oisterwijknieuws.nl/wp-content/uploads/*/ondernemers-oisterwijk.png"
   },
   "id": 301
  },
@@ -3390,9 +3390,22 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||persberichten.com/actueel_images*/*.gif"
+   "urlFilter": "||oisterwijknieuws.nl/wp-content/uploads/*/steenwitgoed-270x324-*.jpg"
   },
   "id": 302
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||persberichten.com/actueel_images*/*.gif"
+  },
+  "id": 303
  },
  {
   "action": {
@@ -3408,7 +3421,7 @@
    ],
    "urlFilter": "||cdn-radio.dpgmedia.net/b/*_banner_"
   },
-  "id": 303
+  "id": 304
  },
  {
   "action": {
@@ -3421,7 +3434,7 @@
    ],
    "urlFilter": "||reliwiki.nl/img/banner"
   },
-  "id": 304
+  "id": 305
  },
  {
   "action": {
@@ -3434,7 +3447,7 @@
    ],
    "urlFilter": "||rickfm.nl/cwm/fm/userfiles/banner/foto/thumb"
   },
-  "id": 305
+  "id": 306
  },
  {
   "action": {
@@ -3447,7 +3460,7 @@
    ],
    "urlFilter": "||rickfm.nl/views/rickfm/images/*.gif"
   },
-  "id": 306
+  "id": 307
  },
  {
   "action": {
@@ -3460,7 +3473,7 @@
    ],
    "urlFilter": "||rtveen.nl/wp-content/uploads/*/bellen.com_.jpg"
   },
-  "id": 307
+  "id": 308
  },
  {
   "action": {
@@ -3473,7 +3486,7 @@
    ],
    "urlFilter": "||rtveen.nl/wp-content/uploads/*/gaslicht.jpg"
   },
-  "id": 308
+  "id": 309
  },
  {
   "action": {
@@ -3485,22 +3498,6 @@
     "image"
    ],
    "urlFilter": "||rtveen.nl/wp-content/uploads/*/poliswijzer.jpg"
-  },
-  "id": 309
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "nuus.be"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||storage.googleapis.com/stateless-www-nuus-be/*/*.gif"
   },
   "id": 310
  },
@@ -3516,7 +3513,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||storage.googleapis.com/stateless-www-nuus-be/*/*-banner*"
+   "urlFilter": "||storage.googleapis.com/stateless-www-nuus-be/*/*.gif"
   },
   "id": 311
  },
@@ -3525,11 +3522,14 @@
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "nuus.be"
+   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||truck1.be/_banners_/"
+   "urlFilter": "||storage.googleapis.com/stateless-www-nuus-be/*/*-banner*"
   },
   "id": 312
  },
@@ -3542,7 +3542,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||truck1.nl/_banners_"
+   "urlFilter": "||truck1.be/_banners_/"
   },
   "id": 313
  },
@@ -3555,7 +3555,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||truck1-nl.be/_banners_/"
+   "urlFilter": "||truck1.nl/_banners_"
   },
   "id": 314
  },
@@ -3564,14 +3564,11 @@
    "type": "block"
   },
   "condition": {
-   "initiatorDomains": [
-    "radiozuidrand.be"
-   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "/wp-content/uploads/*/banner.jpg"
+   "urlFilter": "||truck1-nl.be/_banners_/"
   },
   "id": 315
  },
@@ -3587,7 +3584,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "/wp-content/uploads/*/banner_reclame"
+   "urlFilter": "/wp-content/uploads/*/banner.jpg"
   },
   "id": 316
  },
@@ -3603,7 +3600,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "/wp-content/uploads/*/banner-sponsors"
+   "urlFilter": "/wp-content/uploads/*/banner_reclame"
   },
   "id": 317
  },
@@ -3619,9 +3616,25 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||wp.com/cdn.onlineradiobox.com/img/b/"
+   "urlFilter": "/wp-content/uploads/*/banner-sponsors"
   },
   "id": 318
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "radiozuidrand.be"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||wp.com/cdn.onlineradiobox.com/img/b/"
+  },
+  "id": 319
  },
  {
   "action": {
@@ -3634,7 +3647,7 @@
    ],
    "urlFilter": "||alblasserdamsnieuws.nl/wordpress/wp-content/uploads/*week"
   },
-  "id": 319
+  "id": 320
  },
  {
   "action": {
@@ -3656,7 +3669,7 @@
    ],
    "urlFilter": "/images/banners/"
   },
-  "id": 320
+  "id": 321
  },
  {
   "action": {
@@ -3673,7 +3686,7 @@
    ],
    "urlFilter": "/images/bdsmsexcontact"
   },
-  "id": 321
+  "id": 322
  },
  {
   "action": {
@@ -3696,7 +3709,7 @@
    ],
    "urlFilter": "/voicebericht/assets/images/verdien-geld-met-anoniem-thuiswerk."
   },
-  "id": 322
+  "id": 323
  },
  {
   "action": {
@@ -3716,7 +3729,7 @@
    ],
    "urlFilter": "/voicebericht/assets/images/videochat277x"
   },
-  "id": 323
+  "id": 324
  },
  {
   "action": {
@@ -3733,7 +3746,7 @@
    ],
    "urlFilter": "/wp-content/*banner"
   },
-  "id": 324
+  "id": 325
  },
  {
   "action": {
@@ -3777,7 +3790,7 @@
    ],
    "urlFilter": "/wp-content/uploads/*.gif"
   },
-  "id": 325
+  "id": 326
  },
  {
   "action": {
@@ -3816,7 +3829,7 @@
    ],
    "urlFilter": "/wp-content/uploads/*/*banner"
   },
-  "id": 326
+  "id": 327
  },
  {
   "action": {
@@ -3834,7 +3847,7 @@
    ],
    "urlFilter": "/wp-content/uploads/*/mijn-zaak"
   },
-  "id": 327
+  "id": 328
  },
  {
   "action": {
@@ -3853,7 +3866,7 @@
    ],
    "urlFilter": "/wp-content/uploads/*/neuk-test"
   },
-  "id": 328
+  "id": 329
  },
  {
   "action": {
@@ -3866,7 +3879,7 @@
    ],
    "urlFilter": "||tiener-sexverhalen.nl/wp-content/*.gif"
   },
-  "id": 329
+  "id": 330
  },
  {
   "action": {
@@ -3879,7 +3892,7 @@
    ],
    "urlFilter": "||tussenonstwee.nl/wp-content/uploads/*/tu_banner*"
   },
-  "id": 330
+  "id": 331
  },
  {
   "action": {
@@ -3891,25 +3904,6 @@
     "image"
    ],
    "urlFilter": "||xmissy.nl/skins/_customplayers/*footer.jpg"
-  },
-  "id": 331
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "agf.nl",
-    "bpnieuws.nl",
-    "groentennieuws.nl",
-    "uiennieuws.nl"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": ".nl/remote/https/agfstorage.blob.core.windows.net/banners/"
   },
   "id": 332
  },
@@ -3928,9 +3922,28 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": ".nl/remote/https/cdn.agf.nl/nieuws/gif-jpg/*.gif"
+   "urlFilter": ".nl/remote/https/agfstorage.blob.core.windows.net/banners/"
   },
   "id": 333
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "agf.nl",
+    "bpnieuws.nl",
+    "groentennieuws.nl",
+    "uiennieuws.nl"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": ".nl/remote/https/cdn.agf.nl/nieuws/gif-jpg/*.gif"
+  },
+  "id": 334
  },
  {
   "action": {
@@ -3946,7 +3959,7 @@
    ],
    "urlFilter": "||index4sex.com/global/asset/image/partner"
   },
-  "id": 334
+  "id": 335
  },
  {
   "action": {
@@ -3959,7 +3972,7 @@
    ],
    "urlFilter": "||handbalstartpunt.nl/*/banner"
   },
-  "id": 335
+  "id": 336
  },
  {
   "action": {
@@ -3972,7 +3985,7 @@
    ],
    "urlFilter": "||beveiligingnieuws.nl/banners/"
   },
-  "id": 336
+  "id": 337
  },
  {
   "action": {
@@ -3985,7 +3998,7 @@
    ],
    "urlFilter": "||beveiligingnieuws.nl/wp-content/uploads/*/*.gif"
   },
-  "id": 337
+  "id": 338
  },
  {
   "action": {
@@ -3998,7 +4011,7 @@
    ],
    "urlFilter": "||beveiligingnieuws.nl/wp-content/uploads/*webbanner"
   },
-  "id": 338
+  "id": 339
  },
  {
   "action": {
@@ -4011,7 +4024,7 @@
    ],
    "urlFilter": "||ciaotutti.nl/wp-content/uploads/*/italmania"
   },
-  "id": 339
+  "id": 340
  },
  {
   "action": {
@@ -4024,7 +4037,7 @@
    ],
    "urlFilter": "||curacao.nu/wp-content/uploads/*/*webad"
   },
-  "id": 340
+  "id": 341
  },
  {
   "action": {
@@ -4040,7 +4053,7 @@
    ],
    "urlFilter": "||succesboeken.nl/api/public/images/branding/"
   },
-  "id": 341
+  "id": 342
  },
  {
   "action": {
@@ -4053,7 +4066,7 @@
    ],
    "urlFilter": "||nljug.org/wp-content/uploads/*/*_banner_"
   },
-  "id": 342
+  "id": 343
  },
  {
   "action": {
@@ -4066,7 +4079,7 @@
    ],
    "urlFilter": "||nljug.org/wp-content/uploads/*/300*250*inline-rectangle"
   },
-  "id": 343
+  "id": 344
  },
  {
   "action": {
@@ -4079,7 +4092,7 @@
    ],
    "urlFilter": "||dutchitchannel.nl/6*?field=binary1"
   },
-  "id": 345
+  "id": 346
  },
  {
   "action": {
@@ -4092,7 +4105,7 @@
    ],
    "urlFilter": "||gigantfm.nl/assets/images/autoonderdelen"
   },
-  "id": 346
+  "id": 347
  },
  {
   "action": {
@@ -4105,7 +4118,7 @@
    ],
    "urlFilter": "||gigantfm.nl/assets/images/onderdelenshop"
   },
-  "id": 347
+  "id": 348
  },
  {
   "action": {
@@ -4118,7 +4131,7 @@
    ],
    "urlFilter": "||menttv.be/wp-content/uploads/*/*-br."
   },
-  "id": 348
+  "id": 349
  },
  {
   "action": {
@@ -4131,7 +4144,7 @@
    ],
    "urlFilter": "||noordernieuws.nl/wp-content/uploads/*/*.gif"
   },
-  "id": 349
+  "id": 350
  },
  {
   "action": {
@@ -4144,7 +4157,7 @@
    ],
    "urlFilter": "||hoekschnieuws.nl/wp-content/banners"
   },
-  "id": 350
+  "id": 351
  },
  {
   "action": {
@@ -4157,7 +4170,7 @@
    ],
    "urlFilter": "||h2owaternetwerk.nl/images/banners/"
   },
-  "id": 351
+  "id": 352
  },
  {
   "action": {
@@ -4170,7 +4183,7 @@
    ],
    "urlFilter": "||h2owaternetwerk.nl/images/*/*banner"
   },
-  "id": 352
+  "id": 353
  },
  {
   "action": {
@@ -4183,7 +4196,7 @@
    ],
    "urlFilter": "||linuxmag.nl/wp-content/uploads/*/*rectangle"
   },
-  "id": 353
+  "id": 354
  },
  {
   "action": {
@@ -4196,7 +4209,7 @@
    ],
    "urlFilter": "||gaynews.nl/images/advertisement"
   },
-  "id": 354
+  "id": 355
  },
  {
   "action": {
@@ -4209,7 +4222,7 @@
    ],
    "urlFilter": "||gaynews.nl/images/_adv_txt"
   },
-  "id": 355
+  "id": 356
  },
  {
   "action": {
@@ -4222,7 +4235,7 @@
    ],
    "urlFilter": "||fcgroningen.nl/websites/implementatie/website/img/sprite/sponsor-"
   },
-  "id": 356
+  "id": 357
  },
  {
   "action": {
@@ -4235,7 +4248,7 @@
    ],
    "urlFilter": "||cryptobenelux.com/wp-content/uploads/*/bets*"
   },
-  "id": 357
+  "id": 358
  },
  {
   "action": {
@@ -4248,7 +4261,7 @@
    ],
    "urlFilter": "||edelmetaal-info.nl/wp-content/uploads/*/*hollandgold"
   },
-  "id": 358
+  "id": 359
  },
  {
   "action": {
@@ -4264,7 +4277,7 @@
    ],
    "urlFilter": "||usercontent.one/wp/*/wp-content/uploads/*/*banner"
   },
-  "id": 359
+  "id": 360
  },
  {
   "action": {
@@ -4277,7 +4290,7 @@
    ],
    "urlFilter": "||bdsmleven.nl/wp-content/uploads/*/*banner"
   },
-  "id": 360
+  "id": 361
  },
  {
   "action": {
@@ -4290,7 +4303,7 @@
    ],
    "urlFilter": "||aafm.nl/cms/wp-content/*/banners/"
   },
-  "id": 361
+  "id": 362
  },
  {
   "action": {
@@ -4303,7 +4316,7 @@
    ],
    "urlFilter": "||aavisie.nl/cms/wp-content/*/banners/"
   },
-  "id": 362
+  "id": 363
  },
  {
   "action": {
@@ -4319,7 +4332,7 @@
    ],
    "urlFilter": "||upload.gscdn.nl/uploads/*_kansino_feed"
   },
-  "id": 363
+  "id": 364
  },
  {
   "action": {
@@ -4332,7 +4345,7 @@
    ],
    "urlFilter": "||streekstadcentraal.nl/images/banners/"
   },
-  "id": 364
+  "id": 365
  },
  {
   "action": {
@@ -4345,7 +4358,7 @@
    ],
    "urlFilter": "||dartfreakz.nl/wp-content/uploads/*/banner"
   },
-  "id": 365
+  "id": 366
  },
  {
   "action": {
@@ -4358,7 +4371,7 @@
    ],
    "urlFilter": "||qassa.nl/images/*/wallpaper"
   },
-  "id": 366
+  "id": 367
  },
  {
   "action": {
@@ -4374,7 +4387,7 @@
    ],
    "urlFilter": "||imagekit.io/ijnl*/uploads/other/*?tr=w-20"
   },
-  "id": 367
+  "id": 368
  },
  {
   "action": {
@@ -4387,7 +4400,7 @@
    ],
    "urlFilter": "||onderwegonline.nl/app/uploads/*/banner"
   },
-  "id": 368
+  "id": 369
  },
  {
   "action": {
@@ -4400,7 +4413,7 @@
    ],
    "urlFilter": "||anoniem-surfen.nl/wp-content/uploads/*/aff3-*.png"
   },
-  "id": 369
+  "id": 370
  },
  {
   "action": {
@@ -4413,7 +4426,7 @@
    ],
    "urlFilter": "||anoniem-surfen.nl/wp-content/uploads/*/flavour-balls.gif"
   },
-  "id": 370
+  "id": 371
  },
  {
   "action": {
@@ -4426,7 +4439,7 @@
    ],
    "urlFilter": "||dagelijksestandaard.nl/wp-content/uploads/*/dds-banner."
   },
-  "id": 371
+  "id": 372
  },
  {
   "action": {
@@ -4439,7 +4452,7 @@
    ],
    "urlFilter": "||dagelijksestandaard.nl/wp-content/uploads/*/promo-dds."
   },
-  "id": 372
+  "id": 373
  },
  {
   "action": {
@@ -4452,7 +4465,7 @@
    ],
    "urlFilter": "||camjam.nl/customs/*/assets/images/*.gif"
   },
-  "id": 373
+  "id": 374
  },
  {
   "action": {
@@ -4465,7 +4478,7 @@
    ],
    "urlFilter": "||camjam.nl/customs/*/assets/images/flirtmee.jpg"
   },
-  "id": 374
+  "id": 375
  },
  {
   "action": {
@@ -4489,7 +4502,7 @@
    ],
    "urlFilter": "||static.promedia.nl/logos/"
   },
-  "id": 375
+  "id": 376
  },
  {
   "action": {
@@ -4521,7 +4534,7 @@
    ],
    "urlFilter": "/images/*.gif"
   },
-  "id": 376
+  "id": 377
  },
  {
   "action": {
@@ -4534,7 +4547,7 @@
    ],
    "urlFilter": "||maarkelsnieuws.nl/banners/"
   },
-  "id": 377
+  "id": 378
  },
  {
   "action": {
@@ -4547,7 +4560,7 @@
    ],
    "urlFilter": "||123inkt.nl/images/oren/"
   },
-  "id": 378
+  "id": 379
  },
  {
   "action": {
@@ -4560,7 +4573,7 @@
    ],
    "urlFilter": "||tpo.nl/wp-content/themes/*/tpo-banner"
   },
-  "id": 379
+  "id": 380
  },
  {
   "action": {
@@ -4573,7 +4586,7 @@
    ],
    "urlFilter": "||klapjes.nl/hoomezaz/*/*970x90"
   },
-  "id": 380
+  "id": 381
  },
  {
   "action": {
@@ -4586,7 +4599,7 @@
    ],
    "urlFilter": "||wettelijke-feestdagen.nl/images/advertentie"
   },
-  "id": 381
+  "id": 382
  },
  {
   "action": {
@@ -4599,7 +4612,7 @@
    ],
    "urlFilter": "||wettelijke-feestdagen.nl/images/banner"
   },
-  "id": 382
+  "id": 383
  },
  {
   "action": {
@@ -4612,7 +4625,7 @@
    ],
    "urlFilter": "||biernet.nl/images/extra-bja_camp-bnr/"
   },
-  "id": 383
+  "id": 384
  },
  {
   "action": {
@@ -4625,7 +4638,7 @@
    ],
    "urlFilter": "||kinkymedia.nl/wp-content/uploads/*vierkant"
   },
-  "id": 384
+  "id": 385
  },
  {
   "action": {
@@ -4638,7 +4651,7 @@
    ],
    "urlFilter": "||mygaydate.nl/banner"
   },
-  "id": 385
+  "id": 386
  },
  {
   "action": {
@@ -4651,7 +4664,7 @@
    ],
    "urlFilter": "||18plussexdating.nl/images/twero."
   },
-  "id": 386
+  "id": 387
  },
  {
   "action": {
@@ -4667,7 +4680,7 @@
    ],
    "urlFilter": "||amazonaws.com/zkn/files/*.gif"
   },
-  "id": 387
+  "id": 388
  },
  {
   "action": {
@@ -4680,7 +4693,7 @@
    ],
    "urlFilter": "||apintie.sr/bannerz"
   },
-  "id": 388
+  "id": 389
  },
  {
   "action": {
@@ -4693,7 +4706,7 @@
    ],
    "urlFilter": "||audiobookbay.nl/images/bin.jpg"
   },
-  "id": 389
+  "id": 390
  },
  {
   "action": {
@@ -4706,7 +4719,7 @@
    ],
    "urlFilter": "||audiobookbay.nl/images/bz.jpg"
   },
-  "id": 390
+  "id": 391
  },
  {
   "action": {
@@ -4719,7 +4732,7 @@
    ],
    "urlFilter": "||audiobookbay.nl/images/fr.jpg"
   },
-  "id": 391
+  "id": 392
  },
  {
   "action": {
@@ -4735,7 +4748,7 @@
    ],
    "urlFilter": "||b-cdn.net/w_/s3-roulettefm/*."
   },
-  "id": 392
+  "id": 393
  },
  {
   "action": {
@@ -4751,7 +4764,7 @@
    ],
    "urlFilter": "||b-cdn.net/w_/s3-rtvstichtsevecht/*."
   },
-  "id": 393
+  "id": 394
  },
  {
   "action": {
@@ -4764,7 +4777,7 @@
    ],
    "urlFilter": "||belgie-sexcontact.be/images/banners/"
   },
-  "id": 394
+  "id": 395
  },
  {
   "action": {
@@ -4780,7 +4793,7 @@
    ],
    "urlFilter": "||blob.core.windows.net/*/content/regiovoetbal/*_banner."
   },
-  "id": 395
+  "id": 396
  },
  {
   "action": {
@@ -4793,7 +4806,7 @@
    ],
    "urlFilter": "||bol.com/nl/upload/partnerprogramma/"
   },
-  "id": 396
+  "id": 397
  },
  {
   "action": {
@@ -4806,7 +4819,7 @@
    ],
    "urlFilter": "||camping-frankrijk.nl/graphics/*/*600."
   },
-  "id": 397
+  "id": 398
  },
  {
   "action": {
@@ -4819,7 +4832,7 @@
    ],
    "urlFilter": "||cdn.seksmet.nl/wp-content/uploads/*/all-over-40-handjob"
   },
-  "id": 398
+  "id": 399
  },
  {
   "action": {
@@ -4832,7 +4845,7 @@
    ],
    "urlFilter": "||christelijknieuws.nl/upload/modules/banner/"
   },
-  "id": 399
+  "id": 400
  },
  {
   "action": {
@@ -4845,7 +4858,7 @@
    ],
    "urlFilter": "||ciaotutti.nl/wp-content/uploads/*/koffiecentrale-"
   },
-  "id": 400
+  "id": 401
  },
  {
   "action": {
@@ -4858,7 +4871,7 @@
    ],
    "urlFilter": "||ciaotutti.nl/wp-content/uploads/*/villa-in-umbria-vakantie"
   },
-  "id": 401
+  "id": 402
  },
  {
   "action": {
@@ -4871,7 +4884,7 @@
    ],
    "urlFilter": "||clubbrugge.be^*/partner/"
   },
-  "id": 402
+  "id": 403
  },
  {
   "action": {
@@ -4884,7 +4897,7 @@
    ],
    "urlFilter": "||coastline945fm.nl/cache/partners/"
   },
-  "id": 403
+  "id": 404
  },
  {
   "action": {
@@ -4897,7 +4910,7 @@
    ],
    "urlFilter": "||crimesite.nl/inhoud/uploads/*/*.gif"
   },
-  "id": 404
+  "id": 405
  },
  {
   "action": {
@@ -4913,7 +4926,7 @@
    ],
    "urlFilter": "||custom.islive.nl/_respo/*.gif"
   },
-  "id": 405
+  "id": 406
  },
  {
   "action": {
@@ -4926,7 +4939,7 @@
    ],
    "urlFilter": "||dagbladdewest.com/wp-content/uploads*/*728x90px*.jpg"
   },
-  "id": 406
+  "id": 407
  },
  {
   "action": {
@@ -4939,7 +4952,7 @@
    ],
    "urlFilter": "||dagbladdewest.com/wp-content/uploads/*/*_300x250px."
   },
-  "id": 407
+  "id": 408
  },
  {
   "action": {
@@ -4952,7 +4965,7 @@
    ],
    "urlFilter": "||dagbladdewest.com/wp-content/uploads/*/*-ad*.jpg"
   },
-  "id": 408
+  "id": 409
  },
  {
   "action": {
@@ -4965,7 +4978,7 @@
    ],
    "urlFilter": "||dating.*.auroraobjects.eu/files/bans/"
   },
-  "id": 409
+  "id": 410
  },
  {
   "action": {
@@ -4978,7 +4991,7 @@
    ],
    "urlFilter": "||denachtvlinders.nl/wp-content/uploads/*/bol-*.gif"
   },
-  "id": 410
+  "id": 411
  },
  {
   "action": {
@@ -4991,7 +5004,7 @@
    ],
    "urlFilter": "||despirituelewereld.be/wp-content/uploads/*/drukzo-korting-"
   },
-  "id": 411
+  "id": 412
  },
  {
   "action": {
@@ -5004,7 +5017,7 @@
    ],
    "urlFilter": "||despirituelewereld.be/wp-content/uploads/*/hook-bottom-info-coronavirus"
   },
-  "id": 412
+  "id": 413
  },
  {
   "action": {
@@ -5017,7 +5030,7 @@
    ],
    "urlFilter": "||dewereldmorgen.be/wp-content/banners/"
   },
-  "id": 413
+  "id": 414
  },
  {
   "action": {
@@ -5030,7 +5043,7 @@
    ],
    "urlFilter": "||dorpsklanken.online/wp-content/uploads/*/knap-it_paterswolde.png"
   },
-  "id": 414
+  "id": 415
  },
  {
   "action": {
@@ -5043,7 +5056,7 @@
    ],
    "urlFilter": "||dorpsklanken.online/wp-content/uploads/*/polling_basis.jpg"
   },
-  "id": 415
+  "id": 416
  },
  {
   "action": {
@@ -5056,7 +5069,7 @@
    ],
    "urlFilter": "||dutchporner.com/wp-content/uploads/*/*account-promo"
   },
-  "id": 416
+  "id": 417
  },
  {
   "action": {
@@ -5072,7 +5085,7 @@
    ],
    "urlFilter": "||eindtijdchristen.files.wordpress.com/*/ad-"
   },
-  "id": 417
+  "id": 418
  },
  {
   "action": {
@@ -5085,7 +5098,7 @@
    ],
    "urlFilter": "||ekvrouwen.nl/*/uploads/*/bookmaker-cta-"
   },
-  "id": 418
+  "id": 419
  },
  {
   "action": {
@@ -5098,7 +5111,7 @@
    ],
    "urlFilter": "||fanclubbarcelona.nl/viewfile/*banner/"
   },
-  "id": 419
+  "id": 420
  },
  {
   "action": {
@@ -5111,7 +5124,7 @@
    ],
    "urlFilter": "||flexnieuws.nl/wp-content/uploads/*/naamloos-*.png"
   },
-  "id": 420
+  "id": 421
  },
  {
   "action": {
@@ -5124,7 +5137,7 @@
    ],
    "urlFilter": "||gowiththevlo.nl/wp-content/uploads/*/*_banner_gwtv.jpg"
   },
-  "id": 421
+  "id": 422
  },
  {
   "action": {
@@ -5137,7 +5150,7 @@
    ],
    "urlFilter": "||hetnieuwsvandaag.be/media/cache/rectangle_image/media/image/*."
   },
-  "id": 422
+  "id": 423
  },
  {
   "action": {
@@ -5150,7 +5163,7 @@
    ],
    "urlFilter": "||huisvrouwenvoorsex.nl/banner*.gif"
   },
-  "id": 423
+  "id": 424
  },
  {
   "action": {
@@ -5163,7 +5176,7 @@
    ],
    "urlFilter": "||ikwilneuken.*/assets/img/*.gif"
   },
-  "id": 424
+  "id": 425
  },
  {
   "action": {
@@ -5179,7 +5192,7 @@
    ],
    "urlFilter": "||images.islive.nl/snapshot/*/200x150"
   },
-  "id": 425
+  "id": 426
  },
  {
   "action": {
@@ -5195,7 +5208,7 @@
    ],
    "urlFilter": "||images.islive.nl/snapshot/*/99x84.jpg"
   },
-  "id": 426
+  "id": 427
  },
  {
   "action": {
@@ -5211,7 +5224,7 @@
    ],
    "urlFilter": "||images.islive.nl/snapshot/*/snapshot.jpg"
   },
-  "id": 427
+  "id": 428
  },
  {
   "action": {
@@ -5224,7 +5237,7 @@
    ],
    "urlFilter": "||img.iex.nl/uploads/banners/"
   },
-  "id": 428
+  "id": 429
  },
  {
   "action": {
@@ -5240,7 +5253,7 @@
    ],
    "urlFilter": "||inviteonly.nl/banner/"
   },
-  "id": 429
+  "id": 430
  },
  {
   "action": {
@@ -5253,7 +5266,7 @@
    ],
    "urlFilter": "||kinkydatingnederland.nl/banner"
   },
-  "id": 430
+  "id": 431
  },
  {
   "action": {
@@ -5266,7 +5279,7 @@
    ],
    "urlFilter": "||kranenwebsite.nl/banners/"
   },
-  "id": 431
+  "id": 432
  },
  {
   "action": {
@@ -5279,7 +5292,7 @@
    ],
    "urlFilter": "||landenweb.nl/imgboeking/"
   },
-  "id": 432
+  "id": 433
  },
  {
   "action": {
@@ -5292,7 +5305,7 @@
    ],
    "urlFilter": "||linqmedia.nl/cwm/fm/userfiles/banner/"
   },
-  "id": 433
+  "id": 434
  },
  {
   "action": {
@@ -5305,7 +5318,7 @@
    ],
    "urlFilter": "||luister.nl/wp-content/uploads/*/banner_"
   },
-  "id": 434
+  "id": 435
  },
  {
   "action": {
@@ -5318,7 +5331,7 @@
    ],
    "urlFilter": "||midvliet.nl/images/advertenties-"
   },
-  "id": 435
+  "id": 436
  },
  {
   "action": {
@@ -5331,7 +5344,7 @@
    ],
    "urlFilter": "||mo.be/sites/default/files/banners/"
   },
-  "id": 436
+  "id": 437
  },
  {
   "action": {
@@ -5344,7 +5357,7 @@
    ],
    "urlFilter": "||nederlandsextube.nl/images/amateurwebcams"
   },
-  "id": 437
+  "id": 438
  },
  {
   "action": {
@@ -5357,7 +5370,7 @@
    ],
    "urlFilter": "||nederlandsextube.nl/images/sextubewebcams"
   },
-  "id": 438
+  "id": 439
  },
  {
   "action": {
@@ -5370,7 +5383,7 @@
    ],
    "urlFilter": "||nederlandsextube.nl/images/stijlvolsexybanner"
   },
-  "id": 439
+  "id": 440
  },
  {
   "action": {
@@ -5383,7 +5396,7 @@
    ],
    "urlFilter": "||nederlandsextube.nl/images/webned"
   },
-  "id": 440
+  "id": 441
  },
  {
   "action": {
@@ -5396,7 +5409,7 @@
    ],
    "urlFilter": "||omroeprsh.nl/wp-content/uploads/*/*rsh-300x*.gif"
   },
-  "id": 441
+  "id": 442
  },
  {
   "action": {
@@ -5409,7 +5422,7 @@
    ],
    "urlFilter": "||oneworld.nl/app/uploads/*/*-banner"
   },
-  "id": 442
+  "id": 443
  },
  {
   "action": {
@@ -5422,7 +5435,7 @@
    ],
    "urlFilter": "||opiniepeilers.nl/media/*/*notieshr*.jpg"
   },
-  "id": 443
+  "id": 444
  },
  {
   "action": {
@@ -5435,7 +5448,7 @@
    ],
    "urlFilter": "||outdoor-sex.nl/wp-content/uploads/*/buitenseks."
   },
-  "id": 444
+  "id": 445
  },
  {
   "action": {
@@ -5448,7 +5461,7 @@
    ],
    "urlFilter": "||outdoor-sex.nl/wp-content/uploads/*/sexindeprovincie-"
   },
-  "id": 445
+  "id": 446
  },
  {
   "action": {
@@ -5461,7 +5474,7 @@
    ],
    "urlFilter": "||peoplesphere.be/img/logo/financemanagement.png"
   },
-  "id": 446
+  "id": 447
  },
  {
   "action": {
@@ -5474,7 +5487,7 @@
    ],
    "urlFilter": "||pornoexpert.nl/img/950x250_*.gif"
   },
-  "id": 447
+  "id": 448
  },
  {
   "action": {
@@ -5487,7 +5500,7 @@
    ],
    "urlFilter": "||profielactueel.nl/content/modules/catalog/4/*.gif"
   },
-  "id": 448
+  "id": 449
  },
  {
   "action": {
@@ -5500,7 +5513,7 @@
    ],
    "urlFilter": "||psv.nl/upload/*_image*.gif"
   },
-  "id": 449
+  "id": 450
  },
  {
   "action": {
@@ -5513,7 +5526,7 @@
    ],
    "urlFilter": "||psv.nl/upload/*_soccerlab_logo.png"
   },
-  "id": 450
+  "id": 451
  },
  {
   "action": {
@@ -5526,7 +5539,7 @@
    ],
    "urlFilter": "||psv.nl/upload/*sponsorvrouwengoed-300x75.jpg"
   },
-  "id": 451
+  "id": 452
  },
  {
   "action": {
@@ -5539,7 +5552,7 @@
    ],
    "urlFilter": "||racexpress.nl/advertising/"
   },
-  "id": 452
+  "id": 453
  },
  {
   "action": {
@@ -5552,7 +5565,7 @@
    ],
    "urlFilter": "||railhobby.nl/wp-content/uploads/*/*_banner-"
   },
-  "id": 453
+  "id": 454
  },
  {
   "action": {
@@ -5565,7 +5578,7 @@
    ],
    "urlFilter": "||risallah.com/multimedia/images/banners/"
   },
-  "id": 454
+  "id": 455
  },
  {
   "action": {
@@ -5578,7 +5591,7 @@
    ],
    "urlFilter": "||schie.nu/images/banner/"
   },
-  "id": 455
+  "id": 456
  },
  {
   "action": {
@@ -5591,7 +5604,7 @@
    ],
    "urlFilter": "||sexcam-mokkels.nl/wp-content/uploads/*/sexafspraakje-"
   },
-  "id": 456
+  "id": 457
  },
  {
   "action": {
@@ -5604,7 +5617,7 @@
    ],
    "urlFilter": "||sexcontactadressen.nl/assets/img/*.gif"
   },
-  "id": 457
+  "id": 458
  },
  {
   "action": {
@@ -5617,7 +5630,7 @@
    ],
    "urlFilter": "||sexcontact-xxx.be/images/banners/"
   },
-  "id": 458
+  "id": 459
  },
  {
   "action": {
@@ -5630,7 +5643,7 @@
    ],
    "urlFilter": "||sexervaringendelen.nl/porno/"
   },
-  "id": 459
+  "id": 460
  },
  {
   "action": {
@@ -5643,7 +5656,7 @@
    ],
    "urlFilter": "||shespot.nl/wp-content/uploads/*/womanizer-*.jpg"
   },
-  "id": 460
+  "id": 461
  },
  {
   "action": {
@@ -5656,7 +5669,7 @@
    ],
    "urlFilter": "||solarmagazine.nl/u/edwin/"
   },
-  "id": 461
+  "id": 462
  },
  {
   "action": {
@@ -5669,7 +5682,7 @@
    ],
    "urlFilter": "||speurdeals.nl/uploads/banners"
   },
-  "id": 462
+  "id": 463
  },
  {
   "action": {
@@ -5682,7 +5695,7 @@
    ],
    "urlFilter": "||static.sexcamsites.nl/dsx/voicebericht/assets/images/*.gif"
   },
-  "id": 463
+  "id": 464
  },
  {
   "action": {
@@ -5695,7 +5708,7 @@
    ],
    "urlFilter": "||static.sexcamsites.nl/dsx/voicebericht/assets/images/sex-bnrs"
   },
-  "id": 464
+  "id": 465
  },
  {
   "action": {
@@ -5708,7 +5721,7 @@
    ],
    "urlFilter": "||static.sexcamsites.nl/dsx/voicebericht/assets/images/sexlijnen-saldo-opwaarderen"
   },
-  "id": 465
+  "id": 466
  },
  {
   "action": {
@@ -5721,7 +5734,7 @@
    ],
    "urlFilter": "||static.sexcamsites.nl/dsx/voicebericht/assets/images/startpaginabnr"
   },
-  "id": 466
+  "id": 467
  },
  {
   "action": {
@@ -5734,7 +5747,7 @@
    ],
    "urlFilter": "||teen-sex.nl/wp-content/uploads/*/900x250"
   },
-  "id": 467
+  "id": 468
  },
  {
   "action": {
@@ -5747,7 +5760,7 @@
    ],
    "urlFilter": "||teen-sex.nl/wp-content/uploads/*/sp1600x150.jpg"
   },
-  "id": 468
+  "id": 469
  },
  {
   "action": {
@@ -5760,7 +5773,7 @@
    ],
    "urlFilter": "||transport-online.nl/site/includes/uploads/banner-"
   },
-  "id": 469
+  "id": 470
  },
  {
   "action": {
@@ -5773,7 +5786,7 @@
    ],
    "urlFilter": "||tweedehandschristelijkeboeken.nl/wp-content/uploads/*/gratis-eo-visie.png"
   },
-  "id": 470
+  "id": 471
  },
  {
   "action": {
@@ -5786,7 +5799,7 @@
    ],
    "urlFilter": "||vbro.be/wp-content/uploads/*/autoonderdelen24_"
   },
-  "id": 471
+  "id": 472
  },
  {
   "action": {
@@ -5799,7 +5812,7 @@
    ],
    "urlFilter": "||voetbaluitslagen.com/wp-content/uploads/*/bet*"
   },
-  "id": 472
+  "id": 473
  },
  {
   "action": {
@@ -5812,7 +5825,7 @@
    ],
    "urlFilter": "||wereldstopcontacten.nl/wp-content/uploads/*/image-aff-*.jpg"
   },
-  "id": 473
+  "id": 474
  },
  {
   "action": {
@@ -5825,7 +5838,7 @@
    ],
    "urlFilter": "||wietforum.nl/uploads/monthly_*/*_312x60*.jpg.*.jpg"
   },
-  "id": 474
+  "id": 475
  },
  {
   "action": {
@@ -5838,7 +5851,7 @@
    ],
    "urlFilter": "||wietforum.nl/uploads/monthly_*/ai_php.gif.*.gif"
   },
-  "id": 475
+  "id": 476
  },
  {
   "action": {
@@ -5854,7 +5867,7 @@
    ],
    "urlFilter": "||xsnews.nl/aff/"
   },
-  "id": 476
+  "id": 477
  },
  {
   "action": {
@@ -5867,7 +5880,7 @@
    ],
    "urlFilter": "||zwaremetalen.com/wp-content/uploads/*/*-skyscraper-"
   },
-  "id": 477
+  "id": 478
  },
  {
   "action": {
@@ -5880,7 +5893,7 @@
    ],
    "urlFilter": "/scripts/edoris/shared/"
   },
-  "id": 478
+  "id": 479
  },
  {
   "action": {
@@ -5896,7 +5909,7 @@
    ],
    "urlFilter": "||sponsorlink.nl/js/snippet.js"
   },
-  "id": 479
+  "id": 480
  },
  {
   "action": {
@@ -5912,7 +5925,7 @@
    ],
    "urlFilter": "||cdn.shopsuite.com/js/layer.js"
   },
-  "id": 481
+  "id": 482
  },
  {
   "action": {
@@ -5930,7 +5943,7 @@
    ],
    "urlFilter": "||media-totaal.nl/*com_adagency*adagencyads"
   },
-  "id": 482
+  "id": 483
  },
  {
   "action": {
@@ -5946,7 +5959,7 @@
    ],
    "urlFilter": ".nl/adurl/"
   },
-  "id": 483
+  "id": 484
  },
  {
   "action": {
@@ -5959,7 +5972,7 @@
    ],
    "urlFilter": "/aff_ad?"
   },
-  "id": 484
+  "id": 485
  },
  {
   "action": {
@@ -5972,7 +5985,7 @@
    ],
    "urlFilter": "/gaslicht/gaslicht"
   },
-  "id": 485
+  "id": 486
  },
  {
   "action": {
@@ -5985,7 +5998,7 @@
    ],
    "urlFilter": "||truck1.be/st2/banners/"
   },
-  "id": 486
+  "id": 487
  },
  {
   "action": {
@@ -5998,7 +6011,7 @@
    ],
    "urlFilter": "||truck1.nl/st2/banners/"
   },
-  "id": 487
+  "id": 488
  },
  {
   "action": {
@@ -6011,7 +6024,7 @@
    ],
    "urlFilter": "||truck1-nl.be/st2/banners/"
   },
-  "id": 488
+  "id": 489
  },
  {
   "action": {
@@ -6027,7 +6040,7 @@
    ],
    "urlFilter": "||disqus.com/recommendations/"
   },
-  "id": 489
+  "id": 490
  },
  {
   "action": {
@@ -6040,7 +6053,7 @@
    ],
    "urlFilter": "||biernet.nl/bja/"
   },
-  "id": 490
+  "id": 491
  },
  {
   "action": {
@@ -6056,7 +6069,7 @@
    ],
    "urlFilter": "||bitvavo.com/assets/static/widget/"
   },
-  "id": 491
+  "id": 492
  },
  {
   "action": {
@@ -6069,7 +6082,7 @@
    ],
    "urlFilter": "||nltube.com/b?z=a*"
   },
-  "id": 492
+  "id": 493
  },
  {
   "action": {
@@ -6082,7 +6095,7 @@
    ],
    "urlFilter": "||oops.nl/banner/"
   },
-  "id": 493
+  "id": 494
  },
  {
   "action": {
@@ -6095,7 +6108,7 @@
    ],
    "urlFilter": "||opwindend.net/promotie*.php?"
   },
-  "id": 494
+  "id": 495
  },
  {
   "action": {
@@ -6108,7 +6121,7 @@
    ],
    "urlFilter": "||poepsexfilmstube.nl/sexdating/sexdating.php"
   },
-  "id": 495
+  "id": 496
  },
  {
   "action": {
@@ -6121,7 +6134,7 @@
    ],
    "urlFilter": "||spike-source.com/wp-admin/admin-ajax.php?action=select&p=onder-filmpje"
   },
-  "id": 496
+  "id": 497
  },
  {
   "action": {
@@ -6134,7 +6147,7 @@
    ],
    "urlFilter": "||spike-source.com/wp-admin/admin-ajax.php?action=select&p=rechts-menu-onder"
   },
-  "id": 497
+  "id": 498
  },
  {
   "action": {
@@ -6150,7 +6163,7 @@
    ],
    "urlFilter": "||static.qmusic.*/acties/qnl-nu-ad/index.html"
   },
-  "id": 498
+  "id": 499
  },
  {
   "action": {
@@ -6166,7 +6179,7 @@
    ],
    "urlFilter": "||tools-affil2.com/rtb/index.php"
   },
-  "id": 499
+  "id": 500
  },
  {
   "action": {
@@ -6182,7 +6195,7 @@
    ],
    "urlFilter": "||viapizza.online/?ts_id="
   },
-  "id": 500
+  "id": 501
  },
  {
   "action": {
@@ -6196,7 +6209,7 @@
    ],
    "urlFilter": "||golf.be/files/bannerimage/"
   },
-  "id": 501
+  "id": 502
  },
  {
   "action": {
@@ -6218,7 +6231,7 @@
    ],
    "urlFilter": "/img/banners/*.gif"
   },
-  "id": 502
+  "id": 503
  },
  {
   "action": {
@@ -6318,7 +6331,7 @@
    ],
    "urlFilter": "/banner/"
   },
-  "id": 503
+  "id": 504
  },
  {
   "action": {
@@ -6332,7 +6345,7 @@
    ],
    "urlFilter": "||tennisvlaanderen.be/documents/*/*sponsorblok-"
   },
-  "id": 505
+  "id": 506
  },
  {
   "action": {
@@ -6346,7 +6359,7 @@
    ],
    "urlFilter": "||lflmagazine.nl/wp-content/uploads/*300x250*.gif"
   },
-  "id": 506
+  "id": 507
  },
  {
   "action": {
@@ -6360,7 +6373,7 @@
    ],
    "urlFilter": "||startlinken.nl/images/banner-"
   },
-  "id": 507
+  "id": 508
  },
  {
   "action": {
@@ -6374,7 +6387,7 @@
    ],
    "urlFilter": "||cip.nl/resources/uploads/vakantie/"
   },
-  "id": 508
+  "id": 509
  },
  {
   "action": {
@@ -6388,7 +6401,7 @@
    ],
    "urlFilter": "||abcsuriname.com/templates/abc/assets/gfx/header_banner"
   },
-  "id": 509
+  "id": 510
  },
  {
   "action": {
@@ -6402,7 +6415,7 @@
    ],
    "urlFilter": "||agconnect.nl/sites/ag/files/styles/partner_"
   },
-  "id": 510
+  "id": 511
  },
  {
   "action": {
@@ -6416,7 +6429,7 @@
    ],
    "urlFilter": "||classicstogo.nl/files/*/*-banner-"
   },
-  "id": 511
+  "id": 512
  },
  {
   "action": {
@@ -6430,7 +6443,7 @@
    ],
    "urlFilter": "||computable.be/media/truelogo"
   },
-  "id": 512
+  "id": 513
  },
  {
   "action": {
@@ -6444,7 +6457,7 @@
    ],
    "urlFilter": "||computable.nl/media/truelogo"
   },
-  "id": 513
+  "id": 514
  },
  {
   "action": {
@@ -6458,7 +6471,7 @@
    ],
    "urlFilter": "||delichtzijde.nl/images/banners/*."
   },
-  "id": 514
+  "id": 515
  },
  {
   "action": {
@@ -6472,7 +6485,7 @@
    ],
    "urlFilter": "||elektronicaforum.nl/banner*"
   },
-  "id": 515
+  "id": 516
  },
  {
   "action": {
@@ -6486,7 +6499,7 @@
    ],
    "urlFilter": "||emerce.nl/content/uploads/*/hosted-by-true-"
   },
-  "id": 516
+  "id": 517
  },
  {
   "action": {
@@ -6500,7 +6513,7 @@
    ],
    "urlFilter": "||farm-date.com/slides/banner-"
   },
-  "id": 517
+  "id": 518
  },
  {
   "action": {
@@ -6514,7 +6527,7 @@
    ],
    "urlFilter": "||fiets.nl/app/uploads/*-webbanner-"
   },
-  "id": 518
+  "id": 519
  },
  {
   "action": {
@@ -6528,7 +6541,7 @@
    ],
    "urlFilter": "||gic.nl/uploads/fckconnector/"
   },
-  "id": 519
+  "id": 520
  },
  {
   "action": {
@@ -6542,7 +6555,7 @@
    ],
    "urlFilter": "||naaktkrant.nl/media/*/*.gif"
   },
-  "id": 520
+  "id": 521
  },
  {
   "action": {
@@ -6556,7 +6569,7 @@
    ],
    "urlFilter": "||racingnews365.nl/images/logos/partners/*/"
   },
-  "id": 521
+  "id": 522
  },
  {
   "action": {
@@ -6570,7 +6583,7 @@
    ],
    "urlFilter": "||tennisplaza.be/wp-content/uploads/*/tennisdirect-"
   },
-  "id": 522
+  "id": 523
  },
  {
   "action": {
@@ -6591,7 +6604,7 @@
    ],
    "urlFilter": "/js/popup.js"
   },
-  "id": 523
+  "id": 524
  },
  {
   "action": {
@@ -6605,7 +6618,7 @@
    ],
    "urlFilter": "||startlinken.nl/javascript/bannerrotation"
   },
-  "id": 524
+  "id": 525
  },
  {
   "action": {
@@ -6619,7 +6632,7 @@
    ],
    "urlFilter": "||buzzbie.nl/buzzbanners/*.js"
   },
-  "id": 525
+  "id": 526
  },
  {
   "action": {
@@ -6633,7 +6646,7 @@
    ],
    "urlFilter": "||kinkymedia.nl/wp-content/plugins/wp-ad-guru/"
   },
-  "id": 526
+  "id": 527
  },
  {
   "action": {
@@ -6647,7 +6660,7 @@
    ],
    "urlFilter": "||live-voetbal.com/wp-content/themes/fed/js/jquery-*.js"
   },
-  "id": 527
+  "id": 528
  },
  {
   "action": {
@@ -6661,7 +6674,7 @@
    ],
    "urlFilter": "||noordhollandsdagblad.nl/nhd/extra/assets/advertising/dfp-setup.js"
   },
-  "id": 528
+  "id": 529
  },
  {
   "action": {
@@ -6675,7 +6688,7 @@
    ],
    "urlFilter": "||rtveen.nl/wp-content/plugins/advanced-advertising-system/js/"
   },
-  "id": 529
+  "id": 530
  },
  {
   "action": {
@@ -6689,7 +6702,7 @@
    ],
    "urlFilter": "||vlietnieuws.nl/wp-content/plugins/custom-banners/"
   },
-  "id": 530
+  "id": 531
  },
  {
   "action": {
@@ -6703,7 +6716,7 @@
    ],
    "urlFilter": "||sproeiendekutjes.nl/wp-content/uploads/*/spannende-afspraakjes.webm"
   },
-  "id": 531
+  "id": 532
  },
  {
   "action": {
@@ -6714,7 +6727,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/css/branding.css"
   },
-  "id": 532
+  "id": 533
  },
  {
   "action": {
@@ -6725,7 +6738,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "://promotie."
   },
-  "id": 533
+  "id": 534
  },
  {
   "action": {
@@ -6742,7 +6755,7 @@
     "cashpartners.eu"
    ]
   },
-  "id": 534
+  "id": 535
  },
  {
   "action": {
@@ -6758,7 +6771,7 @@
     "euroclix.nl"
    ]
   },
-  "id": 535
+  "id": 536
  },
  {
   "action": {
@@ -6769,7 +6782,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||srv69.eu/smartlink/banner/"
   },
-  "id": 536
+  "id": 537
  },
  {
   "action": {
@@ -6780,7 +6793,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||strafrechtadvocaten.nl/media/banner/"
   },
-  "id": 537
+  "id": 538
  },
  {
   "action": {
@@ -6791,7 +6804,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||blablacar.nl/widget-driver/"
   },
-  "id": 538
+  "id": 539
  },
  {
   "action": {
@@ -6802,7 +6815,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bnpparibasmarkets.nl/widget/"
   },
-  "id": 539
+  "id": 540
  },
  {
   "action": {
@@ -6813,7 +6826,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.media.zylom.com/images/site/zylom/promo/"
   },
-  "id": 540
+  "id": 541
  },
  {
   "action": {
@@ -6824,7 +6837,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dutchitchannel.nl/media/6*/*.jpg"
   },
-  "id": 541
+  "id": 542
  },
  {
   "action": {
@@ -6835,7 +6848,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dutchleader.nl/php/banex/"
   },
-  "id": 542
+  "id": 543
  },
  {
   "action": {
@@ -6846,7 +6859,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||enviedeplus.be^*_banner_"
   },
-  "id": 543
+  "id": 544
  },
  {
   "action": {
@@ -6857,7 +6870,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||feenstra-internetservices.nl/?_dnid="
   },
-  "id": 544
+  "id": 545
  },
  {
   "action": {
@@ -6868,7 +6881,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fx.nl/_ext/widget/"
   },
-  "id": 545
+  "id": 546
  },
  {
   "action": {
@@ -6879,7 +6892,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jobat.be/extra/trackuityhn/ticker_new.html"
   },
-  "id": 546
+  "id": 547
  },
  {
   "action": {
@@ -6890,7 +6903,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||powerconnect.be^*/poweractie.jpg"
   },
-  "id": 547
+  "id": 548
  },
  {
   "action": {
@@ -6901,7 +6914,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sociaaldigitaal.nl/img/banner-"
   },
-  "id": 548
+  "id": 549
  },
  {
   "action": {
@@ -6912,7 +6925,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stepstone.be/*?event=widgettool."
   },
-  "id": 549
+  "id": 550
  },
  {
   "action": {
@@ -6923,7 +6936,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||totaalwijzer.nl/widget/"
   },
-  "id": 550
+  "id": 551
  },
  {
   "action": {
@@ -7008,7 +7021,7 @@
     "xpartners.nl"
    ]
   },
-  "id": 551
+  "id": 552
  },
  {
   "action": {
@@ -7022,7 +7035,7 @@
    ],
    "urlFilter": "||sedproductions.nl/ads/"
   },
-  "id": 552
+  "id": 553
  },
  {
   "action": {
@@ -7036,7 +7049,7 @@
    ],
    "urlFilter": "||srv69.eu/b/"
   },
-  "id": 553
+  "id": 554
  },
  {
   "action": {
@@ -7050,7 +7063,7 @@
    ],
    "urlFilter": "||clubxmissy.nl/banners/"
   },
-  "id": 554
+  "id": 555
  },
  {
   "action": {
@@ -7064,7 +7077,7 @@
    ],
    "urlFilter": "||digitalaudience.io/bakery/pix/"
   },
-  "id": 555
+  "id": 556
  },
  {
   "action": {
@@ -7078,7 +7091,7 @@
    ],
    "urlFilter": "||media.biertijd.com/galleries/*/banners/"
   },
-  "id": 556
+  "id": 557
  },
  {
   "action": {
@@ -7092,7 +7105,7 @@
    ],
    "urlFilter": "||sedproductions.nl/banners/"
   },
-  "id": 557
+  "id": 558
  },
  {
   "action": {
@@ -7107,7 +7120,7 @@
     "image"
    ]
   },
-  "id": 558
+  "id": 559
  },
  {
   "action": {
@@ -7122,7 +7135,7 @@
     "script"
    ]
   },
-  "id": 559
+  "id": 560
  },
  {
   "action": {
@@ -7136,7 +7149,7 @@
    ],
    "urlFilter": "||prm03.wlresources.com/"
   },
-  "id": 560
+  "id": 561
  },
  {
   "action": {
@@ -7146,7 +7159,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truck1.be/_banners_/client/redefiner/"
   },
-  "id": 561
+  "id": 562
  },
  {
   "action": {
@@ -7156,7 +7169,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truck1.nl/_banners_/client/redefiner/"
   },
-  "id": 562
+  "id": 563
  },
  {
   "action": {
@@ -7166,7 +7179,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truck1-nl.be/_banners_/client/redefiner/"
   },
-  "id": 563
+  "id": 564
  },
  {
   "action": {
@@ -7176,7 +7189,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||salarisvanmorgen.nl/wp-content/uploads/*abonneer-nieuwsbrief"
   },
-  "id": 564
+  "id": 565
  },
  {
   "action": {
@@ -7190,7 +7203,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.ebayclassifieds.net/bff/static/*/myads."
   },
-  "id": 565
+  "id": 566
  },
  {
   "action": {
@@ -7200,7 +7213,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zilverengoudkopen.nl/banners/header.jpg"
   },
-  "id": 566
+  "id": 567
  },
  {
   "action": {
@@ -7210,7 +7223,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zilverengoudkopen.nl/banners/onder.jpg"
   },
-  "id": 567
+  "id": 568
  },
  {
   "action": {
@@ -7220,7 +7233,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||showmodeluitverkoop.nl/upload/advertentie/"
   },
-  "id": 568
+  "id": 569
  },
  {
   "action": {
@@ -7230,7 +7243,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||te-les-koop.nl/advertenties.php"
   },
-  "id": 569
+  "id": 570
  },
  {
   "action": {
@@ -7248,7 +7261,7 @@
    ],
    "urlFilter": "||search.spotxchange.com/"
   },
-  "id": 570
+  "id": 571
  },
  {
   "action": {
@@ -7266,7 +7279,7 @@
     "image"
    ]
   },
-  "id": 571
+  "id": 572
  },
  {
   "action": {
@@ -7282,7 +7295,7 @@
    ],
    "urlFilter": "||images.2dehands.com/api/v1/listing-twh-p/images/ad/"
   },
-  "id": 572
+  "id": 573
  },
  {
   "action": {
@@ -7298,7 +7311,7 @@
    ],
    "urlFilter": "||cijfers.spikker.nl/js/plausible.js"
   },
-  "id": 573
+  "id": 574
  },
  {
   "action": {
@@ -7314,7 +7327,7 @@
    ],
    "urlFilter": "||fundingchoicesmessages.google.com/*/"
   },
-  "id": 574
+  "id": 575
  },
  {
   "action": {
@@ -7330,7 +7343,7 @@
    ],
    "urlFilter": "||mmcdn.nl/tags/racingnews365.nl/artikel.js"
   },
-  "id": 575
+  "id": 576
  },
  {
   "action": {
@@ -7346,7 +7359,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/"
   },
-  "id": 576
+  "id": 577
  },
  {
   "action": {
@@ -7362,7 +7375,7 @@
    ],
    "urlFilter": "||cdn.spotxcdn.com/integration/easi/"
   },
-  "id": 578
+  "id": 579
  },
  {
   "action": {
@@ -7378,7 +7391,7 @@
    ],
    "urlFilter": "||js.spotx.tv/ados/"
   },
-  "id": 579
+  "id": 580
  },
  {
   "action": {
@@ -7394,7 +7407,7 @@
    ],
    "urlFilter": "||cdn.bluebillywig.com/scripts/prebid/"
   },
-  "id": 580
+  "id": 581
  },
  {
   "action": {
@@ -7411,7 +7424,7 @@
    ],
    "urlFilter": "||2mdn.net/instream/html5/ima3.js"
   },
-  "id": 581
+  "id": 582
  },
  {
   "action": {
@@ -7427,7 +7440,7 @@
    ],
    "urlFilter": "||cdn.vuplay.co.uk/stats/*/appmeasurement.js"
   },
-  "id": 582
+  "id": 583
  },
  {
   "action": {
@@ -7443,7 +7456,7 @@
    ],
    "urlFilter": "||cdn.vuplay.co.uk/stats/*/visitorapi.js"
   },
-  "id": 583
+  "id": 584
  },
  {
   "action": {
@@ -7463,7 +7476,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
   },
-  "id": 584
+  "id": 585
  },
  {
   "action": {
@@ -7481,7 +7494,7 @@
    ],
    "urlFilter": "||massariuscdn.com/pubs/"
   },
-  "id": 585
+  "id": 586
  },
  {
   "action": {
@@ -7497,7 +7510,7 @@
    ],
    "urlFilter": "||lexozfldkklgvc.com/assets/cp/js/webcam_gallery/iframe_handler.js"
   },
-  "id": 586
+  "id": 587
  },
  {
   "action": {
@@ -7513,7 +7526,7 @@
    ],
    "urlFilter": "||tools.vpscash.nl/datingv3/docs/plug_and_play/islive/"
   },
-  "id": 587
+  "id": 588
  },
  {
   "action": {
@@ -7529,7 +7542,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3_dai.js"
   },
-  "id": 588
+  "id": 589
  },
  {
   "action": {
@@ -7546,7 +7559,7 @@
     "script"
    ]
   },
-  "id": 589
+  "id": 590
  },
  {
   "action": {
@@ -7563,7 +7576,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
   },
-  "id": 590
+  "id": 591
  },
  {
   "action": {
@@ -7579,7 +7592,7 @@
    ],
    "urlFilter": "||partner.googleadservices.com/gpt/pubads_impl_"
   },
-  "id": 591
+  "id": 592
  },
  {
   "action": {
@@ -7595,7 +7608,7 @@
    ],
    "urlFilter": "||cmp.quantcast.com/choice/*/*vi.nl/choice.js"
   },
-  "id": 592
+  "id": 593
  },
  {
   "action": {
@@ -7612,7 +7625,7 @@
    ],
    "urlFilter": "||cdn.vuplay.co.uk/*/comscore."
   },
-  "id": 593
+  "id": 594
  },
  {
   "action": {
@@ -7628,7 +7641,7 @@
    ],
    "urlFilter": "||shared.mediahuis.be/ka-ching/prebid.js"
   },
-  "id": 594
+  "id": 595
  },
  {
   "action": {
@@ -7644,7 +7657,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/tag/js/gpt.js"
   },
-  "id": 595
+  "id": 596
  },
  {
   "action": {
@@ -7660,7 +7673,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/gpt/pubads_impl_"
   },
-  "id": 596
+  "id": 597
  },
  {
   "action": {
@@ -7676,7 +7689,7 @@
    ],
    "urlFilter": "||assets.adobedtm.com/*-source.min.js"
   },
-  "id": 597
+  "id": 598
  },
  {
   "action": {
@@ -7692,7 +7705,7 @@
    ],
    "urlFilter": "||v.fwmrm.net/ad/"
   },
-  "id": 599
+  "id": 600
  },
  {
   "action": {
@@ -7709,7 +7722,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 600
+  "id": 601
  },
  {
   "action": {
@@ -7725,7 +7738,7 @@
    ],
    "urlFilter": "||videoplayer.persgroep.be/*/ad_smartads_.js"
   },
-  "id": 601
+  "id": 602
  },
  {
   "action": {
@@ -7740,23 +7753,6 @@
     "xmlhttprequest"
    ],
    "urlFilter": "||v.fwmrm.net/ad/*&caid"
-  },
-  "id": 602
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "embed.viaplay.com",
-    "racingnews365.nl"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||fwmrm.net/ad/"
   },
   "id": 603
  },
@@ -7773,7 +7769,7 @@
    "resourceTypes": [
     "xmlhttprequest"
    ],
-   "urlFilter": "||fwmrm.net/crossdomain.xml"
+   "urlFilter": "||fwmrm.net/ad/"
   },
   "id": 604
  },
@@ -7783,13 +7779,14 @@
   },
   "condition": {
    "initiatorDomains": [
-    "kijk.nl"
+    "embed.viaplay.com",
+    "racingnews365.nl"
    ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "xmlhttprequest"
    ],
-   "urlFilter": "&ad"
+   "urlFilter": "||fwmrm.net/crossdomain.xml"
   },
   "id": 605
  },
@@ -7805,9 +7802,25 @@
    "resourceTypes": [
     "xmlhttprequest"
    ],
-   "urlFilter": "||ads-talpa.adhese.com/json/"
+   "urlFilter": "&ad"
   },
   "id": 606
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "kijk.nl"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||ads-talpa.adhese.com/json/"
+  },
+  "id": 607
  },
  {
   "action": {
@@ -7823,7 +7836,7 @@
    ],
    "urlFilter": "||tools.vpscash.nl/proxy/tools.islive.nl/cam_ms/*/_default/index.html"
   },
-  "id": 608
+  "id": 609
  },
  {
   "action": {
@@ -7839,7 +7852,7 @@
    ],
    "urlFilter": "||lexozfldkklgvc.com/cp/webcam_gallery/index.php"
   },
-  "id": 609
+  "id": 610
  },
  {
   "action": {
@@ -7855,7 +7868,7 @@
    ],
    "urlFilter": "||tools.vpscash.nl/webcams/promo/plug_play_webcams/"
   },
-  "id": 610
+  "id": 611
  },
  {
   "action": {
@@ -7870,25 +7883,6 @@
     "/pt\\.[\\w]{6}\\.com/"
    ],
    "urlFilter": "||awemdia.com/*.mp4"
-  },
-  "id": 611
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "domainType": "firstParty",
-   "initiatorDomains": [
-    "kinkysexcontactonline.nl",
-    "privesexgids.nl",
-    "zinomteneuken.nl"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "/images/volgende.gif"
   },
   "id": 612
  },
@@ -7907,7 +7901,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "/images/vorige.gif"
+   "urlFilter": "/images/volgende.gif"
   },
   "id": 613
  },
@@ -7917,11 +7911,16 @@
   },
   "condition": {
    "domainType": "firstParty",
+   "initiatorDomains": [
+    "kinkysexcontactonline.nl",
+    "privesexgids.nl",
+    "zinomteneuken.nl"
+   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||sliedrecht24.nl/wp-content/uploads/*/banner-300x250*.jpg"
+   "urlFilter": "/images/vorige.gif"
   },
   "id": 614
  },
@@ -7935,7 +7934,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||vinatera.be/wp-content/uploads/*_300x600."
+   "urlFilter": "||sliedrecht24.nl/wp-content/uploads/*/banner-300x250*.jpg"
   },
   "id": 615
  },
@@ -7949,7 +7948,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||girlpics.nl/images/ads_"
+   "urlFilter": "||vinatera.be/wp-content/uploads/*_300x600."
   },
   "id": 616
  },
@@ -7963,9 +7962,23 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||naaktkrant.nl/media/*/*-gifs-*.gif"
+   "urlFilter": "||girlpics.nl/images/ads_"
   },
   "id": 617
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||naaktkrant.nl/media/*/*-gifs-*.gif"
+  },
+  "id": 618
  },
  {
   "action": {
@@ -7979,7 +7992,7 @@
    ],
    "urlFilter": "||files.skoften.net/website/lib/vjs/plugins/ads/videojs.ads.min.js"
   },
-  "id": 618
+  "id": 619
  },
  {
   "action": {
@@ -7997,7 +8010,7 @@
    ],
    "urlFilter": "/wp-content/*/scripts/adb.min.js"
   },
-  "id": 619
+  "id": 620
  },
  {
   "action": {
@@ -8011,7 +8024,7 @@
    ],
    "urlFilter": "||rambla.be/players/video-js/video-js-plugins/videojs.ads.min.js"
   },
-  "id": 620
+  "id": 621
  },
  {
   "action": {
@@ -8025,7 +8038,7 @@
    ],
    "urlFilter": "||static.kijk.nl/prebid/ad.gif"
   },
-  "id": 621
+  "id": 622
  },
  {
   "action": {
@@ -8040,7 +8053,7 @@
     "nextday.media"
    ]
   },
-  "id": 622
+  "id": 623
  },
  {
   "action": {
@@ -8060,6 +8073,6 @@
    ],
    "urlFilter": "||hb.improvedigital.com/pbw/headerlift.min.js"
   },
-  "id": 623
+  "id": 624
  }
 ]

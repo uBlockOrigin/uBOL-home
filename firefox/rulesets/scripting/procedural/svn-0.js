@@ -33,7 +33,7 @@
 
 /******************************************************************************/
 
-const argsList = [["{\"selector\":\".HeaderSpotlight\",\"tasks\":[[\"has\",{\"selector\":\"a[href^=\\\"https://bit.ly\\\"]\"}]]}"],["{\"selector\":\".js_article\",\"tasks\":[[\"if-not\",{\"selector\":\"\",\"tasks\":[[\"has\",{\"selector\":\".strong\"}]]}],[\"spath\",\"> .widgetWrap\"]]}"],["{\"selector\":\"li.article\",\"tasks\":[[\"has-text\",\"Oglasno sporočilo\"]]}"]];
+const argsList = [["{\"selector\":\".HeaderSpotlight\",\"tasks\":[[\"has\",{\"selector\":\"a[href^=\\\"https://bit.ly\\\"]\"}]]}"],["{\"selector\":\".js_article\",\"tasks\":[[\"if-not\",{\"selector\":\"\",\"tasks\":[[\"has\",{\"selector\":\".strong\"}]]}],[\"spath\",\" > .widgetWrap\"]]}"],["{\"selector\":\"li.article\",\"tasks\":[[\"has-text\",\"Oglasno sporočilo\"]]}"]];
 
 const hostnamesMap = new Map([["bolha.com",0],["siol.net",1],["monitor.si",2]]);
 

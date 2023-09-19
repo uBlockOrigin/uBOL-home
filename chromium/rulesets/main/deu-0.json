@@ -15528,6 +15528,19 @@
    "type": "block"
   },
   "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||teltarif.de/img/smartphone/apple/iphone.jpg"
+  },
+  "id": 1509
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
    "initiatorDomains": [
     "autobild.de"
    ],
@@ -15538,7 +15551,7 @@
    ],
    "urlFilter": "||servedby.flashtalking.com/imp/"
   },
-  "id": 1510
+  "id": 1511
  },
  {
   "action": {
@@ -15554,7 +15567,7 @@
    ],
    "urlFilter": "||track.webgains.com/link.html?wglinkid="
   },
-  "id": 1511
+  "id": 1512
  },
  {
   "action": {
@@ -15567,7 +15580,7 @@
    ],
    "urlFilter": "||1und1.de/movein_"
   },
-  "id": 1512
+  "id": 1513
  },
  {
   "action": {
@@ -15580,7 +15593,7 @@
    ],
    "urlFilter": "||fickverein.com/moproxy|"
   },
-  "id": 1513
+  "id": 1514
  },
  {
   "action": {
@@ -15593,7 +15606,7 @@
    ],
    "urlFilter": "||graltek.net/php/amzad_"
   },
-  "id": 1514
+  "id": 1515
  },
  {
   "action": {
@@ -15606,7 +15619,7 @@
    ],
    "urlFilter": "||notebookcheck.com/fileadmin/sonstiges/amaz_"
   },
-  "id": 1515
+  "id": 1516
  },
  {
   "action": {
@@ -15619,7 +15632,7 @@
    ],
    "urlFilter": "||www.quoka.de/services/*?*="
   },
-  "id": 1516
+  "id": 1517
  },
  {
   "action": {
@@ -15636,7 +15649,7 @@
     "sub_frame"
    ]
   },
-  "id": 1517
+  "id": 1518
  },
  {
   "action": {
@@ -15656,7 +15669,7 @@
     "sub_frame"
    ]
   },
-  "id": 1518
+  "id": 1519
  },
  {
   "action": {
@@ -15675,7 +15688,7 @@
     "sub_frame"
    ]
   },
-  "id": 1519
+  "id": 1520
  },
  {
   "action": {
@@ -15692,7 +15705,7 @@
     "sub_frame"
    ]
   },
-  "id": 1520
+  "id": 1521
  },
  {
   "action": {
@@ -15705,7 +15718,7 @@
    ],
    "urlFilter": "||digitaledienste.web.de/freemail/browser_decide/?"
   },
-  "id": 1521
+  "id": 1522
  },
  {
   "action": {
@@ -15718,7 +15731,7 @@
    ],
    "urlFilter": "||forumprofi.de/fritz/"
   },
-  "id": 1522
+  "id": 1523
  },
  {
   "action": {
@@ -15731,7 +15744,7 @@
    ],
    "urlFilter": "||hierspielen.com/vda/"
   },
-  "id": 1523
+  "id": 1524
  },
  {
   "action": {
@@ -15744,7 +15757,7 @@
    ],
    "urlFilter": "||jungfrauzeitung.ch^*.html|"
   },
-  "id": 1524
+  "id": 1525
  },
  {
   "action": {
@@ -15757,7 +15770,7 @@
    ],
    "urlFilter": "||mein-wetter.com/include/"
   },
-  "id": 1525
+  "id": 1526
  },
  {
   "action": {
@@ -15770,7 +15783,7 @@
    ],
    "urlFilter": "||n-land.de/wp-content/uploads/"
   },
-  "id": 1526
+  "id": 1527
  },
  {
   "action": {
@@ -15783,7 +15796,7 @@
    ],
    "urlFilter": "||spielesite.com/am/"
   },
-  "id": 1527
+  "id": 1528
  },
  {
   "action": {
@@ -15796,7 +15809,7 @@
    ],
    "urlFilter": "||vidonna.de/300"
   },
-  "id": 1528
+  "id": 1529
  },
  {
   "action": {
@@ -15814,7 +15827,7 @@
     "sub_frame"
    ]
   },
-  "id": 1529
+  "id": 1530
  },
  {
   "action": {
@@ -15825,7 +15838,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/werbung."
   },
-  "id": 1530
+  "id": 1531
  },
  {
   "action": {
@@ -15836,7 +15849,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/werbung/"
   },
-  "id": 1531
+  "id": 1532
  },
  {
   "action": {
@@ -15847,7 +15860,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||4adtf.com.^"
   },
-  "id": 1532
+  "id": 1533
  },
  {
   "action": {
@@ -15858,7 +15871,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||4fal.com/profilbannercreate/"
   },
-  "id": 1533
+  "id": 1534
  },
  {
   "action": {
@@ -15872,7 +15885,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||62.146.108.97/banner/"
   },
-  "id": 1534
+  "id": 1535
  },
  {
   "action": {
@@ -15886,7 +15899,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||88.198.13.8/publisher/"
   },
-  "id": 1535
+  "id": 1536
  },
  {
   "action": {
@@ -15897,7 +15910,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||abo2.de/abo-direkt/"
   },
-  "id": 1536
+  "id": 1537
  },
  {
   "action": {
@@ -15908,7 +15921,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||aktion-deutschland-hilft.de/fileadmin/banner/"
   },
-  "id": 1537
+  "id": 1538
  },
  {
   "action": {
@@ -15919,7 +15932,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||all-inkl.com/banner/"
   },
-  "id": 1538
+  "id": 1539
  },
  {
   "action": {
@@ -15930,7 +15943,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||all-inkl.com^*/banner/"
   },
-  "id": 1539
+  "id": 1540
  },
  {
   "action": {
@@ -15941,7 +15954,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||amateurpin.com^*/b.php?zone="
   },
-  "id": 1540
+  "id": 1541
  },
  {
   "action": {
@@ -15952,7 +15965,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||auxmoney.com/start/welcome.php?afid="
   },
-  "id": 1541
+  "id": 1542
  },
  {
   "action": {
@@ -15963,7 +15976,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bastardsofhell.de/images/banner/"
   },
-  "id": 1542
+  "id": 1543
  },
  {
   "action": {
@@ -15974,7 +15987,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||beate-uhse.com/banner/"
   },
-  "id": 1543
+  "id": 1544
  },
  {
   "action": {
@@ -15985,7 +15998,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||belmediaverlag.com/gott-ch/"
   },
-  "id": 1544
+  "id": 1545
  },
  {
   "action": {
@@ -15996,7 +16009,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||boerse.bz/toplist/vote/"
   },
-  "id": 1545
+  "id": 1546
  },
  {
   "action": {
@@ -16007,7 +16020,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||boerse.bz^*/banners/"
   },
-  "id": 1546
+  "id": 1547
  },
  {
   "action": {
@@ -16018,7 +16031,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||datingpartner.com/medien/"
   },
-  "id": 1547
+  "id": 1548
  },
  {
   "action": {
@@ -16029,7 +16042,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dealdoktor.de/m/"
   },
-  "id": 1548
+  "id": 1549
  },
  {
   "action": {
@@ -16040,7 +16053,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dealdoktor.de/misc/"
   },
-  "id": 1549
+  "id": 1550
  },
  {
   "action": {
@@ -16051,7 +16064,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||deinfickdate.com/banner/"
   },
-  "id": 1550
+  "id": 1551
  },
  {
   "action": {
@@ -16062,7 +16075,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||deinsexdate.com/banner/"
   },
-  "id": 1551
+  "id": 1552
  },
  {
   "action": {
@@ -16073,7 +16086,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dentaltrade-zahnersatz.de^*/banner/"
   },
-  "id": 1552
+  "id": 1553
  },
  {
   "action": {
@@ -16084,7 +16097,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||deutschland-spielt.de/partners/"
   },
-  "id": 1553
+  "id": 1554
  },
  {
   "action": {
@@ -16095,7 +16108,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||die-staemme.de/banner/"
   },
-  "id": 1554
+  "id": 1555
  },
  {
   "action": {
@@ -16106,7 +16119,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dragonbox.de/img/banner/"
   },
-  "id": 1555
+  "id": 1556
  },
  {
   "action": {
@@ -16117,7 +16130,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||duregexpress.de/banner/"
   },
-  "id": 1556
+  "id": 1557
  },
  {
   "action": {
@@ -16128,7 +16141,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||easyfind24.de/banner/"
   },
-  "id": 1557
+  "id": 1558
  },
  {
   "action": {
@@ -16139,7 +16152,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ebiz-consult.de/banner/"
   },
-  "id": 1558
+  "id": 1559
  },
  {
   "action": {
@@ -16150,7 +16163,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ebiz-webhosting.de/banner/"
   },
-  "id": 1559
+  "id": 1560
  },
  {
   "action": {
@@ -16161,7 +16174,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||edgar.de/img/partner/"
   },
-  "id": 1560
+  "id": 1561
  },
  {
   "action": {
@@ -16172,7 +16185,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||eis.de/index."
   },
-  "id": 1561
+  "id": 1562
  },
  {
   "action": {
@@ -16183,7 +16196,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||eis.de/shop/images/banner/"
   },
-  "id": 1562
+  "id": 1563
  },
  {
   "action": {
@@ -16194,7 +16207,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||escortkartei.com/banner/"
   },
-  "id": 1563
+  "id": 1564
  },
  {
   "action": {
@@ -16208,7 +16221,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||eteleon.de/partner/"
   },
-  "id": 1564
+  "id": 1565
  },
  {
   "action": {
@@ -16219,7 +16232,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||eteleon.de/partnerprogramm/"
   },
-  "id": 1565
+  "id": 1566
  },
  {
   "action": {
@@ -16230,7 +16243,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||faire.software/img/"
   },
-  "id": 1566
+  "id": 1567
  },
  {
   "action": {
@@ -16241,7 +16254,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fairvital.com/images/skyscraper_"
   },
-  "id": 1567
+  "id": 1568
  },
  {
   "action": {
@@ -16252,7 +16265,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fairvital.com^*/banner_"
   },
-  "id": 1568
+  "id": 1569
  },
  {
   "action": {
@@ -16263,7 +16276,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fantecio.com/ib/"
   },
-  "id": 1569
+  "id": 1570
  },
  {
   "action": {
@@ -16274,7 +16287,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fireradio.fm/img/banner/"
   },
-  "id": 1570
+  "id": 1571
  },
  {
   "action": {
@@ -16285,7 +16298,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gameliebe.com/affiliate/"
   },
-  "id": 1571
+  "id": 1572
  },
  {
   "action": {
@@ -16296,7 +16309,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||getdigital.de/banner/"
   },
-  "id": 1572
+  "id": 1573
  },
  {
   "action": {
@@ -16307,7 +16320,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||globetrotter.de/de/service/banner/"
   },
-  "id": 1573
+  "id": 1574
  },
  {
   "action": {
@@ -16318,7 +16331,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||goldsilbershop.de/widgets/"
   },
-  "id": 1574
+  "id": 1575
  },
  {
   "action": {
@@ -16329,7 +16342,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gpaf.net/b/"
   },
-  "id": 1575
+  "id": 1576
  },
  {
   "action": {
@@ -16340,7 +16353,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hallimash.com/werber/"
   },
-  "id": 1576
+  "id": 1577
  },
  {
   "action": {
@@ -16351,7 +16364,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||heutenochficken.com/banner/"
   },
-  "id": 1577
+  "id": 1578
  },
  {
   "action": {
@@ -16362,7 +16375,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hurenkartei.com/teaser-"
   },
-  "id": 1578
+  "id": 1579
  },
  {
   "action": {
@@ -16373,7 +16386,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hyp-tech.com/img/"
   },
-  "id": 1579
+  "id": 1580
  },
  {
   "action": {
@@ -16384,7 +16397,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||icq-love.de/show_icqt.php"
   },
-  "id": 1580
+  "id": 1581
  },
  {
   "action": {
@@ -16395,7 +16408,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||idealo.net/js/idealowidget-"
   },
-  "id": 1581
+  "id": 1582
  },
  {
   "action": {
@@ -16406,7 +16419,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||imaxcdn.com/promotool/banner/"
   },
-  "id": 1582
+  "id": 1583
  },
  {
   "action": {
@@ -16417,7 +16430,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||internetoptiker.de/banner/"
   },
-  "id": 1583
+  "id": 1584
  },
  {
   "action": {
@@ -16428,7 +16441,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kai-homilius-verlag.de/bilder/banner/"
   },
-  "id": 1584
+  "id": 1585
  },
  {
   "action": {
@@ -16439,7 +16452,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kein-dsl.de/banner/"
   },
-  "id": 1585
+  "id": 1586
  },
  {
   "action": {
@@ -16450,7 +16463,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||klasse2000.de/fileadmin/user_upload/webbanner/"
   },
-  "id": 1586
+  "id": 1587
  },
  {
   "action": {
@@ -16461,7 +16474,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kontakt-vermittler.de/banner2/"
   },
-  "id": 1587
+  "id": 1588
  },
  {
   "action": {
@@ -16472,7 +16485,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kontaktanzeigenmarkt.de/br/"
   },
-  "id": 1588
+  "id": 1589
  },
  {
   "action": {
@@ -16483,7 +16496,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kopp-verlag.de^*/banners/"
   },
-  "id": 1589
+  "id": 1590
  },
  {
   "action": {
@@ -16494,7 +16507,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||laptops-fair.de/img/"
   },
-  "id": 1590
+  "id": 1591
  },
  {
   "action": {
@@ -16505,7 +16518,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lead-alliance.net/tb.php"
   },
-  "id": 1591
+  "id": 1592
  },
  {
   "action": {
@@ -16516,7 +16529,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||logiprint.com/partner/"
   },
-  "id": 1592
+  "id": 1593
  },
  {
   "action": {
@@ -16527,7 +16540,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lustgate.org/images/cbanner/"
   },
-  "id": 1593
+  "id": 1594
  },
  {
   "action": {
@@ -16538,7 +16551,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||media*.s24.com^"
   },
-  "id": 1594
+  "id": 1595
  },
  {
   "action": {
@@ -16549,7 +16562,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||medipreis.de/partner/"
   },
-  "id": 1595
+  "id": 1596
  },
  {
   "action": {
@@ -16560,7 +16573,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mobildiscounter.de/banner/"
   },
-  "id": 1596
+  "id": 1597
  },
  {
   "action": {
@@ -16571,7 +16584,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||modellplan.de/banner/"
   },
-  "id": 1597
+  "id": 1598
  },
  {
   "action": {
@@ -16582,7 +16595,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||monsterdealz.de/images/"
   },
-  "id": 1598
+  "id": 1599
  },
  {
   "action": {
@@ -16593,7 +16606,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||monstersgame.net^*&vid="
   },
-  "id": 1599
+  "id": 1600
  },
  {
   "action": {
@@ -16604,7 +16617,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||montessori-shop.de/banner/"
   },
-  "id": 1600
+  "id": 1601
  },
  {
   "action": {
@@ -16615,7 +16628,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mydirtyhobby.de/track/"
   },
-  "id": 1601
+  "id": 1602
  },
  {
   "action": {
@@ -16626,7 +16639,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nexworld.tv^*/banner/"
   },
-  "id": 1602
+  "id": 1603
  },
  {
   "action": {
@@ -16637,7 +16650,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||okm-community.com/banner/"
   },
-  "id": 1603
+  "id": 1604
  },
  {
   "action": {
@@ -16648,7 +16661,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||partyschnaps.com/banner/"
   },
-  "id": 1604
+  "id": 1605
  },
  {
   "action": {
@@ -16659,7 +16672,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pccdn.com^*/banner/"
   },
-  "id": 1605
+  "id": 1606
  },
  {
   "action": {
@@ -16670,7 +16683,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pearl.de/adwpmulti.jsps?"
   },
-  "id": 1606
+  "id": 1607
  },
  {
   "action": {
@@ -16681,7 +16694,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pearl.de^*/microsites/"
   },
-  "id": 1607
+  "id": 1608
  },
  {
   "action": {
@@ -16692,7 +16705,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||portale.news^*/banners/"
   },
-  "id": 1608
+  "id": 1609
  },
  {
   "action": {
@@ -16703,7 +16716,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||primusportal.de/banner/"
   },
-  "id": 1609
+  "id": 1610
  },
  {
   "action": {
@@ -16714,7 +16727,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||privatamateure.com/?wmid=*&program="
   },
-  "id": 1610
+  "id": 1611
  },
  {
   "action": {
@@ -16725,7 +16738,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||profiseller.de/banner/"
   },
-  "id": 1611
+  "id": 1612
  },
  {
   "action": {
@@ -16736,7 +16749,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||questler.de/gfx/banner/"
   },
-  "id": 1612
+  "id": 1613
  },
  {
   "action": {
@@ -16747,7 +16760,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ranksider.de/img/banner/"
   },
-  "id": 1613
+  "id": 1614
  },
  {
   "action": {
@@ -16758,7 +16771,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||rastplatzsex.com/banner/"
   },
-  "id": 1614
+  "id": 1615
  },
  {
   "action": {
@@ -16769,7 +16782,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||rotlichtkartei.com/banner/"
   },
-  "id": 1615
+  "id": 1616
  },
  {
   "action": {
@@ -16780,7 +16793,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||satchef.de/banner/"
   },
-  "id": 1616
+  "id": 1617
  },
  {
   "action": {
@@ -16791,7 +16804,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||satking.de/images/banners/"
   },
-  "id": 1617
+  "id": 1618
  },
  {
   "action": {
@@ -16802,7 +16815,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||secure-host.de/banner/"
   },
-  "id": 1618
+  "id": 1619
  },
  {
   "action": {
@@ -16813,7 +16826,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||secure-host.de^*/banner/"
   },
-  "id": 1619
+  "id": 1620
  },
  {
   "action": {
@@ -16824,7 +16837,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||seitensprungarea.com/medien/"
   },
-  "id": 1620
+  "id": 1621
  },
  {
   "action": {
@@ -16835,7 +16848,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sexkontaktportal.com/banner/"
   },
-  "id": 1621
+  "id": 1622
  },
  {
   "action": {
@@ -16846,7 +16859,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||silbertresor.de^*/banner/"
   },
-  "id": 1622
+  "id": 1623
  },
  {
   "action": {
@@ -16857,7 +16870,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||slotkings.de/img/banner/"
   },
-  "id": 1623
+  "id": 1624
  },
  {
   "action": {
@@ -16868,7 +16881,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||smskontakt.ch/images/"
   },
-  "id": 1624
+  "id": 1625
  },
  {
   "action": {
@@ -16879,7 +16892,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sn-multimedia.de/weitereangebote-v2/"
   },
-  "id": 1625
+  "id": 1626
  },
  {
   "action": {
@@ -16890,7 +16903,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sn-multimedia.de/weitereangebote/"
   },
-  "id": 1626
+  "id": 1627
  },
  {
   "action": {
@@ -16901,7 +16914,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sonnige-aussichten.ch/_img/ad/"
   },
-  "id": 1627
+  "id": 1628
  },
  {
   "action": {
@@ -16912,7 +16925,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||space4free.net/images/banner/"
   },
-  "id": 1628
+  "id": 1629
  },
  {
   "action": {
@@ -16923,7 +16936,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||starting6.de/dyn_banner/"
   },
-  "id": 1629
+  "id": 1630
  },
  {
   "action": {
@@ -16934,7 +16947,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||startparadies.de/banner/"
   },
-  "id": 1630
+  "id": 1631
  },
  {
   "action": {
@@ -16945,7 +16958,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sunpepper.de/shop/banner/"
   },
-  "id": 1631
+  "id": 1632
  },
  {
   "action": {
@@ -16956,7 +16969,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tnt-game.com^*/banner/"
   },
-  "id": 1632
+  "id": 1633
  },
  {
   "action": {
@@ -16967,7 +16980,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||trainersuchportal.de/partnerwidget/"
   },
-  "id": 1633
+  "id": 1634
  },
  {
   "action": {
@@ -16978,7 +16991,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||treff-mich.org/bilder/"
   },
-  "id": 1634
+  "id": 1635
  },
  {
   "action": {
@@ -16989,7 +17002,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||upjers.com/ext/ext.php"
   },
-  "id": 1635
+  "id": 1636
  },
  {
   "action": {
@@ -17000,7 +17013,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||venus-community.com/banner/"
   },
-  "id": 1636
+  "id": 1637
  },
  {
   "action": {
@@ -17011,7 +17024,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||verleihshop.de/gfx/partner/"
   },
-  "id": 1637
+  "id": 1638
  },
  {
   "action": {
@@ -17022,7 +17035,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||versandtarif.de^*?partnerid="
   },
-  "id": 1638
+  "id": 1639
  },
  {
   "action": {
@@ -17033,7 +17046,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vesalia.de/af.gif"
   },
-  "id": 1639
+  "id": 1640
  },
  {
   "action": {
@@ -17044,7 +17057,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||visit-x.net/001/"
   },
-  "id": 1640
+  "id": 1641
  },
  {
   "action": {
@@ -17055,7 +17068,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||viversum.de/partnerprogramm/"
   },
-  "id": 1641
+  "id": 1642
  },
  {
   "action": {
@@ -17066,7 +17079,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wazazu.com/iframe/"
   },
-  "id": 1642
+  "id": 1643
  },
  {
   "action": {
@@ -17077,7 +17090,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wazazu.com/js/pu_"
   },
-  "id": 1643
+  "id": 1644
  },
  {
   "action": {
@@ -17088,7 +17101,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wazazu.com/pimage/bas/"
   },
-  "id": 1644
+  "id": 1645
  },
  {
   "action": {
@@ -17099,7 +17112,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wazazu.com/pimage/sdc/"
   },
-  "id": 1645
+  "id": 1646
  },
  {
   "action": {
@@ -17110,7 +17123,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wazazu.com/pimage/visit-x/"
   },
-  "id": 1646
+  "id": 1647
  },
  {
   "action": {
@@ -17121,7 +17134,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||weekli.de/widget-loader?"
   },
-  "id": 1647
+  "id": 1648
  },
  {
   "action": {
@@ -17132,7 +17145,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||weekli.systems/www/widgets/"
   },
-  "id": 1648
+  "id": 1649
  },
  {
   "action": {
@@ -17143,7 +17156,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wgfreiheit.de/fileadmin/web_banner/"
   },
-  "id": 1649
+  "id": 1650
  },
  {
   "action": {
@@ -17154,7 +17167,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wien-girls.at/img/ba/"
   },
-  "id": 1650
+  "id": 1651
  },
  {
   "action": {
@@ -17165,7 +17178,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wpseo.de/banner/"
   },
-  "id": 1651
+  "id": 1652
  },
  {
   "action": {
@@ -17176,7 +17189,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wpseo.de^*/banner/"
   },
-  "id": 1652
+  "id": 1653
  },
  {
   "action": {
@@ -17187,7 +17200,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zweitfondsmarkt.de/banner/"
   },
-  "id": 1653
+  "id": 1654
  },
  {
   "action": {
@@ -17201,7 +17214,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||interhyp.de/angular/lafpartner/"
   },
-  "id": 1654
+  "id": 1655
  },
  {
   "action": {
@@ -17554,7 +17567,7 @@
     "zyxwvutsrqponmlkjihgfedcbazyxwvutsrqponmlkjihgfedcbazyxwvutsrqp.de"
    ]
   },
-  "id": 1657
+  "id": 1658
  },
  {
   "action": {
@@ -17572,7 +17585,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1658
+  "id": 1659
  },
  {
   "action": {
@@ -17586,7 +17599,7 @@
    ],
    "urlFilter": "||amarotic.com^*.php?wmid="
   },
-  "id": 1659
+  "id": 1660
  },
  {
   "action": {
@@ -17600,7 +17613,7 @@
    ],
    "urlFilter": "||amateurbusters.com^*.php?wmid="
   },
-  "id": 1660
+  "id": 1661
  },
  {
   "action": {
@@ -17614,7 +17627,7 @@
    ],
    "urlFilter": "||nestoria.de^*?partner="
   },
-  "id": 1661
+  "id": 1662
  },
  {
   "action": {
@@ -17628,7 +17641,7 @@
    ],
    "urlFilter": "||trivago.de/de/srv/destination/js/hotel_"
   },
-  "id": 1662
+  "id": 1663
  },
  {
   "action": {
@@ -17642,7 +17655,7 @@
    ],
    "urlFilter": "||api.medianord.de/widgets/frame?"
   },
-  "id": 1663
+  "id": 1664
  },
  {
   "action": {
@@ -17656,7 +17669,7 @@
    ],
    "urlFilter": "||blog-linktausch.de^*/iframe.php?layout="
   },
-  "id": 1664
+  "id": 1665
  },
  {
   "action": {
@@ -17670,7 +17683,7 @@
    ],
    "urlFilter": "||erotik1.de^*.php?"
   },
-  "id": 1665
+  "id": 1666
  },
  {
   "action": {
@@ -17687,7 +17700,7 @@
    ],
    "urlFilter": "||finanzen.net/partner/"
   },
-  "id": 1666
+  "id": 1667
  },
  {
   "action": {
@@ -17701,7 +17714,7 @@
    ],
    "urlFilter": "||flirty.com/?pr=*&wm="
   },
-  "id": 1667
+  "id": 1668
  },
  {
   "action": {
@@ -17715,7 +17728,7 @@
    ],
    "urlFilter": "||hamster.cc^*.php"
   },
-  "id": 1668
+  "id": 1669
  },
  {
   "action": {
@@ -17729,7 +17742,7 @@
    ],
    "urlFilter": "||lieferando.de/widgets/"
   },
-  "id": 1669
+  "id": 1670
  },
  {
   "action": {
@@ -17743,7 +17756,7 @@
    ],
    "urlFilter": "||lotto-hh.de/lh/widget1/"
   },
-  "id": 1670
+  "id": 1671
  },
  {
   "action": {
@@ -17757,7 +17770,7 @@
    ],
    "urlFilter": "||lotto24.de/?partner="
   },
-  "id": 1671
+  "id": 1672
  },
  {
   "action": {
@@ -17771,7 +17784,7 @@
    ],
    "urlFilter": "||prospekt38.de^*/widget.php?anbieter_id="
   },
-  "id": 1672
+  "id": 1673
  },
  {
   "action": {
@@ -17785,7 +17798,7 @@
    ],
    "urlFilter": "||rabattcorner.ch/iframe/"
   },
-  "id": 1673
+  "id": 1674
  },
  {
   "action": {
@@ -17805,7 +17818,7 @@
     "sub_frame"
    ]
   },
-  "id": 1674
+  "id": 1675
  },
  {
   "action": {
@@ -17822,7 +17835,7 @@
    ],
    "urlFilter": "|http://"
   },
-  "id": 1675
+  "id": 1676
  },
  {
   "action": {
@@ -17836,7 +17849,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adform.net/banners/"
   },
-  "id": 1676
+  "id": 1677
  },
  {
   "action": {
@@ -17849,7 +17862,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adform.net/stoat/*/s1.adform.net/bootstrap.js"
   },
-  "id": 1677
+  "id": 1678
  },
  {
   "action": {
@@ -17862,7 +17875,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adnxs-simple.com/creative/p/7823/2022/8/22/38956667/bcedd234-d477-49cf-86b1-d56000e4e685.jpg"
   },
-  "id": 1678
+  "id": 1679
  },
  {
   "action": {
@@ -17876,7 +17889,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||asadcdn.com/adlib/"
   },
-  "id": 1679
+  "id": 1680
  },
  {
   "action": {
@@ -17889,7 +17902,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||asadcdn.com/adlib/pages/musikexpress.js"
   },
-  "id": 1680
+  "id": 1681
  },
  {
   "action": {
@@ -17903,7 +17916,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ced.sascdn.com/tag/2161/smart.js"
   },
-  "id": 1681
+  "id": 1682
  },
  {
   "action": {
@@ -17913,7 +17926,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||football-aktuell.de/links/banner_oben.png"
   },
-  "id": 1682
+  "id": 1683
  },
  {
   "action": {
@@ -17926,7 +17939,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||g.doubleclick.net/gampad/ads?*&iu_parts=6032%2ckochbar.de%2chomepage&"
   },
-  "id": 1683
+  "id": 1684
  },
  {
   "action": {
@@ -17939,7 +17952,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||g.doubleclick.net/gampad/ads?*&iu_parts=6032%3a22339103238%2cmanma_dt%2chomepage&"
   },
-  "id": 1684
+  "id": 1685
  },
  {
   "action": {
@@ -17952,7 +17965,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||g.doubleclick.net/pagead/ppub_config?"
   },
-  "id": 1685
+  "id": 1686
  },
  {
   "action": {
@@ -17965,7 +17978,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googletagservices.com/tag/js/gpt.js"
   },
-  "id": 1686
+  "id": 1687
  },
  {
   "action": {
@@ -17975,7 +17988,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googlewatchblog.de^*/adsense.png"
   },
-  "id": 1687
+  "id": 1688
  },
  {
   "action": {
@@ -17985,7 +17998,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||goolive.de/media/static/images/smileys/ad.gif"
   },
-  "id": 1688
+  "id": 1689
  },
  {
   "action": {
@@ -18010,7 +18023,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
   },
-  "id": 1689
+  "id": 1690
  },
  {
   "action": {
@@ -18023,7 +18036,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||improvedigital.com/pbw/headerlift.min.js"
   },
-  "id": 1690
+  "id": 1691
  },
  {
   "action": {
@@ -18033,7 +18046,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jade-hs.de^*/ext-adv.js"
   },
-  "id": 1691
+  "id": 1692
  },
  {
   "action": {
@@ -18048,7 +18061,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||middleware.marktjagd.de/proxy/"
   },
-  "id": 1692
+  "id": 1693
  },
  {
   "action": {
@@ -18061,7 +18074,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||native.emsservice.de/images/teaser*_*.jpeg"
   },
-  "id": 1693
+  "id": 1694
  },
  {
   "action": {
@@ -18074,7 +18087,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||native.emsservice.de/teasers/*.json"
   },
-  "id": 1694
+  "id": 1695
  },
  {
   "action": {
@@ -18087,7 +18100,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 1695
+  "id": 1696
  },
  {
   "action": {
@@ -18100,7 +18113,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pagead2.googlesyndication.com/pagead/show_ads.js"
   },
-  "id": 1696
+  "id": 1697
  },
  {
   "action": {
@@ -18113,7 +18126,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tdn.da-services.ch/current/20min_durable.js"
   },
-  "id": 1697
+  "id": 1698
  },
  {
   "action": {
@@ -18122,19 +18135,6 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||webdisk.ads.mwn.de/scripts/ext-adv.js"
-  },
-  "id": 1698
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "autobild.de"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||amazon-adsystem.com/aax2/amzn_ads.js"
   },
   "id": 1699
  },
@@ -18147,9 +18147,22 @@
     "autobild.de"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||g.doubleclick.net/static/glade.js"
+   "urlFilter": "||amazon-adsystem.com/aax2/amzn_ads.js"
   },
   "id": 1700
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "autobild.de"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||g.doubleclick.net/static/glade.js"
+  },
+  "id": 1701
  },
  {
   "action": {
@@ -18164,7 +18177,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||g.doubleclick.net/tag/js/gpt.js"
   },
-  "id": 1701
+  "id": 1702
  },
  {
   "action": {
@@ -18177,7 +18190,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sascdn.com/diff/251/pages/autobild.js"
   },
-  "id": 1702
+  "id": 1703
  },
  {
   "action": {
@@ -18190,7 +18203,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sascdn.com/diff/251/templates/passback.js"
   },
-  "id": 1703
+  "id": 1704
  },
  {
   "action": {
@@ -18204,7 +18217,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||smartadserver.com/diff/251/partners/amazon.js"
   },
-  "id": 1704
+  "id": 1705
  },
  {
   "action": {
@@ -18217,7 +18230,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||smartadserver.com/diff/251/templates/passback.js"
   },
-  "id": 1705
+  "id": 1706
  },
  {
   "action": {
@@ -18230,7 +18243,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||smartadserver.com/diff/251/verify.js"
   },
-  "id": 1706
+  "id": 1707
  },
  {
   "action": {
@@ -18243,7 +18256,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googleusercontent.com^*/300x250."
   },
-  "id": 1707
+  "id": 1708
  },
  {
   "action": {
@@ -18259,7 +18272,7 @@
    ],
    "urlFilter": "||adnxs.com/p/creative-image/"
   },
-  "id": 1708
+  "id": 1709
  },
  {
   "action": {
@@ -18276,7 +18289,7 @@
     "image"
    ]
   },
-  "id": 1709
+  "id": 1710
  },
  {
   "action": {
@@ -18294,7 +18307,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1710
+  "id": 1711
  },
  {
   "action": {
@@ -18310,7 +18323,7 @@
    ],
    "urlFilter": "||googlesyndication.com/pagead/imgad?id="
   },
-  "id": 1711
+  "id": 1712
  },
  {
   "action": {
@@ -18326,7 +18339,7 @@
    ],
    "urlFilter": "||googlesyndication.com/simgad/"
   },
-  "id": 1712
+  "id": 1713
  },
  {
   "action": {
@@ -18342,7 +18355,7 @@
    ],
    "urlFilter": "||ikiosk.de/pdf/company/2/advertisement/"
   },
-  "id": 1713
+  "id": 1714
  },
  {
   "action": {
@@ -18358,7 +18371,7 @@
    ],
    "urlFilter": "||img.classistatic.de/api/v1/mo-prod/images/ad/"
   },
-  "id": 1714
+  "id": 1715
  },
  {
   "action": {
@@ -18374,7 +18387,7 @@
    ],
    "urlFilter": "||img.welt.de/img/advertorials/"
   },
-  "id": 1715
+  "id": 1716
  },
  {
   "action": {
@@ -18390,7 +18403,7 @@
    ],
    "urlFilter": "||maxbanner.de/media/products/"
   },
-  "id": 1716
+  "id": 1717
  },
  {
   "action": {
@@ -18406,7 +18419,7 @@
    ],
    "urlFilter": "||maxbanner.de/templates/_maxbanner/_assets/images/"
   },
-  "id": 1717
+  "id": 1718
  },
  {
   "action": {
@@ -18419,7 +18432,7 @@
    ],
    "urlFilter": "||rurweb.de/kleinanzeigen/adverts_image.php?"
   },
-  "id": 1718
+  "id": 1719
  },
  {
   "action": {
@@ -18435,7 +18448,7 @@
    ],
    "urlFilter": "||vcdn.adnxs.com/p/creative-image^"
   },
-  "id": 1719
+  "id": 1720
  },
  {
   "action": {
@@ -18451,7 +18464,7 @@
    ],
    "urlFilter": "||werbebanner24.de/templates/_wb24/_assets/images/"
   },
-  "id": 1720
+  "id": 1721
  },
  {
   "action": {
@@ -18467,7 +18480,7 @@
    ],
    "urlFilter": "||xdate.ch/bundles/omsportal/img/footer_banner_ads_"
   },
-  "id": 1721
+  "id": 1722
  },
  {
   "action": {
@@ -18483,7 +18496,7 @@
    ],
    "urlFilter": "||googlesyndication.com/pagead/imgad?"
   },
-  "id": 1722
+  "id": 1723
  },
  {
   "action": {
@@ -18499,7 +18512,7 @@
    ],
    "urlFilter": "||sascdn.com/diff/251/*/abo-teaser_fuer_ab.de-home.png"
   },
-  "id": 1723
+  "id": 1724
  },
  {
   "action": {
@@ -18515,7 +18528,7 @@
    ],
    "urlFilter": "||sascdn.com/diff/251/*/aktionen_191x108.jpg"
   },
-  "id": 1724
+  "id": 1725
  },
  {
   "action": {
@@ -18531,7 +18544,7 @@
    ],
    "urlFilter": "||sascdn.com/diff/251/*/gebrauchtwagenmarkt.png"
   },
-  "id": 1725
+  "id": 1726
  },
  {
   "action": {
@@ -18547,7 +18560,7 @@
    ],
    "urlFilter": "||sascdn.com/diff/251/*/kindersitze.png"
   },
-  "id": 1726
+  "id": 1727
  },
  {
   "action": {
@@ -18563,7 +18576,7 @@
    ],
    "urlFilter": "||eatsmarter.de/sites/default/files/*_300x250_"
   },
-  "id": 1727
+  "id": 1728
  },
  {
   "action": {
@@ -18579,7 +18592,7 @@
    ],
    "urlFilter": "||acdn.adnxs.com/ast/ast.js"
   },
-  "id": 1728
+  "id": 1729
  },
  {
   "action": {
@@ -18595,7 +18608,7 @@
    ],
    "urlFilter": "||adform.net/adfserve/?bn="
   },
-  "id": 1729
+  "id": 1730
  },
  {
   "action": {
@@ -18611,7 +18624,7 @@
    ],
    "urlFilter": "||adform.net/adx/"
   },
-  "id": 1730
+  "id": 1731
  },
  {
   "action": {
@@ -18627,7 +18640,7 @@
    ],
    "urlFilter": "||adform.net/stoat/*/s1.adform.net/load/"
   },
-  "id": 1731
+  "id": 1732
  },
  {
   "action": {
@@ -18644,7 +18657,7 @@
    ],
    "urlFilter": "||adsafeprotected.com/iaspet."
   },
-  "id": 1732
+  "id": 1733
  },
  {
   "action": {
@@ -18661,7 +18674,7 @@
    ],
    "urlFilter": "||amazon-adsystem.com/aax2/apstag.js"
   },
-  "id": 1733
+  "id": 1734
  },
  {
   "action": {
@@ -18677,7 +18690,7 @@
    ],
    "urlFilter": "||anyclip.com/main.js?"
   },
-  "id": 1734
+  "id": 1735
  },
  {
   "action": {
@@ -18693,7 +18706,7 @@
    ],
    "urlFilter": "||anyclip.com/static/js/"
   },
-  "id": 1735
+  "id": 1736
  },
  {
   "action": {
@@ -18709,7 +18722,7 @@
    ],
    "urlFilter": "||asadcdn.com/adlib/"
   },
-  "id": 1736
+  "id": 1737
  },
  {
   "action": {
@@ -18725,7 +18738,7 @@
    ],
    "urlFilter": "||asadcdn.com/adlib/adlib_seq.js"
   },
-  "id": 1737
+  "id": 1738
  },
  {
   "action": {
@@ -18741,7 +18754,7 @@
    ],
    "urlFilter": "||asadcdn.com/adlib/libmodules/"
   },
-  "id": 1738
+  "id": 1739
  },
  {
   "action": {
@@ -18757,7 +18770,7 @@
    ],
    "urlFilter": "||asadcdn.com/adlib/pages/bz-berlin.js"
   },
-  "id": 1739
+  "id": 1740
  },
  {
   "action": {
@@ -18773,7 +18786,7 @@
    ],
    "urlFilter": "||asadcdn.com/adlib/pages/stylebook.js^"
   },
-  "id": 1740
+  "id": 1741
  },
  {
   "action": {
@@ -18789,7 +18802,7 @@
    ],
    "urlFilter": "||asadcdn.com/adlib/templates/onetag.js"
   },
-  "id": 1741
+  "id": 1742
  },
  {
   "action": {
@@ -18805,7 +18818,7 @@
    ],
    "urlFilter": "||emsservice.de/autonative/"
   },
-  "id": 1742
+  "id": 1743
  },
  {
   "action": {
@@ -18826,7 +18839,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/gampad/ads?"
   },
-  "id": 1743
+  "id": 1744
  },
  {
   "action": {
@@ -18843,7 +18856,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/gampad/ads?*&iu_parts=21917048853%2ctargetlink%2cbill-%2cleaderboard%2cmedium-rectangle%2cskyscraper%2chalfpage%2cshop%2chalfpagelo%2caffiplatzierung&"
   },
-  "id": 1744
+  "id": 1745
  },
  {
   "action": {
@@ -18860,7 +18873,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/gampad/ads?*&iu_parts=27763518%3a21917048853%2cteltarif-de_onlineverlag_gmbh%2cteltarif.de%2cparallax%2chalfpagelu%2chalfpageru%2cnavisky&"
   },
-  "id": 1745
+  "id": 1746
  },
  {
   "action": {
@@ -18890,7 +18903,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/gpt/pubads_impl_"
   },
-  "id": 1746
+  "id": 1747
  },
  {
   "action": {
@@ -18908,7 +18921,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js"
   },
-  "id": 1747
+  "id": 1748
  },
  {
   "action": {
@@ -18937,7 +18950,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/tag/js/gpt.js"
   },
-  "id": 1748
+  "id": 1749
  },
  {
   "action": {
@@ -18955,7 +18968,7 @@
    ],
    "urlFilter": "||getjad.io/library/"
   },
-  "id": 1749
+  "id": 1750
  },
  {
   "action": {
@@ -18973,7 +18986,7 @@
    ],
    "urlFilter": "||getjad.io/prebid/"
   },
-  "id": 1750
+  "id": 1751
  },
  {
   "action": {
@@ -18989,7 +19002,7 @@
    ],
    "urlFilter": "||idealo.net/js/idealowidget-"
   },
-  "id": 1751
+  "id": 1752
  },
  {
   "action": {
@@ -19005,7 +19018,7 @@
    ],
    "urlFilter": "||live.primis.tech/live/livevideo.php?"
   },
-  "id": 1752
+  "id": 1753
  },
  {
   "action": {
@@ -19021,7 +19034,7 @@
    ],
    "urlFilter": "||live.primis.tech/live/liveview.php?"
   },
-  "id": 1753
+  "id": 1754
  },
  {
   "action": {
@@ -19038,7 +19051,7 @@
     "script"
    ]
   },
-  "id": 1754
+  "id": 1755
  },
  {
   "action": {
@@ -19054,7 +19067,7 @@
    ],
    "urlFilter": "||sascdn.com/diff/templates/ts/dist/banner/sas-banner-"
   },
-  "id": 1755
+  "id": 1756
  },
  {
   "action": {
@@ -19070,7 +19083,7 @@
    ],
    "urlFilter": "||smartadserver.com/ac?nwid=*&tag=sas_45579^"
   },
-  "id": 1756
+  "id": 1757
  },
  {
   "action": {
@@ -19086,7 +19099,7 @@
    ],
    "urlFilter": "||smartclip.net/?plc="
   },
-  "id": 1757
+  "id": 1758
  },
  {
   "action": {
@@ -19102,7 +19115,7 @@
    ],
    "urlFilter": "||smartclip.net/ads?"
   },
-  "id": 1758
+  "id": 1759
  },
  {
   "action": {
@@ -19120,7 +19133,7 @@
     "script"
    ]
   },
-  "id": 1759
+  "id": 1760
  },
  {
   "action": {
@@ -19136,7 +19149,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/gampad/adx?"
   },
-  "id": 1760
+  "id": 1761
  },
  {
   "action": {
@@ -19152,7 +19165,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/gpt/pubads_"
   },
-  "id": 1761
+  "id": 1762
  },
  {
   "action": {
@@ -19168,7 +19181,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/static/glade/extra_"
   },
-  "id": 1762
+  "id": 1763
  },
  {
   "action": {
@@ -19184,7 +19197,7 @@
    ],
    "urlFilter": "||sascdn.com/diff/251/pages/"
   },
-  "id": 1763
+  "id": 1764
  },
  {
   "action": {
@@ -19201,7 +19214,7 @@
    ],
    "urlFilter": "||smartadserver.com/ac?nwid="
   },
-  "id": 1764
+  "id": 1765
  },
  {
   "action": {
@@ -19217,7 +19230,7 @@
    ],
    "urlFilter": "||smartadserver.com/diff/251/2484653/show10.asp"
   },
-  "id": 1765
+  "id": 1766
  },
  {
   "action": {
@@ -19233,7 +19246,7 @@
    ],
    "urlFilter": "||a.bf-ad.net/adengine/chip/adengine.js"
   },
-  "id": 1766
+  "id": 1767
  },
  {
   "action": {
@@ -19249,7 +19262,7 @@
    ],
    "urlFilter": "||adnxs-simple.com/mob?"
   },
-  "id": 1767
+  "id": 1768
  },
  {
   "action": {
@@ -19265,7 +19278,7 @@
    ],
    "urlFilter": "||adnxs.com/ut/v3|"
   },
-  "id": 1768
+  "id": 1769
  },
  {
   "action": {
@@ -19281,7 +19294,7 @@
    ],
    "urlFilter": "||ads.viralize.tv/player/"
   },
-  "id": 1769
+  "id": 1770
  },
  {
   "action": {
@@ -19298,7 +19311,7 @@
    ],
    "urlFilter": "||adsafeprotected.com/services/pub?anid="
   },
-  "id": 1770
+  "id": 1771
  },
  {
   "action": {
@@ -19314,7 +19327,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/gampad/"
   },
-  "id": 1771
+  "id": 1772
  },
  {
   "action": {
@@ -19335,7 +19348,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/gampad/ads?"
   },
-  "id": 1772
+  "id": 1773
  },
  {
   "action": {
@@ -19353,7 +19366,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/pagead/ppub_config?ippd="
   },
-  "id": 1773
+  "id": 1774
  },
  {
   "action": {
@@ -19371,7 +19384,7 @@
    ],
    "urlFilter": "||ib.adnxs.com/ut/v3"
   },
-  "id": 1774
+  "id": 1775
  },
  {
   "action": {
@@ -19388,7 +19401,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1775
+  "id": 1776
  },
  {
   "action": {
@@ -19401,7 +19414,7 @@
    ],
    "urlFilter": "||www.quoka.de/services/qai/qac/autocomplete.php?"
   },
-  "id": 1776
+  "id": 1777
  },
  {
   "action": {
@@ -19418,7 +19431,7 @@
    ],
    "urlFilter": "||smartadserver.com/2161/call^"
   },
-  "id": 1777
+  "id": 1778
  },
  {
   "action": {
@@ -19435,7 +19448,7 @@
    ],
    "urlFilter": "||amazon-adsystem.com/widgets/q?*^ad_type=product_link^"
   },
-  "id": 1778
+  "id": 1779
  },
  {
   "action": {
@@ -19448,7 +19461,7 @@
    ],
    "urlFilter": "||feuerwehr-marchtrenk.at/homepage/banner.php"
   },
-  "id": 1779
+  "id": 1780
  },
  {
   "action": {
@@ -19464,7 +19477,7 @@
    ],
    "urlFilter": "||googlesyndication.com/safeframe/"
   },
-  "id": 1780
+  "id": 1781
  },
  {
   "action": {
@@ -19477,7 +19490,7 @@
    ],
    "urlFilter": "||mmcomputer.de^*&bannerid="
   },
-  "id": 1781
+  "id": 1782
  },
  {
   "action": {
@@ -19491,7 +19504,7 @@
    ],
    "urlFilter": "||welect.de/"
   },
-  "id": 1782
+  "id": 1783
  },
  {
   "action": {
@@ -19508,7 +19521,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/gampad/adx?*/wetter_direct_toolbar"
   },
-  "id": 1783
+  "id": 1784
  },
  {
   "action": {
@@ -19524,7 +19537,7 @@
    ],
    "urlFilter": "||smartadserver.com/diff/251/divscripte/"
   },
-  "id": 1784
+  "id": 1785
  },
  {
   "action": {
@@ -19540,7 +19553,7 @@
    ],
    "urlFilter": "||ads.julephosting.de/podcasts/"
   },
-  "id": 1785
+  "id": 1786
  },
  {
   "action": {
@@ -19551,7 +19564,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||commundia.de^*/affilinet/"
   },
-  "id": 1786
+  "id": 1787
  },
  {
   "action": {
@@ -19566,6 +19579,6 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1787
+  "id": 1788
  }
 ]

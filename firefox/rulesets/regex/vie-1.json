@@ -13,24 +13,36 @@
    "type": "block"
   },
   "condition": {
-   "regexFilter": "storage.adpia.vn",
-   "resourceTypes": [
-    "image"
-   ]
+   "initiatorDomains": [
+    "xemphimchill.net"
+   ],
+   "regexFilter": "i.imgur.com"
   },
-  "id": 267
+  "id": 10
  },
  {
   "action": {
    "type": "block"
   },
   "condition": {
-   "regexFilter": "\\w{2}\\.\\w+\\.com\\/\\w{15,}\\/\\w{5}$",
+   "regexFilter": "storage.adpia.vn",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 268
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "\\w{2}\\.\\w+\\.com\\/\\w{13,}\\/\\w{5}$",
    "resourceTypes": [
     "script"
    ]
   },
-  "id": 364
+  "id": 368
  },
  {
   "action": {
@@ -42,6 +54,6 @@
     "script"
    ]
   },
-  "id": 369
+  "id": 373
  }
 ]
