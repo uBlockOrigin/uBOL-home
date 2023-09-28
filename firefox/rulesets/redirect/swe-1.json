@@ -12,7 +12,7 @@
    ],
    "urlFilter": "||mediacreeper.com/image"
   },
-  "id": 1230,
+  "id": 1232,
   "priority": 2
  },
  {
@@ -28,7 +28,7 @@
    ],
    "urlFilter": "||mediacreeper.se/image"
   },
-  "id": 1231,
+  "id": 1233,
   "priority": 2
  },
  {
@@ -50,7 +50,7 @@
    ],
    "urlFilter": "/aab/tv4play"
   },
-  "id": 1232,
+  "id": 1234,
   "priority": 2
  },
  {
@@ -71,7 +71,7 @@
     "script"
    ]
   },
-  "id": 1233,
+  "id": 1235,
   "priority": 2
  },
  {
@@ -87,7 +87,7 @@
    ],
    "urlFilter": "||widget.playoncenter.com/newplayer/js/pb_"
   },
-  "id": 1234,
+  "id": 1236,
   "priority": 2
  },
  {
@@ -103,7 +103,7 @@
    ],
    "urlFilter": "||kyrkanstidning.se/firstvisit"
   },
-  "id": 1235,
+  "id": 1237,
   "priority": 2
  },
  {
@@ -124,7 +124,7 @@
     "sub_frame"
    ]
   },
-  "id": 1241,
+  "id": 1243,
   "priority": 2
  },
  {
@@ -145,7 +145,7 @@
     "sub_frame"
    ]
   },
-  "id": 1242,
+  "id": 1244,
   "priority": 2
  },
  {
@@ -164,7 +164,26 @@
    ],
    "urlFilter": "||youtube.com/embed"
   },
-  "id": 1243,
+  "id": 1245,
+  "priority": 2
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "tv4play.se"
+   ],
+   "resourceTypes": [
+    "media"
+   ],
+   "urlFilter": "||dbf0a92kfjvxs.cloudfront.net/creatives/assets"
+  },
+  "id": 1250,
   "priority": 2
  }
 ]

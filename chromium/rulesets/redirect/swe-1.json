@@ -13,7 +13,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fast.fonts.net/*/1.css"
   },
-  "id": 1232,
+  "id": 1234,
   "priority": 2
  },
  {
@@ -30,7 +30,7 @@
    ],
    "urlFilter": "||mediacreeper.com/image"
   },
-  "id": 1233,
+  "id": 1235,
   "priority": 2
  },
  {
@@ -47,7 +47,7 @@
    ],
    "urlFilter": "||mediacreeper.se/image"
   },
-  "id": 1234,
+  "id": 1236,
   "priority": 2
  },
  {
@@ -70,7 +70,7 @@
    ],
    "urlFilter": "/aab/tv4play"
   },
-  "id": 1235,
+  "id": 1237,
   "priority": 2
  },
  {
@@ -91,7 +91,7 @@
     "script"
    ]
   },
-  "id": 1236,
+  "id": 1238,
   "priority": 2
  },
  {
@@ -108,7 +108,7 @@
    ],
    "urlFilter": "||widget.playoncenter.com/newplayer/js/pb_"
   },
-  "id": 1237,
+  "id": 1239,
   "priority": 2
  },
  {
@@ -125,7 +125,7 @@
    ],
    "urlFilter": "||kyrkanstidning.se/firstvisit"
   },
-  "id": 1238,
+  "id": 1240,
   "priority": 2
  },
  {
@@ -146,7 +146,7 @@
     "sub_frame"
    ]
   },
-  "id": 1244,
+  "id": 1246,
   "priority": 2
  },
  {
@@ -167,7 +167,7 @@
     "sub_frame"
    ]
   },
-  "id": 1245,
+  "id": 1247,
   "priority": 2
  },
  {
@@ -187,7 +187,27 @@
    ],
    "urlFilter": "||youtube.com/embed"
   },
-  "id": 1246,
+  "id": 1248,
+  "priority": 2
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "tv4play.se"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "media"
+   ],
+   "urlFilter": "||dbf0a92kfjvxs.cloudfront.net/creatives/assets"
+  },
+  "id": 1252,
   "priority": 2
  }
 ]

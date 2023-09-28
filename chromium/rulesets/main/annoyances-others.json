@@ -210,59 +210,10 @@
    "type": "block"
   },
   "condition": {
-   "initiatorDomains": [
-    "9db.jp",
-    "apptopi.jp",
-    "ctinews.com",
-    "efight.jp",
-    "football-tribe.com",
-    "kinmaweb.jp",
-    "moneysave.info",
-    "techinsight.jp"
-   ],
-   "requestDomains": [
-    "player.gliacloud.com"
-   ]
-  },
-  "id": 19
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "allmusic.com",
-    "bleepingcomputer.com",
-    "fadmagazine.com",
-    "favesouthernrecipes.com",
-    "hbcugameday.com",
-    "lifehacker.com",
-    "on3.com",
-    "penna.gr",
-    "shadowandact.com",
-    "sportsgamblingpodcast.com",
-    "tangorin.com",
-    "thegatewaypundit.com",
-    "thisismoney.co.uk",
-    "urbanbellemag.com",
-    "workitdaily.com"
-   ],
-   "requestDomains": [
-    "connatix.com"
-   ]
-  },
-  "id": 20
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fireworkapi1.com/embed/v2/playlists/5m1wz5/feeds?page_size=10"
   },
-  "id": 21
+  "id": 19
  },
  {
   "action": {
@@ -272,7 +223,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fireworkapi1.com/embed/v2/channels/whats_trending"
   },
-  "id": 22
+  "id": 20
  },
  {
   "action": {
@@ -282,7 +233,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fireworkapi.com/embed/v2/publisher_clients/"
   },
-  "id": 23
+  "id": 21
  },
  {
   "action": {
@@ -309,7 +260,7 @@
     "fireworkapi1.com"
    ]
   },
-  "id": 24
+  "id": 22
  },
  {
   "action": {
@@ -319,7 +270,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||images.news18.com/static_news18/pix/ibnhome/news18/jio_saavn_"
   },
-  "id": 25
+  "id": 23
  },
  {
   "action": {
@@ -329,7 +280,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||belaruspartisan.by/images/sherem.png"
   },
-  "id": 26
+  "id": 24
  },
  {
   "action": {
@@ -339,7 +290,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||belaruspartisan.by/images/svaboda3.jpg"
   },
-  "id": 27
+  "id": 25
  },
  {
   "action": {
@@ -352,7 +303,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||meczyki.pl/js/news-widget.js"
   },
-  "id": 28
+  "id": 26
  },
  {
   "action": {
@@ -362,7 +313,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||azby.fmworld.net/usage/images/banner_enquete.jpg"
   },
-  "id": 29
+  "id": 27
  },
  {
   "action": {
@@ -372,7 +323,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mwcm.nytimes.com/capi/metered_assets/?plat=*&areas=welcomead"
   },
-  "id": 30
+  "id": 28
  },
  {
   "action": {
@@ -382,7 +333,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||newzit.com/static/videoplayer/*/scripts/mol-fe-videoplayer.min.js"
   },
-  "id": 31
+  "id": 29
  },
  {
   "action": {
@@ -395,7 +346,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||edicloud.edipresse.pl/random/wizaz/video.js"
   },
-  "id": 32
+  "id": 30
  },
  {
   "action": {
@@ -405,7 +356,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||syouron.com/neko_tora.js"
   },
-  "id": 33
+  "id": 31
  },
  {
   "action": {
@@ -415,7 +366,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static3.car.ru/img/ya.gif"
   },
-  "id": 34
+  "id": 32
  },
  {
   "action": {
@@ -425,7 +376,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||darkcrew.org/forum/service_worker.js"
   },
-  "id": 35
+  "id": 33
  },
  {
   "action": {
@@ -435,7 +386,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||brief.pl/wp-content/uploads/2021/06/baner-www-750x100px.png"
   },
-  "id": 36
+  "id": 34
  },
  {
   "action": {
@@ -448,7 +399,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fiverr.com/embed_gigs?id"
   },
-  "id": 37
+  "id": 35
  },
  {
   "action": {
@@ -458,7 +409,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nicoad.nicovideo.jp/v1/contents/video/*/pickup_supporters"
   },
-  "id": 38
+  "id": 36
  },
  {
   "action": {
@@ -468,7 +419,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sputnik.by/files/tgparser/sputnik_by.html"
   },
-  "id": 39
+  "id": 37
  },
  {
   "action": {
@@ -481,7 +432,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||s.yimg.jp/images/auct/salespromotion/2021_2/0216_stop/376_376.png"
   },
-  "id": 40
+  "id": 38
  },
  {
   "action": {
@@ -491,7 +442,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||diets.ru/i/rb/start_to_lose_weight_*.jpg"
   },
-  "id": 42
+  "id": 40
  },
  {
   "action": {
@@ -501,7 +452,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mir24.tv/uploaded/resources/telegramm_1200x90.jpg"
   },
-  "id": 43
+  "id": 41
  },
  {
   "action": {
@@ -516,7 +467,7 @@
     "embed.sendtonews.com"
    ]
   },
-  "id": 44
+  "id": 42
  },
  {
   "action": {
@@ -526,7 +477,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||haber7.net/sondakika/ramazan-widget"
   },
-  "id": 45
+  "id": 43
  },
  {
   "action": {
@@ -540,7 +491,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||turkmedya.com.tr/ramazan?"
   },
-  "id": 46
+  "id": 44
  },
  {
   "action": {
@@ -550,7 +501,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||drozdogan.com/images/koronavirus_banner_*.gif"
   },
-  "id": 47
+  "id": 45
  },
  {
   "action": {
@@ -571,7 +522,7 @@
     "content.jwplatform.com"
    ]
   },
-  "id": 48
+  "id": 46
  },
  {
   "action": {
@@ -587,7 +538,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.viqeo.tv/js/vq_starter.js"
   },
-  "id": 49
+  "id": 47
  },
  {
   "action": {
@@ -600,7 +551,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||search.namu.wiki/api/ranking"
   },
-  "id": 50
+  "id": 48
  },
  {
   "action": {
@@ -613,7 +564,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||arca.live/api/bywiki.json"
   },
-  "id": 51
+  "id": 49
  },
  {
   "action": {
@@ -627,7 +578,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.tinypass.com/api/tinypass.min.js"
   },
-  "id": 52
+  "id": 50
  },
  {
   "action": {
@@ -641,7 +592,7 @@
     "vidtech.cbsinteractive.com"
    ]
   },
-  "id": 53
+  "id": 51
  },
  {
   "action": {
@@ -654,7 +605,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jiosaavn.com/embed/"
   },
-  "id": 54
+  "id": 52
  },
  {
   "action": {
@@ -664,7 +615,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||psxplanet.ru/forum/clientscript/ny2021/scripts/game_v4.js"
   },
-  "id": 55
+  "id": 53
  },
  {
   "action": {
@@ -674,7 +625,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||silvergames.com/div/own.php?"
   },
-  "id": 56
+  "id": 54
  },
  {
   "action": {
@@ -684,7 +635,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||codestudyblog.com/ref/myscripts.js"
   },
-  "id": 57
+  "id": 55
  },
  {
   "action": {
@@ -694,7 +645,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ilenta.com/images/banner/"
   },
-  "id": 58
+  "id": 56
  },
  {
   "action": {
@@ -704,7 +655,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||expclan.org/styles/banners/skupka.gif"
   },
-  "id": 59
+  "id": 57
  },
  {
   "action": {
@@ -714,7 +665,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||expclan.org/styles/banners/des.gif"
   },
-  "id": 60
+  "id": 58
  },
  {
   "action": {
@@ -724,7 +675,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||expclan.org/styles/banners/iphone.gif"
   },
-  "id": 61
+  "id": 59
  },
  {
   "action": {
@@ -737,7 +688,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "bugsnag.com^"
   },
-  "id": 62
+  "id": 60
  },
  {
   "action": {
@@ -750,7 +701,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/bugsnag.min.js"
   },
-  "id": 63
+  "id": 61
  },
  {
   "action": {
@@ -764,7 +715,7 @@
     "sentry-cdn.com"
    ]
   },
-  "id": 64
+  "id": 62
  },
  {
   "action": {
@@ -778,7 +729,23 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jsrdn.com/s/cs.js"
   },
-  "id": 65
+  "id": 63
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "bleepingcomputer.com",
+    "lifehacker.com",
+    "thegatewaypundit.com"
+   ],
+   "requestDomains": [
+    "connatix.com"
+   ]
+  },
+  "id": 64
  },
  {
   "action": {
@@ -788,7 +755,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||business-standard.com/covid-*.php"
   },
-  "id": 66
+  "id": 65
  },
  {
   "action": {
@@ -801,7 +768,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.viqeo.tv/embed?playerid="
   },
-  "id": 67
+  "id": 66
  },
  {
   "action": {
@@ -814,7 +781,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||viqeo.tv/js/vq_starter.js"
   },
-  "id": 68
+  "id": 67
  },
  {
   "action": {
@@ -827,7 +794,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cupid.iqiyi.com/mixer?"
   },
-  "id": 69
+  "id": 68
  },
  {
   "action": {
@@ -837,7 +804,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||download.skype.com/share/skypebuttons/js/skypecheck.js"
   },
-  "id": 70
+  "id": 69
  },
  {
   "action": {
@@ -851,7 +818,7 @@
     "api.dmcdn.net"
    ]
   },
-  "id": 71
+  "id": 70
  },
  {
   "action": {
@@ -861,7 +828,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dostfilms.*/uploads/readmore.min.js"
   },
-  "id": 72
+  "id": 71
  },
  {
   "action": {
@@ -871,7 +838,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||animepertutti.org/wp-content/uploads/*/telegramjoin.jpg"
   },
-  "id": 73
+  "id": 72
  },
  {
   "action": {
@@ -881,7 +848,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.zmescience.com/wp-content/themes/jnews/assets/dist/image/preloader.gif"
   },
-  "id": 74
+  "id": 73
  },
  {
   "action": {
@@ -895,7 +862,7 @@
     "adncdnend.azureedge.net"
    ]
   },
-  "id": 75
+  "id": 74
  },
  {
   "action": {
@@ -905,7 +872,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||r.dlandroid.com/wp-content/uploads/*/telegram.png"
   },
-  "id": 76
+  "id": 75
  },
  {
   "action": {
@@ -922,7 +889,7 @@
     "player.anyclip.com"
    ]
   },
-  "id": 77
+  "id": 76
  },
  {
   "action": {
@@ -932,7 +899,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||business.ru/files/widgets/vkwidget"
   },
-  "id": 78
+  "id": 77
  },
  {
   "action": {
@@ -942,7 +909,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||golos.ua/assets/img/telegram.gif"
   },
-  "id": 79
+  "id": 78
  },
  {
   "action": {
@@ -952,7 +919,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||juraganfilm.site/ik/info.jpg"
   },
-  "id": 80
+  "id": 79
  },
  {
   "action": {
@@ -965,7 +932,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdnjs.cloudflare.com/ajax/libs/snowstorm/*/snowstorm-min.js"
   },
-  "id": 81
+  "id": 80
  },
  {
   "action": {
@@ -975,7 +942,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i2.kidstaff.com.ua/info-1-5.js"
   },
-  "id": 82
+  "id": 81
  },
  {
   "action": {
@@ -985,7 +952,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nu6i-bg-net.com/snow3.gif"
   },
-  "id": 83
+  "id": 82
  },
  {
   "action": {
@@ -998,7 +965,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fb.ru/front/build/comments.js"
   },
-  "id": 84
+  "id": 83
  },
  {
   "action": {
@@ -1008,7 +975,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||avjd014.com/statics/layer_mobile/layer.js"
   },
-  "id": 85
+  "id": 84
  },
  {
   "action": {
@@ -1022,7 +989,7 @@
     "ferra.media.eagleplatform.com"
    ]
   },
-  "id": 86
+  "id": 85
  },
  {
   "action": {
@@ -1032,7 +999,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||imtranslator.net/images/donate.gif"
   },
-  "id": 87
+  "id": 86
  },
  {
   "action": {
@@ -1042,7 +1009,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||suedkurier.de/_fws/jsoninplainout/script/shift-2017_private-mode.js"
   },
-  "id": 88
+  "id": 87
  },
  {
   "action": {
@@ -1052,7 +1019,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.appledaily.com.tw/pay/js/minisite/paywall.js"
   },
-  "id": 89
+  "id": 88
  },
  {
   "action": {
@@ -1062,7 +1029,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.appledaily.com.tw/pay/js/paywall.*.js"
   },
-  "id": 90
+  "id": 89
  },
  {
   "action": {
@@ -1072,7 +1039,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.britannica.com/mendel/curiosity/eb-mendel-curiosity-300x90c.png"
   },
-  "id": 91
+  "id": 90
  },
  {
   "action": {
@@ -1082,7 +1049,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wp-content/plugins/snow-3d/"
   },
-  "id": 92
+  "id": 91
  },
  {
   "action": {
@@ -1092,7 +1059,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||montpellierhandball.com/scripts/fancybox/minified__fancybox.js"
   },
-  "id": 93
+  "id": 92
  },
  {
   "action": {
@@ -1109,7 +1076,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.playwire.com/*/embed.js"
   },
-  "id": 94
+  "id": 93
  },
  {
   "action": {
@@ -1119,7 +1086,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nnmstatic.win/forum/new_year/"
   },
-  "id": 95
+  "id": 94
  },
  {
   "action": {
@@ -1132,7 +1099,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cloudfront.net/_next/chunks/eea-*.js"
   },
-  "id": 96
+  "id": 95
  },
  {
   "action": {
@@ -1142,7 +1109,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mshop.rediff.com/trending-now/widget"
   },
-  "id": 97
+  "id": 96
  },
  {
   "action": {
@@ -1152,7 +1119,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||recoprofile.rediff.com/news_recommendation/news_template.html"
   },
-  "id": 98
+  "id": 97
  },
  {
   "action": {
@@ -1162,7 +1129,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||shopping.rediff.com/trending-now/widget"
   },
-  "id": 99
+  "id": 98
  },
  {
   "action": {
@@ -1177,7 +1144,7 @@
     "wibbitz.com"
    ]
   },
-  "id": 100
+  "id": 99
  },
  {
   "action": {
@@ -1190,7 +1157,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn-*.playwire.com/*/embed.js"
   },
-  "id": 101
+  "id": 100
  },
  {
   "action": {
@@ -1203,7 +1170,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mcd-sdk.playbuzz.com/embed^"
   },
-  "id": 102
+  "id": 101
  },
  {
   "action": {
@@ -1213,7 +1180,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||taraz-gov.kz/wp-content/uploads/2018/07/%d0%bf%d1%80%d0%b5%d0%bc%d0%b8%d1%8f-%d0%b4%d0%bb%d1%8f-%d0%bd%d0%bf%d0%be.mp4"
   },
-  "id": 103
+  "id": 102
  },
  {
   "action": {
@@ -1223,7 +1190,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wp.com/gizchina.it/wp-content/uploads/*/banner-gizdeals.png"
   },
-  "id": 104
+  "id": 103
  },
  {
   "action": {
@@ -1233,7 +1200,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||trecetv.es/images/banners/trece.gif"
   },
-  "id": 105
+  "id": 104
  },
  {
   "action": {
@@ -1243,7 +1210,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||javhiv.net/statics/defaultv2/js/debug1.js"
   },
-  "id": 106
+  "id": 105
  },
  {
   "action": {
@@ -1257,7 +1224,7 @@
     "pdj.cc"
    ]
   },
-  "id": 107
+  "id": 106
  },
  {
   "action": {
@@ -1271,7 +1238,7 @@
     "widget.crowdynews.com"
    ]
   },
-  "id": 108
+  "id": 107
  },
  {
   "action": {
@@ -1281,7 +1248,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||d3otfkap419ijo.cloudfront.net/*/lib-components-newsletter-modal.js"
   },
-  "id": 109
+  "id": 108
  },
  {
   "action": {
@@ -1291,7 +1258,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||designmodo.com/wp-content/themes/designmodov2.1/js/banner-slides.js"
   },
-  "id": 110
+  "id": 109
  },
  {
   "action": {
@@ -1305,7 +1272,7 @@
     "radioroks.ua"
    ]
   },
-  "id": 111
+  "id": 110
  },
  {
   "action": {
@@ -1319,7 +1286,7 @@
     "srviral.com"
    ]
   },
-  "id": 112
+  "id": 111
  },
  {
   "action": {
@@ -1329,7 +1296,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||macerkopf.de/wp-content/plugins/dreamgrow-scroll-triggered-box/js/script.js"
   },
-  "id": 113
+  "id": 112
  },
  {
   "action": {
@@ -1342,7 +1309,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||view.vzaar.com/*/player"
   },
-  "id": 114
+  "id": 113
  },
  {
   "action": {
@@ -1352,7 +1319,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||avinfo.co/i/chromavinfo.jpg"
   },
-  "id": 115
+  "id": 114
  },
  {
   "action": {
@@ -1362,7 +1329,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lostfilm.info/css*/b/"
   },
-  "id": 116
+  "id": 115
  },
  {
   "action": {
@@ -1372,7 +1339,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||baibako.tv/bg/"
   },
-  "id": 117
+  "id": 116
  },
  {
   "action": {
@@ -1382,7 +1349,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||afisha.ru/dzen/yadzen.js"
   },
-  "id": 118
+  "id": 117
  },
  {
   "action": {
@@ -1392,7 +1359,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||afisha.ru/js/banner_glitch/bannerglitch.js"
   },
-  "id": 119
+  "id": 118
  },
  {
   "action": {
@@ -1402,7 +1369,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||afisha.ru/noindex/isshowlive.js"
   },
-  "id": 120
+  "id": 119
  },
  {
   "action": {
@@ -1416,7 +1383,7 @@
     "streamspread.com"
    ]
   },
-  "id": 121
+  "id": 120
  },
  {
   "action": {
@@ -1430,7 +1397,7 @@
     "mir-avto-moto.ru"
    ]
   },
-  "id": 122
+  "id": 121
  },
  {
   "action": {
@@ -1440,7 +1407,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||epochtimes.de/assets/themes/eptde16/popup/fb-like-epochtimes.de.html"
   },
-  "id": 123
+  "id": 122
  },
  {
   "action": {
@@ -1450,7 +1417,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mts.ctc.ru/?nowrap="
   },
-  "id": 124
+  "id": 123
  },
  {
   "action": {
@@ -1460,7 +1427,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||am.cdnmob.org/_/img/youtube-bg-filler.png"
   },
-  "id": 125
+  "id": 124
  },
  {
   "action": {
@@ -1477,7 +1444,7 @@
     "whoaremyfriends.net"
    ]
   },
-  "id": 126
+  "id": 125
  },
  {
   "action": {
@@ -1490,7 +1457,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "g-tv.ru/videomore_gtv.php?video_id=*&auto_play=1"
   },
-  "id": 127
+  "id": 126
  },
  {
   "action": {
@@ -1500,7 +1467,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sports.ru/censusbarca/*.js"
   },
-  "id": 128
+  "id": 127
  },
  {
   "action": {
@@ -1510,7 +1477,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vesti.ru/4sport.html"
   },
-  "id": 129
+  "id": 128
  },
  {
   "action": {
@@ -1520,7 +1487,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pogoda.mail.ru/*/ct-push-notifications/ct-push-notifications.xml.js"
   },
-  "id": 130
+  "id": 129
  },
  {
   "action": {
@@ -1530,7 +1497,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wp-content/plugins/sociallocker-"
   },
-  "id": 131
+  "id": 130
  },
  {
   "action": {
@@ -1540,7 +1507,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||trimay.ru/?"
   },
-  "id": 132
+  "id": 131
  },
  {
   "action": {
@@ -1549,6 +1516,22 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i.dailymail.co.uk/i/pix/2017/08/02/636x90_facebook_ad_sport.png"
+  },
+  "id": 132
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "apptopi.jp",
+    "ctinews.com",
+    "moneysave.info"
+   ],
+   "requestDomains": [
+    "player.gliacloud.com"
+   ]
   },
   "id": 133
  },
@@ -4436,6 +4419,7 @@
   },
   "condition": {
    "requestDomains": [
+    "backgrounds.wetransfer.net",
     "banner.consultant.ru",
     "contributions.guardianapis.com",
     "illicium.web.money",
@@ -4632,6 +4616,7 @@
     "coinhive.com",
     "ext-stat.ru",
     "mystatext.ru",
+    "player.gliacloud.com",
     "point.widget.rakuten.co.jp",
     "usefomo.com",
     "xhamsterpremium.com"

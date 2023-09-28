@@ -122,6 +122,7 @@
        "rb_clickid",
        "rtkcid",
        "s_cid",
+       "srsltid",
        "sscid",
        "tduid",
        "twclid",
@@ -361,6 +362,107 @@
     "transform": {
      "queryTransform": {
       "removeParams": [
+       "parent_perf_id",
+       "perf_id",
+       "vis"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "requestDomains": [
+    "duckduckgo.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 10
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "t-src"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "requestDomains": [
+    "tutanota.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 11
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "ref"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "requestDomains": [
+    "arcelik.com.tr",
+    "asahi.com",
+    "boards.greenhouse.io",
+    "buzzfeednews.com",
+    "chunichi.co.jp",
+    "click.speee-ad.jp",
+    "cnn.co.jp",
+    "coconala.com",
+    "coolblue.nl",
+    "d-markets.net",
+    "donga.com",
+    "etsy.com",
+    "gamesplanet.com",
+    "goodreads.com",
+    "gotanynudes.com",
+    "ieagent.jp",
+    "kitizawa.com",
+    "livedoor.biz",
+    "mein.onlinekonto.de",
+    "nicovideo.jp",
+    "record.pt",
+    "reddit.com",
+    "tokyo-calendar.jp",
+    "uspoloassn.com",
+    "video.laxd.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  },
+  "id": 12
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
        "subId"
       ]
      }
@@ -377,7 +479,7 @@
    ],
    "urlFilter": "||t.adcell.com/*?"
   },
-  "id": 10
+  "id": 13
  },
  {
   "action": {
@@ -401,7 +503,7 @@
    ],
    "urlFilter": "||track.webgains.com/click.html?"
   },
-  "id": 11
+  "id": 14
  },
  {
   "action": {
@@ -427,7 +529,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 12
+  "id": 15
  },
  {
   "action": {
@@ -454,7 +556,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 13
+  "id": 16
  },
  {
   "action": {
@@ -482,7 +584,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 14
+  "id": 17
  },
  {
   "action": {
@@ -509,7 +611,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 15
+  "id": 18
  },
  {
   "action": {
@@ -537,7 +639,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 16
+  "id": 19
  },
  {
   "action": {
@@ -562,7 +664,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 17
+  "id": 20
  },
  {
   "action": {
@@ -588,7 +690,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 18
+  "id": 21
  },
  {
   "action": {
@@ -613,7 +715,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 19
+  "id": 22
  },
  {
   "action": {
@@ -640,55 +742,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 20
- },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "ref"
-      ]
-     }
-    }
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "requestDomains": [
-    "arcelik.com.tr",
-    "asahi.com",
-    "boards.greenhouse.io",
-    "buzzfeednews.com",
-    "chunichi.co.jp",
-    "click.speee-ad.jp",
-    "cnn.co.jp",
-    "coconala.com",
-    "coolblue.nl",
-    "d-markets.net",
-    "etsy.com",
-    "gamesplanet.com",
-    "goodreads.com",
-    "gotanynudes.com",
-    "ieagent.jp",
-    "kitizawa.com",
-    "livedoor.biz",
-    "mein.onlinekonto.de",
-    "nicovideo.jp",
-    "record.pt",
-    "reddit.com",
-    "tokyo-calendar.jp",
-    "uspoloassn.com",
-    "video.laxd.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 21
+  "id": 23
  },
  {
   "action": {
@@ -714,7 +768,7 @@
    ],
    "urlFilter": "||gitlab."
   },
-  "id": 22
+  "id": 24
  },
  {
   "action": {
@@ -740,7 +794,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 23
+  "id": 25
  },
  {
   "action": {
@@ -766,7 +820,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 24
+  "id": 26
  },
  {
   "action": {
@@ -792,7 +846,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 25
+  "id": 27
  },
  {
   "action": {
@@ -817,7 +871,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 26
+  "id": 28
  },
  {
   "action": {
@@ -842,7 +896,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 27
+  "id": 29
  },
  {
   "action": {
@@ -868,7 +922,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 28
+  "id": 30
  },
  {
   "action": {
@@ -907,7 +961,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 29
+  "id": 31
  },
  {
   "action": {
@@ -933,7 +987,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 30
+  "id": 32
  },
  {
   "action": {
@@ -960,7 +1014,7 @@
    ],
    "urlFilter": "mailchimp.com"
   },
-  "id": 31
+  "id": 33
  },
  {
   "action": {
@@ -986,7 +1040,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 32
+  "id": 34
  },
  {
   "action": {
@@ -1013,7 +1067,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 33
+  "id": 35
  },
  {
   "action": {
@@ -1039,7 +1093,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 34
+  "id": 36
  },
  {
   "action": {
@@ -1068,7 +1122,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 35
+  "id": 37
  },
  {
   "action": {
@@ -1104,7 +1158,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 36
+  "id": 38
  },
  {
   "action": {
@@ -1129,7 +1183,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 37
+  "id": 39
  },
  {
   "action": {
@@ -1154,7 +1208,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 38
+  "id": 40
  },
  {
   "action": {
@@ -1179,7 +1233,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 39
+  "id": 41
  },
  {
   "action": {
@@ -1206,7 +1260,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 40
+  "id": 42
  },
  {
   "action": {
@@ -1230,7 +1284,7 @@
    ],
    "urlFilter": "||linkedin.com/feed/update"
   },
-  "id": 41
+  "id": 43
  },
  {
   "action": {
@@ -1256,7 +1310,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 42
+  "id": 44
  },
  {
   "action": {
@@ -1283,7 +1337,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 43
+  "id": 45
  },
  {
   "action": {
@@ -1308,7 +1362,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 44
+  "id": 46
  },
  {
   "action": {
@@ -1333,7 +1387,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 45
+  "id": 47
  },
  {
   "action": {
@@ -1358,7 +1412,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 46
+  "id": 48
  },
  {
   "action": {
@@ -1384,7 +1438,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 47
+  "id": 49
  },
  {
   "action": {
@@ -1411,7 +1465,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 48
+  "id": 50
  },
  {
   "action": {
@@ -1437,7 +1491,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 49
+  "id": 51
  },
  {
   "action": {
@@ -1465,7 +1519,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 50
+  "id": 52
  },
  {
   "action": {
@@ -1490,7 +1544,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 51
+  "id": 53
  },
  {
   "action": {
@@ -1515,7 +1569,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 52
+  "id": 54
  },
  {
   "action": {
@@ -1541,7 +1595,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 53
+  "id": 55
  },
  {
   "action": {
@@ -1568,7 +1622,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 54
+  "id": 56
  },
  {
   "action": {
@@ -1595,7 +1649,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 55
+  "id": 57
  },
  {
   "action": {
@@ -1624,7 +1678,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 56
+  "id": 58
  },
  {
   "action": {
@@ -1650,7 +1704,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 57
+  "id": 59
  },
  {
   "action": {
@@ -1677,7 +1731,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 58
+  "id": 60
  },
  {
   "action": {
@@ -1702,7 +1756,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 59
+  "id": 61
  },
  {
   "action": {
@@ -1728,7 +1782,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 60
+  "id": 62
  },
  {
   "action": {
@@ -1753,7 +1807,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 61
+  "id": 63
  },
  {
   "action": {
@@ -1778,7 +1832,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 62
+  "id": 64
  },
  {
   "action": {
@@ -1803,7 +1857,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 63
+  "id": 65
  },
  {
   "action": {
@@ -1828,7 +1882,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 64
+  "id": 66
  },
  {
   "action": {
@@ -1853,7 +1907,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 65
+  "id": 67
  },
  {
   "action": {
@@ -1880,7 +1934,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 66
+  "id": 68
  },
  {
   "action": {
@@ -1906,7 +1960,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 67
+  "id": 69
  },
  {
   "action": {
@@ -1931,7 +1985,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 68
+  "id": 70
  },
  {
   "action": {
@@ -1958,7 +2012,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 69
+  "id": 71
  },
  {
   "action": {
@@ -1983,7 +2037,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 70
+  "id": 72
  },
  {
   "action": {
@@ -2008,7 +2062,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 71
+  "id": 73
  },
  {
   "action": {
@@ -2033,7 +2087,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 72
+  "id": 74
  },
  {
   "action": {
@@ -2059,7 +2113,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 73
+  "id": 75
  },
  {
   "action": {
@@ -2086,7 +2140,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 74
+  "id": 76
  },
  {
   "action": {
@@ -2111,7 +2165,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 75
+  "id": 77
  },
  {
   "action": {
@@ -2137,7 +2191,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 76
+  "id": 78
  },
  {
   "action": {
@@ -2163,7 +2217,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 77
+  "id": 79
  },
  {
   "action": {
@@ -2188,7 +2242,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 78
+  "id": 80
  },
  {
   "action": {
@@ -2213,7 +2267,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 79
+  "id": 81
  },
  {
   "action": {
@@ -2238,7 +2292,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 80
+  "id": 82
  },
  {
   "action": {
@@ -2263,7 +2317,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 81
+  "id": 83
  },
  {
   "action": {
@@ -2288,7 +2342,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 82
+  "id": 84
  },
  {
   "action": {
@@ -2313,7 +2367,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 83
+  "id": 85
  },
  {
   "action": {
@@ -2344,7 +2398,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 84
+  "id": 86
  },
  {
   "action": {
@@ -2369,7 +2423,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 85
+  "id": 87
  },
  {
   "action": {
@@ -2394,7 +2448,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 86
+  "id": 88
  },
  {
   "action": {
@@ -2419,7 +2473,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 87
+  "id": 89
  },
  {
   "action": {
@@ -2444,7 +2498,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 88
+  "id": 90
  },
  {
   "action": {
@@ -2469,7 +2523,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 89
+  "id": 91
  },
  {
   "action": {
@@ -2494,7 +2548,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 90
+  "id": 92
  },
  {
   "action": {
@@ -2527,7 +2581,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 91
+  "id": 93
  },
  {
   "action": {
@@ -2553,7 +2607,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 92
+  "id": 94
  },
  {
   "action": {
@@ -2579,7 +2633,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 93
+  "id": 95
  },
  {
   "action": {
@@ -2603,7 +2657,7 @@
    ],
    "urlFilter": "||mailtrack.io/trace/link/"
   },
-  "id": 94
+  "id": 96
  },
  {
   "action": {
@@ -2629,7 +2683,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 95
+  "id": 97
  },
  {
   "action": {
@@ -2655,7 +2709,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 96
+  "id": 98
  },
  {
   "action": {
@@ -2682,7 +2736,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 97
+  "id": 99
  },
  {
   "action": {
@@ -2708,7 +2762,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 98
+  "id": 100
  },
  {
   "action": {
@@ -2733,7 +2787,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 99
+  "id": 101
  },
  {
   "action": {
@@ -2758,7 +2812,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 100
+  "id": 102
  },
  {
   "action": {
@@ -2785,7 +2839,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 101
+  "id": 103
  },
  {
   "action": {
@@ -2812,7 +2866,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 102
+  "id": 104
  },
  {
   "action": {
@@ -2839,7 +2893,7 @@
    ],
    "urlFilter": "||media.joj.sk/outstream/embed"
   },
-  "id": 103
+  "id": 105
  },
  {
   "action": {
@@ -2867,7 +2921,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 104
+  "id": 106
  },
  {
   "action": {
@@ -2892,7 +2946,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 105
+  "id": 107
  },
  {
   "action": {
@@ -2920,7 +2974,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 106
+  "id": 108
  },
  {
   "action": {
@@ -2947,7 +3001,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 107
+  "id": 109
  },
  {
   "action": {
@@ -2972,7 +3026,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 108
+  "id": 110
  },
  {
   "action": {
@@ -3005,7 +3059,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 109
+  "id": 111
  },
  {
   "action": {
@@ -3036,7 +3090,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 110
+  "id": 112
  },
  {
   "action": {
@@ -3066,7 +3120,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 111
+  "id": 113
  },
  {
   "action": {
@@ -3091,7 +3145,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 112
+  "id": 114
  },
  {
   "action": {
@@ -3116,7 +3170,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 113
+  "id": 115
  },
  {
   "action": {
@@ -3141,7 +3195,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 114
+  "id": 116
  },
  {
   "action": {
@@ -3166,7 +3220,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 115
+  "id": 117
  },
  {
   "action": {
@@ -3191,7 +3245,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 116
+  "id": 118
  },
  {
   "action": {
@@ -3217,7 +3271,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 117
+  "id": 119
  },
  {
   "action": {
@@ -3243,7 +3297,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 118
+  "id": 120
  },
  {
   "action": {
@@ -3268,7 +3322,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 119
+  "id": 121
  },
  {
   "action": {
@@ -3294,7 +3348,7 @@
    ],
    "urlFilter": "/landing."
   },
-  "id": 120
+  "id": 122
  },
  {
   "action": {
@@ -3319,7 +3373,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 121
+  "id": 123
  },
  {
   "action": {
@@ -3344,7 +3398,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 122
+  "id": 124
  },
  {
   "action": {
@@ -3370,7 +3424,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 123
+  "id": 125
  },
  {
   "action": {
@@ -3395,7 +3449,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 124
+  "id": 126
  },
  {
   "action": {
@@ -3421,7 +3475,7 @@
    ],
    "urlFilter": "||d.odsyms15.com/click"
   },
-  "id": 125
+  "id": 127
  },
  {
   "action": {
@@ -3445,7 +3499,7 @@
    ],
    "urlFilter": "||olx."
   },
-  "id": 126
+  "id": 128
  },
  {
   "action": {
@@ -3477,7 +3531,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 127
+  "id": 129
  },
  {
   "action": {
@@ -3509,7 +3563,7 @@
    ],
    "urlFilter": "||lite.qwant.com/redirect/"
   },
-  "id": 128
+  "id": 130
  },
  {
   "action": {
@@ -3534,7 +3588,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 129
+  "id": 131
  },
  {
   "action": {
@@ -3559,7 +3613,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 130
+  "id": 132
  },
  {
   "action": {
@@ -3583,7 +3637,7 @@
    ],
    "urlFilter": "||skt.sh/common/share/bridge?"
   },
-  "id": 131
+  "id": 133
  },
  {
   "action": {
@@ -3608,7 +3662,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 132
+  "id": 134
  },
  {
   "action": {
@@ -3633,7 +3687,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 133
+  "id": 135
  },
  {
   "action": {
@@ -3660,7 +3714,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 134
+  "id": 136
  },
  {
   "action": {
@@ -3688,7 +3742,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 135
+  "id": 137
  },
  {
   "action": {
@@ -3719,7 +3773,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 136
+  "id": 138
  },
  {
   "action": {
@@ -3745,7 +3799,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 137
+  "id": 139
  },
  {
   "action": {
@@ -3770,7 +3824,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 138
+  "id": 140
  },
  {
   "action": {
@@ -3800,7 +3854,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 139
+  "id": 141
  },
  {
   "action": {
@@ -3825,7 +3879,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 140
+  "id": 142
  },
  {
   "action": {
@@ -3850,7 +3904,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 141
+  "id": 143
  },
  {
   "action": {
@@ -3880,32 +3934,7 @@
    ],
    "urlFilter": "||bbc."
   },
-  "id": 142
- },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "srsltid"
-      ]
-     }
-    }
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "requestDomains": [
-    "morhipo.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 143
+  "id": 144
  },
  {
   "action": {
@@ -3930,7 +3959,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 144
+  "id": 145
  },
  {
   "action": {
@@ -3955,7 +3984,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 145
+  "id": 146
  },
  {
   "action": {
@@ -3982,7 +4011,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 146
+  "id": 147
  },
  {
   "action": {
@@ -4007,7 +4036,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 147
+  "id": 148
  },
  {
   "action": {
@@ -4033,7 +4062,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 148
+  "id": 149
  },
  {
   "action": {
@@ -4058,7 +4087,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 149
+  "id": 150
  },
  {
   "action": {
@@ -4083,7 +4112,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 150
+  "id": 151
  },
  {
   "action": {
@@ -4108,7 +4137,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 151
+  "id": 152
  },
  {
   "action": {
@@ -4134,7 +4163,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 152
+  "id": 153
  },
  {
   "action": {
@@ -4160,7 +4189,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 153
+  "id": 154
  },
  {
   "action": {
@@ -4187,7 +4216,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 154
+  "id": 155
  },
  {
   "action": {
@@ -4213,7 +4242,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 155
+  "id": 156
  },
  {
   "action": {
@@ -4240,7 +4269,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 156
+  "id": 157
  },
  {
   "action": {
@@ -4265,7 +4294,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 157
+  "id": 158
  },
  {
   "action": {
@@ -4290,7 +4319,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 158
+  "id": 159
  },
  {
   "action": {
@@ -4312,7 +4341,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 159
+  "id": 160
  },
  {
   "action": {
@@ -4340,7 +4369,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 160
+  "id": 161
  },
  {
   "action": {
@@ -4366,7 +4395,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 161
+  "id": 162
  },
  {
   "action": {
@@ -4395,7 +4424,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 162
+  "id": 163
  },
  {
   "action": {
@@ -4425,7 +4454,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 163
+  "id": 164
  },
  {
   "action": {
@@ -4453,7 +4482,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 164
+  "id": 165
  },
  {
   "action": {
@@ -4485,7 +4514,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 165
+  "id": 166
  },
  {
   "action": {
@@ -4514,7 +4543,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 166
+  "id": 167
  },
  {
   "action": {
@@ -4541,7 +4570,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 167
+  "id": 168
  },
  {
   "action": {
@@ -4566,7 +4595,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 168
+  "id": 169
  },
  {
   "action": {
@@ -4597,7 +4626,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 169
+  "id": 170
  },
  {
   "action": {
@@ -4622,7 +4651,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 170
+  "id": 171
  },
  {
   "action": {
@@ -4647,7 +4676,7 @@
    ],
    "urlFilter": "||thumbs4.redgifs.com/*&for="
   },
-  "id": 171
+  "id": 172
  },
  {
   "action": {
@@ -4672,7 +4701,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 172
+  "id": 173
  },
  {
   "action": {
@@ -4700,7 +4729,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 173
+  "id": 174
  },
  {
   "action": {
@@ -4724,7 +4753,7 @@
    ],
    "urlFilter": "||adguard."
   },
-  "id": 174
+  "id": 175
  },
  {
   "action": {
@@ -4750,7 +4779,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 175
+  "id": 176
  },
  {
   "action": {
@@ -4778,7 +4807,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 176
+  "id": 177
  },
  {
   "action": {
@@ -4803,7 +4832,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 177
+  "id": 178
  },
  {
   "action": {
@@ -4831,7 +4860,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 178
+  "id": 179
  },
  {
   "action": {
@@ -4856,7 +4885,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 179
+  "id": 180
  },
  {
   "action": {
@@ -4883,7 +4912,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 180
+  "id": 181
  },
  {
   "action": {
@@ -4911,7 +4940,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 181
+  "id": 182
  },
  {
   "action": {
@@ -4936,7 +4965,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 182
+  "id": 183
  },
  {
   "action": {
@@ -4961,7 +4990,7 @@
    ],
    "urlFilter": "||kaspersky."
   },
-  "id": 183
+  "id": 184
  },
  {
   "action": {
@@ -4985,7 +5014,7 @@
    ],
    "urlFilter": "||facebook.com/marketplace/"
   },
-  "id": 184
+  "id": 185
  },
  {
   "action": {
@@ -5011,7 +5040,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 185
+  "id": 186
  },
  {
   "action": {
@@ -5037,7 +5066,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 186
+  "id": 187
  },
  {
   "action": {
@@ -5063,7 +5092,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 187
+  "id": 188
  },
  {
   "action": {
@@ -5090,7 +5119,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 188
+  "id": 189
  },
  {
   "action": {
@@ -5116,7 +5145,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 189
+  "id": 190
  },
  {
   "action": {
@@ -5142,7 +5171,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 190
+  "id": 191
  },
  {
   "action": {
@@ -5166,7 +5195,7 @@
    ],
    "urlFilter": "||target.georiot.com/proxy.ashx"
   },
-  "id": 191
+  "id": 192
  },
  {
   "action": {
@@ -5191,7 +5220,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 192
+  "id": 193
  },
  {
   "action": {
@@ -5220,7 +5249,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 193
+  "id": 194
  },
  {
   "action": {
@@ -5246,7 +5275,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 194
+  "id": 195
  },
  {
   "action": {
@@ -5272,7 +5301,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 195
+  "id": 196
  },
  {
   "action": {
@@ -5297,7 +5326,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 196
+  "id": 197
  },
  {
   "action": {
@@ -5322,7 +5351,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 197
+  "id": 198
  },
  {
   "action": {
@@ -5351,7 +5380,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 198
+  "id": 199
  },
  {
   "action": {
@@ -5378,7 +5407,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 199
+  "id": 200
  },
  {
   "action": {
@@ -5405,7 +5434,7 @@
    ],
    "urlFilter": "||join.worldoftanks."
   },
-  "id": 200
+  "id": 201
  },
  {
   "action": {
@@ -5431,7 +5460,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 201
+  "id": 202
  },
  {
   "action": {
@@ -5457,7 +5486,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 202
+  "id": 203
  },
  {
   "action": {
@@ -5485,7 +5514,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 203
+  "id": 204
  },
  {
   "action": {
@@ -5509,7 +5538,7 @@
    ],
    "urlFilter": "||heraldcorp.com/view.php"
   },
-  "id": 204
+  "id": 205
  },
  {
   "action": {
@@ -5536,7 +5565,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 205
+  "id": 206
  },
  {
   "action": {
@@ -5562,7 +5591,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 206
+  "id": 207
  },
  {
   "action": {
@@ -5587,7 +5616,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 207
+  "id": 208
  },
  {
   "action": {
@@ -5607,7 +5636,7 @@
    ],
    "urlFilter": "||mkaff.com/landings/"
   },
-  "id": 208
+  "id": 209
  },
  {
   "action": {
@@ -5633,7 +5662,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 209
+  "id": 210
  },
  {
   "action": {
@@ -5662,7 +5691,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 210
+  "id": 211
  },
  {
   "action": {
@@ -5688,7 +5717,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 211
+  "id": 212
  },
  {
   "action": {
@@ -5715,7 +5744,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 212
+  "id": 213
  },
  {
   "action": {
@@ -5739,7 +5768,7 @@
    ],
    "urlFilter": "||qcplay.co.jp/?shortlink=*&c="
   },
-  "id": 213
+  "id": 214
  },
  {
   "action": {
@@ -5764,7 +5793,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 214
+  "id": 215
  },
  {
   "action": {
@@ -5789,7 +5818,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 215
+  "id": 216
  },
  {
   "action": {
@@ -5814,7 +5843,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 216
+  "id": 217
  },
  {
   "action": {
@@ -5840,7 +5869,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 217
+  "id": 218
  },
  {
   "action": {
@@ -5865,7 +5894,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 218
+  "id": 219
  },
  {
   "action": {
@@ -5890,7 +5919,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 219
+  "id": 220
  },
  {
   "action": {
@@ -5916,7 +5945,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 220
+  "id": 221
  },
  {
   "action": {
@@ -5941,7 +5970,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 221
+  "id": 222
  },
  {
   "action": {
@@ -5967,7 +5996,7 @@
    ],
    "urlFilter": "||zalando."
   },
-  "id": 222
+  "id": 223
  },
  {
   "action": {
@@ -5993,7 +6022,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 223
+  "id": 224
  },
  {
   "action": {
@@ -6018,7 +6047,7 @@
    ],
    "urlFilter": "||quora.com/qemail/tc?"
   },
-  "id": 224
+  "id": 225
  },
  {
   "action": {
@@ -6047,7 +6076,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 225
+  "id": 226
  },
  {
   "action": {
@@ -6072,7 +6101,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 226
+  "id": 227
  },
  {
   "action": {
@@ -6098,7 +6127,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 227
+  "id": 228
  },
  {
   "action": {
@@ -6124,7 +6153,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 228
+  "id": 229
  },
  {
   "action": {
@@ -6149,7 +6178,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 229
+  "id": 230
  },
  {
   "action": {
@@ -6175,7 +6204,7 @@
    ],
    "urlFilter": "||wizcase.com/?"
   },
-  "id": 230
+  "id": 231
  },
  {
   "action": {
@@ -6200,7 +6229,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 231
+  "id": 232
  },
  {
   "action": {
@@ -6224,7 +6253,7 @@
    ],
    "urlFilter": "||ojrq.net/p/"
   },
-  "id": 232
+  "id": 233
  },
  {
   "action": {
@@ -6249,7 +6278,7 @@
    ],
    "urlFilter": "||click.linksynergy.com/fs-bin/click?id="
   },
-  "id": 233
+  "id": 234
  },
  {
   "action": {
@@ -6274,7 +6303,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 234
+  "id": 235
  },
  {
   "action": {
@@ -6300,7 +6329,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 235
+  "id": 236
  },
  {
   "action": {
@@ -6328,7 +6357,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 236
+  "id": 237
  },
  {
   "action": {
@@ -6352,7 +6381,7 @@
    ],
    "urlFilter": "||search.naver.com/p/crd/rd"
   },
-  "id": 237
+  "id": 238
  },
  {
   "action": {
@@ -6378,7 +6407,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 238
+  "id": 239
  },
  {
   "action": {
@@ -6403,7 +6432,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 239
+  "id": 240
  },
  {
   "action": {
@@ -6428,7 +6457,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 240
+  "id": 241
  },
  {
   "action": {
@@ -6458,7 +6487,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 241
+  "id": 242
  },
  {
   "action": {
@@ -6484,7 +6513,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 242
+  "id": 243
  },
  {
   "action": {
@@ -6510,7 +6539,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 243
+  "id": 244
  },
  {
   "action": {
@@ -6550,7 +6579,7 @@
    ],
    "urlFilter": "||aliexpress."
   },
-  "id": 244
+  "id": 245
  },
  {
   "action": {
@@ -6574,7 +6603,7 @@
    ],
    "urlFilter": "||github.com/signup"
   },
-  "id": 245
+  "id": 246
  },
  {
   "action": {
@@ -6601,7 +6630,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 246
+  "id": 247
  },
  {
   "action": {
@@ -6627,7 +6656,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 247
+  "id": 248
  },
  {
   "action": {
@@ -6652,7 +6681,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 248
+  "id": 249
  },
  {
   "action": {
@@ -6676,7 +6705,7 @@
    ],
    "urlFilter": "||azby.fmworld.net/cgi-bin/common/rd.cgi?"
   },
-  "id": 249
+  "id": 250
  },
  {
   "action": {
@@ -6701,7 +6730,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 250
+  "id": 251
  },
  {
   "action": {
@@ -6727,7 +6756,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 251
+  "id": 252
  },
  {
   "action": {
@@ -6753,7 +6782,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 252
+  "id": 253
  },
  {
   "action": {
@@ -6778,7 +6807,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 253
+  "id": 254
  },
  {
   "action": {
@@ -6803,7 +6832,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 254
+  "id": 255
  },
  {
   "action": {
@@ -6828,7 +6857,7 @@
    ],
    "urlFilter": "||hit.gemius.pl/hitredir"
   },
-  "id": 255
+  "id": 256
  },
  {
   "action": {
@@ -6854,7 +6883,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 256
+  "id": 257
  },
  {
   "action": {
@@ -6879,7 +6908,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 257
+  "id": 258
  },
  {
   "action": {
@@ -6909,7 +6938,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 258
+  "id": 259
  },
  {
   "action": {
@@ -6934,7 +6963,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 259
+  "id": 260
  },
  {
   "action": {
@@ -6961,7 +6990,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 260
+  "id": 261
  },
  {
   "action": {
@@ -6989,7 +7018,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 261
+  "id": 262
  },
  {
   "action": {
@@ -7015,7 +7044,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 262
+  "id": 263
  },
  {
   "action": {
@@ -7041,7 +7070,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 263
+  "id": 264
  },
  {
   "action": {
@@ -7066,7 +7095,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 264
+  "id": 265
  },
  {
   "action": {
@@ -7091,7 +7120,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 265
+  "id": 266
  },
  {
   "action": {
@@ -7116,7 +7145,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 266
+  "id": 267
  },
  {
   "action": {
@@ -7141,7 +7170,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 267
+  "id": 268
  },
  {
   "action": {
@@ -7166,7 +7195,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 268
+  "id": 269
  },
  {
   "action": {
@@ -7193,7 +7222,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 269
+  "id": 270
  },
  {
   "action": {
@@ -7219,7 +7248,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 270
+  "id": 271
  },
  {
   "action": {
@@ -7244,7 +7273,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 271
+  "id": 272
  },
  {
   "action": {
@@ -7269,7 +7298,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 272
+  "id": 273
  },
  {
   "action": {
@@ -7294,7 +7323,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 273
+  "id": 274
  },
  {
   "action": {
@@ -7322,7 +7351,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 274
+  "id": 275
  },
  {
   "action": {
@@ -7352,7 +7381,7 @@
    ],
    "urlFilter": "||cc.loginfra.com/cc"
   },
-  "id": 275
+  "id": 276
  },
  {
   "action": {
@@ -7377,7 +7406,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 276
+  "id": 277
  },
  {
   "action": {
@@ -7403,7 +7432,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 277
+  "id": 278
  },
  {
   "action": {
@@ -7429,7 +7458,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 278
+  "id": 279
  },
  {
   "action": {
@@ -7454,7 +7483,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 279
+  "id": 280
  },
  {
   "action": {
@@ -7479,7 +7508,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 280
+  "id": 281
  },
  {
   "action": {
@@ -7503,7 +7532,7 @@
    ],
    "urlFilter": "||coupang.com/*/products/"
   },
-  "id": 281
+  "id": 282
  },
  {
   "action": {
@@ -7531,7 +7560,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 282
+  "id": 283
  },
  {
   "action": {
@@ -7557,7 +7586,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 283
+  "id": 284
  },
  {
   "action": {
@@ -7581,7 +7610,7 @@
    ],
    "urlFilter": "||hog."
   },
-  "id": 284
+  "id": 285
  },
  {
   "action": {
@@ -7623,7 +7652,7 @@
    ],
    "urlFilter": "||lcs.naver.com/m?u="
   },
-  "id": 285
+  "id": 286
  },
  {
   "action": {
@@ -7648,7 +7677,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 286
+  "id": 287
  },
  {
   "action": {
@@ -7678,7 +7707,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 287
+  "id": 288
  },
  {
   "action": {
@@ -7698,7 +7727,7 @@
    ],
    "urlFilter": "||ups.xplosion.de/ctx?event_id="
   },
-  "id": 288
+  "id": 289
  },
  {
   "action": {
@@ -7725,7 +7754,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 289
+  "id": 290
  },
  {
   "action": {
@@ -7751,7 +7780,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 290
+  "id": 291
  },
  {
   "action": {
@@ -7776,7 +7805,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 291
+  "id": 292
  },
  {
   "action": {
@@ -7801,7 +7830,7 @@
    ],
    "urlFilter": "||dailymotion.com/embed/video/*?ads_params=*&origin="
   },
-  "id": 292
+  "id": 293
  },
  {
   "action": {
@@ -7827,7 +7856,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 293
+  "id": 294
  },
  {
   "action": {
@@ -7852,7 +7881,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 294
+  "id": 295
  },
  {
   "action": {
@@ -7877,7 +7906,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 295
+  "id": 296
  },
  {
   "action": {
@@ -7902,7 +7931,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 296
+  "id": 297
  },
  {
   "action": {
@@ -7928,7 +7957,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 297
+  "id": 298
  },
  {
   "action": {
@@ -7953,7 +7982,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 298
+  "id": 299
  },
  {
   "action": {
@@ -7978,7 +8007,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 299
+  "id": 300
  },
  {
   "action": {
@@ -8003,7 +8032,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 300
+  "id": 301
  },
  {
   "action": {
@@ -8029,7 +8058,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 301
+  "id": 302
  },
  {
   "action": {
@@ -8056,7 +8085,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 302
+  "id": 303
  },
  {
   "action": {
@@ -8081,7 +8110,7 @@
    ],
    "urlFilter": "||linkedin.com/authwall?"
   },
-  "id": 303
+  "id": 304
  },
  {
   "action": {
@@ -8107,7 +8136,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 304
+  "id": 305
  },
  {
   "action": {
@@ -8131,7 +8160,7 @@
    ],
    "urlFilter": "||search.naver.com/search.naver"
   },
-  "id": 305
+  "id": 306
  },
  {
   "action": {
@@ -8159,7 +8188,7 @@
    ],
    "urlFilter": "||cc.naver.com/cc?a"
   },
-  "id": 306
+  "id": 307
  },
  {
   "action": {
@@ -8184,7 +8213,7 @@
    ],
    "urlFilter": "||yandex.*/search/"
   },
-  "id": 307
+  "id": 308
  },
  {
   "action": {
@@ -8208,7 +8237,7 @@
    ],
    "urlFilter": "||yandex.*/promo/"
   },
-  "id": 308
+  "id": 309
  },
  {
   "action": {
@@ -8236,7 +8265,7 @@
    ],
    "urlFilter": "||yandex.*/news/"
   },
-  "id": 309
+  "id": 310
  },
  {
   "action": {
@@ -8263,7 +8292,7 @@
    ],
    "urlFilter": "||yandex.*/sport/"
   },
-  "id": 310
+  "id": 311
  },
  {
   "action": {
@@ -8287,7 +8316,7 @@
    ],
    "urlFilter": "||yandex.*/images/"
   },
-  "id": 311
+  "id": 312
  },
  {
   "action": {
@@ -8313,7 +8342,7 @@
    ],
    "urlFilter": "||market.yandex."
   },
-  "id": 312
+  "id": 313
  },
  {
   "action": {
@@ -8337,7 +8366,7 @@
    ],
    "urlFilter": "||www.yandex."
   },
-  "id": 313
+  "id": 314
  },
  {
   "action": {
@@ -8362,7 +8391,7 @@
    ],
    "urlFilter": "://yandex."
   },
-  "id": 314
+  "id": 315
  },
  {
   "action": {
@@ -8388,7 +8417,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 315
+  "id": 316
  },
  {
   "action": {
@@ -8412,7 +8441,7 @@
    ],
    "urlFilter": "||www.baidu.com/link?url="
   },
-  "id": 316
+  "id": 317
  },
  {
   "action": {
@@ -8438,7 +8467,7 @@
    ],
    "urlFilter": "||cod.bitrec.com/topocentras-services/js/recs?"
   },
-  "id": 317
+  "id": 318
  },
  {
   "action": {
@@ -8462,7 +8491,7 @@
    ],
    "urlFilter": "||play.google."
   },
-  "id": 318
+  "id": 319
  },
  {
   "action": {
@@ -8476,6 +8505,7 @@
        "ei",
        "gs_l",
        "gs_lcp",
+       "gs_lcrp",
        "oe",
        "oq",
        "sa",
@@ -8496,7 +8526,7 @@
    ],
    "urlFilter": "||google.*/search"
   },
-  "id": 319
+  "id": 320
  },
  {
   "action": {
@@ -8520,7 +8550,7 @@
    ],
    "urlFilter": "||google.*/websearch"
   },
-  "id": 320
+  "id": 321
  },
  {
   "action": {
@@ -8548,7 +8578,7 @@
    ],
    "urlFilter": "||www.ebay."
   },
-  "id": 321
+  "id": 322
  },
  {
   "action": {
@@ -8576,7 +8606,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 322
+  "id": 323
  },
  {
   "action": {
@@ -8589,6 +8619,7 @@
        "ascsubtag",
        "c",
        "camp",
+       "content-id",
        "creative",
        "creativeASIN",
        "dchild",
@@ -8640,7 +8671,7 @@
    ],
    "urlFilter": "||amazon."
   },
-  "id": 323
+  "id": 324
  },
  {
   "action": {
@@ -8664,7 +8695,7 @@
    ],
    "urlFilter": "||amazon.*/aa"
   },
-  "id": 324
+  "id": 325
  },
  {
   "action": {
@@ -8688,7 +8719,7 @@
    ],
    "urlFilter": "||amazon.*/artists/"
   },
-  "id": 325
+  "id": 326
  },
  {
   "action": {
@@ -8712,7 +8743,7 @@
    ],
    "urlFilter": "||amazon.*/dp/"
   },
-  "id": 326
+  "id": 327
  },
  {
   "action": {
@@ -8736,7 +8767,7 @@
    ],
    "urlFilter": "||amazon.*/gp/"
   },
-  "id": 327
+  "id": 328
  },
  {
   "action": {
@@ -8761,7 +8792,7 @@
    ],
    "urlFilter": "||amazon.*/hz/contact-us/csp"
   },
-  "id": 328
+  "id": 329
  },
  {
   "action": {
@@ -8785,7 +8816,7 @@
    ],
    "urlFilter": "||amazon.*/message-us"
   },
-  "id": 329
+  "id": 330
  },
  {
   "action": {
@@ -8812,7 +8843,7 @@
    ],
    "urlFilter": "||app.mi.com/download/*?id="
   },
-  "id": 330
+  "id": 331
  },
  {
   "action": {
@@ -8848,7 +8879,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 331
+  "id": 332
  },
  {
   "action": {
@@ -8877,7 +8908,7 @@
    ],
    "urlFilter": "||pixel.adsafeprotected.com/services/pub?"
   },
-  "id": 332
+  "id": 333
  },
  {
   "action": {
@@ -8904,7 +8935,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 333
+  "id": 334
  },
  {
   "action": {
@@ -8937,7 +8968,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 334
+  "id": 335
  },
  {
   "action": {
@@ -8963,7 +8994,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 335
+  "id": 336
  },
  {
   "action": {
@@ -8990,7 +9021,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 336
+  "id": 337
  },
  {
   "action": {
@@ -9016,7 +9047,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 337
+  "id": 338
  },
  {
   "action": {
@@ -9042,7 +9073,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 338
+  "id": 339
  },
  {
   "action": {
@@ -9067,7 +9098,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 339
+  "id": 340
  },
  {
   "action": {
@@ -9092,7 +9123,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 340
+  "id": 341
  },
  {
   "action": {
@@ -9117,7 +9148,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 341
+  "id": 342
  },
  {
   "action": {
@@ -9142,7 +9173,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 342
+  "id": 343
  },
  {
   "action": {
@@ -9167,7 +9198,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 343
+  "id": 344
  },
  {
   "action": {
@@ -9192,7 +9223,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 344
+  "id": 345
  },
  {
   "action": {
@@ -9224,7 +9255,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 345
+  "id": 346
  },
  {
   "action": {
@@ -9252,7 +9283,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 346
+  "id": 347
  },
  {
   "action": {
@@ -9276,7 +9307,7 @@
    ],
    "urlFilter": "||gmx.*/logoutlounge"
   },
-  "id": 347
+  "id": 348
  },
  {
   "action": {
@@ -9300,7 +9331,7 @@
    ],
    "urlFilter": "||web.de/logoutlounge"
   },
-  "id": 348
+  "id": 349
  },
  {
   "action": {
@@ -9324,7 +9355,7 @@
    ],
    "urlFilter": "||gmx."
   },
-  "id": 349
+  "id": 350
  },
  {
   "action": {
@@ -9349,7 +9380,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 350
+  "id": 351
  },
  {
   "action": {
@@ -9374,7 +9405,7 @@
    ],
    "urlFilter": "||lotto.gmx."
   },
-  "id": 351
+  "id": 352
  },
  {
   "action": {
@@ -9400,7 +9431,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 352
+  "id": 353
  },
  {
   "action": {
@@ -9424,7 +9455,7 @@
    ],
    "urlFilter": "||shopping.gmx."
   },
-  "id": 353
+  "id": 354
  },
  {
   "action": {
@@ -9450,7 +9481,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 354
+  "id": 355
  },
  {
   "action": {
@@ -9474,7 +9505,7 @@
    ],
    "urlFilter": "||alza.de/*.htm"
   },
-  "id": 355
+  "id": 356
  },
  {
   "action": {
@@ -9499,7 +9530,7 @@
    ],
    "urlFilter": "||idealo.de/*.html"
   },
-  "id": 356
+  "id": 357
  },
  {
   "action": {
@@ -9526,7 +9557,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 357
+  "id": 358
  },
  {
   "action": {
@@ -9550,7 +9581,7 @@
    ],
    "urlFilter": "||media01.eu/set.aspx"
   },
-  "id": 358
+  "id": 359
  },
  {
   "action": {
@@ -9575,7 +9606,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 359
+  "id": 360
  },
  {
   "action": {
@@ -9600,7 +9631,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 360
+  "id": 361
  },
  {
   "action": {
@@ -9625,7 +9656,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 361
+  "id": 362
  },
  {
   "action": {
@@ -9650,7 +9681,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 362
+  "id": 363
  },
  {
   "action": {
@@ -9674,7 +9705,7 @@
    ],
    "urlFilter": "||boomstore.de*.html"
   },
-  "id": 363
+  "id": 364
  },
  {
   "action": {
@@ -9702,7 +9733,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 364
+  "id": 365
  },
  {
   "action": {
@@ -9727,7 +9758,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 365
+  "id": 366
  },
  {
   "action": {
@@ -9751,7 +9782,7 @@
    ],
    "urlFilter": "||websearch.rakuten.co.jp/web?"
   },
-  "id": 366
+  "id": 367
  },
  {
   "action": {
@@ -9775,7 +9806,7 @@
    ],
    "urlFilter": "||rakuten.co.jp^*&trflg="
   },
-  "id": 367
+  "id": 368
  },
  {
   "action": {
@@ -9805,7 +9836,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 368
+  "id": 369
  },
  {
   "action": {
@@ -9838,7 +9869,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 369
+  "id": 370
  },
  {
   "action": {
@@ -9863,7 +9894,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 370
+  "id": 371
  },
  {
   "action": {
@@ -9888,7 +9919,7 @@
    ],
    "urlFilter": "||weibo."
   },
-  "id": 371
+  "id": 372
  },
  {
   "action": {
@@ -9915,7 +9946,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 372
+  "id": 373
  },
  {
   "action": {
@@ -9941,7 +9972,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 373
+  "id": 374
  },
  {
   "action": {
@@ -9966,7 +9997,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 374
+  "id": 375
  },
  {
   "action": {
@@ -9991,7 +10022,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 375
+  "id": 376
  },
  {
   "action": {
@@ -10010,7 +10041,7 @@
     "stylesheet"
    ]
   },
-  "id": 376
+  "id": 377
  },
  {
   "action": {
@@ -10039,7 +10070,7 @@
    ],
    "urlFilter": "||search.naver.com/p/crd/rd"
   },
-  "id": 377
+  "id": 378
  },
  {
   "action": {
@@ -10062,7 +10093,7 @@
    ],
    "urlFilter": "||popin.cc/popin_discovery/"
   },
-  "id": 378
+  "id": 379
  },
  {
   "action": {
@@ -10085,7 +10116,7 @@
    ],
    "urlFilter": "||api.cxense.com/public/widget/data?json="
   },
-  "id": 379
+  "id": 380
  },
  {
   "action": {
@@ -10107,7 +10138,7 @@
    ],
    "urlFilter": "||podbean.com/player/"
   },
-  "id": 380
+  "id": 381
  },
  {
   "action": {
@@ -10133,7 +10164,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 381
+  "id": 382
  },
  {
   "action": {
@@ -10156,7 +10187,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 382
+  "id": 383
  },
  {
   "action": {
@@ -10178,7 +10209,7 @@
    ],
    "urlFilter": "||podbean.com/pb/"
   },
-  "id": 383
+  "id": 384
  },
  {
   "action": {
@@ -10208,7 +10239,7 @@
     "main_frame"
    ]
   },
-  "id": 384
+  "id": 385
  },
  {
   "action": {
@@ -10232,6 +10263,6 @@
     "main_frame"
    ]
   },
-  "id": 385
+  "id": 386
  }
 ]

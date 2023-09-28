@@ -18,7 +18,7 @@
    ],
    "urlFilter": ".infox.sg^"
   },
-  "id": 5799
+  "id": 5796
  },
  {
   "action": {
@@ -39,7 +39,7 @@
    ],
    "urlFilter": "/gateway/ahr0c"
   },
-  "id": 5800
+  "id": 5797
  },
  {
   "action": {
@@ -65,7 +65,7 @@
    ],
    "urlFilter": "|http*//fastpic.org/"
   },
-  "id": 5801
+  "id": 5798
  },
  {
   "action": {
@@ -86,7 +86,7 @@
    ],
    "urlFilter": "||24smi-*/top/"
   },
-  "id": 5802
+  "id": 5799
  },
  {
   "action": {
@@ -107,7 +107,7 @@
    ],
    "urlFilter": "||24smi.*/top/"
   },
-  "id": 5803
+  "id": 5800
  },
  {
   "action": {
@@ -128,7 +128,7 @@
    ],
    "urlFilter": "||24top.*/top/"
   },
-  "id": 5804
+  "id": 5801
  },
  {
   "action": {
@@ -149,7 +149,7 @@
    ],
    "urlFilter": "||an.yandex.ru/count/"
   },
-  "id": 5805
+  "id": 5802
  },
  {
   "action": {
@@ -171,7 +171,7 @@
     "sub_frame"
    ]
   },
-  "id": 5806
+  "id": 5803
  },
  {
   "action": {
@@ -201,7 +201,7 @@
     "sub_frame"
    ]
   },
-  "id": 5807
+  "id": 5804
  },
  {
   "action": {
@@ -223,7 +223,7 @@
     "sub_frame"
    ]
   },
-  "id": 5808
+  "id": 5805
  },
  {
   "action": {
@@ -244,7 +244,7 @@
    ],
    "urlFilter": "||crossout.net/*free?*&r="
   },
-  "id": 5809
+  "id": 5806
  },
  {
   "action": {
@@ -265,7 +265,7 @@
    ],
    "urlFilter": "||d3ward.github.io/toolz/adblock"
   },
-  "id": 5810
+  "id": 5807
  },
  {
   "action": {
@@ -286,7 +286,7 @@
    ],
    "urlFilter": "||drive.google.com/file/d/1vmzdhlb_-dcnbtubkfqpnnvsep_2gnsy/"
   },
-  "id": 5811
+  "id": 5808
  },
  {
   "action": {
@@ -319,7 +319,7 @@
     "sub_frame"
    ]
   },
-  "id": 5812
+  "id": 5809
  },
  {
   "action": {
@@ -340,7 +340,7 @@
    ],
    "urlFilter": "||forum.ru-board.com/*.cgi?*=5&topic=51141"
   },
-  "id": 5813
+  "id": 5810
  },
  {
   "action": {
@@ -356,6 +356,73 @@
   "condition": {
    "requestDomains": [
     "forum.ruboard.ru"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 5811
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "sandbox allow-same-origin;"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||gdz-ru.work/subscribe/"
+  },
+  "id": 5812
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "sandbox allow-same-origin;"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||hawk.live/"
+  },
+  "id": 5813
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.amazonaws.com *.cloudflare.com apis.google.com cse.google.com www.google.com *.google.com/complete/ *.googleapis.com *.googletagmanager.com *.instagram.com *.net *.io *.jquery.com *.keycaptcha.com *.ru *.twitter.com *.ua"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "inforesist.org",
+    "life.pravda.com.ua",
+    "tabloid.pravda.com.ua",
+    "vikna.tv"
    ],
    "resourceTypes": [
     "main_frame",
@@ -381,76 +448,9 @@
     "main_frame",
     "sub_frame"
    ],
-   "urlFilter": "||gdz-ru.work/subscribe/"
-  },
-  "id": 5815
- },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "sandbox allow-same-origin;"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ],
-   "urlFilter": "||hawk.live/"
-  },
-  "id": 5816
- },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.amazonaws.com *.cloudflare.com apis.google.com cse.google.com www.google.com *.google.com/complete/ *.googleapis.com *.googletagmanager.com *.instagram.com *.net *.io *.jquery.com *.keycaptcha.com *.ru *.twitter.com *.ua"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "inforesist.org",
-    "life.pravda.com.ua",
-    "tabloid.pravda.com.ua",
-    "vikna.tv"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 5817
- },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "sandbox allow-same-origin;"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ],
    "urlFilter": "||lis-gor.com/"
   },
-  "id": 5818
+  "id": 5815
  },
  {
   "action": {
@@ -474,7 +474,7 @@
     "sub_frame"
    ]
   },
-  "id": 5819
+  "id": 5816
  },
  {
   "action": {
@@ -495,7 +495,7 @@
    ],
    "urlFilter": "||modsfire.com/download/*/"
   },
-  "id": 5820
+  "id": 5817
  },
  {
   "action": {
@@ -517,7 +517,7 @@
     "sub_frame"
    ]
   },
-  "id": 5821
+  "id": 5818
  },
  {
   "action": {
@@ -538,7 +538,7 @@
    ],
    "urlFilter": "||nsportal.ru/download/"
   },
-  "id": 5822
+  "id": 5819
  },
  {
   "action": {
@@ -560,7 +560,7 @@
     "sub_frame"
    ]
   },
-  "id": 5823
+  "id": 5820
  },
  {
   "action": {
@@ -582,7 +582,7 @@
     "sub_frame"
    ]
   },
-  "id": 5824
+  "id": 5821
  },
  {
   "action": {
@@ -604,7 +604,7 @@
     "sub_frame"
    ]
   },
-  "id": 5825
+  "id": 5822
  },
  {
   "action": {
@@ -626,7 +626,7 @@
     "sub_frame"
    ]
   },
-  "id": 5826
+  "id": 5823
  },
  {
   "action": {
@@ -650,7 +650,7 @@
     "sub_frame"
    ]
   },
-  "id": 5827
+  "id": 5824
  },
  {
   "action": {
@@ -671,7 +671,7 @@
    ],
    "urlFilter": "||www.liveinternet.ru/|"
   },
-  "id": 5828
+  "id": 5825
  },
  {
   "action": {
@@ -693,7 +693,7 @@
     "sub_frame"
    ]
   },
-  "id": 5829
+  "id": 5826
  },
  {
   "action": {
@@ -714,7 +714,7 @@
    ],
    "urlFilter": "||yandex.ru/turbo?text=https*fishki.net"
   },
-  "id": 5830
+  "id": 5827
  },
  {
   "action": {
@@ -735,7 +735,7 @@
    ],
    "urlFilter": "||yandex.ru/mapuid/"
   },
-  "id": 5831
+  "id": 5828
  },
  {
   "action": {
@@ -757,6 +757,6 @@
     "sub_frame"
    ]
   },
-  "id": 5845
+  "id": 5842
  }
 ]

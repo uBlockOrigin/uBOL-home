@@ -3917,7 +3917,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/plugins/adsanity"
+   "urlFilter": "/plugins/adlounge"
   },
   "id": 334
  },
@@ -3927,7 +3927,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/plugins/adsense%20click%20proctect"
+   "urlFilter": "/plugins/adsanity"
   },
   "id": 335
  },
@@ -3937,7 +3937,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/plugins/afp-default-pricetable/js/ga-tracking"
+   "urlFilter": "/plugins/adsense%20click%20proctect"
   },
   "id": 336
  },
@@ -3947,7 +3947,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/plugins/angwp"
+   "urlFilter": "/plugins/afp-default-pricetable/js/ga-tracking"
   },
   "id": 337
  },
@@ -3957,7 +3957,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/plugins/ap-plugin-scripteo"
+   "urlFilter": "/plugins/angwp"
   },
   "id": 338
  },
@@ -3967,7 +3967,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/plugins/appbanners/"
+   "urlFilter": "/plugins/ap-plugin-scripteo"
   },
   "id": 339
  },
@@ -3977,9 +3977,19 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/plugins/arscode-social-slider"
+   "urlFilter": "/plugins/appbanners/"
   },
   "id": 340
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "/plugins/arscode-social-slider"
+  },
+  "id": 341
  },
  {
   "action": {
@@ -3993,7 +4003,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/better-adsmanager/"
   },
-  "id": 341
+  "id": 342
  },
  {
   "action": {
@@ -4003,7 +4013,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/blog-analytics"
   },
-  "id": 342
+  "id": 343
  },
  {
   "action": {
@@ -4013,7 +4023,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/bmb-dfp-plugin"
   },
-  "id": 343
+  "id": 344
  },
  {
   "action": {
@@ -4023,7 +4033,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/bsa-plugin-pro-scripteo"
   },
-  "id": 344
+  "id": 345
  },
  {
   "action": {
@@ -4033,7 +4043,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/cardoza-facebook-like-box"
   },
-  "id": 345
+  "id": 346
  },
  {
   "action": {
@@ -4043,7 +4053,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/chimpy/"
   },
-  "id": 346
+  "id": 347
  },
  {
   "action": {
@@ -4053,7 +4063,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/christmas-panda"
   },
-  "id": 347
+  "id": 348
  },
  {
   "action": {
@@ -4063,7 +4073,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/cm-takeover-ad"
   },
-  "id": 348
+  "id": 349
  },
  {
   "action": {
@@ -4079,7 +4089,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/complianz-gdpr"
   },
-  "id": 349
+  "id": 350
  },
  {
   "action": {
@@ -4089,7 +4099,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/content-hub-wp-plugin/assets/js/hub-time-spent"
   },
-  "id": 350
+  "id": 351
  },
  {
   "action": {
@@ -4099,7 +4109,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/convertplug"
   },
-  "id": 351
+  "id": 352
  },
  {
   "action": {
@@ -4109,7 +4119,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/convertpro"
   },
-  "id": 352
+  "id": 353
  },
  {
   "action": {
@@ -4119,7 +4129,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/cookie-bar/"
   },
-  "id": 353
+  "id": 354
  },
  {
   "action": {
@@ -4129,7 +4139,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/cookie-notice/"
   },
-  "id": 354
+  "id": 355
  },
  {
   "action": {
@@ -4144,7 +4154,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/cookies-and-content-security-policy"
   },
-  "id": 355
+  "id": 356
  },
  {
   "action": {
@@ -4154,7 +4164,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/cresta-social-share-counter"
   },
-  "id": 356
+  "id": 357
  },
  {
   "action": {
@@ -4164,7 +4174,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/ct-ultimate-gdpr/"
   },
-  "id": 357
+  "id": 358
  },
  {
   "action": {
@@ -4177,7 +4187,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/custom-banners"
   },
-  "id": 358
+  "id": 359
  },
  {
   "action": {
@@ -4190,7 +4200,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/daftplug-instantify"
   },
-  "id": 359
+  "id": 360
  },
  {
   "action": {
@@ -4200,7 +4210,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/dohi-gdpr/"
   },
-  "id": 360
+  "id": 361
  },
  {
   "action": {
@@ -4210,7 +4220,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/doubleclick-wp"
   },
-  "id": 361
+  "id": 362
  },
  {
   "action": {
@@ -4220,7 +4230,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/duracelltomi-google-tag-manager"
   },
-  "id": 362
+  "id": 363
  },
  {
   "action": {
@@ -4230,7 +4240,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/easy-adsense"
   },
-  "id": 363
+  "id": 364
  },
  {
   "action": {
@@ -4240,7 +4250,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/easy-affiliate-links"
   },
-  "id": 364
+  "id": 365
  },
  {
   "action": {
@@ -4250,7 +4260,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/easy-eu-cookie-law"
   },
-  "id": 365
+  "id": 366
  },
  {
   "action": {
@@ -4260,7 +4270,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/easy-wp-cookie-popup"
   },
-  "id": 366
+  "id": 367
  },
  {
   "action": {
@@ -4270,7 +4280,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/elfsight-social-share-buttons"
   },
-  "id": 367
+  "id": 368
  },
  {
   "action": {
@@ -4280,7 +4290,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/eu-cookie-law/"
   },
-  "id": 368
+  "id": 369
  },
  {
   "action": {
@@ -4290,7 +4300,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/facebook-conversion-pixel"
   },
-  "id": 369
+  "id": 370
  },
  {
   "action": {
@@ -4300,7 +4310,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/facebook-ogg-meta-tags"
   },
-  "id": 370
+  "id": 371
  },
  {
   "action": {
@@ -4310,7 +4320,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/facebook-pagelike-widget"
   },
-  "id": 371
+  "id": 372
  },
  {
   "action": {
@@ -4320,7 +4330,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/facebook-popout-likebox"
   },
-  "id": 372
+  "id": 373
  },
  {
   "action": {
@@ -4330,7 +4340,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/fisher/core/js/generated/analytics.js"
   },
-  "id": 373
+  "id": 374
  },
  {
   "action": {
@@ -4340,7 +4350,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/fisher/core/js/generated/fixed-panorama"
   },
-  "id": 374
+  "id": 375
  },
  {
   "action": {
@@ -4350,7 +4360,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/fisher/core/js/generated/infinite-ads"
   },
-  "id": 375
+  "id": 376
  },
  {
   "action": {
@@ -4360,7 +4370,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/ga-germanized/"
   },
-  "id": 376
+  "id": 377
  },
  {
   "action": {
@@ -4370,7 +4380,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/ga-in/"
   },
-  "id": 377
+  "id": 378
  },
  {
   "action": {
@@ -4385,7 +4395,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/gdpr-cookie-compliance/"
   },
-  "id": 378
+  "id": 379
  },
  {
   "action": {
@@ -4395,7 +4405,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/ginger/addon/analytics/"
   },
-  "id": 379
+  "id": 380
  },
  {
   "action": {
@@ -4405,7 +4415,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/ginger/front/js/cookies-enabler"
   },
-  "id": 380
+  "id": 381
  },
  {
   "action": {
@@ -4415,7 +4425,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/hemmafix-facebooklike"
   },
-  "id": 381
+  "id": 382
  },
  {
   "action": {
@@ -4425,7 +4435,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/host-analyticsjs-local"
   },
-  "id": 382
+  "id": 383
  },
  {
   "action": {
@@ -4435,7 +4445,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/icegram"
   },
-  "id": 383
+  "id": 384
  },
  {
   "action": {
@@ -4445,7 +4455,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/iis-mailchimp"
   },
-  "id": 384
+  "id": 385
  },
  {
   "action": {
@@ -4455,7 +4465,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/ilmenite-cookie-consent/"
   },
-  "id": 385
+  "id": 386
  },
  {
   "action": {
@@ -4465,7 +4475,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/interscroller-ads"
   },
-  "id": 386
+  "id": 387
  },
  {
   "action": {
@@ -4475,7 +4485,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/interstitial-ads"
   },
-  "id": 387
+  "id": 388
  },
  {
   "action": {
@@ -4488,7 +4498,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/jet-popup"
   },
-  "id": 388
+  "id": 389
  },
  {
   "action": {
@@ -4498,7 +4508,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/koko-analytics"
   },
-  "id": 389
+  "id": 390
  },
  {
   "action": {
@@ -4508,7 +4518,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/lbg-audio8-html5-radio_ads"
   },
-  "id": 390
+  "id": 391
  },
  {
   "action": {
@@ -4518,7 +4528,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/leeads-"
   },
-  "id": 391
+  "id": 392
  },
  {
   "action": {
@@ -4528,7 +4538,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/likebtn-like-button/"
   },
-  "id": 392
+  "id": 393
  },
  {
   "action": {
@@ -4538,7 +4548,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/madonltd-full-screen-ad"
   },
-  "id": 393
+  "id": 394
  },
  {
   "action": {
@@ -4548,7 +4558,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/mashshare"
   },
-  "id": 394
+  "id": 395
  },
  {
   "action": {
@@ -4565,7 +4575,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/mediaconnect"
   },
-  "id": 395
+  "id": 396
  },
  {
   "action": {
@@ -4575,7 +4585,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/metro-affiliate"
   },
-  "id": 396
+  "id": 397
  },
  {
   "action": {
@@ -4585,7 +4595,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/mitti-adform"
   },
-  "id": 397
+  "id": 398
  },
  {
   "action": {
@@ -4594,19 +4604,6 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/ml-adverts"
-  },
-  "id": 398
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "investerarbrevet.se"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/plugins/ml-slider"
   },
   "id": 399
  },
@@ -5450,7 +5447,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/scripts/opt/view.analytics.js"
+   "urlFilter": "/scripts/leeads-"
   },
   "id": 476
  },
@@ -5459,12 +5456,8 @@
    "type": "block"
   },
   "condition": {
-   "initiatorDomains": [
-    "fannystaaf.se",
-    "nouw.com"
-   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/scripts/pb*.js"
+   "urlFilter": "/scripts/opt/view.analytics.js"
   },
   "id": 477
  },
@@ -7206,10 +7199,7 @@
     "historier.net",
     "kamerabild.se",
     "laholmstidning.se",
-    "listor.se",
     "lokaltidningenvaxjo.se",
-    "news55.se",
-    "norrahalland.se",
     "oppettiden.se",
     "ostgotatidningen.se",
     "pernillawahlgren.se",
@@ -9023,6 +9013,7 @@
     "entreprenad.com",
     "ettgottskratt.se",
     "expo.se",
+    "fannystaaf.se",
     "filmtopp.se",
     "flashback.org",
     "food-supply.se",
@@ -9048,6 +9039,7 @@
     "lesscarbs.se",
     "leta.se",
     "lifesciencesweden.se",
+    "listor.se",
     "ljudochbild.se",
     "matklubben.se",
     "medtechmagazine.se",
@@ -9057,7 +9049,9 @@
     "motormagasinet.se",
     "mykitchenstories.se",
     "mytaste.se",
+    "news55.se",
     "newsner.com",
+    "norrahalland.se",
     "nouw.com",
     "nyadagbladet.se",
     "nyteknik.se",
@@ -10774,9 +10768,6 @@
    "type": "block"
   },
   "condition": {
-   "initiatorDomains": [
-    "tv4play.se"
-   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "image"
@@ -14897,6 +14888,7 @@
     "apsis.one",
     "ascontentcloud.com",
     "atmtd.com",
+    "aventyret.com",
     "aweber.com",
     "bannerutbyte.se",
     "bellmetric.net",
@@ -15179,8 +15171,12 @@
    "type": "allow"
   },
   "condition": {
+   "initiatorDomains": [
+    "fannystaaf.se",
+    "nouw.com"
+   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||createsend1.com/css/"
+   "urlFilter": "||content.lwadm.com/lw/js/*/lw.js"
   },
   "id": 1208
  },
@@ -15190,9 +15186,19 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||freeride.nu/js/ads.js"
+   "urlFilter": "||createsend1.com/css/"
   },
   "id": 1209
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||freeride.nu/js/ads.js"
+  },
+  "id": 1210
  },
  {
   "action": {
@@ -15205,7 +15211,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fwmrm.net/crossdomain.xml"
   },
-  "id": 1210
+  "id": 1211
  },
  {
   "action": {
@@ -15215,7 +15221,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||js.createsend1.com/js/jquery"
   },
-  "id": 1211
+  "id": 1212
  },
  {
   "action": {
@@ -15229,7 +15235,7 @@
     "js.driftt.com"
    ]
   },
-  "id": 1212
+  "id": 1213
  },
  {
   "action": {
@@ -15242,7 +15248,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||klaviyo.com/media/js/public/klaviyo_subscribe.js"
   },
-  "id": 1213
+  "id": 1214
  },
  {
   "action": {
@@ -15252,7 +15258,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||marketo.com^*/form"
   },
-  "id": 1214
+  "id": 1215
  },
  {
   "action": {
@@ -15262,7 +15268,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||notebookcheck.se/fileadmin/templates/js/nbc-ads-ns.js"
   },
-  "id": 1215
+  "id": 1216
  },
  {
   "action": {
@@ -15275,7 +15281,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nuthymia-llc.ck.page/*/index.js"
   },
-  "id": 1216
+  "id": 1217
  },
  {
   "action": {
@@ -15291,7 +15297,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||se-tv4.videoplaza.tv/proxy/distributor"
   },
-  "id": 1217
+  "id": 1218
  },
  {
   "action": {
@@ -15307,7 +15313,7 @@
    ],
    "urlFilter": "/aff/images/"
   },
-  "id": 1218
+  "id": 1219
  },
  {
   "action": {
@@ -15323,7 +15329,24 @@
    ],
    "urlFilter": "/appbanner.jpg"
   },
-  "id": 1219
+  "id": 1220
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "fannystaaf.se",
+    "nouw.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||lwadm.com/lw/pbjs?"
+  },
+  "id": 1221
  },
  {
   "action": {
@@ -15339,7 +15362,7 @@
    ],
    "urlFilter": "||www.googletagmanager.com/gtm.js"
   },
-  "id": 1220
+  "id": 1222
  },
  {
   "action": {
@@ -15353,7 +15376,7 @@
     "sub_frame"
    ]
   },
-  "id": 1221
+  "id": 1223
  },
  {
   "action": {
@@ -15367,7 +15390,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/admin-ajax.php?action=archive_grid"
   },
-  "id": 1222
+  "id": 1224
  },
  {
   "action": {
@@ -15382,7 +15405,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/adx.js"
   },
-  "id": 1223
+  "id": 1225
  },
  {
   "action": {
@@ -15414,7 +15437,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/assets/ads-dm.js"
   },
-  "id": 1224
+  "id": 1226
  },
  {
   "action": {
@@ -15428,7 +15451,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/cykla/assets/js/advertisment.js"
   },
-  "id": 1225
+  "id": 1227
  },
  {
   "action": {
@@ -15444,7 +15467,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/js/ads.js"
   },
-  "id": 1226
+  "id": 1228
  },
  {
   "action": {
@@ -15458,7 +15481,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/scripts/advert_"
   },
-  "id": 1227
+  "id": 1229
  },
  {
   "action": {
@@ -15469,7 +15492,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||happyride.se/img/admarket/"
   },
-  "id": 1228
+  "id": 1230
  },
  {
   "action": {
@@ -15483,7 +15506,7 @@
    ],
    "urlFilter": "/plugins/convertplug/modules/modal/*/cross.png"
   },
-  "id": 1229
+  "id": 1231
  },
  {
   "action": {
@@ -15500,7 +15523,7 @@
    ],
    "urlFilter": "/ad.php"
   },
-  "id": 1230
+  "id": 1232
  },
  {
   "action": {
@@ -15518,6 +15541,6 @@
    ],
    "urlFilter": "/adserver."
   },
-  "id": 1231
+  "id": 1233
  }
 ]

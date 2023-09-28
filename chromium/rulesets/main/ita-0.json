@@ -31644,7 +31644,6 @@
     "napolimagazine.biz",
     "netrefer-a.akamaihd.net",
     "oas.repubblica.it",
-    "oasjs.kataweb.it",
     "oipzyrzffum.ovh",
     "pc-on-internet.com",
     "plx.mrpornogratis.it",
@@ -33192,19 +33191,10 @@
   },
   "condition": {
    "initiatorDomains": [
-    "capital.it",
-    "huffingtonpost.it",
-    "m2o.it",
-    "video.deejay.it",
-    "video.espresso.repubblica.it",
-    "video.ilsecoloxix.it",
-    "video.lanuovasardegna.it",
-    "video.lastampa.it",
-    "video.rep.repubblica.it",
-    "video.repubblica.it"
+    "la7.it"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||oasjs.kataweb.it/cookielex/"
+   "urlFilter": "||rcsobjects.it/rcs_adv/v1/distro/dfp/common/prebid7."
   },
   "id": 3236
  },
@@ -33217,22 +33207,9 @@
     "la7.it"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||rcsobjects.it/rcs_adv/v1/distro/dfp/common/prebid7."
-  },
-  "id": 3237
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "la7.it"
-   ],
-   "isUrlFilterCaseSensitive": false,
    "urlFilter": "||rcsobjects.it/rcs_data-tracking/v1/distro/openx/openx_async.js"
   },
-  "id": 3238
+  "id": 3237
  },
  {
   "action": {
@@ -33242,7 +33219,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||repubblica.it/adimages/"
   },
-  "id": 3239
+  "id": 3238
  },
  {
   "action": {
@@ -33252,7 +33229,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sun.novara.it/image/pubblicita.jpg"
   },
-  "id": 3240
+  "id": 3239
  },
  {
   "action": {
@@ -33262,7 +33239,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ubibanca.com^*/ubi-adbanner.js"
   },
-  "id": 3241
+  "id": 3240
  },
  {
   "action": {
@@ -33275,7 +33252,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||barillagroup.com/pic/media/uploads/*.300x250_"
   },
-  "id": 3242
+  "id": 3241
  },
  {
   "action": {
@@ -33285,7 +33262,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||media.blogo.it/media/*_320x250_"
   },
-  "id": 3243
+  "id": 3242
  },
  {
   "action": {
@@ -33295,7 +33272,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||oggiroma.it/public/news_foto/300x250_"
   },
-  "id": 3244
+  "id": 3243
  },
  {
   "action": {
@@ -33305,7 +33282,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zeusnews.it/thumbs/1/300x250/300x250-"
   },
-  "id": 3245
+  "id": 3244
  },
  {
   "action": {
@@ -33319,7 +33296,7 @@
    ],
    "urlFilter": "||video.comingsoon.it/adv/box/"
   },
-  "id": 3246
+  "id": 3245
  },
  {
   "action": {
@@ -33332,7 +33309,7 @@
    ],
    "urlFilter": "||ansa.it^*/ad-gallery/"
   },
-  "id": 3247
+  "id": 3246
  },
  {
   "action": {
@@ -33345,7 +33322,7 @@
    ],
    "urlFilter": "||forebase.com/plugin/*/images/ads/"
   },
-  "id": 3248
+  "id": 3247
  },
  {
   "action": {
@@ -33361,7 +33338,7 @@
    ],
    "urlFilter": "||images.sbito.it/api/v1/sbt-ads-images-pro/images/ad/"
   },
-  "id": 3249
+  "id": 3248
  },
  {
   "action": {
@@ -33374,7 +33351,7 @@
    ],
    "urlFilter": "||labs.ebuzzing.it/blogs/top/getrank?"
   },
-  "id": 3250
+  "id": 3249
  },
  {
   "action": {
@@ -33390,7 +33367,7 @@
    ],
    "urlFilter": "||multiplayer.net-cdn.it/thumbs/images/*/pubblicita-"
   },
-  "id": 3251
+  "id": 3250
  },
  {
   "action": {
@@ -33406,7 +33383,7 @@
    ],
    "urlFilter": "||terradidelizie.s3.amazonaws.com/banners/"
   },
-  "id": 3252
+  "id": 3251
  },
  {
   "action": {
@@ -33445,7 +33422,7 @@
    ],
    "urlFilter": "||amazon-adsystem.com/aax2/apstag.js"
   },
-  "id": 3253
+  "id": 3252
  },
  {
   "action": {
@@ -33482,7 +33459,7 @@
    ],
    "urlFilter": "||components2.rcsobjects.it/rcs_adv/v1/distro/dfp/common/prebid7.33.0.js"
   },
-  "id": 3254
+  "id": 3253
  },
  {
   "action": {
@@ -33498,7 +33475,7 @@
    ],
    "urlFilter": "||ads.lfstmedia.com/getad?site="
   },
-  "id": 3255
+  "id": 3254
  },
  {
   "action": {
@@ -33515,7 +33492,7 @@
    ],
    "urlFilter": "||adsafeprotected.com/vans-adapter-google-ima.js"
   },
-  "id": 3256
+  "id": 3255
  },
  {
   "action": {
@@ -33531,7 +33508,7 @@
    ],
    "urlFilter": "||adserver.adtech.de/addyn/3.0/1183/3769607/0/170/adtech;"
   },
-  "id": 3257
+  "id": 3256
  },
  {
   "action": {
@@ -33547,7 +33524,7 @@
    ],
    "urlFilter": "||catchup.acdsolutions.it/jstag/videoplayerfluid/*&adzone="
   },
-  "id": 3258
+  "id": 3257
  },
  {
   "action": {
@@ -33564,7 +33541,7 @@
    ],
    "urlFilter": "||doubleclick.net/gpt/pubads_impl_"
   },
-  "id": 3259
+  "id": 3258
  },
  {
   "action": {
@@ -33581,7 +33558,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/tag/js/gpt.js"
   },
-  "id": 3260
+  "id": 3259
  },
  {
   "action": {
@@ -33597,32 +33574,7 @@
    ],
    "urlFilter": "||google.com/adsense/search/ads.js"
   },
-  "id": 3261
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "capital.it",
-    "huffingtonpost.it",
-    "m2o.it",
-    "video.deejay.it",
-    "video.espresso.repubblica.it",
-    "video.ilsecoloxix.it",
-    "video.lanuovasardegna.it",
-    "video.lastampa.it",
-    "video.rep.repubblica.it",
-    "video.repubblica.it"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||oasjs.kataweb.it/adsetup*.js"
-  },
-  "id": 3262
+  "id": 3260
  },
  {
   "action": {
@@ -33638,7 +33590,7 @@
    ],
    "urlFilter": "||player.avplayer.com/script/"
   },
-  "id": 3263
+  "id": 3261
  },
  {
   "action": {
@@ -33657,7 +33609,7 @@
    ],
    "urlFilter": "||synchrobox.adswizz.com/register2.php"
   },
-  "id": 3264
+  "id": 3262
  },
  {
   "action": {
@@ -33678,7 +33630,7 @@
    ],
    "urlFilter": "||fluid.4strokemedia.com/www/delivery/asyncspc.php?"
   },
-  "id": 3265
+  "id": 3263
  },
  {
   "action": {
@@ -33694,7 +33646,7 @@
    ],
    "urlFilter": "||videosynd.kataweb.it/advertising/"
   },
-  "id": 3266
+  "id": 3264
  },
  {
   "action": {
@@ -33707,7 +33659,7 @@
    ],
    "urlFilter": "||forebase.com/plugin/ads.htm?"
   },
-  "id": 3267
+  "id": 3265
  },
  {
   "action": {
@@ -33724,7 +33676,7 @@
    ],
    "urlFilter": "||google.com/adsense/"
   },
-  "id": 3268
+  "id": 3266
  },
  {
   "action": {
@@ -33741,7 +33693,7 @@
     "sub_frame"
    ]
   },
-  "id": 3269
+  "id": 3267
  },
  {
   "action": {
@@ -33757,7 +33709,7 @@
    ],
    "urlFilter": "||virgilio.it^*?advtile="
   },
-  "id": 3270
+  "id": 3268
  },
  {
   "action": {
@@ -33768,7 +33720,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||antonioranesi.it/cache/lavori/pubblicita/"
   },
-  "id": 3271
+  "id": 3269
  },
  {
   "action": {
@@ -33779,7 +33731,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||centrovolantini.it/sites/default/files/styles/thumb_copertina/public/conad_"
   },
-  "id": 3272
+  "id": 3270
  },
  {
   "action": {
@@ -33790,7 +33742,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cheapnet.it/adv/"
   },
-  "id": 3273
+  "id": 3271
  },
  {
   "action": {
@@ -33801,7 +33753,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||foolbite.com/foolbite/*_pubblicita_"
   },
-  "id": 3274
+  "id": 3272
  },
  {
   "action": {
@@ -33812,7 +33764,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||misterdomain.eu/affiliation/"
   },
-  "id": 3275
+  "id": 3273
  },
  {
   "action": {
@@ -33823,7 +33775,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||online-retail.unicredit.it/adv/"
   },
-  "id": 3276
+  "id": 3274
  },
  {
   "action": {
@@ -33838,7 +33790,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||youston.agency/google-ads/"
   },
-  "id": 3277
+  "id": 3275
  },
  {
   "action": {
@@ -33849,7 +33801,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||admin.ammadv.it/pop-under.it/"
   },
-  "id": 3278
+  "id": 3276
  },
  {
   "action": {
@@ -33863,7 +33815,7 @@
    ],
    "urlFilter": "||business24tv.it/_static/*/oasx/"
   },
-  "id": 3279
+  "id": 3277
  },
  {
   "action": {
@@ -33877,7 +33829,7 @@
    ],
    "urlFilter": "||video.lactv.it/adtech/css/player_v3.min.css"
   },
-  "id": 3280
+  "id": 3278
  },
  {
   "action": {
@@ -33891,7 +33843,7 @@
    ],
    "urlFilter": "||dincontri.com/ads/galleries/crops/"
   },
-  "id": 3281
+  "id": 3279
  },
  {
   "action": {
@@ -33905,7 +33857,7 @@
    ],
    "urlFilter": "||mm-one.tv/wp-content/uploads/2021/03/social-media-e-social-media-advertising_-i-cavalli-vincenti-del.jpg"
   },
-  "id": 3282
+  "id": 3280
  },
  {
   "action": {
@@ -33919,7 +33871,7 @@
    ],
    "urlFilter": "||propathos.com/wp-content/uploads/2020/11/cropped-propathos-certified-google-adwords.png"
   },
-  "id": 3283
+  "id": 3281
  },
  {
   "action": {
@@ -33933,7 +33885,7 @@
    ],
    "urlFilter": "||vobis.it/zeusinc/adfarm/image/"
   },
-  "id": 3284
+  "id": 3282
  },
  {
   "action": {
@@ -33947,7 +33899,7 @@
    ],
    "urlFilter": "||zincontri.com/ads/galleries/crops/"
   },
-  "id": 3285
+  "id": 3283
  },
  {
   "action": {
@@ -33961,7 +33913,7 @@
    ],
    "urlFilter": "||api.everli.com/sm/api/*&adgroupid="
   },
-  "id": 3286
+  "id": 3284
  },
  {
   "action": {
@@ -33975,7 +33927,7 @@
    ],
    "urlFilter": "||mail1.libero.it/appsuite/api/apps/load/"
   },
-  "id": 3287
+  "id": 3285
  },
  {
   "action": {
@@ -33989,7 +33941,7 @@
    ],
    "urlFilter": "||gay.it/adv/empty.mp4"
   },
-  "id": 3288
+  "id": 3286
  },
  {
   "action": {
@@ -34007,6 +33959,6 @@
    ],
    "urlFilter": "||ads.viralize.tv/player/"
   },
-  "id": 3289
+  "id": 3287
  }
 ]

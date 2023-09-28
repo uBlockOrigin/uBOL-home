@@ -3665,7 +3665,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||isramedia.net/images/header/"
+   "urlFilter": "||callil.co.il/content/ads/"
   },
   "id": 244
  },
@@ -3679,7 +3679,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||yad2.co.il/assets/mobile/ui/adpage/"
+   "urlFilter": "||isramedia.net/images/header/"
   },
   "id": 245
  },
@@ -3689,15 +3689,11 @@
   },
   "condition": {
    "domainType": "firstParty",
-   "initiatorDomains": [
-    "13news.co.il",
-    "13tv.co.il"
-   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
-    "script"
+    "image"
    ],
-   "urlFilter": "/ads.js?"
+   "urlFilter": "||yad2.co.il/assets/mobile/ui/adpage/"
   },
   "id": 246
  },
@@ -3715,7 +3711,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "/ads.min.js?"
+   "urlFilter": "/ads.js?"
   },
   "id": 247
  },
@@ -3733,7 +3729,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "/adunits."
+   "urlFilter": "/ads.min.js?"
   },
   "id": 248
  },
@@ -3743,11 +3739,15 @@
   },
   "condition": {
    "domainType": "firstParty",
+   "initiatorDomains": [
+    "13news.co.il",
+    "13tv.co.il"
+   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||b-share.com/wp-content/*/advertisement."
+   "urlFilter": "/adunits."
   },
   "id": 249
  },
@@ -3761,7 +3761,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||hamal.co.il/advertising/ads/gtm.js|"
+   "urlFilter": "||b-share.com/wp-content/*/advertisement."
   },
   "id": 250
  },
@@ -3775,7 +3775,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||hwzone.co.il/wp-content/plugins/wpadverts/assets/js/adverts-frontend.js"
+   "urlFilter": "||hamal.co.il/advertising/ads/gtm.js|"
   },
   "id": 251
  },
@@ -3789,7 +3789,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||isramedia.net/ads.js"
+   "urlFilter": "||hwzone.co.il/wp-content/plugins/wpadverts/assets/js/adverts-frontend.js"
   },
   "id": 252
  },
@@ -3803,7 +3803,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||sport5.co.il^*/dfp."
+   "urlFilter": "||isramedia.net/ads.js"
   },
   "id": 253
  },
@@ -3817,7 +3817,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||sport5.co.il^*/dfp/"
+   "urlFilter": "||sport5.co.il^*/dfp."
   },
   "id": 254
  },
@@ -3831,9 +3831,23 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||weather2day.co.il/ads.js?"
+   "urlFilter": "||sport5.co.il^*/dfp/"
   },
   "id": 255
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||weather2day.co.il/ads.js?"
+  },
+  "id": 256
  },
  {
   "action": {
@@ -3847,7 +3861,7 @@
    ],
    "urlFilter": "||foodsdictionary.co.il/static/"
   },
-  "id": 256
+  "id": 257
  },
  {
   "action": {
@@ -3865,6 +3879,6 @@
    ],
    "urlFilter": "?pageurl="
   },
-  "id": 257
+  "id": 258
  }
 ]

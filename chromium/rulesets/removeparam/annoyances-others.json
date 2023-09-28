@@ -25,29 +25,5 @@
    "urlFilter": "||player.octivid.com/*/video?*&autoplay="
   },
   "id": 400
- },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
-    }
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame",
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||dailymotion.com/embed/video/"
-  },
-  "id": 401
  }
 ]

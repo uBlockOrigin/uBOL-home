@@ -22,7 +22,7 @@
    ],
    "urlFilter": "||static.criteo.net/js/px.js?ch="
   },
-  "id": 936,
+  "id": 943,
   "priority": 12
  },
  {
@@ -48,8 +48,32 @@
    ],
    "urlFilter": "||cas.criteo.com/delivery/ajs.php"
   },
-  "id": 937,
+  "id": 944,
   "priority": 12
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/googlesyndication_adsbygoogle.js"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "elquintobeatle.com",
+    "empregoestagios.com",
+    "satcesc.com",
+    "xerifetech.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+  },
+  "id": 945,
+  "priority": 2
  },
  {
   "action": {
@@ -69,7 +93,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/pal/sdkloader/pal.js"
   },
-  "id": 938,
+  "id": 946,
   "priority": 2
  },
  {
@@ -91,7 +115,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
   },
-  "id": 939,
+  "id": 947,
   "priority": 2
  },
  {
@@ -120,7 +144,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 940,
+  "id": 948,
   "priority": 2
  },
  {
@@ -140,7 +164,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 941,
+  "id": 949,
   "priority": 2
  },
  {
@@ -162,7 +186,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 942,
+  "id": 950,
   "priority": 12
  },
  {
@@ -184,7 +208,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 943,
+  "id": 951,
   "priority": 12
  },
  {
@@ -207,7 +231,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 944,
+  "id": 952,
   "priority": 12
  },
  {
@@ -230,7 +254,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 945,
+  "id": 953,
   "priority": 12
  },
  {
@@ -251,7 +275,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
   },
-  "id": 946,
+  "id": 954,
   "priority": 2
  },
  {
@@ -271,7 +295,7 @@
    ],
    "urlFilter": "||static.vocento.com/dab/latest/strategy.js"
   },
-  "id": 947,
+  "id": 955,
   "priority": 12
  },
  {
@@ -292,30 +316,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 948,
-  "priority": 2
- },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/googlesyndication_adsbygoogle.js"
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "elquintobeatle.com",
-    "empregoestagios.com",
-    "satcesc.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-  },
-  "id": 949,
+  "id": 956,
   "priority": 2
  },
  {
@@ -335,7 +336,7 @@
    ],
    "urlFilter": "||st.bebi.com/bebi_v*.js"
   },
-  "id": 950,
+  "id": 957,
   "priority": 2
  },
  {
@@ -356,7 +357,7 @@
    ],
    "urlFilter": "||cdn.adtrue.com/rtb/async.js"
   },
-  "id": 951,
+  "id": 958,
   "priority": 12
  },
  {
@@ -377,7 +378,7 @@
    ],
    "urlFilter": "||cdn.onesignal.com/sdks/onesignalsdk.js"
   },
-  "id": 952,
+  "id": 959,
   "priority": 12
  },
  {
@@ -397,7 +398,7 @@
    ],
    "urlFilter": "/tghr.js"
   },
-  "id": 953,
+  "id": 960,
   "priority": 2
  },
  {
@@ -417,7 +418,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/tag/js/gpt.js"
   },
-  "id": 954,
+  "id": 961,
   "priority": 2
  },
  {
@@ -437,7 +438,7 @@
    ],
    "urlFilter": "||googletagservices.com/tag/js/gpt.js"
   },
-  "id": 955,
+  "id": 962,
   "priority": 12
  },
  {
@@ -458,7 +459,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 956,
+  "id": 963,
   "priority": 2
  },
  {
@@ -478,7 +479,7 @@
    ],
    "urlFilter": "||ads-twitter.com/uwt.js"
   },
-  "id": 957,
+  "id": 964,
   "priority": 12
  },
  {
@@ -495,7 +496,7 @@
    ],
    "urlFilter": "||mahimeta.com/networks/ad_code.php"
   },
-  "id": 958,
+  "id": 965,
   "priority": 2
  },
  {
@@ -515,7 +516,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 959,
+  "id": 966,
   "priority": 12
  },
  {
@@ -535,7 +536,7 @@
    ],
    "urlFilter": "||cloud.mail.ru/weblink/view/*?advideo"
   },
-  "id": 960,
+  "id": 967,
   "priority": 2
  },
  {
@@ -555,7 +556,7 @@
    ],
    "urlFilter": "||baixarhentais.com/*/*-pre-roll-*.mp4"
   },
-  "id": 961,
+  "id": 968,
   "priority": 2
  },
  {
@@ -572,7 +573,7 @@
    ],
    "urlFilter": "||pobre.tv/videos/bt.mp4"
   },
-  "id": 962,
+  "id": 969,
   "priority": 2
  },
  {
@@ -589,7 +590,7 @@
    ],
    "urlFilter": "||hentaiporno.xxx/wp-content/uploads/*/*_video.mp4.mp4"
   },
-  "id": 963,
+  "id": 970,
   "priority": 2
  }
 ]
