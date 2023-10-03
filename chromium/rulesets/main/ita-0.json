@@ -33467,6 +33467,22 @@
   },
   "condition": {
    "initiatorDomains": [
+    "consiglibenessere.org"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||go.ezodn.com/tardisrocinante/lazy_load.js?"
+  },
+  "id": 3254
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
     "spaghetti-interactive.it"
    ],
    "isUrlFilterCaseSensitive": false,
@@ -33475,7 +33491,7 @@
    ],
    "urlFilter": "||ads.lfstmedia.com/getad?site="
   },
-  "id": 3254
+  "id": 3255
  },
  {
   "action": {
@@ -33492,7 +33508,7 @@
    ],
    "urlFilter": "||adsafeprotected.com/vans-adapter-google-ima.js"
   },
-  "id": 3255
+  "id": 3256
  },
  {
   "action": {
@@ -33508,7 +33524,7 @@
    ],
    "urlFilter": "||adserver.adtech.de/addyn/3.0/1183/3769607/0/170/adtech;"
   },
-  "id": 3256
+  "id": 3257
  },
  {
   "action": {
@@ -33523,23 +33539,6 @@
     "script"
    ],
    "urlFilter": "||catchup.acdsolutions.it/jstag/videoplayerfluid/*&adzone="
-  },
-  "id": 3257
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "corrieredellosport.it",
-    "tuttosport.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||doubleclick.net/gpt/pubads_impl_"
   },
   "id": 3258
  },
@@ -33556,9 +33555,26 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||g.doubleclick.net/tag/js/gpt.js"
+   "urlFilter": "||doubleclick.net/gpt/pubads_impl_"
   },
   "id": 3259
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "corrieredellosport.it",
+    "tuttosport.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||g.doubleclick.net/tag/js/gpt.js"
+  },
+  "id": 3260
  },
  {
   "action": {
@@ -33574,7 +33590,7 @@
    ],
    "urlFilter": "||google.com/adsense/search/ads.js"
   },
-  "id": 3260
+  "id": 3261
  },
  {
   "action": {
@@ -33590,7 +33606,7 @@
    ],
    "urlFilter": "||player.avplayer.com/script/"
   },
-  "id": 3261
+  "id": 3262
  },
  {
   "action": {
@@ -33609,7 +33625,7 @@
    ],
    "urlFilter": "||synchrobox.adswizz.com/register2.php"
   },
-  "id": 3262
+  "id": 3263
  },
  {
   "action": {
@@ -33630,7 +33646,7 @@
    ],
    "urlFilter": "||fluid.4strokemedia.com/www/delivery/asyncspc.php?"
   },
-  "id": 3263
+  "id": 3264
  },
  {
   "action": {
@@ -33646,7 +33662,7 @@
    ],
    "urlFilter": "||videosynd.kataweb.it/advertising/"
   },
-  "id": 3264
+  "id": 3265
  },
  {
   "action": {
@@ -33659,7 +33675,7 @@
    ],
    "urlFilter": "||forebase.com/plugin/ads.htm?"
   },
-  "id": 3265
+  "id": 3266
  },
  {
   "action": {
@@ -33676,7 +33692,7 @@
    ],
    "urlFilter": "||google.com/adsense/"
   },
-  "id": 3266
+  "id": 3267
  },
  {
   "action": {
@@ -33693,7 +33709,7 @@
     "sub_frame"
    ]
   },
-  "id": 3267
+  "id": 3268
  },
  {
   "action": {
@@ -33709,7 +33725,7 @@
    ],
    "urlFilter": "||virgilio.it^*?advtile="
   },
-  "id": 3268
+  "id": 3269
  },
  {
   "action": {
@@ -33720,7 +33736,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||antonioranesi.it/cache/lavori/pubblicita/"
   },
-  "id": 3269
+  "id": 3270
  },
  {
   "action": {
@@ -33731,7 +33747,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||centrovolantini.it/sites/default/files/styles/thumb_copertina/public/conad_"
   },
-  "id": 3270
+  "id": 3271
  },
  {
   "action": {
@@ -33742,7 +33758,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cheapnet.it/adv/"
   },
-  "id": 3271
+  "id": 3272
  },
  {
   "action": {
@@ -33753,7 +33769,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||foolbite.com/foolbite/*_pubblicita_"
   },
-  "id": 3272
+  "id": 3273
  },
  {
   "action": {
@@ -33764,7 +33780,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||misterdomain.eu/affiliation/"
   },
-  "id": 3273
+  "id": 3274
  },
  {
   "action": {
@@ -33775,7 +33791,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||online-retail.unicredit.it/adv/"
   },
-  "id": 3274
+  "id": 3275
  },
  {
   "action": {
@@ -33790,17 +33806,6 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||youston.agency/google-ads/"
   },
-  "id": 3275
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "domainType": "firstParty",
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||admin.ammadv.it/pop-under.it/"
-  },
   "id": 3276
  },
  {
@@ -33810,10 +33815,7 @@
   "condition": {
    "domainType": "firstParty",
    "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "stylesheet"
-   ],
-   "urlFilter": "||business24tv.it/_static/*/oasx/"
+   "urlFilter": "||admin.ammadv.it/pop-under.it/"
   },
   "id": 3277
  },
@@ -33827,7 +33829,7 @@
    "resourceTypes": [
     "stylesheet"
    ],
-   "urlFilter": "||video.lactv.it/adtech/css/player_v3.min.css"
+   "urlFilter": "||business24tv.it/_static/*/oasx/"
   },
   "id": 3278
  },
@@ -33839,9 +33841,9 @@
    "domainType": "firstParty",
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
-    "image"
+    "stylesheet"
    ],
-   "urlFilter": "||dincontri.com/ads/galleries/crops/"
+   "urlFilter": "||video.lactv.it/adtech/css/player_v3.min.css"
   },
   "id": 3279
  },
@@ -33855,7 +33857,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||mm-one.tv/wp-content/uploads/2021/03/social-media-e-social-media-advertising_-i-cavalli-vincenti-del.jpg"
+   "urlFilter": "||dincontri.com/ads/galleries/crops/"
   },
   "id": 3280
  },
@@ -33869,7 +33871,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||propathos.com/wp-content/uploads/2020/11/cropped-propathos-certified-google-adwords.png"
+   "urlFilter": "||mm-one.tv/wp-content/uploads/2021/03/social-media-e-social-media-advertising_-i-cavalli-vincenti-del.jpg"
   },
   "id": 3281
  },
@@ -33883,7 +33885,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||vobis.it/zeusinc/adfarm/image/"
+   "urlFilter": "||propathos.com/wp-content/uploads/2020/11/cropped-propathos-certified-google-adwords.png"
   },
   "id": 3282
  },
@@ -33897,7 +33899,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||zincontri.com/ads/galleries/crops/"
+   "urlFilter": "||vobis.it/zeusinc/adfarm/image/"
   },
   "id": 3283
  },
@@ -33909,9 +33911,9 @@
    "domainType": "firstParty",
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
-    "xmlhttprequest"
+    "image"
    ],
-   "urlFilter": "||api.everli.com/sm/api/*&adgroupid="
+   "urlFilter": "||zincontri.com/ads/galleries/crops/"
   },
   "id": 3284
  },
@@ -33925,9 +33927,23 @@
    "resourceTypes": [
     "xmlhttprequest"
    ],
-   "urlFilter": "||mail1.libero.it/appsuite/api/apps/load/"
+   "urlFilter": "||api.everli.com/sm/api/*&adgroupid="
   },
   "id": 3285
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||mail1.libero.it/appsuite/api/apps/load/"
+  },
+  "id": 3286
  },
  {
   "action": {
@@ -33941,7 +33957,7 @@
    ],
    "urlFilter": "||gay.it/adv/empty.mp4"
   },
-  "id": 3286
+  "id": 3287
  },
  {
   "action": {
@@ -33959,6 +33975,6 @@
    ],
    "urlFilter": "||ads.viralize.tv/player/"
   },
-  "id": 3287
+  "id": 3288
  }
 ]

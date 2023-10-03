@@ -6481,6 +6481,22 @@
   },
   "condition": {
    "initiatorDomains": [
+    "mensajesdecumpleanosweb.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||go.ezodn.com/tardisrocinante/lazy_load.js?"
+  },
+  "id": 580
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
     "bolavip.com"
    ],
    "isUrlFilterCaseSensitive": false,
@@ -6489,7 +6505,7 @@
    ],
    "urlFilter": "||live.primis.tech/live/"
   },
-  "id": 580
+  "id": 581
  },
  {
   "action": {
@@ -6517,7 +6533,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 581
+  "id": 582
  },
  {
   "action": {
@@ -6533,7 +6549,7 @@
    ],
    "urlFilter": "||pub.pixels.ai/wrap-independent-no-prebid-lib.js"
   },
-  "id": 582
+  "id": 583
  },
  {
   "action": {
@@ -6549,7 +6565,7 @@
    ],
    "urlFilter": "||pub.pixels.ai/wrap-independent-prebid-lib.js"
   },
-  "id": 583
+  "id": 584
  },
  {
   "action": {
@@ -6566,7 +6582,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/gpt/pubads_impl_"
   },
-  "id": 584
+  "id": 585
  },
  {
   "action": {
@@ -6583,7 +6599,7 @@
    ],
    "urlFilter": "||g.doubleclick.net/tag/js/gpt.js"
   },
-  "id": 585
+  "id": 586
  },
  {
   "action": {
@@ -6600,7 +6616,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/"
   },
-  "id": 586
+  "id": 587
  },
  {
   "action": {
@@ -6616,7 +6632,7 @@
    ],
    "urlFilter": "||ak-ads-ns.prisasd.com/prebid/prebid_noticias.js"
   },
-  "id": 587
+  "id": 588
  },
  {
   "action": {
@@ -6632,7 +6648,7 @@
    ],
    "urlFilter": "||assets.gameallianz.com/api/js/ads/ads.js"
   },
-  "id": 588
+  "id": 589
  },
  {
   "action": {
@@ -6652,7 +6668,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3_debug.js"
   },
-  "id": 589
+  "id": 590
  },
  {
   "action": {
@@ -6669,7 +6685,7 @@
     "script"
    ]
   },
-  "id": 590
+  "id": 591
  },
  {
   "action": {
@@ -6685,7 +6701,7 @@
    ],
    "urlFilter": "||static.vodgc.net/*/videojs.ads-5.1.5.min.js"
   },
-  "id": 591
+  "id": 592
  },
  {
   "action": {
@@ -6698,7 +6714,7 @@
    ],
    "urlFilter": "||adpass.atresmedia.com/*/index/*/ad*.js"
   },
-  "id": 592
+  "id": 593
  },
  {
   "action": {
@@ -6714,7 +6730,7 @@
    ],
    "urlFilter": "||ads.pubmatic.com/adserver/js/pwtsync/"
   },
-  "id": 593
+  "id": 594
  },
  {
   "action": {
@@ -6730,7 +6746,7 @@
    ],
    "urlFilter": "||bradmax.com/client/embed-player/*/pubads.g.doubleclick.net/"
   },
-  "id": 594
+  "id": 595
  },
  {
   "action": {
@@ -6746,7 +6762,7 @@
    ],
    "urlFilter": "||iframes.5centscdn.com/5centscdn/*&adtagurl=https://pubads.g.doubleclick.net/"
   },
-  "id": 595
+  "id": 596
  },
  {
   "action": {
@@ -6770,7 +6786,7 @@
    ],
    "urlFilter": "||tribunasalamanca.com/ads.html"
   },
-  "id": 596
+  "id": 597
  },
  {
   "action": {
@@ -6786,7 +6802,7 @@
    ],
    "urlFilter": "||giolandscaping.com/ads/"
   },
-  "id": 597
+  "id": 598
  },
  {
   "action": {
@@ -6802,7 +6818,7 @@
    ],
    "urlFilter": "||adhandler.kissfmradio.cires21.com/get_link^"
   },
-  "id": 598
+  "id": 599
  },
  {
   "action": {
@@ -6822,7 +6838,7 @@
    ],
    "urlFilter": "||gvt1.com/videoplayback/"
   },
-  "id": 599
+  "id": 600
  },
  {
   "action": {
@@ -6837,7 +6853,35 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "-publicidad."
   },
-  "id": 600
+  "id": 601
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||aviacionline.com/tardisrocinante/screx.js?"
+  },
+  "id": 602
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||letrasyfuentes.com/tardisrocinante/screx.js?"
+  },
+  "id": 603
  },
  {
   "action": {
@@ -6864,7 +6908,7 @@
    ],
    "urlFilter": "/comun/js/2014/adfr*.js"
   },
-  "id": 601
+  "id": 604
  },
  {
   "action": {
@@ -6895,7 +6939,7 @@
    ],
    "urlFilter": "/elementosweb/js/ads.js"
   },
-  "id": 602
+  "id": 605
  },
  {
   "action": {
@@ -6926,7 +6970,7 @@
    ],
    "urlFilter": "/servicios/ads/dfp.js"
   },
-  "id": 603
+  "id": 606
  },
  {
   "action": {
@@ -6940,6 +6984,6 @@
    ],
    "urlFilter": "||hentaihd.xyz/ads/"
   },
-  "id": 604
+  "id": 607
  }
 ]

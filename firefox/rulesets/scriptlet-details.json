@@ -110,7 +110,7 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "*"
     ]
@@ -122,7 +122,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "*"
     ]
@@ -185,12 +185,11 @@
    [
     "spoof-css",
     [
-     "searchenginereports.net",
-     "ylilauta.org"
+     "searchenginereports.net"
     ]
    ],
    [
-    "refresh-defuser",
+    "prevent-refresh",
     [
      "1movietv.com",
      "blackmod.net",
@@ -252,11 +251,12 @@
      "fox.com",
      "foxsports.com",
      "mephimtv.cc",
-     "player.theplatform.com"
+     "player.theplatform.com",
+     "yhmgo.com"
     ]
    ],
    [
-    "window-close-if",
+    "close-window",
     [
      "coffeete.ir",
      "norton.com",
@@ -463,7 +463,7 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "51zxw.net",
      "bukaivip.com",
@@ -474,7 +474,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "bde4.com",
      "mp4er.cc",
@@ -623,14 +623,14 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "rychlost.cz",
      "rychlost.sk"
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "sauto.cz"
     ]
@@ -854,7 +854,7 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "cosmopolitan.fr",
      "zoneseries.stream"
@@ -987,7 +987,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "info.gambar.pro",
      "info.mapsaddress.com",
@@ -1027,7 +1027,7 @@
     ]
    ],
    [
-    "refresh-defuser",
+    "prevent-refresh",
     [
      "tipsgaptek.com",
      "tipskerja.com"
@@ -1157,7 +1157,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "gold-team.org",
      "iwo.ir",
@@ -1187,13 +1187,13 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "khabarpu.com"
     ]
    ],
    [
-    "window-close-if",
+    "close-window",
     [
      "instagram.com"
     ]
@@ -1449,7 +1449,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "collepic.net",
      "portal.game.sycasualgames.com"
@@ -1474,7 +1474,7 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "minigame.aeriagames.jp",
      "ponta.abstractpainting.work",
@@ -1542,6 +1542,16 @@
     ]
    ],
    [
+    "json-prune",
+    [
+     "comic.naver.com",
+     "enuri.com",
+     "msearch.shopping.naver.com",
+     "search.shopping.naver.com",
+     "shoppinghow.kakao.com"
+    ]
+   ],
+   [
     "set-constant",
     [
      "*",
@@ -1581,15 +1591,6 @@
     "set-attr",
     [
      "mlbpark.donga.com"
-    ]
-   ],
-   [
-    "json-prune",
-    [
-     "comic.naver.com",
-     "enuri.com",
-     "search.shopping.naver.com",
-     "shoppinghow.kakao.com"
     ]
    ],
    [
@@ -1638,7 +1639,7 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "lover922.net",
      "lover923.net",
@@ -2154,7 +2155,7 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "cda-tv.pl",
      "ekino-tv.pl",
@@ -2162,7 +2163,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "auto-motor-i-sport.pl",
      "filmowakraina.tv",
@@ -2287,13 +2288,16 @@
     "cookie-remover",
     [
      "24smi.org",
+     "comedy-radio.ru",
      "kakprosto.ru",
      "kufar.by",
+     "radioromantika.ru",
      "relax-fm.ru",
      "rg.ru",
      "sm.news",
      "sports.ru",
      "ura.news",
+     "veseloeradio.ru",
      "www.e1.ru",
      "yandex.by",
      "yandex.kz",
@@ -2333,6 +2337,7 @@
      "ivanovonews.ru",
      "kanobu.ru",
      "kufar.by",
+     "ok.ru",
      "pikabu.ru",
      "sports.ru",
      "tortuga.wtf",
@@ -2342,7 +2347,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "595.ucoz.net",
      "5mod-file.ru",
@@ -2376,7 +2381,7 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "4pda.to",
      "autoinfo24.ru",
@@ -2388,12 +2393,6 @@
      "gtavicecity.ru",
      "online-fix.me",
      "tv-kanali.online"
-    ]
-   ],
-   [
-    "no-fetch-if",
-    [
-     "howdyho.net"
     ]
    ],
    [
@@ -2548,18 +2547,22 @@
      "epravda.com.ua",
      "eurointegration.com.ua",
      "facenews.ua",
+     "game4you.top",
+     "games-pc.top",
      "gazeta.ua",
      "gorod.dp.ua",
      "gsm.in.ua",
      "hvylya.net",
      "i.ua",
      "inforesist.org",
+     "innal.top",
      "isport.ua",
      "ivona.ua",
      "kolobok.ua",
      "kriminal.tv",
      "meteo.ua",
      "meteofor.com.ua",
+     "naylo.top",
      "nnovosti.info",
      "nv.ua",
      "panno4ka.net",
@@ -2567,6 +2570,10 @@
      "pravda.com.ua",
      "real-vin.com",
      "root-nation.com",
+     "rustorka.com",
+     "rustorka.net",
+     "rustorka.top",
+     "rustorkacom.lib",
      "smak.ua",
      "sports.ru",
      "stravy.net",
@@ -2599,7 +2606,7 @@
     ]
    ],
    [
-    "window-close-if",
+    "close-window",
     [
      "infox.sg",
      "silvercube12.xyz"
@@ -2739,7 +2746,7 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "*"
     ]
@@ -2833,7 +2840,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "*"
     ]
@@ -2986,6 +2993,8 @@
      "aftonbladet.se",
      "godare.se",
      "livsstil.se",
+     "omni.se",
+     "omniekonomi.se",
      "skonhetsredaktorerna.se"
     ]
    ],
@@ -3188,6 +3197,7 @@
      "trafikskola.se",
      "utslappsratt.se",
      "villalivet.se",
+     "vinochmatguiden.se",
      "www.expressen.se",
      "zeinaskitchen.se"
     ]
@@ -3213,7 +3223,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "djungeltrumman.se"
     ]
@@ -3274,7 +3284,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "thmovieshd.com"
     ]
@@ -3705,6 +3715,7 @@
      "okultanitimi.net",
      "osxinfo.net",
      "otopark.com",
+     "tekniknot.com",
      "turkrock.com",
      "ulker.com.tr",
      "ulketv.com.tr",
@@ -3723,6 +3734,7 @@
      "4kfilmizlesene.xyz",
      "birasyadizi.com",
      "dizilost.com",
+     "dizipia.com",
      "fullhdabifilm.com",
      "hdmixfilim.com",
      "indirmedenfilmizle.vip",
@@ -3769,7 +3781,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "*"
     ]
@@ -3813,7 +3825,7 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "gazeterize.com",
      "onlinedizi.cc"
@@ -3892,7 +3904,6 @@
      "nguontv.live",
      "ophimhdvn2.net",
      "phimgigi.net",
-     "phimlau.online",
      "phimmoipro1.net",
      "plus.gtv.vn",
      "protruyen.xyz",
@@ -3907,7 +3918,7 @@
      "vlxx.moe",
      "vungoctuan.vn",
      "xnxx-sex-videos.com",
-     "xoilac84.tv",
+     "xoilac85.tv",
      "yurineko.net"
     ]
    ],
@@ -3922,13 +3933,14 @@
    [
     "set-constant",
     [
-     "bongda365b.net",
+     "bongda365b.info",
      "cafef.vn",
      "gamek.vn",
      "genk.vn",
      "gvnvh18.com",
      "kenh14.vn",
      "phe3x.xyz",
+     "phimvuihd.org",
      "sexdiaryx.us",
      "soha.vn",
      "tuoitre.vn",
@@ -4324,6 +4336,7 @@
      "katzenbaumdesign.de",
      "kbmv-matting.de",
      "kd-slovenija.de",
+     "kiyoua-news.de",
      "klangmassage-moser.de",
      "klicks-kaufen.de",
      "klsys.com",
@@ -4502,6 +4515,7 @@
      "tonispizza-rastatt.de",
      "toplink.de",
      "torinostoria.com",
+     "tourismus-uckermark.de",
      "transport-versicherungen.info",
      "trirhena-consulting.de",
      "tsg6209weinheim.de",
@@ -5644,6 +5658,7 @@
      "calvinklein.sk",
      "cam.start.canon",
      "camokoenig.de",
+     "campusbrno.cz",
      "canalpluskuchnia.pl",
      "carbox.de",
      "carsupermarket.com",
@@ -5720,6 +5735,7 @@
      "fabrykacukiernika.pl",
      "filen.io",
      "fillup.pl",
+     "finewoodworking.com",
      "fish.shimano.com",
      "flagma.by",
      "flamantonlineshop.cz",
@@ -5753,6 +5769,7 @@
      "heidegrill.com",
      "helitransair.com",
      "hellotv.nl",
+     "hexen-werkstatt.shop",
      "hitado.de",
      "holland-shop.com",
      "holzhof24.de",
@@ -5825,6 +5842,7 @@
      "natuerlich-holzschuhe.de",
      "natureatblog.com",
      "neviditelnepradlo.cz",
+     "nicequest.com",
      "nike.com",
      "nokportalen.se",
      "nomanssky.com",
@@ -5890,6 +5908,7 @@
      "sinparty.com",
      "skaling.de",
      "snap.com",
+     "songtradr.com",
      "soulbounce.com",
      "sportinnederland.com",
      "sps-handel.net",
@@ -5924,6 +5943,7 @@
      "valamis.com",
      "vamos-skateshop.com",
      "vansprint.de",
+     "velleahome.gr",
      "vert.eco",
      "vitalvibe.eu",
      "vivaldi.com",
@@ -6069,6 +6089,8 @@
      "kankaanpaanseutu.fi",
      "kmvlehti.fi",
      "kodinkuvalehti.fi",
+     "lachainemeteo.com",
+     "ledauphine.com",
      "merikarvialehti.fi",
      "nokianuutiset.fi",
      "rannikkoseutu.fi",
@@ -6210,7 +6232,7 @@
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "*"
     ]
@@ -6310,7 +6332,7 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "coolpc.com.tw",
      "coolpc.tw",
@@ -6320,7 +6342,8 @@
    [
     "trusted-set-local-storage-item",
     [
-     "medium.com"
+     "medium.com",
+     "proandroiddev.com"
     ]
    ],
    [
@@ -6866,13 +6889,13 @@
     ]
    ],
    [
-    "nano-setTimeout-booster",
+    "adjust-setTimeout",
     [
      "*"
     ]
    ],
    [
-    "nano-setInterval-booster",
+    "adjust-setInterval",
     [
      "*"
     ]

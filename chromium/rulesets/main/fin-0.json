@@ -400,10 +400,24 @@
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "ylilauta.org"
+   ],
+   "requestDomains": [
+    "es.ylilauta.org"
+   ]
+  },
+  "id": 37
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kaksplus.fi/upotukset/hintaopas^"
   },
-  "id": 37
+  "id": 38
  },
  {
   "action": {
@@ -416,7 +430,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kotiliesi.fi/upotukset/hintaopas/"
   },
-  "id": 38
+  "id": 39
  },
  {
   "action": {
@@ -429,7 +443,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lbaanijakuva.fi/test/*?template=prisjakt"
   },
-  "id": 39
+  "id": 40
  },
  {
   "action": {
@@ -439,7 +453,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||matkaendurot.net/images/*banner,domain=matkaendurot.net"
   },
-  "id": 40
+  "id": 41
  },
  {
   "action": {
@@ -453,7 +467,7 @@
     "recommendations.asunnot.oikotie.fi"
    ]
   },
-  "id": 41
+  "id": 42
  },
  {
   "action": {
@@ -466,7 +480,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ridemedia.fi/aspbanner"
   },
-  "id": 42
+  "id": 43
  },
  {
   "action": {
@@ -479,7 +493,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||seksitreffit.fi/banners/"
   },
-  "id": 43
+  "id": 44
  },
  {
   "action": {
@@ -492,7 +506,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tori.fi/*banner"
   },
-  "id": 44
+  "id": 45
  },
  {
   "action": {
@@ -502,7 +516,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dwk14raokkwxv.cloudfront.net/sanomafi/media/*.mp4"
   },
-  "id": 45
+  "id": 46
  },
  {
   "action": {
@@ -512,7 +526,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mobiili.fi/wp-content/themes/mobiilitheme/images/small-loading.gif"
   },
-  "id": 46
+  "id": 47
  },
  {
   "action": {
@@ -525,7 +539,7 @@
    ],
    "urlFilter": "/mainosmokkula/"
   },
-  "id": 47
+  "id": 48
  },
  {
   "action": {
@@ -545,7 +559,7 @@
    ],
    "urlFilter": "/*-mainos-"
   },
-  "id": 48
+  "id": 49
  },
  {
   "action": {
@@ -561,7 +575,7 @@
    ],
    "urlFilter": "/a-ylabannerit"
   },
-  "id": 49
+  "id": 50
  },
  {
   "action": {
@@ -577,7 +591,7 @@
    ],
    "urlFilter": "/b-suurbannerit-uutisvirrassa"
   },
-  "id": 50
+  "id": 51
  },
  {
   "action": {
@@ -594,7 +608,7 @@
    ],
    "urlFilter": "/wp-content/uploads/*/hymyalibi*_300x300_"
   },
-  "id": 52
+  "id": 53
  },
  {
   "action": {
@@ -607,7 +621,7 @@
    ],
    "urlFilter": "||aamuset.fi/content/app/img/latkaliiga_banneri.jpg"
   },
-  "id": 53
+  "id": 54
  },
  {
   "action": {
@@ -620,7 +634,7 @@
    ],
    "urlFilter": "||alibi.fi/wp-content/uploads/2018/03/al_sivupalkin_myyntiviesti2.jpg"
   },
-  "id": 54
+  "id": 55
  },
  {
   "action": {
@@ -633,7 +647,7 @@
    ],
    "urlFilter": "||bittiraha.fi/app/themes/bittiraha-theme/assets/images/bittiraha_coinmotion_banner"
   },
-  "id": 55
+  "id": 56
  },
  {
   "action": {
@@ -646,7 +660,7 @@
    ],
    "urlFilter": "||bittiraha.fi/app/uploads/*/bittimaatti*_banner"
   },
-  "id": 56
+  "id": 57
  },
  {
   "action": {
@@ -662,7 +676,7 @@
    ],
    "urlFilter": "||blogit.fi/ext/"
   },
-  "id": 57
+  "id": 58
  },
  {
   "action": {
@@ -678,7 +692,7 @@
    ],
    "urlFilter": "||caravan-lehti.fi/media/carado-matkailuauto."
   },
-  "id": 58
+  "id": 59
  },
  {
   "action": {
@@ -694,7 +708,7 @@
    ],
    "urlFilter": "||elmotv.com/wp-content/uploads/*/stake-banneri-"
   },
-  "id": 59
+  "id": 60
  },
  {
   "action": {
@@ -707,7 +721,7 @@
    ],
    "urlFilter": "||etn.fi/images/banners/"
   },
-  "id": 60
+  "id": 61
  },
  {
   "action": {
@@ -720,7 +734,7 @@
    ],
    "urlFilter": "||hifimaailma.fi/neodirect/static/*/karuselli"
   },
-  "id": 61
+  "id": 62
  },
  {
   "action": {
@@ -733,7 +747,7 @@
    ],
    "urlFilter": "||hymy.fi/wp-content/uploads/2018/03/hy_sivupalkin_myyntiviesti2.jpg"
   },
-  "id": 62
+  "id": 63
  },
  {
   "action": {
@@ -746,7 +760,7 @@
    ],
    "urlFilter": "||hymy.fi/wp-content/uploads/2022/11/nicorette_hymy.jpg"
   },
-  "id": 63
+  "id": 64
  },
  {
   "action": {
@@ -762,7 +776,7 @@
    ],
    "urlFilter": "||hymy.fi/wp-content/uploads/2023/05/nicorette2023_4_300x300.jpg"
   },
-  "id": 64
+  "id": 65
  },
  {
   "action": {
@@ -775,7 +789,7 @@
    ],
    "urlFilter": "||ig.fi/bannerit/koronabanneri.png"
   },
-  "id": 65
+  "id": 66
  },
  {
   "action": {
@@ -788,7 +802,7 @@
    ],
    "urlFilter": "||io-tech.fi/images/*_290x290px.png"
   },
-  "id": 66
+  "id": 67
  },
  {
   "action": {
@@ -804,7 +818,7 @@
    ],
    "urlFilter": "||is.fi/kampanjat/taloussanomat/startel_600x300px.jpg"
   },
-  "id": 67
+  "id": 68
  },
  {
   "action": {
@@ -820,7 +834,7 @@
    ],
    "urlFilter": "||kaasujalka.fi/assets/banners/"
   },
-  "id": 68
+  "id": 69
  },
  {
   "action": {
@@ -836,7 +850,7 @@
    ],
    "urlFilter": "||karjalainen.fi/images/banners/kiinnostuitko"
   },
-  "id": 69
+  "id": 70
  },
  {
   "action": {
@@ -852,7 +866,7 @@
    ],
    "urlFilter": "||kelkkalehti.com/bannerit/"
   },
-  "id": 70
+  "id": 71
  },
  {
   "action": {
@@ -868,7 +882,7 @@
    ],
    "urlFilter": "||keskustelu.pakkotoisto.com/bannerit/"
   },
-  "id": 71
+  "id": 72
  },
  {
   "action": {
@@ -884,7 +898,7 @@
    ],
    "urlFilter": "||kinuskikissa.fi/wp-content/uploads/*kumppani_*.gif"
   },
-  "id": 72
+  "id": 73
  },
  {
   "action": {
@@ -900,7 +914,7 @@
    ],
    "urlFilter": "||kiuruvesilehti.fi/wp-content/uploads/*kampanja_banneri.png"
   },
-  "id": 73
+  "id": 74
  },
  {
   "action": {
@@ -916,7 +930,7 @@
    ],
    "urlFilter": "||koeajolle.com/wp-content/uploads/*/blue-billboard-*.jpg"
   },
-  "id": 74
+  "id": 75
  },
  {
   "action": {
@@ -932,7 +946,7 @@
    ],
    "urlFilter": "||koeajolle.com/wp-content/uploads/*/blue-rect-*.jpg"
   },
-  "id": 75
+  "id": 76
  },
  {
   "action": {
@@ -948,7 +962,7 @@
    ],
    "urlFilter": "||koeajolle.com/wp-content/uploads/*/pop-vakuutus-alennuskoodi.png"
   },
-  "id": 76
+  "id": 77
  },
  {
   "action": {
@@ -964,7 +978,7 @@
    ],
    "urlFilter": "||laitilansanomat.fi^*/gallery/mainos*/"
   },
-  "id": 77
+  "id": 78
  },
  {
   "action": {
@@ -977,7 +991,7 @@
    ],
    "urlFilter": "||media.power-cdn.net/images/pages/orderpage/*-power-huippudiili-*.jpg"
   },
-  "id": 78
+  "id": 79
  },
  {
   "action": {
@@ -993,7 +1007,7 @@
    ],
    "urlFilter": "||mobiili.fi/wp-content/uploads/2019/08/bms_2019_980x120.jpg"
   },
-  "id": 79
+  "id": 80
  },
  {
   "action": {
@@ -1009,7 +1023,7 @@
    ],
    "urlFilter": "||mvlehti.net/image/adv.jpg"
   },
-  "id": 80
+  "id": 81
  },
  {
   "action": {
@@ -1025,7 +1039,7 @@
    ],
    "urlFilter": "||mvlehti.net/uploads/2021/06/halvinlaina-otsikko.jpg"
   },
-  "id": 81
+  "id": 82
  },
  {
   "action": {
@@ -1041,7 +1055,7 @@
    ],
    "urlFilter": "||no-cache.hubspot.com/cta/"
   },
-  "id": 82
+  "id": 83
  },
  {
   "action": {
@@ -1057,7 +1071,7 @@
    ],
    "urlFilter": "||pirkkalainen.com/images/mainospaikat/3.jpg"
   },
-  "id": 83
+  "id": 84
  },
  {
   "action": {
@@ -1073,7 +1087,7 @@
    ],
    "urlFilter": "||rakentaja.fi/kuvat/esitykset/bannerit/*_keittiomaailma-schibsted-*-kampanja"
   },
-  "id": 84
+  "id": 85
  },
  {
   "action": {
@@ -1089,7 +1103,7 @@
    ],
    "urlFilter": "||retkilehti.fi^*/calazo_banner_"
   },
-  "id": 85
+  "id": 86
  },
  {
   "action": {
@@ -1105,7 +1119,7 @@
    ],
    "urlFilter": "||riistalehti.fi^*/haix-nature-camo-"
   },
-  "id": 86
+  "id": 87
  },
  {
   "action": {
@@ -1121,7 +1135,7 @@
    ],
    "urlFilter": "||riistalehti.fi^*_banner_retki_nature_camo_"
   },
-  "id": 87
+  "id": 88
  },
  {
   "action": {
@@ -1134,7 +1148,7 @@
    ],
    "urlFilter": "||testeri.fi/inc/museokortti.png"
   },
-  "id": 88
+  "id": 89
  },
  {
   "action": {
@@ -1150,7 +1164,7 @@
    ],
    "urlFilter": "||tiketti.fi/tiedostot/*/tiketti*_paraati_"
   },
-  "id": 89
+  "id": 90
  },
  {
   "action": {
@@ -1163,7 +1177,7 @@
    ],
    "urlFilter": "||tohtorille.fi/content/img/op-banners/"
   },
-  "id": 90
+  "id": 91
  },
  {
   "action": {
@@ -1176,7 +1190,7 @@
    ],
    "urlFilter": "||urbaanisanakirja.com/static/img/portsaad.png"
   },
-  "id": 91
+  "id": 92
  },
  {
   "action": {
@@ -1192,7 +1206,7 @@
    ],
    "urlFilter": "||cloudfront.net/creatives/assets/"
   },
-  "id": 92
+  "id": 93
  },
  {
   "action": {
@@ -1211,7 +1225,7 @@
    ],
    "urlFilter": "/macro.adnami.io"
   },
-  "id": 93
+  "id": 94
  },
  {
   "action": {
@@ -1229,7 +1243,7 @@
    ],
    "urlFilter": "/pop_media_*_fi_inarticle"
   },
-  "id": 94
+  "id": 95
  },
  {
   "action": {
@@ -1263,7 +1277,7 @@
    ],
    "urlFilter": "||ap-online.media.fi/scripts/eneo*.dll"
   },
-  "id": 95
+  "id": 96
  },
  {
   "action": {
@@ -1279,7 +1293,7 @@
    ],
    "urlFilter": "||apps.sandviks.com/apix?x-method=elementservice.selectadvertiserelement"
   },
-  "id": 96
+  "id": 97
  },
  {
   "action": {
@@ -1296,7 +1310,7 @@
    ],
    "urlFilter": "||cdn.bluebillywig.com/apps/player/"
   },
-  "id": 97
+  "id": 98
  },
  {
   "action": {
@@ -1309,7 +1323,7 @@
    ],
    "urlFilter": "||cloudfront.net/poppartners/"
   },
-  "id": 98
+  "id": 99
  },
  {
   "action": {
@@ -1326,7 +1340,7 @@
     "script"
    ]
   },
-  "id": 99
+  "id": 100
  },
  {
   "action": {
@@ -1342,7 +1356,7 @@
    ],
    "urlFilter": "||gamereactor.fi^*/videojs.ads.js"
   },
-  "id": 100
+  "id": 101
  },
  {
   "action": {
@@ -1358,7 +1372,7 @@
    ],
    "urlFilter": "||kuvake.net/js/bannerloader.js"
   },
-  "id": 101
+  "id": 102
  },
  {
   "action": {
@@ -1379,7 +1393,7 @@
    ],
    "urlFilter": "||menyt.azurewebsites.net/public/js/omamainos-widget"
   },
-  "id": 102
+  "id": 103
  },
  {
   "action": {
@@ -1395,7 +1409,7 @@
    ],
    "urlFilter": "||nyt.tassa.fi/ctxwidget/ipctxwidget.js"
   },
-  "id": 103
+  "id": 104
  },
  {
   "action": {
@@ -1408,7 +1422,7 @@
    ],
    "urlFilter": "||otavamedia.fi/ad/"
   },
-  "id": 104
+  "id": 105
  },
  {
   "action": {
@@ -1421,7 +1435,7 @@
    ],
    "urlFilter": "||riemurasia.net/js/ads.js"
   },
-  "id": 105
+  "id": 106
  },
  {
   "action": {
@@ -1437,7 +1451,7 @@
    ],
    "urlFilter": "||script.ilcdn.fi/etua-lainalaskuri/etua-lainalaskuri.min.js"
   },
-  "id": 106
+  "id": 107
  },
  {
   "action": {
@@ -1453,7 +1467,7 @@
    ],
    "urlFilter": "||seksitreffit.fi/*popunder.js"
   },
-  "id": 107
+  "id": 108
  },
  {
   "action": {
@@ -1470,7 +1484,7 @@
    ],
    "urlFilter": "||sf.nm-ovp.nelonenmedia.fi/player/games/ruutu-player-loader.js"
   },
-  "id": 108
+  "id": 109
  },
  {
   "action": {
@@ -1483,7 +1497,7 @@
    ],
    "urlFilter": "||tokentube.net/f_scripts/shared/videojs/ads.vast.js"
   },
-  "id": 109
+  "id": 110
  },
  {
   "action": {
@@ -1499,7 +1513,7 @@
    ],
    "urlFilter": "||ts.fi/adframe.js"
   },
-  "id": 110
+  "id": 111
  },
  {
   "action": {
@@ -1515,7 +1529,7 @@
    ],
    "urlFilter": "||vertaa.fi^*/showads.js"
   },
-  "id": 111
+  "id": 112
  },
  {
   "action": {
@@ -1531,7 +1545,7 @@
    ],
    "urlFilter": "/common-column-ads"
   },
-  "id": 112
+  "id": 113
  },
  {
   "action": {
@@ -1547,7 +1561,7 @@
    ],
    "urlFilter": "/neoproxy.dll"
   },
-  "id": 113
+  "id": 114
  },
  {
   "action": {
@@ -1563,7 +1577,7 @@
    ],
    "urlFilter": "||cfapi.voikukka.fi/graphql?operationname=citrusad&"
   },
-  "id": 114
+  "id": 115
  },
  {
   "action": {
@@ -1579,7 +1593,7 @@
    ],
    "urlFilter": "||kaksplus.fi/wp-json/feeds/ad-feed"
   },
-  "id": 115
+  "id": 116
  },
  {
   "action": {
@@ -1595,7 +1609,7 @@
    ],
    "urlFilter": "||kotikarjala.fi/eneo?tem=ndap_ilmoitus&"
   },
-  "id": 116
+  "id": 117
  },
  {
   "action": {
@@ -1608,7 +1622,7 @@
    ],
    "urlFilter": "||tokentube.net/vast?t=vjs&v="
   },
-  "id": 117
+  "id": 118
  },
  {
   "action": {
@@ -1624,7 +1638,7 @@
    ],
    "urlFilter": "||asuntorauma.fi/iframe/uusimmat"
   },
-  "id": 118
+  "id": 119
  },
  {
   "action": {
@@ -1637,7 +1651,7 @@
    ],
    "urlFilter": "||feed.autotalli.com/bannerdata/html/*.html"
   },
-  "id": 119
+  "id": 120
  },
  {
   "action": {
@@ -1650,7 +1664,7 @@
    ],
    "urlFilter": "||feed.etuovi.com/etuovi/html/*.html"
   },
-  "id": 120
+  "id": 121
  },
  {
   "action": {
@@ -1663,7 +1677,7 @@
    ],
    "urlFilter": "||hintaseuranta.fi/*/tripsteri_boxes/"
   },
-  "id": 121
+  "id": 122
  },
  {
   "action": {
@@ -1679,7 +1693,7 @@
    ],
    "urlFilter": "||kalamies.com/?_dnid="
   },
-  "id": 122
+  "id": 123
  },
  {
   "action": {
@@ -1695,7 +1709,7 @@
    ],
    "urlFilter": "||m.riemurasia.net/reklaami.php"
   },
-  "id": 123
+  "id": 124
  },
  {
   "action": {
@@ -1711,7 +1725,7 @@
    ],
    "urlFilter": "||nettiauto.com/en/ampparitbanner*.php"
   },
-  "id": 124
+  "id": 125
  },
  {
   "action": {
@@ -1724,7 +1738,7 @@
    ],
    "urlFilter": "||superskills.fi/fi*?isiframe=true"
   },
-  "id": 125
+  "id": 126
  },
  {
   "action": {
@@ -1737,7 +1751,7 @@
    ],
    "urlFilter": "||testeri.fi/ext_telsu"
   },
-  "id": 126
+  "id": 127
  },
  {
   "action": {
@@ -1750,7 +1764,7 @@
    ],
    "urlFilter": "||vg.is.fi/autotie-is-*/"
   },
-  "id": 127
+  "id": 128
  },
  {
   "action": {
@@ -1769,7 +1783,7 @@
    ],
    "urlFilter": "_300x300_*.mp4"
   },
-  "id": 128
+  "id": 129
  },
  {
   "action": {
@@ -1786,7 +1800,7 @@
     "media"
    ]
   },
-  "id": 129
+  "id": 130
  },
  {
   "action": {
@@ -1799,7 +1813,7 @@
    ],
    "urlFilter": "||com-wakedynamite-production-publish.s3.amazonaws.com/publish/"
   },
-  "id": 130
+  "id": 131
  },
  {
   "action": {
@@ -1812,7 +1826,7 @@
    ],
    "urlFilter": "||nelonenmedia-pmd-ads-*.nm-stream.nelonenmedia.fi^"
   },
-  "id": 131
+  "id": 132
  },
  {
   "action": {
@@ -1826,7 +1840,7 @@
     "media"
    ]
   },
-  "id": 132
+  "id": 133
  },
  {
   "action": {
@@ -1837,7 +1851,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fcdn.lauta.media/adform.js"
   },
-  "id": 133
+  "id": 134
  },
  {
   "action": {
@@ -1864,7 +1878,7 @@
     "revimages.motouutiset.fi"
    ]
   },
-  "id": 136
+  "id": 137
  },
  {
   "action": {
@@ -1875,7 +1889,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cloudfront.net/images/backgroundimages/backgroundimage^"
   },
-  "id": 137
+  "id": 138
  },
  {
   "action": {
@@ -1892,7 +1906,7 @@
     "script"
    ]
   },
-  "id": 138
+  "id": 139
  },
  {
   "action": {
@@ -1901,19 +1915,6 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fi-mtv3.videoplaza.tv/proxy/pulse-sdk-html5/*/latest.min.js"
-  },
-  "id": 139
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "mtvuutiset.fi"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "leiki.com/mtv3/mwidget"
   },
   "id": 140
  },
@@ -1926,9 +1927,22 @@
     "mtvuutiset.fi"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "leiki.com/mtv3/widgets/loader/"
+   "urlFilter": "leiki.com/mtv3/mwidget"
   },
   "id": 141
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mtvuutiset.fi"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "leiki.com/mtv3/widgets/loader/"
+  },
+  "id": 142
  },
  {
   "action": {
@@ -1943,7 +1957,7 @@
     "leiki.com"
    ]
   },
-  "id": 142
+  "id": 143
  },
  {
   "action": {
@@ -1953,7 +1967,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tags.tiqcdn.com/utag/sanoma-fi/*/utag.js"
   },
-  "id": 143
+  "id": 144
  },
  {
   "action": {
@@ -1964,7 +1978,7 @@
     "netstat.ayy.fi"
    ]
   },
-  "id": 144
+  "id": 145
  },
  {
   "action": {
@@ -1980,7 +1994,7 @@
    ],
    "urlFilter": "||adservicemedia.dk/"
   },
-  "id": 145
+  "id": 146
  },
  {
   "action": {
@@ -1997,7 +2011,7 @@
     "script"
    ]
   },
-  "id": 146
+  "id": 147
  },
  {
   "action": {
@@ -2020,7 +2034,7 @@
    ],
    "urlFilter": "||googletagmanager.com/gtm.js"
   },
-  "id": 147
+  "id": 148
  },
  {
   "action": {
@@ -2036,7 +2050,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js"
   },
-  "id": 148
+  "id": 149
  },
  {
   "action": {
@@ -2052,7 +2066,7 @@
    ],
    "urlFilter": "||adserve.adcoin.com/display/ad_block/"
   },
-  "id": 149
+  "id": 150
  },
  {
   "action": {
@@ -2068,7 +2082,7 @@
    ],
    "urlFilter": "||power.fi/umbraco/api/tracking/trackorder"
   },
-  "id": 150
+  "id": 151
  },
  {
   "action": {
@@ -2084,7 +2098,7 @@
    ],
    "urlFilter": "||track.adform.net/*dna.fi/"
   },
-  "id": 151
+  "id": 152
  },
  {
   "action": {
@@ -2096,7 +2110,7 @@
     "click.redditmail.com"
    ]
   },
-  "id": 152
+  "id": 153
  },
  {
   "action": {
@@ -2110,6 +2124,6 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googletagmanager.com/gtm.js?"
   },
-  "id": 153
+  "id": 154
  }
 ]
