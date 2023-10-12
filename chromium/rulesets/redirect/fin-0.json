@@ -49,6 +49,27 @@
   },
   "condition": {
    "initiatorDomains": [
+    "mtv.fi",
+    "mtvuutiset.fi"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "media"
+   ],
+   "urlFilter": "||cloudfront.net/creatives/assets/*.mp4"
+  },
+  "id": 159,
+  "priority": 2
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
     "ruutu.fi"
    ],
    "requestDomains": [
@@ -59,7 +80,7 @@
     "media"
    ]
   },
-  "id": 158,
+  "id": 160,
   "priority": 2
  },
  {
@@ -80,7 +101,7 @@
    ],
    "urlFilter": "||nelonenmedia-pmd-ads-*.nm-stream.nelonenmedia.fi^"
   },
-  "id": 159,
+  "id": 161,
   "priority": 2
  }
 ]

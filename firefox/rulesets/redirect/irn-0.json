@@ -12,7 +12,24 @@
     "khabarchin.basalam.com"
    ]
   },
-  "id": 576,
+  "id": 581,
+  "priority": 2
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop.txt"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||safarmarket.com/api/v1/trace/traceflight^"
+  },
+  "id": 582,
   "priority": 2
  },
  {
@@ -32,7 +49,7 @@
    ],
    "urlFilter": "||tamashakhoneh.ir/src/video/intro.mp4^"
   },
-  "id": 579,
+  "id": 585,
   "priority": 2
  }
 ]

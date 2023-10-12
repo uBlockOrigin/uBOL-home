@@ -103,6 +103,23 @@
   "condition": {
    "initiatorDomains": [
     "13news.co.il",
+    "13tv.co.il"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "^https?:\\/+(www\\.)?google\\.(com?\\.)?[a-zA-Z0-9]{2,22}\\.?\\/ads\\/ga-audiences\\?",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 166
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "13news.co.il",
     "13tv.co.il",
     "hamal.co.il",
     "sheee.co.il",
@@ -115,6 +132,6 @@
     "script"
    ]
   },
-  "id": 182
+  "id": 183
  }
 ]

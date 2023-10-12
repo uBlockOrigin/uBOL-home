@@ -19,7 +19,7 @@
    ],
    "regexFilter": "\\/(1xbbb|bettogoal)\\.webp"
   },
-  "id": 309
+  "id": 308
  },
  {
   "action": {
@@ -31,7 +31,7 @@
    ],
    "regexFilter": "\\/(.*-980X100|980-x120-.*|kirni_yenireklam-[0-9]?|teknogold|1080x120|ezic|giynik-sonnnnn-[0-9]?)\\.(gif|jpg|png)"
   },
-  "id": 434
+  "id": 433
  },
  {
   "action": {
@@ -43,7 +43,7 @@
    ],
    "regexFilter": "(dikey|horay)\\.jpg"
   },
-  "id": 496
+  "id": 494
  },
  {
   "action": {
@@ -55,7 +55,7 @@
    ],
    "regexFilter": "320volt\\.com\\/images\\/(pcbway-turkiye-pcb-uretim|jlc-pcb-service|PCBONLINE-PCB-assembly|robolink-elektronik-market|direncnet-2)\\.(gif|png)"
   },
-  "id": 497
+  "id": 495
  },
  {
   "action": {
@@ -67,7 +67,7 @@
    ],
    "regexFilter": "\\/youtubemp3donusturucu.co\\/\\d+.js"
   },
-  "id": 518
+  "id": 516
  },
  {
   "action": {
@@ -79,7 +79,7 @@
    ],
    "regexFilter": "\\/.*banner(-\\d)?\\.(gif|jpg)"
   },
-  "id": 522
+  "id": 520
  },
  {
   "action": {
@@ -91,19 +91,7 @@
    ],
    "regexFilter": "frmtr\\.com\\/images\\/\\w{0,2}\\d?.gif"
   },
-  "id": 525
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "r10.net"
-   ],
-   "regexFilter": "(lftstatic|footicimax)\\.gif"
-  },
-  "id": 539
+  "id": 523
  },
  {
   "action": {
@@ -115,7 +103,7 @@
    ],
    "regexFilter": "\\/(orka-hotels-sentido|Werken-Bij-300x250|corendon-banner-reclame)\\.(gif|jpg)"
   },
-  "id": 613
+  "id": 608
  },
  {
   "action": {
@@ -127,7 +115,7 @@
    ],
    "regexFilter": "\\/(ikiler-gif|karpol-poliuretan)\\.gif"
   },
-  "id": 621
+  "id": 616
  },
  {
   "action": {
@@ -139,7 +127,7 @@
    ],
    "regexFilter": "\\/images\\/uploads\\/ad\\d+"
   },
-  "id": 664
+  "id": 659
  },
  {
   "action": {
@@ -151,7 +139,7 @@
    ],
    "regexFilter": "afsinhabermerkezi.com\\/wp-content\\/uploads\\/.*(-emlak|aad.jpg|ak-suY|PAM%C4%B0RA)"
   },
-  "id": 688
+  "id": 683
  },
  {
   "action": {
@@ -174,7 +162,7 @@
    ],
    "regexFilter": "\\/pageskin\\/[a-z]{2}1\\.jpg"
   },
-  "id": 1017
+  "id": 1012
  },
  {
   "action": {
@@ -189,6 +177,6 @@
     "image"
    ]
   },
-  "id": 1026
+  "id": 1021
  }
 ]

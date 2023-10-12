@@ -399,6 +399,26 @@
     {
      "header": "content-security-policy",
      "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: *.googleapis.com apis.google.com  *.googletagmanager.com *.google.com/recaptcha/ *.gstatic.com *.icon-icons.com *.jquery.com *.net"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "||icon-icons.com/ru/"
+  },
+  "id": 5816
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
      "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.amazonaws.com *.cloudflare.com apis.google.com cse.google.com www.google.com *.google.com/complete/ *.googleapis.com *.googletagmanager.com *.instagram.com *.net *.io *.jquery.com *.keycaptcha.com *.ru *.twitter.com *.ua"
     }
    ],
@@ -416,7 +436,29 @@
     "sub_frame"
    ]
   },
-  "id": 5816
+  "id": 5817
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.bemobile.ua *.cloudflare.com *.cloudfront.net *.highcharts.com *.googleapis.com apis.google.com *.googletagmanager.com *.gstatic.com *.io *.jquery.com *.jivosite.com *.keycaptcha.com *.net *.twitter.com vk.com yastatic.net *.yandex.ru"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "kurs.com.ua"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 5818
  },
  {
   "action": {
@@ -436,7 +478,7 @@
    ],
    "urlFilter": "||lis-gor.com/"
   },
-  "id": 5817
+  "id": 5819
  },
  {
   "action": {
@@ -460,7 +502,7 @@
     "sub_frame"
    ]
   },
-  "id": 5818
+  "id": 5820
  },
  {
   "action": {
@@ -480,7 +522,7 @@
    ],
    "urlFilter": "||modsfire.com/download/*/"
   },
-  "id": 5819
+  "id": 5821
  },
  {
   "action": {
@@ -502,7 +544,7 @@
     "sub_frame"
    ]
   },
-  "id": 5820
+  "id": 5822
  },
  {
   "action": {
@@ -522,7 +564,7 @@
    ],
    "urlFilter": "||nsportal.ru/download/"
   },
-  "id": 5821
+  "id": 5823
  },
  {
   "action": {
@@ -544,7 +586,7 @@
     "sub_frame"
    ]
   },
-  "id": 5822
+  "id": 5824
  },
  {
   "action": {
@@ -566,7 +608,7 @@
     "sub_frame"
    ]
   },
-  "id": 5823
+  "id": 5825
  },
  {
   "action": {
@@ -588,7 +630,7 @@
     "sub_frame"
    ]
   },
-  "id": 5824
+  "id": 5826
  },
  {
   "action": {
@@ -610,7 +652,7 @@
     "sub_frame"
    ]
   },
-  "id": 5825
+  "id": 5827
  },
  {
   "action": {
@@ -634,7 +676,7 @@
     "sub_frame"
    ]
   },
-  "id": 5826
+  "id": 5828
  },
  {
   "action": {
@@ -654,7 +696,7 @@
    ],
    "urlFilter": "||www.liveinternet.ru/|"
   },
-  "id": 5827
+  "id": 5829
  },
  {
   "action": {
@@ -676,7 +718,7 @@
     "sub_frame"
    ]
   },
-  "id": 5828
+  "id": 5830
  },
  {
   "action": {
@@ -696,7 +738,7 @@
    ],
    "urlFilter": "||yandex.ru/turbo?text=https*fishki.net"
   },
-  "id": 5829
+  "id": 5831
  },
  {
   "action": {
@@ -716,7 +758,7 @@
    ],
    "urlFilter": "||yandex.ru/mapuid/"
   },
-  "id": 5830
+  "id": 5832
  },
  {
   "action": {
@@ -738,6 +780,6 @@
     "sub_frame"
    ]
   },
-  "id": 5844
+  "id": 5846
  }
 ]

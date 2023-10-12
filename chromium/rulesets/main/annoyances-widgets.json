@@ -2988,12 +2988,25 @@
   },
   "condition": {
    "initiatorDomains": [
+    "fandom.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||static-cdn.spot.im/production/reactions/tags/*/reactions-bundle.js"
+  },
+  "id": 270
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
     "informacion.es"
    ],
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||motor-cdn.prensaiberica.es/widget?"
   },
-  "id": 270
+  "id": 271
  },
  {
   "action": {
@@ -3007,7 +3020,7 @@
     "widget-am.misteraladin.com"
    ]
   },
-  "id": 271
+  "id": 272
  },
  {
   "action": {
@@ -3020,7 +3033,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.vuukle.com/platform.js"
   },
-  "id": 272
+  "id": 273
  },
  {
   "action": {
@@ -3030,7 +3043,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||getnews.jp/webgame/"
   },
-  "id": 273
+  "id": 274
  },
  {
   "action": {
@@ -3045,7 +3058,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thetruestory.news/widget-top.iife.js"
   },
-  "id": 274
+  "id": 275
  },
  {
   "action": {
@@ -3055,7 +3068,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||about.glavbukh.ru/callback/form-api.php"
   },
-  "id": 275
+  "id": 276
  },
  {
   "action": {
@@ -3068,7 +3081,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||radyosfer.com/player/"
   },
-  "id": 276
+  "id": 277
  },
  {
   "action": {
@@ -3081,7 +3094,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||s3.tradingview.com/external-embedding/embed-widget-ticker-tape^"
   },
-  "id": 277
+  "id": 278
  },
  {
   "action": {
@@ -3095,7 +3108,7 @@
     "pcm-intl.speedtestcustom.com"
    ]
   },
-  "id": 278
+  "id": 279
  },
  {
   "action": {
@@ -3109,7 +3122,7 @@
     "widget.bitay.com"
    ]
   },
-  "id": 279
+  "id": 280
  },
  {
   "action": {
@@ -3122,7 +3135,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||widget.yenimedya.com.tr/partner/"
   },
-  "id": 280
+  "id": 281
  },
  {
   "action": {
@@ -3132,7 +3145,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||socialproof.primewidgets.com/*/online"
   },
-  "id": 281
+  "id": 282
  },
  {
   "action": {
@@ -3145,7 +3158,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||v.xchanger.io/widget/exchange/default/exchange.php"
   },
-  "id": 282
+  "id": 283
  },
  {
   "action": {
@@ -3155,7 +3168,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||my.openwrite.cn/js/readmore.js"
   },
-  "id": 283
+  "id": 284
  },
  {
   "action": {
@@ -3165,7 +3178,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||leaselink.pl/js/slide-button-shoper.js"
   },
-  "id": 284
+  "id": 285
  },
  {
   "action": {
@@ -3179,7 +3192,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||discordapp.com/widget?id="
   },
-  "id": 285
+  "id": 286
  },
  {
   "action": {
@@ -3193,7 +3206,7 @@
     "widgets.stackcommerce.com"
    ]
   },
-  "id": 286
+  "id": 287
  },
  {
   "action": {
@@ -3206,7 +3219,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform.twitter.com/js/timeline"
   },
-  "id": 287
+  "id": 288
  },
  {
   "action": {
@@ -3216,7 +3229,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fresher.ru/widget/"
   },
-  "id": 288
+  "id": 289
  },
  {
   "action": {
@@ -3231,7 +3244,7 @@
     "l.getsitecontrol.com"
    ]
   },
-  "id": 289
+  "id": 290
  },
  {
   "action": {
@@ -3241,7 +3254,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||youtube.com/embed/?enablejsapi=1&origin=*3dnews.ru&widgetid=1"
   },
-  "id": 290
+  "id": 291
  },
  {
   "action": {
@@ -3255,7 +3268,7 @@
     "js-seeker.newjobs.com"
    ]
   },
-  "id": 291
+  "id": 292
  },
  {
   "action": {
@@ -3265,7 +3278,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ftxtr.com/iframes/t24/web/"
   },
-  "id": 292
+  "id": 293
  },
  {
   "action": {
@@ -3275,7 +3288,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||money.hu/assets-new/js/calculator-widget-init.js"
   },
-  "id": 293
+  "id": 294
  },
  {
   "action": {
@@ -3289,7 +3302,7 @@
     "informer.gismeteo.ru"
    ]
   },
-  "id": 294
+  "id": 295
  },
  {
   "action": {
@@ -3299,7 +3312,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||torrentinvites.org/64.gif"
   },
-  "id": 295
+  "id": 296
  },
  {
   "action": {
@@ -3313,7 +3326,7 @@
     "static.fundraiseup.com"
    ]
   },
-  "id": 296
+  "id": 297
  },
  {
   "action": {
@@ -3323,7 +3336,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pidru4niki.com/images/zsu_help.png"
   },
-  "id": 297
+  "id": 298
  },
  {
   "action": {
@@ -3333,7 +3346,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||m4ex.com/m4ex_box/frame/choice*.html"
   },
-  "id": 298
+  "id": 299
  },
  {
   "action": {
@@ -3348,7 +3361,7 @@
     "ko-fi.com"
    ]
   },
-  "id": 299
+  "id": 300
  },
  {
   "action": {
@@ -3358,7 +3371,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||helpukrainewinwidget.org/cdn/widget.js"
   },
-  "id": 300
+  "id": 301
  },
  {
   "action": {
@@ -3368,7 +3381,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||itsider.com.ua/wp-content/uploads/2022/03/ac3030f-600-500-copy-100-original.jpg"
   },
-  "id": 301
+  "id": 302
  },
  {
   "action": {
@@ -3378,7 +3391,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||paywall.fewcents.co/static/js/paywall.js"
   },
-  "id": 302
+  "id": 303
  },
  {
   "action": {
@@ -3388,7 +3401,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||aqours.today/img01/mp3/zl.jpg"
   },
-  "id": 303
+  "id": 304
  },
  {
   "action": {
@@ -3398,7 +3411,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i.lb.ua/static/donate/news.png"
   },
-  "id": 304
+  "id": 305
  },
  {
   "action": {
@@ -3408,7 +3421,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.theprint.in/wp-content/uploads/*/subscribe_*.png"
   },
-  "id": 305
+  "id": 306
  },
  {
   "action": {
@@ -3418,7 +3431,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fosshub.com/index/donate"
   },
-  "id": 306
+  "id": 307
  },
  {
   "action": {
@@ -3432,7 +3445,7 @@
     "yoomoney.ru"
    ]
   },
-  "id": 307
+  "id": 308
  },
  {
   "action": {
@@ -3446,7 +3459,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yoomoney.ru/quickpay/shop-widget"
   },
-  "id": 308
+  "id": 309
  },
  {
   "action": {
@@ -3461,7 +3474,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||funding.webmoney.ru/widgets/"
   },
-  "id": 309
+  "id": 310
  },
  {
   "action": {
@@ -3497,7 +3510,7 @@
     "widgets.sprinkletxt.com"
    ]
   },
-  "id": 310
+  "id": 311
  },
  {
   "action": {
@@ -3510,7 +3523,7 @@
    ],
    "urlFilter": "||tb.53kf.com/code/"
   },
-  "id": 311
+  "id": 312
  },
  {
   "action": {
@@ -3523,7 +3536,7 @@
    ],
    "urlFilter": ".info/proxy_*.php?init_widget="
   },
-  "id": 312
+  "id": 313
  },
  {
   "action": {
@@ -3536,7 +3549,7 @@
    ],
    "urlFilter": ".net/proxy_*.php?init_form="
   },
-  "id": 313
+  "id": 314
  },
  {
   "action": {
@@ -3549,7 +3562,7 @@
    ],
    "urlFilter": ".ru/proxy_*.php?init_form="
   },
-  "id": 314
+  "id": 315
  },
  {
   "action": {
@@ -3562,7 +3575,7 @@
    ],
    "urlFilter": ".ru/proxy_*.php?init_widget="
   },
-  "id": 315
+  "id": 316
  },
  {
   "action": {
@@ -3575,7 +3588,7 @@
    ],
    "urlFilter": ".net/proxy_*.php?init_widget="
   },
-  "id": 316
+  "id": 317
  },
  {
   "action": {
@@ -3588,7 +3601,7 @@
    ],
    "urlFilter": ".ru/proxy_*.php?init_button="
   },
-  "id": 317
+  "id": 318
  },
  {
   "action": {
@@ -3601,7 +3614,7 @@
    ],
    "urlFilter": ".net/proxy_*.php?init_button="
   },
-  "id": 318
+  "id": 319
  },
  {
   "action": {
@@ -3614,7 +3627,7 @@
    ],
    "urlFilter": "||101urist.com/_*.php"
   },
-  "id": 319
+  "id": 320
  },
  {
   "action": {
@@ -3627,7 +3640,7 @@
    ],
    "urlFilter": "||biznes-delo.ru/_*.php"
   },
-  "id": 320
+  "id": 321
  },
  {
   "action": {
@@ -3640,7 +3653,7 @@
    ],
    "urlFilter": "||info-gosuslugi.ru/_*.php"
   },
-  "id": 321
+  "id": 322
  },
  {
   "action": {
@@ -3653,7 +3666,7 @@
    ],
    "urlFilter": "||jilishnik.ru/_*.php"
   },
-  "id": 322
+  "id": 323
  },
  {
   "action": {
@@ -3666,7 +3679,7 @@
    ],
    "urlFilter": "||provodim24.ru/_*.php"
   },
-  "id": 323
+  "id": 324
  },
  {
   "action": {
@@ -3679,7 +3692,7 @@
    ],
    "urlFilter": "||turimm.com/_*.php"
   },
-  "id": 324
+  "id": 325
  },
  {
   "action": {
@@ -3692,7 +3705,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/livejupiter2/rss_"
   },
-  "id": 325
+  "id": 326
  },
  {
   "action": {
@@ -3705,7 +3718,7 @@
    ],
    "urlFilter": "||yumetsu.web.fc2.com/rss_"
   },
-  "id": 326
+  "id": 327
  },
  {
   "action": {
@@ -3718,7 +3731,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/rbkyn844/ftp/gazoulink"
   },
-  "id": 327
+  "id": 328
  },
  {
   "action": {
@@ -3731,7 +3744,7 @@
    ],
    "urlFilter": "||cpz.to/act/"
   },
-  "id": 328
+  "id": 329
  },
  {
   "action": {
@@ -3744,7 +3757,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/kokopyon1/rss/"
   },
-  "id": 329
+  "id": 330
  },
  {
   "action": {
@@ -3757,7 +3770,7 @@
    ],
    "urlFilter": "||kitimama-matome.net/rss"
   },
-  "id": 330
+  "id": 331
  },
  {
   "action": {
@@ -3770,7 +3783,7 @@
    ],
    "urlFilter": "||oryouri.2chblog.jp/rss-"
   },
-  "id": 331
+  "id": 332
  },
  {
   "action": {
@@ -3783,7 +3796,7 @@
    ],
    "urlFilter": "||2chnewsblog.blog.jp/imgrss_"
   },
-  "id": 332
+  "id": 333
  },
  {
   "action": {
@@ -3796,7 +3809,7 @@
    ],
    "urlFilter": "||doucolle-kako.livedoor.biz/pick-"
   },
-  "id": 333
+  "id": 334
  },
  {
   "action": {
@@ -3809,7 +3822,7 @@
    ],
    "urlFilter": "||inutomo11.com/nanj"
   },
-  "id": 334
+  "id": 335
  },
  {
   "action": {
@@ -3825,7 +3838,7 @@
    ],
    "urlFilter": "/rss_"
   },
-  "id": 335
+  "id": 336
  },
  {
   "action": {
@@ -3842,7 +3855,7 @@
     "sub_frame"
    ]
   },
-  "id": 336
+  "id": 337
  },
  {
   "action": {
@@ -3855,7 +3868,7 @@
    ],
    "urlFilter": "||doujincafe.com/doujincafe."
   },
-  "id": 337
+  "id": 338
  },
  {
   "action": {
@@ -3868,7 +3881,7 @@
    ],
    "urlFilter": "||ero-mangalife.com/eromangalife."
   },
-  "id": 338
+  "id": 339
  },
  {
   "action": {
@@ -3884,7 +3897,7 @@
    ],
    "urlFilter": "||2nt.com/b/o/t/bottisoku/"
   },
-  "id": 339
+  "id": 340
  },
  {
   "action": {
@@ -3897,7 +3910,7 @@
    ],
    "urlFilter": "||livedoor.jp/goldennews/js/"
   },
-  "id": 340
+  "id": 341
  },
  {
   "action": {
@@ -3910,7 +3923,7 @@
    ],
    "urlFilter": "||chaos2ch.com/rss"
   },
-  "id": 341
+  "id": 342
  },
  {
   "action": {
@@ -3923,7 +3936,7 @@
    ],
    "urlFilter": "||fategrandorder.info/kiji/"
   },
-  "id": 342
+  "id": 343
  },
  {
   "action": {
@@ -3939,7 +3952,7 @@
    ],
    "urlFilter": "||fc2.com/2/c/h/2chxvideos/rss_"
   },
-  "id": 343
+  "id": 344
  },
  {
   "action": {
@@ -3953,7 +3966,7 @@
    ],
    "urlFilter": "||kyousoku.net/js/rss"
   },
-  "id": 344
+  "id": 345
  },
  {
   "action": {
@@ -3967,7 +3980,7 @@
    ],
    "urlFilter": "||eegg.fun/js/exfd*.js"
   },
-  "id": 345
+  "id": 346
  },
  {
   "action": {
@@ -3982,7 +3995,7 @@
     "script"
    ]
   },
-  "id": 346
+  "id": 347
  },
  {
   "action": {
@@ -3996,7 +4009,7 @@
    ],
    "urlFilter": "/rss/rss.html"
   },
-  "id": 347
+  "id": 348
  },
  {
   "action": {
@@ -4010,7 +4023,7 @@
    ],
    "urlFilter": ".biz/rss.htm"
   },
-  "id": 348
+  "id": 349
  },
  {
   "action": {
@@ -4024,7 +4037,7 @@
    ],
    "urlFilter": ".biz/rss2.htm"
   },
-  "id": 349
+  "id": 350
  },
  {
   "action": {
@@ -4038,7 +4051,7 @@
    ],
    "urlFilter": ".com/rss.htm"
   },
-  "id": 350
+  "id": 351
  },
  {
   "action": {
@@ -4052,7 +4065,7 @@
    ],
    "urlFilter": ".com/rss2.htm"
   },
-  "id": 351
+  "id": 352
  },
  {
   "action": {
@@ -4066,7 +4079,7 @@
    ],
    "urlFilter": ".jp/rss.htm"
   },
-  "id": 352
+  "id": 353
  },
  {
   "action": {
@@ -4080,7 +4093,7 @@
    ],
    "urlFilter": ".net/rss.htm"
   },
-  "id": 353
+  "id": 354
  },
  {
   "action": {
@@ -4094,7 +4107,7 @@
    ],
    "urlFilter": ".net/rss2.htm"
   },
-  "id": 354
+  "id": 355
  },
  {
   "action": {
@@ -4108,7 +4121,7 @@
    ],
    "urlFilter": ".com/rss/"
   },
-  "id": 355
+  "id": 356
  },
  {
   "action": {
@@ -4122,7 +4135,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/love120331/"
   },
-  "id": 356
+  "id": 357
  },
  {
   "action": {
@@ -4136,7 +4149,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/yakiusoku/rss"
   },
-  "id": 357
+  "id": 358
  },
  {
   "action": {
@@ -4150,7 +4163,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/misopan_news/headline"
   },
-  "id": 358
+  "id": 359
  },
  {
   "action": {
@@ -4164,7 +4177,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/diet2channel/"
   },
-  "id": 359
+  "id": 360
  },
  {
   "action": {
@@ -4178,7 +4191,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/hibinanchara/"
   },
-  "id": 360
+  "id": 361
  },
  {
   "action": {
@@ -4192,7 +4205,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/kekkongo/"
   },
-  "id": 361
+  "id": 362
  },
  {
   "action": {
@@ -4206,7 +4219,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/aoba_f/"
   },
-  "id": 362
+  "id": 363
  },
  {
   "action": {
@@ -4220,7 +4233,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/jyoushiki43/"
   },
-  "id": 363
+  "id": 364
  },
  {
   "action": {
@@ -4234,7 +4247,7 @@
    ],
    "urlFilter": "||blog.livedoor.jp/robosoku/"
   },
-  "id": 364
+  "id": 365
  },
  {
   "action": {
@@ -4248,7 +4261,7 @@
    ],
    "urlFilter": "||usi32.com/inc/rss"
   },
-  "id": 365
+  "id": 366
  },
  {
   "action": {
@@ -4262,7 +4275,7 @@
    ],
    "urlFilter": "||asianoneta.blog.jp/rss"
   },
-  "id": 366
+  "id": 367
  },
  {
   "action": {
@@ -4276,7 +4289,7 @@
    ],
    "urlFilter": "||jin115.com/rss*"
   },
-  "id": 367
+  "id": 368
  },
  {
   "action": {
@@ -4304,7 +4317,7 @@
     "sub_frame"
    ]
   },
-  "id": 368
+  "id": 369
  },
  {
   "action": {
@@ -4513,7 +4526,7 @@
     "widgets.trustedshops.com"
    ]
   },
-  "id": 369
+  "id": 370
  },
  {
   "action": {
@@ -4524,7 +4537,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||widget-v*.tidiochat.com^"
   },
-  "id": 370
+  "id": 371
  },
  {
   "action": {
@@ -4540,7 +4553,7 @@
     "embed.tawk.to"
    ]
   },
-  "id": 371
+  "id": 372
  },
  {
   "action": {
@@ -4555,7 +4568,7 @@
     "jivosite.com"
    ]
   },
-  "id": 372
+  "id": 373
  },
  {
   "action": {
@@ -4573,7 +4586,7 @@
     "static.elfsight.com"
    ]
   },
-  "id": 373
+  "id": 374
  },
  {
   "action": {
@@ -4589,7 +4602,7 @@
     "widget.sender.mobi"
    ]
   },
-  "id": 374
+  "id": 375
  },
  {
   "action": {
@@ -4600,7 +4613,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cloud.lexprofit."
   },
-  "id": 375
+  "id": 376
  },
  {
   "action": {
@@ -4611,7 +4624,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||code.jivosite.com/script/widget"
   },
-  "id": 376
+  "id": 377
  },
  {
   "action": {
@@ -4622,7 +4635,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||code.jivo.ru/widget/"
   },
-  "id": 377
+  "id": 378
  },
  {
   "action": {
@@ -4633,7 +4646,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.quiq-cdn.com/webchat/"
   },
-  "id": 378
+  "id": 379
  },
  {
   "action": {
@@ -4644,7 +4657,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.arc.io/widget"
   },
-  "id": 379
+  "id": 380
  },
  {
   "action": {
@@ -4655,7 +4668,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||app.whappodo.com/pages/widget^"
   },
-  "id": 380
+  "id": 381
  },
  {
   "action": {
@@ -4666,7 +4679,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||autofaq.ai/widget/"
   },
-  "id": 381
+  "id": 382
  },
  {
   "action": {
@@ -4677,7 +4690,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||leetero.ru/consultant/"
   },
-  "id": 382
+  "id": 383
  },
  {
   "action": {
@@ -4693,7 +4706,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||livetex.ru/js/client.js"
   },
-  "id": 383
+  "id": 384
  },
  {
   "action": {
@@ -4704,7 +4717,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||me-talk.ru/support/support.js"
   },
-  "id": 384
+  "id": 385
  },
  {
   "action": {
@@ -4715,7 +4728,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||media.reformal.ru/widgets/"
   },
-  "id": 385
+  "id": 386
  },
  {
   "action": {
@@ -4726,7 +4739,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sinoptik.ua/informers"
   },
-  "id": 386
+  "id": 387
  },
  {
   "action": {
@@ -4740,7 +4753,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.olark.com/jsclient/"
   },
-  "id": 387
+  "id": 388
  },
  {
   "action": {
@@ -4751,7 +4764,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||js.trendmd.com/trendmd."
   },
-  "id": 388
+  "id": 389
  },
  {
   "action": {
@@ -4762,7 +4775,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||webpage.qidian.qq.com/qidian/chatv3/"
   },
-  "id": 389
+  "id": 390
  },
  {
   "action": {
@@ -4773,7 +4786,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||app.hubspot.com/conversations-visitor"
   },
-  "id": 390
+  "id": 391
  },
  {
   "action": {
@@ -4784,7 +4797,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.shopify.com/shopifycloud/shopify_chat^"
   },
-  "id": 391
+  "id": 392
  },
  {
   "action": {
@@ -4795,7 +4808,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.shopifycloud.com/shopify_chat/"
   },
-  "id": 392
+  "id": 393
  },
  {
   "action": {
@@ -4806,7 +4819,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||connect.podium.com/widget.js"
   },
-  "id": 393
+  "id": 394
  },
  {
   "action": {
@@ -4817,7 +4830,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||effect.com/widget"
   },
-  "id": 394
+  "id": 395
  },
  {
   "action": {
@@ -4828,7 +4841,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fstrkchat.com/widget/"
   },
-  "id": 395
+  "id": 396
  },
  {
   "action": {
@@ -4839,7 +4852,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||getcobra.io/ext/poll/"
   },
-  "id": 396
+  "id": 397
  },
  {
   "action": {
@@ -4850,7 +4863,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||arc.io/widget.*js"
   },
-  "id": 397
+  "id": 398
  },
  {
   "action": {
@@ -4861,7 +4874,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||medya.ilan.gov.tr/widgets^"
   },
-  "id": 398
+  "id": 399
  },
  {
   "action": {
@@ -4872,7 +4885,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cevapla.tv/widget/"
   },
-  "id": 399
+  "id": 400
  },
  {
   "action": {
@@ -4883,7 +4896,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vuukle.com/widgets/powerbar/"
   },
-  "id": 400
+  "id": 401
  },
  {
   "action": {
@@ -4894,7 +4907,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vuukle.com/ideabox.aspx"
   },
-  "id": 401
+  "id": 402
  },
  {
   "action": {
@@ -4908,7 +4921,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||care2.com/petitions/"
   },
-  "id": 402
+  "id": 403
  },
  {
   "action": {
@@ -4919,7 +4932,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||getsitecontrol.com/widgets/"
   },
-  "id": 403
+  "id": 404
  },
  {
   "action": {
@@ -4930,7 +4943,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kinoafisha.ua/widget/"
   },
-  "id": 404
+  "id": 405
  },
  {
   "action": {
@@ -4941,7 +4954,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||compass.pressekompass.net/compasses^"
   },
-  "id": 405
+  "id": 406
  },
  {
   "action": {
@@ -4952,7 +4965,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cvmarket.lv/infoblocks/"
   },
-  "id": 406
+  "id": 407
  },
  {
   "action": {
@@ -4963,7 +4976,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||js.jebbit.com/companion/*/widget.js"
   },
-  "id": 407
+  "id": 408
  },
  {
   "action": {
@@ -4974,7 +4987,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kursvalut.com/informer/"
   },
-  "id": 408
+  "id": 409
  },
  {
   "action": {
@@ -4985,7 +4998,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||finam.ru/widget/"
   },
-  "id": 409
+  "id": 410
  },
  {
   "action": {
@@ -4996,7 +5009,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kurs.com.ua/informer/"
   },
-  "id": 410
+  "id": 411
  },
  {
   "action": {
@@ -5007,7 +5020,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kurs.com.ru/informer/"
   },
-  "id": 411
+  "id": 412
  },
  {
   "action": {
@@ -5018,7 +5031,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/gs_informerclient.min."
   },
-  "id": 412
+  "id": 413
  },
  {
   "action": {
@@ -5029,7 +5042,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/gs_informerclient.s"
   },
-  "id": 413
+  "id": 414
  },
  {
   "action": {
@@ -5040,7 +5053,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gismeteo.*/getinformer/"
   },
-  "id": 414
+  "id": 415
  },
  {
   "action": {
@@ -5051,7 +5064,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||meteoprog.ua/*/weather/informer/"
   },
-  "id": 415
+  "id": 416
  },
  {
   "action": {
@@ -5065,7 +5078,7 @@
    ],
    "urlFilter": "/blogparts_iframe.php?sc="
   },
-  "id": 416
+  "id": 417
  },
  {
   "action": {
@@ -5078,7 +5091,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||widgets.trustedshops.com/reviews/tssticker/tssticker.js"
   },
-  "id": 417
+  "id": 418
  },
  {
   "action": {
@@ -5091,7 +5104,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||widgets.trustedshops.com/reviews/tssticker/css/light.theme.css"
   },
-  "id": 418
+  "id": 419
  },
  {
   "action": {
@@ -5104,7 +5117,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||code.jivo.ru/widget/"
   },
-  "id": 419
+  "id": 420
  },
  {
   "action": {
@@ -5121,7 +5134,7 @@
     "components.justanswer.com"
    ]
   },
-  "id": 420
+  "id": 421
  },
  {
   "action": {
@@ -5135,7 +5148,7 @@
     "quiz.marquiz.ru"
    ]
   },
-  "id": 421
+  "id": 422
  },
  {
   "action": {
@@ -5149,7 +5162,7 @@
     "beacon-v2.helpscout.net"
    ]
   },
-  "id": 422
+  "id": 423
  },
  {
   "action": {
@@ -5162,7 +5175,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.reamaze.com/assets/"
   },
-  "id": 423
+  "id": 424
  },
  {
   "action": {
@@ -5176,7 +5189,7 @@
     "js.driftt.com"
    ]
   },
-  "id": 424
+  "id": 425
  },
  {
   "action": {
@@ -5189,7 +5202,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||widget.beesender.com/*/widget.js"
   },
-  "id": 425
+  "id": 426
  },
  {
   "action": {
@@ -5202,7 +5215,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||widget.beesender.com/*/chunk-vendors.js"
   },
-  "id": 426
+  "id": 427
  },
  {
   "action": {
@@ -5215,7 +5228,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.apester.com/js/sdk/*/apester-javascript-sdk.min.js"
   },
-  "id": 427
+  "id": 428
  },
  {
   "action": {
@@ -5229,7 +5242,7 @@
     "renderer.apester.com"
    ]
   },
-  "id": 428
+  "id": 429
  },
  {
   "action": {
@@ -5243,7 +5256,7 @@
     "code.jivosite.com"
    ]
   },
-  "id": 429
+  "id": 430
  },
  {
   "action": {
@@ -5260,7 +5273,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||service.force.com/embeddedservice/*/esw.min.js"
   },
-  "id": 430
+  "id": 431
  },
  {
   "action": {
@@ -5273,7 +5286,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||compass.pressekompass.net/compasses^"
   },
-  "id": 431
+  "id": 432
  },
  {
   "action": {
@@ -5289,7 +5302,7 @@
    ],
    "urlFilter": "||buymeacoffee.com/*/widget."
   },
-  "id": 432
+  "id": 433
  },
  {
   "action": {
@@ -5305,6 +5318,6 @@
    ],
    "urlFilter": "||display.apester.com/interactions/"
   },
-  "id": 433
+  "id": 434
  }
 ]

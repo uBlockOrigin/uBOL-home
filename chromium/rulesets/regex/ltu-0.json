@@ -14,5 +14,21 @@
    ]
   },
   "id": 447
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "muge.eu"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "muge\\.eu\\/wp-content\\/uploads\\/20\\d{2}\\/\\d{2}\\/thumbnail.*",
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 448
  }
 ]

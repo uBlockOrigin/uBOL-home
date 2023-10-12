@@ -21,5 +21,30 @@
    "urlFilter": "||v.fwmrm.net/ad/g/1"
   },
   "id": 155
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "browser"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mtv.fi",
+    "mtvuutiset.fi"
+   ],
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "&browser=mozillafirefox"
+  },
+  "id": 158
  }
 ]

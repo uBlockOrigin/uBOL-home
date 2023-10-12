@@ -24,7 +24,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 565
+  "id": 569
  },
  {
   "action": {
@@ -49,7 +49,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 566
+  "id": 570
  },
  {
   "action": {
@@ -75,7 +75,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 567
+  "id": 571
  },
  {
   "action": {
@@ -100,7 +100,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 568
+  "id": 572
  },
  {
   "action": {
@@ -125,7 +125,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 569
+  "id": 573
  },
  {
   "action": {
@@ -148,7 +148,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 570
+  "id": 574
  },
  {
   "action": {
@@ -170,7 +170,7 @@
    ],
    "urlFilter": "||podbean.com/player^"
   },
-  "id": 571
+  "id": 575
  },
  {
   "action": {
@@ -192,7 +192,7 @@
    ],
    "urlFilter": "||podbean.com/pb^"
   },
-  "id": 573
+  "id": 577
  },
  {
   "action": {
@@ -215,7 +215,29 @@
     "main_frame"
    ]
   },
-  "id": 574
+  "id": 578
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "safarmarketId"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "main_frame"
+   ],
+   "urlFilter": "^safarmarketid="
+  },
+  "id": 579
  },
  {
   "action": {
@@ -237,7 +259,7 @@
    ],
    "urlFilter": "||api.torob.com/v4/product-page/redirect^"
   },
-  "id": 575
+  "id": 580
  },
  {
   "action": {
@@ -279,7 +301,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 577
+  "id": 583
  },
  {
   "action": {
@@ -304,6 +326,6 @@
    ],
    "urlFilter": "||tamasha.com/embed^"
   },
-  "id": 578
+  "id": 584
  }
 ]
