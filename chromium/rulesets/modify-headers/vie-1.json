@@ -20,7 +20,7 @@
     "sub_frame"
    ]
   },
-  "id": 488
+  "id": 493
  },
  {
   "action": {
@@ -45,7 +45,7 @@
     "sub_frame"
    ]
   },
-  "id": 489
+  "id": 494
  },
  {
   "action": {
@@ -67,6 +67,28 @@
     "sub_frame"
    ]
   },
-  "id": 490
+  "id": 495
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-eval'"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "sexdiaryx.us"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 496
  }
 ]

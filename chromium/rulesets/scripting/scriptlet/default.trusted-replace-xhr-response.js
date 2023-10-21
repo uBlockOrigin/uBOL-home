@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_trustedReplaceFetchResponse = function() {
+const uBOL_trustedReplaceXhrResponse = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["/\"adSlots.*?SLOT_TRIGGER_EVENT_BEFORE_CONTENT.*?\\}\\]\\}\\}\\],/","","url:player?key="],["/\"adPlacements.*?AD_PLACEMENT_KIND_END.*?\\\"\\}\\}\\}\\],/","","url:player?key="],["/\"playerAds.*?gutParams\":\\{\"tag\":\"\\\\.*?\\}\\}\\],/","","url:player?key="]];
+const argsList = [["/\\\"adPlacements.*?\\\"\\}\\}\\}\\],/","","/player\\?key=|watch\\?v=|youtubei\\/v1\\/player/"]];
 
-const hostnamesMap = new Map([["youtube.com",[0,1,2]]]);
+const hostnamesMap = new Map([["www.youtube.com",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,89 +52,78 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function trustedReplaceFetchResponse(...args) {
-    replaceFetchResponseFn(true, ...args);
-}
-
-function replaceFetchResponseFn(
-    trusted = false,
+function trustedReplaceXhrResponse(
     pattern = '',
     replacement = '',
     propsToMatch = ''
 ) {
-    if ( trusted !== true ) { return; }
     const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 4);
+    const xhrInstances = new WeakMap();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
     const logLevel = shouldLog({
-        log: pattern === '' || extraArgs.log,
+        log: pattern === '' && 'all' || extraArgs.log,
     });
     const log = logLevel ? ((...args) => { safe.uboLog(...args); }) : (( ) => { }); 
     if ( pattern === '*' ) { pattern = '.*'; }
     const rePattern = safe.patternToRegex(pattern);
     const propNeedles = parsePropertiesToMatch(propsToMatch, 'url');
-    self.fetch = new Proxy(self.fetch, {
-        apply: function(target, thisArg, args) {
-            if ( logLevel === true ) {
-                log('replace-fetch-response:', JSON.stringify(Array.from(args)).slice(1,-1));
-            }
-            const fetchPromise = Reflect.apply(target, thisArg, args);
-            if ( pattern === '' ) { return fetchPromise; }
+    self.XMLHttpRequest = class extends self.XMLHttpRequest {
+        open(method, url, ...args) {
+            const outerXhr = this;
+            const xhrDetails = { method, url };
             let outcome = 'match';
             if ( propNeedles.size !== 0 ) {
-                const objs = [ args[0] instanceof Object ? args[0] : { url: args[0] } ];
-                if ( extraArgs.version === 2 && objs[0] instanceof Request ) {
-                    try { objs[0] = safe.Request_clone.call(objs[0]); } catch(ex) {}
-                }
-                if ( args[1] instanceof Object ) {
-                    objs.push(args[1]);
-                }
-                if ( matchObjectProperties(propNeedles, ...objs) === false ) {
+                if ( matchObjectProperties(propNeedles, xhrDetails) === false ) {
                     outcome = 'nomatch';
                 }
-                if ( outcome === logLevel || logLevel === 'all' ) {
-                    log(
-                        `replace-fetch-response (${outcome})`,
-                        `\n\tpropsToMatch: ${JSON.stringify(Array.from(propNeedles)).slice(1,-1)}`,
-                        '\n\tprops:', ...args,
-                    );
-                }
             }
-            if ( outcome === 'nomatch' ) { return fetchPromise; }
-            return fetchPromise.then(responseBefore => {
-                const response = responseBefore.clone();
-                return response.text().then(textBefore => {
-                    const textAfter = textBefore.replace(rePattern, replacement);
-                    const outcome = textAfter !== textBefore ? 'match' : 'nomatch';
-                    if ( outcome === logLevel || logLevel === 'all' ) {
-                        log(
-                            `replace-fetch-response (${outcome})`,
-                            `\n\tpattern: ${pattern}`, 
-                            `\n\treplacement: ${replacement}`,
-                        );
-                    }
-                    if ( outcome === 'nomatch' ) { return responseBefore; }
-                    const responseAfter = new Response(textAfter, {
-                        status: responseBefore.status,
-                        statusText: responseBefore.statusText,
-                        headers: responseBefore.headers,
-                    });
-                    Object.defineProperties(responseAfter, {
-                        ok: { value: responseBefore.ok },
-                        redirected: { value: responseBefore.redirected },
-                        type: { value: responseBefore.type },
-                        url: { value: responseBefore.url },
-                    });
-                    return responseAfter;
-                }).catch(reason => {
-                    log('replace-fetch-response:', reason);
-                    return responseBefore;
-                });
-            }).catch(reason => {
-                log('replace-fetch-response:', reason);
-                return fetchPromise;
-            });
+            if ( outcome === logLevel || outcome === 'all' ) {
+                log(`xhr.open(${method}, ${url}, ${args.join(', ')})`);
+            }
+            if ( outcome === 'match' ) {
+                xhrInstances.set(outerXhr, xhrDetails);
+            }
+            return super.open(method, url, ...args);
         }
-    });
+        get response() {
+            const innerResponse = super.response;
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined ) {
+                return innerResponse;
+            }
+            const responseLength = typeof innerResponse === 'string'
+                ? innerResponse.length
+                : undefined;
+            if ( xhrDetails.lastResponseLength !== responseLength ) {
+                xhrDetails.response = undefined;
+                xhrDetails.lastResponseLength = responseLength;
+            }
+            if ( xhrDetails.response !== undefined ) {
+                return xhrDetails.response;
+            }
+            if ( typeof innerResponse !== 'string' ) {
+                return (xhrDetails.response = innerResponse);
+            }
+            const textBefore = innerResponse;
+            const textAfter = textBefore.replace(rePattern, replacement);
+            const outcome = textAfter !== textBefore ? 'match' : 'nomatch';
+            if ( outcome === logLevel || logLevel === 'all' ) {
+                log(
+                    `trusted-replace-xhr-response (${outcome})`,
+                    `\n\tpattern: ${pattern}`, 
+                    `\n\treplacement: ${replacement}`,
+                );
+            }
+            return (xhrDetails.response = textAfter);
+        }
+        get responseText() {
+            const response = this.response;
+            if ( typeof response !== 'string' ) {
+                return super.responseText;
+            }
+            return response;
+        }
+    };
 }
 
 function matchObjectProperties(propNeedles, ...objs) {
@@ -149,7 +138,7 @@ function matchObjectProperties(propNeedles, ...objs) {
     }
     const safe = safeSelf();
     const haystack = {};
-    const props = Array.from(propNeedles.keys());
+    const props = safe.Array_from(propNeedles.keys());
     for ( const obj of objs ) {
         if ( obj instanceof Object === false ) { continue; }
         matchObjectProperties.extractProperties(obj, haystack, props);
@@ -191,6 +180,7 @@ function safeSelf() {
     }
     const self = globalThis;
     const safe = {
+        'Array_from': Array.from,
         'Error': self.Error,
         'Math_floor': Math.floor,
         'Math_random': Math.random,
@@ -203,10 +193,11 @@ function safeSelf() {
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
-        'jsonParse': self.JSON.parse.bind(self.JSON),
-        'jsonStringify': self.JSON.stringify.bind(self.JSON),
+        'JSON_parse': self.JSON.parse.bind(self.JSON),
+        'JSON_stringify': self.JSON.stringify.bind(self.JSON),
         'log': console.log.bind(console),
         uboLog(...args) {
+            if ( scriptletGlobals.has('canDebug') === false ) { return; }
             if ( args.length === 0 ) { return; }
             if ( `${args[0]}` === '' ) { return; }
             this.log('[uBO]', ...args);
@@ -243,11 +234,12 @@ function safeSelf() {
             if ( details.matchAll ) { return true; }
             return this.RegExp_test.call(details.re, haystack) === details.expect;
         },
-        patternToRegex(pattern, flags = undefined) {
+        patternToRegex(pattern, flags = undefined, verbatim = false) {
             if ( pattern === '' ) { return /^/; }
             const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
             if ( match === null ) {
-                return new RegExp(pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), flags);
+                const reStr = pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                return new RegExp(verbatim ? `^${reStr}$` : reStr, flags);
             }
             try {
                 return new RegExp(match[1], match[2] || flags);
@@ -339,7 +331,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { trustedReplaceFetchResponse(...argsList[i]); }
+    try { trustedReplaceXhrResponse(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -357,9 +349,11 @@ argsList.length = 0;
 //   'MAIN' world not yet supported in Firefox, so we inject the code into
 //   'MAIN' ourself when environment in Firefox.
 
+const targetWorld = 'MAIN';
+
 // Not Firefox
-if ( typeof wrappedJSObject !== 'object' ) {
-    return uBOL_trustedReplaceFetchResponse();
+if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
+    return uBOL_trustedReplaceXhrResponse();
 }
 
 // Firefox
@@ -367,11 +361,11 @@ if ( typeof wrappedJSObject !== 'object' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_trustedReplaceFetchResponse = cloneInto([
-            [ '(', uBOL_trustedReplaceFetchResponse.toString(), ')();' ],
+        page.uBOL_trustedReplaceXhrResponse = cloneInto([
+            [ '(', uBOL_trustedReplaceXhrResponse.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_trustedReplaceFetchResponse);
+        const blob = new page.Blob(...page.uBOL_trustedReplaceXhrResponse);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -385,7 +379,7 @@ if ( typeof wrappedJSObject !== 'object' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_trustedReplaceFetchResponse;
+    delete page.uBOL_trustedReplaceXhrResponse;
 }
 
 /******************************************************************************/

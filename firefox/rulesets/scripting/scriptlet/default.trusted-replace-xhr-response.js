@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: isr-0
+// ruleset: default
 
 /******************************************************************************/
 
@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_cookieRemover = function() {
+const uBOL_trustedReplaceXhrResponse = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["/r13_maavron/"]];
+const argsList = [["/\\\"adPlacements.*?\\\"\\}\\}\\}\\],/","","/player\\?key=|watch\\?v=|youtubei\\/v1\\/player/"]];
 
-const hostnamesMap = new Map([["13news.co.il",0],["13tv.co.il",0]]);
+const hostnamesMap = new Map([["www.youtube.com",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,49 +52,126 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function cookieRemover(
-    needle = ''
+function trustedReplaceXhrResponse(
+    pattern = '',
+    replacement = '',
+    propsToMatch = ''
 ) {
-    if ( typeof needle !== 'string' ) { return; }
     const safe = safeSelf();
-    const reName = safe.patternToRegex(needle);
-    const removeCookie = function() {
-        document.cookie.split(';').forEach(cookieStr => {
-            let pos = cookieStr.indexOf('=');
-            if ( pos === -1 ) { return; }
-            let cookieName = cookieStr.slice(0, pos).trim();
-            if ( !reName.test(cookieName) ) { return; }
-            let part1 = cookieName + '=';
-            let part2a = '; domain=' + document.location.hostname;
-            let part2b = '; domain=.' + document.location.hostname;
-            let part2c, part2d;
-            let domain = document.domain;
-            if ( domain ) {
-                if ( domain !== document.location.hostname ) {
-                    part2c = '; domain=.' + domain;
+    const xhrInstances = new WeakMap();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const logLevel = shouldLog({
+        log: pattern === '' && 'all' || extraArgs.log,
+    });
+    const log = logLevel ? ((...args) => { safe.uboLog(...args); }) : (( ) => { }); 
+    if ( pattern === '*' ) { pattern = '.*'; }
+    const rePattern = safe.patternToRegex(pattern);
+    const propNeedles = parsePropertiesToMatch(propsToMatch, 'url');
+    self.XMLHttpRequest = class extends self.XMLHttpRequest {
+        open(method, url, ...args) {
+            const outerXhr = this;
+            const xhrDetails = { method, url };
+            let outcome = 'match';
+            if ( propNeedles.size !== 0 ) {
+                if ( matchObjectProperties(propNeedles, xhrDetails) === false ) {
+                    outcome = 'nomatch';
                 }
-                if ( domain.startsWith('www.') ) {
-                    part2d = '; domain=' + domain.replace('www', '');
-                }
             }
-            let part3 = '; path=/';
-            let part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-            document.cookie = part1 + part4;
-            document.cookie = part1 + part2a + part4;
-            document.cookie = part1 + part2b + part4;
-            document.cookie = part1 + part3 + part4;
-            document.cookie = part1 + part2a + part3 + part4;
-            document.cookie = part1 + part2b + part3 + part4;
-            if ( part2c !== undefined ) {
-                document.cookie = part1 + part2c + part3 + part4;
+            if ( outcome === logLevel || outcome === 'all' ) {
+                log(`xhr.open(${method}, ${url}, ${args.join(', ')})`);
             }
-            if ( part2d !== undefined ) {
-                document.cookie = part1 + part2d + part3 + part4;
+            if ( outcome === 'match' ) {
+                xhrInstances.set(outerXhr, xhrDetails);
             }
-        });
+            return super.open(method, url, ...args);
+        }
+        get response() {
+            const innerResponse = super.response;
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined ) {
+                return innerResponse;
+            }
+            const responseLength = typeof innerResponse === 'string'
+                ? innerResponse.length
+                : undefined;
+            if ( xhrDetails.lastResponseLength !== responseLength ) {
+                xhrDetails.response = undefined;
+                xhrDetails.lastResponseLength = responseLength;
+            }
+            if ( xhrDetails.response !== undefined ) {
+                return xhrDetails.response;
+            }
+            if ( typeof innerResponse !== 'string' ) {
+                return (xhrDetails.response = innerResponse);
+            }
+            const textBefore = innerResponse;
+            const textAfter = textBefore.replace(rePattern, replacement);
+            const outcome = textAfter !== textBefore ? 'match' : 'nomatch';
+            if ( outcome === logLevel || logLevel === 'all' ) {
+                log(
+                    `trusted-replace-xhr-response (${outcome})`,
+                    `\n\tpattern: ${pattern}`, 
+                    `\n\treplacement: ${replacement}`,
+                );
+            }
+            return (xhrDetails.response = textAfter);
+        }
+        get responseText() {
+            const response = this.response;
+            if ( typeof response !== 'string' ) {
+                return super.responseText;
+            }
+            return response;
+        }
     };
-    removeCookie();
-    window.addEventListener('beforeunload', removeCookie);
+}
+
+function matchObjectProperties(propNeedles, ...objs) {
+    if ( matchObjectProperties.extractProperties === undefined ) {
+        matchObjectProperties.extractProperties = (src, des, props) => {
+            for ( const p of props ) {
+                const v = src[p];
+                if ( v === undefined ) { continue; }
+                des[p] = src[p];
+            }
+        };
+    }
+    const safe = safeSelf();
+    const haystack = {};
+    const props = safe.Array_from(propNeedles.keys());
+    for ( const obj of objs ) {
+        if ( obj instanceof Object === false ) { continue; }
+        matchObjectProperties.extractProperties(obj, haystack, props);
+    }
+    for ( const [ prop, details ] of propNeedles ) {
+        let value = haystack[prop];
+        if ( value === undefined ) { continue; }
+        if ( typeof value !== 'string' ) {
+            try { value = JSON.stringify(value); }
+            catch(ex) { }
+            if ( typeof value !== 'string' ) { continue; }
+        }
+        if ( safe.testPattern(details, value) ) { continue; }
+        return false;
+    }
+    return true;
+}
+
+function parsePropertiesToMatch(propsToMatch, implicit = '') {
+    const safe = safeSelf();
+    const needles = new Map();
+    if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
+    const options = { canNegate: true };
+    for ( const needle of propsToMatch.split(/\s+/) ) {
+        const [ prop, pattern ] = needle.split(':');
+        if ( prop === '' ) { continue; }
+        if ( pattern !== undefined ) {
+            needles.set(prop, safe.initPattern(pattern, options));
+        } else if ( implicit !== '' ) {
+            needles.set(implicit, safe.initPattern(prop, options));
+        }
+    }
+    return needles;
 }
 
 function safeSelf() {
@@ -103,6 +180,7 @@ function safeSelf() {
     }
     const self = globalThis;
     const safe = {
+        'Array_from': Array.from,
         'Error': self.Error,
         'Math_floor': Math.floor,
         'Math_random': Math.random,
@@ -115,10 +193,11 @@ function safeSelf() {
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
-        'jsonParse': self.JSON.parse.bind(self.JSON),
-        'jsonStringify': self.JSON.stringify.bind(self.JSON),
+        'JSON_parse': self.JSON.parse.bind(self.JSON),
+        'JSON_stringify': self.JSON.stringify.bind(self.JSON),
         'log': console.log.bind(console),
         uboLog(...args) {
+            if ( scriptletGlobals.has('canDebug') === false ) { return; }
             if ( args.length === 0 ) { return; }
             if ( `${args[0]}` === '' ) { return; }
             this.log('[uBO]', ...args);
@@ -155,11 +234,12 @@ function safeSelf() {
             if ( details.matchAll ) { return true; }
             return this.RegExp_test.call(details.re, haystack) === details.expect;
         },
-        patternToRegex(pattern, flags = undefined) {
+        patternToRegex(pattern, flags = undefined, verbatim = false) {
             if ( pattern === '' ) { return /^/; }
             const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
             if ( match === null ) {
-                return new RegExp(pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), flags);
+                const reStr = pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                return new RegExp(verbatim ? `^${reStr}$` : reStr, flags);
             }
             try {
                 return new RegExp(match[1], match[2] || flags);
@@ -184,6 +264,11 @@ function safeSelf() {
     };
     scriptletGlobals.set('safeSelf', safe);
     return safe;
+}
+
+function shouldLog(details) {
+    if ( details instanceof Object === false ) { return false; }
+    return scriptletGlobals.has('canDebug') && details.log;
 }
 
 /******************************************************************************/
@@ -246,7 +331,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { cookieRemover(...argsList[i]); }
+    try { trustedReplaceXhrResponse(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -264,9 +349,11 @@ argsList.length = 0;
 //   'MAIN' world not yet supported in Firefox, so we inject the code into
 //   'MAIN' ourself when environment in Firefox.
 
+const targetWorld = 'MAIN';
+
 // Not Firefox
-if ( typeof wrappedJSObject !== 'object' ) {
-    return uBOL_cookieRemover();
+if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
+    return uBOL_trustedReplaceXhrResponse();
 }
 
 // Firefox
@@ -274,11 +361,11 @@ if ( typeof wrappedJSObject !== 'object' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_cookieRemover = cloneInto([
-            [ '(', uBOL_cookieRemover.toString(), ')();' ],
+        page.uBOL_trustedReplaceXhrResponse = cloneInto([
+            [ '(', uBOL_trustedReplaceXhrResponse.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_cookieRemover);
+        const blob = new page.Blob(...page.uBOL_trustedReplaceXhrResponse);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -292,7 +379,7 @@ if ( typeof wrappedJSObject !== 'object' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_cookieRemover;
+    delete page.uBOL_trustedReplaceXhrResponse;
 }
 
 /******************************************************************************/

@@ -1,24 +1,24 @@
-Version: 2023.10.12.905
-Secret: db0b576c662425a1
+Version: 2023.10.21.721
+Secret: d31c8435b37c47f6
 ============================
 Listset for 'default':
 	Fetched local https://ublockorigin.github.io/uAssets/filters/badware.txt
 	Fetched local https://ublockorigin.github.io/uAssets/filters/privacy.min.txt
-	Fetched local https://ublockorigin.github.io/uAssets/filters/unbreak.min.txt
 	Fetched local https://ublockorigin.github.io/uAssets/filters/quick-fixes.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/unbreak.min.txt
 	Fetched local https://ublockorigin.github.io/uAssets/filters/ubol-filters.txt
 	Fetched local https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext
 	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easyprivacy.txt
 	Fetched local https://ublockorigin.github.io/uAssets/filters/filters.min.txt
 	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist.txt
-Input filter count: 93846
-	Accepted filter count: 92319
-	Rejected filter count: 135
-Output rule count: 16016
-	Pruning requestDomains: from 56671 to 56513
-	Pruning requestDomains: from 2566 to 2562
-	Pruning requestDomains: from 5945 to 5941
-	Plain good: 15164
+Input filter count: 93934
+	Accepted filter count: 92408
+	Rejected filter count: 134
+Output rule count: 15882
+	Pruning requestDomains: from 56904 to 56746
+	Pruning requestDomains: from 2549 to 2547
+	Pruning requestDomains: from 5946 to 5942
+	Plain good: 15027
 		Salvaged rule by ignoring 1 entity-based domain= option: erotic-beauties.com|hardsex.cc|rule34.top|sex-movies.biz|tube18.sexy|xvideos.name|booru.*
 		Salvaged rule by ignoring 19 entity-based domain= option: fullxh.com|hamsterix.*|megaxh.com|unlockxh4.com|xhadult2.com|xhadult3.com|xhadult4.com|xhadult5.com|xhamster.*|xhamster10.*|xhamster11.*|xhamster12.*|xhamster13.*|xhamster14.*|xhamster15.*|xhamster16.*|xhamster17.*|xhamster18.*|xhamster19.*|xhamster2.*|xhamster20.*|xhamster3.*|xhamster4.*|xhamster46.com|xhamster5.*|xhamster7.*|xhamster8.*|xhday.com|xhday1.com|xhmoon5.com|xhplanet1.com|xhplanet2.com|xhreal2.com|xhreal3.com|xhtab2.com|xhvictory.com|xhwebsite.com|xhwebsite2.com|xhwide1.com|xhwide8.com
 		Salvaged rule by ignoring 19 entity-based domain= option: fullxh.com|hamsterix.*|megaxh.com|unlockxh4.com|xhadult2.com|xhadult3.com|xhadult4.com|xhadult5.com|xhamster.*|xhamster10.*|xhamster11.*|xhamster12.*|xhamster13.*|xhamster14.*|xhamster15.*|xhamster16.*|xhamster17.*|xhamster18.*|xhamster19.*|xhamster2.*|xhamster20.*|xhamster3.*|xhamster4.*|xhamster46.com|xhamster5.*|xhamster7.*|xhamster8.*|xhday.com|xhday1.com|xhmoon5.com|xhplanet1.com|xhplanet2.com|xhreal2.com|xhreal3.com|xhtab2.com|xhvictory.com|xhwebsite.com|xhwebsite2.com|xhwide1.com|xhwide8.com
@@ -67,8 +67,8 @@ Output rule count: 16016
 		Salvaged rule by ignoring 2 entity-based domain= option: acortalo.*|acortar.*|megadescarga.net
 		Salvaged rule by ignoring 2 entity-based domain= option: gentside.*|ohmymag.*|maxisciences.com
 		Salvaged rule by ignoring 5 entity-based domain= option: mylink.*|my1ink.*|myl1nk.*|myli3k.*|audiotools.pro|magesy.blog|magesypro.pro|audioztools.com|solvetube.*|promo-visits.site|satoshi-win.xyz|mobitaak.com|allcryptoz.net|crewbase.net|crewus.net|shinbhu.net|shinchu.net|thumb8.net|thumb9.net|topcryptoz.net|uniqueten.net|ultraten.net
-	Maybe good (regexes): 148
-	redirect=: 347
+	Maybe good (regexes): 152
+	redirect=: 346
 	removeparams= (accepted/discarded): 41/10
 	modifyHeaders=: 66
 	Unsupported: 250
@@ -322,16 +322,16 @@ Output rule count: 16016
 		Unsupported modifier exception
 		regexFilter is not RE2-compatible: ^https?:\/\/(?:[a-z]{2}\.)?[0-9a-z]{5,16}\.[a-z]{3,7}\/[a-z](?=[a-z]{0,25}[0-9A-Z])[0-9a-zA-Z]{3,26}\/\d{4,5}(?:\?[_v]=\d+)?$
 		Unsupported regex-based removeParam: /^ad\b/
-CSS-generic: 15526 plain CSS selectors
-CSS-generic-high: 569 plain CSS selectors
-CSS-specific: 9604 distinct filters
-	Combined into 9041 distinct hostnames
-	Combined into 481 distinct entities
-CSS-declarative: 426 distinct filters
-	Combined into 647 distinct hostnames
-	Combined into 51 distinct entities
-Procedural-related distinct filters: 1214 distinct combined selectors
-	Combined into 1876 distinct hostnames
+CSS-generic: 15528 plain CSS selectors
+CSS-generic-high: 573 plain CSS selectors
+CSS-specific: 9647 distinct filters
+	Combined into 9119 distinct hostnames
+	Combined into 480 distinct entities
+CSS-declarative: 432 distinct filters
+	Combined into 669 distinct hostnames
+	Combined into 50 distinct entities
+Procedural-related distinct filters: 1141 distinct combined selectors
+	Combined into 1789 distinct hostnames
 	Combined into 213 distinct entities
 ============================
 Listset for 'alb-0':
@@ -382,13 +382,13 @@ CSS-specific: 350 distinct filters
 ============================
 Listset for 'chn-0':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/224.txt
-Input filter count: 14484
-	Accepted filter count: 14419
+Input filter count: 14617
+	Accepted filter count: 14552
 	Rejected filter count: 2
-Output rule count: 6507
-	Pruning requestDomains: from 5187 to 5180
+Output rule count: 6513
+	Pruning requestDomains: from 5309 to 5302
 	Pruning requestDomains: from 479 to 477
-	Plain good: 6440
+	Plain good: 6446
 
 	Maybe good (regexes): 12
 	redirect=: 42
@@ -400,16 +400,16 @@ Output rule count: 6507
 		Unsupported modifier exception
 		Invalid network filter in chn-0: @@||ad.alimama.com^$genericblock
 		Invalid network filter in chn-0: @@||cmechina.net^$genericblock
-CSS-generic: 751 plain CSS selectors
+CSS-generic: 752 plain CSS selectors
 CSS-generic-high: 368 plain CSS selectors
-CSS-specific: 6377 distinct filters
-	Combined into 2787 distinct hostnames
+CSS-specific: 6393 distinct filters
+	Combined into 2788 distinct hostnames
 	Combined into 1 distinct entities
 CSS-declarative: 74 distinct filters
 	Combined into 68 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 273 distinct combined selectors
-	Combined into 188 distinct hostnames
+Procedural-related distinct filters: 276 distinct combined selectors
+	Combined into 190 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'cze-0':
@@ -429,23 +429,23 @@ Output rule count: 125
 
 CSS-generic: 36 plain CSS selectors
 CSS-generic-high: 4 plain CSS selectors
-CSS-specific: 235 distinct filters
-	Combined into 173 distinct hostnames
+CSS-specific: 239 distinct filters
+	Combined into 175 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 9 distinct filters
 	Combined into 12 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 28 distinct combined selectors
-	Combined into 20 distinct hostnames
+Procedural-related distinct filters: 30 distinct combined selectors
+	Combined into 21 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'deu-0':
 	Fetched local https://easylist.to/easylistgermany/easylistgermany.txt
-Input filter count: 2357
-	Accepted filter count: 2357
+Input filter count: 2360
+	Accepted filter count: 2360
 	Rejected filter count: 0
-Output rule count: 1795
-	Plain good: 1789
+Output rule count: 1797
+	Plain good: 1791
 
 	Maybe good (regexes): 4
 	redirect=: 0
@@ -456,8 +456,8 @@ Output rule count: 1795
 		Invalid network filter in deu-0: @@||gofeminin.de^$genericblock
 CSS-generic: 356 plain CSS selectors
 CSS-generic-high: 34 plain CSS selectors
-CSS-specific: 2362 distinct filters
-	Combined into 1772 distinct hostnames
+CSS-specific: 2367 distinct filters
+	Combined into 1777 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 172 distinct combined selectors
 	Combined into 121 distinct hostnames
@@ -466,11 +466,11 @@ Procedural-related distinct filters: 172 distinct combined selectors
 Listset for 'fin-0':
 	Fetched local https://raw.githubusercontent.com/finnish-easylist-addition/finnish-easylist-addition/gh-pages/Finland_adb.txt
 	Fetched local https://raw.githubusercontent.com/finnish-easylist-addition/finnish-easylist-addition/gh-pages/Finland_adb_uBO_extras.txt
-Input filter count: 182
-	Accepted filter count: 182
+Input filter count: 181
+	Accepted filter count: 181
 	Rejected filter count: 0
-Output rule count: 161
-	Plain good: 151
+Output rule count: 160
+	Plain good: 150
 
 	Maybe good (regexes): 3
 	redirect=: 5
@@ -480,8 +480,8 @@ Output rule count: 161
 
 CSS-generic: 53 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
-CSS-specific: 804 distinct filters
-	Combined into 526 distinct hostnames
+CSS-specific: 797 distinct filters
+	Combined into 525 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 23 distinct filters
 	Combined into 16 distinct hostnames
@@ -516,8 +516,8 @@ Output rule count: 6589
 		Unsupported modifier exception
 CSS-generic: 2420 plain CSS selectors
 CSS-generic-high: 522 plain CSS selectors
-CSS-specific: 2187 distinct filters
-	Combined into 1651 distinct hostnames
+CSS-specific: 2188 distinct filters
+	Combined into 1652 distinct hostnames
 	Combined into 3 distinct entities
 CSS-declarative: 38 distinct filters
 	Combined into 39 distinct hostnames
@@ -568,7 +568,7 @@ Output rule count: 44
 
 CSS-generic: 11 plain CSS selectors
 CSS-specific: 218 distinct filters
-	Combined into 138 distinct hostnames
+	Combined into 139 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 1 distinct filters
 	Combined into 1 distinct hostnames
@@ -579,11 +579,11 @@ Procedural-related distinct filters: 33 distinct combined selectors
 ============================
 Listset for 'hun-0':
 	Fetched local https://raw.githubusercontent.com/hufilter/hufilter/master/hufilter-ublock.txt
-Input filter count: 326
-	Accepted filter count: 326
+Input filter count: 327
+	Accepted filter count: 327
 	Rejected filter count: 0
-Output rule count: 201
-	Plain good: 198
+Output rule count: 202
+	Plain good: 199
 
 	Maybe good (regexes): 1
 	redirect=: 2
@@ -593,14 +593,14 @@ Output rule count: 201
 
 CSS-generic: 60 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
-CSS-specific: 974 distinct filters
+CSS-specific: 973 distinct filters
 	Combined into 467 distinct hostnames
 	Combined into 0 distinct entities
-CSS-declarative: 21 distinct filters
-	Combined into 21 distinct hostnames
+CSS-declarative: 23 distinct filters
+	Combined into 22 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 68 distinct combined selectors
-	Combined into 56 distinct hostnames
+Procedural-related distinct filters: 69 distinct combined selectors
+	Combined into 57 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'idn-0':
@@ -620,8 +620,8 @@ Output rule count: 3015
 CSS-generic: 241 plain CSS selectors
 CSS-generic-high: 3628 plain CSS selectors
 CSS-specific: 804 distinct filters
-	Combined into 682 distinct hostnames
-	Combined into 18 distinct entities
+	Combined into 683 distinct hostnames
+	Combined into 19 distinct entities
 CSS-declarative: 2 distinct filters
 	Combined into 2 distinct hostnames
 	Combined into 0 distinct entities
@@ -631,11 +631,11 @@ Procedural-related distinct filters: 22 distinct combined selectors
 ============================
 Listset for 'ind-0':
 	Fetched local https://easylist-downloads.adblockplus.org/indianlist.txt
-Input filter count: 4899
-	Accepted filter count: 4899
+Input filter count: 4919
+	Accepted filter count: 4919
 	Rejected filter count: 0
-Output rule count: 4852
-	Plain good: 4852
+Output rule count: 4872
+	Plain good: 4872
 
 	Maybe good (regexes): 0
 	redirect=: 0
@@ -643,21 +643,21 @@ Output rule count: 4852
 	modifyHeaders=: 0
 	Unsupported: 0
 
-CSS-specific: 3742 distinct filters
-	Combined into 4170 distinct hostnames
+CSS-specific: 3754 distinct filters
+	Combined into 4192 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 166 distinct combined selectors
-	Combined into 158 distinct hostnames
+Procedural-related distinct filters: 170 distinct combined selectors
+	Combined into 161 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'irn-0':
 	Fetched local https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlocker.txt
-Input filter count: 1140
-	Accepted filter count: 1140
+Input filter count: 1145
+	Accepted filter count: 1145
 	Rejected filter count: 0
-Output rule count: 610
-	Pruning requestDomains: from 220 to 217
-	Plain good: 568
+Output rule count: 613
+	Pruning requestDomains: from 221 to 218
+	Plain good: 571
 
 	Maybe good (regexes): 0
 	redirect=: 3
@@ -689,14 +689,14 @@ Output rule count: 610
 		Unsupported regex-based removeParam: /^utm_/
 		Unsupported regex-based removeParam: /^utm_|tatoken/
 CSS-generic: 17 plain CSS selectors
-CSS-specific: 701 distinct filters
+CSS-specific: 692 distinct filters
 	Combined into 388 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 307 distinct filters
 	Combined into 57 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 230 distinct combined selectors
-	Combined into 151 distinct hostnames
+Procedural-related distinct filters: 236 distinct combined selectors
+	Combined into 156 distinct hostnames
 	Combined into 1 distinct entities
 ============================
 Listset for 'isl-0':
@@ -724,11 +724,11 @@ Procedural-related distinct filters: 1 distinct combined selectors
 Listset for 'isr-0':
 	Fetched local https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt
 	Fetched local https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew-uBO.txt
-Input filter count: 710
-	Accepted filter count: 710
+Input filter count: 705
+	Accepted filter count: 705
 	Rejected filter count: 0
-Output rule count: 282
-	Plain good: 256
+Output rule count: 278
+	Plain good: 252
 
 	Maybe good (regexes): 5
 	redirect=: 10
@@ -746,7 +746,7 @@ Output rule count: 282
 		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+:\/+www\.(walla(news|shops|tours|art|print)|hamal|sheee)\.co\.il\.?(\/|:|$))^[a-zA-Z0-9\-]+:\/+([a-zA-Z0-9\-]+\.)+(walla(news|shops|tours|art|print)|hamal|sheee)\.co\.il\.?(\/|:|$)
 		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+:\/+(www\.(walla(news|shops|tours|art|print)|hamal)|(api-mail|dal|dcx|isc|iscwne|www)\.walla)\.co\.il\.?(\/|:|$))^[a-zA-Z0-9\-]+:\/+([a-zA-Z0-9\-]+\.)+(walla(news|shops|tours|art|print)?|hamal)\.co\.il\.?(\/|:|$)
 CSS-generic: 5 plain CSS selectors
-CSS-specific: 480 distinct filters
+CSS-specific: 479 distinct filters
 	Combined into 327 distinct hostnames
 	Combined into 1 distinct entities
 CSS-declarative: 5 distinct filters
@@ -758,11 +758,11 @@ Procedural-related distinct filters: 5 distinct combined selectors
 ============================
 Listset for 'ita-0':
 	Fetched local https://easylist-downloads.adblockplus.org/easylistitaly.txt
-Input filter count: 3558
-	Accepted filter count: 3557
+Input filter count: 3529
+	Accepted filter count: 3528
 	Rejected filter count: 0
-Output rule count: 3290
-	Plain good: 3286
+Output rule count: 3279
+	Plain good: 3275
 
 	Maybe good (regexes): 4
 	redirect=: 0
@@ -770,10 +770,10 @@ Output rule count: 3290
 	modifyHeaders=: 0
 	Unsupported: 0
 
-CSS-generic: 363 plain CSS selectors
+CSS-generic: 365 plain CSS selectors
 CSS-generic-high: 53 plain CSS selectors
-CSS-specific: 2980 distinct filters
-	Combined into 3217 distinct hostnames
+CSS-specific: 2985 distinct filters
+	Combined into 3220 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 49 distinct combined selectors
 	Combined into 49 distinct hostnames
@@ -781,11 +781,11 @@ Procedural-related distinct filters: 49 distinct combined selectors
 ============================
 Listset for 'jpn-1':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/7.txt
-Input filter count: 1935
-	Accepted filter count: 1935
+Input filter count: 1940
+	Accepted filter count: 1940
 	Rejected filter count: 0
-Output rule count: 1356
-	Plain good: 1311
+Output rule count: 1360
+	Plain good: 1315
 
 	Maybe good (regexes): 16
 	redirect=: 23
@@ -800,14 +800,14 @@ Output rule count: 1356
 		Unsupported regex-based removeParam: /^(cookie|ga_|u_)/
 CSS-generic: 112 plain CSS selectors
 CSS-generic-high: 11 plain CSS selectors
-CSS-specific: 5721 distinct filters
-	Combined into 4046 distinct hostnames
+CSS-specific: 5741 distinct filters
+	Combined into 4057 distinct hostnames
 	Combined into 7 distinct entities
 CSS-declarative: 174 distinct filters
 	Combined into 152 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 1331 distinct combined selectors
-	Combined into 1120 distinct hostnames
+Procedural-related distinct filters: 1341 distinct combined selectors
+	Combined into 1127 distinct hostnames
 	Combined into 1 distinct entities
 ============================
 Listset for 'kor-1':
@@ -834,14 +834,14 @@ Listset for 'kor-1':
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@master/filters-uBO/allowlist.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@master/filters-share/specific_CSS.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@master/filters-uBO/specific_CSS.txt
-Input filter count: 1265
-	Accepted filter count: 1259
+Input filter count: 1276
+	Accepted filter count: 1270
 	Rejected filter count: 0
-Output rule count: 908
-	Pruning requestDomains: from 298 to 293
-	Plain good: 733
+Output rule count: 915
+	Pruning requestDomains: from 301 to 296
+	Plain good: 738
 
-	Maybe good (regexes): 138
+	Maybe good (regexes): 140
 	redirect=: 22
 	removeparams= (accepted/discarded): 1/0
 	modifyHeaders=: 0
@@ -861,15 +861,15 @@ Output rule count: 908
 		regexFilter is not RE2-compatible: ^https:\/\/(www\.)?ruru\.tv\/uploads\/[0-9]+\/((?!16682220461360)[0-9]+)
 		regexFilter is not RE2-compatible: ^https:\/\/today-sports\.io\/img\/.*(?=(evolution|banner|\.gif))
 CSS-generic: 12 plain CSS selectors
-CSS-generic-high: 68 plain CSS selectors
-CSS-specific: 1080 distinct filters
-	Combined into 1327 distinct hostnames
+CSS-generic-high: 69 plain CSS selectors
+CSS-specific: 1087 distinct filters
+	Combined into 1362 distinct hostnames
 	Combined into 4 distinct entities
-CSS-declarative: 166 distinct filters
+CSS-declarative: 167 distinct filters
 	Combined into 150 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 251 distinct combined selectors
-	Combined into 312 distinct hostnames
+	Combined into 297 distinct hostnames
 	Combined into 1 distinct entities
 ============================
 Listset for 'ltu-0':
@@ -950,31 +950,29 @@ Listset for 'nld-0':
 	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Hide_Specific.txt
 	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Hide_Whitelist.txt
 	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Anti-Adblock.txt
-	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/No_uBlock_Filters.txt
-Input filter count: 744
-	Accepted filter count: 743
+Input filter count: 661
+	Accepted filter count: 660
 	Rejected filter count: 0
-Output rule count: 633
-	Plain good: 620
+Output rule count: 556
+	Plain good: 545
 
 	Maybe good (regexes): 6
-	redirect=: 4
+	redirect=: 3
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 0
-	Unsupported: 3
+	Unsupported: 2
 		FilterStrictParty: Strict partyness strict3p not supported
 		regexFilter is not RE2-compatible: https\:\/\/nieuwsfiets\.nu\/wp-content\/uploads\/.*\/.*(?:banner-(?!mis|tip).*|\.gif)
-		Can't salvage rule with only entity-based domain= option: allestoringen.*
-CSS-generic: 14 plain CSS selectors
+CSS-generic: 12 plain CSS selectors
 CSS-generic-high: 1 plain CSS selectors
-CSS-specific: 744 distinct filters
-	Combined into 855 distinct hostnames
+CSS-specific: 700 distinct filters
+	Combined into 808 distinct hostnames
 	Combined into 1 distinct entities
 CSS-declarative: 11 distinct filters
 	Combined into 10 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 459 distinct combined selectors
-	Combined into 401 distinct hostnames
+Procedural-related distinct filters: 410 distinct combined selectors
+	Combined into 358 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'nor-0':
@@ -1004,7 +1002,7 @@ Output rule count: 509
 		Unsupported regex-based removeParam: /^amp;/
 CSS-generic: 133 plain CSS selectors
 CSS-generic-high: 28 plain CSS selectors
-CSS-specific: 1016 distinct filters
+CSS-specific: 1017 distinct filters
 	Combined into 550 distinct hostnames
 	Combined into 13 distinct entities
 CSS-declarative: 47 distinct filters
@@ -1095,16 +1093,16 @@ Listset for 'rus-0':
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/css-fixes-experimental.txt
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/js-fixes-experimental.txt
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/AWRL-non-sync.txt
-Input filter count: 17454
-	Accepted filter count: 17444
+Input filter count: 17463
+	Accepted filter count: 17453
 	Rejected filter count: 8
-Output rule count: 5858
-	Pruning requestDomains: from 6741 to 6740
-	Plain good: 5763
+Output rule count: 5863
+	Pruning requestDomains: from 6743 to 6742
+	Plain good: 5767
 
 	Maybe good (regexes): 22
 	redirect=: 16
-	removeparams= (accepted/discarded): 15/2
+	removeparams= (accepted/discarded): 16/2
 	modifyHeaders=: 36
 	Unsupported: 6
 		regexFilter is not RE2-compatible: ^(?!.*(24liveblog.com|24liveplus.com|acint.net|addthis.com|addthisedge.com|akamai.net|akamaiedge.net|alloha.tv|ampproject.org|anycomment.io|apester.com|api-ssl.bitly.com|api.corr.life|api.here.com|api.sypexgeo.net|app.hoversignal.com|appsmail.ru|bam.nr-data.net|blogger.com|bootstrapcdn.com|cackle.me|cdn.ampproject.org|cdn.iframe.ly|cdn.rawgit.com|cdnstats.ru|cdnvideo.ru|chartbeat.com|chatango.com|chatbro.com|chimpstatic.com|cloudflare.com|cloudflare.net|cloudfront.net|cloudfunctions.net|code.createjs.com|columbus.te.ua|cultserv.ru|disqus.com|disquscdn.com|dmca.com|documentcloud.org|each.im|ebacdn.com|edgecastcdn.net|edgecdn.ru|ellinagraypel.com|embed.ex.co|embed.widgetpack.com|embedstorage.net|eurosolidarity.org|facebook.com|facebook.net|fastly.net|fastlylb.net|fbcdn.net|fbvkcdn.com|feonet.net|fluidplayer.com|fontawesome.com|fonts.w.tools|freecurrencyrates.com|fwcdn1.com|fwdcdn.com|gcdn.co|getsitecontrol.com|gismeteo.ru|github.io|gitlab.io|google-analytics.com|google.com|googleadservices.com|googleapis.com|googleoptimize.com|googletagmanager.com|googletagservices.com|gravatar.com|gravitec.media|gravitec.net|gstatic.com|hcaptcha.com|hupso.com|hwcdn.net|hypercomments.com|ibytedtos.com|imgsmail.ru|imgur.com|informers.ukr.net|instagram.com|intensedebate.com|intercom.io|intercomcdn.com|intravideo.net|issuu.com|ivideon.com|jivosite.com|jquery.com|js-agent.newrelic.com|jsdelivr.net|jsonip.com|jwpcdn.com|jwplatform.com|keycaptcha.com|kin-x.com|kinogram.best|kinohod.ru|kinoplayer.co|kinotreiler.com|kitbit.net|kodik-add.com|kodikapi.com|libria.fun|licdn.com|likebtn.com|linkedin.com|lp4.io|mail.ru|mailchimp.com|mapbox.com|media-imdb.com|media.reformal.ru|mediator.media|meteobar.com|meteonova.ru|mirtesen.ru|netdna-cdn.com|ngenix.net|nuipogoda.ru|odnaknopka.ru|odnoklassniki.ru|ok.ru|oneall.com|onesignal.com|onthe.io|parastorage.com|phnx.click|piktochart.com|pinterest.com|pixars.org|platformcraft.ru|playbuzz.com|player|player.panda.video|pljs.ru|plrjs.com|pluso.ru|plyr.io|polldaddy.com|polyfill.io|pv.pjtsu.com|quiz.ink|raincaptcha.com|readymag.com|recaptcha.net|relap.io|ren.tv|renteres.ru|rumer.club|s5o.ru|securedtouch.com|selcdn.net|sendpulse.com|sentry-cdn.com|shareaholic.com|shareaholic.net|sharethis.com|shrink.pe|sinoptik.ua|source.mmi.bemobile.ua|sporcle.com|sportradar.com|sportrecs.com|sports.ru|stackpathcdn.com|static.addtoany.com|statically.io|streamvid.club|telegram.im|telegram.org|tenews.org.ua|tenews.te.ua|tiktok.com|tilda.ws|tildacdn.com|tns-counter.ru|tolstoycomments.com|traq.li|trbcdn.net|trbna.com|ttrace.ru|ttwstatic.com|tumblr.com|tvget.ru|tvsok.ru|twimg.com|twitter.com|typekit.net|uanews.org.ua|unpkg.com|uptolike.com|userapi.com|usocial.pro|uweb.ru|vicomi.com|vidazoo.com|videocdn.tv|videoplayers.club|viglink.com|viqeo.tv|vk.com|vkontakte.ru|vuukle.com|webflow.com|weblium.com|weblium.site|widget.speechki.org|widget.vp.ru|widgets.getpocket.com|world-weather.ru|wp.com|yabber.cloud|yandex.ru|yandex.st|yastatic.net|yohoho.cc|yohoho.online|yoomoney.ru|yourwebsite.life|youtube-nocookie.com|youtube.com|ytimg.com|zencdn.net)).*$
@@ -1116,22 +1114,22 @@ Output rule count: 5858
 CSS-generic: 319 plain CSS selectors
 CSS-generic-high: 465 plain CSS selectors
 CSS-specific: 9268 distinct filters
-	Combined into 7016 distinct hostnames
+	Combined into 7021 distinct hostnames
 	Combined into 0 distinct entities
-CSS-declarative: 905 distinct filters
-	Combined into 874 distinct hostnames
+CSS-declarative: 911 distinct filters
+	Combined into 884 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 831 distinct combined selectors
-	Combined into 841 distinct hostnames
+Procedural-related distinct filters: 837 distinct combined selectors
+	Combined into 845 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'spa-0':
 	Fetched local https://easylist-downloads.adblockplus.org/easylistspanish.txt
-Input filter count: 1071
-	Accepted filter count: 1071
+Input filter count: 1073
+	Accepted filter count: 1073
 	Rejected filter count: 0
-Output rule count: 607
-	Plain good: 599
+Output rule count: 609
+	Plain good: 601
 
 	Maybe good (regexes): 8
 	redirect=: 0
@@ -1141,8 +1139,8 @@ Output rule count: 607
 
 CSS-generic: 242 plain CSS selectors
 CSS-generic-high: 15 plain CSS selectors
-CSS-specific: 1454 distinct filters
-	Combined into 1202 distinct hostnames
+CSS-specific: 1465 distinct filters
+	Combined into 1218 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 49 distinct combined selectors
 	Combined into 55 distinct hostnames
@@ -1153,8 +1151,8 @@ Listset for 'spa-1':
 Input filter count: 1420
 	Accepted filter count: 1414
 	Rejected filter count: 0
-Output rule count: 978
-	Plain good: 940
+Output rule count: 979
+	Plain good: 941
 		Salvaged rule by ignoring 1 entity-based domain= option: pelisplushd.net|cuevana3.*
 	Maybe good (regexes): 6
 	redirect=: 28
@@ -1166,8 +1164,8 @@ Output rule count: 978
 		regexFilter is not RE2-compatible: ^(?!.*(statically.io|sharecast.ws|bunnycdn.ru|bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|vk.com|yandex.|yastatic.net|ytimg.com|zencdn.net|player|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com|imgsmail.ru)).*$
 		Can't salvage rule with only entity-based domain= option: anitube.*
 CSS-generic: 85 plain CSS selectors
-CSS-specific: 2441 distinct filters
-	Combined into 1470 distinct hostnames
+CSS-specific: 2446 distinct filters
+	Combined into 1475 distinct hostnames
 	Combined into 6 distinct entities
 CSS-declarative: 97 distinct filters
 	Combined into 146 distinct hostnames
@@ -1191,8 +1189,8 @@ Output rule count: 100
 	Unsupported: 0
 
 CSS-generic: 4 plain CSS selectors
-CSS-specific: 331 distinct filters
-	Combined into 148 distinct hostnames
+CSS-specific: 333 distinct filters
+	Combined into 147 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 3 distinct combined selectors
 	Combined into 3 distinct hostnames
@@ -1203,11 +1201,11 @@ Listset for 'swe-1':
 	Fetching remote https://raw.githubusercontent.com/lassekongo83/Frellwits-filter-lists/master/Swedish/not_chromium.txt
 	Fetched local https://raw.githubusercontent.com/lassekongo83/Frellwits-filter-lists/master/Swedish/swe-ubo-filters.txt
 	Fetched local https://raw.githubusercontent.com/lassekongo83/Frellwits-filter-lists/master/Swedish/not_mobile.txt
-Input filter count: 1687
-	Accepted filter count: 1687
+Input filter count: 1695
+	Accepted filter count: 1695
 	Rejected filter count: 0
-Output rule count: 1259
-	Plain good: 1236
+Output rule count: 1265
+	Plain good: 1242
 
 	Maybe good (regexes): 2
 	redirect=: 9
@@ -1219,14 +1217,14 @@ Output rule count: 1259
 		Unsupported regex-based removeParam: /^utm_/
 CSS-generic: 276 plain CSS selectors
 CSS-generic-high: 44 plain CSS selectors
-CSS-specific: 659 distinct filters
-	Combined into 1135 distinct hostnames
+CSS-specific: 658 distinct filters
+	Combined into 1136 distinct hostnames
 	Combined into 2 distinct entities
 CSS-declarative: 81 distinct filters
 	Combined into 215 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 388 distinct combined selectors
-	Combined into 346 distinct hostnames
+Procedural-related distinct filters: 392 distinct combined selectors
+	Combined into 350 distinct hostnames
 	Combined into 1 distinct entities
 ============================
 Listset for 'tha-0':
@@ -1254,11 +1252,11 @@ Procedural-related distinct filters: 117 distinct combined selectors
 ============================
 Listset for 'tur-0':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/13.txt
-Input filter count: 1650
-	Accepted filter count: 1650
+Input filter count: 1653
+	Accepted filter count: 1653
 	Rejected filter count: 0
-Output rule count: 1213
-	Plain good: 1173
+Output rule count: 1216
+	Plain good: 1176
 		Salvaged rule by ignoring 1 entity-based domain= option: ajans32.com|asyadiziizle.com|balfilmizle1.com|birasyadizi.com|buyuktorbali.com|dizilost.com|duzcetv.com|erotikfilmtube.com|ertehaber.com|filmjr1.com|filmsezonu.com|haber32.com.tr|haberant.com|hdfilmizleamk.com|jokerfilmizle.com|kozfilm.com|malatyamegahaber.com|medya32.com|sexfilmleriizle.com|sinemangoo.org|technopat.net|unyenethaber.com|zerotikk.com|dizicaps.*
 		Salvaged rule by ignoring 3 entity-based domain= option: 720pizle.*|dizilla.*|diziroll.*|roketdizi.co
 		Salvaged rule by ignoring 1 entity-based domain= option: fullhdfilm.pro|fullhdfilmizle5.*
@@ -1282,34 +1280,34 @@ Output rule count: 1213
 		Can't salvage rule with only entity-based domain= option: filmizletv.*
 CSS-generic: 149 plain CSS selectors
 CSS-generic-high: 61 plain CSS selectors
-CSS-specific: 2959 distinct filters
+CSS-specific: 2962 distinct filters
 	Combined into 2676 distinct hostnames
-	Combined into 41 distinct entities
+	Combined into 43 distinct entities
 CSS-declarative: 154 distinct filters
 	Combined into 543 distinct hostnames
 	Combined into 22 distinct entities
-Procedural-related distinct filters: 345 distinct combined selectors
-	Combined into 242 distinct hostnames
-	Combined into 6 distinct entities
+Procedural-related distinct filters: 314 distinct combined selectors
+	Combined into 222 distinct hostnames
+	Combined into 7 distinct entities
 ============================
 Listset for 'vie-1':
 	Fetched local https://raw.githubusercontent.com/abpvn/abpvn/master/filter/abpvn_ublock.txt
-Input filter count: 605
-	Accepted filter count: 605
+Input filter count: 614
+	Accepted filter count: 614
 	Rejected filter count: 0
-Output rule count: 493
-	Plain good: 479
+Output rule count: 499
+	Plain good: 484
 
 	Maybe good (regexes): 5
 	redirect=: 6
 	removeparams= (accepted/discarded): 0/0
-	modifyHeaders=: 3
+	modifyHeaders=: 4
 	Unsupported: 0
 
 CSS-generic: 11 plain CSS selectors
 CSS-generic-high: 4 plain CSS selectors
-CSS-specific: 802 distinct filters
-	Combined into 457 distinct hostnames
+CSS-specific: 806 distinct filters
+	Combined into 467 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 4 distinct filters
 	Combined into 11 distinct hostnames
@@ -1335,11 +1333,11 @@ Output rule count: 12
 ============================
 Listset for 'dpollock-0':
 	Fetched local https://someonewhocares.org/hosts/hosts
-Input filter count: 11582
-	Accepted filter count: 11581
+Input filter count: 11583
+	Accepted filter count: 11582
 	Rejected filter count: 0
 Output rule count: 1
-	Pruning requestDomains: from 11581 to 9333
+	Pruning requestDomains: from 11582 to 9334
 	Plain good: 1
 
 	Maybe good (regexes): 0
@@ -1351,17 +1349,17 @@ Output rule count: 1
 ============================
 Listset for 'adguard-spyware-url':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/17.txt
-Input filter count: 1248
-	Accepted filter count: 1244
+Input filter count: 1259
+	Accepted filter count: 1254
 	Rejected filter count: 0
-Output rule count: 477
+Output rule count: 487
 	Plain good: 0
 
 	Maybe good (regexes): 0
 	redirect=: 0
-	removeparams= (accepted/discarded): 394/83
+	removeparams= (accepted/discarded): 395/92
 	modifyHeaders=: 0
-	Unsupported: 83
+	Unsupported: 92
 		Unsupported regex-based removeParam: /^cm_mmc/
 		Unsupported regex-based removeParam: /^__s=[A-Za-z0-9]{6\,}/
 		Unsupported regex-based removeParam: /^via%3D/
@@ -1436,6 +1434,15 @@ Output rule count: 477
 		Unsupported modifier exception
 		Unsupported modifier exception
 		Unsupported modifier exception
+		Unsupported modifier exception
+		Unsupported modifier exception
+		Unsupported modifier exception
+		Unsupported modifier exception
+		Unsupported modifier exception
+		Unsupported modifier exception
+		Unsupported modifier exception
+		Unsupported modifier exception
+		Unsupported modifier exception
 		Unsupported regex-based removeParam: /^\/_ui\/desktop\/common\/js\/uiAnalytics\//
 		Unsupported regex-based removeParam: /_ui\/shared\/common\/js\/analytics\/with-intersection-track.js/
 		Unsupported regex-based removeParam: /_ui\/shared\/common\/js\/InappCommunicationManager.js/
@@ -1452,11 +1459,11 @@ CSS-specific: 1 distinct filters
 Listset for 'annoyances-cookies':
 	Fetched local https://ublockorigin.github.io/uAssets/filters/annoyances-cookies.txt
 	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist-cookies.txt
-Input filter count: 1826
-	Accepted filter count: 1826
+Input filter count: 1842
+	Accepted filter count: 1842
 	Rejected filter count: 0
-Output rule count: 1505
-	Plain good: 1504
+Output rule count: 1518
+	Plain good: 1517
 
 	Maybe good (regexes): 1
 	redirect=: 0
@@ -1464,13 +1471,13 @@ Output rule count: 1505
 	modifyHeaders=: 0
 	Unsupported: 0
 
-CSS-generic: 16951 plain CSS selectors
+CSS-generic: 16954 plain CSS selectors
 CSS-generic-high: 350 plain CSS selectors
-CSS-specific: 5561 distinct filters
-	Combined into 16639 distinct hostnames
+CSS-specific: 5590 distinct filters
+	Combined into 16698 distinct hostnames
 	Combined into 1 distinct entities
-CSS-declarative: 58 distinct filters
-	Combined into 5503 distinct hostnames
+CSS-declarative: 59 distinct filters
+	Combined into 5511 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 25 distinct combined selectors
 	Combined into 62 distinct hostnames
@@ -1479,12 +1486,12 @@ Procedural-related distinct filters: 25 distinct combined selectors
 Listset for 'annoyances-overlays':
 	Fetched local https://ublockorigin.github.io/uAssets/filters/annoyances-others.txt
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/19.txt
-Input filter count: 2513
-	Accepted filter count: 2511
+Input filter count: 2520
+	Accepted filter count: 2518
 	Rejected filter count: 0
-Output rule count: 1536
-	Pruning requestDomains: from 545 to 544
-	Plain good: 1471
+Output rule count: 1538
+	Pruning requestDomains: from 550 to 549
+	Plain good: 1473
 
 	Maybe good (regexes): 3
 	redirect=: 51
@@ -1496,25 +1503,25 @@ Output rule count: 1536
 		regexFilter is not RE2-compatible: ^https:\/\/[0-9a-z]{7,25}\.com\/v2(?:\/0\/)?(?=[0-9a-z_-]{0,84}[A-Z])(?=[a-zA-Z_-]{0,84}[0-9])[0-9a-zA-Z_-]{54,85}(#\?v=[0-9a-f]{32})?$
 		regexFilter is not RE2-compatible: ^https:\/\/[0-9a-z]{7,25}\.com\/v2(?:\/0\/)?(?=[0-9a-z_-]{0,84}[A-Z])(?=[a-zA-Z_-]{0,84}[0-9])[0-9a-zA-Z_-]{54,85}(#\?v=[0-9a-f]{32})?$
 		regexFilter is not RE2-compatible: ^https:\/\/[0-9a-z]{7,25}\.com\/v2(?:\/0\/)?(?=[0-9a-z_-]{0,84}[A-Z])(?=[a-zA-Z_-]{0,84}[0-9])[0-9a-zA-Z_-]{54,85}(#\?v=[0-9a-f]{32})?$
-CSS-generic: 37 plain CSS selectors
+CSS-generic: 38 plain CSS selectors
 CSS-generic-high: 3 plain CSS selectors
-CSS-specific: 10257 distinct filters
-	Combined into 10784 distinct hostnames
+CSS-specific: 10285 distinct filters
+	Combined into 10803 distinct hostnames
 	Combined into 80 distinct entities
-CSS-declarative: 599 distinct filters
-	Combined into 2244 distinct hostnames
+CSS-declarative: 600 distinct filters
+	Combined into 2246 distinct hostnames
 	Combined into 25 distinct entities
-Procedural-related distinct filters: 1099 distinct combined selectors
-	Combined into 1422 distinct hostnames
+Procedural-related distinct filters: 1108 distinct combined selectors
+	Combined into 1428 distinct hostnames
 	Combined into 12 distinct entities
 ============================
 Listset for 'annoyances-social':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/4.txt
-Input filter count: 644
-	Accepted filter count: 644
+Input filter count: 646
+	Accepted filter count: 646
 	Rejected filter count: 0
-Output rule count: 545
-	Plain good: 541
+Output rule count: 547
+	Plain good: 543
 
 	Maybe good (regexes): 0
 	redirect=: 1
@@ -1526,23 +1533,23 @@ Output rule count: 545
 		Can't salvage rule with only entity-based domain= option: freelancer.*
 CSS-generic: 755 plain CSS selectors
 CSS-generic-high: 87 plain CSS selectors
-CSS-specific: 10387 distinct filters
-	Combined into 12133 distinct hostnames
+CSS-specific: 10395 distinct filters
+	Combined into 12148 distinct hostnames
 	Combined into 61 distinct entities
 CSS-declarative: 112 distinct filters
 	Combined into 208 distinct hostnames
 	Combined into 7 distinct entities
-Procedural-related distinct filters: 1102 distinct combined selectors
-	Combined into 1131 distinct hostnames
+Procedural-related distinct filters: 1104 distinct combined selectors
+	Combined into 1134 distinct hostnames
 	Combined into 6 distinct entities
 ============================
 Listset for 'annoyances-widgets':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/22.txt
-Input filter count: 671
-	Accepted filter count: 671
+Input filter count: 676
+	Accepted filter count: 676
 	Rejected filter count: 0
-Output rule count: 434
-	Plain good: 434
+Output rule count: 438
+	Plain good: 438
 
 	Maybe good (regexes): 0
 	redirect=: 0
@@ -1550,25 +1557,25 @@ Output rule count: 434
 	modifyHeaders=: 0
 	Unsupported: 0
 
-CSS-generic: 25 plain CSS selectors
+CSS-generic: 26 plain CSS selectors
 CSS-generic-high: 7 plain CSS selectors
-CSS-specific: 984 distinct filters
-	Combined into 968 distinct hostnames
+CSS-specific: 991 distinct filters
+	Combined into 973 distinct hostnames
 	Combined into 2 distinct entities
 CSS-declarative: 16 distinct filters
 	Combined into 15 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 130 distinct combined selectors
-	Combined into 99 distinct hostnames
+Procedural-related distinct filters: 133 distinct combined selectors
+	Combined into 100 distinct hostnames
 	Combined into 1 distinct entities
 ============================
 Listset for 'annoyances-others':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/21.txt
-Input filter count: 429
-	Accepted filter count: 429
+Input filter count: 430
+	Accepted filter count: 430
 	Rejected filter count: 0
-Output rule count: 402
-	Plain good: 398
+Output rule count: 403
+	Plain good: 399
 
 	Maybe good (regexes): 2
 	redirect=: 1
@@ -1577,23 +1584,23 @@ Output rule count: 402
 	Unsupported: 0
 
 CSS-generic: 7 plain CSS selectors
-CSS-specific: 3435 distinct filters
-	Combined into 3359 distinct hostnames
+CSS-specific: 3448 distinct filters
+	Combined into 3367 distinct hostnames
 	Combined into 32 distinct entities
-CSS-declarative: 388 distinct filters
-	Combined into 787 distinct hostnames
+CSS-declarative: 389 distinct filters
+	Combined into 788 distinct hostnames
 	Combined into 5 distinct entities
-Procedural-related distinct filters: 467 distinct combined selectors
-	Combined into 563 distinct hostnames
+Procedural-related distinct filters: 469 distinct combined selectors
+	Combined into 565 distinct hostnames
 	Combined into 7 distinct entities
 ============================
 Listset for 'stevenblack-hosts':
 	Fetched local https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-Input filter count: 142562
-	Accepted filter count: 142562
+Input filter count: 144648
+	Accepted filter count: 144648
 	Rejected filter count: 0
 Output rule count: 1
-	Pruning requestDomains: from 142562 to 73696
+	Pruning requestDomains: from 144648 to 74606
 	Plain good: 1
 
 	Maybe good (regexes): 0

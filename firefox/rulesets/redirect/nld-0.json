@@ -15,7 +15,7 @@
    ],
    "urlFilter": "||gabe.hit.gemius.pl/gplayer.js"
   },
-  "id": 627,
+  "id": 552,
   "priority": 12
  },
  {
@@ -34,27 +34,8 @@
    ],
    "urlFilter": "||mssl.fwmrm.net/*/admanager.js"
   },
-  "id": 628,
+  "id": 553,
   "priority": 12
- },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop.js"
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "spel.nl"
-   ],
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||googlesyndication.com/pagead/show_ads.js"
-  },
-  "id": 629,
-  "priority": 2
  },
  {
   "action": {
@@ -72,7 +53,7 @@
    ],
    "urlFilter": "||medialaancdn.be/vtm_od/prerolls/"
   },
-  "id": 630,
+  "id": 554,
   "priority": 2
  }
 ]

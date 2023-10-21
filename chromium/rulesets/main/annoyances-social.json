@@ -5022,6 +5022,32 @@
   },
   "condition": {
    "initiatorDomains": [
+    "linenchest.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||woobox.com/js/plugins/woo.js"
+  },
+  "id": 435
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "linenchest.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||woobox.com/*?embed="
+  },
+  "id": 436
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
     "ncsoft.jp",
     "nuheara.com",
     "vulcun.com"
@@ -5029,7 +5055,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform.twitter.com/oct.js"
   },
-  "id": 435
+  "id": 437
  },
  {
   "action": {
@@ -5096,7 +5122,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yastatic.net/*/share.js"
   },
-  "id": 436
+  "id": 438
  },
  {
   "action": {
@@ -5111,7 +5137,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.addtoany.com/menu/page.js"
   },
-  "id": 437
+  "id": 439
  },
  {
   "action": {
@@ -5125,7 +5151,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yastatic.net/share2/share.js"
   },
-  "id": 438
+  "id": 440
  },
  {
   "action": {
@@ -5139,7 +5165,7 @@
     "sharethis.com"
    ]
   },
-  "id": 439
+  "id": 441
  },
  {
   "action": {
@@ -5167,7 +5193,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||addthis.com/js/*/addthis_widget.js"
   },
-  "id": 440
+  "id": 442
  },
  {
   "action": {
@@ -5177,7 +5203,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||misssuomi.fi/wp-content/plugins/instagram-feed/"
   },
-  "id": 441
+  "id": 443
  },
  {
   "action": {
@@ -5197,7 +5223,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vk.com/js/api/share.js"
   },
-  "id": 442
+  "id": 444
  },
  {
   "action": {
@@ -5210,7 +5236,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||smallcaps.com.au/wp-content/plugins/mashshare"
   },
-  "id": 443
+  "id": 445
  },
  {
   "action": {
@@ -5223,7 +5249,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.ampproject.org/v0/amp-social-share-0.1.js"
   },
-  "id": 444
+  "id": 446
  },
  {
   "action": {
@@ -5238,7 +5264,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform.twitter.com/js/button."
   },
-  "id": 445
+  "id": 447
  },
  {
   "action": {
@@ -5253,7 +5279,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform.twitter.com/widgets/follow_button."
   },
-  "id": 446
+  "id": 448
  },
  {
   "action": {
@@ -5263,7 +5289,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hardys.one/wp-content/plugins/easy-vkontakte-connect/js/social-likes.min.js"
   },
-  "id": 447
+  "id": 449
  },
  {
   "action": {
@@ -5273,7 +5299,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kobaiya.jp/img/facebook.gif"
   },
-  "id": 448
+  "id": 450
  },
  {
   "action": {
@@ -5286,7 +5312,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||twitter.com/oct.js"
   },
-  "id": 449
+  "id": 451
  },
  {
   "action": {
@@ -5296,7 +5322,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||inewscast.ru/wp-content/plugins/easy-social-share-buttons*/lib/modules/social-followers-counter/assets/font/essb-socialfollowers.ttf"
   },
-  "id": 450
+  "id": 452
  },
  {
   "action": {
@@ -5306,7 +5332,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kayiprihtim.com/wp-content/plugins/easy-social-share-buttons3/lib/modules/social-followers-counter/assets/font/essb-socialfollowers.ttf"
   },
-  "id": 451
+  "id": 453
  },
  {
   "action": {
@@ -5316,7 +5342,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||login.cleveland.com/js/socialize.js"
   },
-  "id": 452
+  "id": 454
  },
  {
   "action": {
@@ -5326,7 +5352,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cio.com.br/wp-content/plugins/add-to-any/addtoany.min.css"
   },
-  "id": 453
+  "id": 455
  },
  {
   "action": {
@@ -5342,7 +5368,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform.twitter.com/js/button.*.js"
   },
-  "id": 454
+  "id": 456
  },
  {
   "action": {
@@ -5357,7 +5383,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform.twitter.com/widgets/follow_button"
   },
-  "id": 455
+  "id": 457
  },
  {
   "action": {
@@ -5371,7 +5397,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/*/plugins/"
   },
-  "id": 456
+  "id": 458
  },
  {
   "action": {
@@ -5384,7 +5410,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i.ua/*/ico/share/share_*_24.png"
   },
-  "id": 457
+  "id": 459
  },
  {
   "action": {
@@ -5394,7 +5420,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||olgasmile.com/wp-content/plugins/bwp-minify/min/?f=wp-content/plugins/"
   },
-  "id": 458
+  "id": 460
  },
  {
   "action": {
@@ -5407,7 +5433,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||assets.pinterest.com/js/pinit.js"
   },
-  "id": 459
+  "id": 461
  },
  {
   "action": {
@@ -5420,7 +5446,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||assets.pinterest.com/js/pinit_main.js"
   },
-  "id": 460
+  "id": 462
  },
  {
   "action": {
@@ -5434,7 +5460,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform-api.sharethis.com/js/sharethis.js"
   },
-  "id": 461
+  "id": 463
  },
  {
   "action": {
@@ -5444,7 +5470,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lightningmaps.org/min/index.php?f=js/"
   },
-  "id": 462
+  "id": 464
  },
  {
   "action": {
@@ -5457,7 +5483,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||connect.facebook.net/en_us/sdk.js"
   },
-  "id": 463
+  "id": 465
  },
  {
   "action": {
@@ -5470,7 +5496,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||connect.mail.ru/proxy?resource=getloginstatus"
   },
-  "id": 464
+  "id": 466
  },
  {
   "action": {
@@ -5480,7 +5506,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||m.addthisedge.com/live/boost/*/_ate.track.config_resp"
   },
-  "id": 465
+  "id": 467
  },
  {
   "action": {
@@ -5493,7 +5519,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||connect.facebook.net/*/sdk/vb.js"
   },
-  "id": 466
+  "id": 468
  },
  {
   "action": {
@@ -5503,7 +5529,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||extrakupony.pl/js/zakladki.js"
   },
-  "id": 467
+  "id": 469
  },
  {
   "action": {
@@ -5513,7 +5539,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||remontnik.ru/static/js/app.min/components/socials/socialbuttons/socialbuttons.js"
   },
-  "id": 468
+  "id": 470
  },
  {
   "action": {
@@ -5531,7 +5557,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||addthis.com/js/*/addthis_widget.js^"
   },
-  "id": 469
+  "id": 471
  },
  {
   "action": {
@@ -5544,7 +5570,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||addthis.com/*/official-addthis-angularjs/current/dist/official-addthis-angularjs.min.js"
   },
-  "id": 470
+  "id": 472
  },
  {
   "action": {
@@ -5558,7 +5584,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform.linkedin.com/in.js"
   },
-  "id": 471
+  "id": 473
  },
  {
   "action": {
@@ -5568,7 +5594,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||smartvsphone.it/wp-content/plugins/ultimate-social-media-plus/css/sfsi-style.css"
   },
-  "id": 472
+  "id": 474
  },
  {
   "action": {
@@ -5578,7 +5604,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||smartvsphone.it/wp-content/plugins/ultimate-social-media-plus/images/icons_theme/flat/flat_"
   },
-  "id": 473
+  "id": 475
  },
  {
   "action": {
@@ -5591,7 +5617,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||addthis.com/js/300/addthis_widget.js"
   },
-  "id": 474
+  "id": 476
  },
  {
   "action": {
@@ -5604,7 +5630,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||count-server.sharethis.com/*/get_counts"
   },
-  "id": 475
+  "id": 477
  },
  {
   "action": {
@@ -5617,7 +5643,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||buttons-config.sharethis.com/js^"
   },
-  "id": 476
+  "id": 478
  },
  {
   "action": {
@@ -5630,7 +5656,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform.twitter.com/widgets/"
   },
-  "id": 477
+  "id": 479
  },
  {
   "action": {
@@ -5640,7 +5666,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||news.filehippo.com/wp-content/themes/filehippo/js/socialite.min.js"
   },
-  "id": 478
+  "id": 480
  },
  {
   "action": {
@@ -5653,7 +5679,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/plugins/like_box.php^"
   },
-  "id": 479
+  "id": 481
  },
  {
   "action": {
@@ -5663,7 +5689,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kalemsende.com/wp-content/plugins/easy-social-share-buttons3/lib/modules/social-followers-counter/assets/font/essb-socialfollowers."
   },
-  "id": 480
+  "id": 482
  },
  {
   "action": {
@@ -5676,7 +5702,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/*/plugins^"
   },
-  "id": 481
+  "id": 483
  },
  {
   "action": {
@@ -5689,7 +5715,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vk.com/share.php"
   },
-  "id": 482
+  "id": 484
  },
  {
   "action": {
@@ -5702,7 +5728,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/restserver.php?*.getstats&"
   },
-  "id": 483
+  "id": 485
  },
  {
   "action": {
@@ -5715,7 +5741,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/plugins/page.php^"
   },
-  "id": 484
+  "id": 486
  },
  {
   "action": {
@@ -5734,7 +5760,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||graph.facebook.com/?id="
   },
-  "id": 485
+  "id": 487
  },
  {
   "action": {
@@ -5747,7 +5773,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||technews.wpengine.netdna-cdn.com/wp-content/themes/filehippo/js/socialite.min.js"
   },
-  "id": 486
+  "id": 488
  },
  {
   "action": {
@@ -5757,7 +5783,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mercury.landmarkglobal.com/tracking/track.php"
   },
-  "id": 487
+  "id": 489
  },
  {
   "action": {
@@ -5770,7 +5796,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googlevideo.com/videoplayback?"
   },
-  "id": 488
+  "id": 490
  },
  {
   "action": {
@@ -5788,7 +5814,7 @@
     "blogspot.com"
    ]
   },
-  "id": 489
+  "id": 491
  },
  {
   "action": {
@@ -5798,7 +5824,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mycloud.to/resources/css/"
   },
-  "id": 490
+  "id": 492
  },
  {
   "action": {
@@ -5808,7 +5834,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "//mycloud.to/resources/js/player.js"
   },
-  "id": 491
+  "id": 493
  },
  {
   "action": {
@@ -5818,7 +5844,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "//mycloud.to/resources/player/jwplayer-*/jwplayer.js"
   },
-  "id": 492
+  "id": 494
  },
  {
   "action": {
@@ -5831,7 +5857,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ghbtns.com/github-btn.html"
   },
-  "id": 493
+  "id": 495
  },
  {
   "action": {
@@ -5844,7 +5870,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||xing-share.com/assets/spi/message_proxy-*.js"
   },
-  "id": 494
+  "id": 496
  },
  {
   "action": {
@@ -5857,7 +5883,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||xing-share.com/plugins^"
   },
-  "id": 495
+  "id": 497
  },
  {
   "action": {
@@ -5867,7 +5893,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/*/plugins/login_button."
   },
-  "id": 496
+  "id": 498
  },
  {
   "action": {
@@ -5897,7 +5923,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yandex.st/share/share.js"
   },
-  "id": 497
+  "id": 499
  },
  {
   "action": {
@@ -5910,7 +5936,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||api.facebook.com/method/links.getstats"
   },
-  "id": 498
+  "id": 500
  },
  {
   "action": {
@@ -5920,7 +5946,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sol-online.ru/art/sol-board"
   },
-  "id": 499
+  "id": 501
  },
  {
   "action": {
@@ -5930,7 +5956,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||orlandoweekly.com/wp-content/plugins/wpsocialite/socialite/socialite.min.js"
   },
-  "id": 500
+  "id": 502
  },
  {
   "action": {
@@ -5940,7 +5966,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/plugins/video.php"
   },
-  "id": 501
+  "id": 503
  },
  {
   "action": {
@@ -5950,7 +5976,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tune.com/blog/wp-content/plugins/ultimate-social-deux/public/assets/css/style.css"
   },
-  "id": 502
+  "id": 504
  },
  {
   "action": {
@@ -5960,7 +5986,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vk.com/widget_auth.php"
   },
-  "id": 503
+  "id": 505
  },
  {
   "action": {
@@ -5970,7 +5996,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vk.com/widget_comments.php"
   },
-  "id": 504
+  "id": 506
  },
  {
   "action": {
@@ -5980,7 +6006,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vk.com/widget_post.php"
   },
-  "id": 505
+  "id": 507
  },
  {
   "action": {
@@ -5990,7 +6016,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vk.com/widget_playlist.php"
   },
-  "id": 506
+  "id": 508
  },
  {
   "action": {
@@ -6000,7 +6026,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zona.mobi/js/build/libs/likely.js"
   },
-  "id": 507
+  "id": 509
  },
  {
   "action": {
@@ -6010,7 +6036,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||talon.by/squeeze/"
   },
-  "id": 508
+  "id": 510
  },
  {
   "action": {
@@ -6020,7 +6046,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/*/plugins/comments.php"
   },
-  "id": 509
+  "id": 511
  },
  {
   "action": {
@@ -6030,7 +6056,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/plugins/feedback.php"
   },
-  "id": 510
+  "id": 512
  },
  {
   "action": {
@@ -6040,7 +6066,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/plugins/comments"
   },
-  "id": 511
+  "id": 513
  },
  {
   "action": {
@@ -6050,7 +6076,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/plugins/comment_embed.php"
   },
-  "id": 512
+  "id": 514
  },
  {
   "action": {
@@ -6060,7 +6086,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/*/plugins/post.php"
   },
-  "id": 513
+  "id": 515
  },
  {
   "action": {
@@ -6070,7 +6096,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/*/plugins/video.php"
   },
-  "id": 514
+  "id": 516
  },
  {
   "action": {
@@ -6080,7 +6106,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/plugins/post"
   },
-  "id": 515
+  "id": 517
  },
  {
   "action": {
@@ -6094,7 +6120,7 @@
     "addthiscdn.com"
    ]
   },
-  "id": 516
+  "id": 518
  },
  {
   "action": {
@@ -6104,7 +6130,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gibdd.ru/about/social/"
   },
-  "id": 517
+  "id": 519
  },
  {
   "action": {
@@ -6117,7 +6143,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/plugins/"
   },
-  "id": 518
+  "id": 520
  },
  {
   "action": {
@@ -6131,7 +6157,7 @@
     "fls.doubleclick.net"
    ]
   },
-  "id": 519
+  "id": 521
  },
  {
   "action": {
@@ -6144,7 +6170,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||twitter.com/widgets"
   },
-  "id": 520
+  "id": 522
  },
  {
   "action": {
@@ -6157,7 +6183,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vkontakte.ru/js/api/share.js^"
   },
-  "id": 521
+  "id": 523
  },
  {
   "action": {
@@ -6167,7 +6193,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gigya.com/*/socialize.js"
   },
-  "id": 522
+  "id": 524
  },
  {
   "action": {
@@ -6177,7 +6203,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||notebookcheck.com^*/jquery.socialshareprivacy.min.js"
   },
-  "id": 523
+  "id": 525
  },
  {
   "action": {
@@ -6187,7 +6213,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||panzi.github.io/socialshareprivacy/"
   },
-  "id": 524
+  "id": 526
  },
  {
   "action": {
@@ -6197,7 +6223,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||schluetersche.de/global/js/libs/jquery/plugins/socialshareprivacy/jquery.socialshareprivacy.min.js"
   },
-  "id": 525
+  "id": 527
  },
  {
   "action": {
@@ -6207,29 +6233,6 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||spardaspendenwahl.de^*/jquery.socialshareprivacy.min.js"
   },
-  "id": 526
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||weser-kurier.de/stellen/riot-utils/joined.js?*/socialshareprivacy/"
-  },
-  "id": 527
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||wn-gruesse.de^*/socialshareprivacy/"
-  },
   "id": 528
  },
  {
@@ -6238,10 +6241,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||wn-jobs.de^*/socialshareprivacy/"
+   "urlFilter": "||weser-kurier.de/stellen/riot-utils/joined.js?*/socialshareprivacy/"
   },
   "id": 529
  },
@@ -6254,7 +6254,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||wn-markt.de^*/socialshareprivacy/"
+   "urlFilter": "||wn-gruesse.de^*/socialshareprivacy/"
   },
   "id": 530
  },
@@ -6267,9 +6267,35 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||wn-mobil.de^*/socialshareprivacy/"
+   "urlFilter": "||wn-jobs.de^*/socialshareprivacy/"
   },
   "id": 531
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||wn-markt.de^*/socialshareprivacy/"
+  },
+  "id": 532
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||wn-mobil.de^*/socialshareprivacy/"
+  },
+  "id": 533
  },
  {
   "action": {
@@ -6282,7 +6308,7 @@
    ],
    "urlFilter": "||kontrast.at/wp-content/plugins/easy-social-share-buttons"
   },
-  "id": 532
+  "id": 534
  },
  {
   "action": {
@@ -6300,7 +6326,7 @@
    ],
    "urlFilter": "/wp-content/plugins/easy-social-share-button"
   },
-  "id": 533
+  "id": 535
  },
  {
   "action": {
@@ -6313,7 +6339,7 @@
    ],
    "urlFilter": "||rifey.ru/sites/default/files/advagg_js/"
   },
-  "id": 534
+  "id": 536
  },
  {
   "action": {
@@ -6326,7 +6352,7 @@
    ],
    "urlFilter": "||facebook.com/plugins/livefeed.php"
   },
-  "id": 535
+  "id": 537
  },
  {
   "action": {
@@ -6339,7 +6365,7 @@
    ],
    "urlFilter": "||facebook.com/plugins/login_button.php"
   },
-  "id": 536
+  "id": 538
  },
  {
   "action": {
@@ -6350,7 +6376,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/engine/classes/min/index.php?*/social-likes.min.js"
   },
-  "id": 537
+  "id": 539
  },
  {
   "action": {
@@ -6361,7 +6387,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/engine/classes/min/?charset=*/social-likes.min.js"
   },
-  "id": 538
+  "id": 540
  },
  {
   "action": {
@@ -6375,7 +6401,7 @@
    ],
    "urlFilter": "||shiseido.co.jp/shared/assets/img/btn_sns_footer_"
   },
-  "id": 539
+  "id": 541
  },
  {
   "action": {
@@ -6389,7 +6415,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/sharer.php"
   },
-  "id": 540
+  "id": 542
  },
  {
   "action": {
@@ -6403,6 +6429,6 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||twitter.com/share"
   },
-  "id": 541
+  "id": 543
  }
 ]
