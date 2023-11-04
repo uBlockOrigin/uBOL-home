@@ -4,24 +4,12 @@
    "type": "block"
   },
   "condition": {
-   "regexFilter": "^https\\:\\/\\/dutchitchannel\\.nl\\/media\\/\\d{6}\\/\\d{10}\\.jpg$",
-   "resourceTypes": [
-    "image"
-   ]
-  },
-  "id": 305
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
    "regexFilter": "^https?:\\/\\/statics\\.(?:ad|bd|bndestem|destentor|ed|gelderlander|hln|tubantia|pzc)\\.(?:nl|be)\\/js\\/advertising-[\\w]+\\.js$",
    "resourceTypes": [
     "script"
    ]
   },
-  "id": 423
+  "id": 427
  },
  {
   "action": {
@@ -34,7 +22,7 @@
     "image"
    ]
   },
-  "id": 444
+  "id": 447
  },
  {
   "action": {
@@ -46,7 +34,7 @@
     "script"
    ]
   },
-  "id": 518
+  "id": 514
  },
  {
   "action": {
@@ -61,7 +49,7 @@
     "/pt\\.[\\w]{6}\\.com/"
    ]
   },
-  "id": 530
+  "id": 525
  },
  {
   "action": {
@@ -73,6 +61,6 @@
     "sub_frame"
    ]
   },
-  "id": 539
+  "id": 534
  }
 ]

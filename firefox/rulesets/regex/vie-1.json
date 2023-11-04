@@ -30,7 +30,7 @@
     "image"
    ]
   },
-  "id": 278
+  "id": 279
  },
  {
   "action": {
@@ -42,7 +42,19 @@
     "script"
    ]
   },
-  "id": 397
+  "id": 395
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "regexFilter": "\\w{60}\\.\\w{2,5}\\/\\w{84}\\.js",
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 396
  },
  {
   "action": {
@@ -54,6 +66,6 @@
     "script"
    ]
   },
-  "id": 402
+  "id": 401
  }
 ]

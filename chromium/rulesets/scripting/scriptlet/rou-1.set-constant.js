@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: jpn-1
+// ruleset: rou-1
 
 /******************************************************************************/
 
@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_jsonPrune = function() {
+const uBOL_setConstant = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["ads.[].imageUrl"]];
+const argsList = [["adblockcheck","false"]];
 
-const hostnamesMap = new Map([["trpger.us",0],["mk.yopo.work",0],["sushi.ski",0],["warpday.net",0],["zadankai.club",0],["misskey.io",0],["misskey.oga.ninja",0]]);
+const hostnamesMap = new Map([["vzlinks.com",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,122 +52,220 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function jsonPrune(
-    rawPrunePaths = '',
-    rawNeedlePaths = '',
-    stackNeedle = ''
+function setConstant(
+    ...args
 ) {
-    const safe = safeSelf();
-    const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    JSON.parse = new Proxy(JSON.parse, {
-        apply: function(target, thisArg, args) {
-            const objBefore = Reflect.apply(target, thisArg, args);
-            const objAfter = objectPruneFn(
-                objBefore,
-                rawPrunePaths,
-                rawNeedlePaths,
-                stackNeedleDetails,
-                extraArgs
-           );
-           return objAfter || objBefore;
-        },
-    });
+    setConstantCore(false, ...args);
 }
 
-function objectPruneFn(
-    obj,
-    rawPrunePaths,
-    rawNeedlePaths,
-    stackNeedleDetails = { matchAll: true },
-    extraArgs = {}
+function setConstantCore(
+    trusted = false,
+    chain = '',
+    cValue = ''
 ) {
-    if ( typeof rawPrunePaths !== 'string' ) { return; }
+    if ( chain === '' ) { return; }
     const safe = safeSelf();
-    const prunePaths = rawPrunePaths !== ''
-        ? rawPrunePaths.split(/ +/)
-        : [];
-    const needlePaths = prunePaths.length !== 0 && rawNeedlePaths !== ''
-        ? rawNeedlePaths.split(/ +/)
-        : [];
-    const logLevel = shouldLog({ log: rawPrunePaths === '' || extraArgs.log });
-    const reLogNeedle = safe.patternToRegex(logLevel === true ? rawNeedlePaths : '');
-    if ( stackNeedleDetails.matchAll !== true ) {
-        if ( matchesStackTrace(stackNeedleDetails, extraArgs.logstack) === false ) {
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    function setConstant(chain, cValue) {
+        const trappedProp = (( ) => {
+            const pos = chain.lastIndexOf('.');
+            if ( pos === -1 ) { return chain; }
+            return chain.slice(pos+1);
+        })();
+        if ( trappedProp === '' ) { return; }
+        const thisScript = document.currentScript;
+        const cloakFunc = fn => {
+            safe.Object_defineProperty(fn, 'name', { value: trappedProp });
+            const proxy = new Proxy(fn, {
+                defineProperty(target, prop) {
+                    if ( prop !== 'toString' ) {
+                        return Reflect.defineProperty(...arguments);
+                    }
+                    return true;
+                },
+                deleteProperty(target, prop) {
+                    if ( prop !== 'toString' ) {
+                        return Reflect.deleteProperty(...arguments);
+                    }
+                    return true;
+                },
+                get(target, prop) {
+                    if ( prop === 'toString' ) {
+                        return function() {
+                            return `function ${trappedProp}() { [native code] }`;
+                        }.bind(null);
+                    }
+                    return Reflect.get(...arguments);
+                },
+            });
+            return proxy;
+        };
+        if ( cValue === 'undefined' ) {
+            cValue = undefined;
+        } else if ( cValue === 'false' ) {
+            cValue = false;
+        } else if ( cValue === 'true' ) {
+            cValue = true;
+        } else if ( cValue === 'null' ) {
+            cValue = null;
+        } else if ( cValue === "''" || cValue === '' ) {
+            cValue = '';
+        } else if ( cValue === '[]' ) {
+            cValue = [];
+        } else if ( cValue === '{}' ) {
+            cValue = {};
+        } else if ( cValue === 'noopFunc' ) {
+            cValue = cloakFunc(function(){});
+        } else if ( cValue === 'trueFunc' ) {
+            cValue = cloakFunc(function(){ return true; });
+        } else if ( cValue === 'falseFunc' ) {
+            cValue = cloakFunc(function(){ return false; });
+        } else if ( /^-?\d+$/.test(cValue) ) {
+            cValue = parseInt(cValue);
+            if ( isNaN(cValue) ) { return; }
+            if ( Math.abs(cValue) > 0x7FFF ) { return; }
+        } else if ( trusted ) {
+            if ( cValue.startsWith('{') && cValue.endsWith('}') ) {
+                try { cValue = safe.JSON_parse(cValue).value; } catch(ex) { return; }
+            }
+        } else {
             return;
         }
-    }
-    if ( objectPruneFn.findOwner === undefined ) {
-        objectPruneFn.findOwner = (root, path, prune = false) => {
-            let owner = root;
-            let chain = path;
-            for (;;) {
-                if ( typeof owner !== 'object' || owner === null  ) { return false; }
-                const pos = chain.indexOf('.');
-                if ( pos === -1 ) {
-                    if ( prune === false ) {
-                        return owner.hasOwnProperty(chain);
-                    }
-                    let modified = false;
-                    if ( chain === '*' ) {
-                        for ( const key in owner ) {
-                            if ( owner.hasOwnProperty(key) === false ) { continue; }
-                            delete owner[key];
-                            modified = true;
-                        }
-                    } else if ( owner.hasOwnProperty(chain) ) {
-                        delete owner[chain];
-                        modified = true;
-                    }
-                    return modified;
-                }
-                const prop = chain.slice(0, pos);
-                if (
-                    prop === '[]' && Array.isArray(owner) ||
-                    prop === '*' && owner instanceof Object
-                ) {
-                    const next = chain.slice(pos + 1);
-                    let found = false;
-                    for ( const key of Object.keys(owner) ) {
-                        found = objectPruneFn.findOwner(owner[key], next, prune) || found;
-                    }
-                    return found;
-                }
-                if ( owner.hasOwnProperty(prop) === false ) { return false; }
-                owner = owner[prop];
-                chain = chain.slice(pos + 1);
-            }
-        };
-        objectPruneFn.mustProcess = (root, needlePaths) => {
-            for ( const needlePath of needlePaths ) {
-                if ( objectPruneFn.findOwner(root, needlePath) === false ) {
-                    return false;
-                }
-            }
-            return true;
-        };
-        objectPruneFn.logJson = (json, msg, reNeedle) => {
-            if ( reNeedle.test(json) === false ) { return; }
-            safeSelf().uboLog(`objectPrune()`, msg, location.hostname, json);
-        };
-    }
-    const jsonBefore = logLevel ? safe.JSON_stringify(obj, null, 2) : '';
-    if ( logLevel === true || logLevel === 'all' ) {
-        objectPruneFn.logJson(jsonBefore, `prune:"${rawPrunePaths}" log:"${logLevel}"`, reLogNeedle);
-    }
-    if ( prunePaths.length === 0 ) { return; }
-    let outcome = 'nomatch';
-    if ( objectPruneFn.mustProcess(obj, needlePaths) ) {
-        for ( const path of prunePaths ) {
-            if ( objectPruneFn.findOwner(obj, path, true) ) {
-                outcome = 'match';
+        if ( extraArgs.as !== undefined ) {
+            if ( extraArgs.as === 'function' ) {
+                cValue = ( ) => cValue;
+            } else if ( extraArgs.as === 'callback' ) {
+                cValue = ( ) => (( ) => cValue);
+            } else if ( extraArgs.as === 'resolved' ) {
+                cValue = Promise.resolve(cValue);
+            } else if ( extraArgs.as === 'rejected' ) {
+                cValue = Promise.reject(cValue);
             }
         }
+        let aborted = false;
+        const mustAbort = function(v) {
+            if ( trusted ) { return false; }
+            if ( aborted ) { return true; }
+            aborted =
+                (v !== undefined && v !== null) &&
+                (cValue !== undefined && cValue !== null) &&
+                (typeof v !== typeof cValue);
+            return aborted;
+        };
+        // https://github.com/uBlockOrigin/uBlock-issues/issues/156
+        //   Support multiple trappers for the same property.
+        const trapProp = function(owner, prop, configurable, handler) {
+            if ( handler.init(configurable ? owner[prop] : cValue) === false ) { return; }
+            const odesc = Object.getOwnPropertyDescriptor(owner, prop);
+            let prevGetter, prevSetter;
+            if ( odesc instanceof Object ) {
+                owner[prop] = cValue;
+                if ( odesc.get instanceof Function ) {
+                    prevGetter = odesc.get;
+                }
+                if ( odesc.set instanceof Function ) {
+                    prevSetter = odesc.set;
+                }
+            }
+            try {
+                safe.Object_defineProperty(owner, prop, {
+                    configurable,
+                    get() {
+                        if ( prevGetter !== undefined ) {
+                            prevGetter();
+                        }
+                        return handler.getter(); // cValue
+                    },
+                    set(a) {
+                        if ( prevSetter !== undefined ) {
+                            prevSetter(a);
+                        }
+                        handler.setter(a);
+                    }
+                });
+            } catch(ex) {
+            }
+        };
+        const trapChain = function(owner, chain) {
+            const pos = chain.indexOf('.');
+            if ( pos === -1 ) {
+                trapProp(owner, chain, false, {
+                    v: undefined,
+                    init: function(v) {
+                        if ( mustAbort(v) ) { return false; }
+                        this.v = v;
+                        return true;
+                    },
+                    getter: function() {
+                        return document.currentScript === thisScript
+                            ? this.v
+                            : cValue;
+                    },
+                    setter: function(a) {
+                        if ( mustAbort(a) === false ) { return; }
+                        cValue = a;
+                    }
+                });
+                return;
+            }
+            const prop = chain.slice(0, pos);
+            const v = owner[prop];
+            chain = chain.slice(pos + 1);
+            if ( v instanceof Object || typeof v === 'object' && v !== null ) {
+                trapChain(v, chain);
+                return;
+            }
+            trapProp(owner, prop, true, {
+                v: undefined,
+                init: function(v) {
+                    this.v = v;
+                    return true;
+                },
+                getter: function() {
+                    return this.v;
+                },
+                setter: function(a) {
+                    this.v = a;
+                    if ( a instanceof Object ) {
+                        trapChain(a, chain);
+                    }
+                }
+            });
+        };
+        trapChain(window, chain);
     }
-    if ( logLevel === outcome ) {
-        objectPruneFn.logJson(jsonBefore, `prune:"${rawPrunePaths}" log:"${logLevel}"`, reLogNeedle);
+    runAt(( ) => {
+        setConstant(chain, cValue);
+    }, extraArgs.runAt);
+}
+
+function runAt(fn, when) {
+    const intFromReadyState = state => {
+        const targets = {
+            'loading': 1,
+            'interactive': 2, 'end': 2, '2': 2,
+            'complete': 3, 'idle': 3, '3': 3,
+        };
+        const tokens = Array.isArray(state) ? state : [ state ];
+        for ( const token of tokens ) {
+            const prop = `${token}`;
+            if ( targets.hasOwnProperty(prop) === false ) { continue; }
+            return targets[prop];
+        }
+        return 0;
+    };
+    const runAt = intFromReadyState(when);
+    if ( intFromReadyState(document.readyState) >= runAt ) {
+        fn(); return;
     }
-    if ( outcome === 'match' ) { return obj; }
+    const onStateChange = ( ) => {
+        if ( intFromReadyState(document.readyState) < runAt ) { return; }
+        fn();
+        safe.removeEventListener.apply(document, args);
+    };
+    const safe = safeSelf();
+    const args = [ 'readystatechange', onStateChange, { capture: true } ];
+    safe.addEventListener.apply(document, args);
 }
 
 function safeSelf() {
@@ -262,70 +360,6 @@ function safeSelf() {
     return safe;
 }
 
-function matchesStackTrace(
-    needleDetails,
-    logLevel = 0
-) {
-    const safe = safeSelf();
-    const exceptionToken = getExceptionToken();
-    const error = new safe.Error(exceptionToken);
-    const docURL = new URL(self.location.href);
-    docURL.hash = '';
-    // Normalize stack trace
-    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
-    const lines = [];
-    for ( let line of error.stack.split(/[\n\r]+/) ) {
-        if ( line.includes(exceptionToken) ) { continue; }
-        line = line.trim();
-        const match = safe.RegExp_exec.call(reLine, line);
-        if ( match === null ) { continue; }
-        let url = match[2];
-        if ( url.startsWith('(') ) { url = url.slice(1); }
-        if ( url === docURL.href ) {
-            url = 'inlineScript';
-        } else if ( url.startsWith('<anonymous>') ) {
-            url = 'injectedScript';
-        }
-        let fn = match[1] !== undefined
-            ? match[1].slice(0, -1)
-            : line.slice(0, match.index).trim();
-        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
-        let rowcol = match[3];
-        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
-    }
-    lines[0] = `stackDepth:${lines.length-1}`;
-    const stack = lines.join('\t');
-    const r = safe.testPattern(needleDetails, stack);
-    if (
-        logLevel === 1 ||
-        logLevel === 2 && r ||
-        logLevel === 3 && !r
-    ) {
-        safe.uboLog(stack.replace(/\t/g, '\n'));
-    }
-    return r;
-}
-
-function shouldLog(details) {
-    if ( details instanceof Object === false ) { return false; }
-    return scriptletGlobals.has('canDebug') && details.log;
-}
-
-function getExceptionToken() {
-    const safe = safeSelf();
-    const token =
-        String.fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
-    const oe = self.onerror;
-    self.onerror = function(msg, ...args) {
-        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
-        if ( oe instanceof Function ) {
-            return oe.call(this, msg, ...args);
-        }
-    }.bind();
-    return token;
-}
-
 /******************************************************************************/
 
 const hnParts = [];
@@ -386,7 +420,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { jsonPrune(...argsList[i]); }
+    try { setConstant(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -408,7 +442,7 @@ const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_jsonPrune();
+    return uBOL_setConstant();
 }
 
 // Firefox
@@ -416,11 +450,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_jsonPrune = cloneInto([
-            [ '(', uBOL_jsonPrune.toString(), ')();' ],
+        page.uBOL_setConstant = cloneInto([
+            [ '(', uBOL_setConstant.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_jsonPrune);
+        const blob = new page.Blob(...page.uBOL_setConstant);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -434,7 +468,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_jsonPrune;
+    delete page.uBOL_setConstant;
 }
 
 /******************************************************************************/

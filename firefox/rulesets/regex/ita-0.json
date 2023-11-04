@@ -37,7 +37,7 @@
     "sub_frame"
    ]
   },
-  "id": 3130
+  "id": 2784
  },
  {
   "action": {
@@ -52,7 +52,7 @@
     "script"
    ]
   },
-  "id": 3137
+  "id": 2789
  },
  {
   "action": {
@@ -60,38 +60,18 @@
   },
   "condition": {
    "domainType": "thirdParty",
-   "excludedResourceTypes": [
-    "main_frame",
-    "media"
-   ],
    "initiatorDomains": [
-    "altadefinizione-01.info",
-    "altadefinizione.immo",
-    "altd.uno",
-    "animeforce.it",
-    "cb01.pizza",
-    "cb01.taxi",
-    "cbo1.bar",
-    "cineblog01.hair",
-    "cineblog01.sale",
-    "cineblog01.taxi",
-    "cineblog01.trade",
-    "eurekaddl.cfd",
-    "eurekaddl.lol",
-    "eurekaddl.mom",
-    "eurostreaming.cc",
-    "eurostreaming.pics",
-    "eurostreaming.rodeo",
-    "eurostreaming.sbs",
-    "eurostreaming.voyage",
+    "calcio.re",
     "guardaserie01.click",
-    "ilgeniodellostreaming.live",
-    "nuovoindirizzo.com",
     "pepperlive.info"
    ],
-   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
+   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
   },
-  "id": 3197
+  "id": 2853
  },
  {
   "action": {
@@ -99,15 +79,15 @@
   },
   "condition": {
    "domainType": "thirdParty",
-   "excludedResourceTypes": [
-    "main_frame",
-    "media"
-   ],
    "initiatorDomains": [
-    "socceron.name"
+    "ilgeniodellostreaming.zone"
    ],
-   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*"
+   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*",
+   "resourceTypes": [
+    "script",
+    "xmlhttprequest"
+   ]
   },
-  "id": 3198
+  "id": 2854
  }
 ]

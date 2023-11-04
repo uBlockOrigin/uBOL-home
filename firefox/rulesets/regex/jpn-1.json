@@ -9,7 +9,7 @@
    ],
    "regexFilter": "\\/bnr_side_(kiso3|octopass)\\.jpg"
   },
-  "id": 508
+  "id": 511
  },
  {
   "action": {
@@ -25,7 +25,7 @@
     "main_frame"
    ]
   },
-  "id": 936
+  "id": 945
  },
  {
   "action": {
@@ -38,7 +38,7 @@
     "main_frame"
    ]
   },
-  "id": 957
+  "id": 958
  },
  {
   "action": {
@@ -50,7 +50,7 @@
     "main_frame"
    ]
   },
-  "id": 1014
+  "id": 1009
  },
  {
   "action": {
@@ -66,7 +66,7 @@
     "main_frame"
    ]
   },
-  "id": 1017
+  "id": 1010
  },
  {
   "action": {
@@ -76,12 +76,12 @@
    "initiatorDomains": [
     "duckdns.org"
    ],
-   "regexFilter": "^https?:\\/\\/[0-9a-z]{6,10}\\.duckdns",
+   "regexFilter": "^https?:\\/\\/[0-9a-z]{5,10}\\.duckdns",
    "resourceTypes": [
     "main_frame"
    ]
   },
-  "id": 1025
+  "id": 1018
  },
  {
   "action": {
@@ -100,7 +100,7 @@
     "image"
    ]
   },
-  "id": 1027
+  "id": 1020
  },
  {
   "action": {
@@ -116,7 +116,7 @@
     "image"
    ]
   },
-  "id": 1028
+  "id": 1021
  },
  {
   "action": {
@@ -132,7 +132,7 @@
     "image"
    ]
   },
-  "id": 1029
+  "id": 1022
  },
  {
   "action": {
@@ -148,7 +148,7 @@
     "image"
    ]
   },
-  "id": 1032
+  "id": 1025
  },
  {
   "action": {
@@ -164,7 +164,7 @@
     "image"
    ]
   },
-  "id": 1033
+  "id": 1026
  },
  {
   "action": {
@@ -180,7 +180,7 @@
     "image"
    ]
   },
-  "id": 1034
+  "id": 1027
  },
  {
   "action": {
@@ -196,7 +196,7 @@
     "image"
    ]
   },
-  "id": 1040
+  "id": 1033
  },
  {
   "action": {
@@ -213,7 +213,7 @@
     "image"
    ]
   },
-  "id": 1041
+  "id": 1034
  },
  {
   "action": {
@@ -229,7 +229,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1045
+  "id": 1038
  },
  {
   "action": {
@@ -246,6 +246,6 @@
     "sub_frame"
    ]
   },
-  "id": 1047
+  "id": 1040
  }
 ]

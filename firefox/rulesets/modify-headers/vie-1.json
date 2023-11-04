@@ -20,7 +20,7 @@
     "sub_frame"
    ]
   },
-  "id": 493
+  "id": 496
  },
  {
   "action": {
@@ -45,7 +45,7 @@
     "sub_frame"
    ]
   },
-  "id": 494
+  "id": 497
  },
  {
   "action": {
@@ -67,7 +67,29 @@
     "sub_frame"
    ]
   },
-  "id": 495
+  "id": 498
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' data: https:"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "taoanhdep.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 499
  },
  {
   "action": {
@@ -89,6 +111,6 @@
     "sub_frame"
    ]
   },
-  "id": 496
+  "id": 500
  }
 ]

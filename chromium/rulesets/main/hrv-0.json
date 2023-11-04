@@ -95,7 +95,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/avala-press/"
+   "urlFilter": "||info-ks.net/assets/img/banners^"
   },
   "id": 10
  },
@@ -105,7 +105,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ad-space-right.html^"
+   "urlFilter": "/avala-press/"
   },
   "id": 11
  },
@@ -115,7 +115,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/bannerright/"
+   "urlFilter": "/ad-space-right.html^"
   },
   "id": 12
  },
@@ -125,7 +125,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/microbanner^"
+   "urlFilter": "/bannerright/"
   },
   "id": 13
  },
@@ -135,7 +135,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": ".ba/images/banners^"
+   "urlFilter": "/microbanner^"
   },
   "id": 14
  },
@@ -145,7 +145,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||aviatica.rs/static/uploads/*/*/*-banner-*x*.gif^"
+   "urlFilter": ".ba/images/banners^"
   },
   "id": 15
  },
@@ -155,7 +155,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||aviatica.rs/static/uploads/*/*/aviatica-1atravel-*.gif^"
+   "urlFilter": ".rs/images/banners^"
   },
   "id": 16
  },
@@ -165,9 +165,29 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||bug.hr/ads/"
+   "urlFilter": "||aviatica.rs/static/uploads/*/*/*-banner-*x*.gif^"
   },
   "id": 17
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||aviatica.rs/static/uploads/*/*/aviatica-1atravel-*.gif^"
+  },
+  "id": 18
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||bug.hr/ads/"
+  },
+  "id": 19
  },
  {
   "action": {
@@ -181,7 +201,7 @@
     "contentexchange.me"
    ]
   },
-  "id": 18
+  "id": 20
  },
  {
   "action": {
@@ -191,7 +211,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||filmotopia.org/sw.js"
   },
-  "id": 19
+  "id": 21
  },
  {
   "action": {
@@ -201,7 +221,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kupujemprodajem.com/bshow.php^"
   },
-  "id": 20
+  "id": 22
  },
  {
   "action": {
@@ -211,7 +231,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mob.hr/blog/wp-content/uploads/noviupload/noa-e1-banner"
   },
-  "id": 21
+  "id": 23
  },
  {
   "action": {
@@ -221,7 +241,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mob.hr/h18.jpg^"
   },
-  "id": 22
+  "id": 24
  },
  {
   "action": {
@@ -231,7 +251,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mob.hr^*-300x250."
   },
-  "id": 23
+  "id": 25
  },
  {
   "action": {
@@ -241,7 +261,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pcchip.hr/wp-content/uploads*banner"
   },
-  "id": 24
+  "id": 26
  },
  {
   "action": {
@@ -255,7 +275,7 @@
     "zotabox.com"
    ]
   },
-  "id": 25
+  "id": 27
  },
  {
   "action": {
@@ -266,32 +286,6 @@
     "banner.mob.hr",
     "widgets.jutarnji.hr"
    ]
-  },
-  "id": 26
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||farmer.ba/files/banners^"
-  },
-  "id": 27
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||nap.ba/storage/userfiles/images/slike"
   },
   "id": 28
  },
@@ -304,7 +298,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||navidiku.rs/banerslike^"
+   "urlFilter": "||farmer.ba/files/banners^"
   },
   "id": 29
  },
@@ -317,7 +311,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||oglasi.rs/serve^"
+   "urlFilter": "||nap.ba/storage/userfiles/images/slike"
   },
   "id": 30
  },
@@ -330,7 +324,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||pcpress.rs/pcincludes^"
+   "urlFilter": "||navidiku.rs/banerslike^"
   },
   "id": 31
  },
@@ -343,7 +337,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||pcpress.rs/wp-content/baner^"
+   "urlFilter": "||oglasi.rs/serve^"
   },
   "id": 32
  },
@@ -356,7 +350,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||saznajnovo.com/*-baner.jpg^"
+   "urlFilter": "||pcpress.rs/pcincludes^"
   },
   "id": 33
  },
@@ -369,7 +363,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||krajina.ba/wp-content/uploads/*/baner-"
+   "urlFilter": "||pcpress.rs/wp-content/baner^"
   },
   "id": 34
  },
@@ -382,7 +376,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||opcinakupres.ba/images/stories/logo"
+   "urlFilter": "||saznajnovo.com/*-baner.jpg^"
   },
   "id": 35
  },
@@ -395,7 +389,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||dalmacijadanas.hr/wp-content/banners^"
+   "urlFilter": "||krajina.ba/wp-content/uploads/*/baner-"
   },
   "id": 36
  },
@@ -408,7 +402,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||naxi.rs/media/*-naxi-2010x1000-"
+   "urlFilter": "||opcinakupres.ba/images/stories/logo"
   },
   "id": 37
  },
@@ -421,7 +415,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||media.tangosix.rs/*/banner."
+   "urlFilter": "||dalmacijadanas.hr/wp-content/banners^"
   },
   "id": 38
  },
@@ -434,7 +428,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||infovranjske.rs/ads^"
+   "urlFilter": "||naxi.rs/media/*-naxi-2010x1000-"
   },
   "id": 39
  },
@@ -447,9 +441,35 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "/image/baneri^"
+   "urlFilter": "||media.tangosix.rs/*/banner."
   },
   "id": 40
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||infovranjske.rs/ads^"
+  },
+  "id": 41
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "/image/baneri^"
+  },
+  "id": 42
  },
  {
   "action": {
@@ -462,7 +482,7 @@
    ],
    "urlFilter": "||sultanovic.net/?*%"
   },
-  "id": 41
+  "id": 43
  },
  {
   "action": {
@@ -479,7 +499,7 @@
     "sub_frame"
    ]
   },
-  "id": 42
+  "id": 44
  },
  {
   "action": {
@@ -498,7 +518,22 @@
     "widget.admiral.hr"
    ]
   },
-  "id": 43
+  "id": 45
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "requestDomains": [
+    "redakcija.alo.rs"
+   ],
+   "resourceTypes": [
+    "image"
+   ]
+  },
+  "id": 46
  },
  {
   "action": {
@@ -512,6 +547,6 @@
    ],
    "urlFilter": "||widget.halooglasi.com/nekretnine.html"
   },
-  "id": 44
+  "id": 47
  }
 ]

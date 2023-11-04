@@ -18,7 +18,7 @@
    ],
    "urlFilter": ".infox.sg^"
   },
-  "id": 5801
+  "id": 5825
  },
  {
   "action": {
@@ -39,7 +39,28 @@
    ],
    "urlFilter": "/gateway/ahr0c"
   },
-  "id": 5802
+  "id": 5826
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.googletagmanager.com *.dev *.io *.net *.org *.ru *.ua"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "://poizdato.net/"
+  },
+  "id": 5827
  },
  {
   "action": {
@@ -65,7 +86,7 @@
    ],
    "urlFilter": "|http*//fastpic.org/"
   },
-  "id": 5803
+  "id": 5828
  },
  {
   "action": {
@@ -86,7 +107,7 @@
    ],
    "urlFilter": "||24smi-*/top/"
   },
-  "id": 5804
+  "id": 5829
  },
  {
   "action": {
@@ -107,7 +128,7 @@
    ],
    "urlFilter": "||24smi.*/top/"
   },
-  "id": 5805
+  "id": 5830
  },
  {
   "action": {
@@ -128,7 +149,7 @@
    ],
    "urlFilter": "||24top.*/top/"
   },
-  "id": 5806
+  "id": 5831
  },
  {
   "action": {
@@ -149,7 +170,7 @@
    ],
    "urlFilter": "||an.yandex.ru/count/"
   },
-  "id": 5807
+  "id": 5832
  },
  {
   "action": {
@@ -171,7 +192,7 @@
     "sub_frame"
    ]
   },
-  "id": 5808
+  "id": 5833
  },
  {
   "action": {
@@ -201,7 +222,7 @@
     "sub_frame"
    ]
   },
-  "id": 5809
+  "id": 5834
  },
  {
   "action": {
@@ -223,7 +244,30 @@
     "sub_frame"
    ]
   },
-  "id": 5810
+  "id": 5835
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.googletagmanager.com *.dev *.io *.net *.org *.ru *.ua"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "cardiagram.com.ua",
+    "poezdato.net"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 5836
  },
  {
   "action": {
@@ -244,7 +288,7 @@
    ],
    "urlFilter": "||crossout.net/*free?*&r="
   },
-  "id": 5811
+  "id": 5837
  },
  {
   "action": {
@@ -265,7 +309,7 @@
    ],
    "urlFilter": "||d3ward.github.io/toolz/adblock"
   },
-  "id": 5812
+  "id": 5838
  },
  {
   "action": {
@@ -286,7 +330,7 @@
    ],
    "urlFilter": "||drive.google.com/file/d/1vmzdhlb_-dcnbtubkfqpnnvsep_2gnsy/"
   },
-  "id": 5813
+  "id": 5839
  },
  {
   "action": {
@@ -319,7 +363,7 @@
     "sub_frame"
    ]
   },
-  "id": 5814
+  "id": 5840
  },
  {
   "action": {
@@ -340,7 +384,7 @@
    ],
    "urlFilter": "||forum.ru-board.com/*.cgi?*=5&topic=51141"
   },
-  "id": 5815
+  "id": 5841
  },
  {
   "action": {
@@ -362,7 +406,7 @@
     "sub_frame"
    ]
   },
-  "id": 5816
+  "id": 5842
  },
  {
   "action": {
@@ -383,7 +427,7 @@
    ],
    "urlFilter": "||gdz-ru.work/subscribe/"
   },
-  "id": 5817
+  "id": 5843
  },
  {
   "action": {
@@ -404,7 +448,7 @@
    ],
    "urlFilter": "||hawk.live/"
   },
-  "id": 5818
+  "id": 5844
  },
  {
   "action": {
@@ -412,7 +456,7 @@
     {
      "header": "content-security-policy",
      "operation": "append",
-     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: *.googleapis.com apis.google.com  *.googletagmanager.com *.google.com/recaptcha/ *.gstatic.com *.icon-icons.com *.jquery.com *.net"
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: *.googleapis.com apis.google.com  *.googletagmanager.com *.google.com/recaptcha/ *.gstatic.com *.icon-icons.com *.jquery.com *.io *.net *.org"
     }
    ],
    "type": "modifyHeaders"
@@ -425,7 +469,7 @@
    ],
    "urlFilter": "||icon-icons.com/ru/"
   },
-  "id": 5819
+  "id": 5845
  },
  {
   "action": {
@@ -433,7 +477,29 @@
     {
      "header": "content-security-policy",
      "operation": "append",
-     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.amazonaws.com *.cloudflare.com apis.google.com cse.google.com www.google.com *.google.com/complete/ *.googleapis.com *.googletagmanager.com *.instagram.com *.net *.io *.jquery.com *.keycaptcha.com *.ru *.twitter.com *.ua"
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: apis.google.com cse.google.com *.google.com/cse/  *.shareaholic.net *.disqus.com *.disquscdn.com *.io *.net *.org *.ua"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "ilenta.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 5846
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.amazonaws.com *.cloudflare.com apis.google.com cse.google.com www.google.com *.google.com/complete/ *.googleapis.com *.googletagmanager.com *.instagram.com *.jquery.com *.keycaptcha.com *.twitter.com *.io *.net *.org *.ru *.ua"
     }
    ],
    "type": "modifyHeaders"
@@ -450,7 +516,7 @@
     "sub_frame"
    ]
   },
-  "id": 5820
+  "id": 5847
  },
  {
   "action": {
@@ -458,7 +524,7 @@
     {
      "header": "content-security-policy",
      "operation": "append",
-     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.bemobile.ua *.cloudflare.com *.cloudfront.net *.highcharts.com *.googleapis.com apis.google.com *.googletagmanager.com *.gstatic.com *.io *.jquery.com *.jivosite.com *.keycaptcha.com *.net *.twitter.com vk.com yastatic.net *.yandex.ru"
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.bemobile.ua *.cloudflare.com *.cloudfront.net *.highcharts.com *.googleapis.com apis.google.com *.googletagmanager.com *.gstatic.com *.jquery.com *.jivosite.com *.keycaptcha.com *.twitter.com vk.com *.io *.net *.org *.ru *.ua"
     }
    ],
    "type": "modifyHeaders"
@@ -472,7 +538,7 @@
     "sub_frame"
    ]
   },
-  "id": 5821
+  "id": 5848
  },
  {
   "action": {
@@ -493,7 +559,7 @@
    ],
    "urlFilter": "||lis-gor.com/"
   },
-  "id": 5822
+  "id": 5849
  },
  {
   "action": {
@@ -517,7 +583,7 @@
     "sub_frame"
    ]
   },
-  "id": 5823
+  "id": 5850
  },
  {
   "action": {
@@ -538,7 +604,29 @@
    ],
    "urlFilter": "||modsfire.com/download/*/"
   },
-  "id": 5824
+  "id": 5851
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: *.io *.net *.org *.ua"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "nbnews.com.ua"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 5852
  },
  {
   "action": {
@@ -560,7 +648,7 @@
     "sub_frame"
    ]
   },
-  "id": 5825
+  "id": 5853
  },
  {
   "action": {
@@ -581,7 +669,7 @@
    ],
    "urlFilter": "||nsportal.ru/download/"
   },
-  "id": 5826
+  "id": 5854
  },
  {
   "action": {
@@ -603,7 +691,7 @@
     "sub_frame"
    ]
   },
-  "id": 5827
+  "id": 5855
  },
  {
   "action": {
@@ -625,7 +713,7 @@
     "sub_frame"
    ]
   },
-  "id": 5828
+  "id": 5856
  },
  {
   "action": {
@@ -647,7 +735,7 @@
     "sub_frame"
    ]
   },
-  "id": 5829
+  "id": 5857
  },
  {
   "action": {
@@ -669,7 +757,29 @@
     "sub_frame"
    ]
   },
-  "id": 5830
+  "id": 5858
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: static.addtoany.com *.googletagmanager.com *.io *.net *.org *.ua"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "tribun.com.ua"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 5859
  },
  {
   "action": {
@@ -693,7 +803,7 @@
     "sub_frame"
    ]
   },
-  "id": 5831
+  "id": 5860
  },
  {
   "action": {
@@ -714,7 +824,7 @@
    ],
    "urlFilter": "||www.liveinternet.ru/|"
   },
-  "id": 5832
+  "id": 5861
  },
  {
   "action": {
@@ -736,7 +846,7 @@
     "sub_frame"
    ]
   },
-  "id": 5833
+  "id": 5862
  },
  {
   "action": {
@@ -757,7 +867,7 @@
    ],
    "urlFilter": "||yandex.ru/turbo?text=https*fishki.net"
   },
-  "id": 5834
+  "id": 5863
  },
  {
   "action": {
@@ -778,7 +888,7 @@
    ],
    "urlFilter": "||yandex.ru/mapuid/"
   },
-  "id": 5835
+  "id": 5864
  },
  {
   "action": {
@@ -800,6 +910,6 @@
     "sub_frame"
    ]
   },
-  "id": 5849
+  "id": 5865
  }
 ]

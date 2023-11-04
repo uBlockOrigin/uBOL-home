@@ -2253,6 +2253,7 @@
     "eccolabgroup.com",
     "eccoskonorge.com",
     "elderlyscissors.com",
+    "fed-packs.no",
     "fjallraventilbud.com",
     "fr135.net",
     "gaborskonorge.com",
@@ -2260,6 +2261,7 @@
     "gogle.net",
     "hagebakken.no",
     "haglofstilbud.com",
+    "har-freight.us",
     "havfruen4220.dk",
     "hitecskonorge.com",
     "hoka-one-one.cc",
@@ -2332,6 +2334,7 @@
     "static-dscn.net",
     "storustovu.dk",
     "svindel.info",
+    "tachyoniums.eu.com",
     "tevadanmarkshop.com",
     "tevanorgeshop.com",
     "thenorthfacenorge.co.no",
@@ -2340,6 +2343,7 @@
     "underarmourdanmarkdk.com",
     "vansnorge.co.no",
     "vanssnorge.com",
+    "wirexapp.africa.com",
     "wolverineskonorge.com",
     "www-presse-fotos-dk.filesusr.com",
     "wxqgx123.com",
@@ -3984,6 +3988,7 @@
     "economywatch.com",
     "fancywoman.dk",
     "fartuelt.dk",
+    "fed-packs.no",
     "fjallraventilbud.com",
     "fotballsko-salg.com",
     "fr135.net",
@@ -3996,6 +4001,7 @@
     "gogle.net",
     "gsport.com",
     "haglofstilbud.com",
+    "har-freight.us",
     "havfruen4220.dk",
     "hcliips.com",
     "helsehjelp.over-blog.com",
@@ -4118,6 +4124,7 @@
     "start-myaltinn.com",
     "static-dscn.net",
     "superbinvest.com",
+    "tachyoniums.eu.com",
     "tekuon.com",
     "tevadanmarkshop.com",
     "tevanorgeshop.com",
@@ -4134,6 +4141,7 @@
     "vidcopa.me",
     "vmfodboldtoj.com",
     "webavisen.gl",
+    "wirexapp.africa.com",
     "wolverineskonorge.com",
     "wxqgx123.com",
     "y6.no"
@@ -5286,11 +5294,25 @@
    "domainType": "thirdParty",
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||service.tekhus.dk/*.jpg^"
+  },
+  "id": 409
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
     "object"
    ],
    "urlFilter": "||finn.no/distribution-carousel?"
   },
-  "id": 409
+  "id": 410
  },
  {
   "action": {
@@ -5305,7 +5327,7 @@
     "sub_frame"
    ]
   },
-  "id": 410
+  "id": 411
  },
  {
   "action": {
@@ -5322,7 +5344,7 @@
    ],
    "urlFilter": "||cdn.rikstoto.no/expert/gameshop^"
   },
-  "id": 411
+  "id": 412
  },
  {
   "action": {
@@ -5336,7 +5358,7 @@
    ],
    "urlFilter": "||deals.innocode.no/api^"
   },
-  "id": 412
+  "id": 413
  },
  {
   "action": {
@@ -5350,7 +5372,7 @@
    ],
    "urlFilter": "||media.sonymusic.no/marketing/*.html"
   },
-  "id": 413
+  "id": 414
  },
  {
   "action": {
@@ -5360,7 +5382,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdnboligkanalen.azureedge.net/*width=2000^"
   },
-  "id": 414
+  "id": 415
  },
  {
   "action": {
@@ -5370,7 +5392,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||n247.no/salg/an_%7b40"
   },
-  "id": 415
+  "id": 416
  },
  {
   "action": {
@@ -5380,7 +5402,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||n247.no/salg/an_%7b6c"
   },
-  "id": 416
+  "id": 417
  },
  {
   "action": {
@@ -5390,7 +5412,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||n247.no/salg/karusell_17"
   },
-  "id": 417
+  "id": 418
  },
  {
   "action": {
@@ -5400,7 +5422,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storfjordnytt.no/wp-content/uploads/*/alfred.jpg^"
   },
-  "id": 418
+  "id": 419
  },
  {
   "action": {
@@ -5410,7 +5432,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storfjordnytt.no/wp-content/uploads/*/dame.jpg^"
   },
-  "id": 419
+  "id": 420
  },
  {
   "action": {
@@ -5420,7 +5442,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storfjordnytt.no/wp-content/uploads/*/komentar*.jpg^"
   },
-  "id": 420
+  "id": 421
  },
  {
   "action": {
@@ -5430,7 +5452,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storfjordnytt.no/wp-content/uploads/*/les*bilete*.jpg^"
   },
-  "id": 421
+  "id": 422
  },
  {
   "action": {
@@ -5440,7 +5462,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storfjordnytt.no/wp-content/uploads/*/m_vinje.jpg^"
   },
-  "id": 422
+  "id": 423
  },
  {
   "action": {
@@ -5450,7 +5472,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storfjordnytt.no/wp-content/uploads/*/tafjord*.jpg^"
   },
-  "id": 423
+  "id": 424
  },
  {
   "action": {
@@ -5460,7 +5482,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storfjordnytt.no/wp-content/uploads/*300x300.jpg^"
   },
-  "id": 424
+  "id": 425
  },
  {
   "action": {
@@ -5470,7 +5492,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storfjordnytt.no/wp-content/uploads/2*/1*.jpg^"
   },
-  "id": 425
+  "id": 426
  },
  {
   "action": {
@@ -5480,7 +5502,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storfjordnytt.no/wp-content/uploads/2*/2*.jpg^"
   },
-  "id": 426
+  "id": 427
  },
  {
   "action": {
@@ -5490,7 +5512,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storfjordnytt.no/wp-content/uploads/2*/3*.jpg^"
   },
-  "id": 427
+  "id": 428
  },
  {
   "action": {
@@ -5500,7 +5522,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||musikknyheter.no/banners/skribent"
   },
-  "id": 428
+  "id": 429
  },
  {
   "action": {
@@ -5510,7 +5532,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||radiohallingdal.no/abanners/img/facebook."
   },
-  "id": 429
+  "id": 430
  },
  {
   "action": {
@@ -5520,7 +5542,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||via.placeholder.com/1|"
   },
-  "id": 430
+  "id": 431
  },
  {
   "action": {
@@ -5530,7 +5552,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stillingledig.*.no^"
   },
-  "id": 431
+  "id": 432
  },
  {
   "action": {
@@ -5543,7 +5565,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||schibsted.com/autotracker"
   },
-  "id": 432
+  "id": 433
  },
  {
   "action": {
@@ -5556,7 +5578,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/images/*youtube.jpg"
   },
-  "id": 433
+  "id": 434
  },
  {
   "action": {
@@ -5570,7 +5592,7 @@
     "api.instagram.com"
    ]
   },
-  "id": 434
+  "id": 435
  },
  {
   "action": {
@@ -5587,7 +5609,7 @@
     "cookieinformation.com"
    ]
   },
-  "id": 435
+  "id": 436
  },
  {
   "action": {
@@ -5601,7 +5623,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/newsletter/newsletter_popup.gif^"
   },
-  "id": 436
+  "id": 437
  },
  {
   "action": {
@@ -5614,7 +5636,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "_prebid_"
   },
-  "id": 437
+  "id": 438
  },
  {
   "action": {
@@ -5627,7 +5649,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/images/ads-db/right-tower/vipps-sponsor-"
   },
-  "id": 438
+  "id": 439
  },
  {
   "action": {
@@ -5640,7 +5662,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/adnetwork/"
   },
-  "id": 439
+  "id": 440
  },
  {
   "action": {
@@ -5650,7 +5672,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "://billink*.blob.core.windows.net/*/annonser^"
   },
-  "id": 440
+  "id": 441
  },
  {
   "action": {
@@ -5660,7 +5682,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bluesnews.no/files/images/annonser^"
   },
-  "id": 441
+  "id": 442
  },
  {
   "action": {
@@ -5670,7 +5692,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lnk.no/wp-content/uploads/*/ads"
   },
-  "id": 442
+  "id": 443
  },
  {
   "action": {
@@ -5680,7 +5702,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||marketingfabrikken.dk/page-data/google-ads/page-data.json^"
   },
-  "id": 443
+  "id": 444
  },
  {
   "action": {
@@ -5693,7 +5715,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "_980x100."
   },
-  "id": 444
+  "id": 445
  },
  {
   "action": {
@@ -5705,91 +5727,6 @@
    ],
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "://imasdk.googleapis.com/js/sdkloader/ima3.js^"
-  },
-  "id": 445
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "aasavis.no",
-    "amta.no",
-    "an.no",
-    "ao.no",
-    "auraavis.no",
-    "austagderblad.no",
-    "avisenagder.no",
-    "ba.no",
-    "bygdebladet.no",
-    "bygdeposten.no",
-    "dalane-tidende.no",
-    "dt.no",
-    "eikerbladet.no",
-    "enebakkavis.no",
-    "f-b.no",
-    "finnmarkdagblad.no",
-    "finnmarken.no",
-    "firda.no",
-    "firdaposten.no",
-    "fremover.no",
-    "gbnett.no",
-    "gjengangeren.no",
-    "glomdalen.no",
-    "h-avis.no",
-    "ha-halden.no",
-    "hadeland.no",
-    "hardanger-folkeblad.no",
-    "helg.no",
-    "iharstad.no",
-    "indre.no",
-    "jarlsbergavis.no",
-    "jbl.no",
-    "kv.no",
-    "kvinnheringen.no",
-    "laagendalsposten.no",
-    "lierposten.no",
-    "lofotposten.no",
-    "lyngdalsavis.no",
-    "moss-avis.no",
-    "nidaros.no",
-    "noblad.no",
-    "nordhordland.no",
-    "nordlys.no",
-    "oa.no",
-    "oblad.no",
-    "op.no",
-    "ostlendingen.no",
-    "oyene.no",
-    "r-a.no",
-    "rablad.no",
-    "ranablad.no",
-    "rb.no",
-    "retten.no",
-    "rha.no",
-    "ringblad.no",
-    "ringsaker-blad.no",
-    "sa.no",
-    "sandeavis.no",
-    "sandnesposten.no",
-    "sb.no",
-    "smaalenene.no",
-    "sognavis.no",
-    "solabladet.no",
-    "solungavisa.no",
-    "strandbuen.no",
-    "svelviksposten.no",
-    "ta.no",
-    "tb.no",
-    "telen.no",
-    "tk.no",
-    "tvedestrandsposten.no",
-    "varingen.no",
-    "vestbyavis.no"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||fe.adstate.net/assets/common/img/web_ad^"
   },
   "id": 446
  },
@@ -5874,7 +5811,7 @@
     "vestbyavis.no"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||fe.adstate.net/stream_file.php?type=ad_preview_image"
+   "urlFilter": "||fe.adstate.net/assets/common/img/web_ad^"
   },
   "id": 447
  },
@@ -5883,8 +5820,83 @@
    "type": "allow"
   },
   "condition": {
+   "initiatorDomains": [
+    "aasavis.no",
+    "amta.no",
+    "an.no",
+    "ao.no",
+    "auraavis.no",
+    "austagderblad.no",
+    "avisenagder.no",
+    "ba.no",
+    "bygdebladet.no",
+    "bygdeposten.no",
+    "dalane-tidende.no",
+    "dt.no",
+    "eikerbladet.no",
+    "enebakkavis.no",
+    "f-b.no",
+    "finnmarkdagblad.no",
+    "finnmarken.no",
+    "firda.no",
+    "firdaposten.no",
+    "fremover.no",
+    "gbnett.no",
+    "gjengangeren.no",
+    "glomdalen.no",
+    "h-avis.no",
+    "ha-halden.no",
+    "hadeland.no",
+    "hardanger-folkeblad.no",
+    "helg.no",
+    "iharstad.no",
+    "indre.no",
+    "jarlsbergavis.no",
+    "jbl.no",
+    "kv.no",
+    "kvinnheringen.no",
+    "laagendalsposten.no",
+    "lierposten.no",
+    "lofotposten.no",
+    "lyngdalsavis.no",
+    "moss-avis.no",
+    "nidaros.no",
+    "noblad.no",
+    "nordhordland.no",
+    "nordlys.no",
+    "oa.no",
+    "oblad.no",
+    "op.no",
+    "ostlendingen.no",
+    "oyene.no",
+    "r-a.no",
+    "rablad.no",
+    "ranablad.no",
+    "rb.no",
+    "retten.no",
+    "rha.no",
+    "ringblad.no",
+    "ringsaker-blad.no",
+    "sa.no",
+    "sandeavis.no",
+    "sandnesposten.no",
+    "sb.no",
+    "smaalenene.no",
+    "sognavis.no",
+    "solabladet.no",
+    "solungavisa.no",
+    "strandbuen.no",
+    "svelviksposten.no",
+    "ta.no",
+    "tb.no",
+    "telen.no",
+    "tk.no",
+    "tvedestrandsposten.no",
+    "varingen.no",
+    "vestbyavis.no"
+   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||ad.amediakreativ.no/widgets/stillingskarusell^"
+   "urlFilter": "||fe.adstate.net/stream_file.php?type=ad_preview_image"
   },
   "id": 448
  },
@@ -5894,9 +5906,19 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||politainment.no^*/cookieconsent.min.js"
+   "urlFilter": "||ad.amediakreativ.no/widgets/stillingskarusell^"
   },
   "id": 449
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||politainment.no^*/cookieconsent.min.js"
+  },
+  "id": 450
  },
  {
   "action": {
@@ -5909,7 +5931,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fwmrm.net/crossdomain.xml"
   },
-  "id": 450
+  "id": 451
  },
  {
   "action": {
@@ -5919,7 +5941,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sumo.cdn.tv2.no/ads^"
   },
-  "id": 451
+  "id": 452
  },
  {
   "action": {
@@ -5929,7 +5951,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": ".v.fwmrm.net/ad/g^*:mtg_play_"
   },
-  "id": 452
+  "id": 453
  },
  {
   "action": {
@@ -5940,7 +5962,7 @@
     "oddstips.norsktippingpartner.no"
    ]
   },
-  "id": 453
+  "id": 454
  },
  {
   "action": {
@@ -5953,7 +5975,7 @@
    ],
    "urlFilter": "||siglo.is/static/strevda/*upphafssida"
   },
-  "id": 454
+  "id": 455
  },
  {
   "action": {
@@ -6041,7 +6063,7 @@
    ],
    "urlFilter": "||easy-ads.com/subscriber^"
   },
-  "id": 455
+  "id": 456
  },
  {
   "action": {
@@ -6062,7 +6084,7 @@
    ],
    "urlFilter": ".dk/assets/templates/*/ads.png^"
   },
-  "id": 456
+  "id": 457
  },
  {
   "action": {
@@ -6150,7 +6172,7 @@
    ],
    "urlFilter": "||cdn.easy-ads.com/js/swipemod.js^"
   },
-  "id": 458
+  "id": 459
  },
  {
   "action": {
@@ -6166,7 +6188,7 @@
    ],
    "urlFilter": "||dialogue.sp-prod.net/messagingwithoutdetection.js"
   },
-  "id": 459
+  "id": 460
  },
  {
   "action": {
@@ -6183,7 +6205,7 @@
     "sub_frame"
    ]
   },
-  "id": 460
+  "id": 461
  },
  {
   "action": {
@@ -6196,7 +6218,7 @@
    ],
    "urlFilter": ".isdownorblocked.com^"
   },
-  "id": 461
+  "id": 462
  },
  {
   "action": {
@@ -6211,7 +6233,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/js/ads.js"
   },
-  "id": 462
+  "id": 463
  },
  {
   "action": {
@@ -6225,7 +6247,7 @@
    ],
    "urlFilter": "||www.tv2.no/s/js/ads.js"
   },
-  "id": 464
+  "id": 465
  },
  {
   "action": {
@@ -6239,7 +6261,7 @@
    ],
    "urlFilter": "||glow.posten.no/api/tracking/"
   },
-  "id": 465
+  "id": 466
  },
  {
   "action": {
@@ -6253,7 +6275,7 @@
    ],
    "urlFilter": "||tv2.no/*/config/analytics.json"
   },
-  "id": 466
+  "id": 467
  },
  {
   "action": {
@@ -6267,7 +6289,7 @@
    ],
    "urlFilter": "||cmp.ekstrabladet.dk/get_site_data"
   },
-  "id": 467
+  "id": 468
  },
  {
   "action": {
@@ -6282,6 +6304,6 @@
     "sixscissors.com"
    ]
   },
-  "id": 468
+  "id": 469
  }
 ]

@@ -33,9 +33,9 @@
 
 /******************************************************************************/
 
-const argsList = [["{\"selector\":\".widget\",\"tasks\":[[\"has\",{\"selector\":\".lazyloaded\"}]]}"],["{\"selector\":\".widget\",\"tasks\":[[\"has-text\",\"REKLAMA\"]]}"],["{\"selector\":\".td_block_template_1\",\"tasks\":[[\"has-text\",\"- Advertisement -\"]]}"],["{\"selector\":\".a-listing > li\",\"tasks\":[[\"has\",{\"selector\":\".adsbygoogle\"}]]}"],["{\"selector\":\".boost-list-container > [style] > [class]\",\"tasks\":[[\"has\",{\"selector\":\"> a[href^=\\\"https://aa.boostapi.net\\\"]\"}]]}"],["{\"selector\":\".vc_raw_html\",\"tasks\":[[\"has-text\",\"Html code\"]]}"],["{\"selector\":\".td-block-title-wrap > h4 > span\",\"tasks\":[[\"has-text\",\"REKLAMA\"]]}"]];
+const argsList = [["{\"selector\":\".widget\",\"tasks\":[[\"has\",{\"selector\":\".lazyloaded\"}]]}"],["{\"selector\":\".widget\",\"tasks\":[[\"has-text\",\"REKLAMA\"]]}"],["{\"selector\":\".td_block_template_1\",\"tasks\":[[\"has-text\",\"- Advertisement -\"]]}"],["{\"selector\":\".a-listing > li\",\"tasks\":[[\"has\",{\"selector\":\".adsbygoogle\"}]]}"],["{\"selector\":\"div.others\",\"tasks\":[[\"has\",{\"selector\":\"div[id*=\\\"_ads\\\"]\"}]]}"],["{\"selector\":\".boost-list-container > [style] > [class]\",\"tasks\":[[\"has\",{\"selector\":\"> a[href^=\\\"https://aa.boostapi.net\\\"]\"}]]}"],["{\"selector\":\".vc_raw_html\",\"tasks\":[[\"has-text\",\"Html code\"]]}"],["{\"selector\":\".td-block-title-wrap > h4 > span\",\"tasks\":[[\"has-text\",\"REKLAMA\"]]}"]];
 
-const hostnamesMap = new Map([["360grade.al",0],["konica.al",1],["mediaworld.al",2],["tej.al",3],["joq-albania.com",4],["joqalbania.com",4],["kohajone.com",5],["shkoder.net",6]]);
+const hostnamesMap = new Map([["360grade.al",0],["konica.al",1],["mediaworld.al",2],["tej.al",3],["gazetaexpress.com",4],["joq-albania.com",5],["joqalbania.com",5],["kohajone.com",6],["shkoder.net",7]]);
 
 const entitiesMap = new Map(undefined);
 

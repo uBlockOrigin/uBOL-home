@@ -5305,6 +5305,20 @@
   },
   "condition": {
    "initiatorDomains": [
+    "gregoryurban.ru"
+   ],
+   "requestDomains": [
+    "widget.replain.cc"
+   ]
+  },
+  "id": 434
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
     "cyberpowersystems.com",
     "lego.com",
     "microchip.com",
@@ -5314,7 +5328,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||service.force.com/embeddedservice/*/esw.min.js"
   },
-  "id": 434
+  "id": 435
  },
  {
   "action": {
@@ -5328,7 +5342,7 @@
     "client.crisp.chat"
    ]
   },
-  "id": 435
+  "id": 436
  },
  {
   "action": {
@@ -5341,7 +5355,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||compass.pressekompass.net/compasses^"
   },
-  "id": 436
+  "id": 437
  },
  {
   "action": {
@@ -5357,7 +5371,7 @@
    ],
    "urlFilter": "||buymeacoffee.com/*/widget."
   },
-  "id": 437
+  "id": 438
  },
  {
   "action": {
@@ -5373,6 +5387,6 @@
    ],
    "urlFilter": "||display.apester.com/interactions/"
   },
-  "id": 438
+  "id": 439
  }
 ]
