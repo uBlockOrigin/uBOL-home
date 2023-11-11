@@ -5,26 +5,6 @@
     {
      "header": "content-security-policy",
      "operation": "append",
-     "value": "upgrade-insecure-requests"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ],
-   "urlFilter": "|http://vimedbarn.se^"
-  },
-  "id": 1258
- },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
      "value": "img-src 'self' *.wordpress.com *.wp.com *.gravatar.com"
     }
    ],
@@ -39,7 +19,7 @@
     "sub_frame"
    ]
   },
-  "id": 1259
+  "id": 1189
  },
  {
   "action": {
@@ -65,6 +45,26 @@
     "sub_frame"
    ]
   },
-  "id": 1260
+  "id": 1190
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "upgrade-insecure-requests"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ],
+   "urlFilter": "|http://vimedbarn.se^"
+  },
+  "id": 1191
  }
 ]

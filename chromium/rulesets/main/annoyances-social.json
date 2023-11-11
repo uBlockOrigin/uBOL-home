@@ -5022,10 +5022,12 @@
   },
   "condition": {
    "initiatorDomains": [
-    "linenchest.com"
+    "jobs.intervalgroup.com",
+    "malaysianwireless.com",
+    "youngliving.com"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||woobox.com/js/plugins/woo.js"
+   "urlFilter": "||platform.linkedin.com/in.js"
   },
   "id": 435
  },
@@ -5038,9 +5040,22 @@
     "linenchest.com"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||woobox.com/*?embed="
+   "urlFilter": "||woobox.com/js/plugins/woo.js"
   },
   "id": 436
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "linenchest.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||woobox.com/*?embed="
+  },
+  "id": 437
  },
  {
   "action": {
@@ -5055,7 +5070,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform.twitter.com/oct.js"
   },
-  "id": 437
+  "id": 438
  },
  {
   "action": {
@@ -5122,7 +5137,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yastatic.net/*/share.js"
   },
-  "id": 438
+  "id": 439
  },
  {
   "action": {
@@ -5137,7 +5152,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.addtoany.com/menu/page.js"
   },
-  "id": 439
+  "id": 440
  },
  {
   "action": {
@@ -5151,7 +5166,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yastatic.net/share2/share.js"
   },
-  "id": 440
+  "id": 441
  },
  {
   "action": {
@@ -5165,7 +5180,7 @@
     "sharethis.com"
    ]
   },
-  "id": 441
+  "id": 442
  },
  {
   "action": {
@@ -5193,7 +5208,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||addthis.com/js/*/addthis_widget.js"
   },
-  "id": 442
+  "id": 443
  },
  {
   "action": {
@@ -5203,7 +5218,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||misssuomi.fi/wp-content/plugins/instagram-feed/"
   },
-  "id": 443
+  "id": 444
  },
  {
   "action": {
@@ -5223,7 +5238,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vk.com/js/api/share.js"
   },
-  "id": 444
+  "id": 445
  },
  {
   "action": {
@@ -5236,7 +5251,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||smallcaps.com.au/wp-content/plugins/mashshare"
   },
-  "id": 445
+  "id": 446
  },
  {
   "action": {
@@ -5248,21 +5263,6 @@
    ],
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.ampproject.org/v0/amp-social-share-0.1.js"
-  },
-  "id": 446
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "kh-news.net",
-    "monsterhunter.com",
-    "ura-inform.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||platform.twitter.com/js/button."
   },
   "id": 447
  },
@@ -5277,7 +5277,7 @@
     "ura-inform.com"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||platform.twitter.com/widgets/follow_button."
+   "urlFilter": "||platform.twitter.com/js/button."
   },
   "id": 448
  },
@@ -5286,8 +5286,13 @@
    "type": "allow"
   },
   "condition": {
+   "initiatorDomains": [
+    "kh-news.net",
+    "monsterhunter.com",
+    "ura-inform.com"
+   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||hardys.one/wp-content/plugins/easy-vkontakte-connect/js/social-likes.min.js"
+   "urlFilter": "||platform.twitter.com/widgets/follow_button."
   },
   "id": 449
  },
@@ -5297,9 +5302,19 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||kobaiya.jp/img/facebook.gif"
+   "urlFilter": "||hardys.one/wp-content/plugins/easy-vkontakte-connect/js/social-likes.min.js"
   },
   "id": 450
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||kobaiya.jp/img/facebook.gif"
+  },
+  "id": 451
  },
  {
   "action": {
@@ -5312,7 +5327,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||twitter.com/oct.js"
   },
-  "id": 451
+  "id": 452
  },
  {
   "action": {
@@ -5322,7 +5337,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||inewscast.ru/wp-content/plugins/easy-social-share-buttons*/lib/modules/social-followers-counter/assets/font/essb-socialfollowers.ttf"
   },
-  "id": 452
+  "id": 453
  },
  {
   "action": {
@@ -5332,7 +5347,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kayiprihtim.com/wp-content/plugins/easy-social-share-buttons3/lib/modules/social-followers-counter/assets/font/essb-socialfollowers.ttf"
   },
-  "id": 453
+  "id": 454
  },
  {
   "action": {
@@ -5342,7 +5357,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||login.cleveland.com/js/socialize.js"
   },
-  "id": 454
+  "id": 455
  },
  {
   "action": {
@@ -5352,7 +5367,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cio.com.br/wp-content/plugins/add-to-any/addtoany.min.css"
   },
-  "id": 455
+  "id": 456
  },
  {
   "action": {
@@ -5368,7 +5383,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform.twitter.com/js/button.*.js"
   },
-  "id": 456
+  "id": 457
  },
  {
   "action": {
@@ -5383,7 +5398,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform.twitter.com/widgets/follow_button"
   },
-  "id": 457
+  "id": 458
  },
  {
   "action": {
@@ -5397,7 +5412,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||facebook.com/*/plugins/"
   },
-  "id": 458
+  "id": 459
  },
  {
   "action": {
@@ -5410,7 +5425,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i.ua/*/ico/share/share_*_24.png"
   },
-  "id": 459
+  "id": 460
  },
  {
   "action": {
@@ -5419,19 +5434,6 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||olgasmile.com/wp-content/plugins/bwp-minify/min/?f=wp-content/plugins/"
-  },
-  "id": 460
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "freundin.de"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||assets.pinterest.com/js/pinit.js"
   },
   "id": 461
  },
@@ -5444,9 +5446,22 @@
     "freundin.de"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||assets.pinterest.com/js/pinit_main.js"
+   "urlFilter": "||assets.pinterest.com/js/pinit.js"
   },
   "id": 462
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "freundin.de"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||assets.pinterest.com/js/pinit_main.js"
+  },
+  "id": 463
  },
  {
   "action": {
@@ -5460,7 +5475,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||platform-api.sharethis.com/js/sharethis.js"
   },
-  "id": 463
+  "id": 464
  },
  {
   "action": {
@@ -5470,7 +5485,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lightningmaps.org/min/index.php?f=js/"
   },
-  "id": 464
+  "id": 465
  },
  {
   "action": {
@@ -5483,7 +5498,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||connect.facebook.net/en_us/sdk.js"
   },
-  "id": 465
+  "id": 466
  },
  {
   "action": {
@@ -5496,7 +5511,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||connect.mail.ru/proxy?resource=getloginstatus"
   },
-  "id": 466
+  "id": 467
  },
  {
   "action": {
@@ -5506,7 +5521,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||m.addthisedge.com/live/boost/*/_ate.track.config_resp"
   },
-  "id": 467
+  "id": 468
  },
  {
   "action": {
@@ -5519,7 +5534,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||connect.facebook.net/*/sdk/vb.js"
   },
-  "id": 468
+  "id": 469
  },
  {
   "action": {
@@ -5529,7 +5544,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||extrakupony.pl/js/zakladki.js"
   },
-  "id": 469
+  "id": 470
  },
  {
   "action": {
@@ -5539,7 +5554,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||remontnik.ru/static/js/app.min/components/socials/socialbuttons/socialbuttons.js"
   },
-  "id": 470
+  "id": 471
  },
  {
   "action": {
@@ -5557,7 +5572,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||addthis.com/js/*/addthis_widget.js^"
   },
-  "id": 471
+  "id": 472
  },
  {
   "action": {
@@ -5569,20 +5584,6 @@
    ],
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||addthis.com/*/official-addthis-angularjs/current/dist/official-addthis-angularjs.min.js"
-  },
-  "id": 472
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "malaysianwireless.com",
-    "youngliving.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||platform.linkedin.com/in.js"
   },
   "id": 473
  },

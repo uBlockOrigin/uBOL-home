@@ -44,12 +44,25 @@
   },
   "condition": {
    "initiatorDomains": [
+    "sedaily.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "^https:\\/\\/img\\.sedaily\\.com\\/\\/?Html\\/Banner\\/"
+  },
+  "id": 18
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
     "busan.com"
    ],
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/www\\.busan\\.com\\/nas\\/wcms\\/public\\/pc\\/images\\/new\\/[0-9]+[a-z]+([0-9]?|[a-z]+_[a-z]+_[a-z]+)\\."
   },
-  "id": 20
+  "id": 23
  },
  {
   "action": {
@@ -62,7 +75,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/timg\\.humoruniv\\.com\\/thumb_crop_resize\\.php\\?url=https?:\\/\\/[A-z0-9\\.]+\\/.+\\?SIZE=[0-9]+(x|X)[0-9]+\\?OPT=center"
   },
-  "id": 27
+  "id": 30
  },
  {
   "action": {
@@ -75,7 +88,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/[a-z0-9_]+\\.dishcrop\\.care\\/"
   },
-  "id": 41
+  "id": 44
  },
  {
   "action": {
@@ -88,7 +101,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/5l\\.co\\.kr\\/img\\/[0-9A-z]+_[0-9]+X[0-9]+\\."
   },
-  "id": 67
+  "id": 70
  },
  {
   "action": {
@@ -101,7 +114,7 @@
    ],
    "regexFilter": "^https?:\\/\\/adsenseforum[0-9]*\\.co\\.kr\\/data\\/editor\\/"
   },
-  "id": 83
+  "id": 86
  },
  {
   "action": {
@@ -114,7 +127,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/i0\\.wp\\.com\\/atlantak\\.com\\/wp-content\\/uploads\\/[0-9]+\\/[0-9]+\\/[0-9A-z%]+\\.[a-z]+\\?fit=[A-Z%,0-9]+&ssl=1$"
   },
-  "id": 99
+  "id": 102
  },
  {
   "action": {
@@ -127,7 +140,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/te31\\.com\\/m\\/[a-z]+[0-9]*\\.jpg"
   },
-  "id": 125
+  "id": 128
  },
  {
   "action": {
@@ -140,7 +153,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/soxak\\.com\\/images\\/([a-z]+_)?banner(_[a-z_]+)?\\."
   },
-  "id": 137
+  "id": 140
  },
  {
   "action": {
@@ -152,7 +165,7 @@
    ],
    "regexFilter": "^https:\\/\\/nng-phinf\\.pstatic\\.net\\/.+\\/[%A-z0-9\\.]+([0-9]+(x|X)[0-9]+)?000000_naverads\\."
   },
-  "id": 141
+  "id": 144
  },
  {
   "action": {
@@ -165,7 +178,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/i0\\.wp\\.com\\/watchfreejavonline\\.co\\/wp-content\\/uploads\\/[0-9]+\\/[0-9]+\\/cropped-favicon-watchfreejav\\.png"
   },
-  "id": 151
+  "id": 154
  },
  {
   "action": {
@@ -178,7 +191,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/www\\.busan\\.com\\/nas\\/wcms\\/public\\/pc\\/images\\/new\\/[0-9]+[a-z]+\\.gif"
   },
-  "id": 152
+  "id": 155
  },
  {
   "action": {
@@ -191,7 +204,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/blogger\\.googleusercontent\\.com\\/img\\/a\\/[A-z0-9_-]+=s[0-9]+$"
   },
-  "id": 165
+  "id": 168
  },
  {
   "action": {
@@ -204,7 +217,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/[a-z0-9]+\\.soonwe\\.com\\/[A-z0-9-]+\\/ad_[0-9]+_[0-9]+\\.js"
   },
-  "id": 169
+  "id": 172
  },
  {
   "action": {
@@ -217,7 +230,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/[a-z0-9]+\\.soonwe\\.com\\/[A-z0-9-]+\\/wt_[0-9]+_[0-9]+\\.html"
   },
-  "id": 170
+  "id": 173
  },
  {
   "action": {
@@ -229,7 +242,7 @@
    ],
    "regexFilter": "^https?:\\/\\/view[0-9]+\\.wemep\\.co\\.kr\\/wmp-banner\\/[0-9]{2}\\/[0-9]{6}\\/[0-9]{2}\\/"
   },
-  "id": 182
+  "id": 185
  },
  {
   "action": {
@@ -241,7 +254,7 @@
    ],
    "regexFilter": "^https?:\\/\\/view[0-9]+\\.wemep\\.co\\.kr\\/wmp-main\\/[0-9]{2}\\/[0-9]{6}\\/[0-9]{2}\\/(pmt|pmb)_[a-z0-9]{12}\\."
   },
-  "id": 183
+  "id": 186
  },
  {
   "action": {
@@ -254,7 +267,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/img[0-9]+\\.joongna\\.com\\/media\\/original\\/[0-9]{4}\\/[0-9]{2}\\/[0-9]{2}\\/[0-9]{13}\\."
   },
-  "id": 209
+  "id": 212
  },
  {
   "action": {
@@ -267,7 +280,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/haninpost\\.com\\/wp-content\\/uploads\\/[0-9]{4}\\/[0-9]{2}\\/.*(webbanner-|%EA%B4%91%EA%B3%A0|.{1}banner.{1}[0-9]+x[0-9]+)"
   },
-  "id": 233
+  "id": 236
  },
  {
   "action": {
@@ -279,7 +292,7 @@
    ],
    "regexFilter": "^https:\\/\\/haninpost\\.com\\/wp-content\\/uploads\\/[0-9]{4}\\/[0-9]{2}\\/[A-Z0-9_]+\\."
   },
-  "id": 234
+  "id": 237
  },
  {
   "action": {
@@ -292,7 +305,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/cdn[0-9]+\\.boribori\\.co\\.kr\\/rimg\\/(0|110x250)\\/cdn\\/contents\\/disp_corner_conts\\/"
   },
-  "id": 241
+  "id": 244
  },
  {
   "action": {
@@ -305,7 +318,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/evape\\.kr\\/data\\/editor\\/[0-9]+\\/[a-z0-9]+_[a-z0-9]+_[a-z0-9]+\\."
   },
-  "id": 243
+  "id": 246
  },
  {
   "action": {
@@ -318,7 +331,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/evape\\.kr\\/data\\/file[0-9]+\\/client\\/"
   },
-  "id": 244
+  "id": 247
  },
  {
   "action": {
@@ -331,7 +344,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/[a-z0-9-]+\\.orbi\\.kr\\/[0-9]+\\/[a-z0-9]+\\."
   },
-  "id": 287
+  "id": 290
  },
  {
   "action": {
@@ -344,7 +357,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/(www\\.)?eleccar\\.co\\.kr\\/Files\\/[0-9]+\\/Template\\/[0-9]+\\/[0-9]+_[0-9]+\\."
   },
-  "id": 289
+  "id": 292
  },
  {
   "action": {
@@ -357,7 +370,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/kpenews\\.com\\/images\\/main\\/[a-z]+_[0-9]+\\."
   },
-  "id": 291
+  "id": 294
  },
  {
   "action": {
@@ -370,7 +383,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/kpenews\\.com\\/Files\\/[0-9]\\/Template\\/[0-9]+\\/[0-9]+_[0-9]+\\."
   },
-  "id": 292
+  "id": 295
  },
  {
   "action": {
@@ -383,7 +396,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/nimage\\.g-enews\\.com\\/phpwas\\/restmb_allidxmake\\.php\\?idx=999&simg=[a-f0-9]+_0\\."
   },
-  "id": 293
+  "id": 296
  },
  {
   "action": {
@@ -396,7 +409,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/haninvegas\\.com\\/wp-content\\/uploads\\/[0-9]+\\/[0-9]+\\/[%A-Z0-9-]+-[0-9]+x[0-9]+"
   },
-  "id": 296
+  "id": 299
  },
  {
   "action": {
@@ -409,7 +422,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/dbr\\.donga\\.com\\/upload_dir\\/source\\/.+\\([0-9]+x[0-9]+\\)\\."
   },
-  "id": 301
+  "id": 304
  },
  {
   "action": {
@@ -422,7 +435,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/health\\.chosun\\.com\\/images\\/[0-9]+x[0-9]+"
   },
-  "id": 314
+  "id": 317
  },
  {
   "action": {
@@ -435,7 +448,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "https:\\/\\/(www\\.)?koreatimes\\.net\\/images\\/attach\\/[A-Z0-9]+-[0-9]+\\/"
   },
-  "id": 317
+  "id": 320
  },
  {
   "action": {
@@ -448,7 +461,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/(www\\.)?koreatimes\\.net\\/images\\/attach\\/[a-z]+[0-9]+\\/"
   },
-  "id": 319
+  "id": 322
  },
  {
   "action": {
@@ -461,7 +474,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "https:\\/\\/[a-z0-9]+\\.wp\\.com\\/wowtale\\.net\\/wp-content\\/uploads\\/[0-9]{4}\\/[0-9]{2}\\/wowtale\\.net-.+[0-9]{2,}(x|-)[0-9]{2,}\\."
   },
-  "id": 329
+  "id": 332
  },
  {
   "action": {
@@ -474,7 +487,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/(www\\.)?defensetimes\\.kr\\/imgs\\/[A-z_]+[0-9]+x[0-9]+\\."
   },
-  "id": 338
+  "id": 341
  },
  {
   "action": {
@@ -487,7 +500,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/tbc\\.imgdl\\.xcache\\.kinxcdn\\.com\\/cdn[0-9]{3}\\/[0-9]{8}\\/[0-9%A-z_]+\\([0-9]{3,4}x[0-9]{3,4}\\)"
   },
-  "id": 341
+  "id": 344
  },
  {
   "action": {
@@ -500,7 +513,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/img\\.tf\\.co\\.kr\\/ss\\/[0-9]{4}\\/fns\\/ads_"
   },
-  "id": 418
+  "id": 421
  },
  {
   "action": {
@@ -513,7 +526,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/coolenjoy\\.net\\/data\\/editor\\/[0-9]{4}\\/[0-9]{14}_[a-z]{8}\\."
   },
-  "id": 429
+  "id": 432
  },
  {
   "action": {
@@ -526,7 +539,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/www\\.ombudsmannews\\.com\\/default\\/image\\/[a-z]+\\.gif"
   },
-  "id": 437
+  "id": 440
  },
  {
   "action": {
@@ -539,7 +552,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/(www\\.)?0db\\.co\\.kr\\/files\\/attach\\/images\\/[0-9]{5}\\/[a-z0-9]{32}\\.jpg$"
   },
-  "id": 509
+  "id": 512
  },
  {
   "action": {
@@ -552,7 +565,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/static[0-9]\\.e-himart\\.co\\.kr\\/contents\\/content\\/display\\/cornerContents\\/imageBanner\\/[0-9]{3}\\/imageBanner_"
   },
-  "id": 511
+  "id": 514
  },
  {
   "action": {
@@ -565,7 +578,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/(www\\.)?stockinfo7\\.com\\/img\\/(banner\\/|%E)"
   },
-  "id": 513
+  "id": 516
  },
  {
   "action": {
@@ -578,7 +591,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/ohlitv\\.com\\/img\\/[0-9]{4}\\/[a-z]+\\.gif$"
   },
-  "id": 514
+  "id": 517
  },
  {
   "action": {
@@ -591,7 +604,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/moyo-cdn\\.[a-z0-9]{2,3}\\.[a-z0-9-]{12,15}\\.amazonaws\\.com\\/img\\/banner\\/"
   },
-  "id": 525
+  "id": 528
  },
  {
   "action": {
@@ -604,7 +617,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/h5\\.dcinside\\.com\\/assets\\/(aaa%20|banner|[%A-F0-9]{20,})"
   },
-  "id": 533
+  "id": 536
  },
  {
   "action": {
@@ -617,7 +630,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/shop\\.nate\\.com\\/shopbox\\/shopbox.+&svcpage=news"
   },
-  "id": 543
+  "id": 546
  },
  {
   "action": {
@@ -630,7 +643,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/(comm\\.|m\\.)?news\\.nate\\.com\\/(etc|Etc)\\/[A-z]*(ad|Ad|AD)[A-z]*"
   },
-  "id": 544
+  "id": 547
  },
  {
   "action": {
@@ -640,7 +653,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/t1\\.daumcdn\\.net\\/b2\\/creative\\/[0-9]{6}\\/[a-z0-9]{32}\\."
   },
-  "id": 549
+  "id": 552
  },
  {
   "action": {
@@ -653,7 +666,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/www\\.filecity\\.co\\.kr\\/img\\/btn\\/top_banner_[a-z]{4}\\."
   },
-  "id": 550
+  "id": 553
  },
  {
   "action": {
@@ -666,7 +679,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/[a-z]+\\.hungryapp\\.co\\.kr\\/main\\/main[0-9]{4}\\/_main_event\\.php$"
   },
-  "id": 552
+  "id": 555
  },
  {
   "action": {
@@ -679,7 +692,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/playwares\\.com\\/files\\/attach\\/images\\/[0-9]{8}\\/[0-9]{3}\\/[0-9]{3}\\/[0-9]{3}\\/[a-z0-9]{32}\\."
   },
-  "id": 560
+  "id": 563
  },
  {
   "action": {
@@ -689,7 +702,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/shop[0-9]\\.daumcdn\\.net\\/shophow\\/sib\\/[0-9]_[0-9]{12}_[A-z]{10,}"
   },
-  "id": 562
+  "id": 565
  },
  {
   "action": {
@@ -702,7 +715,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/image[0-9]{1,2}\\.compuzone\\.co\\.kr\\/img\\/images\\/main[0-9]{4}\\/[A-z]{1,2}\\/[A-z]{3,}Banner(|[0-9])_(|add_)[0-9]{5,6}\\."
   },
-  "id": 563
+  "id": 566
  },
  {
   "action": {
@@ -715,7 +728,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/image\\.edaily\\.co\\.kr\\/images\\/content\\/[A-z0-9]+640x100\\."
   },
-  "id": 569
+  "id": 572
  },
  {
   "action": {
@@ -728,7 +741,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/image\\.edaily\\.co\\.kr\\/images\\/content\\/[A-z0-9]+1080x128\\."
   },
-  "id": 570
+  "id": 573
  },
  {
   "action": {
@@ -738,7 +751,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/www\\.torrentreel[0-9]+\\.site\\/ad\\/"
   },
-  "id": 709
+  "id": 712
  },
  {
   "action": {
@@ -748,7 +761,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/tvchak[0-9]+\\.com\\/img\\/bbnn"
   },
-  "id": 710
+  "id": 713
  },
  {
   "action": {
@@ -758,7 +771,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/agit[0-9]+\\.com\\/upload\\/[0-9]+\\/[0-9]+\\/[0-9]+\\."
   },
-  "id": 711
+  "id": 714
  },
  {
   "action": {
@@ -782,7 +795,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/cdn\\.kktv[0-9]+\\.com\\/data\\/editor\\/"
   },
-  "id": 712
+  "id": 715
  },
  {
   "action": {
@@ -792,7 +805,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/viewtorrent[0-9]+\\.com\\/data\\/file\\/[0-9]+_[0-9]+\\/"
   },
-  "id": 721
+  "id": 724
  },
  {
   "action": {
@@ -802,7 +815,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/(www\\.)?bobaelink[0-9]+\\.xyz\\/images\\/ad\\/"
   },
-  "id": 722
+  "id": 725
  },
  {
   "action": {
@@ -815,7 +828,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "\\/data\\/zzapstream\\/[0-9]+_[A-z0-9]+\\.gif"
   },
-  "id": 724
+  "id": 727
  },
  {
   "action": {
@@ -825,7 +838,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/(w[0-9]+\\.)?torrentpi[0-9]+\\.com\\/data\\/file\\/ad\\/"
   },
-  "id": 726
+  "id": 729
  },
  {
   "action": {
@@ -835,7 +848,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/(w[0-9]+\\.)?torrentpi[0-9]+\\.com\\/data\\/editor\\/[0-9]+\\/[a-z0-9]+_[0-9]+_[0-9]+\\."
   },
-  "id": 727
+  "id": 730
  },
  {
   "action": {
@@ -845,7 +858,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/m[0-9]+\\.kotbc\\.com\\/img\\/[a-z0-9_\\/]+\\.gif$"
   },
-  "id": 728
+  "id": 731
  },
  {
   "action": {
@@ -855,7 +868,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/ohli365\\.[a-z]+\\/data\\/apms\\/background\\/"
   },
-  "id": 729
+  "id": 732
  },
  {
   "action": {
@@ -865,7 +878,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/torrentsee[0-9]+\\.com\\/uploadfile\\/up[a-z0-9]+\\.gif$"
   },
-  "id": 732
+  "id": 735
  },
  {
   "action": {
@@ -875,7 +888,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/manatoon[0-9]+\\.com\\/data\\/apms\\/background\\/"
   },
-  "id": 735
+  "id": 738
  },
  {
   "action": {
@@ -885,7 +898,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/av[0-9]+\\.org\\/banner\\/"
   },
-  "id": 736
+  "id": 739
  },
  {
   "action": {
@@ -895,7 +908,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/(www\\.)?todawa[0-9]+\\.asia\\/ad\\/"
   },
-  "id": 738
+  "id": 741
  },
  {
   "action": {
@@ -905,7 +918,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/(www\\.)?bngame[0-9]+\\.com\\/data\\/files\\/banner\\/"
   },
-  "id": 739
+  "id": 742
  },
  {
   "action": {
@@ -915,7 +928,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/tvmoa[0-9]+\\.com\\/data\\/apms\\/background\\/"
   },
-  "id": 740
+  "id": 743
  },
  {
   "action": {
@@ -925,7 +938,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/ohli24\\.[a-z]+\\/img\\/[0-9]{4}\\/[A-z0-9]+\\.[a-z]{3}$"
   },
-  "id": 741
+  "id": 744
  },
  {
   "action": {
@@ -938,7 +951,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/img\\.cdnfor\\.me\\/images\\/[0-9]+\\/[0-9]+\\/[0-9]+\\/[a-z0-9_-]+\\."
   },
-  "id": 744
+  "id": 747
  },
  {
   "action": {
@@ -951,7 +964,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/cdn-nl-[0-9]+\\.hasha\\.in\\/[A-z0-9_]+\\.gif$"
   },
-  "id": 745
+  "id": 748
  },
  {
   "action": {
@@ -961,7 +974,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/jgmoa[0-9]+\\.com\\/upload_files\\/popup\\/"
   },
-  "id": 747
+  "id": 750
  },
  {
   "action": {
@@ -971,7 +984,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/newtoki[0-9]+\\.com\\/tokinbtoki\\/[0-9]+"
   },
-  "id": 748
+  "id": 751
  },
  {
   "action": {
@@ -981,7 +994,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/manatoki[0-9]+\\.net\\/tokinbtoki\\/"
   },
-  "id": 749
+  "id": 752
  },
  {
   "action": {
@@ -991,7 +1004,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/[a-z0-9\\.]*torrentdia[0-9]+\\.com\\/data\\/to_list\\/"
   },
-  "id": 750
+  "id": 753
  },
  {
   "action": {
@@ -1001,7 +1014,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/static\\.tzstatic\\.top\\/t\\/[a-z0-9]+\\.gif$"
   },
-  "id": 754
+  "id": 757
  },
  {
   "action": {
@@ -1011,7 +1024,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/image\\.yaburi[0-9]+\\.com\\/image-storage\\/banners\\/"
   },
-  "id": 755
+  "id": 758
  },
  {
   "action": {
@@ -1021,7 +1034,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/torrentnx[0-9]+\\.com\\/thema\\/Basic\\/assets\\/"
   },
-  "id": 756
+  "id": 759
  },
  {
   "action": {
@@ -1086,7 +1099,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/imgcloud[0-9]+\\.net\\/"
   },
-  "id": 758
+  "id": 761
  },
  {
   "action": {
@@ -1096,7 +1109,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/torrentten[0-9]+\\.com\\/thema\\/Basic\\/assets\\/img\\/.+\\.gif$"
   },
-  "id": 759
+  "id": 762
  },
  {
   "action": {
@@ -1106,7 +1119,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/linkrand[0-9]+\\.com\\/thema\\/Miso-Basic[0-9]\\/assets\\/img\\/banne"
   },
-  "id": 760
+  "id": 763
  },
  {
   "action": {
@@ -1116,7 +1129,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/linkrand[0-9]+\\.com\\/data\\/file\\/(left|right)_sero\\/"
   },
-  "id": 761
+  "id": 764
  },
  {
   "action": {
@@ -1126,7 +1139,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/linkrand[0-9]+\\.com\\/data\\/apms\\/background\\/"
   },
-  "id": 762
+  "id": 765
  },
  {
   "action": {
@@ -1136,7 +1149,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/linkrand[0-9]+\\.com\\/data\\/file\\/site_2\\/"
   },
-  "id": 763
+  "id": 766
  },
  {
   "action": {
@@ -1146,7 +1159,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/wtbox[0-9]+\\.xyz\\/data\\/apms\\/background\\/.+\\.gif$"
   },
-  "id": 764
+  "id": 767
  },
  {
   "action": {
@@ -1156,7 +1169,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/tvbox[0-9]+\\.xyz\\/data\\/apms\\/background\\/.+\\.gif$"
   },
-  "id": 765
+  "id": 768
  },
  {
   "action": {
@@ -1166,7 +1179,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/ydbox[0-9]+\\.com\\/data\\/apms\\/background\\/.+\\.gif$"
   },
-  "id": 766
+  "id": 769
  },
  {
   "action": {
@@ -1176,7 +1189,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/nightyd[0-9]+\\.com\\/uploadfile\\/up[a-z0-9]+\\."
   },
-  "id": 767
+  "id": 770
  },
  {
   "action": {
@@ -1186,7 +1199,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/linkeye[0-9]+\\.com\\/data\\/file\\/banner\\/"
   },
-  "id": 768
+  "id": 771
  },
  {
   "action": {
@@ -1196,7 +1209,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/hohotoon[0-9]+\\.com\\/data\\/banner\\/"
   },
-  "id": 771
+  "id": 774
  },
  {
   "action": {
@@ -1206,7 +1219,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/(www\\.)?spotv[0-9]+\\.com\\/theme\\/basic\\/img\\/[a-z]+_ad_"
   },
-  "id": 772
+  "id": 775
  },
  {
   "action": {
@@ -1216,7 +1229,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/torrenthaja[0-9]*\\.com\\/data\\/banner\\/"
   },
-  "id": 773
+  "id": 776
  },
  {
   "action": {
@@ -1226,7 +1239,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/xn--8-o68e16s35etqj\\.com\\/data\\/editor\\/[0-9]+\\/[a-z0-9]+_[a-z0-9]+_[a-z0-9]+\\."
   },
-  "id": 775
+  "id": 778
  },
  {
   "action": {
@@ -1236,7 +1249,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/torrentmode[0-9]+\\.com\\/data\\/zn_bimg\\/"
   },
-  "id": 776
+  "id": 779
  },
  {
   "action": {
@@ -1246,7 +1259,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/toonkor[0-9]+\\.com\\/images\\/[0-9a-z-]*[0-9]{3,}(x|X)[0-9]{2,}"
   },
-  "id": 778
+  "id": 781
  },
  {
   "action": {
@@ -1256,7 +1269,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/toonkor[0-9]+\\.com\\/bann\\/"
   },
-  "id": 779
+  "id": 782
  },
  {
   "action": {
@@ -1266,7 +1279,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/torrentlee[0-9]+\\.com\\/[A-z_0-9]+\\.gif$"
   },
-  "id": 780
+  "id": 783
  },
  {
   "action": {
@@ -1276,7 +1289,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/torrentwiz[0-9]+\\.com\\/[A-z0-9]+\\.gif$"
   },
-  "id": 781
+  "id": 784
  },
  {
   "action": {
@@ -1286,7 +1299,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/agit[0-9]+\\.xyz\\/data\\/file\\/novel\\/banner\\/"
   },
-  "id": 782
+  "id": 785
  },
  {
   "action": {
@@ -1296,7 +1309,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/jgmoa[0-9]+\\.com\\/upload_files\\/banner\\/"
   },
-  "id": 783
+  "id": 786
  },
  {
   "action": {
@@ -1306,7 +1319,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "https:\\/\\/www\\.sexzoa[0-9]+\\.me\\/imgad\\/"
   },
-  "id": 784
+  "id": 787
  },
  {
   "action": {
@@ -1316,7 +1329,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/yagong[0-9]+\\.com\\/storage\\/upload\\/banners\\/"
   },
-  "id": 785
+  "id": 788
  },
  {
   "action": {
@@ -1326,7 +1339,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/yagong[0-9]+\\.com\\/images\\/[A-z0-9-]+\\.gif$"
   },
-  "id": 786
+  "id": 789
  },
  {
   "action": {
@@ -1336,7 +1349,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/www\\.xcity[0-9]+\\.me\\/imgad\\/"
   },
-  "id": 787
+  "id": 790
  },
  {
   "action": {
@@ -1346,7 +1359,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/www\\.jinyi[0-9]+\\.me\\/imgad\\/"
   },
-  "id": 788
+  "id": 791
  },
  {
   "action": {
@@ -1356,7 +1369,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/www\\.redsun[0-9]+\\.me\\/ad\\/"
   },
-  "id": 789
+  "id": 792
  },
  {
   "action": {
@@ -1366,7 +1379,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/manamoa[0-9]+\\.com\\/data\\/apms\\/background\\/"
   },
-  "id": 790
+  "id": 793
  },
  {
   "action": {
@@ -1376,7 +1389,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/namedtoon[0-9]+\\.com\\/Uploads\\/\\/images\\/[0-9]{4}-[0-9]{2}-[0-9]{2}\\/[a-z0-9]{13}"
   },
-  "id": 791
+  "id": 794
  },
  {
   "action": {
@@ -1386,7 +1399,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/mkmk[0-9]+\\.link\\/data\\/file\\/banner\\/"
   },
-  "id": 792
+  "id": 795
  },
  {
   "action": {
@@ -1396,7 +1409,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/(www\\.)?race[0-9]+\\.xyz\\/images\\/spon\\/"
   },
-  "id": 793
+  "id": 796
  },
  {
   "action": {
@@ -1406,7 +1419,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/dc\\.filesbest\\.xyz\\/uploadfile\\/images\\/[a-z0-9]+\\.gif$"
   },
-  "id": 794
+  "id": 797
  },
  {
   "action": {
@@ -1416,7 +1429,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/torrentwiz[0-9]+\\.com\\/data\\/editor\\/[0-9]{4}\\/"
   },
-  "id": 795
+  "id": 798
  },
  {
   "action": {
@@ -1426,7 +1439,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/torrentbot[0-9]+\\.com\\/uploadfile\\/up[a-z0-9]+\\.gif$"
   },
-  "id": 796
+  "id": 799
  },
  {
   "action": {
@@ -1436,7 +1449,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/(www\\.)?filetender\\.com\\/images\\/[0-9]{3,}(X|x)[0-9]{3,}-[0-9]{4}"
   },
-  "id": 799
+  "id": 802
  },
  {
   "action": {
@@ -1446,7 +1459,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/booktoki[0-9]+\\.com\\/tokinbtoki\\/[0-9]+"
   },
-  "id": 801
+  "id": 804
  },
  {
   "action": {
@@ -1456,7 +1469,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/frtoon[0-9]+\\.com\\/data\\/by_banner\\/"
   },
-  "id": 804
+  "id": 807
  },
  {
   "action": {
@@ -1466,7 +1479,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/funbe[0-9]+\\.com\\/images\\/"
   },
-  "id": 805
+  "id": 808
  },
  {
   "action": {
@@ -1476,7 +1489,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/[0-9]+image\\.[0-9]+toon\\.com\\/Image\\/Banposter\\/"
   },
-  "id": 806
+  "id": 809
  },
  {
   "action": {
@@ -1486,7 +1499,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/toon[0-9]+\\.com\\/bbs\\/myiframe\\.html$"
   },
-  "id": 807
+  "id": 810
  },
  {
   "action": {
@@ -1496,7 +1509,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/manaboza[0-9]+\\.com\\/static\\/picture\\/[0-9]{4}_[0-9]{10}\\.[0-9]{4}\\."
   },
-  "id": 809
+  "id": 812
  },
  {
   "action": {
@@ -1506,7 +1519,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https?:\\/\\/manaboza[0-9]+\\.com\\/static\\/image\\/header\\/"
   },
-  "id": 810
+  "id": 813
  },
  {
   "action": {
@@ -1516,7 +1529,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/newtoon[0-9]+\\.com\\/banner\\/"
   },
-  "id": 811
+  "id": 814
  },
  {
   "action": {
@@ -1526,7 +1539,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/bam[0-9]+co\\.com\\/_book\\/_Contents\\/banner\\/"
   },
-  "id": 812
+  "id": 815
  },
  {
   "action": {
@@ -1551,7 +1564,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/iabn[0-9]+\\.net\\/"
   },
-  "id": 814
+  "id": 817
  },
  {
   "action": {
@@ -1561,7 +1574,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/blacktoon[0-9]+\\.com\\/poster_js\\/[0-9]+\\.js"
   },
-  "id": 815
+  "id": 818
  },
  {
   "action": {
@@ -1577,7 +1590,7 @@
     "image"
    ]
   },
-  "id": 823
+  "id": 826
  },
  {
   "action": {
@@ -1593,7 +1606,7 @@
     "image"
    ]
   },
-  "id": 824
+  "id": 827
  },
  {
   "action": {
@@ -1609,7 +1622,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 836
+  "id": 839
  },
  {
   "action": {
@@ -1621,7 +1634,7 @@
     "main_frame"
    ]
   },
-  "id": 840
+  "id": 843
  },
  {
   "action": {
@@ -1634,7 +1647,7 @@
     "main_frame"
    ]
   },
-  "id": 841
+  "id": 844
  },
  {
   "action": {
@@ -1647,7 +1660,7 @@
     "main_frame"
    ]
   },
-  "id": 842
+  "id": 845
  },
  {
   "action": {
@@ -1660,7 +1673,7 @@
     "main_frame"
    ]
   },
-  "id": 843
+  "id": 846
  },
  {
   "action": {
@@ -1670,7 +1683,7 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^(http|https):\\/\\/image\\.kyobobook\\.co\\.kr\\/ink\\/images\\/prom\\/[0-9]{4}\\/general\\/[0-9]{6}_dailyCheck\\/"
   },
-  "id": 864
+  "id": 867
  },
  {
   "action": {
@@ -1680,6 +1693,6 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "^https:\\/\\/www\\.ehanex\\.com\\/images\\/main\\/[a-z]{2}_ad\\.gif$"
   },
-  "id": 867
+  "id": 870
  }
 ]

@@ -1692,6 +1692,22 @@
   },
   "condition": {
    "initiatorDomains": [
+    "is.fi"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||kampanjat.is.fi/alennuskoodit-promo/index.html"
+  },
+  "id": 123
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
     "m.riemurasia.net"
    ],
    "isUrlFilterCaseSensitive": false,
@@ -1700,7 +1716,7 @@
    ],
    "urlFilter": "||m.riemurasia.net/reklaami.php"
   },
-  "id": 123
+  "id": 124
  },
  {
   "action": {
@@ -1716,7 +1732,7 @@
    ],
    "urlFilter": "||nettiauto.com/en/ampparitbanner*.php"
   },
-  "id": 124
+  "id": 125
  },
  {
   "action": {
@@ -1729,7 +1745,7 @@
    ],
    "urlFilter": "||superskills.fi/fi*?isiframe=true"
   },
-  "id": 125
+  "id": 126
  },
  {
   "action": {
@@ -1742,7 +1758,7 @@
    ],
    "urlFilter": "||testeri.fi/ext_telsu"
   },
-  "id": 126
+  "id": 127
  },
  {
   "action": {
@@ -1755,7 +1771,7 @@
    ],
    "urlFilter": "||vg.is.fi/autotie-is-*/"
   },
-  "id": 127
+  "id": 128
  },
  {
   "action": {
@@ -1774,7 +1790,7 @@
    ],
    "urlFilter": "_300x300_*.mp4"
   },
-  "id": 128
+  "id": 129
  },
  {
   "action": {
@@ -1791,7 +1807,7 @@
     "media"
    ]
   },
-  "id": 129
+  "id": 130
  },
  {
   "action": {
@@ -1804,7 +1820,7 @@
    ],
    "urlFilter": "||com-wakedynamite-production-publish.s3.amazonaws.com/publish/"
   },
-  "id": 130
+  "id": 131
  },
  {
   "action": {
@@ -1817,7 +1833,7 @@
    ],
    "urlFilter": "||nelonenmedia-pmd-ads-*.nm-stream.nelonenmedia.fi^"
   },
-  "id": 131
+  "id": 132
  },
  {
   "action": {
@@ -1831,7 +1847,7 @@
     "media"
    ]
   },
-  "id": 132
+  "id": 133
  },
  {
   "action": {
@@ -1842,7 +1858,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fcdn.lauta.media/adform.js"
   },
-  "id": 133
+  "id": 134
  },
  {
   "action": {
@@ -1869,7 +1885,7 @@
     "revimages.motouutiset.fi"
    ]
   },
-  "id": 136
+  "id": 137
  },
  {
   "action": {
@@ -1880,7 +1896,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cloudfront.net/images/backgroundimages/backgroundimage^"
   },
-  "id": 137
+  "id": 138
  },
  {
   "action": {
@@ -1897,7 +1913,7 @@
     "script"
    ]
   },
-  "id": 138
+  "id": 139
  },
  {
   "action": {
@@ -1911,7 +1927,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fi-mtv3.videoplaza.tv/proxy/distributor"
   },
-  "id": 139
+  "id": 140
  },
  {
   "action": {
@@ -1924,7 +1940,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "leiki.com/mtv3/mwidget"
   },
-  "id": 140
+  "id": 141
  },
  {
   "action": {
@@ -1937,7 +1953,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "leiki.com/mtv3/widgets/loader/"
   },
-  "id": 141
+  "id": 142
  },
  {
   "action": {
@@ -1952,7 +1968,7 @@
     "leiki.com"
    ]
   },
-  "id": 142
+  "id": 143
  },
  {
   "action": {
@@ -1962,7 +1978,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tags.tiqcdn.com/utag/sanoma-fi/*/utag.js"
   },
-  "id": 143
+  "id": 144
  },
  {
   "action": {
@@ -1973,7 +1989,7 @@
     "netstat.ayy.fi"
    ]
   },
-  "id": 144
+  "id": 145
  },
  {
   "action": {
@@ -1989,7 +2005,7 @@
    ],
    "urlFilter": "||adservicemedia.dk/"
   },
-  "id": 145
+  "id": 146
  },
  {
   "action": {
@@ -2006,7 +2022,7 @@
     "script"
    ]
   },
-  "id": 146
+  "id": 147
  },
  {
   "action": {
@@ -2029,7 +2045,7 @@
    ],
    "urlFilter": "||googletagmanager.com/gtm.js"
   },
-  "id": 147
+  "id": 148
  },
  {
   "action": {
@@ -2045,7 +2061,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js"
   },
-  "id": 148
+  "id": 149
  },
  {
   "action": {
@@ -2061,7 +2077,7 @@
    ],
    "urlFilter": "||adserve.adcoin.com/display/ad_block/"
   },
-  "id": 149
+  "id": 150
  },
  {
   "action": {
@@ -2077,7 +2093,7 @@
    ],
    "urlFilter": "||power.fi/umbraco/api/tracking/trackorder"
   },
-  "id": 150
+  "id": 151
  },
  {
   "action": {
@@ -2093,7 +2109,7 @@
    ],
    "urlFilter": "||track.adform.net/*dna.fi/"
   },
-  "id": 151
+  "id": 152
  },
  {
   "action": {
@@ -2105,7 +2121,7 @@
     "click.redditmail.com"
    ]
   },
-  "id": 152
+  "id": 153
  },
  {
   "action": {
@@ -2119,6 +2135,6 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googletagmanager.com/gtm.js?"
   },
-  "id": 153
+  "id": 154
  }
 ]

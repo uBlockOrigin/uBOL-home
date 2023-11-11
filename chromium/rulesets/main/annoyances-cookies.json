@@ -5778,7 +5778,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-consent."
+   "urlFilter": "/gdpr-consent.js"
   },
   "id": 573
  },
@@ -5788,7 +5788,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-consent/"
+   "urlFilter": "/gdpr-consent.min.js"
   },
   "id": 574
  },
@@ -5798,7 +5798,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-cookie-compliance/dist/scripts/main.js"
+   "urlFilter": "/gdpr-consent/"
   },
   "id": 575
  },
@@ -5808,7 +5808,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-cookie.js"
+   "urlFilter": "/gdpr-cookie-compliance/dist/scripts/main.js"
   },
   "id": 576
  },
@@ -5818,7 +5818,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-min.js"
+   "urlFilter": "/gdpr-cookie.js"
   },
   "id": 577
  },
@@ -5828,7 +5828,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-popup-"
+   "urlFilter": "/gdpr-min.js"
   },
   "id": 578
  },
@@ -5838,7 +5838,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-popup.js"
+   "urlFilter": "/gdpr-popup-"
   },
   "id": 579
  },
@@ -5848,7 +5848,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-popup.min.js"
+   "urlFilter": "/gdpr-popup.js"
   },
   "id": 580
  },
@@ -5858,7 +5858,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-public.js"
+   "urlFilter": "/gdpr-popup.min.js"
   },
   "id": 581
  },
@@ -5868,7 +5868,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-public.min.js"
+   "urlFilter": "/gdpr-public.js"
   },
   "id": 582
  },
@@ -5878,7 +5878,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-rw-cookie-notice.min.js"
+   "urlFilter": "/gdpr-public.min.js"
   },
   "id": 583
  },
@@ -5888,7 +5888,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr-v2.js"
+   "urlFilter": "/gdpr-rw-cookie-notice.min.js"
   },
   "id": 584
  },
@@ -5898,7 +5898,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr.bundle."
+   "urlFilter": "/gdpr-v2.js"
   },
   "id": 585
  },
@@ -5908,7 +5908,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr.js"
+   "urlFilter": "/gdpr.bundle."
   },
   "id": 586
  },
@@ -5918,9 +5918,19 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr.min.js"
+   "urlFilter": "/gdpr.js"
   },
   "id": 587
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "/gdpr.min.js"
+  },
+  "id": 588
  },
  {
   "action": {
@@ -5933,7 +5943,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/gdpr/assets/"
   },
-  "id": 588
+  "id": 589
  },
  {
   "action": {
@@ -5943,7 +5953,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/gdpr/banner.js"
   },
-  "id": 589
+  "id": 590
  },
  {
   "action": {
@@ -5953,7 +5963,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/gdpr/bundle.min.js"
   },
-  "id": 590
+  "id": 591
  },
  {
   "action": {
@@ -5963,7 +5973,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/gdpr/disp.js"
   },
-  "id": 591
+  "id": 592
  },
  {
   "action": {
@@ -5973,7 +5983,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/gdpr/gdpr-"
   },
-  "id": 592
+  "id": 593
  },
  {
   "action": {
@@ -5983,16 +5993,6 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/gdpr/gdpr_"
   },
-  "id": 593
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr/img/"
-  },
   "id": 594
  },
  {
@@ -6001,7 +6001,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr/messaging."
+   "urlFilter": "/gdpr/img/"
   },
   "id": 595
  },
@@ -6021,7 +6021,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr/pdcc."
+   "urlFilter": "/gdpr/pdcc.min.js"
   },
   "id": 597
  },
@@ -6031,7 +6031,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr/script_"
+   "urlFilter": "/gdpr/spd.js"
   },
   "id": 598
  },
@@ -6041,7 +6041,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr/snack-"
+   "urlFilter": "/gdpr/third-party-"
   },
   "id": 599
  },
@@ -6051,7 +6051,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr/spd."
+   "urlFilter": "/gdpr/tracker-loaders.js"
   },
   "id": 600
  },
@@ -6061,7 +6061,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr/third-party-"
+   "urlFilter": "/gdpr_changes_v1.min.js"
   },
   "id": 601
  },
@@ -6071,7 +6071,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr/tracker-loaders.js"
+   "urlFilter": "/gdpr_consent.js"
   },
   "id": 602
  },
@@ -6081,7 +6081,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_consent."
+   "urlFilter": "/gdpr_consent.min.js"
   },
   "id": 603
  },
@@ -6091,7 +6091,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_css/"
+   "urlFilter": "/gdpr_dfp.js"
   },
   "id": 604
  },
@@ -6101,7 +6101,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_dfp.js"
+   "urlFilter": "/gdpr_footer.js"
   },
   "id": 605
  },
@@ -6111,7 +6111,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_footer.js"
+   "urlFilter": "/gdpr_js_toi/"
   },
   "id": 606
  },
@@ -6121,7 +6121,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_js/"
+   "urlFilter": "/gdpr_notice.js"
   },
   "id": 607
  },
@@ -6131,7 +6131,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_ncoi."
+   "urlFilter": "/gdpr_plugin.js"
   },
   "id": 608
  },
@@ -6141,7 +6141,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_notice."
+   "urlFilter": "/gdpr_popup.js"
   },
   "id": 609
  },
@@ -6151,7 +6151,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_optout."
+   "urlFilter": "/gdpr_popup.min.js"
   },
   "id": 610
  },
@@ -6161,7 +6161,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_plugin.js"
+   "urlFilter": "/gdprcompliance/"
   },
   "id": 611
  },
@@ -6171,7 +6171,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_popup.js"
+   "urlFilter": "/gdprcookie.js"
   },
   "id": 612
  },
@@ -6181,7 +6181,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_popup.min.js"
+   "urlFilter": "/gdprcookie/"
   },
   "id": 613
  },
@@ -6191,7 +6191,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdpr_status."
+   "urlFilter": "/gdprcookiepolicy.js"
   },
   "id": 614
  },
@@ -6201,7 +6201,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprcard/"
+   "urlFilter": "/gdprdialog.js"
   },
   "id": 615
  },
@@ -6211,7 +6211,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprcompliance/"
+   "urlFilter": "/gdprnotice.js"
   },
   "id": 616
  },
@@ -6221,7 +6221,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprcookie."
+   "urlFilter": "/gdprpopup.js"
   },
   "id": 617
  },
@@ -6231,7 +6231,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprcookie/"
+   "urlFilter": "/gdprpopup/"
   },
   "id": 618
  },
@@ -6241,7 +6241,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprcookiepolicy.js"
+   "urlFilter": "/gdprscript.js"
   },
   "id": 619
  },
@@ -6251,7 +6251,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprdialog."
+   "urlFilter": "/gestionbandeaucookies.js"
   },
   "id": 620
  },
@@ -6261,7 +6261,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprmain/"
+   "urlFilter": "/gestioncookiescnilplugin/"
   },
   "id": 621
  },
@@ -6271,7 +6271,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprmodalcounter."
+   "urlFilter": "/gestione_cookie.js"
   },
   "id": 622
  },
@@ -6281,7 +6281,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprnotice."
+   "urlFilter": "/getcookiemessagedisplay?"
   },
   "id": 623
  },
@@ -6291,7 +6291,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprpopup."
+   "urlFilter": "/gp-cookie-consent/v1/script.js"
   },
   "id": 624
  },
@@ -6301,7 +6301,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprpopup/"
+   "urlFilter": "/gp-cookie-consent/v2/script.js"
   },
   "id": 625
  },
@@ -6311,7 +6311,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdprscript."
+   "urlFilter": "/grt-cookie-consent.min.js"
   },
   "id": 626
  },
@@ -6321,7 +6321,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gdrp_banner."
+   "urlFilter": "/gtm-consent.js"
   },
   "id": 627
  },
@@ -6331,7 +6331,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gestionbandeaucookies.js"
+   "urlFilter": "/homepage-cookie-"
   },
   "id": 628
  },
@@ -6341,7 +6341,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gestioncookiescnilplugin/"
+   "urlFilter": "/hp-cookie-message.js"
   },
   "id": 629
  },
@@ -6351,7 +6351,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gestione_cookie.js"
+   "urlFilter": "/ht_cookielaw.js"
   },
   "id": 630
  },
@@ -6361,7 +6361,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/getcookiemessagedisplay?"
+   "urlFilter": "/hw-cookie-consent/"
   },
   "id": 631
  },
@@ -6371,7 +6371,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/geteuprivacypolicy."
+   "urlFilter": "/i_cookieconsent.js"
   },
   "id": 632
  },
@@ -6381,7 +6381,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gp-cookie-consent/"
+   "urlFilter": "/ibeugdpr.js"
   },
   "id": 633
  },
@@ -6391,7 +6391,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/grt-cookie-consent.min.js"
+   "urlFilter": "/ibeugdpr.min.js"
   },
   "id": 634
  },
@@ -6401,7 +6401,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/gtm-consent.js"
+   "urlFilter": "/idxrcookies.js"
   },
   "id": 635
  },
@@ -6411,7 +6411,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/header.cookies."
+   "urlFilter": "/ilmenite-cookie-consent.min.js"
   },
   "id": 636
  },
@@ -6421,7 +6421,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/header/cnil-"
+   "urlFilter": "/ilmenite-cookie-consent/"
   },
   "id": 637
  },
@@ -6431,7 +6431,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/headercookies."
+   "urlFilter": "/implied-consent.min.js"
   },
   "id": 638
  },
@@ -6441,7 +6441,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/headercookies_"
+   "urlFilter": "/implied-cookie-consent/"
   },
   "id": 639
  },
@@ -6451,7 +6451,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/hi-cookie-"
+   "urlFilter": "/impresacookiepolicy/"
   },
   "id": 640
  },
@@ -6461,7 +6461,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/homepage-cookie-"
+   "urlFilter": "/in2cookiemodal/"
   },
   "id": 641
  },
@@ -6471,7 +6471,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/hp-cookie-message.js"
+   "urlFilter": "/info_cookie.js"
   },
   "id": 642
  },
@@ -6481,7 +6481,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ht_cookielaw.js"
+   "urlFilter": "/infobar-cookies.js"
   },
   "id": 643
  },
@@ -6491,7 +6491,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/hw-cookie-consent/"
+   "urlFilter": "/infocookies.js"
   },
   "id": 644
  },
@@ -6501,7 +6501,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/i_cookieconsent.js"
+   "urlFilter": "/informativa-cookie/"
   },
   "id": 645
  },
@@ -6511,7 +6511,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ibeugdpr.js"
+   "urlFilter": "/informativa_cookie.js"
   },
   "id": 646
  },
@@ -6521,7 +6521,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ibeugdpr.min.js"
+   "urlFilter": "/informativa_cookie.min.js"
   },
   "id": 647
  },
@@ -6531,7 +6531,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/icit-cookie-law/"
+   "urlFilter": "/informativacookies/"
   },
   "id": 648
  },
@@ -6541,7 +6541,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ico.cookie."
+   "urlFilter": "/initcookiebanner.js"
   },
   "id": 649
  },
@@ -6551,7 +6551,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ico_cookies."
+   "urlFilter": "/intser_cookies.js"
   },
   "id": 650
  },
@@ -6561,7 +6561,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/icocookies."
+   "urlFilter": "/ionic-consent.js"
   },
   "id": 651
  },
@@ -6571,7 +6571,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/icon/cookie-"
+   "urlFilter": "/ips.privacycookie.js"
   },
   "id": 652
  },
@@ -6581,7 +6581,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/idg-consent."
+   "urlFilter": "/iqitcookielaw/views/js/front.js"
   },
   "id": 653
  },
@@ -6591,7 +6591,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/idgy_gdpr."
+   "urlFilter": "/iticonseil-rgpd/"
   },
   "id": 654
  },
@@ -6601,7 +6601,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/idxcookies/"
+   "urlFilter": "/iubenda/iubenda.js"
   },
   "id": 655
  },
@@ -6611,7 +6611,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ig_consent-"
+   "urlFilter": "/iubenda_cs.js"
   },
   "id": 656
  },
@@ -6621,7 +6621,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ig_cookie_"
+   "urlFilter": "/iuscookie.min.js"
   },
   "id": 657
  },
@@ -6631,7 +6631,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ik-rgpd."
+   "urlFilter": "/iuscookie_dev.js"
   },
   "id": 658
  },
@@ -6641,7 +6641,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ilmenite-cookie-consent.min.js"
+   "urlFilter": "/javascript-cookieconsent.js"
   },
   "id": 659
  },
@@ -6651,7 +6651,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ilmenite-cookie-consent/"
+   "urlFilter": "/javascript/gdpr?"
   },
   "id": 660
  },
@@ -6661,7 +6661,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/im_eucookie."
+   "urlFilter": "/jcookie.js"
   },
   "id": 661
  },
@@ -6671,7 +6671,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/img/gdpr/"
+   "urlFilter": "/jcookie_v2.js"
   },
   "id": 662
  },
@@ -6681,7 +6681,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/implied-consent.min.js"
+   "urlFilter": "/jcookielaw-iubenda.js"
   },
   "id": 663
  },
@@ -6691,7 +6691,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/implied-cookie-consent/"
+   "urlFilter": "/jeucookielaw.min.js"
   },
   "id": 664
  },
@@ -6701,7 +6701,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/impresacookiepolicy/"
+   "urlFilter": "/jquery.bpcookies.min.js"
   },
   "id": 665
  },
@@ -6711,7 +6711,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/in2cookiemodal/"
+   "urlFilter": "/jquery.coo-kie.js"
   },
   "id": 666
  },
@@ -6721,7 +6721,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/info_cookie.js"
+   "urlFilter": "/jquery.cookie-alert.js"
   },
   "id": 667
  },
@@ -6731,7 +6731,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/infobar-cookies.js"
+   "urlFilter": "/jquery.cookie-madeincima.js"
   },
   "id": 668
  },
@@ -6741,7 +6741,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/infocookies.js"
+   "urlFilter": "/jquery.cookieaccept.js"
   },
   "id": 669
  },
@@ -6751,7 +6751,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/informativa-cookie/"
+   "urlFilter": "/jquery.cookieaccept.min.js"
   },
   "id": 670
  },
@@ -6761,7 +6761,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/informativa_cookie.js"
+   "urlFilter": "/jquery.cookiebar.js"
   },
   "id": 671
  },
@@ -6771,7 +6771,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/informativa_cookie.min.js"
+   "urlFilter": "/jquery.cookiebar.min.js"
   },
   "id": 672
  },
@@ -6781,7 +6781,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/informativacookies/"
+   "urlFilter": "/jquery.cookiebargenial.js"
   },
   "id": 673
  },
@@ -6791,7 +6791,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/initcookiebanner.js"
+   "urlFilter": "/jquery.cookiecuttr."
   },
   "id": 674
  },
@@ -6801,7 +6801,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/intser_cookies.js"
+   "urlFilter": "/jquery.divascookies-"
   },
   "id": 675
  },
@@ -6811,7 +6811,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ionic-consent.js"
+   "urlFilter": "/jquery.eu-cookie-consent.js"
   },
   "id": 676
  },
@@ -6821,7 +6821,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ips.privacycookie.js"
+   "urlFilter": "/jquery.fscookieconsent.js"
   },
   "id": 677
  },
@@ -6831,7 +6831,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/iqitcookielaw/views/js/front.js"
+   "urlFilter": "/jquery.tipsy.cookie."
   },
   "id": 678
  },
@@ -6841,7 +6841,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/iticonseil-rgpd/"
+   "urlFilter": "/jquerycookieguard."
   },
   "id": 679
  },
@@ -6851,7 +6851,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/iubenda/iubenda.js"
+   "urlFilter": "/js/cookiemanager.js"
   },
   "id": 680
  },
@@ -6861,7 +6861,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/iubenda_cs.js"
+   "urlFilter": "/js/cookiepolicy?"
   },
   "id": 681
  },
@@ -6871,7 +6871,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/iuscookie.min.js"
+   "urlFilter": "/js/eprivacy.js"
   },
   "id": 682
  },
@@ -6881,7 +6881,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/iuscookie_dev.js"
+   "urlFilter": "/js/onetrust/"
   },
   "id": 683
  },
@@ -6891,7 +6891,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/javascript-cookieconsent.js"
+   "urlFilter": "/js/rodo.js"
   },
   "id": 684
  },
@@ -6901,7 +6901,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/javascript/gdpr?"
+   "urlFilter": "/kabimba_cookie/"
   },
   "id": 685
  },
@@ -6911,7 +6911,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jcookie.js"
+   "urlFilter": "/kameleoon.js"
   },
   "id": 686
  },
@@ -6921,7 +6921,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jcookie_v2.js"
+   "urlFilter": "/kaspersky-cookies-notification/"
   },
   "id": 687
  },
@@ -6931,7 +6931,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jcookielaw-iubenda.js"
+   "urlFilter": "/keksikysely.min.js"
   },
   "id": 688
  },
@@ -6941,7 +6941,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jeucookielaw.min.js"
+   "urlFilter": "/kixsimpletrack/"
   },
   "id": 689
  },
@@ -6951,7 +6951,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.bpcookies.min.js"
+   "urlFilter": "/klaro-cookieconsent/"
   },
   "id": 690
  },
@@ -6961,7 +6961,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.coo-kie.js"
+   "urlFilter": "/klaro-no-css.js"
   },
   "id": 691
  },
@@ -6971,7 +6971,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.cookie-alert.js"
+   "urlFilter": "/klaro-no-translations-no-css.js"
   },
   "id": 692
  },
@@ -6981,7 +6981,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.cookie-madeincima.js"
+   "urlFilter": "/klaro-styles.min."
   },
   "id": 693
  },
@@ -6991,7 +6991,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.cookieaccept.js"
+   "urlFilter": "/leycookies.js"
   },
   "id": 694
  },
@@ -7001,7 +7001,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.cookieaccept.min.js"
+   "urlFilter": "/lgdpscript.min.js"
   },
   "id": 695
  },
@@ -7011,7 +7011,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.cookiebar.js"
+   "urlFilter": "/lgpd-cookie/"
   },
   "id": 696
  },
@@ -7021,7 +7021,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.cookiebar.min.js"
+   "urlFilter": "/lin_gdpr_cookiejar.js"
   },
   "id": 697
  },
@@ -7031,7 +7031,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.cookiebargenial.js"
+   "urlFilter": "/ll_cookie_bar.js"
   },
   "id": 698
  },
@@ -7041,7 +7041,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.cookiecuttr."
+   "urlFilter": "/loadcookieconsent.js"
   },
   "id": 699
  },
@@ -7051,7 +7051,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.divascookies-"
+   "urlFilter": "/loom-cookie.js"
   },
   "id": 700
  },
@@ -7061,7 +7061,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.eu-cookie-consent.js"
+   "urlFilter": "/loom_cookie.block.js"
   },
   "id": 701
  },
@@ -7071,7 +7071,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.fscookieconsent.js"
+   "urlFilter": "/loom_cookie.main.js"
   },
   "id": 702
  },
@@ -7081,7 +7081,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquery.tipsy.cookie."
+   "urlFilter": "/lssicookies/"
   },
   "id": 703
  },
@@ -7091,7 +7091,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/jquerycookieguard."
+   "urlFilter": "/magento_theme/static/js/cookie-popup."
   },
   "id": 704
  },
@@ -7101,7 +7101,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/js/cookiemanager.js"
+   "urlFilter": "/magento_theme/static/js/cookie_monster-js"
   },
   "id": 705
  },
@@ -7111,7 +7111,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/js/cookiepolicy?"
+   "urlFilter": "/markupcookieconsent/"
   },
   "id": 706
  },
@@ -7121,7 +7121,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/js/eprivacy.js"
+   "urlFilter": "/master-popups-cookieplus/"
   },
   "id": 707
  },
@@ -7131,7 +7131,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/js/onetrust/"
+   "urlFilter": "/mb_cookies.js"
   },
   "id": 708
  },
@@ -7141,7 +7141,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/js/rodo.js"
+   "urlFilter": "/mco-consent.js"
   },
   "id": 709
  },
@@ -7151,7 +7151,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/kabimba_cookie/"
+   "urlFilter": "/mdv.cookie."
   },
   "id": 710
  },
@@ -7161,7 +7161,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/kameleoon.js"
+   "urlFilter": "/mea-legal-consent."
   },
   "id": 711
  },
@@ -7171,7 +7171,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/kaspersky-cookies-notification/"
+   "urlFilter": "/mediamus-cookie.js"
   },
   "id": 712
  },
@@ -7181,7 +7181,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/keksikysely.min.js"
+   "urlFilter": "/mekanismi_cookie_alert/"
   },
   "id": 713
  },
@@ -7191,7 +7191,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/kixsimpletrack/"
+   "urlFilter": "/messagingnotcfapi.js"
   },
   "id": 714
  },
@@ -7201,7 +7201,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/klaro-cookieconsent/"
+   "urlFilter": "/mewantcookies1.8.js"
   },
   "id": 715
  },
@@ -7211,7 +7211,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/klaro-no-css.js"
+   "urlFilter": "/mfe-cookies/"
   },
   "id": 716
  },
@@ -7221,249 +7221,9 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/klaro-no-translations-no-css.js"
-  },
-  "id": 717
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/klaro-styles.min."
-  },
-  "id": 718
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/leycookies.js"
-  },
-  "id": 719
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/lgdpscript.min.js"
-  },
-  "id": 720
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/lgpd-cookie/"
-  },
-  "id": 721
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/ll_cookie_bar.js"
-  },
-  "id": 722
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/loadcookieconsent.js"
-  },
-  "id": 723
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/loom-cookie.js"
-  },
-  "id": 724
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/loom_cookie.block.js"
-  },
-  "id": 725
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/loom_cookie.main.js"
-  },
-  "id": 726
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/lssicookies/"
-  },
-  "id": 727
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/magento_theme/static/js/cookie-popup."
-  },
-  "id": 728
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/magento_theme/static/js/cookie_monster-js"
-  },
-  "id": 729
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/markupcookieconsent/"
-  },
-  "id": 730
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/master-popups-cookieplus/"
-  },
-  "id": 731
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/mb_cookies.js"
-  },
-  "id": 732
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/mco-consent.js"
-  },
-  "id": 733
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/mdv.cookie."
-  },
-  "id": 734
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/mea-legal-consent."
-  },
-  "id": 735
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/mediamus-cookie.js"
-  },
-  "id": 736
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/mekanismi_cookie_alert/"
-  },
-  "id": 737
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/messagingnotcfapi.js"
-  },
-  "id": 738
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/mewantcookies1.8.js"
-  },
-  "id": 739
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/mfe-cookies/"
-  },
-  "id": 740
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
    "urlFilter": "/mod_cookie/"
   },
-  "id": 741
+  "id": 717
  },
  {
   "action": {
@@ -7477,7 +7237,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/mod_cookiesaccept/"
   },
-  "id": 742
+  "id": 718
  },
  {
   "action": {
@@ -7487,7 +7247,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/mod_ebstickycookienotice/"
   },
-  "id": 743
+  "id": 719
  },
  {
   "action": {
@@ -7497,7 +7257,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/mod_eu_cookies/"
   },
-  "id": 744
+  "id": 720
  },
  {
   "action": {
@@ -7507,7 +7267,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/mod_jbcookies/"
   },
-  "id": 745
+  "id": 721
  },
  {
   "action": {
@@ -7517,7 +7277,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/mod_logikamentecookielaw/"
   },
-  "id": 746
+  "id": 722
  },
  {
   "action": {
@@ -7527,7 +7287,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/modal-gdpr.umd.js"
   },
-  "id": 747
+  "id": 723
  },
  {
   "action": {
@@ -7537,7 +7297,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/module-rgpd.esm.js"
   },
-  "id": 748
+  "id": 724
  },
  {
   "action": {
@@ -7547,7 +7307,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/mp_acookie.js"
   },
-  "id": 749
+  "id": 725
  },
  {
   "action": {
@@ -7557,7 +7317,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/msmcookieconsent.js"
   },
-  "id": 750
+  "id": 726
  },
  {
   "action": {
@@ -7567,7 +7327,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/mws-cookie-solution-config.json"
   },
-  "id": 751
+  "id": 727
  },
  {
   "action": {
@@ -7577,7 +7337,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/nanogdpr.min.js"
   },
-  "id": 752
+  "id": 728
  },
  {
   "action": {
@@ -7587,7 +7347,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/nc-rgpd-cookies.css"
   },
-  "id": 753
+  "id": 729
  },
  {
   "action": {
@@ -7597,7 +7357,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/nc-rgpd-cookies.min.js"
   },
-  "id": 754
+  "id": 730
  },
  {
   "action": {
@@ -7607,7 +7367,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/neo-cookie-policy.js"
   },
-  "id": 755
+  "id": 731
  },
  {
   "action": {
@@ -7617,7 +7377,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/newprivacypolicy.js"
   },
-  "id": 756
+  "id": 732
  },
  {
   "action": {
@@ -7627,7 +7387,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/nibirumail.cookie.min.js"
   },
-  "id": 757
+  "id": 733
  },
  {
   "action": {
@@ -7637,7 +7397,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/ninja-gdpr-compliance/assets/home/js/app.js"
   },
-  "id": 758
+  "id": 734
  },
  {
   "action": {
@@ -7647,7 +7407,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/nl-cookie-law.js"
   },
-  "id": 759
+  "id": 735
  },
  {
   "action": {
@@ -7657,7 +7417,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/npo_cookiecontrol.js"
   },
-  "id": 760
+  "id": 736
  },
  {
   "action": {
@@ -7667,7 +7427,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/nsd-cookie-banner.js"
   },
-  "id": 761
+  "id": 737
  },
  {
   "action": {
@@ -7677,7 +7437,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/nt-cookie-form.full.min.js"
   },
-  "id": 762
+  "id": 738
  },
  {
   "action": {
@@ -7687,7 +7447,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/oil.*-release.min.js"
   },
-  "id": 763
+  "id": 739
  },
  {
   "action": {
@@ -7697,7 +7457,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/oil/*-release.chunk.js"
   },
-  "id": 764
+  "id": 740
  },
  {
   "action": {
@@ -7707,7 +7467,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/oiljs/*-release.min.js"
   },
-  "id": 765
+  "id": 741
  },
  {
   "action": {
@@ -7717,7 +7477,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/on-cookie-response.js"
   },
-  "id": 766
+  "id": 742
  },
  {
   "action": {
@@ -7727,7 +7487,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/one_trust/"
   },
-  "id": 767
+  "id": 743
  },
  {
   "action": {
@@ -7737,7 +7497,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/onetrust-"
   },
-  "id": 768
+  "id": 744
  },
  {
   "action": {
@@ -7747,7 +7507,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/onetrust."
   },
-  "id": 769
+  "id": 745
  },
  {
   "action": {
@@ -7757,7 +7517,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/onetrust/consent/"
   },
-  "id": 770
+  "id": 746
  },
  {
   "action": {
@@ -7767,7 +7527,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/onetrustconsent.js"
   },
-  "id": 771
+  "id": 747
  },
  {
   "action": {
@@ -7777,7 +7537,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/onpc-cookie-notice.js"
   },
-  "id": 772
+  "id": 748
  },
  {
   "action": {
@@ -7787,7 +7547,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/opnwidget.js"
   },
-  "id": 773
+  "id": 749
  },
  {
   "action": {
@@ -7797,7 +7557,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/opt-in-select/cookie/"
   },
-  "id": 774
+  "id": 750
  },
  {
   "action": {
@@ -7807,7 +7567,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/os19ccm/public/index.php/"
   },
-  "id": 775
+  "id": 751
  },
  {
   "action": {
@@ -7817,7 +7577,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/osb_consent.min.js"
   },
-  "id": 776
+  "id": 752
  },
  {
   "action": {
@@ -7827,7 +7587,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/otbannersdk.js"
   },
-  "id": 777
+  "id": 753
  },
  {
   "action": {
@@ -7837,7 +7597,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pescookies.min.js"
   },
-  "id": 778
+  "id": 754
  },
  {
   "action": {
@@ -7847,7 +7607,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pgcookies.min.js"
   },
-  "id": 779
+  "id": 755
  },
  {
   "action": {
@@ -7857,7 +7617,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pgdpr.min.js"
   },
-  "id": 780
+  "id": 756
  },
  {
   "action": {
@@ -7867,7 +7627,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pitprivacy.js"
   },
-  "id": 781
+  "id": 757
  },
  {
   "action": {
@@ -7877,7 +7637,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plg_system_cookieconfirm/"
   },
-  "id": 782
+  "id": 758
  },
  {
   "action": {
@@ -7887,7 +7647,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pltk/pltk.js"
   },
-  "id": 783
+  "id": 759
  },
  {
   "action": {
@@ -7897,7 +7657,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugin_cookie/"
   },
-  "id": 784
+  "id": 760
  },
  {
   "action": {
@@ -7912,7 +7672,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/cookie-"
   },
-  "id": 785
+  "id": 761
  },
  {
   "action": {
@@ -7922,7 +7682,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plugins/gdpr/"
   },
-  "id": 786
+  "id": 762
  },
  {
   "action": {
@@ -7932,7 +7692,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/plumrocket_cookieconsent/js/lib/js.cookie.js"
   },
-  "id": 787
+  "id": 763
  },
  {
   "action": {
@@ -7942,7 +7702,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/policy_cookie.js"
   },
-  "id": 788
+  "id": 764
  },
  {
   "action": {
@@ -7952,7 +7712,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/policyaccept.js"
   },
-  "id": 789
+  "id": 765
  },
  {
   "action": {
@@ -7962,7 +7722,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/politicacookies.js"
   },
-  "id": 790
+  "id": 766
  },
  {
   "action": {
@@ -7972,7 +7732,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pop_up_cookie.js"
   },
-  "id": 791
+  "id": 767
  },
  {
   "action": {
@@ -7982,7 +7742,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/popupconsent.css"
   },
-  "id": 792
+  "id": 768
  },
  {
   "action": {
@@ -7992,7 +7752,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/popupconsent.js"
   },
-  "id": 793
+  "id": 769
  },
  {
   "action": {
@@ -8002,7 +7762,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/popupcookie.js"
   },
-  "id": 794
+  "id": 770
  },
  {
   "action": {
@@ -8012,7 +7772,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/popupcookieinit.js"
   },
-  "id": 795
+  "id": 771
  },
  {
   "action": {
@@ -8022,7 +7782,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/popupcookies.js"
   },
-  "id": 796
+  "id": 772
  },
  {
   "action": {
@@ -8032,7 +7792,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pp-cookie-banner/cookiebannerwithcontentblocker/main.js"
   },
-  "id": 797
+  "id": 773
  },
  {
   "action": {
@@ -8042,7 +7802,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/prettycookies.js"
   },
-  "id": 798
+  "id": 774
  },
  {
   "action": {
@@ -8052,7 +7812,17 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacy-banner.js"
   },
-  "id": 799
+  "id": 775
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "/privacy-banner/storefront-banner.js"
+  },
+  "id": 776
  },
  {
   "action": {
@@ -8062,7 +7832,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacy-cookie.js"
   },
-  "id": 800
+  "id": 777
  },
  {
   "action": {
@@ -8072,7 +7842,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacy-cookies.js"
   },
-  "id": 801
+  "id": 778
  },
  {
   "action": {
@@ -8082,7 +7852,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacy-manager.js"
   },
-  "id": 802
+  "id": 779
  },
  {
   "action": {
@@ -8092,7 +7862,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacy-modal.js"
   },
-  "id": 803
+  "id": 780
  },
  {
   "action": {
@@ -8102,7 +7872,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacy-policy.js"
   },
-  "id": 804
+  "id": 781
  },
  {
   "action": {
@@ -8112,7 +7882,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacy/cookie.js"
   },
-  "id": 805
+  "id": 782
  },
  {
   "action": {
@@ -8122,7 +7892,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacy_cookie.js"
   },
-  "id": 806
+  "id": 783
  },
  {
   "action": {
@@ -8132,7 +7902,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacy_policy.js"
   },
-  "id": 807
+  "id": 784
  },
  {
   "action": {
@@ -8142,7 +7912,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacy_v2_4.js"
   },
-  "id": 808
+  "id": 785
  },
  {
   "action": {
@@ -8152,7 +7922,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacychoices.js"
   },
-  "id": 809
+  "id": 786
  },
  {
   "action": {
@@ -8162,7 +7932,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacycookie/"
   },
-  "id": 810
+  "id": 787
  },
  {
   "action": {
@@ -8172,7 +7942,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacyopt.js"
   },
-  "id": 811
+  "id": 788
  },
  {
   "action": {
@@ -8182,7 +7952,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacypolicy.js"
   },
-  "id": 812
+  "id": 789
  },
  {
   "action": {
@@ -8192,7 +7962,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacypopup/"
   },
-  "id": 813
+  "id": 790
  },
  {
   "action": {
@@ -8202,7 +7972,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pro-cp-dialog.js"
   },
-  "id": 814
+  "id": 791
  },
  {
   "action": {
@@ -8212,7 +7982,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/protocalcookie.js"
   },
-  "id": 815
+  "id": 792
  },
  {
   "action": {
@@ -8222,7 +7992,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pum-site-scripts-"
   },
-  "id": 816
+  "id": 793
  },
  {
   "action": {
@@ -8232,7 +8002,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pum-site-scripts."
   },
-  "id": 817
+  "id": 794
  },
  {
   "action": {
@@ -8242,7 +8012,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pwcookielaw.js"
   },
-  "id": 818
+  "id": 795
  },
  {
   "action": {
@@ -8252,7 +8022,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pwd-cookie-consent/"
   },
-  "id": 819
+  "id": 796
  },
  {
   "action": {
@@ -8262,7 +8032,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/pxpcookies.js"
   },
-  "id": 820
+  "id": 797
  },
  {
   "action": {
@@ -8272,7 +8042,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/qc-consent.js"
   },
-  "id": 821
+  "id": 798
  },
  {
   "action": {
@@ -8282,7 +8052,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/qciol.min.js"
   },
-  "id": 822
+  "id": 799
  },
  {
   "action": {
@@ -8292,7 +8062,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/qoob.cookielaw.min.js"
   },
-  "id": 823
+  "id": 800
  },
  {
   "action": {
@@ -8302,7 +8072,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/quantastcmp.js"
   },
-  "id": 824
+  "id": 801
  },
  {
   "action": {
@@ -8312,7 +8082,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/quantcast-choice.js"
   },
-  "id": 825
+  "id": 802
  },
  {
   "action": {
@@ -8322,7 +8092,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/quick-cookie-consent-public.js"
   },
-  "id": 826
+  "id": 803
  },
  {
   "action": {
@@ -8332,7 +8102,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rdm-daac-notice-public.js"
   },
-  "id": 827
+  "id": 804
  },
  {
   "action": {
@@ -8342,7 +8112,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/real-cookie-banner/"
   },
-  "id": 828
+  "id": 805
  },
  {
   "action": {
@@ -8352,7 +8122,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/redandblue-cookies/"
   },
-  "id": 829
+  "id": 806
  },
  {
   "action": {
@@ -8362,7 +8132,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/retargetting/js/setcookie.js"
   },
-  "id": 830
+  "id": 807
  },
  {
   "action": {
@@ -8372,7 +8142,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rg-gdpr.js"
   },
-  "id": 831
+  "id": 808
  },
  {
   "action": {
@@ -8382,7 +8152,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rgpd.js"
   },
-  "id": 832
+  "id": 809
  },
  {
   "action": {
@@ -8392,7 +8162,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rgpd/discreto.min.js"
   },
-  "id": 833
+  "id": 810
  },
  {
   "action": {
@@ -8402,7 +8172,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rgpd/js/"
   },
-  "id": 834
+  "id": 811
  },
  {
   "action": {
@@ -8412,7 +8182,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rgpd/view/"
   },
-  "id": 835
+  "id": 812
  },
  {
   "action": {
@@ -8422,7 +8192,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rgpd_cookie_consent.php"
   },
-  "id": 836
+  "id": 813
  },
  {
   "action": {
@@ -8432,7 +8202,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rm-cookieconsent.js"
   },
-  "id": 837
+  "id": 814
  },
  {
   "action": {
@@ -8442,7 +8212,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rodo-agreement-popup/"
   },
-  "id": 838
+  "id": 815
  },
  {
   "action": {
@@ -8452,7 +8222,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rodo-iframe?"
   },
-  "id": 839
+  "id": 816
  },
  {
   "action": {
@@ -8462,7 +8232,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rodo.min.js"
   },
-  "id": 840
+  "id": 817
  },
  {
   "action": {
@@ -8472,7 +8242,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rodo/messages-jsonp"
   },
-  "id": 841
+  "id": 818
  },
  {
   "action": {
@@ -8482,7 +8252,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rodo/rodo.js"
   },
-  "id": 842
+  "id": 819
  },
  {
   "action": {
@@ -8492,7 +8262,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rodo_rmf.js"
   },
-  "id": 843
+  "id": 820
  },
  {
   "action": {
@@ -8502,7 +8272,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rodoinfo/*/remodal.js"
   },
-  "id": 844
+  "id": 821
  },
  {
   "action": {
@@ -8512,7 +8282,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/ronis_cookie/"
   },
-  "id": 845
+  "id": 822
  },
  {
   "action": {
@@ -8522,7 +8292,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/roularta-gdpr.js"
   },
-  "id": 846
+  "id": 823
  },
  {
   "action": {
@@ -8532,7 +8302,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/rticookielaw.js"
   },
-  "id": 847
+  "id": 824
  },
  {
   "action": {
@@ -8542,7 +8312,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sc-gdpr-popup.js"
   },
-  "id": 848
+  "id": 825
  },
  {
   "action": {
@@ -8552,7 +8322,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/script_cookie.js"
   },
-  "id": 849
+  "id": 826
  },
  {
   "action": {
@@ -8562,7 +8332,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/script_cookies.js"
   },
-  "id": 850
+  "id": 827
  },
  {
   "action": {
@@ -8572,7 +8342,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/scripts/cookiebar/"
   },
-  "id": 851
+  "id": 828
  },
  {
   "action": {
@@ -8582,7 +8352,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sdk-gdpr.min.js"
   },
-  "id": 852
+  "id": 829
  },
  {
   "action": {
@@ -8592,7 +8362,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sdk.privacy-center."
   },
-  "id": 853
+  "id": 830
  },
  {
   "action": {
@@ -8602,7 +8372,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/seopress-cookies.min.js"
   },
-  "id": 854
+  "id": 831
  },
  {
   "action": {
@@ -8612,7 +8382,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/setconsentcookie.js"
   },
-  "id": 855
+  "id": 832
  },
  {
   "action": {
@@ -8622,7 +8392,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sf-tagomo-privacy.js"
   },
-  "id": 856
+  "id": 833
  },
  {
   "action": {
@@ -8632,7 +8402,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sg_cookie_optin/"
   },
-  "id": 857
+  "id": 834
  },
  {
   "action": {
@@ -8642,7 +8412,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sibbo-cmp-core.js"
   },
-  "id": 858
+  "id": 835
  },
  {
   "action": {
@@ -8652,7 +8422,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/silverstripe-dsgvo-cookies/js/cookies.js"
   },
-  "id": 859
+  "id": 836
  },
  {
   "action": {
@@ -8662,7 +8432,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/simpler-cookie-consent.umd.js"
   },
-  "id": 860
+  "id": 837
  },
  {
   "action": {
@@ -8672,7 +8442,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sizzlegdpr.snippet.min.js"
   },
-  "id": 861
+  "id": 838
  },
  {
   "action": {
@@ -8682,7 +8452,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/skb-cookie/"
   },
-  "id": 862
+  "id": 839
  },
  {
   "action": {
@@ -8692,7 +8462,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sm-oo-consent.js"
   },
-  "id": 863
+  "id": 840
  },
  {
   "action": {
@@ -8702,7 +8472,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/smart-cookie-kit/"
   },
-  "id": 864
+  "id": 841
  },
  {
   "action": {
@@ -8712,7 +8482,17 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/smart-eu-cookies.min.js"
   },
-  "id": 865
+  "id": 842
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "/snack-cmp_v2.min.js"
+  },
+  "id": 843
  },
  {
   "action": {
@@ -8722,7 +8502,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/snap-popup.js"
   },
-  "id": 866
+  "id": 844
  },
  {
   "action": {
@@ -8732,7 +8512,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sncmp.min.js"
   },
-  "id": 867
+  "id": 845
  },
  {
   "action": {
@@ -8742,7 +8522,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sni_cookie_privacy/"
   },
-  "id": 868
+  "id": 846
  },
  {
   "action": {
@@ -8752,7 +8532,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sp-config.min.js"
   },
-  "id": 869
+  "id": 847
  },
  {
   "action": {
@@ -8762,7 +8542,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/sp-dsgvo-public.min.js"
   },
-  "id": 870
+  "id": 848
  },
  {
   "action": {
@@ -8772,7 +8552,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/spcookieconsent/assets/js/script.js"
   },
-  "id": 871
+  "id": 849
  },
  {
   "action": {
@@ -8782,7 +8562,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/spmsg20180522.js"
   },
-  "id": 872
+  "id": 850
  },
  {
   "action": {
@@ -8792,7 +8572,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/stm-gdpr-compliance/assets/js/scripts.js"
   },
-  "id": 873
+  "id": 851
  },
  {
   "action": {
@@ -8802,7 +8582,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/super-cookie/swfobject/"
   },
-  "id": 874
+  "id": 852
  },
  {
   "action": {
@@ -8812,7 +8592,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/supercookie-min.js"
   },
-  "id": 875
+  "id": 853
  },
  {
   "action": {
@@ -8822,7 +8602,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/swagcookiepermission/"
   },
-  "id": 876
+  "id": 854
  },
  {
   "action": {
@@ -8832,7 +8612,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/ta2021-plugin-cookie-consent/"
   },
-  "id": 877
+  "id": 855
  },
  {
   "action": {
@@ -8842,7 +8622,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/tc_privacy/privacy.js"
   },
-  "id": 878
+  "id": 856
  },
  {
   "action": {
@@ -8852,7 +8632,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/tcf/cookie.js"
   },
-  "id": 879
+  "id": 857
  },
  {
   "action": {
@@ -8862,7 +8642,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/tcf2.js"
   },
-  "id": 880
+  "id": 858
  },
  {
   "action": {
@@ -8872,7 +8652,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/team23_simplecookie/js/simple-cookie.js"
   },
-  "id": 881
+  "id": 859
  },
  {
   "action": {
@@ -8882,7 +8662,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/terms_of_service.js"
   },
-  "id": 882
+  "id": 860
  },
  {
   "action": {
@@ -8892,7 +8672,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/tfcookie.js"
   },
-  "id": 883
+  "id": 861
  },
  {
   "action": {
@@ -8902,7 +8682,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/thcookie.js"
   },
-  "id": 884
+  "id": 862
  },
  {
   "action": {
@@ -8912,7 +8692,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/tm.cookie.js"
   },
-  "id": 885
+  "id": 863
  },
  {
   "action": {
@@ -8922,7 +8702,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/tnzcookie/"
   },
-  "id": 886
+  "id": 864
  },
  {
   "action": {
@@ -8932,7 +8712,17 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/toucancookie.js"
   },
-  "id": 887
+  "id": 865
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "/tronic_gdpr-wordpress/js/scripts.js"
+  },
+  "id": 866
  },
  {
   "action": {
@@ -8942,7 +8732,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/trustarchelper.js"
   },
-  "id": 888
+  "id": 867
  },
  {
   "action": {
@@ -8952,7 +8742,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/trwcookieconsent/"
   },
-  "id": 889
+  "id": 868
  },
  {
   "action": {
@@ -8962,7 +8752,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/ttgcookieconsent-"
   },
-  "id": 890
+  "id": 869
  },
  {
   "action": {
@@ -8972,7 +8762,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/twccookies.js"
   },
-  "id": 891
+  "id": 870
  },
  {
   "action": {
@@ -8982,7 +8772,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/twccookies/"
   },
-  "id": 892
+  "id": 871
  },
  {
   "action": {
@@ -8992,7 +8782,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/twcdisclaimer.js"
   },
-  "id": 893
+  "id": 872
  },
  {
   "action": {
@@ -9002,7 +8792,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/uc-cmp/loader.js"
   },
-  "id": 894
+  "id": 873
  },
  {
   "action": {
@@ -9012,7 +8802,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/uk-cookie-consent-js.js"
   },
-  "id": 895
+  "id": 874
  },
  {
   "action": {
@@ -9022,7 +8812,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/ukcookie.js"
   },
-  "id": 896
+  "id": 875
  },
  {
   "action": {
@@ -9032,7 +8822,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/um-gdpr.min.js"
   },
-  "id": 897
+  "id": 876
  },
  {
   "action": {
@@ -9042,7 +8832,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/umich-cookie-consent/"
   },
-  "id": 898
+  "id": 877
  },
  {
   "action": {
@@ -9052,7 +8842,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/unibo-cookies.min.js"
   },
-  "id": 899
+  "id": 878
  },
  {
   "action": {
@@ -9062,7 +8852,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/unitb-cmp.js"
   },
-  "id": 900
+  "id": 879
  },
  {
   "action": {
@@ -9072,7 +8862,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/usecookies.js"
   },
-  "id": 901
+  "id": 880
  },
  {
   "action": {
@@ -9082,7 +8872,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/util/gdpr/"
   },
-  "id": 902
+  "id": 881
  },
  {
   "action": {
@@ -9092,7 +8882,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/vhs-assets-cookie-"
   },
-  "id": 903
+  "id": 882
  },
  {
   "action": {
@@ -9102,7 +8892,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/vo-gdpr-compliance/assets/js/front.min.js"
   },
-  "id": 904
+  "id": 883
  },
  {
   "action": {
@@ -9112,7 +8902,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/w034cookiedirective.js"
   },
-  "id": 905
+  "id": 884
  },
  {
   "action": {
@@ -9122,7 +8912,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/w4.cookiebar.js"
   },
-  "id": 906
+  "id": 885
  },
  {
   "action": {
@@ -9132,7 +8922,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wa_lib.js"
   },
-  "id": 907
+  "id": 886
  },
  {
   "action": {
@@ -9142,7 +8932,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wamoco_cookieconsentui/"
   },
-  "id": 908
+  "id": 887
  },
  {
   "action": {
@@ -9152,7 +8942,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/warncookies.js"
   },
-  "id": 909
+  "id": 888
  },
  {
   "action": {
@@ -9162,7 +8952,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/we_cookie_consent/resources/public/library/klaro/klaro.js"
   },
-  "id": 910
+  "id": 889
  },
  {
   "action": {
@@ -9172,7 +8962,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/webtoffee-gdpr-cookie-consent/"
   },
-  "id": 911
+  "id": 890
  },
  {
   "action": {
@@ -9182,7 +8972,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/webtrekk_gdpr.js"
   },
-  "id": 912
+  "id": 891
  },
  {
   "action": {
@@ -9192,7 +8982,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/webtrekk_gdpr.min.js"
   },
-  "id": 913
+  "id": 892
  },
  {
   "action": {
@@ -9202,7 +8992,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wecoma-lite.js"
   },
-  "id": 914
+  "id": 893
  },
  {
   "action": {
@@ -9212,7 +9002,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wf-cookie-consent/"
   },
-  "id": 915
+  "id": 894
  },
  {
   "action": {
@@ -9222,7 +9012,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/widget_cookieschecker.js"
   },
-  "id": 916
+  "id": 895
  },
  {
   "action": {
@@ -9232,7 +9022,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/widget_privacy/"
   },
-  "id": 917
+  "id": 896
  },
  {
   "action": {
@@ -9242,7 +9032,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/widgets/cookies-"
   },
-  "id": 918
+  "id": 897
  },
  {
   "action": {
@@ -9252,7 +9042,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wkp_cookies.js"
   },
-  "id": 919
+  "id": 898
  },
  {
   "action": {
@@ -9262,7 +9052,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/woody-addon-cookies/"
   },
-  "id": 920
+  "id": 899
  },
  {
   "action": {
@@ -9272,7 +9062,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wordpress-gdpr-custom.css"
   },
-  "id": 921
+  "id": 900
  },
  {
   "action": {
@@ -9282,7 +9072,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wp-content/plugins/cookiemedia/"
   },
-  "id": 922
+  "id": 901
  },
  {
   "action": {
@@ -9292,7 +9082,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wp-content/plugins/cookies-and-content-security-policy"
   },
-  "id": 923
+  "id": 902
  },
  {
   "action": {
@@ -9302,7 +9092,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wp-content/plugins/rodo"
   },
-  "id": 924
+  "id": 903
  },
  {
   "action": {
@@ -9312,7 +9102,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wp-content/plugins/zigcookie/"
   },
-  "id": 925
+  "id": 904
  },
  {
   "action": {
@@ -9322,7 +9112,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wp-gdpr-compliance/"
   },
-  "id": 926
+  "id": 905
  },
  {
   "action": {
@@ -9332,7 +9122,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wp-gdpr-compliance/assets/js/front.min.js"
   },
-  "id": 927
+  "id": 906
  },
  {
   "action": {
@@ -9342,7 +9132,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wp-tarteaucitron-"
   },
-  "id": 928
+  "id": 907
  },
  {
   "action": {
@@ -9352,7 +9142,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wpjslib-ecom.js"
   },
-  "id": 929
+  "id": 908
  },
  {
   "action": {
@@ -9362,7 +9152,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wpjslib-sgap.js"
   },
-  "id": 930
+  "id": 909
  },
  {
   "action": {
@@ -9372,7 +9162,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wpjslib-stat.js"
   },
-  "id": 931
+  "id": 910
  },
  {
   "action": {
@@ -9382,7 +9172,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wpmaster-cookie/"
   },
-  "id": 932
+  "id": 911
  },
  {
   "action": {
@@ -9392,7 +9182,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wps-cookie-consent/public/assets/js/main.js"
   },
-  "id": 933
+  "id": 912
  },
  {
   "action": {
@@ -9402,7 +9192,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/ws5_eucookie/"
   },
-  "id": 934
+  "id": 913
  },
  {
   "action": {
@@ -9412,7 +9202,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wx-cookie-"
   },
-  "id": 935
+  "id": 914
  },
  {
   "action": {
@@ -9422,7 +9212,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/x13eucookies/"
   },
-  "id": 936
+  "id": 915
  },
  {
   "action": {
@@ -9432,7 +9222,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/xcookieconsent."
   },
-  "id": 937
+  "id": 916
  },
  {
   "action": {
@@ -9442,7 +9232,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/xt_cookie_consent.js"
   },
-  "id": 938
+  "id": 917
  },
  {
   "action": {
@@ -9452,7 +9242,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/yobee-cmp.js"
   },
-  "id": 939
+  "id": 918
  },
  {
   "action": {
@@ -9462,7 +9252,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/ys_cookie_consent/out/js/lib/klaro.js"
   },
-  "id": 940
+  "id": 919
  },
  {
   "action": {
@@ -9472,7 +9262,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/z7_cookiemanager.js"
   },
-  "id": 941
+  "id": 920
  },
  {
   "action": {
@@ -9482,7 +9272,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/zdconsent.js"
   },
-  "id": 942
+  "id": 921
  },
  {
   "action": {
@@ -9492,7 +9282,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/zebra_cookie.js"
   },
-  "id": 943
+  "id": 922
  },
  {
   "action": {
@@ -9502,7 +9292,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/zgdpr.min.js"
   },
-  "id": 944
+  "id": 923
  },
  {
   "action": {
@@ -9512,7 +9302,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "://ccm.*/app.js?"
   },
-  "id": 945
+  "id": 924
  },
  {
   "action": {
@@ -9522,7 +9312,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/as24-cmp/"
   },
-  "id": 946
+  "id": 925
  },
  {
   "action": {
@@ -9532,7 +9322,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/cmbdv2.js"
   },
-  "id": 947
+  "id": 926
  },
  {
   "action": {
@@ -9542,7 +9332,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/detroitchicago/houston.js"
   },
-  "id": 948
+  "id": 927
  },
  {
   "action": {
@@ -9552,7 +9342,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/ezcl.webp?"
   },
-  "id": 949
+  "id": 928
  },
  {
   "action": {
@@ -9562,7 +9352,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/greenoaks.gif?"
   },
-  "id": 950
+  "id": 929
  },
  {
   "action": {
@@ -9572,7 +9362,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/imp.gif?"
   },
-  "id": 951
+  "id": 930
  },
  {
   "action": {
@@ -9582,7 +9372,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/porpoiseant/"
   },
-  "id": 952
+  "id": 931
  },
  {
   "action": {
@@ -9592,7 +9382,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/tardisrocinante/austin.js"
   },
-  "id": 953
+  "id": 932
  },
  {
   "action": {
@@ -9602,7 +9392,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/static/it-cc.js"
   },
-  "id": 954
+  "id": 933
  },
  {
   "action": {
@@ -9612,7 +9402,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/fp/check.js"
   },
-  "id": 955
+  "id": 934
  },
  {
   "action": {
@@ -9622,7 +9412,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/fp/clear.png"
   },
-  "id": 956
+  "id": 935
  },
  {
   "action": {
@@ -9632,7 +9422,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/fp/clear1.png"
   },
-  "id": 957
+  "id": 936
  },
  {
   "action": {
@@ -9642,7 +9432,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/fp/clear2.png"
   },
-  "id": 958
+  "id": 937
  },
  {
   "action": {
@@ -9652,7 +9442,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/fp/clear3.png"
   },
-  "id": 959
+  "id": 938
  },
  {
   "action": {
@@ -9662,7 +9452,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/fp/es.js"
   },
-  "id": 960
+  "id": 939
  },
  {
   "action": {
@@ -9672,7 +9462,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/fp/fp.swf"
   },
-  "id": 961
+  "id": 940
  },
  {
   "action": {
@@ -9682,7 +9472,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/fp/hp?session_id"
   },
-  "id": 962
+  "id": 941
  },
  {
   "action": {
@@ -9692,7 +9482,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/fp/tags.js"
   },
-  "id": 963
+  "id": 942
  },
  {
   "action": {
@@ -9702,7 +9492,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/fp/top_fp."
   },
-  "id": 964
+  "id": 943
  },
  {
   "action": {
@@ -9712,7 +9502,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||akamaihd.net/cpmt/"
   },
-  "id": 965
+  "id": 944
  },
  {
   "action": {
@@ -9722,7 +9512,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||app.yeps.io/loader?"
   },
-  "id": 966
+  "id": 945
  },
  {
   "action": {
@@ -9732,7 +9522,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||assetlab.io/consent/"
   },
-  "id": 967
+  "id": 946
  },
  {
   "action": {
@@ -9742,7 +9532,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||baycloud.com/tgcl.min.js"
   },
-  "id": 968
+  "id": 947
  },
  {
   "action": {
@@ -9752,7 +9542,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||californiatimes.com/gdpr/"
   },
-  "id": 969
+  "id": 948
  },
  {
   "action": {
@@ -9762,7 +9552,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn-cookieyes.com/client_data/"
   },
-  "id": 970
+  "id": 949
  },
  {
   "action": {
@@ -9772,7 +9562,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||civiccomputing.com^*/cookiecontrol-"
   },
-  "id": 971
+  "id": 950
  },
  {
   "action": {
@@ -9782,17 +9572,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cmp.quantcast.com/choice/*/www.themoneytizer.com/choice.js"
   },
-  "id": 972
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||consent.trustarc.com/asset/notice.js"
-  },
-  "id": 973
+  "id": 951
  },
  {
   "action": {
@@ -9802,7 +9582,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cookiecode.nl/dist/latest.js"
   },
-  "id": 974
+  "id": 952
  },
  {
   "action": {
@@ -9812,7 +9592,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cscript-cdn-use.cassiecloud.com/loader.js"
   },
-  "id": 975
+  "id": 953
  },
  {
   "action": {
@@ -9822,7 +9602,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||d3macwxrvlvlf8.cloudfront.net/cookie-service/"
   },
-  "id": 976
+  "id": 954
  },
  {
   "action": {
@@ -9832,7 +9612,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||efilli.com/efl.js"
   },
-  "id": 977
+  "id": 955
  },
  {
   "action": {
@@ -9842,7 +9622,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fc2.com/share/js/gdpr/"
   },
-  "id": 978
+  "id": 956
  },
  {
   "action": {
@@ -9852,7 +9632,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||form-renderer.trustarc.com/browser/client.js"
   },
-  "id": 979
+  "id": 957
  },
  {
   "action": {
@@ -9862,7 +9642,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fsdn.com/con/js/sftheme/cmp2.js"
   },
-  "id": 980
+  "id": 958
  },
  {
   "action": {
@@ -9872,7 +9652,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hu-manity.co/hu-banner.min.js"
   },
-  "id": 981
+  "id": 959
  },
  {
   "action": {
@@ -9882,7 +9662,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||illow.io/public/cookies/"
   },
-  "id": 982
+  "id": 960
  },
  {
   "action": {
@@ -9892,7 +9672,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||incomaker.b-cdn.net/wpjcz.js"
   },
-  "id": 983
+  "id": 961
  },
  {
   "action": {
@@ -9902,7 +9682,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jimstatic.com/ckies.js"
   },
-  "id": 984
+  "id": 962
  },
  {
   "action": {
@@ -9912,7 +9692,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kookiecheck.cz/static/script/"
   },
-  "id": 985
+  "id": 963
  },
  {
   "action": {
@@ -9922,7 +9702,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mgr.consensu.org/iframe.html"
   },
-  "id": 986
+  "id": 964
  },
  {
   "action": {
@@ -9932,7 +9712,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||microsoft.com/mscc/"
   },
-  "id": 987
+  "id": 965
  },
  {
   "action": {
@@ -9942,7 +9722,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ocdn.eu/blikk_static/blikk/consent_v2/"
   },
-  "id": 988
+  "id": 966
  },
  {
   "action": {
@@ -9952,7 +9732,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||s.eick.it/js/consentui.js"
   },
-  "id": 989
+  "id": 967
  },
  {
   "action": {
@@ -9962,7 +9742,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||securiti.ai/consent/"
   },
-  "id": 990
+  "id": 968
  },
  {
   "action": {
@@ -9972,7 +9752,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||smart.idmnet.pl/consent/"
   },
-  "id": 991
+  "id": 969
  },
  {
   "action": {
@@ -9982,7 +9762,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tarteaucitron.io/load.js"
   },
-  "id": 992
+  "id": 970
  },
  {
   "action": {
@@ -9992,7 +9772,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||unpkg.com/cookie-though"
   },
-  "id": 993
+  "id": 971
  },
  {
   "action": {
@@ -10015,7 +9795,7 @@
     "cdn.privacy-mgmt.com"
    ]
   },
-  "id": 994
+  "id": 972
  },
  {
   "action": {
@@ -10030,7 +9810,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/ppp/js/permission-client"
   },
-  "id": 995
+  "id": 973
  },
  {
   "action": {
@@ -10040,7 +9820,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||7plus.com.au/js/cookienotice"
   },
-  "id": 996
+  "id": 974
  },
  {
   "action": {
@@ -10050,7 +9830,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||agicssecurity.com/header/ajax/cookie.php"
   },
-  "id": 997
+  "id": 975
  },
  {
   "action": {
@@ -10060,7 +9840,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||arfeconsultors.com/static/js/vendor/cookies-text-ca.js"
   },
-  "id": 998
+  "id": 976
  },
  {
   "action": {
@@ -10070,7 +9850,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||asus.com/js/*/alert-info.js"
   },
-  "id": 999
+  "id": 977
  },
  {
   "action": {
@@ -10080,7 +9860,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||beckett.design/system/scripts/apc/apc.js"
   },
-  "id": 1000
+  "id": 978
  },
  {
   "action": {
@@ -10090,7 +9870,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bysarahkhan.com/wp-content/plugins/surbma-yes-no-popup/"
   },
-  "id": 1001
+  "id": 979
  },
  {
   "action": {
@@ -10100,7 +9880,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cc.werk3.de/public/app.js"
   },
-  "id": 1002
+  "id": 980
  },
  {
   "action": {
@@ -10110,7 +9890,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||channel4.com/consent/"
   },
-  "id": 1003
+  "id": 981
  },
  {
   "action": {
@@ -10120,7 +9900,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||coco.we-online.com/public/app.js"
   },
-  "id": 1004
+  "id": 982
  },
  {
   "action": {
@@ -10137,7 +9917,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cookiebot.eu/uc.js"
   },
-  "id": 1005
+  "id": 983
  },
  {
   "action": {
@@ -10147,7 +9927,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||credit-suisse.com/media/assets/aep/ot-cmp/"
   },
-  "id": 1006
+  "id": 984
  },
  {
   "action": {
@@ -10157,7 +9937,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dam.bbcchannels.com^*/outside-iframe.js"
   },
-  "id": 1007
+  "id": 985
  },
  {
   "action": {
@@ -10167,7 +9947,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dropboxstatic.com/static/atlas/privacy_consent/"
   },
-  "id": 1008
+  "id": 986
  },
  {
   "action": {
@@ -10177,7 +9957,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||duotonesports.com^*/public/ccm"
   },
-  "id": 1009
+  "id": 987
  },
  {
   "action": {
@@ -10187,7 +9967,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||emerse.com/consent.js"
   },
-  "id": 1010
+  "id": 988
  },
  {
   "action": {
@@ -10197,7 +9977,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||famobi.com/assets/js/consent.js"
   },
-  "id": 1011
+  "id": 989
  },
  {
   "action": {
@@ -10207,7 +9987,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||flaine.com/build/js/tarteaucitron/"
   },
-  "id": 1012
+  "id": 990
  },
  {
   "action": {
@@ -10217,7 +9997,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||freedoflondon.com/styles/dialog-popup/jquery-ui.js"
   },
-  "id": 1013
+  "id": 991
  },
  {
   "action": {
@@ -10230,7 +10010,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||freetls.fastly.net/main/sd-cmp-"
   },
-  "id": 1014
+  "id": 992
  },
  {
   "action": {
@@ -10240,7 +10020,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gallup.com/ux/gcb/"
   },
-  "id": 1015
+  "id": 993
  },
  {
   "action": {
@@ -10250,7 +10030,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||government-and-constitution.org/js/consent.js"
   },
-  "id": 1016
+  "id": 994
  },
  {
   "action": {
@@ -10260,7 +10040,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||harpercollins.co.uk/js/cookie.js"
   },
-  "id": 1017
+  "id": 995
  },
  {
   "action": {
@@ -10270,7 +10050,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hunstoncanoeclub.co.uk/media/system/js/modal.js"
   },
-  "id": 1018
+  "id": 996
  },
  {
   "action": {
@@ -10280,7 +10060,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||icgp.ie/ionic-consent/"
   },
-  "id": 1019
+  "id": 997
  },
  {
   "action": {
@@ -10290,7 +10070,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||immozentral.com/js/stylecc"
   },
-  "id": 1020
+  "id": 998
  },
  {
   "action": {
@@ -10300,7 +10080,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||inblu.com^*/cookies.js"
   },
-  "id": 1021
+  "id": 999
  },
  {
   "action": {
@@ -10310,7 +10090,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||itv.com/itvstatic/assets/cookies-prompt/"
   },
-  "id": 1022
+  "id": 1000
  },
  {
   "action": {
@@ -10320,7 +10100,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jimmychoo.com^*/first-time-visitor-"
   },
-  "id": 1023
+  "id": 1001
  },
  {
   "action": {
@@ -10330,7 +10110,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jzzo.com/jss/cp01.js"
   },
-  "id": 1024
+  "id": 1002
  },
  {
   "action": {
@@ -10340,7 +10120,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kayak.*/privacy/"
   },
-  "id": 1025
+  "id": 1003
  },
  {
   "action": {
@@ -10350,7 +10130,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lacompagnie.com/content/dist/templates/common/popupcookies/"
   },
-  "id": 1026
+  "id": 1004
  },
  {
   "action": {
@@ -10360,7 +10140,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||liquidweb.com/ajax/dataconsentcookies"
   },
-  "id": 1027
+  "id": 1005
  },
  {
   "action": {
@@ -10373,7 +10153,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||live.mrf.io/cmp/"
   },
-  "id": 1028
+  "id": 1006
  },
  {
   "action": {
@@ -10383,7 +10163,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mad-daily.com^*/cp-module-"
   },
-  "id": 1029
+  "id": 1007
  },
  {
   "action": {
@@ -10393,7 +10173,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||marketwatch.com/asset/ace/djcmp."
   },
-  "id": 1030
+  "id": 1008
  },
  {
   "action": {
@@ -10403,7 +10183,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||masaltos.com/js/cookies-"
   },
-  "id": 1031
+  "id": 1009
  },
  {
   "action": {
@@ -10411,9 +10191,9 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||medicalnewstoday.com/_next/chunks/modal-0cb79-legacy.js"
+   "urlFilter": "||medicalnewstoday.com/api/ccpa"
   },
-  "id": 1032
+  "id": 1010
  },
  {
   "action": {
@@ -10423,7 +10203,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||myanimelist.net/js/cmp.js"
   },
-  "id": 1033
+  "id": 1011
  },
  {
   "action": {
@@ -10433,7 +10213,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mymuesli.com/assets/js/modules/default/static/consent.js"
   },
-  "id": 1034
+  "id": 1012
  },
  {
   "action": {
@@ -10443,7 +10223,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||next-immo.com/js/cookies.1.min.js"
   },
-  "id": 1035
+  "id": 1013
  },
  {
   "action": {
@@ -10453,7 +10233,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||novaljaturist.com/datacollectionpolicy/"
   },
-  "id": 1036
+  "id": 1014
  },
  {
   "action": {
@@ -10463,7 +10243,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||omgubuntu.co.uk/wp-content/plugins/omg-magnific/magnific.min.js"
   },
-  "id": 1037
+  "id": 1015
  },
  {
   "action": {
@@ -10473,7 +10253,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||onlive.co.uk/account/cookie_notice"
   },
-  "id": 1038
+  "id": 1016
  },
  {
   "action": {
@@ -10483,7 +10263,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||parliamentlive.tv/cookie/"
   },
-  "id": 1039
+  "id": 1017
  },
  {
   "action": {
@@ -10493,7 +10273,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||prada.com/utag/prada/"
   },
-  "id": 1040
+  "id": 1018
  },
  {
   "action": {
@@ -10503,7 +10283,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||propcom.co.uk/cookie/"
   },
-  "id": 1041
+  "id": 1019
  },
  {
   "action": {
@@ -10513,7 +10293,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||purevpn.com/loadgdprview"
   },
-  "id": 1042
+  "id": 1020
  },
  {
   "action": {
@@ -10523,7 +10303,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||rtx.com/-/media/base-themes/scroll-lock/"
   },
-  "id": 1043
+  "id": 1021
  },
  {
   "action": {
@@ -10533,7 +10313,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sdi.co.uk/cookies/"
   },
-  "id": 1044
+  "id": 1022
  },
  {
   "action": {
@@ -10543,7 +10323,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storage-mart.com/sm-policy-banner.js"
   },
-  "id": 1045
+  "id": 1023
  },
  {
   "action": {
@@ -10553,7 +10333,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stromnetz-hamburg.de/matomo/js/"
   },
-  "id": 1046
+  "id": 1024
  },
  {
   "action": {
@@ -10563,7 +10343,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||synology.com/js/syno/syno_cookie_element.js"
   },
-  "id": 1047
+  "id": 1025
  },
  {
   "action": {
@@ -10573,7 +10353,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||umich.edu/apis/umcookieconsent/"
   },
-  "id": 1048
+  "id": 1026
  },
  {
   "action": {
@@ -10583,7 +10363,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vandalism-sounds.com^*/notices.min.js"
   },
-  "id": 1049
+  "id": 1027
  },
  {
   "action": {
@@ -10593,7 +10373,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vinted.*/api/*/banners"
   },
-  "id": 1050
+  "id": 1028
  },
  {
   "action": {
@@ -10603,7 +10383,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||windguru.cz/forms/consent.php"
   },
-  "id": 1051
+  "id": 1029
  },
  {
   "action": {
@@ -10613,7 +10393,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yimg.com^*/guce.js"
   },
-  "id": 1052
+  "id": 1030
  },
  {
   "action": {
@@ -10623,7 +10403,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/privacy/providers/cookiesdataprovider"
   },
-  "id": 1053
+  "id": 1031
  },
  {
   "action": {
@@ -10636,7 +10416,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/amasty_gdprcookie/"
   },
-  "id": 1054
+  "id": 1032
  },
  {
   "action": {
@@ -10646,7 +10426,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||all3dp.com/kbcbqexpqvz8wrk88augy7b.js"
   },
-  "id": 1055
+  "id": 1033
  },
  {
   "action": {
@@ -10656,7 +10436,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||citi.com^*/fp.js"
   },
-  "id": 1056
+  "id": 1034
  },
  {
   "action": {
@@ -10666,7 +10446,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||citibank.com.ph/tmx/js/"
   },
-  "id": 1057
+  "id": 1035
  },
  {
   "action": {
@@ -10676,7 +10456,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ebaystatic.com/rs/v/10341xh50yz21mhhydueu4m5wad.js"
   },
-  "id": 1058
+  "id": 1036
  },
  {
   "action": {
@@ -10686,7 +10466,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ebaystatic.com/rs/v/enk4ekgiky2ufpj3l2fgfblxaqd.js"
   },
-  "id": 1059
+  "id": 1037
  },
  {
   "action": {
@@ -10696,7 +10476,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ebaystatic.com/rs/v/s0hteylevy4bpkd12dvkd4yi5ms.js"
   },
-  "id": 1060
+  "id": 1038
  },
  {
   "action": {
@@ -10706,7 +10486,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ingbank.pl/mojeing/bs/xx.js"
   },
-  "id": 1061
+  "id": 1039
  },
  {
   "action": {
@@ -10716,7 +10496,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||telegraph.co.uk/telegraph-advertising/tmg-cmp.min.js"
   },
-  "id": 1062
+  "id": 1040
  },
  {
   "action": {
@@ -10726,7 +10506,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bankofamerica.com/cookie-id.js"
   },
-  "id": 1063
+  "id": 1041
  },
  {
   "action": {
@@ -10736,7 +10516,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||halifax-online.co.uk/scripts/16c9d93d/"
   },
-  "id": 1064
+  "id": 1042
  },
  {
   "action": {
@@ -10746,7 +10526,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wp-content/plugins/cookie-law-info/public/js/cookie-law-info-public.js"
   },
-  "id": 1065
+  "id": 1043
  },
  {
   "action": {
@@ -11249,7 +11029,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/wrappermessagingwithoutdetection.js"
   },
-  "id": 1066
+  "id": 1044
  },
  {
   "action": {
@@ -11286,7 +11066,7 @@
     "cookielaw.org"
    ]
   },
-  "id": 1067
+  "id": 1045
  },
  {
   "action": {
@@ -11296,7 +11076,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||teufel.*/privacy-layer"
   },
-  "id": 1068
+  "id": 1046
  },
  {
   "action": {
@@ -11306,7 +11086,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||teufelaudio.*/privacy-layer"
   },
-  "id": 1069
+  "id": 1047
  },
  {
   "action": {
@@ -11320,7 +11100,7 @@
     "cookiepro.com"
    ]
   },
-  "id": 1070
+  "id": 1048
  },
  {
   "action": {
@@ -11330,7 +11110,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mujkaktus.cz/kaktus-theme/js/gdpr-component-v2.js"
   },
-  "id": 1071
+  "id": 1049
  },
  {
   "action": {
@@ -11340,7 +11120,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||conseil-national.medecin.fr/ajax/cn-rgpd/"
   },
-  "id": 1072
+  "id": 1050
  },
  {
   "action": {
@@ -11350,7 +11130,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||waitrose.com/ecom/assets/chunk-4912-50b6d74ba.js"
   },
-  "id": 1073
+  "id": 1051
  },
  {
   "action": {
@@ -11360,7 +11140,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||topannonces.fr/assets/js/cmp.min.js"
   },
-  "id": 1074
+  "id": 1052
  },
  {
   "action": {
@@ -11370,7 +11150,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||paruvendu.fr^*/cmp.min.js"
   },
-  "id": 1075
+  "id": 1053
  },
  {
   "action": {
@@ -11383,7 +11163,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||amazonaws.com/website/js/tagcommander/"
   },
-  "id": 1076
+  "id": 1054
  },
  {
   "action": {
@@ -11393,7 +11173,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||baustellenabsicherung24.de^*/koekje."
   },
-  "id": 1077
+  "id": 1055
  },
  {
   "action": {
@@ -11403,7 +11183,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||boxspring-welt.ch/public/app.js"
   },
-  "id": 1078
+  "id": 1056
  },
  {
   "action": {
@@ -11413,7 +11193,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||byom.de/js/cookie.de.js"
   },
-  "id": 1079
+  "id": 1057
  },
  {
   "action": {
@@ -11423,7 +11203,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||caseking.de/engine/shopware/plugins/local/frontend/casekingcookieconsent/"
   },
-  "id": 1080
+  "id": 1058
  },
  {
   "action": {
@@ -11433,7 +11213,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cmp.bordverpflegung.de/public/app.js"
   },
-  "id": 1081
+  "id": 1059
  },
  {
   "action": {
@@ -11443,7 +11223,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||consent-bist.de/public/app.js"
   },
-  "id": 1082
+  "id": 1060
  },
  {
   "action": {
@@ -11453,7 +11233,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||consent.autopflege24.net/app.js"
   },
-  "id": 1083
+  "id": 1061
  },
  {
   "action": {
@@ -11463,7 +11243,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||consent.daa.net/app.js"
   },
-  "id": 1084
+  "id": 1062
  },
  {
   "action": {
@@ -11473,7 +11253,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||consent.deutsches-schulportal.de/public/app.js"
   },
-  "id": 1085
+  "id": 1063
  },
  {
   "action": {
@@ -11483,7 +11263,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||consent.maerkischekiste.de/public/app.js"
   },
-  "id": 1086
+  "id": 1064
  },
  {
   "action": {
@@ -11493,7 +11273,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||electriclove.at/*/api/cookie-settings"
   },
-  "id": 1087
+  "id": 1065
  },
  {
   "action": {
@@ -11503,7 +11283,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||emondo.de/wp-content/plugins/borlabs-cookie/"
   },
-  "id": 1088
+  "id": 1066
  },
  {
   "action": {
@@ -11513,7 +11293,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||epccm19.com/app.js"
   },
-  "id": 1089
+  "id": 1067
  },
  {
   "action": {
@@ -11523,7 +11303,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||flvw.de/media/plugins/consentmanager/consentmanager.min.js"
   },
-  "id": 1090
+  "id": 1068
  },
  {
   "action": {
@@ -11533,7 +11313,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gedk-consent.he-webpack.de/public/app.js"
   },
-  "id": 1091
+  "id": 1069
  },
  {
   "action": {
@@ -11543,7 +11323,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||henryschein.at^*/cookielist.aspx"
   },
-  "id": 1092
+  "id": 1070
  },
  {
   "action": {
@@ -11553,7 +11333,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||howatherm.de/frontend/media/cm/"
   },
-  "id": 1093
+  "id": 1071
  },
  {
   "action": {
@@ -11563,7 +11343,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kefalonia-griechenland.com/rr_ke_ccm19/"
   },
-  "id": 1094
+  "id": 1072
  },
  {
   "action": {
@@ -11573,7 +11353,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lights-on.io/public/app.js"
   },
-  "id": 1095
+  "id": 1073
  },
  {
   "action": {
@@ -11583,7 +11363,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||marketing.mafell.de/consent/public/app.js"
   },
-  "id": 1096
+  "id": 1074
  },
  {
   "action": {
@@ -11593,7 +11373,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mobile.de/api/consent/static/js/loader.js"
   },
-  "id": 1097
+  "id": 1075
  },
  {
   "action": {
@@ -11603,7 +11383,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||piazza.cc/public/app.js"
   },
-  "id": 1098
+  "id": 1076
  },
  {
   "action": {
@@ -11613,7 +11393,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||postleitzahl.org/images/consent.php"
   },
-  "id": 1099
+  "id": 1077
  },
  {
   "action": {
@@ -11623,7 +11403,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||privacy.wum.rocks/public/app.js"
   },
-  "id": 1100
+  "id": 1078
  },
  {
   "action": {
@@ -11633,7 +11413,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||saturn-klima.de/wp-content/a0a206f468204945563d799b8f319215.js"
   },
-  "id": 1101
+  "id": 1079
  },
  {
   "action": {
@@ -11643,7 +11423,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||seduction-magazin.de/wp-content/plugins/borlabs-cookie/"
   },
-  "id": 1102
+  "id": 1080
  },
  {
   "action": {
@@ -11653,7 +11433,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sprengel-pr.com/public/app.js"
   },
-  "id": 1103
+  "id": 1081
  },
  {
   "action": {
@@ -11663,7 +11443,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stefke-heilbronn.de/wp-content/1ae6d298321568877d478a611c6536f4.js"
   },
-  "id": 1104
+  "id": 1082
  },
  {
   "action": {
@@ -11673,7 +11453,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||strato.de^*/consent.js"
   },
-  "id": 1105
+  "id": 1083
  },
  {
   "action": {
@@ -11683,7 +11463,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tauschticket.de/js/cnst.js"
   },
-  "id": 1106
+  "id": 1084
  },
  {
   "action": {
@@ -11693,7 +11473,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vag.de/typo3conf/ext/cookieman/"
   },
-  "id": 1107
+  "id": 1085
  },
  {
   "action": {
@@ -11706,7 +11486,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||brsimg.com/gdpr/"
   },
-  "id": 1108
+  "id": 1086
  },
  {
   "action": {
@@ -11716,7 +11496,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||docteurclic.com/ajax/ajax_get_disc.aspx"
   },
-  "id": 1109
+  "id": 1087
  },
  {
   "action": {
@@ -11726,7 +11506,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gmx.fr/uim/bidding/consent.js"
   },
-  "id": 1110
+  "id": 1088
  },
  {
   "action": {
@@ -11736,7 +11516,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jeu.video^*/partners.js"
   },
-  "id": 1111
+  "id": 1089
  },
  {
   "action": {
@@ -11746,7 +11526,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ratp.fr/modules/custom/ratp_tarteaucitron/"
   },
-  "id": 1112
+  "id": 1090
  },
  {
   "action": {
@@ -11756,7 +11536,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thesiteoueb.net/js/cm-head.js"
   },
-  "id": 1113
+  "id": 1091
  },
  {
   "action": {
@@ -11766,7 +11546,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vape-phone.fr/bundles/webtoolcore/js/newcookiechoice.js"
   },
-  "id": 1114
+  "id": 1092
  },
  {
   "action": {
@@ -11776,7 +11556,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||var.uicdn.net/shopsshort/privacy/v1/bundle."
   },
-  "id": 1115
+  "id": 1093
  },
  {
   "action": {
@@ -11786,7 +11566,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||veodys.fr/api/cmp/"
   },
-  "id": 1116
+  "id": 1094
  },
  {
   "action": {
@@ -11796,7 +11576,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vidal.fr/includes/components/consent-cookie/consent.js"
   },
-  "id": 1117
+  "id": 1095
  },
  {
   "action": {
@@ -11806,7 +11586,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gemma.by/catalog/view/javascript/lightcookie/"
   },
-  "id": 1118
+  "id": 1096
  },
  {
   "action": {
@@ -11816,7 +11596,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||styria.hr^*/cookies.min.js"
   },
-  "id": 1119
+  "id": 1097
  },
  {
   "action": {
@@ -11829,7 +11609,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||h.seznam.cz/js/cmp2/scmp-int.js"
   },
-  "id": 1120
+  "id": 1098
  },
  {
   "action": {
@@ -11839,7 +11619,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tv2a.dk/consent/"
   },
-  "id": 1121
+  "id": 1099
  },
  {
   "action": {
@@ -11849,7 +11629,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tv2a.dk/oil."
   },
-  "id": 1122
+  "id": 1100
  },
  {
   "action": {
@@ -11859,7 +11639,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||a-lehdet.fi^*/cmp.js"
   },
-  "id": 1123
+  "id": 1101
  },
  {
   "action": {
@@ -11869,7 +11649,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pirkkalainen.fi/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js"
   },
-  "id": 1124
+  "id": 1102
  },
  {
   "action": {
@@ -11882,7 +11662,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||suomenmaa.fi/wp-content/plugins/gdpr-cookie-compliance"
   },
-  "id": 1125
+  "id": 1103
  },
  {
   "action": {
@@ -11892,7 +11672,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vaikuttajamedia.fi^*/markuk_evastevaroitus.js"
   },
-  "id": 1126
+  "id": 1104
  },
  {
   "action": {
@@ -11902,7 +11682,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||aia.gr/cookie/"
   },
-  "id": 1127
+  "id": 1105
  },
  {
   "action": {
@@ -11912,7 +11692,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||shop.mango.com/st-cookies/"
   },
-  "id": 1128
+  "id": 1106
  },
  {
   "action": {
@@ -11922,7 +11702,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||atmedia.hu/hirtv.hu_consent.js"
   },
-  "id": 1129
+  "id": 1107
  },
  {
   "action": {
@@ -11932,7 +11712,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kronikaonline.ro/template/kronika/js/js_cookie.js"
   },
-  "id": 1130
+  "id": 1108
  },
  {
   "action": {
@@ -11942,7 +11722,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||szekelyhon.ro/template/szekelyhon_new/js/js_cookie.js"
   },
-  "id": 1131
+  "id": 1109
  },
  {
   "action": {
@@ -11952,7 +11732,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ansa.it/sito/js/cookie_wall.js"
   },
-  "id": 1132
+  "id": 1110
  },
  {
   "action": {
@@ -11962,7 +11742,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bastabugie.it/it/cookies.js"
   },
-  "id": 1133
+  "id": 1111
  },
  {
   "action": {
@@ -11972,7 +11752,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||blog.omlet.it/wp-content/themes/omlet/js/consent.min.js"
   },
-  "id": 1134
+  "id": 1112
  },
  {
   "action": {
@@ -11982,7 +11762,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cippy.it/scripts/toastr.js"
   },
-  "id": 1135
+  "id": 1113
  },
  {
   "action": {
@@ -11992,7 +11772,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cms24.it/js/kekse.js"
   },
-  "id": 1136
+  "id": 1114
  },
  {
   "action": {
@@ -12002,7 +11782,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||creaweb.it/cookie/"
   },
-  "id": 1137
+  "id": 1115
  },
  {
   "action": {
@@ -12012,7 +11792,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||credit-agricole.it/cookies/cookies.min.js"
   },
-  "id": 1138
+  "id": 1116
  },
  {
   "action": {
@@ -12022,7 +11802,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cure-naturali.it/cookies?"
   },
-  "id": 1139
+  "id": 1117
  },
  {
   "action": {
@@ -12032,7 +11812,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||effekt.it/analytics/"
   },
-  "id": 1140
+  "id": 1118
  },
  {
   "action": {
@@ -12042,7 +11822,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fastweb.it/cookie-center/"
   },
-  "id": 1141
+  "id": 1119
  },
  {
   "action": {
@@ -12052,7 +11832,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||informagiovani-italia.com/consenso.js"
   },
-  "id": 1142
+  "id": 1120
  },
  {
   "action": {
@@ -12062,7 +11842,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kkaio.com/templates/t4_blank/js/ck.js"
   },
-  "id": 1143
+  "id": 1121
  },
  {
   "action": {
@@ -12072,7 +11852,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||londraweb.com/consenso_lw.js"
   },
-  "id": 1144
+  "id": 1122
  },
  {
   "action": {
@@ -12082,7 +11862,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||meteorete.it/cookie.js"
   },
-  "id": 1145
+  "id": 1123
  },
  {
   "action": {
@@ -12092,7 +11872,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ok-salute.it^*/cookie-law-info-public-"
   },
-  "id": 1146
+  "id": 1124
  },
  {
   "action": {
@@ -12102,7 +11882,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ontuscia.it/wp-content/373b3827289b712eddc077c6e8bfdef8.js"
   },
-  "id": 1147
+  "id": 1125
  },
  {
   "action": {
@@ -12112,7 +11892,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||plug.it^*/cmp.min.js"
   },
-  "id": 1148
+  "id": 1126
  },
  {
   "action": {
@@ -12122,7 +11902,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||rcsobjects.it/rcs_cpmt/"
   },
-  "id": 1149
+  "id": 1127
  },
  {
   "action": {
@@ -12132,7 +11912,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||spesasicura.com/scripts/cookie.js"
   },
-  "id": 1150
+  "id": 1128
  },
  {
   "action": {
@@ -12142,7 +11922,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stbm.it/utility-fe/prod/general/network.common.v2.js"
   },
-  "id": 1151
+  "id": 1129
  },
  {
   "action": {
@@ -12152,7 +11932,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||triboo.direct/cookie_triboodirect/"
   },
-  "id": 1152
+  "id": 1130
  },
  {
   "action": {
@@ -12162,7 +11942,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||velvetgossip.it^*/gdprvelvet.js"
   },
-  "id": 1153
+  "id": 1131
  },
  {
   "action": {
@@ -12172,7 +11952,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||widforss.no/bundles/consent-init"
   },
-  "id": 1154
+  "id": 1132
  },
  {
   "action": {
@@ -12182,7 +11962,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||4hifi.pl/scripts/jquery.cookie.js"
   },
-  "id": 1155
+  "id": 1133
  },
  {
   "action": {
@@ -12192,7 +11972,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||allegrostatic.com/opbox-rodo-consent-modal/"
   },
-  "id": 1156
+  "id": 1134
  },
  {
   "action": {
@@ -12202,7 +11982,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||animesub.info/skrypty/pierdolecookie.js"
   },
-  "id": 1157
+  "id": 1135
  },
  {
   "action": {
@@ -12212,7 +11992,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gry-online.pl/js/cookie2.js"
   },
-  "id": 1158
+  "id": 1136
  },
  {
   "action": {
@@ -12222,7 +12002,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||interia.pl/rodo-iframe"
   },
-  "id": 1159
+  "id": 1137
  },
  {
   "action": {
@@ -12232,7 +12012,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lubuskie.pl/themes/src/cookie.js"
   },
-  "id": 1160
+  "id": 1138
  },
  {
   "action": {
@@ -12242,7 +12022,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nexto.pl/js/nexto/jm_cookie_message.js"
   },
-  "id": 1161
+  "id": 1139
  },
  {
   "action": {
@@ -12252,7 +12032,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||niewygodne.info.pl/pierwsza.htm"
   },
-  "id": 1162
+  "id": 1140
  },
  {
   "action": {
@@ -12262,7 +12042,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nowehoryzonty.pl/js/cookies.js"
   },
-  "id": 1163
+  "id": 1141
  },
  {
   "action": {
@@ -12272,7 +12052,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||orange.pl/ocp-http/map/js/cookies.js"
   },
-  "id": 1164
+  "id": 1142
  },
  {
   "action": {
@@ -12282,7 +12062,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||prideandglory.pl/polityka_cookies.js"
   },
-  "id": 1165
+  "id": 1143
  },
  {
   "action": {
@@ -12292,7 +12072,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||rp.pl/cmp/"
   },
-  "id": 1166
+  "id": 1144
  },
  {
   "action": {
@@ -12302,7 +12082,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sycow.pl/a/cookie.js"
   },
-  "id": 1167
+  "id": 1145
  },
  {
   "action": {
@@ -12312,7 +12092,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bricodepot.ro^*/cookie-wrapper.js"
   },
-  "id": 1168
+  "id": 1146
  },
  {
   "action": {
@@ -12322,7 +12102,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||remixshop.com/bg/site/ajaxcheckcookiepolicy"
   },
-  "id": 1169
+  "id": 1147
  },
  {
   "action": {
@@ -12332,7 +12112,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||advgo.net/borostcf/"
   },
-  "id": 1170
+  "id": 1148
  },
  {
   "action": {
@@ -12342,7 +12122,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||atv.pe/wp-content/plugins/ned-cookies-form/"
   },
-  "id": 1171
+  "id": 1149
  },
  {
   "action": {
@@ -12352,7 +12132,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||digitalmedia-comunicacion.com/cookie/v2/script2.js"
   },
-  "id": 1172
+  "id": 1150
  },
  {
   "action": {
@@ -12362,7 +12142,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hemnet.se/assets/packs/consent."
   },
-  "id": 1173
+  "id": 1151
  },
  {
   "action": {
@@ -12372,7 +12152,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||matichon.co.th^*/pdpa.js"
   },
-  "id": 1174
+  "id": 1152
  },
  {
   "action": {
@@ -12382,7 +12162,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wongnai.com/_api/consents/"
   },
-  "id": 1175
+  "id": 1153
  },
  {
   "action": {
@@ -12392,7 +12172,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||efilli.com/layouts/efilli.layouts.js"
   },
-  "id": 1176
+  "id": 1154
  },
  {
   "action": {
@@ -12402,7 +12182,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tmgrup.com.tr^*/tmdconsent-"
   },
-  "id": 1177
+  "id": 1155
  },
  {
   "action": {
@@ -12412,7 +12192,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yenivatan.at/wp-content/1ed7e68247b9e059b94a36b825654e58.js"
   },
-  "id": 1178
+  "id": 1156
  },
  {
   "action": {
@@ -12422,7 +12202,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yenivatan.at/wp-content/2494179630e471e4ae996d8139692663.js"
   },
-  "id": 1179
+  "id": 1157
  },
  {
   "action": {
@@ -12437,7 +12217,7 @@
     "privacy-mgmt.com"
    ]
   },
-  "id": 1180
+  "id": 1158
  },
  {
   "action": {
@@ -12454,6 +12234,7 @@
     "cc.diewebsitemacherei.de",
     "cc.labu24.de",
     "cc.mpa-web.de",
+    "ccm.npo.nl",
     "ccm1.dlr.de",
     "ccpa-script.psg.nexstardigital.net",
     "ccpa.sp-prod.net",
@@ -12565,6 +12346,7 @@
     "imgs.signifyd.com",
     "j198.registercitizen.com",
     "l936.expressnews.com",
+    "macaron-cookie-data.decms.eu",
     "mms.cmpsky.com",
     "o398.trumbulltimes.com",
     "optanon.blob.core.windows.net",
@@ -12581,6 +12363,7 @@
     "privacyportal.fatergroup.com",
     "q777.sfchronicle.com",
     "rba-screen.healthsafe-id.com",
+    "ressource.gdpr-banner.awsmpsa.com",
     "rodo.agora.pl",
     "rsx.afterpay.com",
     "sm-sp.followfollow.com",
@@ -12629,7 +12412,7 @@
     "zion.qbo.intuit.com"
    ]
   },
-  "id": 1181
+  "id": 1159
  },
  {
   "action": {
@@ -12643,7 +12426,7 @@
    ],
    "urlFilter": "/wp-cookie-allow/"
   },
-  "id": 1182
+  "id": 1160
  },
  {
   "action": {
@@ -12656,7 +12439,7 @@
    ],
    "urlFilter": "||jacquelinewilson.co.uk/style/cookies.css"
   },
-  "id": 1183
+  "id": 1161
  },
  {
   "action": {
@@ -12669,7 +12452,7 @@
    ],
    "urlFilter": "||weddstyle.de/bilder/banner/"
   },
-  "id": 1184
+  "id": 1162
  },
  {
   "action": {
@@ -12682,7 +12465,7 @@
    ],
    "urlFilter": "-cookie-filter/"
   },
-  "id": 1185
+  "id": 1163
  },
  {
   "action": {
@@ -12695,7 +12478,7 @@
    ],
    "urlFilter": "-eu-cookie/"
   },
-  "id": 1186
+  "id": 1164
  },
  {
   "action": {
@@ -12708,7 +12491,7 @@
    ],
    "urlFilter": "-eu-cookies/"
   },
-  "id": 1187
+  "id": 1165
  },
  {
   "action": {
@@ -12721,7 +12504,7 @@
    ],
    "urlFilter": ".cookie-law."
   },
-  "id": 1188
+  "id": 1166
  },
  {
   "action": {
@@ -12734,7 +12517,7 @@
    ],
    "urlFilter": "/consent/manager/"
   },
-  "id": 1189
+  "id": 1167
  },
  {
   "action": {
@@ -12747,7 +12530,7 @@
    ],
    "urlFilter": "/cookie_information_"
   },
-  "id": 1190
+  "id": 1168
  },
  {
   "action": {
@@ -12760,7 +12543,7 @@
    ],
    "urlFilter": "/cookie_legal_"
   },
-  "id": 1191
+  "id": 1169
  },
  {
   "action": {
@@ -12773,7 +12556,7 @@
    ],
    "urlFilter": "/cookiebar.jquery."
   },
-  "id": 1192
+  "id": 1170
  },
  {
   "action": {
@@ -12786,7 +12569,7 @@
    ],
    "urlFilter": "/cookiecompliance/"
   },
-  "id": 1193
+  "id": 1171
  },
  {
   "action": {
@@ -12799,7 +12582,7 @@
    ],
    "urlFilter": "/cookieconsent-"
   },
-  "id": 1194
+  "id": 1172
  },
  {
   "action": {
@@ -12812,7 +12595,7 @@
    ],
    "urlFilter": "/cookienotice/"
   },
-  "id": 1195
+  "id": 1173
  },
  {
   "action": {
@@ -12825,7 +12608,7 @@
    ],
    "urlFilter": "/cookies-banner"
   },
-  "id": 1196
+  "id": 1174
  },
  {
   "action": {
@@ -12838,7 +12621,7 @@
    ],
    "urlFilter": "/cookies-monster/"
   },
-  "id": 1197
+  "id": 1175
  },
  {
   "action": {
@@ -12851,7 +12634,7 @@
    ],
    "urlFilter": "/eucookieslaw/"
   },
-  "id": 1198
+  "id": 1176
  },
  {
   "action": {
@@ -12864,7 +12647,7 @@
    ],
    "urlFilter": "/gdpr/gdpr."
   },
-  "id": 1199
+  "id": 1177
  },
  {
   "action": {
@@ -12877,7 +12660,7 @@
    ],
    "urlFilter": "/mweb.cookie/"
   },
-  "id": 1200
+  "id": 1178
  },
  {
   "action": {
@@ -12890,7 +12673,7 @@
    ],
    "urlFilter": "/pm_assets/privacy/"
   },
-  "id": 1201
+  "id": 1179
  },
  {
   "action": {
@@ -12903,7 +12686,7 @@
    ],
    "urlFilter": "/privacy-consent-"
   },
-  "id": 1202
+  "id": 1180
  },
  {
   "action": {
@@ -12916,7 +12699,7 @@
    ],
    "urlFilter": "/s4s-privacy-module/"
   },
-  "id": 1203
+  "id": 1181
  },
  {
   "action": {
@@ -12929,7 +12712,7 @@
    ],
    "urlFilter": "/pp-t-a-c.js"
   },
-  "id": 1204
+  "id": 1182
  },
  {
   "action": {
@@ -12942,33 +12725,7 @@
    ],
    "urlFilter": "||c.evidon.com/dg/dg.js"
   },
-  "id": 1205
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||consent.trustarc.com/notice"
-  },
-  "id": 1206
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||consent.trustarc.com/v2/notice"
-  },
-  "id": 1207
+  "id": 1183
  },
  {
   "action": {
@@ -12981,7 +12738,7 @@
    ],
    "urlFilter": "||consent.truste.com/get?name=notice.js"
   },
-  "id": 1208
+  "id": 1184
  },
  {
   "action": {
@@ -12995,7 +12752,7 @@
    ],
    "urlFilter": "||live.mrf.io/statics/1w/"
   },
-  "id": 1209
+  "id": 1185
  },
  {
   "action": {
@@ -13008,7 +12765,7 @@
    ],
    "urlFilter": "/wp-content/blog-plugins/wordads-classes/js/notice.bundle.js"
   },
-  "id": 1210
+  "id": 1186
  },
  {
   "action": {
@@ -13021,7 +12778,7 @@
    ],
    "urlFilter": "||conclude.com/assets/build/combined."
   },
-  "id": 1211
+  "id": 1187
  },
  {
   "action": {
@@ -13040,7 +12797,7 @@
     "script"
    ]
   },
-  "id": 1212
+  "id": 1188
  },
  {
   "action": {
@@ -13056,7 +12813,7 @@
    ],
    "urlFilter": "||sheinsz.ltwebstatic.com/she_dist/assets/backup-onetrust."
   },
-  "id": 1213
+  "id": 1189
  },
  {
   "action": {
@@ -13075,7 +12832,7 @@
     "script"
    ]
   },
-  "id": 1214
+  "id": 1190
  },
  {
   "action": {
@@ -13091,7 +12848,7 @@
    ],
    "urlFilter": "||ebay.com/nkfytkqtoxtljvzbxhr.js"
   },
-  "id": 1215
+  "id": 1191
  },
  {
   "action": {
@@ -13107,7 +12864,7 @@
    ],
    "urlFilter": "||ir.ebaystatic.com/rs/c/9527tracking/configuration.js"
   },
-  "id": 1216
+  "id": 1192
  },
  {
   "action": {
@@ -13123,7 +12880,7 @@
    ],
    "urlFilter": "||src.ebay-us.com/*=usllpic"
   },
-  "id": 1217
+  "id": 1193
  },
  {
   "action": {
@@ -13146,6 +12903,7 @@
     "androidhow.eu",
     "anglocelt.ie",
     "aostasera.it",
+    "apkmirror.com",
     "araberara.it",
     "arkadium.com",
     "armaghi.com",
@@ -13196,6 +12954,7 @@
     "cheshire-live.co.uk",
     "chroniclelive.co.uk",
     "citizen.co.za",
+    "cityam.com",
     "clevescene.com",
     "cm-tv.pt",
     "cmjornal.pt",
@@ -13204,6 +12963,7 @@
     "comuniate.com",
     "comunio.de",
     "comunio.es",
+    "concertarchives.org",
     "confidenze.com",
     "convertcase.net",
     "cornwalllive.com",
@@ -13256,6 +13016,7 @@
     "fiorentinanews.com",
     "flash.pt",
     "flashback.org",
+    "flatpanelshd.com",
     "foititikanea.gr",
     "fokidanews.gr",
     "folhetospromocionais.com",
@@ -13273,6 +13034,7 @@
     "foreca.ro",
     "foreca.se",
     "forecaweather.com",
+    "forvo.com",
     "freeads.co.uk",
     "g1novelas.fun",
     "game-experience.it",
@@ -13512,6 +13274,7 @@
     "phoronix.com",
     "pienimatkaopas.com",
     "pietsmiet.de",
+    "pistonheads.com",
     "playdome.hu",
     "player.hu",
     "playpilot.com",
@@ -13598,6 +13361,7 @@
     "sitytrail.com",
     "skai.gr",
     "sketsi.net",
+    "smartbrief.com",
     "sneakertoast.com",
     "soccerway.com",
     "softpedia.com",
@@ -13716,7 +13480,7 @@
     "script"
    ]
   },
-  "id": 1218
+  "id": 1194
  },
  {
   "action": {
@@ -13729,7 +13493,7 @@
    ],
    "urlFilter": "||cdn.trustcommander.net/privacy/"
   },
-  "id": 1219
+  "id": 1195
  },
  {
   "action": {
@@ -13745,7 +13509,7 @@
    ],
    "urlFilter": "||googletagmanager.com/gtm.js"
   },
-  "id": 1220
+  "id": 1196
  },
  {
   "action": {
@@ -13758,7 +13522,7 @@
    ],
    "urlFilter": "||tmgonlinemedia.nl/cc"
   },
-  "id": 1221
+  "id": 1197
  },
  {
   "action": {
@@ -13782,7 +13546,7 @@
    ],
    "urlFilter": "||almamedia.fi/almacmp/"
   },
-  "id": 1222
+  "id": 1198
  },
  {
   "action": {
@@ -13795,7 +13559,7 @@
    ],
    "urlFilter": "||browser-consent-front.coco.s-cloud.fi/js/"
   },
-  "id": 1223
+  "id": 1199
  },
  {
   "action": {
@@ -13811,7 +13575,7 @@
    ],
    "urlFilter": "||gravitocdn.blob.core.windows.net/lightcmp/"
   },
-  "id": 1224
+  "id": 1200
  },
  {
   "action": {
@@ -13827,7 +13591,7 @@
    ],
    "urlFilter": "||jimms.fi/scripts/jimmsconsent.min.js"
   },
-  "id": 1225
+  "id": 1201
  },
  {
   "action": {
@@ -13843,7 +13607,7 @@
    ],
    "urlFilter": "||krookmedia.fi/wp-content/plugins/cookie-law-info/"
   },
-  "id": 1226
+  "id": 1202
  },
  {
   "action": {
@@ -13859,7 +13623,7 @@
    ],
    "urlFilter": "||serviceform.com/serviceform-tools/privacy/sf-privacy-partner.js"
   },
-  "id": 1227
+  "id": 1203
  },
  {
   "action": {
@@ -13872,7 +13636,7 @@
    ],
    "urlFilter": "||storage.googleapis.com/om-gravito-cmp/"
   },
-  "id": 1228
+  "id": 1204
  },
  {
   "action": {
@@ -13885,7 +13649,7 @@
    ],
    "urlFilter": "||tapionverkkokauppa.fi^*/js.cookie.min.js"
   },
-  "id": 1229
+  "id": 1205
  },
  {
   "action": {
@@ -13898,7 +13662,7 @@
    ],
    "urlFilter": "||beautydea.it^*/consent_"
   },
-  "id": 1230
+  "id": 1206
  },
  {
   "action": {
@@ -13914,7 +13678,7 @@
    ],
    "urlFilter": "||cdn.tinypass.com/api/piano.js"
   },
-  "id": 1231
+  "id": 1207
  },
  {
   "action": {
@@ -13938,7 +13702,7 @@
     "script"
    ]
   },
-  "id": 1232
+  "id": 1208
  },
  {
   "action": {
@@ -13951,7 +13715,7 @@
    ],
    "urlFilter": "/?spu_action=spu_load"
   },
-  "id": 1233
+  "id": 1209
  },
  {
   "action": {
@@ -13967,7 +13731,7 @@
    ],
    "urlFilter": "||beyondtrust.com^*cookie-notice"
   },
-  "id": 1234
+  "id": 1210
  },
  {
   "action": {
@@ -13983,23 +13747,7 @@
    ],
    "urlFilter": "||kotaku.com/wrapper/*/gdpr/"
   },
-  "id": 1235
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "is.fi"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||cdn.privacy-mgmt.com^*supersaa"
-  },
-  "id": 1236
+  "id": 1211
  },
  {
   "action": {
@@ -14015,7 +13763,7 @@
    ],
    "urlFilter": "||cookielaw.org/scripttemplates/*/assets/*.json"
   },
-  "id": 1237
+  "id": 1212
  },
  {
   "action": {
@@ -14031,7 +13779,7 @@
    ],
    "urlFilter": "||cookielaw.org/scripttemplates/*/assets/otcommonstyles.css"
   },
-  "id": 1238
+  "id": 1213
  },
  {
   "action": {
@@ -14047,7 +13795,7 @@
    ],
    "urlFilter": "||vpd.fi/datalayer/index/cookiecontent/"
   },
-  "id": 1239
+  "id": 1214
  },
  {
   "action": {
@@ -14064,7 +13812,7 @@
    ],
    "urlFilter": "||consent.trustarc.com/get?name="
   },
-  "id": 1240
+  "id": 1215
  },
  {
   "action": {
@@ -14080,7 +13828,7 @@
    ],
    "urlFilter": "||ogs.google.com/widget/callout?"
   },
-  "id": 1241
+  "id": 1216
  },
  {
   "action": {
@@ -14093,7 +13841,7 @@
    ],
    "urlFilter": "||pages.ebay.com/identity/device/"
   },
-  "id": 1242
+  "id": 1217
  },
  {
   "action": {
@@ -14106,7 +13854,7 @@
    ],
    "urlFilter": "||deutschebank-dbdirect.com/modal-cookies.html"
   },
-  "id": 1243
+  "id": 1218
  },
  {
   "action": {
@@ -14122,7 +13870,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1244
+  "id": 1219
  },
  {
   "action": {
@@ -14194,6 +13942,7 @@
     "hs-banner.com",
     "intermarkets.net",
     "iubenda.com",
+    "izinal.com",
     "legalmonster.com",
     "lgpdy.com",
     "marfeel.mgr.consensu.org",
@@ -14233,6 +13982,7 @@
     "transcend.io",
     "truendo.com",
     "truevaultcdn.com",
+    "ucookie.app",
     "usercentrics.eu",
     "volksbund-cookie.de",
     "widget.clym-sdk.net",
@@ -14240,7 +13990,7 @@
     "x-c.eu"
    ]
   },
-  "id": 1245
+  "id": 1220
  },
  {
   "action": {
@@ -14255,7 +14005,7 @@
     "axept.io"
    ]
   },
-  "id": 1246
+  "id": 1221
  },
  {
   "action": {
@@ -14266,7 +14016,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||civiccomputing.com^*=cookie"
   },
-  "id": 1247
+  "id": 1222
  },
  {
   "action": {
@@ -14277,7 +14027,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||clickiocdn.com/t/cmp/"
   },
-  "id": 1248
+  "id": 1223
  },
  {
   "action": {
@@ -14288,7 +14038,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||consensu.org/gdpr/"
   },
-  "id": 1249
+  "id": 1224
  },
  {
   "action": {
@@ -14299,7 +14049,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cookieinformation.com/*/*.js"
   },
-  "id": 1250
+  "id": 1225
  },
  {
   "action": {
@@ -14310,7 +14060,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lawwwing.com/widgets/"
   },
-  "id": 1251
+  "id": 1226
  },
  {
   "action": {
@@ -14321,7 +14071,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||secureprivacy.ai/secureprivacy-plugin/"
   },
-  "id": 1252
+  "id": 1227
  },
  {
   "action": {
@@ -14332,7 +14082,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thisisdone.com/gdpr/"
   },
-  "id": 1253
+  "id": 1228
  },
  {
   "action": {
@@ -14343,7 +14093,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||uniconsent.mgr.consensu.org^*.cmp.js"
   },
-  "id": 1254
+  "id": 1229
  },
  {
   "action": {
@@ -14359,7 +14109,7 @@
     "script"
    ]
   },
-  "id": 1255
+  "id": 1230
  },
  {
   "action": {
@@ -14374,7 +14124,7 @@
     "sub_frame"
    ]
   },
-  "id": 1256
+  "id": 1231
  },
  {
   "action": {
@@ -14421,7 +14171,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/assets/cookiebanner."
   },
-  "id": 1257
+  "id": 1232
  },
  {
   "action": {
@@ -14430,6 +14180,13 @@
   "condition": {
    "initiatorDomains": [
     "1001games.com",
+    "1001hry.cz",
+    "1001jeux.fr",
+    "1001jocuri.ro",
+    "1001jogos.com.br",
+    "1001jogos.pt",
+    "1001pelit.com",
+    "1001spiele.de",
     "10play.com.au",
     "20min.ch",
     "24kitchen.pt",
@@ -14501,6 +14258,7 @@
     "disney.se",
     "docs.vmware.com",
     "elisa.fi",
+    "elkspel.nl",
     "elle.se",
     "epicgames.com",
     "eurogamer.cz",
@@ -14526,12 +14284,15 @@
     "gmx.fr",
     "gq-magazine.co.uk",
     "gqmagazine.fr",
+    "grajteraz.pl",
     "heute.at",
     "id.trimble.com",
     "ikea.com",
     "ikonpass.com",
     "indiewire.com",
     "informationweek.com",
+    "isladejuegos.com",
+    "jatekokxl.hu",
     "kanald.ro",
     "karriere.mcdonalds.de",
     "kawasaki.com",
@@ -14571,6 +14332,7 @@
     "nintendo.de",
     "nintendo.es",
     "nintendo.fr",
+    "nintendo.it",
     "nintendo.pt",
     "nintendo.ru",
     "npr.org",
@@ -14579,6 +14341,7 @@
     "oe24.at",
     "olx.pl",
     "olympics.com",
+    "paixnidiaxl.gr",
     "palisadestahoe.com",
     "papajohns.com",
     "peacocktv.com",
@@ -14613,8 +14376,11 @@
     "southparkstudios.com",
     "spel.nl",
     "spelletjes.nl",
+    "spelo.se",
     "spiele.bild.de",
     "spiele.stern.de",
+    "spillespill.no",
+    "spilxl.dk",
     "squareup.com",
     "start.gg",
     "superporn.com",
@@ -14681,10 +14447,6 @@
     "usmagazine.com",
     "vanityfair.com",
     "vg247.com",
-    "viafree.dk",
-    "viafree.fi",
-    "viafree.no",
-    "viafree.se",
     "victorinox.com",
     "vimeo.com",
     "vizio.com",
@@ -14715,7 +14477,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/otbannersdk.js"
   },
-  "id": 1258
+  "id": 1233
  },
  {
   "action": {
@@ -14725,7 +14487,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adtipp.de/js/cookiebanner.js"
   },
-  "id": 1259
+  "id": 1234
  },
  {
   "action": {
@@ -14735,7 +14497,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||aliunicorn.com^*/cookie-info.js"
   },
-  "id": 1260
+  "id": 1235
  },
  {
   "action": {
@@ -14745,7 +14507,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||alphavps.com/assets/js/services/cookiesconsent.min.js"
   },
-  "id": 1261
+  "id": 1236
  },
  {
   "action": {
@@ -14766,7 +14528,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ampproject.org^*/amp-consent-"
   },
-  "id": 1262
+  "id": 1237
  },
  {
   "action": {
@@ -14776,7 +14538,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bbci.co.uk^*/cookie-library.min.js"
   },
-  "id": 1263
+  "id": 1238
  },
  {
   "action": {
@@ -14786,7 +14548,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||campus.arte.tv/js/components/cookie-banner.js"
   },
-  "id": 1264
+  "id": 1239
  },
  {
   "action": {
@@ -14796,7 +14558,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn-national-lottery.co.uk/c/js/cuk_core.min.js"
   },
-  "id": 1265
+  "id": 1240
  },
  {
   "action": {
@@ -14806,7 +14568,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ceramtec-group.com^*/cookieconsent.min.js"
   },
-  "id": 1266
+  "id": 1241
  },
  {
   "action": {
@@ -14821,7 +14583,7 @@
     "choices.consentframework.com"
    ]
   },
-  "id": 1267
+  "id": 1242
  },
  {
   "action": {
@@ -14835,7 +14597,7 @@
     "client.axept.io"
    ]
   },
-  "id": 1268
+  "id": 1243
  },
  {
   "action": {
@@ -14857,7 +14619,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cloudflare.com^*/cookieconsent.min.js"
   },
-  "id": 1269
+  "id": 1244
  },
  {
   "action": {
@@ -14873,7 +14635,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cookiebot.com/uc.js"
   },
-  "id": 1270
+  "id": 1245
  },
  {
   "action": {
@@ -14937,7 +14699,7 @@
     "cookiebot.com"
    ]
   },
-  "id": 1271
+  "id": 1246
  },
  {
   "action": {
@@ -14947,7 +14709,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||demarches.interieur.gouv.fr/js/tarteaucitron/"
   },
-  "id": 1272
+  "id": 1247
  },
  {
   "action": {
@@ -14960,7 +14722,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ecookie.nl/build/"
   },
-  "id": 1273
+  "id": 1248
  },
  {
   "action": {
@@ -14970,7 +14732,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||evbstatic.com^*/cookie_header.js"
   },
-  "id": 1274
+  "id": 1249
  },
  {
   "action": {
@@ -14985,7 +14747,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||evidon.com/sitenotice/"
   },
-  "id": 1275
+  "id": 1250
  },
  {
   "action": {
@@ -14995,7 +14757,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||exali.de/static/theme/assets/js/cookiebanner.js"
   },
-  "id": 1276
+  "id": 1251
  },
  {
   "action": {
@@ -15005,7 +14767,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gazetabilgoraj.pl/wp-content/plugins/uk-cookie-consent/"
   },
-  "id": 1277
+  "id": 1252
  },
  {
   "action": {
@@ -15015,7 +14777,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gmx.net/magazine/consent-management/|"
   },
-  "id": 1278
+  "id": 1253
  },
  {
   "action": {
@@ -15025,7 +14787,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||golem.de/abo/setconsentcookie.php"
   },
-  "id": 1279
+  "id": 1254
  },
  {
   "action": {
@@ -15035,7 +14797,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hsg-square.ch/typo3conf/ext/template_global/resources/public/javascript/gdpr.js"
   },
-  "id": 1280
+  "id": 1255
  },
  {
   "action": {
@@ -15045,7 +14807,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ikea.com^*/cookieconsent-onetrust-js.js"
   },
-  "id": 1281
+  "id": 1256
  },
  {
   "action": {
@@ -15059,7 +14821,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jimstatic.com/cookiecontrol.js"
   },
-  "id": 1282
+  "id": 1257
  },
  {
   "action": {
@@ -15069,7 +14831,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||khl.ru^*/cookieconsent.min.js"
   },
-  "id": 1283
+  "id": 1258
  },
  {
   "action": {
@@ -15079,7 +14841,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lacoste.com^*/cookie-consent.js"
   },
-  "id": 1284
+  "id": 1259
  },
  {
   "action": {
@@ -15089,7 +14851,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lecourrier-du-soir.com^*/uk-cookie-consent-js"
   },
-  "id": 1285
+  "id": 1260
  },
  {
   "action": {
@@ -15099,7 +14861,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||linkezeitung.de/wp-content/plugins/gdpr-notice-original/view/assets/js/gdpr.js"
   },
-  "id": 1286
+  "id": 1261
  },
  {
   "action": {
@@ -15108,6 +14870,7 @@
   "condition": {
    "initiatorDomains": [
     "konami.com",
+    "nintendolife.com",
     "panasonic.com",
     "pushsquare.com",
     "technics.com"
@@ -15115,7 +14878,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||onetrust.com/consent/"
   },
-  "id": 1287
+  "id": 1262
  },
  {
   "action": {
@@ -15124,6 +14887,7 @@
   "condition": {
    "initiatorDomains": [
     "konami.com",
+    "nintendolife.com",
     "panasonic.com",
     "pushsquare.com",
     "technics.com"
@@ -15131,7 +14895,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||onetrust.com/scripttemplates/"
   },
-  "id": 1288
+  "id": 1263
  },
  {
   "action": {
@@ -15139,12 +14903,13 @@
   },
   "condition": {
    "initiatorDomains": [
+    "nintendolife.com",
     "pushsquare.com"
    ],
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||onetrust.com/vendorlist/"
   },
-  "id": 1289
+  "id": 1264
  },
  {
   "action": {
@@ -15154,7 +14919,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ozracing.com/templates/oz/js/vendor/cookies-enabler.min.js"
   },
-  "id": 1290
+  "id": 1265
  },
  {
   "action": {
@@ -15164,7 +14929,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||parastorage.com/services/wix-thunderbolt/dist/cookiesmanager."
   },
-  "id": 1291
+  "id": 1266
  },
  {
   "action": {
@@ -15174,7 +14939,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||playoverwatch.com/static/externals/cookie-consent-filter-compat.js"
   },
-  "id": 1292
+  "id": 1267
  },
  {
   "action": {
@@ -15197,7 +14962,7 @@
     "policy.app.cookieinformation.com"
    ]
   },
-  "id": 1293
+  "id": 1268
  },
  {
   "action": {
@@ -15224,7 +14989,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||quantcast.mgr.consensu.org/gvl-v2/"
   },
-  "id": 1294
+  "id": 1269
  },
  {
   "action": {
@@ -15250,7 +15015,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||quantcast.mgr.consensu.org/tcfv2/"
   },
-  "id": 1295
+  "id": 1270
  },
  {
   "action": {
@@ -15281,7 +15046,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||quantcast.mgr.consensu.org^*/choice.js"
   },
-  "id": 1296
+  "id": 1271
  },
  {
   "action": {
@@ -15291,7 +15056,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||salonkee.cloud/data/other/js/cookie-consent-"
   },
-  "id": 1297
+  "id": 1272
  },
  {
   "action": {
@@ -15301,7 +15066,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||schibsted.io^*/gdpr-bundle.js"
   },
-  "id": 1298
+  "id": 1273
  },
  {
   "action": {
@@ -15311,7 +15076,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||shop.bora-sauna.de/components/cookieconsent2/build/cookieconsent.min.js"
   },
-  "id": 1299
+  "id": 1274
  },
  {
   "action": {
@@ -15325,7 +15090,7 @@
     "sourcepoint.mgr.consensu.org"
    ]
   },
-  "id": 1300
+  "id": 1275
  },
  {
   "action": {
@@ -15339,7 +15104,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sourcepointcmp.bloomberg.*/mms/get_site_data?"
   },
-  "id": 1301
+  "id": 1276
  },
  {
   "action": {
@@ -15349,7 +15114,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||spacecentre.co.uk^*/uk-cookie-consent-js"
   },
-  "id": 1302
+  "id": 1277
  },
  {
   "action": {
@@ -15359,7 +15124,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stabila.com/bundles/marketingsuite/css/cookie-bar.css"
   },
-  "id": 1303
+  "id": 1278
  },
  {
   "action": {
@@ -15373,7 +15138,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.go3.tv/file/go3/resources/*/onetrust.html"
   },
-  "id": 1304
+  "id": 1279
  },
  {
   "action": {
@@ -15383,7 +15148,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||strandhof.de/static/gdprplugin/jquery.ihavecookies.min.js"
   },
-  "id": 1305
+  "id": 1280
  },
  {
   "action": {
@@ -15393,7 +15158,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||suncalc.org/scripts/cookieconsent.min.js"
   },
-  "id": 1306
+  "id": 1281
  },
  {
   "action": {
@@ -15403,7 +15168,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||superrichthailand.com/cookie-policy/cookie-policy.js"
   },
-  "id": 1307
+  "id": 1282
  },
  {
   "action": {
@@ -15413,7 +15178,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||superrichthailand.com/privacy-policy/privacy-policy.js"
   },
-  "id": 1308
+  "id": 1283
  },
  {
   "action": {
@@ -15423,7 +15188,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tefl.com/lib/jquery.cookiebar.js"
   },
-  "id": 1309
+  "id": 1284
  },
  {
   "action": {
@@ -15433,7 +15198,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||theautopian.com/content/plugins/complianz-gdpr/core/assets/js/cookieconsent.min.js"
   },
-  "id": 1310
+  "id": 1285
  },
  {
   "action": {
@@ -15443,7 +15208,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||trafficengland.com/resources/"
   },
-  "id": 1311
+  "id": 1286
  },
  {
   "action": {
@@ -15456,7 +15221,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tripcdn.com/modules/ibu/online-flight/common-cookie-banner."
   },
-  "id": 1312
+  "id": 1287
  },
  {
   "action": {
@@ -15466,7 +15231,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tygodniksiedlecki.com/assets/mobile/cookiebar/jquery.cookiebar.js"
   },
-  "id": 1313
+  "id": 1288
  },
  {
   "action": {
@@ -15476,7 +15241,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||universumglobal.com/wp-content/plugins/cookie-law-info/"
   },
-  "id": 1314
+  "id": 1289
  },
  {
   "action": {
@@ -15501,7 +15266,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"
   },
-  "id": 1315
+  "id": 1290
  },
  {
   "action": {
@@ -15514,7 +15279,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||x-plarium.com/browser/canvas/*/cookiesbanner.js"
   },
-  "id": 1316
+  "id": 1291
  },
  {
   "action": {
@@ -15574,7 +15339,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ziffstatic.com^*/zdconsent.js"
   },
-  "id": 1317
+  "id": 1292
  },
  {
   "action": {
@@ -15584,7 +15349,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.douglas.*/public/cookieconsent."
   },
-  "id": 1318
+  "id": 1293
  },
  {
   "action": {
@@ -15594,7 +15359,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||amigosmuseoreinasofia.org/assets/js/cookiecuttr/jquery.cookie.js"
   },
-  "id": 1319
+  "id": 1294
  },
  {
   "action": {
@@ -15604,7 +15369,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||areaclienti.generali.it/areaclienti/plugins/"
   },
-  "id": 1320
+  "id": 1295
  },
  {
   "action": {
@@ -15614,7 +15379,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bancaaltatoscana.it/framework/js/cookies.dyn.js"
   },
-  "id": 1321
+  "id": 1296
  },
  {
   "action": {
@@ -15624,7 +15389,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bccmilano.it/framework/js/cookies.dyn.js"
   },
-  "id": 1322
+  "id": 1297
  },
  {
   "action": {
@@ -15634,7 +15399,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bccroma.it/framework/js/cookies.dyn.js"
   },
-  "id": 1323
+  "id": 1298
  },
  {
   "action": {
@@ -15644,7 +15409,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cartabcc.it/siteassets/js/cookie_js/cookies.dyn.js"
   },
-  "id": 1324
+  "id": 1299
  },
  {
   "action": {
@@ -15654,7 +15419,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.rp.pl/cmp/cmp.min.js"
   },
-  "id": 1325
+  "id": 1300
  },
  {
   "action": {
@@ -15664,7 +15429,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdp.pl/skin/*/cookies.js"
   },
-  "id": 1326
+  "id": 1301
  },
  {
   "action": {
@@ -15677,7 +15442,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||components2.rcsobjects.it/rcs_cpmt/v1/distro/youreporter_ct.js"
   },
-  "id": 1327
+  "id": 1302
  },
  {
   "action": {
@@ -15690,7 +15455,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||consent.cookiefirst.com/banner.js"
   },
-  "id": 1328
+  "id": 1303
  },
  {
   "action": {
@@ -15700,7 +15465,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||content.unicredit.it/etc/designs/ucpublic/it/css/cookie/main.css"
   },
-  "id": 1329
+  "id": 1304
  },
  {
   "action": {
@@ -15715,7 +15480,7 @@
     "cookiefirst.com"
    ]
   },
-  "id": 1330
+  "id": 1305
  },
  {
   "action": {
@@ -15725,7 +15490,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ebok.vectra.pl/components/layout/cookie-bar/"
   },
-  "id": 1331
+  "id": 1306
  },
  {
   "action": {
@@ -15735,7 +15500,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||footroll.pl/js/vendor/cookiebox.min.js"
   },
-  "id": 1332
+  "id": 1307
  },
  {
   "action": {
@@ -15745,7 +15510,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||iccreabanca.it/siteassets/js/cookie_js/cookies.dyn.js"
   },
-  "id": 1333
+  "id": 1308
  },
  {
   "action": {
@@ -15755,7 +15520,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||internazionale.it/assets/js/cookies_gdpr.js?"
   },
-  "id": 1334
+  "id": 1309
  },
  {
   "action": {
@@ -15768,7 +15533,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kalaydo.de^*/cookie-consent.jsc.js"
   },
-  "id": 1335
+  "id": 1310
  },
  {
   "action": {
@@ -15778,7 +15543,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nowegumy.pl/cookiecuttr.js"
   },
-  "id": 1336
+  "id": 1311
  },
  {
   "action": {
@@ -15791,7 +15556,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||orangeclickmedia.com/tech/libs/js.cookie.min.js"
   },
-  "id": 1337
+  "id": 1312
  },
  {
   "action": {
@@ -15801,7 +15566,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||otter.finance/assets/js/cookieconsent.js"
   },
-  "id": 1338
+  "id": 1313
  },
  {
   "action": {
@@ -15814,7 +15579,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||prezzibenzina.it/www2/js/jquery.cookiebar.js"
   },
-  "id": 1339
+  "id": 1314
  },
  {
   "action": {
@@ -15824,7 +15589,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||rai.it/dl/components/js/cookiebanner/"
   },
-  "id": 1340
+  "id": 1315
  },
  {
   "action": {
@@ -15834,7 +15599,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||studentenwoningweb.nl/krn/scripts/jquery.cookiecuttr.js"
   },
-  "id": 1341
+  "id": 1316
  },
  {
   "action": {
@@ -15844,7 +15609,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||swissmed.com.pl/js/jquery.cookiecuttr.js"
   },
-  "id": 1342
+  "id": 1317
  },
  {
   "action": {
@@ -15857,7 +15622,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||termsfeed.com/public/cookie-consent/*/cookie-consent.js"
   },
-  "id": 1343
+  "id": 1318
  },
  {
   "action": {
@@ -15872,7 +15637,7 @@
     "sdk.privacy-center.org"
    ]
   },
-  "id": 1344
+  "id": 1319
  },
  {
   "action": {
@@ -15889,7 +15654,7 @@
    ],
    "urlFilter": "||consentmanager.mgr.consensu.org/delivery/"
   },
-  "id": 1345
+  "id": 1320
  },
  {
   "action": {
@@ -15903,7 +15668,7 @@
    ],
    "urlFilter": "||lightningmaps.org^*/cookieconsent."
   },
-  "id": 1346
+  "id": 1321
  },
  {
   "action": {
@@ -15916,7 +15681,7 @@
    ],
    "urlFilter": "||workingtitlefilms.com/site-content/plugins/nbcu-plugins/bwp-minify/"
   },
-  "id": 1347
+  "id": 1322
  },
  {
   "action": {
@@ -15930,7 +15695,7 @@
    ],
    "urlFilter": "||firkloveren.no/skin/"
   },
-  "id": 1348
+  "id": 1323
  },
  {
   "action": {
@@ -15943,7 +15708,7 @@
    ],
    "urlFilter": "||kjellmann.no^*/cookielaw/css/cookielaw.css"
   },
-  "id": 1349
+  "id": 1324
  },
  {
   "action": {
@@ -15959,7 +15724,7 @@
    ],
    "urlFilter": "||a.fsdn.com/con/js/sftheme/cmp2.js"
   },
-  "id": 1350
+  "id": 1325
  },
  {
   "action": {
@@ -15972,7 +15737,7 @@
    ],
    "urlFilter": "||alicdn.com/js/*/cookie-info.js"
   },
-  "id": 1351
+  "id": 1326
  },
  {
   "action": {
@@ -15985,7 +15750,7 @@
    ],
    "urlFilter": "||alicdn.com/js/*/ws-cookie.js"
   },
-  "id": 1352
+  "id": 1327
  },
  {
   "action": {
@@ -16001,7 +15766,7 @@
    ],
    "urlFilter": "||appscdn.camilyo.software/cookie-consent/static/cookiesblocker.min.js"
   },
-  "id": 1353
+  "id": 1328
  },
  {
   "action": {
@@ -16014,7 +15779,7 @@
    ],
    "urlFilter": "||assets.travix.com/client/cookie-banner-"
   },
-  "id": 1354
+  "id": 1329
  },
  {
   "action": {
@@ -16031,7 +15796,7 @@
    ],
    "urlFilter": "||c.evidon.com/sitenotice/evidon-sitenotice-tag.js"
   },
-  "id": 1355
+  "id": 1330
  },
  {
   "action": {
@@ -16052,7 +15817,7 @@
     "script"
    ]
   },
-  "id": 1356
+  "id": 1331
  },
  {
   "action": {
@@ -16068,7 +15833,7 @@
    ],
    "urlFilter": "||cdn.jsdelivr.net/gh/wruczek/bootstrap-cookie-alert@gh-pages/cookiealert.js"
   },
-  "id": 1357
+  "id": 1332
  },
  {
   "action": {
@@ -16084,7 +15849,7 @@
    ],
    "urlFilter": "||cdn.opencmp.net/tcf-v2/cmp-latest.js"
   },
-  "id": 1358
+  "id": 1333
  },
  {
   "action": {
@@ -16100,7 +15865,7 @@
    ],
    "urlFilter": "||cdn.opencmp.net/tcf-v2/cmp-stub-latest.js"
   },
-  "id": 1359
+  "id": 1334
  },
  {
   "action": {
@@ -16118,7 +15883,7 @@
    ],
    "urlFilter": "||cdn.trustcommander.net/privacy/"
   },
-  "id": 1360
+  "id": 1335
  },
  {
   "action": {
@@ -16134,7 +15899,7 @@
    ],
    "urlFilter": "||chasecdn.com^*/cookie.js"
   },
-  "id": 1361
+  "id": 1336
  },
  {
   "action": {
@@ -16156,7 +15921,7 @@
    ],
    "urlFilter": "||civiccomputing.com^*/cookiecontrol-"
   },
-  "id": 1362
+  "id": 1337
  },
  {
   "action": {
@@ -16175,7 +15940,7 @@
    ],
    "urlFilter": "||cloudfront.net^*/lib.f-cookie-banner."
   },
-  "id": 1363
+  "id": 1338
  },
  {
   "action": {
@@ -16193,7 +15958,7 @@
     "script"
    ]
   },
-  "id": 1364
+  "id": 1339
  },
  {
   "action": {
@@ -16207,7 +15972,7 @@
    ],
    "urlFilter": "||computerbase.de^*/consent/"
   },
-  "id": 1365
+  "id": 1340
  },
  {
   "action": {
@@ -16221,7 +15986,7 @@
    ],
    "urlFilter": "||computerbase.de^*/scripttemplates/"
   },
-  "id": 1366
+  "id": 1341
  },
  {
   "action": {
@@ -16240,27 +16005,7 @@
     "script"
    ]
   },
-  "id": 1367
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "concursolutions.com",
-    "forbes.com",
-    "formula1.com",
-    "fortune.com",
-    "tripit.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||consent.trustarc.com/notice"
-  },
-  "id": 1368
+  "id": 1342
  },
  {
   "action": {
@@ -16272,6 +16017,7 @@
     "lippu.fi",
     "spar.hu",
     "teslamag.de",
+    "vkmag.com",
     "winfuture.de"
    ],
    "requestDomains": [
@@ -16282,7 +16028,7 @@
     "sub_frame"
    ]
   },
-  "id": 1369
+  "id": 1343
  },
  {
   "action": {
@@ -16301,7 +16047,7 @@
     "script"
    ]
   },
-  "id": 1370
+  "id": 1344
  },
  {
   "action": {
@@ -16317,7 +16063,7 @@
    ],
    "urlFilter": "||d3skrbn3b616hn.cloudfront.net/b/mw/lib.f-cookie-banner."
   },
-  "id": 1371
+  "id": 1345
  },
  {
   "action": {
@@ -16333,7 +16079,7 @@
    ],
    "urlFilter": "||files.bbci.co.uk^*/cookie-banner/"
   },
-  "id": 1372
+  "id": 1346
  },
  {
   "action": {
@@ -16349,7 +16095,7 @@
    ],
    "urlFilter": "||fundingchoicesmessages.google.com/i/"
   },
-  "id": 1373
+  "id": 1347
  },
  {
   "action": {
@@ -16385,7 +16131,7 @@
    ],
    "urlFilter": "||gdpr-wrapper.privacymanager.io/gdpr/"
   },
-  "id": 1374
+  "id": 1348
  },
  {
   "action": {
@@ -16420,7 +16166,7 @@
     "script"
    ]
   },
-  "id": 1375
+  "id": 1349
  },
  {
   "action": {
@@ -16436,7 +16182,7 @@
    ],
    "urlFilter": "||gstatic.com/brandstudio/kato/cookie_choice_component/"
   },
-  "id": 1376
+  "id": 1350
  },
  {
   "action": {
@@ -16449,7 +16195,7 @@
    ],
    "urlFilter": "||hellenicbank.com/portalserver/*/cookies-consent.js"
   },
-  "id": 1377
+  "id": 1351
  },
  {
   "action": {
@@ -16462,7 +16208,7 @@
    ],
    "urlFilter": "||hp.com^*/caas-privacy-cookie-"
   },
-  "id": 1378
+  "id": 1352
  },
  {
   "action": {
@@ -16475,7 +16221,7 @@
    ],
    "urlFilter": "||onepage.io/api/v1/cookie-service/lib/"
   },
-  "id": 1379
+  "id": 1353
  },
  {
   "action": {
@@ -16494,7 +16240,7 @@
    ],
    "urlFilter": "||quantcast.mgr.consensu.org/cmp.js"
   },
-  "id": 1380
+  "id": 1354
  },
  {
   "action": {
@@ -16554,7 +16300,7 @@
    ],
    "urlFilter": "||quantcast.mgr.consensu.org^*/cmp2.js"
   },
-  "id": 1381
+  "id": 1355
  },
  {
   "action": {
@@ -16567,7 +16313,7 @@
    ],
    "urlFilter": "||riwal.com/includes/js/components/cookiebar.js"
   },
-  "id": 1382
+  "id": 1356
  },
  {
   "action": {
@@ -16658,7 +16404,7 @@
     "script"
    ]
   },
-  "id": 1383
+  "id": 1357
  },
  {
   "action": {
@@ -16674,7 +16420,7 @@
    ],
    "urlFilter": "||st.getsitecontrol.com/main/runtime/"
   },
-  "id": 1384
+  "id": 1358
  },
  {
   "action": {
@@ -16687,7 +16433,7 @@
    ],
    "urlFilter": "||starhotels.com^*/cookiesdisclaimer.js"
   },
-  "id": 1385
+  "id": 1359
  },
  {
   "action": {
@@ -16703,7 +16449,7 @@
    ],
    "urlFilter": "||static.axept.io/sdk-slim.js"
   },
-  "id": 1386
+  "id": 1360
  },
  {
   "action": {
@@ -16716,7 +16462,7 @@
    ],
    "urlFilter": "||tinder.com/static/build/chunks/cookiepolicybanner-"
   },
-  "id": 1387
+  "id": 1361
  },
  {
   "action": {
@@ -16730,7 +16476,7 @@
    ],
    "urlFilter": "||trinitymedia.ai/player/"
   },
-  "id": 1388
+  "id": 1362
  },
  {
   "action": {
@@ -16746,7 +16492,7 @@
    ],
    "urlFilter": "||tv.sibbo.net/v2/sibbo-cmp-core.js"
   },
-  "id": 1389
+  "id": 1363
  },
  {
   "action": {
@@ -16763,7 +16509,7 @@
     "script"
    ]
   },
-  "id": 1390
+  "id": 1364
  },
  {
   "action": {
@@ -16776,7 +16522,7 @@
    ],
    "urlFilter": "||candidat.pole-emploi.fr^*/modules/jquery-eu-cookie-law-popup.js"
   },
-  "id": 1391
+  "id": 1365
  },
  {
   "action": {
@@ -16792,7 +16538,7 @@
    ],
    "urlFilter": "||cdn.transcend.io/cm/"
   },
-  "id": 1392
+  "id": 1366
  },
  {
   "action": {
@@ -16812,7 +16558,7 @@
    ],
    "urlFilter": "||ciaopeople.it^*/sdk-gdpr."
   },
-  "id": 1393
+  "id": 1367
  },
  {
   "action": {
@@ -16828,7 +16574,7 @@
    ],
    "urlFilter": "||cmp.pubtech.ai/124/pubtech-cmp-v2.js"
   },
-  "id": 1394
+  "id": 1368
  },
  {
   "action": {
@@ -16841,7 +16587,7 @@
    ],
    "urlFilter": "||cyrk-zalewski.com.pl^*/cookieinfo.js"
   },
-  "id": 1395
+  "id": 1369
  },
  {
   "action": {
@@ -16854,7 +16600,7 @@
    ],
    "urlFilter": "||holiday.aquila.pl/min/f=/js/"
   },
-  "id": 1396
+  "id": 1370
  },
  {
   "action": {
@@ -16867,7 +16613,7 @@
    ],
    "urlFilter": "||idg.se/idg-consent.min.js"
   },
-  "id": 1397
+  "id": 1371
  },
  {
   "action": {
@@ -16922,7 +16668,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1398
+  "id": 1372
  },
  {
   "action": {
@@ -16935,7 +16681,7 @@
    ],
    "urlFilter": "||mymuesli.com/assets/js/cookiespopup.js"
   },
-  "id": 1399
+  "id": 1373
  },
  {
   "action": {
@@ -16948,7 +16694,7 @@
    ],
    "urlFilter": "||polenka.pl/wp-content/plugins/cookie-law-info/js/cookielawinfo.js"
   },
-  "id": 1400
+  "id": 1374
  },
  {
   "action": {
@@ -16961,7 +16707,7 @@
    ],
    "urlFilter": "||portalbici.es/lib/cookiecuttr/"
   },
-  "id": 1401
+  "id": 1375
  },
  {
   "action": {
@@ -16974,7 +16720,7 @@
    ],
    "urlFilter": "||rai.it^*/cookie.pack.js"
   },
-  "id": 1402
+  "id": 1376
  },
  {
   "action": {
@@ -16987,7 +16733,7 @@
    ],
    "urlFilter": "||rainews.it/common/assets/js/cookiebanner.js"
   },
-  "id": 1403
+  "id": 1377
  },
  {
   "action": {
@@ -17001,7 +16747,7 @@
    ],
    "urlFilter": "||rainews.it/dl/components/js/cookiebanner/"
   },
-  "id": 1404
+  "id": 1378
  },
  {
   "action": {
@@ -17014,7 +16760,7 @@
    ],
    "urlFilter": "||rainews.it^*/cookie.pack.js"
   },
-  "id": 1405
+  "id": 1379
  },
  {
   "action": {
@@ -17027,7 +16773,7 @@
    ],
    "urlFilter": "||raiplaysound.it/common/assets/js/cookiebanner.js"
   },
-  "id": 1406
+  "id": 1380
  },
  {
   "action": {
@@ -17040,7 +16786,7 @@
    ],
    "urlFilter": "||raiplaysound.it/dl/components/js/cookie.pack.js"
   },
-  "id": 1407
+  "id": 1381
  },
  {
   "action": {
@@ -17054,7 +16800,7 @@
    ],
    "urlFilter": "||raiplaysound.it/dl/components/js/cookiebanner/"
   },
-  "id": 1408
+  "id": 1382
  },
  {
   "action": {
@@ -17067,7 +16813,7 @@
    ],
    "urlFilter": "||topschool.pl/wp-content/plugins/cookieinfo/js/cookieinfo.js"
   },
-  "id": 1409
+  "id": 1383
  },
  {
   "action": {
@@ -17134,7 +16880,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1410
+  "id": 1384
  },
  {
   "action": {
@@ -17147,7 +16893,7 @@
    ],
    "urlFilter": "||vesmir.cz/components/eu_cookie/"
   },
-  "id": 1411
+  "id": 1385
  },
  {
   "action": {
@@ -17160,7 +16906,7 @@
    ],
    "urlFilter": "||vulcangas.com^*/cookie-notice/"
   },
-  "id": 1412
+  "id": 1386
  },
  {
   "action": {
@@ -17177,7 +16923,7 @@
     "script"
    ]
   },
-  "id": 1413
+  "id": 1387
  },
  {
   "action": {
@@ -17193,7 +16939,7 @@
    ],
    "urlFilter": "||cdn.cookielaw.org/scripttemplates/otsdkstub.js"
   },
-  "id": 1414
+  "id": 1388
  },
  {
   "action": {
@@ -17209,7 +16955,7 @@
    ],
    "urlFilter": "||api.mercari.jp/experiments/get_running_experiments_by_name"
   },
-  "id": 1415
+  "id": 1389
  },
  {
   "action": {
@@ -17222,7 +16968,7 @@
    ],
    "urlFilter": "||api.transcend.io/privacy/graphql"
   },
-  "id": 1416
+  "id": 1390
  },
  {
   "action": {
@@ -17239,7 +16985,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1417
+  "id": 1391
  },
  {
   "action": {
@@ -17252,7 +16998,7 @@
    ],
    "urlFilter": "||eurosportplayer.com/cms/articles/cookie-banner?"
   },
-  "id": 1418
+  "id": 1392
  },
  {
   "action": {
@@ -17271,7 +17017,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1419
+  "id": 1393
  },
  {
   "action": {
@@ -17301,7 +17047,7 @@
    ],
    "urlFilter": "||geolocation.onetrust.com/cookieconsentpub/"
   },
-  "id": 1420
+  "id": 1394
  },
  {
   "action": {
@@ -17317,7 +17063,7 @@
    ],
    "urlFilter": "||microsoft.com/api/privacy/cookieconsent?"
   },
-  "id": 1421
+  "id": 1395
  },
  {
   "action": {
@@ -17330,7 +17076,7 @@
    ],
    "urlFilter": "||onetrust.com/request/"
   },
-  "id": 1422
+  "id": 1396
  },
  {
   "action": {
@@ -17348,7 +17094,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1423
+  "id": 1397
  },
  {
   "action": {
@@ -17362,7 +17108,7 @@
    ],
    "urlFilter": "||washingtonpost.com/gdpr-consent/"
   },
-  "id": 1424
+  "id": 1398
  },
  {
   "action": {
@@ -17375,7 +17121,7 @@
    ],
    "urlFilter": "||my.sevdesk.de/shared/components/cookieconsent/cookieconsentmodal.html"
   },
-  "id": 1425
+  "id": 1399
  },
  {
   "action": {
@@ -17391,7 +17137,7 @@
    ],
    "urlFilter": "||telekom.hu/fiokom/api/settings/consent-management/statement-block-groups"
   },
-  "id": 1426
+  "id": 1400
  },
  {
   "action": {
@@ -17408,7 +17154,7 @@
    ],
    "urlFilter": "||vendorlist.consensu.org/vendorlist.json"
   },
-  "id": 1427
+  "id": 1401
  },
  {
   "action": {
@@ -17442,7 +17188,20 @@
     "sub_frame"
    ]
   },
-  "id": 1428
+  "id": 1402
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||embedplus.com/iframe-cookie-consent.aspx"
+  },
+  "id": 1403
  },
  {
   "action": {
@@ -17459,7 +17218,7 @@
     "sub_frame"
    ]
   },
-  "id": 1429
+  "id": 1404
  },
  {
   "action": {
@@ -17472,7 +17231,7 @@
    ],
    "urlFilter": "||onetrust.com/webform/"
   },
-  "id": 1430
+  "id": 1405
  },
  {
   "action": {
@@ -17485,7 +17244,7 @@
    ],
    "urlFilter": "||truste-svc.net/cookie_js/"
   },
-  "id": 1431
+  "id": 1406
  },
  {
   "action": {
@@ -17498,7 +17257,7 @@
    ],
    "urlFilter": "||cmpv2.cookist.it/embed2/rmi/1.2.5|"
   },
-  "id": 1432
+  "id": 1407
  },
  {
   "action": {
@@ -17511,7 +17270,7 @@
    ],
    "urlFilter": "||cmpv2.fanpage.it/embed2/rmi/1.2.5|"
   },
-  "id": 1433
+  "id": 1408
  },
  {
   "action": {
@@ -17524,7 +17283,7 @@
     "django-cookie-consent.readthedocs.io"
    ]
   },
-  "id": 1434
+  "id": 1409
  },
  {
   "action": {
@@ -17535,7 +17294,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||192.168.*/privacy_policy.js"
   },
-  "id": 1435
+  "id": 1410
  },
  {
   "action": {
@@ -17546,7 +17305,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||3332222.ru/cookie-popup."
   },
-  "id": 1436
+  "id": 1411
  },
  {
   "action": {
@@ -17557,7 +17316,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||366.bg/cookieconsent/cookieconsent.min.js"
   },
-  "id": 1437
+  "id": 1412
  },
  {
   "action": {
@@ -17568,7 +17327,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adblockplus.org/img/cookie-notice.svg"
   },
-  "id": 1438
+  "id": 1413
  },
  {
   "action": {
@@ -17579,7 +17338,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||app.weathercloud.net/assets/*/cookiemonster.min.js"
   },
-  "id": 1439
+  "id": 1414
  },
  {
   "action": {
@@ -17590,7 +17349,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||autofilltech.com/dist/routes/gdpr.js"
   },
-  "id": 1440
+  "id": 1415
  },
  {
   "action": {
@@ -17601,7 +17360,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||barclays.co.uk^*/cookiepolicy.js"
   },
-  "id": 1441
+  "id": 1416
  },
  {
   "action": {
@@ -17612,7 +17371,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||carport-diagnose.de/script/cookieconsent.min.js"
   },
-  "id": 1442
+  "id": 1417
  },
  {
   "action": {
@@ -17623,7 +17382,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||crazy-factory.com/ajax_box_cookie_banner.php"
   },
-  "id": 1443
+  "id": 1418
  },
  {
   "action": {
@@ -17634,7 +17393,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dayforcehcm.com/candidateportal/scripts/candidateportal/cookie/cookiebanner.js"
   },
-  "id": 1444
+  "id": 1419
  },
  {
   "action": {
@@ -17645,7 +17404,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dayforcehcm.com/candidateportal/staticviews/candidateportal/cookie/"
   },
-  "id": 1445
+  "id": 1420
  },
  {
   "action": {
@@ -17656,7 +17415,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||deutsche-weihnachtsmaerkte.de/booster/"
   },
-  "id": 1446
+  "id": 1421
  },
  {
   "action": {
@@ -17667,7 +17426,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dl.gmx.com/permission/onetrust/consent/"
   },
-  "id": 1447
+  "id": 1422
  },
  {
   "action": {
@@ -17678,7 +17437,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||einthusan.tv/gdpr-consent-quantcast.js"
   },
-  "id": 1448
+  "id": 1423
  },
  {
   "action": {
@@ -17689,7 +17448,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||eok.ee/javascripts/cookiebar.js"
   },
-  "id": 1449
+  "id": 1424
  },
  {
   "action": {
@@ -17700,7 +17459,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||erlebnissennerei-zillertal.at/typo3conf/ext/bh/resources/*/cookie-popup."
   },
-  "id": 1450
+  "id": 1425
  },
  {
   "action": {
@@ -17711,7 +17470,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fordblueadvantage.com/cars-for-sale/client/js/cookiebanner."
   },
-  "id": 1451
+  "id": 1426
  },
  {
   "action": {
@@ -17722,7 +17481,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fourseasons.com/alt/apps/fshr/shared/gdpr-banner."
   },
-  "id": 1452
+  "id": 1427
  },
  {
   "action": {
@@ -17733,7 +17492,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fourseasons.com/alt/fshr/shared/"
   },
-  "id": 1453
+  "id": 1428
  },
  {
   "action": {
@@ -17744,7 +17503,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fvd.nl/_nuxt/cookiebanner."
   },
-  "id": 1454
+  "id": 1429
  },
  {
   "action": {
@@ -17755,7 +17514,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gigacloud.ua^*/cookieconsent.min.js"
   },
-  "id": 1455
+  "id": 1430
  },
  {
   "action": {
@@ -17766,7 +17525,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gizmochina.com/wp-content/plugins/cookie-law-info/public/js/cookie-law-info-public.js"
   },
-  "id": 1456
+  "id": 1431
  },
  {
   "action": {
@@ -17777,7 +17536,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gouvernement.fr^*/tarteaucitron/"
   },
-  "id": 1457
+  "id": 1432
  },
  {
   "action": {
@@ -17788,7 +17547,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||handies.com/wp-content/uploads/pum/pum-site-scripts.js"
   },
-  "id": 1458
+  "id": 1433
  },
  {
   "action": {
@@ -17799,7 +17558,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hintertuxergletscher.at/typo3conf/ext/bh/resources/public/"
   },
-  "id": 1459
+  "id": 1434
  },
  {
   "action": {
@@ -17810,7 +17569,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hktdc.com/resources/cookieconsent/"
   },
-  "id": 1460
+  "id": 1435
  },
  {
   "action": {
@@ -17821,7 +17580,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||honoku.com/_app/immutable/chunks/cookiebanner."
   },
-  "id": 1461
+  "id": 1436
  },
  {
   "action": {
@@ -17832,7 +17591,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ibadual.com/design/ibadual/javascript/cookieconsent.min.js"
   },
-  "id": 1462
+  "id": 1437
  },
  {
   "action": {
@@ -17843,7 +17602,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||impossible3ds.com/wp-content/plugins/uk-cookie-consent/js/uk-cookie-consent-js"
   },
-  "id": 1463
+  "id": 1438
  },
  {
   "action": {
@@ -17854,7 +17613,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||intersport.no/cookiewall?"
   },
-  "id": 1464
+  "id": 1439
  },
  {
   "action": {
@@ -17865,7 +17624,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jaybirdsport.com/etc.clientlibs/logitech-common/clientlibs/onetrust."
   },
-  "id": 1465
+  "id": 1440
  },
  {
   "action": {
@@ -17876,7 +17635,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||keneti.com/public/web_assets/js/gdpr.js"
   },
-  "id": 1466
+  "id": 1441
  },
  {
   "action": {
@@ -17887,7 +17646,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||krainz-loipersdorf.at/statics/js/cookieconsent.js"
   },
-  "id": 1467
+  "id": 1442
  },
  {
   "action": {
@@ -17898,7 +17657,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kuechencenterweber.de/js/cookiebanner.js"
   },
-  "id": 1468
+  "id": 1443
  },
  {
   "action": {
@@ -17909,7 +17668,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lakelucerne.ch^*/gdpr.js"
   },
-  "id": 1469
+  "id": 1444
  },
  {
   "action": {
@@ -17920,7 +17679,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||leanlibrary.com/wp-content/plugins/complianz-gdpr/assets/js/cookieconsent.min.js"
   },
-  "id": 1470
+  "id": 1445
  },
  {
   "action": {
@@ -17931,7 +17690,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lockwood-avenue.com^*/cookielaw/"
   },
-  "id": 1471
+  "id": 1446
  },
  {
   "action": {
@@ -17942,7 +17701,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||logitech.com/etc.clientlibs/logitech-common/clientlibs/onetrust."
   },
-  "id": 1472
+  "id": 1447
  },
  {
   "action": {
@@ -17953,7 +17712,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||logitechg.com/etc.clientlibs/logitech-common/clientlibs/onetrust."
   },
-  "id": 1473
+  "id": 1448
  },
  {
   "action": {
@@ -17964,7 +17723,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mediateurfevad.fr/wp-content/plugins/cookieinfo/js/cookieinfo.js"
   },
-  "id": 1474
+  "id": 1449
  },
  {
   "action": {
@@ -17975,7 +17734,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||muestair.ch/fileadmin/dev/scripts/cookiebar.js"
   },
-  "id": 1475
+  "id": 1450
  },
  {
   "action": {
@@ -17986,7 +17745,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mynexity.fr/app_themes/v3/js/didomi.js"
   },
-  "id": 1476
+  "id": 1451
  },
  {
   "action": {
@@ -17997,7 +17756,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nectar.com/lib/cookiebanner.js"
   },
-  "id": 1477
+  "id": 1452
  },
  {
   "action": {
@@ -18008,7 +17767,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||newpharma.be/dist/cookie_policy."
   },
-  "id": 1478
+  "id": 1453
  },
  {
   "action": {
@@ -18019,7 +17778,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||news.microsoft.com/wp-content/plugins/microsoft-oembeds/"
   },
-  "id": 1479
+  "id": 1454
  },
  {
   "action": {
@@ -18030,7 +17789,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nice.fr/bundles/manacc/librairies/cookiecuttr/"
   },
-  "id": 1480
+  "id": 1455
  },
  {
   "action": {
@@ -18041,7 +17800,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nle.nl/assets/label/nle/js/cookiebar-"
   },
-  "id": 1481
+  "id": 1456
  },
  {
   "action": {
@@ -18052,7 +17811,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||norlysplay.dk/public/js/cookie-banner."
   },
-  "id": 1482
+  "id": 1457
  },
  {
   "action": {
@@ -18063,7 +17822,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ochotnicy.waw.pl/plugins/system/gdpr/"
   },
-  "id": 1483
+  "id": 1458
  },
  {
   "action": {
@@ -18074,7 +17833,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||oddschecker.com/cookie-policy-banner/"
   },
-  "id": 1484
+  "id": 1459
  },
  {
   "action": {
@@ -18085,7 +17844,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ouestfrance-immo.com/min/f=/js/common/"
   },
-  "id": 1485
+  "id": 1460
  },
  {
   "action": {
@@ -18096,7 +17855,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||portal.energie-graz.at/kundenportal/css/cookieconsent/"
   },
-  "id": 1486
+  "id": 1461
  },
  {
   "action": {
@@ -18107,7 +17866,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||portal.energie-graz.at/kundenportal/js/lib/cookieconsent.js"
   },
-  "id": 1487
+  "id": 1462
  },
  {
   "action": {
@@ -18118,7 +17877,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||purpleair.com/js/gdpr-cookie-consent-popup-plugin/"
   },
-  "id": 1488
+  "id": 1463
  },
  {
   "action": {
@@ -18129,7 +17888,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||retrogames.cc/js/cookieconsent.min.js"
   },
-  "id": 1489
+  "id": 1464
  },
  {
   "action": {
@@ -18140,7 +17899,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ringcentral.com/etc.clientlibs/commons/clientlibs/utility/onetrust-helper/"
   },
-  "id": 1490
+  "id": 1465
  },
  {
   "action": {
@@ -18151,7 +17910,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||riscocloud.com/elas/webui/scripts/gdpr.js"
   },
-  "id": 1491
+  "id": 1466
  },
  {
   "action": {
@@ -18162,7 +17921,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||rtlplay.be/onetrust-"
   },
-  "id": 1492
+  "id": 1467
  },
  {
   "action": {
@@ -18173,7 +17932,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sdrplay.com^*/pum-site-scripts.js"
   },
-  "id": 1493
+  "id": 1468
  },
  {
   "action": {
@@ -18184,7 +17943,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||se.com/myschneider/assets/onetrust."
   },
-  "id": 1494
+  "id": 1469
  },
  {
   "action": {
@@ -18195,7 +17954,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sonnenverlauf.de/scripts/cookieconsent.min.js"
   },
-  "id": 1495
+  "id": 1470
  },
  {
   "action": {
@@ -18206,7 +17965,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||steuerberatung-berlin.de/cookiepolicynotification/javascript/jquery.cookie.policy.min.js"
   },
-  "id": 1496
+  "id": 1471
  },
  {
   "action": {
@@ -18217,7 +17976,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||strava.com/cookie-banner.js"
   },
-  "id": 1497
+  "id": 1472
  },
  {
   "action": {
@@ -18228,7 +17987,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stwater.co.uk^*/cookie-banner.stw_props.json"
   },
-  "id": 1498
+  "id": 1473
  },
  {
   "action": {
@@ -18239,7 +17998,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||swnsdigital.com/*/webtoffee-gdpr-cookie-consent/"
   },
-  "id": 1499
+  "id": 1474
  },
  {
   "action": {
@@ -18250,7 +18009,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tiwag.at/typo3conf/ext/bh/resources/*/cookie-popup."
   },
-  "id": 1500
+  "id": 1475
  },
  {
   "action": {
@@ -18261,7 +18020,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||topocentras.lt/js/cookieconsent-"
   },
-  "id": 1501
+  "id": 1476
  },
  {
   "action": {
@@ -18272,7 +18031,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tweakers.net/x/styles/components/cookiebar/cookie_bar.css"
   },
-  "id": 1502
+  "id": 1477
  },
  {
   "action": {
@@ -18283,7 +18042,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vps2day.com/wp-content/plugins/complianz-gdpr/core/assets/js/cookieconsent.min.js"
   },
-  "id": 1503
+  "id": 1478
  },
  {
   "action": {
@@ -18294,7 +18053,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wasing.co.uk/global/cookie/"
   },
-  "id": 1504
+  "id": 1479
  },
  {
   "action": {
@@ -18305,7 +18064,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wesendit.com/lib/cookieconsent.min.js"
   },
-  "id": 1505
+  "id": 1480
  },
  {
   "action": {
@@ -18316,7 +18075,18 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||whufc.com/modules/custom/clubcast_core/js/cookie-consent."
   },
-  "id": 1506
+  "id": 1481
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||gogolf.fi/wp-content/plugins/webtoffee-gdpr-cookie-consent/"
+  },
+  "id": 1482
  },
  {
   "action": {
@@ -18331,7 +18101,7 @@
    ],
    "urlFilter": "/wp-content/plugins/bwp-minify/min/?*,wp-content"
   },
-  "id": 1507
+  "id": 1483
  },
  {
   "action": {
@@ -18346,7 +18116,7 @@
    ],
    "urlFilter": "/wp-content/plugins/wp-minify/min/?*,wp-content"
   },
-  "id": 1508
+  "id": 1484
  },
  {
   "action": {
@@ -18360,7 +18130,7 @@
    ],
    "urlFilter": "||dr-sup.de/_resources/static/packages/"
   },
-  "id": 1509
+  "id": 1485
  },
  {
   "action": {
@@ -18375,7 +18145,7 @@
    ],
    "urlFilter": "||vistaalegre.com/public/js/vendor/"
   },
-  "id": 1510
+  "id": 1486
  },
  {
   "action": {
@@ -18389,7 +18159,7 @@
    ],
    "urlFilter": "||www.digikey.*/cookie-notice.css"
   },
-  "id": 1511
+  "id": 1487
  },
  {
   "action": {
@@ -18404,7 +18174,7 @@
    ],
    "urlFilter": "||content.unicredit.it/etc/designs/ucpublic/it/*/informativa_cookie.js"
   },
-  "id": 1512
+  "id": 1488
  },
  {
   "action": {
@@ -18418,7 +18188,7 @@
    ],
    "urlFilter": "||privacypolicies.com/public/uploads/"
   },
-  "id": 1513
+  "id": 1489
  },
  {
   "action": {
@@ -18432,7 +18202,7 @@
    ],
    "urlFilter": "/cookie_law/plugin.js"
   },
-  "id": 1515
+  "id": 1491
  },
  {
   "action": {
@@ -18446,7 +18216,7 @@
    ],
    "urlFilter": "/zig_cookiepolicybar/*/cookiebar.js"
   },
-  "id": 1516
+  "id": 1492
  },
  {
   "action": {
@@ -18460,7 +18230,7 @@
    ],
    "urlFilter": "||aicasanitaire.fr/extras/min/"
   },
-  "id": 1517
+  "id": 1493
  },
  {
   "action": {
@@ -18474,7 +18244,7 @@
    ],
    "urlFilter": "||astrogaming.com/etc.clientlibs/logitech-common/clientlibs/onetrust."
   },
-  "id": 1518
+  "id": 1494
  },
  {
   "action": {
@@ -18488,7 +18258,7 @@
    ],
    "urlFilter": "||betterworldbooks.com/app/components/cookienotice.js"
   },
-  "id": 1519
+  "id": 1495
  },
  {
   "action": {
@@ -18502,7 +18272,7 @@
    ],
    "urlFilter": "||blizzcon.com/static/scripts/bootstrap-blz-cookie-consent.js"
   },
-  "id": 1520
+  "id": 1496
  },
  {
   "action": {
@@ -18516,7 +18286,7 @@
    ],
    "urlFilter": "||blizzcon.com/static/scripts/vendor/cookie-consent-filter-compat.js"
   },
-  "id": 1521
+  "id": 1497
  },
  {
   "action": {
@@ -18530,7 +18300,7 @@
    ],
    "urlFilter": "||brandexperience-group.com/assets/js/cookie.notice.min.js"
   },
-  "id": 1522
+  "id": 1498
  },
  {
   "action": {
@@ -18544,7 +18314,7 @@
    ],
    "urlFilter": "||budgetthuis.nl^*/cookiebar-"
   },
-  "id": 1523
+  "id": 1499
  },
  {
   "action": {
@@ -18558,7 +18328,7 @@
    ],
    "urlFilter": "||cafedelapaix.fr/assets/plugins/bwp-minify/min/"
   },
-  "id": 1524
+  "id": 1500
  },
  {
   "action": {
@@ -18572,7 +18342,7 @@
    ],
    "urlFilter": "||gamersgate.com/js/cookieconsent.js"
   },
-  "id": 1525
+  "id": 1501
  },
  {
   "action": {
@@ -18586,7 +18356,7 @@
    ],
    "urlFilter": "||getsysteminfo.com/javascript/cookieconsent.min.js"
   },
-  "id": 1526
+  "id": 1502
  },
  {
   "action": {
@@ -18600,7 +18370,7 @@
    ],
    "urlFilter": "||icims.com/a/images.icims.com/*/portal/gdpr.js"
   },
-  "id": 1527
+  "id": 1503
  },
  {
   "action": {
@@ -18614,7 +18384,7 @@
    ],
    "urlFilter": "||onlineservice.ewr-gmbh.de/ui.components.extended/material/nli-cookie-banner/"
   },
-  "id": 1528
+  "id": 1504
  },
  {
   "action": {
@@ -18628,7 +18398,7 @@
    ],
    "urlFilter": "||portal.aae.at^*/cookieconsent.js"
   },
-  "id": 1529
+  "id": 1505
  },
  {
   "action": {
@@ -18642,7 +18412,7 @@
    ],
    "urlFilter": "||santepubliquefrance.fr/rgpd/smarttag.js"
   },
-  "id": 1530
+  "id": 1506
  },
  {
   "action": {
@@ -18656,7 +18426,7 @@
    ],
    "urlFilter": "||stayathomemum.com.au/wp-content/plugins/beautiful-and-responsive-cookie-consent/public/cookienscconsent.min.js"
   },
-  "id": 1531
+  "id": 1507
  },
  {
   "action": {
@@ -18670,7 +18440,7 @@
    ],
    "urlFilter": "||sweetmarias.com/static/"
   },
-  "id": 1532
+  "id": 1508
  },
  {
   "action": {
@@ -18684,7 +18454,7 @@
    ],
    "urlFilter": "||u-car.com.tw/scripts/gdpr.js"
   },
-  "id": 1533
+  "id": 1509
  },
  {
   "action": {
@@ -18698,7 +18468,7 @@
    ],
    "urlFilter": "||virginmediatelevision.ie/*/cookienotice.js"
   },
-  "id": 1534
+  "id": 1510
  },
  {
   "action": {
@@ -18712,7 +18482,7 @@
    ],
    "urlFilter": "||xe.com/themes/xe/js/react/cookie-consent."
   },
-  "id": 1535
+  "id": 1511
  },
  {
   "action": {
@@ -18726,7 +18496,7 @@
    ],
    "urlFilter": "||zappo.fr/assets/plugins/bwp-minify/min/"
   },
-  "id": 1536
+  "id": 1512
  },
  {
   "action": {
@@ -18740,7 +18510,7 @@
    ],
    "urlFilter": "||muoversiatorino.it/wp-content/plugins/complianz-gdpr/cookiebanner/js/complianz.min.js"
   },
-  "id": 1537
+  "id": 1513
  },
  {
   "action": {
@@ -18754,7 +18524,7 @@
    ],
    "urlFilter": "||radio24.ilsole24ore.com/plugins/cordova-plugin-onetrust-cmp/www/onetrust.js"
   },
-  "id": 1538
+  "id": 1514
  },
  {
   "action": {
@@ -18768,7 +18538,7 @@
    ],
    "urlFilter": "||webtv.stofa.dk/public/js/cookie-banner."
   },
-  "id": 1539
+  "id": 1515
  },
  {
   "action": {
@@ -18782,7 +18552,7 @@
    ],
    "urlFilter": "||banking.fyrst.de/translations/*-cookiedisclaimer"
   },
-  "id": 1540
+  "id": 1516
  },
  {
   "action": {
@@ -18796,7 +18566,7 @@
    ],
    "urlFilter": "||dl.mail.com/permission/onetrust/consent/"
   },
-  "id": 1541
+  "id": 1517
  },
  {
   "action": {
@@ -18810,7 +18580,7 @@
    ],
    "urlFilter": "||tweakers.net/ajax/cookie-consent/"
   },
-  "id": 1542
+  "id": 1518
  },
  {
   "action": {
@@ -18824,7 +18594,7 @@
    ],
    "urlFilter": "||meine.postbank.de/*-cookiedisclaimer-*.json"
   },
-  "id": 1543
+  "id": 1519
  },
  {
   "action": {
@@ -18838,6 +18608,6 @@
    ],
    "urlFilter": "||zensus2022.de/siteglobals/modules/cookiebanner/*/cookiebanner.json?"
   },
-  "id": 1544
+  "id": 1520
  }
 ]

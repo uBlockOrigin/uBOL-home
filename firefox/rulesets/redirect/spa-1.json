@@ -21,7 +21,7 @@
    ],
    "urlFilter": "||static.criteo.net/js/px.js?ch="
   },
-  "id": 953,
+  "id": 952,
   "priority": 12
  },
  {
@@ -45,6 +45,27 @@
     "xmlhttprequest"
    ],
    "urlFilter": "||cas.criteo.com/delivery/ajs.php"
+  },
+  "id": 953,
+  "priority": 12
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/googlesyndication_adsbygoogle.js"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "descargaseriestv.com",
+    "dicasvalores.com",
+    "yesmangas1.com"
+   ],
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
   "id": 954,
   "priority": 12
@@ -191,27 +212,6 @@
   },
   "condition": {
    "initiatorDomains": [
-    "descargaseriestv.com",
-    "tvguia.es",
-    "yesmangas1.com"
-   ],
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-  },
-  "id": 961,
-  "priority": 12
- },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/googlesyndication_adsbygoogle.js"
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
     "forum.lfspro.net",
     "kepahoo.com",
     "monarcamanga.com"
@@ -222,7 +222,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 962,
+  "id": 961,
   "priority": 12
  },
  {
@@ -244,7 +244,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 963,
+  "id": 962,
   "priority": 12
  },
  {
@@ -264,7 +264,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
   },
-  "id": 964,
+  "id": 963,
   "priority": 2
  },
  {
@@ -283,7 +283,7 @@
    ],
    "urlFilter": "||static.vocento.com/dab/latest/strategy.js"
   },
-  "id": 965,
+  "id": 964,
   "priority": 12
  },
  {
@@ -303,7 +303,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 966,
+  "id": 965,
   "priority": 2
  },
  {
@@ -322,7 +322,7 @@
    ],
    "urlFilter": "||st.bebi.com/bebi_v*.js"
   },
-  "id": 967,
+  "id": 966,
   "priority": 2
  },
  {
@@ -342,7 +342,7 @@
    ],
    "urlFilter": "||cdn.adtrue.com/rtb/async.js"
   },
-  "id": 968,
+  "id": 967,
   "priority": 12
  },
  {
@@ -362,7 +362,7 @@
    ],
    "urlFilter": "||cdn.onesignal.com/sdks/onesignalsdk.js"
   },
-  "id": 969,
+  "id": 968,
   "priority": 12
  },
  {
@@ -381,7 +381,7 @@
    ],
    "urlFilter": "/tghr.js"
   },
-  "id": 970,
+  "id": 969,
   "priority": 2
  },
  {
@@ -401,7 +401,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/tag/js/gpt.js"
   },
-  "id": 971,
+  "id": 970,
   "priority": 2
  },
  {
@@ -420,7 +420,7 @@
    ],
    "urlFilter": "||googletagservices.com/tag/js/gpt.js"
   },
-  "id": 972,
+  "id": 971,
   "priority": 12
  },
  {
@@ -441,7 +441,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 973,
+  "id": 972,
   "priority": 2
  },
  {
@@ -460,7 +460,7 @@
    ],
    "urlFilter": "||ads-twitter.com/uwt.js"
   },
-  "id": 974,
+  "id": 973,
   "priority": 12
  },
  {
@@ -476,7 +476,7 @@
    ],
    "urlFilter": "||mahimeta.com/networks/ad_code.php"
   },
-  "id": 975,
+  "id": 974,
   "priority": 2
  },
  {
@@ -495,7 +495,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 976,
+  "id": 975,
   "priority": 12
  },
  {
@@ -514,7 +514,7 @@
    ],
    "urlFilter": "||cloud.mail.ru/weblink/view/*?advideo"
   },
-  "id": 977,
+  "id": 976,
   "priority": 2
  },
  {
@@ -533,7 +533,7 @@
    ],
    "urlFilter": "||baixarhentais.com/*/*-pre-roll-*.mp4"
   },
-  "id": 978,
+  "id": 977,
   "priority": 2
  },
  {
@@ -549,7 +549,7 @@
    ],
    "urlFilter": "||pobre.tv/videos/bt.mp4"
   },
-  "id": 979,
+  "id": 978,
   "priority": 2
  },
  {
@@ -565,7 +565,7 @@
    ],
    "urlFilter": "||hentaiporno.xxx/wp-content/uploads/*/*_video.mp4.mp4"
   },
-  "id": 980,
+  "id": 979,
   "priority": 2
  }
 ]

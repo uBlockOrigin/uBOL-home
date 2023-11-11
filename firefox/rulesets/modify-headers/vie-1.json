@@ -20,7 +20,7 @@
     "sub_frame"
    ]
   },
-  "id": 496
+  "id": 498
  },
  {
   "action": {
@@ -45,7 +45,7 @@
     "sub_frame"
    ]
   },
-  "id": 497
+  "id": 499
  },
  {
   "action": {
@@ -67,7 +67,7 @@
     "sub_frame"
    ]
   },
-  "id": 498
+  "id": 500
  },
  {
   "action": {
@@ -89,7 +89,29 @@
     "sub_frame"
    ]
   },
-  "id": 499
+  "id": 501
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' http"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "mangadm.cc"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 502
  },
  {
   "action": {
@@ -111,6 +133,6 @@
     "sub_frame"
    ]
   },
-  "id": 500
+  "id": 503
  }
 ]
