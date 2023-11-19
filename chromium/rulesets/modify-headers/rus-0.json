@@ -18,7 +18,7 @@
    ],
    "urlFilter": ".infox.sg^"
   },
-  "id": 5828
+  "id": 5826
  },
  {
   "action": {
@@ -39,7 +39,7 @@
    ],
    "urlFilter": "/gateway/ahr0c"
   },
-  "id": 5829
+  "id": 5827
  },
  {
   "action": {
@@ -60,7 +60,7 @@
    ],
    "urlFilter": "://poizdato.net/"
   },
-  "id": 5830
+  "id": 5828
  },
  {
   "action": {
@@ -86,7 +86,7 @@
    ],
    "urlFilter": "|http*//fastpic.org/"
   },
-  "id": 5831
+  "id": 5829
  },
  {
   "action": {
@@ -107,7 +107,7 @@
    ],
    "urlFilter": "||24smi-*/top/"
   },
-  "id": 5832
+  "id": 5830
  },
  {
   "action": {
@@ -128,7 +128,7 @@
    ],
    "urlFilter": "||24smi.*/top/"
   },
-  "id": 5833
+  "id": 5831
  },
  {
   "action": {
@@ -149,7 +149,7 @@
    ],
    "urlFilter": "||24top.*/top/"
   },
-  "id": 5834
+  "id": 5832
  },
  {
   "action": {
@@ -164,14 +164,15 @@
   },
   "condition": {
    "requestDomains": [
-    "agroter.com.ua"
+    "agroter.com.ua",
+    "gazeta-misto.te.ua"
    ],
    "resourceTypes": [
     "main_frame",
     "sub_frame"
    ]
   },
-  "id": 5835
+  "id": 5833
  },
  {
   "action": {
@@ -192,7 +193,7 @@
    ],
    "urlFilter": "||an.yandex.ru/count/"
   },
-  "id": 5836
+  "id": 5834
  },
  {
   "action": {
@@ -214,7 +215,7 @@
     "sub_frame"
    ]
   },
-  "id": 5837
+  "id": 5835
  },
  {
   "action": {
@@ -244,7 +245,7 @@
     "sub_frame"
    ]
   },
-  "id": 5838
+  "id": 5836
  },
  {
   "action": {
@@ -266,7 +267,7 @@
     "sub_frame"
    ]
   },
-  "id": 5839
+  "id": 5837
  },
  {
   "action": {
@@ -289,7 +290,7 @@
     "sub_frame"
    ]
   },
-  "id": 5840
+  "id": 5838
  },
  {
   "action": {
@@ -310,7 +311,7 @@
    ],
    "urlFilter": "||crossout.net/*free?*&r="
   },
-  "id": 5841
+  "id": 5839
  },
  {
   "action": {
@@ -331,7 +332,7 @@
    ],
    "urlFilter": "||d3ward.github.io/toolz/adblock"
   },
-  "id": 5842
+  "id": 5840
  },
  {
   "action": {
@@ -352,7 +353,7 @@
    ],
    "urlFilter": "||drive.google.com/file/d/1vmzdhlb_-dcnbtubkfqpnnvsep_2gnsy/"
   },
-  "id": 5843
+  "id": 5841
  },
  {
   "action": {
@@ -385,7 +386,29 @@
     "sub_frame"
    ]
   },
-  "id": 5844
+  "id": 5842
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: cse.google.com *.google.com/cse/ *.googleapis.com *.googletagmanager.com translate.google.com *.dev *.io *.net *.org"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "findhow.org"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 5843
  },
  {
   "action": {
@@ -406,7 +429,7 @@
    ],
    "urlFilter": "||forum.ru-board.com/*.cgi?*=5&topic=51141"
   },
-  "id": 5845
+  "id": 5844
  },
  {
   "action": {
@@ -428,7 +451,7 @@
     "sub_frame"
    ]
   },
-  "id": 5846
+  "id": 5845
  },
  {
   "action": {
@@ -449,7 +472,7 @@
    ],
    "urlFilter": "||gdz-ru.work/subscribe/"
   },
-  "id": 5847
+  "id": 5846
  },
  {
   "action": {
@@ -470,7 +493,7 @@
    ],
    "urlFilter": "||hawk.live/"
   },
-  "id": 5848
+  "id": 5847
  },
  {
   "action": {
@@ -491,7 +514,7 @@
    ],
    "urlFilter": "||icon-icons.com/ru/"
   },
-  "id": 5849
+  "id": 5848
  },
  {
   "action": {
@@ -507,6 +530,28 @@
   "condition": {
    "requestDomains": [
     "ilenta.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 5849
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.cloudflare.com *.dmca.com *.getsitecontrol.com *.googleapis.com *.googletagmanager.com *.trustpilot.com *.io *.net *.org *.ru *.ua"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "index.minfin.com.ua"
    ],
    "resourceTypes": [
     "main_frame",

@@ -21,7 +21,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": ".dk/ad/"
+   "urlFilter": "||dk/ad/"
   },
   "id": 2
  },
@@ -31,7 +31,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": ".dk/ads/"
+   "urlFilter": "||dk/ads/"
   },
   "id": 3
  },
@@ -41,7 +41,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": ".is/ad/"
+   "urlFilter": "||is/ad/"
   },
   "id": 4
  },
@@ -51,7 +51,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": ".is/augl/"
+   "urlFilter": "||is/augl/"
   },
   "id": 5
  },
@@ -61,7 +61,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": ".is/netbordar/"
+   "urlFilter": "||is/netbordar/"
   },
   "id": 6
  },
@@ -71,7 +71,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": ".is/skrar/augl/"
+   "urlFilter": "||is/skrar/augl/"
   },
   "id": 7
  },
@@ -81,7 +81,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": ".no/ad/"
+   "urlFilter": "||no/ad/"
   },
   "id": 8
  },
@@ -2335,6 +2335,7 @@
     "salomonidanmark.com",
     "salomonoutletnorge.com",
     "saucony-dk.com",
+    "service-nespresso.no",
     "skechersskosalg-norge.com",
     "smarthouseforum.ru",
     "speedcrossnettbutikk.com",
@@ -2584,7 +2585,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": ".is/static/strevda/"
+   "urlFilter": "||is/static/strevda/"
   },
   "id": 221
  },
@@ -3470,7 +3471,7 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": ".fo/css/img/banner2x1.png"
+   "urlFilter": "||fo/css/img/banner2x1.png"
   },
   "id": 287
  },
@@ -3618,7 +3619,7 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": ".no/vendor/apx^"
+   "urlFilter": "||no/vendor/apx^"
   },
   "id": 298
  },
@@ -4089,6 +4090,7 @@
     "salomonoutletnorge.com",
     "saucony-dk.com",
     "secureriches.com",
+    "service-nespresso.no",
     "sikkertapotek.com",
     "sitey.me",
     "skechersskosalg-norge.com",
@@ -4961,7 +4963,7 @@
    "resourceTypes": [
     "main_frame"
    ],
-   "urlFilter": ".com/vg.no|"
+   "urlFilter": "||com/vg.no|"
   },
   "id": 385
  },
@@ -4987,7 +4989,7 @@
    "resourceTypes": [
     "main_frame"
    ],
-   "urlFilter": ".cx/nordea|"
+   "urlFilter": "||cx/nordea|"
   },
   "id": 387
  },
@@ -5000,7 +5002,7 @@
    "resourceTypes": [
     "main_frame"
    ],
-   "urlFilter": ".cx/sparebank"
+   "urlFilter": "||cx/sparebank"
   },
   "id": 388
  },
@@ -5013,7 +5015,7 @@
    "resourceTypes": [
     "main_frame"
    ],
-   "urlFilter": ".cx/sbanken|"
+   "urlFilter": "||cx/sbanken|"
   },
   "id": 389
  },
@@ -5118,7 +5120,7 @@
     "ping",
     "xmlhttprequest"
    ],
-   "urlFilter": ".no/app/aas^"
+   "urlFilter": "||no/app/aas^"
   },
   "id": 397
  },

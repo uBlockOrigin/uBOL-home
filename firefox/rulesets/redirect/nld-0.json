@@ -46,6 +46,28 @@
   },
   "condition": {
    "initiatorDomains": [
+    "npo.nl",
+    "vpro.nl"
+   ],
+   "requestDomains": [
+    "akamaized.net"
+   ],
+   "resourceTypes": [
+    "media"
+   ]
+  },
+  "id": 551,
+  "priority": 2
+ },
+ {
+  "action": {
+   "redirect": {
+    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "initiatorDomains": [
     "vtm.be"
    ],
    "resourceTypes": [
@@ -53,7 +75,7 @@
    ],
    "urlFilter": "||medialaancdn.be/vtm_od/prerolls/"
   },
-  "id": 551,
+  "id": 552,
   "priority": 2
  }
 ]

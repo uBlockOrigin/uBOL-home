@@ -5,6 +5,28 @@
     {
      "header": "content-security-policy",
      "operation": "append",
+     "value": "script-src 'self' 'unsafe-inline' https: http:"
+    }
+   ],
+   "type": "modifyHeaders"
+  },
+  "condition": {
+   "requestDomains": [
+    "asideway.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame"
+   ]
+  },
+  "id": 502
+ },
+ {
+  "action": {
+   "responseHeaders": [
+    {
+     "header": "content-security-policy",
+     "operation": "append",
      "value": "script-src data: blob: * 'self' 'unsafe-inline'"
     }
    ],
@@ -20,7 +42,7 @@
     "sub_frame"
    ]
   },
-  "id": 498
+  "id": 503
  },
  {
   "action": {
@@ -45,7 +67,7 @@
     "sub_frame"
    ]
   },
-  "id": 499
+  "id": 504
  },
  {
   "action": {
@@ -67,7 +89,7 @@
     "sub_frame"
    ]
   },
-  "id": 500
+  "id": 505
  },
  {
   "action": {
@@ -89,7 +111,7 @@
     "sub_frame"
    ]
   },
-  "id": 501
+  "id": 506
  },
  {
   "action": {
@@ -111,7 +133,7 @@
     "sub_frame"
    ]
   },
-  "id": 502
+  "id": 507
  },
  {
   "action": {
@@ -133,6 +155,6 @@
     "sub_frame"
    ]
   },
-  "id": 503
+  "id": 508
  }
 ]

@@ -10,7 +10,25 @@
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "\\/bnr_side_(kiso3|octopass)\\.jpg"
   },
-  "id": 515
+  "id": 518
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "ru.com",
+    "sa.com",
+    "za.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "^https:\\/\\/\\d*juniorlak[0-9a-z]+\\.[a-z]{2}\\.com\\/",
+   "resourceTypes": [
+    "main_frame"
+   ]
+  },
+  "id": 931
  },
  {
   "action": {
@@ -25,7 +43,7 @@
     "main_frame"
    ]
   },
-  "id": 951
+  "id": 957
  },
  {
   "action": {
@@ -37,7 +55,7 @@
     "main_frame"
    ]
   },
-  "id": 960
+  "id": 966
  },
  {
   "action": {
@@ -50,7 +68,7 @@
     "main_frame"
    ]
   },
-  "id": 1011
+  "id": 1017
  },
  {
   "action": {
@@ -67,7 +85,7 @@
     "main_frame"
    ]
   },
-  "id": 1012
+  "id": 1018
  },
  {
   "action": {
@@ -83,7 +101,7 @@
     "main_frame"
    ]
   },
-  "id": 1020
+  "id": 1026
  },
  {
   "action": {
@@ -103,7 +121,7 @@
     "image"
    ]
   },
-  "id": 1022
+  "id": 1028
  },
  {
   "action": {
@@ -120,7 +138,7 @@
     "image"
    ]
   },
-  "id": 1023
+  "id": 1029
  },
  {
   "action": {
@@ -137,7 +155,7 @@
     "image"
    ]
   },
-  "id": 1024
+  "id": 1030
  },
  {
   "action": {
@@ -154,7 +172,7 @@
     "image"
    ]
   },
-  "id": 1027
+  "id": 1033
  },
  {
   "action": {
@@ -171,7 +189,7 @@
     "image"
    ]
   },
-  "id": 1028
+  "id": 1034
  },
  {
   "action": {
@@ -188,7 +206,7 @@
     "image"
    ]
   },
-  "id": 1029
+  "id": 1035
  },
  {
   "action": {
@@ -205,7 +223,7 @@
     "image"
    ]
   },
-  "id": 1035
+  "id": 1041
  },
  {
   "action": {
@@ -221,7 +239,7 @@
     "image"
    ]
   },
-  "id": 1036
+  "id": 1042
  },
  {
   "action": {
@@ -238,7 +256,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 1040
+  "id": 1046
  },
  {
   "action": {
@@ -256,6 +274,6 @@
     "sub_frame"
    ]
   },
-  "id": 1042
+  "id": 1048
  }
 ]

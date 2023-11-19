@@ -1,0 +1,154 @@
+{
+  "extName": {
+    "message": "uBlock Origin Lite",
+    "description": "extension name."
+  },
+  "extShortDesc": {
+    "message": "ਮਨਜ਼ੂਰੀਆਂ ਤੋਂ ਬਿਨਾਂ ਵਾਲਾ ਸਮੱਗਰੀ ਬਲਾਕਰ ਹੈ। ਇਸ਼ਤਿਹਾਰ, ਟਰੈਕਰਾਂ, ਮਾਈਨਰਾਂ ਅਤੇ ਹੋਰਾਂ ਉੱਤੇ ਇੰਸਟਾਲ ਕਰਨ ਤੋਂ ਫ਼ੌਰਨ ਬਾਅਦ ਪਾਬੰਦੀ ਲਾਉਂਦਾ ਹੈ।",
+    "description": "this will be in the Chrome web store: must be 132 characters or less"
+  },
+  "perRulesetStats": {
+    "message": "{{ruleCount}} ਨਿਯਮ, {{filterCount}} ਨੈੱਟਵਰਕ ਫਿਲਟਰ ਤੋਂ ਬਦਲੇ ਗਏ",
+    "description": "Appears aside each filter list in the _3rd-party filters_ pane"
+  },
+  "dashboardName": {
+    "message": "uBO Lite — ਡੈਸ਼ਬੋਰਡ",
+    "description": "English: uBO Lite — Dashboard"
+  },
+  "settingsPageName": {
+    "message": "ਸੈਟਿੰਗਾਂ",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPageName": {
+    "message": "ਇਸ ਬਾਰੇ",
+    "description": "appears as tab name in dashboard"
+  },
+  "aboutPrivacyPolicy": {
+    "message": "ਪਰਦੇਦਾਰੀ ਨੀਤੀ",
+    "description": "Link to privacy policy on GitHub (English)"
+  },
+  "popupFilteringModeLabel": {
+    "message": "ਫਿਲਟਰ ਕਰਨ ਦਾ ਮੋਡ",
+    "description": "Label in the popup panel for the current filtering mode"
+  },
+  "popupTipDashboard": {
+    "message": "ਡੈਸ਼ਬੋਰਡ ਨੂੰ ਖੋਲ੍ਹੋ",
+    "description": "English: Click to open the dashboard"
+  },
+  "popupMoreButton": {
+    "message": "ਹੋਰ",
+    "description": "Label to be used to show popup panel sections"
+  },
+  "popupLessButton": {
+    "message": "ਘੱਟ",
+    "description": "Label to be used to hide popup panel sections"
+  },
+  "3pGroupDefault": {
+    "message": "ਮੂਲ",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAds": {
+    "message": "ਇਸ਼ਤਿਹਾਰ",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupPrivacy": {
+    "message": "ਪਰਦੇਦਾਰੀ",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMalware": {
+    "message": "Malware domains",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupAnnoyances": {
+    "message": "ਅਣਚਾਹੇ",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupMisc": {
+    "message": "ਫੁਟਕਲ",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "3pGroupRegions": {
+    "message": "ਖੇਤਰ, ਭਾਸ਼ਾਵਾਂ",
+    "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "aboutChangelog": {
+    "message": "ਤਬਦੀਲੀ-ਸੂਚੀ",
+    "description": ""
+  },
+  "aboutCode": {
+    "message": "ਸਰੋਤ ਕੋਡ (GPLv3)",
+    "description": "English: Source code (GPLv3)"
+  },
+  "aboutContributors": {
+    "message": "ਯੋਗਦਾਨੀ",
+    "description": "English: Contributors"
+  },
+  "aboutSourceCode": {
+    "message": "ਸਰੋਤ ਕੋਡ",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "ਅਨੁਵਾਦ",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "ਫਿਲਟਰ ਸੂਚੀਆਂ",
+    "description": "Link text to uBO's own filter lists repo"
+  },
+  "aboutDependencies": {
+    "message": "ਬਾਹਰੀ ਨਿਰਭਰਤਾਵਾਂ (GPLv3-ਅਨੁਕੂਲ):",
+    "description": "Shown in the About pane"
+  },
+  "firstRunSectionLabel": {
+    "message": "ਜੀ ਆਇਆਂ ਨੂੰ",
+    "description": "The header text for the welcome message section"
+  },
+  "firstRunDescription": {
+    "message": "ਤੁਸੀਂ ਹੁਣੇ ਹੀ uBO Lite ਨੂੰ ਇੰਸਟਾਲ ਕੀਤਾ ਹੈ। ਤੁਸੀਂ ਸਾਰੀਆਂ ਵੈੱਬਸਾਈਟਾਂ ਲਈ ਵਰਤਣ ਵਾਸਤੇ ਮੂਲ ਫਿਲਟਰ ਕਰਨ ਦੇ ਢੰਗ ਨੂੰ ਚੁਣ ਸਕਦੇ ਹੋ।\n\nਮੂਲ ਰੂਪ ਵਿੱਚ <em>ਮੁੱਢਲਾ (Basic)</em> ਢੰਗ ਚੁਣਿਆ ਜਾਂਦਾ ਹੈ, ਕਿਉਂਕਿ ਇਸ ਵਾਸਤੇ ਡਾਟਾ ਪੜ੍ਹਨ ਅਤੇ ਸੋਧਣ ਲਈ ਕਿਸੇ ਵੀ ਮਨਜ਼ੂਰੀ ਦੀ ਲੋੜ ਨਹੀਂ ਹੁੰਦੀ ਹੈ। ਜੇ ਤੁਹਾਨੂੰ uBO Lite ਉੱਤੇ ਭਰੋਸਾ ਹੋਵੇ ਤਾਂ ਤੁਸੀਂ ਇਸ ਨੂੰ ਸਾਰੀਆਂ ਵੈੱਬਸਾਈਟਾਂ ਉੱਤੇ ਮੂਲ ਰੂਪ ਵਿੱਚ ਹੀ ਵੱਧ ਤਕਨੀਕੀ ਫਿਲਟਰ ਸਮਰੱਥਾ ਨੂੰ ਚਾਲੂ ਕਰਨ ਲਈ ਸਭ ਵੈੱਬਸਾਈਟਾਂ ਉੱਤੇ ਡਾਟਾ ਪੜ੍ਹਨ ਅਤੇ ਸੋਧਣ ਲਈ ਜਿਆਦਾ ਮਨਜ਼ੂਰੀ ਦੇ ਸਕਦੇ ਹੋ।",
+    "description": "Descriptive text shown at first install time only "
+  },
+  "defaultFilteringModeSectionLabel": {
+    "message": "ਮੂਲ ਫਿਲਟਰ ਕਰਨ ਦਾ ਢੰਗ",
+    "description": "The header text for the default filtering mode section"
+  },
+  "defaultFilteringModeDescription": {
+    "message": "ਮੂਲ ਫਿਲਟਰਿੰਗ ਢੰਗ ਨੂੰ ਹਰ-ਵੈੱਬਸਾਈਟ ਫਿਲਟਰਿੰਗ ਢੰਗਾਂ ਰਾਹੀਂ ਅਣਡਿੱਠਾ ਕੀਤਾ ਜਾਵੇਗਾ। ਤੁਸੀਂ ਕਿਸੇ ਵੀ ਵੈੱਬਸਾਈਟ ਲਈ ਫਿਲਟਰ ਕਰਨ ਦੇ ਢੰਗ ਨੂੰ ਉਸ ਵੈੱਬਸਾਈਟ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ ਕੰਮ ਕਰਦੇ ਢੰਗ ਮੁਤਾਬਕ ਅਡਜੱਸਟ ਕਰ ਸਕਦੇ ਹੋ। ਹਰ ਢੰਗ ਦੇ ਆਪਣੇ ਫਾਇਦੇ ਅਤੇ ਆਪਣੇ ਨੁਕਸਾਨ ਹਨ।",
+    "description": "This describes the default filtering mode setting"
+  },
+  "filteringMode0Name": {
+    "message": "ਕੋਈ ਫਿਲਟਰ ਨਹੀਂ ਕਰਨਾ",
+    "description": "Name of blocking mode 0"
+  },
+  "filteringMode1Name": {
+    "message": "ਮੁੱਢਲਾ",
+    "description": "Name of blocking mode 1"
+  },
+  "filteringMode2Name": {
+    "message": "ਅਨੁਕੂਲ",
+    "description": "Name of blocking mode 2"
+  },
+  "filteringMode3Name": {
+    "message": "ਪੂਰਾ",
+    "description": "Name of blocking mode 3"
+  },
+  "basicFilteringModeDescription": {
+    "message": "ਚੁਣੀਆਂ ਫਿਲਟਰ ਸੂਚੀਆਂ ਤੋਂ ਮੁੱਢਲਾ ਨੈੱਟਵਰਕ ਫਿਲਟਰ ਕਰਨਾ।\n\nਵੈੱਬਸਾਈਟਾਂ ਤੋਂ ਡਾਟਾ ਪੜ੍ਹਨ ਅਤੇ ਸੋਧਣ ਲਈ ਮਨਜ਼ੂਰੀ ਨਹੀਂ ਚਾਹੀਦੀ ਹੈ।",
+    "description": "This describes the 'basic' filtering mode"
+  },
+  "optimalFilteringModeDescription": {
+    "message": "ਤਕਨੀਕੀ ਨੈੱਟਵਰਕ ਫਿਲਟਰ ਕਰਨ ਤੋਂ ਨਾਲ ਨਾਲ ਚੁਣੀਆਂ ਫਿਲਟਰ ਸੂਚੀਆਂ ਤੋਂ ਖਾਸ ਵਾਧਾ ਕੀਤੇ ਫਿਲਟਰ।\n\nਸਾਰੀਆਂ ਵੈੱਬਸਾਈਟਾਂ ਲਈ ਡਾਟਾ ਪੜ੍ਹਨ ਅਤੇ ਸੋਧਣ ਲਈ ਜਿਆਦਾ ਮਨਜ਼ੂਰੀਆਂ ਚਾਹੀਦੀਆਂ ਹਨ।",
+    "description": "This describes the 'optimal' filtering mode"
+  },
+  "completeFilteringModeDescription": {
+    "message": "ਤਕਨੀਕੀ ਨੈੱਟਵਰਕ ਫਿਲਟਰ ਕਰਨ ਤੋਂ ਨਾਲ ਨਾਲ ਚੁਣੀਆਂ ਫਿਲਟਰ ਸੂਚੀਆਂ ਤੋਂ ਖਾਸ ਵਾਧਾ ਕੀਤੇ ਫਿਲਟਰ।\n\nਸਾਰੀਆਂ ਵੈੱਬਸਾਈਟਾਂ ਲਈ ਡਾਟਾ ਪੜ੍ਹਨ ਅਤੇ ਸੋਧਣ ਲਈ ਜਿਆਦਾ ਮਨਜ਼ੂਰੀਆਂ ਚਾਹੀਦੀਆਂ ਹਨ।\n\nਆਮ ਵਾਧਾ ਕੀਤੀ ਫਿਲਟਰਿੰਗ ਵੱਧ ਵੈੱਬ-ਸਫ਼ਾ ਸਰੋਤ ਵਰਤੇ ਜਾਣ ਦਾ ਕਾਰਨ ਬਣ ਸਕਦੀ ਹੈ।",
+    "description": "This describes the 'complete' filtering mode"
+  },
+  "behaviorSectionLabel": {
+    "message": "ਰਵੱਈਆ",
+    "description": "The header text for the 'Behavior' section"
+  },
+  "autoReloadLabel": {
+    "message": "ਫਿਲਫਰ ਕਰਨ ਦਾ ਢੰਗ ਬਦਲਣ ਦੇ ਬਾਅਦ ਸਫ਼ੇ ਨੂੰ ਆਪਣੇ-ਆਪ ਲੋਡ ਕਰੋ",
+    "description": "Label for a checkbox in the options page"
+  }
+}

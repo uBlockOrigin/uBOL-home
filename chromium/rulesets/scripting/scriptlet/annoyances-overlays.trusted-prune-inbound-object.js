@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_cookieRemover = function() {
+const uBOL_trustedPruneInboundObject = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["articleLimitDrawerVisible"],["unauthenicatedArticleLimitReached"],["kpwc"],["search_curday"],["visit"],["pageViews"],["recipe_view_count_ru"],["recipe_view_count_es"],["recipe_view_count_uk"],["recipe_view_count_pl"]];
+const argsList = [["JSON.stringify","1","index","max excludeIds"]];
 
-const hostnamesMap = new Map([["cbr.com",[0,1]],["technologyreview.jp",2],["ac-illust.com",3],["photo-ac.com",3],["novagente.pt",4],["stackshare.io",5],["cookpad.es",[6,7,8,9]],["cookpad.com",[6,7,8,9]]]);
+const hostnamesMap = new Map([["androidpolice.com",0],["makeuseof.com",0],["movieweb.com",0],["xda-developers.com",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,49 +52,173 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function cookieRemover(
-    needle = ''
+function trustedPruneInboundObject(
+    entryPoint = '',
+    argPos = '',
+    rawPrunePaths = '',
+    rawNeedlePaths = ''
 ) {
-    if ( typeof needle !== 'string' ) { return; }
+    if ( entryPoint === '' ) { return; }
+    let context = globalThis;
+    let prop = entryPoint;
+    for (;;) {
+        const pos = prop.indexOf('.');
+        if ( pos === -1 ) { break; }
+        context = context[prop.slice(0, pos)];
+        if ( context instanceof Object === false ) { return; }
+        prop = prop.slice(pos+1);
+    }
+    if ( typeof context[prop] !== 'function' ) { return; }
+    const argIndex = parseInt(argPos);
+    if ( isNaN(argIndex) ) { return; }
+    if ( argIndex < 1 ) { return; }
     const safe = safeSelf();
-    const reName = safe.patternToRegex(needle);
-    const removeCookie = function() {
-        document.cookie.split(';').forEach(cookieStr => {
-            let pos = cookieStr.indexOf('=');
-            if ( pos === -1 ) { return; }
-            let cookieName = cookieStr.slice(0, pos).trim();
-            if ( !reName.test(cookieName) ) { return; }
-            let part1 = cookieName + '=';
-            let part2a = '; domain=' + document.location.hostname;
-            let part2b = '; domain=.' + document.location.hostname;
-            let part2c, part2d;
-            let domain = document.domain;
-            if ( domain ) {
-                if ( domain !== document.location.hostname ) {
-                    part2c = '; domain=.' + domain;
-                }
-                if ( domain.startsWith('www.') ) {
-                    part2d = '; domain=' + domain.replace('www', '');
-                }
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 4);
+    const needlePaths = [];
+    if ( rawPrunePaths !== '' ) {
+        needlePaths.push(...rawPrunePaths.split(/ +/));
+    }
+    if ( rawNeedlePaths !== '' ) {
+        needlePaths.push(...rawNeedlePaths.split(/ +/));
+    }
+    const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
+    const mustProcess = root => {
+        for ( const needlePath of needlePaths ) {
+            if ( objectFindOwnerFn(root, needlePath) === false ) {
+                return false;
             }
-            let part3 = '; path=/';
-            let part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-            document.cookie = part1 + part4;
-            document.cookie = part1 + part2a + part4;
-            document.cookie = part1 + part2b + part4;
-            document.cookie = part1 + part3 + part4;
-            document.cookie = part1 + part2a + part3 + part4;
-            document.cookie = part1 + part2b + part3 + part4;
-            if ( part2c !== undefined ) {
-                document.cookie = part1 + part2c + part3 + part4;
-            }
-            if ( part2d !== undefined ) {
-                document.cookie = part1 + part2d + part3 + part4;
-            }
-        });
+        }
+        return true;
     };
-    removeCookie();
-    window.addEventListener('beforeunload', removeCookie);
+    context[prop] = new Proxy(context[prop], {
+        apply: function(target, thisArg, args) {
+            const targetArg = argIndex <= args.length
+                ? args[argIndex-1]
+                : undefined;
+            if ( targetArg instanceof Object && mustProcess(targetArg) ) {
+                let objBefore = targetArg;
+                if ( extraArgs.dontOverwrite ) {
+                    try {
+                        objBefore = safe.JSON_parse(safe.JSON_stringify(targetArg));
+                    } catch(_) {
+                        objBefore = undefined;
+                    }
+                }
+                if ( objBefore !== undefined ) {
+                    const objAfter = objectPruneFn(
+                        objBefore,
+                        rawPrunePaths,
+                        rawNeedlePaths,
+                        stackNeedle,
+                        extraArgs
+                    );
+                    args[argIndex-1] = objAfter || objBefore;
+                }
+            }
+            return Reflect.apply(target, thisArg, args);
+        },
+    });
+}
+
+function objectFindOwnerFn(
+    root,
+    path,
+    prune = false
+) {
+    let owner = root;
+    let chain = path;
+    for (;;) {
+        if ( typeof owner !== 'object' || owner === null  ) { return false; }
+        const pos = chain.indexOf('.');
+        if ( pos === -1 ) {
+            if ( prune === false ) {
+                return owner.hasOwnProperty(chain);
+            }
+            let modified = false;
+            if ( chain === '*' ) {
+                for ( const key in owner ) {
+                    if ( owner.hasOwnProperty(key) === false ) { continue; }
+                    delete owner[key];
+                    modified = true;
+                }
+            } else if ( owner.hasOwnProperty(chain) ) {
+                delete owner[chain];
+                modified = true;
+            }
+            return modified;
+        }
+        const prop = chain.slice(0, pos);
+        if (
+            prop === '[]' && Array.isArray(owner) ||
+            prop === '*' && owner instanceof Object
+        ) {
+            const next = chain.slice(pos + 1);
+            let found = false;
+            for ( const key of Object.keys(owner) ) {
+                found = objectFindOwnerFn(owner[key], next, prune) || found;
+            }
+            return found;
+        }
+        if ( owner.hasOwnProperty(prop) === false ) { return false; }
+        owner = owner[prop];
+        chain = chain.slice(pos + 1);
+    }
+    return true;
+}
+
+function objectPruneFn(
+    obj,
+    rawPrunePaths,
+    rawNeedlePaths,
+    stackNeedleDetails = { matchAll: true },
+    extraArgs = {}
+) {
+    if ( typeof rawPrunePaths !== 'string' ) { return; }
+    const safe = safeSelf();
+    const prunePaths = rawPrunePaths !== ''
+        ? rawPrunePaths.split(/ +/)
+        : [];
+    const needlePaths = prunePaths.length !== 0 && rawNeedlePaths !== ''
+        ? rawNeedlePaths.split(/ +/)
+        : [];
+    const logLevel = shouldLog({ log: rawPrunePaths === '' || extraArgs.log });
+    const reLogNeedle = safe.patternToRegex(logLevel === true ? rawNeedlePaths : '');
+    if ( stackNeedleDetails.matchAll !== true ) {
+        if ( matchesStackTrace(stackNeedleDetails, extraArgs.logstack) === false ) {
+            return;
+        }
+    }
+    if ( objectPruneFn.mustProcess === undefined ) {
+        objectPruneFn.mustProcess = (root, needlePaths) => {
+            for ( const needlePath of needlePaths ) {
+                if ( objectFindOwnerFn(root, needlePath) === false ) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        objectPruneFn.logJson = (json, msg, reNeedle) => {
+            if ( reNeedle.test(json) === false ) { return; }
+            safeSelf().uboLog(`objectPrune()`, msg, location.hostname, json);
+        };
+    }
+    const jsonBefore = logLevel ? safe.JSON_stringify(obj, null, 2) : '';
+    if ( logLevel === true || logLevel === 'all' ) {
+        objectPruneFn.logJson(jsonBefore, `prune:"${rawPrunePaths}" log:"${logLevel}"`, reLogNeedle);
+    }
+    if ( prunePaths.length === 0 ) { return; }
+    let outcome = 'nomatch';
+    if ( objectPruneFn.mustProcess(obj, needlePaths) ) {
+        for ( const path of prunePaths ) {
+            if ( objectFindOwnerFn(obj, path, true) ) {
+                outcome = 'match';
+            }
+        }
+    }
+    if ( logLevel === outcome ) {
+        objectPruneFn.logJson(jsonBefore, `prune:"${rawPrunePaths}" log:"${logLevel}"`, reLogNeedle);
+    }
+    if ( outcome === 'match' ) { return obj; }
 }
 
 function safeSelf() {
@@ -194,6 +318,70 @@ function safeSelf() {
     return safe;
 }
 
+function matchesStackTrace(
+    needleDetails,
+    logLevel = 0
+) {
+    const safe = safeSelf();
+    const exceptionToken = getExceptionToken();
+    const error = new safe.Error(exceptionToken);
+    const docURL = new URL(self.location.href);
+    docURL.hash = '';
+    // Normalize stack trace
+    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
+    const lines = [];
+    for ( let line of error.stack.split(/[\n\r]+/) ) {
+        if ( line.includes(exceptionToken) ) { continue; }
+        line = line.trim();
+        const match = safe.RegExp_exec.call(reLine, line);
+        if ( match === null ) { continue; }
+        let url = match[2];
+        if ( url.startsWith('(') ) { url = url.slice(1); }
+        if ( url === docURL.href ) {
+            url = 'inlineScript';
+        } else if ( url.startsWith('<anonymous>') ) {
+            url = 'injectedScript';
+        }
+        let fn = match[1] !== undefined
+            ? match[1].slice(0, -1)
+            : line.slice(0, match.index).trim();
+        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
+        let rowcol = match[3];
+        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
+    }
+    lines[0] = `stackDepth:${lines.length-1}`;
+    const stack = lines.join('\t');
+    const r = safe.testPattern(needleDetails, stack);
+    if (
+        logLevel === 1 ||
+        logLevel === 2 && r ||
+        logLevel === 3 && !r
+    ) {
+        safe.uboLog(stack.replace(/\t/g, '\n'));
+    }
+    return r;
+}
+
+function shouldLog(details) {
+    if ( details instanceof Object === false ) { return false; }
+    return scriptletGlobals.has('canDebug') && details.log;
+}
+
+function getExceptionToken() {
+    const safe = safeSelf();
+    const token =
+        String.fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+    const oe = self.onerror;
+    self.onerror = function(msg, ...args) {
+        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
+        if ( oe instanceof Function ) {
+            return oe.call(this, msg, ...args);
+        }
+    }.bind();
+    return token;
+}
+
 /******************************************************************************/
 
 const hnParts = [];
@@ -254,7 +442,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { cookieRemover(...argsList[i]); }
+    try { trustedPruneInboundObject(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -272,11 +460,11 @@ argsList.length = 0;
 //   'MAIN' world not yet supported in Firefox, so we inject the code into
 //   'MAIN' ourself when environment in Firefox.
 
-const targetWorld = 'ISOLATED';
+const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_cookieRemover();
+    return uBOL_trustedPruneInboundObject();
 }
 
 // Firefox
@@ -284,11 +472,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_cookieRemover = cloneInto([
-            [ '(', uBOL_cookieRemover.toString(), ')();' ],
+        page.uBOL_trustedPruneInboundObject = cloneInto([
+            [ '(', uBOL_trustedPruneInboundObject.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_cookieRemover);
+        const blob = new page.Blob(...page.uBOL_trustedPruneInboundObject);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -302,7 +490,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_cookieRemover;
+    delete page.uBOL_trustedPruneInboundObject;
 }
 
 /******************************************************************************/

@@ -6,7 +6,19 @@
   "condition": {
    "regexFilter": "Thumbs\\/A_dvertisement"
   },
-  "id": 88
+  "id": 86
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "donanimhaber.com"
+   ],
+   "regexFilter": "^https:\\/\\/www\\.donanimhaber\\.com\\/images\\/images\\/[a-z_-]+[0-9]+x[0-9]+(_|-)"
+  },
+  "id": 93
  },
  {
   "action": {
@@ -19,7 +31,7 @@
    ],
    "regexFilter": "\\/(1xbbb|bettogoal)\\.webp"
   },
-  "id": 317
+  "id": 318
  },
  {
   "action": {
@@ -31,7 +43,7 @@
    ],
    "regexFilter": "\\/(.*-980X100|980-x120-.*|kirni_yenireklam-[0-9]?|teknogold|1080x120|ezic|giynik-sonnnnn-[0-9]?)\\.(gif|jpg|png)"
   },
-  "id": 439
+  "id": 440
  },
  {
   "action": {
@@ -43,7 +55,7 @@
    ],
    "regexFilter": "(dikey|horay)\\.jpg"
   },
-  "id": 500
+  "id": 501
  },
  {
   "action": {
@@ -55,7 +67,7 @@
    ],
    "regexFilter": "320volt\\.com\\/images\\/(pcbway-turkiye-pcb-uretim|jlc-pcb-service|PCBONLINE-PCB-assembly|robolink-elektronik-market|direncnet-2)\\.(gif|png)"
   },
-  "id": 501
+  "id": 502
  },
  {
   "action": {
@@ -67,7 +79,7 @@
    ],
    "regexFilter": "\\/youtubemp3donusturucu.co\\/\\d+.js"
   },
-  "id": 524
+  "id": 525
  },
  {
   "action": {
@@ -79,7 +91,7 @@
    ],
    "regexFilter": "\\/.*banner(-\\d)?\\.(gif|jpg)"
   },
-  "id": 528
+  "id": 529
  },
  {
   "action": {
@@ -127,7 +139,7 @@
    ],
    "regexFilter": "\\/images\\/uploads\\/ad\\d+"
   },
-  "id": 667
+  "id": 666
  },
  {
   "action": {
@@ -139,7 +151,7 @@
    ],
    "regexFilter": "afsinhabermerkezi.com\\/wp-content\\/uploads\\/.*(-emlak|aad.jpg|ak-suY|PAM%C4%B0RA)"
   },
-  "id": 690
+  "id": 688
  },
  {
   "action": {
@@ -162,7 +174,7 @@
    ],
    "regexFilter": "\\/pageskin\\/[a-z]{2}1\\.jpg"
   },
-  "id": 1018
+  "id": 1016
  },
  {
   "action": {
@@ -177,6 +189,6 @@
     "image"
    ]
   },
-  "id": 1027
+  "id": 1025
  }
 ]

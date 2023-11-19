@@ -127,13 +127,13 @@
     ]
    ],
    [
-    "replace-node-text",
+    "trusted-replace-node-text",
     [
      "*"
     ]
    ],
    [
-    "cookie-remover",
+    "remove-cookie",
     [
      "*"
     ]
@@ -211,11 +211,8 @@
    [
     "spoof-css",
     [
-     "djxmaza.in",
      "megaup.net",
-     "miuiflash.com",
-     "searchenginereports.net",
-     "thecubexguide.com"
+     "searchenginereports.net"
     ]
    ],
    [
@@ -248,18 +245,13 @@
     "alert-buster",
     [
      "1001tracklists.com",
-     "66ccff.work",
-     "mdn.lol"
+     "66ccff.work"
     ]
    ],
    [
     "trusted-set-constant",
     [
-     "app.blubank.com",
-     "dropgalaxy.com",
-     "mobileweb.bankmellat.ir",
-     "tuborstb.co",
-     "web.bale.ai"
+     "*"
     ]
    ],
    [
@@ -269,6 +261,7 @@
      "10desires.org",
      "aiotechnical.com",
      "bestadvise4u.com",
+     "bhojpurimeet.in",
      "courselinkfree.us",
      "cryptonewzhub.com",
      "easytech24.com",
@@ -278,7 +271,6 @@
      "hubdrive.me",
      "newztalkies.com",
      "profitshort.com",
-     "spiritualstory13.blogspot.com",
      "technorozen.com",
      "techvybes.com",
      "techyzero.com",
@@ -416,6 +408,7 @@
      "algumon.com",
      "apkmirror.com",
      "cboard.net",
+     "dak.gg",
      "dotkeypress.kr",
      "economist.co.kr",
      "edaily.co.kr",
@@ -436,13 +429,16 @@
      "joongdo.co.kr",
      "kagit.kr",
      "loawa.com",
+     "lolchess.gg",
      "majorgeeks.com",
+     "maple.gg",
      "mememedia.co.kr",
      "mindbodygreen.com",
      "mobilitytv.co.kr",
      "mtodayauto.com",
      "mystylezip.com",
      "newautopost.co.kr",
+     "poro.gg",
      "sportalkorea.com",
      "tenbizt.com",
      "tripplus.co.kr",
@@ -466,6 +462,7 @@
    [
     "no-fetch-if",
     [
+     "linetv.tw",
      "mpyit.com",
      "taiwanlibrarysearch.herokuapp.com"
     ]
@@ -546,8 +543,6 @@
    [
     "abort-on-stack-trace",
     [
-     "aiyifan.tv",
-     "iyf.tv",
      "pcbeta.com"
     ]
    ],
@@ -583,15 +578,17 @@
     ]
    ],
    [
-    "remove-attr",
+    "remove-class",
     [
-     "datapps.org"
+     "9xav.cc",
+     "aiyifan.tv",
+     "iyf.tv"
     ]
    ],
    [
-    "remove-class",
+    "remove-attr",
     [
-     "9xav.cc"
+     "datapps.org"
     ]
    ],
    [
@@ -788,7 +785,7 @@
     ]
    ],
    [
-    "cookie-remover",
+    "remove-cookie",
     [
      "abicko.cz",
      "ahaonline.cz",
@@ -860,8 +857,7 @@
    [
     "abort-on-property-read",
     [
-     "happypancake.fi",
-     "pelaaja.fi"
+     "happypancake.fi"
     ]
    ],
    [
@@ -889,6 +885,12 @@
  [
   "fra-0",
   [
+   [
+    "set-constant",
+    [
+     "*"
+    ]
+   ],
    [
     "abort-on-property-read",
     [
@@ -921,12 +923,6 @@
      "techno-science.net",
      "tf1.fr",
      "tf1info.fr"
-    ]
-   ],
-   [
-    "set-constant",
-    [
-     "*"
     ]
    ],
    [
@@ -1234,6 +1230,7 @@
      "ketabesabz.com",
      "lahzeakhar.com",
      "msbmusic.ir",
+     "musicdel.ir",
      "my.mci.ir",
      "myhastidl.cam",
      "netgasht.com",
@@ -1256,6 +1253,7 @@
      "coffeeapps.ir",
      "dailymobile.ir",
      "farnet.io",
+     "fileboro.com",
      "hamisheonline.com",
      "iranstar.com",
      "itarfand.com",
@@ -1335,6 +1333,12 @@
     ]
    ],
    [
+    "abort-on-property-write",
+    [
+     "fileboro.com"
+    ]
+   ],
+   [
     "adjust-setInterval",
     [
      "gold-team.org",
@@ -1382,7 +1386,7 @@
     ]
    ],
    [
-    "cookie-remover",
+    "remove-cookie",
     [
      "tamasha.com",
      "uploadboy.com"
@@ -1602,6 +1606,14 @@
     ]
    ],
    [
+    "adjust-setInterval",
+    [
+     "collepic.net",
+     "portal.game.sycasualgames.com",
+     "shindanmaker.com"
+    ]
+   ],
+   [
     "remove-node-text",
     [
      "betweenjpandkr.blog",
@@ -1629,13 +1641,6 @@
      "trendynailwraps.com",
      "uraaka-joshi.com",
      "wav.tv"
-    ]
-   ],
-   [
-    "adjust-setInterval",
-    [
-     "collepic.net",
-     "portal.game.sycasualgames.com"
     ]
    ],
    [
@@ -1728,6 +1733,7 @@
      "*",
      "333aaa.site",
      "domin.co.kr",
+     "fun-iyagi.co.kr",
      "humors.zigcou.com",
      "imbc.com",
      "koreapas.com",
@@ -1896,6 +1902,14 @@
   "nld-0",
   [
    [
+    "json-prune",
+    [
+     "goplay.be",
+     "npo.nl",
+     "vpro.nl"
+    ]
+   ],
+   [
     "no-setTimeout-if",
     [
      "dumpert.nl",
@@ -1985,12 +1999,6 @@
    ],
    [
     "xml-prune",
-    [
-     "goplay.be"
-    ]
-   ],
-   [
-    "json-prune",
     [
      "goplay.be"
     ]
@@ -2472,10 +2480,12 @@
      "m.lenta.ru",
      "overclockers.ru",
      "rambler.ru",
+     "rbc.ru",
      "romakatya.ru",
      "sibnet.ru",
      "smotrim.ru",
      "softonic.ru",
+     "sportrbc.ru",
      "sports.ru",
      "tva.org.ua",
      "ufchgu.ru",
@@ -2483,7 +2493,7 @@
     ]
    ],
    [
-    "cookie-remover",
+    "remove-cookie",
     [
      "24smi.org",
      "comedy-radio.ru",
@@ -2548,6 +2558,7 @@
     [
      "595.ucoz.net",
      "5mod-file.ru",
+     "bitshare.link",
      "diplomsrazu.ru",
      "freesoft.ru",
      "iblitzmods.ru",
@@ -2748,6 +2759,7 @@
      "ditey.com",
      "epravda.com.ua",
      "eurointegration.com.ua",
+     "f1analytic.com",
      "facenews.ua",
      "game4you.top",
      "games-pc.top",
@@ -2883,13 +2895,13 @@
   "spa-1",
   [
    [
-    "abort-on-property-read",
+    "abort-current-script",
     [
      "*"
     ]
    ],
    [
-    "abort-current-script",
+    "abort-on-property-read",
     [
      "*"
     ]
@@ -2991,6 +3003,7 @@
      "estacio.br",
      "financasdeouro.com",
      "guiacripto.online",
+     "guiasaude.info",
      "nutricaohoje.website",
      "portecnologia.com",
      "receitasoncaseiras.online",
@@ -3048,7 +3061,7 @@
     ]
    ],
    [
-    "cookie-remover",
+    "remove-cookie",
     [
      "netcine.to"
     ]
@@ -3343,7 +3356,7 @@
     ]
    ],
    [
-    "cookie-remover",
+    "remove-cookie",
     [
      "lexbase.se",
      "synonymer.se"
@@ -3540,7 +3553,6 @@
      "okultanitimi.net",
      "osxinfo.net",
      "otopark.com",
-     "tekniknot.com",
      "turkrock.com",
      "ulker.com.tr",
      "ulketv.com.tr",
@@ -3874,7 +3886,6 @@
      "puhutv.com",
      "raindropteamfan.com",
      "sozcu.com.tr",
-     "tekniknot.com",
      "yazilimfuryasi.com"
     ]
    ],
@@ -3935,20 +3946,6 @@
     ]
    ],
    [
-    "no-setInterval-if",
-    [
-     "ensonhaber.com",
-     "fox.com.tr",
-     "tekniknot.com"
-    ]
-   ],
-   [
-    "addEventListener-defuser",
-    [
-     "*"
-    ]
-   ],
-   [
     "abort-on-property-write",
     [
      "4kfilmizlesene.xyz",
@@ -3963,7 +3960,14 @@
      "mixizle.com",
      "r10.net",
      "seyredeger.com",
+     "tekniknot.com",
      "xbox360torrent.com"
+    ]
+   ],
+   [
+    "addEventListener-defuser",
+    [
+     "*"
     ]
    ],
    [
@@ -4038,6 +4042,13 @@
     ]
    ],
    [
+    "no-setInterval-if",
+    [
+     "ensonhaber.com",
+     "fox.com.tr"
+    ]
+   ],
+   [
     "adjust-setTimeout",
     [
      "gazeterize.com",
@@ -4069,7 +4080,6 @@
      "aoe.vn",
      "audiotruyenfull.com",
      "azrom.net",
-     "blog.abit.vn",
      "cafenau.com",
      "javnong.cc",
      "linkneverdie.net",
@@ -4094,7 +4104,6 @@
      "truyensieuhay.com",
      "tvhayt.org",
      "viettoons.tv",
-     "vinaurl.net",
      "yts.do",
      "yts.mx",
      "yts.rs",
@@ -4110,6 +4119,7 @@
      "animevietsub.fan",
      "azrom.net",
      "cafef.vn",
+     "cdn.streamvl.sbs",
      "cliphot69.biz",
      "doctruyen3qmax.com",
      "downloadsachmienphi.com",
@@ -4135,8 +4145,8 @@
      "mephimnhe1.net",
      "motphim3s.net",
      "mrcong.com",
-     "nettruyenai.com",
-     "nguontv.live",
+     "nettruyenair.com",
+     "nguontv.biz",
      "ophimhdvn3.net",
      "phimgichill.net",
      "phimmoipro2.net",
@@ -4151,7 +4161,7 @@
      "toptruyenne.com",
      "truyen2u.net",
      "truyen35.vn",
-     "truyengihotday.net",
+     "truyengihotmoi.net",
      "truyenqqvn.com",
      "truyentuan.com",
      "tuoi69.one",
@@ -4162,6 +4172,7 @@
      "vlxx.xxx",
      "vlxyz.tv",
      "vungoctuan.vn",
+     "web11.sexphim1.com",
      "xemsex.asia",
      "xnxx-sex-videos.com",
      "xoilac89.tv",
@@ -4192,7 +4203,7 @@
      "tuoitre.vn",
      "vaoroi13.online",
      "vndoc.com",
-     "xoivo1.online"
+     "xoivo2.online"
     ]
    ],
    [
@@ -4657,6 +4668,7 @@
      "nmmn.com",
      "noaf.de",
      "nordlicht-ev.de",
+     "notebook-doktor.de",
      "oakbeardcare.com",
      "odw-journal.de",
      "ojas.de",
@@ -4765,6 +4777,7 @@
      "terra-natur.com",
      "testefiorite.it",
      "thegeekfreaks.de",
+     "theoblog.de",
      "thingybob.de",
      "thinkingwithyou.com",
      "thomasschlechter.de",
@@ -5863,6 +5876,7 @@
      "allstoresdigital.com",
      "altraeta.it",
      "alttab.net",
+     "anderweltverlag.com",
      "angelifybeauty.com",
      "animaze.us",
      "app.arzt-direkt.de",
@@ -5873,6 +5887,7 @@
      "aruba.com",
      "assos.com",
      "asus.com.cn",
+     "atman.pl",
      "automationafrica.co.za",
      "avonika.com",
      "ba.com",
@@ -5944,6 +5959,7 @@
      "cam.start.canon",
      "camokoenig.de",
      "campusbrno.cz",
+     "cams.ashemaletube.com",
      "canalpluskuchnia.pl",
      "candy-store.cz",
      "carbox.de",
@@ -6023,6 +6039,7 @@
      "eett.gr",
      "ehealth.gov.gr",
      "eheizung24.de",
+     "electronicacerler.com",
      "eleven-sportswear.cz",
      "embedplus.com",
      "emondo.de",
@@ -6030,6 +6047,7 @@
      "emr.ch",
      "emuia1.gugik.gov.pl",
      "endclothing.com",
+     "endlesstools.io",
      "enso.de",
      "equalexchange.co.uk",
      "erasmusplus.at",
@@ -6104,7 +6122,9 @@
      "howstuffworks.com",
      "huutokaupat.com",
      "ici.tou.tv",
+     "ielts.idp.com",
      "ilmotorsport.de",
+     "img.ly",
      "imping-confiserie.de",
      "inds.co.uk",
      "ing.it",
@@ -6164,6 +6184,7 @@
      "mantel.com",
      "maspero.it",
      "massivart.de",
+     "mbhszepkartya.hu",
      "medical.edu.mt",
      "medtube.es",
      "medtube.fr",
@@ -6199,12 +6220,14 @@
      "novayagazeta.eu",
      "nutrimedium.com",
      "nwslsoccer.com",
+     "octavio-shop.com",
      "octopusenergy.es",
      "octopusenergy.it",
      "oead.at",
      "ofdb.de",
      "officesuite.com",
      "ojskate.com",
+     "okpoznan.pl",
      "oncosur.org",
      "ourworldofpixels.com",
      "pacstall.dev",
@@ -6234,6 +6257,7 @@
      "prisjakt.nu",
      "proficient.fi",
      "project529.com",
+     "psbank.ru",
      "pumatools.hu",
      "purefiji.cz",
      "qatarairways.com",
@@ -6299,10 +6323,12 @@
      "swissborg.com",
      "swisscard.ch",
      "swnsdigital.com",
+     "teenage.engineering",
      "teket.jp",
      "termania.net",
      "textshuttle.com",
      "thegamingwatcher.com",
+     "thehacker.recipes",
      "theverge.com",
      "thiele-tee.de",
      "tommy.hr",
@@ -6417,6 +6443,7 @@
      "tattoodo.com",
      "thebolditalic.com",
      "traefik.io",
+     "twitchclipsgermany.de",
      "virginexperiencedays.co.uk",
      "vitotechnology.com",
      "vivantis.sk",
@@ -6507,6 +6534,7 @@
     "trusted-set-local-storage-item",
     [
      "aamulehti.fi",
+     "alan.com",
      "app.solit-kapital.de",
      "carvertical.com",
      "cmpv2.fanpage.it",
@@ -6556,6 +6584,12 @@
     "trusted-set-constant",
     [
      "radiox.co.uk"
+    ]
+   ],
+   [
+    "trusted-set-session-storage-item",
+    [
+     "makemytrip.com"
     ]
    ]
   ]
@@ -6640,6 +6674,7 @@
     [
      "699pic.com",
      "actvid.com",
+     "alfred.camera",
      "avdelphi.com",
      "bendigoadvertiser.com.au",
      "bluemoon-mcfc.co.uk",
@@ -6691,19 +6726,6 @@
     ]
    ],
    [
-    "cookie-remover",
-    [
-     "ac-illust.com",
-     "cbr.com",
-     "cookpad.com",
-     "cookpad.es",
-     "novagente.pt",
-     "photo-ac.com",
-     "stackshare.io",
-     "technologyreview.jp"
-    ]
-   ],
-   [
     "set-session-storage-item",
     [
      "1mg.com",
@@ -6714,11 +6736,25 @@
      "flipkart.com",
      "getemoji.com",
      "imdb.com",
+     "internxt.com",
      "makemytrip.com",
      "maxicours.com",
      "northcasino.com",
      "ringover.com",
      "selenagomez.com"
+    ]
+   ],
+   [
+    "remove-cookie",
+    [
+     "ac-illust.com",
+     "cbr.com",
+     "cookpad.com",
+     "cookpad.es",
+     "novagente.pt",
+     "photo-ac.com",
+     "stackshare.io",
+     "technologyreview.jp"
     ]
    ],
    [
@@ -6762,10 +6798,15 @@
     ]
    ],
    [
-    "replace-node-text",
+    "trusted-replace-node-text",
+    [
+     "heidisql.com"
+    ]
+   ],
+   [
+    "trusted-prune-inbound-object",
     [
      "androidpolice.com",
-     "heidisql.com",
      "makeuseof.com",
      "movieweb.com",
      "xda-developers.com"
@@ -6779,7 +6820,8 @@
    [
     "remove-node-text",
     [
-     "check-host.net"
+     "check-host.net",
+     "glasistre.hr"
     ]
    ],
    [
@@ -6825,9 +6867,10 @@
   "annoyances-others",
   [
    [
-    "cookie-remover",
+    "remove-cookie",
     [
      "androidpolice.com",
+     "makeuseof.com",
      "movieweb.com",
      "xda-developers.com"
     ]
@@ -6862,6 +6905,7 @@
      "leagueoflegends.com",
      "lrytas.lt",
      "moegirl.org.cn",
+     "nypost.com",
      "oeko-planet.com",
      "owlcation.com",
      "pluska.sk",
@@ -6999,6 +7043,7 @@
      "ghostspectre.the-ninja.jp",
      "globaledu.jp",
      "guelphmercury.com",
+     "habuteru.com",
      "hamiltonnews.com",
      "hataphim.com",
      "healthfeed.co.kr",
@@ -7310,6 +7355,7 @@
      "doujindesu.tv",
      "electricalvoice.com",
      "expertology.ru",
+     "guiasaude.info",
      "joongang.co.kr",
      "megaxh.com",
      "raindropteamfan.com",

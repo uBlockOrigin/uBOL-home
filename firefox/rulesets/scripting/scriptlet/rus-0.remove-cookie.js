@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: default
+// ruleset: rus-0
 
 /******************************************************************************/
 
@@ -42,13 +42,13 @@ const uBOL_cookieRemover = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["video_view_count"],["da325"],["ref_cookie"],["/^/"],["PageCount"],[],["45grw1567"],["/vs|to|vs_spon|tgpOut|current_click/"],["realm.cookiesAndJavascript"],["kt_qparams"],["kt_ips"],["kt_referer"],["blaize_tracking_id"],["akaclientip"],["hive_geoloc"],["MicrosoftApplicationsTelemetryDeviceId"],["articlesRead"]];
+const argsList = [["/^bda|^bltsr/"],["/^bltsr$|^JPIqApiY$|^specific$|^substantial$/"],["/adblock_/"],["isab"],["jtnews_a_template"],["yadb"],["aablc"]];
 
-const hostnamesMap = new Map([["fullxh.com",0],["megaxh.com",0],["unlockxh4.com",0],["xhadult2.com",0],["xhadult3.com",0],["xhadult4.com",0],["xhadult5.com",0],["xhamster46.com",0],["xhday.com",0],["xhday1.com",0],["xhmoon5.com",0],["xhplanet1.com",0],["xhplanet2.com",0],["xhreal2.com",0],["xhreal3.com",0],["xhtab2.com",0],["xhvictory.com",0],["xhwebsite.com",0],["xhwebsite2.com",0],["xhwide1.com",0],["xhwide8.com",0],["zootube1.com",1],["subdivx.com",2],["adultasianporn.com",3],["jetpunk.com",4],["xxxxsx.com",5],["autosport.com",6],["motorsport.com",6],["sexvideos.host",7],["beaumontenterprise.com",8],["chron.com",8],["ctinsider.com",8],["ctpost.com",8],["expressnews.com",8],["houstonchronicle.com",8],["lmtonline.com",8],["middletownpress.com",8],["mrt.com",8],["newstimes.com",8],["nhregister.com",8],["registercitizen.com",8],["sfchronicle.com",8],["stamfordadvocate.com",8],["thehour.com",8],["timesunion.com",8],["heavyfetish.com",[9,10,11]],["watchporn.to",10],["columbian.com",12],["nypost.com",12],["pagesix.com",12],["factable.com",[13,14]],["bing.com",15],["msn.com",15],["androidpolice.com",16],["makeuseof.com",16],["movieweb.com",16],["xda-developers.com",16]]);
+const hostnamesMap = new Map([["comedy-radio.ru",0],["kufar.by",0],["radioromantika.ru",0],["relax-fm.ru",0],["rg.ru",0],["sm.news",0],["ura.news",0],["veseloeradio.ru",0],["yandex.by",1],["yandex.kz",1],["yandex.ru",1],["yandex.uz",1],["yapx.ru",2],["24smi.org",3],["www.e1.ru",4],["kakprosto.ru",5],["sports.ru",6]]);
 
-const entitiesMap = new Map([["hamsterix",0],["xhamster",0],["xhamster1",0],["xhamster10",0],["xhamster11",0],["xhamster12",0],["xhamster13",0],["xhamster14",0],["xhamster15",0],["xhamster16",0],["xhamster17",0],["xhamster18",0],["xhamster19",0],["xhamster20",0],["xhamster2",0],["xhamster3",0],["xhamster4",0],["xhamster5",0],["xhamster7",0],["xhamster8",0]]);
+const entitiesMap = new Map([]);
 
-const exceptionsMap = new Map([]);
+const exceptionsMap = new Map([["passport.yandex.by",[1]],["passport.yandex.kz",[1]],["passport.yandex.ru",[1]],["passport.yandex.uz",[1]]]);
 
 /******************************************************************************/
 
@@ -58,17 +58,25 @@ function cookieRemover(
     if ( typeof needle !== 'string' ) { return; }
     const safe = safeSelf();
     const reName = safe.patternToRegex(needle);
-    const removeCookie = function() {
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 1);
+    const throttle = (fn, ms = 500) => {
+        if ( throttle.timer !== undefined ) { return; }
+        throttle.timer = setTimeout(( ) => {
+            throttle.timer = undefined;
+            fn();
+        }, ms);
+    };
+    const removeCookie = ( ) => {
         document.cookie.split(';').forEach(cookieStr => {
-            let pos = cookieStr.indexOf('=');
+            const pos = cookieStr.indexOf('=');
             if ( pos === -1 ) { return; }
-            let cookieName = cookieStr.slice(0, pos).trim();
-            if ( !reName.test(cookieName) ) { return; }
-            let part1 = cookieName + '=';
-            let part2a = '; domain=' + document.location.hostname;
-            let part2b = '; domain=.' + document.location.hostname;
+            const cookieName = cookieStr.slice(0, pos).trim();
+            if ( reName.test(cookieName) === false ) { return; }
+            const part1 = cookieName + '=';
+            const part2a = '; domain=' + document.location.hostname;
+            const part2b = '; domain=.' + document.location.hostname;
             let part2c, part2d;
-            let domain = document.domain;
+            const domain = document.domain;
             if ( domain ) {
                 if ( domain !== document.location.hostname ) {
                     part2c = '; domain=.' + domain;
@@ -77,8 +85,8 @@ function cookieRemover(
                     part2d = '; domain=' + domain.replace('www', '');
                 }
             }
-            let part3 = '; path=/';
-            let part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+            const part3 = '; path=/';
+            const part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
             document.cookie = part1 + part4;
             document.cookie = part1 + part2a + part4;
             document.cookie = part1 + part2b + part4;
@@ -95,6 +103,15 @@ function cookieRemover(
     };
     removeCookie();
     window.addEventListener('beforeunload', removeCookie);
+    if ( typeof extraArgs.when !== 'string' ) { return; }
+    const supportedEventTypes = [ 'scroll', 'keydown' ];
+    const eventTypes = extraArgs.when.split(/\s/);
+    for ( const type of eventTypes ) {
+        if ( supportedEventTypes.includes(type) === false ) { continue; }
+        document.addEventListener(type, ( ) => {
+            throttle(removeCookie);
+        }, { passive: true });
+    }
 }
 
 function safeSelf() {

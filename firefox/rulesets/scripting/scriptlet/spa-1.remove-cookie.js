@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: cze-0
+// ruleset: spa-1
 
 /******************************************************************************/
 
@@ -42,9 +42,9 @@ const uBOL_cookieRemover = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["/^_?adb/"]];
+const argsList = [["__cf_xt"]];
 
-const hostnamesMap = new Map([["idnes.cz",0],["novinky.cz",0],["aktualne.cz",0],["reflex.cz",0],["zive.cz",0],["e15.cz",0],["blesk.cz",0],["ahaonline.cz",0],["super.cz",0],["auto.cz",0],["maminka.cz",0],["autorevue.cz",0],["osobnosti.cz",0],["lidovky.cz",0],["iprima.cz",0],["kupi.cz",0],["kinobox.cz",0],["cnews.cz",0],["zeny.cz",0],["expres.cz",0],["tiscali.cz",0],["extra.cz",0],["onetv.cz",0],["dama.cz",0],["g.cz",0],["mojecelebrity.cz",0],["spisovatele.cz",0],["modnipeklo.cz",0],["karaoketexty.cz",0],["hnonline.sk",0],["emimino.cz",0],["vitalion.cz",0],["mojezdravi.cz",0],["abicko.cz",0],["arome.cz",0],["labuznik.cz",0],["fights.cz",0],["nasepenize.cz",0]]);
+const hostnamesMap = new Map([["netcine.to",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -58,17 +58,25 @@ function cookieRemover(
     if ( typeof needle !== 'string' ) { return; }
     const safe = safeSelf();
     const reName = safe.patternToRegex(needle);
-    const removeCookie = function() {
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 1);
+    const throttle = (fn, ms = 500) => {
+        if ( throttle.timer !== undefined ) { return; }
+        throttle.timer = setTimeout(( ) => {
+            throttle.timer = undefined;
+            fn();
+        }, ms);
+    };
+    const removeCookie = ( ) => {
         document.cookie.split(';').forEach(cookieStr => {
-            let pos = cookieStr.indexOf('=');
+            const pos = cookieStr.indexOf('=');
             if ( pos === -1 ) { return; }
-            let cookieName = cookieStr.slice(0, pos).trim();
-            if ( !reName.test(cookieName) ) { return; }
-            let part1 = cookieName + '=';
-            let part2a = '; domain=' + document.location.hostname;
-            let part2b = '; domain=.' + document.location.hostname;
+            const cookieName = cookieStr.slice(0, pos).trim();
+            if ( reName.test(cookieName) === false ) { return; }
+            const part1 = cookieName + '=';
+            const part2a = '; domain=' + document.location.hostname;
+            const part2b = '; domain=.' + document.location.hostname;
             let part2c, part2d;
-            let domain = document.domain;
+            const domain = document.domain;
             if ( domain ) {
                 if ( domain !== document.location.hostname ) {
                     part2c = '; domain=.' + domain;
@@ -77,8 +85,8 @@ function cookieRemover(
                     part2d = '; domain=' + domain.replace('www', '');
                 }
             }
-            let part3 = '; path=/';
-            let part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+            const part3 = '; path=/';
+            const part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
             document.cookie = part1 + part4;
             document.cookie = part1 + part2a + part4;
             document.cookie = part1 + part2b + part4;
@@ -95,6 +103,15 @@ function cookieRemover(
     };
     removeCookie();
     window.addEventListener('beforeunload', removeCookie);
+    if ( typeof extraArgs.when !== 'string' ) { return; }
+    const supportedEventTypes = [ 'scroll', 'keydown' ];
+    const eventTypes = extraArgs.when.split(/\s/);
+    for ( const type of eventTypes ) {
+        if ( supportedEventTypes.includes(type) === false ) { continue; }
+        document.addEventListener(type, ( ) => {
+            throttle(removeCookie);
+        }, { passive: true });
+    }
 }
 
 function safeSelf() {

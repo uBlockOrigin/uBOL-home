@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: rus-0
+// ruleset: annoyances-overlays
 
 /******************************************************************************/
 
@@ -42,13 +42,13 @@ const uBOL_cookieRemover = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["/^bda|^bltsr/"],["/^bltsr$|^JPIqApiY$|^specific$|^substantial$/"],["/adblock_/"],["isab"],["jtnews_a_template"],["yadb"],["aablc"]];
+const argsList = [["articleLimitDrawerVisible"],["unauthenicatedArticleLimitReached"],["kpwc"],["search_curday"],["visit"],["pageViews"],["recipe_view_count_ru"],["recipe_view_count_es"],["recipe_view_count_uk"],["recipe_view_count_pl"]];
 
-const hostnamesMap = new Map([["comedy-radio.ru",0],["kufar.by",0],["radioromantika.ru",0],["relax-fm.ru",0],["rg.ru",0],["sm.news",0],["ura.news",0],["veseloeradio.ru",0],["yandex.by",1],["yandex.kz",1],["yandex.ru",1],["yandex.uz",1],["yapx.ru",2],["24smi.org",3],["www.e1.ru",4],["kakprosto.ru",5],["sports.ru",6]]);
+const hostnamesMap = new Map([["cbr.com",[0,1]],["technologyreview.jp",2],["ac-illust.com",3],["photo-ac.com",3],["novagente.pt",4],["stackshare.io",5],["cookpad.es",[6,7,8,9]],["cookpad.com",[6,7,8,9]]]);
 
 const entitiesMap = new Map([]);
 
-const exceptionsMap = new Map([["passport.yandex.by",[1]],["passport.yandex.kz",[1]],["passport.yandex.ru",[1]],["passport.yandex.uz",[1]]]);
+const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
@@ -58,17 +58,25 @@ function cookieRemover(
     if ( typeof needle !== 'string' ) { return; }
     const safe = safeSelf();
     const reName = safe.patternToRegex(needle);
-    const removeCookie = function() {
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 1);
+    const throttle = (fn, ms = 500) => {
+        if ( throttle.timer !== undefined ) { return; }
+        throttle.timer = setTimeout(( ) => {
+            throttle.timer = undefined;
+            fn();
+        }, ms);
+    };
+    const removeCookie = ( ) => {
         document.cookie.split(';').forEach(cookieStr => {
-            let pos = cookieStr.indexOf('=');
+            const pos = cookieStr.indexOf('=');
             if ( pos === -1 ) { return; }
-            let cookieName = cookieStr.slice(0, pos).trim();
-            if ( !reName.test(cookieName) ) { return; }
-            let part1 = cookieName + '=';
-            let part2a = '; domain=' + document.location.hostname;
-            let part2b = '; domain=.' + document.location.hostname;
+            const cookieName = cookieStr.slice(0, pos).trim();
+            if ( reName.test(cookieName) === false ) { return; }
+            const part1 = cookieName + '=';
+            const part2a = '; domain=' + document.location.hostname;
+            const part2b = '; domain=.' + document.location.hostname;
             let part2c, part2d;
-            let domain = document.domain;
+            const domain = document.domain;
             if ( domain ) {
                 if ( domain !== document.location.hostname ) {
                     part2c = '; domain=.' + domain;
@@ -77,8 +85,8 @@ function cookieRemover(
                     part2d = '; domain=' + domain.replace('www', '');
                 }
             }
-            let part3 = '; path=/';
-            let part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+            const part3 = '; path=/';
+            const part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
             document.cookie = part1 + part4;
             document.cookie = part1 + part2a + part4;
             document.cookie = part1 + part2b + part4;
@@ -95,6 +103,15 @@ function cookieRemover(
     };
     removeCookie();
     window.addEventListener('beforeunload', removeCookie);
+    if ( typeof extraArgs.when !== 'string' ) { return; }
+    const supportedEventTypes = [ 'scroll', 'keydown' ];
+    const eventTypes = extraArgs.when.split(/\s/);
+    for ( const type of eventTypes ) {
+        if ( supportedEventTypes.includes(type) === false ) { continue; }
+        document.addEventListener(type, ( ) => {
+            throttle(removeCookie);
+        }, { passive: true });
+    }
 }
 
 function safeSelf() {

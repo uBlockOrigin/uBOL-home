@@ -27,13 +27,27 @@
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "bongda21h.co",
+    "phimno4.xyz"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "regexFilter": "media.discordapp"
+  },
+  "id": 11
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
    "isUrlFilterCaseSensitive": false,
    "regexFilter": "storage.adpia.vn",
    "resourceTypes": [
     "image"
    ]
   },
-  "id": 279
+  "id": 281
  },
  {
   "action": {
@@ -46,7 +60,7 @@
     "script"
    ]
   },
-  "id": 396
+  "id": 400
  },
  {
   "action": {
@@ -59,7 +73,7 @@
     "script"
    ]
   },
-  "id": 397
+  "id": 401
  },
  {
   "action": {
@@ -72,6 +86,6 @@
     "script"
    ]
   },
-  "id": 402
+  "id": 406
  }
 ]

@@ -256,12 +256,13 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2023.11.11.1035",
+  "version": "2023.11.19.977",
   "web_accessible_resources": [
     {
       "resources": [
         "/web_accessible_resources/noop.txt",
         "/web_accessible_resources/noop.js",
+        "/web_accessible_resources/noop-1s.mp4",
         "/web_accessible_resources/noop.css",
         "/web_accessible_resources/2x2.png",
         "/web_accessible_resources/1x1.gif",
@@ -286,7 +287,6 @@
         "/web_accessible_resources/noop-vmap1.0.xml",
         "/web_accessible_resources/noop-0.1s.mp3",
         "/web_accessible_resources/noop.html",
-        "/web_accessible_resources/noop-1s.mp4",
         "/web_accessible_resources/nobab2.js",
         "/web_accessible_resources/click2load.html",
         "/web_accessible_resources/noeval-silent.js"

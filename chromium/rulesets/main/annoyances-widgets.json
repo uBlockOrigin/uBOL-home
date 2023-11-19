@@ -5305,13 +5305,52 @@
   },
   "condition": {
    "initiatorDomains": [
+    "nifty.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||api.popin.cc/searchbox/nifty.js"
+  },
+  "id": 434
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "nifty.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||api.popin.cc/lib8-lightweight/popin-*-uid.min.js"
+  },
+  "id": 435
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "nifty.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||api.popin.cc/td_js_sdk_171.js"
+  },
+  "id": 436
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
     "gregoryurban.ru"
    ],
    "requestDomains": [
     "widget.replain.cc"
    ]
   },
-  "id": 434
+  "id": 437
  },
  {
   "action": {
@@ -5328,7 +5367,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||service.force.com/embeddedservice/*/esw.min.js"
   },
-  "id": 435
+  "id": 438
  },
  {
   "action": {
@@ -5342,7 +5381,7 @@
     "client.crisp.chat"
    ]
   },
-  "id": 436
+  "id": 439
  },
  {
   "action": {
@@ -5355,7 +5394,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||compass.pressekompass.net/compasses^"
   },
-  "id": 437
+  "id": 440
  },
  {
   "action": {
@@ -5371,7 +5410,7 @@
    ],
    "urlFilter": "||buymeacoffee.com/*/widget."
   },
-  "id": 438
+  "id": 441
  },
  {
   "action": {
@@ -5387,6 +5426,6 @@
    ],
    "urlFilter": "||display.apester.com/interactions/"
   },
-  "id": 439
+  "id": 442
  }
 ]
