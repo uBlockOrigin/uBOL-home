@@ -136,5 +136,20 @@
    ]
   },
   "id": 12
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "thirdParty",
+   "initiatorDomains": [
+    "musicbrainz.org"
+   ],
+   "requestDomains": [
+    "127.0.0.1"
+   ]
+  },
+  "id": 13
  }
 ]

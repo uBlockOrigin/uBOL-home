@@ -315,7 +315,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||azrom.net/wp-content/plugins/best-ads-block-detector/"
+   "urlFilter": "||baohaugiang.com.vn/uploads/slidehomeimg/"
   },
   "id": 33
  },
@@ -325,7 +325,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||baohaugiang.com.vn/uploads/slidehomeimg/"
+   "urlFilter": "||baonga.com/fileupload/images/*banner"
   },
   "id": 34
  },
@@ -335,7 +335,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||baonga.com/fileupload/images/*banner"
+   "urlFilter": "||baonga.com/image*.gif"
   },
   "id": 35
  },
@@ -345,7 +345,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||baonga.com/image*.gif"
+   "urlFilter": "||batdongsan.com.vn/*/banner/"
   },
   "id": 36
  },
@@ -355,7 +355,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||batdongsan.com.vn/*/banner/"
+   "urlFilter": "||bonbanh.com/ad/"
   },
   "id": 37
  },
@@ -365,7 +365,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||batdongsan24h.com.vn/images/banners/"
+   "urlFilter": "||bongdalu4.com^*.gif"
   },
   "id": 38
  },
@@ -374,8 +374,11 @@
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "saigonbao.com"
+   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||bonbanh.com/ad/"
+   "urlFilter": "||cdn.pixfuture.com/adb-media/adb_detect_pixfuture.js"
   },
   "id": 39
  },
@@ -384,8 +387,11 @@
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "thichxemphim1.net"
+   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||bongdadem.net^*.gif"
+   "urlFilter": "||cdn.thichxemphim1.net/wp-content/themes/halimmovies-child/jscm.min.js"
   },
   "id": 40
  },
@@ -395,7 +401,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||bongdalu4.com^*.gif"
+   "urlFilter": "||chodansinh.net^*.gif"
   },
   "id": 41
  },
@@ -405,7 +411,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cdn.baogiaothong.vn/upload/images/*ad_image/"
+   "urlFilter": "||chotlo.me^*gif"
   },
   "id": 42
  },
@@ -415,7 +421,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cdn.pixfuture.com/adb-media/adb_detect_pixfuture.js"
+   "urlFilter": "||cmangaaz.com/assets/img/pr/"
   },
   "id": 43
  },
@@ -425,109 +431,9 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cdn.thichxemphim1.net/wp-content/themes/halimmovies-child/jscm.min.js"
-  },
-  "id": 44
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cdn.webhoctienganh.com/asset/home/img/banner/"
-  },
-  "id": 45
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cdn1.gavang.tech^*.gif"
-  },
-  "id": 46
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cdnjs.cloudflare.com/ajax/libs/devtools-detector/2.0.14/devtools-detector.min.js"
-  },
-  "id": 47
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||chodansinh.net^*.gif"
-  },
-  "id": 48
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||chophien.com/imgadvert/"
-  },
-  "id": 49
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||chotlo.me^*gif"
-  },
-  "id": 50
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cmangaaz.com/assets/img/popup/"
-  },
-  "id": 51
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cmangaaz.com/assets/img/pr/"
-  },
-  "id": 52
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
    "urlFilter": "||code.gunnymienphi.net^*.gif"
   },
-  "id": 53
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||contuhoc.com/content/images/uploaded/produtcs/"
-  },
-  "id": 54
+  "id": 44
  },
  {
   "action": {
@@ -540,17 +446,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||daiphatvienthong.vn/upload/hinhanh/"
   },
-  "id": 55
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||dangtinbatdongsan.vn/filemanager/banner/"
-  },
-  "id": 56
+  "id": 45
  },
  {
   "action": {
@@ -560,7 +456,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||danketoan.com/banner/"
   },
-  "id": 57
+  "id": 46
  },
  {
   "action": {
@@ -570,37 +466,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||datcang.vn/images/khicon.jpg"
   },
-  "id": 58
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||dinhnghia.vn^*.gif"
-  },
-  "id": 59
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||dinhvu.pro/subnhanh.js"
-  },
-  "id": 60
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||film365.in/theme/js/popup-bt.js"
-  },
-  "id": 61
+  "id": 47
  },
  {
   "action": {
@@ -610,7 +476,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||forum.idichvuseo.com/images/quang-cao"
   },
-  "id": 62
+  "id": 48
  },
  {
   "action": {
@@ -620,17 +486,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fshare.vn/lib/jwplayer/jwplayer.js"
   },
-  "id": 63
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||game4v.com^*.gif"
-  },
-  "id": 64
+  "id": 49
  },
  {
   "action": {
@@ -640,7 +496,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gamenoob.net/wp-content/plugins/convertplug/modules/modal/assets/js/modal.min.js"
   },
-  "id": 65
+  "id": 50
  },
  {
   "action": {
@@ -650,7 +506,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gamenoob.net/wp-content/plugins/simple-banner/simple-banner.js"
   },
-  "id": 66
+  "id": 51
  },
  {
   "action": {
@@ -660,17 +516,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gamenoob.net^*.gif"
   },
-  "id": 67
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||gameviet.mobi^*.gif"
-  },
-  "id": 68
+  "id": 52
  },
  {
   "action": {
@@ -680,7 +526,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ghienphim8.net/client_assets/images/"
   },
-  "id": 69
+  "id": 53
  },
  {
   "action": {
@@ -690,7 +536,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ghienphim8.net/client_assets/js/minijumb.js"
   },
-  "id": 70
+  "id": 54
  },
  {
   "action": {
@@ -703,7 +549,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||giatot7.com/popunder8.min.js"
   },
-  "id": 71
+  "id": 55
  },
  {
   "action": {
@@ -713,7 +559,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gocphimk.net^*.gif"
   },
-  "id": 72
+  "id": 56
  },
  {
   "action": {
@@ -728,17 +574,7 @@
     "googleusercontent.com"
    ]
   },
-  "id": 73
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||heovktgame.club/wp-content/plugins^*.gif"
-  },
-  "id": 74
+  "id": 57
  },
  {
   "action": {
@@ -751,7 +587,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hh3dhay.xyz^*.gif"
   },
-  "id": 75
+  "id": 58
  },
  {
   "action": {
@@ -761,7 +597,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hhpanda.cc/ads/ads_xx.js"
   },
-  "id": 76
+  "id": 59
  },
  {
   "action": {
@@ -771,7 +607,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hoathinhtq.tv/js/vast.js"
   },
-  "id": 77
+  "id": 60
  },
  {
   "action": {
@@ -781,7 +617,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hosocongty.vn/uploads/linksite/"
   },
-  "id": 78
+  "id": 61
  },
  {
   "action": {
@@ -791,7 +627,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||huphimtv.com/assets/themes/js/wonderfarm68.js"
   },
-  "id": 79
+  "id": 62
  },
  {
   "action": {
@@ -801,7 +637,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i-vn.joboko.com/images/jqc/"
   },
-  "id": 80
+  "id": 63
  },
  {
   "action": {
@@ -811,7 +647,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i.ex-cdn.com/nhadautu.vn/files/qc/"
   },
-  "id": 81
+  "id": 64
  },
  {
   "action": {
@@ -824,7 +660,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i.ibb.co^*.gif"
   },
-  "id": 82
+  "id": 65
  },
  {
   "action": {
@@ -834,7 +670,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i.imgur.com/81uid6d.jpg"
   },
-  "id": 83
+  "id": 66
  },
  {
   "action": {
@@ -844,7 +680,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i.imgur.com/fbuh5aq.png"
   },
-  "id": 84
+  "id": 67
  },
  {
   "action": {
@@ -854,7 +690,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i.imgur.com/q0a2mv2.png"
   },
-  "id": 85
+  "id": 68
  },
  {
   "action": {
@@ -867,7 +703,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i.upanh.org^*.gif"
   },
-  "id": 86
+  "id": 69
  },
  {
   "action": {
@@ -881,7 +717,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i0.wp.com/s1.uphinh.org/*.gif"
   },
-  "id": 87
+  "id": 70
  },
  {
   "action": {
@@ -891,7 +727,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||iamcdn.net/players/playera.dmins.js"
   },
-  "id": 88
+  "id": 71
  },
  {
   "action": {
@@ -901,7 +737,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||iamcdn.net/players/playhydraxs.min.js"
   },
-  "id": 89
+  "id": 72
  },
  {
   "action": {
@@ -911,7 +747,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||igg-games.com^*.gif"
   },
-  "id": 90
+  "id": 73
  },
  {
   "action": {
@@ -921,20 +757,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||image.24h.com.vn^*banner"
   },
-  "id": 91
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "diaoconline.vn"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||image.diaoconline.vn/banner-dool/"
-  },
-  "id": 92
+  "id": 74
  },
  {
   "action": {
@@ -944,7 +767,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||image.thuvienvatly.com/home/images/banners/"
   },
-  "id": 93
+  "id": 75
  },
  {
   "action": {
@@ -954,7 +777,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||images.asianbookie.com/vwin/"
   },
-  "id": 94
+  "id": 76
  },
  {
   "action": {
@@ -964,7 +787,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||images.tuyensinh247.com^*banner-"
   },
-  "id": 95
+  "id": 77
  },
  {
   "action": {
@@ -974,7 +797,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||images.vov.vn/uploaded/qc/"
   },
-  "id": 96
+  "id": 78
  },
  {
   "action": {
@@ -984,7 +807,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||images1.violympic.vn/assets/images/*.gif"
   },
-  "id": 97
+  "id": 79
  },
  {
   "action": {
@@ -994,7 +817,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img-portal-prod.s3.amazonaws.com/uploads/image/attachment/3380/homerandom2.gif"
   },
-  "id": 98
+  "id": 80
  },
  {
   "action": {
@@ -1004,17 +827,20 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.dothi.net^*.gif"
   },
-  "id": 99
+  "id": 81
  },
  {
   "action": {
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "dtruyen.com"
+   ],
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.dtruyen.com/login-ads-desktop.gif"
   },
-  "id": 100
+  "id": 82
  },
  {
   "action": {
@@ -1024,7 +850,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.ketqua9.net^*.gif"
   },
-  "id": 101
+  "id": 83
  },
  {
   "action": {
@@ -1037,7 +863,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.upanh.tv^*.gif"
   },
-  "id": 102
+  "id": 84
  },
  {
   "action": {
@@ -1047,7 +873,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img1.oto.com.vn/2021/02/23/mer5fxhc/1140-140-px-1-a753.jpg"
   },
-  "id": 103
+  "id": 85
  },
  {
   "action": {
@@ -1057,7 +883,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img_bongdalu.thscore.fun^*.gif"
   },
-  "id": 104
+  "id": 86
  },
  {
   "action": {
@@ -1067,7 +893,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||inet.vn/images/banner"
   },
-  "id": 105
+  "id": 87
  },
  {
   "action": {
@@ -1077,7 +903,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||invert.vn/media/images/"
   },
-  "id": 106
+  "id": 88
  },
  {
   "action": {
@@ -1087,7 +913,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||keeng.pro/qc*.png"
   },
-  "id": 107
+  "id": 89
  },
  {
   "action": {
@@ -1097,7 +923,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||keeng.pro^*.gif"
   },
-  "id": 108
+  "id": 90
  },
  {
   "action": {
@@ -1107,7 +933,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kenhgamez.info^*.gif"
   },
-  "id": 109
+  "id": 91
  },
  {
   "action": {
@@ -1117,7 +943,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kenhtin.net/upload/images/banner-"
   },
-  "id": 110
+  "id": 92
  },
  {
   "action": {
@@ -1127,7 +953,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||keoso.club^*.gif"
   },
-  "id": 111
+  "id": 93
  },
  {
   "action": {
@@ -1137,7 +963,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ketqua247vn.org/public/media/banner/"
   },
-  "id": 112
+  "id": 94
  },
  {
   "action": {
@@ -1147,7 +973,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kienthuc.net.vn/*.ads"
   },
-  "id": 113
+  "id": 95
  },
  {
   "action": {
@@ -1157,7 +983,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kienthuc.net.vn/*banner.min.js"
   },
-  "id": 114
+  "id": 96
  },
  {
   "action": {
@@ -1167,7 +993,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kienviet.net/*banner"
   },
-  "id": 115
+  "id": 97
  },
  {
   "action": {
@@ -1177,7 +1003,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kienviet.net^*.gif"
   },
-  "id": 116
+  "id": 98
  },
  {
   "action": {
@@ -1187,7 +1013,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||laodong.vn/*quangcaoonline"
   },
-  "id": 117
+  "id": 99
  },
  {
   "action": {
@@ -1197,7 +1023,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||laptrinhvb.net/uploads/phan_mem_lay_tin_tu_dong_bat_dong_san.png"
   },
-  "id": 118
+  "id": 100
  },
  {
   "action": {
@@ -1207,7 +1033,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||luatminhkhue.vn/common/adshowleft"
   },
-  "id": 119
+  "id": 101
  },
  {
   "action": {
@@ -1217,7 +1043,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||luatvietnam.vn*/uploaded/*.gif"
   },
-  "id": 120
+  "id": 102
  },
  {
   "action": {
@@ -1227,7 +1053,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||maclife.io/*banner"
   },
-  "id": 121
+  "id": 103
  },
  {
   "action": {
@@ -1237,7 +1063,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||maclife.io^*.gif"
   },
-  "id": 122
+  "id": 104
  },
  {
   "action": {
@@ -1247,7 +1073,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mangaqq.com/qc-new/"
   },
-  "id": 123
+  "id": 105
  },
  {
   "action": {
@@ -1257,7 +1083,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||media.baotintuc.vn/upload/qkram3u3jmfsk084htqfeg/files/2021/03/nha-in-vidanitaxa.jpg"
   },
-  "id": 124
+  "id": 106
  },
  {
   "action": {
@@ -1267,7 +1093,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||media3.scdn.vn^*/banners/"
   },
-  "id": 125
+  "id": 107
  },
  {
   "action": {
@@ -1277,7 +1103,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mehoathinh3.com/xml/"
   },
-  "id": 126
+  "id": 108
  },
  {
   "action": {
@@ -1287,7 +1113,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mephimtv.net^*.gif"
   },
-  "id": 127
+  "id": 109
  },
  {
   "action": {
@@ -1297,7 +1123,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||minhngoc.net^*.gif"
   },
-  "id": 128
+  "id": 110
  },
  {
   "action": {
@@ -1307,7 +1133,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mocfun.net/uploads/banners/"
   },
-  "id": 129
+  "id": 111
  },
  {
   "action": {
@@ -1317,7 +1143,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mphimmoi1.xyz/theme/js/wonderfarm68.js"
   },
-  "id": 130
+  "id": 112
  },
  {
   "action": {
@@ -1327,7 +1153,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ngaytho.me^*.gif"
   },
-  "id": 131
+  "id": 113
  },
  {
   "action": {
@@ -1337,7 +1163,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nghenhinvietnam.vn/data/*.ads"
   },
-  "id": 132
+  "id": 114
  },
  {
   "action": {
@@ -1347,7 +1173,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nhaccuatui.com/ajax/ads"
   },
-  "id": 133
+  "id": 115
  },
  {
   "action": {
@@ -1357,7 +1183,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nhatrangclub.vn/files/"
   },
-  "id": 134
+  "id": 116
  },
  {
   "action": {
@@ -1367,7 +1193,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nhipcaudautu.vn/media/*.gif"
   },
-  "id": 135
+  "id": 117
  },
  {
   "action": {
@@ -1377,7 +1203,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||notepad.vn/media/images/like68.jpg"
   },
-  "id": 136
+  "id": 118
  },
  {
   "action": {
@@ -1387,7 +1213,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ophim.vip/download"
   },
-  "id": 137
+  "id": 119
  },
  {
   "action": {
@@ -1397,7 +1223,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ophim.vip/upload"
   },
-  "id": 138
+  "id": 120
  },
  {
   "action": {
@@ -1407,7 +1233,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phanmemcntt.com/wp-content/uploads/2021/09/direct-link.jpg"
   },
-  "id": 139
+  "id": 121
  },
  {
   "action": {
@@ -1417,7 +1243,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimbocn.com/player-embed/assets/js/tvc.js"
   },
-  "id": 140
+  "id": 122
  },
  {
   "action": {
@@ -1427,7 +1253,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimchat2.com/public/images/banner/"
   },
-  "id": 141
+  "id": 123
  },
  {
   "action": {
@@ -1437,7 +1263,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimchat2.com^*.gif"
   },
-  "id": 142
+  "id": 124
  },
  {
   "action": {
@@ -1447,7 +1273,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimgichill.net/player/dk.jpg"
   },
-  "id": 143
+  "id": 125
  },
  {
   "action": {
@@ -1457,7 +1283,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimhay.in^*.gif"
   },
-  "id": 144
+  "id": 126
  },
  {
   "action": {
@@ -1467,7 +1293,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimhay.mobi/pop/shopee.js"
   },
-  "id": 145
+  "id": 127
  },
  {
   "action": {
@@ -1477,7 +1303,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimhaytv.info^*.gif"
   },
-  "id": 146
+  "id": 128
  },
  {
   "action": {
@@ -1487,7 +1313,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimmoi4s.com^*.gif"
   },
-  "id": 147
+  "id": 129
  },
  {
   "action": {
@@ -1497,7 +1323,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimmoichill79.cc^*gif"
   },
-  "id": 148
+  "id": 130
  },
  {
   "action": {
@@ -1507,7 +1333,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimmoiv2.com^*.gif"
   },
-  "id": 149
+  "id": 131
  },
  {
   "action": {
@@ -1517,7 +1343,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimnet.vip^*.gif"
   },
-  "id": 150
+  "id": 132
  },
  {
   "action": {
@@ -1527,7 +1353,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimnhua.com^*.gif"
   },
-  "id": 151
+  "id": 133
  },
  {
   "action": {
@@ -1537,7 +1363,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimplay24h.com^*.gif"
   },
-  "id": 152
+  "id": 134
  },
  {
   "action": {
@@ -1547,7 +1373,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimtm.herokuapp.com^*.gif"
   },
-  "id": 153
+  "id": 135
  },
  {
   "action": {
@@ -1557,7 +1383,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimtn.com/wp-content/themes/halimmovies/qc^*.gif"
   },
-  "id": 154
+  "id": 136
  },
  {
   "action": {
@@ -1567,7 +1393,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimtuoitho.tv/uploads/albumgiaynamth.jpg"
   },
-  "id": 155
+  "id": 137
  },
  {
   "action": {
@@ -1577,7 +1403,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||photo-cms-anninhthudo.zadn.vn/uploaded/2021/xtsmr/"
   },
-  "id": 156
+  "id": 138
  },
  {
   "action": {
@@ -1587,7 +1413,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||photo2.tinhte.vn/data/attachment-files/*banner"
   },
-  "id": 157
+  "id": 139
  },
  {
   "action": {
@@ -1604,7 +1430,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||photo2.tinhte.vn^*.gif"
   },
-  "id": 158
+  "id": 140
  },
  {
   "action": {
@@ -1614,7 +1440,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phunutoday.vn/images/banners/"
   },
-  "id": 159
+  "id": 141
  },
  {
   "action": {
@@ -1624,7 +1450,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phuongtrinhhoahoc.com/images/banner/"
   },
-  "id": 160
+  "id": 142
  },
  {
   "action": {
@@ -1632,15 +1458,13 @@
   },
   "condition": {
    "initiatorDomains": [
-    "biphims.cc",
-    "biphims.co",
     "phimmoiaz.cc",
     "xemtivi4k.com"
    ],
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pic1025.com^*gif"
   },
-  "id": 161
+  "id": 143
  },
  {
   "action": {
@@ -1650,7 +1474,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||plo.vn/*.ads"
   },
-  "id": 162
+  "id": 144
  },
  {
   "action": {
@@ -1660,7 +1484,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||plo.vn/*/banner.min.js"
   },
-  "id": 163
+  "id": 145
  },
  {
   "action": {
@@ -1670,7 +1494,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||raovat3s.com/clientscript/yui/yuiloader-dom-event/yuiloader-dom-event.js"
   },
-  "id": 164
+  "id": 146
  },
  {
   "action": {
@@ -1680,7 +1504,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||s.tainhaccho.vn/images/afl"
   },
-  "id": 165
+  "id": 147
  },
  {
   "action": {
@@ -1696,7 +1520,7 @@
     "s3.amazonaws.com"
    ]
   },
-  "id": 166
+  "id": 148
  },
  {
   "action": {
@@ -1706,7 +1530,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||senpay.vn/widget/"
   },
-  "id": 167
+  "id": 149
  },
  {
   "action": {
@@ -1716,7 +1540,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sggp.org.vn/*.ads"
   },
-  "id": 168
+  "id": 150
  },
  {
   "action": {
@@ -1726,7 +1550,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sggp.org.vn/*banner"
   },
-  "id": 169
+  "id": 151
  },
  {
   "action": {
@@ -1736,7 +1560,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sharecode.vn/filesupload/su-kien/"
   },
-  "id": 170
+  "id": 152
  },
  {
   "action": {
@@ -1746,7 +1570,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sharecode.vn/assets/images/thiet-ke-web-gia-re.jpg"
   },
-  "id": 171
+  "id": 153
  },
  {
   "action": {
@@ -1756,7 +1580,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sharecode.vn/assets/images/thiet-ke-website.jpg"
   },
-  "id": 172
+  "id": 154
  },
  {
   "action": {
@@ -1766,7 +1590,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||slashrun.org^*.gif"
   },
-  "id": 173
+  "id": 155
  },
  {
   "action": {
@@ -1776,7 +1600,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||softworldvietnam.com/banners/"
   },
-  "id": 174
+  "id": 156
  },
  {
   "action": {
@@ -1786,7 +1610,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sohuutritue.net.vn/files/qc/"
   },
-  "id": 175
+  "id": 157
  },
  {
   "action": {
@@ -1796,7 +1620,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||soikeo365.net^*.gif"
   },
-  "id": 176
+  "id": 158
  },
  {
   "action": {
@@ -1806,7 +1630,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||soikeoz.net^*.gif"
   },
-  "id": 177
+  "id": 159
  },
  {
   "action": {
@@ -1816,7 +1640,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sosanhnha.com/assets/banner/"
   },
-  "id": 178
+  "id": 160
  },
  {
   "action": {
@@ -1826,7 +1650,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sponsor.imacdn.com/aff/"
   },
-  "id": 179
+  "id": 161
  },
  {
   "action": {
@@ -1836,7 +1660,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stablehost.com/images/banner"
   },
-  "id": 180
+  "id": 162
  },
  {
   "action": {
@@ -1846,7 +1670,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||startalk.vn/images/ru-ban-them-vui-mb.jpg"
   },
-  "id": 181
+  "id": 163
  },
  {
   "action": {
@@ -1856,7 +1680,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static-znews.zadn.vn/banner"
   },
-  "id": 182
+  "id": 164
  },
  {
   "action": {
@@ -1866,7 +1690,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.bongda24h.vn/medias/*.gif"
   },
-  "id": 183
+  "id": 165
  },
  {
   "action": {
@@ -1876,7 +1700,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.homedy.com/*banner-"
   },
-  "id": 184
+  "id": 166
  },
  {
   "action": {
@@ -1889,7 +1713,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.mepuzz.com/sdk/v2/mepuzzonsite.min.js"
   },
-  "id": 185
+  "id": 167
  },
  {
   "action": {
@@ -1899,7 +1723,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.mepuzz.com/sdk/v2/mepuzzserviceworker.min.js"
   },
-  "id": 186
+  "id": 168
  },
  {
   "action": {
@@ -1909,7 +1733,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.nhaccuatui.com/imgqc/"
   },
-  "id": 187
+  "id": 169
  },
  {
   "action": {
@@ -1919,7 +1743,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.truyenchu.com.vn/banner/"
   },
-  "id": 188
+  "id": 170
  },
  {
   "action": {
@@ -1929,7 +1753,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.ybox.vn^*.gif"
   },
-  "id": 189
+  "id": 171
  },
  {
   "action": {
@@ -1939,7 +1763,20 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stc.nas.nixcdn.com^*.gif"
   },
-  "id": 190
+  "id": 172
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "gavang1.link"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||stc02bc54661548.cloud.anycastapnic.com^*.gif"
+  },
+  "id": 173
  },
  {
   "action": {
@@ -1949,7 +1786,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stockbiz.vn/adsbanners/"
   },
-  "id": 191
+  "id": 174
  },
  {
   "action": {
@@ -1959,7 +1796,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||subnhanh.im/js/ads_xx.js"
   },
-  "id": 192
+  "id": 175
  },
  {
   "action": {
@@ -1969,7 +1806,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||subnhanhvl.co/js/ads_xx.js"
   },
-  "id": 193
+  "id": 176
  },
  {
   "action": {
@@ -1979,7 +1816,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tamlinh247.com.vn/link_anh/2023/400x300_03_02_23.jpg"
   },
-  "id": 194
+  "id": 177
  },
  {
   "action": {
@@ -1989,7 +1826,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tamlinh247.com.vn/link_anh/400x300_15_1_2023.jpg"
   },
-  "id": 195
+  "id": 178
  },
  {
   "action": {
@@ -1999,7 +1836,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tapchikientruc.com.vn/wp-content/uploads/angwp/items"
   },
-  "id": 196
+  "id": 179
  },
  {
   "action": {
@@ -2009,7 +1846,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tapchitaichinh.vn/*adv."
   },
-  "id": 197
+  "id": 180
  },
  {
   "action": {
@@ -2019,7 +1856,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tctruyen.com/public/js/timemer.js"
   },
-  "id": 198
+  "id": 181
  },
  {
   "action": {
@@ -2029,7 +1866,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tenovi.net/demo/cdn-ad"
   },
-  "id": 199
+  "id": 182
  },
  {
   "action": {
@@ -2039,7 +1876,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tepbac.com/upload/advertiment/"
   },
-  "id": 200
+  "id": 183
  },
  {
   "action": {
@@ -2049,7 +1886,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thanhnien.vn^*.ads"
   },
-  "id": 201
+  "id": 184
  },
  {
   "action": {
@@ -2059,7 +1896,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thesaigontimes.vn/doitacqc/"
   },
-  "id": 202
+  "id": 185
  },
  {
   "action": {
@@ -2069,7 +1906,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thethao12h.me^*.gif"
   },
-  "id": 203
+  "id": 186
  },
  {
   "action": {
@@ -2079,7 +1916,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thietkeweb9999.com/data/upload/banner"
   },
-  "id": 204
+  "id": 187
  },
  {
   "action": {
@@ -2089,7 +1926,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thoigian.com.vn^*.gif"
   },
-  "id": 205
+  "id": 188
  },
  {
   "action": {
@@ -2099,7 +1936,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thuocbietduoc.com.vn/adv/"
   },
-  "id": 206
+  "id": 189
  },
  {
   "action": {
@@ -2109,7 +1946,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thuongtruong.com.vn/data/images/"
   },
-  "id": 207
+  "id": 190
  },
  {
   "action": {
@@ -2119,7 +1956,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thuthuattienich.com/wp-content/uploads/*banner"
   },
-  "id": 208
+  "id": 191
  },
  {
   "action": {
@@ -2129,7 +1966,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thuysanvietnam.com.vn^*.gif"
   },
-  "id": 209
+  "id": 192
  },
  {
   "action": {
@@ -2139,7 +1976,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tieudung.vn/images/banners/"
   },
-  "id": 210
+  "id": 193
  },
  {
   "action": {
@@ -2149,7 +1986,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tiin.vn/banner"
   },
-  "id": 211
+  "id": 194
  },
  {
   "action": {
@@ -2159,7 +1996,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tinhayvip.com^*.gif"
   },
-  "id": 212
+  "id": 195
  },
  {
   "action": {
@@ -2169,7 +2006,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tinmoi.vn/?mod=ajax&act=getads"
   },
-  "id": 213
+  "id": 196
  },
  {
   "action": {
@@ -2179,7 +2016,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tinmoi.vn/ga.js"
   },
-  "id": 214
+  "id": 197
  },
  {
   "action": {
@@ -2189,7 +2026,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||toithuthuat.com^*.gif"
   },
-  "id": 215
+  "id": 198
  },
  {
   "action": {
@@ -2199,7 +2036,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tr.topdevvn.com/js/follow.js"
   },
-  "id": 216
+  "id": 199
  },
  {
   "action": {
@@ -2209,7 +2046,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||traderviet.org/data/siropu/images/"
   },
-  "id": 217
+  "id": 200
  },
  {
   "action": {
@@ -2219,7 +2056,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tructiep.vn/website/adv/"
   },
-  "id": 218
+  "id": 201
  },
  {
   "action": {
@@ -2229,7 +2066,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tructiep24h.co^*.gif"
   },
-  "id": 219
+  "id": 202
  },
  {
   "action": {
@@ -2239,7 +2076,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truyen2u.net/content/js/custom.js"
   },
-  "id": 220
+  "id": 203
  },
  {
   "action": {
@@ -2249,7 +2086,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truyen2u.net/content/js/script.js"
   },
-  "id": 221
+  "id": 204
  },
  {
   "action": {
@@ -2259,7 +2096,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truyenconect.com/uploads/*-truyenconect_com-*."
   },
-  "id": 222
+  "id": 205
  },
  {
   "action": {
@@ -2269,7 +2106,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truyentuan.com/wp-content/banners"
   },
-  "id": 223
+  "id": 206
  },
  {
   "action": {
@@ -2279,7 +2116,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truyentuan.com/wp-content/themes/nos/js/pop-before.js"
   },
-  "id": 224
+  "id": 207
  },
  {
   "action": {
@@ -2289,7 +2126,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truyenvua.com/qc-new/"
   },
-  "id": 225
+  "id": 208
  },
  {
   "action": {
@@ -2299,7 +2136,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tudomuaban.com/public/upload/ad/"
   },
-  "id": 226
+  "id": 209
  },
  {
   "action": {
@@ -2309,7 +2146,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tuviso.com/public/media//banner/"
   },
-  "id": 227
+  "id": 210
  },
  {
   "action": {
@@ -2319,7 +2156,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tvhayt.org^*.gif"
   },
-  "id": 228
+  "id": 211
  },
  {
   "action": {
@@ -2332,7 +2169,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||txp-storage.sgp1.cdn.digitaloceanspaces.com^*.gif"
   },
-  "id": 229
+  "id": 212
  },
  {
   "action": {
@@ -2342,7 +2179,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||upload.bongda365.asia//banner/"
   },
-  "id": 230
+  "id": 213
  },
  {
   "action": {
@@ -2352,7 +2189,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vebo-vast.pages.dev^*.gif"
   },
-  "id": 231
+  "id": 214
  },
  {
   "action": {
@@ -2362,7 +2199,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vebot.live^*.gif"
   },
-  "id": 232
+  "id": 215
  },
  {
   "action": {
@@ -2372,7 +2209,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vidian.me/images/*.gif"
   },
-  "id": 233
+  "id": 216
  },
  {
   "action": {
@@ -2382,7 +2219,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vietjack.com/git/images/2k2_new_2.jpg"
   },
-  "id": 234
+  "id": 217
  },
  {
   "action": {
@@ -2392,7 +2229,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vietjack.com/git/images/banner_"
   },
-  "id": 235
+  "id": 218
  },
  {
   "action": {
@@ -2402,7 +2239,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vietnamplus.vn/*raovat.aspx"
   },
-  "id": 236
+  "id": 219
  },
  {
   "action": {
@@ -2412,7 +2249,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vietyo.com/yomedia/"
   },
-  "id": 237
+  "id": 220
  },
  {
   "action": {
@@ -2422,7 +2259,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vinagamemobile.com/wp-content/uploads/2021/06/quang-cao-game-moi-banner*.jpg"
   },
-  "id": 238
+  "id": 221
  },
  {
   "action": {
@@ -2432,7 +2269,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vinagamemobile.com/wp-content/uploads^*.gif"
   },
-  "id": 239
+  "id": 222
  },
  {
   "action": {
@@ -2442,7 +2279,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vkool2.net/ads/"
   },
-  "id": 240
+  "id": 223
  },
  {
   "action": {
@@ -2452,7 +2289,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vkoolsss.net/images/ads/"
   },
-  "id": 241
+  "id": 224
  },
  {
   "action": {
@@ -2462,7 +2299,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vkoolsss.net/js/pov.js"
   },
-  "id": 242
+  "id": 225
  },
  {
   "action": {
@@ -2472,7 +2309,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vn-z.vn/banner-"
   },
-  "id": 243
+  "id": 226
  },
  {
   "action": {
@@ -2482,7 +2319,20 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vnmu.edu.vn^*.gif"
   },
-  "id": 244
+  "id": 227
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "gavang1.link"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||vod02bc25882576.cloud.anycastapnic.com/8xbet_480p.mp4"
+  },
+  "id": 228
  },
  {
   "action": {
@@ -2492,7 +2342,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vov.vn/ads/show-ads^"
   },
-  "id": 245
+  "id": 229
  },
  {
   "action": {
@@ -2502,7 +2352,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||voz.vn/data/backgrounds/"
   },
-  "id": 246
+  "id": 230
  },
  {
   "action": {
@@ -2510,9 +2360,9 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||vsc27.com/wp-content/themes/vuasanco/assets/scripts/scripts.js"
+   "urlFilter": "||vsc28.com/wp-content/themes/vuasanco/assets/scripts/scripts.js"
   },
-  "id": 247
+  "id": 231
  },
  {
   "action": {
@@ -2520,19 +2370,9 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||vsc27.com^*.gif"
+   "urlFilter": "||vsc28.com^*.gif"
   },
-  "id": 248
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||wpcdn.xyz^*.gif"
-  },
-  "id": 249
+  "id": 232
  },
  {
   "action": {
@@ -2545,7 +2385,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||xc.1357668.com^*.gif"
   },
-  "id": 250
+  "id": 233
  },
  {
   "action": {
@@ -2555,7 +2395,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||xehay.vn/public/html5/ads/"
   },
-  "id": 251
+  "id": 234
  },
  {
   "action": {
@@ -2565,7 +2405,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||xevathethao.vn/wp-content/uploads/banner"
   },
-  "id": 252
+  "id": 235
  },
  {
   "action": {
@@ -2575,7 +2415,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||xonxao.com/images/banners/"
   },
-  "id": 253
+  "id": 236
  },
  {
   "action": {
@@ -2585,7 +2425,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||xoso.com.vn^*.gif"
   },
-  "id": 254
+  "id": 237
  },
  {
   "action": {
@@ -2595,7 +2435,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||xoso.com/images/banners/"
   },
-  "id": 255
+  "id": 238
  },
  {
   "action": {
@@ -2605,7 +2445,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||xoso888.win^*.gif"
   },
-  "id": 256
+  "id": 239
  },
  {
   "action": {
@@ -2615,7 +2455,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yeah1.com/native-ads/"
   },
-  "id": 257
+  "id": 240
  },
  {
   "action": {
@@ -2625,7 +2465,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yhocdata.com/wp-content/plugins/dh-anti-adblocker/"
   },
-  "id": 258
+  "id": 241
  },
  {
   "action": {
@@ -2641,7 +2481,7 @@
     "tracker.idocdn.com"
    ]
   },
-  "id": 259
+  "id": 242
  },
  {
   "action": {
@@ -2651,7 +2491,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/player/vast.js"
   },
-  "id": 260
+  "id": 243
  },
  {
   "action": {
@@ -2661,7 +2501,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i2.wp.com/hentaivnmoi.net/*banner"
   },
-  "id": 261
+  "id": 244
  },
  {
   "action": {
@@ -2671,7 +2511,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.av3x.net/upload/av3x.net/banners/"
   },
-  "id": 262
+  "id": 245
  },
  {
   "action": {
@@ -2681,7 +2521,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.nguonc.com^*.gif"
   },
-  "id": 263
+  "id": 246
  },
  {
   "action": {
@@ -2689,9 +2529,9 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||javhay.media/theme/custom.int.js"
+   "urlFilter": "||javhay.in/theme/custom.int.js"
   },
-  "id": 264
+  "id": 247
  },
  {
   "action": {
@@ -2701,7 +2541,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lxmanga.net/storage/images/banners"
   },
-  "id": 265
+  "id": 248
  },
  {
   "action": {
@@ -2711,7 +2551,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||media.vailonxx.co^*.gif"
   },
-  "id": 266
+  "id": 249
  },
  {
   "action": {
@@ -2721,7 +2561,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimsexsub.moe/wp-admin/admin-ajax.php?action=htmlcountry_get_data"
   },
-  "id": 267
+  "id": 250
  },
  {
   "action": {
@@ -2731,7 +2571,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phym18.org/static/js/adlia.js"
   },
-  "id": 268
+  "id": 251
  },
  {
   "action": {
@@ -2741,7 +2581,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||rphang.online^*.gif"
   },
-  "id": 269
+  "id": 252
  },
  {
   "action": {
@@ -2751,7 +2591,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sayhentai.fun/assets/js/ads.js"
   },
-  "id": 270
+  "id": 253
  },
  {
   "action": {
@@ -2761,7 +2601,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sexsub.online/300x100.jpg"
   },
-  "id": 271
+  "id": 254
  },
  {
   "action": {
@@ -2771,7 +2611,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truyensextv.com/anh/"
   },
-  "id": 272
+  "id": 255
  },
  {
   "action": {
@@ -2781,7 +2621,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truyensextv.me/anh/"
   },
-  "id": 273
+  "id": 256
  },
  {
   "action": {
@@ -2791,7 +2631,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||truyensextv.org^*.gif"
   },
-  "id": 274
+  "id": 257
  },
  {
   "action": {
@@ -2830,7 +2670,6 @@
     "hoosgowhandbow.com",
     "i9zk5f8szj4x8saj5wcks8acja5sk1dz8stjs2g8isdcn6ejxn8zsr5xjs5h.com",
     "iads.staticscdn.net",
-    "im.inciseclops.com",
     "imad24.com",
     "img.yeuketqua.net",
     "ionigravida.com",
@@ -2842,6 +2681,7 @@
     "mairbeets.com",
     "mneydirec.com",
     "moldingruching.com",
+    "pi.beaufintorque.com",
     "player.gliacloud.com",
     "pub.lavamedia.vn",
     "qc.violet.vn",
@@ -2864,13 +2704,12 @@
     "v9banners.com",
     "vads.net.vn",
     "vilinswell.com",
-    "vipads.live",
     "xenosmussal.com",
     "yr.fopbandido.com",
     "zaloweb.vn"
    ]
   },
-  "id": 275
+  "id": 258
  },
  {
   "action": {
@@ -2886,7 +2725,7 @@
    ],
    "urlFilter": "/adv/"
   },
-  "id": 276
+  "id": 259
  },
  {
   "action": {
@@ -2896,16 +2735,18 @@
    "initiatorDomains": [
     "90phutx.tv",
     "bongdainfoz.com",
-    "cakhia7.vip",
+    "cakhia.de",
     "keonhacai5.top",
-    "mitomb.tv",
+    "mitom.bio",
     "motchillz.org",
+    "phimlongtieng.com",
+    "phimlongtieng.net",
     "plvb.xyz",
     "tvzinghd.com",
     "vebot.live",
     "xemtivingon.org",
     "xoilac89.tv",
-    "xoilaczn.tv"
+    "xoilaczo.tv"
    ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
@@ -2913,7 +2754,7 @@
    ],
    "urlFilter": "/i.imgur.com/*.gif"
   },
-  "id": 277
+  "id": 260
  },
  {
   "action": {
@@ -2922,9 +2763,7 @@
   "condition": {
    "initiatorDomains": [
     "mehoathinh3.com",
-    "mephimnhat2.com",
     "phimmoi2.com",
-    "phimnhanh2.com",
     "vuighe2.com"
    ],
    "isUrlFilterCaseSensitive": false,
@@ -2934,7 +2773,7 @@
    ],
    "urlFilter": "/mmo/"
   },
-  "id": 278
+  "id": 261
  },
  {
   "action": {
@@ -2947,23 +2786,7 @@
    ],
    "urlFilter": "/newchill/*gif"
   },
-  "id": 279
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "xoilac89.tv"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "/scdn.bongdadem.net/*.gif"
-  },
-  "id": 280
+  "id": 262
  },
  {
   "action": {
@@ -2976,20 +2799,23 @@
    ],
    "urlFilter": "||70303d714.vws.vegacdn.vn/cakhiastatic/"
   },
-  "id": 282
+  "id": 264
  },
  {
   "action": {
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "vaoroi13.online"
+   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "image"
    ],
    "urlFilter": "||assets-vaegaa.wedodemos.com/ads/"
   },
-  "id": 283
+  "id": 265
  },
  {
   "action": {
@@ -3002,7 +2828,7 @@
    ],
    "urlFilter": "||audiotruyenfull.com^*.gif"
   },
-  "id": 284
+  "id": 266
  },
  {
   "action": {
@@ -3015,7 +2841,7 @@
    ],
    "urlFilter": "||baonga.com/*quang_cao"
   },
-  "id": 285
+  "id": 267
  },
  {
   "action": {
@@ -3028,7 +2854,7 @@
    ],
    "urlFilter": "||blog.abit.vn/wp-content/uploads/2020/05/abit_"
   },
-  "id": 286
+  "id": 268
  },
  {
   "action": {
@@ -3046,7 +2872,7 @@
     "image"
    ]
   },
-  "id": 287
+  "id": 269
  },
  {
   "action": {
@@ -3059,7 +2885,7 @@
    ],
    "urlFilter": "||blogtruyen.vn^*.gif"
   },
-  "id": 288
+  "id": 270
  },
  {
   "action": {
@@ -3072,7 +2898,7 @@
    ],
    "urlFilter": "||boophim.net^*.gif"
   },
-  "id": 289
+  "id": 271
  },
  {
   "action": {
@@ -3090,7 +2916,7 @@
     "image"
    ]
   },
-  "id": 290
+  "id": 272
  },
  {
   "action": {
@@ -3107,7 +2933,7 @@
    ],
    "urlFilter": "||bp.blogspot.com/*banner"
   },
-  "id": 291
+  "id": 273
  },
  {
   "action": {
@@ -3124,7 +2950,7 @@
     "image"
    ]
   },
-  "id": 292
+  "id": 274
  },
  {
   "action": {
@@ -3132,8 +2958,26 @@
   },
   "condition": {
    "initiatorDomains": [
+    "webhoctienganh.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||cdn.webhoctienganh.com/asset/home/img/banner/"
+  },
+  "id": 275
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "bichill.one",
     "biphim.io",
     "dongchill.tv",
+    "dongphim3s.net",
     "hhpanda.cc",
     "subnhanh.im",
     "subnhanhvl.co"
@@ -3144,20 +2988,7 @@
    ],
    "urlFilter": "||cdn2-img.net^*.gif"
   },
-  "id": 293
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||cdnwp.icu^*.gif"
-  },
-  "id": 294
+  "id": 276
  },
  {
   "action": {
@@ -3174,20 +3005,7 @@
     "image"
    ]
   },
-  "id": 295
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||cuahangsach.info^*.gif"
-  },
-  "id": 296
+  "id": 277
  },
  {
   "action": {
@@ -3200,20 +3018,23 @@
    ],
    "urlFilter": "||ducvietonline.de/*banner"
   },
-  "id": 297
+  "id": 278
  },
  {
   "action": {
    "type": "block"
   },
   "condition": {
+   "initiatorDomains": [
+    "dangcongsan.vn"
+   ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
     "image"
    ],
    "urlFilter": "||file1.dangcongsan.vn^*.gif"
   },
-  "id": 298
+  "id": 279
  },
  {
   "action": {
@@ -3226,7 +3047,33 @@
    ],
    "urlFilter": "||gamedoithuong.org^*.gif"
   },
-  "id": 299
+  "id": 280
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||gianhangsach.com^*.gif"
+  },
+  "id": 281
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image"
+   ],
+   "urlFilter": "||heovktgame.club/wp-content/plugins/banner-management/"
+  },
+  "id": 282
  },
  {
   "action": {
@@ -3239,33 +3086,7 @@
    ],
    "urlFilter": "||hh3dhay.com/wp-content/uploads/*.gif"
   },
-  "id": 300
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||hhhtq.net^*.gif"
-  },
-  "id": 301
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||hhtqvietsub.top/_nuxt/img/*gif"
-  },
-  "id": 302
+  "id": 283
  },
  {
   "action": {
@@ -3282,20 +3103,7 @@
     "image"
    ]
   },
-  "id": 303
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||hoc247.net/banners/"
-  },
-  "id": 304
+  "id": 284
  },
  {
   "action": {
@@ -3311,7 +3119,7 @@
    ],
    "urlFilter": "||i-imgur-com.cdn.ampproject.org^*.gif"
   },
-  "id": 305
+  "id": 285
  },
  {
   "action": {
@@ -3324,7 +3132,6 @@
     "banbuondalat.com",
     "chillhay-net.pro",
     "diendanit.net",
-    "hhhtq.net",
     "hoathinhtq.tv",
     "khoedep.vn",
     "nhacdj.vn",
@@ -3348,7 +3155,7 @@
     "image"
    ]
   },
-  "id": 306
+  "id": 286
  },
  {
   "action": {
@@ -3360,23 +3167,12 @@
     "90phut9.live",
     "90phutx.tv",
     "animevietsub.fan",
-    "bichill.one",
-    "biphim.io",
-    "biphims.cc",
-    "biphimvn.net",
-    "bongdahomnay.org",
     "caheo7.tv",
-    "cakhia20.com",
-    "cakhia22.live",
-    "cakhia25.live",
     "dailyphimz.com",
     "film365.in",
     "fimfast.pro",
-    "forum.gocmod.com",
     "ghienphim8.net",
-    "hayghe.fan",
     "hdphimhay1.xyz",
-    "hhpanda.cc",
     "hhtq.vip",
     "hhtrungquoc.com",
     "huphimtv.com",
@@ -3389,15 +3185,16 @@
     "mephimgi.net",
     "mephimnhe1.net",
     "mephimtv.co",
-    "mitomb.tv",
-    "motphimle.sbs",
+    "mitom.bio",
     "mphim14.com",
     "mphimmoi1.xyz",
     "mythethao.net",
     "ophimhdvn3.net",
     "phim.city",
+    "phimbocn.com",
     "phimbom.net",
     "phimgichill.net",
+    "phimletv.sbs",
     "phimmoiaz.cc",
     "phimmoipro2.net",
     "phimmoiyyy.net",
@@ -3422,6 +3219,7 @@
     "vkool2.net",
     "vtipster.net",
     "vungtv.us",
+    "watch.4shares.live",
     "xamvn.vc",
     "xemphimviet1.net",
     "xemtivi4k.com",
@@ -3434,7 +3232,7 @@
    ],
    "urlFilter": "||i.imgur.com^*.gif"
   },
-  "id": 307
+  "id": 287
  },
  {
   "action": {
@@ -3450,7 +3248,7 @@
    ],
    "urlFilter": "||i.servimg.com/u/f22/"
   },
-  "id": 308
+  "id": 288
  },
  {
   "action": {
@@ -3469,7 +3267,7 @@
    ],
    "urlFilter": "||images2-focus-opensocial.googleusercontent.com^*.gif"
   },
-  "id": 309
+  "id": 289
  },
  {
   "action": {
@@ -3485,7 +3283,7 @@
    ],
    "urlFilter": "||images2.imgbox.com^*.gif"
   },
-  "id": 310
+  "id": 290
  },
  {
   "action": {
@@ -3498,7 +3296,7 @@
    ],
    "urlFilter": "||img.blogtruyen.vn/sharex/"
   },
-  "id": 311
+  "id": 291
  },
  {
   "action": {
@@ -3511,7 +3309,7 @@
    ],
    "urlFilter": "||img.vietcetera.com^*banner"
   },
-  "id": 312
+  "id": 292
  },
  {
   "action": {
@@ -3528,7 +3326,7 @@
    ],
    "urlFilter": "||imgyn.imageshh.com^*.gif"
   },
-  "id": 313
+  "id": 293
  },
  {
   "action": {
@@ -3541,7 +3339,7 @@
    ],
    "urlFilter": "||khoaiphim.com/image/qc/"
   },
-  "id": 314
+  "id": 294
  },
  {
   "action": {
@@ -3554,7 +3352,7 @@
    ],
    "urlFilter": "||khophim-poster.cuoiia.top^*.gif"
   },
-  "id": 315
+  "id": 295
  },
  {
   "action": {
@@ -3567,7 +3365,7 @@
    ],
    "urlFilter": "||kimquy.com/image/mekong_home.png"
   },
-  "id": 316
+  "id": 296
  },
  {
   "action": {
@@ -3580,7 +3378,7 @@
    ],
    "urlFilter": "||laptrinhvb.net/uploads/banner.gif"
   },
-  "id": 317
+  "id": 297
  },
  {
   "action": {
@@ -3588,9 +3386,7 @@
   },
   "condition": {
    "initiatorDomains": [
-    "animevietsub.fan",
-    "hhhtq.net",
-    "hhninja1.tv"
+    "animevietsub.fan"
    ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
@@ -3598,7 +3394,7 @@
    ],
    "urlFilter": "||lh3.googleusercontent.com/*=s0"
   },
-  "id": 318
+  "id": 298
  },
  {
   "action": {
@@ -3611,7 +3407,7 @@
    ],
    "urlFilter": "||listnhacai1.com^*.gif"
   },
-  "id": 319
+  "id": 299
  },
  {
   "action": {
@@ -3628,7 +3424,7 @@
     "image"
    ]
   },
-  "id": 320
+  "id": 300
  },
  {
   "action": {
@@ -3641,7 +3437,7 @@
    ],
    "urlFilter": "||lmssplus.com/static_image/ads-provider/"
   },
-  "id": 321
+  "id": 301
  },
  {
   "action": {
@@ -3654,7 +3450,7 @@
    ],
    "urlFilter": "||maclife.io/wp-content/uploads/2022/12/maclife_161222.png"
   },
-  "id": 322
+  "id": 302
  },
  {
   "action": {
@@ -3667,7 +3463,7 @@
    ],
    "urlFilter": "||maclife.io/wp-content/uploads/2023/03/mt_maclife.png"
   },
-  "id": 323
+  "id": 303
  },
  {
   "action": {
@@ -3680,7 +3476,7 @@
    ],
    "urlFilter": "||media.giadinhvaphapluat.vn/images/*banner"
   },
-  "id": 324
+  "id": 304
  },
  {
   "action": {
@@ -3698,7 +3494,7 @@
    ],
    "urlFilter": "||media.giphy.com/media/"
   },
-  "id": 325
+  "id": 305
  },
  {
   "action": {
@@ -3711,7 +3507,7 @@
    ],
    "urlFilter": "||media.vodcdn.xyz^*.gif"
   },
-  "id": 326
+  "id": 306
  },
  {
   "action": {
@@ -3724,7 +3520,7 @@
    ],
    "urlFilter": "||mephimtv.net/wp-banner"
   },
-  "id": 327
+  "id": 307
  },
  {
   "action": {
@@ -3735,9 +3531,9 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||motchillss.net/banner"
+   "urlFilter": "||motchillsss.net/banner"
   },
-  "id": 328
+  "id": 308
  },
  {
   "action": {
@@ -3750,7 +3546,7 @@
    ],
    "urlFilter": "||nettruyenco.vn/public/assets/images/picart_others.png"
   },
-  "id": 329
+  "id": 309
  },
  {
   "action": {
@@ -3763,7 +3559,7 @@
    ],
    "urlFilter": "||nguontv.biz^*.gif"
   },
-  "id": 330
+  "id": 310
  },
  {
   "action": {
@@ -3776,7 +3572,7 @@
    ],
    "urlFilter": "||nhandan.vn/cdn/vn/images/banners/"
   },
-  "id": 331
+  "id": 311
  },
  {
   "action": {
@@ -3789,7 +3585,7 @@
    ],
    "urlFilter": "||nhipcaudautu.vn/content/*qc-"
   },
-  "id": 332
+  "id": 312
  },
  {
   "action": {
@@ -3802,7 +3598,7 @@
    ],
    "urlFilter": "||onecms.vn/*banner"
   },
-  "id": 333
+  "id": 313
  },
  {
   "action": {
@@ -3815,7 +3611,7 @@
    ],
    "urlFilter": "||p.thoctv.com^*.gif"
   },
-  "id": 334
+  "id": 314
  },
  {
   "action": {
@@ -3828,7 +3624,7 @@
    ],
    "urlFilter": "||phimcuon.com^*.gif"
   },
-  "id": 335
+  "id": 315
  },
  {
   "action": {
@@ -3841,7 +3637,7 @@
    ],
    "urlFilter": "||phimhaymoi.com^*.gif"
   },
-  "id": 336
+  "id": 316
  },
  {
   "action": {
@@ -3852,9 +3648,9 @@
    "resourceTypes": [
     "image"
    ],
-   "urlFilter": "||phimmoi.im^*.gif"
+   "urlFilter": "||phimmoi.io^*.gif"
   },
-  "id": 337
+  "id": 317
  },
  {
   "action": {
@@ -3867,7 +3663,7 @@
    ],
    "urlFilter": "||phimmoi4s.com/files/banner/"
   },
-  "id": 338
+  "id": 318
  },
  {
   "action": {
@@ -3880,7 +3676,7 @@
    ],
    "urlFilter": "||phimmois.org^*.gif"
   },
-  "id": 339
+  "id": 319
  },
  {
   "action": {
@@ -3893,7 +3689,7 @@
    ],
    "urlFilter": "||phimnet.vip/uploads/bn"
   },
-  "id": 340
+  "id": 320
  },
  {
   "action": {
@@ -3906,7 +3702,7 @@
    ],
    "urlFilter": "||phimnhua.com/wp-content/uploads/2023/02/400x300.jpg"
   },
-  "id": 341
+  "id": 321
  },
  {
   "action": {
@@ -3919,7 +3715,7 @@
    ],
    "urlFilter": "||phimnhua.com/wp-content/uploads/2023/09/cc_com.png"
   },
-  "id": 342
+  "id": 322
  },
  {
   "action": {
@@ -3932,7 +3728,7 @@
    ],
    "urlFilter": "||phimvuihd.org^*.gif"
   },
-  "id": 343
+  "id": 323
  },
  {
   "action": {
@@ -3945,7 +3741,7 @@
    ],
    "urlFilter": "||phimyeuthichz.com/ad-data/"
   },
-  "id": 344
+  "id": 324
  },
  {
   "action": {
@@ -3961,7 +3757,7 @@
    ],
    "urlFilter": "||photo2.tinhte.vn/data/*.gif"
   },
-  "id": 345
+  "id": 325
  },
  {
   "action": {
@@ -3974,7 +3770,7 @@
    ],
    "urlFilter": "||photoshoponlinemienphi.com/wp-content/uploads/2022/05/banner-01.jpg"
   },
-  "id": 346
+  "id": 326
  },
  {
   "action": {
@@ -3987,7 +3783,7 @@
    ],
    "urlFilter": "||quaivatdienanh.com/*banner"
   },
-  "id": 347
+  "id": 327
  },
  {
   "action": {
@@ -3995,6 +3791,7 @@
   },
   "condition": {
    "initiatorDomains": [
+    "phimbocn.com",
     "phimmois.org",
     "sieudamtv.com",
     "vlxx.xxx",
@@ -4007,7 +3804,7 @@
     "image"
    ]
   },
-  "id": 348
+  "id": 328
  },
  {
   "action": {
@@ -4020,7 +3817,7 @@
    ],
    "urlFilter": "||r2.plvb.xyz^*.gif"
   },
-  "id": 349
+  "id": 329
  },
  {
   "action": {
@@ -4033,7 +3830,7 @@
    ],
    "urlFilter": "||realty.vn/filemanager/banner/"
   },
-  "id": 350
+  "id": 330
  },
  {
   "action": {
@@ -4046,7 +3843,7 @@
    ],
    "urlFilter": "||reatimes.vn/*banner"
   },
-  "id": 351
+  "id": 331
  },
  {
   "action": {
@@ -4059,7 +3856,7 @@
    ],
    "urlFilter": "||reatimes.vn/ads/"
   },
-  "id": 352
+  "id": 332
  },
  {
   "action": {
@@ -4072,7 +3869,7 @@
    ],
    "urlFilter": "||saytruyenmoi.com/storage/images/banner/"
   },
-  "id": 353
+  "id": 333
  },
  {
   "action": {
@@ -4085,7 +3882,7 @@
    ],
    "urlFilter": "||st.nettruyenus.com^*.gif"
   },
-  "id": 354
+  "id": 334
  },
  {
   "action": {
@@ -4098,7 +3895,7 @@
    ],
    "urlFilter": "||st.nhattruyenmin.com^*.gif"
   },
-  "id": 355
+  "id": 335
  },
  {
   "action": {
@@ -4111,7 +3908,7 @@
    ],
    "urlFilter": "||st.nhattruyenplus.com^*.gif"
   },
-  "id": 356
+  "id": 336
  },
  {
   "action": {
@@ -4124,7 +3921,7 @@
    ],
    "urlFilter": "||st.nhattruyenup.com^*.gif"
   },
-  "id": 357
+  "id": 337
  },
  {
   "action": {
@@ -4137,7 +3934,7 @@
    ],
    "urlFilter": "||static.cdnno.com/storage/lazada/"
   },
-  "id": 358
+  "id": 338
  },
  {
   "action": {
@@ -4150,7 +3947,7 @@
    ],
    "urlFilter": "||static.cdnstoremedia.com/cmsads/"
   },
-  "id": 359
+  "id": 339
  },
  {
   "action": {
@@ -4163,7 +3960,7 @@
    ],
    "urlFilter": "||static.sppdc.xyz/exstatic4/"
   },
-  "id": 360
+  "id": 340
  },
  {
   "action": {
@@ -4176,7 +3973,7 @@
    ],
    "urlFilter": "||suckhoelamdep.vn^*.gif"
   },
-  "id": 361
+  "id": 341
  },
  {
   "action": {
@@ -4189,7 +3986,7 @@
    ],
    "urlFilter": "||thanhtra.com.vn/data/images/*host"
   },
-  "id": 362
+  "id": 342
  },
  {
   "action": {
@@ -4202,7 +3999,7 @@
    ],
    "urlFilter": "||thoigian.com.vn/mfiles/n/06/"
   },
-  "id": 363
+  "id": 343
  },
  {
   "action": {
@@ -4215,7 +4012,7 @@
    ],
    "urlFilter": "||tiendientu.org/wp-content/uploads/2021/05/binance"
   },
-  "id": 364
+  "id": 344
  },
  {
   "action": {
@@ -4228,7 +4025,7 @@
    ],
    "urlFilter": "||tinsoikeo.vip^*.gif"
   },
-  "id": 365
+  "id": 345
  },
  {
   "action": {
@@ -4241,7 +4038,7 @@
    ],
    "urlFilter": "||top10review.vn^*.gif"
   },
-  "id": 366
+  "id": 346
  },
  {
   "action": {
@@ -4254,7 +4051,7 @@
    ],
    "urlFilter": "||topdoithuong.top^*.gif"
   },
-  "id": 367
+  "id": 347
  },
  {
   "action": {
@@ -4267,7 +4064,7 @@
    ],
    "urlFilter": "||truyentuan.com^*.gif"
   },
-  "id": 368
+  "id": 348
  },
  {
   "action": {
@@ -4280,7 +4077,7 @@
    ],
    "urlFilter": "||truyenvnhay.net^*banner"
   },
-  "id": 369
+  "id": 349
  },
  {
   "action": {
@@ -4293,7 +4090,7 @@
    ],
    "urlFilter": "||tvhay2.net^*gif"
   },
-  "id": 370
+  "id": 350
  },
  {
   "action": {
@@ -4301,7 +4098,6 @@
   },
   "condition": {
    "initiatorDomains": [
-    "ephimchill.com",
     "mephimgi.net",
     "mphim14.com",
     "zuiphim.com"
@@ -4312,7 +4108,7 @@
    ],
    "urlFilter": "||upload.cc^*.gif"
   },
-  "id": 371
+  "id": 351
  },
  {
   "action": {
@@ -4325,7 +4121,7 @@
    ],
    "urlFilter": "||vegacdn.com^*.gif"
   },
-  "id": 372
+  "id": 352
  },
  {
   "action": {
@@ -4338,7 +4134,7 @@
    ],
    "urlFilter": "||vesotantai.com/upload/photo/"
   },
-  "id": 373
+  "id": 353
  },
  {
   "action": {
@@ -4351,7 +4147,7 @@
    ],
    "urlFilter": "||vnadssb.com/ad-banner/"
   },
-  "id": 374
+  "id": 354
  },
  {
   "action": {
@@ -4364,7 +4160,7 @@
    ],
    "urlFilter": "||vuighe2.com/banner"
   },
-  "id": 375
+  "id": 355
  },
  {
   "action": {
@@ -4377,7 +4173,7 @@
    ],
    "urlFilter": "||xahoingaynay.com.vn/upload/"
   },
-  "id": 376
+  "id": 356
  },
  {
   "action": {
@@ -4390,7 +4186,7 @@
    ],
    "urlFilter": "||xemphim365vn.net/public/banner/"
   },
-  "id": 377
+  "id": 357
  },
  {
   "action": {
@@ -4403,7 +4199,7 @@
    ],
    "urlFilter": "||xmedia.antt.vn/upload/*.gif"
   },
-  "id": 378
+  "id": 358
  },
  {
   "action": {
@@ -4416,7 +4212,7 @@
    ],
    "urlFilter": "||zcine.net^*.gif"
   },
-  "id": 379
+  "id": 359
  },
  {
   "action": {
@@ -4434,7 +4230,7 @@
    ],
    "urlFilter": "/wp-content/uploads/*.gif"
   },
-  "id": 380
+  "id": 360
  },
  {
   "action": {
@@ -4447,7 +4243,7 @@
    ],
    "urlFilter": "||buomtv.tv/palivn/ad/"
   },
-  "id": 381
+  "id": 361
  },
  {
   "action": {
@@ -4460,7 +4256,7 @@
    ],
    "urlFilter": "||cliphotvn.pro^*.gif"
   },
-  "id": 382
+  "id": 362
  },
  {
   "action": {
@@ -4477,7 +4273,7 @@
    ],
    "urlFilter": "||discordapp."
   },
-  "id": 383
+  "id": 363
  },
  {
   "action": {
@@ -4493,7 +4289,7 @@
    ],
    "urlFilter": "||greenupload.com^*.gif"
   },
-  "id": 384
+  "id": 364
  },
  {
   "action": {
@@ -4506,7 +4302,7 @@
    ],
    "urlFilter": "||greenupload.com^*banner"
   },
-  "id": 385
+  "id": 365
  },
  {
   "action": {
@@ -4523,7 +4319,7 @@
     "image"
    ]
   },
-  "id": 386
+  "id": 366
  },
  {
   "action": {
@@ -4536,7 +4332,7 @@
    ],
    "urlFilter": "||img.congdongmassage.com/banner/"
   },
-  "id": 387
+  "id": 367
  },
  {
   "action": {
@@ -4549,7 +4345,7 @@
    ],
    "urlFilter": "||img.nguonc.com/public/images/film/bet/"
   },
-  "id": 388
+  "id": 368
  },
  {
   "action": {
@@ -4562,7 +4358,7 @@
    ],
    "urlFilter": "||javtopxx.com/public/images/banner/"
   },
-  "id": 389
+  "id": 369
  },
  {
   "action": {
@@ -4575,7 +4371,7 @@
    ],
    "urlFilter": "||sexviet1.vip^*.gif"
   },
-  "id": 390
+  "id": 370
  },
  {
   "action": {
@@ -4588,7 +4384,7 @@
    ],
    "urlFilter": "||sieukhung.name^*.gif"
   },
-  "id": 391
+  "id": 371
  },
  {
   "action": {
@@ -4601,7 +4397,7 @@
    ],
    "urlFilter": "||truyen18.xyz/media/abc/"
   },
-  "id": 392
+  "id": 372
  },
  {
   "action": {
@@ -4614,7 +4410,7 @@
    ],
    "urlFilter": "||truyen18.xyz/media/banner/"
   },
-  "id": 393
+  "id": 373
  },
  {
   "action": {
@@ -4627,7 +4423,7 @@
    ],
    "urlFilter": "||truyensextv.org/anh/"
   },
-  "id": 394
+  "id": 374
  },
  {
   "action": {
@@ -4640,7 +4436,7 @@
    ],
    "urlFilter": "||vn1.yeusex.cc^*.gif"
   },
-  "id": 395
+  "id": 375
  },
  {
   "action": {
@@ -4653,7 +4449,7 @@
    ],
    "urlFilter": "||web11.sexphim1.com^*.gif"
   },
-  "id": 396
+  "id": 376
  },
  {
   "action": {
@@ -4668,7 +4464,7 @@
     "image"
    ]
   },
-  "id": 397
+  "id": 377
  },
  {
   "action": {
@@ -4681,7 +4477,7 @@
    ],
    "urlFilter": ".com/cpc/"
   },
-  "id": 398
+  "id": 378
  },
  {
   "action": {
@@ -4694,7 +4490,7 @@
    ],
    "urlFilter": ".net/cpf/"
   },
-  "id": 399
+  "id": 379
  },
  {
   "action": {
@@ -4710,7 +4506,7 @@
    ],
    "urlFilter": "/assets/themes/js/ads"
   },
-  "id": 402
+  "id": 382
  },
  {
   "action": {
@@ -4729,7 +4525,7 @@
    ],
    "urlFilter": "/core/"
   },
-  "id": 403
+  "id": 383
  },
  {
   "action": {
@@ -4742,7 +4538,7 @@
    ],
    "urlFilter": "/disable-devtool.min.js"
   },
-  "id": 404
+  "id": 384
  },
  {
   "action": {
@@ -4758,7 +4554,7 @@
    ],
    "urlFilter": "/qc1.js"
   },
-  "id": 405
+  "id": 385
  },
  {
   "action": {
@@ -4774,7 +4570,7 @@
    ],
    "urlFilter": "/v/*/vast.js"
   },
-  "id": 407
+  "id": 387
  },
  {
   "action": {
@@ -4784,6 +4580,8 @@
    "initiatorDomains": [
     "animevietsub.boctem.com",
     "api.anime3s.com",
+    "cdn.lookapi.website",
+    "cdn.tinny2.tech",
     "ophimhay.com",
     "player.4shares.live",
     "tvzinghd.com"
@@ -4794,7 +4592,7 @@
    ],
    "urlFilter": "/vast.js"
   },
-  "id": 408
+  "id": 388
  },
  {
   "action": {
@@ -4807,7 +4605,7 @@
    ],
    "urlFilter": "||nghenhinvietnam.vn/*banner"
   },
-  "id": 409
+  "id": 389
  },
  {
   "action": {
@@ -4820,7 +4618,7 @@
    ],
    "urlFilter": "||nhipcaudautu.vn/*gafin"
   },
-  "id": 410
+  "id": 390
  },
  {
   "action": {
@@ -4837,7 +4635,7 @@
     "script"
    ]
   },
-  "id": 411
+  "id": 391
  },
  {
   "action": {
@@ -4853,7 +4651,7 @@
    ],
    "urlFilter": "||static.sppdc.xyz/js/jwplayer_v5/vast.js"
   },
-  "id": 412
+  "id": 392
  },
  {
   "action": {
@@ -4866,7 +4664,7 @@
    ],
    "urlFilter": "||tienphong.vn/web/jscripts/banner"
   },
-  "id": 413
+  "id": 393
  },
  {
   "action": {
@@ -4879,7 +4677,7 @@
    ],
    "urlFilter": "||wikidichz.net/static/js/adx/"
   },
-  "id": 414
+  "id": 394
  },
  {
   "action": {
@@ -4892,7 +4690,7 @@
    ],
    "urlFilter": "||wikisach.net/static/js/adx/"
   },
-  "id": 415
+  "id": 395
  },
  {
   "action": {
@@ -4905,20 +4703,7 @@
    ],
    "urlFilter": "||quatvn.vip/ads.js"
   },
-  "id": 416
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||vailonxx.com/wp-content/themes/vtube/js/ads.js"
-  },
-  "id": 417
+  "id": 396
  },
  {
   "action": {
@@ -4931,7 +4716,7 @@
    ],
    "urlFilter": "||vl3x.vip/ads/"
   },
-  "id": 418
+  "id": 397
  },
  {
   "action": {
@@ -4945,7 +4730,7 @@
     "script"
    ]
   },
-  "id": 419
+  "id": 398
  },
  {
   "action": {
@@ -4958,7 +4743,7 @@
    ],
    "urlFilter": ".vn/c3s-ad/"
   },
-  "id": 420
+  "id": 399
  },
  {
   "action": {
@@ -4971,7 +4756,7 @@
    ],
    "urlFilter": "/ads/*.xml"
   },
-  "id": 421
+  "id": 400
  },
  {
   "action": {
@@ -4984,7 +4769,7 @@
    ],
    "urlFilter": "||fuhuzz.com/content/rest?t=ads_config"
   },
-  "id": 422
+  "id": 401
  },
  {
   "action": {
@@ -4997,7 +4782,7 @@
    ],
    "urlFilter": "||scrap.ithongtin.com/api/aff"
   },
-  "id": 423
+  "id": 402
  },
  {
   "action": {
@@ -5013,23 +4798,7 @@
    ],
    "urlFilter": "/_bannerslot.aspx"
   },
-  "id": 424
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "dtruyen.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "||geo.dailymotion.com/player"
-  },
-  "id": 425
+  "id": 403
  },
  {
   "action": {
@@ -5046,7 +4815,7 @@
     "sub_frame"
    ]
   },
-  "id": 426
+  "id": 404
  },
  {
   "action": {
@@ -5059,7 +4828,7 @@
    ],
    "urlFilter": "||metruyencv.com/passback/"
   },
-  "id": 427
+  "id": 405
  },
  {
   "action": {
@@ -5072,7 +4841,7 @@
    ],
    "urlFilter": "||thethao247.vn/neo/"
   },
-  "id": 428
+  "id": 406
  },
  {
   "action": {
@@ -5088,7 +4857,7 @@
    ],
    "urlFilter": "||youtube.com/embed"
   },
-  "id": 429
+  "id": 407
  },
  {
   "action": {
@@ -5101,7 +4870,7 @@
    ],
    "urlFilter": "||zingnews.vn/interactive^"
   },
-  "id": 430
+  "id": 408
  },
  {
   "action": {
@@ -5114,7 +4883,7 @@
    ],
    "urlFilter": "||hentaivn.autos/qx/"
   },
-  "id": 431
+  "id": 409
  },
  {
   "action": {
@@ -5128,49 +4897,7 @@
     "sub_frame"
    ]
   },
-  "id": 432
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "gavang.link"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "media"
-   ],
-   "urlFilter": "||cdn1.gavang.tech/api/static/qc"
-  },
-  "id": 433
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "media"
-   ],
-   "urlFilter": "||hh3dhay.com/wp-content/uploads/*.mp4"
-  },
-  "id": 434
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "media"
-   ],
-   "urlFilter": "||hh3dhay.xyz/wp-content/uploads"
-  },
-  "id": 435
+  "id": 410
  },
  {
   "action": {
@@ -5183,7 +4910,7 @@
    ],
    "urlFilter": "||luotphimtv1.com/wp-content/uploads/"
   },
-  "id": 436
+  "id": 411
  },
  {
   "action": {
@@ -5194,7 +4921,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimdinhcao.com^*.xml"
   },
-  "id": 437
+  "id": 412
  },
  {
   "action": {
@@ -5205,7 +4932,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimdinhcao.net^*.xml"
   },
-  "id": 438
+  "id": 413
  },
  {
   "action": {
@@ -5216,7 +4943,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phimlongtieng.net^*.xml"
   },
-  "id": 439
+  "id": 414
  },
  {
   "action": {
@@ -5230,7 +4957,7 @@
    ],
    "urlFilter": "||hosocongty.vn/uploads/products/"
   },
-  "id": 440
+  "id": 415
  },
  {
   "action": {
@@ -5244,7 +4971,7 @@
    ],
    "urlFilter": "||tuyensinhso.vn/images/banners/*.gif"
   },
-  "id": 441
+  "id": 416
  },
  {
   "action": {
@@ -5258,7 +4985,7 @@
    ],
    "urlFilter": "||clbgamesvn.com/diendan/popup/popup.js"
   },
-  "id": 442
+  "id": 417
  },
  {
   "action": {
@@ -5273,7 +5000,7 @@
     "sub_frame"
    ]
   },
-  "id": 443
+  "id": 418
  },
  {
   "action": {
@@ -5284,7 +5011,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||maytinh360.vn/images/"
   },
-  "id": 444
+  "id": 419
  },
  {
   "action": {
@@ -5295,7 +5022,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nhadatvang.vn/images/"
   },
-  "id": 445
+  "id": 420
  },
  {
   "action": {
@@ -5306,7 +5033,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||purgrobi.com/ub.pi"
   },
-  "id": 446
+  "id": 421
  },
  {
   "action": {
@@ -5317,7 +5044,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||qtctech.vn/images/"
   },
-  "id": 447
+  "id": 422
  },
  {
   "action": {
@@ -5328,7 +5055,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||quangcaosanpham.com/images/"
   },
-  "id": 448
+  "id": 423
  },
  {
   "action": {
@@ -5339,7 +5066,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||raovatdidong.vn/images/"
   },
-  "id": 449
+  "id": 424
  },
  {
   "action": {
@@ -5353,7 +5080,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||storage.fshare.vn/images/"
   },
-  "id": 450
+  "id": 425
  },
  {
   "action": {
@@ -5364,7 +5091,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||timsanpham.com/images/"
   },
-  "id": 451
+  "id": 426
  },
  {
   "action": {
@@ -5375,7 +5102,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||uniad."
   },
-  "id": 452
+  "id": 427
  },
  {
   "action": {
@@ -5399,7 +5126,7 @@
     "realclick.vn"
    ]
   },
-  "id": 453
+  "id": 428
  },
  {
   "action": {
@@ -5413,7 +5140,7 @@
    ],
    "urlFilter": "||tuyensinh247.com/"
   },
-  "id": 454
+  "id": 429
  },
  {
   "action": {
@@ -5428,7 +5155,7 @@
     "script"
    ]
   },
-  "id": 455
+  "id": 430
  },
  {
   "action": {
@@ -5443,7 +5170,7 @@
     "script"
    ]
   },
-  "id": 456
+  "id": 431
  },
  {
   "action": {
@@ -5461,7 +5188,7 @@
     "media"
    ]
   },
-  "id": 457
+  "id": 432
  },
  {
   "action": {
@@ -5471,7 +5198,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/favicon.ico"
   },
-  "id": 458
+  "id": 433
  },
  {
   "action": {
@@ -5481,7 +5208,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||anime47.com/ads/v/8.26.9/jw"
   },
-  "id": 459
+  "id": 434
  },
  {
   "action": {
@@ -5491,7 +5218,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||anime47.com/ads/v/8.26.9/translations"
   },
-  "id": 460
+  "id": 435
  },
  {
   "action": {
@@ -5501,7 +5228,17 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||blogtruyen.vn/file/bullseyegreen.gif"
   },
-  "id": 461
+  "id": 436
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||cmangaaz.com/assets/img/pr/cmanga.png"
+  },
+  "id": 437
  },
  {
   "action": {
@@ -5514,7 +5251,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||contextual.media.net/dmedianet.js"
   },
-  "id": 462
+  "id": 438
  },
  {
   "action": {
@@ -5529,7 +5266,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fundingchoicesmessages.google.com/img/px.gif"
   },
-  "id": 463
+  "id": 439
  },
  {
   "action": {
@@ -5543,7 +5280,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googleads.g.doubleclick.net/pagead/"
   },
-  "id": 464
+  "id": 440
  },
  {
   "action": {
@@ -5556,7 +5293,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googletagservices.com/tag/js/gpt.js"
   },
-  "id": 465
+  "id": 441
  },
  {
   "action": {
@@ -5569,7 +5306,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||i.imgur.com/msrdtut.png"
   },
-  "id": 466
+  "id": 442
  },
  {
   "action": {
@@ -5582,7 +5319,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||propellerads.com/wp-content/themes/propeller/assets/js/app.min.js"
   },
-  "id": 467
+  "id": 443
  },
  {
   "action": {
@@ -5592,34 +5329,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stackjava.com/wp-content/uploads/*logo-250x250.png"
   },
-  "id": 468
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "cmangaaz.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||static.ads-twitter.com/uwt.js"
-  },
-  "id": 469
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "anonyviet.com",
-    "hidden.vn"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||static.doubleclick.net/instream/ad_status.js"
-  },
-  "id": 470
+  "id": 444
  },
  {
   "action": {
@@ -5629,7 +5339,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||thanhtra.com.vn/data/images/0/2022/02/18/host/logott.jpg"
   },
-  "id": 471
+  "id": 445
  },
  {
   "action": {
@@ -5642,7 +5352,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tpc.googlesyndication.com/sodar/sodar2.js"
   },
-  "id": 472
+  "id": 446
  },
  {
   "action": {
@@ -5656,7 +5366,7 @@
     "www3.doubleclick.net"
    ]
   },
-  "id": 473
+  "id": 447
  },
  {
   "action": {
@@ -5666,7 +5376,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yhocdata.com/ext/d1/assets/js/ads-prebid.js"
   },
-  "id": 474
+  "id": 448
  },
  {
   "action": {
@@ -5676,7 +5386,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yhocdata.com/ext/d1/public/js/prebid-ads.js"
   },
-  "id": 475
+  "id": 449
  },
  {
   "action": {
@@ -5690,7 +5400,7 @@
     "pagead2.googlesyndication.com"
    ]
   },
-  "id": 476
+  "id": 450
  },
  {
   "action": {
@@ -5706,7 +5416,7 @@
    ],
    "urlFilter": "||4.bp.blogspot.com/-faf4f4begfs/x6bgitbh8ri/aaaaaaaadr4/ti07qdfvywk4cpdnaj8mn5q_yvzug2cjgck4bgayycw/s1600/gvnvh18.png"
   },
-  "id": 477
+  "id": 451
  },
  {
   "action": {
@@ -5719,7 +5429,7 @@
    ],
    "urlFilter": "||media.nghean24h.vn/thumb"
   },
-  "id": 478
+  "id": 452
  },
  {
   "action": {
@@ -5736,14 +5446,11 @@
     "covemarkets.com",
     "cungthi.online",
     "dafontvn.com",
-    "designervn.net",
     "diendancauduong.com",
-    "filehk.com",
     "filess.us",
     "giavang.net",
     "gocmod.com",
     "gvnvh18.com",
-    "hidden.vn",
     "ichi.pro",
     "ios.codevn.net",
     "iot.chinhphucvn.com",
@@ -5759,7 +5466,7 @@
     "linkvip.io",
     "mifirm.net",
     "minhpc.com",
-    "motchillss.net",
+    "motchillsss.net",
     "ngohoanganhtuan.com",
     "ngohoanganhtuan.net",
     "nguonhd.net",
@@ -5806,7 +5513,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 479
+  "id": 453
  },
  {
   "action": {
@@ -5819,7 +5526,7 @@
    ],
    "urlFilter": "||viettelstore.vn/images/advertises/"
   },
-  "id": 480
+  "id": 454
  },
  {
   "action": {
@@ -5835,7 +5542,7 @@
    ],
    "urlFilter": "||cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/6.0.0/videojs-contrib-ads.js"
   },
-  "id": 481
+  "id": 455
  },
  {
   "action": {
@@ -5859,7 +5566,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 482
+  "id": 456
  },
  {
   "action": {
@@ -5875,7 +5582,7 @@
    ],
    "urlFilter": "||media1.admicro.vn/cms/"
   },
-  "id": 483
+  "id": 457
  },
  {
   "action": {
@@ -5894,7 +5601,7 @@
    ],
    "urlFilter": "||player.sohatv.vn/resource/"
   },
-  "id": 484
+  "id": 458
  },
  {
   "action": {
@@ -5902,7 +5609,7 @@
   },
   "condition": {
    "initiatorDomains": [
-    "motchillss.net"
+    "motchillsss.net"
    ],
    "isUrlFilterCaseSensitive": false,
    "resourceTypes": [
@@ -5910,7 +5617,7 @@
    ],
    "urlFilter": "||ssl.p.jwpcdn.com/player/plugins/vast/v/8.9.4/vast.js"
   },
-  "id": 485
+  "id": 459
  },
  {
   "action": {
@@ -5926,7 +5633,23 @@
    ],
    "urlFilter": "||static.amcdn.vn/tka/cdn.js"
   },
-  "id": 486
+  "id": 460
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "sctvonline.vn"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "xmlhttprequest"
+   ],
+   "urlFilter": "||apicdn.sctvonline.vn/tenants/sctv/"
+  },
+  "id": 461
  },
  {
   "action": {
@@ -5939,7 +5662,7 @@
    ],
    "urlFilter": "||voz.vn/u/adx."
   },
-  "id": 487
+  "id": 462
  },
  {
   "action": {
@@ -5952,18 +5675,7 @@
    ],
    "urlFilter": "||quangcao.tuoitre.vn/customer/banner/2020/v/vietlot/mb"
   },
-  "id": 488
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "domainType": "firstParty",
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||forum.gocmod.com/js/"
-  },
-  "id": 489
+  "id": 463
  },
  {
   "action": {
@@ -5974,7 +5686,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||luyenthithukhoa.vn/vietmxdetect/"
   },
-  "id": 490
+  "id": 464
  },
  {
   "action": {
@@ -5985,7 +5697,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||xahoingaynay.com.vn/upload/20989/20200817/asset_2_8x_9596af5d4e.png"
   },
-  "id": 491
+  "id": 465
  },
  {
   "action": {
@@ -6002,7 +5714,7 @@
    ],
    "urlFilter": "/images/ad-300x250.jpg"
   },
-  "id": 492
+  "id": 466
  },
  {
   "action": {
@@ -6016,34 +5728,6 @@
    ],
    "urlFilter": "/wp-content/plugins/advanced-ads/admin/assets/js/advertisement.js"
   },
-  "id": 493
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "domainType": "firstParty",
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||diendan.yopovn.com/js/"
-  },
-  "id": 494
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "domainType": "firstParty",
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||apicdn.sctvonline.vn/tenants/sctv/"
-  },
-  "id": 495
+  "id": 467
  }
 ]

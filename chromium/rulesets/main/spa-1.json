@@ -7443,7 +7443,8 @@
     "animeyt.es",
     "anroll.net",
     "leercapitulo.com",
-    "monoschinos2.com"
+    "monoschinos2.com",
+    "pelisflix2.green"
    ],
    "resourceTypes": [
     "script"
@@ -9107,11 +9108,8 @@
    "type": "allow"
   },
   "condition": {
-   "initiatorDomains": [
-    "beachcam.meo.pt"
-   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cmp.inmobi.com/choice/*/choice.js"
+   "urlFilter": "||lms.ev.org.br/mpls/webads/"
   },
   "id": 827
  },
@@ -9121,10 +9119,11 @@
   },
   "condition": {
    "initiatorDomains": [
-    "beachcam.meo.pt"
+    "beachcam.meo.pt",
+    "tviplayer.iol.pt"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cmp.inmobi.com/tcfv2/*.js"
+   "urlFilter": "||cmp.inmobi.com/choice/*/choice.js"
   },
   "id": 828
  },
@@ -9134,10 +9133,11 @@
   },
   "condition": {
    "initiatorDomains": [
-    "beachcam.meo.pt"
+    "beachcam.meo.pt",
+    "tviplayer.iol.pt"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cmp.inmobi.com/*/vendor-list-*.json"
+   "urlFilter": "||cmp.inmobi.com/tcfv2/*.js"
   },
   "id": 829
  },
@@ -9146,8 +9146,11 @@
    "type": "allow"
   },
   "condition": {
+   "initiatorDomains": [
+    "tviplayer.iol.pt"
+   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||geometriaanalitica.info/tardisrocinante/screx.js"
+   "urlFilter": "||cmp.inmobi.com/*/cmp-list.json"
   },
   "id": 830
  },
@@ -9156,8 +9159,12 @@
    "type": "allow"
   },
   "condition": {
+   "initiatorDomains": [
+    "beachcam.meo.pt",
+    "tviplayer.iol.pt"
+   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||geometriaanalitica.info/tardisrocinante/lazy_load.js"
+   "urlFilter": "||cmp.inmobi.com/*/vendor-list-*.json"
   },
   "id": 831
  },
@@ -9167,9 +9174,29 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||geometriaanalitica.info/tardisrocinante/css_onload.js"
+   "urlFilter": "||geometriaanalitica.info/tardisrocinante/screx.js"
   },
   "id": 832
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||geometriaanalitica.info/tardisrocinante/lazy_load.js"
+  },
+  "id": 833
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||geometriaanalitica.info/tardisrocinante/css_onload.js"
+  },
+  "id": 834
  },
  {
   "action": {
@@ -9187,7 +9214,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||securepubads.g.doubleclick.net/tag/js/gpt.js"
   },
-  "id": 833
+  "id": 835
  },
  {
   "action": {
@@ -9200,7 +9227,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js"
   },
-  "id": 834
+  "id": 836
  },
  {
   "action": {
@@ -9213,7 +9240,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||permutive.app/*web.js"
   },
-  "id": 835
+  "id": 837
  },
  {
   "action": {
@@ -9223,7 +9250,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nebrija.com/images/cabeceras/titulaciones/fast/*-publicidad-*.webp"
   },
-  "id": 836
+  "id": 838
  },
  {
   "action": {
@@ -9233,7 +9260,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||movistarplus.es/js/yomvi/player/publi.js"
   },
-  "id": 837
+  "id": 839
  },
  {
   "action": {
@@ -9243,7 +9270,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jangboja.godohosting.com/shop/external/fix/img_banner/"
   },
-  "id": 838
+  "id": 840
  },
  {
   "action": {
@@ -9258,7 +9285,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3_dai.js"
   },
-  "id": 839
+  "id": 841
  },
  {
   "action": {
@@ -9271,7 +9298,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pubads.g.doubleclick.net/ondemand/hls/content/*/vid/*/streams"
   },
-  "id": 840
+  "id": 842
  },
  {
   "action": {
@@ -9284,7 +9311,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dice-live-us.akamaized.net/ads-*/*/hls/live/"
   },
-  "id": 841
+  "id": 843
  },
  {
   "action": {
@@ -9297,7 +9324,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dice-live-us.akamaized.net/ads-*/*/hls/*/event/*/master.m3u8"
   },
-  "id": 842
+  "id": 844
  },
  {
   "action": {
@@ -9310,7 +9337,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dve-streams.akamaized.net/ads-*/*/dio/"
   },
-  "id": 843
+  "id": 845
  },
  {
   "action": {
@@ -9323,7 +9350,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dve-streams.akamaized.net/ads-*/*/audio/"
   },
-  "id": 844
+  "id": 846
  },
  {
   "action": {
@@ -9336,7 +9363,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dve-streams.akamaized.net/ads-*/*/video/"
   },
-  "id": 845
+  "id": 847
  },
  {
   "action": {
@@ -9349,7 +9376,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dve-streams.akamaized.net/ads-*/*/ondemand/hls/content/*/master.m3u8"
   },
-  "id": 846
+  "id": 848
  },
  {
   "action": {
@@ -9362,7 +9389,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||files.windelivery-services.com/banners/"
   },
-  "id": 847
+  "id": 849
  },
  {
   "action": {
@@ -9375,23 +9402,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||portal-algartelecom-files.s3.amazonaws.com/banners/imgs/"
   },
-  "id": 848
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "batepapo.uol.com.br",
-    "economia.uol.com.br",
-    "hugogloss.uol.com.br",
-    "noticias.uol.com.br"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||tm.jsuol.com.br/uoltm.js"
-  },
-  "id": 849
+  "id": 850
  },
  {
   "action": {
@@ -9404,7 +9415,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adhandler.kissfmradio.cires21.com/get_link?url="
   },
-  "id": 850
+  "id": 851
  },
  {
   "action": {
@@ -9417,7 +9428,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sunmedia.tv/integrations/*.js"
   },
-  "id": 851
+  "id": 852
  },
  {
   "action": {
@@ -9429,25 +9440,6 @@
    ],
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.sunmedia.tv/adblockdetection/adblockdetector.min.js*iframevideo"
-  },
-  "id": 852
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "downdetector.com.br",
-    "ucicinemas.pt",
-    "videos.cuantarazon.com",
-    "videos.humorenserie.com",
-    "videos.memedeportes.com",
-    "videos.vistoenlasredes.com",
-    "videos.vrutal.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||googletagservices.com/tag/js/gpt.js"
   },
   "id": 853
  },
@@ -9466,7 +9458,7 @@
     "videos.vrutal.com"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js"
+   "urlFilter": "||googletagservices.com/tag/js/gpt.js"
   },
   "id": 854
  },
@@ -9476,6 +9468,8 @@
   },
   "condition": {
    "initiatorDomains": [
+    "downdetector.com.br",
+    "ucicinemas.pt",
     "videos.cuantarazon.com",
     "videos.humorenserie.com",
     "videos.memedeportes.com",
@@ -9483,7 +9477,7 @@
     "videos.vrutal.com"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1"
+   "urlFilter": "||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js"
   },
   "id": 855
  },
@@ -9500,9 +9494,26 @@
     "videos.vrutal.com"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||ads.ampliffy.com/gampad/"
+   "urlFilter": "||securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1"
   },
   "id": 856
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "videos.cuantarazon.com",
+    "videos.humorenserie.com",
+    "videos.memedeportes.com",
+    "videos.vistoenlasredes.com",
+    "videos.vrutal.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||ads.ampliffy.com/gampad/"
+  },
+  "id": 857
  },
  {
   "action": {
@@ -9512,7 +9523,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fadadosexo.com/wp-content/uploads/useful_banner_manager_banners/*.jpg"
   },
-  "id": 857
+  "id": 858
  },
  {
   "action": {
@@ -9525,7 +9536,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googletagmanager.com/gtm.js"
   },
-  "id": 858
+  "id": 859
  },
  {
   "action": {
@@ -9535,7 +9546,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||laprovincia.es/elementosweb/*/multimedia/player/videojs-contrib-ads/videojs.ads.min.js"
   },
-  "id": 859
+  "id": 860
  },
  {
   "action": {
@@ -9548,7 +9559,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sascdn.com/diff/video/current/libs/js/controller.js"
   },
-  "id": 860
+  "id": 861
  },
  {
   "action": {
@@ -9561,7 +9572,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||poki.com/assets/client.*-exp-prebid.*.js"
   },
-  "id": 861
+  "id": 862
  },
  {
   "action": {
@@ -9571,7 +9582,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||movilzona.es/app/themes/mykonos-child/assets/js/stickyads.min.js"
   },
-  "id": 862
+  "id": 863
  },
  {
   "action": {
@@ -9584,7 +9595,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ver.movistarplus.es/js/yomvi/scripts/publi.js"
   },
-  "id": 863
+  "id": 864
  },
  {
   "action": {
@@ -9598,7 +9609,7 @@
     "adservice.google.com.ua"
    ]
   },
-  "id": 864
+  "id": 865
  },
  {
   "action": {
@@ -9611,7 +9622,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jwpcdn.com/player/plugins/vast/*/vast.js"
   },
-  "id": 865
+  "id": 866
  },
  {
   "action": {
@@ -9625,7 +9636,7 @@
     "i.imgur.com"
    ]
   },
-  "id": 866
+  "id": 867
  },
  {
   "action": {
@@ -9638,7 +9649,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||glbimg.com/*/300x250/smart/"
   },
-  "id": 867
+  "id": 868
  },
  {
   "action": {
@@ -9648,7 +9659,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||hentaihd.xyz/repro/ads/ads.php"
   },
-  "id": 868
+  "id": 869
  },
  {
   "action": {
@@ -9661,7 +9672,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/outstream.js"
   },
-  "id": 869
+  "id": 870
  },
  {
   "action": {
@@ -9671,7 +9682,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||disqus.com/count-data.js^"
   },
-  "id": 870
+  "id": 871
  },
  {
   "action": {
@@ -9681,7 +9692,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||disqus.com/embed/comments^"
   },
-  "id": 871
+  "id": 872
  },
  {
   "action": {
@@ -9691,7 +9702,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adslzone.net/20*/*/*/*/"
   },
-  "id": 872
+  "id": 873
  },
  {
   "action": {
@@ -9700,19 +9711,6 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||images.vertele.eldiario.es/*/noticias/"
-  },
-  "id": 873
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "atresplayer.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||videoplaza.tv/proxy/distributor/*atresplayer"
   },
   "id": 874
  },
@@ -9725,7 +9723,7 @@
     "atresplayer.com"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||statics.atresmedia.com/atresplayer/assets/web/videoplaza/advertisement.js"
+   "urlFilter": "||videoplaza.tv/proxy/distributor/*atresplayer"
   },
   "id": 875
  },
@@ -9734,8 +9732,11 @@
    "type": "allow"
   },
   "condition": {
+   "initiatorDomains": [
+    "atresplayer.com"
+   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||hispasonic.com/index.php?controller="
+   "urlFilter": "||statics.atresmedia.com/atresplayer/assets/web/videoplaza/advertisement.js"
   },
   "id": 876
  },
@@ -9745,7 +9746,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||blogdoiphone.com/20"
+   "urlFilter": "||hispasonic.com/index.php?controller="
   },
   "id": 877
  },
@@ -9755,7 +9756,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||animeflv.net/efire.php^"
+   "urlFilter": "||blogdoiphone.com/20"
   },
   "id": 878
  },
@@ -9765,7 +9766,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||static.vodgc.net/player^"
+   "urlFilter": "||animeflv.net/efire.php^"
   },
   "id": 879
  },
@@ -9775,7 +9776,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||content.fruithosted.net/externsub^"
+   "urlFilter": "||static.vodgc.net/player^"
   },
   "id": 880
  },
@@ -9785,7 +9786,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||fayerwayer.com/*/*/*publicidad"
+   "urlFilter": "||content.fruithosted.net/externsub^"
   },
   "id": 881
  },
@@ -9794,11 +9795,8 @@
    "type": "allow"
   },
   "condition": {
-   "initiatorDomains": [
-    "simple.ripley.com.pe"
-   ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||partner.googleadservices.com/gpt/pubads_impl_"
+   "urlFilter": "||fayerwayer.com/*/*/*publicidad"
   },
   "id": 882
  },
@@ -9811,7 +9809,7 @@
     "simple.ripley.com.pe"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||securepubads.g.doubleclick.net/gampad/ads"
+   "urlFilter": "||partner.googleadservices.com/gpt/pubads_impl_"
   },
   "id": 883
  },
@@ -9824,9 +9822,22 @@
     "simple.ripley.com.pe"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||tpc.googlesyndication.com/simgad/"
+   "urlFilter": "||securepubads.g.doubleclick.net/gampad/ads"
   },
   "id": 884
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "simple.ripley.com.pe"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||tpc.googlesyndication.com/simgad/"
+  },
+  "id": 885
  },
  {
   "action": {
@@ -9840,7 +9851,7 @@
     "b.scorecardresearch.com"
    ]
   },
-  "id": 885
+  "id": 886
  },
  {
   "action": {
@@ -9853,7 +9864,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/publicidad."
   },
-  "id": 886
+  "id": 887
  },
  {
   "action": {
@@ -9863,7 +9874,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ads.e-planning.net^*/preroll?"
   },
-  "id": 887
+  "id": 888
  },
  {
   "action": {
@@ -9873,7 +9884,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ads.globo.com/realmedia/ads/adstream_jx.ads/g1/*videos"
   },
-  "id": 888
+  "id": 889
  },
  {
   "action": {
@@ -9883,7 +9894,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ads.globo.com/realmedia/ads/adstream_mjx.ads/g1/home/"
   },
-  "id": 889
+  "id": 890
  },
  {
   "action": {
@@ -9893,7 +9904,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ads.globo.com/realmedia/ads/adstream_nx.ads/g1/home/"
   },
-  "id": 890
+  "id": 891
  },
  {
   "action": {
@@ -9903,7 +9914,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ads.smowtion.com/ad.js"
   },
-  "id": 891
+  "id": 892
  },
  {
   "action": {
@@ -9912,19 +9923,6 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ads.telecinco.es^*/pm_test_video/crossdomain.xml"
-  },
-  "id": 892
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "cooperativa.cl"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||adserver.cl/crossdomain.xml"
   },
   "id": 893
  },
@@ -9937,9 +9935,22 @@
     "cooperativa.cl"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||adserver.cl/videos.xml?"
+   "urlFilter": "||adserver.cl/crossdomain.xml"
   },
   "id": 894
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "cooperativa.cl"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||adserver.cl/videos.xml?"
+  },
+  "id": 895
  },
  {
   "action": {
@@ -9952,7 +9963,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adserver.ig.com.br/crossdomain.xml"
   },
-  "id": 895
+  "id": 896
  },
  {
   "action": {
@@ -9965,7 +9976,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adswizz.com/www/components/"
   },
-  "id": 896
+  "id": 897
  },
  {
   "action": {
@@ -9978,7 +9989,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||adswizz.com/www/delivery/swfindex.php?"
   },
-  "id": 897
+  "id": 898
  },
  {
   "action": {
@@ -9991,7 +10002,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||antena3.com/adserver/flv2/"
   },
-  "id": 898
+  "id": 899
  },
  {
   "action": {
@@ -10001,7 +10012,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||autoscout24.es^*/adbanner.css"
   },
-  "id": 899
+  "id": 900
  },
  {
   "action": {
@@ -10014,7 +10025,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||avisooportunoexpress.mx/ajax_core.php*&adtype?"
   },
-  "id": 900
+  "id": 901
  },
  {
   "action": {
@@ -10024,7 +10035,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.smartclip.net/easyroll/player.swf"
   },
-  "id": 901
+  "id": 902
  },
  {
   "action": {
@@ -10034,7 +10045,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||diariosigloxxi.com/banners/logo_"
   },
-  "id": 902
+  "id": 903
  },
  {
   "action": {
@@ -10047,7 +10058,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||e-planning.net/esb/*.swf?clicktag"
   },
-  "id": 903
+  "id": 904
  },
  {
   "action": {
@@ -10060,7 +10071,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||f.i.uol.com.br/folha/publicidade/images/"
   },
-  "id": 904
+  "id": 905
  },
  {
   "action": {
@@ -10070,7 +10081,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||forolockerz.com/advertisement.js"
   },
-  "id": 905
+  "id": 906
  },
  {
   "action": {
@@ -10080,7 +10091,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||izigo.pt/*/adsearch?"
   },
-  "id": 906
+  "id": 907
  },
  {
   "action": {
@@ -10090,7 +10101,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||izigo.pt/adpictures/"
   },
-  "id": 907
+  "id": 908
  },
  {
   "action": {
@@ -10100,7 +10111,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lanacion.com.ar^*/publicidad/"
   },
-  "id": 908
+  "id": 909
  },
  {
   "action": {
@@ -10110,7 +10121,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||larazon.es/videos/publicidad_"
   },
-  "id": 909
+  "id": 910
  },
  {
   "action": {
@@ -10123,7 +10134,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||prisacom.com/realmedia/ads/*/eplayer/"
   },
-  "id": 910
+  "id": 911
  },
  {
   "action": {
@@ -10133,7 +10144,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||punch-fansub.com.br/banners/"
   },
-  "id": 911
+  "id": 912
  },
  {
   "action": {
@@ -10143,7 +10154,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||t26.net/ads/yahooads.css"
   },
-  "id": 912
+  "id": 913
  },
  {
   "action": {
@@ -10153,7 +10164,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tvn.cl/include/ads/zona.js"
   },
-  "id": 913
+  "id": 914
  },
  {
   "action": {
@@ -10175,7 +10186,7 @@
     "stylesheet"
    ]
   },
-  "id": 914
+  "id": 915
  },
  {
   "action": {
@@ -10187,27 +10198,6 @@
     "image"
    ],
    "urlFilter": "||diariodenavarra.es/images/logo_dn_mini.png?v=*&ad"
-  },
-  "id": 915
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "videos.cuantarazon.com",
-    "videos.humorenserie.com",
-    "videos.memedeportes.com",
-    "videos.vistoenlasredes.com",
-    "videos.vrutal.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image",
-    "media"
-   ],
-   "urlFilter": "||tpc.googlesyndication.com/pageadimg/imgad"
   },
   "id": 916
  },
@@ -10228,9 +10218,30 @@
     "image",
     "media"
    ],
-   "urlFilter": "||tpc.googlesyndication.com/pimgad/"
+   "urlFilter": "||tpc.googlesyndication.com/pageadimg/imgad"
   },
   "id": 917
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "videos.cuantarazon.com",
+    "videos.humorenserie.com",
+    "videos.memedeportes.com",
+    "videos.vistoenlasredes.com",
+    "videos.vrutal.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "image",
+    "media"
+   ],
+   "urlFilter": "||tpc.googlesyndication.com/pimgad/"
+  },
+  "id": 918
  },
  {
   "action": {
@@ -10243,7 +10254,7 @@
    ],
    "urlFilter": "||geekland.eu/wp-content/uploads/*-publicidad-"
   },
-  "id": 918
+  "id": 919
  },
  {
   "action": {
@@ -10260,7 +10271,7 @@
     "object"
    ]
   },
-  "id": 919
+  "id": 920
  },
  {
   "action": {
@@ -10273,7 +10284,7 @@
    ],
    "urlFilter": "||extraconfidencial.com/js/"
   },
-  "id": 920
+  "id": 921
  },
  {
   "action": {
@@ -10290,7 +10301,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
   },
-  "id": 921
+  "id": 922
  },
  {
   "action": {
@@ -10305,28 +10316,6 @@
     "script"
    ],
    "urlFilter": "/adsbygoogle.js"
-  },
-  "id": 922
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "4hentais.com",
-    "animeshd.org",
-    "animeshouse.net",
-    "ganessa-ah.ga",
-    "lockharte-ah.gq",
-    "yayanimes.net"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "other",
-    "script"
-   ],
-   "urlFilter": "|http*://*.sh/*."
   },
   "id": 923
  },
@@ -10348,7 +10337,7 @@
     "other",
     "script"
    ],
-   "urlFilter": "|http*://*.casa/*."
+   "urlFilter": "|http*://*.sh/*."
   },
   "id": 924
  },
@@ -10370,7 +10359,7 @@
     "other",
     "script"
    ],
-   "urlFilter": "|http*://*.ml/*."
+   "urlFilter": "|http*://*.casa/*."
   },
   "id": 925
  },
@@ -10392,7 +10381,7 @@
     "other",
     "script"
    ],
-   "urlFilter": "|http*://*.gq/*."
+   "urlFilter": "|http*://*.ml/*."
   },
   "id": 926
  },
@@ -10414,7 +10403,7 @@
     "other",
     "script"
    ],
-   "urlFilter": "|http*://*.ga/*."
+   "urlFilter": "|http*://*.gq/*."
   },
   "id": 927
  },
@@ -10436,7 +10425,7 @@
     "other",
     "script"
    ],
-   "urlFilter": "|http*://*.cf/*."
+   "urlFilter": "|http*://*.ga/*."
   },
   "id": 928
  },
@@ -10458,9 +10447,31 @@
     "other",
     "script"
    ],
-   "urlFilter": "|http*://*.tk/*."
+   "urlFilter": "|http*://*.cf/*."
   },
   "id": 929
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "4hentais.com",
+    "animeshd.org",
+    "animeshouse.net",
+    "ganessa-ah.ga",
+    "lockharte-ah.gq",
+    "yayanimes.net"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "other",
+    "script"
+   ],
+   "urlFilter": "|http*://*.tk/*."
+  },
+  "id": 930
  },
  {
   "action": {
@@ -10477,7 +10488,7 @@
    ],
    "urlFilter": "||tatsumaki.cf/"
   },
-  "id": 930
+  "id": 931
  },
  {
   "action": {
@@ -10493,7 +10504,7 @@
    ],
    "urlFilter": "||cdn.lib.getjad.io/library/"
   },
-  "id": 931
+  "id": 932
  },
  {
   "action": {
@@ -10509,7 +10520,7 @@
    ],
    "urlFilter": "||cdn.lib.getjad.io/prebid/"
   },
-  "id": 932
+  "id": 933
  },
  {
   "action": {
@@ -10529,7 +10540,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3_debug.js"
   },
-  "id": 933
+  "id": 934
  },
  {
   "action": {
@@ -10542,7 +10553,7 @@
    ],
    "urlFilter": "||freelibros.com/wp-content/plugins/no-adblock/"
   },
-  "id": 934
+  "id": 935
  },
  {
   "action": {
@@ -10555,7 +10566,7 @@
    ],
    "urlFilter": "||netcine.to/data/utep_ad.js"
   },
-  "id": 935
+  "id": 936
  },
  {
   "action": {
@@ -10571,7 +10582,7 @@
    ],
    "urlFilter": "||googleads.g.doubleclick.net/pagead/id"
   },
-  "id": 936
+  "id": 937
  },
  {
   "action": {
@@ -10587,7 +10598,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js|"
   },
-  "id": 937
+  "id": 938
  },
  {
   "action": {
@@ -10603,7 +10614,7 @@
    ],
    "urlFilter": "||ads-twitter.com/uwt.js"
   },
-  "id": 938
+  "id": 939
  },
  {
   "action": {
@@ -10619,7 +10630,7 @@
    ],
    "urlFilter": "||googleadservices.com/pagead/conversion_async.js"
   },
-  "id": 939
+  "id": 940
  },
  {
   "action": {
@@ -10635,7 +10646,7 @@
    ],
    "urlFilter": "||mitele.es/vendor/*ad"
   },
-  "id": 940
+  "id": 941
  },
  {
   "action": {
@@ -10651,7 +10662,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/gampad/ads"
   },
-  "id": 941
+  "id": 942
  },
  {
   "action": {
@@ -10669,7 +10680,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 942
+  "id": 943
  },
  {
   "action": {
@@ -10689,7 +10700,7 @@
    ],
    "urlFilter": ".m3u8"
   },
-  "id": 943
+  "id": 944
  },
  {
   "action": {
@@ -10702,7 +10713,7 @@
    ],
    "urlFilter": "||zpag.es/ads/"
   },
-  "id": 944
+  "id": 945
  },
  {
   "action": {
@@ -10718,7 +10729,7 @@
    ],
    "urlFilter": "||bradmax.com/client/embed-player/"
   },
-  "id": 945
+  "id": 946
  },
  {
   "action": {
@@ -10738,7 +10749,7 @@
    ],
    "urlFilter": "||gvt1.com/videoplayback/"
   },
-  "id": 946
+  "id": 947
  },
  {
   "action": {
@@ -10751,7 +10762,7 @@
    ],
    "urlFilter": "||peanut-butter-fruit.fruithosted.net/dl^"
   },
-  "id": 947
+  "id": 948
  },
  {
   "action": {
@@ -10765,7 +10776,7 @@
     "main_frame"
    ]
   },
-  "id": 948
+  "id": 949
  },
  {
   "action": {
@@ -10776,7 +10787,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||logrosxbox.com/ad/banner/*.ad.json"
   },
-  "id": 949
+  "id": 950
  },
  {
   "action": {
@@ -10801,7 +10812,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/servicios/ads/dfp.js"
   },
-  "id": 950
+  "id": 951
  },
  {
   "action": {
@@ -10812,20 +10823,6 @@
    "requestDomains": [
     "img.wikicharlie.cl"
    ]
-  },
-  "id": 951
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "domainType": "firstParty",
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||olimposcans.com^*_prebid-ads."
   },
   "id": 952
  },
@@ -10839,9 +10836,23 @@
    "resourceTypes": [
     "script"
    ],
-   "urlFilter": "||visioncloud.ga/js/"
+   "urlFilter": "||olimposcans.com^*_prebid-ads."
   },
   "id": 953
+ },
+ {
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "domainType": "firstParty",
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||visioncloud.ga/js/"
+  },
+  "id": 954
  },
  {
   "action": {
@@ -10856,7 +10867,7 @@
     "script"
    ]
   },
-  "id": 954
+  "id": 955
  },
  {
   "action": {
@@ -10870,6 +10881,6 @@
    ],
    "urlFilter": "||ecuavisa.com/widget/*/catalog/mm_publicidad_"
   },
-  "id": 955
+  "id": 956
  }
 ]

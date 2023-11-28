@@ -27,7 +27,6 @@
     "hasdarot.tv",
     "hasdarot.vip",
     "hasdarot.xyz",
-    "houdini.haaretz.co.il",
     "jor-el.net",
     "lauyn.info",
     "losittooday.info",
@@ -330,7 +329,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||haaretz.co.il/htz/images/bg/ad_bg.gif"
+   "urlFilter": "||sport5.co.il/banners2/"
   },
   "id": 23
  },
@@ -340,7 +339,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||haaretz.co.il/st/media"
+   "urlFilter": "||a7.org/cdn/sdk"
   },
   "id": 24
  },
@@ -350,7 +349,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||haaretz.co.il^*/ab/aby.gif"
+   "urlFilter": "||a7.org/adblock/"
   },
   "id": 25
  },
@@ -360,7 +359,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||haaretz.co.il^*/banners/"
+   "urlFilter": "||a7.org/scripts/maavaron.js"
   },
   "id": 26
  },
@@ -370,109 +369,9 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||haaretz.co.il^*/houdini/"
-  },
-  "id": 27
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||images.haarets.co.il/image/upload/w_227,h_112,c_crop/q_auto,h_98,w_227,c_fill,f_auto/fl_lossy.any_format.preserve_transparency.progressive:none/v1548162519/1.6867261.518501105.jpg"
-  },
-  "id": 28
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||themarker.com/dclk/"
-  },
-  "id": 29
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||themarker.com/st/media"
-  },
-  "id": 30
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||themarker.com/tm/js/resp/header_scripts/internal/util/z_adblockutil.js"
-  },
-  "id": 31
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||themarker.com^*/houdini/"
-  },
-  "id": 32
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||sport5.co.il/banners2/"
-  },
-  "id": 33
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||a7.org/cdn/sdk"
-  },
-  "id": 34
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||a7.org/adblock/"
-  },
-  "id": 35
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||a7.org/scripts/maavaron.js"
-  },
-  "id": 36
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dwnmedia.a7.org/inntv/media/"
   },
-  "id": 37
+  "id": 27
  },
  {
   "action": {
@@ -486,7 +385,7 @@
     "info.a7.org"
    ]
   },
-  "id": 38
+  "id": 28
  },
  {
   "action": {
@@ -496,7 +395,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||inn.co.il/info_en/"
   },
-  "id": 39
+  "id": 29
  },
  {
   "action": {
@@ -506,7 +405,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||inn.co.il/leads/content/upload/"
   },
-  "id": 40
+  "id": 30
  },
  {
   "action": {
@@ -516,7 +415,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kipa.co.il/banner/"
   },
-  "id": 41
+  "id": 31
  },
  {
   "action": {
@@ -526,7 +425,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kipasruga.com/banner/"
   },
-  "id": 42
+  "id": 32
  },
  {
   "action": {
@@ -543,7 +442,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "|blob:"
   },
-  "id": 43
+  "id": 33
  },
  {
   "action": {
@@ -553,7 +452,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||my.yad2.co.il/banner/"
   },
-  "id": 44
+  "id": 34
  },
  {
   "action": {
@@ -563,7 +462,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||my.yad2.co.il/dfpv3/script/desktopmediamanager.js"
   },
-  "id": 45
+  "id": 35
  },
  {
   "action": {
@@ -573,7 +472,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||yad2.co.il/js-new/blockpirsum.js"
   },
-  "id": 46
+  "id": 36
  },
  {
   "action": {
@@ -583,7 +482,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||rotter.net/banners/"
   },
-  "id": 47
+  "id": 37
  },
  {
   "action": {
@@ -593,7 +492,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||rotter.net/edit/text/"
   },
-  "id": 48
+  "id": 38
  },
  {
   "action": {
@@ -603,7 +502,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||beaverscripts.com/openwindow.js"
   },
-  "id": 49
+  "id": 39
  },
  {
   "action": {
@@ -613,7 +512,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bhol.co.il/rich_banners/"
   },
-  "id": 50
+  "id": 40
  },
  {
   "action": {
@@ -623,7 +522,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bladna.co.il/public/flash/"
   },
-  "id": 51
+  "id": 41
  },
  {
   "action": {
@@ -633,7 +532,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.shorte.st/link-converter.min.js"
   },
-  "id": 52
+  "id": 42
  },
  {
   "action": {
@@ -643,7 +542,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ch10.co.il/wp-content/plugins/arti-banners/components/arti-banner-popup/"
   },
-  "id": 53
+  "id": 43
  },
  {
   "action": {
@@ -657,7 +556,7 @@
     "googleusercontent.com"
    ]
   },
-  "id": 54
+  "id": 44
  },
  {
   "action": {
@@ -667,7 +566,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kikarhashabat.co.il/data/auto/images/landing_pages_"
   },
-  "id": 55
+  "id": 45
  },
  {
   "action": {
@@ -677,7 +576,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||leadim4u.com/accounts/default1/banners/"
   },
-  "id": 56
+  "id": 46
  },
  {
   "action": {
@@ -687,7 +586,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||negishim.com/accessibility/"
   },
-  "id": 57
+  "id": 47
  },
  {
   "action": {
@@ -697,7 +596,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||psakdin.co.il/pictures/banners/"
   },
-  "id": 58
+  "id": 48
  },
  {
   "action": {
@@ -707,7 +606,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||raddar.co.il/bannersa.php"
   },
-  "id": 59
+  "id": 49
  },
  {
   "action": {
@@ -717,7 +616,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||shoofoo.co.il/banners"
   },
-  "id": 60
+  "id": 50
  },
  {
   "action": {
@@ -727,7 +626,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wcdn.co.il/banners/"
   },
-  "id": 61
+  "id": 51
  },
  {
   "action": {
@@ -737,7 +636,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||admin.applicaster.com/v12//7047/channel0_android_banners"
   },
-  "id": 62
+  "id": 52
  },
  {
   "action": {
@@ -747,7 +646,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||apps.mako.co.il/mobile/config/android/sport5/ad_config.xml"
   },
-  "id": 63
+  "id": 53
  },
  {
   "action": {
@@ -757,7 +656,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||apps.mako.co.il/mobile/config/android/sport5/banner_config.xml"
   },
-  "id": 64
+  "id": 54
  },
  {
   "action": {
@@ -767,7 +666,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fus.walla.co.il/json/5804468/mint.walla_android.homepage/spons"
   },
-  "id": 65
+  "id": 55
  },
  {
   "action": {
@@ -777,7 +676,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||images.yad2.co.il/pic/yad2new/homepage_promotions/prom"
   },
-  "id": 66
+  "id": 56
  },
  {
   "action": {
@@ -787,7 +686,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||live.sekindo.com/uploads/users/*/ads/"
   },
-  "id": 67
+  "id": 57
  },
  {
   "action": {
@@ -797,7 +696,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||m.sport5.co.il/images/dreamteam320x40.png"
   },
-  "id": 68
+  "id": 58
  },
  {
   "action": {
@@ -807,7 +706,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||resources.fortvision.com/staticfiles"
   },
-  "id": 69
+  "id": 59
  },
  {
   "action": {
@@ -817,7 +716,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sport5.co.il/cm8ads/"
   },
-  "id": 70
+  "id": 60
  },
  {
   "action": {
@@ -827,7 +726,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.fortvision.com/staticfiles/fb-web/"
   },
-  "id": 71
+  "id": 61
  },
  {
   "action": {
@@ -841,7 +740,7 @@
     "warmafterthought.com"
    ]
   },
-  "id": 72
+  "id": 62
  },
  {
   "action": {
@@ -851,7 +750,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ext.bhol.co.il/uploads/"
   },
-  "id": 73
+  "id": 63
  },
  {
   "action": {
@@ -868,7 +767,7 @@
     "image"
    ]
   },
-  "id": 74
+  "id": 64
  },
  {
   "action": {
@@ -881,7 +780,7 @@
    ],
    "urlFilter": "||img.mako.co.il/2018/*/*/970x90a.jpg|"
   },
-  "id": 75
+  "id": 65
  },
  {
   "action": {
@@ -895,7 +794,7 @@
     "image"
    ]
   },
-  "id": 77
+  "id": 66
  },
  {
   "action": {
@@ -914,7 +813,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 78
+  "id": 67
  },
  {
   "action": {
@@ -927,7 +826,7 @@
    ],
    "urlFilter": "||fus.walla.co.il/js/purcf/walla.friends.rashi.main"
   },
-  "id": 79
+  "id": 68
  },
  {
   "action": {
@@ -956,7 +855,7 @@
    ],
    "urlFilter": "/bannerscripts.js?"
   },
-  "id": 80
+  "id": 69
  },
  {
   "action": {
@@ -973,7 +872,7 @@
     "script"
    ]
   },
-  "id": 81
+  "id": 70
  },
  {
   "action": {
@@ -993,20 +892,7 @@
     "script"
    ]
   },
-  "id": 82
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||themarker.com/abc"
-  },
-  "id": 83
+  "id": 71
  },
  {
   "action": {
@@ -1020,7 +906,7 @@
    ],
    "urlFilter": "||a7.org/media"
   },
-  "id": 84
+  "id": 72
  },
  {
   "action": {
@@ -1037,7 +923,7 @@
     "script"
    ]
   },
-  "id": 85
+  "id": 73
  },
  {
   "action": {
@@ -1053,7 +939,7 @@
    ],
    "urlFilter": "||cdn1.zoomanalytics.co/js"
   },
-  "id": 86
+  "id": 74
  },
  {
   "action": {
@@ -1078,7 +964,7 @@
    ],
    "urlFilter": "/amsdk.js"
   },
-  "id": 87
+  "id": 75
  },
  {
   "action": {
@@ -1091,7 +977,7 @@
    ],
    "urlFilter": "||cooldays.net/app/vod-blocker"
   },
-  "id": 88
+  "id": 76
  },
  {
   "action": {
@@ -1104,7 +990,7 @@
    ],
    "urlFilter": "||mishpati.co.il/-partners/walla-form"
   },
-  "id": 89
+  "id": 77
  },
  {
   "action": {
@@ -1120,7 +1006,7 @@
    ],
    "urlFilter": "||walla.yad2.co.il/*banner"
   },
-  "id": 90
+  "id": 78
  },
  {
   "action": {
@@ -1136,7 +1022,7 @@
    ],
    "urlFilter": "||ynetbanneradmin.yit.co.il/assets/"
   },
-  "id": 91
+  "id": 79
  },
  {
   "action": {
@@ -1152,7 +1038,7 @@
    ],
    "urlFilter": "||a7.org/*.html"
   },
-  "id": 92
+  "id": 80
  },
  {
   "action": {
@@ -1165,7 +1051,7 @@
    ],
    "urlFilter": "||moodaot.kipa.co.il/userfiles/moods/"
   },
-  "id": 93
+  "id": 81
  },
  {
   "action": {
@@ -1181,7 +1067,7 @@
    ],
    "urlFilter": "||player.vimeo.com/video/383596619|"
   },
-  "id": 94
+  "id": 82
  },
  {
   "action": {
@@ -1194,7 +1080,7 @@
    ],
    "urlFilter": "||walla.co.il/rotteriframe|"
   },
-  "id": 95
+  "id": 83
  },
  {
   "action": {
@@ -1209,7 +1095,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/dfp."
   },
-  "id": 96
+  "id": 84
  },
  {
   "action": {
@@ -1224,7 +1110,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "/dfp/"
   },
-  "id": 97
+  "id": 85
  },
  {
   "action": {
@@ -1283,7 +1169,7 @@
     "websocket"
    ]
   },
-  "id": 98
+  "id": 86
  },
  {
   "action": {
@@ -1301,7 +1187,7 @@
     "websocket"
    ]
   },
-  "id": 99
+  "id": 87
  },
  {
   "action": {
@@ -1319,7 +1205,7 @@
     "websocket"
    ]
   },
-  "id": 100
+  "id": 88
  },
  {
   "action": {
@@ -1337,7 +1223,7 @@
     "websocket"
    ]
   },
-  "id": 101
+  "id": 89
  },
  {
   "action": {
@@ -1355,7 +1241,7 @@
     "websocket"
    ]
   },
-  "id": 102
+  "id": 90
  },
  {
   "action": {
@@ -1373,7 +1259,7 @@
     "websocket"
    ]
   },
-  "id": 103
+  "id": 91
  },
  {
   "action": {
@@ -1391,7 +1277,7 @@
     "websocket"
    ]
   },
-  "id": 104
+  "id": 92
  },
  {
   "action": {
@@ -1409,7 +1295,7 @@
     "websocket"
    ]
   },
-  "id": 105
+  "id": 93
  },
  {
   "action": {
@@ -1427,7 +1313,7 @@
     "websocket"
    ]
   },
-  "id": 106
+  "id": 94
  },
  {
   "action": {
@@ -1449,7 +1335,7 @@
     "websocket"
    ]
   },
-  "id": 107
+  "id": 95
  },
  {
   "action": {
@@ -1467,7 +1353,7 @@
     "websocket"
    ]
   },
-  "id": 108
+  "id": 96
  },
  {
   "action": {
@@ -1593,7 +1479,7 @@
     "zipodita.com"
    ]
   },
-  "id": 109
+  "id": 97
  },
  {
   "action": {
@@ -1609,7 +1495,7 @@
     "jwtdigital-media.co.il"
    ]
   },
-  "id": 110
+  "id": 98
  },
  {
   "action": {
@@ -1620,7 +1506,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||webid.co.il/b144/"
   },
-  "id": 111
+  "id": 99
  },
  {
   "action": {
@@ -1635,7 +1521,7 @@
     "wee.co.il"
    ]
   },
-  "id": 112
+  "id": 100
  },
  {
   "action": {
@@ -1650,7 +1536,7 @@
     "3dots.co.il"
    ]
   },
-  "id": 113
+  "id": 101
  },
  {
   "action": {
@@ -1670,7 +1556,7 @@
     "logidea.info"
    ]
   },
-  "id": 114
+  "id": 102
  },
  {
   "action": {
@@ -1712,7 +1598,7 @@
     "kxcdn.com"
    ]
   },
-  "id": 115
+  "id": 103
  },
  {
   "action": {
@@ -1727,7 +1613,7 @@
     "trace.events"
    ]
   },
-  "id": 116
+  "id": 104
  },
  {
   "action": {
@@ -1746,7 +1632,7 @@
     "netdna-ssl.com"
    ]
   },
-  "id": 117
+  "id": 105
  },
  {
   "action": {
@@ -1763,7 +1649,7 @@
     "valuad.cloud"
    ]
   },
-  "id": 118
+  "id": 106
  },
  {
   "action": {
@@ -1779,7 +1665,7 @@
     "viewbix.com"
    ]
   },
-  "id": 119
+  "id": 107
  },
  {
   "action": {
@@ -1796,7 +1682,7 @@
     "sporty.gdn"
    ]
   },
-  "id": 120
+  "id": 108
  },
  {
   "action": {
@@ -1807,7 +1693,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ban.d-group.co.il/banners/"
   },
-  "id": 121
+  "id": 109
  },
  {
   "action": {
@@ -1905,7 +1791,7 @@
     "whats-new.co.il"
    ]
   },
-  "id": 122
+  "id": 110
  },
  {
   "action": {
@@ -1920,7 +1806,7 @@
     "image"
    ]
   },
-  "id": 124
+  "id": 112
  },
  {
   "action": {
@@ -1937,7 +1823,7 @@
    ],
    "urlFilter": "||widget.walla.co.il/wallaplayer"
   },
-  "id": 126
+  "id": 114
  },
  {
   "action": {
@@ -1950,7 +1836,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||akamai.advsnx.net/cdn/"
   },
-  "id": 127
+  "id": 115
  },
  {
   "action": {
@@ -1960,7 +1846,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||akamai.advsnx.net/cdn/walla/"
   },
-  "id": 128
+  "id": 116
  },
  {
   "action": {
@@ -1974,7 +1860,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||akamai.advsnx.net/crossdomain.xml"
   },
-  "id": 129
+  "id": 117
  },
  {
   "action": {
@@ -1990,7 +1876,7 @@
     "pas-rahav.com"
    ]
   },
-  "id": 130
+  "id": 118
  },
  {
   "action": {
@@ -2000,7 +1886,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bhol.co.il/flash/vaad"
   },
-  "id": 131
+  "id": 119
  },
  {
   "action": {
@@ -2010,7 +1896,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bhol.co.il/imagebank/400x250"
   },
-  "id": 132
+  "id": 120
  },
  {
   "action": {
@@ -2020,7 +1906,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bipbip.co.il/style/ads.css"
   },
-  "id": 133
+  "id": 121
  },
  {
   "action": {
@@ -2030,7 +1916,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||clalit.co.il/adimages"
   },
-  "id": 134
+  "id": 122
  },
  {
   "action": {
@@ -2040,7 +1926,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||globes.co.il/js/ads.js"
   },
-  "id": 135
+  "id": 123
  },
  {
   "action": {
@@ -2050,21 +1936,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||globes.co.il/news/inc/banners/show_ads.js"
   },
-  "id": 136
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "haaretz.co.il",
-    "themarker.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||googlesyndication.com/pagead/osd.js"
-  },
-  "id": 137
+  "id": 124
  },
  {
   "action": {
@@ -2079,7 +1951,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||googletagservices.com/tag/js/gpt.js"
   },
-  "id": 138
+  "id": 125
  },
  {
   "action": {
@@ -2089,7 +1961,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gplanet.co.il/js/adx.js"
   },
-  "id": 139
+  "id": 126
  },
  {
   "action": {
@@ -2099,7 +1971,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||haaretz.co.il/htz/images/favicon-160x160.png"
   },
-  "id": 140
+  "id": 127
  },
  {
   "action": {
@@ -2109,7 +1981,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||haaretz.co.il/htz/images/logos/htz-logo.v2.svg"
   },
-  "id": 141
+  "id": 128
  },
  {
   "action": {
@@ -2119,17 +1991,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||haaretz.co.il/htz/js/resp/minified/header-scripts-int.js"
   },
-  "id": 142
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||haaretz.co.il/st/c/work/ab/aby.gif"
-  },
-  "id": 143
+  "id": 129
  },
  {
   "action": {
@@ -2142,7 +2004,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||holmesplace.co.il/sites/all/modules"
   },
-  "id": 144
+  "id": 130
  },
  {
   "action": {
@@ -2152,7 +2014,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kikar.co.il/js/ads.js"
   },
-  "id": 145
+  "id": 131
  },
  {
   "action": {
@@ -2162,7 +2024,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lamehadrin.co.il/_layouts/shufersal.yesh/scripts/gtm.js"
   },
-  "id": 146
+  "id": 132
  },
  {
   "action": {
@@ -2175,7 +2037,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lb.advsnx.net/adserver/?zoneid="
   },
-  "id": 147
+  "id": 133
  },
  {
   "action": {
@@ -2188,7 +2050,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lb.advsnx.net/as"
   },
-  "id": 148
+  "id": 134
  },
  {
   "action": {
@@ -2201,7 +2063,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lb.advsnx.net/crossdomain.xml"
   },
-  "id": 149
+  "id": 135
  },
  {
   "action": {
@@ -2211,7 +2073,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||matrix.ynet.co.il/js/ga/ads_controller.js"
   },
-  "id": 150
+  "id": 136
  },
  {
   "action": {
@@ -2224,7 +2086,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/*/show_ads_impl.js"
   },
-  "id": 151
+  "id": 137
  },
  {
   "action": {
@@ -2239,7 +2101,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
   },
-  "id": 152
+  "id": 138
  },
  {
   "action": {
@@ -2253,7 +2115,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pagead2.googlesyndication.com/pagead/show_ads.js"
   },
-  "id": 153
+  "id": 139
  },
  {
   "action": {
@@ -2263,7 +2125,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pas-rahav.com/creativitys"
   },
-  "id": 154
+  "id": 140
  },
  {
   "action": {
@@ -2276,7 +2138,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pubads.g.doubleclick.net/gampad/ad"
   },
-  "id": 155
+  "id": 141
  },
  {
   "action": {
@@ -2289,7 +2151,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pubads.g.doubleclick.net/gampad/ads?ad_rule="
   },
-  "id": 156
+  "id": 142
  },
  {
   "action": {
@@ -2302,7 +2164,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pubads.g.doubleclick.net/gampad/adx?iu="
   },
-  "id": 157
+  "id": 143
  },
  {
   "action": {
@@ -2312,7 +2174,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||qamesh.com/images/advert.png"
   },
-  "id": 158
+  "id": 144
  },
  {
   "action": {
@@ -2325,7 +2187,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||s3.kikar.net/js/jquery.dfp.js"
   },
-  "id": 159
+  "id": 145
  },
  {
   "action": {
@@ -2335,7 +2197,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||shukitv.ucoz.com/script/ads.js"
   },
-  "id": 160
+  "id": 146
  },
  {
   "action": {
@@ -2345,7 +2207,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||themarker.com/st/c/prod/tm/2017/donorsmap/"
   },
-  "id": 161
+  "id": 147
  },
  {
   "action": {
@@ -2355,7 +2217,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||tornado-top.co.il/template/images/"
   },
-  "id": 162
+  "id": 148
  },
  {
   "action": {
@@ -2368,7 +2230,7 @@
    ],
    "urlFilter": "||haaretz.co.il/htz/css/teasers.css?"
   },
-  "id": 163
+  "id": 149
  },
  {
   "action": {
@@ -2381,7 +2243,7 @@
    ],
    "urlFilter": "||jdn.co.il/wp-content/plugins/jdn_ads/js/info.css"
   },
-  "id": 164
+  "id": 150
  },
  {
   "action": {
@@ -2397,7 +2259,7 @@
    ],
    "urlFilter": "||player.ynet.co.il/videojs-ima/videojs.ads.css"
   },
-  "id": 165
+  "id": 151
  },
  {
   "action": {
@@ -2414,7 +2276,7 @@
    ],
    "urlFilter": "/advert."
   },
-  "id": 167
+  "id": 153
  },
  {
   "action": {
@@ -2430,7 +2292,7 @@
    ],
    "urlFilter": "||admedia.com/images/cross_channel_arrows.png"
   },
-  "id": 168
+  "id": 154
  },
  {
   "action": {
@@ -2443,7 +2305,7 @@
    ],
    "urlFilter": "||ads.yad2.co.il/adpic.png"
   },
-  "id": 169
+  "id": 155
  },
  {
   "action": {
@@ -2460,7 +2322,7 @@
    ],
    "urlFilter": "||haaretz.co.il/polopoly_fs/*/landscape"
   },
-  "id": 170
+  "id": 156
  },
  {
   "action": {
@@ -2477,7 +2339,7 @@
    ],
    "urlFilter": "||haaretz.co.il/polopoly_fs/*/size"
   },
-  "id": 171
+  "id": 157
  },
  {
   "action": {
@@ -2494,7 +2356,7 @@
    ],
    "urlFilter": "||haaretz.co.il/st/c/"
   },
-  "id": 172
+  "id": 158
  },
  {
   "action": {
@@ -2511,7 +2373,7 @@
    ],
    "urlFilter": "||haaretz.co.il/st/inter/global/dailyedition/today/"
   },
-  "id": 173
+  "id": 159
  },
  {
   "action": {
@@ -2527,7 +2389,7 @@
    ],
    "urlFilter": "||info.a7.org/info/delivery/lg*.php?"
   },
-  "id": 174
+  "id": 160
  },
  {
   "action": {
@@ -2540,7 +2402,7 @@
    ],
    "urlFilter": "||israelsport.co.il/digiweb/userfiles/images/ads/getty"
   },
-  "id": 175
+  "id": 161
  },
  {
   "action": {
@@ -2557,41 +2419,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/gampad/ads?"
   },
-  "id": 176
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "haaretz.co.il",
-    "themarker.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||themarker.com/images/negative.png"
-  },
-  "id": 177
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "haaretz.co.il",
-    "themarker.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "image"
-   ],
-   "urlFilter": "||themarker.com/images/positive.png"
-  },
-  "id": 178
+  "id": 162
  },
  {
   "action": {
@@ -2607,7 +2435,7 @@
    ],
    "urlFilter": "||thetvdb.com/banners/"
   },
-  "id": 179
+  "id": 163
  },
  {
   "action": {
@@ -2623,7 +2451,7 @@
    ],
    "urlFilter": "||translate.google.*/gen204?"
   },
-  "id": 180
+  "id": 164
  },
  {
   "action": {
@@ -2637,7 +2465,7 @@
     "image"
    ]
   },
-  "id": 181
+  "id": 165
  },
  {
   "action": {
@@ -2653,45 +2481,7 @@
    ],
    "urlFilter": "||sekindo.com/content/pop/sekindopopunderoverlay-"
   },
-  "id": 182
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "haaretz.co.il",
-    "mouse.co.il",
-    "themarker.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ],
-   "urlFilter": "/advertisement."
-  },
-  "id": 184
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "haaretz.co.il",
-    "mouse.co.il",
-    "themarker.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ],
-   "urlFilter": "/dfp/"
-  },
-  "id": 185
+  "id": 166
  },
  {
   "action": {
@@ -2711,7 +2501,7 @@
    ],
    "urlFilter": "||2mdn.net/instream/video/client.js"
   },
-  "id": 186
+  "id": 168
  },
  {
   "action": {
@@ -2727,7 +2517,7 @@
    ],
    "urlFilter": "||a7.org/combine.js"
   },
-  "id": 187
+  "id": 169
  },
  {
   "action": {
@@ -2743,7 +2533,7 @@
    ],
    "urlFilter": "||a7.org/cab/*.min.js"
   },
-  "id": 188
+  "id": 170
  },
  {
   "action": {
@@ -2759,7 +2549,7 @@
    ],
    "urlFilter": "||a7.org/scripts/forecast.js"
   },
-  "id": 189
+  "id": 171
  },
  {
   "action": {
@@ -2775,7 +2565,7 @@
    ],
    "urlFilter": "||a7.org/scripts/jquery/"
   },
-  "id": 190
+  "id": 172
  },
  {
   "action": {
@@ -2791,7 +2581,7 @@
    ],
    "urlFilter": "||a7.org/scripts/mosaic_"
   },
-  "id": 191
+  "id": 173
  },
  {
   "action": {
@@ -2812,7 +2602,7 @@
    ],
    "urlFilter": "||adservice.google.co.il/adsid/integrator.js?"
   },
-  "id": 192
+  "id": 174
  },
  {
   "action": {
@@ -2833,7 +2623,7 @@
    ],
    "urlFilter": "||adservice.google.com/adsid/integrator.js?"
   },
-  "id": 193
+  "id": 175
  },
  {
   "action": {
@@ -2846,7 +2636,7 @@
    ],
    "urlFilter": "||akamai.advsnx.net/cdn/arutz7/"
   },
-  "id": 194
+  "id": 176
  },
  {
   "action": {
@@ -2863,7 +2653,7 @@
    ],
    "urlFilter": "||akamai.advsnx.net/cdn/israelhayom/html5/amsdk.js"
   },
-  "id": 195
+  "id": 177
  },
  {
   "action": {
@@ -2880,7 +2670,7 @@
    ],
    "urlFilter": "||akamai.advsnx.net/cdn/reshet/html5/amsdk.js"
   },
-  "id": 196
+  "id": 178
  },
  {
   "action": {
@@ -2896,7 +2686,7 @@
    ],
    "urlFilter": "||akamai.advsnx.net/cdn/sdk/*-min.js?"
   },
-  "id": 197
+  "id": 179
  },
  {
   "action": {
@@ -2913,7 +2703,7 @@
    ],
    "urlFilter": "||akamai.advsnx.net/cdn/sdk/plugins/*/plugin.js"
   },
-  "id": 198
+  "id": 180
  },
  {
   "action": {
@@ -2932,7 +2722,7 @@
    ],
    "urlFilter": "||akamai.advsnx.net/cdn/sdk/plugins/kaltura/plugin.js"
   },
-  "id": 199
+  "id": 181
  },
  {
   "action": {
@@ -2952,7 +2742,7 @@
    ],
    "urlFilter": "||akamai.advsnx.net/cdn/sdk/plugins/vjs/plugin.js"
   },
-  "id": 200
+  "id": 182
  },
  {
   "action": {
@@ -2968,7 +2758,7 @@
    ],
    "urlFilter": "||akamai.advsnx.net/cdn/sdk/system-scripts/sys-moat.js"
   },
-  "id": 201
+  "id": 183
  },
  {
   "action": {
@@ -2984,7 +2774,7 @@
    ],
    "urlFilter": "||cdn.flowplayer.com/releases/native/stable/plugins/google-analytics.min.js"
   },
-  "id": 202
+  "id": 184
  },
  {
   "action": {
@@ -3000,7 +2790,7 @@
    ],
    "urlFilter": "||cdn.permutive.com/"
   },
-  "id": 203
+  "id": 185
  },
  {
   "action": {
@@ -3016,7 +2806,7 @@
    ],
    "urlFilter": "||cdn.taboola.com/libtrc/wallail-hamal/loader.js"
   },
-  "id": 204
+  "id": 186
  },
  {
   "action": {
@@ -3034,7 +2824,7 @@
    ],
    "urlFilter": "||cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/"
   },
-  "id": 205
+  "id": 187
  },
  {
   "action": {
@@ -3047,7 +2837,7 @@
    ],
    "urlFilter": "||dmag.co.il/pub/shvii/"
   },
-  "id": 206
+  "id": 188
  },
  {
   "action": {
@@ -3065,7 +2855,7 @@
    ],
    "urlFilter": "||googletagmanager.com/gtag/js?id="
   },
-  "id": 207
+  "id": 189
  },
  {
   "action": {
@@ -3081,7 +2871,7 @@
    ],
    "urlFilter": "||googletagmanager.com/gtm.js"
   },
-  "id": 208
+  "id": 190
  },
  {
   "action": {
@@ -3108,7 +2898,7 @@
    ],
    "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
   },
-  "id": 209
+  "id": 191
  },
  {
   "action": {
@@ -3124,7 +2914,7 @@
    ],
    "urlFilter": "||info.a7.org/info/a7delivery_f.php"
   },
-  "id": 210
+  "id": 192
  },
  {
   "action": {
@@ -3137,7 +2927,7 @@
    ],
    "urlFilter": "||info.jdn.co.il/r/a7delivery_f.php?func=floadone"
   },
-  "id": 211
+  "id": 193
  },
  {
   "action": {
@@ -3150,7 +2940,7 @@
    ],
    "urlFilter": "||jdn.co.il/wp-content/plugins/jdn_ads/js/info.js"
   },
-  "id": 212
+  "id": 194
  },
  {
   "action": {
@@ -3166,7 +2956,7 @@
    ],
    "urlFilter": "||mako.co.il/js/dfp/dfp.js"
   },
-  "id": 213
+  "id": 195
  },
  {
   "action": {
@@ -3182,7 +2972,7 @@
    ],
    "urlFilter": "||pagead2.googlesyndication.com/omsdk/"
   },
-  "id": 214
+  "id": 196
  },
  {
   "action": {
@@ -3202,7 +2992,7 @@
    ],
    "urlFilter": "||partner.googleadservices.com/gpt/pubads_"
   },
-  "id": 215
+  "id": 197
  },
  {
   "action": {
@@ -3216,7 +3006,7 @@
    ],
    "urlFilter": "||rcs.mako.co.il/js/ads.js"
   },
-  "id": 216
+  "id": 198
  },
  {
   "action": {
@@ -3234,7 +3024,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/gampad/ads?gdfp_"
   },
-  "id": 217
+  "id": 199
  },
  {
   "action": {
@@ -3252,7 +3042,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/gpt/"
   },
-  "id": 218
+  "id": 200
  },
  {
   "action": {
@@ -3269,7 +3059,7 @@
    ],
    "urlFilter": "||securepubads.g.doubleclick.net/tag/js/"
   },
-  "id": 219
+  "id": 201
  },
  {
   "action": {
@@ -3285,7 +3075,7 @@
    ],
    "urlFilter": "||static.site24x7rum.com/beacon/site24x7rum-min.js"
   },
-  "id": 220
+  "id": 202
  },
  {
   "action": {
@@ -3302,7 +3092,7 @@
    ],
    "urlFilter": "||tags.dxmdp.com/tags/"
   },
-  "id": 221
+  "id": 203
  },
  {
   "action": {
@@ -3315,7 +3105,7 @@
    ],
    "urlFilter": "||trc.taboola.com/globes-il/"
   },
-  "id": 222
+  "id": 204
  },
  {
   "action": {
@@ -3328,7 +3118,7 @@
    ],
    "urlFilter": "||yad2.co.il/ads.js"
   },
-  "id": 223
+  "id": 205
  },
  {
   "action": {
@@ -3344,7 +3134,7 @@
    ],
    "urlFilter": "||ynet.co.il/dc/dcloadads/"
   },
-  "id": 224
+  "id": 206
  },
  {
   "action": {
@@ -3360,7 +3150,7 @@
    ],
    "urlFilter": "||ampproject.org/amp4ads-"
   },
-  "id": 225
+  "id": 207
  },
  {
   "action": {
@@ -3376,7 +3166,7 @@
    ],
    "urlFilter": "||adtest.advsnx.net^*?"
   },
-  "id": 226
+  "id": 208
  },
  {
   "action": {
@@ -3393,7 +3183,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 227
+  "id": 209
  },
  {
   "action": {
@@ -3406,7 +3196,7 @@
    ],
    "urlFilter": "||cdnwiz.com/ads.js"
   },
-  "id": 228
+  "id": 210
  },
  {
   "action": {
@@ -3422,28 +3212,7 @@
    ],
    "urlFilter": "||errors.snackly.co/_.gif|"
   },
-  "id": 229
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "haaretz.co.il",
-    "mouse.co.il",
-    "themarker.com"
-   ],
-   "requestDomains": [
-    "haaretz.co.il",
-    "mouse.co.il",
-    "themarker.com"
-   ],
-   "resourceTypes": [
-    "xmlhttprequest"
-   ]
-  },
-  "id": 230
+  "id": 211
  },
  {
   "action": {
@@ -3456,7 +3225,7 @@
    ],
    "urlFilter": "||imaot.co.il/recipe/"
   },
-  "id": 231
+  "id": 212
  },
  {
   "action": {
@@ -3469,7 +3238,7 @@
    ],
    "urlFilter": "||player.bizportal.co.il/handlers/advertising.ashx?"
   },
-  "id": 232
+  "id": 213
  },
  {
   "action": {
@@ -3487,24 +3256,7 @@
    ],
    "urlFilter": "||rcs.mako.co.il/js/prebid-"
   },
-  "id": 233
- },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "haaretz.co.il",
-    "themarker.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||tpc.googlesyndication.com/simgad/"
-  },
-  "id": 234
+  "id": 214
  },
  {
   "action": {
@@ -3518,7 +3270,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 235
+  "id": 215
  },
  {
   "action": {
@@ -3533,7 +3285,7 @@
     "main_frame"
    ]
   },
-  "id": 236
+  "id": 216
  },
  {
   "action": {
@@ -3544,7 +3296,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bipbip.co.il/images/ads/"
   },
-  "id": 237
+  "id": 217
  },
  {
   "action": {
@@ -3558,7 +3310,7 @@
    ],
    "urlFilter": "||hamal.co.il/public/assets/ads/"
   },
-  "id": 238
+  "id": 218
  },
  {
   "action": {
@@ -3572,7 +3324,7 @@
    ],
    "urlFilter": "||sheee.co.il/public/assets/videojsads/videojs-contrib-ads."
   },
-  "id": 239
+  "id": 219
  },
  {
   "action": {
@@ -3591,7 +3343,7 @@
    ],
    "urlFilter": "||static.sdarot.*^*/plugins/*/videojs.ads."
   },
-  "id": 240
+  "id": 220
  },
  {
   "action": {
@@ -3605,7 +3357,7 @@
    ],
    "urlFilter": "||walla.co.il/public/assets/videojsads/videojs-contrib-ads."
   },
-  "id": 241
+  "id": 221
  },
  {
   "action": {
@@ -3620,7 +3372,7 @@
    ],
    "urlFilter": "||ynet.co.il/common/api/scripts/video/videojs.ads."
   },
-  "id": 242
+  "id": 222
  },
  {
   "action": {
@@ -3634,7 +3386,7 @@
    ],
    "urlFilter": "||callil.co.il/content/ads/"
   },
-  "id": 243
+  "id": 223
  },
  {
   "action": {
@@ -3648,7 +3400,7 @@
    ],
    "urlFilter": "||isramedia.net/images/header/"
   },
-  "id": 244
+  "id": 224
  },
  {
   "action": {
@@ -3662,7 +3414,7 @@
    ],
    "urlFilter": "||yad2.co.il/assets/mobile/ui/adpage/"
   },
-  "id": 245
+  "id": 225
  },
  {
   "action": {
@@ -3680,7 +3432,7 @@
    ],
    "urlFilter": "/ads.js?"
   },
-  "id": 246
+  "id": 226
  },
  {
   "action": {
@@ -3698,7 +3450,7 @@
    ],
    "urlFilter": "/ads.min.js?"
   },
-  "id": 247
+  "id": 227
  },
  {
   "action": {
@@ -3716,7 +3468,7 @@
    ],
    "urlFilter": "/adunits."
   },
-  "id": 248
+  "id": 228
  },
  {
   "action": {
@@ -3730,7 +3482,7 @@
    ],
    "urlFilter": "||b-share.com/wp-content/*/advertisement."
   },
-  "id": 249
+  "id": 229
  },
  {
   "action": {
@@ -3744,7 +3496,7 @@
    ],
    "urlFilter": "||hamal.co.il/advertising/ads/gtm.js|"
   },
-  "id": 250
+  "id": 230
  },
  {
   "action": {
@@ -3758,7 +3510,7 @@
    ],
    "urlFilter": "||hwzone.co.il/wp-content/plugins/wpadverts/assets/js/adverts-frontend.js"
   },
-  "id": 251
+  "id": 231
  },
  {
   "action": {
@@ -3772,7 +3524,7 @@
    ],
    "urlFilter": "||isramedia.net/ads.js"
   },
-  "id": 252
+  "id": 232
  },
  {
   "action": {
@@ -3786,7 +3538,7 @@
    ],
    "urlFilter": "||sport5.co.il^*/dfp."
   },
-  "id": 253
+  "id": 233
  },
  {
   "action": {
@@ -3800,7 +3552,7 @@
    ],
    "urlFilter": "||sport5.co.il^*/dfp/"
   },
-  "id": 254
+  "id": 234
  },
  {
   "action": {
@@ -3814,7 +3566,7 @@
    ],
    "urlFilter": "||weather2day.co.il/ads.js?"
   },
-  "id": 255
+  "id": 235
  },
  {
   "action": {
@@ -3828,7 +3580,7 @@
    ],
    "urlFilter": "||foodsdictionary.co.il/static/"
   },
-  "id": 256
+  "id": 236
  },
  {
   "action": {
@@ -3846,6 +3598,6 @@
    ],
    "urlFilter": "?pageurl="
   },
-  "id": 257
+  "id": 237
  }
 ]

@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: annoyances-overlays
+// ruleset: spa-1
 
 /******************************************************************************/
 
@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_trustedPruneInboundObject = function() {
+const uBOL_m3uPrune = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["JSON.stringify","1","index","max excludeIds"]];
+const argsList = [["type=ad",".m3u8"]];
 
-const hostnamesMap = new Map([["androidpolice.com",0],["makeuseof.com",0],["movieweb.com",0],["xda-developers.com",0]]);
+const hostnamesMap = new Map([["vix.com",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,173 +52,151 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function trustedPruneInboundObject(
-    entryPoint = '',
-    argPos = '',
-    rawPrunePaths = '',
-    rawNeedlePaths = ''
+function m3uPrune(
+    m3uPattern = '',
+    urlPattern = ''
 ) {
-    if ( entryPoint === '' ) { return; }
-    let context = globalThis;
-    let prop = entryPoint;
-    for (;;) {
-        const pos = prop.indexOf('.');
-        if ( pos === -1 ) { break; }
-        context = context[prop.slice(0, pos)];
-        if ( context instanceof Object === false ) { return; }
-        prop = prop.slice(pos+1);
-    }
-    if ( typeof context[prop] !== 'function' ) { return; }
-    const argIndex = parseInt(argPos);
-    if ( isNaN(argIndex) ) { return; }
-    if ( argIndex < 1 ) { return; }
+    if ( typeof m3uPattern !== 'string' ) { return; }
     const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 4);
-    const needlePaths = [];
-    if ( rawPrunePaths !== '' ) {
-        needlePaths.push(...rawPrunePaths.split(/ +/));
-    }
-    if ( rawNeedlePaths !== '' ) {
-        needlePaths.push(...rawNeedlePaths.split(/ +/));
-    }
-    const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
-    const mustProcess = root => {
-        for ( const needlePath of needlePaths ) {
-            if ( objectFindOwnerFn(root, needlePath) === false ) {
-                return false;
-            }
+    const options = safe.getExtraArgs(Array.from(arguments), 2);
+    const logLevel = shouldLog(options);
+    const uboLog = logLevel ? ((...args) => safe.uboLog(...args)) : (( ) => { });
+    const regexFromArg = arg => {
+        if ( arg === '' ) { return /^/; }
+        const match = /^\/(.+)\/([gms]*)$/.exec(arg);
+        if ( match !== null ) {
+            let flags = match[2] || '';
+            if ( flags.includes('m') ) { flags += 's'; }
+            return new RegExp(match[1], flags);
+        }
+        return new RegExp(
+            arg.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*+/g, '.*?')
+        );
+    };
+    const reM3u = regexFromArg(m3uPattern);
+    const reUrl = regexFromArg(urlPattern);
+    const pruneSpliceoutBlock = (lines, i) => {
+        if ( lines[i].startsWith('#EXT-X-CUE:TYPE="SpliceOut"') === false ) {
+            return false;
+        }
+        uboLog('m3u-prune: discarding', `\n\t${lines[i]}`);
+        lines[i] = undefined; i += 1;
+        if ( lines[i].startsWith('#EXT-X-ASSET:CAID') ) {
+            uboLog(`\t${lines[i]}`);
+            lines[i] = undefined; i += 1;
+        }
+        if ( lines[i].startsWith('#EXT-X-SCTE35:') ) {
+            uboLog(`\t${lines[i]}`);
+            lines[i] = undefined; i += 1;
+        }
+        if ( lines[i].startsWith('#EXT-X-CUE-IN') ) {
+            uboLog(`\t${lines[i]}`);
+            lines[i] = undefined; i += 1;
+        }
+        if ( lines[i].startsWith('#EXT-X-SCTE35:') ) {
+            uboLog(`\t${lines[i]}`);
+            lines[i] = undefined; i += 1;
         }
         return true;
     };
-    context[prop] = new Proxy(context[prop], {
-        apply: function(target, thisArg, args) {
-            const targetArg = argIndex <= args.length
-                ? args[argIndex-1]
-                : undefined;
-            if ( targetArg instanceof Object && mustProcess(targetArg) ) {
-                let objBefore = targetArg;
-                if ( extraArgs.dontOverwrite ) {
-                    try {
-                        objBefore = safe.JSON_parse(safe.JSON_stringify(targetArg));
-                    } catch(_) {
-                        objBefore = undefined;
+    const pruneInfBlock = (lines, i) => {
+        if ( lines[i].startsWith('#EXTINF') === false ) { return false; }
+        if ( reM3u.test(lines[i+1]) === false ) { return false; }
+        uboLog('m3u-prune: discarding', `\n\t${lines[i]}, \n\t${lines[i+1]}`);
+        lines[i] = lines[i+1] = undefined; i += 2;
+        if ( lines[i].startsWith('#EXT-X-DISCONTINUITY') ) {
+            uboLog(`\t${lines[i]}`);
+            lines[i] = undefined; i += 1;
+        }
+        return true;
+    };
+    const pruner = text => {
+        if ( (/^\s*#EXTM3U/.test(text)) === false ) { return text; }
+        if ( reM3u.multiline ) {
+            reM3u.lastIndex = 0;
+            for (;;) {
+                const match = reM3u.exec(text);
+                if ( match === null ) { break; }
+                let discard = match[0];
+                let before = text.slice(0, match.index);
+                if (
+                    /^[\n\r]+/.test(discard) === false &&
+                    /[\n\r]+$/.test(before) === false
+                ) {
+                    const startOfLine = /[^\n\r]+$/.exec(before);
+                    if ( startOfLine !== null ) {
+                        before = before.slice(0, startOfLine.index);
+                        discard = startOfLine[0] + discard;
                     }
                 }
-                if ( objBefore !== undefined ) {
-                    const objAfter = objectPruneFn(
-                        objBefore,
-                        rawPrunePaths,
-                        rawNeedlePaths,
-                        stackNeedle,
-                        extraArgs
-                    );
-                    args[argIndex-1] = objAfter || objBefore;
+                let after = text.slice(match.index + match[0].length);
+                if (
+                    /[\n\r]+$/.test(discard) === false &&
+                    /^[\n\r]+/.test(after) === false
+                ) {
+                    const endOfLine = /^[^\n\r]+/.exec(after);
+                    if ( endOfLine !== null ) {
+                        after = after.slice(endOfLine.index);
+                        discard += discard + endOfLine[0];
+                    }
                 }
+                text = before.trim() + '\n' + after.trim();
+                reM3u.lastIndex = before.length + 1;
+                uboLog('m3u-prune: discarding\n',
+                    discard.split(/\n+/).map(s => `\t${s}`).join('\n')
+                );
+                if ( reM3u.global === false ) { break; }
             }
-            return Reflect.apply(target, thisArg, args);
-        },
+            return text;
+        }
+        const lines = text.split(/\n\r|\n|\r/);
+        for ( let i = 0; i < lines.length; i++ ) {
+            if ( lines[i] === undefined ) { continue; }
+            if ( pruneSpliceoutBlock(lines, i) ) { continue; }
+            if ( pruneInfBlock(lines, i) ) { continue; }
+        }
+        return lines.filter(l => l !== undefined).join('\n');
+    };
+    const urlFromArg = arg => {
+        if ( typeof arg === 'string' ) { return arg; }
+        if ( arg instanceof Request ) { return arg.url; }
+        return String(arg);
+    };
+    const realFetch = self.fetch;
+    self.fetch = new Proxy(self.fetch, {
+        apply: function(target, thisArg, args) {
+            if ( reUrl.test(urlFromArg(args[0])) === false ) {
+                return Reflect.apply(target, thisArg, args);
+            }
+            return realFetch(...args).then(realResponse =>
+                realResponse.text().then(text =>
+                    new Response(pruner(text), {
+                        status: realResponse.status,
+                        statusText: realResponse.statusText,
+                        headers: realResponse.headers,
+                    })
+                )
+            );
+        }
     });
-}
-
-function objectFindOwnerFn(
-    root,
-    path,
-    prune = false
-) {
-    let owner = root;
-    let chain = path;
-    for (;;) {
-        if ( typeof owner !== 'object' || owner === null  ) { return false; }
-        const pos = chain.indexOf('.');
-        if ( pos === -1 ) {
-            if ( prune === false ) {
-                return owner.hasOwnProperty(chain);
+    self.XMLHttpRequest.prototype.open = new Proxy(self.XMLHttpRequest.prototype.open, {
+        apply: async (target, thisArg, args) => {
+            if ( reUrl.test(urlFromArg(args[1])) === false ) {
+                return Reflect.apply(target, thisArg, args);
             }
-            let modified = false;
-            if ( chain === '*' ) {
-                for ( const key in owner ) {
-                    if ( owner.hasOwnProperty(key) === false ) { continue; }
-                    delete owner[key];
-                    modified = true;
-                }
-            } else if ( owner.hasOwnProperty(chain) ) {
-                delete owner[chain];
-                modified = true;
-            }
-            return modified;
+            thisArg.addEventListener('readystatechange', function() {
+                if ( thisArg.readyState !== 4 ) { return; }
+                const type = thisArg.responseType;
+                if ( type !== '' && type !== 'text' ) { return; }
+                const textin = thisArg.responseText;
+                const textout = pruner(textin);
+                if ( textout === textin ) { return; }
+                Object.defineProperty(thisArg, 'response', { value: textout });
+                Object.defineProperty(thisArg, 'responseText', { value: textout });
+            });
+            return Reflect.apply(target, thisArg, args);
         }
-        const prop = chain.slice(0, pos);
-        if (
-            prop === '[]' && Array.isArray(owner) ||
-            prop === '*' && owner instanceof Object
-        ) {
-            const next = chain.slice(pos + 1);
-            let found = false;
-            for ( const key of Object.keys(owner) ) {
-                found = objectFindOwnerFn(owner[key], next, prune) || found;
-            }
-            return found;
-        }
-        if ( owner.hasOwnProperty(prop) === false ) { return false; }
-        owner = owner[prop];
-        chain = chain.slice(pos + 1);
-    }
-    return true;
-}
-
-function objectPruneFn(
-    obj,
-    rawPrunePaths,
-    rawNeedlePaths,
-    stackNeedleDetails = { matchAll: true },
-    extraArgs = {}
-) {
-    if ( typeof rawPrunePaths !== 'string' ) { return; }
-    const safe = safeSelf();
-    const prunePaths = rawPrunePaths !== ''
-        ? rawPrunePaths.split(/ +/)
-        : [];
-    const needlePaths = prunePaths.length !== 0 && rawNeedlePaths !== ''
-        ? rawNeedlePaths.split(/ +/)
-        : [];
-    const logLevel = shouldLog({ log: rawPrunePaths === '' || extraArgs.log });
-    const reLogNeedle = safe.patternToRegex(logLevel === true ? rawNeedlePaths : '');
-    if ( stackNeedleDetails.matchAll !== true ) {
-        if ( matchesStackTrace(stackNeedleDetails, extraArgs.logstack) === false ) {
-            return;
-        }
-    }
-    if ( objectPruneFn.mustProcess === undefined ) {
-        objectPruneFn.mustProcess = (root, needlePaths) => {
-            for ( const needlePath of needlePaths ) {
-                if ( objectFindOwnerFn(root, needlePath) === false ) {
-                    return false;
-                }
-            }
-            return true;
-        };
-        objectPruneFn.logJson = (json, msg, reNeedle) => {
-            if ( reNeedle.test(json) === false ) { return; }
-            safeSelf().uboLog(`objectPrune()`, msg, location.hostname, json);
-        };
-    }
-    const jsonBefore = logLevel ? safe.JSON_stringify(obj, null, 2) : '';
-    if ( logLevel === true || logLevel === 'all' ) {
-        objectPruneFn.logJson(jsonBefore, `prune:"${rawPrunePaths}" log:"${logLevel}"`, reLogNeedle);
-    }
-    if ( prunePaths.length === 0 ) { return; }
-    let outcome = 'nomatch';
-    if ( objectPruneFn.mustProcess(obj, needlePaths) ) {
-        for ( const path of prunePaths ) {
-            if ( objectFindOwnerFn(obj, path, true) ) {
-                outcome = 'match';
-            }
-        }
-    }
-    if ( logLevel === outcome ) {
-        objectPruneFn.logJson(jsonBefore, `prune:"${rawPrunePaths}" log:"${logLevel}"`, reLogNeedle);
-    }
-    if ( outcome === 'match' ) { return obj; }
+    });
 }
 
 function safeSelf() {
@@ -232,6 +210,8 @@ function safeSelf() {
         'Function_toStringFn': self.Function.prototype.toString,
         'Function_toString': thisArg => safe.Function_toStringFn.call(thisArg),
         'Math_floor': Math.floor,
+        'Math_max': Math.max,
+        'Math_min': Math.min,
         'Math_random': Math.random,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
@@ -318,68 +298,9 @@ function safeSelf() {
     return safe;
 }
 
-function matchesStackTrace(
-    needleDetails,
-    logLevel = 0
-) {
-    const safe = safeSelf();
-    const exceptionToken = getExceptionToken();
-    const error = new safe.Error(exceptionToken);
-    const docURL = new URL(self.location.href);
-    docURL.hash = '';
-    // Normalize stack trace
-    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
-    const lines = [];
-    for ( let line of error.stack.split(/[\n\r]+/) ) {
-        if ( line.includes(exceptionToken) ) { continue; }
-        line = line.trim();
-        const match = safe.RegExp_exec.call(reLine, line);
-        if ( match === null ) { continue; }
-        let url = match[2];
-        if ( url.startsWith('(') ) { url = url.slice(1); }
-        if ( url === docURL.href ) {
-            url = 'inlineScript';
-        } else if ( url.startsWith('<anonymous>') ) {
-            url = 'injectedScript';
-        }
-        let fn = match[1] !== undefined
-            ? match[1].slice(0, -1)
-            : line.slice(0, match.index).trim();
-        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
-        let rowcol = match[3];
-        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
-    }
-    lines[0] = `stackDepth:${lines.length-1}`;
-    const stack = lines.join('\t');
-    const r = safe.testPattern(needleDetails, stack);
-    if (
-        logLevel === 1 ||
-        logLevel === 2 && r ||
-        logLevel === 3 && !r
-    ) {
-        safe.uboLog(stack.replace(/\t/g, '\n'));
-    }
-    return r;
-}
-
 function shouldLog(details) {
     if ( details instanceof Object === false ) { return false; }
     return scriptletGlobals.has('canDebug') && details.log;
-}
-
-function getExceptionToken() {
-    const safe = safeSelf();
-    const token =
-        String.fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
-    const oe = self.onerror;
-    self.onerror = function(msg, ...args) {
-        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
-        if ( oe instanceof Function ) {
-            return oe.call(this, msg, ...args);
-        }
-    }.bind();
-    return token;
 }
 
 /******************************************************************************/
@@ -442,7 +363,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { trustedPruneInboundObject(...argsList[i]); }
+    try { m3uPrune(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -464,7 +385,7 @@ const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_trustedPruneInboundObject();
+    return uBOL_m3uPrune();
 }
 
 // Firefox
@@ -472,11 +393,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_trustedPruneInboundObject = cloneInto([
-            [ '(', uBOL_trustedPruneInboundObject.toString(), ')();' ],
+        page.uBOL_m3uPrune = cloneInto([
+            [ '(', uBOL_m3uPrune.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_trustedPruneInboundObject);
+        const blob = new page.Blob(...page.uBOL_m3uPrune);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -490,7 +411,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_trustedPruneInboundObject;
+    delete page.uBOL_m3uPrune;
 }
 
 /******************************************************************************/

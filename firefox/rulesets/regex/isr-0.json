@@ -4,23 +4,6 @@
    "type": "block"
   },
   "condition": {
-   "initiatorDomains": [
-    "haaretz.co.il",
-    "themarker.com"
-   ],
-   "regexFilter": "haaretz\\.co\\.il\\/[\\w\\.!]+\\/[\\w\\.!]+\\/[\\w\\.!]+\\/[\\w\\.!]+\\/[\\w\\.!]+\\/",
-   "resourceTypes": [
-    "image",
-    "sub_frame"
-   ]
-  },
-  "id": 76
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
    "domainType": "thirdParty",
    "initiatorDomains": [
     "6days.walla.co.il",
@@ -75,7 +58,7 @@
     "sub_frame"
    ]
   },
-  "id": 123
+  "id": 111
  },
  {
   "action": {
@@ -91,7 +74,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 125
+  "id": 113
  },
  {
   "action": {
@@ -107,7 +90,7 @@
     "image"
    ]
   },
-  "id": 166
+  "id": 152
  },
  {
   "action": {
@@ -127,6 +110,6 @@
     "script"
    ]
   },
-  "id": 183
+  "id": 167
  }
 ]

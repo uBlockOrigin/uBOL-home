@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: default
+// ruleset: ltu-0
 
 /******************************************************************************/
 
@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_trustedClickElement = function() {
+const uBOL_setConstant = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["#tp-snp2"],["button#btn-gotolink","","1000"],[".myButton"],["#download-button > input"],["#download"],["[value=\"Download\"]"],[".butt","","1000"],["#top_nav"],["#verify > .safeb"],["#notarobot > .safeb","","150"],["#notarobot > .safeb","","2500"],["a.get-link, .get-link.btn-lg.btn-success.btn","","9500"],[".link-button.button"],["#invisibleCaptchaShortlink.link-button.button"],[".get-link.link-button.button","","7500"]];
+const argsList = [["_dlf.adfree","1"]];
 
-const hostnamesMap = new Map([["viralxns.com",0],["wp.uploadfiles.in",0],["uploadsoon.com",0],["viralsbaba1.blogspot.com",1],["easytech24.com",2],["freethemesy.com",[3,4,5]],["httpmovies.online",6],["techyzero.com",6],["profitshort.com",7],["courselinkfree.us",7],["technorozen.com",7],["hubdrive.me",7],["bestadvise4u.com",7],["newztalkies.com",7],["10desires.org",7],["theapknews.shop",7],["aiotechnical.com",7],["cryptonewzhub.com",7],["trendzguruji.me",7],["techvybes.com",7],["wizitales.com",7],["101desires.com",7],["bhojpurimeet.in",[8,9,10]],["xpshort.com",11],["exeo.app",[12,13,14]]]);
+const hostnamesMap = new Map([["delfi.lt",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,120 +52,221 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function trustedClickElement(
-    selectors = '',
-    extraMatch = '', // not yet supported
-    delay = ''
+function setConstant(
+    ...args
 ) {
-    if ( extraMatch !== '' ) { return; }
-
-    const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    const uboLog = extraArgs.log !== undefined
-        ? ((...args) => { safe.uboLog(...args); })
-        : (( ) => { });
-
-    const selectorList = selectors.split(/\s*,\s*/)
-        .filter(s => {
-            try {
-                void document.querySelector(s);
-            } catch(_) {
-                return false;
-            }
-            return true;
-        });
-    if ( selectorList.length === 0 ) { return; }
-
-    const clickDelay = parseInt(delay, 10) || 1;
-    const t0 = Date.now();
-    const tbye = t0 + 10000;
-    let tnext = selectorList.length !== 1 ? t0 : t0 + clickDelay;
-
-    const terminate = ( ) => {
-        selectorList.length = 0;
-        next.stop();
-        observe.stop();
-    };
-
-    const next = notFound => {
-        if ( selectorList.length === 0 ) {
-            uboLog(`trusted-click-element: Completed`);
-            return terminate();
-        }
-        const tnow = Date.now();
-        if ( tnow >= tbye ) {
-            uboLog(`trusted-click-element: Timed out`);
-            return terminate();
-        }
-        if ( notFound ) { observe(); }
-        const delay = Math.max(notFound ? tbye - tnow : tnext - tnow, 1);
-        next.timer = setTimeout(( ) => {
-            next.timer = undefined;
-            process();
-        }, delay);
-        uboLog(`trusted-click-element: Waiting for ${selectorList[0]}...`);
-    };
-    next.stop = ( ) => {
-        if ( next.timer === undefined ) { return; }
-        clearTimeout(next.timer);
-        next.timer = undefined;
-    };
-
-    const observe = ( ) => {
-        if ( observe.observer !== undefined ) { return; }
-        observe.observer = new MutationObserver(( ) => {
-            if ( observe.timer !== undefined ) { return; }
-            observe.timer = setTimeout(( ) => {
-                observe.timer = undefined;
-                process();
-            }, 20);
-        });
-        observe.observer.observe(document, {
-            attributes: true,
-            childList: true,
-            subtree: true,
-        });
-    };
-    observe.stop = ( ) => {
-        if ( observe.timer !== undefined ) {
-            clearTimeout(observe.timer);
-            observe.timer = undefined;
-        }
-        if ( observe.observer ) {
-            observe.observer.disconnect();
-            observe.observer = undefined;
-        }
-    };
-
-    const process = ( ) => {
-        next.stop();
-        if ( Date.now() < tnext ) { return next(); }
-        const selector = selectorList.shift();
-        if ( selector === undefined ) { return terminate(); }
-        const elem = document.querySelector(selector);
-        if ( elem === null ) {
-            selectorList.unshift(selector);
-            return next(true);
-        }
-        uboLog(`trusted-click-element: Clicked ${selector}`);
-        elem.click();
-        tnext += clickDelay;
-        next();
-    };
-
-    runAtHtmlElementFn(process);
+    setConstantCore(false, ...args);
 }
 
-function runAtHtmlElementFn(fn) {
-    if ( document.documentElement ) {
-        fn();
-        return;
+function setConstantCore(
+    trusted = false,
+    chain = '',
+    cValue = ''
+) {
+    if ( chain === '' ) { return; }
+    const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    function setConstant(chain, cValue) {
+        const trappedProp = (( ) => {
+            const pos = chain.lastIndexOf('.');
+            if ( pos === -1 ) { return chain; }
+            return chain.slice(pos+1);
+        })();
+        if ( trappedProp === '' ) { return; }
+        const thisScript = document.currentScript;
+        const cloakFunc = fn => {
+            safe.Object_defineProperty(fn, 'name', { value: trappedProp });
+            const proxy = new Proxy(fn, {
+                defineProperty(target, prop) {
+                    if ( prop !== 'toString' ) {
+                        return Reflect.defineProperty(...arguments);
+                    }
+                    return true;
+                },
+                deleteProperty(target, prop) {
+                    if ( prop !== 'toString' ) {
+                        return Reflect.deleteProperty(...arguments);
+                    }
+                    return true;
+                },
+                get(target, prop) {
+                    if ( prop === 'toString' ) {
+                        return function() {
+                            return `function ${trappedProp}() { [native code] }`;
+                        }.bind(null);
+                    }
+                    return Reflect.get(...arguments);
+                },
+            });
+            return proxy;
+        };
+        if ( cValue === 'undefined' ) {
+            cValue = undefined;
+        } else if ( cValue === 'false' ) {
+            cValue = false;
+        } else if ( cValue === 'true' ) {
+            cValue = true;
+        } else if ( cValue === 'null' ) {
+            cValue = null;
+        } else if ( cValue === "''" || cValue === '' ) {
+            cValue = '';
+        } else if ( cValue === '[]' || cValue === 'emptyArr' ) {
+            cValue = [];
+        } else if ( cValue === '{}' || cValue === 'emptyObj' ) {
+            cValue = {};
+        } else if ( cValue === 'noopFunc' ) {
+            cValue = cloakFunc(function(){});
+        } else if ( cValue === 'trueFunc' ) {
+            cValue = cloakFunc(function(){ return true; });
+        } else if ( cValue === 'falseFunc' ) {
+            cValue = cloakFunc(function(){ return false; });
+        } else if ( /^-?\d+$/.test(cValue) ) {
+            cValue = parseInt(cValue);
+            if ( isNaN(cValue) ) { return; }
+            if ( Math.abs(cValue) > 0x7FFF ) { return; }
+        } else if ( trusted ) {
+            if ( cValue.startsWith('{') && cValue.endsWith('}') ) {
+                try { cValue = safe.JSON_parse(cValue).value; } catch(ex) { return; }
+            }
+        } else {
+            return;
+        }
+        if ( extraArgs.as !== undefined ) {
+            const value = cValue;
+            if ( extraArgs.as === 'function' ) {
+                cValue = ( ) => value;
+            } else if ( extraArgs.as === 'callback' ) {
+                cValue = ( ) => (( ) => value);
+            } else if ( extraArgs.as === 'resolved' ) {
+                cValue = Promise.resolve(value);
+            } else if ( extraArgs.as === 'rejected' ) {
+                cValue = Promise.reject(value);
+            }
+        }
+        let aborted = false;
+        const mustAbort = function(v) {
+            if ( trusted ) { return false; }
+            if ( aborted ) { return true; }
+            aborted =
+                (v !== undefined && v !== null) &&
+                (cValue !== undefined && cValue !== null) &&
+                (typeof v !== typeof cValue);
+            return aborted;
+        };
+        // https://github.com/uBlockOrigin/uBlock-issues/issues/156
+        //   Support multiple trappers for the same property.
+        const trapProp = function(owner, prop, configurable, handler) {
+            if ( handler.init(configurable ? owner[prop] : cValue) === false ) { return; }
+            const odesc = Object.getOwnPropertyDescriptor(owner, prop);
+            let prevGetter, prevSetter;
+            if ( odesc instanceof Object ) {
+                owner[prop] = cValue;
+                if ( odesc.get instanceof Function ) {
+                    prevGetter = odesc.get;
+                }
+                if ( odesc.set instanceof Function ) {
+                    prevSetter = odesc.set;
+                }
+            }
+            try {
+                safe.Object_defineProperty(owner, prop, {
+                    configurable,
+                    get() {
+                        if ( prevGetter !== undefined ) {
+                            prevGetter();
+                        }
+                        return handler.getter(); // cValue
+                    },
+                    set(a) {
+                        if ( prevSetter !== undefined ) {
+                            prevSetter(a);
+                        }
+                        handler.setter(a);
+                    }
+                });
+            } catch(ex) {
+            }
+        };
+        const trapChain = function(owner, chain) {
+            const pos = chain.indexOf('.');
+            if ( pos === -1 ) {
+                trapProp(owner, chain, false, {
+                    v: undefined,
+                    init: function(v) {
+                        if ( mustAbort(v) ) { return false; }
+                        this.v = v;
+                        return true;
+                    },
+                    getter: function() {
+                        return document.currentScript === thisScript
+                            ? this.v
+                            : cValue;
+                    },
+                    setter: function(a) {
+                        if ( mustAbort(a) === false ) { return; }
+                        cValue = a;
+                    }
+                });
+                return;
+            }
+            const prop = chain.slice(0, pos);
+            const v = owner[prop];
+            chain = chain.slice(pos + 1);
+            if ( v instanceof Object || typeof v === 'object' && v !== null ) {
+                trapChain(v, chain);
+                return;
+            }
+            trapProp(owner, prop, true, {
+                v: undefined,
+                init: function(v) {
+                    this.v = v;
+                    return true;
+                },
+                getter: function() {
+                    return this.v;
+                },
+                setter: function(a) {
+                    this.v = a;
+                    if ( a instanceof Object ) {
+                        trapChain(a, chain);
+                    }
+                }
+            });
+        };
+        trapChain(window, chain);
     }
-    const observer = new MutationObserver(( ) => {
-        observer.disconnect();
+    runAt(( ) => {
+        setConstant(chain, cValue);
+    }, extraArgs.runAt);
+}
+
+function runAt(fn, when) {
+    const intFromReadyState = state => {
+        const targets = {
+            'loading': 1,
+            'interactive': 2, 'end': 2, '2': 2,
+            'complete': 3, 'idle': 3, '3': 3,
+        };
+        const tokens = Array.isArray(state) ? state : [ state ];
+        for ( const token of tokens ) {
+            const prop = `${token}`;
+            if ( targets.hasOwnProperty(prop) === false ) { continue; }
+            return targets[prop];
+        }
+        return 0;
+    };
+    const runAt = intFromReadyState(when);
+    if ( intFromReadyState(document.readyState) >= runAt ) {
+        fn(); return;
+    }
+    const onStateChange = ( ) => {
+        if ( intFromReadyState(document.readyState) < runAt ) { return; }
         fn();
-    });
-    observer.observe(document, { childList: true });
+        safe.removeEventListener.apply(document, args);
+    };
+    const safe = safeSelf();
+    const args = [ 'readystatechange', onStateChange, { capture: true } ];
+    safe.addEventListener.apply(document, args);
 }
 
 function safeSelf() {
@@ -179,6 +280,8 @@ function safeSelf() {
         'Function_toStringFn': self.Function.prototype.toString,
         'Function_toString': thisArg => safe.Function_toStringFn.call(thisArg),
         'Math_floor': Math.floor,
+        'Math_max': Math.max,
+        'Math_min': Math.min,
         'Math_random': Math.random,
         'Object_defineProperty': Object.defineProperty.bind(Object),
         'RegExp': self.RegExp,
@@ -325,7 +428,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { trustedClickElement(...argsList[i]); }
+    try { setConstant(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -343,11 +446,11 @@ argsList.length = 0;
 //   'MAIN' world not yet supported in Firefox, so we inject the code into
 //   'MAIN' ourself when environment in Firefox.
 
-const targetWorld = 'ISOLATED';
+const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_trustedClickElement();
+    return uBOL_setConstant();
 }
 
 // Firefox
@@ -355,11 +458,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_trustedClickElement = cloneInto([
-            [ '(', uBOL_trustedClickElement.toString(), ')();' ],
+        page.uBOL_setConstant = cloneInto([
+            [ '(', uBOL_setConstant.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_trustedClickElement);
+        const blob = new page.Blob(...page.uBOL_setConstant);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -373,7 +476,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_trustedClickElement;
+    delete page.uBOL_setConstant;
 }
 
 /******************************************************************************/

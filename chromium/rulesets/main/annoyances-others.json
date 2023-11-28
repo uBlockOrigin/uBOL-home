@@ -4,8 +4,16 @@
    "type": "block"
   },
   "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||fastly.jsdelivr.net/npm/disable-devtool^"
+   "initiatorDomains": [
+    "dictionary.com",
+    "mobilesyrup.com",
+    "softpedia.com",
+    "thewindowsclub.com",
+    "warcraftlogs.com"
+   ],
+   "requestDomains": [
+    "player.anyclip.com"
+   ]
   },
   "id": 1
  },
@@ -15,7 +23,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||player.cnevids.com/interlude/glamour.js*&embeddedvideos=&rightrail=true"
+   "urlFilter": "||fastly.jsdelivr.net/npm/disable-devtool^"
   },
   "id": 2
  },
@@ -25,7 +33,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||img-global.cpcdn.com/promotional_banners"
+   "urlFilter": "||player.cnevids.com/interlude/glamour.js*&embeddedvideos=&rightrail=true"
   },
   "id": 3
  },
@@ -35,7 +43,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||1prof.by/wp-content/uploads/*/igry-sng-na-banner.gif"
+   "urlFilter": "||img-global.cpcdn.com/promotional_banners"
   },
   "id": 4
  },
@@ -45,9 +53,19 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||pregchan.com/randombanner.js"
+   "urlFilter": "||1prof.by/wp-content/uploads/*/igry-sng-na-banner.gif"
   },
   "id": 5
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||pregchan.com/randombanner.js"
+  },
+  "id": 6
  },
  {
   "action": {
@@ -60,7 +78,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||geo.dailymotion.com/player/x8agi.html"
   },
-  "id": 6
+  "id": 7
  },
  {
   "action": {
@@ -74,7 +92,7 @@
     "fcp.codes"
    ]
   },
-  "id": 7
+  "id": 8
  },
  {
   "action": {
@@ -84,7 +102,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ppstatic.pl/assets/nsk/v*/js/compiled/atoms/article/*sticky-video*.js"
   },
-  "id": 8
+  "id": 9
  },
  {
   "action": {
@@ -97,7 +115,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||geo.dailymotion.com/libs/player/"
   },
-  "id": 9
+  "id": 10
  },
  {
   "action": {
@@ -107,7 +125,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||gqjapan.jp/verso/static/chunk.presenter-account-bookmarks"
   },
-  "id": 10
+  "id": 11
  },
  {
   "action": {
@@ -122,7 +140,7 @@
     "player.ivideosmart.com"
    ]
   },
-  "id": 11
+  "id": 12
  },
  {
   "action": {
@@ -132,7 +150,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||softpedia.com/zds.php"
   },
-  "id": 12
+  "id": 13
  },
  {
   "action": {
@@ -142,7 +160,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pay-day.ru/wp-content/cache/min/1/js/vq_starter.js"
   },
-  "id": 13
+  "id": 14
  },
  {
   "action": {
@@ -152,7 +170,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.insurancedekho.com/pwa/js/bundle/newsdetail."
   },
-  "id": 14
+  "id": 15
  },
  {
   "action": {
@@ -166,7 +184,7 @@
     "widget.golfscape.com"
    ]
   },
-  "id": 15
+  "id": 16
  },
  {
   "action": {
@@ -180,7 +198,7 @@
     "player.cnevids.com"
    ]
   },
-  "id": 16
+  "id": 17
  },
  {
   "action": {
@@ -190,7 +208,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ais.th/asset_index2020/js/chat_and_shop.js"
   },
-  "id": 17
+  "id": 18
  },
  {
   "action": {
@@ -200,7 +218,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||wikipedia.su/muzikfon.php"
   },
-  "id": 18
+  "id": 19
  },
  {
   "action": {
@@ -213,7 +231,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||img.weblogssl.com/*/js/dailymotion-"
   },
-  "id": 19
+  "id": 20
  },
  {
   "action": {
@@ -223,7 +241,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fireworkapi1.com/embed/v2/playlists/5m1wz5/feeds?page_size=10"
   },
-  "id": 20
+  "id": 21
  },
  {
   "action": {
@@ -233,7 +251,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fireworkapi1.com/embed/v2/channels/whats_trending"
   },
-  "id": 21
+  "id": 22
  },
  {
   "action": {
@@ -243,7 +261,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fireworkapi.com/embed/v2/publisher_clients/"
   },
-  "id": 22
+  "id": 23
  },
  {
   "action": {
@@ -271,7 +289,7 @@
     "fireworkapi1.com"
    ]
   },
-  "id": 23
+  "id": 24
  },
  {
   "action": {
@@ -281,7 +299,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||images.news18.com/static_news18/pix/ibnhome/news18/jio_saavn_"
   },
-  "id": 24
+  "id": 25
  },
  {
   "action": {
@@ -291,7 +309,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||belaruspartisan.by/images/sherem.png"
   },
-  "id": 25
+  "id": 26
  },
  {
   "action": {
@@ -301,7 +319,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||belaruspartisan.by/images/svaboda3.jpg"
   },
-  "id": 26
+  "id": 27
  },
  {
   "action": {
@@ -314,7 +332,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||meczyki.pl/js/news-widget.js"
   },
-  "id": 27
+  "id": 28
  },
  {
   "action": {
@@ -324,7 +342,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||azby.fmworld.net/usage/images/banner_enquete.jpg"
   },
-  "id": 28
+  "id": 29
  },
  {
   "action": {
@@ -334,7 +352,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mwcm.nytimes.com/capi/metered_assets/?plat=*&areas=welcomead"
   },
-  "id": 29
+  "id": 30
  },
  {
   "action": {
@@ -344,7 +362,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||newzit.com/static/videoplayer/*/scripts/mol-fe-videoplayer.min.js"
   },
-  "id": 30
+  "id": 31
  },
  {
   "action": {
@@ -357,7 +375,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||edicloud.edipresse.pl/random/wizaz/video.js"
   },
-  "id": 31
+  "id": 32
  },
  {
   "action": {
@@ -367,7 +385,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||syouron.com/neko_tora.js"
   },
-  "id": 32
+  "id": 33
  },
  {
   "action": {
@@ -377,7 +395,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static3.car.ru/img/ya.gif"
   },
-  "id": 33
+  "id": 34
  },
  {
   "action": {
@@ -387,7 +405,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||darkcrew.org/forum/service_worker.js"
   },
-  "id": 34
+  "id": 35
  },
  {
   "action": {
@@ -397,7 +415,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||brief.pl/wp-content/uploads/2021/06/baner-www-750x100px.png"
   },
-  "id": 35
+  "id": 36
  },
  {
   "action": {
@@ -410,7 +428,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fiverr.com/embed_gigs?id"
   },
-  "id": 36
+  "id": 37
  },
  {
   "action": {
@@ -420,7 +438,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nicoad.nicovideo.jp/v1/contents/video/*/pickup_supporters"
   },
-  "id": 37
+  "id": 38
  },
  {
   "action": {
@@ -430,7 +448,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||sputnik.by/files/tgparser/sputnik_by.html"
   },
-  "id": 38
+  "id": 39
  },
  {
   "action": {
@@ -443,7 +461,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||s.yimg.jp/images/auct/salespromotion/2021_2/0216_stop/376_376.png"
   },
-  "id": 39
+  "id": 40
  },
  {
   "action": {
@@ -453,7 +471,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||diets.ru/i/rb/start_to_lose_weight_*.jpg"
   },
-  "id": 41
+  "id": 42
  },
  {
   "action": {
@@ -463,7 +481,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mir24.tv/uploaded/resources/telegramm_1200x90.jpg"
   },
-  "id": 42
+  "id": 43
  },
  {
   "action": {
@@ -478,7 +496,7 @@
     "embed.sendtonews.com"
    ]
   },
-  "id": 43
+  "id": 44
  },
  {
   "action": {
@@ -488,7 +506,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||haber7.net/sondakika/ramazan-widget"
   },
-  "id": 44
+  "id": 45
  },
  {
   "action": {
@@ -502,7 +520,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||turkmedya.com.tr/ramazan?"
   },
-  "id": 45
+  "id": 46
  },
  {
   "action": {
@@ -512,7 +530,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||drozdogan.com/images/koronavirus_banner_*.gif"
   },
-  "id": 46
+  "id": 47
  },
  {
   "action": {
@@ -534,7 +552,7 @@
     "content.jwplatform.com"
    ]
   },
-  "id": 47
+  "id": 48
  },
  {
   "action": {
@@ -550,7 +568,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.viqeo.tv/js/vq_starter.js"
   },
-  "id": 48
+  "id": 49
  },
  {
   "action": {
@@ -563,7 +581,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||search.namu.wiki/api/ranking"
   },
-  "id": 49
+  "id": 50
  },
  {
   "action": {
@@ -576,7 +594,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||arca.live/api/bywiki.json"
   },
-  "id": 50
+  "id": 51
  },
  {
   "action": {
@@ -590,7 +608,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.tinypass.com/api/tinypass.min.js"
   },
-  "id": 51
+  "id": 52
  },
  {
   "action": {
@@ -604,7 +622,7 @@
     "vidtech.cbsinteractive.com"
    ]
   },
-  "id": 52
+  "id": 53
  },
  {
   "action": {
@@ -617,7 +635,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jiosaavn.com/embed/"
   },
-  "id": 53
+  "id": 54
  },
  {
   "action": {
@@ -627,7 +645,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||psxplanet.ru/forum/clientscript/ny2021/scripts/game_v4.js"
   },
-  "id": 54
+  "id": 55
  },
  {
   "action": {
@@ -637,7 +655,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||silvergames.com/div/own.php?"
   },
-  "id": 55
+  "id": 56
  },
  {
   "action": {
@@ -647,7 +665,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||codestudyblog.com/ref/myscripts.js"
   },
-  "id": 56
+  "id": 57
  },
  {
   "action": {
@@ -657,7 +675,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||ilenta.com/images/banner/"
   },
-  "id": 57
+  "id": 58
  },
  {
   "action": {
@@ -667,7 +685,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||expclan.org/styles/banners/skupka.gif"
   },
-  "id": 58
+  "id": 59
  },
  {
   "action": {
@@ -677,7 +695,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||expclan.org/styles/banners/des.gif"
   },
-  "id": 59
+  "id": 60
  },
  {
   "action": {
@@ -686,19 +704,6 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||expclan.org/styles/banners/iphone.gif"
-  },
-  "id": 60
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "adblock-tester.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "bugsnag.com^"
   },
   "id": 61
  },
@@ -711,9 +716,22 @@
     "adblock-tester.com"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "/bugsnag.min.js"
+   "urlFilter": "bugsnag.com^"
   },
   "id": 62
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "adblock-tester.com"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "/bugsnag.min.js"
+  },
+  "id": 63
  },
  {
   "action": {
@@ -727,7 +745,7 @@
     "sentry-cdn.com"
    ]
   },
-  "id": 63
+  "id": 64
  },
  {
   "action": {
@@ -741,7 +759,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||jsrdn.com/s/cs.js"
   },
-  "id": 64
+  "id": 65
  },
  {
   "action": {
@@ -757,7 +775,7 @@
     "connatix.com"
    ]
   },
-  "id": 65
+  "id": 66
  },
  {
   "action": {
@@ -766,19 +784,6 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||business-standard.com/covid-*.php"
-  },
-  "id": 66
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "mail.ru"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||cdn.viqeo.tv/embed?playerid="
   },
   "id": 67
  },
@@ -791,9 +796,22 @@
     "mail.ru"
    ],
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||viqeo.tv/js/vq_starter.js"
+   "urlFilter": "||cdn.viqeo.tv/embed?playerid="
   },
   "id": 68
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "mail.ru"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "urlFilter": "||viqeo.tv/js/vq_starter.js"
+  },
+  "id": 69
  },
  {
   "action": {
@@ -803,7 +821,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||download.skype.com/share/skypebuttons/js/skypecheck.js"
   },
-  "id": 69
+  "id": 70
  },
  {
   "action": {
@@ -817,7 +835,7 @@
     "api.dmcdn.net"
    ]
   },
-  "id": 70
+  "id": 71
  },
  {
   "action": {
@@ -827,7 +845,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||dostfilms.*/uploads/readmore.min.js"
   },
-  "id": 71
+  "id": 72
  },
  {
   "action": {
@@ -837,7 +855,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||animepertutti.org/wp-content/uploads/*/telegramjoin.jpg"
   },
-  "id": 72
+  "id": 73
  },
  {
   "action": {
@@ -847,7 +865,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.zmescience.com/wp-content/themes/jnews/assets/dist/image/preloader.gif"
   },
-  "id": 73
+  "id": 74
  },
  {
   "action": {
@@ -861,7 +879,7 @@
     "adncdnend.azureedge.net"
    ]
   },
-  "id": 74
+  "id": 75
  },
  {
   "action": {
@@ -870,23 +888,6 @@
   "condition": {
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||r.dlandroid.com/wp-content/uploads/*/telegram.png"
-  },
-  "id": 75
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "mobilesyrup.com",
-    "softpedia.com",
-    "thewindowsclub.com",
-    "warcraftlogs.com"
-   ],
-   "requestDomains": [
-    "player.anyclip.com"
-   ]
   },
   "id": 76
  },

@@ -75,7 +75,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||ceneje.si/*/getproductads"
+   "urlFilter": "||ceneje.si/*?track="
   },
   "id": 8
  },
@@ -85,7 +85,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||ceneje.si/*/logtopproductimpressions"
+   "urlFilter": "||engine2.livenetlife.com/ping.aspx"
   },
   "id": 9
  },
@@ -95,7 +95,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||ceneje.si/*?idpartner="
+   "urlFilter": "||facebook.com/tr/?"
   },
   "id": 10
  },
@@ -105,7 +105,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||ceneje.si/*?token="
+   "urlFilter": "||facebook.com/tr?"
   },
   "id": 11
  },
@@ -115,7 +115,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||ceneje.si/*?track="
+   "urlFilter": "||files.dnevnik.si/2013/porabi.jpg"
   },
   "id": 12
  },
@@ -125,7 +125,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||engine2.livenetlife.com/ping.aspx"
+   "urlFilter": "||files.dnevnik.si/2014/emona_banner.jpg"
   },
   "id": 13
  },
@@ -135,7 +135,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||facebook.com/tr/?"
+   "urlFilter": "||golfportal.info/*/banner*.png"
   },
   "id": 14
  },
@@ -145,7 +145,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||facebook.com/tr?"
+   "urlFilter": "||hudo.com/*/im_banner*.jpg"
   },
   "id": 15
  },
@@ -155,7 +155,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||files.dnevnik.si/2013/porabi.jpg"
+   "urlFilter": "||ipromcloud.com/ipromns.js"
   },
   "id": 16
  },
@@ -165,7 +165,7 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||files.dnevnik.si/2014/emona_banner.jpg"
+   "urlFilter": "||iprom.net/adasync.js"
   },
   "id": 17
  },
@@ -175,49 +175,9 @@
   },
   "condition": {
    "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||golfportal.info/*/banner*.png"
-  },
-  "id": 18
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||hudo.com/*/im_banner*.jpg"
-  },
-  "id": 19
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||ipromcloud.com/ipromns.js"
-  },
-  "id": 20
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||iprom.net/adasync.js"
-  },
-  "id": 21
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
    "urlFilter": "||itis.si/embed_advertiserspromo.aspx"
   },
-  "id": 22
+  "id": 18
  },
  {
   "action": {
@@ -230,7 +190,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||kuula.co/share"
   },
-  "id": 23
+  "id": 19
  },
  {
   "action": {
@@ -240,7 +200,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||lokalno.si/inc/ads-frame.asp"
   },
-  "id": 24
+  "id": 20
  },
  {
   "action": {
@@ -250,7 +210,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mailerlite.com/*/banners"
   },
-  "id": 25
+  "id": 21
  },
  {
   "action": {
@@ -260,7 +220,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||maps.googleapis.com/maps/api/js/quotaservice.recordevent"
   },
-  "id": 26
+  "id": 22
  },
  {
   "action": {
@@ -270,7 +230,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||maps.googleapis.com/*/stats.js"
   },
-  "id": 27
+  "id": 23
  },
  {
   "action": {
@@ -280,7 +240,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||media.privoscite.si/dsg/4/1/214f2ce6ae3fccbff35c0fae3c3688.jpg"
   },
-  "id": 28
+  "id": 24
  },
  {
   "action": {
@@ -290,7 +250,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||media.privoscite.si/dsg/5/d/58f4ed3192fefe752c56782a4e35ea.jpg"
   },
-  "id": 29
+  "id": 25
  },
  {
   "action": {
@@ -300,7 +260,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||megabon.eu/sl/widgets/slovenske_novice"
   },
-  "id": 30
+  "id": 26
  },
  {
   "action": {
@@ -310,7 +270,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mimovrste.com/*/marxy.js"
   },
-  "id": 31
+  "id": 27
  },
  {
   "action": {
@@ -320,7 +280,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mlacom.si/modules/footermod/otherbg/mlacom-ozadje*.jpg"
   },
-  "id": 32
+  "id": 28
  },
  {
   "action": {
@@ -330,7 +290,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mladina.si/*jquery.fancybox.js"
   },
-  "id": 33
+  "id": 29
  },
  {
   "action": {
@@ -340,7 +300,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mladina.si/media/img/oglasi/"
   },
-  "id": 34
+  "id": 30
  },
  {
   "action": {
@@ -350,7 +310,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mojblink.si/pic/banners/*.gif"
   },
-  "id": 35
+  "id": 31
  },
  {
   "action": {
@@ -360,7 +320,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mojblink.si/pic/banners/*.jpg"
   },
-  "id": 36
+  "id": 32
  },
  {
   "action": {
@@ -370,7 +330,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||nepremicnine.click/ad-files/"
   },
-  "id": 37
+  "id": 33
  },
  {
   "action": {
@@ -380,7 +340,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||novice.si/*/oglasuj.jpg"
   },
-  "id": 38
+  "id": 34
  },
  {
   "action": {
@@ -394,7 +354,7 @@
     "oglasi.slo-tech.com"
    ]
   },
-  "id": 39
+  "id": 35
  },
  {
   "action": {
@@ -404,67 +364,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||over.net/feedo.min.js"
   },
-  "id": 40
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||partis.si/img/bshad*.png"
-  },
-  "id": 41
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||partis.si/img/contentbg_*.png"
-  },
-  "id": 42
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||partis.si/tmp/as32.jpg"
-  },
-  "id": 43
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||partis.si/tmp/blackfriday.jpg"
-  },
-  "id": 44
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||partis.si/tmp/herbalab*.jpg"
-  },
-  "id": 45
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "urlFilter": "||partis.si/tmp/loyalbg*.jpg"
-  },
-  "id": 46
+  "id": 36
  },
  {
   "action": {
@@ -474,7 +374,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pcplus.si/media/wysiwyg/infortis/fortis/_backgrounds/default/*.jpg"
   },
-  "id": 47
+  "id": 37
  },
  {
   "action": {
@@ -484,7 +384,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||phobs.net/check.php"
   },
-  "id": 48
+  "id": 38
  },
  {
   "action": {
@@ -494,7 +394,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pokukaj.si/data/oglasi/"
   },
-  "id": 49
+  "id": 39
  },
  {
   "action": {
@@ -504,7 +404,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||pomurec.com/data/oglasi/"
   },
-  "id": 50
+  "id": 40
  },
  {
   "action": {
@@ -514,7 +414,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||reporter.si/misc/gemius.js"
   },
-  "id": 51
+  "id": 41
  },
  {
   "action": {
@@ -524,7 +424,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||reporter.si/sites/all/themes/bootstrap_barrio/images/oglasniprevzemkorporepor.jpg"
   },
-  "id": 52
+  "id": 42
  },
  {
   "action": {
@@ -534,7 +434,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||reporter.si/sites/all/themes/bootstrap_barrio/images/ozadje*1920x1080.jpg"
   },
-  "id": 53
+  "id": 43
  },
  {
   "action": {
@@ -544,7 +444,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||reporter.si/sites/all/themes/bootstrap_barrio/images/posta-*.jpg"
   },
-  "id": 54
+  "id": 44
  },
  {
   "action": {
@@ -554,7 +454,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||reporter.si/sites/all/themes/custom/bootstrap_barrio/images/ozadjetriglav*.jpg"
   },
-  "id": 55
+  "id": 45
  },
  {
   "action": {
@@ -564,7 +464,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||studentski-servis.com/themes/e-studentski-servis/assets/media/dsg/background*.jpg"
   },
-  "id": 56
+  "id": 46
  },
  {
   "action": {
@@ -574,7 +474,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.dijaski.net/graphics/aff/telemach2.png"
   },
-  "id": 57
+  "id": 47
  },
  {
   "action": {
@@ -584,7 +484,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||stop-neplacniki.si/*/bannerji"
   },
-  "id": 58
+  "id": 48
  },
  {
   "action": {
@@ -594,7 +494,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||studentarija.net/wp-content/uploads/*/*.jpg"
   },
-  "id": 59
+  "id": 49
  },
  {
   "action": {
@@ -604,7 +504,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||varna-voznja.si/upload/banners/"
   },
-  "id": 60
+  "id": 50
  },
  {
   "action": {
@@ -614,7 +514,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||vecer.com/*/oglasi/"
   },
-  "id": 61
+  "id": 51
  },
  {
   "action": {
@@ -624,7 +524,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||widgets.outbrain.com/outbrain.js"
   },
-  "id": 62
+  "id": 52
  },
  {
   "action": {
@@ -634,7 +534,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.bicikel.com/narocilo-revij.png"
   },
-  "id": 63
+  "id": 53
  },
  {
   "action": {
@@ -644,7 +544,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.monolitmap.si/system/application/addons/images/page/poi_banner.png"
   },
-  "id": 64
+  "id": 54
  },
  {
   "action": {
@@ -654,7 +554,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||www.skladi.com/images/overlay.png"
   },
-  "id": 65
+  "id": 55
  },
  {
   "action": {
@@ -664,7 +564,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||zurnal24.si/banners/*/inartc"
   },
-  "id": 66
+  "id": 56
  },
  {
   "action": {
@@ -672,7 +572,6 @@
   },
   "condition": {
    "requestDomains": [
-    "ad.partis.si",
     "ad.zurnal24.si",
     "adform.net",
     "ads-store.24ur.com",
@@ -690,7 +589,7 @@
     "zajtrkhisa.xyz"
    ]
   },
-  "id": 67
+  "id": 57
  },
  {
   "action": {
@@ -706,7 +605,7 @@
    ],
    "urlFilter": "||code.jquery.com/jquery-1*.js"
   },
-  "id": 68
+  "id": 58
  },
  {
   "action": {
@@ -722,7 +621,7 @@
    ],
    "urlFilter": "||reporter.si/sites/all/modules/jquery_update/replace/jquery/1.8/jquery.js"
   },
-  "id": 69
+  "id": 59
  },
  {
   "action": {
@@ -738,7 +637,7 @@
    ],
    "urlFilter": "||vaven.co/loader.js"
   },
-  "id": 70
+  "id": 60
  },
  {
   "action": {
@@ -751,7 +650,7 @@
    ],
    "urlFilter": "||amazonaws.com/banners.wave.si"
   },
-  "id": 71
+  "id": 61
  },
  {
   "action": {
@@ -764,7 +663,7 @@
    ],
    "urlFilter": "||cdn-next.megabon.eu/sl/widgets/delo"
   },
-  "id": 72
+  "id": 62
  },
  {
   "action": {
@@ -777,7 +676,7 @@
    ],
    "urlFilter": "||monitor.si/media/img/"
   },
-  "id": 73
+  "id": 63
  },
  {
   "action": {
@@ -813,7 +712,7 @@
     "upscore.com"
    ]
   },
-  "id": 74
+  "id": 64
  },
  {
   "action": {
@@ -829,7 +728,7 @@
     "mg-marxy.mall.cz"
    ]
   },
-  "id": 75
+  "id": 65
  },
  {
   "action": {
@@ -842,7 +741,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||akumulator.si/img/upload/banners/*.jpg"
   },
-  "id": 76
+  "id": 66
  },
  {
   "action": {
@@ -852,7 +751,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||bar.piano-media.com/dnevnik/bar.js"
   },
-  "id": 77
+  "id": 67
  },
  {
   "action": {
@@ -862,7 +761,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||celje.info/wp-content/plugins/simple-share-buttons-adder/buttons/pagepeel/*.png"
   },
-  "id": 78
+  "id": 68
  },
  {
   "action": {
@@ -875,7 +774,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||fbcdn.net/hads-xpt1/v/"
   },
-  "id": 79
+  "id": 69
  },
  {
   "action": {
@@ -888,7 +787,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||google-analytics.com/ga.js"
   },
-  "id": 80
+  "id": 70
  },
  {
   "action": {
@@ -901,7 +800,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||graph.facebook.com/"
   },
-  "id": 81
+  "id": 71
  },
  {
   "action": {
@@ -914,7 +813,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||images.contentexchange.me/fit"
   },
-  "id": 82
+  "id": 72
  },
  {
   "action": {
@@ -927,7 +826,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mp.piano-media.com/bucket/novosense.swf"
   },
-  "id": 83
+  "id": 73
  },
  {
   "action": {
@@ -940,7 +839,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mp.piano-media.com/js/bp.html"
   },
-  "id": 84
+  "id": 74
  },
  {
   "action": {
@@ -953,7 +852,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||mp.piano-media.com/uid"
   },
-  "id": 85
+  "id": 75
  },
  {
   "action": {
@@ -967,7 +866,7 @@
     "sparky.internetmedia.si"
    ]
   },
-  "id": 86
+  "id": 76
  },
  {
   "action": {
@@ -980,7 +879,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||static.igre123.com/ads/*.gif"
   },
-  "id": 87
+  "id": 77
  },
  {
   "action": {
@@ -990,7 +889,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||a.ipromcloud.com/*/cca7a08cba3a447c2e19ebeb8b7c773a_728.gif"
   },
-  "id": 88
+  "id": 78
  },
  {
   "action": {
@@ -1003,7 +902,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.ipromcloud.com/ipromns.js"
   },
-  "id": 89
+  "id": 79
  },
  {
   "action": {
@@ -1016,7 +915,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.ipromcloud.com/script/format/classic.js*"
   },
-  "id": 90
+  "id": 80
  },
  {
   "action": {
@@ -1029,7 +928,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.ipromcloud.com/script/prebid.js"
   },
-  "id": 91
+  "id": 81
  },
  {
   "action": {
@@ -1042,7 +941,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.ipromcloud.com/script/utils.js"
   },
-  "id": 92
+  "id": 82
  },
  {
   "action": {
@@ -1055,7 +954,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||cdn.ipromcloud.com/site/rtvslo.js*"
   },
-  "id": 93
+  "id": 83
  },
  {
   "action": {
@@ -1065,7 +964,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||core.iprom.net/click?*&redirect=http%3a%2f%2fwww.sli.do%2fjoker"
   },
-  "id": 94
+  "id": 84
  },
  {
   "action": {
@@ -1078,7 +977,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||core.iprom.net/impression"
   },
-  "id": 95
+  "id": 85
  },
  {
   "action": {
@@ -1091,7 +990,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||core.iprom.net/log?"
   },
-  "id": 96
+  "id": 86
  },
  {
   "action": {
@@ -1104,7 +1003,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||core.iprom.net/site*"
   },
-  "id": 97
+  "id": 87
  },
  {
   "action": {
@@ -1120,7 +1019,7 @@
    ],
    "urlFilter": "||bar.piano-media.com/auth"
   },
-  "id": 98
+  "id": 88
  },
  {
   "action": {
@@ -1144,7 +1043,7 @@
     "xmlhttprequest"
    ]
   },
-  "id": 99
+  "id": 89
  },
  {
   "action": {
@@ -1157,6 +1056,6 @@
    ],
    "urlFilter": "||sibautomation.com/cm.html"
   },
-  "id": 100
+  "id": 90
  }
 ]
