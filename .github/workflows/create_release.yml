@@ -69,7 +69,6 @@ jobs:
         with:
           tag: ${{ env.TAGNAME }}
           prerelease: true
-          draft: true
           body: |
             **uBO Lite** (uBOL), a **permission-less** [MV3 API-based](https://developer.chrome.com/docs/extensions/mv3/intro/) content blocker.
             
