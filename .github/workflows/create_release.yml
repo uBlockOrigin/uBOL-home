@@ -92,7 +92,7 @@ jobs:
             
             <details><summary>Manual installation</summary>
             
-            - Chromium: Download the [${{ env.TAGNAME }}.chromium.mv3.zip](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.chromium.mv3.xpi) package below, unzip, navigate to `chrome://extensions/` in your browser, then [tell the browser to load the extension](https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outside-the-chrome-web-store/24577660#24577660). You will have to update the extension manually.
+            - Chromium: Download the [${{ env.TAGNAME }}.chromium.mv3.zip](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.chromium.mv3.zip) package below, unzip, navigate to `chrome://extensions/` in your browser, then [tell the browser to load the extension](https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outside-the-chrome-web-store/24577660#24577660). You will have to update the extension manually.
             - Firefox: Click [${{ env.TAGNAME }}.firefox.signed.mv3.xpi](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.firefox.signed.mv3.xpi)
             
             </details>
