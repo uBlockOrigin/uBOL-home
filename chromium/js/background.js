@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
+    uBlock Origin Lite - a comprehensive, MV3-compliant content blocker
     Copyright (C) 2022-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -51,10 +51,13 @@ import {
     setFilteringMode,
     getDefaultFilteringMode,
     setDefaultFilteringMode,
+    getTrustedSites,
+    setTrustedSites,
     syncWithBrowserPermissions,
 } from './mode-manager.js';
 
 import {
+    broadcastMessage,
     ubolLog,
 } from './utils.js';
 
@@ -63,7 +66,7 @@ import {
 const rulesetConfig = {
     version: '',
     enabledRulesets: [ 'default' ],
-    autoReload: 1,
+    autoReload: true,
 };
 
 const UBOL_ORIGIN = runtime.getURL('').replace(/\/$/, '');
@@ -82,7 +85,7 @@ async function loadRulesetConfig() {
     if ( data ) {
         rulesetConfig.version = data.version;
         rulesetConfig.enabledRulesets = data.enabledRulesets;
-        rulesetConfig.autoReload = data.autoReload;
+        rulesetConfig.autoReload = data.autoReload && true || false;
         wakeupRun = true;
         return;
     }
@@ -90,7 +93,7 @@ async function loadRulesetConfig() {
     if ( data ) {
         rulesetConfig.version = data.version;
         rulesetConfig.enabledRulesets = data.enabledRulesets;
-        rulesetConfig.autoReload = data.autoReload;
+        rulesetConfig.autoReload = data.autoReload && true || false;
         sessionWrite('rulesetConfig', rulesetConfig);
         return;
     }
@@ -151,8 +154,7 @@ function onMessage(request, sender, callback) {
         }).catch(reason => {
             console.log(reason);
         });
-        callback();
-        return;
+        return false;
     }
 
     default:
@@ -174,6 +176,7 @@ function onMessage(request, sender, callback) {
         }).then(( ) => {
             registerInjectables();
             callback();
+            broadcastMessage({ enabledRulesets: rulesetConfig.enabledRulesets });
         });
         return true;
     }
@@ -181,20 +184,23 @@ function onMessage(request, sender, callback) {
     case 'getOptionsPageData': {
         Promise.all([
             getDefaultFilteringMode(),
+            getTrustedSites(),
             getRulesetDetails(),
             dnr.getEnabledRulesets(),
         ]).then(results => {
             const [
                 defaultFilteringMode,
+                trustedSites,
                 rulesetDetails,
                 enabledRulesets,
             ] = results;
             callback({
                 defaultFilteringMode,
+                trustedSites: Array.from(trustedSites),
                 enabledRulesets,
                 maxNumberOfEnabledRulesets: dnr.MAX_NUMBER_OF_ENABLED_STATIC_RULESETS,
                 rulesetDetails: Array.from(rulesetDetails.values()),
-                autoReload: rulesetConfig.autoReload === 1,
+                autoReload: rulesetConfig.autoReload,
                 firstRun,
             });
             firstRun = false;
@@ -203,9 +209,10 @@ function onMessage(request, sender, callback) {
     }
 
     case 'setAutoReload':
-        rulesetConfig.autoReload = request.state ? 1 : 0;
+        rulesetConfig.autoReload = request.state && true || false;
         saveRulesetConfig().then(( ) => {
             callback();
+            broadcastMessage({ autoReload: rulesetConfig.autoReload });
         });
         return true;
 
@@ -218,7 +225,7 @@ function onMessage(request, sender, callback) {
         ]).then(results => {
             callback({
                 level: results[0],
-                autoReload: rulesetConfig.autoReload === 1,
+                autoReload: rulesetConfig.autoReload,
                 hasOmnipotence: results[1],
                 hasGreatPowers: results[2],
                 rulesetDetails: results[3],
@@ -261,6 +268,21 @@ function onMessage(request, sender, callback) {
         });
         return true;
     }
+
+    case 'setTrustedSites':
+        setTrustedSites(request.hostnames).then(( ) => {
+            registerInjectables();
+            return Promise.all([
+                getDefaultFilteringMode(),
+                getTrustedSites(),
+            ]);
+        }).then(results => {
+            callback({
+                defaultFilteringMode: results[0],
+                trustedSites: Array.from(results[1]),
+            });
+        });
+        return true;
 
     default:
         break;

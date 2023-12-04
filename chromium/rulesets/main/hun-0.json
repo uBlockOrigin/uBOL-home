@@ -2029,6 +2029,86 @@
     "duol.hu",
     "feol.hu",
     "g7.hu",
+    "gamepod.hu",
+    "haon.hu",
+    "hardverapro.hu",
+    "hazipatika.com",
+    "hellovidek.hu",
+    "heol.hu",
+    "hrportal.hu",
+    "index.hu",
+    "itcafe.hu",
+    "kemma.hu",
+    "kisalfold.hu",
+    "logout.hu",
+    "magyarnarancs.hu",
+    "mandiner.hu",
+    "mobilarena.hu",
+    "nool.hu",
+    "pestisracok.hu",
+    "player.hu",
+    "port.hu",
+    "portfolio.hu",
+    "prohardver.hu",
+    "sassy.hu",
+    "sonline.hu",
+    "szeretlekmagyarorszag.hu",
+    "szoljon.hu",
+    "szon.hu",
+    "telex.hu",
+    "teol.hu",
+    "totalbike.hu",
+    "totalcar.hu",
+    "twice.hu",
+    "vaol.hu",
+    "veol.hu",
+    "zaol.hu"
+   ],
+   "requestDomains": [
+    "cmp.quantcast.com"
+   ],
+   "resourceTypes": [
+    "script"
+   ]
+  },
+  "id": 171
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "egeszsegkalauz.hu"
+   ],
+   "isUrlFilterCaseSensitive": false,
+   "resourceTypes": [
+    "script"
+   ],
+   "urlFilter": "||medinfo.ocdn.eu/hu/consent_v2/choice.js^"
+  },
+  "id": 172
+ },
+ {
+  "action": {
+   "type": "block"
+  },
+  "condition": {
+   "initiatorDomains": [
+    "agrarszektor.hu",
+    "autoszektor.hu",
+    "bacsmegye.hu",
+    "bama.hu",
+    "baon.hu",
+    "beol.hu",
+    "boon.hu",
+    "bpiautosok.hu",
+    "budapestkornyeke.hu",
+    "civishir.hu",
+    "delmagyar.hu",
+    "duol.hu",
+    "feol.hu",
+    "g7.hu",
     "haon.hu",
     "hazipatika.com",
     "hellovidek.hu",
@@ -2059,30 +2139,13 @@
     "zaol.hu"
    ],
    "requestDomains": [
-    "cmp.quantcast.com",
     "quantcast.mgr.consensu.org"
    ],
    "resourceTypes": [
     "script"
    ]
   },
-  "id": 171
- },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "egeszsegkalauz.hu"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||medinfo.ocdn.eu/hu/consent_v2/choice.js^"
-  },
-  "id": 172
+  "id": 173
  },
  {
   "action": {
@@ -2098,7 +2161,7 @@
    ],
    "urlFilter": "||static.quantcast.mgr.consensu.org/v30/cmpui-popup.js^"
   },
-  "id": 173
+  "id": 174
  },
  {
   "action": {
@@ -2114,7 +2177,7 @@
    ],
    "urlFilter": "||widget.blck4d.com/js/block/widget.js^"
   },
-  "id": 174
+  "id": 175
  },
  {
   "action": {
@@ -2127,7 +2190,7 @@
    ],
    "urlFilter": "||itthonrolhaza.hu/wp-content/plugins/wp-popups-lite/src/assets/js/wppopups.js^"
   },
-  "id": 175
+  "id": 176
  },
  {
   "action": {
@@ -2140,7 +2203,7 @@
    ],
    "urlFilter": "||money.hu/assets-new/js/calculator-widget-init.js"
   },
-  "id": 176
+  "id": 177
  },
  {
   "action": {
@@ -2153,7 +2216,7 @@
    ],
    "urlFilter": "||penzcentrum.hu/assets/js/bioep.min.js"
   },
-  "id": 177
+  "id": 178
  },
  {
   "action": {
@@ -2166,7 +2229,7 @@
    ],
    "urlFilter": "||szepsegbroker.hu/items/jquery.floating_popup*.js^"
   },
-  "id": 178
+  "id": 179
  },
  {
   "action": {
@@ -2179,7 +2242,7 @@
    ],
    "urlFilter": "||liked.hu/choice/*/cmp2*.js^"
   },
-  "id": 179
+  "id": 180
  },
  {
   "action": {
@@ -2192,7 +2255,7 @@
    ],
    "urlFilter": "||onlinestream.live/js/adb.js"
   },
-  "id": 180
+  "id": 181
  },
  {
   "action": {
@@ -2208,7 +2271,7 @@
    ],
    "urlFilter": "||cdn.performax.cz/acc/insert_rtb.js"
   },
-  "id": 181
+  "id": 182
  },
  {
   "action": {
@@ -2221,7 +2284,7 @@
    ],
    "urlFilter": "/gemius.js^"
   },
-  "id": 182
+  "id": 183
  },
  {
   "action": {
@@ -2234,7 +2297,7 @@
    ],
    "urlFilter": "/gemius.min.js^"
   },
-  "id": 183
+  "id": 184
  },
  {
   "action": {
@@ -2247,7 +2310,7 @@
    ],
    "urlFilter": "/traffic.js"
   },
-  "id": 184
+  "id": 185
  },
  {
   "action": {
@@ -2260,7 +2323,7 @@
    ],
    "urlFilter": "/traffic.min.js"
   },
-  "id": 185
+  "id": 186
  },
  {
   "action": {
@@ -2273,7 +2336,7 @@
    ],
    "urlFilter": "/xgemius.js^"
   },
-  "id": 186
+  "id": 187
  },
  {
   "action": {
@@ -2286,7 +2349,7 @@
    ],
    "urlFilter": "/xgemius.min.js^"
   },
-  "id": 187
+  "id": 188
  },
  {
   "action": {
@@ -2299,7 +2362,7 @@
    ],
    "urlFilter": "||infostart.hu/js/ga.js"
   },
-  "id": 188
+  "id": 189
  },
  {
   "action": {
@@ -2314,7 +2377,7 @@
     "sub_frame"
    ]
   },
-  "id": 189
+  "id": 190
  },
  {
   "action": {
@@ -2381,7 +2444,7 @@
     "xxxshort.com"
    ]
   },
-  "id": 190
+  "id": 191
  },
  {
   "action": {
@@ -2392,7 +2455,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||m2mzona.hu/ads^"
   },
-  "id": 191
+  "id": 192
  },
  {
   "action": {
@@ -2403,7 +2466,7 @@
    "isUrlFilterCaseSensitive": false,
    "urlFilter": "||megaclick.com/ad.code"
   },
-  "id": 192
+  "id": 193
  },
  {
   "action": {
@@ -2421,7 +2484,7 @@
     "script"
    ]
   },
-  "id": 193
+  "id": 194
  },
  {
   "action": {
@@ -2436,7 +2499,7 @@
     "script"
    ]
   },
-  "id": 194
+  "id": 195
  },
  {
   "action": {
@@ -2453,7 +2516,7 @@
    ],
    "urlFilter": "/js/adx_blacklist.js"
   },
-  "id": 195
+  "id": 196
  },
  {
   "action": {
@@ -2469,7 +2532,7 @@
    ],
    "urlFilter": "||assets.portfolio.hu/js/ad_300x250.js"
   },
-  "id": 196
+  "id": 197
  },
  {
   "action": {
@@ -2482,7 +2545,7 @@
    ],
    "urlFilter": "||777blog.hu/wp-content/themes/florence/js/dfp.min.js^"
   },
-  "id": 197
+  "id": 198
  },
  {
   "action": {
@@ -2495,7 +2558,7 @@
    ],
    "urlFilter": "||bitepito.hu/rejtveny/data/ads/pagead/js/adsbygoogle.js^"
   },
-  "id": 198
+  "id": 199
  },
  {
   "action": {
@@ -2508,7 +2571,7 @@
    ],
    "urlFilter": "||bitepito.hu/rejtveny/data/ads/adsense.js^"
   },
-  "id": 199
+  "id": 200
  },
  {
   "action": {
@@ -2521,7 +2584,7 @@
    ],
    "urlFilter": "||bitepito.hu/rejtveny/data/ads/googleads.js^"
   },
-  "id": 200
+  "id": 201
  },
  {
   "action": {
@@ -2534,7 +2597,7 @@
    ],
    "urlFilter": "||meszotar.hu/scripts/advertising.js"
   },
-  "id": 201
+  "id": 202
  },
  {
   "action": {
@@ -2550,7 +2613,7 @@
    ],
    "urlFilter": "||pro.hit.gemius.pl/gstream.js"
   },
-  "id": 202
+  "id": 203
  },
  {
   "action": {
@@ -2567,6 +2630,6 @@
     "script"
    ]
   },
-  "id": 203
+  "id": 204
  }
 ]

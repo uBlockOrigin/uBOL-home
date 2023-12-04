@@ -1,6 +1,6 @@
 /*******************************************************************************
 
-    uBlock Origin - a browser extension to block requests.
+    uBlock Origin Lite - a comprehensive, MV3-compliant content blocker
     Copyright (C) 2022-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
@@ -34,6 +34,7 @@ import {
 } from './ext.js';
 
 import {
+    broadcastMessage,
     hostnamesFromMatches,
     isDescendantHostnameOfIter,
     toBroaderHostname,
@@ -271,6 +272,16 @@ async function writeFilteringModeDetails(afterDetails) {
     localWrite('filteringModeDetails', data);
     sessionWrite('filteringModeDetails', data);
     readFilteringModeDetails.cache = unserializeModeDetails(data);
+
+    Promise.all([
+        getDefaultFilteringMode(),
+        getTrustedSites(),
+    ]).then(results => {
+        broadcastMessage({
+            defaultFilteringMode: results[0],
+            trustedSites: Array.from(results[1]),
+        });
+    });
 }
 
 /******************************************************************************/
@@ -350,6 +361,35 @@ export function getDefaultFilteringMode() {
 
 export function setDefaultFilteringMode(afterLevel) {
     return setFilteringMode('all-urls', afterLevel);
+}
+
+/******************************************************************************/
+
+export async function getTrustedSites() {
+    const filteringModes = await getFilteringModeDetails();
+    return filteringModes.none;
+}
+
+export async function setTrustedSites(hostnames) {
+    const filteringModes = await getFilteringModeDetails();
+    const { none } = filteringModes;
+    const hnSet = new Set(hostnames);
+    let modified = false;
+    for ( const hn of none ) {
+        if ( hnSet.has(hn) ) {
+            hnSet.delete(hn);
+        } else {
+            none.delete(hn);
+            modified = true;
+        }
+    }
+    for ( const hn of hnSet ) {
+        const level = applyFilteringMode(filteringModes, hn, MODE_NONE);
+        if ( level !== MODE_NONE ) { continue; }
+        modified = true;
+    }
+    if ( modified === false ) { return; }
+    return writeFilteringModeDetails(filteringModes);
 }
 
 /******************************************************************************/

@@ -14,7 +14,7 @@
    ],
    "urlFilter": "||amedia.online/templates/animedia/js/libs.js"
   },
-  "id": 5811
+  "id": 5814
  },
  {
   "action": {
@@ -35,7 +35,7 @@
     "sub_frame"
    ]
   },
-  "id": 5812
+  "id": 5815
  },
  {
   "action": {
@@ -51,68 +51,6 @@
     "sub_frame"
    ],
    "urlFilter": "||1plus1.video/*/embed/*autoplay=1"
-  },
-  "id": 5813
- },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
-    }
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "||cosmonova-broadcast.tv/player?autoplay="
-  },
-  "id": 5814
- },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "query": ""
-    }
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "excludedInitiatorDomains": [
-    "music.yandex.ru"
-   ],
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "||frontend.vh.yandex.ru/player/*autoplay=1"
-  },
-  "id": 5815
- },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
-    }
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "||ipcamlive.com/player/player.php?*autoplay=true"
   },
   "id": 5816
  },
@@ -133,9 +71,71 @@
    "resourceTypes": [
     "sub_frame"
    ],
-   "urlFilter": "||my.mail.ru/video/embed/*autoplay=1"
+   "urlFilter": "||cosmonova-broadcast.tv/player?autoplay="
   },
   "id": 5817
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "query": ""
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "excludedInitiatorDomains": [
+    "music.yandex.ru"
+   ],
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||frontend.vh.yandex.ru/player/*autoplay=1"
+  },
+  "id": 5818
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autoplay"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||ipcamlive.com/player/player.php?*autoplay=true"
+  },
+  "id": 5819
+ },
+ {
+  "action": {
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "removeParams": [
+       "autoplay"
+      ]
+     }
+    }
+   },
+   "type": "redirect"
+  },
+  "condition": {
+   "resourceTypes": [
+    "sub_frame"
+   ],
+   "urlFilter": "||my.mail.ru/video/embed/*autoplay=1"
+  },
+  "id": 5820
  },
  {
   "action": {
@@ -152,7 +152,7 @@
    ],
    "urlFilter": "||sportrecs.com/embed/*autoplay=1"
   },
-  "id": 5818
+  "id": 5821
  },
  {
   "action": {
@@ -169,7 +169,7 @@
    ],
    "urlFilter": "||u-stream.in/start/*&autoplay=1"
   },
-  "id": 5819
+  "id": 5822
  },
  {
   "action": {
@@ -191,7 +191,7 @@
    ],
    "urlFilter": "||video.matchtv.ru/iframe/feed/*autostart=1"
   },
-  "id": 5820
+  "id": 5823
  },
  {
   "action": {
@@ -215,7 +215,7 @@
    ],
    "urlFilter": "||youtube-nocookie.com/embed/*autoplay=1"
   },
-  "id": 5821
+  "id": 5824
  },
  {
   "action": {
@@ -239,7 +239,7 @@
    ],
    "urlFilter": "||youtube.com/embed/*autoplay=1"
   },
-  "id": 5822
+  "id": 5825
  },
  {
   "action": {
@@ -256,7 +256,7 @@
    ],
    "urlFilter": "||ok.ru/videoembed/*autoplay=1"
   },
-  "id": 5823
+  "id": 5826
  },
  {
   "action": {
@@ -280,7 +280,7 @@
     "main_frame"
    ]
   },
-  "id": 5824
+  "id": 5827
  },
  {
   "action": {
@@ -298,7 +298,7 @@
    ],
    "urlFilter": "||dzen.ru/embed/*autoplay=1"
   },
-  "id": 5825
+  "id": 5828
  },
  {
   "action": {
@@ -315,11 +315,14 @@
   },
   "condition": {
    "domainType": "thirdParty",
+   "excludedInitiatorDomains": [
+    "mediahope.ru"
+   ],
    "resourceTypes": [
     "sub_frame"
    ],
    "urlFilter": "||vk.com/video_ext.php?"
   },
-  "id": 5826
+  "id": 5829
  }
 ]

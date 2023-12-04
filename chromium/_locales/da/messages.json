@@ -143,6 +143,10 @@
     "message": "Avanceret netværksfiltrering plus specifik og generisk udvidet filtrering ud fra valgte filterlister.\n\nOmfattende tilladelse kræves for at læse og ændre data på alle websteder.\n\nGenerisk, udvidet filtrering kan medføre højere webside-ressourceforbrug.",
     "description": "This describes the 'complete' filtering mode"
   },
+  "noFilteringModeDescription": {
+    "message": "Liste over værtsnavne, for hvilke ingen filtrering vil ske",
+    "description": "A short description for the editable field which lists trusted sites"
+  },
   "behaviorSectionLabel": {
     "message": "Adfærd",
     "description": "The header text for the 'Behavior' section"
