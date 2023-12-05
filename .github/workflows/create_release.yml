@@ -57,6 +57,14 @@ jobs:
           rm -rf firefox
           mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.firefox" firefox
           cp "$UBLOCK_REPO_DIR/dist/build/mv3-data/log.txt" firefox/
+      # Edge
+      - name: Build Edge uBOLite MV3 packages
+        run: |
+          make edge
+          pushd build/uBOLite.edge/ > /dev/null
+          zip ../${{ env.TAGNAME }}.edge.mv3.zip -qr ./*
+          popd > /dev/null
+          echo "EDGE_PACKAGE=${{ env.TAGNAME }}.edge.mv3.zip" >> $GITHUB_ENV
       - name: Commit uBOLite MV3 package files
         # https://github.com/marketplace/actions/github-action-for-committing-changes-to-a-repository
         uses: devops-infra/action-commit-push@master
@@ -87,6 +95,7 @@ jobs:
             
             - Chromium-based browsers: Install [from the Chrome Web Store](https://chrome.google.com/webstore/detail/ddkjiahejlhfcafbddmgiahcphecmpfh)
             - Firefox: [Install from AMO](https://addons.mozilla.org/firefox/addon/ublock-origin-lite/)
+            - Microsoft Edge: Install [from the Egde Add-ons store](https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn)
             
             The extension will auto-update when a new version is published.
             
@@ -110,3 +119,10 @@ jobs:
         with:
           tag_name: ${{ env.TAGNAME }}
           files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.FIREFOX_PACKAGE }}
+      - name: Upload Edge uBOLite MV3 package
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.TAGNAME }}
+          files: build/${{ env.EDGE_PACKAGE }}
