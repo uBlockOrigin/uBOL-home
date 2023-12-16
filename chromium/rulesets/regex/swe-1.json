@@ -1,39 +1,39 @@
 [
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "automation.se",
-    "dackavisen.se",
-    "datormagazin.se",
-    "skanesport.se",
-    "tidningenproffs.se",
-    "villalivet.se"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "wp-content\\/uploads\\/[0-9]+",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 1042
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "livsstil.se"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "www.livsstil.se\\/cnp-assets\\/[0-9]+.",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 1043
- }
+ "condition": {
+  "initiatorDomains": [
+   "automation.se",
+   "dackavisen.se",
+   "datormagazin.se",
+   "skanesport.se",
+   "tidningenproffs.se",
+   "villalivet.se"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "wp-content\\/uploads\\/[0-9]+",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 1050
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "livsstil.se"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "www.livsstil.se\\/cnp-assets\\/[0-9]+.",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 1051
+}
 ]

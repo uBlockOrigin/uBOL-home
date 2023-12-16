@@ -1,175 +1,175 @@
 [
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src 'self' * 'unsafe-eval'"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "chinanewsx.com",
-    "zoukankan.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 6540
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' * 'unsafe-eval'"
+   }
+  ],
+  "type": "modifyHeaders"
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src 'self' * 'unsafe-inline'"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "anixwallpaper.com",
-    "hugo3c.tw"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 6541
+ "condition": {
+  "requestDomains": [
+   "chinanewsx.com",
+   "zoukankan.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "57577.live"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 6542
+ "id": 6546
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' * 'unsafe-inline'"
+   }
+  ],
+  "type": "modifyHeaders"
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ],
-   "urlFilter": ".html?android=hx*&_"
-  },
-  "id": 6543
+ "condition": {
+  "requestDomains": [
+   "anixwallpaper.com",
+   "hugo3c.tw"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ],
-   "urlFilter": ".xyz/?channelcode="
-  },
-  "id": 6544
+ "id": 6547
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src"
+   }
+  ],
+  "type": "modifyHeaders"
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ],
-   "urlFilter": "/dayu2.html?channelcode="
-  },
-  "id": 6545
+ "condition": {
+  "requestDomains": [
+   "57577.live"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ],
-   "urlFilter": "://*:*/chunyu.html?k="
-  },
-  "id": 6546
+ "id": 6548
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src"
+   }
+  ],
+  "type": "modifyHeaders"
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ],
-   "urlFilter": "://*:*/yeyue.html?k="
-  },
-  "id": 6547
- }
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ],
+  "urlFilter": ".html?android=hx*&_"
+ },
+ "id": 6549
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ],
+  "urlFilter": ".xyz/?channelcode="
+ },
+ "id": 6550
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ],
+  "urlFilter": "/dayu2.html?channelcode="
+ },
+ "id": 6551
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ],
+  "urlFilter": "://*:*/chunyu.html?k="
+ },
+ "id": 6552
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ],
+  "urlFilter": "://*:*/yeyue.html?k="
+ },
+ "id": 6553
+}
 ]

@@ -1,33 +1,33 @@
 [
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/1x1.gif"
-   },
-   "type": "redirect"
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/1x1.gif"
   },
-  "condition": {
-   "domainType": "firstParty",
-   "urlFilter": "||15min.lt/cached/tgif"
-  },
-  "id": 523,
-  "priority": 2
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-   },
-   "type": "redirect"
+ "condition": {
+  "domainType": "firstParty",
+  "urlFilter": "||15min.lt/cached/tgif"
+ },
+ "id": 521,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
-  "condition": {
-   "domainType": "firstParty",
-   "resourceTypes": [
-    "media"
-   ],
-   "urlFilter": "||161.97.106.129/info.mp4"
-  },
-  "id": 524,
-  "priority": 2
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||161.97.106.129/info.mp4"
+ },
+ "id": 522,
+ "priority": 2
+}
 ]

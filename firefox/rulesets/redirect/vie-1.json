@@ -1,107 +1,126 @@
 [
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-   },
-   "type": "redirect"
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
-  "condition": {
-   "initiatorDomains": [
-    "phimhaytv.info"
-   ],
-   "urlFilter": "||bf.333xbet.com/18881999/video888.mp4"
-  },
-  "id": 472,
-  "priority": 2
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "phimchat2.com"
-   ],
-   "urlFilter": "||phimchat2.com/public/*.mp4"
-  },
-  "id": 473,
-  "priority": 2
+ "condition": {
+  "initiatorDomains": [
+   "phimhaytv.info"
+  ],
+  "urlFilter": "||bf.333xbet.com/18881999/video888.mp4"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-   },
-   "type": "redirect"
+ "id": 453,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
-  "condition": {
-   "initiatorDomains": [
-    "xemphim365vn.net"
-   ],
-   "urlFilter": "||xemphim365vn.net/public/*.mp4"
-  },
-  "id": 474,
-  "priority": 2
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "motchillc.net"
-   ],
-   "resourceTypes": [
-    "media"
-   ],
-   "urlFilter": "||motchillc.net/videoi9/"
-  },
-  "id": 475,
-  "priority": 2
+ "condition": {
+  "initiatorDomains": [
+   "phimchat2.com"
+  ],
+  "urlFilter": "||phimchat2.com/public/*.mp4"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-   },
-   "type": "redirect"
+ "id": 454,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
-  "condition": {
-   "initiatorDomains": [
-    "phimhaytv.info"
-   ],
-   "resourceTypes": [
-    "media"
-   ],
-   "urlFilter": "||phimhaytv.info/images"
-  },
-  "id": 476,
-  "priority": 2
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-   },
-   "type": "redirect"
+ "condition": {
+  "initiatorDomains": [
+   "xemphim365vn.net"
+  ],
+  "urlFilter": "||xemphim365vn.net/public/*.mp4"
+ },
+ "id": 455,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
-  "condition": {
-   "initiatorDomains": [
-    "phimnet.vip"
-   ],
-   "resourceTypes": [
-    "media"
-   ],
-   "urlFilter": "||phimnet.vip/uploads/videos/"
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "open.spotify.com"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||akamaized.net/audio/"
+ },
+ "id": 456,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
-  "id": 477,
-  "priority": 2
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "motchillw.net"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||motchillw.net/videoi9/"
+ },
+ "id": 457,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "phimhaytv.info"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||phimhaytv.info/images"
+ },
+ "id": 458,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "phimnet.vip"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||phimnet.vip/uploads/videos/"
+ },
+ "id": 459,
+ "priority": 2
+}
 ]

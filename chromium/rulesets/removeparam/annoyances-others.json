@@ -1,29 +1,29 @@
 [
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "autoplay"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "initiatorDomains": [
-    "kooora.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame",
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||player.octivid.com/*/video?*&autoplay="
-  },
-  "id": 405
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "kooora.com"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame",
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||player.octivid.com/*/video?*&autoplay="
+ },
+ "id": 406
+}
 ]

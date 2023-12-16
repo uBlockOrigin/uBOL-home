@@ -1,91 +1,122 @@
 [
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "giadinhonline.vn\\/files\\/qc"
-  },
-  "id": 9
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "xemphimchill.net"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "i.imgur.com"
-  },
-  "id": 10
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "giadinhonline.vn\\/files\\/qc"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "bongda21h.co",
-    "phimno4.xyz"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "media.discordapp"
-  },
-  "id": 11
+ "id": 9
+},
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "storage.adpia.vn",
-   "resourceTypes": [
-    "image"
-   ]
-  },
-  "id": 263
+ "condition": {
+  "initiatorDomains": [
+   "xemphimchill.xyz"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "i.imgur.com"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "\\w{2}\\.\\w+\\.com\\/\\w{13,}\\/\\w{5}$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 385
+ "id": 10
+},
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "\\w{60}\\.\\w{2,5}\\/\\w{84}\\.js",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 386
+ "condition": {
+  "initiatorDomains": [
+   "bongda21h.co",
+   "phimno4.xyz"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "media.discordapp"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "tinhocdongthap.com\\/wp-content\\/plugins\\/wp-[\\w-]+\\/[\\w-]+\\.js",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 391
- }
+ "id": 12
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "storage.adpia.vn",
+  "resourceTypes": [
+   "image"
+  ]
+ },
+ "id": 241
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "\\w{2}\\.\\w+\\.com\\/\\w{13,}\\/\\w{5}$",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 366
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "\\w{60}\\.\\w{2,5}\\/\\w{84}\\.js",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 367
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "tinhocdongthap.com\\/wp-content\\/plugins\\/wp-[\\w-]+\\/[\\w-]+\\.js",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 372
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "(https?:\\/\\/)\\w{30,}\\.me\\/\\w{30,}\\.",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 413
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "excludedInitiatorDomains": [
+   "amazon.com"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^https?:\\/\\/s3\\.*.*\\.amazonaws\\.com\\/[a-f0-9]{45,}\\/[a-f,0-9]{8,10}$",
+  "resourceTypes": [
+   "xmlhttprequest"
+  ]
+ },
+ "id": 416
+}
 ]

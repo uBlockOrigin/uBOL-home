@@ -1,19 +1,19 @@
 [
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop.txt"
-   },
-   "type": "redirect"
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.txt"
   },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||hentaidude.com/wp-admin/admin-ajax.php?action=geocheck"
-  },
-  "id": 404,
-  "priority": 2
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||hentaidude.com/wp-admin/admin-ajax.php?action=geocheck"
+ },
+ "id": 405,
+ "priority": 2
+}
 ]

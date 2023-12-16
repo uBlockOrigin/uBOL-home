@@ -5,26 +5,26 @@
   "enabled": true,
   "homeURL": "https://github.com/uBlockOrigin/uAssets",
   "filters": {
-   "total": 94515,
-   "accepted": 92898,
-   "rejected": 137
+   "total": 94611,
+   "accepted": 92971,
+   "rejected": 136
   },
   "rules": {
-   "total": 16328,
-   "plain": 14710,
-   "regex": 145,
-   "removeparam": 45,
-   "redirect": 353,
-   "modifyHeaders": 66,
+   "total": 16296,
+   "plain": 14689,
+   "regex": 144,
+   "removeparam": 46,
+   "redirect": 354,
+   "modifyHeaders": 65,
    "discarded": 9,
-   "rejected": 1009
+   "rejected": 998
   },
   "css": {
-   "generic": 15551,
-   "generichigh": 585,
-   "specific": 9990,
-   "declarative": 747,
-   "procedural": 2181
+   "generic": 15561,
+   "generichigh": 587,
+   "specific": 10023,
+   "declarative": 746,
+   "procedural": 2161
   },
   "scriptlets": 42
  },
@@ -35,7 +35,7 @@
   "lang": "sq",
   "homeURL": "https://github.com/AnXh3L0/blocklist",
   "filters": {
-   "total": 34,
+   "total": 31,
    "accepted": 31,
    "rejected": 0
   },
@@ -82,7 +82,7 @@
   "css": {
    "generic": 4,
    "generichigh": 0,
-   "specific": 172,
+   "specific": 173,
    "declarative": 0,
    "procedural": 0
   },
@@ -95,26 +95,26 @@
   "lang": "ug zh",
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 14413,
-   "accepted": 14351,
+   "total": 14595,
+   "accepted": 14533,
    "rejected": 2
   },
   "rules": {
-   "total": 6552,
-   "plain": 6485,
+   "total": 6559,
+   "plain": 6491,
    "regex": 12,
    "removeparam": 0,
    "redirect": 42,
    "modifyHeaders": 8,
    "discarded": 0,
-   "rejected": 5
+   "rejected": 6
   },
   "css": {
-   "generic": 764,
-   "generichigh": 305,
-   "specific": 2810,
-   "declarative": 69,
-   "procedural": 196
+   "generic": 768,
+   "generichigh": 308,
+   "specific": 2816,
+   "declarative": 70,
+   "procedural": 198
   },
   "scriptlets": 19
  },
@@ -155,8 +155,8 @@
   "lang": "de dsb hsb lb rm",
   "homeURL": "https://forums.lanik.us/viewforum.php?f=90",
   "filters": {
-   "total": 2373,
-   "accepted": 2373,
+   "total": 2376,
+   "accepted": 2376,
    "rejected": 0
   },
   "rules": {
@@ -172,9 +172,9 @@
   "css": {
    "generic": 356,
    "generichigh": 34,
-   "specific": 1789,
+   "specific": 1802,
    "declarative": 0,
-   "procedural": 122
+   "procedural": 129
   },
   "scriptlets": 0
  },
@@ -185,13 +185,13 @@
   "lang": "fi",
   "homeURL": "https://github.com/finnish-easylist-addition/finnish-easylist-addition",
   "filters": {
-   "total": 181,
-   "accepted": 181,
+   "total": 184,
+   "accepted": 184,
    "rejected": 0
   },
   "rules": {
-   "total": 161,
-   "plain": 151,
+   "total": 164,
+   "plain": 154,
    "regex": 3,
    "removeparam": 2,
    "redirect": 5,
@@ -202,9 +202,9 @@
   "css": {
    "generic": 53,
    "generichigh": 14,
-   "specific": 529,
-   "declarative": 16,
-   "procedural": 249
+   "specific": 531,
+   "declarative": 17,
+   "procedural": 251
   },
   "scriptlets": 7
  },
@@ -215,13 +215,13 @@
   "lang": "ar br ff fr lb oc son",
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 19321,
-   "accepted": 19245,
-   "rejected": 59
+   "total": 19465,
+   "accepted": 19387,
+   "rejected": 61
   },
   "rules": {
-   "total": 6600,
-   "plain": 6545,
+   "total": 6605,
+   "plain": 6550,
    "regex": 7,
    "removeparam": 0,
    "redirect": 34,
@@ -231,10 +231,10 @@
   },
   "css": {
    "generic": 2420,
-   "generichigh": 522,
-   "specific": 1664,
+   "generichigh": 523,
+   "specific": 1665,
    "declarative": 41,
-   "procedural": 196
+   "procedural": 199
   },
   "scriptlets": 16
  },
@@ -322,7 +322,7 @@
   "css": {
    "generic": 60,
    "generichigh": 14,
-   "specific": 471,
+   "specific": 473,
    "declarative": 22,
    "procedural": 57
   },
@@ -351,7 +351,7 @@
   },
   "css": {
    "generic": 241,
-   "generichigh": 3642,
+   "generichigh": 3644,
    "specific": 711,
    "declarative": 2,
    "procedural": 15
@@ -365,13 +365,13 @@
   "lang": "as bn gu hi kn ml mr ne pa si ta te",
   "homeURL": "https://github.com/mediumkreation/IndianList",
   "filters": {
-   "total": 4824,
-   "accepted": 4824,
+   "total": 4845,
+   "accepted": 4845,
    "rejected": 0
   },
   "rules": {
-   "total": 4779,
-   "plain": 4779,
+   "total": 4800,
+   "plain": 4800,
    "regex": 0,
    "removeparam": 0,
    "redirect": 0,
@@ -382,9 +382,9 @@
   "css": {
    "generic": 0,
    "generichigh": 0,
-   "specific": 4273,
+   "specific": 4299,
    "declarative": 0,
-   "procedural": 172
+   "procedural": 175
   },
   "scriptlets": 0
  },
@@ -395,26 +395,26 @@
   "lang": "fa ps tg",
   "homeURL": "https://github.com/MasterKia/PersianBlocker",
   "filters": {
-   "total": 1172,
-   "accepted": 1172,
+   "total": 1174,
+   "accepted": 1174,
    "rejected": 0
   },
   "rules": {
-   "total": 634,
-   "plain": 591,
+   "total": 631,
+   "plain": 589,
    "regex": 0,
-   "removeparam": 14,
+   "removeparam": 13,
    "redirect": 3,
    "modifyHeaders": 2,
-   "discarded": 21,
+   "discarded": 20,
    "rejected": 24
   },
   "css": {
    "generic": 17,
    "generichigh": 0,
-   "specific": 395,
+   "specific": 397,
    "declarative": 63,
-   "procedural": 164
+   "procedural": 166
   },
   "scriptlets": 19
  },
@@ -485,13 +485,13 @@
   "lang": "it lij",
   "homeURL": "https://forums.lanik.us/viewforum.php?f=96",
   "filters": {
-   "total": 2094,
-   "accepted": 2093,
+   "total": 1900,
+   "accepted": 1899,
    "rejected": 0
   },
   "rules": {
-   "total": 1843,
-   "plain": 1839,
+   "total": 1650,
+   "plain": 1646,
    "regex": 4,
    "removeparam": 0,
    "redirect": 0,
@@ -500,11 +500,11 @@
    "rejected": 0
   },
   "css": {
-   "generic": 378,
+   "generic": 379,
    "generichigh": 52,
-   "specific": 3177,
+   "specific": 3149,
    "declarative": 0,
-   "procedural": 37
+   "procedural": 32
   },
   "scriptlets": 0
  },
@@ -515,13 +515,13 @@
   "lang": "ja",
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 1968,
-   "accepted": 1967,
+   "total": 1973,
+   "accepted": 1972,
    "rejected": 0
   },
   "rules": {
-   "total": 1381,
-   "plain": 1328,
+   "total": 1386,
+   "plain": 1333,
    "regex": 17,
    "removeparam": 0,
    "redirect": 24,
@@ -532,9 +532,9 @@
   "css": {
    "generic": 110,
    "generichigh": 11,
-   "specific": 4128,
-   "declarative": 157,
-   "procedural": 1148
+   "specific": 4143,
+   "declarative": 155,
+   "procedural": 1132
   },
   "scriptlets": 15
  },
@@ -545,26 +545,26 @@
   "lang": "ko",
   "homeURL": "https://github.com/List-KR/List-KR#readme",
   "filters": {
-   "total": 1304,
-   "accepted": 1298,
+   "total": 1328,
+   "accepted": 1322,
    "rejected": 0
   },
   "rules": {
-   "total": 938,
-   "plain": 753,
-   "regex": 145,
+   "total": 958,
+   "plain": 763,
+   "regex": 154,
    "removeparam": 1,
    "redirect": 22,
    "modifyHeaders": 0,
    "discarded": 0,
-   "rejected": 17
+   "rejected": 18
   },
   "css": {
    "generic": 12,
    "generichigh": 71,
-   "specific": 1398,
-   "declarative": 159,
-   "procedural": 300
+   "specific": 1421,
+   "declarative": 160,
+   "procedural": 312
   },
   "scriptlets": 14
  },
@@ -575,13 +575,13 @@
   "lang": "lt",
   "homeURL": "https://github.com/EasyList-Lithuania/easylist_lithuania",
   "filters": {
-   "total": 569,
-   "accepted": 569,
+   "total": 567,
+   "accepted": 567,
    "rejected": 0
   },
   "rules": {
-   "total": 524,
-   "plain": 520,
+   "total": 522,
+   "plain": 518,
    "regex": 2,
    "removeparam": 0,
    "redirect": 2,
@@ -592,7 +592,7 @@
   "css": {
    "generic": 4,
    "generichigh": 3,
-   "specific": 315,
+   "specific": 314,
    "declarative": 7,
    "procedural": 25
   },
@@ -671,20 +671,20 @@
   },
   "rules": {
    "total": 562,
-   "plain": 547,
-   "regex": 5,
+   "plain": 546,
+   "regex": 4,
    "removeparam": 0,
    "redirect": 4,
    "modifyHeaders": 0,
    "discarded": 0,
-   "rejected": 6
+   "rejected": 8
   },
   "css": {
    "generic": 12,
    "generichigh": 1,
-   "specific": 822,
+   "specific": 831,
    "declarative": 9,
-   "procedural": 372
+   "procedural": 379
   },
   "scriptlets": 13
  },
@@ -695,13 +695,13 @@
   "lang": "nb nn no da is",
   "homeURL": "https://github.com/DandelionSprout/adfilt",
   "filters": {
-   "total": 1545,
-   "accepted": 1545,
+   "total": 1507,
+   "accepted": 1507,
    "rejected": 0
   },
   "rules": {
-   "total": 511,
-   "plain": 466,
+   "total": 510,
+   "plain": 465,
    "regex": 4,
    "removeparam": 25,
    "redirect": 5,
@@ -711,9 +711,9 @@
   },
   "css": {
    "generic": 133,
-   "generichigh": 28,
-   "specific": 567,
-   "declarative": 118,
+   "generichigh": 29,
+   "specific": 568,
+   "declarative": 119,
    "procedural": 147
   },
   "scriptlets": 10
@@ -742,7 +742,7 @@
   "css": {
    "generic": 63,
    "generichigh": 48,
-   "specific": 3219,
+   "specific": 3221,
    "declarative": 182,
    "procedural": 136
   },
@@ -755,13 +755,13 @@
   "lang": "ro",
   "homeURL": "https://github.com/tcptomato/ROad-Block",
   "filters": {
-   "total": 502,
-   "accepted": 501,
+   "total": 472,
+   "accepted": 471,
    "rejected": 0
   },
   "rules": {
-   "total": 386,
-   "plain": 377,
+   "total": 366,
+   "plain": 357,
    "regex": 3,
    "removeparam": 0,
    "redirect": 2,
@@ -772,7 +772,7 @@
   "css": {
    "generic": 9,
    "generichigh": 2,
-   "specific": 315,
+   "specific": 314,
    "declarative": 2,
    "procedural": 139
   },
@@ -785,26 +785,26 @@
   "lang": "be kk tt ru uk uz",
   "homeURL": "https://forums.lanik.us/viewforum.php?f=102",
   "filters": {
-   "total": 17499,
-   "accepted": 17489,
+   "total": 17521,
+   "accepted": 17511,
    "rejected": 8
   },
   "rules": {
-   "total": 5880,
-   "plain": 5775,
+   "total": 5890,
+   "plain": 5783,
    "regex": 22,
    "removeparam": 16,
    "redirect": 16,
-   "modifyHeaders": 45,
+   "modifyHeaders": 47,
    "discarded": 2,
    "rejected": 6
   },
   "css": {
    "generic": 320,
    "generichigh": 467,
-   "specific": 7034,
-   "declarative": 897,
-   "procedural": 849
+   "specific": 7036,
+   "declarative": 899,
+   "procedural": 850
   },
   "scriptlets": 22
  },
@@ -830,7 +830,7 @@
    "rejected": 0
   },
   "css": {
-   "generic": 242,
+   "generic": 245,
    "generichigh": 15,
    "specific": 1222,
    "declarative": 0,
@@ -845,8 +845,8 @@
   "lang": "an ast ca cak es eu gl gn trs pt quz",
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 1439,
-   "accepted": 1433,
+   "total": 1433,
+   "accepted": 1427,
    "rejected": 0
   },
   "rules": {
@@ -862,9 +862,9 @@
   "css": {
    "generic": 85,
    "generichigh": 2,
-   "specific": 1513,
-   "declarative": 158,
-   "procedural": 167
+   "specific": 1495,
+   "declarative": 151,
+   "procedural": 163
   },
   "scriptlets": 20
  },
@@ -905,13 +905,13 @@
   "lang": "sv",
   "homeURL": "https://github.com/lassekongo83/Frellwits-filter-lists",
   "filters": {
-   "total": 1583,
-   "accepted": 1583,
+   "total": 1592,
+   "accepted": 1592,
    "rejected": 0
   },
   "rules": {
-   "total": 1204,
-   "plain": 1180,
+   "total": 1213,
+   "plain": 1189,
    "regex": 2,
    "removeparam": 6,
    "redirect": 9,
@@ -922,8 +922,8 @@
   "css": {
    "generic": 199,
    "generichigh": 42,
-   "specific": 1160,
-   "declarative": 208,
+   "specific": 1159,
+   "declarative": 206,
    "procedural": 347
   },
   "scriptlets": 16
@@ -965,25 +965,25 @@
   "lang": "tr",
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 1639,
-   "accepted": 1639,
+   "total": 1645,
+   "accepted": 1645,
    "rejected": 0
   },
   "rules": {
-   "total": 1208,
-   "plain": 1167,
-   "regex": 15,
+   "total": 1212,
+   "plain": 1169,
+   "regex": 16,
    "removeparam": 0,
    "redirect": 16,
    "modifyHeaders": 0,
    "discarded": 0,
-   "rejected": 10
+   "rejected": 11
   },
   "css": {
    "generic": 149,
    "generichigh": 61,
-   "specific": 2766,
-   "declarative": 567,
+   "specific": 2801,
+   "declarative": 566,
    "procedural": 179
   },
   "scriptlets": 20
@@ -995,16 +995,16 @@
   "lang": "vi",
   "homeURL": "https://abpvn.com/",
   "filters": {
-   "total": 610,
-   "accepted": 610,
+   "total": 593,
+   "accepted": 593,
    "rejected": 0
   },
   "rules": {
-   "total": 484,
-   "plain": 464,
-   "regex": 7,
+   "total": 466,
+   "plain": 443,
+   "regex": 9,
    "removeparam": 0,
-   "redirect": 6,
+   "redirect": 7,
    "modifyHeaders": 7,
    "discarded": 0,
    "rejected": 0
@@ -1012,8 +1012,8 @@
   "css": {
    "generic": 11,
    "generichigh": 4,
-   "specific": 482,
-   "declarative": 11,
+   "specific": 488,
+   "declarative": 12,
    "procedural": 8
   },
   "scriptlets": 10
@@ -1053,8 +1053,8 @@
   "enabled": false,
   "homeURL": "https://someonewhocares.org/hosts/",
   "filters": {
-   "total": 11605,
-   "accepted": 11604,
+   "total": 11614,
+   "accepted": 11613,
    "rejected": 0
   },
   "rules": {
@@ -1082,19 +1082,19 @@
   "enabled": false,
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 1349,
-   "accepted": 1344,
+   "total": 1357,
+   "accepted": 1352,
    "rejected": 0
   },
   "rules": {
-   "total": 519,
+   "total": 522,
    "plain": 0,
    "regex": 0,
-   "removeparam": 425,
+   "removeparam": 427,
    "redirect": 0,
    "modifyHeaders": 0,
-   "discarded": 94,
-   "rejected": 94
+   "discarded": 95,
+   "rejected": 95
   },
   "css": {
    "generic": 0,
@@ -1112,13 +1112,13 @@
   "enabled": false,
   "homeURL": "https://github.com/easylist/easylist#fanboy-lists",
   "filters": {
-   "total": 1831,
-   "accepted": 1830,
-   "rejected": 1
+   "total": 1782,
+   "accepted": 1782,
+   "rejected": 0
   },
   "rules": {
-   "total": 1493,
-   "plain": 1491,
+   "total": 1492,
+   "plain": 1490,
    "regex": 1,
    "removeparam": 0,
    "redirect": 0,
@@ -1127,11 +1127,11 @@
    "rejected": 1
   },
   "css": {
-   "generic": 16957,
+   "generic": 16964,
    "generichigh": 351,
-   "specific": 16989,
-   "declarative": 5496,
-   "procedural": 33
+   "specific": 16959,
+   "declarative": 5465,
+   "procedural": 34
   },
   "scriptlets": 17
  },
@@ -1142,26 +1142,26 @@
   "enabled": false,
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 3440,
-   "accepted": 3434,
+   "total": 3471,
+   "accepted": 3465,
    "rejected": 0
   },
   "rules": {
-   "total": 1583,
-   "plain": 1482,
+   "total": 1599,
+   "plain": 1496,
    "regex": 3,
    "removeparam": 1,
    "redirect": 52,
    "modifyHeaders": 5,
    "discarded": 0,
-   "rejected": 40
+   "rejected": 42
   },
   "css": {
-   "generic": 41,
+   "generic": 43,
    "generichigh": 3,
-   "specific": 11050,
-   "declarative": 2317,
-   "procedural": 1485
+   "specific": 11076,
+   "declarative": 2330,
+   "procedural": 1502
   },
   "scriptlets": 25
  },
@@ -1172,13 +1172,13 @@
   "enabled": false,
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 648,
-   "accepted": 648,
+   "total": 647,
+   "accepted": 647,
    "rejected": 0
   },
   "rules": {
-   "total": 548,
-   "plain": 544,
+   "total": 547,
+   "plain": 543,
    "regex": 0,
    "removeparam": 0,
    "redirect": 1,
@@ -1187,11 +1187,11 @@
    "rejected": 3
   },
   "css": {
-   "generic": 760,
+   "generic": 762,
    "generichigh": 88,
-   "specific": 12282,
+   "specific": 12303,
    "declarative": 216,
-   "procedural": 1174
+   "procedural": 1176
   },
   "scriptlets": 4
  },
@@ -1202,13 +1202,13 @@
   "enabled": false,
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 686,
-   "accepted": 686,
+   "total": 691,
+   "accepted": 691,
    "rejected": 0
   },
   "rules": {
-   "total": 445,
-   "plain": 445,
+   "total": 450,
+   "plain": 450,
    "regex": 0,
    "removeparam": 0,
    "redirect": 0,
@@ -1219,9 +1219,9 @@
   "css": {
    "generic": 26,
    "generichigh": 7,
-   "specific": 983,
+   "specific": 989,
    "declarative": 15,
-   "procedural": 102
+   "procedural": 105
   },
   "scriptlets": 2
  },
@@ -1232,13 +1232,13 @@
   "enabled": false,
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 433,
-   "accepted": 433,
+   "total": 434,
+   "accepted": 434,
    "rejected": 0
   },
   "rules": {
-   "total": 405,
-   "plain": 401,
+   "total": 406,
+   "plain": 402,
    "regex": 2,
    "removeparam": 1,
    "redirect": 1,
@@ -1249,9 +1249,9 @@
   "css": {
    "generic": 7,
    "generichigh": 0,
-   "specific": 3446,
-   "declarative": 805,
-   "procedural": 582
+   "specific": 3454,
+   "declarative": 810,
+   "procedural": 581
   },
   "scriptlets": 17
  },
@@ -1261,8 +1261,8 @@
   "enabled": false,
   "homeURL": "https://github.com/StevenBlack/hosts#readme",
   "filters": {
-   "total": 144627,
-   "accepted": 144627,
+   "total": 143419,
+   "accepted": 143419,
    "rejected": 0
   },
   "rules": {

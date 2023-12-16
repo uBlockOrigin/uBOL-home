@@ -1,146 +1,146 @@
 [
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "s"
-      ]
-     }
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "s"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "initiatorDomains": [
-    "fotbollskanalen.se",
-    "koket.se",
-    "tv4.se"
-   ],
-   "resourceTypes": [
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||se-tv4.videoplaza.tv/proxy/distributor"
-  },
-  "id": 1192
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
-    }
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "di.se",
-    "expressen.se"
-   ],
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "&autoplay"
-  },
-  "id": 1193
+ "condition": {
+  "initiatorDomains": [
+   "fotbollskanalen.se",
+   "koket.se",
+   "tv4.se"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||se-tv4.videoplaza.tv/proxy/distributor"
  },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoPlay"
-      ]
-     }
+ "id": 1201
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "autoplay"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "initiatorDomains": [
-    "expressen.se"
-   ],
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "?autoplay"
-  },
-  "id": 1194
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
-    }
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "expressen.se"
-   ],
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "?autoplay=true"
-  },
-  "id": 1195
+ "condition": {
+  "initiatorDomains": [
+   "di.se",
+   "expressen.se"
+  ],
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "&autoplay"
  },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
+ "id": 1202
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "autoPlay"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "||embed.viaplay.com/*autoplay=true"
-  },
-  "id": 1196
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
+ "condition": {
+  "initiatorDomains": [
+   "expressen.se"
+  ],
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "?autoplay"
+ },
+ "id": 1203
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "autoplay"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "initiatorDomains": [
-    "kritiker.se"
-   ],
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "||youtube.com/embed/*autoplay"
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "expressen.se"
+  ],
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "?autoplay=true"
+ },
+ "id": 1204
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "autoplay"
+     ]
+    }
+   }
   },
-  "id": 1197
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "||embed.viaplay.com/*autoplay=true"
+ },
+ "id": 1205
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "autoplay"
+     ]
+    }
+   }
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "kritiker.se"
+  ],
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "||youtube.com/embed/*autoplay"
+ },
+ "id": 1206
+}
 ]

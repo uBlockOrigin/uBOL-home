@@ -1,41 +1,41 @@
 [
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "upgrade-insecure-requests"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "92grp.dk",
-    "bobilverden.no",
-    "drs.dk",
-    "dsmu.dk",
-    "ernaeringsradet.no",
-    "frigg.no",
-    "geo.ngu.no",
-    "kuntzanimation.dk",
-    "lofotenlinks.no",
-    "luster.kommune.no",
-    "selstad.no",
-    "skessuhorn.is",
-    "sporttv.is",
-    "studentvelferd.no",
-    "turnforening.no",
-    "ugk.no",
-    "win-xp.no",
-    "windowsnett.no"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 501
- }
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "upgrade-insecure-requests"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "92grp.dk",
+   "bobilverden.no",
+   "drs.dk",
+   "dsmu.dk",
+   "ernaeringsradet.no",
+   "frigg.no",
+   "geo.ngu.no",
+   "kuntzanimation.dk",
+   "lofotenlinks.no",
+   "luster.kommune.no",
+   "selstad.no",
+   "skessuhorn.is",
+   "sporttv.is",
+   "studentvelferd.no",
+   "turnforening.no",
+   "ugk.no",
+   "win-xp.no",
+   "windowsnett.no"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 500
+}
 ]

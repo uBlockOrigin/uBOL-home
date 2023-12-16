@@ -1,159 +1,159 @@
 [
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src 'self' 'unsafe-inline' https: http:"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "asideway.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 478
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' 'unsafe-inline' https: http:"
+   }
+  ],
+  "type": "modifyHeaders"
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src data: blob: * 'self' 'unsafe-inline'"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "baomoi.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 479
+ "condition": {
+  "requestDomains": [
+   "asideway.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src 'self' 'unsafe-inline'"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "cliphot69.biz",
-    "dztruyen.com",
-    "phimhaythuyetminh.live",
-    "ycongnghe.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 480
+ "id": 460
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src data: blob: * 'self' 'unsafe-inline'"
+   }
+  ],
+  "type": "modifyHeaders"
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src data: 'self' 'unsafe-inline' http: https:"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "huongdanjava.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 481
+ "condition": {
+  "requestDomains": [
+   "baomoi.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src 'self' 'unsafe-inline' data: https:"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "taoanhdep.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 482
+ "id": 461
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' 'unsafe-inline'"
+   }
+  ],
+  "type": "modifyHeaders"
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src 'self' 'unsafe-inline' http"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "mangadm.cc"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 483
+ "condition": {
+  "requestDomains": [
+   "cliphot69.biz",
+   "dztruyen.com",
+   "phimhaythuyetminh.live",
+   "ycongnghe.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src 'self' 'unsafe-eval'"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "sexdiaryx.us"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 484
- }
+ "id": 462
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src data: 'self' 'unsafe-inline' http: https:"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "huongdanjava.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 463
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' 'unsafe-inline' data: https:"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "taoanhdep.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 464
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' 'unsafe-inline' http"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "mangadm.cc"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 465
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' 'unsafe-eval'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "sexdiaryx.us"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 466
+}
 ]

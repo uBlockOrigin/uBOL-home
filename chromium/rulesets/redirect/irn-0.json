@@ -1,57 +1,57 @@
 [
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop.txt"
-   },
-   "type": "redirect"
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.txt"
   },
-  "condition": {
-   "domainType": "firstParty",
-   "requestDomains": [
-    "khabarchin.basalam.com"
-   ]
-  },
-  "id": 592,
-  "priority": 2
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop.txt"
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "domainType": "firstParty",
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||safarmarket.com/api/v1/trace/traceflight^"
-  },
-  "id": 593,
-  "priority": 2
+ "condition": {
+  "domainType": "firstParty",
+  "requestDomains": [
+   "khabarchin.basalam.com"
+  ]
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-   },
-   "type": "redirect"
+ "id": 590,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.txt"
   },
-  "condition": {
-   "domainType": "thirdParty",
-   "initiatorDomains": [
-    "tmk.ir"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "media"
-   ],
-   "urlFilter": "||tamashakhoneh.ir/src/video/intro.mp4^"
+  "type": "redirect"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||safarmarket.com/api/v1/trace/traceflight^"
+ },
+ "id": 591,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
-  "id": 594,
-  "priority": 2
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "initiatorDomains": [
+   "tmk.ir"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||tamashakhoneh.ir/src/video/intro.mp4^"
+ },
+ "id": 592,
+ "priority": 2
+}
 ]

@@ -1,86 +1,86 @@
 [
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "afiliasi\\/*\\/banners"
-  },
-  "id": 1026
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "anuncy\\/*\\/ads"
-  },
-  "id": 1040
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "afiliasi\\/*\\/banners"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "images\\/*_ads"
-  },
-  "id": 1471
+ "id": 1027
+},
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "static\\/*\\/ads"
-  },
-  "id": 2078
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "anuncy\\/*\\/ads"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "zone-telechargement.click"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "\\/\\/[a-z]{6,}\\.com\\/[a-zA-Z0-9]{5,}-?[a-zA-Z0-9.]{6,}[\\s\\S]*\\/[a-zA-Z0-9]{10,}",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 5549
+ "id": 1041
+},
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "^https?:\\/\\/(www\\.)?([a-z0-9]{3,16}\\.)?[a-z0-9]{5,32}\\.([a-z]{2,8})\\/([a-z0-9]{2,4}\\/){3}[a-f0-9]{32}\\.js$",
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 5604
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "images\\/*_ads"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "^https?:\\/\\/(www\\.)?([a-z0-9]{5,32}\\.)([a-z]{2,8})\\/[0-9a-f]{32}\\/invoke\\.js$",
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 5605
- }
+ "id": 1472
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "static\\/*\\/ads"
+ },
+ "id": 2079
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "zone-telechargement.click"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "\\/\\/[a-z]{6,}\\.com\\/[a-zA-Z0-9]{5,}-?[a-zA-Z0-9.]{6,}[\\s\\S]*\\/[a-zA-Z0-9]{10,}",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 5555
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^https?:\\/\\/(www\\.)?([a-z0-9]{3,16}\\.)?[a-z0-9]{5,32}\\.([a-z]{2,8})\\/([a-z0-9]{2,4}\\/){3}[a-f0-9]{32}\\.js$",
+  "resourceTypes": [
+   "script",
+   "xmlhttprequest"
+  ]
+ },
+ "id": 5610
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^https?:\\/\\/(www\\.)?([a-z0-9]{5,32}\\.)([a-z]{2,8})\\/[0-9a-f]{32}\\/invoke\\.js$",
+  "resourceTypes": [
+   "script",
+   "xmlhttprequest"
+  ]
+ },
+ "id": 5611
+}
 ]

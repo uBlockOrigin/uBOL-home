@@ -1,47 +1,47 @@
 [
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "frame-src 'none'"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "najiremix.ir"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 609
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "frame-src 'none'"
+   }
+  ],
+  "type": "modifyHeaders"
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "set-cookie",
-     "operation": "remove"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "logo.samandehi.ir",
-    "trustseal.e-rasaneh.ir",
-    "trustseal.enamad.ir"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 610
- }
+ "condition": {
+  "requestDomains": [
+   "najiremix.ir"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 606
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "set-cookie",
+    "operation": "remove"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "logo.samandehi.ir",
+   "trustseal.e-rasaneh.ir",
+   "trustseal.enamad.ir"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 607
+}
 ]

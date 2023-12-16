@@ -1,152 +1,152 @@
 [
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "s"
-      ]
-     }
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "s"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "initiatorDomains": [
-    "fotbollskanalen.se",
-    "koket.se",
-    "tv4.se"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||se-tv4.videoplaza.tv/proxy/distributor"
-  },
-  "id": 1195
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
-    }
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "di.se",
-    "expressen.se"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "&autoplay"
-  },
-  "id": 1196
+ "condition": {
+  "initiatorDomains": [
+   "fotbollskanalen.se",
+   "koket.se",
+   "tv4.se"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||se-tv4.videoplaza.tv/proxy/distributor"
  },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoPlay"
-      ]
-     }
+ "id": 1204
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "autoplay"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "initiatorDomains": [
-    "expressen.se"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "?autoplay"
-  },
-  "id": 1197
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
-    }
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "expressen.se"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "?autoplay=true"
-  },
-  "id": 1198
+ "condition": {
+  "initiatorDomains": [
+   "di.se",
+   "expressen.se"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "&autoplay"
  },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
+ "id": 1205
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "autoPlay"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "||embed.viaplay.com/*autoplay=true"
-  },
-  "id": 1199
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "autoplay"
-      ]
-     }
+ "condition": {
+  "initiatorDomains": [
+   "expressen.se"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "?autoplay"
+ },
+ "id": 1206
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "autoplay"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "initiatorDomains": [
-    "kritiker.se"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "sub_frame"
-   ],
-   "urlFilter": "||youtube.com/embed/*autoplay"
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "expressen.se"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "?autoplay=true"
+ },
+ "id": 1207
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "autoplay"
+     ]
+    }
+   }
   },
-  "id": 1200
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "||embed.viaplay.com/*autoplay=true"
+ },
+ "id": 1208
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "autoplay"
+     ]
+    }
+   }
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "kritiker.se"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "||youtube.com/embed/*autoplay"
+ },
+ "id": 1209
+}
 ]

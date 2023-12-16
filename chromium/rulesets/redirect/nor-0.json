@@ -1,103 +1,103 @@
 [
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop.js"
-   },
-   "type": "redirect"
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.js"
   },
-  "condition": {
-   "initiatorDomains": [
-    "vgtv.no"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||acdn.adnxs.com/ast/ast.js"
-  },
-  "id": 471,
-  "priority": 12
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop.js"
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "vg.no"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||damoh.vgtv.no/hic_qos"
-  },
-  "id": 472,
-  "priority": 2
+ "condition": {
+  "initiatorDomains": [
+   "vgtv.no"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||acdn.adnxs.com/ast/ast.js"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/googletagservices_gpt.js"
-   },
-   "type": "redirect"
+ "id": 470,
+ "priority": 12
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.js"
   },
-  "condition": {
-   "initiatorDomains": [
-    "vegetarbloggen.no"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||googletagservices.com/tag/js/gpt.js"
-  },
-  "id": 473,
-  "priority": 12
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "embed.viaplay.com"
-   ],
-   "requestDomains": [
-    "freewheel-mtgx-tv.akamaized.net"
-   ],
-   "resourceTypes": [
-    "media"
-   ]
-  },
-  "id": 474,
-  "priority": 2
+ "condition": {
+  "initiatorDomains": [
+   "vg.no"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||damoh.vgtv.no/hic_qos"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-1s.mp4"
-   },
-   "type": "redirect"
+ "id": 471,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/googletagservices_gpt.js"
   },
-  "condition": {
-   "initiatorDomains": [
-    "bold.dk"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "media"
-   ],
-   "urlFilter": "||freewheel-mtgx-tv.akamaized.net/*.mp4"
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "vegetarbloggen.no"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||googletagservices.com/tag/js/gpt.js"
+ },
+ "id": 472,
+ "priority": 12
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
-  "id": 475,
-  "priority": 2
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "embed.viaplay.com"
+  ],
+  "requestDomains": [
+   "freewheel-mtgx-tv.akamaized.net"
+  ],
+  "resourceTypes": [
+   "media"
+  ]
+ },
+ "id": 473,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "bold.dk"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||freewheel-mtgx-tv.akamaized.net/*.mp4"
+ },
+ "id": 474,
+ "priority": 2
+}
 ]

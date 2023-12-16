@@ -1,16 +1,16 @@
 [
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "domainType": "firstParty",
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "complianz-gdpr-premium\\/cookiebanner",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 1461
- }
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "complianz-gdpr-premium\\/cookiebanner",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 1460
+}
 ]

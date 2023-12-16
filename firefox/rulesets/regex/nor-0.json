@@ -1,53 +1,53 @@
 [
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "regexFilter": "^(https?:\\/\\/)?[a-z]{10,12}\\.easy\\.co($|\\/.*$)",
-   "resourceTypes": [
-    "main_frame"
-   ]
-  },
-  "id": 384
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "regexFilter": ":\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpg|png|jpeg)"
-  },
-  "id": 401
+ "condition": {
+  "regexFilter": "^(https?:\\/\\/)?[a-z]{10,12}\\.easy\\.co($|\\/.*$)",
+  "resourceTypes": [
+   "main_frame"
+  ]
  },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "billetlugen.dk",
-    "eventim.no"
-   ],
-   "regexFilter": "obj\\/global\\/feature\\/tagCommander",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 458
+ "id": 382
+},
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "domainType": "firstParty",
-   "regexFilter": "^https:\\/\\/www.gamer.no\\/[0-9a-f]{32,40}$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 465
- }
+ "condition": {
+  "domainType": "thirdParty",
+  "regexFilter": ":\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpg|png|jpeg)"
+ },
+ "id": 400
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "billetlugen.dk",
+   "eventim.no"
+  ],
+  "regexFilter": "obj\\/global\\/feature\\/tagCommander",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 457
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "regexFilter": "^https:\\/\\/www.gamer.no\\/[0-9a-f]{32,40}$",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 464
+}
 ]

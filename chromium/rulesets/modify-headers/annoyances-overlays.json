@@ -1,115 +1,115 @@
 [
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src *"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "gaypornmasters.com",
-    "gaypornwave.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 1539
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src *"
+   }
+  ],
+  "type": "modifyHeaders"
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "style-src 'self' *"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "oggiscuola.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 1540
+ "condition": {
+  "requestDomains": [
+   "gaypornmasters.com",
+   "gaypornwave.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "style-src *;script-src *"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "digitalsynopsis.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 1541
+ "id": 1553
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "style-src 'self' *"
+   }
+  ],
+  "type": "modifyHeaders"
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src * 'unsafe-eval' 'unsafe-inline'"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "articlesmania.me"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 1542
+ "condition": {
+  "requestDomains": [
+   "oggiscuola.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
  },
- {
-  "action": {
-   "responseHeaders": [
-    {
-     "header": "content-security-policy",
-     "operation": "append",
-     "value": "script-src * 'unsafe-inline'"
-    }
-   ],
-   "type": "modifyHeaders"
-  },
-  "condition": {
-   "requestDomains": [
-    "pressplay.top",
-    "quicasting.it",
-    "sysnettechsolutions.com"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame"
-   ]
-  },
-  "id": 1543
- }
+ "id": 1554
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "style-src *;script-src *"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "digitalsynopsis.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 1555
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src * 'unsafe-eval' 'unsafe-inline'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "articlesmania.me"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 1556
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src * 'unsafe-inline'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "pressplay.top",
+   "quicasting.it",
+   "sysnettechsolutions.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 1557
+}
 ]

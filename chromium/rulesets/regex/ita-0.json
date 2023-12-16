@@ -1,95 +1,95 @@
 [
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "amatorialeporno.it",
-    "amoreporno.com",
-    "clipdisesso.com",
-    "culonudo.com",
-    "granditetteporno.it",
-    "listasitiporno.it",
-    "matrignaporno.it",
-    "matureporno.it",
-    "milfporno.it",
-    "peneporno.com",
-    "porno-anale.it",
-    "porno-gay.it",
-    "porno-hardcore.it",
-    "porno-lesbica.it",
-    "pornoadolescente.it",
-    "pornoamica.com",
-    "pornocategorie.com",
-    "pornoculi.com",
-    "pornomatura.it",
-    "pornotreno.com",
-    "sessoromantico.com",
-    "videoporno-gratis.it"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "^https?:\\/\\/.*\\/[a-z0-9A-Z_]{2,15}\\.(php|jx|jsx|1ph|jsf|jz|jsm|j$)",
-   "resourceTypes": [
-    "image",
-    "script",
-    "sub_frame"
-   ]
-  },
-  "id": 1692
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "pornototale.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "^https?:\\/\\/.*\\/.*sw[0-9._].*",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 1697
+ "condition": {
+  "initiatorDomains": [
+   "amatorialeporno.it",
+   "amoreporno.com",
+   "clipdisesso.com",
+   "culonudo.com",
+   "granditetteporno.it",
+   "listasitiporno.it",
+   "matrignaporno.it",
+   "matureporno.it",
+   "milfporno.it",
+   "peneporno.com",
+   "porno-anale.it",
+   "porno-gay.it",
+   "porno-hardcore.it",
+   "porno-lesbica.it",
+   "pornoadolescente.it",
+   "pornoamica.com",
+   "pornocategorie.com",
+   "pornoculi.com",
+   "pornomatura.it",
+   "pornotreno.com",
+   "sessoromantico.com",
+   "videoporno-gratis.it"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^https?:\\/\\/.*\\/[a-z0-9A-Z_]{2,15}\\.(php|jx|jsx|1ph|jsf|jz|jsm|j$)",
+  "resourceTypes": [
+   "image",
+   "script",
+   "sub_frame"
+  ]
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "initiatorDomains": [
-    "calcio.re",
-    "guardaserie01.click",
-    "pepperlive.info"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*",
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 1761
+ "id": 1499
+},
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "initiatorDomains": [
-    "ilgeniodellostreaming.zone"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*",
-   "resourceTypes": [
-    "script",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 1762
- }
+ "condition": {
+  "initiatorDomains": [
+   "pornototale.com"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^https?:\\/\\/.*\\/.*sw[0-9._].*",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 1504
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "initiatorDomains": [
+   "calcio.re",
+   "guardaserie01.click",
+   "pepperlive.info"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*",
+  "resourceTypes": [
+   "script",
+   "xmlhttprequest"
+  ]
+ },
+ "id": 1568
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "initiatorDomains": [
+   "ilgeniodellostreaming.zone"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*",
+  "resourceTypes": [
+   "script",
+   "xmlhttprequest"
+  ]
+ },
+ "id": 1569
+}
 ]

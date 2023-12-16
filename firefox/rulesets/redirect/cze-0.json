@@ -1,78 +1,78 @@
 [
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop.js"
-   },
-   "type": "redirect"
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.js"
   },
-  "condition": {
-   "initiatorDomains": [
-    "nova.cz"
-   ],
-   "resourceTypes": [
-    "script"
-   ],
-   "urlFilter": "||trackad.cz/adtrack.php"
-  },
-  "id": 127,
-  "priority": 2
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-   },
-   "type": "redirect"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "youradio.cz"
-   ],
-   "resourceTypes": [
-    "media"
-   ],
-   "urlFilter": "||media.actve.net/sads/"
-  },
-  "id": 128,
-  "priority": 2
+ "condition": {
+  "initiatorDomains": [
+   "nova.cz"
+  ],
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||trackad.cz/adtrack.php"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop-1s.mp4"
-   },
-   "type": "redirect"
+ "id": 127,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
-  "condition": {
-   "initiatorDomains": [
-    "youradio.cz"
-   ],
-   "resourceTypes": [
-    "media"
-   ],
-   "urlFilter": "||redirector.gvt1.com/videoplayback/id/"
-  },
-  "id": 129,
-  "priority": 2
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/1x1.gif"
-   },
-   "type": "redirect"
+ "condition": {
+  "initiatorDomains": [
+   "youradio.cz"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||media.actve.net/sads/"
+ },
+ "id": 128,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
   },
-  "condition": {
-   "domainType": "thirdParty",
-   "requestDomains": [
-    "r.i0.cz"
-   ],
-   "resourceTypes": [
-    "image"
-   ]
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "youradio.cz"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||redirector.gvt1.com/videoplayback/id/"
+ },
+ "id": 129,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/1x1.gif"
   },
-  "id": 130,
-  "priority": 2
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "requestDomains": [
+   "r.i0.cz"
+  ],
+  "resourceTypes": [
+   "image"
+  ]
+ },
+ "id": 130,
+ "priority": 2
+}
 ]

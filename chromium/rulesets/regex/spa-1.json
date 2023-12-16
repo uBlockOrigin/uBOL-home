@@ -1,86 +1,86 @@
 [
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "loskatchorros\\.com\\.br\\/forum\\/uploads\\/set_resources_\\d+\\/[a-z0-9]+_[a-zA-Z0-9]+\\.js"
-  },
-  "id": 31
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "iptvnow.top"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "\\/img\\/(160600|72890)\\.png"
-  },
-  "id": 304
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "loskatchorros\\.com\\.br\\/forum\\/uploads\\/set_resources_\\d+\\/[a-z0-9]+_[a-zA-Z0-9]+\\.js"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "tvcanales.cf"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "qvncc.tvcanales.cf\\/js\\/[_-a-zA-Z0-9]{5,}.js"
-  },
-  "id": 367
+ "id": 30
+},
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "zubby.com"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "zubby.com\\/[a-z-]+-\\d+\\/\\?_=",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 652
+ "condition": {
+  "initiatorDomains": [
+   "iptvnow.top"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "\\/img\\/(160600|72890)\\.png"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "ddmix.net"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "^https:\\/\\/(ddmix.net)\\/[a-z0-9_]*\\.js",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 653
+ "id": 303
+},
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "ddmix.net"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "^https:\\/\\/(ddmix.net)\\/js\\/[a-z0-9_]*\\.js",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 654
- }
+ "condition": {
+  "initiatorDomains": [
+   "tvcanales.cf"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "qvncc.tvcanales.cf\\/js\\/[_-a-zA-Z0-9]{5,}.js"
+ },
+ "id": 366
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "zubby.com"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "zubby.com\\/[a-z-]+-\\d+\\/\\?_=",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 651
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "ddmix.net"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^https:\\/\\/(ddmix.net)\\/[a-z0-9_]*\\.js",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 652
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "ddmix.net"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^https:\\/\\/(ddmix.net)\\/js\\/[a-z0-9_]*\\.js",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 653
+}
 ]

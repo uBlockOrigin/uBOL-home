@@ -1,43 +1,43 @@
 [
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop.txt"
-   },
-   "type": "redirect"
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.txt"
   },
-  "condition": {
-   "initiatorDomains": [
-    "cinemo.hu"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-  },
-  "id": 205,
-  "priority": 2
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "extensionPath": "/web_accessible_resources/noop.txt"
-   },
-   "type": "redirect"
+ "condition": {
+  "initiatorDomains": [
+   "cinemo.hu"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+ },
+ "id": 205,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.txt"
   },
-  "condition": {
-   "initiatorDomains": [
-    "cinemo.hu"
-   ],
-   "requestDomains": [
-    "sovrn.com"
-   ],
-   "resourceTypes": [
-    "xmlhttprequest"
-   ]
-  },
-  "id": 206,
-  "priority": 2
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "cinemo.hu"
+  ],
+  "requestDomains": [
+   "sovrn.com"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ]
+ },
+ "id": 206,
+ "priority": 2
+}
 ]

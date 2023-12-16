@@ -1,52 +1,52 @@
 [
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "caid"
-      ]
-     }
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "caid"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame",
-    "xmlhttprequest"
-   ],
-   "urlFilter": "||v.fwmrm.net/ad/g/1"
-  },
-  "id": 160
+  "type": "redirect"
  },
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "browser"
-      ]
-     }
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame",
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||v.fwmrm.net/ad/g/1"
+ },
+ "id": 163
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "browser"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "initiatorDomains": [
-    "mtv.fi",
-    "mtvuutiset.fi"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "resourceTypes": [
-    "xmlhttprequest"
-   ],
-   "urlFilter": "&browser=mozillafirefox"
-  },
-  "id": 161
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "mtv.fi",
+   "mtvuutiset.fi"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "&browser=mozillafirefox"
+ },
+ "id": 164
+}
 ]

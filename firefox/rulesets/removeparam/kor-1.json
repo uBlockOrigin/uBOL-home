@@ -1,27 +1,27 @@
 [
- {
-  "action": {
-   "redirect": {
-    "transform": {
-     "queryTransform": {
-      "removeParams": [
-       "cp"
-      ]
-     }
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "cp"
+     ]
     }
-   },
-   "type": "redirect"
+   }
   },
-  "condition": {
-   "requestDomains": [
-    "newspic.kr"
-   ],
-   "resourceTypes": [
-    "main_frame",
-    "sub_frame",
-    "xmlhttprequest"
-   ]
-  },
-  "id": 921
- }
+  "type": "redirect"
+ },
+ "condition": {
+  "requestDomains": [
+   "newspic.kr"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame",
+   "xmlhttprequest"
+  ]
+ },
+ "id": 940
+}
 ]

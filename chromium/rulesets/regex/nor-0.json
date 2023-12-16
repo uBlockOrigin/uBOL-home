@@ -1,57 +1,57 @@
 [
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "^(https?:\\/\\/)?[a-z]{10,12}\\.easy\\.co($|\\/.*$)",
-   "resourceTypes": [
-    "main_frame"
-   ]
-  },
-  "id": 384
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "block"
-  },
-  "condition": {
-   "domainType": "thirdParty",
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": ":\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpg|png|jpeg)"
-  },
-  "id": 402
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^(https?:\\/\\/)?[a-z]{10,12}\\.easy\\.co($|\\/.*$)",
+  "resourceTypes": [
+   "main_frame"
+  ]
  },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "initiatorDomains": [
-    "billetlugen.dk",
-    "eventim.no"
-   ],
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "obj\\/global\\/feature\\/tagCommander",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 459
+ "id": 382
+},
+{
+ "action": {
+  "type": "block"
  },
- {
-  "action": {
-   "type": "allow"
-  },
-  "condition": {
-   "domainType": "firstParty",
-   "isUrlFilterCaseSensitive": false,
-   "regexFilter": "^https:\\/\\/www.gamer.no\\/[0-9a-f]{32,40}$",
-   "resourceTypes": [
-    "script"
-   ]
-  },
-  "id": 465
- }
+ "condition": {
+  "domainType": "thirdParty",
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": ":\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpg|png|jpeg)"
+ },
+ "id": 401
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "billetlugen.dk",
+   "eventim.no"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "obj\\/global\\/feature\\/tagCommander",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 458
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^https:\\/\\/www.gamer.no\\/[0-9a-f]{32,40}$",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 464
+}
 ]
