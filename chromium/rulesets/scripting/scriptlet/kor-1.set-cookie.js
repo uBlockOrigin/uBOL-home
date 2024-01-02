@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: spa-1
+// ruleset: kor-1
 
 /******************************************************************************/
 
@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_cookieRemover = function() {
+const uBOL_setCookie = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["__cf_xt"]];
+const argsList = [["adv","1"]];
 
-const hostnamesMap = new Map([["netcine.to",0]]);
+const hostnamesMap = new Map([["ssodam.com",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,66 +52,44 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function cookieRemover(
-    needle = ''
+function setCookie(
+    name = '',
+    value = '',
+    path = ''
 ) {
-    if ( typeof needle !== 'string' ) { return; }
-    const safe = safeSelf();
-    const reName = safe.patternToRegex(needle);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 1);
-    const throttle = (fn, ms = 500) => {
-        if ( throttle.timer !== undefined ) { return; }
-        throttle.timer = setTimeout(( ) => {
-            throttle.timer = undefined;
-            fn();
-        }, ms);
-    };
-    const removeCookie = ( ) => {
-        document.cookie.split(';').forEach(cookieStr => {
-            const pos = cookieStr.indexOf('=');
-            if ( pos === -1 ) { return; }
-            const cookieName = cookieStr.slice(0, pos).trim();
-            if ( reName.test(cookieName) === false ) { return; }
-            const part1 = cookieName + '=';
-            const part2a = '; domain=' + document.location.hostname;
-            const part2b = '; domain=.' + document.location.hostname;
-            let part2c, part2d;
-            const domain = document.domain;
-            if ( domain ) {
-                if ( domain !== document.location.hostname ) {
-                    part2c = '; domain=.' + domain;
-                }
-                if ( domain.startsWith('www.') ) {
-                    part2d = '; domain=' + domain.replace('www', '');
-                }
-            }
-            const part3 = '; path=/';
-            const part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-            document.cookie = part1 + part4;
-            document.cookie = part1 + part2a + part4;
-            document.cookie = part1 + part2b + part4;
-            document.cookie = part1 + part3 + part4;
-            document.cookie = part1 + part2a + part3 + part4;
-            document.cookie = part1 + part2b + part3 + part4;
-            if ( part2c !== undefined ) {
-                document.cookie = part1 + part2c + part3 + part4;
-            }
-            if ( part2d !== undefined ) {
-                document.cookie = part1 + part2d + part3 + part4;
-            }
-        });
-    };
-    removeCookie();
-    window.addEventListener('beforeunload', removeCookie);
-    if ( typeof extraArgs.when !== 'string' ) { return; }
-    const supportedEventTypes = [ 'scroll', 'keydown' ];
-    const eventTypes = extraArgs.when.split(/\s/);
-    for ( const type of eventTypes ) {
-        if ( supportedEventTypes.includes(type) === false ) { continue; }
-        document.addEventListener(type, ( ) => {
-            throttle(removeCookie);
-        }, { passive: true });
+    if ( name === '' ) { return; }
+    name = encodeURIComponent(name);
+
+    const validValues = [
+        'accept', 'reject',
+        'accepted', 'rejected', 'notaccepted',
+        'allow', 'deny',
+        'allowed', 'disallow',
+        'enable', 'disable',
+        'enabled', 'disabled',
+        'ok',
+        'on', 'off',
+        'true', 't', 'false', 'f',
+        'yes', 'y', 'no', 'n',
+        'necessary', 'required',
+    ];
+    const normalized = value.toLowerCase();
+    const match = /^("?)(.+)\1$/.exec(normalized);
+    const unquoted = match && match[2] || normalized;
+    if ( validValues.includes(unquoted) === false ) {
+        if ( /^\d+$/.test(unquoted) === false ) { return; }
+        const n = parseInt(value, 10);
+        if ( n > 15 ) { return; }
     }
+
+    setCookieFn(
+        false,
+        name,
+        value,
+        '',
+        path,
+        safeSelf().getExtraArgs(Array.from(arguments), 3)
+    );
 }
 
 function safeSelf() {
@@ -217,6 +195,56 @@ function safeSelf() {
     return safe;
 }
 
+function setCookieFn(
+    trusted = false,
+    name = '',
+    value = '',
+    expires = '',
+    path = '',
+    options = {},
+) {
+    const getCookieValue = name => {
+        for ( const s of document.cookie.split(/\s*;\s*/) ) {
+            const pos = s.indexOf('=');
+            if ( pos === -1 ) { continue; }
+            if ( s.slice(0, pos) !== name ) { continue; }
+            return s.slice(pos+1);
+        }
+    };
+
+    const cookieBefore = getCookieValue(name);
+    if ( cookieBefore !== undefined && options.dontOverwrite ) { return; }
+    if ( cookieBefore === value && options.reload ) { return; }
+
+    const cookieParts = [ name, '=', value ];
+    if ( expires !== '' ) {
+        cookieParts.push('; expires=', expires);
+    }
+
+    if ( path === '' ) { path = '/'; }
+    else if ( path === 'none' ) { path = ''; }
+    if ( path !== '' && path !== '/' ) { return; }
+    if ( path === '/' ) {
+        cookieParts.push('; path=/');
+    }
+
+    if ( trusted ) {
+        if ( options.domain ) {
+            cookieParts.push(`; domain=${options.domain}`);
+        }
+        cookieParts.push('; Secure');
+    }
+
+    try {
+        document.cookie = cookieParts.join('');
+    } catch(_) {
+    }
+
+    if ( options.reload && getCookieValue(name) === value ) {
+        window.location.reload();
+    }
+}
+
 /******************************************************************************/
 
 const hnParts = [];
@@ -277,7 +305,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { cookieRemover(...argsList[i]); }
+    try { setCookie(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -299,7 +327,7 @@ const targetWorld = 'ISOLATED';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_cookieRemover();
+    return uBOL_setCookie();
 }
 
 // Firefox
@@ -307,11 +335,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_cookieRemover = cloneInto([
-            [ '(', uBOL_cookieRemover.toString(), ')();' ],
+        page.uBOL_setCookie = cloneInto([
+            [ '(', uBOL_setCookie.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_cookieRemover);
+        const blob = new page.Blob(...page.uBOL_setCookie);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -325,7 +353,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_cookieRemover;
+    delete page.uBOL_setCookie;
 }
 
 /******************************************************************************/

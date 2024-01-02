@@ -50,5 +50,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["sportske.net"],"requestDomains":["betwidget.admiralbet.rs"],"resourceTypes":["sub_frame"]},"id":49},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["a.mabipa.com","avalaads.com","linker.hr","lupon.media","native.tportal.hr","subs.vingd.com","traffic.styria.hr","widget.admiral.hr"]},"id":50},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["redakcija.alo.rs"],"resourceTypes":["image"]},"id":51},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","isUrlFilterCaseSensitive":false,"resourceTypes":["sub_frame"],"urlFilter":"||widget.halooglasi.com/nekretnine.html"},"id":52}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","isUrlFilterCaseSensitive":false,"resourceTypes":["sub_frame"],"urlFilter":"||widget.halooglasi.com/nekretnine.html"},"id":52},
+{"action":{"type":"allow"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["sub_frame"],"urlFilter":"||ads.api.24ur.si/adserver/adblock."},"id":53}
 ]

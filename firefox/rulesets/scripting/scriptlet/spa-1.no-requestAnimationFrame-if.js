@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: vie-1
+// ruleset: spa-1
 
 /******************************************************************************/
 
@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_m3uPrune = function() {
+const uBOL_noRequestAnimationFrameIf = function() {
 
 const scriptletGlobals = new Map(); // jshint ignore: line
 
-const argsList = [["/#EXT-X-DISCONTINUITY.{1,100}#EXT-X-DISCONTINUITY/gm","mixed.m3u8"]];
+const argsList = [[".clientHeight"]];
 
-const hostnamesMap = new Map([["mephimtv.net",0]]);
+const hostnamesMap = new Map([["seriesemcena.com.br",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,149 +52,30 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function m3uPrune(
-    m3uPattern = '',
-    urlPattern = ''
+function noRequestAnimationFrameIf(
+    needle = ''
 ) {
-    if ( typeof m3uPattern !== 'string' ) { return; }
+    if ( typeof needle !== 'string' ) { return; }
     const safe = safeSelf();
-    const options = safe.getExtraArgs(Array.from(arguments), 2);
-    const logLevel = shouldLog(options);
-    const uboLog = logLevel ? ((...args) => safe.uboLog(...args)) : (( ) => { });
-    const regexFromArg = arg => {
-        if ( arg === '' ) { return /^/; }
-        const match = /^\/(.+)\/([gms]*)$/.exec(arg);
-        if ( match !== null ) {
-            let flags = match[2] || '';
-            if ( flags.includes('m') ) { flags += 's'; }
-            return new RegExp(match[1], flags);
-        }
-        return new RegExp(
-            arg.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*+/g, '.*?')
-        );
-    };
-    const reM3u = regexFromArg(m3uPattern);
-    const reUrl = regexFromArg(urlPattern);
-    const pruneSpliceoutBlock = (lines, i) => {
-        if ( lines[i].startsWith('#EXT-X-CUE:TYPE="SpliceOut"') === false ) {
-            return false;
-        }
-        uboLog('m3u-prune: discarding', `\n\t${lines[i]}`);
-        lines[i] = undefined; i += 1;
-        if ( lines[i].startsWith('#EXT-X-ASSET:CAID') ) {
-            uboLog(`\t${lines[i]}`);
-            lines[i] = undefined; i += 1;
-        }
-        if ( lines[i].startsWith('#EXT-X-SCTE35:') ) {
-            uboLog(`\t${lines[i]}`);
-            lines[i] = undefined; i += 1;
-        }
-        if ( lines[i].startsWith('#EXT-X-CUE-IN') ) {
-            uboLog(`\t${lines[i]}`);
-            lines[i] = undefined; i += 1;
-        }
-        if ( lines[i].startsWith('#EXT-X-SCTE35:') ) {
-            uboLog(`\t${lines[i]}`);
-            lines[i] = undefined; i += 1;
-        }
-        return true;
-    };
-    const pruneInfBlock = (lines, i) => {
-        if ( lines[i].startsWith('#EXTINF') === false ) { return false; }
-        if ( reM3u.test(lines[i+1]) === false ) { return false; }
-        uboLog('m3u-prune: discarding', `\n\t${lines[i]}, \n\t${lines[i+1]}`);
-        lines[i] = lines[i+1] = undefined; i += 2;
-        if ( lines[i].startsWith('#EXT-X-DISCONTINUITY') ) {
-            uboLog(`\t${lines[i]}`);
-            lines[i] = undefined; i += 1;
-        }
-        return true;
-    };
-    const pruner = text => {
-        if ( (/^\s*#EXTM3U/.test(text)) === false ) { return text; }
-        if ( reM3u.multiline ) {
-            reM3u.lastIndex = 0;
-            for (;;) {
-                const match = reM3u.exec(text);
-                if ( match === null ) { break; }
-                let discard = match[0];
-                let before = text.slice(0, match.index);
-                if (
-                    /^[\n\r]+/.test(discard) === false &&
-                    /[\n\r]+$/.test(before) === false
-                ) {
-                    const startOfLine = /[^\n\r]+$/.exec(before);
-                    if ( startOfLine !== null ) {
-                        before = before.slice(0, startOfLine.index);
-                        discard = startOfLine[0] + discard;
-                    }
-                }
-                let after = text.slice(match.index + match[0].length);
-                if (
-                    /[\n\r]+$/.test(discard) === false &&
-                    /^[\n\r]+/.test(after) === false
-                ) {
-                    const endOfLine = /^[^\n\r]+/.exec(after);
-                    if ( endOfLine !== null ) {
-                        after = after.slice(endOfLine.index);
-                        discard += discard + endOfLine[0];
-                    }
-                }
-                text = before.trim() + '\n' + after.trim();
-                reM3u.lastIndex = before.length + 1;
-                uboLog('m3u-prune: discarding\n',
-                    discard.split(/\n+/).map(s => `\t${s}`).join('\n')
-                );
-                if ( reM3u.global === false ) { break; }
-            }
-            return text;
-        }
-        const lines = text.split(/\n\r|\n|\r/);
-        for ( let i = 0; i < lines.length; i++ ) {
-            if ( lines[i] === undefined ) { continue; }
-            if ( pruneSpliceoutBlock(lines, i) ) { continue; }
-            if ( pruneInfBlock(lines, i) ) { continue; }
-        }
-        return lines.filter(l => l !== undefined).join('\n');
-    };
-    const urlFromArg = arg => {
-        if ( typeof arg === 'string' ) { return arg; }
-        if ( arg instanceof Request ) { return arg.url; }
-        return String(arg);
-    };
-    const realFetch = self.fetch;
-    self.fetch = new Proxy(self.fetch, {
+    const needleNot = needle.charAt(0) === '!';
+    if ( needleNot ) { needle = needle.slice(1); }
+    const log = needleNot === false && needle === '' ? console.log : undefined;
+    const reNeedle = safe.patternToRegex(needle);
+    window.requestAnimationFrame = new Proxy(window.requestAnimationFrame, {
         apply: function(target, thisArg, args) {
-            if ( reUrl.test(urlFromArg(args[0])) === false ) {
-                return Reflect.apply(target, thisArg, args);
+            const a = args[0] instanceof Function
+                ? String(safe.Function_toString(args[0]))
+                : String(args[0]);
+            let defuse = false;
+            if ( log !== undefined ) {
+                log('uBO: requestAnimationFrame("%s")', a);
+            } else {
+                defuse = reNeedle.test(a) !== needleNot;
             }
-            return realFetch(...args).then(realResponse =>
-                realResponse.text().then(text =>
-                    new Response(pruner(text), {
-                        status: realResponse.status,
-                        statusText: realResponse.statusText,
-                        headers: realResponse.headers,
-                    })
-                )
-            );
-        }
-    });
-    self.XMLHttpRequest.prototype.open = new Proxy(self.XMLHttpRequest.prototype.open, {
-        apply: async (target, thisArg, args) => {
-            if ( reUrl.test(urlFromArg(args[1])) === false ) {
-                return Reflect.apply(target, thisArg, args);
+            if ( defuse ) {
+                args[0] = function(){};
             }
-            thisArg.addEventListener('readystatechange', function() {
-                if ( thisArg.readyState !== 4 ) { return; }
-                const type = thisArg.responseType;
-                if ( type !== '' && type !== 'text' ) { return; }
-                const textin = thisArg.responseText;
-                const textout = pruner(textin);
-                if ( textout === textin ) { return; }
-                Object.defineProperty(thisArg, 'response', { value: textout });
-                Object.defineProperty(thisArg, 'responseText', { value: textout });
-            });
-            return Reflect.apply(target, thisArg, args);
+            return target.apply(thisArg, args);
         }
     });
 }
@@ -302,11 +183,6 @@ function safeSelf() {
     return safe;
 }
 
-function shouldLog(details) {
-    if ( details instanceof Object === false ) { return false; }
-    return scriptletGlobals.has('canDebug') && details.log;
-}
-
 /******************************************************************************/
 
 const hnParts = [];
@@ -367,7 +243,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { m3uPrune(...argsList[i]); }
+    try { noRequestAnimationFrameIf(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -389,7 +265,7 @@ const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_m3uPrune();
+    return uBOL_noRequestAnimationFrameIf();
 }
 
 // Firefox
@@ -397,11 +273,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_m3uPrune = cloneInto([
-            [ '(', uBOL_m3uPrune.toString(), ')();' ],
+        page.uBOL_noRequestAnimationFrameIf = cloneInto([
+            [ '(', uBOL_noRequestAnimationFrameIf.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_m3uPrune);
+        const blob = new page.Blob(...page.uBOL_noRequestAnimationFrameIf);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -415,7 +291,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_m3uPrune;
+    delete page.uBOL_noRequestAnimationFrameIf;
 }
 
 /******************************************************************************/

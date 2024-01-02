@@ -28,7 +28,7 @@
  },
  "condition": {
   "initiatorDomains": [
-   "bongda21h.co",
+   "bongda21h.me",
    "phimno4.xyz"
   ],
   "isUrlFilterCaseSensitive": false,
@@ -44,10 +44,11 @@
   "isUrlFilterCaseSensitive": false,
   "regexFilter": "storage.adpia.vn",
   "resourceTypes": [
-   "image"
+   "image",
+   "script"
   ]
  },
- "id": 241
+ "id": 200
 },
 {
  "action": {
@@ -60,7 +61,7 @@
    "script"
   ]
  },
- "id": 366
+ "id": 313
 },
 {
  "action": {
@@ -73,7 +74,7 @@
    "script"
   ]
  },
- "id": 367
+ "id": 314
 },
 {
  "action": {
@@ -86,7 +87,7 @@
    "script"
   ]
  },
- "id": 372
+ "id": 319
 },
 {
  "action": {
@@ -100,7 +101,7 @@
    "script"
   ]
  },
- "id": 413
+ "id": 354
 },
 {
  "action": {
@@ -117,6 +118,6 @@
    "xmlhttprequest"
   ]
  },
- "id": 416
+ "id": 357
 }
 ]

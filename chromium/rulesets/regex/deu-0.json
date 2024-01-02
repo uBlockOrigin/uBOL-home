@@ -88,10 +88,13 @@
    "burningseries.se",
    "burningseries.sx",
    "burningseries.vc",
+   "kinokiste.live",
    "kinox.top",
+   "megakino.co",
    "s.to",
    "serien.cam",
-   "serienstream.to"
+   "serienstream.to",
+   "topstreamfilm.live"
   ],
   "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
@@ -109,7 +112,10 @@
    "media"
   ],
   "initiatorDomains": [
-   "kinoger.com"
+   "kinoger.com",
+   "kinokiste.live",
+   "megakino.co",
+   "topstreamfilm.live"
   ],
   "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*"

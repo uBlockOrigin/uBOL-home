@@ -2,23 +2,6 @@
 {
  "action": {
   "redirect": {
-   "extensionPath": "/web_accessible_resources/empty"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "pbswisstools.com"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "urlFilter": "||fast.fonts.net/*/1.css"
- },
- "id": 1194,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
    "extensionPath": "/web_accessible_resources/32x32.png"
   },
   "type": "redirect"
@@ -30,7 +13,7 @@
   ],
   "urlFilter": "||mediacreeper.com/image"
  },
- "id": 1195,
+ "id": 1190,
  "priority": 2
 },
 {
@@ -47,7 +30,7 @@
   ],
   "urlFilter": "||mediacreeper.se/image"
  },
- "id": 1196,
+ "id": 1191,
  "priority": 2
 },
 {
@@ -70,7 +53,7 @@
   ],
   "urlFilter": "/aab/tv4play"
  },
- "id": 1197,
+ "id": 1192,
  "priority": 2
 },
 {
@@ -91,7 +74,7 @@
    "script"
   ]
  },
- "id": 1198,
+ "id": 1193,
  "priority": 2
 },
 {
@@ -108,7 +91,7 @@
   ],
   "urlFilter": "||widget.playoncenter.com/newplayer/js/pb_"
  },
- "id": 1199,
+ "id": 1194,
  "priority": 2
 },
 {
@@ -125,7 +108,7 @@
   ],
   "urlFilter": "||kyrkanstidning.se/firstvisit"
  },
- "id": 1200,
+ "id": 1195,
  "priority": 2
 },
 {
@@ -146,7 +129,7 @@
    "sub_frame"
   ]
  },
- "id": 1201,
+ "id": 1196,
  "priority": 2
 },
 {
@@ -167,7 +150,7 @@
    "sub_frame"
   ]
  },
- "id": 1202,
+ "id": 1197,
  "priority": 2
 },
 {
@@ -187,7 +170,7 @@
   ],
   "urlFilter": "||youtube.com/embed"
  },
- "id": 1203,
+ "id": 1198,
  "priority": 2
 }
 ]

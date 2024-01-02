@@ -8,12 +8,13 @@
  },
  "condition": {
   "initiatorDomains": [
-   "phimhaytv.info"
+   "api.anime3s.com",
+   "subnhanh.xyz"
   ],
   "isUrlFilterCaseSensitive": false,
-  "urlFilter": "||bf.333xbet.com/18881999/video888.mp4"
+  "urlFilter": "||api.anime3s.com/*.mp4"
  },
- "id": 453,
+ "id": 392,
  "priority": 2
 },
 {
@@ -25,12 +26,12 @@
  },
  "condition": {
   "initiatorDomains": [
-   "phimchat2.com"
+   "phimhaytv.info"
   ],
   "isUrlFilterCaseSensitive": false,
-  "urlFilter": "||phimchat2.com/public/*.mp4"
+  "urlFilter": "||bf.333xbet.com/18881999/video888.mp4"
  },
- "id": 454,
+ "id": 393,
  "priority": 2
 },
 {
@@ -47,7 +48,7 @@
   "isUrlFilterCaseSensitive": false,
   "urlFilter": "||xemphim365vn.net/public/*.mp4"
  },
- "id": 455,
+ "id": 394,
  "priority": 2
 },
 {
@@ -67,67 +68,7 @@
   ],
   "urlFilter": "||akamaized.net/audio/"
  },
- "id": 456,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "motchillw.net"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "resourceTypes": [
-   "media"
-  ],
-  "urlFilter": "||motchillw.net/videoi9/"
- },
- "id": 457,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "phimhaytv.info"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "resourceTypes": [
-   "media"
-  ],
-  "urlFilter": "||phimhaytv.info/images"
- },
- "id": 458,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "phimnet.vip"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "resourceTypes": [
-   "media"
-  ],
-  "urlFilter": "||phimnet.vip/uploads/videos/"
- },
- "id": 459,
+ "id": 395,
  "priority": 2
 }
 ]

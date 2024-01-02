@@ -5,12 +5,22 @@
  },
  "condition": {
   "isUrlFilterCaseSensitive": false,
+  "regexFilter": "doseofporn.com\\/[a-z]{0,5}[1-9]{0,5}[a-z]{0,5}[1-9][s\\S]*.js"
+ },
+ "id": 229
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^(https?:\\/\\/)?[a-z]{10,12}\\.easy\\.co($|\\/.*$)",
   "resourceTypes": [
    "main_frame"
   ]
  },
- "id": 382
+ "id": 439
 },
 {
  "action": {
@@ -21,7 +31,7 @@
   "isUrlFilterCaseSensitive": false,
   "regexFilter": ":\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpg|png|jpeg)"
  },
- "id": 401
+ "id": 458
 },
 {
  "action": {
@@ -38,7 +48,7 @@
    "script"
   ]
  },
- "id": 458
+ "id": 516
 },
 {
  "action": {
@@ -52,6 +62,6 @@
    "script"
   ]
  },
- "id": 464
+ "id": 522
 }
 ]
