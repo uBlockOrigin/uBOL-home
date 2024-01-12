@@ -11,8 +11,9 @@
 
 uBOL is entirely declarative, meaning there is no need for a permanent uBOL process for the filtering to occur, and CSS/JS injection-based content filtering is [performed reliably](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/scripting/registerContentScripts) by the browser itself rather than by the extension. This means that uBOL itself does not consume CPU/memory resources while content blocking is ongoing -- uBOL's service worker process is required _only_ when you interact with the popup panel or the option pages.
 
-uBOL does not require broad "read/modify data" [permission](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/permissions) at install time, hence its limited capabilities out of the box compared to uBlock Origin or other content blockers requiring broad "read/modify data" permissions at install time. <details><summary>**However, [...]**</summary>
- uBOL allows you to *explicitly* grant extended permissions on specific sites of your choice so that it can better filter on those sites using declarative cosmetic and scriptlet injections.
+uBOL does not require broad "read/modify data" [permission](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/permissions) at install time, hence its limited capabilities out of the box compared to uBlock Origin or other content blockers requiring broad "read/modify data" permissions at install time.
+
+**However**, uBOL allows you to *explicitly* grant extended permissions on specific sites of your choice so that it can better filter on those sites using declarative cosmetic and scriptlet injections.
 
 To grant extended permissions on a given site, open the popup panel and pick a higher filtering mode such as Optimal or Complete.
 
@@ -29,8 +30,6 @@ If you accept uBOL's request for additional permissions on the current site, it 
 You can set the default filtering mode from uBOL's options page. If you pick the Optimal or Complete mode as the default one, you will need to grant uBOL the permission to modify and read data on all websites:
 
 ![uBOL's options: Default filtering mode](https://user-images.githubusercontent.com/585534/195343335-a0aa103e-621e-4137-9bcf-9821dc881be1.png)
-
-</details>
 
 The default ruleset corresponds to at least uBlock Origin's default filterset:
 
