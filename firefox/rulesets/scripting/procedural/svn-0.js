@@ -33,9 +33,9 @@
 
 /******************************************************************************/
 
-const argsList = [["{\"selector\":\".HeaderSpotlight\",\"tasks\":[[\"has\",{\"selector\":\"a[href^=\\\"https://bit.ly\\\"]\"}]]}"],["{\"selector\":\".js_article\",\"tasks\":[[\"if-not\",{\"selector\":\"\",\"tasks\":[[\"has\",{\"selector\":\".strong\"}]]}],[\"spath\",\" > .widgetWrap\"]]}"],["{\"selector\":\"li.article\",\"tasks\":[[\"has-text\",\"Oglasno sporočilo\"]]}"]];
+const argsList = [["{\"selector\":\".sidebar__banner\",\"tasks\":[[\"has\",{\"selector\":\".ads-player\"}]]}","{\"selector\":\".sidebar__box\",\"tasks\":[[\"has\",{\"selector\":\".bg-brand-caszazemljo, .eurojackpot, .pr, .voyobox\"}]]}"],["{\"selector\":\".HeaderSpotlight\",\"tasks\":[[\"has\",{\"selector\":\"a[href^=\\\"https://bit.ly\\\"]\"}]]}"],["{\"selector\":\".js_article\",\"tasks\":[[\"if-not\",{\"selector\":\"\",\"tasks\":[[\"has\",{\"selector\":\".strong\"}]]}],[\"spath\",\" > .widgetWrap\"]]}"],["{\"selector\":\"li.article\",\"tasks\":[[\"has-text\",\"Oglasno sporočilo\"]]}"]];
 
-const hostnamesMap = new Map([["bolha.com",0],["siol.net",1],["monitor.si",2]]);
+const hostnamesMap = new Map([["24ur.com",0],["bolha.com",1],["siol.net",2],["monitor.si",3]]);
 
 const entitiesMap = new Map(undefined);
 

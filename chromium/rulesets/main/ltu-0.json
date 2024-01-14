@@ -428,7 +428,7 @@
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"||serveris.lnk.lt/*ad.xml?"},"id":427},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"||static.vz.lt/files/antsrauto/countsjs.php^"},"id":428},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["tvplay.tv3.lt"],"isUrlFilterCaseSensitive":false,"urlFilter":"||v.fwmrm.net/ad/g/1?"},"id":429},
-{"action":{"type":"block"},"condition":{"requestDomains":["banners.igloro.info","befirstcdn.com","bms.creativepartner.lt","prod.one.lt","r-scale-fb.static.go3.tv","rkl.draugas.lt","skpiramide.lt","trackers.adtarget.me","trafficbass.com"]},"id":430},
+{"action":{"type":"block"},"condition":{"requestDomains":["banners.igloro.info","befirstcdn.com","bms.creativepartner.lt","core.dimatter.ai","prod.one.lt","r-scale-fb.static.go3.tv","rkl.draugas.lt","skpiramide.lt","trackers.adtarget.me","trafficbass.com"]},"id":430},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["image"],"urlFilter":"/reklamjuostes^"},"id":431},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["miskobirza.lt"],"isUrlFilterCaseSensitive":false,"resourceTypes":["image"],"urlFilter":"/images/texts/"},"id":432},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["marijosradijas.lt"],"isUrlFilterCaseSensitive":false,"resourceTypes":["image"],"urlFilter":"images/banners/"},"id":433},

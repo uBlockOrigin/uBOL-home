@@ -538,9 +538,10 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||rifey.ru/sites/default/files/advagg_js/"},"id":537},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||facebook.com/plugins/livefeed.php"},"id":538},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||facebook.com/plugins/login_button.php"},"id":539},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"/engine/classes/min/index.php?*/social-likes.min.js"},"id":540},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"/engine/classes/min/?charset=*/social-likes.min.js"},"id":541},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||shiseido.co.jp/shared/assets/img/btn_sns_footer_"},"id":542},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["lifehacker.com"],"urlFilter":"||facebook.com/sharer.php"},"id":543},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["lifehacker.com"],"urlFilter":"||twitter.com/share"},"id":544}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||redgifs.com/assets/share_icon_red-*.js"},"id":540},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"/engine/classes/min/index.php?*/social-likes.min.js"},"id":541},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"/engine/classes/min/?charset=*/social-likes.min.js"},"id":542},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||shiseido.co.jp/shared/assets/img/btn_sns_footer_"},"id":543},
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["lifehacker.com"],"urlFilter":"||facebook.com/sharer.php"},"id":544},
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["lifehacker.com"],"urlFilter":"||twitter.com/share"},"id":545}
 ]

@@ -48,7 +48,7 @@
    "sub_frame"
   ]
  },
- "id": 1514
+ "id": 1516
 },
 {
  "action": {
@@ -63,7 +63,7 @@
    "script"
   ]
  },
- "id": 1527
+ "id": 1529
 },
 {
  "action": {
@@ -92,11 +92,12 @@
    "s.to",
    "serien.cam",
    "serienstream.to",
+   "streamcloud.movie",
    "topstreamfilm.live"
   ],
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
  },
- "id": 1674
+ "id": 1676
 },
 {
  "action": {
@@ -112,10 +113,11 @@
    "kinoger.com",
    "kinokiste.live",
    "megakino.co",
+   "streamcloud.movie",
    "topstreamfilm.live"
   ],
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*"
  },
- "id": 1675
+ "id": 1677
 }
 ]
