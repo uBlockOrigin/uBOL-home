@@ -2,6 +2,26 @@
 {
  "action": {
   "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "myonlineradio.hu"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js^"
+ },
+ "id": 203,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
    "extensionPath": "/web_accessible_resources/noop.txt"
   },
   "type": "redirect"
@@ -16,7 +36,7 @@
   ],
   "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
  },
- "id": 203,
+ "id": 204,
  "priority": 2
 },
 {
@@ -37,7 +57,7 @@
    "xmlhttprequest"
   ]
  },
- "id": 204,
+ "id": 205,
  "priority": 2
 }
 ]

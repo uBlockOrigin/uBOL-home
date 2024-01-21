@@ -33,9 +33,9 @@
 
 /******************************************************************************/
 
-const argsList = [["{\"selector\":\"div[aria-label*=\\\"המחלקה המסחרית\\\"]\",\"tasks\":[[\"upward\",5]]}"],["{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"admiral\"]]}"],["{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"(window)}catch\"]]}","{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"200===\"]]}","{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"responseText\"]]}"]];
+const argsList = [["{\"selector\":\".biz-item-box\",\"tasks\":[[\"has\",{\"selector\":\".biz-item-modaa\"}]]}"],["{\"selector\":\"div[aria-label*=\\\"המחלקה המסחרית\\\"]\",\"tasks\":[[\"upward\",5]]}"],["{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"admiral\"]]}"],["{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"(window)}catch\"]]}","{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"200===\"]]}","{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"responseText\"]]}"]];
 
-const hostnamesMap = new Map([["www.kikar.co.il",0],["morfix.co.il",1],["sheee.co.il",2],["walla.co.il",2]]);
+const hostnamesMap = new Map([["easy.co.il",0],["www.kikar.co.il",1],["morfix.co.il",2],["sheee.co.il",3],["walla.co.il",3]]);
 
 const entitiesMap = new Map(undefined);
 

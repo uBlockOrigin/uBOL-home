@@ -947,5 +947,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||olimposcans.com^*_prebid-ads."},"id":952},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||visioncloud.ga/js/"},"id":953},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["animesonline.cz"],"resourceTypes":["script"]},"id":954},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||ecuavisa.com/widget/*/catalog/mm_publicidad_"},"id":955}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||ecuavisa.com/widget/*/catalog/mm_publicidad_"},"id":955},
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["netcine3.la"],"resourceTypes":["xmlhttprequest"]},"id":956}
 ]

@@ -19,7 +19,32 @@
    "sub_frame"
   ]
  },
- "id": 372
+ "id": 360
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' 'unsafe-inline'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "aztruyen.vip",
+   "cliphot69.vin",
+   "phimhaythuyetminh.live",
+   "ycongnghe.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 361
 },
 {
  "action": {
@@ -41,32 +66,7 @@
    "sub_frame"
   ]
  },
- "id": 373
-},
-{
- "action": {
-  "responseHeaders": [
-   {
-    "header": "content-security-policy",
-    "operation": "append",
-    "value": "script-src 'self' 'unsafe-inline'"
-   }
-  ],
-  "type": "modifyHeaders"
- },
- "condition": {
-  "requestDomains": [
-   "cliphot69.biz",
-   "dztruyen.com",
-   "phimhaythuyetminh.live",
-   "ycongnghe.com"
-  ],
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ]
- },
- "id": 374
+ "id": 362
 },
 {
  "action": {
@@ -88,7 +88,7 @@
    "sub_frame"
   ]
  },
- "id": 375
+ "id": 363
 },
 {
  "action": {
@@ -110,7 +110,7 @@
    "sub_frame"
   ]
  },
- "id": 376
+ "id": 364
 },
 {
  "action": {
@@ -132,7 +132,7 @@
    "sub_frame"
   ]
  },
- "id": 377
+ "id": 365
 },
 {
  "action": {
@@ -154,6 +154,6 @@
    "sub_frame"
   ]
  },
- "id": 378
+ "id": 366
 }
 ]

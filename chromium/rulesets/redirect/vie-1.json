@@ -8,30 +8,12 @@
  },
  "condition": {
   "initiatorDomains": [
-   "api.anime3s.com",
-   "subnhanh.xyz"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "urlFilter": "||api.anime3s.com/*.mp4"
- },
- "id": 369,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
    "phimhaytv.info"
   ],
   "isUrlFilterCaseSensitive": false,
   "urlFilter": "||bf.333xbet.com/18881999/video888.mp4"
  },
- "id": 370,
+ "id": 358,
  "priority": 2
 },
 {
@@ -51,7 +33,7 @@
   ],
   "urlFilter": "||akamaized.net/audio/"
  },
- "id": 371,
+ "id": 359,
  "priority": 2
 }
 ]
