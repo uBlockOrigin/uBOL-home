@@ -13,27 +13,7 @@
   "isUrlFilterCaseSensitive": false,
   "urlFilter": "||bf.333xbet.com/18881999/video888.mp4"
  },
- "id": 358,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "open.spotify.com"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "resourceTypes": [
-   "media"
-  ],
-  "urlFilter": "||akamaized.net/audio/"
- },
- "id": 359,
+ "id": 338,
  "priority": 2
 }
 ]

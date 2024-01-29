@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: annoyances-overlays
+// ruleset: vie-1
 
 /******************************************************************************/
 
@@ -38,168 +38,112 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_noFetchIf = function() {
+const uBOL_addEventListenerDefuser = function() {
 
-const scriptletGlobals = new Map(); // jshint ignore: line
+const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["adskeeper"],["pagead2.googlesyndication.com"],["google-analytics.com"],["/googlesyndication\\.com|googletagmanager\\.com/"],["nitropay.com"],["analytics"],["www3.doubleclick.net"],["ads-twitter.com"],["adsbygoogle"],["securepubads.g.doubleclick.net/pagead/ppub_config"],["googlesyndication"],["ads"],["/googlesyndication|googletag/"],["ad.php"],["cloudflareinsights.com"]];
+const argsList = [["click","open"]];
 
-const hostnamesMap = new Map([["bravedown.com",0],["everyeye.it",1],["automoto.it",1],["moto.it",1],["calcmaps.com",1],["thejakartapost.com",1],["crdroid.net",1],["maxedtech.com",1],["dizipal1000.com",1],["slazag.pl",1],["bytomski.pl",1],["piekary.info",1],["twojknurow.pl",1],["nowinytyskie.pl",1],["ngs24.pl",1],["24kato.pl",1],["rudzianin.pl",1],["zabrzenews.pl",1],["chorzowski.pl",1],["tarnowskiegory.info",1],["24zaglebie.pl",1],["insidermonkey.com",1],["poedb.tw",1],["stakingrewards.com",1],["udocz.com",1],["graphicget.com",2],["udemy-downloader.com",2],["bypass.city",[3,12]],["gamebrew.org",4],["photosonic.writesonic.com",6],["maxroll.gg",6],["tuttoandroid.net",6],["psy.pl",6],["koty.pl",6],["intibia.com",6],["simkl.com",7],["xhvid.com",8],["xhamster20.desi",8],["xhwebsite2.com",[8,13]],["xhamster18.desi",8],["xhadult3.com",[8,13]],["xhadult2.com",[8,13]],["xhmoon5.com",[8,13]],["xhwide1.com",[8,13]],["xhwide8.com",[8,13]],["xhamster3.com",8],["xhplanet2.com",[8,13]],["xhtab2.com",[8,13]],["xhamster5.desi",8],["xhamster9.com",8],["xhamster.desi",8],["xhamster.one",8],["xhamster.com",8],["weather.com",9],["textcleaner.net",10],["socialcounts.org",10],["theonegenerator.com",11],["fullxh.com",13],["megaxh.com",13],["unlockxh4.com",13],["xhadult4.com",13],["xhadult5.com",13],["xhamster46.com",13],["xhday.com",13],["xhday1.com",13],["xhplanet1.com",13],["xhreal2.com",13],["xhreal3.com",13],["xhvictory.com",13],["xhwebsite.com",13],["amtraker.com",14]]);
+const hostnamesMap = new Map([["femax20.com",0]]);
 
-const entitiesMap = new Map([["ddys",5],["xhamster18",[8,13]],["xhamster17",[8,13]],["hamsterix",[8,13]],["xhamster13",[8,13]],["xhamster",13],["xhamster1",13],["xhamster10",13],["xhamster11",13],["xhamster12",13],["xhamster14",13],["xhamster15",13],["xhamster16",13],["xhamster19",13],["xhamster20",13],["xhamster2",13],["xhamster3",13],["xhamster4",13],["xhamster5",13],["xhamster7",13],["xhamster8",13]]);
+const entitiesMap = new Map([]);
 
 const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function noFetchIf(
-    propsToMatch = '',
-    responseBody = ''
+function addEventListenerDefuser(
+    type = '',
+    pattern = ''
 ) {
-    if ( typeof propsToMatch !== 'string' ) { return; }
     const safe = safeSelf();
-    const needles = [];
-    for ( const condition of propsToMatch.split(/\s+/) ) {
-        if ( condition === '' ) { continue; }
-        const pos = condition.indexOf(':');
-        let key, value;
-        if ( pos !== -1 ) {
-            key = condition.slice(0, pos);
-            value = condition.slice(pos + 1);
-        } else {
-            key = 'url';
-            value = condition;
+    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const reType = safe.patternToRegex(type, undefined, true);
+    const rePattern = safe.patternToRegex(pattern);
+    const debug = shouldDebug(extraArgs);
+    const targetSelector = extraArgs.elements || undefined;
+    const shouldPrevent = (thisArg, type, handler) => {
+        if ( targetSelector !== undefined ) {
+            const elems = Array.from(document.querySelectorAll(targetSelector));
+            if ( elems.includes(thisArg) === false ) { return false; }
         }
-        needles.push({ key, re: safe.patternToRegex(value) });
-    }
-    const log = needles.length === 0 ? console.log.bind(console) : undefined;
-    self.fetch = new Proxy(self.fetch, {
-        apply: function(target, thisArg, args) {
-            const details = args[0] instanceof self.Request
-                ? args[0]
-                : Object.assign({ url: args[0] }, args[1]);
-            let proceed = true;
-            try {
-                const props = new Map();
-                for ( const prop in details ) {
-                    let v = details[prop];
-                    if ( typeof v !== 'string' ) {
-                        try { v = JSON.stringify(v); }
-                        catch(ex) { }
-                    }
-                    if ( typeof v !== 'string' ) { continue; }
-                    props.set(prop, v);
-                }
-                if ( log !== undefined ) {
-                    const out = Array.from(props)
-                                     .map(a => `${a[0]}:${a[1]}`)
-                                     .join(' ');
-                    log(`uBO: fetch(${out})`);
-                }
-                proceed = needles.length === 0;
-                for ( const { key, re } of needles ) {
-                    if (
-                        props.has(key) === false ||
-                        re.test(props.get(key)) === false
-                    ) {
-                        proceed = true;
-                        break;
-                    }
-                }
-            } catch(ex) {
-            }
-            if ( proceed ) {
-                return Reflect.apply(target, thisArg, args);
-            }
-            let responseType = '';
-            if ( details.mode === undefined || details.mode === 'cors' ) {
+        const matchesType = safe.RegExp_test.call(reType, type);
+        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesEither = matchesType || matchesHandler;
+        const matchesBoth = matchesType && matchesHandler;
+        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
+            debugger; // jshint ignore:line
+        }
+        return matchesBoth;
+    };
+    const trapEddEventListeners = ( ) => {
+        const eventListenerHandler = {
+            apply: function(target, thisArg, args) {
+                let t, h;
                 try {
-                    const desURL = new URL(details.url);
-                    responseType = desURL.origin !== document.location.origin
-                        ? 'cors'
-                        : 'basic';
-                } catch(_) {
+                    t = String(args[0]);
+                    h = args[1] instanceof Function
+                        ? String(safe.Function_toString(args[1]))
+                        : String(args[1]);
+                } catch(ex) {
                 }
-            }
-            return generateContentFn(responseBody).then(text => {
-                const response = new Response(text, {
-                    statusText: 'OK',
-                    headers: {
-                        'Content-Length': text.length,
-                    }
-                });
-                safe.Object_defineProperty(response, 'url', {
-                    value: details.url
-                });
-                if ( responseType !== '' ) {
-                    safe.Object_defineProperty(response, 'type', {
-                        value: responseType
-                    });
+                if ( type === '' && pattern === '' ) {
+                    safe.uboLog(logPrefix, `Called: ${t}\n${h}`);
+                } else if ( shouldPrevent(thisArg, t, h) ) {
+                    return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}`);
                 }
-                return response;
-            });
-        }
-    });
+                return Reflect.apply(target, thisArg, args);
+            },
+            get(target, prop, receiver) {
+                if ( prop === 'toString' ) {
+                    return target.toString.bind(target);
+                }
+                return Reflect.get(target, prop, receiver);
+            },
+        };
+        self.EventTarget.prototype.addEventListener = new Proxy(
+            self.EventTarget.prototype.addEventListener,
+            eventListenerHandler
+        );
+    };
+    runAt(( ) => {
+        trapEddEventListeners();
+    }, extraArgs.runAt);
 }
 
-function generateContentFn(directive) {
-    const safe = safeSelf();
-    const randomize = len => {
-        const chunks = [];
-        let textSize = 0;
-        do {
-            const s = safe.Math_random().toString(36).slice(2);
-            chunks.push(s);
-            textSize += s.length;
+function runAt(fn, when) {
+    const intFromReadyState = state => {
+        const targets = {
+            'loading': 1,
+            'interactive': 2, 'end': 2, '2': 2,
+            'complete': 3, 'idle': 3, '3': 3,
+        };
+        const tokens = Array.isArray(state) ? state : [ state ];
+        for ( const token of tokens ) {
+            const prop = `${token}`;
+            if ( targets.hasOwnProperty(prop) === false ) { continue; }
+            return targets[prop];
         }
-        while ( textSize < len );
-        return chunks.join(' ').slice(0, len);
+        return 0;
     };
-    if ( directive === 'true' ) {
-        return Promise.resolve(randomize(10));
+    const runAt = intFromReadyState(when);
+    if ( intFromReadyState(document.readyState) >= runAt ) {
+        fn(); return;
     }
-    if ( directive === 'emptyObj' ) {
-        return Promise.resolve('{}');
-    }
-    if ( directive === 'emptyArr' ) {
-        return Promise.resolve('[]');
-    }
-    if ( directive === 'emptyStr' ) {
-        return Promise.resolve('');
-    }
-    if ( directive.startsWith('length:') ) {
-        const match = /^length:(\d+)(?:-(\d+))?$/.exec(directive);
-        if ( match ) {
-            const min = parseInt(match[1], 10);
-            const extent = safe.Math_max(parseInt(match[2], 10) || 0, min) - min;
-            const len = safe.Math_min(min + extent * safe.Math_random(), 500000);
-            return Promise.resolve(randomize(len | 0));
-        }
-    }
-    if ( directive.startsWith('war:') && scriptletGlobals.has('warOrigin') ) {
-        return new Promise(resolve => {
-            const warOrigin = scriptletGlobals.get('warOrigin');
-            const warName = directive.slice(4);
-            const fullpath = [ warOrigin, '/', warName ];
-            const warSecret = scriptletGlobals.get('warSecret');
-            if ( warSecret !== undefined ) {
-                fullpath.push('?secret=', warSecret);
-            }
-            const warXHR = new safe.XMLHttpRequest();
-            warXHR.responseType = 'text';
-            warXHR.onloadend = ev => {
-                resolve(ev.target.responseText || '');
-            };
-            warXHR.open('GET', fullpath.join(''));
-            warXHR.send();
-        });
-    }
-    return Promise.resolve('');
+    const onStateChange = ( ) => {
+        if ( intFromReadyState(document.readyState) < runAt ) { return; }
+        fn();
+        safe.removeEventListener.apply(document, args);
+    };
+    const safe = safeSelf();
+    const args = [ 'readystatechange', onStateChange, { capture: true } ];
+    safe.addEventListener.apply(document, args);
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.has('safeSelf') ) {
-        return scriptletGlobals.get('safeSelf');
+    if ( scriptletGlobals.safeSelf ) {
+        return scriptletGlobals.safeSelf;
     }
     const self = globalThis;
     const safe = {
@@ -229,11 +173,22 @@ function safeSelf() {
         'JSON_parse': (...args) => safe.JSON_parseFn.call(safe.JSON, ...args),
         'JSON_stringify': (...args) => safe.JSON_stringifyFn.call(safe.JSON, ...args),
         'log': console.log.bind(console),
+        // Properties
+        logLevel: 0,
+        // Methods
+        makeLogPrefix(...args) {
+            return this.sendToLogger && `[${args.join(' \u205D ')}]` || '';
+        },
         uboLog(...args) {
-            if ( scriptletGlobals.has('canDebug') === false ) { return; }
-            if ( args.length === 0 ) { return; }
-            if ( `${args[0]}` === '' ) { return; }
-            this.log('[uBO]', ...args);
+            if ( this.sendToLogger === undefined ) { return; }
+            if ( args === undefined || args[0] === '' ) { return; }
+            return this.sendToLogger('info', ...args);
+            
+        },
+        uboErr(...args) {
+            if ( this.sendToLogger === undefined ) { return; }
+            if ( args === undefined || args[0] === '' ) { return; }
+            return this.sendToLogger('error', ...args);
         },
         escapeRegexChars(s) {
             return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -301,8 +256,45 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.set('safeSelf', safe);
+    scriptletGlobals.safeSelf = safe;
+    if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
+    // This is executed only when the logger is opened
+    const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
+    let bcBuffer = [];
+    safe.logLevel = scriptletGlobals.logLevel || 1;
+    safe.sendToLogger = (type, ...args) => {
+        if ( args.length === 0 ) { return; }
+        const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
+        if ( bcBuffer === undefined ) {
+            return bc.postMessage({ what: 'messageToLogger', type, text });
+        }
+        bcBuffer.push({ type, text });
+    };
+    bc.onmessage = ev => {
+        const msg = ev.data;
+        switch ( msg ) {
+        case 'iamready!':
+            if ( bcBuffer === undefined ) { break; }
+            bcBuffer.forEach(({ type, text }) =>
+                bc.postMessage({ what: 'messageToLogger', type, text })
+            );
+            bcBuffer = undefined;
+            break;
+        case 'setScriptletLogLevelToOne':
+            safe.logLevel = 1;
+            break;
+        case 'setScriptletLogLevelToTwo':
+            safe.logLevel = 2;
+            break;
+        }
+    };
+    bc.postMessage('areyouready?');
     return safe;
+}
+
+function shouldDebug(details) {
+    if ( details instanceof Object === false ) { return false; }
+    return scriptletGlobals.canDebug && details.debug;
 }
 
 /******************************************************************************/
@@ -365,7 +357,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { noFetchIf(...argsList[i]); }
+    try { addEventListenerDefuser(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -387,7 +379,7 @@ const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_noFetchIf();
+    return uBOL_addEventListenerDefuser();
 }
 
 // Firefox
@@ -395,11 +387,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_noFetchIf = cloneInto([
-            [ '(', uBOL_noFetchIf.toString(), ')();' ],
+        page.uBOL_addEventListenerDefuser = cloneInto([
+            [ '(', uBOL_addEventListenerDefuser.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_noFetchIf);
+        const blob = new page.Blob(...page.uBOL_addEventListenerDefuser);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -413,7 +405,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_noFetchIf;
+    delete page.uBOL_addEventListenerDefuser;
 }
 
 /******************************************************************************/

@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: idn-0
+// ruleset: spa-1
 
 /******************************************************************************/
 
@@ -40,11 +40,11 @@
 // Start of code to inject
 const uBOL_noFetchIf = function() {
 
-const scriptletGlobals = new Map(); // jshint ignore: line
+const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["adsbygoogle"],["clarity.ms"]];
+const argsList = [["pagead2.googlesyndication.com"],["/googlesyndication\\.com|iubenda\\.com|unblockia\\.com|bannersnack\\.com|mopinion\\.com/"],["ads_block.txt"],["imasdk.googleapis.com"],["method:HEAD"],["securepubads.g.doubleclick.net/pagead/ppub_config"],["adsbygoogle"],["call-zone-adxs"],["/pagead2\\.googlesyndication\\.com|ads-api\\.twitter\\.com/"],["/^(?!.*(chrome-extension:)).*$/ method:HEAD"],["ads-twitter.com"],["static.ads-twitter.com"],["www3.doubleclick.net"],["/adsbygoogle.js"]];
 
-const hostnamesMap = new Map([["info.gambar.pro",0],["info.mapsaddress.com",0],["info.vebma.com",0],["thejakartapost.com",0],["netq.me",1]]);
+const hostnamesMap = new Map([["ggames.com.br",0],["mundodonghua.com",0],["receitasoncaseiras.online",0],["receitasdochico.life",0],["dicasdefinancas.net",0],["dicasfinanceirasbr.com",0],["expertplay.net",0],["alarmadefraude.com",0],["sabornutritivo.com",0],["financasdeouro.com",0],["animeszone.net",0],["megacanaisonline.me",0],["animesonline.nz",0],["los40.com",0],["negociosecommerce.com",[0,7]],["puromarketing.com",[0,7]],["todostartups.com",[0,7]],["pobre.wtf",0],["acortalo.net",0],["link-descarga.site",0],["meutimao.com.br",0],["discografias.net",0],["listas.pro",0],["emperorscan.com",0],["lawebdelprogramador.com",0],["dicasgostosas.com",0],["peliculas8k.com",1],["modescanlator.com",2],["southparkstudios.com.br",3],["southpark.lat",3],["qwanturankpro.com",4],["desbloquea.me",4],["mega-enlace.com",4],["enlacito.com",4],["acortame-esto.com",4],["repretel.com",5],["redbolivision.tv.bo",5],["independentespanol.com",5],["downloads.sayrodigital.com",6],["teleculinaria.pt",6],["nptmedia.tv",8],["suaads.com",9],["reidoplacar.com",9],["suaurl.com",9],["costumbresmexico.com",10],["desbloqueador.site",10],["notipostingt.com",11],["tivify.tv",12],["netmovies.com.br",13]]);
 
 const entitiesMap = new Map([]);
 
@@ -58,6 +58,7 @@ function noFetchIf(
 ) {
     if ( typeof propsToMatch !== 'string' ) { return; }
     const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('prevent-fetch', propsToMatch, responseBody);
     const needles = [];
     for ( const condition of propsToMatch.split(/\s+/) ) {
         if ( condition === '' ) { continue; }
@@ -72,29 +73,26 @@ function noFetchIf(
         }
         needles.push({ key, re: safe.patternToRegex(value) });
     }
-    const log = needles.length === 0 ? console.log.bind(console) : undefined;
     self.fetch = new Proxy(self.fetch, {
         apply: function(target, thisArg, args) {
             const details = args[0] instanceof self.Request
                 ? args[0]
                 : Object.assign({ url: args[0] }, args[1]);
+            if ( propsToMatch === '' && responseBody === '' ) {
+                safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(details, null, 2)}`);
+                return Reflect.apply(target, thisArg, args);
+            }
             let proceed = true;
             try {
                 const props = new Map();
                 for ( const prop in details ) {
                     let v = details[prop];
                     if ( typeof v !== 'string' ) {
-                        try { v = JSON.stringify(v); }
+                        try { v = safe.JSON_stringify(v); }
                         catch(ex) { }
                     }
                     if ( typeof v !== 'string' ) { continue; }
                     props.set(prop, v);
-                }
-                if ( log !== undefined ) {
-                    const out = Array.from(props)
-                                     .map(a => `${a[0]}:${a[1]}`)
-                                     .join(' ');
-                    log(`uBO: fetch(${out})`);
                 }
                 proceed = needles.length === 0;
                 for ( const { key, re } of needles ) {
@@ -118,10 +116,12 @@ function noFetchIf(
                     responseType = desURL.origin !== document.location.origin
                         ? 'cors'
                         : 'basic';
-                } catch(_) {
+                } catch(ex) {
+                    safe.uboErr(logPrefix, `Error: ${ex}`);
                 }
             }
             return generateContentFn(responseBody).then(text => {
+                safe.uboLog(logPrefix, `Prevented with response "${text}"`);
                 const response = new Response(text, {
                     statusText: 'OK',
                     headers: {
@@ -176,12 +176,12 @@ function generateContentFn(directive) {
             return Promise.resolve(randomize(len | 0));
         }
     }
-    if ( directive.startsWith('war:') && scriptletGlobals.has('warOrigin') ) {
+    if ( directive.startsWith('war:') && scriptletGlobals.warOrigin ) {
         return new Promise(resolve => {
-            const warOrigin = scriptletGlobals.get('warOrigin');
+            const warOrigin = scriptletGlobals.warOrigin;
             const warName = directive.slice(4);
             const fullpath = [ warOrigin, '/', warName ];
-            const warSecret = scriptletGlobals.get('warSecret');
+            const warSecret = scriptletGlobals.warSecret;
             if ( warSecret !== undefined ) {
                 fullpath.push('?secret=', warSecret);
             }
@@ -198,8 +198,8 @@ function generateContentFn(directive) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.has('safeSelf') ) {
-        return scriptletGlobals.get('safeSelf');
+    if ( scriptletGlobals.safeSelf ) {
+        return scriptletGlobals.safeSelf;
     }
     const self = globalThis;
     const safe = {
@@ -229,11 +229,22 @@ function safeSelf() {
         'JSON_parse': (...args) => safe.JSON_parseFn.call(safe.JSON, ...args),
         'JSON_stringify': (...args) => safe.JSON_stringifyFn.call(safe.JSON, ...args),
         'log': console.log.bind(console),
+        // Properties
+        logLevel: 0,
+        // Methods
+        makeLogPrefix(...args) {
+            return this.sendToLogger && `[${args.join(' \u205D ')}]` || '';
+        },
         uboLog(...args) {
-            if ( scriptletGlobals.has('canDebug') === false ) { return; }
-            if ( args.length === 0 ) { return; }
-            if ( `${args[0]}` === '' ) { return; }
-            this.log('[uBO]', ...args);
+            if ( this.sendToLogger === undefined ) { return; }
+            if ( args === undefined || args[0] === '' ) { return; }
+            return this.sendToLogger('info', ...args);
+            
+        },
+        uboErr(...args) {
+            if ( this.sendToLogger === undefined ) { return; }
+            if ( args === undefined || args[0] === '' ) { return; }
+            return this.sendToLogger('error', ...args);
         },
         escapeRegexChars(s) {
             return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -301,7 +312,39 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.set('safeSelf', safe);
+    scriptletGlobals.safeSelf = safe;
+    if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
+    // This is executed only when the logger is opened
+    const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
+    let bcBuffer = [];
+    safe.logLevel = scriptletGlobals.logLevel || 1;
+    safe.sendToLogger = (type, ...args) => {
+        if ( args.length === 0 ) { return; }
+        const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
+        if ( bcBuffer === undefined ) {
+            return bc.postMessage({ what: 'messageToLogger', type, text });
+        }
+        bcBuffer.push({ type, text });
+    };
+    bc.onmessage = ev => {
+        const msg = ev.data;
+        switch ( msg ) {
+        case 'iamready!':
+            if ( bcBuffer === undefined ) { break; }
+            bcBuffer.forEach(({ type, text }) =>
+                bc.postMessage({ what: 'messageToLogger', type, text })
+            );
+            bcBuffer = undefined;
+            break;
+        case 'setScriptletLogLevelToOne':
+            safe.logLevel = 1;
+            break;
+        case 'setScriptletLogLevelToTwo':
+            safe.logLevel = 2;
+            break;
+        }
+    };
+    bc.postMessage('areyouready?');
     return safe;
 }
 

@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: nld-0
+// ruleset: fra-0
 
 /******************************************************************************/
 
@@ -40,13 +40,13 @@
 // Start of code to inject
 const uBOL_noFetchIf = function() {
 
-const scriptletGlobals = new Map(); // jshint ignore: line
+const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["/a[ab]\\.tweakers\\.nl/"]];
+const argsList = [["/www3\\.doubleclick\\.net|tagger\\.opecloud\\.com/"],["tag.min.js"],["fwmrm"],["pagead2.googlesyndication.com"],["js.sddan.com"],["static.adsafeprotected.com/favicon.ico method:HEAD"],["/^https:\\/\\/ads\\.stickyadstv\\.com\\/$/ method:HEAD"]];
 
-const hostnamesMap = new Map([["tweakers.net",0]]);
+const hostnamesMap = new Map([["rmcbfmplay.com",0],["france.tv",2],["lameteoagricole.net",3],["meteo-grenoble.com",3],["signal-arnaques.com",3],["techno-science.net",3],["animationdigitalnetwork.fr",3],["animedigitalnetwork.fr",3],["malekal.com",4],["tf1.fr",[5,6]],["tf1info.fr",[5,6]]]);
 
-const entitiesMap = new Map([]);
+const entitiesMap = new Map([["darkino",1]]);
 
 const exceptionsMap = new Map([]);
 
@@ -58,6 +58,7 @@ function noFetchIf(
 ) {
     if ( typeof propsToMatch !== 'string' ) { return; }
     const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('prevent-fetch', propsToMatch, responseBody);
     const needles = [];
     for ( const condition of propsToMatch.split(/\s+/) ) {
         if ( condition === '' ) { continue; }
@@ -72,29 +73,26 @@ function noFetchIf(
         }
         needles.push({ key, re: safe.patternToRegex(value) });
     }
-    const log = needles.length === 0 ? console.log.bind(console) : undefined;
     self.fetch = new Proxy(self.fetch, {
         apply: function(target, thisArg, args) {
             const details = args[0] instanceof self.Request
                 ? args[0]
                 : Object.assign({ url: args[0] }, args[1]);
+            if ( propsToMatch === '' && responseBody === '' ) {
+                safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(details, null, 2)}`);
+                return Reflect.apply(target, thisArg, args);
+            }
             let proceed = true;
             try {
                 const props = new Map();
                 for ( const prop in details ) {
                     let v = details[prop];
                     if ( typeof v !== 'string' ) {
-                        try { v = JSON.stringify(v); }
+                        try { v = safe.JSON_stringify(v); }
                         catch(ex) { }
                     }
                     if ( typeof v !== 'string' ) { continue; }
                     props.set(prop, v);
-                }
-                if ( log !== undefined ) {
-                    const out = Array.from(props)
-                                     .map(a => `${a[0]}:${a[1]}`)
-                                     .join(' ');
-                    log(`uBO: fetch(${out})`);
                 }
                 proceed = needles.length === 0;
                 for ( const { key, re } of needles ) {
@@ -118,10 +116,12 @@ function noFetchIf(
                     responseType = desURL.origin !== document.location.origin
                         ? 'cors'
                         : 'basic';
-                } catch(_) {
+                } catch(ex) {
+                    safe.uboErr(logPrefix, `Error: ${ex}`);
                 }
             }
             return generateContentFn(responseBody).then(text => {
+                safe.uboLog(logPrefix, `Prevented with response "${text}"`);
                 const response = new Response(text, {
                     statusText: 'OK',
                     headers: {
@@ -176,12 +176,12 @@ function generateContentFn(directive) {
             return Promise.resolve(randomize(len | 0));
         }
     }
-    if ( directive.startsWith('war:') && scriptletGlobals.has('warOrigin') ) {
+    if ( directive.startsWith('war:') && scriptletGlobals.warOrigin ) {
         return new Promise(resolve => {
-            const warOrigin = scriptletGlobals.get('warOrigin');
+            const warOrigin = scriptletGlobals.warOrigin;
             const warName = directive.slice(4);
             const fullpath = [ warOrigin, '/', warName ];
-            const warSecret = scriptletGlobals.get('warSecret');
+            const warSecret = scriptletGlobals.warSecret;
             if ( warSecret !== undefined ) {
                 fullpath.push('?secret=', warSecret);
             }
@@ -198,8 +198,8 @@ function generateContentFn(directive) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.has('safeSelf') ) {
-        return scriptletGlobals.get('safeSelf');
+    if ( scriptletGlobals.safeSelf ) {
+        return scriptletGlobals.safeSelf;
     }
     const self = globalThis;
     const safe = {
@@ -229,11 +229,22 @@ function safeSelf() {
         'JSON_parse': (...args) => safe.JSON_parseFn.call(safe.JSON, ...args),
         'JSON_stringify': (...args) => safe.JSON_stringifyFn.call(safe.JSON, ...args),
         'log': console.log.bind(console),
+        // Properties
+        logLevel: 0,
+        // Methods
+        makeLogPrefix(...args) {
+            return this.sendToLogger && `[${args.join(' \u205D ')}]` || '';
+        },
         uboLog(...args) {
-            if ( scriptletGlobals.has('canDebug') === false ) { return; }
-            if ( args.length === 0 ) { return; }
-            if ( `${args[0]}` === '' ) { return; }
-            this.log('[uBO]', ...args);
+            if ( this.sendToLogger === undefined ) { return; }
+            if ( args === undefined || args[0] === '' ) { return; }
+            return this.sendToLogger('info', ...args);
+            
+        },
+        uboErr(...args) {
+            if ( this.sendToLogger === undefined ) { return; }
+            if ( args === undefined || args[0] === '' ) { return; }
+            return this.sendToLogger('error', ...args);
         },
         escapeRegexChars(s) {
             return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -301,7 +312,39 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.set('safeSelf', safe);
+    scriptletGlobals.safeSelf = safe;
+    if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
+    // This is executed only when the logger is opened
+    const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
+    let bcBuffer = [];
+    safe.logLevel = scriptletGlobals.logLevel || 1;
+    safe.sendToLogger = (type, ...args) => {
+        if ( args.length === 0 ) { return; }
+        const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
+        if ( bcBuffer === undefined ) {
+            return bc.postMessage({ what: 'messageToLogger', type, text });
+        }
+        bcBuffer.push({ type, text });
+    };
+    bc.onmessage = ev => {
+        const msg = ev.data;
+        switch ( msg ) {
+        case 'iamready!':
+            if ( bcBuffer === undefined ) { break; }
+            bcBuffer.forEach(({ type, text }) =>
+                bc.postMessage({ what: 'messageToLogger', type, text })
+            );
+            bcBuffer = undefined;
+            break;
+        case 'setScriptletLogLevelToOne':
+            safe.logLevel = 1;
+            break;
+        case 'setScriptletLogLevelToTwo':
+            safe.logLevel = 2;
+            break;
+        }
+    };
+    bc.postMessage('areyouready?');
     return safe;
 }
 

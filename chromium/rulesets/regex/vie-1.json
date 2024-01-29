@@ -7,7 +7,7 @@
   "isUrlFilterCaseSensitive": false,
   "regexFilter": "giadinhonline.vn\\/files\\/qc"
  },
- "id": 9
+ "id": 10
 },
 {
  "action": {
@@ -20,7 +20,7 @@
   "isUrlFilterCaseSensitive": false,
   "regexFilter": "i.imgur.com"
  },
- "id": 10
+ "id": 11
 },
 {
  "action": {
@@ -34,21 +34,7 @@
   "isUrlFilterCaseSensitive": false,
   "regexFilter": "media.discordapp"
  },
- "id": 12
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "isUrlFilterCaseSensitive": false,
-  "regexFilter": "storage.adpia.vn",
-  "resourceTypes": [
-   "image",
-   "script"
-  ]
- },
- "id": 171
+ "id": 13
 },
 {
  "action": {
@@ -61,7 +47,7 @@
    "script"
   ]
  },
- "id": 279
+ "id": 256
 },
 {
  "action": {
@@ -74,7 +60,7 @@
    "script"
   ]
  },
- "id": 280
+ "id": 257
 },
 {
  "action": {
@@ -87,7 +73,7 @@
    "script"
   ]
  },
- "id": 284
+ "id": 265
 },
 {
  "action": {
@@ -101,7 +87,7 @@
    "script"
   ]
  },
- "id": 322
+ "id": 303
 },
 {
  "action": {
@@ -118,6 +104,6 @@
    "xmlhttprequest"
   ]
  },
- "id": 325
+ "id": 306
 }
 ]

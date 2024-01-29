@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: default
+// ruleset: jpn-1
 
 /******************************************************************************/
 
@@ -40,13 +40,13 @@
 // Start of code to inject
 const uBOL_noFetchIf = function() {
 
-const scriptletGlobals = new Map(); // jshint ignore: line
+const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["ads"],["/^/"],["player-feedback"],["adsbygoogle"],["openx"],["method:HEAD"],["googlesyndication"],["googlesyndication","method:HEAD"],["damoh.ani-stream.com"],["/google|\\/ad.+\\.js/"],["/googlesyndication|adpushup|adrecover/"],["/googlesyndication|inklinkor|ads\\/load/"],["zomap.de"],["adsafeprotected"],["google"],["cloudfront"],[".js"],["google-analytics"],["bmcdn6"],["/adoto|\\/ads\\/js/"],["googletagmanager"],["syndication"],["/googlesyndication|inklinkor/"],["popunder"],["adsbygoogle.js"],["manager"],["moonicorn.network"],["ad"],["/ads"],["tvid.in/log"],["cloudfront.net/?"],["analytics"],["wtg-ads"],["doubleclick"],["/ads|doubleclick/"],["dqst.pl"],["googlesyndication.com"],["vlitag"],["/ads|track/"],["imasdk"],["tpc.googlesyndication.com"],["adskeeper"],["/freychang|passback|popunder|tag|banquetunarmedgrater/"],["ima"],["/adoto|googlesyndication/"],["ad-delivery"],["imasdk.googleapis.com"],["method:GET"],["/ads|googletagmanager/"],["ima3_dai"],["/api/v1/events"],["body:browser"],["body:/[\\w\\W]{700}/"],["method:/post|posT|poSt|poST|pOst|pOsT|pOSt|pOST|Post|PosT|PoSt|PoST|POst|POsT|POSt|POST/"],["/\\/post\\/.*\\.json/"],["eventing"],["marmalade"],["url:ipapi.co"],["api"],["googlesyndication","length:149642"]];
+const argsList = [["pagead2.googlesyndication.com"],["tpc.googlesyndication.com"],["cdn.adschill.com"]];
 
-const hostnamesMap = new Map([["allmusic.com",0],["investing.com",0],["mylivewallpapers.com",0],["softfully.com",0],["sportea.online",0],["sekilastekno.com",0],["naukrilelo.in",0],["androidquest.com",0],["reminimod.co",0],["highkeyfinance.com",0],["amanguides.com",0],["aduzz.com",0],["bitcrypto.info",0],["apkupload.in",0],["ezeviral.com",0],["pngreal.com",0],["ytpng.net",0],["key-hub.eu",0],["discoveryplus.in",0],["calculator-online.net",0],["tutorial.siberuang.com",0],["desiflixindia.com",0],["insurance.iptvsetupguide.com",0],["dotabuff.com",0],["forum.cstalking.tv",0],["mcqmall.com",0],["apksafe.in",0],["witcherhour.com",0],["clamor.pl",0],["one-tech.xyz",0],["ozulscans.com",0],["i-polls.com",0],["insurancevela.com",0],["noor-book.com",0],["wrzesnia.info.pl",0],["elahmad.com",0],["compromath.com",0],["sumoweb.to",0],["haloursynow.pl",0],["satkurier.pl",0],["mtg-print.com",0],["gktech.uk",0],["heavy.com",0],["creators.nafezly.com",0],["downloadfilm.website",0],["uploadsea.com",0],["skidrowreloaded.com",1],["pinoyfaucet.com",1],["app.axenthost.com",1],["player.glomex.com",2],["audioztools.com",3],["wowescape.com",3],["leechpremium.link",3],["camcam.cc",3],["png.is",3],["nohat.cc",3],["fc-lc.xyz",3],["kpopsea.com",3],["isi7.net",3],["hyipstats.net",3],["palixi.net",3],["freecoursesonline.me",3],["pinloker.com",3],["sshkit.com",3],["fastssh.com",3],["howdy.id",3],["htmlgames.com",4],["mac2sell.net",5],["1001tracklists.com",5],["gamebrew.org",5],["game3rb.com",5],["sixsave.com",5],["bowfile.com",[5,30]],["dealsfinders.blog",5],["iphonechecker.herokuapp.com",5],["coloringpage.eu",5],["conocimientoshackers.com",5],["juegosdetiempolibre.org",5],["karaokegratis.com.ar",5],["mammaebambini.it",5],["riazor.org",5],["rinconpsicologia.com",5],["sempredirebanzai.it",5],["vectogravic.com",5],["androidacy.com",5],["freetohell.com",5],["faucetcrypto.com",6],["toolss.net",6],["flixscans.org",6],["tophostingapp.com",6],["digitalmarktrend.com",6],["webhostingpost.com",6],["mynewsmedia.co",6],["overgal.com",6],["howtoconcepts.com",6],["arcai.com",6],["romadd.com",6],["disheye.com",6],["homeairquality.org",[6,20]],["techtrim.tech",6],["arhplyrics.in",6],["raky.in",6],["askpaccosi.com",6],["crypto4tun.com",6],["jpoplist.us",6],["quizack.com",6],["moddingzone.in",6],["rajsayt.xyz",6],["jaunpurmusic.info",6],["apkandroidhub.in",6],["babymodz.com",6],["deezloaded.com",6],["mad.gplpalace.one",6],["studyis.xyz",6],["chillx.top",6],["worldappsstore.xyz",6],["prepostseo.com",6],["dulichkhanhhoa.net",6],["noithatmyphu.vn",6],["iptvjournal.com",6],["dramaworldhd.co",6],["tudaydeals.com",6],["choiceappstore.xyz",6],["inbbotlist.com",6],["freepreset.net",6],["getintoway.com",6],["crdroid.net",6],["zerion.cc",6],["beelink.pro",6],["hax.co.id",6],["woiden.id",6],["pviewer.site",6],["theusaposts.com",6],["hackr.io",6],["esopress.com",6],["welovecrypto.xyz",6],["paketmu.com",6],["coins-town.com",6],["watchx.top",6],["bitcosite.com",6],["bitzite.com",6],["globlenews.in",6],["programmingeeksclub.com",6],["archivebate.com",6],["now.gg",6],["now.us",6],["moto.it",6],["wellness4live.com",6],["forplayx.ink",6],["ghscanner.com",6],["sat.technology",6],["moviesapi.club",6],["bestx.stream",6],["automoto.it",6],["olarila.com",6],["snapwordz.com",6],["toolxox.com",6],["go2share.net",6],["flixscans.com",6],["animesync.org",6],["freewsad.com",6],["yt-downloaderz.com",6],["hostmath.com",6],["urlcut.ninja",6],["fplstatistics.co.uk",6],["99corporates.com",6],["fivemdev.org",6],["winlator.com",6],["freetvsports.xyz",6],["loot-link.com",6],["loot-links.com",6],["los40.com",6],["muyinteresante.es",7],["ani-stream.com",8],["duplichecker.com",[9,10]],["plagiarismchecker.co",10],["plagiarismdetector.net",10],["searchenginereports.net",10],["smallseotools.com",10],["oko.sh",11],["joyn.de",12],["tf1.fr",13],["exe.app",14],["eio.io",14],["ufacw.com",14],["figurehunter.net",14],["workink.click",15],["work.ink",16],["envato-downloader.com",17],["freepik-downloader.com",17],["freepic-downloader.com",17],["mdn.lol",18],["btcbitco.in",19],["btcsatoshi.net",19],["cempakajaya.com",19],["crypto4yu.com",19],["gainl.ink",19],["readbitcoin.org",19],["wiour.com",19],["senda.pl",20],["computerpedia.in",21],["foodxor.com",21],["mealcold.com",21],["mixrootmods.com",21],["tii.la",22],["camarchive.tv",23],["hindustantimes.com",24],["linkpoi.me",25],["platform.adex.network",26],["mcrypto.club",27],["coinsparty.com",27],["weszlo.com",27],["simplebits.io",28],["timesnowhindi.com",29],["timesnowmarathi.com",29],["timesofindia.com",29],["wyze.com",31],["mmorpg.org.pl",32],["journaldemontreal.com",33],["tvanouvelles.ca",33],["boxingstreams100.com",33],["mlbstreams100.com",33],["mmastreams-100.tv",33],["nbastreams-100.tv",33],["soccerstreams-100.tv",33],["vods.tv",33],["atresplayer.com",33],["independent.co.uk",33],["ytlarge.com",33],["dongknows.com",34],["forsal.pl",35],["2the.space",36],["freeshib.biz",37],["doge25.in",38],["deutschekanale.com",39],["soranews24.com",40],["bravedown.com",41],["smartkhabrinews.com",42],["ortograf.pl",43],["mixrootmod.com",44],["explorecams.com",45],["riuria.beauty",46],["lifestyle.bg",47],["money.bg",47],["news.bg",47],["topsport.bg",47],["webcafe.bg",47],["realmadryt.pl",47],["getthit.com",48],["southpark.de",49],["everand.com",50],["search.brave.com",51],["blog.skk.moe",[52,54]],["skk.moe",53],["coursera.org",55],["pimylifeup.com",56],["seazon.fr",57],["html5.gamedistribution.com",58],["infinityscans.xyz",59],["infinityscans.net",59]]);
+const hostnamesMap = new Map([["tojav.net",0],["audio-sound-premium.com",0],["kledgeb.blogspot.com",0],["rocketnews24.com",1],["youpouch.com",1]]);
 
-const entitiesMap = new Map([["pobre",0],["zone-telechargement",1],["magesy",3],["bg-gledai",6]]);
+const entitiesMap = new Map([["manga1001",2]]);
 
 const exceptionsMap = new Map([]);
 
@@ -58,6 +58,7 @@ function noFetchIf(
 ) {
     if ( typeof propsToMatch !== 'string' ) { return; }
     const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('prevent-fetch', propsToMatch, responseBody);
     const needles = [];
     for ( const condition of propsToMatch.split(/\s+/) ) {
         if ( condition === '' ) { continue; }
@@ -72,29 +73,26 @@ function noFetchIf(
         }
         needles.push({ key, re: safe.patternToRegex(value) });
     }
-    const log = needles.length === 0 ? console.log.bind(console) : undefined;
     self.fetch = new Proxy(self.fetch, {
         apply: function(target, thisArg, args) {
             const details = args[0] instanceof self.Request
                 ? args[0]
                 : Object.assign({ url: args[0] }, args[1]);
+            if ( propsToMatch === '' && responseBody === '' ) {
+                safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(details, null, 2)}`);
+                return Reflect.apply(target, thisArg, args);
+            }
             let proceed = true;
             try {
                 const props = new Map();
                 for ( const prop in details ) {
                     let v = details[prop];
                     if ( typeof v !== 'string' ) {
-                        try { v = JSON.stringify(v); }
+                        try { v = safe.JSON_stringify(v); }
                         catch(ex) { }
                     }
                     if ( typeof v !== 'string' ) { continue; }
                     props.set(prop, v);
-                }
-                if ( log !== undefined ) {
-                    const out = Array.from(props)
-                                     .map(a => `${a[0]}:${a[1]}`)
-                                     .join(' ');
-                    log(`uBO: fetch(${out})`);
                 }
                 proceed = needles.length === 0;
                 for ( const { key, re } of needles ) {
@@ -118,10 +116,12 @@ function noFetchIf(
                     responseType = desURL.origin !== document.location.origin
                         ? 'cors'
                         : 'basic';
-                } catch(_) {
+                } catch(ex) {
+                    safe.uboErr(logPrefix, `Error: ${ex}`);
                 }
             }
             return generateContentFn(responseBody).then(text => {
+                safe.uboLog(logPrefix, `Prevented with response "${text}"`);
                 const response = new Response(text, {
                     statusText: 'OK',
                     headers: {
@@ -176,12 +176,12 @@ function generateContentFn(directive) {
             return Promise.resolve(randomize(len | 0));
         }
     }
-    if ( directive.startsWith('war:') && scriptletGlobals.has('warOrigin') ) {
+    if ( directive.startsWith('war:') && scriptletGlobals.warOrigin ) {
         return new Promise(resolve => {
-            const warOrigin = scriptletGlobals.get('warOrigin');
+            const warOrigin = scriptletGlobals.warOrigin;
             const warName = directive.slice(4);
             const fullpath = [ warOrigin, '/', warName ];
-            const warSecret = scriptletGlobals.get('warSecret');
+            const warSecret = scriptletGlobals.warSecret;
             if ( warSecret !== undefined ) {
                 fullpath.push('?secret=', warSecret);
             }
@@ -198,8 +198,8 @@ function generateContentFn(directive) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.has('safeSelf') ) {
-        return scriptletGlobals.get('safeSelf');
+    if ( scriptletGlobals.safeSelf ) {
+        return scriptletGlobals.safeSelf;
     }
     const self = globalThis;
     const safe = {
@@ -229,11 +229,22 @@ function safeSelf() {
         'JSON_parse': (...args) => safe.JSON_parseFn.call(safe.JSON, ...args),
         'JSON_stringify': (...args) => safe.JSON_stringifyFn.call(safe.JSON, ...args),
         'log': console.log.bind(console),
+        // Properties
+        logLevel: 0,
+        // Methods
+        makeLogPrefix(...args) {
+            return this.sendToLogger && `[${args.join(' \u205D ')}]` || '';
+        },
         uboLog(...args) {
-            if ( scriptletGlobals.has('canDebug') === false ) { return; }
-            if ( args.length === 0 ) { return; }
-            if ( `${args[0]}` === '' ) { return; }
-            this.log('[uBO]', ...args);
+            if ( this.sendToLogger === undefined ) { return; }
+            if ( args === undefined || args[0] === '' ) { return; }
+            return this.sendToLogger('info', ...args);
+            
+        },
+        uboErr(...args) {
+            if ( this.sendToLogger === undefined ) { return; }
+            if ( args === undefined || args[0] === '' ) { return; }
+            return this.sendToLogger('error', ...args);
         },
         escapeRegexChars(s) {
             return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -301,7 +312,39 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.set('safeSelf', safe);
+    scriptletGlobals.safeSelf = safe;
+    if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
+    // This is executed only when the logger is opened
+    const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
+    let bcBuffer = [];
+    safe.logLevel = scriptletGlobals.logLevel || 1;
+    safe.sendToLogger = (type, ...args) => {
+        if ( args.length === 0 ) { return; }
+        const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
+        if ( bcBuffer === undefined ) {
+            return bc.postMessage({ what: 'messageToLogger', type, text });
+        }
+        bcBuffer.push({ type, text });
+    };
+    bc.onmessage = ev => {
+        const msg = ev.data;
+        switch ( msg ) {
+        case 'iamready!':
+            if ( bcBuffer === undefined ) { break; }
+            bcBuffer.forEach(({ type, text }) =>
+                bc.postMessage({ what: 'messageToLogger', type, text })
+            );
+            bcBuffer = undefined;
+            break;
+        case 'setScriptletLogLevelToOne':
+            safe.logLevel = 1;
+            break;
+        case 'setScriptletLogLevelToTwo':
+            safe.logLevel = 2;
+            break;
+        }
+    };
+    bc.postMessage('areyouready?');
     return safe;
 }
 
