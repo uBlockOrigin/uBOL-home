@@ -5,6 +5,44 @@
    {
     "header": "content-security-policy",
     "operation": "append",
+    "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudflare.com *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com .jwpcdn.com *.recaptcha.net *.video-delivery.net *.youtube.com *.zencdn.net i.doodcdn.co img.doodcdn.co"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "d0000d.com",
+   "do0od.com",
+   "dood.la",
+   "dood.pm",
+   "dood.re",
+   "dood.sh",
+   "dood.so",
+   "dood.to",
+   "dood.watch",
+   "dood.wf",
+   "dood.ws",
+   "dood.yt",
+   "doods.pro",
+   "doodstream.co",
+   "doodstream.com",
+   "doodstream.me",
+   "dooood.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 6480
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
     "value": "worker-src 'none'"
    }
   ],
@@ -32,9 +70,6 @@
    "firstone.tv",
    "firstonetv.eu",
    "firstonetv.live",
-   "flashx.net",
-   "flashx.pw",
-   "flashx.tv",
    "funtik.tv",
    "genashowalter.com",
    "hdvid.tv",
@@ -53,14 +88,12 @@
    "salon.com",
    "shush.se",
    "sickrage.ca",
-   "skytorrents.me",
    "studio100.it",
    "tapemovie.com",
    "theappguruz.com",
    "thepiratebay.cr",
    "thepiratebay.org",
    "thepiratebay.vip",
-   "tomadivx.tv",
    "torrentrapid.com",
    "tubetitties.com",
    "vidoza.co",
@@ -72,7 +105,7 @@
    "sub_frame"
   ]
  },
- "id": 6585
+ "id": 6481
 },
 {
  "action": {
@@ -94,7 +127,7 @@
    "sub_frame"
   ]
  },
- "id": 6586
+ "id": 6482
 },
 {
  "action": {
@@ -116,7 +149,7 @@
    "sub_frame"
   ]
  },
- "id": 6587
+ "id": 6483
 },
 {
  "action": {
@@ -143,7 +176,7 @@
    "sub_frame"
   ]
  },
- "id": 6588
+ "id": 6484
 },
 {
  "action": {
@@ -165,6 +198,6 @@
    "sub_frame"
   ]
  },
- "id": 6589
+ "id": 6485
 }
 ]

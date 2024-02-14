@@ -13,7 +13,7 @@
   ],
   "urlFilter": "||mediacreeper.com/image"
  },
- "id": 1198,
+ "id": 1203,
  "priority": 2
 },
 {
@@ -30,30 +30,7 @@
   ],
   "urlFilter": "||mediacreeper.se/image"
  },
- "id": 1199,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.js"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "fotbollskanalen.se",
-   "koket.se",
-   "tv4.se",
-   "tv4play.se"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "resourceTypes": [
-   "script"
-  ],
-  "urlFilter": "/aab/tv4play"
- },
- "id": 1200,
+ "id": 1204,
  "priority": 2
 },
 {
@@ -74,7 +51,7 @@
    "script"
   ]
  },
- "id": 1201,
+ "id": 1205,
  "priority": 2
 },
 {
@@ -91,7 +68,7 @@
   ],
   "urlFilter": "||widget.playoncenter.com/newplayer/js/pb_"
  },
- "id": 1202,
+ "id": 1206,
  "priority": 2
 },
 {
@@ -108,7 +85,7 @@
   ],
   "urlFilter": "||kyrkanstidning.se/firstvisit"
  },
- "id": 1203,
+ "id": 1207,
  "priority": 2
 },
 {
@@ -129,7 +106,7 @@
    "sub_frame"
   ]
  },
- "id": 1204,
+ "id": 1208,
  "priority": 2
 },
 {
@@ -150,7 +127,7 @@
    "sub_frame"
   ]
  },
- "id": 1205,
+ "id": 1209,
  "priority": 2
 },
 {
@@ -170,7 +147,7 @@
   ],
   "urlFilter": "||youtube.com/embed"
  },
- "id": 1206,
+ "id": 1210,
  "priority": 2
 }
 ]

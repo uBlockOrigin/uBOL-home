@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: swe-1
+// ruleset: spa-1
 
 /******************************************************************************/
 
@@ -38,154 +38,68 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_xmlPrune = function() {
+const uBOL_setCookieReload = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["MediaFile","","se-tv4.videoplaza.tv/proxy/distributor"]];
+const argsList = [["adtura","1"]];
 
-const hostnamesMap = new Map([["tv4play.se",0]]);
+const hostnamesMap = new Map([]);
 
-const entitiesMap = new Map([]);
+const entitiesMap = new Map([["pelisflix2",0]]);
 
 const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function xmlPrune(
-    selector = '',
-    selectorCheck = '',
-    urlPattern = ''
+function setCookieReload(name, value, path, ...args) {
+    setCookie(name, value, path, 'reload', '1', ...args);
+}
+
+function setCookie(
+    name = '',
+    value = '',
+    path = ''
 ) {
-    if ( typeof selector !== 'string' ) { return; }
-    if ( selector === '' ) { return; }
+    if ( name === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('xml-prune', selector, selectorCheck, urlPattern);
-    const reUrl = safe.patternToRegex(urlPattern);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    const queryAll = (xmlDoc, selector) => {
-        const isXpath = /^xpath\(.+\)$/.test(selector);
-        if ( isXpath === false ) {
-            return Array.from(xmlDoc.querySelectorAll(selector));
-        }
-        const xpr = xmlDoc.evaluate(
-            selector.slice(6, -1),
-            xmlDoc,
-            null,
-            XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-            null
-        );
-        const out = [];
-        for ( let i = 0; i < xpr.snapshotLength; i++ ) {
-            const node = xpr.snapshotItem(i);
-            out.push(node);
-        }
-        return out;
-    };
-    const pruneFromDoc = xmlDoc => {
-        try {
-            if ( selectorCheck !== '' && xmlDoc.querySelector(selectorCheck) === null ) {
-                return xmlDoc;
-            }
-            if ( extraArgs.logdoc ) {
-                const serializer = new XMLSerializer();
-                safe.uboLog(logPrefix, `Document is\n\t${serializer.serializeToString(xmlDoc)}`);
-            }
-            const items = queryAll(xmlDoc, selector);
-            if ( items.length === 0 ) { return xmlDoc; }
-            safe.uboLog(logPrefix, `Removing ${items.length} items`);
-            for ( const item of items ) {
-                if ( item.nodeType === 1 ) {
-                    item.remove();
-                } else if ( item.nodeType === 2 ) {
-                    item.ownerElement.removeAttribute(item.nodeName);
-                }
-                safe.uboLog(logPrefix, `${item.constructor.name}.${item.nodeName} removed`);
-            }
-        } catch(ex) {
-            safe.uboErr(logPrefix, `Error: ${ex}`);
-        }
-        return xmlDoc;
-    };
-    const pruneFromText = text => {
-        if ( (/^\s*</.test(text) && />\s*$/.test(text)) === false ) {
-            return text;
-        }
-        try {
-            const xmlParser = new DOMParser();
-            const xmlDoc = xmlParser.parseFromString(text, 'text/xml');
-            pruneFromDoc(xmlDoc);
-            const serializer = new XMLSerializer();
-            text = serializer.serializeToString(xmlDoc);
-        } catch(ex) {
-        }
-        return text;
-    };
-    const urlFromArg = arg => {
-        if ( typeof arg === 'string' ) { return arg; }
-        if ( arg instanceof Request ) { return arg.url; }
-        return String(arg);
-    };
-    self.fetch = new Proxy(self.fetch, {
-        apply: function(target, thisArg, args) {
-            const fetchPromise = Reflect.apply(target, thisArg, args);
-            if ( reUrl.test(urlFromArg(args[0])) === false ) {
-                return fetchPromise;
-            }
-            return fetchPromise.then(responseBefore => {
-                const response = responseBefore.clone();
-                return response.text().then(text => {
-                    const responseAfter = new Response(pruneFromText(text), {
-                        status: responseBefore.status,
-                        statusText: responseBefore.statusText,
-                        headers: responseBefore.headers,
-                    });
-                    Object.defineProperties(responseAfter, {
-                        ok: { value: responseBefore.ok },
-                        redirected: { value: responseBefore.redirected },
-                        type: { value: responseBefore.type },
-                        url: { value: responseBefore.url },
-                    });
-                    return responseAfter;
-                }).catch(( ) =>
-                    responseBefore
-                );
-            });
-        }
-    });
-    self.XMLHttpRequest.prototype.open = new Proxy(self.XMLHttpRequest.prototype.open, {
-        apply: async (target, thisArg, args) => {
-            if ( reUrl.test(urlFromArg(args[1])) === false ) {
-                return Reflect.apply(target, thisArg, args);
-            }
-            thisArg.addEventListener('readystatechange', function() {
-                if ( thisArg.readyState !== 4 ) { return; }
-                const type = thisArg.responseType;
-                if (
-                    type === 'document' ||
-                    type === '' && thisArg.responseXML instanceof XMLDocument
-                ) {
-                    pruneFromDoc(thisArg.responseXML);
-                    const serializer = new XMLSerializer();
-                    const textout = serializer.serializeToString(thisArg.responseXML);
-                    Object.defineProperty(thisArg, 'responseText', { value: textout });
-                    return;
-                }
-                if (
-                    type === 'text' ||
-                    type === '' && typeof thisArg.responseText === 'string'
-                ) {
-                    const textin = thisArg.responseText;
-                    const textout = pruneFromText(textin);
-                    if ( textout === textin ) { return; }
-                    Object.defineProperty(thisArg, 'response', { value: textout });
-                    Object.defineProperty(thisArg, 'responseText', { value: textout });
-                    return;
-                }
-            });
-            return Reflect.apply(target, thisArg, args);
-        }
-    });
+    const logPrefix = safe.makeLogPrefix('set-cookie', name, value, path);
+    name = encodeURIComponent(name);
+
+    const validValues = [
+        'accept', 'reject',
+        'accepted', 'rejected', 'notaccepted',
+        'allow', 'deny',
+        'allowed', 'disallow',
+        'enable', 'disable',
+        'enabled', 'disabled',
+        'ok',
+        'on', 'off',
+        'true', 't', 'false', 'f',
+        'yes', 'y', 'no', 'n',
+        'necessary', 'required',
+    ];
+    const normalized = value.toLowerCase();
+    const match = /^("?)(.+)\1$/.exec(normalized);
+    const unquoted = match && match[2] || normalized;
+    if ( validValues.includes(unquoted) === false ) {
+        if ( /^\d+$/.test(unquoted) === false ) { return; }
+        const n = parseInt(value, 10);
+        if ( n > 15 ) { return; }
+    }
+
+    const done = setCookieFn(
+        false,
+        name,
+        value,
+        '',
+        path,
+        safeSelf().getExtraArgs(Array.from(arguments), 3)
+    );
+
+    if ( done ) {
+        safe.uboLog(logPrefix, 'Done');
+    }
 }
 
 function safeSelf() {
@@ -339,6 +253,61 @@ function safeSelf() {
     return safe;
 }
 
+function setCookieFn(
+    trusted = false,
+    name = '',
+    value = '',
+    expires = '',
+    path = '',
+    options = {},
+) {
+    const cookieBefore = getCookieFn(name);
+    if ( cookieBefore !== undefined && options.dontOverwrite ) { return; }
+    if ( cookieBefore === value && options.reload ) { return; }
+
+    const cookieParts = [ name, '=', value ];
+    if ( expires !== '' ) {
+        cookieParts.push('; expires=', expires);
+    }
+
+    if ( path === '' ) { path = '/'; }
+    else if ( path === 'none' ) { path = ''; }
+    if ( path !== '' && path !== '/' ) { return; }
+    if ( path === '/' ) {
+        cookieParts.push('; path=/');
+    }
+
+    if ( trusted ) {
+        if ( options.domain ) {
+            cookieParts.push(`; domain=${options.domain}`);
+        }
+        cookieParts.push('; Secure');
+    }
+
+    try {
+        document.cookie = cookieParts.join('');
+    } catch(_) {
+    }
+
+    const done = getCookieFn(name) === value;
+    if ( done && options.reload ) {
+        window.location.reload();
+    }
+
+    return done;
+}
+
+function getCookieFn(
+    name = ''
+) {
+    for ( const s of document.cookie.split(/\s*;\s*/) ) {
+        const pos = s.indexOf('=');
+        if ( pos === -1 ) { continue; }
+        if ( s.slice(0, pos) !== name ) { continue; }
+        return s.slice(pos+1).trim();
+    }
+}
+
 /******************************************************************************/
 
 const hnParts = [];
@@ -399,7 +368,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { xmlPrune(...argsList[i]); }
+    try { setCookieReload(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -417,11 +386,11 @@ argsList.length = 0;
 //   'MAIN' world not yet supported in Firefox, so we inject the code into
 //   'MAIN' ourself when environment in Firefox.
 
-const targetWorld = 'MAIN';
+const targetWorld = 'ISOLATED';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_xmlPrune();
+    return uBOL_setCookieReload();
 }
 
 // Firefox
@@ -429,11 +398,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_xmlPrune = cloneInto([
-            [ '(', uBOL_xmlPrune.toString(), ')();' ],
+        page.uBOL_setCookieReload = cloneInto([
+            [ '(', uBOL_setCookieReload.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_xmlPrune);
+        const blob = new page.Blob(...page.uBOL_setCookieReload);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -447,7 +416,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_xmlPrune;
+    delete page.uBOL_setCookieReload;
 }
 
 /******************************************************************************/

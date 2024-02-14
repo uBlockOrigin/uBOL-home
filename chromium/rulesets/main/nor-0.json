@@ -465,7 +465,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","isUrlFilterCaseSensitive":false,"resourceTypes":["image"],"urlFilter":"||service.tekhus.dk/*.jpg^"},"id":467},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","isUrlFilterCaseSensitive":false,"resourceTypes":["image"],"urlFilter":"||skisverige.dk/*banner_*.gif^"},"id":468},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","isUrlFilterCaseSensitive":false,"resourceTypes":["object"],"urlFilter":"||finn.no/distribution-carousel?"},"id":469},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["app.pulsmedia.is","vevlysingar.fo"],"resourceTypes":["sub_frame"]},"id":470},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["app.pulsmedia.is","shopi.tize.no","vevlysingar.fo"],"resourceTypes":["sub_frame"]},"id":470},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["tipster.no"],"isUrlFilterCaseSensitive":false,"resourceTypes":["sub_frame"],"urlFilter":"||cdn.rikstoto.no/expert/gameshop^"},"id":471},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","isUrlFilterCaseSensitive":false,"resourceTypes":["sub_frame"],"urlFilter":"||deals.innocode.no/api^"},"id":472},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","isUrlFilterCaseSensitive":false,"resourceTypes":["sub_frame"],"urlFilter":"||media.sonymusic.no/marketing/*.html"},"id":473},

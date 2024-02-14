@@ -15,8 +15,7 @@
  "condition": {
   "initiatorDomains": [
    "fotbollskanalen.se",
-   "koket.se",
-   "tv4.se"
+   "koket.se"
   ],
   "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
@@ -24,7 +23,7 @@
   ],
   "urlFilter": "||se-tv4.videoplaza.tv/proxy/distributor"
  },
- "id": 1207
+ "id": 1211
 },
 {
  "action": {
@@ -50,7 +49,7 @@
   ],
   "urlFilter": "&autoplay"
  },
- "id": 1208
+ "id": 1212
 },
 {
  "action": {
@@ -75,7 +74,7 @@
   ],
   "urlFilter": "?autoplay"
  },
- "id": 1209
+ "id": 1213
 },
 {
  "action": {
@@ -100,7 +99,7 @@
   ],
   "urlFilter": "?autoplay=true"
  },
- "id": 1210
+ "id": 1214
 },
 {
  "action": {
@@ -122,7 +121,7 @@
   ],
   "urlFilter": "||embed.viaplay.com/*autoplay=true"
  },
- "id": 1211
+ "id": 1215
 },
 {
  "action": {
@@ -147,6 +146,6 @@
   ],
   "urlFilter": "||youtube.com/embed/*autoplay"
  },
- "id": 1212
+ "id": 1216
 }
 ]

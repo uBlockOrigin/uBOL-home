@@ -4,23 +4,13 @@
   "type": "block"
  },
  "condition": {
+  "initiatorDomains": [
+   "loskatchorros.com.br"
+  ],
   "isUrlFilterCaseSensitive": false,
   "regexFilter": "loskatchorros\\.com\\.br\\/forum\\/uploads\\/set_resources_\\d+\\/[a-z0-9]+_[a-zA-Z0-9]+\\.js"
  },
- "id": 32
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "initiatorDomains": [
-   "iptvnow.top"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "regexFilter": "\\/img\\/(160600|72890)\\.png"
- },
- "id": 305
+ "id": 28
 },
 {
  "action": {
@@ -33,7 +23,7 @@
   "isUrlFilterCaseSensitive": false,
   "regexFilter": "qvncc.tvcanales.cf\\/js\\/[_-a-zA-Z0-9]{5,}.js"
  },
- "id": 368
+ "id": 331
 },
 {
  "action": {
@@ -49,7 +39,7 @@
    "script"
   ]
  },
- "id": 652
+ "id": 573
 },
 {
  "action": {
@@ -65,7 +55,7 @@
    "script"
   ]
  },
- "id": 653
+ "id": 574
 },
 {
  "action": {
@@ -81,6 +71,6 @@
    "script"
   ]
  },
- "id": 654
+ "id": 575
 }
 ]
