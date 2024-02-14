@@ -41,7 +41,7 @@ jobs:
       - name: Build Chromium uBOLite MV3 packages
         run: |
           cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh chromium ${{ env.TAGNAME }}
+          tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$(pwd)
           echo "CHROMIUM_PACKAGE=${{ env.TAGNAME }}.chromium.mv3.zip" >> $GITHUB_ENV
           cd - > /dev/null
           rm -rf chromium
@@ -51,7 +51,7 @@ jobs:
       - name: Build Firefox uBOLite MV3 packages
         run: |
           cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh firefox ${{ env.TAGNAME }}
+          tools/make-mv3.sh firefox ${{ env.TAGNAME }} before=$(pwd)
           echo "FIREFOX_PACKAGE=${{ env.TAGNAME }}.firefox.mv3.xpi" >> $GITHUB_ENV
           cd - > /dev/null
           rm -rf firefox
@@ -70,7 +70,7 @@ jobs:
         uses: devops-infra/action-commit-push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: "[auto] Update uBOLite MV3 package files for ${{ env.TAGNAME }}"
+          commit_message: "[workflow] Update uBOLite MV3 package files for ${{ env.TAGNAME }}"
       - name: Create GitHub release
         id: create_release
         uses: ncipollo/release-action@v1
