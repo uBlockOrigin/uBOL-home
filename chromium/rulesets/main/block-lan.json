@@ -40,9 +40,11 @@
    "aterm.me",
    "bthomehub.home",
    "bthub.home",
+   "cloudmesh.net",
    "congstar.box",
    "connect.box",
    "console.gl-inet.com",
+   "dishy.starlink.com",
    "easy.box",
    "etxr",
    "fire.walla",
@@ -60,6 +62,7 @@
    "localhost",
    "mobile.hotspot",
    "myfritz.box",
+   "mygateway",
    "ntt.setup",
    "pi.hole",
    "repeater.asus.com",
@@ -69,6 +72,7 @@
    "samsung.router",
    "speedport.ip",
    "steamloopback.host",
+   "telstra.gateway",
    "tplinkap.net",
    "tplinkeap.net",
    "tplinkmodem.net",
@@ -127,6 +131,20 @@
  },
  "condition": {
   "initiatorDomains": [
+   "client.foldingathome.org"
+  ],
+  "requestDomains": [
+   "127.0.0.1"
+  ]
+ },
+ "id": 12
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
    "battlelog.battlefield.com"
   ],
   "requestDomains": [
@@ -136,7 +154,7 @@
    "xmlhttprequest"
   ]
  },
- "id": 12
+ "id": 13
 },
 {
  "action": {
@@ -151,6 +169,6 @@
    "127.0.0.1"
   ]
  },
- "id": 13
+ "id": 14
 }
 ]

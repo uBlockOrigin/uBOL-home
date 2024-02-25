@@ -5,32 +5,6 @@
    "transform": {
     "queryTransform": {
      "removeParams": [
-      "s"
-     ]
-    }
-   }
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "fotbollskanalen.se",
-   "koket.se"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "resourceTypes": [
-   "xmlhttprequest"
-  ],
-  "urlFilter": "||se-tv4.videoplaza.tv/proxy/distributor"
- },
- "id": 1211
-},
-{
- "action": {
-  "redirect": {
-   "transform": {
-    "queryTransform": {
-     "removeParams": [
       "autoplay"
      ]
     }
@@ -49,7 +23,7 @@
   ],
   "urlFilter": "&autoplay"
  },
- "id": 1212
+ "id": 1227
 },
 {
  "action": {
@@ -74,7 +48,7 @@
   ],
   "urlFilter": "?autoplay"
  },
- "id": 1213
+ "id": 1228
 },
 {
  "action": {
@@ -99,7 +73,7 @@
   ],
   "urlFilter": "?autoplay=true"
  },
- "id": 1214
+ "id": 1229
 },
 {
  "action": {
@@ -121,7 +95,7 @@
   ],
   "urlFilter": "||embed.viaplay.com/*autoplay=true"
  },
- "id": 1215
+ "id": 1230
 },
 {
  "action": {
@@ -146,6 +120,6 @@
   ],
   "urlFilter": "||youtube.com/embed/*autoplay"
  },
- "id": 1216
+ "id": 1231
 }
 ]

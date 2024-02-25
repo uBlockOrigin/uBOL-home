@@ -5,7 +5,7 @@
    {
     "header": "content-security-policy",
     "operation": "append",
-    "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudflare.com *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com .jwpcdn.com *.recaptcha.net *.video-delivery.net *.youtube.com *.zencdn.net i.doodcdn.co img.doodcdn.co"
+    "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudflare.com *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com *.jwpcdn.com *.recaptcha.net *.video-delivery.net *.youtube.com *.zencdn.net i.doodcdn.co img.doodcdn.co static.doodcdn.co"
    }
   ],
   "type": "modifyHeaders"
@@ -35,7 +35,7 @@
    "sub_frame"
   ]
  },
- "id": 6480
+ "id": 6477
 },
 {
  "action": {
@@ -97,7 +97,6 @@
    "torrentrapid.com",
    "tubetitties.com",
    "vidoza.co",
-   "vidtodo.com",
    "void.cat"
   ],
   "resourceTypes": [
@@ -105,7 +104,7 @@
    "sub_frame"
   ]
  },
- "id": 6481
+ "id": 6478
 },
 {
  "action": {
@@ -127,7 +126,7 @@
    "sub_frame"
   ]
  },
- "id": 6482
+ "id": 6479
 },
 {
  "action": {
@@ -149,7 +148,7 @@
    "sub_frame"
   ]
  },
- "id": 6483
+ "id": 6480
 },
 {
  "action": {
@@ -176,7 +175,7 @@
    "sub_frame"
   ]
  },
- "id": 6484
+ "id": 6481
 },
 {
  "action": {
@@ -198,6 +197,6 @@
    "sub_frame"
   ]
  },
- "id": 6485
+ "id": 6482
 }
 ]

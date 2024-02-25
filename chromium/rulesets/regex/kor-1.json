@@ -154,6 +154,6 @@
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"regexFilter":"^https:\\/\\/[A-z0-9\\.]*[A-z0-9]+\\.[A-z]+\\/\\?u=[A-z0-9]{7}&o=[A-z0-9]{7}","resourceTypes":["main_frame"]},"id":890},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"regexFilter":"^https:\\/\\/[A-z]+\\.[A-z]+\\.[A-z]+\\/[A-z]+-robot\\/\\?pl=[A-z0-9-]{22}&sm=[A-z]+-robot&hash=[A-z0-9-]{22}&exp=[0-9]{10}","resourceTypes":["main_frame"]},"id":891},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"regexFilter":"^https:\\/\\/[0-9]{9}\\.[A-z0-9-]+\\.[A-z]{2}\\/[0-9]{6}\\.html$","resourceTypes":["main_frame"]},"id":892},
-{"action":{"type":"allow"},"condition":{"isUrlFilterCaseSensitive":false,"regexFilter":"^(http|https):\\/\\/image\\.kyobobook\\.co\\.kr\\/ink\\/images\\/prom\\/[0-9]{4}\\/general\\/[0-9]{6}_dailyCheck\\/"},"id":916},
-{"action":{"type":"allow"},"condition":{"isUrlFilterCaseSensitive":false,"regexFilter":"^https:\\/\\/www\\.ehanex\\.com\\/images\\/main\\/[a-z]{2}_ad\\.gif$"},"id":919}
+{"action":{"type":"allow"},"condition":{"isUrlFilterCaseSensitive":false,"regexFilter":"^(http|https):\\/\\/image\\.kyobobook\\.co\\.kr\\/ink\\/images\\/prom\\/[0-9]{4}\\/general\\/[0-9]{6}_dailyCheck\\/"},"id":915},
+{"action":{"type":"allow"},"condition":{"isUrlFilterCaseSensitive":false,"regexFilter":"^https:\\/\\/www\\.ehanex\\.com\\/images\\/main\\/[a-z]{2}_ad\\.gif$"},"id":918}
 ]
