@@ -1,18 +1,18 @@
-Version: 2024.2.25.1408
-Secret: a64e089d57da2c4a
+Version: 2024.2.26.113
+Secret: df9e07b217cbdaf2
 ============================
 Listset for 'default':
 	Fetched local https://ublockorigin.github.io/uAssets/filters/badware.min.txt
-	Fetched local https://ublockorigin.github.io/uAssets/filters/quick-fixes.min.txt
-	Fetched local https://ublockorigin.github.io/uAssets/filters/ubol-filters.txt
 	Fetched local https://ublockorigin.github.io/uAssets/filters/privacy.min.txt
 	Fetched local https://ublockorigin.github.io/uAssets/filters/unbreak.min.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/quick-fixes.min.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/ubol-filters.txt
 	Fetched local https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext
 	Fetched local https://ublockorigin.github.io/uAssets/filters/filters.min.txt
 	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easyprivacy.txt
 	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist.txt
-Input filter count: 116887
-	Accepted filter count: 115296
+Input filter count: 116889
+	Accepted filter count: 115298
 	Rejected filter count: 141
 Output rule count: 16273
 	Pruning requestDomains: from 79401 to 79200
@@ -1105,7 +1105,7 @@ Output rule count: 16273
 CSS-generic: 15519 plain CSS selectors
 CSS-generic-high: 495 plain CSS selectors
 CSS-specific: 10211 distinct filters
-	Combined into 9703 distinct hostnames
+	Combined into 9704 distinct hostnames
 	Combined into 500 distinct entities
 CSS-declarative: 481 distinct filters
 	Combined into 808 distinct hostnames
@@ -1162,16 +1162,16 @@ CSS-specific: 373 distinct filters
 ============================
 Listset for 'chn-0':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/224.txt
-Input filter count: 14824
-	Accepted filter count: 14763
-	Rejected filter count: 2
-Output rule count: 6431
-	Pruning requestDomains: from 5586 to 5579
-	Pruning requestDomains: from 469 to 467
-	Plain good: 6365
+Input filter count: 14566
+	Accepted filter count: 14509
+	Rejected filter count: 1
+Output rule count: 6386
+	Pruning requestDomains: from 5551 to 5545
+	Pruning requestDomains: from 354 to 353
+	Plain good: 6321
 
 	Maybe good (regexes): 12
-	redirect=: 40
+	redirect=: 39
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 8
 	Unsupported: 6
@@ -1182,15 +1182,15 @@ Output rule count: 6431
 		Invalid network filter in chn-0: @@||ad.alimama.com^$genericblock
 		Invalid network filter in chn-0: @@||cmechina.net^$genericblock
 CSS-generic: 794 plain CSS selectors
-CSS-generic-high: 236 plain CSS selectors
-CSS-specific: 6462 distinct filters
-	Combined into 2824 distinct hostnames
+CSS-generic-high: 237 plain CSS selectors
+CSS-specific: 6429 distinct filters
+	Combined into 2793 distinct hostnames
 	Combined into 1 distinct entities
-CSS-declarative: 80 distinct filters
-	Combined into 110 distinct hostnames
+CSS-declarative: 76 distinct filters
+	Combined into 104 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 296 distinct combined selectors
-	Combined into 220 distinct hostnames
+Procedural-related distinct filters: 292 distinct combined selectors
+	Combined into 217 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'cze-0':
@@ -1534,7 +1534,7 @@ Output rule count: 264
 		Rejected filter: *$webrtc,domain=13news.co.il|13tv.co.il|calcalist.co.il|globes.co.il|mako.co.il|walla.co.il|yad2.co.il|ynet.co.il
 		Incompatible with DNR: ||doubleclick.net^$xhr,redirect-rule=nooptext,domain=13news.co.il|13tv.co.il
 CSS-generic: 5 plain CSS selectors
-CSS-specific: 498 distinct filters
+CSS-specific: 502 distinct filters
 	Combined into 345 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 4 distinct filters
@@ -1613,18 +1613,18 @@ Listset for 'kor-1':
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/general_url.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/general_url.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/specific_URL.txt
-	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/allowlist.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/specific_ELEMHIDE.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/extended_css_ELEMHIDE.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/allowlist.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/extended_css_INJECTION.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_REDIRECT.txt
-	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/extended_css_ELEMHIDE.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/extended_css_INJECTION.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/extended_css_ELEMHIDE.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/scriptlets.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/javascript.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/javascript.txt
-	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/removeparam.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/antiadblock.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/removeparam.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/allowlist.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/specific_CSS.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_CSS.txt
@@ -1753,8 +1753,8 @@ Listset for 'nld-0':
 	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_General.txt
 	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_first_party_Server.txt
 	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_third_party_Server.txt
-	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_Resources.txt
 	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_Whitelist.txt
+	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_Resources.txt
 	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Hide_General.txt
 	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Hide_Specific.txt
 	Fetched local https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Hide_Whitelist.txt

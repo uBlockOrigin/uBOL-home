@@ -1,5 +1,5 @@
-Version: 2024.2.25.1407
-Secret: 55976088492347a9
+Version: 2024.2.26.112
+Secret: a663e08cbd7b7c40
 ============================
 Listset for 'default':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/filters.min.txt
@@ -11,8 +11,8 @@ Listset for 'default':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easyprivacy.txt
 	Fetching remote https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext
-Input filter count: 116889
-	Accepted filter count: 115298
+Input filter count: 116891
+	Accepted filter count: 115300
 	Rejected filter count: 141
 Output rule count: 16269
 	Pruning requestDomains: from 79401 to 79200
@@ -1102,7 +1102,7 @@ Output rule count: 16269
 CSS-generic: 15519 plain CSS selectors
 CSS-generic-high: 495 plain CSS selectors
 CSS-specific: 10714 distinct filters
-	Combined into 9954 distinct hostnames
+	Combined into 9955 distinct hostnames
 	Combined into 505 distinct entities
 CSS-declarative: 491 distinct filters
 	Combined into 813 distinct hostnames
@@ -1159,16 +1159,16 @@ CSS-specific: 373 distinct filters
 ============================
 Listset for 'chn-0':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/224.txt
-Input filter count: 14824
-	Accepted filter count: 14763
-	Rejected filter count: 2
-Output rule count: 6431
-	Pruning requestDomains: from 5586 to 5579
-	Pruning requestDomains: from 469 to 467
-	Plain good: 6365
+Input filter count: 14566
+	Accepted filter count: 14509
+	Rejected filter count: 1
+Output rule count: 6386
+	Pruning requestDomains: from 5551 to 5545
+	Pruning requestDomains: from 354 to 353
+	Plain good: 6321
 
 	Maybe good (regexes): 12
-	redirect=: 40
+	redirect=: 39
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 8
 	Unsupported: 6
@@ -1179,15 +1179,15 @@ Output rule count: 6431
 		Invalid network filter in chn-0: @@||ad.alimama.com^$genericblock
 		Invalid network filter in chn-0: @@||cmechina.net^$genericblock
 CSS-generic: 794 plain CSS selectors
-CSS-generic-high: 236 plain CSS selectors
-CSS-specific: 6655 distinct filters
-	Combined into 2868 distinct hostnames
+CSS-generic-high: 237 plain CSS selectors
+CSS-specific: 6619 distinct filters
+	Combined into 2837 distinct hostnames
 	Combined into 1 distinct entities
-CSS-declarative: 84 distinct filters
-	Combined into 112 distinct hostnames
+CSS-declarative: 80 distinct filters
+	Combined into 106 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 99 distinct combined selectors
-	Combined into 74 distinct hostnames
+Procedural-related distinct filters: 98 distinct combined selectors
+	Combined into 73 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'cze-0':
@@ -1528,7 +1528,7 @@ Output rule count: 264
 		Rejected filter: *$webrtc,domain=13news.co.il|13tv.co.il|calcalist.co.il|globes.co.il|mako.co.il|walla.co.il|yad2.co.il|ynet.co.il
 		Incompatible with DNR: ||doubleclick.net^$xhr,redirect-rule=nooptext,domain=13news.co.il|13tv.co.il
 CSS-generic: 5 plain CSS selectors
-CSS-specific: 499 distinct filters
+CSS-specific: 503 distinct filters
 	Combined into 346 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 4 distinct filters
@@ -1745,8 +1745,8 @@ Listset for 'nld-0':
 	Fetching remote https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_General.txt
 	Fetching remote https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_first_party_Server.txt
 	Fetching remote https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_third_party_Server.txt
-	Fetching remote https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_Whitelist.txt
 	Fetching remote https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_Resources.txt
+	Fetching remote https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Block_Whitelist.txt
 	Fetching remote https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Hide_General.txt
 	Fetching remote https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Hide_Specific.txt
 	Fetching remote https://easydutch-ubo.github.io/EasyDutch/EasyDutch/Hide_Whitelist.txt
@@ -1786,9 +1786,9 @@ Procedural-related distinct filters: 276 distinct combined selectors
 Listset for 'nor-0':
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/AntiAdblockEntries.txt
-	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotFirefox.txt
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotBrave.txt
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/AdditionalGenericEntriesForUBO.txt
+	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotFirefox.txt
 Input filter count: 1583
 	Accepted filter count: 1583
 	Rejected filter count: 0
@@ -1894,9 +1894,9 @@ Procedural-related distinct filters: 53 distinct combined selectors
 Listset for 'rus-0':
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/RuAdList-uBO.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/adservers.txt
-	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/first_level.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/general_block.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/general_hide.txt
+	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/first_level.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/popup.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/specific_antisocial.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/specific_block.txt
