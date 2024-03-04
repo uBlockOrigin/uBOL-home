@@ -134,7 +134,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["mako.co.il"],"urlFilter":"||lb.advsnx.net/crossdomain.xml"},"id":135},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||matrix.ynet.co.il/js/ga/ads_controller.js"},"id":136},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["sport5.co.il"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/*/show_ads_impl.js"},"id":137},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["isramedia.net","mako.co.il","sport5.co.il"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":138},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["isramedia.net","mako.co.il","sport5.co.il","themarker.com"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":138},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["pitaronfree.blogspot.co.il","pitaronfree.blogspot.com"],"urlFilter":"||pagead2.googlesyndication.com/pagead/show_ads.js"},"id":139},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||pas-rahav.com/creativitys"},"id":140},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["ynet.co.il"],"urlFilter":"||pubads.g.doubleclick.net/gampad/ad"},"id":141},

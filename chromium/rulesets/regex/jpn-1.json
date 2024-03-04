@@ -1,5 +1,5 @@
 [
-{"action":{"type":"block"},"condition":{"initiatorDomains":["proengineer.internous.co.jp"],"isUrlFilterCaseSensitive":false,"regexFilter":"\\/bnr_side_(kiso3|octopass)\\.jpg"},"id":542},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["proengineer.internous.co.jp"],"isUrlFilterCaseSensitive":false,"regexFilter":"\\/bnr_side_(kiso3|octopass)\\.jpg"},"id":543},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["com"],"regexFilter":"\\.com\\/index\\.php\\?t=[0-9a-f]{64}$","resourceTypes":["main_frame"]},"id":1012},
 {"action":{"type":"block"},"condition":{"regexFilter":"\\.com\\/(?:[a-z]{2,}-)+p-\\d{4,6}\\.html\\?(?:page_source|prevRef|re[fl])=","resourceTypes":["main_frame"]},"id":1021},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"regexFilter":"\\.(?:cn|icu|top|pro)\\/Personal\\/member\\/Login\\/index\\.php\\?oneTimeAccessID=","resourceTypes":["main_frame"]},"id":1070},

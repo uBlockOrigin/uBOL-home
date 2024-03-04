@@ -5,13 +5,19 @@
    {
     "header": "content-security-policy",
     "operation": "append",
-    "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudflare.com *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com *.jwpcdn.com *.recaptcha.net *.video-delivery.net *.youtube.com *.zencdn.net i.doodcdn.co img.doodcdn.co static.doodcdn.co"
+    "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudflare.com *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com *.jwpcdn.com *.recaptcha.net *.tapecontent.net *.video-delivery.net *.youtube.com *.zencdn.net i.doodcdn.co img.doodcdn.co static.doodcdn.co"
    }
   ],
   "type": "modifyHeaders"
  },
  "condition": {
   "initiatorDomains": [
+   "adblockeronstreamtape.xyz",
+   "adblockplustape.com",
+   "adblockplustape.xyz",
+   "adblockstreamtape.art",
+   "adblockstreamtape.site",
+   "adblockstrtape.link",
    "d0000d.com",
    "do0od.com",
    "dood.la",
@@ -28,14 +34,38 @@
    "doodstream.co",
    "doodstream.com",
    "doodstream.me",
-   "dooood.com"
+   "dooood.com",
+   "gettapeads.com",
+   "noblocktape.com",
+   "shavetape.cash",
+   "stapadblockuser.xyz",
+   "stapewithadblock.monster",
+   "strcloud.club",
+   "strcloud.link",
+   "streamadblocker.xyz",
+   "streamadblockplus.com",
+   "streamadblockplus.xyz",
+   "streamta.pe",
+   "streamtape.cc",
+   "streamtape.com",
+   "streamtape.net",
+   "streamtape.to",
+   "streamtape.xyz",
+   "streamtapeadblock.art",
+   "strema.site",
+   "strtape.cloud",
+   "strtape.site",
+   "strtape.tech",
+   "strtapeadblock.club",
+   "strtapeadblock.me",
+   "tapewithadblock.org"
   ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
   ]
  },
- "id": 6477
+ "id": 6452
 },
 {
  "action": {
@@ -104,7 +134,7 @@
    "sub_frame"
   ]
  },
- "id": 6478
+ "id": 6453
 },
 {
  "action": {
@@ -126,7 +156,7 @@
    "sub_frame"
   ]
  },
- "id": 6479
+ "id": 6454
 },
 {
  "action": {
@@ -148,7 +178,7 @@
    "sub_frame"
   ]
  },
- "id": 6480
+ "id": 6455
 },
 {
  "action": {
@@ -175,7 +205,7 @@
    "sub_frame"
   ]
  },
- "id": 6481
+ "id": 6456
 },
 {
  "action": {
@@ -197,6 +227,6 @@
    "sub_frame"
   ]
  },
- "id": 6482
+ "id": 6457
 }
 ]
