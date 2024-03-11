@@ -58,7 +58,58 @@
   "isUrlFilterCaseSensitive": false,
   "urlFilter": "||twincdn.com/video/susilive/"
  },
- "id": 1797,
+ "id": 1798,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "toggo.de"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "urlFilter": "||ccstatic.toggo.de/cc-static-files/bumper-video/"
+ },
+ "id": 1799,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "toggo.de"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "urlFilter": "||flashtalking.com^*.mp4"
+ },
+ "id": 1800,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "toggo.de"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "urlFilter": "||smartclip.net/creatives/uploads/*.mp4"
+ },
+ "id": 1801,
  "priority": 2
 }
 ]

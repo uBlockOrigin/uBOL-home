@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: tur-0
+// ruleset: rou-1
 
 /******************************************************************************/
 
@@ -42,9 +42,9 @@ const uBOL_noEvalIf = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["delete window"]];
+const argsList = [["ads"]];
 
-const hostnamesMap = new Map([["canlidiziizlesene.org",0]]);
+const hostnamesMap = new Map([["lovendal.ro",0]]);
 
 const entitiesMap = new Map([]);
 

@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: annoyances-others
+// ruleset: chn-0
 
 /******************************************************************************/
 
@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_abortCurrentScript = function() {
+const uBOL_evaldataPrune = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["stopPrntScr"],["document.createElement","player.gliacloud.com"],["jQuery","eventParams.responseVariables.enablepaywall"],["jQuery","#sidebar-ad"],["document.createElement","counter.toString"],["document.getElementById","lock_content"],["document.oncontextmenu"],["document.ondragstart"],["tjQuery","body"],["document.onselectstart"],["$","contextmenu"],["document.getElementsByTagName","oncontextmenu"],["validateKey"],["addEventListener","blockEvent"],["disable_keystrokes"],["document.addEventListener","copyWithSource"],["jQuery","onselectstart"],["add_message_to_copied_text"],["document.onkeypress"],["window.oncontextmenu"],["window.addEventListener","copy"],["_HWIO.readyjs","stopPrntScr"],["nocontextmenu"],["document.addEventListener","contextmenu"],["document.onkeydown"],["document.oncopy"],["disableEnterKey","Content is protected"],["document.onmousedown"],["jQuery","contextmenu"],["document.keypress"],["EventTarget.prototype.addEventListener","keydown"],["jQuery","document.oncontextmenu"],["document.onkeyup"],["disableSelection"],["addEvent","document.body.oncopy"],["document.addEventListener","addLink"],["jQuery","fp_mouse_right_click_restriction"],["jQuery","oncopy"]];
+const argsList = [["entity.commercial"]];
 
-const hostnamesMap = new Map([["sudya-dredd.ru",0],["charbelnemnom.com",0],["moneysave.info",1],["thestar.com",2],["thespec.com",2],["therecord.com",2],["thepeterboroughexaminer.com",2],["stcatharinesstandard.ca",2],["niagarafallsreview.ca",2],["wellandtribune.ca",2],["bramptonguardian.com",2],["caledonenterprise.com",2],["cambridgetimes.ca",2],["durhamregion.com",2],["flamboroughreview.com",2],["guelphmercury.com",2],["hamiltonnews.com",2],["insidehalton.com",2],["insideottawavalley.com",2],["mississauga.com",2],["muskokaregion.com",2],["mykawartha.com",2],["newhamburgindependent.ca",2],["niagarathisweek.com",2],["northbaynipissing.com",2],["northumberlandnews.com",2],["orangeville.com",2],["ourwindsor.ca",2],["parrysound.com",2],["sachem.ca",2],["simcoe.com",2],["theifp.ca",2],["toronto.com",2],["waterloochronicle.ca",2],["yorkregion.com",2],["legacy.com",2],["edition.pagesuite-professional.co.uk",2],["hub.metroland.com",2],["rkb.jp",3],["fmmods.com",4],["blogchiasekienthuc.com",5],["mostrodifirenze.com",6],["rightrasta.com",[6,7]],["daotranslate.com",6],["habuteru.com",6],["ufchgu.ru",[6,14,33]],["mangahentai.me",6],["themodellingnews.com",6],["senpaiediciones.com",6],["descopera.ro",6],["amantecod.it",6],["volt-index.ru",[6,37]],["universaladbdriver.com",6],["firmwarefile.com",6],["bg-gledai.co",6],["victorytale.com",6],["clujust.ro",[6,7]],["mysports.to",6],["mi-faq.ru",[6,14,33]],["mathbang.net",[6,8]],["seriesgratis.biz",6],["mangacrab.com",6],["metalnaveia66.com",6],["bollywoodhindi.in",6],["legionscans.com",6],["footy.to",6],["osomatsusan.hatenablog.com",6],["flinsetyadi.com",6],["bingotingo.com",6],["carfixer.co.kr",6],["urbanbrush.net",6],["now.rememberapp.co.kr",[6,9]],["untitle.org",[6,8]],["tecnoprogramas.com",6],["animeactua.com",[6,26]],["creativestudio.kr",6],["onna.kr",[6,15]],["info-beihilfe.de",6],["audiobookcup.com",6],["funfunhan.com",[6,8]],["blofinder.com",6],["bookpost.kr",[6,8]],["ex-nihil0.com",6],["donghun.kr",[6,8]],["zoommastory.com",[6,8]],["deutschaj.com",6],["kokone.co.kr",[6,8]],["stevenh.net",[6,8]],["ideas0419.com",[6,8]],["raycat.net",[6,8]],["hosii.info",[6,8]],["blahblah.pe.kr",[6,8]],["geniusjw.com",[6,8]],["blog.esherloon.com",[6,8]],["centrair.kr",[6,8]],["softwarebits.net",6],["tunovelaligera.com",6],["krtopic.com",6],["healthfeed.co.kr",6],["my-expert.ru",[6,7,24]],["bimiacg.net",6],["solidfile.net",6],["promocode99.in",6],["downloadtutorials.net",6],["nawalakarsa.id",6],["tecnomusic-evolution.com",6],["jpopsingles.eu",6],["wartaterkini.news",6],["pcprogramasymas.net",6],["tistory.com",[6,8,15]],["ghostspectre.the-ninja.jp",6],["eduardo-monica.com",6],["foxaholic.com",6],["koreanaddict.net",6],["omgkpop.top",6],["gamegame.kr",[6,8]],["eoreuni.com",6],["jstranslations1.com",6],["animeuniverse.it",6],["baltasar5010purohentai.com",6],["aihristdreamtranslations.com",[6,33]],["tipslab.info",6],["indcit.com",6],["audio-sound-premium.com",6],["filmboxoffice.web.id",6],["kakpishem.ru",[6,25,33]],["teepr.com",[6,31]],["texte.work",6],["sysnettechsolutions.com",6],["reinodekovel.com",6],["elektrikmen.com",6],["world4.eu",6],["activationkeys.co",6],["secondlifetranslations.com",6],["samuraiscan.com",6],["globaledu.jp",6],["lazytranslations.com",6],["vernamagazine.com",7],["kaystls.site",7],["filmzone.com",7],["immigrantinvest.com",7],["pabrikarang.com",[7,9]],["allaboutshaving.kr",7],["javsubtitle.co",7],["neo-blood.co.jp",7],["machow2.com",7],["rawneix.in",7],["theturtleislandnews.com",7],["audiotools.in",7],["lapandilladelarejilla.es",7],["7misr4day.com",7],["michaelemad.com",7],["toonvideos.net.in",[7,24]],["onepiece-online-manga.com",7],["clockks.com",7],["iptv4best.com",7],["teus.me",8],["archwin.net",8],["onpc.kr",8],["blog.hangyeong.com",8],["tokyodomin.com",8],["modoobrisbane.com",8],["genuineactivator.com",9],["melodelaa.link",9],["asus-zenfone.com",9],["techieway.blogspot.com",9],["chronologia.pl",9],["kpopjjang.com",10],["hinfomax.co.kr",10],["britg.kr",10],["japanxxxmovie.com",10],["sexpox.com",10],["47news.jp",10],["learn-from-homey.blogspot.com",10],["belajarbro.id",10],["mangaku.cc",10],["transtv.co.id",11],["tezgoal.com",12],["comeinsidebox.com",13],["ezms.link",13],["ladyblog.me",16],["denizlihaber.com",[17,18]],["acritica.com",18],["toptoon.com",19],["pressian.com",20],["bestxiaomiproducts.com",21],["appofmirror.com",22],["knightnoscanlation.com",23],["hunterfansub.com",24],["bloombergquint.com",25],["procrackerz.org",26],["hataphim.com",27],["japan-fans.com",27],["nubng.com",28],["ifdreamscametrue.com",28],["kkpmh.vip",28],["jucagototranslations.fukou-da.net",28],["kusonime.com",[29,30]],["utorrentgamesps2.blogspot.com",32],["portalwrc.pl",34],["ktk.kz",35],["linkerpt.com",36]]);
+const hostnamesMap = new Map([["m.nivod8.tv",0],["m.nivod7.tv",0],["m.nivod5.tv",0],["m1.nivod.tv",0],["m.nivod4.tv",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,124 +52,152 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function abortCurrentScript(...args) {
-    runAtHtmlElementFn(( ) => {
-        abortCurrentScriptCore(...args);
+function evaldataPrune(
+    rawPrunePaths = '',
+    rawNeedlePaths = ''
+) {
+    self.eval = new Proxy(self.eval, {
+        apply(target, thisArg, args) {
+            const before = Reflect.apply(target, thisArg, args);
+            if ( typeof before === 'object' ) {
+                const after = objectPruneFn(before, rawPrunePaths, rawNeedlePaths);
+                return after || before;
+            }
+            return before;
+        }
     });
 }
 
-function abortCurrentScriptCore(
-    target = '',
-    needle = '',
-    context = ''
+function objectPruneFn(
+    obj,
+    rawPrunePaths,
+    rawNeedlePaths,
+    stackNeedleDetails = { matchAll: true },
+    extraArgs = {}
 ) {
-    if ( typeof target !== 'string' ) { return; }
-    if ( target === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('abort-current-script', target, needle, context);
-    const reNeedle = safe.patternToRegex(needle);
-    const reContext = safe.patternToRegex(context);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    const thisScript = document.currentScript;
-    const chain = target.split('.');
-    let owner = window;
-    let prop;
-    for (;;) {
-        prop = chain.shift();
-        if ( chain.length === 0 ) { break; }
-        if ( prop in owner === false ) { break; }
-        owner = owner[prop];
-        if ( owner instanceof Object === false ) { return; }
-    }
-    let value;
-    let desc = Object.getOwnPropertyDescriptor(owner, prop);
-    if (
-        desc instanceof Object === false ||
-        desc.get instanceof Function === false
-    ) {
-        value = owner[prop];
-        desc = undefined;
-    }
-    const debug = shouldDebug(extraArgs);
-    const exceptionToken = getExceptionToken();
-    const scriptTexts = new WeakMap();
-    const getScriptText = elem => {
-        let text = elem.textContent;
-        if ( text.trim() !== '' ) { return text; }
-        if ( scriptTexts.has(elem) ) { return scriptTexts.get(elem); }
-        const [ , mime, content ] =
-            /^data:([^,]*),(.+)$/.exec(elem.src.trim()) ||
-            [ '', '', '' ];
-        try {
-            switch ( true ) {
-            case mime.endsWith(';base64'):
-                text = self.atob(content);
-                break;
-            default:
-                text = self.decodeURIComponent(content);
-                break;
-            }
-        } catch(ex) {
-        }
-        scriptTexts.set(elem, text);
-        return text;
-    };
-    const validate = ( ) => {
-        const e = document.currentScript;
-        if ( e instanceof HTMLScriptElement === false ) { return; }
-        if ( e === thisScript ) { return; }
-        if ( context !== '' && reContext.test(e.src) === false ) {
-            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }  // jshint ignore: line
+    if ( typeof rawPrunePaths !== 'string' ) { return; }
+    const prunePaths = rawPrunePaths !== ''
+        ? rawPrunePaths.split(/ +/)
+        : [];
+    const needlePaths = prunePaths.length !== 0 && rawNeedlePaths !== ''
+        ? rawNeedlePaths.split(/ +/)
+        : [];
+    if ( stackNeedleDetails.matchAll !== true ) {
+        if ( matchesStackTrace(stackNeedleDetails, extraArgs.logstack) === false ) {
             return;
         }
-        if ( safe.logLevel > 1 && context !== '' ) {
-            safe.uboLog(logPrefix, `Matched src\n${e.src}`);
-        }
-        const scriptText = getScriptText(e);
-        if ( reNeedle.test(scriptText) === false ) {
-            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }  // jshint ignore: line
-            return;
-        }
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, `Matched text\n${scriptText}`);
-        }
-        if ( debug === 'match' || debug === 'all' ) { debugger; }  // jshint ignore: line
-        safe.uboLog(logPrefix, 'Aborted');
-        throw new ReferenceError(exceptionToken);
-    };
-    if ( debug === 'install' ) { debugger; }  // jshint ignore: line
-    try {
-        Object.defineProperty(owner, prop, {
-            get: function() {
-                validate();
-                return desc instanceof Object
-                    ? desc.get.call(owner)
-                    : value;
-            },
-            set: function(a) {
-                validate();
-                if ( desc instanceof Object ) {
-                    desc.set.call(owner, a);
-                } else {
-                    value = a;
+    }
+    if ( objectPruneFn.mustProcess === undefined ) {
+        objectPruneFn.mustProcess = (root, needlePaths) => {
+            for ( const needlePath of needlePaths ) {
+                if ( objectFindOwnerFn(root, needlePath) === false ) {
+                    return false;
                 }
             }
-        });
-    } catch(ex) {
-        safe.uboErr(logPrefix, `Error: ${ex}`);
+            return true;
+        };
     }
+    if ( prunePaths.length === 0 ) { return; }
+    let outcome = 'nomatch';
+    if ( objectPruneFn.mustProcess(obj, needlePaths) ) {
+        for ( const path of prunePaths ) {
+            if ( objectFindOwnerFn(obj, path, true) ) {
+                outcome = 'match';
+            }
+        }
+    }
+    if ( outcome === 'match' ) { return obj; }
 }
 
-function runAtHtmlElementFn(fn) {
-    if ( document.documentElement ) {
-        fn();
-        return;
+function matchesStackTrace(
+    needleDetails,
+    logLevel = ''
+) {
+    const safe = safeSelf();
+    const exceptionToken = getExceptionToken();
+    const error = new safe.Error(exceptionToken);
+    const docURL = new URL(self.location.href);
+    docURL.hash = '';
+    // Normalize stack trace
+    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
+    const lines = [];
+    for ( let line of error.stack.split(/[\n\r]+/) ) {
+        if ( line.includes(exceptionToken) ) { continue; }
+        line = line.trim();
+        const match = safe.RegExp_exec.call(reLine, line);
+        if ( match === null ) { continue; }
+        let url = match[2];
+        if ( url.startsWith('(') ) { url = url.slice(1); }
+        if ( url === docURL.href ) {
+            url = 'inlineScript';
+        } else if ( url.startsWith('<anonymous>') ) {
+            url = 'injectedScript';
+        }
+        let fn = match[1] !== undefined
+            ? match[1].slice(0, -1)
+            : line.slice(0, match.index).trim();
+        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
+        let rowcol = match[3];
+        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
     }
-    const observer = new MutationObserver(( ) => {
-        observer.disconnect();
-        fn();
-    });
-    observer.observe(document, { childList: true });
+    lines[0] = `stackDepth:${lines.length-1}`;
+    const stack = lines.join('\t');
+    const r = needleDetails.matchAll !== true &&
+        safe.testPattern(needleDetails, stack);
+    if (
+        logLevel === 'all' ||
+        logLevel === 'match' && r ||
+        logLevel === 'nomatch' && !r
+    ) {
+        safe.uboLog(stack.replace(/\t/g, '\n'));
+    }
+    return r;
+}
+
+function objectFindOwnerFn(
+    root,
+    path,
+    prune = false
+) {
+    let owner = root;
+    let chain = path;
+    for (;;) {
+        if ( typeof owner !== 'object' || owner === null  ) { return false; }
+        const pos = chain.indexOf('.');
+        if ( pos === -1 ) {
+            if ( prune === false ) {
+                return owner.hasOwnProperty(chain);
+            }
+            let modified = false;
+            if ( chain === '*' ) {
+                for ( const key in owner ) {
+                    if ( owner.hasOwnProperty(key) === false ) { continue; }
+                    delete owner[key];
+                    modified = true;
+                }
+            } else if ( owner.hasOwnProperty(chain) ) {
+                delete owner[chain];
+                modified = true;
+            }
+            return modified;
+        }
+        const prop = chain.slice(0, pos);
+        if (
+            prop === '[]' && Array.isArray(owner) ||
+            prop === '*' && owner instanceof Object
+        ) {
+            const next = chain.slice(pos + 1);
+            let found = false;
+            for ( const key of Object.keys(owner) ) {
+                found = objectFindOwnerFn(owner[key], next, prune) || found;
+            }
+            return found;
+        }
+        if ( owner.hasOwnProperty(prop) === false ) { return false; }
+        owner = owner[prop];
+        chain = chain.slice(pos + 1);
+    }
+    return true;
 }
 
 function getExceptionToken() {
@@ -338,11 +366,6 @@ function safeSelf() {
     return safe;
 }
 
-function shouldDebug(details) {
-    if ( details instanceof Object === false ) { return false; }
-    return scriptletGlobals.canDebug && details.debug;
-}
-
 /******************************************************************************/
 
 const hnParts = [];
@@ -403,7 +426,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { abortCurrentScript(...argsList[i]); }
+    try { evaldataPrune(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -425,7 +448,7 @@ const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_abortCurrentScript();
+    return uBOL_evaldataPrune();
 }
 
 // Firefox
@@ -433,11 +456,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_abortCurrentScript = cloneInto([
-            [ '(', uBOL_abortCurrentScript.toString(), ')();' ],
+        page.uBOL_evaldataPrune = cloneInto([
+            [ '(', uBOL_evaldataPrune.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_abortCurrentScript);
+        const blob = new page.Blob(...page.uBOL_evaldataPrune);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -451,7 +474,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_abortCurrentScript;
+    delete page.uBOL_evaldataPrune;
 }
 
 /******************************************************************************/

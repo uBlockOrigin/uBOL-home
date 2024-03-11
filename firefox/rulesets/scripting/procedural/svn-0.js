@@ -33,9 +33,9 @@
 
 /******************************************************************************/
 
-const argsList = [["{\"selector\":\".sidebar__banner\",\"tasks\":[[\"has\",{\"selector\":\".ads-player\"}]]}","{\"selector\":\".sidebar__box\",\"tasks\":[[\"has\",{\"selector\":\".bg-brand-caszazemljo, .eurojackpot, .pr, .voyobox\"}]]}"],["{\"selector\":\".HeaderSpotlight\",\"tasks\":[[\"has\",{\"selector\":\"a[href^=\\\"https://bit.ly\\\"]\"}]]}"],["{\"selector\":\"li.article\",\"tasks\":[[\"has-text\",\"Oglasno sporočilo\"]]}"]];
+const argsList = [["{\"selector\":\".sidebar__banner\",\"tasks\":[[\"has\",{\"selector\":\".ads-player\"}]]}","{\"selector\":\".sidebar__box\",\"tasks\":[[\"has\",{\"selector\":\".bg-brand-caszazemljo, .eurojackpot, .pr, .voyobox\"}]]}"],["{\"selector\":\".HeaderSpotlight\",\"tasks\":[[\"has\",{\"selector\":\"a[href^=\\\"https://bit.ly\\\"]\"}]]}"],["{\"selector\":\"li.article\",\"tasks\":[[\"has-text\",\"Oglasno sporočilo\"]]}"],["{\"selector\":\"a.card\",\"tasks\":[[\"has-text\",\"Oglas\"]]}"]];
 
-const hostnamesMap = new Map([["24ur.com",0],["bolha.com",1],["monitor.si",2]]);
+const hostnamesMap = new Map([["24ur.com",0],["bolha.com",1],["monitor.si",2],["partis.si",3]]);
 
 const entitiesMap = new Map(undefined);
 
