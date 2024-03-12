@@ -40,8 +40,9 @@ jobs:
       # Chromium
       - name: Build Chromium uBOLite MV3 packages
         run: |
+          UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$(pwd)
+          tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
           echo "CHROMIUM_PACKAGE=${{ env.TAGNAME }}.chromium.mv3.zip" >> $GITHUB_ENV
           cd - > /dev/null
           rm -rf chromium
@@ -50,8 +51,9 @@ jobs:
       # Firefox
       - name: Build Firefox uBOLite MV3 packages
         run: |
+          UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh firefox ${{ env.TAGNAME }} before=$(pwd)
+          tools/make-mv3.sh firefox ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
           echo "FIREFOX_PACKAGE=${{ env.TAGNAME }}.firefox.mv3.xpi" >> $GITHUB_ENV
           cd - > /dev/null
           rm -rf firefox
