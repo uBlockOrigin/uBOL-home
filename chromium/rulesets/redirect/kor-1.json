@@ -1,4 +1,5 @@
 [
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["aagag.com"],"isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":1,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"requestDomains":["video.veilduck.app"]},"id":939,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"||smrmembers-smr.smartmediarep.com/smc/smrmembers/"},"id":940,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"||news.mobfeed.co.kr/front/personal/coupang"},"id":941,"priority":2},

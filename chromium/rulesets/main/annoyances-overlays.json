@@ -264,5 +264,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||ads.twitcasting.tv/js/env_test/ads.js"},"id":263},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["cheatnetwork.eu","hbstack.dev"],"resourceTypes":["script"]},"id":264},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["arras.io","bigten.org","cheatnetwork.eu","hbstack.dev","sheffieldforum.co.uk"],"resourceTypes":["xmlhttprequest"]},"id":265},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||luckydesigner.space/adview_"},"id":266}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||luckydesigner.space/adview_"},"id":266},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||9animetv.to/js/safe.ob.min.js"},"id":267}
 ]

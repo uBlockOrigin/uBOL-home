@@ -4,6 +4,16 @@
   "type": "block"
  },
  "condition": {
+  "domainType": "thirdParty",
+  "regexFilter": ":\\/\\/ban\\.[\\w-]+\\."
+ },
+ "id": 1
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
   "regexFilter": "afiliasi\\/*\\/banners"
  },
  "id": 1025

@@ -131,7 +131,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/wpfront-scroll-top.min.js"},"id":130},
 {"action":{"type":"block"},"condition":{"urlFilter":"_backtotop."},"id":131},
 {"action":{"type":"block"},"condition":{"urlFilter":"/jquery.particleground.js"},"id":132},
-{"action":{"type":"block"},"condition":{"urlFilter":"/jquery.particleground.min.js"},"id":133},
+{"action":{"type":"block"},"condition":{"urlFilter":"||tosshub.com/sites/player/media/sana-widget/sana-min.js"},"id":133},
 {"action":{"type":"block"},"condition":{"urlFilter":"/particles-sel.js"},"id":134},
 {"action":{"type":"block"},"condition":{"urlFilter":"||amazonaws.com/fby.js"},"id":135},
 {"action":{"type":"block"},"condition":{"urlFilter":"||amazonaws.com/fby/"},"id":136},
@@ -373,12 +373,12 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["creativecommons.org","feedburner.com","licensebuttons.net"],"resourceTypes":["image"]},"id":372},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||a.mailmunch.co/app/"},"id":373},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["gleam.io"],"requestDomains":["widget.gleamjs.io"],"resourceTypes":["script"]},"id":374},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["player.anyclip.com","purch.com"],"resourceTypes":["script"]},"id":375},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["jingukan.co.jp"],"urlFilter":"||bot.agerun.jp/popup.min.js"},"id":375},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||discordapp.com/api/servers/*/widget.json"},"id":376},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["emsecure.net"],"resourceTypes":["sub_frame"]},"id":377},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||givealittle.co.nz/widget/"},"id":378},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||google.com/shopping/customerreviews/"},"id":379},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["maxurlz.com"],"urlFilter":"||cdn.jsdelivr.net^*/jquery.particleground.min.js"},"id":380},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["click2houston.com","clickondetroit.com","clickorlando.com","ksat.com","news4jax.com","wsls.com"],"requestDomains":["player.anyclip.com"],"resourceTypes":["script"]},"id":380},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["wpb.shueisha.co.jp"],"urlFilter":"||csm.cxpublic.com/shueisha.js"},"id":381},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["hotstar.com","tv2play.hu","zinio.com"],"requestDomains":["gravityrd-services.com"]},"id":382},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["bluecinema.ch"],"urlFilter":"||loader.wisepops.com/get-loader.js"},"id":383},
@@ -395,5 +395,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["concoursultimesousmaringourmiam.ca"],"resourceTypes":["script"],"urlFilter":"||mikesca.activehosted.com/f/embed.php"},"id":394},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["cnn.com"],"resourceTypes":["script"],"urlFilter":"||odb.outbrain.com/utils/get?url="},"id":395},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["docs.ansible.com"],"resourceTypes":["script"],"urlFilter":"||s.swiftypecdn.com/install/"},"id":396},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||tv-asahi.co.jp/ch/js/scrolltopcontrol.js"},"id":397}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||tv-asahi.co.jp/ch/js/scrolltopcontrol.js"},"id":397},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["purch.com"],"resourceTypes":["script"]},"id":398}
 ]

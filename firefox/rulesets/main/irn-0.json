@@ -250,7 +250,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||takmili.com/wp-content/plugins/google-analytics"},"id":249},
 {"action":{"type":"block"},"condition":{"urlFilter":"||titr.online/api/stats"},"id":250},
 {"action":{"type":"block"},"condition":{"urlFilter":"||topseda.ir/wp-content/plugins/google-analytics"},"id":251},
-{"action":{"type":"block"},"condition":{"urlFilter":"||tabanmusic.com/p-pop/"},"id":252},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||tabanmusic.com/p-pop^"},"id":252},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tafrihi.com/wp-content/plugins/simple-ads"},"id":253},
 {"action":{"type":"block"},"condition":{"urlFilter":"||takro.net/cdn-cgi/zaraz/"},"id":254},
 {"action":{"type":"block"},"condition":{"urlFilter":"||takro.net/cdn-cgi/apps/head"},"id":255},
@@ -597,5 +597,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||tamasha.com/embed^"},"id":596},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||webgozar.com/poll/vote.aspx?code="},"id":597},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["font"],"urlFilter":"||player.tavoos.net/assets/fonts/"},"id":598},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["fararu.com","gostaresh.news"],"resourceTypes":["font"],"urlFilter":"||cdn.yektanet.com/fonts/"},"id":599}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["fararu.com","gostaresh.news"],"resourceTypes":["font"],"urlFilter":"||cdn.yektanet.com/fonts/"},"id":599},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||qnama.ir/ipop.js^"},"id":600},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["rentinal.info"],"resourceTypes":["script"]},"id":601}
 ]

@@ -225,8 +225,7 @@
     "alert-buster",
     [
      "1001tracklists.com",
-     "66ccff.work",
-     "iwb.jp"
+     "66ccff.work"
     ]
    ],
    [
@@ -266,6 +265,15 @@
     ]
    ],
    [
+    "set-attr",
+    [
+     "rocketnews24.com",
+     "soranews24.com",
+     "statisticsanddata.org",
+     "youpouch.com"
+    ]
+   ],
+   [
     "spoof-css",
     [
      "banaraswap.in",
@@ -281,12 +289,14 @@
     [
      "adultdeepfakes.com",
      "bravedown.com",
+     "dogdrip.net",
      "economist.co.kr",
      "edaily.co.kr",
      "elevenlabs.io",
      "enetnews.co.kr",
      "etnews.com",
      "etoday.co.kr",
+     "etoland.co.kr",
      "fedex.com",
      "freewsad.com",
      "genshinlab.com",
@@ -301,9 +311,11 @@
      "loawa.com",
      "meeco.kr",
      "mindbodygreen.com",
+     "picrew.me",
      "sportalkorea.com",
      "thephoblographer.com",
      "thestockmarketwatch.com",
+     "uttranews.com",
      "warcraftrumbledeck.com",
      "worldhistory.org",
      "ygosu.com"
@@ -317,14 +329,6 @@
      "smostafa.ir",
      "soft98.ir",
      "sysban.ir"
-    ]
-   ],
-   [
-    "set-attr",
-    [
-     "rocketnews24.com",
-     "soranews24.com",
-     "youpouch.com"
     ]
    ],
    [
@@ -353,6 +357,7 @@
      "fullxxxmovies.me",
      "gofucker.com",
      "hotukdeals.com",
+     "html.duckduckgo.com",
      "insidehook.com",
      "isthereanydeal.com",
      "kazefuri.net",
@@ -900,6 +905,12 @@
   "fra-0",
   [
    [
+    "set-constant",
+    [
+     "*"
+    ]
+   ],
+   [
     "no-setTimeout-if",
     [
      "cookomix.com",
@@ -960,12 +971,6 @@
      "lindependant.fr",
      "radio.fr",
      "vostfr.stream"
-    ]
-   ],
-   [
-    "set-constant",
-    [
-     "*"
     ]
    ],
    [
@@ -1101,9 +1106,10 @@
     [
      "angol-magyar-szotar.hu",
      "embed.indavideo.hu",
-     "embed.rtl.hu",
      "femina.hu",
-     "huaweiblog.hu"
+     "huaweiblog.hu",
+     "myonlineradio.hu",
+     "player.rtl.hu"
     ]
    ],
    [
@@ -1313,11 +1319,14 @@
      "bizma.ir",
      "elmefarda.com",
      "ganjipakhsh.com",
+     "iran-music.com",
      "javan-musics.com",
      "mopon.ir",
      "noorlib.ir",
      "s-moshaver.com",
-     "subkade.ir"
+     "subkade.ir",
+     "tabanmusic.com",
+     "texahang.org"
     ]
    ],
    [
@@ -1339,6 +1348,7 @@
     [
      "delta3da.cam",
      "farsroid.com",
+     "iran-music.com",
      "kihanb.ir",
      "musiceman.net",
      "najiremix.ir",
@@ -1382,11 +1392,14 @@
    [
     "remove-attr",
     [
+     "iran-music.com",
      "iranstar.com",
      "javan-musics.com",
      "musiceman.net",
      "subkade.ir",
-     "takmili.com"
+     "tabanmusic.com",
+     "takmili.com",
+     "texahang.org"
     ]
    ],
    [
@@ -1547,6 +1560,12 @@
     ]
    ],
    [
+    "no-setTimeout-if",
+    [
+     "*"
+    ]
+   ],
+   [
     "abort-current-script",
     [
      "*"
@@ -1602,12 +1621,6 @@
      "teaceremony.work",
      "webdevqa.jp.net",
      "weddinghall.work"
-    ]
-   ],
-   [
-    "no-setTimeout-if",
-    [
-     "*"
     ]
    ],
    [
@@ -1704,6 +1717,12 @@
      "ov53i9il.blog.fc2.com",
      "qaacacthlive.omaww.net"
     ]
+   ],
+   [
+    "json-prune",
+    [
+     "search.yahoo.co.jp"
+    ]
    ]
   ]
  ],
@@ -1724,7 +1743,6 @@
      "koreapas.com",
      "m.dcinside.com",
      "m.humoruniv.com",
-     "m.shop.interpark.com",
      "mememedia.co.kr",
      "naver.com",
      "sbs.co.kr",
@@ -2447,6 +2465,15 @@
     ]
    ],
    [
+    "remove-node-text",
+    [
+     "clujust.ro",
+     "filme2023.online",
+     "sampmoduri.ro",
+     "turdanews.net"
+    ]
+   ],
+   [
     "no-window-open-if",
     [
      "*"
@@ -2477,14 +2504,6 @@
     [
      "filmeonlinesubtitrate.org",
      "yoixmzo.xyz"
-    ]
-   ],
-   [
-    "remove-node-text",
-    [
-     "clujust.ro",
-     "filme2023.online",
-     "sampmoduri.ro"
     ]
    ],
    [
@@ -2555,6 +2574,7 @@
      "autonews.co.ua",
      "biqle.org",
      "biqle.ru",
+     "bonus-tv.ru",
      "cdn.viqeo.tv",
      "cq.ru",
      "fastpic.org",
@@ -2576,6 +2596,8 @@
      "radiokp.ru",
      "rambler.ru",
      "rbc.ru",
+     "regnum.news",
+     "regnum.ru",
      "romakatya.ru",
      "sibnet.ru",
      "smotrim.ru",
@@ -2588,6 +2610,7 @@
      "ufchgu.ru",
      "wday.ru",
      "woman.ru",
+     "www.fontanka.ru",
      "www.vesti.ru",
      "yootv.ru"
     ]
@@ -2666,8 +2689,9 @@
    [
     "adjust-setInterval",
     [
+     "3mod.ru",
      "595.ucoz.net",
-     "5mod-file.ru",
+     "5wip-file.ru",
      "bitshare.link",
      "diplomsrazu.ru",
      "file-mods.ru",
@@ -2713,6 +2737,7 @@
      "gtavicecity.ru",
      "online-fix.me",
      "pes-files.ru",
+     "soyztreid.website",
      "tv-kanali.online"
     ]
    ],
@@ -2743,6 +2768,7 @@
      "blackwot.ru",
      "buhgalter.com.ua",
      "buhgalter911.com",
+     "crackstatus.net",
      "dracon-zet.ru",
      "e.mail.ru",
      "factor.ua",
@@ -2847,7 +2873,6 @@
      "afisha.ru",
      "byrutdb.org",
      "cnews.ru",
-     "dtf.ru",
      "film.ru",
      "filmpro.ru",
      "gfycat.com",
@@ -2913,6 +2938,7 @@
      "facenews.ua",
      "factor.ua",
      "farposst.ru",
+     "filmitorrent.net",
      "game4you.top",
      "games-pc.top",
      "gazeta.ua",
@@ -2947,6 +2973,7 @@
      "stravy.net",
      "tochka.net",
      "tv.ua",
+     "utorr.cc",
      "viva.ua",
      "vsetv.com",
      "www.ukr.net"
@@ -2955,7 +2982,6 @@
    [
     "set-attr",
     [
-     "dtf.ru",
      "eneyida.tv",
      "howdyho.net",
      "reshu.by",
@@ -3322,24 +3348,17 @@
      "affarsstaden.se",
      "boktugg.se",
      "byggipedia.se",
-     "byggvarlden.se",
-     "cannabis.se",
      "discoveringtheplanet.com",
-     "egoinas.se",
-     "enkelteknik.se",
      "evertiq.se",
      "fastighetsvarlden.se",
      "folkhalsasverige.se",
      "foretagsverige.se",
      "forexgruppen.se",
      "forskningsverige.se",
-     "golflivet.se",
      "grillbibeln.se",
      "hallbarhetsverige.se",
-     "hamnen.se",
      "hejaolika.se",
      "husbilsplats.se",
-     "influens.se",
      "kampenmotcancer.se",
      "lakartidningen.se",
      "matsafari.nu",
@@ -3350,13 +3369,9 @@
      "sakochliv.se",
      "skrattsajten.com",
      "spelhubben.se",
-     "svensktgolfforum.se",
-     "tidningen.djurskyddet.se",
      "tillvaxtsverige.se",
      "trafiksakerhet.se",
-     "vegomagasinet.se",
      "villalivet.se",
-     "www.expressen.se",
      "zeinaskitchen.se"
     ]
    ],
@@ -3382,7 +3397,8 @@
      "pcforalla.se",
      "residencemagazine.se",
      "rodeo.net",
-     "svenskdam.se"
+     "svenskdam.se",
+     "vitaestilo.se"
     ]
    ],
    [
@@ -3390,10 +3406,7 @@
     [
      "affarsstaden.se",
      "allas.se",
-     "barometern.se",
-     "blt.se",
      "boktugg.se",
-     "bt.se",
      "byggahus.se",
      "cafe.se",
      "devote.se",
@@ -3404,41 +3417,24 @@
      "hant.se",
      "home2tiny.se",
      "illvet.se",
-     "kalmarposten.se",
-     "klt.nu",
-     "kristianstadsbladet.se",
      "kurera.se",
-     "lokalti.se",
      "lundagard.se",
      "lwcdn.com",
      "mabra.com",
      "mitti.se",
      "morotsliv.com",
      "motherhood.se",
-     "nsk.se",
      "nyan.ax",
      "nyfiknainvesterare.se",
-     "olandsbladet.se",
-     "omni.se",
-     "omniekonomi.se",
      "praktisktbatagande.se",
      "residencemagazine.se",
      "sexpacket.se",
-     "smp.se",
      "spelhubben.se",
      "streamio.com",
      "svenskdam.se",
-     "sydostran.se",
-     "trelleborgsallehanda.se",
-     "ut.se",
      "varldenshistoria.se",
-     "vasterastidning.se",
-     "vaxjobladet.se",
-     "viivilla.se",
-     "vxonews.se",
      "www.expressen.se",
-     "youplay.se",
-     "ystadsallehanda.se"
+     "youplay.se"
     ]
    ],
    [
@@ -3861,11 +3857,54 @@
      "dizipal69.cloud",
      "dizipal7.cloud",
      "dizipal70.cloud",
+     "dizipal700.com",
+     "dizipal701.com",
+     "dizipal702.com",
+     "dizipal703.com",
+     "dizipal704.com",
+     "dizipal705.com",
+     "dizipal706.com",
+     "dizipal707.com",
+     "dizipal709.com",
      "dizipal71.cloud",
+     "dizipal710.com",
+     "dizipal711.com",
+     "dizipal712.com",
+     "dizipal713.com",
+     "dizipal714.com",
+     "dizipal715.com",
+     "dizipal716.com",
+     "dizipal717.com",
+     "dizipal718.com",
+     "dizipal719.com",
      "dizipal72.cloud",
+     "dizipal720.com",
+     "dizipal721.com",
+     "dizipal722.com",
+     "dizipal723.com",
+     "dizipal724.com",
+     "dizipal725.com",
+     "dizipal726.com",
+     "dizipal727.com",
+     "dizipal728.com",
      "dizipal73.cloud",
+     "dizipal730.com",
+     "dizipal731.com",
+     "dizipal732.com",
+     "dizipal733.com",
+     "dizipal734.com",
+     "dizipal735.com",
+     "dizipal736.com",
+     "dizipal737.com",
+     "dizipal738.com",
+     "dizipal739.com",
      "dizipal74.cloud",
+     "dizipal740.com",
+     "dizipal741.com",
+     "dizipal743.com",
+     "dizipal745.com",
      "dizipal75.cloud",
+     "dizipal755.com",
      "dizipal76.cloud",
      "dizipal77.cloud",
      "dizipal78.cloud",
@@ -4143,7 +4182,8 @@
      "teve2.com.tr",
      "tlctv.com.tr",
      "trtizle.com",
-     "tv8.com.tr"
+     "tv8.com.tr",
+     "tv8bucuk.com"
     ]
    ],
    [
@@ -4184,6 +4224,45 @@
     [
      "mobile.donanimhaber.com"
     ]
+   ],
+   [
+    "set-attr",
+    [
+     "inattvhd188.xyz",
+     "inattvhd189.xyz",
+     "inattvhd190.xyz",
+     "inattvhd191.xyz",
+     "inattvhd192.xyz",
+     "inattvhd193.xyz",
+     "inattvhd194.xyz",
+     "inattvhd195.xyz",
+     "inattvhd196.xyz",
+     "inattvhd197.xyz",
+     "inattvhd198.xyz",
+     "inattvhd199.xyz",
+     "inattvhd200.xyz",
+     "inattvhd201.xyz",
+     "inattvhd202.xyz",
+     "inattvhd203.xyz",
+     "inattvhd204.xyz",
+     "inattvhd205.xyz",
+     "inattvhd206.xyz",
+     "inattvhd207.xyz",
+     "inattvhd208.xyz",
+     "inattvhd209.xyz",
+     "inattvhd210.xyz",
+     "inattvhd211.xyz",
+     "inattvhd212.xyz",
+     "inattvhd213.xyz",
+     "inattvhd214.xyz",
+     "inattvhd215.xyz",
+     "inattvhd216.xyz",
+     "inattvhd217.xyz",
+     "inattvhd218.xyz",
+     "inattvhd219.xyz",
+     "inattvhd220.xyz",
+     "inattvhd221.xyz"
+    ]
    ]
   ]
  ],
@@ -4193,9 +4272,9 @@
    [
     "abort-current-script",
     [
-     "abtruyen.com",
+     "abtruyen.net",
      "afamily.vn",
-     "animehay.city",
+     "animehay.me",
      "animevietsub.io",
      "azrom.net",
      "cafef.vn",
@@ -4203,17 +4282,17 @@
      "cdnstream.sbs",
      "cliphot69.city",
      "cunghocvui.com",
-     "doctruyen3qkr.com",
+     "doctruyen3qvn.net",
      "downloadsachmienphi.com",
      "dualeotruyenme.com",
      "gamek.vn",
      "genk.vn",
-     "gocphimvnn.com",
+     "gocphimmoi.com",
      "gotphim.com",
      "helvid.net",
-     "hentaivn.top",
-     "hentaizz.me",
-     "heo69.day",
+     "hentaivn.day",
+     "hentaizz.pro",
+     "heo69.vc",
      "hh3dhay.lol",
      "hh3dhay.pro",
      "hh3dhay.xyz",
@@ -4227,12 +4306,13 @@
      "lenlut.tv",
      "linkneverdie.net",
      "lrepacks.net",
-     "lxmanga.net",
+     "lxmanga88.com",
      "m.blogtruyenmoi.com",
      "mephimnhe1.net",
      "misskon.com",
      "motchill.ac",
-     "nettruyenall.com",
+     "mup69.net",
+     "nettruyennn.com",
      "p.thoctv.com",
      "phim18hd.top",
      "phimgichill.net",
@@ -4240,20 +4320,18 @@
      "phimlongtieng.com",
      "phimlongtieng.net",
      "phimmoinay.vip",
-     "phimsexhay669.co",
+     "phimsexhay669.org",
      "phimss.com",
      "phimtho.net",
      "quatvn2.club",
-     "rphang.cx",
-     "sexphetv.pro",
+     "rphang.biz",
+     "sexdep9x.pro",
      "sexvn1.cc",
      "soha.vn",
-     "tctruyen.com",
      "tctruyen.net",
      "tenmientruyengi.net",
      "tinsoikeo.care",
      "top1sex.club",
-     "topxxxviet.com",
      "truyen2u.net",
      "truyen35.vn",
      "truyengihotdo.net",
@@ -4266,19 +4344,19 @@
      "truyenqqvn.com",
      "truyensextv.com",
      "truyentuan.xyz",
-     "truyenvn.io",
+     "truyenvn.club",
      "tuoi69.blog",
      "tuoitre.vn",
      "ungtycomicsvip.com",
      "vailonxx.com",
-     "viet69.bz",
+     "viet69.ca",
      "vlxx.moe",
      "vlxyz.vc",
      "vungoctuan.vn",
      "web.sexviet88.day",
+     "ww2.topsexviet.info",
      "www.buomtv.app",
      "www.toptruyen3.info",
-     "xemxxx.net",
      "xnxx-sex-videos.com",
      "yurineko.net"
     ]
@@ -4293,7 +4371,6 @@
      "azrom.net",
      "dood.pm",
      "ephimchill.com",
-     "fcbarcelonaclan.com",
      "javnong.cc",
      "khophimchill.net",
      "linkneverdie.net",
@@ -4311,11 +4388,12 @@
      "phimvietsub.pro",
      "plvb.xyz",
      "quangcaoyenbai.com",
+     "readthehook.com",
      "rk.plcdn.xyz",
-     "sieudamtv.one",
+     "sieudamtv.vip",
      "thuvienhd.xyz",
      "tinsoikeo.care",
-     "truyenhentaivn.com",
+     "truyenhentaivn.info",
      "truyensieuhay.com",
      "veryfiles.com",
      "viettoons.tv",
@@ -4343,18 +4421,18 @@
      "afamily.vn",
      "api.anime3s.com",
      "cafef.vn",
-     "clipsex.io",
+     "gaimup.net",
      "gamek.vn",
      "genk.vn",
      "gvnvh18.com",
      "kenh14.vn",
      "londep.io",
-     "phimheovietnam.org",
+     "mb.clipsex.xxx",
      "phimsexviet.io",
+     "phimsexvip.cc",
      "phimvietsub.pro",
      "phimvuihd.org",
-     "sex.gaimup.net",
-     "sexdiaryx.me",
+     "sexdiaryx.info",
      "soha.vn",
      "subnhanh.xyz",
      "tailieumoi.vn",
@@ -4362,11 +4440,12 @@
      "tuoitre.vn",
      "vaoroi365.com",
      "vndoc.com",
-     "webx.ditnhau.cc",
+     "web.phimsexvn.mobi",
      "ww1.phimsexvietnam.live",
+     "www.iosviet.com",
+     "xem.ditnhau.cc",
      "xoivo2.online",
      "xx.phimsexnhathay.com",
-     "xx.phimsexvip.cc",
      "xxxvietnam.io"
     ]
    ],
@@ -4838,6 +4917,7 @@
      "mikanews.de",
      "miriamkreativ.de",
      "missinfogeek.net",
+     "mixingmonster.com",
      "mmo-sankar.de",
      "monikabirknerfreedombusiness.de",
      "motivationstipp.de",
@@ -6033,6 +6113,7 @@
      "3landesmuseen-braunschweig.de",
      "3sat.de",
      "59northwheels.se",
+     "5asec.ch",
      "7-eleven.com",
      "abi.de",
      "account.nowpayments.io",
@@ -6078,6 +6159,7 @@
      "agenziavista.it",
      "aha.or.at",
      "ahorn24.de",
+     "airastana.com",
      "aireuropa.com",
      "airportrentacar.gr",
      "airwallex.com",
@@ -6177,6 +6259,7 @@
      "biona-shop.de",
      "bitecode.dev",
      "bitso.com",
+     "biurobox.pl",
      "bizkaia.eus",
      "bka.de",
      "blablacar.com.br",
@@ -6283,6 +6366,7 @@
      "codecamps.com",
      "colourbox.com",
      "commandsuite.it",
+     "computacenter.com",
      "computerbase.de",
      "comte.com",
      "constantin.film",
@@ -6308,6 +6392,7 @@
      "crfop.gdos.gov.pl",
      "croisieresendirect.com",
      "crown.com",
+     "crtm.es",
      "crunchyroll.com",
      "crushwineco.com",
      "cualesmiip.com",
@@ -6315,6 +6400,7 @@
      "curantus.de",
      "cut-tec.co.uk",
      "cuvva.com",
+     "cycling74.com",
      "czech-server.cz",
      "dagvandewebshop.be",
      "dailymotion.com",
@@ -6350,10 +6436,12 @@
      "dhbbank.nl",
      "digibest.pt",
      "digimobil.es",
+     "docs.dyrector.io",
      "doka.com",
      "dokiliko.com",
      "dom.ru",
      "dominospizza.pl",
+     "donauauen.at",
      "doppelmayr.com",
      "dopt.com",
      "dotwatcher.cc",
@@ -6430,6 +6518,7 @@
      "filen.io",
      "fillup.pl",
      "fincaparera.com",
+     "fineartsmuseum.recreatex.be",
      "finewoodworking.com",
      "finimize.com",
      "firmen.wko.at",
@@ -6613,6 +6702,7 @@
      "helmut-fischer.com",
      "hemglass.se",
      "hexen-werkstatt.shop",
+     "heysummit.com",
      "hfm-frankfurt.de",
      "hife.es",
      "hintaopas.fi",
@@ -6694,6 +6784,7 @@
      "keb-automation.com",
      "keeb.supply",
      "kelkay.com",
+     "kellermann-online.com",
      "kent.gov.uk",
      "keravanenergia.fi",
      "kh.hu",
@@ -6703,6 +6794,7 @@
      "kinopoisk.ru",
      "kivikangas.fi",
      "kletterkogel.de",
+     "knime.com",
      "konicaminolta.ca",
      "konicaminolta.us",
      "konsument.at",
@@ -6765,6 +6857,7 @@
      "mader.bz.it",
      "magicpos.shop",
      "magnet4blogging.net",
+     "makeresearchpay.com",
      "malcorentacar.com",
      "malermeister-shop.de",
      "mantel.com",
@@ -6870,6 +6963,7 @@
      "paf.se",
      "parfum-zentrum.de",
      "patisserie-m.de",
+     "paychex.com",
      "paydirekt.de",
      "pc-canada.com",
      "pccomponentes.com",
@@ -6905,6 +6999,7 @@
      "petizioni.com",
      "phish-test.de",
      "photobooth.online",
+     "photospecialist.co.uk",
      "physikinstrumente.de",
      "piusx-college.nl",
      "plastischechirurgie-muenchen.info",
@@ -6967,6 +7062,7 @@
      "pubgesports.com",
      "pumatools.hu",
      "purefiji.cz",
+     "puromarketing.com",
      "pvcbuis.com",
      "pvcvoordeel.nl",
      "pwsweather.com",
@@ -6976,6 +7072,7 @@
      "queisser.de",
      "qwice.com",
      "radicalmotorsport.com",
+     "radio-canada.ca",
      "railtech.com",
      "raoul-follereau.org",
      "ratemyprofessors.com",
@@ -7079,6 +7176,7 @@
      "staff-gallery.com",
      "standard.sk",
      "starofservice.com",
+     "statisticsanddata.org",
      "steamdeckhq.com",
      "stickypassword.com",
      "stiegeler.com",
@@ -7145,6 +7243,8 @@
      "translit.ru",
      "trendpet.de",
      "tridge.com",
+     "triviacreator.com",
+     "trixonline.be",
      "trouwenbijfletcher.nl",
      "truecaller.com",
      "ttela.se",
@@ -7227,6 +7327,7 @@
      "wildcat-koeln.de",
      "withings.com",
      "wizards.com",
+     "woltair.cz",
      "worstbassist.com",
      "wpc-shop24.de",
      "wst.tv",
@@ -7234,6 +7335,7 @@
      "wwnorton.com",
      "xcen.se",
      "xfree.com",
+     "xn--digitaler-notenstnder-m2b.com",
      "xn--lkylen-vxa.se",
      "xxxshemaleporn.com",
      "yandex.ru",
@@ -7304,6 +7406,7 @@
      "cityfalcon.ai",
      "codedead.com",
      "comnet.com.tr",
+     "crealitycloud.com",
      "cryptofalka.hu",
      "cuba-buddy.de",
      "dbschenker.com",
@@ -7546,9 +7649,9 @@
      "login.flex.paychex.com",
      "luminousindia.com",
      "manta.net",
+     "monkeytype.com",
      "online.depo-diy.ee",
      "primor.eu",
-     "rts.ch",
      "screen.studio",
      "screenflash.io",
      "solvia.es",
@@ -7687,6 +7790,12 @@
     "no-setTimeout-if",
     [
      "*"
+    ]
+   ],
+   [
+    "trusted-replace-xhr-response",
+    [
+     "www.facebook.com"
     ]
    ],
    [
@@ -7899,7 +8008,13 @@
    [
     "adjust-setTimeout",
     [
-     "store.kde.org"
+     "appimagehub.com",
+     "gnome-look.org",
+     "linux-apps.com",
+     "opendesktop.org",
+     "pling.com",
+     "store.kde.org",
+     "xfce-look.org"
     ]
    ],
    [
@@ -7920,6 +8035,14 @@
  [
   "annoyances-others",
   [
+   [
+    "no-setTimeout-if",
+    [
+     "analyticsvidhya.com",
+     "clarin.com",
+     "tekinvestor.no"
+    ]
+   ],
    [
     "remove-cookie",
     [
@@ -7950,6 +8073,7 @@
    [
     "set-local-storage-item",
     [
+     "cnn.com",
      "deepl.com",
      "quillbot.com",
      "zippia.com"
@@ -8050,12 +8174,6 @@
     "set-session-storage-item",
     [
      "fantasyfootballhub.co.uk"
-    ]
-   ],
-   [
-    "no-setTimeout-if",
-    [
-     "analyticsvidhya.com"
     ]
    ]
   ]

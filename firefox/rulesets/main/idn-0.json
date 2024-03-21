@@ -3063,5 +3063,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["doroni.me"],"resourceTypes":["script"]},"id":3062},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.care/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3063},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.cash/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3064},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.lol/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3065}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.lol/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3065},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["193.142.147.230","ainzscans.net","igobokep.cam","siimanga.cyou"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":3066}
 ]

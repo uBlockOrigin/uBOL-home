@@ -142,5 +142,11 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["skaties.lv"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||fwmrm.net/ad/l/"},"id":141},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||lsm.lv/public/scripts/ads.js"},"id":142},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||varianti.lv/ads/load_ad_images/"},"id":143},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||visidarbi.lv/advertisements"},"id":144}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||visidarbi.lv/advertisements"},"id":144},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["optibet.com","optibet.ee","optibet.lt","optibet.lu","optibet.lv"],"urlFilter":"/optibet.jpg|"},"id":145},
+{"action":{"type":"block"},"condition":{"urlFilter":"/wp-content/srennab^"},"id":146},
+{"action":{"type":"block"},"condition":{"urlFilter":"||jauns.lv/ad_list/"},"id":147},
+{"action":{"type":"block"},"condition":{"urlFilter":"||sportazinas.com/*/1920x1000"},"id":148},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||img.pilseta24.lv/media/768x575^"},"id":149},
+{"action":{"type":"block"},"condition":{"requestDomains":["source.pilseta24.lv"],"resourceTypes":["image"]},"id":150}
 ]

@@ -35,7 +35,7 @@
 
 const argsList = [["{\"selector\":\"#header\",\"action\":[\"style\",\"margin-top: 0 !important\"]}"],["{\"selector\":\"body\",\"action\":[\"style\",\"position: static !important\"]}"],["{\"selector\":\"html\",\"action\":[\"style\",\"overflow: auto !important\"]}"],["{\"selector\":\"div.layout.pt-mobi-top\",\"action\":[\"style\",\"padding-top: 0 !important\"]}","{\"selector\":\"header.bg-white\",\"action\":[\"style\",\"margin-top: 0px !important\"]}"]];
 
-const hostnamesMap = new Map([["chotlo247.me",0],["www.o-study.net",1],["live4.thapcam4.net",2],["blog.abit.vn",2],["www.saostar.vn",3]]);
+const hostnamesMap = new Map([["chotlo247.me",0],["www.o-study.net",1],["thapcam4.net",2],["blog.abit.vn",2],["www.saostar.vn",3]]);
 
 const entitiesMap = new Map(undefined);
 

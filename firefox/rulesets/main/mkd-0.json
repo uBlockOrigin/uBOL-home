@@ -155,5 +155,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||time.mk/widget/"},"id":154},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||www.najdidom.mk/widget/"},"id":155},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||www.pazar3.mk/wgdata/"},"id":156},
-{"action":{"type":"block"},"condition":{"requestDomains":["cdnmm.hyperpromote.com"],"resourceTypes":["sub_frame"]},"id":157}
+{"action":{"type":"block"},"condition":{"requestDomains":["cdnmm.hyperpromote.com"],"resourceTypes":["sub_frame"]},"id":157},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||tera.mk/wp-content/uploads/2023/06/baner_300-x-250-1.gif"},"id":158}
 ]

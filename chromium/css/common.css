@@ -52,11 +52,11 @@ body {
     margin: 0;
     padding: 0;
     }
-a {
+a:not(.fa-icon) {
     color: var(--link-ink);
         fill: var(--link-ink);
     }
-a:hover {
+a:not(.fa-icon):hover {
     color: var(--link-hover-ink);
         fill: var(--link-hover-ink);
     }
@@ -269,6 +269,24 @@ label:hover .radio > input[type="radio"]:not(:checked) + svg > circle {
 
 select {
     padding: 2px;
+    }
+
+.searchfield {
+    align-items: center;
+    column-gap: var(--default-gap-xxsmall);
+    display: inline-flex;
+    position: relative;
+    }
+.searchfield .fa-icon {
+    color: var(--ink-4);
+        fill: var(--ink-4);
+    font-size: 1em !important;
+    left: 2px;
+    position: absolute;
+    transform: none;
+    }
+.searchfield input:not(:placeholder-shown) ~ .fa-icon {
+    display: none;
     }
 
 .hidden {

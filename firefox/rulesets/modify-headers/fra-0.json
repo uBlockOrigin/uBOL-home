@@ -5,74 +5,6 @@
    {
     "header": "content-security-policy",
     "operation": "append",
-    "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudflare.com *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com *.jwpcdn.com *.recaptcha.net *.tapecontent.net *.video-delivery.net *.youtube.com *.zencdn.net i.doodcdn.co img.doodcdn.co static.doodcdn.co"
-   }
-  ],
-  "type": "modifyHeaders"
- },
- "condition": {
-  "initiatorDomains": [
-   "adblockeronstreamtape.xyz",
-   "adblockplustape.com",
-   "adblockplustape.xyz",
-   "adblockstreamtape.art",
-   "adblockstreamtape.site",
-   "adblockstrtape.link",
-   "d0000d.com",
-   "do0od.com",
-   "dood.la",
-   "dood.pm",
-   "dood.re",
-   "dood.sh",
-   "dood.so",
-   "dood.to",
-   "dood.watch",
-   "dood.wf",
-   "dood.ws",
-   "dood.yt",
-   "doods.pro",
-   "doodstream.co",
-   "doodstream.com",
-   "doodstream.me",
-   "dooood.com",
-   "gettapeads.com",
-   "noblocktape.com",
-   "shavetape.cash",
-   "stapadblockuser.xyz",
-   "stapewithadblock.monster",
-   "strcloud.club",
-   "strcloud.link",
-   "streamadblocker.xyz",
-   "streamadblockplus.com",
-   "streamadblockplus.xyz",
-   "streamta.pe",
-   "streamtape.cc",
-   "streamtape.com",
-   "streamtape.net",
-   "streamtape.to",
-   "streamtape.xyz",
-   "streamtapeadblock.art",
-   "strema.site",
-   "strtape.cloud",
-   "strtape.site",
-   "strtape.tech",
-   "strtapeadblock.club",
-   "strtapeadblock.me",
-   "tapewithadblock.org"
-  ],
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ]
- },
- "id": 6453
-},
-{
- "action": {
-  "responseHeaders": [
-   {
-    "header": "content-security-policy",
-    "operation": "append",
     "value": "worker-src 'none'"
    }
   ],
@@ -86,10 +18,8 @@
    "chemikino.ru",
    "clipwatching.com",
    "coinfaucet.eu",
-   "cracklists.com",
    "crictime.com",
    "crictime.is",
-   "crimedocumentary.com",
    "deltabit.co",
    "descargas2020.com",
    "domnuleprimar.ro",
@@ -105,13 +35,11 @@
    "hdvid.tv",
    "ianimes.org",
    "lewd.ninja",
-   "luckybitco.in",
    "nahnoji.cz",
    "neurozinzin.com",
    "novator.az",
    "onion.ly",
    "onion.pet",
-   "openload.cc",
    "ovid.tv",
    "peliculas24.me",
    "powvideo.net",
@@ -121,10 +49,8 @@
    "studio100.it",
    "tapemovie.com",
    "theappguruz.com",
-   "thepiratebay.cr",
    "thepiratebay.org",
    "thepiratebay.vip",
-   "torrentrapid.com",
    "tubetitties.com",
    "vidoza.co",
    "void.cat"
@@ -134,7 +60,7 @@
    "sub_frame"
   ]
  },
- "id": 6454
+ "id": 1
 },
 {
  "action": {

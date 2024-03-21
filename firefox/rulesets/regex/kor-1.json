@@ -1,4 +1,5 @@
 [
+{"action":{"type":"block"},"condition":{"initiatorDomains":["torrentnx17.com","torrentnx18.com","torrentnx19.com","torrentnx20.com","torrentnx21.com","torrentnx22.com","torrentnx23.com","torrentnx24.com","torrentnx25.com","torrentnx26.com","torrentnx27.com"],"regexFilter":"^https:\\/\\/w[0-9]+\\.torrentnx[0-9]+\\.com\\/data\\/file\\/notice\\/"},"id":1},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https?:\\/\\/[a-z0-9-\\.]*[a-z0-9-]+\\.[a-z]+\\/bannerManager\\/"},"id":11},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https?:\\/\\/[a-z0-9-\\.]*[a-z0-9-]+\\.[a-z]+\\/bannerpop\\/uploads\\/"},"id":12},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https?:\\/\\/[a-z0-9-\\.]*[a-z0-9-]+\\.[a-z]+\\/adManager\\/(css|js)\\/[A-z]+\\.(css|js)$"},"id":13},
@@ -101,7 +102,6 @@
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/manatoki[0-9]+\\.net\\/tokinbtoki\\/"},"id":803},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/static\\.tzstatic\\.top\\/t\\/[a-z0-9]+\\.gif$"},"id":807},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/image\\.yaburi[0-9]+\\.com\\/image-storage\\/banners\\/"},"id":808},
-{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/torrentnx[0-9]+\\.com\\/thema\\/Basic\\/assets\\/"},"id":809},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["wftoon117.com","wftoon118.com","wftoon119.com","wftoon120.com","wftoon121.com","wftoon122.com","wftoon123.com","wftoon124.com","wftoon125.com","wftoon126.com","wftoon127.com","wftoon128.com","wftoon129.com","wftoon130.com","wftoon131.com","wtwt226.com","wtwt227.com","wtwt228.com","wtwt229.com","wtwt230.com","wtwt231.com","wtwt232.com","wtwt233.com","wtwt234.com","wtwt235.com","wtwt236.com","wtwt237.com","wtwt238.com","wtwt239.com","wtwt240.com","wtwt241.com","wtwt242.com","wtwt243.com","wtwt244.com"],"regexFilter":"^https:\\/\\/imgcloud[0-9]+\\.net\\/"},"id":811},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/torrentten[0-9]+\\.com\\/thema\\/Basic\\/assets\\/img\\/.+\\.gif$"},"id":812},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/linkrand[0-9]+\\.com\\/thema\\/Miso-Basic[0-9]\\/assets\\/img\\/banne"},"id":813},

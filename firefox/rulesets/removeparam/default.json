@@ -1,4 +1,5 @@
 [
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["si"]}}},"type":"redirect"},"condition":{"requestDomains":["youtu.be"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":1},
 {"action":{"redirect":{"transform":{"query":""}},"type":"redirect"},"condition":{"initiatorDomains":["aternos.org"],"requestDomains":["fastlane.rubiconproject.com"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":15217},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["r"]}}},"type":"redirect"},"condition":{"initiatorDomains":["aternos.org"],"requestDomains":["htlb.casalemedia.com"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":15218},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["id"]}}},"type":"redirect"},"condition":{"requestDomains":["sextgem.com"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":15219},
