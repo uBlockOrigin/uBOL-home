@@ -20,7 +20,7 @@
     "description": "appears as tab name in dashboard"
   },
   "aboutPageName": {
-    "message": "परिचय",
+    "message": "जानकारी",
     "description": "appears as tab name in dashboard"
   },
   "aboutPrivacyPolicy": {
@@ -72,11 +72,11 @@
     "description": "Header for a ruleset section in 'Filter lists pane'"
   },
   "aboutChangelog": {
-    "message": "परिवर्तन लॉग",
+    "message": "परिवर्तन पत्र",
     "description": ""
   },
   "aboutCode": {
-    "message": "सोर्स कोड {GPLv3}",
+    "message": "सोर्स कोड (GPLv3)",
     "description": "English: Source code (GPLv3)"
   },
   "aboutContributors": {
@@ -153,6 +153,10 @@
   },
   "autoReloadLabel": {
     "message": "फ़िल्टरिंग मोड बदलते समय स्वचालित रूप से पृष्ठ पुनः लोड करें",
+    "description": "Label for a checkbox in the options page"
+  },
+  "showBlockedCountLabel": {
+    "message": "टूलबार आइकन पर अवरुद्ध अनुरोधों की संख्या दिखाएं",
     "description": "Label for a checkbox in the options page"
   }
 }

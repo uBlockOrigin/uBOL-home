@@ -4,7 +4,7 @@
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"-newsletterwidget."},"id":3},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"-square-newsletter."},"id":4},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"/ame-newsletter-public.js"},"id":5},
-{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"/assets/newsletter-"},"id":6},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","rawstory.com","thedailybeast.com"],"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":6},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"/banner/newsletter.jpg"},"id":7},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"/banner/newsletter.png"},"id":8},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"/banner/newsletter.svg"},"id":9},
@@ -168,7 +168,7 @@
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["image"],"urlFilter":"||samfw.com/assets/*.gif"},"id":167},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ruralking.com"],"requestDomains":["listrakbi.com"],"resourceTypes":["script"]},"id":168},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||theintercept.com/xbuilder/"},"id":169},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["thedailybeast.com"],"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":170},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["maxroll.gg"],"isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||s.nitropay.com/n.svg"},"id":170},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ninjakitchen.com"],"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||listrakbi.com/scripts/"},"id":171},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["uol.com.br"],"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"/lib.ucopy/ucopy.js"},"id":172},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||adsrt.com/assets/js/particles.min.js"},"id":173},
@@ -263,7 +263,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||fangraphs.com/dfp.js"},"id":262},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||ads.twitcasting.tv/js/env_test/ads.js"},"id":263},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["cheatnetwork.eu","hbstack.dev"],"resourceTypes":["script"]},"id":264},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["arras.io","bigten.org","cheatnetwork.eu","hbstack.dev","sheffieldforum.co.uk"],"resourceTypes":["xmlhttprequest"]},"id":265},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["bigten.org","cheatnetwork.eu","hbstack.dev","sheffieldforum.co.uk"],"resourceTypes":["xmlhttprequest"]},"id":265},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||luckydesigner.space/adview_"},"id":266},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||9animetv.to/js/safe.ob.min.js"},"id":267}
 ]

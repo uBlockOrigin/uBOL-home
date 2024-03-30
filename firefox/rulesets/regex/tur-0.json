@@ -5,7 +5,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["kibrisgercek.com"],"regexFilter":"\\/(.*-980X100|980-x120-.*|kirni_yenireklam-[0-9]?|teknogold|1080x120|ezic|giynik-sonnnnn-[0-9]?)\\.(gif|jpg|png)"},"id":426},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["pusuhaber.net"],"regexFilter":"(dikey|horay)\\.jpg"},"id":481},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["320volt.com"],"regexFilter":"320volt\\.com\\/images\\/(pcbway-turkiye-pcb-uretim|jlc-pcb-service|PCBONLINE-PCB-assembly|robolink-elektronik-market|direncnet-2)\\.(gif|png)"},"id":482},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["youtubemp3donusturucu.co"],"regexFilter":"\\/youtubemp3donusturucu.co\\/\\d+.js"},"id":500},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ha-ber.com"],"regexFilter":"\\/.*banner(-\\d)?\\.(gif|jpg)"},"id":503},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["frmtr.com"],"regexFilter":"frmtr\\.com\\/images\\/\\w{0,2}\\d?.gif"},"id":505},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["avrupaturkgazetesi.com"],"regexFilter":"\\/(orka-hotels-sentido|Werken-Bij-300x250|corendon-banner-reclame)\\.(gif|jpg)"},"id":583},
