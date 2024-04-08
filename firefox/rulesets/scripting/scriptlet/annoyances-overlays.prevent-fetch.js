@@ -42,7 +42,7 @@ const uBOL_noFetchIf = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["analytics"],["googlesyndication"],["ads"],["/googlesyndication|googletag/"],["ad.php"],["cloudflareinsights.com"]];
+const argsList = [["analytics"],["googlesyndication"],["ads"],["/googlesyndication|googletag/"],["/ad\\.php|api\\/ads/"],["cloudflareinsights.com"]];
 
 const hostnamesMap = new Map([["textcleaner.net",1],["socialcounts.org",1],["viewing.nyc",1],["theonegenerator.com",2],["mcskinhistory.com",2],["bypass.city",3],["adbypass.org",3],["fullxh.com",4],["megaxh.com",4],["unlockxh4.com",4],["xhadult2.com",4],["xhadult3.com",4],["xhadult4.com",4],["xhadult5.com",4],["xhamster46.com",4],["xhday.com",4],["xhday1.com",4],["xhmoon5.com",4],["xhplanet1.com",4],["xhplanet2.com",4],["xhreal2.com",4],["xhreal3.com",4],["xhtab2.com",4],["xhvictory.com",4],["xhwebsite.com",4],["xhwebsite2.com",4],["xhwide1.com",4],["xhwide8.com",4],["amtraker.com",5]]);
 

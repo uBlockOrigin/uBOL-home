@@ -1,5 +1,7 @@
 [
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["si"]}}},"type":"redirect"},"condition":{"requestDomains":["youtu.be"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":1},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["wpopageid"]}}},"type":"redirect"},"condition":{"domainType":"thirdParty","initiatorDomains":["www.bing.com"],"isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||assets.msn.com/service/news/feed/pages/binghp?"},"id":2},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["caid"]}}},"type":"redirect"},"condition":{"domainType":"thirdParty","initiatorDomains":["rtlplay.be"],"isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||v.fwmrm.net/ad/g/"},"id":3},
 {"action":{"redirect":{"transform":{"query":""}},"type":"redirect"},"condition":{"initiatorDomains":["aternos.org"],"requestDomains":["fastlane.rubiconproject.com"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":15215},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["r"]}}},"type":"redirect"},"condition":{"initiatorDomains":["aternos.org"],"requestDomains":["htlb.casalemedia.com"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":15216},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["id"]}}},"type":"redirect"},"condition":{"requestDomains":["sextgem.com"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":15217},

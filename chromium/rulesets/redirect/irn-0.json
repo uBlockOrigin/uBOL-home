@@ -2,6 +2,27 @@
 {
  "action": {
   "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "initiatorDomains": [
+   "melodify.app"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||melodify.pw/serve/v1/limitation/*.mp3^"
+ },
+ "id": 1,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
    "extensionPath": "/web_accessible_resources/noop.txt"
   },
   "type": "redirect"

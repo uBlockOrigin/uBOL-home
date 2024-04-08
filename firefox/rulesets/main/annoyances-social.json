@@ -838,5 +838,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||vpobede.ru/assets/images/footer-social/"},"id":837},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||static.parastorage.com/services/editor-elements/dist/facebookshare."},"id":838},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||instagram.com/p/"},"id":839},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||qds.it/wp-content/plugins/digistream/digiplayer/js/videojs-share.min.js?"},"id":840}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||qds.it/wp-content/plugins/digistream/digiplayer/js/videojs-share.min.js?"},"id":840},
+{"action":{"type":"block"},"condition":{"urlFilter":"||lequipe.fr/_nuxt/share."},"id":841}
 ]

@@ -148,5 +148,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||jauns.lv/ad_list/"},"id":147},
 {"action":{"type":"block"},"condition":{"urlFilter":"||sportazinas.com/*/1920x1000"},"id":148},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||img.pilseta24.lv/media/768x575^"},"id":149},
-{"action":{"type":"block"},"condition":{"requestDomains":["source.pilseta24.lv"],"resourceTypes":["image"]},"id":150}
+{"action":{"type":"block"},"condition":{"requestDomains":["source.pilseta24.lv"],"resourceTypes":["image"]},"id":150},
+{"action":{"type":"block"},"condition":{"urlFilter":"||salidzini.lv/fallback_"},"id":151}
 ]

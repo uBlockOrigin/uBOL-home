@@ -228,7 +228,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||bhplay.me/player/assets/devtools-detector/"},"id":227},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","requestDomains":["prod.theintercept.com"],"resourceTypes":["sub_frame"]},"id":228},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["sub_frame"],"urlFilter":"||dl.gmx.*/uim/connector/live/v2/nonfriendlyiframe.html"},"id":229},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["api.pico.tools","app.avada.io","confirmsubscription.com","copypoison.com","fkrkkmxsqeb5bj9r.s3.amazonaws.com","holyclock.com","maillist-manage.com","optinly.net","popupsmart.com","sendlane.com","shomershabes.co.il","shomershabes.com","smarthint.co","spinasale.com","targetbay.com","yourmarketingemail.com"]},"id":230},
+{"action":{"type":"block"},"condition":{"urlFilter":"||irishstar.com/newsletter-preference-centre"},"id":230},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["wetransfer.com"],"urlFilter":"||wetransfer.net/*/adblocker"},"id":231},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js"},"id":232},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||lightboxcdn.com/vendor/"},"id":233},
@@ -263,6 +263,10 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||fangraphs.com/dfp.js"},"id":262},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||ads.twitcasting.tv/js/env_test/ads.js"},"id":263},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["cheatnetwork.eu","hbstack.dev"],"resourceTypes":["script"]},"id":264},
+{"action":{"type":"block"},"condition":{"urlFilter":"||latercera.com/newsletters/"},"id":265},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||luckydesigner.space/adview_"},"id":266},
-{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||9animetv.to/js/safe.ob.min.js"},"id":267}
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||9animetv.to/js/safe.ob.min.js"},"id":267},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["api.pico.tools","app.avada.io","confirmsubscription.com","content-settings.com","copypoison.com","fkrkkmxsqeb5bj9r.s3.amazonaws.com","holyclock.com","maillist-manage.com","optinly.net","popupsmart.com","sendlane.com","shomershabes.co.il","shomershabes.com","site-config.com","smarthint.co","spinasale.com","targetbay.com","yourmarketingemail.com"]},"id":268},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["raenonx.cc"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":269},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["raenonx.cc"],"requestDomains":["www3.doubleclick.net"],"resourceTypes":["xmlhttprequest"]},"id":270}
 ]

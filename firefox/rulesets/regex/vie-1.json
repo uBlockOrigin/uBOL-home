@@ -4,6 +4,19 @@
   "type": "block"
  },
  "condition": {
+  "initiatorDomains": [
+   "bongda21h.one",
+   "phimno4.xyz"
+  ],
+  "regexFilter": "media.discordapp"
+ },
+ "id": 1
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
   "regexFilter": "giadinhonline.vn\\/files\\/qc"
  },
  "id": 10
@@ -19,19 +32,6 @@
   "regexFilter": "i.imgur.com"
  },
  "id": 11
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "initiatorDomains": [
-   "bongda21h.vip",
-   "phimno4.xyz"
-  ],
-  "regexFilter": "media.discordapp"
- },
- "id": 13
 },
 {
  "action": {

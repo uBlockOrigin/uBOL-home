@@ -1,4 +1,5 @@
 [
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["tragtorr.in","tragtorr.info"],"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||yandex.ru/ads/system/context.js"},"id":1,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/32x32.png"},"type":"redirect"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["image"],"urlFilter":"||clustrmaps.com/counter/"},"id":5797,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["image"],"urlFilter":"||mc.admetrica.ru/sync_cookie_image_check"},"id":5798,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/empty"},"type":"redirect"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["image","script","xmlhttprequest"],"urlFilter":"||ad.mail.ru/"},"id":5799,"priority":2},
