@@ -4,6 +4,57 @@
   "type": "block"
  },
  "condition": {
+  "domainType": "thirdParty",
+  "excludedResourceTypes": [
+   "main_frame",
+   "media"
+  ],
+  "initiatorDomains": [
+   "animefenix.com",
+   "animefenix.tv",
+   "animeonline.ninja",
+   "animeyt.es",
+   "compucalitv.com",
+   "compupaste.com",
+   "cuevana2.cyou",
+   "gnula24.xyz",
+   "henaojara2.com",
+   "hentaiyt.net",
+   "hispasexy.org",
+   "mangamovil.net",
+   "megaepubsgratis.com",
+   "mejortorrent.cc",
+   "mundoepub3.com",
+   "pelispediahd.site",
+   "pelisplus.top",
+   "pelisplus2.io",
+   "pelisplushd.nu",
+   "pirlotv.fr",
+   "pirlotvonline.org",
+   "pormega.com",
+   "pornotorrent.es",
+   "pornstarsyfamosas.es",
+   "rojadirectaenvivo.club",
+   "rojadirectatv.tv",
+   "seriesly.top",
+   "seriespepito.top",
+   "shadowrangers.live",
+   "shadowrangers.net",
+   "telenovelas-turcas.com.es",
+   "tomatomatela.com",
+   "verblackclover.com",
+   "verboruto.online",
+   "xn--solopeliculasespaol-c4b.com"
+  ],
+  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
+ },
+ "id": 1
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
   "initiatorDomains": [
    "alcalorpolitico.com"
   ],
@@ -71,58 +122,6 @@
   ]
  },
  "id": 545
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "excludedResourceTypes": [
-   "main_frame",
-   "media"
-  ],
-  "initiatorDomains": [
-   "animefenix.com",
-   "animefenix.tv",
-   "animeonline.ninja",
-   "animeyt.es",
-   "aniyae.net",
-   "compucalitv.com",
-   "compupaste.com",
-   "cuevana2.cyou",
-   "gnula24.xyz",
-   "henaojara2.com",
-   "hentaiyt.net",
-   "hispasexy.org",
-   "mangamovil.net",
-   "megaepubsgratis.com",
-   "mejortorrent.cc",
-   "mundoepub3.com",
-   "pelispediahd.site",
-   "pelisplus.top",
-   "pelisplus2.io",
-   "pelisplushd.nu",
-   "pirlotv.fr",
-   "pirlotvonline.org",
-   "pormega.com",
-   "pornotorrent.es",
-   "pornstarsyfamosas.es",
-   "rojadirectaenvivo.club",
-   "rojadirectatv.tv",
-   "seriesly.top",
-   "seriespepito.top",
-   "shadowrangers.live",
-   "shadowrangers.net",
-   "telenovelas-turcas.com.es",
-   "tomatomatela.com",
-   "verblackclover.com",
-   "verboruto.online",
-   "xn--solopeliculasespaol-c4b.com"
-  ],
-  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
- },
- "id": 566
 },
 {
  "action": {

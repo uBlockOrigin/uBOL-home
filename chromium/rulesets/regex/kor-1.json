@@ -1,5 +1,7 @@
 [
 {"action":{"type":"block"},"condition":{"initiatorDomains":["torrentnx17.com","torrentnx18.com","torrentnx19.com","torrentnx20.com","torrentnx21.com","torrentnx22.com","torrentnx23.com","torrentnx24.com","torrentnx25.com","torrentnx26.com","torrentnx27.com"],"isUrlFilterCaseSensitive":false,"regexFilter":"^https:\\/\\/w[0-9]+\\.torrentnx[0-9]+\\.com\\/data\\/file\\/notice\\/"},"id":1},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["dasibogo.net"],"isUrlFilterCaseSensitive":false,"regexFilter":"^https:\\/\\/v[0-9]+\\.dasibogo\\.net\\/wp-content\\/uploads\\/sites\\/[0-9]+\\/[0-9]+\\/[0-9]+\\/[a-z0-9]+\\."},"id":2},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["dasibogo.net"],"isUrlFilterCaseSensitive":false,"regexFilter":"^https:\\/\\/v[0-9]+\\.jogemovie\\.net\\/wp-content\\/uploads\\/sites\\/[0-9]+\\/[0-9]+\\/[0-9]+\\/[a-z0-9-]+\\."},"id":3},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https?:\\/\\/[a-z0-9-\\.]*[a-z0-9-]+\\.[a-z]+\\/bannerManager\\/"},"id":11},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"regexFilter":"^https?:\\/\\/[a-z0-9-\\.]*[a-z0-9-]+\\.[a-z]+\\/bannerpop\\/uploads\\/"},"id":12},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"regexFilter":"^https?:\\/\\/[a-z0-9-\\.]*[a-z0-9-]+\\.[a-z]+\\/adManager\\/(css|js)\\/[A-z]+\\.(css|js)$"},"id":13},

@@ -186,7 +186,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/xgemius.min.js^"},"id":185},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||infostart.hu/js/ga.js"},"id":186},
 {"action":{"type":"block"},"condition":{"requestDomains":["affiliate.hu","bannerserver.hu"],"resourceTypes":["sub_frame"]},"id":187},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["atlatszo.hu","hvg.hu","myonlineradio.hu","origo.hu","rtl.hu","telex.hu","videa.hu"],"requestDomains":["cmp.inmobi.com"],"resourceTypes":["script"]},"id":188},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["civishir.hu"],"requestDomains":["api.indidata.com"]},"id":188},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||m2mzona.hu/ads^"},"id":189},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["agroinform.hu"],"requestDomains":["consent.cookiebot.com"],"resourceTypes":["script"]},"id":190},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["va.v.liveperson.net"],"resourceTypes":["script"]},"id":191},
@@ -199,5 +199,6 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||bitepito.hu/rejtveny/data/ads/googleads.js^"},"id":198},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||meszotar.hu/scripts/advertising.js"},"id":199},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["embed.rtl.hu"],"resourceTypes":["script"],"urlFilter":"||pro.hit.gemius.pl/gstream.js"},"id":200},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["menetrendek.hu"],"requestDomains":["adocean.pl"],"resourceTypes":["script"]},"id":201}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["menetrendek.hu"],"requestDomains":["adocean.pl"],"resourceTypes":["script"]},"id":201},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["atlatszo.hu","femina.hu","fototrend.hu","gamepod.hu","hvg.hu","itcafe.hu","logout.hu","mobilarena.hu","myonlineradio.hu","origo.hu","prohardver.hu","rtl.hu","telex.hu","videa.hu"],"requestDomains":["cmp.inmobi.com"],"resourceTypes":["script"]},"id":202}
 ]

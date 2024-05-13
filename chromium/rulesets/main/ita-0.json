@@ -1439,5 +1439,9 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||api.everli.com/sm/api/*&adgroupid="},"id":1438},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||mail1.libero.it/appsuite/api/apps/load/"},"id":1439},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","isUrlFilterCaseSensitive":false,"resourceTypes":["media"],"urlFilter":"||gay.it/adv/empty.mp4"},"id":1440},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["ilquaderno.it","quotidiano.net"],"isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||ads.viralize.tv/player/"},"id":1441}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["ilquaderno.it","quotidiano.net"],"isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||ads.viralize.tv/player/"},"id":1441},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"||escortaltop.it/banner/"},"id":1442},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"||gnoccaforum.biz/banner/"},"id":1443},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"||maiescort.com/images/bn/"},"id":1444},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"urlFilter":"||primocanale.it/images/jch-optimize/ng/images_banners_"},"id":1445}
 ]

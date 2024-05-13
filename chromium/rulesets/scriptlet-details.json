@@ -7,14 +7,16 @@
     [
      "app.hellovaia.com",
      "app.vaia.com",
-     "chzzk.naver.com",
+     "in-jpn.com",
      "tv.youtube.com",
+     "www.facebook.com",
      "www.youtube.com"
     ]
    ],
    [
     "trusted-replace-fetch-response",
     [
+     "tokopedia.com",
      "www.youtube.com"
     ]
    ],
@@ -28,6 +30,34 @@
     "json-prune",
     [
      "*"
+    ]
+   ],
+   [
+    "json-prune-fetch-response",
+    [
+     "crackle.com",
+     "hulu.com",
+     "iprima.cz",
+     "m.youtube.com",
+     "misskey.io",
+     "misskey.oga.ninja",
+     "mk.yopo.work",
+     "music.youtube.com",
+     "nbc.com",
+     "player.pop.co.uk",
+     "player.popfun.co.uk",
+     "sushi.ski",
+     "target.com",
+     "trpger.us",
+     "tumblr.com",
+     "tv.youtube.com",
+     "warpday.net",
+     "www.msn.com",
+     "www.youtube.com",
+     "youtube-nocookie.com",
+     "youtubekids.com",
+     "zadankai.club",
+     "zee5.com"
     ]
    ],
    [
@@ -115,37 +145,6 @@
     ]
    ],
    [
-    "set-cookie",
-    [
-     "*"
-    ]
-   ],
-   [
-    "remove-cookie",
-    [
-     "*"
-    ]
-   ],
-   [
-    "json-prune-fetch-response",
-    [
-     "hulu.com",
-     "iprima.cz",
-     "misskey.io",
-     "misskey.oga.ninja",
-     "mk.yopo.work",
-     "nbc.com",
-     "player.pop.co.uk",
-     "player.popfun.co.uk",
-     "sushi.ski",
-     "trpger.us",
-     "tumblr.com",
-     "warpday.net",
-     "www.msn.com",
-     "zadankai.club"
-    ]
-   ],
-   [
     "remove-attr",
     [
      "*"
@@ -178,6 +177,18 @@
     ]
    ],
    [
+    "set-cookie",
+    [
+     "*"
+    ]
+   ],
+   [
+    "remove-cookie",
+    [
+     "*"
+    ]
+   ],
+   [
     "m3u-prune",
     [
      "10play.com.au",
@@ -198,16 +209,12 @@
      "av01.tv",
      "bestfonts.pro",
      "falatron.com",
-     "freebrightsoft.com",
      "funker530.com",
      "go.gets4link.com",
      "paid4.link",
      "quizlet.com",
      "sbs.com.au",
-     "sinonimos.de",
      "so1.asia",
-     "tiktokcounter.net",
-     "tiktokrealtime.com",
      "top1iq.com",
      "xda-developers.com"
     ]
@@ -229,53 +236,6 @@
     [
      "1001tracklists.com",
      "66ccff.work"
-    ]
-   ],
-   [
-    "spoof-css",
-    [
-     "banaraswap.in",
-     "decrypt.day",
-     "download.megaup.net",
-     "kiktu.com",
-     "puzzle-aquarium.com",
-     "puzzle-battleships.com",
-     "puzzle-binairo.com",
-     "puzzle-bridges.com",
-     "puzzle-chess.com",
-     "puzzle-dominosa.com",
-     "puzzle-futoshiki.com",
-     "puzzle-galaxies.com",
-     "puzzle-heyawake.com",
-     "puzzle-hitori.com",
-     "puzzle-jigsaw-sudoku.com",
-     "puzzle-kakurasu.com",
-     "puzzle-kakuro.com",
-     "puzzle-killer-sudoku.com",
-     "puzzle-light-up.com",
-     "puzzle-lits.com",
-     "puzzle-loop.com",
-     "puzzle-masyu.com",
-     "puzzle-minesweeper.com",
-     "puzzle-nonograms.com",
-     "puzzle-norinori.com",
-     "puzzle-nurikabe.com",
-     "puzzle-pipes.com",
-     "puzzle-shakashaka.com",
-     "puzzle-shikaku.com",
-     "puzzle-shingoki.com",
-     "puzzle-skyscrapers.com",
-     "puzzle-slant.com",
-     "puzzle-star-battle.com",
-     "puzzle-stitches.com",
-     "puzzle-sudoku.com",
-     "puzzle-tapa.com",
-     "puzzle-tents.com",
-     "puzzle-thermometers.com",
-     "puzzle-words.com",
-     "techcyan.com",
-     "trangchu.news",
-     "upshrink.com"
     ]
    ],
    [
@@ -323,6 +283,8 @@
    [
     "set-attr",
     [
+     "18kalebettv.xyz",
+     "19kalebettv.xyz",
      "rocketnews24.com",
      "soranews24.com",
      "statisticsanddata.org",
@@ -330,9 +292,53 @@
     ]
    ],
    [
+    "spoof-css",
+    [
+     "banaraswap.in",
+     "decrypt.day",
+     "dev.miuiflash.com",
+     "djxmaza.in",
+     "download.megaup.net",
+     "jytechs.in",
+     "kiktu.com",
+     "techcyan.com",
+     "thecubexguide.com",
+     "trangchu.news",
+     "upshrink.com"
+    ]
+   ],
+   [
+    "trusted-click-element",
+    [
+     "bankshiksha.in",
+     "best-mobilegames.com",
+     "bharatsarkarijobalert.com",
+     "earn.mpscstudyhub.com",
+     "earn.quotesopia.com",
+     "easybib.com",
+     "fitnessholic.net",
+     "learn.moderngyan.com",
+     "money.quotesopia.com",
+     "my.irancell.ir",
+     "techyinfo.in",
+     "tourbobit.com",
+     "tourbobit.net",
+     "turbobeet.net",
+     "turbobi.pw",
+     "turbobif.com",
+     "turbobit.net",
+     "turbobita.net",
+     "turbobits.cc",
+     "turboobit.com"
+    ]
+   ],
+   [
     "set-local-storage-item",
     [
      "adultdeepfakes.com",
+     "allthekingz.com",
+     "automobile-catalog.com",
+     "bamgosu.site",
      "bravedown.com",
      "dogdrip.net",
      "economist.co.kr",
@@ -340,11 +346,13 @@
      "elevenlabs.io",
      "enetnews.co.kr",
      "etnews.com",
+     "etnewskorea.com",
      "etoday.co.kr",
      "etoland.co.kr",
      "fedex.com",
      "fntimes.com",
      "freewsad.com",
+     "gadgets360.com",
      "genshinlab.com",
      "hankyung.com",
      "hometownstation.com",
@@ -357,18 +365,26 @@
      "jetpunk.com",
      "lamire.jp",
      "loawa.com",
+     "maketecheasier.com",
      "meeco.kr",
      "mindbodygreen.com",
+     "mydaily.co.kr",
+     "ndtvprofit.com",
      "picrew.me",
+     "raenonx.cc",
      "sportalkorea.com",
      "text-compare.com",
      "thephoblographer.com",
+     "thesaurus.net",
+     "thestar.co.uk",
      "thestockmarketwatch.com",
      "uttranews.com",
      "vipotv.com",
      "warcraftrumbledeck.com",
+     "wfmz.com",
      "worldhistory.org",
-     "ygosu.com"
+     "ygosu.com",
+     "yorkshirepost.co.uk"
     ]
    ],
    [
@@ -410,22 +426,6 @@
     ]
    ],
    [
-    "trusted-click-element",
-    [
-     "easybib.com",
-     "my.irancell.ir",
-     "tourbobit.com",
-     "tourbobit.net",
-     "turbobeet.net",
-     "turbobi.pw",
-     "turbobif.com",
-     "turbobit.net",
-     "turbobita.net",
-     "turbobits.cc",
-     "turboobit.com"
-    ]
-   ],
-   [
     "json-prune-xhr-response",
     [
      "twitter.com"
@@ -436,6 +436,12 @@
  [
   "chn-0",
   [
+   [
+    "abort-current-script",
+    [
+     "*"
+    ]
+   ],
    [
     "no-xhr-if",
     [
@@ -492,12 +498,6 @@
      "tsubasa.im",
      "xbeibeix.com",
      "zhenbuka.com"
-    ]
-   ],
-   [
-    "abort-current-script",
-    [
-     "*"
     ]
    ],
    [
@@ -1024,12 +1024,26 @@
     [
      "mapcustomizer.com"
     ]
+   ],
+   [
+    "remove-node-text",
+    [
+     "japscan.lol"
+    ]
    ]
   ]
  ],
  [
   "hun-0",
   [
+   [
+    "no-setTimeout-if",
+    [
+     "calculat.org",
+     "jofogas.hu",
+     "vezess.hu"
+    ]
+   ],
    [
     "remove-attr",
     [
@@ -1073,13 +1087,6 @@
    [
     "addEventListener-defuser",
     [
-     "vezess.hu"
-    ]
-   ],
-   [
-    "no-setTimeout-if",
-    [
-     "calculat.org",
      "vezess.hu"
     ]
    ],
@@ -1198,7 +1205,8 @@
     [
      "almaftuchin.com",
      "carisinyal.com",
-     "gramedia.com"
+     "gramedia.com",
+     "wisatalova.com"
     ]
    ]
   ]
@@ -1236,6 +1244,7 @@
      "ac.ir",
      "anaj.ir",
      "androidgozar.com",
+     "barcanews.org",
      "binanews.ir",
      "fidibo.com",
      "fontyab.com",
@@ -1534,13 +1543,6 @@
   "jpn-1",
   [
    [
-    "no-xhr-if",
-    [
-     "lemino.docomo.ne.jp",
-     "service.webgoto.net"
-    ]
-   ],
-   [
     "prevent-fetch",
     [
      "*"
@@ -1570,16 +1572,19 @@
    [
     "addEventListener-defuser",
     [
-     "ad-contents.jp",
      "anacap.doorblog.jp",
      "anianierosuki.work",
      "blog-and-destroy.com",
+     "blog.housinkai.com",
      "coolpan.net",
      "ero-video.net",
      "jp-xvideos.info",
      "jukenbbs.com",
+     "kakenhi.net",
+     "seesaa.net",
      "tokyomotion.net",
      "twidouga.net",
+     "twivideo.net",
      "uraaka-joshi.com"
     ]
    ],
@@ -1614,8 +1619,13 @@
      "sukima.me",
      "tapestry.work",
      "teaceremony.work",
-     "webdevqa.jp.net",
      "weddinghall.work"
+    ]
+   ],
+   [
+    "no-xhr-if",
+    [
+     "lemino.docomo.ne.jp"
     ]
    ],
    [
@@ -1655,6 +1665,7 @@
      "fm.sekkaku.net",
      "free-avx.jp",
      "gametohkenranbu.sakuraweb.com",
+     "ideal2ch.livedoor.biz",
      "jisakuhibi.jp",
      "lifematome.blog",
      "rank1-media.com",
@@ -1668,7 +1679,6 @@
     [
      "asg.to",
      "dl.520cc.cc",
-     "embed.share-videos.se",
      "japaneseasmr.top",
      "kokeshi-doll.com",
      "oppaideippai.net",
@@ -1713,9 +1723,9 @@
    [
     "set-constant",
     [
-     "*",
      "333aaa.site",
      "app.dcinside.com",
+     "auto.danawa.com",
      "domin.co.kr",
      "fun-iyagi.co.kr",
      "hub.zum.com",
@@ -1724,11 +1734,15 @@
      "koreapas.com",
      "m.dcinside.com",
      "m.humoruniv.com",
+     "meeco.kr",
      "mememedia.co.kr",
      "naver.com",
+     "sajuplus.net",
      "sbs.co.kr",
      "shopping.interpark.com",
+     "sogirl.so",
      "timecoffee.co.kr",
+     "tistory.com",
      "tvchosun.com",
      "uwayapply.com",
      "zum.com"
@@ -1741,7 +1755,6 @@
      "aannm.cafe24.com",
      "actingbaum.co.kr",
      "asdn.kr",
-     "avjamak.net",
      "beomil09121.cafe24.com",
      "bikesell.co.kr",
      "cfnews.kr",
@@ -1843,6 +1856,7 @@
     "set-cookie",
     [
      "luckyquiz3.blogspot.com",
+     "naver.com",
      "oh-yes.co.kr",
      "ssodam.com"
     ]
@@ -2103,12 +2117,6 @@
     ]
    ],
    [
-    "abort-current-script",
-    [
-     "*"
-    ]
-   ],
-   [
     "abort-on-property-read",
     [
      "nakenprat.com",
@@ -2120,6 +2128,12 @@
     [
      "no",
      "sonderborgnyt.dk"
+    ]
+   ],
+   [
+    "abort-current-script",
+    [
+     "*"
     ]
    ],
    [
@@ -2532,12 +2546,10 @@
      "fssp.gov.ru",
      "gamemag.ru",
      "kakprosto.ru",
-     "meteoservice.ru",
      "ok.ru",
      "phys-kids.com",
      "ranobe-novels.ru",
      "southpark.su",
-     "stroi-help.ru",
      "tests24.su",
      "turkcinema.org",
      "ufchgu.ru"
@@ -2591,6 +2603,7 @@
      "tva.org.ua",
      "tvapp.su",
      "ufchgu.ru",
+     "ukrainianwall.com",
      "wday.ru",
      "woman.ru",
      "www.fontanka.ru",
@@ -2628,10 +2641,12 @@
     "href-sanitizer",
     [
      "e.mail.ru",
+     "freehat.cc",
      "game4you.top",
      "games-pc.top",
      "innal.top",
      "kluchikipro.ru",
+     "lalapaluza.ru",
      "lifehacker.ru",
      "light.mail.ru",
      "naylo.top",
@@ -2656,11 +2671,13 @@
     [
      "1plus1.video",
      "aniqit.com",
+     "anivod.com",
      "ashdi.vip",
      "e.mail.ru",
      "igromania.ru",
      "ivanovonews.ru",
      "kanobu.ru",
+     "kodik.cc",
      "kodik.info",
      "kufar.by",
      "ok.ru",
@@ -2703,6 +2720,7 @@
      "vip-mods.ru",
      "wallegend.net",
      "warezok.net",
+     "wdho.ru",
      "windows-driver.com",
      "windows-driver.net",
      "windows-program.com",
@@ -2718,14 +2736,12 @@
      "dropmefiles.com.ua",
      "dropmefiles.net",
      "dzen.ru",
-     "fonland.site",
      "freetp.org",
      "freetp.ru",
      "gtavicecity.ru",
      "online-fix.me",
      "pes-files.ru",
      "rbc.ru",
-     "soyztreid.website",
      "tv-kanali.online"
     ]
    ],
@@ -2753,10 +2769,8 @@
      "allapteki.ru",
      "anime-chan.me",
      "aqicn.org",
-     "blackwot.ru",
      "buhgalter.com.ua",
      "buhgalter911.com",
-     "dracon-zet.ru",
      "e.mail.ru",
      "factor.ua",
      "ferr-um.ucoz.ru",
@@ -2773,11 +2787,11 @@
      "stalker-2-2012.ucoz.net",
      "strategium.ru",
      "testserver.pro",
+     "tradingview.com",
      "tragtorr.in",
      "tragtorr.info",
      "tv-kanali.online",
      "vseinstrumenti.ru",
-     "vseprosto.top",
      "websdr.space"
     ]
    ],
@@ -2861,7 +2875,7 @@
     "remove-attr",
     [
      "afisha.ru",
-     "byrutdb.org",
+     "byruthub.org",
      "cnews.ru",
      "film.ru",
      "filmpro.ru",
@@ -2871,6 +2885,7 @@
      "lenta.ru",
      "lostfilm.download",
      "lostfilm.life",
+     "lostfilm.one",
      "lostfilm.pro",
      "lostfilm.today",
      "lostfilm.tv",
@@ -2913,6 +2928,7 @@
    [
     "remove-node-text",
     [
+     "24boxing.com.ua",
      "avtovod.com.ua",
      "bigmir.net",
      "buhgalter.com.ua",
@@ -2965,17 +2981,19 @@
      "utorr.cc",
      "viva.ua",
      "vsetv.com",
-     "www.ukr.net"
+     "www.ukr.net",
+     "zdorovia.com.ua"
     ]
    ],
    [
     "set-attr",
     [
+     "3dnews.kz",
+     "3dnews.ru",
      "dtf.ru",
      "eneyida.tv",
      "howdyho.net",
-     "reshu.by",
-     "sdamgia.ru",
+     "overclockers.ru",
      "vc.ru"
     ]
    ],
@@ -2999,6 +3017,7 @@
    [
     "set-local-storage-item",
     [
+     "iz.ru",
      "playground.ru"
     ]
    ],
@@ -3079,6 +3098,11 @@
      "alarmadefraude.com",
      "animesonline.nz",
      "animeszone.net",
+     "antena7.com.do",
+     "c9n.com.py",
+     "canal12.com.sv",
+     "canal13mexico.com",
+     "chapintv.com",
      "costumbresmexico.com",
      "desbloquea.me",
      "desbloqueador.site",
@@ -3086,6 +3110,7 @@
      "dicasfinanceirasbr.com",
      "dicasgostosas.com",
      "discografias.net",
+     "elcomercio.com",
      "emperorscan.com",
      "enlacito.com",
      "expertplay.net",
@@ -3102,11 +3127,13 @@
      "megacurioso.net",
      "meutimao.com.br",
      "modescanlator.com",
+     "monumental.co.cr",
      "mundodonghua.com",
      "negociosecommerce.com",
      "netmovies.com.br",
      "notipostingt.com",
      "nptmedia.tv",
+     "packsmega.info",
      "peliculas8k.com",
      "pobre.wtf",
      "puromarketing.com",
@@ -3116,16 +3143,60 @@
      "redbolivision.tv.bo",
      "reidoplacar.com",
      "repretel.com",
+     "rqp.com.bo",
      "sabornutritivo.com",
+     "sinensistoon.com",
      "southpark.lat",
      "southparkstudios.com.br",
      "suaads.com",
      "suaurl.com",
      "teleculinaria.pt",
      "tivify.tv",
+     "tn23.tv",
      "todoandroid.live",
      "todostartups.com",
-     "tudonoticiasbr.com"
+     "tudonoticiasbr.com",
+     "vtv.com.hn"
+    ]
+   ],
+   [
+    "no-setTimeout-if",
+    [
+     "dicasgostosas.com",
+     "escplus.es",
+     "forodecostarica.com",
+     "genshinpro.com.br",
+     "guiacripto.online",
+     "guianoticiario.net",
+     "hartico.com",
+     "it-swarm-es.com",
+     "manchetehoje.xyz",
+     "mundodonghua.com",
+     "packsmega.info",
+     "peliculas8k.com",
+     "reidoplacar.com",
+     "resenhasglobais.com",
+     "seriesdonghua.com",
+     "seriesgratis.biz",
+     "smartdoing.tech",
+     "suaads.com",
+     "suaurl.com",
+     "tecword.info",
+     "vivercomsaude.online",
+     "xerifetech.com",
+     "zona-leros.com"
+    ]
+   ],
+   [
+    "abort-on-property-read",
+    [
+     "*"
+    ]
+   ],
+   [
+    "abort-current-script",
+    [
+     "*"
     ]
    ],
    [
@@ -3180,49 +3251,11 @@
     ]
    ],
    [
-    "abort-on-property-read",
-    [
-     "*"
-    ]
-   ],
-   [
-    "abort-current-script",
-    [
-     "*"
-    ]
-   ],
-   [
     "no-xhr-if",
     [
      "aqualapp.com",
      "minhaconexao.com.br",
      "raulprietofernandez.net"
-    ]
-   ],
-   [
-    "no-setTimeout-if",
-    [
-     "escplus.es",
-     "forodecostarica.com",
-     "genshinpro.com.br",
-     "guiacripto.online",
-     "guianoticiario.net",
-     "hartico.com",
-     "it-swarm-es.com",
-     "manchetehoje.xyz",
-     "mundodonghua.com",
-     "peliculas8k.com",
-     "reidoplacar.com",
-     "resenhasglobais.com",
-     "seriesdonghua.com",
-     "seriesgratis.biz",
-     "smartdoing.tech",
-     "suaads.com",
-     "suaurl.com",
-     "tecword.info",
-     "vivercomsaude.online",
-     "xerifetech.com",
-     "zona-leros.com"
     ]
    ],
    [
@@ -3265,22 +3298,24 @@
     ]
    ],
    [
-    "set-local-storage-item",
-    [
-     "gastroponto.com",
-     "nossoprato.online",
-     "receitasdafazenda.com",
-     "receitasdocheff.online"
-    ]
-   ],
-   [
-    "remove-attr",
+    "no-window-open-if",
     [
      "*"
     ]
    ],
    [
-    "no-window-open-if",
+    "set-local-storage-item",
+    [
+     "gastroponto.com",
+     "megacurioso.online",
+     "nossoprato.online",
+     "receitasdafazenda.com",
+     "receitasdocheff.online",
+     "receitasvegana.com"
+    ]
+   ],
+   [
+    "remove-attr",
     [
      "*"
     ]
@@ -3421,15 +3456,10 @@
     ]
    ],
    [
-    "abort-on-property-write",
-    [
-     "cannabis.se"
-    ]
-   ],
-   [
     "set-constant",
     [
      "boktugg.se",
+     "byggipedia.se",
      "conpot.se",
      "di.se",
      "fastighetsvarlden.se",
@@ -3465,9 +3495,16 @@
     ]
    ],
    [
+    "abort-on-property-write",
+    [
+     "cannabis.se"
+    ]
+   ],
+   [
     "set-cookie",
     [
      "destination.se",
+     "inet.se",
      "sistaminuten.se"
     ]
    ],
@@ -3475,7 +3512,9 @@
     "remove-node-text",
     [
      "dinbyggare.se",
-     "elevspel.se"
+     "elevspel.se",
+     "garaget.org",
+     "temadagar.se"
     ]
    ],
    [
@@ -3609,6 +3648,30 @@
      "youplay.se",
      "ystadsallehanda.se"
     ]
+   ],
+   [
+    "alert-buster",
+    [
+     "stallet.se"
+    ]
+   ],
+   [
+    "json-prune-fetch-response",
+    [
+     "fotbollskanalen.se",
+     "koket.se",
+     "tv4.se",
+     "tv4play.se"
+    ]
+   ],
+   [
+    "xml-prune",
+    [
+     "fotbollskanalen.se",
+     "koket.se",
+     "tv4.se",
+     "tv4play.se"
+    ]
    ]
   ]
  ],
@@ -3672,6 +3735,7 @@
    [
     "remove-node-text",
     [
+     "birsenaltuntas.com",
      "m.4khd.com"
     ]
    ],
@@ -3985,6 +4049,7 @@
      "birasyadizi.com",
      "bizimyaka.com",
      "dizifon.com",
+     "dizigom1.tv",
      "duzcetv.com",
      "hacoos.com",
      "iskandinavya.com",
@@ -4261,25 +4326,26 @@
    [
     "abort-current-script",
     [
+     "3dchill.shop",
      "abtruyen.net",
      "afamily.vn",
-     "animehay.us",
-     "animevietsub.us",
+     "animehay.video",
+     "animevietsub.fun",
      "cafef.vn",
      "cdn.streamvl.sbs",
      "cdnstream.sbs",
      "cliphot69.blog",
      "cunghocvui.com",
      "demo.14412882.com",
-     "doctruyen3q.pro",
+     "doctruyen3qvi.pro",
      "downloadsachmienphi.com",
-     "dualeotruyenkp.com",
+     "dualeotruyentop.com",
      "gamek.vn",
      "genk.vn",
-     "gocphimmoi.net",
+     "gocphimvnn.org",
      "gotphim.com",
-     "hentaivn.bz",
-     "hentaizz.club",
+     "hentaivn.today",
+     "hentaizz.cc",
      "heo69.moe",
      "hh3dhay.lol",
      "hh3dhay.pro",
@@ -4287,13 +4353,14 @@
      "hhhay.tv",
      "holyfilm.org",
      "ios.codevn.net",
-     "javhay.in",
+     "javhay.click",
      "javtiful.com",
      "kenh14.vn",
      "lenlut.tv",
      "linkneverdie.net",
+     "live.sexviet88.day",
      "lrepacks.net",
-     "lxmanga.cc",
+     "lxmanga.club",
      "m.blogtruyenmoi.com",
      "mephimnhe1.net",
      "misskon.com",
@@ -4301,23 +4368,23 @@
      "p.thoctv.com",
      "phim18hd.top",
      "phimgichill.net",
-     "phimhdc.net",
+     "phimhdc.cc",
      "phimlongtieng.com",
      "phimlongtieng.net",
      "phimmoinay.vip",
-     "phimsex.ai",
-     "phimsexhay669.org",
+     "phimsexhay669.pro",
      "phimss.com",
      "phimtho.net",
-     "quatvn3.club",
-     "rphang.la",
-     "sexdep9x.pro",
-     "sexhay18.com",
+     "quatvn.zip",
+     "rphang.moe",
+     "saigon24.net",
+     "sexmup18.com",
+     "sexmupvl.pro",
+     "sextuoi69.com",
      "sexvn1.cc",
      "soha.vn",
-     "tctruyen.me",
      "tenmientruyengi.net",
-     "tinsoikeo.life",
+     "tinsoikeo.ink",
      "top1sex.club",
      "topviet69.com",
      "truyen2u.net",
@@ -4332,18 +4399,18 @@
      "truyenqqvn.com",
      "truyensextv.com",
      "truyentuan.xyz",
-     "truyenvn.one",
-     "tuoi69.media",
+     "truyenvn.lol",
      "tuoitre.vn",
      "ungtycomicsvip.com",
      "vailonxx.vip",
-     "viet69.si",
+     "viet69.kim",
      "vlxx.moe",
      "vlxyz.tube",
+     "vnsextop.pro",
      "vungoctuan.vn",
-     "web.sexviet88.day",
      "www.buomtv.app",
-     "www.toptruyen.pro",
+     "www.toptruyenii.online",
+     "xemphim18.cc",
      "xnxx-sex-videos.com",
      "yurineko.net"
     ]
@@ -4352,21 +4419,22 @@
     "abort-on-property-read",
     [
      "anh.moe",
-     "animet1.net",
+     "animet2.net",
      "aoe.vn",
      "audiotruyenfull.com",
      "dood.pm",
      "ephimchill.com",
+     "javfc2.net",
      "javnong.cc",
-     "khophimchill.net",
      "linkneverdie.net",
+     "lovefoodeat.com",
      "maclife.io",
+     "motphimtrung.net",
      "mv.dailyphimz.com",
      "mv.phimbathu.one",
      "mv.phimmoiaz.cc",
      "nettruyenus.net",
-     "nhentaivn.pro",
-     "nusi.org",
+     "nhentaivn.online",
      "ophimhdvn3.net",
      "phimdinhcao.com",
      "phimdinhcao.net",
@@ -4376,9 +4444,9 @@
      "plvb.xyz",
      "quangcaoyenbai.com",
      "rk.plcdn.xyz",
-     "sieudamtv.cam",
+     "sieudamtv.mobi",
      "thuvienhd.xyz",
-     "tinsoikeo.life",
+     "tinsoikeo.ink",
      "truyenhentaivn.org",
      "truyensieuhay.com",
      "veryfiles.com",
@@ -4413,23 +4481,23 @@
      "gvnvh18.com",
      "kenh14.vn",
      "mb.clipsex.xxx",
+     "phim.sexhayvl.org",
      "phimsexviet.io",
      "phimsexvietnam.app",
      "phimsexvip.cc",
      "phimvietsub.pro",
      "phimvuihd.org",
-     "sex.ditnhau.cc",
-     "sexdiaryx.biz",
-     "sexvietmoi.io",
+     "sexdiaryx.org",
      "soha.vn",
      "subnhanh.xyz",
      "tailieumoi.vn",
-     "topsexhay.org",
      "tructiepdabong5.co",
      "tuoitre.vn",
      "vaoroi365.com",
      "vndoc.com",
-     "ww1.phimsexchill.com",
+     "web.ditnhau.cc",
+     "web.motsex.net",
+     "web.phimsexnhanh.tv",
      "www.iosviet.com",
      "xoivo2.online"
     ]
@@ -4457,10 +4525,6 @@
     [
      "cdnwp.icu",
      "luotphim1.net",
-     "luotphim2.net",
-     "luotphimtv.vip",
-     "luotphimtv1.com",
-     "luotphimtv1.net",
      "phimmoi4s.com",
      "webphim2.com"
     ]
@@ -5194,7 +5258,6 @@
      "bacabeton.cz",
      "balay.es",
      "balgal.es",
-     "barrons.com",
      "basenio.de",
      "bayer-wd.de",
      "bayer-wind.de",
@@ -5541,7 +5604,6 @@
      "handelskammaren.com",
      "happysocks.com",
      "hausgeraete-kraemer.de",
-     "heise.de",
      "helenevue.com",
      "helitecnics.com",
      "helux.se",
@@ -5723,6 +5785,7 @@
      "ohmymag.com",
      "omni.se",
      "onelottery.co.uk",
+     "ooekultur.at",
      "opako.pl",
      "opera.com",
      "oserlafrique.com",
@@ -6018,6 +6081,7 @@
      "volksbank-international.de",
      "volksbank-kirnau.de",
      "volksbank-mittleres-erzgebirge.de",
+     "volksbank-mittweida.de",
      "volksbank-remseck.de",
      "volksbank-thueringen-mitte.de",
      "volksbank-trossingen.de",
@@ -6245,6 +6309,7 @@
      "biographyonline.net",
      "biona-shop.de",
      "bitecode.dev",
+     "bitscrunch.com",
      "bitso.com",
      "biurobox.pl",
      "bizkaia.eus",
@@ -6337,6 +6402,7 @@
      "cexpr.es",
      "chatfuel.com",
      "checkwx.com",
+     "chemocare.com",
      "chinaimportal.com",
      "chocolateemporium.com",
      "chollometro.com",
@@ -6458,6 +6524,7 @@
      "ebikelohr.de",
      "ebilet.pl",
      "eboo.lu",
+     "ecaytrade.com",
      "eco-toimistotarvikkeet.fi",
      "ecologi.com",
      "edookit.com",
@@ -6637,6 +6704,7 @@
      "gadis.es",
      "galaxy.com",
      "gallmeister.fr",
+     "gamemaker.io",
      "games.co.id",
      "games.co.uk",
      "gamesgames.com",
@@ -6645,6 +6713,7 @@
      "gayhits.com",
      "gaypornvideos.xxx",
      "gaytimes.co.uk",
+     "gdpr.twitter.com",
      "gdx.net",
      "gem.cbc.ca",
      "geosfreiberg.de",
@@ -6673,6 +6742,7 @@
      "griffbereit24.de",
      "gry.pl",
      "guard.io",
+     "guide-bordeaux-gironde.com",
      "h-andreas.com",
      "hair-body-24.de",
      "halonen.fi",
@@ -6683,6 +6753,7 @@
      "handelsbanken.fi",
      "handelsbanken.no",
      "handelsbanken.se",
+     "hannahgraaf.com",
      "hanse-haus-greifswald.de",
      "hashop.nl",
      "haulageexchange.co.uk",
@@ -6741,6 +6812,7 @@
      "iziconfort.com",
      "jaapeden.nl",
      "javea.com",
+     "jazz.fm",
      "jeger.pl",
      "jetztspielen.de",
      "jeu.fr",
@@ -6751,6 +6823,7 @@
      "jornaldoalgarve.pt",
      "journal.hr",
      "juegos.com",
+     "juntadeandalucia.es",
      "justanswer.co.uk",
      "justanswer.com",
      "justanswer.de",
@@ -6787,6 +6860,7 @@
      "kiakkoradio.fi",
      "kijiji.ca",
      "kinderleicht.berlin",
+     "kinemaster.com",
      "kinopoisk.ru",
      "kivikangas.fi",
      "kletterkogel.de",
@@ -6874,6 +6948,7 @@
      "medtube.net",
      "medtube.pl",
      "melectronics.ch",
+     "melee.gg",
      "melkkobrew.fi",
      "mellerud.de",
      "merkur.si",
@@ -6886,6 +6961,7 @@
      "mo-tools.cz",
      "mobeleader.com",
      "mobile-fueling.de",
+     "mobiliteit.nl",
      "moebel-mahler-siebenlehn.de",
      "monese.com",
      "moneyfarm.com",
@@ -7003,6 +7079,7 @@
      "photospecialist.co.uk",
      "physikinstrumente.de",
      "piusx-college.nl",
+     "pixiv.net",
      "plastischechirurgie-muenchen.info",
      "plavte.cz",
      "playbalatro.com",
@@ -7057,6 +7134,7 @@
      "proficient.fi",
      "project529.com",
      "projectenglish.com.pl",
+     "protos.com",
      "psbank.ru",
      "pubgesports.com",
      "pumatools.hu",
@@ -7088,6 +7166,7 @@
      "resolution.de",
      "resonate.coop",
      "restaurantclub.pl",
+     "reviewmeta.com",
      "riapsport.de",
      "ribescasals.com",
      "rittal.com",
@@ -7102,6 +7181,7 @@
      "rtu.lv",
      "rule34.paheal.net",
      "ryanair.com",
+     "s-court.me",
      "sae.fsc.ccoo.es",
      "safehaven.io",
      "samplerite.cn",
@@ -7167,6 +7247,7 @@
      "sororedit.com",
      "soulbounce.com",
      "sp215.info",
+     "sp32bb.pl",
      "spanienweinonline.ch",
      "spb.hh.ru",
      "spel.nl",
@@ -7246,6 +7327,7 @@
      "toysrus.ca",
      "tradingview.com",
      "translit.ru",
+     "travelinsured.com",
      "trendpet.de",
      "tridge.com",
      "triviacreator.com",
@@ -7342,6 +7424,7 @@
      "wwnorton.com",
      "xcen.se",
      "xfree.com",
+     "xledger.net",
      "xn--digitaler-notenstnder-m2b.com",
      "xn--lkylen-vxa.se",
      "xxxshemaleporn.com",
@@ -7372,7 +7455,6 @@
      "500ish.com",
      "5sim.net",
      "6amgroup.com",
-     "accounts.google.com",
      "adfilteringdevsummit.com",
      "aida64.co.uk",
      "aida64.com.ua",
@@ -7414,6 +7496,7 @@
      "cityfalcon.ai",
      "codedead.com",
      "comnet.com.tr",
+     "core.app",
      "crealitycloud.com",
      "cryptofalka.hu",
      "cuba-buddy.de",
@@ -7445,6 +7528,7 @@
      "fwd.com",
      "fydeos.com",
      "fydeos.io",
+     "g-star.com",
      "galaxy.com",
      "garageproject.co.nz",
      "geomiq.com",
@@ -7480,6 +7564,7 @@
      "medium.com",
      "namensetiketten.de",
      "nationalexpress.de",
+     "nhnieuws.nl",
      "nloto.ru",
      "nordkurier.de",
      "nove.fr",
@@ -7521,6 +7606,7 @@
      "thingtesting.com",
      "ticketmelon.com",
      "traefik.io",
+     "trigger.dev",
      "triumphtechnicalinformation.com",
      "tropicalida.com.ec",
      "vietjetair.com",
@@ -7537,7 +7623,8 @@
      "writingcooperative.com",
      "wunderground.com",
      "yellow.systems",
-     "zave.it"
+     "zave.it",
+     "zora.co"
     ]
    ],
    [
@@ -7651,6 +7738,8 @@
      "cnmaarthouse.de",
      "dlnews.com",
      "easyfind.ch",
+     "eurobaustoff.com",
+     "euronews.com",
      "express.co.uk",
      "forums.tomsguide.com",
      "hopetv.de",
@@ -7813,27 +7902,6 @@
     ]
    ],
    [
-    "json-prune",
-    [
-     "m.youtube.com",
-     "music.youtube.com",
-     "tv.youtube.com",
-     "www.youtube.com",
-     "youtubekids.com"
-    ]
-   ],
-   [
-    "href-sanitizer",
-    [
-     "m.youtube.com",
-     "music.youtube.com",
-     "tv.youtube.com",
-     "www.youtube.com",
-     "youtube-nocookie.com",
-     "youtubekids.com"
-    ]
-   ],
-   [
     "trusted-set-local-storage-item",
     [
      "500ish.com",
@@ -7842,6 +7910,7 @@
      "backchannel.com",
      "backstage.1blocker.com",
      "badootech.badoo.com",
+     "baharudinyusuf.com",
      "bitcointechtalk.com",
      "bitwarden.com",
      "blog.angular.io",
@@ -7902,6 +7971,7 @@
      "ledwards.com",
      "legalist.com",
      "levelup.gitconnected.com",
+     "linkedin.com",
      "logrocket.com",
      "mapbox.com",
      "medium.com",
@@ -7913,6 +7983,7 @@
      "ofdollarsanddata.com",
      "okmeter.io",
      "open.nytimes.com",
+     "patreon.com",
      "postlight.com",
      "proandroiddev.com",
      "prototypr.io",
@@ -7949,6 +8020,27 @@
      "whatahowler.com",
      "writingcooperative.com",
      "x.company"
+    ]
+   ],
+   [
+    "json-prune",
+    [
+     "m.youtube.com",
+     "music.youtube.com",
+     "tv.youtube.com",
+     "www.youtube.com",
+     "youtubekids.com"
+    ]
+   ],
+   [
+    "href-sanitizer",
+    [
+     "m.youtube.com",
+     "music.youtube.com",
+     "tv.youtube.com",
+     "www.youtube.com",
+     "youtube-nocookie.com",
+     "youtubekids.com"
     ]
    ],
    [
@@ -7990,6 +8082,7 @@
      "neilpatel.com",
      "nsmb.com",
      "nusantararom.org",
+     "solarmagazine.nl",
      "unidivers.fr"
     ]
    ],
@@ -8039,6 +8132,12 @@
      "moovitapp.com",
      "teller.jp"
     ]
+   ],
+   [
+    "trusted-set-session-storage-item",
+    [
+     "wear.jp"
+    ]
    ]
   ]
  ],
@@ -8050,7 +8149,8 @@
     [
      "analyticsvidhya.com",
      "clarin.com",
-     "tekinvestor.no"
+     "tekinvestor.no",
+     "tradingview.com"
     ]
    ],
    [
@@ -8065,6 +8165,7 @@
      "howtogeek.com",
      "makeuseof.com",
      "movieweb.com",
+     "nautil.us",
      "pocketnow.com",
      "screenrant.com",
      "talkingpointsmemo.com",
@@ -8085,8 +8186,11 @@
     [
      "bloomberg.com",
      "cnn.com",
+     "dailynewshungary.com",
      "deepl.com",
      "quillbot.com",
+     "reuters.com",
+     "theweek.com",
      "zippia.com"
     ]
    ],
@@ -8111,6 +8215,7 @@
      "abc7ny.com",
      "allrecipes.com",
      "cbsnews.com",
+     "democracynow.org",
      "independent.co.uk",
      "inquinte.ca",
      "kark.com",

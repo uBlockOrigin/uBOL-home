@@ -5,6 +5,31 @@
    {
     "header": "content-security-policy",
     "operation": "append",
+    "value": "worker-src 'none'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "opulens.se",
+   "skogsforum.se",
+   "sv.picmix.com",
+   "tripadvisor.se"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 1
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
     "value": "img-src 'self' *.wordpress.com *.wp.com *.gravatar.com"
    }
   ],
@@ -20,31 +45,5 @@
   ]
  },
  "id": 1234
-},
-{
- "action": {
-  "responseHeaders": [
-   {
-    "header": "content-security-policy",
-    "operation": "append",
-    "value": "worker-src 'none'"
-   }
-  ],
-  "type": "modifyHeaders"
- },
- "condition": {
-  "requestDomains": [
-   "opulens.se",
-   "skogsforum.se",
-   "stegforhalsa.se",
-   "sv.picmix.com",
-   "tripadvisor.se"
-  ],
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ]
- },
- "id": 1235
 }
 ]

@@ -4,6 +4,22 @@
   "type": "block"
  },
  "condition": {
+  "initiatorDomains": [
+   "no"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "regexFilter": "^.*:\\/\\/w{3}\\.(tu|d\\ig\\i)\\.n\\o\\/(\\d|[a-zA-Z_-]){130,}$",
+  "resourceTypes": [
+   "xmlhttprequest"
+  ]
+ },
+ "id": 1
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
   "isUrlFilterCaseSensitive": false,
   "regexFilter": "doseofporn.com\\/[a-z]{0,5}[1-9]{0,5}[a-z]{0,5}[1-9][s\\S]*.js"
  },

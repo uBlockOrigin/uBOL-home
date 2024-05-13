@@ -33,9 +33,9 @@
 
 /******************************************************************************/
 
-const argsList = [["{\"selector\":\"[id^=\\\"bdaia-widget-html\\\"]\",\"tasks\":[[\"has\",{\"selector\":\".widget-inner > [href*=\\\"premiumvns.com\\\"]\"}]]}"],["{\"selector\":\".text-center\",\"tasks\":[[\"has\",{\"selector\":\"small\",\"tasks\":[[\"has-text\",\"QUẢNG CÁO\"]]}]]}"],["{\"selector\":\"body\",\"action\":[\"remove-attr\",\"data-pop1\"]}","{\"selector\":\"body\",\"action\":[\"remove-attr\",\"data-pop2\"]}"],["{\"selector\":\".hsdn > li\",\"tasks\":[[\"has\",{\"selector\":\".adsbygoogle\"}]]}"],["{\"selector\":\".block\",\"tasks\":[[\"has\",{\"selector\":\".block-container > .block-body > a[href]\"}]]}","{\"selector\":\".block\",\"tasks\":[[\"has\",{\"selector\":\".block-container > .block-body > ins\"}]]}"]];
+const argsList = [["{\"selector\":\"[id^=\\\"bdaia-widget-html\\\"]\",\"tasks\":[[\"has\",{\"selector\":\".widget-inner > [href*=\\\"premiumvns.com\\\"]\"}]]}"],["{\"selector\":\".text-center\",\"tasks\":[[\"has\",{\"selector\":\"small\",\"tasks\":[[\"has-text\",\"QUẢNG CÁO\"]]}]]}"],["{\"selector\":\"div[class]\",\"tasks\":[[\"has\",{\"selector\":\"[class$=\\\"-modal\\\"]\"}]]}"],["{\"selector\":\"body\",\"action\":[\"remove-attr\",\"data-pop1\"]}","{\"selector\":\"body\",\"action\":[\"remove-attr\",\"data-pop2\"]}"],["{\"selector\":\".hsdn > li\",\"tasks\":[[\"has\",{\"selector\":\".adsbygoogle\"}]]}"],["{\"selector\":\".block\",\"tasks\":[[\"has\",{\"selector\":\".block-container > .block-body > a[href]\"}]]}","{\"selector\":\".block\",\"tasks\":[[\"has\",{\"selector\":\".block-container > .block-body > ins\"}]]}"]];
 
-const hostnamesMap = new Map([["linkerpt.com",0],["metruyencv.com",1],["metruyencv.info",1],["metruyencv.net",1],["chillphimmoizzz.org",2],["hosocongty.vn",3],["techrum.vn",4]]);
+const hostnamesMap = new Map([["linkerpt.com",0],["metruyencv.com",1],["metruyencv.info",1],["metruyencv.net",1],["xem.javkche.info",2],["chillphimmoizzz.org",3],["hosocongty.vn",4],["techrum.vn",5]]);
 
 const entitiesMap = new Map(undefined);
 

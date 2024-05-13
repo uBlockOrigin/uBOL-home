@@ -140,7 +140,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||bioskopkeren.guru/images/*.gif"},"id":139},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||bioskopkeren.xyz/images/*.gif"},"id":140},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||bioskopxxi.*/wp-content/uploads/*.gif"},"id":141},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["www.ngefilm21.top"],"resourceTypes":["image"],"urlFilter":"||blogger.googleusercontent.com/*.gif"},"id":142},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["bharian.com.my","hmetro.com.my"],"requestDomains":["wsmwidget.mediaprimalabs.com"]},"id":142},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["139.99.33.192","animeindo.moe","anoboy.org","anoboy.video","anoboy.watch","awnime.net","awsubs.co","awsubs.tv","bioskopgalaxy21.com","bioskoptigalima.com","bokepman.com","bolehnonton.net","cinema81.net","cinemamovie21.net","cinemamovie365.com","drakorindo.asia","drakorindo.co","drakorindo.com","drakorindo.net","drakorindo.pro","drakorindo.tv","drakorindofilms.net","duniasex.ws","dwanonton.com","film-drama.co","filmbagus21.space","filmbagus88.net","filmku.net","idkomik.com","juragantomatx.com","kawanfilm21.org","kawanfilm21.pro","kawanfilm21.win","kazefuri.me","kazefuri.web.id","kombatch.com","komikcast.com","lapakfilm.club","layarkeren.com","layarkeren.info","layarkeren.site","layarkeren.xyz","layarmovie21.co","lk21id.com","mangaindo.net","mangashiro.co","movie303.com","movie76.net","moviebaru21.com","nekopoi.care","neonime.com","neonime.net","neumanga.tv","nonton-streaming.com","nonton.club","nonton33.com","nonton33.net","nonton33.org","nonton33.tv","nontonbp.com","nontondrama.me","nontonfilm.mobi","nontonfilm21.club","nontonin.co","nontonmovie33.net","oploverz.in","otakudesu.info","satujiwa.org","senimovies.net","smallencode.com","unyil.org","zonabola.com"],"resourceTypes":["image"],"urlFilter":"||bp.blogspot.com/*.gif"},"id":143},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["mangacanblog.com"],"resourceTypes":["image"],"urlFilter":"||bp.blogspot.com/*/iklan_landscape.jpg"},"id":144},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||cakrawalanews.co.id/images/banner/"},"id":145},
@@ -218,7 +218,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||wp.com/ryuukoi.web.id/wp-content/uploads/*/antiadblock"},"id":217},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||www.cararegistrasi.com/img/download_1.png"},"id":218},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||www.riau24.com/portal/adv/"},"id":219},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["149.56.24.226","15.235.11.45","anime-indo.id","bgibola.com","bioskopkerenin.org","dunia21.club","dutafilm.cfd","komikmanhwa.me","ld2tv.net","lk21.london","lk21official.biz","lk21official.live","lk21official.org","lk21tv.com","mangakita.id","movieajip.online","oploverz.best","oploverz.co.in","oploverz.love","oploverz.tv","otakudesu.ltd","samehadaku.show"],"resourceTypes":["image"],"urlFilter":".gif"},"id":220},
+{"action":{"type":"block"},"condition":{"urlFilter":"/dewapoker_"},"id":220},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-abgqq."},"id":221},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-agen-judi-"},"id":222},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-agen-poker-"},"id":223},
@@ -3064,5 +3064,14 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.care/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3063},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.cash/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3064},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.lol/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3065},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["193.142.147.230","ainzscans.net","igobokep.cam","siimanga.cyou"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":3066}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["193.142.147.230","ainzscans.net","igobokep.cam","siimanga.cyou"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":3066},
+{"action":{"type":"block"},"condition":{"urlFilter":"||128.199.175.251/looppopup.js"},"id":3067},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["javsubid.com","www.ngefilm21.top"],"resourceTypes":["image"],"urlFilter":"||blogger.googleusercontent.com/*.gif"},"id":3068},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["149.56.24.226","15.235.11.45","anime-indo.id","baladfilm.skin","bgibola.com","bioskopkerenin.org","dunia21.club","dutafilm.cfd","komikmanhwa.me","ld2tv.net","lk21.london","lk21official.biz","lk21official.live","lk21official.org","lk21tv.com","mangakita.id","movieajip.online","oploverz.best","oploverz.co.in","oploverz.love","oploverz.tv","otakudesu.ltd","rbtv77.com","samehadaku.show"],"resourceTypes":["image"],"urlFilter":".gif"},"id":3069},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-banner-mahjong-"},"id":3070},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/areaslots.gif"},"id":3071},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/saktispin-"},"id":3072},
+{"action":{"type":"block"},"condition":{"requestDomains":["chitchooms.net","xosbkqblniusql.com"],"resourceTypes":["xmlhttprequest"]},"id":3073},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["dapat.link"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":3074},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||rbreezy.xyz/nativeads-v2.js"},"id":3075}
 ]

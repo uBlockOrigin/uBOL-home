@@ -1,5 +1,5 @@
 [
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["game4you.top","games-pc.top","innal.top","naylo.top","rustorka.com","rustorka.net","rustorka.top","rustorkacom.lib"],"regexFilter":"(clickunder|footerad|layerad|lazyad|leaderad|leftad|linkad|sidebar_ad|pop_ad|prerollad|printad|pubads|pushdownad|under)","resourceTypes":["script"]},"id":1},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["game4you.top","games-pc.top","innal.top","naylo.top","rustorka.com","rustorka.net","rustorka.top","rustorkacom.lib"],"regexFilter":"(clickunder|footerad|layerad|lazyad|leaderad|leftad|linkad|pop_ad|prerollad|printad|pubads|pushdownad|report_ad|right_ad|sidebar_ad|under)","resourceTypes":["script"]},"id":1},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["coocook.me"],"regexFilter":"smart-facebook-page-like-overlay-pro"},"id":514},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["podelki-doma.ru","psysovet24.ru"],"regexFilter":"wp-content\\/plugins\\/socialer"},"id":521},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ogorodnik-sadovod.ru"],"regexFilter":"wp-content\\/plugins\\/my-popup"},"id":687},

@@ -1,6 +1,68 @@
 [
 {
  "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "bayernportal.de",
+   "bund.de",
+   "client.foldingathome.org",
+   "intel.cn",
+   "intel.co.id",
+   "intel.co.jp",
+   "intel.co.kr",
+   "intel.com",
+   "intel.com.br",
+   "intel.com.tw",
+   "intel.de",
+   "intel.fr",
+   "intel.la",
+   "intel.vn",
+   "mega.nz",
+   "mv-serviceportal.de",
+   "organspende-register.de"
+  ],
+  "requestDomains": [
+   "127.0.0.1"
+  ]
+ },
+ "id": 1
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "deutsche-rentenversicherung.de"
+  ],
+  "requestDomains": [
+   "localhost"
+  ]
+ },
+ "id": 2
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "battlelog.battlefield.com",
+   "figma.com"
+  ],
+  "requestDomains": [
+   "127.0.0.1"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ]
+ },
+ "id": 3
+},
+{
+ "action": {
   "type": "block"
  },
  "condition": {
@@ -122,37 +184,6 @@
   ]
  },
  "id": 11
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "initiatorDomains": [
-   "client.foldingathome.org"
-  ],
-  "requestDomains": [
-   "127.0.0.1"
-  ]
- },
- "id": 12
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "initiatorDomains": [
-   "battlelog.battlefield.com"
-  ],
-  "requestDomains": [
-   "127.0.0.1"
-  ],
-  "resourceTypes": [
-   "xmlhttprequest"
-  ]
- },
- "id": 13
 },
 {
  "action": {
