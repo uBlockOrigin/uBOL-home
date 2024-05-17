@@ -2,6 +2,25 @@
 {
  "action": {
   "redirect": {
+   "extensionPath": "/web_accessible_resources/google-ima.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "vtvcab.vn"
+  ],
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||on-web-cdn.gviet.vn/public/js/player/ads/ima3.js"
+ },
+ "id": 1,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
   "type": "redirect"

@@ -4,52 +4,18 @@
   "type": "block"
  },
  "condition": {
+  "initiatorDomains": [
+   "hetepornoclips.com",
+   "pornwereld.com"
+  ],
   "isUrlFilterCaseSensitive": false,
-  "regexFilter": "^https?:\\/\\/statics\\.(?:ad|bd|bndestem|destentor|ed|gelderlander|hln|tubantia|pzc)\\.(?:nl|be)\\/js\\/advertising-[\\w]+\\.js$",
+  "regexFilter": "^https?:\\/\\/.*\\/[a-z0-9A-Z_]{2,15}\\.(php|jx|jsx|1ph|jsf|jz|jsm|j$)",
   "resourceTypes": [
-   "script"
-  ]
- },
- "id": 426
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "domainType": "firstParty",
-  "isUrlFilterCaseSensitive": false,
-  "regexFilter": "^https?:\\/\\/(?:www\\.)?webcams?\\-?[a-z]+\\.nl\\/media\\/banners2?\\/",
-  "resourceTypes": [
-   "image"
-  ]
- },
- "id": 446
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "isUrlFilterCaseSensitive": false,
-  "regexFilter": "https\\:\\/\\/pt\\.[\\w]{6}\\.com\\/embed\\/tbplyr\\/",
-  "resourceTypes": [
-   "script"
-  ]
- },
- "id": 524
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "isUrlFilterCaseSensitive": false,
-  "regexFilter": "https\\:\\/\\/pt\\.[\\w]{6}\\.com\\/tube-player\\/",
-  "resourceTypes": [
+   "image",
+   "script",
    "sub_frame"
   ]
  },
- "id": 533
+ "id": 1
 }
 ]

@@ -44,7 +44,7 @@ const scriptletGlobals = {}; // jshint ignore: line
 
 const argsList = [["\"adPlacements\"","\"no_ads\"","/playlist\\?list=|player\\?|watch\\?v=|youtubei\\/v1\\/player/"],["/\"adPlacements.*?([A-Z]\"\\}|\"\\}{2,4})\\}\\],/","","/playlist\\?list=|player\\?|watch\\?v=|youtubei\\/v1\\/player/"],["/\"adPlacements.*?(\"adSlots\"|\"adBreakHeartbeatParams\")/gms","$1","youtubei/v1/player"],["/\\{\"brs_content_label\":[^,]+,\"category\":\"SPONSORED\"[^\\n]+\"cursor\":\"[^}]+\\}/g","{}","/api/graphql"],["/\\{\"node\":\\{\"role\":\"SEARCH_ADS\"[^\\n]+?cursor\":[^}]+\\}/g","{}","/api/graphql"],["/\\{\"node\":\\{\"__typename\":\"MarketplaceFeedAdStory\"[^\\n]+?\"cursor\":(?:null|\"\\{[^\\n]+?\\}\"|[^\\n]+?MarketplaceSearchFeedStoriesEdge\")\\}/g","{}","/api/graphql"],["/\\{\"node\":\\{\"__typename\":\"VideoHomeFeedUnitSectionComponent\"[^\\n]+?\"sponsored_data\":\\{\"ad_id\"[^\\n]+?\"cursor\":null\\}/","{}","/api/graphql"],["/.*/","","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?"],["\"ads_disabled\":false","\"ads_disabled\":true","payments"],["/,\"expanded_url\":\"([^\"]+)\",\"url\":\"[^\"]+\"/g",",\"expanded_url\":\"$1\",\"url\":\"$1\"","/graphql"],["/,\"expanded_url\":\"([^\"]+)\",\"indices\":([^\"]+)\"url\":\"[^\"]+\"/g",",\"expanded_url\":\"$1\",\"indices\":$2\"url\":\"$1\"","/tweet-result"]];
 
-const hostnamesMap = new Map([["tv.youtube.com",0],["www.youtube.com",[1,2]],["www.facebook.com",[3,4,5,6]],["in-jpn.com",7],["app.hellovaia.com",8],["app.vaia.com",8],["twitter.com",9],["platform.twitter.com",10]]);
+const hostnamesMap = new Map([["tv.youtube.com",0],["www.youtube.com",[1,2]],["www.facebook.com",[3,4,5,6]],["in-jpn.com",7],["app.hellovaia.com",8],["app.vaia.com",8],["twitter.com",9],["x.com",9],["platform.twitter.com",10]]);
 
 const entitiesMap = new Map([]);
 
@@ -278,6 +278,12 @@ function safeSelf() {
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
+        },
+        onIdle(fn, options) {
+            if ( self.requestIdleCallback ) {
+                return self.requestIdleCallback(fn, options);
+            }
+            return self.requestAnimationFrame(fn);
         },
     };
     scriptletGlobals.safeSelf = safe;

@@ -274,5 +274,7 @@
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["sub_frame"],"urlFilter":"||sixriversmedia.com/gfembed/"},"id":273},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["raenonx.cc"],"isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||googlesyndication.com/|"},"id":274},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["buktube.com","fullxh.com","megaxh.com","movingxh.world","seexh.com","taoxh.life","unlockxh4.com","xhaccess.com","xhadult2.com","xhadult3.com","xhadult4.com","xhadult5.com","xhamster46.com","xhbig.com","xhday.com","xhday1.com","xhmoon5.com","xhplanet1.com","xhplanet2.com","xhreal2.com","xhreal3.com","xhtab2.com","xhtree.com","xhvictory.com","xhwebsite.com","xhwebsite2.com","xhwide1.com"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":275},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["raenonx.cc"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":276}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["raenonx.cc"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":276},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["1jour1film.homes"],"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"/cdn.jsdelivr.net/npm/disable-devtool"},"id":277},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||player.melaniezettofrais.online/assets/js/devtools-detector"},"id":278}
 ]

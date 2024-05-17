@@ -10,7 +10,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/skydeliai/"},"id":9},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["procolor.lt","rde.lt"],"urlFilter":".lt/images/banners^"},"id":10},
 {"action":{"type":"block"},"condition":{"urlFilter":".lt/reklamos^"},"id":11},
-{"action":{"type":"block"},"condition":{"urlFilter":".lt/banners^"},"id":12},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["barbora.lt"],"urlFilter":".lt/banners^"},"id":12},
 {"action":{"type":"block"},"condition":{"urlFilter":".lt/uploads/banners^"},"id":13},
 {"action":{"type":"block"},"condition":{"urlFilter":".lt/banner^"},"id":14},
 {"action":{"type":"block"},"condition":{"urlFilter":".lt/resources/_banners^"},"id":15},

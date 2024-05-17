@@ -2,81 +2,40 @@
 {
  "action": {
   "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.js"
+   "extensionPath": "/web_accessible_resources/googletagservices_gpt.js"
   },
   "type": "redirect"
  },
  "condition": {
   "initiatorDomains": [
-   "vtmgo.be"
+   "goplay.be",
+   "nieuwsblad.be"
   ],
   "resourceTypes": [
    "script"
   ],
-  "urlFilter": "||gabe.hit.gemius.pl/gplayer.js"
+  "urlFilter": "||securepubads.g.doubleclick.net/tag/js/gpt.js"
  },
- "id": 544,
- "priority": 12
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.js"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "vtmgo.be"
-  ],
-  "resourceTypes": [
-   "script"
-  ],
-  "urlFilter": "||mssl.fwmrm.net/*/admanager.js"
- },
- "id": 545,
- "priority": 12
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "bnnvara.nl",
-   "npo.nl",
-   "vpro.nl"
-  ],
-  "requestDomains": [
-   "akamaized.net"
-  ],
-  "resourceTypes": [
-   "media"
-  ]
- },
- "id": 546,
+ "id": 1,
  "priority": 2
 },
 {
  "action": {
   "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+   "extensionPath": "/web_accessible_resources/noop.js"
   },
   "type": "redirect"
  },
  "condition": {
   "initiatorDomains": [
-   "vtm.be"
+   "goplay.be"
   ],
   "resourceTypes": [
-   "media"
+   "script"
   ],
-  "urlFilter": "||medialaancdn.be/vtm_od/prerolls/"
+  "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
  },
- "id": 547,
+ "id": 2,
  "priority": 2
 }
 ]
