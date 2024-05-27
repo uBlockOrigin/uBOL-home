@@ -11,6 +11,7 @@
      "platform.twitter.com",
      "tv.youtube.com",
      "twitter.com",
+     "veev.to",
      "www.facebook.com",
      "www.youtube.com",
      "x.com"
@@ -332,8 +333,10 @@
     "set-local-storage-item",
     [
      "adultdeepfakes.com",
+     "aikatu.jp",
      "allthekingz.com",
      "automobile-catalog.com",
+     "badmouth1.com",
      "bamgosu.site",
      "bravedown.com",
      "dogdrip.net",
@@ -354,6 +357,7 @@
      "hometownstation.com",
      "honkailab.com",
      "inven.co.kr",
+     "islamicfinder.org",
      "isplus.com",
      "issuya.com",
      "iusm.co.kr",
@@ -361,6 +365,7 @@
      "jetpunk.com",
      "lamire.jp",
      "loawa.com",
+     "logicieleducatif.fr",
      "maketecheasier.com",
      "meeco.kr",
      "mindbodygreen.com",
@@ -368,7 +373,9 @@
      "ndtvprofit.com",
      "picrew.me",
      "raenonx.cc",
+     "secure-signup.net",
      "sportalkorea.com",
+     "taxguru.in",
      "text-compare.com",
      "thephoblographer.com",
      "thesaurus.net",
@@ -434,6 +441,22 @@
   "chn-0",
   [
    [
+    "set-constant",
+    [
+     "*"
+    ]
+   ],
+   [
+    "prevent-fetch",
+    [
+     "04647.club",
+     "linetv.tw",
+     "mpyit.com",
+     "taiwanlibrarysearch.herokuapp.com",
+     "wandhi.com"
+    ]
+   ],
+   [
     "abort-current-script",
     [
      "*"
@@ -464,12 +487,6 @@
     ]
    ],
    [
-    "set-constant",
-    [
-     "*"
-    ]
-   ],
-   [
     "no-setTimeout-if",
     [
      "18comic.vip",
@@ -495,15 +512,6 @@
      "tsubasa.im",
      "xbeibeix.com",
      "zhenbuka.com"
-    ]
-   ],
-   [
-    "prevent-fetch",
-    [
-     "04647.club",
-     "linetv.tw",
-     "mpyit.com",
-     "taiwanlibrarysearch.herokuapp.com"
     ]
    ],
    [
@@ -895,6 +903,7 @@
     "no-setTimeout-if",
     [
      "cookomix.com",
+     "japscan.lol",
      "jeune-gay.fr",
      "voyageforum.com"
     ]
@@ -995,7 +1004,8 @@
     "remove-attr",
     [
      "1jour1film.homes",
-     "seriepourvous.com"
+     "seriepourvous.com",
+     "seriescultes.store"
     ]
    ],
    [
@@ -1024,12 +1034,6 @@
     "remove-class",
     [
      "mapcustomizer.com"
-    ]
-   ],
-   [
-    "remove-node-text",
-    [
-     "japscan.lol"
     ]
    ]
   ]
@@ -1544,6 +1548,12 @@
   "jpn-1",
   [
    [
+    "no-setTimeout-if",
+    [
+     "*"
+    ]
+   ],
+   [
     "prevent-fetch",
     [
      "*"
@@ -1556,12 +1566,6 @@
      "modalina.jp",
      "pointi.jp",
      "shico.xyz"
-    ]
-   ],
-   [
-    "no-setTimeout-if",
-    [
-     "*"
     ]
    ],
    [
@@ -1584,6 +1588,7 @@
      "kakenhi.net",
      "seesaa.net",
      "tokyomotion.net",
+     "twi-fans.com",
      "twidouga.net",
      "twivideo.net",
      "uraaka-joshi.com"
@@ -1601,6 +1606,7 @@
      "dotti2.jp",
      "dropbooks.net",
      "egotter.com",
+     "famitsu.com",
      "fashionpost.jp",
      "g-pc.info",
      "gotouchi.jp",
@@ -1806,16 +1812,16 @@
      "iphonedev.co.kr",
      "itinformation.kr",
      "klauncher.kr",
-     "lover924.net",
-     "lover925.net",
-     "lover926.net",
-     "lover927.net",
-     "lover928.net",
-     "lover929.net",
-     "lover930.net",
-     "lover931.net",
      "lover932.net",
      "lover933.net",
+     "lover934.net",
+     "lover935.net",
+     "lover936.net",
+     "lover937.net",
+     "lover938.net",
+     "lover939.net",
+     "lover940.net",
+     "lover941.net",
      "m.humoruniv.com",
      "moneytoring.co.kr",
      "postincome.co.kr",
@@ -1912,17 +1918,16 @@
    [
     "adjust-setTimeout",
     [
-     "chzzk.naver.com",
-     "lover924.net",
-     "lover925.net",
-     "lover926.net",
-     "lover927.net",
-     "lover928.net",
-     "lover929.net",
-     "lover930.net",
-     "lover931.net",
      "lover932.net",
-     "lover933.net"
+     "lover933.net",
+     "lover934.net",
+     "lover935.net",
+     "lover936.net",
+     "lover937.net",
+     "lover938.net",
+     "lover939.net",
+     "lover940.net",
+     "lover941.net"
     ]
    ],
    [
@@ -2550,6 +2555,7 @@
      "sportkp.ru",
      "sportrbc.ru",
      "sports.ru",
+     "tproger.ru",
      "tva.org.ua",
      "tvapp.su",
      "ufchgu.ru",
@@ -2897,6 +2903,9 @@
      "factor.ua",
      "farposst.ru",
      "filmitorrent.net",
+     "football-ukraine.com",
+     "footballgazeta.com",
+     "footballtransfer.com.ua",
      "game4you.top",
      "games-pc.top",
      "gazeta.ua",
@@ -2927,6 +2936,7 @@
      "rustorka.top",
      "rustorkacom.lib",
      "smak.ua",
+     "sportanalytic.com",
      "sports.ru",
      "stravy.net",
      "tochka.net",
@@ -2978,7 +2988,8 @@
     "close-window",
     [
      "infox.sg",
-     "silvercube12.xyz"
+     "silvercube12.xyz",
+     "tv.acestream.org"
     ]
    ],
    [
@@ -3059,6 +3070,7 @@
      "costumbresmexico.com",
      "desbloquea.me",
      "desbloqueador.site",
+     "descargas2024gratis.blogspot.com",
      "dicasdefinancas.net",
      "dicasfinanceirasbr.com",
      "dicasgostosas.com",
@@ -3129,6 +3141,8 @@
      "peliculas8k.com",
      "reidoplacar.com",
      "resenhasglobais.com",
+     "ricasdelicias.online",
+     "sabornutritivo.com",
      "seriesdonghua.com",
      "seriesgratis.biz",
      "smartdoing.tech",
@@ -3306,6 +3320,12 @@
     [
      "comicspornohentai.com"
     ]
+   ],
+   [
+    "prevent-refresh",
+    [
+     "*"
+    ]
    ]
   ]
  ],
@@ -3388,6 +3408,7 @@
      "hant.se",
      "home2tiny.se",
      "illvet.se",
+     "internetodontologi.se",
      "kurera.se",
      "lundagard.se",
      "lwcdn.com",
@@ -3686,6 +3707,12 @@
     ]
    ],
    [
+    "abort-on-property-read",
+    [
+     "*"
+    ]
+   ],
+   [
     "remove-node-text",
     [
      "birsenaltuntas.com",
@@ -3877,6 +3904,7 @@
      "dizipal705.com",
      "dizipal706.com",
      "dizipal707.com",
+     "dizipal708.com",
      "dizipal709.com",
      "dizipal71.cloud",
      "dizipal710.com",
@@ -3899,6 +3927,7 @@
      "dizipal726.com",
      "dizipal727.com",
      "dizipal728.com",
+     "dizipal729.com",
      "dizipal73.cloud",
      "dizipal730.com",
      "dizipal731.com",
@@ -3913,16 +3942,72 @@
      "dizipal74.cloud",
      "dizipal740.com",
      "dizipal741.com",
+     "dizipal742.com",
      "dizipal743.com",
+     "dizipal744.com",
      "dizipal745.com",
+     "dizipal746.com",
+     "dizipal747.com",
+     "dizipal748.com",
+     "dizipal749.com",
      "dizipal75.cloud",
+     "dizipal750.com",
+     "dizipal751.com",
+     "dizipal752.com",
+     "dizipal753.com",
+     "dizipal754.com",
      "dizipal755.com",
+     "dizipal756.com",
+     "dizipal757.com",
+     "dizipal758.com",
+     "dizipal759.com",
      "dizipal76.cloud",
+     "dizipal760.com",
+     "dizipal761.com",
+     "dizipal762.com",
+     "dizipal763.com",
+     "dizipal764.com",
+     "dizipal765.com",
+     "dizipal766.com",
+     "dizipal767.com",
+     "dizipal768.com",
+     "dizipal769.com",
      "dizipal77.cloud",
+     "dizipal770.com",
+     "dizipal771.com",
+     "dizipal772.com",
+     "dizipal773.com",
+     "dizipal774.com",
+     "dizipal775.com",
+     "dizipal776.com",
+     "dizipal777.com",
+     "dizipal778.com",
+     "dizipal779.com",
      "dizipal78.cloud",
+     "dizipal780.com",
+     "dizipal781.com",
+     "dizipal782.com",
+     "dizipal783.com",
+     "dizipal784.com",
+     "dizipal785.com",
+     "dizipal786.com",
+     "dizipal787.com",
+     "dizipal788.com",
+     "dizipal789.com",
      "dizipal79.cloud",
+     "dizipal790.com",
+     "dizipal791.com",
+     "dizipal792.com",
+     "dizipal793.com",
+     "dizipal794.com",
+     "dizipal795.com",
+     "dizipal796.com",
+     "dizipal797.com",
+     "dizipal798.com",
+     "dizipal799.com",
      "dizipal8.cloud",
      "dizipal80.cloud",
+     "dizipal800.com",
      "dizipal801.com",
      "dizipal802.com",
      "dizipal803.com",
@@ -3970,7 +4055,14 @@
      "dizipal841.com",
      "dizipal842.com",
      "dizipal843.com",
+     "dizipal844.com",
+     "dizipal845.com",
+     "dizipal846.com",
+     "dizipal847.com",
+     "dizipal848.com",
+     "dizipal849.com",
      "dizipal85.cloud",
+     "dizipal850.com",
      "dizipal86.cloud",
      "dizipal87.cloud",
      "dizipal88.cloud",
@@ -4127,12 +4219,6 @@
     ]
    ],
    [
-    "abort-on-property-read",
-    [
-     "*"
-    ]
-   ],
-   [
     "abort-on-property-write",
     [
      "*"
@@ -4282,8 +4368,8 @@
      "3dchill.shop",
      "abtruyen.net",
      "afamily.vn",
-     "animehay.video",
-     "animevietsub.fun",
+     "animehay.run",
+     "animevietsub.art",
      "cafef.vn",
      "cdn.streamvl.sbs",
      "cdnstream.sbs",
@@ -4291,14 +4377,14 @@
      "cunghocvui.com",
      "demo.14412882.com",
      "doctruyen3qvi.pro",
-     "downloadsachmienphi.com",
-     "dualeotruyentop.com",
+     "dualeotruyenj.com",
+     "gai3x.vip",
      "gamek.vn",
      "genk.vn",
-     "gocphimvnn.org",
+     "gocphimv.com",
      "gotphim.com",
      "hentaivn.today",
-     "hentaizz.cc",
+     "hentaizz.xyz",
      "heo69.moe",
      "hh3dhay.lol",
      "hh3dhay.pro",
@@ -4312,9 +4398,9 @@
      "kenh14.vn",
      "lenlut.tv",
      "linkneverdie.net",
-     "live.sexviet88.day",
+     "live.sexviet88.tube",
      "lrepacks.net",
-     "lxmanga.club",
+     "lxmanga.icu",
      "m.blogtruyenmoi.com",
      "mephimnhe1.net",
      "misskon.com",
@@ -4328,12 +4414,11 @@
      "phimsexhay669.pro",
      "phimss.com",
      "phimtho.net",
-     "quatvn.zip",
-     "rphang.moe",
+     "quatvn.pub",
+     "rphang.men",
      "saigon24.net",
      "sexmup18.com",
-     "sexmupvl.pro",
-     "sextuoi69.com",
+     "sexphimhd.vip",
      "sexvn1.cc",
      "soha.vn",
      "tenmientruyengi.net",
@@ -4341,7 +4426,7 @@
      "top1sex.club",
      "topviet69.com",
      "truyen2u.net",
-     "truyen35.vn",
+     "truyen35.shop",
      "truyengihotdo.net",
      "truyengihotnay.com",
      "truyengihotnha.com",
@@ -4352,14 +4437,14 @@
      "truyenqqvn.com",
      "truyensextv.com",
      "truyentuan.xyz",
-     "truyenvn.lol",
+     "truyenvn.xyz",
+     "tuoi69.mom",
      "tuoitre.vn",
      "ungtycomicsvip.com",
      "vailonxx.vip",
-     "viet69.kim",
-     "vlxx.moe",
+     "viet69.ceo",
+     "vlxx.mobi",
      "vlxyz.tube",
-     "vnsextop.pro",
      "vungoctuan.vn",
      "www.buomtv.app",
      "www.toptruyenii.online",
@@ -4383,7 +4468,6 @@
      "javnong.cc",
      "linkneverdie.net",
      "maclife.io",
-     "motphimtrung.net",
      "mv.dailyphimz.com",
      "mv.phimbathu.one",
      "mv.phimmoiaz.cc",
@@ -4395,14 +4479,15 @@
      "phimdinhcao.net",
      "phimlongtieng.net",
      "phimmoi4s.com",
+     "phimmoichill.vip",
      "phimvietsub.pro",
      "plvb.xyz",
      "quangcaoyenbai.com",
      "rk.plcdn.xyz",
-     "sieudamtv.mobi",
+     "sieudamtv.men",
      "thuvienhd.xyz",
      "tinsoikeo.ink",
-     "truyenhentaivn.org",
+     "truyenhentaivn.co",
      "truyensieuhay.com",
      "veryfiles.com",
      "viettoons.tv",
@@ -4436,14 +4521,14 @@
      "gvnvh18.com",
      "kenh14.vn",
      "mb.clipsex.xxx",
+     "mobile.ditgaixinh.net",
      "mobile.ditnhau.cc",
      "phim.sexhayvl.org",
      "phimsexviet.io",
      "phimsexvietnam.app",
-     "phimsexvip.cc",
      "phimvietsub.pro",
      "phimvuihd.org",
-     "sexdiaryx.org",
+     "sexdiaryx.site",
      "soha.vn",
      "subnhanh.xyz",
      "tailieumoi.vn",
@@ -6499,6 +6584,7 @@
      "elsate.com",
      "embedplus.com",
      "emondo.de",
+     "empathy.com",
      "empik.com",
      "emr.ch",
      "emuia1.gugik.gov.pl",
@@ -6744,10 +6830,12 @@
      "hume.ai",
      "hurton.pl",
      "huutokaupat.com",
+     "ibuypower.com",
      "ici.tou.tv",
      "ielts.co.nz",
      "ielts.com.au",
      "ielts.idp.com",
+     "ilarahealth.com",
      "ilmeteo.net",
      "ilmotorsport.de",
      "ilsaggiatore.com",
@@ -7046,8 +7134,10 @@
      "pole-emploi.fr",
      "polizei.bayern.de",
      "polsatboxgo.pl",
+     "pomelo.la",
      "porndoe.com",
      "portal.by.aok.de",
+     "portal.payment.eltax.lta.go.jp",
      "posterstore.ae",
      "posterstore.at",
      "posterstore.be",
@@ -7198,6 +7288,7 @@
      "smart.com",
      "smiggle.co.uk",
      "snap.com",
+     "solo.io",
      "songtradr.com",
      "sororedit.com",
      "soulbounce.com",
@@ -7212,6 +7303,7 @@
      "splityourticket.co.uk",
      "sportinnederland.com",
      "sps-handel.net",
+     "srf.nu",
      "sseriga.edu",
      "staff-gallery.com",
      "standard.sk",
@@ -7235,6 +7327,7 @@
      "sweet24.de",
      "swissborg.com",
      "swisscard.ch",
+     "swissmilk.ch",
      "swnsdigital.com",
      "swrng.de",
      "sysdream.com",
@@ -7552,6 +7645,7 @@
      "streamclipsgermany.de",
      "studiofabiobiesel.com",
      "subscribercounter.com",
+     "supreme.com",
      "tattoodo.com",
      "temu.com",
      "textshuttle.com",
@@ -7564,6 +7658,7 @@
      "trigger.dev",
      "triumphtechnicalinformation.com",
      "tropicalida.com.ec",
+     "ultrahuman.com",
      "vietjetair.com",
      "virginexperiencedays.co.uk",
      "visnos.com",
@@ -7573,6 +7668,8 @@
      "wales.nhs.attendanywhere.com",
      "walmart.ca",
      "web.bunq.com",
+     "wesendit.com",
+     "withpersona.com",
      "wokularach.pl",
      "worstbassist.com",
      "writingcooperative.com",
@@ -7663,13 +7760,13 @@
     ]
    ],
    [
-    "trusted-set-cookie",
+    "trusted-click-element",
     [
      "*"
     ]
    ],
    [
-    "trusted-click-element",
+    "trusted-set-cookie",
     [
      "*"
     ]
@@ -7724,7 +7821,8 @@
      "valostore.se",
      "vivantis.sk",
      "vr.fi",
-     "vreden.de"
+     "vreden.de",
+     "wesendit.com"
     ]
    ],
    [
@@ -7769,6 +7867,7 @@
      "sharperimage.com",
      "sweetwater.com",
      "techonthenet.com",
+     "theinformation.com",
      "toysrus.ca",
      "tumblr.com",
      "yvonnebennetti.com"
@@ -8069,7 +8168,8 @@
     "no-window-open-if",
     [
      "adbypass.org",
-     "bypass.city"
+     "bypass.city",
+     "weibo.com"
     ]
    ],
    [
@@ -8145,11 +8245,13 @@
     [
      "bloomberg.com",
      "cnn.com",
+     "csmonitor.com",
      "dailynewshungary.com",
      "deepl.com",
      "nisanyansozluk.com",
      "quillbot.com",
      "reuters.com",
+     "seekingalpha.com",
      "theweek.com",
      "zippia.com"
     ]
@@ -8157,7 +8259,8 @@
    [
     "set-cookie",
     [
-     "nzherald.co.nz"
+     "nzherald.co.nz",
+     "thebump.com"
     ]
    ],
    [
@@ -8225,6 +8328,13 @@
     ]
    ],
    [
+    "set-session-storage-item",
+    [
+     "fantasyfootballhub.co.uk",
+     "perplexity.ai"
+    ]
+   ],
+   [
     "remove-attr",
     [
      "11alive.com",
@@ -8244,12 +8354,6 @@
      "wtsp.com",
      "wusa9.com",
      "wwltv.com"
-    ]
-   ],
-   [
-    "set-session-storage-item",
-    [
-     "fantasyfootballhub.co.uk"
     ]
    ]
   ]

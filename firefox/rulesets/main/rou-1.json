@@ -314,6 +314,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||easyaff.net/?ref"},"id":313},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||observatorulph.ro/cdn-cgi/apps/"},"id":314},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["dot.ro"],"resourceTypes":["script"],"urlFilter":"/cdn-cgi/apps/head/"},"id":315},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||sapi.emag.*/recommendations/*zones=adss"},"id":316},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||t5.ro/static/"},"id":317},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||smartdreamers.ro/embed/"},"id":318},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||florariafocsani.ro/image/catalog/adv/"},"id":319},

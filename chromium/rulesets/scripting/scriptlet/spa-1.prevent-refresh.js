@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: fra-0
+// ruleset: spa-1
 
 /******************************************************************************/
 
@@ -38,101 +38,38 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_removeNodeText = function() {
+const uBOL_preventRefresh = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["script","https://www.aozoiekopoaka.shop/"]];
+const argsList = [[]];
 
-const hostnamesMap = new Map([["japscan.lol",0]]);
+const hostnamesMap = new Map([["cl1ca.com",0],["4br.me",0],["fir3.net",0]]);
 
-const entitiesMap = new Map([]);
+const entitiesMap = new Map([["seulink",0],["encurtalink",0]]);
 
 const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function removeNodeText(
-    nodeName,
-    condition,
-    ...extraArgs
+function preventRefresh(
+    arg1 = ''
 ) {
-    replaceNodeTextFn(nodeName, '', '', 'condition', condition || '', ...extraArgs);
-}
-
-function replaceNodeTextFn(
-    nodeName = '',
-    pattern = '',
-    replacement = ''
-) {
+    if ( typeof arg1 !== 'string' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('replace-node-text.fn', ...Array.from(arguments));
-    const reNodeName = safe.patternToRegex(nodeName, 'i', true);
-    const rePattern = safe.patternToRegex(pattern, 'gms');
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    const reCondition = safe.patternToRegex(extraArgs.condition || '', 'ms');
-    const stop = (takeRecord = true) => {
-        if ( takeRecord ) {
-            handleMutations(observer.takeRecords());
-        }
-        observer.disconnect();
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, 'Quitting');
-        }
+    const logPrefix = safe.makeLogPrefix('prevent-refresh', arg1);
+    const defuse = ( ) => {
+        const meta = document.querySelector('meta[http-equiv="refresh" i][content]');
+        if ( meta === null ) { return; }
+        safe.uboLog(logPrefix, `Prevented "${meta.textContent}"`);
+        const s = arg1 === ''
+            ? meta.getAttribute('content')
+            : arg1;
+        const ms = Math.max(parseFloat(s) || 0, 0) * 1000;
+        setTimeout(( ) => { window.stop(); }, ms);
     };
-    let sedCount = extraArgs.sedCount || 0;
-    const handleNode = node => {
-        const before = node.textContent;
-        reCondition.lastIndex = 0;
-        if ( safe.RegExp_test.call(reCondition, before) === false ) { return true; }
-        rePattern.lastIndex = 0;
-        if ( safe.RegExp_test.call(rePattern, before) === false ) { return true; }
-        rePattern.lastIndex = 0;
-        const after = pattern !== ''
-            ? before.replace(rePattern, replacement)
-            : replacement;
-        node.textContent = after;
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, `Text before:\n${before.trim()}`);
-        }
-        safe.uboLog(logPrefix, `Text after:\n${after.trim()}`);
-        return sedCount === 0 || (sedCount -= 1) !== 0;
-    };
-    const handleMutations = mutations => {
-        for ( const mutation of mutations ) {
-            for ( const node of mutation.addedNodes ) {
-                if ( reNodeName.test(node.nodeName) === false ) { continue; }
-                if ( handleNode(node) ) { continue; }
-                stop(false); return;
-            }
-        }
-    };
-    const observer = new MutationObserver(handleMutations);
-    observer.observe(document, { childList: true, subtree: true });
-    if ( document.documentElement ) {
-        const treeWalker = document.createTreeWalker(
-            document.documentElement,
-            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT
-        );
-        let count = 0;
-        for (;;) {
-            const node = treeWalker.nextNode();
-            count += 1;
-            if ( node === null ) { break; }
-            if ( reNodeName.test(node.nodeName) === false ) { continue; }
-            if ( handleNode(node) ) { continue; }
-            stop(); break;
-        }
-        safe.uboLog(logPrefix, `${count} nodes present before installing mutation observer`);
-    }
-    if ( extraArgs.stay ) { return; }
     runAt(( ) => {
-        const quitAfter = extraArgs.quitAfter || 0;
-        if ( quitAfter !== 0 ) {
-            setTimeout(( ) => { stop(); }, quitAfter);
-        } else {
-            stop();
-        }
+        defuse();
     }, 'interactive');
 }
 
@@ -382,7 +319,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { removeNodeText(...argsList[i]); }
+    try { preventRefresh(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -404,7 +341,7 @@ const targetWorld = 'ISOLATED';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_removeNodeText();
+    return uBOL_preventRefresh();
 }
 
 // Firefox
@@ -412,11 +349,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_removeNodeText = cloneInto([
-            [ '(', uBOL_removeNodeText.toString(), ')();' ],
+        page.uBOL_preventRefresh = cloneInto([
+            [ '(', uBOL_preventRefresh.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_removeNodeText);
+        const blob = new page.Blob(...page.uBOL_preventRefresh);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -430,7 +367,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_removeNodeText;
+    delete page.uBOL_preventRefresh;
 }
 
 /******************************************************************************/

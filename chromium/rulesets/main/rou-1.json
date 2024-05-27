@@ -314,6 +314,7 @@
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":false,"resourceTypes":["main_frame"],"urlFilter":"||easyaff.net/?ref"},"id":313},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"||observatorulph.ro/cdn-cgi/apps/"},"id":314},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["dot.ro"],"isUrlFilterCaseSensitive":false,"resourceTypes":["script"],"urlFilter":"/cdn-cgi/apps/head/"},"id":315},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","isUrlFilterCaseSensitive":false,"resourceTypes":["xmlhttprequest"],"urlFilter":"||sapi.emag.*/recommendations/*zones=adss"},"id":316},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","isUrlFilterCaseSensitive":false,"urlFilter":"||t5.ro/static/"},"id":317},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","isUrlFilterCaseSensitive":false,"urlFilter":"||smartdreamers.ro/embed/"},"id":318},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","isUrlFilterCaseSensitive":false,"resourceTypes":["image"],"urlFilter":"||florariafocsani.ro/image/catalog/adv/"},"id":319},

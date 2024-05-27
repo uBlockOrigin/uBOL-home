@@ -21,16 +21,6 @@
  },
  "condition": {
   "isUrlFilterCaseSensitive": false,
-  "regexFilter": "doseofporn.com\\/[a-z]{0,5}[1-9]{0,5}[a-z]{0,5}[1-9][s\\S]*.js"
- },
- "id": 229
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^(https?:\\/\\/)?[a-z]{10,12}\\.easy\\.co($|\\/.*$)",
   "resourceTypes": [
    "main_frame"

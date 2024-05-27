@@ -75,25 +75,6 @@
    "local",
    "localhost"
   ],
-  "isUrlFilterCaseSensitive": false,
-  "urlFilter": "[::1]^"
- },
- "id": 8
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "excludedInitiatorDomains": [
-   "0.0.0.0",
-   "127.0.0.1",
-   "[::1]",
-   "[::]",
-   "local",
-   "localhost"
-  ],
   "requestDomains": [
    "0.0.0.0",
    "airbox.home",
@@ -123,6 +104,7 @@
    "localbattle.net",
    "localhost",
    "mobile.hotspot",
+   "my.keenetic.net",
    "myfritz.box",
    "mygateway",
    "ntt.setup",
@@ -145,7 +127,26 @@
    "web.setup.home"
   ]
  },
- "id": 9
+ "id": 4
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "excludedInitiatorDomains": [
+   "0.0.0.0",
+   "127.0.0.1",
+   "[::1]",
+   "[::]",
+   "local",
+   "localhost"
+  ],
+  "isUrlFilterCaseSensitive": false,
+  "urlFilter": "[::1]^"
+ },
+ "id": 8
 },
 {
  "action": {
