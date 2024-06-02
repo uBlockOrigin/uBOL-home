@@ -196,6 +196,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||aventurasnahistoria.uol.com.br/static/socialmedia/"},"id":195},
 {"action":{"type":"block"},"condition":{"urlFilter":"||jcconcursos.com.br/static/socialmedia/"},"id":196},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["bristan.com"],"urlFilter":"||sharethis.com/button/buttons.js"},"id":197},
+{"action":{"type":"block"},"condition":{"urlFilter":"||feedgrabbr.com/widget/"},"id":198},
 {"action":{"type":"block"},"condition":{"urlFilter":"/follow-twitter-"},"id":201},
 {"action":{"type":"block"},"condition":{"urlFilter":"/follow-twitter."},"id":202},
 {"action":{"type":"block"},"condition":{"excludedResourceTypes":["main_frame","stylesheet"],"urlFilter":"/follow-us."},"id":207},

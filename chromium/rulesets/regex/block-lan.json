@@ -13,7 +13,6 @@
    "local",
    "localhost"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^\\w+:\\/\\/10\\.(?:(?:[1-9]?\\d|1\\d\\d|2(?:[0-4]\\d|5[0-5]))\\.){2}(?:[1-9]?\\d|1\\d\\d|2(?:[0-4]\\d|5[0-5]))[:/]"
  },
  "id": 1
@@ -32,7 +31,6 @@
    "local",
    "localhost"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^\\w+:\\/\\/172\\.(?:1[6-9]|2\\d|3[01])(?:\\.(?:[1-9]?\\d|1\\d\\d|2(?:[0-4]\\d|5[0-5]))){2}[:/]"
  },
  "id": 2
@@ -51,7 +49,6 @@
    "local",
    "localhost"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^\\w+:\\/\\/192\\.168(?:\\.(?:[1-9]?\\d|1\\d\\d|2(?:[0-4]\\d|5[0-5]))){2}[:/]"
  },
  "id": 3
@@ -70,7 +67,6 @@
    "local",
    "localhost"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^\\w+:\\/\\/\\[f(?:[cd][0-9a-f]|e[89a-f])[0-9a-f]:[0-9a-f:]+\\][:/]"
  },
  "id": 4
@@ -89,7 +85,6 @@
    "local",
    "localhost"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^\\w+:\\/\\/169\\.254\\.(?:[1-9]\\d?|1\\d{2}|2(?:[0-4]\\d|5[0-4]))\\.(?:[1-9]?\\d|1\\d{2}|2(?:[0-4]\\d|5[0-5]))[:/]"
  },
  "id": 5
@@ -108,7 +103,6 @@
    "local",
    "localhost"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^\\w+:\\/\\/\\[::ffff:(?:7f[0-9a-f]{2}|a[0-9a-f]{2}|ac1[0-9a-f]|c0a8|a9fe):[0-9a-f]{1,4}\\][:/]"
  },
  "id": 6
@@ -127,7 +121,6 @@
    "local",
    "localhost"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^\\w+:\\/\\/127\\.(?:(?:[1-9]?\\d|1\\d\\d|2(?:[0-4]\\d|5[0-5]))\\.){2}(?:[1-9]?\\d|1\\d\\d|2(?:[0-4]\\d|5[0-5]))[:/]"
  },
  "id": 7

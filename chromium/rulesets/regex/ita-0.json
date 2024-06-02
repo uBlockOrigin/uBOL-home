@@ -28,7 +28,6 @@
    "sessoromantico.com",
    "videoporno-gratis.it"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/.*\\/[a-z0-9A-Z_]{2,15}\\.(php|jx|jsx|1ph|jsf|jz|jsm|j$)",
   "resourceTypes": [
    "image",
@@ -36,7 +35,7 @@
    "sub_frame"
   ]
  },
- "id": 1289
+ "id": 1
 },
 {
  "action": {
@@ -47,13 +46,12 @@
    "mrpornogratis.it",
    "pornototale.com"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/.*\\/.*sw[0-9._].*",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 1294
+ "id": 2
 },
 {
  "action": {
@@ -67,14 +65,13 @@
    "pepperlive.info",
    "streamingcommunity.cz"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*",
   "resourceTypes": [
    "script",
    "xmlhttprequest"
   ]
  },
- "id": 1359
+ "id": 3
 },
 {
  "action": {
@@ -85,13 +82,12 @@
   "initiatorDomains": [
    "ilgeniodellostreaming.zone"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*",
   "resourceTypes": [
    "script",
    "xmlhttprequest"
   ]
  },
- "id": 1360
+ "id": 4
 }
 ]

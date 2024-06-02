@@ -7,14 +7,13 @@
   "initiatorDomains": [
    "trafictube.ro"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "trafictube\\.ro\\/[a-zA-Z0-9=,.?&]+$",
   "resourceTypes": [
    "image",
    "script"
   ]
  },
- "id": 124
+ "id": 1
 },
 {
  "action": {
@@ -24,14 +23,13 @@
   "initiatorDomains": [
    "razvanbb.ro"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "razvanbb\\.ro\\/[a-zA-Z0-9=,.?&-]+$",
   "resourceTypes": [
    "image",
    "script"
   ]
  },
- "id": 125
+ "id": 2
 },
 {
  "action": {
@@ -41,12 +39,11 @@
   "initiatorDomains": [
    "luju.ro"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "luju\\.ro\\/static\\/images\\/[a-zA-Z0-9=,.?&]+$",
   "resourceTypes": [
    "image"
   ]
  },
- "id": 134
+ "id": 3
 }
 ]

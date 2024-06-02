@@ -7,13 +7,12 @@
   "initiatorDomains": [
    "delfi.lt"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "\\.dcdn\\.lt\\/images\\/[a-z]{4}\\/",
   "resourceTypes": [
    "image"
   ]
  },
- "id": 445
+ "id": 1
 },
 {
  "action": {
@@ -23,12 +22,11 @@
   "initiatorDomains": [
    "muge.eu"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "muge\\.eu\\/wp-content\\/uploads\\/20\\d{2}\\/\\d{2}\\/thumbnail.*",
   "resourceTypes": [
    "image"
   ]
  },
- "id": 446
+ "id": 2
 }
 ]

@@ -13,7 +13,6 @@
   "type": "redirect"
  },
  "condition": {
-  "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
    "main_frame",
    "sub_frame",
@@ -21,7 +20,7 @@
   ],
   "urlFilter": "||v.fwmrm.net/ad/g/1"
  },
- "id": 170
+ "id": 1
 },
 {
  "action": {
@@ -41,12 +40,11 @@
    "mtv.fi",
    "mtvuutiset.fi"
   ],
-  "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
    "xmlhttprequest"
   ],
   "urlFilter": "&browser=mozillafirefox"
  },
- "id": 171
+ "id": 2
 }
 ]

@@ -17,13 +17,12 @@
    "di.se",
    "expressen.se"
   ],
-  "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
    "sub_frame"
   ],
   "urlFilter": "&autoplay"
  },
- "id": 1229
+ "id": 1
 },
 {
  "action": {
@@ -42,13 +41,12 @@
   "initiatorDomains": [
    "expressen.se"
   ],
-  "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
    "sub_frame"
   ],
   "urlFilter": "?autoplay"
  },
- "id": 1230
+ "id": 2
 },
 {
  "action": {
@@ -67,13 +65,12 @@
   "initiatorDomains": [
    "expressen.se"
   ],
-  "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
    "sub_frame"
   ],
   "urlFilter": "?autoplay=true"
  },
- "id": 1231
+ "id": 3
 },
 {
  "action": {
@@ -89,13 +86,12 @@
   "type": "redirect"
  },
  "condition": {
-  "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
    "sub_frame"
   ],
   "urlFilter": "||embed.viaplay.com/*autoplay=true"
  },
- "id": 1232
+ "id": 4
 },
 {
  "action": {
@@ -114,12 +110,11 @@
   "initiatorDomains": [
    "kritiker.se"
   ],
-  "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
    "sub_frame"
   ],
   "urlFilter": "||youtube.com/embed/*autoplay"
  },
- "id": 1233
+ "id": 5
 }
 ]

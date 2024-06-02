@@ -4,24 +4,9 @@
   "type": "block"
  },
  "condition": {
-  "initiatorDomains": [
-   "phimno4.xyz",
-   "socolivebongda.net"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "regexFilter": "media.discordapp"
- },
- "id": 1
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "giadinhonline.vn\\/files\\/qc"
  },
- "id": 10
+ "id": 1
 },
 {
  "action": {
@@ -31,49 +16,58 @@
   "initiatorDomains": [
    "xemphimchill.xyz"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "i.imgur.com"
  },
- "id": 11
+ "id": 2
 },
 {
  "action": {
   "type": "block"
  },
  "condition": {
-  "isUrlFilterCaseSensitive": false,
+  "initiatorDomains": [
+   "phimno4.xyz",
+   "socolivebongda.net"
+  ],
+  "regexFilter": "media.discordapp"
+ },
+ "id": 3
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
   "regexFilter": "\\w{2}\\.\\w+\\.com\\/\\w{13,}\\/\\w{5}$",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 252
+ "id": 4
 },
 {
  "action": {
   "type": "block"
  },
  "condition": {
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "\\w{60}\\.\\w{2,5}\\/\\w{84}\\.js",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 253
+ "id": 5
 },
 {
  "action": {
   "type": "block"
  },
  "condition": {
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "tinhocdongthap.com\\/wp-content\\/plugins\\/wp-[\\w-]+\\/[\\w-]+\\.js",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 260
+ "id": 6
 },
 {
  "action": {
@@ -81,13 +75,12 @@
  },
  "condition": {
   "domainType": "thirdParty",
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "(https?:\\/\\/)\\w{30,}\\.me\\/\\w{30,}\\.",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 305
+ "id": 7
 },
 {
  "action": {
@@ -98,12 +91,11 @@
   "excludedInitiatorDomains": [
    "amazon.com"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/s3\\.*.*\\.amazonaws\\.com\\/[a-f0-9]{45,}\\/[a-f,0-9]{8,10}$",
   "resourceTypes": [
    "xmlhttprequest"
   ]
  },
- "id": 308
+ "id": 8
 }
 ]

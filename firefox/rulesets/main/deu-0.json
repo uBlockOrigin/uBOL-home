@@ -1,4 +1,5 @@
 [
+{"action":{"type":"block"},"condition":{"requestDomains":["a.zdg.de","a3.zdg.de","achmetsdoenerladen.de","ad.71i.de","ad.bwise.ch","ad.dl.dewezet.de","ad.dslr-forum.de","ad.games.ch","ad.jaumo.com","alleswegenmicha.de","aluhutmafia.de","as.chartsurfer.de","banner.click-tt.de","banner.immowelt.de","bd742.com","bn.gewinn24.de","cdu-offline.de","ced.sascdn.com","code.alpin.de","code.bergsteigen.com","delmovip.com","dierussensindschuld.de","fantecio.com","fastad.beepworld.de","gayads.biz","gema-online.de","holyjesus.de","hybrid-prd.ad-prd.s.joyn.de","inv.lapippa.com","lad.sumikai.com","ladbrokes.hs-edge.net","media.alphaload.com","netwayer.de","network.gofeminin.de","network2.aufeminin.com","oddsserve-wqps7yvkz.stackpathdns.com","ox.gassi-tv.de","partner.fondsdiscount.de","partner.maxxim.de","partner.schalke04.de","partner.simplytel.de","pear.focus.de","plus.tourispo.com","promotionmaterial.betacash.com","res.ki.de","rev.lapippa.com","saas.valuetech.de","securecnd.com","servote.de","spd-spenden.de","start.amateurcommunity.com","start.sexpartnercommunity.com","swissadserver.ch","tdn.da-services.ch","trafico.prensaiberica.es","w.alpin.de","w.kicker.de","wbbanner.mrn-news.de","webinstaller.gartenplanze.de","werbemanager.w24.at","widget.marktjagd.de","wirverkaufennichts.de","wixnm.com","wm-space.youero.com","x.sumikai.com","zazufi.com"]},"id":1},
 {"action":{"type":"block"},"condition":{"urlFilter":"-bannerwerbung-"},"id":2},
 {"action":{"type":"block"},"condition":{"urlFilter":"-werb_hori."},"id":3},
 {"action":{"type":"block"},"condition":{"urlFilter":"-werb_vert."},"id":4},
@@ -1524,7 +1525,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||rclineforum.de/forum/index.php?*&zoneid="},"id":1524},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["helpster.de"],"requestDomains":["target-video.com"],"resourceTypes":["script"]},"id":1525},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||teltarif.de/img/smartphone/apple/iphone.jpg"},"id":1526},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de"],"urlFilter":"||mps-gba.de/ads/adserving/close_black.png"},"id":1527},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de","motorradonline.de"],"urlFilter":"||mps-gba.de/ads/adserving/close_black.png"},"id":1527},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["autobild.de"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||servedby.flashtalking.com/imp/"},"id":1528},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["autobild.de"],"resourceTypes":["script"],"urlFilter":"||track.webgains.com/link.html?wglinkid="},"id":1529},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||1und1.de/movein_"},"id":1530},
@@ -1670,8 +1671,8 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||wpseo.de^*/banner/"},"id":1670},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||zweitfondsmarkt.de/banner/"},"id":1671},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["t-online.de"],"urlFilter":"||interhyp.de/angular/lafpartner/"},"id":1672},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de"],"resourceTypes":["image"],"urlFilter":"||tpc.googlesyndication.com/simgad/"},"id":1673},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de","gamepro.de","gamestar.de","teltarif.de"],"resourceTypes":["script"],"urlFilter":"||g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js"},"id":1674},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de","motorradonline.de"],"resourceTypes":["image"],"urlFilter":"||tpc.googlesyndication.com/simgad/"},"id":1673},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de","gamepro.de","gamestar.de","motorradonline.de","teltarif.de"],"resourceTypes":["script"],"urlFilter":"||g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js"},"id":1674},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["atv.at","autobild.de","chip.de","computerbild.de","gentside.de","oe24.at","ohmymag.de","phonostar.de","schwaebische.de","spielaffe.de","sport.sky.de","wetter.at","wetteronline.de"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":1675},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["canna-power.to","canna.to"],"resourceTypes":["stylesheet","sub_frame","xmlhttprequest"]},"id":1676},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||amarotic.com^*.php?wmid="},"id":1677},
@@ -1757,7 +1758,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["teltarif.de"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||g.doubleclick.net/gampad/ads?*&iu_parts=27763518%3a21917048853%2cteltarif-de_onlineverlag_gmbh%2cteltarif.de%2cparallax%2chalfpagelu%2chalfpageru%2cnavisky&"},"id":1757},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["11freunde.de","auto-motor-und-sport.de","brigitte.de","eltern.de","gala.de","gamepro.de","gamestar.de","gentside.de","geo.de","manager-magazin.de","moviepilot.de","n-tv.de","ohmymag.de","stern.de"],"resourceTypes":["script"],"urlFilter":"||g.doubleclick.net/gpt/pubads_impl_"},"id":1758},
 {"action":{"type":"block"},"condition":{"urlFilter":"||kaufland.de^*&showspads=true^"},"id":1759},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["11freunde.de","auto-motor-und-sport.de","gala.de","gamepro.de","gamestar.de","gentside.de","manager-magazin.de","moviepilot.de","n-tv.de","ohmymag.de","stern.de","teltarif.de"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||g.doubleclick.net/tag/js/gpt.js"},"id":1760},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["11freunde.de","auto-motor-und-sport.de","gala.de","gamepro.de","gamestar.de","gentside.de","manager-magazin.de","motorradonline.de","moviepilot.de","n-tv.de","ohmymag.de","stern.de","teltarif.de"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||g.doubleclick.net/tag/js/gpt.js"},"id":1760},
 {"action":{"type":"block"},"condition":{"urlFilter":"||kostenlose-urteile.de/www.kostenlose-urteile.de/rtaads.html"},"id":1761},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mietminderungstabelle.de/templates/rrt2/adboxes/"},"id":1762},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["travelbook.de"],"resourceTypes":["script"],"urlFilter":"||idealo.net/js/idealowidget-"},"id":1763},
@@ -1781,7 +1782,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["autobild.de"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||adnxs.com/ut/v3|"},"id":1781},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["rollingstone.de"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||ads.viralize.tv/player/"},"id":1782},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["gentside.de","ohmymag.de"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||adsafeprotected.com/services/pub?anid="},"id":1783},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de","gala.de","gamepro.de","gamestar.de","geo.de","moviepilot.de"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||g.doubleclick.net/gampad/ads?"},"id":1784},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de","gala.de","gamepro.de","gamestar.de","geo.de","motorradonline.de","moviepilot.de"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||g.doubleclick.net/gampad/ads?"},"id":1784},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["gamepro.de","gamestar.de","moviepilot.de"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||g.doubleclick.net/pagead/ppub_config?ippd="},"id":1785},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["musikexpress.de","rollingstone.de","stylebook.de"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||ib.adnxs.com/ut/v3"},"id":1786},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["finanzen.ch"],"requestDomains":["ib.adnxs.com"],"resourceTypes":["xmlhttprequest"]},"id":1787},
@@ -1807,6 +1808,5 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||omasex.cc/wp-content/*/wp-content/plugins/rnotify1.3.9/"},"id":1807},
 {"action":{"type":"block"},"condition":{"urlFilter":"||xxx-amateur.eu/banner/"},"id":1808},
 {"action":{"type":"block"},"condition":{"urlFilter":"||xxx-amateur.eu/werbung.php"},"id":1809},
-{"action":{"type":"block"},"condition":{"urlFilter":"||xxx-amateur.eu/wordpress/wp-content/plugins/rnotify1.5.4_fullversion/"},"id":1810},
-{"action":{"type":"block"},"condition":{"requestDomains":["a.zdg.de","a3.zdg.de","achmetsdoenerladen.de","ad.71i.de","ad.bwise.ch","ad.dl.dewezet.de","ad.dslr-forum.de","ad.games.ch","ad.jaumo.com","alleswegenmicha.de","aluhutmafia.de","as.chartsurfer.de","banner.click-tt.de","banner.immowelt.de","bd742.com","bn.gewinn24.de","cdu-offline.de","ced.sascdn.com","code.alpin.de","code.bergsteigen.com","delmovip.com","dierussensindschuld.de","fantecio.com","fastad.beepworld.de","gayads.biz","gema-online.de","holyjesus.de","hybrid-prd.ad-prd.s.joyn.de","inv.lapippa.com","lad.sumikai.com","ladbrokes.hs-edge.net","media.alphaload.com","netwayer.de","network.gofeminin.de","network2.aufeminin.com","oddsserve-wqps7yvkz.stackpathdns.com","ox.gassi-tv.de","partner.fondsdiscount.de","partner.maxxim.de","partner.schalke04.de","partner.simplytel.de","pear.focus.de","plus.tourispo.com","promotionmaterial.betacash.com","rev.lapippa.com","saas.valuetech.de","securecnd.com","servote.de","spd-spenden.de","start.amateurcommunity.com","start.sexpartnercommunity.com","swissadserver.ch","tdn.da-services.ch","trafico.prensaiberica.es","w.alpin.de","w.kicker.de","wbbanner.mrn-news.de","webinstaller.gartenplanze.de","werbemanager.w24.at","widget.marktjagd.de","wirverkaufennichts.de","wixnm.com","wm-space.youero.com","x.sumikai.com","zazufi.com"]},"id":1811}
+{"action":{"type":"block"},"condition":{"urlFilter":"||xxx-amateur.eu/wordpress/wp-content/plugins/rnotify1.5.4_fullversion/"},"id":1810}
 ]

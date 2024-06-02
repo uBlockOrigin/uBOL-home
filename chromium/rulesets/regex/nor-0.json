@@ -7,7 +7,6 @@
   "initiatorDomains": [
    "no"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^.*:\\/\\/w{3}\\.(tu|d\\ig\\i)\\.n\\o\\/(\\d|[a-zA-Z_-]){130,}$",
   "resourceTypes": [
    "xmlhttprequest"
@@ -20,13 +19,12 @@
   "type": "block"
  },
  "condition": {
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^(https?:\\/\\/)?[a-z]{10,12}\\.easy\\.co($|\\/.*$)",
   "resourceTypes": [
    "main_frame"
   ]
  },
- "id": 443
+ "id": 2
 },
 {
  "action": {
@@ -34,10 +32,9 @@
  },
  "condition": {
   "domainType": "thirdParty",
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": ":\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpg|png|jpeg)"
  },
- "id": 463
+ "id": 3
 },
 {
  "action": {
@@ -48,13 +45,12 @@
    "billetlugen.dk",
    "eventim.no"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "obj\\/global\\/feature\\/tagCommander",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 521
+ "id": 4
 },
 {
  "action": {
@@ -62,12 +58,11 @@
  },
  "condition": {
   "domainType": "firstParty",
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https:\\/\\/www.gamer.no\\/[0-9a-f]{32,40}$",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 530
+ "id": 5
 }
 ]

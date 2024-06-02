@@ -42,13 +42,13 @@ const uBOL_trustedReplaceXhrResponse = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["/\\{\"brs_content_label\":[^,]+,\"category\":\"ENGAGEMENT[^\\n]+\"cursor\":\"[^\"]+\"\\}/g","{}","/api/graphql"]];
+const argsList = [["/\\{\"brs_content_label\":[^,]+,\"category\":\"ENGAGEMENT[^\\n]+\"cursor\":\"[^\"]+\"\\}/g","{}","/api/graphql"],["/,\"expanded_url\":\"([^\"]+)\",\"url\":\"[^\"]+\"/g",",\"expanded_url\":\"$1\",\"url\":\"$1\"","/graphql"],["/,\"expanded_url\":\"([^\"]+)\",\"indices\":([^\"]+)\"url\":\"[^\"]+\"/g",",\"expanded_url\":\"$1\",\"indices\":$2\"url\":\"$1\"","/tweet-result"]];
 
-const hostnamesMap = new Map([["www.facebook.com",0]]);
+const hostnamesMap = new Map([["www.facebook.com",0],["twitter.com",1],["x.com",1],["platform.twitter.com",2]]);
 
 const entitiesMap = new Map([]);
 
-const exceptionsMap = new Map([]);
+const exceptionsMap = new Map([["platform.twitter.com",[1]]]);
 
 /******************************************************************************/
 

@@ -4,6 +4,79 @@
   "type": "block"
  },
  "condition": {
+  "initiatorDomains": [
+   "alcalorpolitico.com"
+  ],
+  "regexFilter": "imagenespublicidad",
+  "resourceTypes": [
+   "image"
+  ]
+ },
+ "id": 1
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "elmundoporno.com",
+   "pasionchicas.com",
+   "pornoculazos.com",
+   "pornoespaniol.com",
+   "pornofakings.com",
+   "pornoincreible.com",
+   "teatrodelporno.com",
+   "teatroporno.com"
+  ],
+  "regexFilter": "^https?:\\/\\/.*\\/[a-z0-9A-Z_]{2,15}\\.(php|jx|jsx|1ph|jsf|jz|jsm|j$)",
+  "resourceTypes": [
+   "image",
+   "script",
+   "sub_frame"
+  ]
+ },
+ "id": 2
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "animefenix.com",
+   "hispasexy.org",
+   "manga-mx.com",
+   "serielatinobobesponja.com",
+   "series-de.online"
+  ],
+  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}.[0-9a-z]{8,}\\.com\\/",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 3
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "diariotextual.com"
+  ],
+  "regexFilter": "popup-maker",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 4
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
   "domainType": "thirdParty",
   "excludedResourceTypes": [
    "main_frame",
@@ -46,87 +119,9 @@
    "verboruto.online",
    "xn--solopeliculasespaol-c4b.com"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
  },
- "id": 1
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "initiatorDomains": [
-   "alcalorpolitico.com"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "regexFilter": "imagenespublicidad",
-  "resourceTypes": [
-   "image"
-  ]
- },
- "id": 537
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "initiatorDomains": [
-   "elmundoporno.com",
-   "pasionchicas.com",
-   "pornoculazos.com",
-   "pornoespaniol.com",
-   "pornofakings.com",
-   "pornoincreible.com",
-   "teatrodelporno.com",
-   "teatroporno.com"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "regexFilter": "^https?:\\/\\/.*\\/[a-z0-9A-Z_]{2,15}\\.(php|jx|jsx|1ph|jsf|jz|jsm|j$)",
-  "resourceTypes": [
-   "image",
-   "script",
-   "sub_frame"
-  ]
- },
- "id": 539
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "initiatorDomains": [
-   "animefenix.com",
-   "hispasexy.org",
-   "manga-mx.com",
-   "serielatinobobesponja.com",
-   "series-de.online"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}.[0-9a-z]{8,}\\.com\\/",
-  "resourceTypes": [
-   "script"
-  ]
- },
- "id": 544
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "initiatorDomains": [
-   "diariotextual.com"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "regexFilter": "popup-maker",
-  "resourceTypes": [
-   "script"
-  ]
- },
- "id": 545
+ "id": 5
 },
 {
  "action": {
@@ -151,10 +146,9 @@
    "verificandoarch2.blogspot.com",
    "verificarhuman.blogspot.com"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*"
  },
- "id": 567
+ "id": 6
 },
 {
  "action": {
@@ -162,13 +156,12 @@
  },
  "condition": {
   "domainType": "thirdParty",
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/([a-z0-9]{8,10}\\.)?[a-z0-9]{5,14}\\.(com|bid|online|top|club)\\/([a-z0-9]{2}\\/){3}[a-f0-9]{32}\\.js$",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 571
+ "id": 7
 },
 {
  "action": {
@@ -176,12 +169,11 @@
  },
  "condition": {
   "domainType": "thirdParty",
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/[a-z0-9]+\\.cloudfront\\.net\\/\\?[a-z]{5}\\=\\d{6}$",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 572
+ "id": 8
 }
 ]

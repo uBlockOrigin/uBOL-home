@@ -152,12 +152,6 @@
     ]
    ],
    [
-    "disable-newtab-links",
-    [
-     "*"
-    ]
-   ],
-   [
     "adjust-setInterval",
     [
      "*"
@@ -165,6 +159,12 @@
    ],
    [
     "noeval-if",
+    [
+     "*"
+    ]
+   ],
+   [
+    "disable-newtab-links",
     [
      "*"
     ]
@@ -309,6 +309,65 @@
     ]
    ],
    [
+    "set-local-storage-item",
+    [
+     "adultdeepfakes.com",
+     "aikatu.jp",
+     "allthekingz.com",
+     "automobile-catalog.com",
+     "badmouth1.com",
+     "bamgosu.site",
+     "bravedown.com",
+     "dogdrip.net",
+     "economist.co.kr",
+     "edaily.co.kr",
+     "elevenlabs.io",
+     "etnews.com",
+     "etnewskorea.com",
+     "etoday.co.kr",
+     "etoland.co.kr",
+     "fedex.com",
+     "fntimes.com",
+     "freewsad.com",
+     "gadgets360.com",
+     "genshinlab.com",
+     "globalrph.com",
+     "hdfilmcehennemi2.cx",
+     "hometownstation.com",
+     "honkailab.com",
+     "islamicfinder.org",
+     "isplus.com",
+     "issuya.com",
+     "iusm.co.kr",
+     "javatpoint.com",
+     "jetpunk.com",
+     "lamire.jp",
+     "loawa.com",
+     "logicieleducatif.fr",
+     "maketecheasier.com",
+     "mindbodygreen.com",
+     "mydaily.co.kr",
+     "ndtvprofit.com",
+     "picrew.me",
+     "raenonx.cc",
+     "reportera.co.kr",
+     "secure-signup.net",
+     "slobodnadalmacija.hr",
+     "sportalkorea.com",
+     "sportsrec.com",
+     "taxguru.in",
+     "text-compare.com",
+     "thephoblographer.com",
+     "thesaurus.net",
+     "thestar.co.uk",
+     "thestockmarketwatch.com",
+     "wfmz.com",
+     "worldhistory.org",
+     "ygosu.com",
+     "yorkshirepost.co.uk"
+    ]
+   ],
+   [
     "trusted-click-element",
     [
      "bankshiksha.in",
@@ -329,67 +388,6 @@
      "turbobita.net",
      "turbobits.cc",
      "turboobit.com"
-    ]
-   ],
-   [
-    "set-local-storage-item",
-    [
-     "adultdeepfakes.com",
-     "aikatu.jp",
-     "allthekingz.com",
-     "automobile-catalog.com",
-     "badmouth1.com",
-     "bamgosu.site",
-     "bravedown.com",
-     "dogdrip.net",
-     "economist.co.kr",
-     "edaily.co.kr",
-     "elevenlabs.io",
-     "enetnews.co.kr",
-     "etnews.com",
-     "etnewskorea.com",
-     "etoday.co.kr",
-     "etoland.co.kr",
-     "fedex.com",
-     "fntimes.com",
-     "freewsad.com",
-     "gadgets360.com",
-     "genshinlab.com",
-     "hankyung.com",
-     "hometownstation.com",
-     "honkailab.com",
-     "inven.co.kr",
-     "islamicfinder.org",
-     "isplus.com",
-     "issuya.com",
-     "iusm.co.kr",
-     "javatpoint.com",
-     "jetpunk.com",
-     "lamire.jp",
-     "loawa.com",
-     "logicieleducatif.fr",
-     "maketecheasier.com",
-     "meeco.kr",
-     "mindbodygreen.com",
-     "mydaily.co.kr",
-     "ndtvprofit.com",
-     "picrew.me",
-     "raenonx.cc",
-     "secure-signup.net",
-     "sportalkorea.com",
-     "taxguru.in",
-     "text-compare.com",
-     "thephoblographer.com",
-     "thesaurus.net",
-     "thestar.co.uk",
-     "thestockmarketwatch.com",
-     "uttranews.com",
-     "vipotv.com",
-     "warcraftrumbledeck.com",
-     "wfmz.com",
-     "worldhistory.org",
-     "ygosu.com",
-     "yorkshirepost.co.uk"
     ]
    ],
    [
@@ -589,7 +587,8 @@
      "msn.cn",
      "new.qq.com",
      "qq.com",
-     "v.qq.com"
+     "v.qq.com",
+     "www.qq.com"
     ]
    ],
    [
@@ -1104,7 +1103,6 @@
      "embed.indavideo.hu",
      "femina.hu",
      "huaweiblog.hu",
-     "myonlineradio.hu",
      "player.rtl.hu"
     ]
    ],
@@ -1118,8 +1116,19 @@
     "abort-on-property-write",
     [
      "karpathir.com",
-     "myonlineradio.hu",
      "port.hu"
+    ]
+   ],
+   [
+    "set-cookie",
+    [
+     "myonlineradio.hu"
+    ]
+   ],
+   [
+    "remove-cookie",
+    [
+     "myonlineradio.hu"
     ]
    ]
   ]
@@ -1813,7 +1822,6 @@
      "genshin.gamedot.org",
      "iphonedev.co.kr",
      "itinformation.kr",
-     "klauncher.kr",
      "lover932.net",
      "lover933.net",
      "lover934.net",
@@ -1937,6 +1945,7 @@
     [
      "blackkiwi.net",
      "kakaotv.daum.net",
+     "klauncher.kr",
      "play-tv.kakao.com",
      "spotvnow.co.kr",
      "tv.kakao.com"
@@ -3583,6 +3592,7 @@
      "nsd.se",
      "nsk.se",
      "nt.se",
+     "nuiosteraker.se",
      "nvp.se",
      "nwt.se",
      "nyheter24.se",
@@ -4081,8 +4091,7 @@
      "ogznet.com",
      "puhutv.com",
      "raindropteamfan.com",
-     "sozcu.com.tr",
-     "yazilimfuryasi.com"
+     "sozcu.com.tr"
     ]
    ],
    [
@@ -4096,7 +4105,6 @@
      "dizigom1.tv",
      "duzcetv.com",
      "hacoos.com",
-     "iskandinavya.com",
      "kampanyatakip.blogspot.com",
      "kenttv.net",
      "mordefter.com",
@@ -4407,6 +4415,7 @@
      "p.thoctv.com",
      "phim18hd.top",
      "phimgichill.net",
+     "phimhdcc.com",
      "phimlongtieng.com",
      "phimlongtieng.net",
      "phimmoinay.vip",
@@ -4416,12 +4425,14 @@
      "quatvn.pub",
      "rphang.men",
      "saigon24.net",
+     "sex.chichnhau.net",
+     "sexhd88.co",
      "sexmup18.com",
      "sexphimhd.vip",
      "sexvn1.cc",
      "soha.vn",
      "tenmientruyengi.net",
-     "tinsoikeo.ink",
+     "tinsoikeo.cloud",
      "top1sex.club",
      "topviet69.com",
      "truyen2u.net",
@@ -4437,9 +4448,10 @@
      "truyensextv.com",
      "truyentuan.xyz",
      "truyenvn.xyz",
-     "tuoi69.mom",
+     "tuoi69.guru",
      "tuoitre.vn",
      "ungtycomicsvip.com",
+     "ungtycomicsvip.net",
      "vailonxx.vip",
      "viet69.ceo",
      "vlxx.mobi",
@@ -4448,7 +4460,6 @@
      "www.buomtv.app",
      "www.toptruyenii.online",
      "xemphim18.cc",
-     "xemphimhdcc.net",
      "xnxx-sex-videos.com",
      "yurineko.net"
     ]
@@ -4485,7 +4496,7 @@
      "rk.plcdn.xyz",
      "sieudamtv.men",
      "thuvienhd.xyz",
-     "tinsoikeo.ink",
+     "tinsoikeo.cloud",
      "truyenhentaivn.co",
      "truyensieuhay.com",
      "veryfiles.com",
@@ -4520,8 +4531,7 @@
      "gvnvh18.com",
      "kenh14.vn",
      "mb.clipsex.xxx",
-     "mobile.ditgaixinh.net",
-     "mobile.ditnhau.cc",
+     "mobile.phimsexvip.cc",
      "phim.sexhayvl.org",
      "phimsexviet.io",
      "phimsexvietnam.app",
@@ -4537,7 +4547,9 @@
      "vndoc.com",
      "web.motsex.net",
      "www.iosviet.com",
-     "xoivo2.online"
+     "xoivo2.online",
+     "xx.clipsexhot.net",
+     "xx.ditnhau.cc"
     ]
    ],
    [
@@ -6279,6 +6291,7 @@
      "argentos.barcelona",
      "armedangels.com",
      "arqa-vet.at",
+     "arturofuente.com",
      "aruba.com",
      "assos.com",
      "asus.com",
@@ -6533,6 +6546,7 @@
      "dhbbank.nl",
      "digibest.pt",
      "digimobil.es",
+     "dinamalar.com",
      "direct.travelinsurance.tescobank.com",
      "docs.dyrector.io",
      "doka.com",
@@ -7130,6 +7144,7 @@
      "plos.org",
      "plusujemy.pl",
      "pnel.de",
+     "pohjanmaanhyvinvointi.fi",
      "pole-emploi.fr",
      "polizei.bayern.de",
      "polsatboxgo.pl",
@@ -7426,6 +7441,7 @@
      "vitalllit.com",
      "vitalvibe.eu",
      "vitbikes.de",
+     "viu.com",
      "vivaldi.com",
      "vivande.de",
      "vkf-renzel.nl",
@@ -7433,6 +7449,7 @@
      "vod.warszawa.pl",
      "voda-zdarma.cz",
      "voila.ca",
+     "volkswagen-group.com",
      "vorstudienlehrgang.at",
      "vyos.io",
      "w6-wertarbeit.de",
@@ -8251,6 +8268,7 @@
      "quillbot.com",
      "reuters.com",
      "seekingalpha.com",
+     "thejournal.ie",
      "theweek.com",
      "zippia.com"
     ]

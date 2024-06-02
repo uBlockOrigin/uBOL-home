@@ -135,6 +135,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||nelonenmedia-pmd-ads-*.nm-stream.nelonenmedia.fi^"},"id":134},
 {"action":{"type":"block"},"condition":{"requestDomains":["freewheel-jitt.sanoma.fi"],"resourceTypes":["media"]},"id":135},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["elisa.fi"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||publish.ne.cision.com/"},"id":136},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["pohjanmaanhyvinvointi.fi"],"urlFilter":"||googletagmanager.com/gtm.js"},"id":137},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["ad.citycdn.fi","ad.ilcdn.fi","affiliate.guts.com","auto1.fi","carousel-prod-kaleva-fi.s3.amazonaws.com","celtra.com","cjar.a-lehdet.fi","expekt.com","hintaopas.fi","honestpartners.com","improveads.fi","kake.fi","media.vuokraovi.com","nayadaya.com","rantapallo.fi","revimages.motouutiset.fi"]},"id":138},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||cloudfront.net/images/backgroundimages/backgroundimage^"},"id":139},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["c1.hinta.fi","nostemedia.bbvms.com","strongbox.nostemedia.fi"],"resourceTypes":["script"]},"id":140},

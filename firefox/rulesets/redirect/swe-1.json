@@ -2,6 +2,26 @@
 {
  "action": {
   "redirect": {
+   "extensionPath": "/web_accessible_resources/google-ima.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "atl.nu",
+   "screen9.com"
+  ],
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
+ },
+ "id": 1,
+ "priority": 12
+},
+{
+ "action": {
+  "redirect": {
    "extensionPath": "/web_accessible_resources/32x32.png"
   },
   "type": "redirect"

@@ -8,10 +8,9 @@
  },
  "condition": {
   "domainType": "firstParty",
-  "isUrlFilterCaseSensitive": false,
   "urlFilter": "||15min.lt/cached/tgif"
  },
- "id": 521,
+ "id": 1,
  "priority": 2
 },
 {
@@ -23,13 +22,12 @@
  },
  "condition": {
   "domainType": "firstParty",
-  "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
    "media"
   ],
   "urlFilter": "||161.97.106.129/info.mp4"
  },
- "id": 522,
+ "id": 2,
  "priority": 2
 }
 ]

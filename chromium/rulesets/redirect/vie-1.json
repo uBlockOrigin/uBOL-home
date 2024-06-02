@@ -2,26 +2,6 @@
 {
  "action": {
   "redirect": {
-   "extensionPath": "/web_accessible_resources/google-ima.js"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "vtvcab.vn"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "resourceTypes": [
-   "script"
-  ],
-  "urlFilter": "||on-web-cdn.gviet.vn/public/js/player/ads/ima3.js"
- },
- "id": 1,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
    "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
   "type": "redirect"
@@ -30,10 +10,28 @@
   "initiatorDomains": [
    "phimhaytv.info"
   ],
-  "isUrlFilterCaseSensitive": false,
   "urlFilter": "||bf.333xbet.com/18881999/video888.mp4"
  },
- "id": 340,
+ "id": 1,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/google-ima.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "vtvcab.vn"
+  ],
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||on-web-cdn.gviet.vn/public/js/player/ads/ima3.js"
+ },
+ "id": 2,
  "priority": 2
 }
 ]

@@ -41,7 +41,6 @@
    "xhamster-sexvideos.com",
    "xnxx-porno.com"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/.*\\/[a-z0-9A-Z_]{2,15}\\.(php|jx|jsx|1ph|jsf|jz|jsm|j$)",
   "resourceTypes": [
    "image",
@@ -49,7 +48,7 @@
    "sub_frame"
   ]
  },
- "id": 1514
+ "id": 1
 },
 {
  "action": {
@@ -59,13 +58,12 @@
   "initiatorDomains": [
    "hammerporno.xxx"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/.*\\/.*(sw[0-9a-z._-]|\\.notify\\.).*",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 1527
+ "id": 2
 },
 {
  "action": {
@@ -96,10 +94,9 @@
    "streamcloud.movie",
    "topstreamfilm.live"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
  },
- "id": 1673
+ "id": 3
 },
 {
  "action": {
@@ -118,9 +115,8 @@
    "streamcloud.movie",
    "topstreamfilm.live"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*"
  },
- "id": 1674
+ "id": 4
 }
 ]

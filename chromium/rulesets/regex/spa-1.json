@@ -7,10 +7,9 @@
   "initiatorDomains": [
    "loskatchorros.com.br"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "loskatchorros\\.com\\.br\\/forum\\/uploads\\/set_resources_\\d+\\/[a-z0-9]+_[a-zA-Z0-9]+\\.js"
  },
- "id": 27
+ "id": 1
 },
 {
  "action": {
@@ -20,10 +19,9 @@
   "initiatorDomains": [
    "tvcanales.cf"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "qvncc.tvcanales.cf\\/js\\/[_-a-zA-Z0-9]{5,}.js"
  },
- "id": 335
+ "id": 2
 },
 {
  "action": {
@@ -33,13 +31,12 @@
   "initiatorDomains": [
    "zubby.com"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "zubby.com\\/[a-z-]+-\\d+\\/\\?_=",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 576
+ "id": 3
 },
 {
  "action": {
@@ -49,13 +46,12 @@
   "initiatorDomains": [
    "ddmix.net"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https:\\/\\/(ddmix.net)\\/[a-z0-9_]*\\.js",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 577
+ "id": 4
 },
 {
  "action": {
@@ -65,12 +61,11 @@
   "initiatorDomains": [
    "ddmix.net"
   ],
-  "isUrlFilterCaseSensitive": false,
   "regexFilter": "^https:\\/\\/(ddmix.net)\\/js\\/[a-z0-9_]*\\.js",
   "resourceTypes": [
    "script"
   ]
  },
- "id": 578
+ "id": 5
 }
 ]

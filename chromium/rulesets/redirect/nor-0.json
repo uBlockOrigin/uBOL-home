@@ -2,23 +2,6 @@
 {
  "action": {
   "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.json"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "isUrlFilterCaseSensitive": false,
-  "resourceTypes": [
-   "xmlhttprequest"
-  ],
-  "urlFilter": "||vgc.no/cdn/js/libs/homad-config.json"
- },
- "id": 1,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
    "extensionPath": "/web_accessible_resources/noop.js"
   },
   "type": "redirect"
@@ -27,13 +10,12 @@
   "initiatorDomains": [
    "vgtv.no"
   ],
-  "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
    "script"
   ],
   "urlFilter": "||acdn.adnxs.com/ast/ast.js"
  },
- "id": 536,
+ "id": 1,
  "priority": 12
 },
 {
@@ -47,13 +29,12 @@
   "initiatorDomains": [
    "vg.no"
   ],
-  "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
    "script"
   ],
   "urlFilter": "||damoh.vgtv.no/hic_qos"
  },
- "id": 537,
+ "id": 2,
  "priority": 2
 },
 {
@@ -67,14 +48,48 @@
   "initiatorDomains": [
    "vegetarbloggen.no"
   ],
-  "isUrlFilterCaseSensitive": false,
   "resourceTypes": [
    "script"
   ],
   "urlFilter": "||googletagservices.com/tag/js/gpt.js"
  },
- "id": 538,
+ "id": 3,
  "priority": 12
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.json"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||vgc.no/cdn/js/libs/homad-config.json"
+ },
+ "id": 4,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "bold.dk"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||freewheel-mtgx-tv.akamaized.net/*.mp4"
+ },
+ "id": 5,
+ "priority": 2
 },
 {
  "action": {
@@ -95,26 +110,6 @@
   ]
  },
  "id": 539,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "bold.dk"
-  ],
-  "isUrlFilterCaseSensitive": false,
-  "resourceTypes": [
-   "media"
-  ],
-  "urlFilter": "||freewheel-mtgx-tv.akamaized.net/*.mp4"
- },
- "id": 540,
  "priority": 2
 }
 ]
