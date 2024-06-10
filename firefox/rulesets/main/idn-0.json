@@ -3067,7 +3067,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["193.142.147.230","ainzscans.net","igobokep.cam","siimanga.cyou"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":3066},
 {"action":{"type":"block"},"condition":{"urlFilter":"||128.199.175.251/looppopup.js"},"id":3067},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["doujindesu.tv","javsubid.com","www.ngefilm21.top"],"resourceTypes":["image"],"urlFilter":"||blogger.googleusercontent.com/*.gif"},"id":3068},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["149.56.24.226","15.235.11.45","anime-indo.id","baladfilm.skin","bgibola.com","bioskopkerenin.org","dunia21.club","dutafilm.cfd","komikmanhwa.me","ld2tv.net","lk21.london","lk21official.biz","lk21official.live","lk21official.org","lk21tv.com","mangakita.id","movieajip.online","oploverz.best","oploverz.co.in","oploverz.love","oploverz.tv","otakudesu.ltd","rbtv77.com","samehadaku.show"],"resourceTypes":["image"],"urlFilter":".gif"},"id":3069},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["149.56.24.226","15.235.11.45","anime-indo.id","baladfilm.guru","baladfilm.skin","bgibola.com","bioskopkerenin.org","dunia21.club","dutafilm.cfd","komikmanhwa.me","ld2tv.net","lk21.london","lk21official.biz","lk21official.live","lk21official.org","lk21tv.com","mangakita.id","movieajip.online","oploverz.best","oploverz.co.in","oploverz.love","oploverz.tv","otakudesu.ltd","rbtv77.com","samehadaku.show"],"resourceTypes":["image"],"urlFilter":".gif"},"id":3069},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-banner-mahjong-"},"id":3070},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/areaslots.gif"},"id":3071},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/saktispin-"},"id":3072},
@@ -3077,5 +3077,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/bandarxl."},"id":3076},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/ibo-sport.gif|"},"id":3077},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/mansion77ku.gif|"},"id":3078},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||xmalay.net/nativeads-v2.js"},"id":3079}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||xmalay.net/nativeads-v2.js"},"id":3079},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||shinigamitoon.id/wp-content/plugins/halfdata-green-popups/js/lepopup.js"},"id":3080}
 ]

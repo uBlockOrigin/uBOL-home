@@ -602,5 +602,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["rentinal.info"],"resourceTypes":["script"]},"id":601},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||alibaba.ir/adtrace-latest.min.js^"},"id":602},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["scienceforfree.blog.ir"],"requestDomains":["numberland.ir","parsvds.com"],"resourceTypes":["image"]},"id":603},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||persiansub.com/images/*.gif^"},"id":604}
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||persiansub.com/images/*.gif^"},"id":604},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||uploadb.com/banner^"},"id":605},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||uploadb.com/images/*.gif^"},"id":606}
 ]

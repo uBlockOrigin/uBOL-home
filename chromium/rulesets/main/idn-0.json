@@ -221,7 +221,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||wp.com/ryuukoi.web.id/wp-content/uploads/*/antiadblock"},"id":220},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||www.cararegistrasi.com/img/download_1.png"},"id":221},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||www.riau24.com/portal/adv/"},"id":222},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["149.56.24.226","15.235.11.45","anime-indo.id","baladfilm.skin","bgibola.com","bioskopkerenin.org","dunia21.club","dutafilm.cfd","komikmanhwa.me","ld2tv.net","lk21.london","lk21official.biz","lk21official.live","lk21official.org","lk21tv.com","mangakita.id","movieajip.online","oploverz.best","oploverz.co.in","oploverz.love","oploverz.tv","otakudesu.ltd","rbtv77.com","samehadaku.show"],"resourceTypes":["image"],"urlFilter":".gif"},"id":223},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["149.56.24.226","15.235.11.45","anime-indo.id","baladfilm.guru","baladfilm.skin","bgibola.com","bioskopkerenin.org","dunia21.club","dutafilm.cfd","komikmanhwa.me","ld2tv.net","lk21.london","lk21official.biz","lk21official.live","lk21official.org","lk21tv.com","mangakita.id","movieajip.online","oploverz.best","oploverz.co.in","oploverz.love","oploverz.tv","otakudesu.ltd","rbtv77.com","samehadaku.show"],"resourceTypes":["image"],"urlFilter":".gif"},"id":223},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-abgqq."},"id":224},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-agen-judi-"},"id":225},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-agen-poker-"},"id":226},
@@ -3077,5 +3077,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.cash/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3076},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.lol/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3077},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||rbreezy.xyz/nativeads-v2.js"},"id":3078},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||xmalay.net/nativeads-v2.js"},"id":3079}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||xmalay.net/nativeads-v2.js"},"id":3079},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||shinigamitoon.id/wp-content/plugins/halfdata-green-popups/js/lepopup.js"},"id":3080}
 ]

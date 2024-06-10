@@ -1808,5 +1808,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["wetter.com"],"resourceTypes":["main_frame","sub_frame"],"urlFilter":"||g.doubleclick.net/gampad/adx?*/wetter_direct_toolbar"},"id":1807},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["transfermarkt.de"],"resourceTypes":["sub_frame"],"urlFilter":"||smartadserver.com/diff/251/divscripte/"},"id":1808},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["gamestar.de"],"resourceTypes":["media"],"urlFilter":"||ads.julephosting.de/podcasts/"},"id":1809},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||commundia.de^*/affilinet/"},"id":1810}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||commundia.de^*/affilinet/"},"id":1810},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["finanzen.at","finanzen.ch","finanzen.net"],"requestDomains":["gearwom.de"]},"id":1811}
 ]

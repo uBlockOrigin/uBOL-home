@@ -594,7 +594,7 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||login.kataweb.it^*/sprite-social.png"},"id":593},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||moneyweb.co.za^*/social-shares.min.js?"},"id":594},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||parlament.mt/scripts/easy-social-share.js"},"id":595},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["verkkouutiset.fi"],"urlFilter":"||reactandshare.com/plugin/rns.js"},"id":596},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["maanmittauslaitos.fi","verkkouutiset.fi"],"urlFilter":"||reactandshare.com/plugin/rns.js"},"id":596},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["mediamatters.org","politico.com"],"urlFilter":"||s7.addthis.com^*/addthis_widget.js"},"id":597},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["bristan.com"],"urlFilter":"||sharethis.com/button/buttons.js"},"id":598},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||tgcom24.mediaset.it/assets/js/amd/socialcount.js"},"id":599},

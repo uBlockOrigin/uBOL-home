@@ -1581,5 +1581,13 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||dl.mail.com/permission/onetrust/consent/"},"id":1580},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||tweakers.net/ajax/cookie-consent/"},"id":1581},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||meine.postbank.de/*-cookiedisclaimer-*.json"},"id":1582},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||zensus2022.de/siteglobals/modules/cookiebanner/*/cookiebanner.json?"},"id":1583}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||zensus2022.de/siteglobals/modules/cookiebanner/*/cookiebanner.json?"},"id":1583},
+{"action":{"type":"block"},"condition":{"urlFilter":"||korkeinoikeus.fi/webcomponents/oh-internet-seuranta/evastekysely.html"},"id":1584},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["orteil.dashnet.org"],"urlFilter":"||cookiemonsterteam.github.io/cookiemonster/dist/cookiemonster.js"},"id":1585},
+{"action":{"type":"allow"},"condition":{"urlFilter":"||raiplay.it/common/assets/js/cookiebanner.js"},"id":1586},
+{"action":{"type":"allow"},"condition":{"urlFilter":"||raiplay.it/dl/components/js/cookie.pack.js"},"id":1587},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["maanmittauslaitos.fi"],"requestDomains":["reactandshare.com"]},"id":1588},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["maanmittauslaitos.fi"],"resourceTypes":["script"],"urlFilter":"/eu_cookie_compliance.min.js"},"id":1589},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["bigmammagroup.com"],"resourceTypes":["script"],"urlFilter":"||freeprivacypolicy.com/public/cookie-consent/"},"id":1590},
+{"action":{"type":"allow"},"condition":{"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||raiplay.it/dl/components/js/cookiebanner/"},"id":1591}
 ]

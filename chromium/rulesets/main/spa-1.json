@@ -223,7 +223,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["pelisplus.so"],"urlFilter":"/apu.php?zoneid="},"id":222},
 {"action":{"type":"block"},"condition":{"urlFilter":"||baixartorrents.org/subs/popup.js"},"id":223},
 {"action":{"type":"block"},"condition":{"urlFilter":"||naoconto.com/wp-content/uploads/2021/09/camerahot-"},"id":224},
-{"action":{"type":"block"},"condition":{"urlFilter":"||pernambuconoticias.com.br/wp-content/plugins/bravepopup-pro/*/brave.js"},"id":225},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["gdrivelatinohd.net","pernambuconoticias.com.br"],"urlFilter":"/wp-content/plugins/bravepopup-pro/"},"id":225},
 {"action":{"type":"block"},"condition":{"urlFilter":"||muacknet.ipower.com/blanco.php"},"id":226},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ledgerwallet.com/affiliate/"},"id":227},
 {"action":{"type":"block"},"condition":{"urlFilter":"||plantaomaringa.com/fotos/anuncios"},"id":228},

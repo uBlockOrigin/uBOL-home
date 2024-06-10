@@ -45,6 +45,7 @@
      "mk.yopo.work",
      "music.youtube.com",
      "nbc.com",
+     "play.geforcenow.com",
      "player.pop.co.uk",
      "player.popfun.co.uk",
      "sushi.ski",
@@ -255,11 +256,13 @@
      "abczdrowie.pl",
      "autocentrum.pl",
      "autokult.pl",
+     "barstoolsports.com",
      "benchmark.pl",
      "dobreprogramy.pl",
      "fotoblogia.pl",
      "gadzetomania.pl",
      "genialne.pl",
+     "globo.com",
      "govtech.com",
      "jastrzabpost.pl",
      "kafeteria.pl",
@@ -614,12 +617,18 @@
    [
     "evaldata-prune",
     [
+     "m.nivod2.com",
+     "m.nivod2.tv",
+     "m.nivod4.com",
      "m.nivod4.tv",
+     "m.nivod5.com",
      "m.nivod5.tv",
+     "m.nivod7.com",
      "m.nivod7.tv",
+     "m.nivod8.com",
      "m.nivod8.tv",
-     "m.nivod9.tv",
-     "m1.nivod.tv"
+     "m.nivod9.com",
+     "m.nivod9.tv"
     ]
    ]
   ]
@@ -1201,7 +1210,9 @@
    [
     "remove-class",
     [
-     "okezone.com"
+     "inews.id",
+     "okezone.com",
+     "sindonews.com"
     ]
    ],
    [
@@ -1745,6 +1756,7 @@
      "hub.zum.com",
      "humors.zigcou.com",
      "imbc.com",
+     "klauncher.kr",
      "koreapas.com",
      "m.dcinside.com",
      "m.humoruniv.com",
@@ -1940,7 +1952,6 @@
     [
      "blackkiwi.net",
      "kakaotv.daum.net",
-     "klauncher.kr",
      "play-tv.kakao.com",
      "spotvnow.co.kr",
      "tv.kakao.com"
@@ -2707,6 +2718,8 @@
      "online-fix.me",
      "pes-files.ru",
      "rbc.ru",
+     "reshu.by",
+     "sdamgia.ru",
      "tv-kanali.online"
     ]
    ],
@@ -2799,6 +2812,7 @@
      "e1.ru",
      "frontend.vh.yandex.ru",
      "ircity.ru",
+     "izh1.ru",
      "liveinternet.ru",
      "livejournal.com",
      "mgorsk.ru",
@@ -2812,7 +2826,6 @@
      "ngs55.ru",
      "ngs70.ru",
      "nn.ru",
-     "proizhevsk.ru",
      "sm.news",
      "sochi1.ru",
      "sterlitamak1.ru",
@@ -2975,6 +2988,7 @@
    [
     "set-cookie",
     [
+     "direct.farm",
      "forum.ixbt.com",
      "ixbt.com",
      "kinotv.ru",
@@ -3271,6 +3285,12 @@
     ]
    ],
    [
+    "remove-attr",
+    [
+     "*"
+    ]
+   ],
+   [
     "no-window-open-if",
     [
      "*"
@@ -3285,12 +3305,6 @@
      "receitasdafazenda.com",
      "receitasdocheff.online",
      "receitasvegana.com"
-    ]
-   ],
-   [
-    "remove-attr",
-    [
-     "*"
     ]
    ],
    [
@@ -3506,8 +3520,7 @@
    [
     "noeval-if",
     [
-     "forexgruppen.se",
-     "temadagar.se"
+     "forexgruppen.se"
     ]
    ],
    [
@@ -3578,6 +3591,7 @@
      "markposten.se",
      "matspar.se",
      "mellanbygden.nu",
+     "mellerudsnyheter.se",
      "mestmotor.se",
      "mitti.se",
      "molndalsposten.se",
@@ -3602,6 +3616,7 @@
      "realtid.se",
      "recept.se",
      "saffletidningen.se",
+     "skaraborgsbygden.se",
      "skd.se",
      "sla.se",
      "smp.se",
@@ -4373,20 +4388,20 @@
      "3dchill.shop",
      "abtruyen.net",
      "afamily.vn",
-     "animehay.run",
-     "animevietsub.art",
+     "animehay.bio",
+     "animevietsub.dev",
      "cafef.vn",
      "cdn.streamvl.sbs",
      "cdnstream.sbs",
      "cliphot69.blog",
      "cunghocvui.com",
      "demo.14412882.com",
-     "doctruyen3qvi.pro",
-     "dualeotruyenj.com",
-     "gai3x.vip",
+     "doctruyen3qx.pro",
+     "dualeotruyenbot.com",
+     "gaidep3x.pro",
      "gamek.vn",
      "genk.vn",
-     "gocphimv.com",
+     "gocphimtvi.com",
      "gotphim.com",
      "hentaivn.today",
      "hentaizz.xyz",
@@ -4403,28 +4418,29 @@
      "kenh14.vn",
      "lenlut.tv",
      "linkneverdie.net",
-     "live.sexviet88.tube",
+     "live.sexviet88.biz",
      "lrepacks.net",
-     "lxmanga.icu",
+     "lxmanga.cfd",
      "m.blogtruyenmoi.com",
      "mephimnhe1.net",
      "misskon.com",
      "nettruyenab.com",
      "p.thoctv.com",
-     "phim18hd.top",
+     "phim18hd.sex",
      "phimgichill.net",
-     "phimhdcc.com",
+     "phimhdcc.net",
      "phimlongtieng.com",
      "phimlongtieng.net",
      "phimmoinay.vip",
      "phimsexhay669.pro",
      "phimss.com",
      "phimtho.net",
-     "quatvn.pub",
-     "rphang.men",
+     "phimtuoitho.tv",
+     "quatvn.day",
+     "rphang.meme",
      "saigon24.net",
      "sex.chichnhau.net",
-     "sexhd88.co",
+     "sexhd88.vip",
      "sexmup18.com",
      "sexphimhd.vip",
      "sexvn1.cc",
@@ -4445,18 +4461,18 @@
      "truyenqqvn.com",
      "truyensextv.com",
      "truyentuan.xyz",
-     "truyenvn.xyz",
+     "truyenvn.me",
      "tuoi69.guru",
      "tuoitre.vn",
      "ungtycomicsvip.com",
      "ungtycomicsvip.net",
      "vailonxx.vip",
-     "viet69.ceo",
+     "viet69.tax",
      "vlxx.mobi",
      "vlxyz.tube",
      "vungoctuan.vn",
      "www.buomtv.app",
-     "www.toptruyenii.online",
+     "www.toptruyenx.pro",
      "xemphim18.cc",
      "xnxx-sex-videos.com",
      "yurineko.net"
@@ -4476,10 +4492,10 @@
      "javnong.cc",
      "linkneverdie.net",
      "maclife.io",
+     "motchilltv.icu",
      "mv.dailyphimz.com",
      "mv.phimbathu.one",
      "mv.phimmoiaz.cc",
-     "nettruyenus.net",
      "nhentaivn.online",
      "opendatafrance.net",
      "ophimhdvn3.net",
@@ -4487,12 +4503,11 @@
      "phimdinhcao.net",
      "phimlongtieng.net",
      "phimmoi4s.com",
-     "phimmoichill.vip",
      "phimvietsub.pro",
      "plvb.xyz",
      "quangcaoyenbai.com",
      "rk.plcdn.xyz",
-     "sieudamtv.men",
+     "sieudamtv.site",
      "thuvienhd.xyz",
      "tinsoikeo.cloud",
      "truyenhentaivn.co",
@@ -4501,6 +4516,7 @@
      "viettoons.tv",
      "vinaurl.net",
      "www.khophim88s.com",
+     "www.nettruyenupp.com",
      "xemtv.tvhayhd.tv",
      "yts.do",
      "yts.mx",
@@ -4522,20 +4538,20 @@
      "afamily.vn",
      "api.anime3s.com",
      "cafef.vn",
-     "clipsexvietnam.net",
+     "clipsex.cam",
      "gamek.vn",
      "genk.vn",
      "gm.phimsexnhanh.tv",
      "gvnvh18.com",
      "kenh14.vn",
      "mb.clipsex.xxx",
-     "mobile.phimsexvip.cc",
+     "mb.heohay.com",
      "phim.sexhayvl.org",
      "phimsexviet.io",
      "phimsexvietnam.app",
      "phimvietsub.pro",
      "phimvuihd.org",
-     "sexdiaryx.site",
+     "sexdiaryx.blog",
      "soha.vn",
      "subnhanh.xyz",
      "tailieumoi.vn",
@@ -4543,7 +4559,7 @@
      "tuoitre.vn",
      "vaoroi365.com",
      "vndoc.com",
-     "web.motsex.net",
+     "vuasex.club",
      "www.iosviet.com",
      "xoivo2.online",
      "xx.clipsexhot.net",
@@ -4574,7 +4590,7 @@
      "cdnwp.icu",
      "luotphim1.net",
      "phimmoi4s.com",
-     "webphim2.com"
+     "webphim6.com"
     ]
    ],
    [
@@ -6980,6 +6996,7 @@
      "luvly.care",
      "luz-blanca.info",
      "m.twitch.tv",
+     "maanmittauslaitos.fi",
      "macfarlanes.com",
      "mader.bz.it",
      "magicpos.shop",
@@ -7031,6 +7048,7 @@
      "mydealz.de",
      "myeventeo.com",
      "mypensiontracker.co.uk",
+     "myprivacy.dpgmediagroup.net",
      "myriad.social",
      "myriadicity.net",
      "myscience.org",
@@ -7279,6 +7297,7 @@
      "shop.wf-education.com",
      "shopforyou47.de",
      "shopilya.com",
+     "shoutcast.com",
      "showtv.com.tr",
      "silvini.com",
      "silvini.cz",
@@ -8239,6 +8258,7 @@
      "dualshockers.com",
      "gamerant.com",
      "howtogeek.com",
+     "lawinsider.com",
      "makeuseof.com",
      "movieweb.com",
      "nautil.us",

@@ -45,25 +45,5 @@
   ]
  },
  "id": 1232
-},
-{
- "action": {
-  "responseHeaders": [
-   {
-    "header": "content-security-policy",
-    "operation": "append",
-    "value": "upgrade-insecure-requests"
-   }
-  ],
-  "type": "modifyHeaders"
- },
- "condition": {
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ],
-  "urlFilter": "|http://vimedbarn.se^"
- },
- "id": 1234
 }
 ]

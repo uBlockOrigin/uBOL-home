@@ -377,6 +377,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||tipster.no/embed"},"id":376},
 {"action":{"type":"block"},"condition":{"requestDomains":["isweb.no"],"resourceTypes":["sub_frame"]},"id":377},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["tv3sport.dk"],"requestDomains":["freewheel-mtgx-tv.akamaized.net"],"resourceTypes":["media"]},"id":378},
+{"action":{"type":"block"},"condition":{"urlFilter":"||datamaskin.biz/ad/"},"id":379},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/begrensede-tilbudet/"},"id":380},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/bli-avbrutt-bor-du-oppdater/"},"id":381},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/dnb11111^"},"id":382},

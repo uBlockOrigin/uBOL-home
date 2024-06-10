@@ -337,7 +337,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||my.sendinblue.com/users/subscribe/"},"id":336},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||nrcdn.com/custom-script/"},"id":337},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["newsweek.com"],"requestDomains":["pelcro.com"]},"id":338},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["colorscale.shop"],"requestDomains":["poxo.com"]},"id":339},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["colorscale.shop","wmaniac.com"],"requestDomains":["poxo.com"]},"id":339},
 {"action":{"type":"block"},"condition":{"urlFilter":"||engage.newmode.net/embed/"},"id":340},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||quote.fm/services/button/"},"id":341},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||raidrush.net/ticker/"},"id":342},

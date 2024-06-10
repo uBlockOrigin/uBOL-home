@@ -1581,5 +1581,13 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["dailystar.co.uk","mirror.co.uk","video.lacnews24.it"],"urlFilter":"||cmp.inmobi.com^*/choice.js"},"id":1580},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||pohjanmaanhyvinvointi.fi^*/pwd-cookie-consent."},"id":1581},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||syntec.fr/wp-content/themes/syntec/assets/js/lib/tarteaucitron/tarteaucitron.js"},"id":1582},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["everand.com","lucidchart.com","meeting.guidepoint.com","scribd.com"],"requestDomains":["cmp.osano.com"],"resourceTypes":["script"]},"id":1583}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["everand.com","lucidchart.com","meeting.guidepoint.com","scribd.com"],"requestDomains":["cmp.osano.com"],"resourceTypes":["script"]},"id":1583},
+{"action":{"type":"block"},"condition":{"urlFilter":"||korkeinoikeus.fi/webcomponents/oh-internet-seuranta/evastekysely.html"},"id":1584},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["orteil.dashnet.org"],"urlFilter":"||cookiemonsterteam.github.io/cookiemonster/dist/cookiemonster.js"},"id":1585},
+{"action":{"type":"allow"},"condition":{"urlFilter":"||raiplay.it/common/assets/js/cookiebanner.js"},"id":1586},
+{"action":{"type":"allow"},"condition":{"urlFilter":"||raiplay.it/dl/components/js/cookie.pack.js"},"id":1587},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["maanmittauslaitos.fi"],"requestDomains":["reactandshare.com"]},"id":1588},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["maanmittauslaitos.fi"],"resourceTypes":["script"],"urlFilter":"/eu_cookie_compliance.min.js"},"id":1589},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["bigmammagroup.com"],"resourceTypes":["script"],"urlFilter":"||freeprivacypolicy.com/public/cookie-consent/"},"id":1590},
+{"action":{"type":"allow"},"condition":{"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||raiplay.it/dl/components/js/cookiebanner/"},"id":1591}
 ]
