@@ -162,5 +162,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["seiska.fi"],"resourceTypes":["media"],"urlFilter":"||seiska.b-cdn.net/mainos.mp4"},"id":161},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["track.adform.net"],"resourceTypes":["main_frame"],"urlFilter":"||track.adform.net/*dna.fi/"},"id":162},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["click.redditmail.com"]},"id":163},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["elisa.fi"],"urlFilter":"||googletagmanager.com/gtm.js?"},"id":164}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["elisa.fi"],"urlFilter":"||googletagmanager.com/gtm.js?"},"id":164},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["clk.tradedoubler.com"],"resourceTypes":["main_frame"],"urlFilter":"||clk.tradedoubler.com/click*cdon.fi"},"id":165},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["ad.doubleclick.net"],"resourceTypes":["main_frame"],"urlFilter":"||ad.doubleclick.net/ddm/clk/*coolshop.fi/tuote/"},"id":166}
 ]

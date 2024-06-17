@@ -604,5 +604,6 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["scienceforfree.blog.ir"],"requestDomains":["numberland.ir","parsvds.com"],"resourceTypes":["image"]},"id":603},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["fararu.com","gostaresh.news"],"resourceTypes":["font"],"urlFilter":"||cdn.yektanet.com/fonts/"},"id":604},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||uploadb.com/banner^"},"id":605},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||uploadb.com/images/*.gif^"},"id":606}
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||uploadb.com/images/*.gif^"},"id":606},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||dgkl.io/api/v1/click^"},"id":607}
 ]

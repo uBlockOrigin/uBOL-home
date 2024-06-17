@@ -422,6 +422,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||kiwi.com-"},"id":421},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||getmail-no."},"id":422},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||elkjop*.club^"},"id":423},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["norsk-tipping.no","tipster.no"],"resourceTypes":["sub_frame"],"urlFilter":".cloudfront.net/oddsen^"},"id":424},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||faarup.com-*."},"id":425},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||legoland.com-*."},"id":426},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||ekstrabiadet."},"id":427},

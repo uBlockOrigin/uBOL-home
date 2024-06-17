@@ -170,7 +170,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||gomovies-online.*/addons/*.gif"},"id":169},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||samfw.com/assets/*.gif"},"id":170},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||theintercept.com/xbuilder/"},"id":171},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","rawstory.com","thedailybeast.com","theintercept.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":172},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","rawstory.com","thedailybeast.com","theintercept.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":172},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ninjakitchen.com"],"resourceTypes":["script"],"urlFilter":"||listrakbi.com/scripts/"},"id":173},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["uol.com.br"],"resourceTypes":["script"],"urlFilter":"/lib.ucopy/ucopy.js"},"id":174},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||adsrt.com/assets/js/particles.min.js"},"id":175},
@@ -276,5 +276,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["buktube.com","fullxh.com","megaxh.com","movingxh.world","seexh.com","taoxh.life","unlockxh4.com","xhaccess.com","xhadult2.com","xhadult3.com","xhadult4.com","xhadult5.com","xhamster46.com","xhbig.com","xhday.com","xhday1.com","xhmoon5.com","xhplanet1.com","xhplanet2.com","xhreal2.com","xhreal3.com","xhtab2.com","xhtree.com","xhvictory.com","xhwebsite.com","xhwebsite2.com","xhwide1.com"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":275},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["raenonx.cc"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":276},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||ads.twitcasting.tv/js/env_test/ads.js"},"id":277},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||luckydesigner.space/adview_"},"id":278}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||luckydesigner.space/adview_"},"id":278},
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||news.atptour.com/p/"},"id":279}
 ]

@@ -533,5 +533,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||tv2.no/*/config/analytics.json"},"id":532},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||cmp.ekstrabladet.dk/get_site_data"},"id":533},
 {"action":{"type":"block"},"condition":{"urlFilter":"||datamaskin.biz/ad/"},"id":534},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["itavisen.no"],"requestDomains":["sixscissors.com"]},"id":535}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["itavisen.no"],"requestDomains":["sixscissors.com"]},"id":535},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["norsk-tipping.no","tipster.no"],"resourceTypes":["sub_frame"],"urlFilter":".cloudfront.net/oddsen^"},"id":536}
 ]
