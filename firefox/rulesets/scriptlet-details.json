@@ -229,6 +229,12 @@
     ]
    ],
    [
+    "href-sanitizer",
+    [
+     "*"
+    ]
+   ],
+   [
     "prevent-refresh",
     [
      "*"
@@ -239,6 +245,12 @@
     [
      "1001tracklists.com",
      "66ccff.work"
+    ]
+   ],
+   [
+    "spoof-css",
+    [
+     "*"
     ]
    ],
    [
@@ -299,71 +311,7 @@
    [
     "set-local-storage-item",
     [
-     "adultdeepfakes.com",
-     "aikatu.jp",
-     "allthekingz.com",
-     "automobile-catalog.com",
-     "badmouth1.com",
-     "bamgosu.site",
-     "bravedown.com",
-     "dogdrip.net",
-     "economist.co.kr",
-     "edaily.co.kr",
-     "elevenlabs.io",
-     "etnews.com",
-     "etnewskorea.com",
-     "etoday.co.kr",
-     "etoland.co.kr",
-     "fedex.com",
-     "fntimes.com",
-     "freewsad.com",
-     "gadgets360.com",
-     "genshinlab.com",
-     "globalrph.com",
-     "hdfilmcehennemi2.cx",
-     "hometownstation.com",
-     "honkailab.com",
-     "islamicfinder.org",
-     "isplus.com",
-     "issuya.com",
-     "iusm.co.kr",
-     "javatpoint.com",
-     "jetpunk.com",
-     "lamire.jp",
-     "loawa.com",
-     "logicieleducatif.fr",
-     "maketecheasier.com",
-     "mindbodygreen.com",
-     "mydaily.co.kr",
-     "ndtvprofit.com",
-     "picrew.me",
-     "raenonx.cc",
-     "reportera.co.kr",
-     "secure-signup.net",
-     "slobodnadalmacija.hr",
-     "sportalkorea.com",
-     "sportsrec.com",
-     "taxguru.in",
-     "text-compare.com",
-     "thephoblographer.com",
-     "thesaurus.net",
-     "thestar.co.uk",
-     "thestockmarketwatch.com",
-     "wfmz.com",
-     "worldhistory.org",
-     "ygosu.com",
-     "yorkshirepost.co.uk"
-    ]
-   ],
-   [
-    "spoof-css",
-    [
-     "banaraswap.in",
-     "download.megaup.net",
-     "kiktu.com",
-     "techcyan.com",
-     "trangchu.news",
-     "upshrink.com"
+     "*"
     ]
    ],
    [
@@ -371,6 +319,7 @@
     [
      "bankshiksha.in",
      "best-mobilegames.com",
+     "bgmi32bitapk.in",
      "bharatsarkarijobalert.com",
      "earn.mpscstudyhub.com",
      "earn.quotesopia.com",
@@ -402,13 +351,10 @@
    [
     "trusted-set-constant",
     [
-     "*"
-    ]
-   ],
-   [
-    "href-sanitizer",
-    [
-     "*"
+     "app.blubank.com",
+     "emturbovid.com",
+     "mobileweb.bankmellat.ir",
+     "tuborstb.co"
     ]
    ],
    [
@@ -439,6 +385,35 @@
  [
   "chn-0",
   [
+   [
+    "no-setTimeout-if",
+    [
+     "18comic.vip",
+     "233tw.com",
+     "520cc.cc",
+     "5278.cc",
+     "axutongxue.net",
+     "cocomanga.com",
+     "colamanga.com",
+     "ekamus.info",
+     "haoweichi.com",
+     "hboav.com",
+     "itdog.cn",
+     "league-funny.com",
+     "logi.im",
+     "manwa.fun",
+     "moeci.com",
+     "nfmovies.com",
+     "ohmanhua.com",
+     "onemanhua.com",
+     "ruanyifeng.com",
+     "t66y.com",
+     "tingfm.com",
+     "tsubasa.im",
+     "xbeibeix.com",
+     "zhenbuka.com"
+    ]
+   ],
    [
     "set-constant",
     [
@@ -483,34 +458,6 @@
      "papalah.com",
      "yfsp.tv",
      "youneed.win"
-    ]
-   ],
-   [
-    "no-setTimeout-if",
-    [
-     "18comic.vip",
-     "233tw.com",
-     "520cc.cc",
-     "5278.cc",
-     "axutongxue.net",
-     "cocomanga.com",
-     "colamanga.com",
-     "ekamus.info",
-     "haoweichi.com",
-     "hboav.com",
-     "itdog.cn",
-     "league-funny.com",
-     "logi.im",
-     "moeci.com",
-     "nfmovies.com",
-     "ohmanhua.com",
-     "onemanhua.com",
-     "ruanyifeng.com",
-     "t66y.com",
-     "tingfm.com",
-     "tsubasa.im",
-     "xbeibeix.com",
-     "zhenbuka.com"
     ]
    ],
    [
@@ -613,6 +560,12 @@
     "set-session-storage-item",
     [
      "subhd.com"
+    ]
+   ],
+   [
+    "remove-attr",
+    [
+     "manwa.fun"
     ]
    ],
    [
@@ -941,7 +894,6 @@
      "abcbourse.com",
      "cliqueduplateau.com",
      "crunchyscan.fr",
-     "japscan.lol",
      "japscan.me",
      "leakgaming.fr",
      "lemanip.com",
@@ -971,12 +923,9 @@
     ]
    ],
    [
-    "abort-on-stack-trace",
+    "remove-node-text",
     [
-     "annuaire-telechargement.tel",
-     "dl-protect.net",
-     "japscan.lol",
-     "zone-telechargement.moe"
+     "japscan.lol"
     ]
    ],
    [
@@ -1016,6 +965,15 @@
     ]
    ],
    [
+    "adjust-setTimeout",
+    [
+     "cosmopolitan.fr",
+     "magicmaman.com",
+     "sudouest.fr",
+     "zoneseries.stream"
+    ]
+   ],
+   [
     "remove-attr",
     [
      "1jour1film.homes",
@@ -1024,17 +982,17 @@
     ]
    ],
    [
-    "adjust-setTimeout",
-    [
-     "cosmopolitan.fr",
-     "magicmaman.com",
-     "zoneseries.stream"
-    ]
-   ],
-   [
     "no-window-open-if",
     [
      "*"
+    ]
+   ],
+   [
+    "abort-on-stack-trace",
+    [
+     "annuaire-telechargement.tel",
+     "dl-protect.net",
+     "zone-telechargement.moe"
     ]
    ],
    [
@@ -1567,6 +1525,27 @@
   "jpn-1",
   [
    [
+    "addEventListener-defuser",
+    [
+     "anacap.doorblog.jp",
+     "anianierosuki.work",
+     "blog-and-destroy.com",
+     "blog.housinkai.com",
+     "coolpan.net",
+     "ero-video.net",
+     "iwb.jp",
+     "jp-xvideos.info",
+     "jukenbbs.com",
+     "kakenhi.net",
+     "seesaa.net",
+     "tokyomotion.net",
+     "twi-fans.com",
+     "twidouga.net",
+     "twivideo.net",
+     "uraaka-joshi.com"
+    ]
+   ],
+   [
     "no-setTimeout-if",
     [
      "*"
@@ -1579,38 +1558,17 @@
     ]
    ],
    [
-    "abort-on-property-read",
-    [
-     "iwb.jp",
-     "modalina.jp",
-     "pointi.jp",
-     "shico.xyz"
-    ]
-   ],
-   [
     "abort-current-script",
     [
      "*"
     ]
    ],
    [
-    "addEventListener-defuser",
+    "abort-on-property-read",
     [
-     "anacap.doorblog.jp",
-     "anianierosuki.work",
-     "blog-and-destroy.com",
-     "blog.housinkai.com",
-     "coolpan.net",
-     "ero-video.net",
-     "jp-xvideos.info",
-     "jukenbbs.com",
-     "kakenhi.net",
-     "seesaa.net",
-     "tokyomotion.net",
-     "twi-fans.com",
-     "twidouga.net",
-     "twivideo.net",
-     "uraaka-joshi.com"
+     "modalina.jp",
+     "pointi.jp",
+     "shico.xyz"
     ]
    ],
    [
@@ -2550,6 +2508,7 @@
      "fastpic.org",
      "fm-app.ru",
      "iptv.org.ua",
+     "kinoblin.ru",
      "kinonews.ru",
      "kp.kg",
      "kp.kz",
@@ -2753,14 +2712,12 @@
      "aqicn.org",
      "buhgalter.com.ua",
      "buhgalter911.com",
-     "e.mail.ru",
      "factor.ua",
      "ferr-um.ucoz.ru",
      "fishki.net",
      "fonmod.com",
      "hdkinoteatr.com",
      "num-words.com",
-     "octavius.mail.ru",
      "otzovik.com",
      "razlozhi.ru",
      "rusvesna.su",
@@ -2943,6 +2900,7 @@
      "kolobok.ua",
      "kriminal.tv",
      "liga.net",
+     "mail.ru",
      "meteo.ua",
      "meteofor.com.ua",
      "naylo.top",
@@ -3079,12 +3037,6 @@
   "spa-1",
   [
    [
-    "set-constant",
-    [
-     "*"
-    ]
-   ],
-   [
     "prevent-fetch",
     [
      "acortalo.net",
@@ -3097,6 +3049,7 @@
      "c9n.com.py",
      "canal12.com.sv",
      "canal13mexico.com",
+     "cerisetoon.com",
      "chapintv.com",
      "costumbresmexico.com",
      "desbloquea.me",
@@ -3134,6 +3087,7 @@
      "pobre.wtf",
      "puromarketing.com",
      "qwanturankpro.com",
+     "r7.com",
      "receitasdochico.life",
      "receitasoncaseiras.online",
      "redbolivision.tv.bo",
@@ -3153,6 +3107,18 @@
      "todostartups.com",
      "tudonoticiasbr.com",
      "vtv.com.hn"
+    ]
+   ],
+   [
+    "remove-node-text",
+    [
+     "daemon-hentai.com"
+    ]
+   ],
+   [
+    "set-constant",
+    [
+     "*"
     ]
    ],
    [
@@ -4274,6 +4240,12 @@
     ]
    ],
    [
+    "remove-attr",
+    [
+     "*"
+    ]
+   ],
+   [
     "set-cookie",
     [
      "bursahaberdar.com",
@@ -4283,15 +4255,8 @@
      "gazeterize.com",
      "haberlisin.com",
      "halk54.com",
-     "hdfilmizle.org",
      "isvecgundemi.com",
      "kgrt.net"
-    ]
-   ],
-   [
-    "remove-attr",
-    [
-     "*"
     ]
    ],
    [
@@ -4403,8 +4368,10 @@
      "animevietsub.dev",
      "cafef.vn",
      "cdn.streamvl.sbs",
+     "cdn2.blueskychilling.online",
      "cdnstream.sbs",
      "cliphot69.blog",
+     "cliphot69.buzz",
      "cunghocvui.com",
      "demo.14412882.com",
      "doctruyen3qx.pro",
@@ -4457,7 +4424,7 @@
      "sexvn1.cc",
      "soha.vn",
      "tenmientruyengi.net",
-     "tinsoikeo.cloud",
+     "tinsoikeo.live",
      "top1sex.club",
      "topviet69.com",
      "truyen2u.net",
@@ -4473,7 +4440,7 @@
      "truyensextv.com",
      "truyentuan.xyz",
      "truyenvn.me",
-     "tuoi69s.com",
+     "tuoi69.hentaiz.cam",
      "tuoitre.vn",
      "ungtycomicsvip.com",
      "ungtycomicsvip.net",
@@ -4498,12 +4465,13 @@
      "audiotruyenfull.com",
      "dood.pm",
      "ephimchill.com",
+     "getnorth2018.com",
      "hoctot.hocmai.vn",
      "javfc2.net",
      "javnong.cc",
      "linkneverdie.net",
      "maclife.io",
-     "motchilltv.icu",
+     "motphimmoi.net",
      "mv.dailyphimz.com",
      "mv.phimbathu.one",
      "mv.phimmoiaz.cc",
@@ -4517,9 +4485,9 @@
      "plvb.xyz",
      "quangcaoyenbai.com",
      "rk.plcdn.xyz",
-     "sieudamtv.site",
+     "sieudamtv.dev",
      "thuvienhd.xyz",
-     "tinsoikeo.cloud",
+     "tinsoikeo.live",
      "truyenhentaivn.co",
      "truyensieuhay.com",
      "veryfiles.com",
@@ -4528,7 +4496,6 @@
      "www.khophim88s.com",
      "www.nettruyenupp.com",
      "xemtv.tvhayhd.tv",
-     "xoilac86x5.live",
      "yts.do",
      "yts.mx",
      "yts.rs",
@@ -4546,12 +4513,16 @@
    [
     "set-constant",
     [
+     "abysscdn.com",
      "afamily.vn",
      "api.anime3s.com",
      "cafef.vn",
+     "cliphot69.buzz",
      "clipsex.cam",
+     "freeplayervideo.com",
      "gamek.vn",
      "genk.vn",
+     "geoip.redirect-ads.com",
      "gm.phimsexnhanh.tv",
      "gvnvh18.com",
      "kenh14.vn",
@@ -4562,6 +4533,7 @@
      "phimsexvietnam.app",
      "phimvietsub.pro",
      "phimvuihd.org",
+     "player-cdn.com",
      "sexdiaryx.blog",
      "soha.vn",
      "subnhanh.xyz",
@@ -4574,7 +4546,8 @@
      "web.motsex.net",
      "www.iosviet.com",
      "xoivo2.online",
-     "xx.clipsexhot.net"
+     "xx.clipsexhot.net",
+     "xx.sexkhongchemoi.com"
     ]
    ],
    [
@@ -6478,6 +6451,7 @@
      "casellimoveis.com.br",
      "cashback-cards.ch",
      "catolet.de",
+     "cellcolabsclinical.com",
      "centrooceano.it",
      "cexpr.es",
      "chatfuel.com",
@@ -6496,6 +6470,7 @@
      "cklenk.de",
      "clausnehring.com",
      "clearblue.com",
+     "clearspend.natwest.com",
      "cleverbot.com",
      "climatecentral.org",
      "clipchamp.com",
@@ -6882,6 +6857,7 @@
      "ilmotorsport.de",
      "ilsaggiatore.com",
      "img.ly",
+     "imola.motorsportreg.com",
      "imping-confiserie.de",
      "inds.co.uk",
      "ing.it",
@@ -7024,6 +7000,7 @@
      "malcorentacar.com",
      "malermeister-shop.de",
      "mantel.com",
+     "map.blitzortung.org",
      "maspero.it",
      "massivart.de",
      "materna.de",
@@ -7031,6 +7008,7 @@
      "maybach-luxury.com",
      "mayflex.com",
      "mbhszepkartya.hu",
+     "mediaite.com",
      "mediathek.lfv-bayern.de",
      "medical.edu.mt",
      "medtube.es",
@@ -7059,6 +7037,7 @@
      "mora.hu",
      "more.com",
      "motofocus.pl",
+     "motorsportreg.com",
      "mtbmarket.de",
      "mubi.com",
      "mullgs.se",
@@ -7091,6 +7070,7 @@
      "nomanssky.com",
      "norlysplay.dk",
      "northgatevehiclehire.ie",
+     "northumbriasport.com",
      "norwayshop.cz",
      "notion.so",
      "novagenics.com",
@@ -7166,6 +7146,7 @@
      "petitiononline.uk",
      "petitions.nz",
      "petizioni.com",
+     "pga.com",
      "pharmahall.gr",
      "phish-test.de",
      "photobooth.online",
@@ -7226,6 +7207,7 @@
      "pricewise.nl",
      "primor.eu",
      "privatekeys.pw",
+     "producthunt.com",
      "prodyna.com",
      "proficient.fi",
      "project529.com",
@@ -7565,6 +7547,7 @@
      "5sim.net",
      "6amgroup.com",
      "adfilteringdevsummit.com",
+     "aerolineas.com.ar",
      "aida64.co.uk",
      "aida64.com.ua",
      "aida64.de",
@@ -7859,6 +7842,7 @@
      "euronews.com",
      "express.co.uk",
      "forums.tomsguide.com",
+     "hatch.co",
      "hopetv.de",
      "if-cdn.com",
      "komoot.com",
@@ -7887,6 +7871,7 @@
      "vivantis.sk",
      "vr.fi",
      "vreden.de",
+     "wedding.pl",
      "wesendit.com"
     ]
    ],
@@ -7926,7 +7911,9 @@
      "jingdaily.com",
      "kermitlynch.com",
      "loungefly.com",
+     "oled-info.com",
      "railsnotes.xyz",
+     "readergrev.com",
      "saucerco.com",
      "scitechdaily.com",
      "sharperimage.com",
@@ -8022,7 +8009,8 @@
      "bbc.com",
      "deezer.com",
      "moovitapp.com",
-     "teller.jp"
+     "teller.jp",
+     "wrtn.jp"
     ]
    ],
    [
@@ -8294,10 +8282,14 @@
      "makeuseof.com",
      "movieweb.com",
      "nautil.us",
+     "plough.com",
      "pocketnow.com",
      "screenrant.com",
+     "sportsbusinessjournal.com",
+     "startribune.com",
      "talkingpointsmemo.com",
      "thegamer.com",
+     "theolivepress.es",
      "thetravel.com",
      "xda-developers.com",
      "zippia.com"
@@ -8318,6 +8310,7 @@
      "dailynewshungary.com",
      "deepl.com",
      "nisanyansozluk.com",
+     "pawread.com",
      "quillbot.com",
      "reuters.com",
      "seekingalpha.com",
@@ -8405,16 +8398,17 @@
     ]
    ],
    [
-    "remove-attr",
+    "addEventListener-defuser",
     [
      "11alive.com",
      "13newsnow.com",
      "9news.com",
      "abc15.com",
      "ajc.com",
-     "banistmo.com",
+     "cbs8.com",
      "firstcoastnews.com",
      "fox2now.com",
+     "kare11.com",
      "king5.com",
      "wcnc.com",
      "wfaa.com",
@@ -8424,6 +8418,12 @@
      "wtsp.com",
      "wusa9.com",
      "wwltv.com"
+    ]
+   ],
+   [
+    "remove-attr",
+    [
+     "banistmo.com"
     ]
    ]
   ]

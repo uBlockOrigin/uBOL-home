@@ -42,9 +42,9 @@ const uBOL_addEventListenerDefuser = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["/^(?:contextmenu|keydown)$/"],["/click|load/","popMagic"],["/click|mousedown/","popunder"],["/contextmenu|copy|keydown|selectstart/"],["/mouse/","cursorVisible"],["DOMContentLoaded",".j-mini-player__video"],["DOMContentLoaded","/smartweek/"],["DOMContentLoaded","0x"],["DOMContentLoaded","banners"],["click","","elements","a[href*=\"utm_campaign\"]"],["click","[native code]"],["click","matches"],["copy","extra"],["copy","getSelection"],["copy","pagelink"],["getexoloader"],["load","AdBlock"],["load","mamydirect"],["loadstart","isImmediatePropagationStopped"],["scroll","getBoundingClientRect"],["scroll","players"],["scroll","window.history.pushState"],["load","screenshotsItems"],["visibilitychange","captureContext"]];
+const argsList = [["/^(?:contextmenu|keydown)$/"],["/click|load/","popMagic"],["/click|mousedown/","popunder"],["/contextmenu|copy|keydown|selectstart/"],["/mouse/","cursorVisible"],["DOMContentLoaded",".j-mini-player__video"],["DOMContentLoaded","/smartweek/"],["DOMContentLoaded","0x"],["DOMContentLoaded","banners"],["click","","elements","a[href*=\"utm_campaign\"]"],["click","[native code]"],["click","matches"],["copy","extra"],["copy","getSelection"],["copy","pagelink"],["getexoloader"],["load","AdBlock"],["load","mamydirect"],["loadstart","isImmediatePropagationStopped"],["mousedown","pop.doEvent"],["scroll","getBoundingClientRect"],["scroll","players"],["scroll","window.history.pushState"],["load","screenshotsItems"],["visibilitychange","captureContext"]];
 
-const hostnamesMap = new Map([["7days.ru",[0,23]],["fastpic.org",[1,15]],["biqle.org",2],["biqle.ru",2],["autonews.co.ua",3],["liveball.cc",3],["liveball.uno",3],["ukrainianwall.com",3],["fm-app.ru",4],["tvapp.su",4],["yootv.ru",4],["rambler.ru",[5,12]],["sibnet.ru",6],["sports.ru",7],["cq.ru",8],["regnum.news",9],["regnum.ru",9],["tproger.ru",9],["softonic.ru",10],["smotrim.ru",11],["rbc.ru",13],["sportrbc.ru",13],["carservic.ru",14],["iptv.org.ua",14],["tva.org.ua",14],["ufchgu.ru",14],["romakatya.ru",16],["overclockers.ru",17],["bonus-tv.ru",18],["m.lenta.ru",19],["www.vesti.ru",20],["lenta.ru",21],["softportal.com",22],["cdn.viqeo.tv",23],["kinonews.ru",23],["kp.kg",23],["kp.kz",23],["kp.md",23],["kp.ru",23],["mk.ru",23],["ohotniki.ru",23],["portalvirtualreality.ru",23],["radiokp.ru",23],["sportkp.ru",23],["wday.ru",23],["woman.ru",23],["www.fontanka.ru",23]]);
+const hostnamesMap = new Map([["7days.ru",[0,24]],["fastpic.org",[1,15]],["biqle.org",2],["biqle.ru",2],["autonews.co.ua",3],["liveball.cc",3],["liveball.uno",3],["ukrainianwall.com",3],["fm-app.ru",4],["tvapp.su",4],["yootv.ru",4],["rambler.ru",[5,12]],["sibnet.ru",6],["sports.ru",7],["cq.ru",8],["regnum.news",9],["regnum.ru",9],["tproger.ru",9],["softonic.ru",10],["smotrim.ru",11],["rbc.ru",13],["sportrbc.ru",13],["carservic.ru",14],["iptv.org.ua",14],["tva.org.ua",14],["ufchgu.ru",14],["romakatya.ru",16],["overclockers.ru",17],["bonus-tv.ru",18],["kinoblin.ru",19],["m.lenta.ru",20],["www.vesti.ru",21],["lenta.ru",22],["softportal.com",23],["cdn.viqeo.tv",24],["kinonews.ru",24],["kp.kg",24],["kp.kz",24],["kp.md",24],["kp.ru",24],["mk.ru",24],["ohotniki.ru",24],["portalvirtualreality.ru",24],["radiokp.ru",24],["sportkp.ru",24],["wday.ru",24],["woman.ru",24],["www.fontanka.ru",24]]);
 
 const entitiesMap = new Map([]);
 
@@ -75,7 +75,9 @@ function addEventListenerDefuser(
         if ( elem instanceof Document ) { return 'document'; }
         if ( elem instanceof Element === false ) { return '?'; }
         const parts = [];
-        if ( elem.id !== '' ) { parts.push(`#${CSS.escape(elem.id)}`); }
+        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
+        const id = String(elem.id);
+        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
         for ( let i = 0; i < elem.classList.length; i++ ) {
             parts.push(`.${CSS.escape(elem.classList.item(i))}`);
         }

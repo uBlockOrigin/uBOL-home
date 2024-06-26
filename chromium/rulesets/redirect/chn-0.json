@@ -1,7 +1,5 @@
 [
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"resourceTypes":["image","media","other","script","stylesheet","sub_frame","xmlhttprequest"],"urlFilter":"||85tube.com/player/html.php?aid=*_html&video_id=*&*&referer"},"id":1,"priority":2},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"resourceTypes":["image"],"urlFilter":"||manwa.me/static/custom/files/300x250.gif"},"id":2,"priority":12},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"resourceTypes":["image"],"urlFilter":"||manwa.fun/static/upload/ads/"},"id":3,"priority":12},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"resourceTypes":["image"],"urlFilter":"||nfmovies.com/static/*.jpg"},"id":4,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"initiatorDomains":["8maple.ru"],"resourceTypes":["image"],"urlFilter":"||8maple.ru/dzcm"},"id":5,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["vpslog.net"],"resourceTypes":["script"],"urlFilter":"/?placementname="},"id":6,"priority":2},

@@ -154,7 +154,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||phimlongtieng.net/js/devtool.js"},"id":153},
 {"action":{"type":"block"},"condition":{"urlFilter":"||phimlongtieng.net/templates/themes/phim/js/antihtml.js"},"id":154},
 {"action":{"type":"block"},"condition":{"urlFilter":"||javhoho.com/wp-content/uploads/*/upgrade-premium-"},"id":155},
-{"action":{"type":"block"},"condition":{"requestDomains":["algosit.com","bbc7dcd54670499dbd3ba50c33600830.pages.ubembed.com","belezaedieta.com","data.reachplc.com","embeds.beehiiv.com","gn-flagpoles.api.bbci.co.uk","newsletter.bdnews24.com","newsletter.beautydea.it","ping.contactpigeon.com","subscription-forms.smsbump.com","wheelioapp.azureedge.net","widget.smsinfo.io"]},"id":156},
+{"action":{"type":"block"},"condition":{"urlFilter":"||outpostpublishingcoop.com/assets/v2/js/outpost-pub.js"},"id":156},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ip.sb/assets/js/wwads_blocked.js"},"id":157},
 {"action":{"type":"block"},"condition":{"urlFilter":"||jsdelivr.net/npm/ad-compass@latest/dist/ad-compass.umd.js"},"id":158},
 {"action":{"type":"block"},"condition":{"resourceTypes":["stylesheet"],"urlFilter":"||unic.com.vn/css/chongcopy.css"},"id":159},
@@ -170,7 +170,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||gomovies-online.*/addons/*.gif"},"id":169},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||samfw.com/assets/*.gif"},"id":170},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||theintercept.com/xbuilder/"},"id":171},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","rawstory.com","thedailybeast.com","theintercept.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":172},
+{"action":{"type":"block"},"condition":{"requestDomains":["algosit.com","bbc7dcd54670499dbd3ba50c33600830.pages.ubembed.com","belezaedieta.com","data.reachplc.com","embeds.beehiiv.com","gn-flagpoles.api.bbci.co.uk","newsletter.bdnews24.com","newsletter.beautydea.it","omnisnippet1.com","ping.contactpigeon.com","subscription-forms.smsbump.com","wheelioapp.azureedge.net","widget.smsinfo.io"]},"id":172},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ninjakitchen.com"],"resourceTypes":["script"],"urlFilter":"||listrakbi.com/scripts/"},"id":173},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["uol.com.br"],"resourceTypes":["script"],"urlFilter":"/lib.ucopy/ucopy.js"},"id":174},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||adsrt.com/assets/js/particles.min.js"},"id":175},
@@ -277,5 +277,9 @@
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["raenonx.cc"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":276},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||ads.twitcasting.tv/js/env_test/ads.js"},"id":277},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||luckydesigner.space/adview_"},"id":278},
-{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||news.atptour.com/p/"},"id":279}
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||news.atptour.com/p/"},"id":279},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","rawstory.com","rollingstone.com","thedailybeast.com","theintercept.com","thenation.com","wwd.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":280},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||web.archive.org/web/*/http://rpc.blogrolling.com/display.php?r="},"id":281},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||manoramaonline.com/content/*/evlok/ev-dab/*/ev-dab.min.js"},"id":282},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||manoramaonline.com/acd/api/3.0/authorize/json?"},"id":283}
 ]

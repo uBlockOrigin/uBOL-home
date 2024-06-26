@@ -73,6 +73,28 @@
    {
     "header": "content-security-policy",
     "operation": "append",
+    "value": "script-src 'self' 'unsafe-inline' https:"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "phimhdcc.net"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 4
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
     "value": "script-src 'self' 'unsafe-inline' https: http:"
    }
   ],

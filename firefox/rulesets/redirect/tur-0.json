@@ -1,5 +1,5 @@
 [
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/google-ima.js"},"type":"redirect"},"condition":{"initiatorDomains":["puhutv.com","tv8bucuk.com"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":1,"priority":2},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/google-ima.js"},"type":"redirect"},"condition":{"initiatorDomains":["puhutv.com","tabii.com","tv8bucuk.com"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":1,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||webteizle2.com/i/vid-onu-*.mp4"},"id":2,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||bizlergeldikk.babalargeldii1.workers.dev/*/betmatik.mp4"},"id":3,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["kultfilmler.com"],"resourceTypes":["media"],"urlFilter":".mp4"},"id":4,"priority":2},

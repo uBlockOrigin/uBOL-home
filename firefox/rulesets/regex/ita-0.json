@@ -4,6 +4,27 @@
   "type": "block"
  },
  "condition": {
+  "domainType": "thirdParty",
+  "initiatorDomains": [
+   "calcio.re",
+   "guardaserie01.click",
+   "onepiecepower.com",
+   "pepperlive.info",
+   "streamingcommunity.cz"
+  ],
+  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*",
+  "resourceTypes": [
+   "script",
+   "xmlhttprequest"
+  ]
+ },
+ "id": 1
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
   "initiatorDomains": [
    "amatorialeporno.it",
    "amoreporno.com",
@@ -52,26 +73,6 @@
   ]
  },
  "id": 1294
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "initiatorDomains": [
-   "calcio.re",
-   "guardaserie01.click",
-   "pepperlive.info",
-   "streamingcommunity.cz"
-  ],
-  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*",
-  "resourceTypes": [
-   "script",
-   "xmlhttprequest"
-  ]
- },
- "id": 1359
 },
 {
  "action": {

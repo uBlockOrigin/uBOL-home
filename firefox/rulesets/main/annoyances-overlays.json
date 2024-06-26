@@ -154,7 +154,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||javhoho.com/wp-content/uploads/*/upgrade-premium-"},"id":153},
 {"action":{"type":"block"},"condition":{"urlFilter":"||jsdelivr.net/npm/ad-compass@latest/dist/ad-compass.umd.js"},"id":154},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ip.sb/assets/js/wwads_blocked.js"},"id":155},
-{"action":{"type":"block"},"condition":{"requestDomains":["algosit.com","bbc7dcd54670499dbd3ba50c33600830.pages.ubembed.com","belezaedieta.com","data.reachplc.com","embeds.beehiiv.com","gn-flagpoles.api.bbci.co.uk","newsletter.bdnews24.com","newsletter.beautydea.it","ping.contactpigeon.com","subscription-forms.smsbump.com","wheelioapp.azureedge.net","widget.smsinfo.io"]},"id":156},
+{"action":{"type":"block"},"condition":{"urlFilter":"||outpostpublishingcoop.com/assets/v2/js/outpost-pub.js"},"id":156},
 {"action":{"type":"block"},"condition":{"resourceTypes":["stylesheet"],"urlFilter":"||unic.com.vn/css/chongcopy.css"},"id":157},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||oggiscuola.com/*/banner"},"id":158},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["runningnews.gr"],"resourceTypes":["image"],"urlFilter":".gif"},"id":159},
@@ -268,7 +268,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||9animetv.to/js/safe.ob.min.js"},"id":267},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["api.pico.tools","app.avada.io","confirmsubscription.com","content-settings.com","copypoison.com","fkrkkmxsqeb5bj9r.s3.amazonaws.com","holyclock.com","maillist-manage.com","optinly.net","popupsmart.com","sendlane.com","shomershabes.co.il","shomershabes.com","site-config.com","smarthint.co","spinasale.com","targetbay.com","yourmarketingemail.com"]},"id":268},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["raenonx.cc"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":269},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","rawstory.com","thedailybeast.com","theintercept.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":270},
+{"action":{"type":"block"},"condition":{"requestDomains":["algosit.com","bbc7dcd54670499dbd3ba50c33600830.pages.ubembed.com","belezaedieta.com","data.reachplc.com","embeds.beehiiv.com","gn-flagpoles.api.bbci.co.uk","newsletter.bdnews24.com","newsletter.beautydea.it","omnisnippet1.com","ping.contactpigeon.com","subscription-forms.smsbump.com","wheelioapp.azureedge.net","widget.smsinfo.io"]},"id":270},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||businessworld.in/assets/custom/custom.js"},"id":271},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||sixriversmedia.com/gfembed/"},"id":272},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["raenonx.cc"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||googlesyndication.com/|"},"id":273},
@@ -276,5 +276,9 @@
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["raenonx.cc"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":275},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["1jour1film.homes"],"resourceTypes":["script"],"urlFilter":"/cdn.jsdelivr.net/npm/disable-devtool"},"id":276},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||player.melaniezettofrais.online/assets/js/devtools-detector"},"id":277},
-{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||news.atptour.com/p/"},"id":278}
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||news.atptour.com/p/"},"id":278},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","rawstory.com","rollingstone.com","thedailybeast.com","theintercept.com","thenation.com","wwd.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":279},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||web.archive.org/web/*/http://rpc.blogrolling.com/display.php?r="},"id":280},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||manoramaonline.com/content/*/evlok/ev-dab/*/ev-dab.min.js"},"id":281},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||manoramaonline.com/acd/api/3.0/authorize/json?"},"id":282}
 ]

@@ -534,5 +534,8 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||cmp.ekstrabladet.dk/get_site_data"},"id":533},
 {"action":{"type":"block"},"condition":{"urlFilter":"||datamaskin.biz/ad/"},"id":534},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["itavisen.no"],"requestDomains":["sixscissors.com"]},"id":535},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["norsk-tipping.no","tipster.no"],"resourceTypes":["sub_frame"],"urlFilter":".cloudfront.net/oddsen^"},"id":536}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["norsk-tipping.no","tipster.no"],"resourceTypes":["sub_frame"],"urlFilter":".cloudfront.net/oddsen^"},"id":536},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["tek.no"],"urlFilter":"||elton.app/widget/"},"id":537},
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||artodata.net/site/ads/"},"id":538},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/css/*sparebank1.no^"},"id":539}
 ]

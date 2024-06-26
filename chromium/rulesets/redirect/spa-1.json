@@ -23,5 +23,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["player.hentaistube.com"],"resourceTypes":["media"],"urlFilter":"||baixarhentais.com/*/*-pre-roll-*.mp4"},"id":22,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||pobre.tv/videos/bt.mp4"},"id":23,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||hentaiporno.xxx/wp-content/uploads/*/*_video.mp4.mp4"},"id":24,"priority":2},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/amazon_apstag.js"},"type":"redirect"},"condition":{"initiatorDomains":["terra.com.br"],"resourceTypes":["script"],"urlFilter":"||amazon-adsystem.com/aax2/apstag.js"},"id":25,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["comando.to"],"requestDomains":["aj1907.online"],"resourceTypes":["xmlhttprequest"]},"id":856,"priority":2}
 ]
