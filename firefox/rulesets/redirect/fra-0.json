@@ -1,4 +1,5 @@
 [
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||ads-canalplus.akamaized.net/*.mp4"},"id":1,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["linternaute.com","sante.journaldesfemmes.fr"],"resourceTypes":["image","media","other","script","stylesheet","sub_frame","xmlhttprequest"],"urlFilter":"||kweb.r66net.com/getlink|"},"id":6420,"priority":12},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["ultimate-catch.eu"],"resourceTypes":["image","media","other","script","stylesheet","sub_frame","xmlhttprequest"],"urlFilter":"||cas.criteo.com/delivery/ajs.php^"},"id":6421,"priority":12},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"resourceTypes":["image","media","other","script","stylesheet","sub_frame","xmlhttprequest"],"urlFilter":"||cache.go4up.com/assets/img/abutoned.gif"},"id":6422,"priority":12},

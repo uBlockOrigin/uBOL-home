@@ -252,7 +252,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["bigten.org","cheatnetwork.eu","hbstack.dev","sheffieldforum.co.uk"],"resourceTypes":["xmlhttprequest"]},"id":251},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["cheatnetwork.eu"],"requestDomains":["googlesyndication.com"],"resourceTypes":["script"]},"id":252},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["maxedtech.com"],"requestDomains":["googlesyndication.com"],"resourceTypes":["xmlhttprequest"]},"id":253},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["technologyreview.com","thenation.com"],"resourceTypes":["sub_frame"],"urlFilter":"||buy.tinypass.com/checkout/template/cacheableshow"},"id":254},
+{"action":{"type":"block"},"condition":{"urlFilter":"/jetpack-plugin/moon/modules/subscriptions/subscribe-modal/subscribe-modal.js"},"id":254},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||e24.no/cnp-assets/components-newsletterwidget."},"id":255},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||radioline.co/*/ad"},"id":256},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||merryjane.com/static/images/ads.png^"},"id":257},
@@ -277,8 +277,9 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["1jour1film.homes"],"resourceTypes":["script"],"urlFilter":"/cdn.jsdelivr.net/npm/disable-devtool"},"id":276},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||player.melaniezettofrais.online/assets/js/devtools-detector"},"id":277},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||news.atptour.com/p/"},"id":278},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","rawstory.com","rollingstone.com","thedailybeast.com","theintercept.com","thenation.com","wwd.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":279},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","rawstory.com","rollingstone.com","sifted.eu","thedailybeast.com","theintercept.com","thenation.com","wwd.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":279},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||web.archive.org/web/*/http://rpc.blogrolling.com/display.php?r="},"id":280},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||manoramaonline.com/content/*/evlok/ev-dab/*/ev-dab.min.js"},"id":281},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||manoramaonline.com/acd/api/3.0/authorize/json?"},"id":282}
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||manoramaonline.com/acd/api/3.0/authorize/json?"},"id":282},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["thenation.com"],"resourceTypes":["sub_frame"],"urlFilter":"||buy.tinypass.com/checkout/template/cacheableshow"},"id":283}
 ]

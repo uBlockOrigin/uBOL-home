@@ -201,6 +201,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["matsukiyococokara-online.com"],"requestDomains":["fireworkapi1.com"]},"id":200},
 {"action":{"type":"block"},"condition":{"urlFilter":"/follow-twitter-"},"id":201},
 {"action":{"type":"block"},"condition":{"urlFilter":"/follow-twitter."},"id":202},
+{"action":{"type":"block"},"condition":{"urlFilter":"||focus.it/images/embed/banner-canale-whats-up/"},"id":203},
 {"action":{"type":"block"},"condition":{"excludedResourceTypes":["main_frame","stylesheet"],"urlFilter":"/follow-us."},"id":207},
 {"action":{"type":"block"},"condition":{"urlFilter":"/gadgets/social/"},"id":217},
 {"action":{"type":"block"},"condition":{"urlFilter":"/gen-share-master/assets/js/frontend/application.min.js"},"id":218},
