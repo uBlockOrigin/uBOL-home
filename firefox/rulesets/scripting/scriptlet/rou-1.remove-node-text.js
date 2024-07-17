@@ -42,9 +42,9 @@ const uBOL_removeNodeText = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["script","adsbygoogle"],["script","/jQuery.*reload/"],["script","document.head.appendChild"],["script","ai_adb"]];
+const argsList = [["script","adsbygoogle"],["script","/jQuery.*reload/"],["script","document.head.appendChild"],["script","ai_adb"],["script","maxbet"]];
 
-const hostnamesMap = new Map([["turdanews.net",0],["sampmoduri.ro",1],["filme2023.online",2],["clujust.ro",3]]);
+const hostnamesMap = new Map([["turdanews.net",0],["sampmoduri.ro",1],["filme2023.online",2],["clujust.ro",3],["gsp.ro",4]]);
 
 const entitiesMap = new Map([]);
 
@@ -182,6 +182,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

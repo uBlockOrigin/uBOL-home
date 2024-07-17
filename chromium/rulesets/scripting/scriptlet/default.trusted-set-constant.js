@@ -44,7 +44,7 @@ const scriptletGlobals = {}; // jshint ignore: line
 
 const argsList = [["premium","'1'"],["premium","1"],["navigator.userAgent","{\"value\": \"Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1\"}"],["navigator.platform","{\"value\": \"iPhone\"}"]];
 
-const hostnamesMap = new Map([["emturbovid.com",0],["tuborstb.co",1],["app.blubank.com",2],["mobileweb.bankmellat.ir",[2,3]]]);
+const hostnamesMap = new Map([["emturbovid.com",0],["mmtv01.xyz",0],["stbturbo.xyz",0],["tuborstb.co",1],["app.blubank.com",2],["mobileweb.bankmellat.ir",[2,3]]]);
 
 const entitiesMap = new Map([]);
 
@@ -253,6 +253,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

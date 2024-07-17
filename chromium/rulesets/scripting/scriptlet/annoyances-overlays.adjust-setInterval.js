@@ -42,9 +42,9 @@ const uBOL_adjustSetInterval = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["i--","","0.02"],["Clipboard","1000","0.001"],["loadexternal","1000"]];
+const argsList = [["i--","","0.02"],["Clipboard","1000","0.001"],["loadexternal","1000"],["_counterTimeout"]];
 
-const hostnamesMap = new Map([["onlinegiftools.com",1],["onlinejpgtools.com",1],["onlinepngtools.com",1],["onlinestringtools.com",1],["onlinetexttools.com",1],["onlinetools.com",1],["remixsearch.es",2]]);
+const hostnamesMap = new Map([["onlinegiftools.com",1],["onlinejpgtools.com",1],["onlinepngtools.com",1],["onlinestringtools.com",1],["onlinetexttools.com",1],["onlinetools.com",1],["remixsearch.es",2],["lookmovie2.to",3]]);
 
 const entitiesMap = new Map([["bluemediafile",0]]);
 
@@ -96,6 +96,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

@@ -23,5 +23,9 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||classlifestyle.com/rek/reklama-poshte-dok.php^"},"id":22},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["gjc.gjirafa.com"]},"id":23},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||videotekaime.net/uni/popunder.js|"},"id":24},
-{"action":{"type":"allow"},"condition":{"urlFilter":"||videotekaime.com/uni/popunder.js"},"id":25}
+{"action":{"type":"allow"},"condition":{"urlFilter":"||videotekaime.com/uni/popunder.js"},"id":25},
+{"action":{"type":"block"},"condition":{"urlFilter":"||gjstatic.blob.core.windows.net/fix/bisko.js"},"id":26},
+{"action":{"type":"block"},"condition":{"urlFilter":"||bisko.gjirafa.tech"},"id":27},
+{"action":{"type":"block"},"condition":{"urlFilter":"||bisko.gjirafa.net"},"id":28},
+{"action":{"type":"block"},"condition":{"urlFilter":"||https://bisko.gjirafa.net/web/gjirafatest-sdk.js"},"id":29}
 ]

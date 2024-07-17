@@ -3060,6 +3060,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||zynga365."},"id":3059},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||zyngaqq."},"id":3060},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["ads.id","advertising-indonesia.id"]},"id":3061},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["kalashainternational.com"],"requestDomains":["image.bannermovie.online"],"resourceTypes":["image"]},"id":3062},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||cds.bet/*.gif^"},"id":3063},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"/safelink"},"id":3064},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"/soralink"},"id":3065},

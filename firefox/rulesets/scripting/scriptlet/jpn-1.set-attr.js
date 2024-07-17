@@ -42,7 +42,7 @@ const uBOL_setAttr = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [[".floatL > img.lazyload","src","[data-src]"]];
+const argsList = [["span[class] img.lazyload[width]","src","[data-src]"]];
 
 const hostnamesMap = new Map([["phileweb.com",0]]);
 
@@ -179,6 +179,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

@@ -42,9 +42,9 @@ const uBOL_noXhrIf = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["doubleclick.net"]];
+const argsList = [[".js"],["doubleclick.net"]];
 
-const hostnamesMap = new Map([["lemino.docomo.ne.jp",0]]);
+const hostnamesMap = new Map([["exploader.net",0],["lemino.docomo.ne.jp",1]]);
 
 const entitiesMap = new Map([]);
 
@@ -302,6 +302,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

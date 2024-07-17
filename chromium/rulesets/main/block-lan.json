@@ -168,6 +168,23 @@
 },
 {
  "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "www.faceit.com"
+  ],
+  "requestDomains": [
+   "localhost"
+  ],
+  "resourceTypes": [
+   "websocket"
+  ]
+ },
+ "id": 7
+},
+{
+ "action": {
   "type": "block"
  },
  "condition": {

@@ -46,7 +46,7 @@ const argsList = [[".style.display","*","0.02"],["getid","*","0.001"],["myInterv
 
 const hostnamesMap = new Map([["olhonaviagem.com",0],["sejasaudavel.net",0],["infohojeonline.blogspot.com",1],["playerflix.com",2],["player.poseidonhd2.co",3],["mundotec.pro",4],["pelispedia-v2.wtf",5],["pelispedia-v1.wtf",5],["cuevana-3.wtf",6]]);
 
-const entitiesMap = new Map([["player.gnula",3],["player.cuevana2espanol",3],["player.cuevana",3],["topflix",7]]);
+const entitiesMap = new Map([["player.cuevana3",3],["player.gnula",3],["player.cuevana2espanol",3],["player.cuevana",3],["topflix",7]]);
 
 const exceptionsMap = new Map([]);
 
@@ -96,6 +96,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

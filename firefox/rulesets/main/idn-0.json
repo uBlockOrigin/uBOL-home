@@ -3060,6 +3060,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kompas.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pubads.g.doubleclick.net/gampad/ads?"},"id":3059},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kaskus.co.id"],"resourceTypes":["sub_frame"],"urlFilter":"||ads.kaskus.co.id/widget/ads/create"},"id":3060},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["ads.id","advertising-indonesia.id"]},"id":3061},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["kalashainternational.com"],"requestDomains":["image.bannermovie.online"],"resourceTypes":["image"]},"id":3062},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.care/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3063},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.cash/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3064},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.lol/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3065},

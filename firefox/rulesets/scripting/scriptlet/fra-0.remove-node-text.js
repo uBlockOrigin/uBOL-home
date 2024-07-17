@@ -42,7 +42,7 @@ const uBOL_removeNodeText = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["script","/ApoZow|'(map'|\\/imgs\\/|ads?-\\d+|ad-img-slot|ad_inview_area|div-leader-ad)|\\['style'\\]\\['display'\\]|\\.length;var|\\.substr\\(0/"]];
+const argsList = [["script","/ApoZow|'(map'|\\/imgs\\/|ads?-\\d+|ad-img-slot|ad_inview_area|div-leader-ad)|\\['style'\\]\\['display'\\]|\\.length;var|\\.substr\\(0|\\.reduce\\(\\(acc, curr\\)|g1hnttodBEe8apl|_adbn_|adheader|\\\"\\/00|DklzSoz|Countdown/"]];
 
 const hostnamesMap = new Map([["japscan.lol",0]]);
 
@@ -182,6 +182,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

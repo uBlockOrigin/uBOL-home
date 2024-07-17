@@ -42,9 +42,9 @@ const uBOL_addEventListenerDefuser = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["load","isAdblock"],["DOMContentLoaded","adsbygoogle"],["click","Popup"],["DOMContentLoaded","interstitial"]];
+const argsList = [["load","isAdblock"],["DOMContentLoaded","/\\['classList'\\][\\s\\S]*?\\['target'\\]/"],["DOMContentLoaded","adsbygoogle"],["click","Popup"],["DOMContentLoaded","interstitial"]];
 
-const hostnamesMap = new Map([["cyclismactu.net",0],["lecourrier-du-soir.com",1],["player.melaniezettofrais.online",2],["macg.co",3]]);
+const hostnamesMap = new Map([["cyclismactu.net",0],["japscan.lol",1],["lecourrier-du-soir.com",2],["player.melaniezettofrais.online",3],["macg.co",4]]);
 
 const entitiesMap = new Map([]);
 
@@ -188,6 +188,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

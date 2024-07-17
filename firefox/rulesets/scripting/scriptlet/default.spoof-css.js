@@ -42,11 +42,11 @@ const uBOL_spoofCSS = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [[".kcAds1","display","block"],["#btx1, #btx2, #wg-genx > .mediafire","visibility","visible"],["a img:not([src=\"images/main_logo_inverted.png\"])","visibility","visible"]];
+const argsList = [["#btx1, #btx2, #wg-genx > .mediafire","visibility","visible"],["a img:not([src=\"images/main_logo_inverted.png\"])","visibility","visible"]];
 
-const hostnamesMap = new Map([["kisscartoon.se",0],["kc.linksgen.com",0],["techcyan.com",1],["kiktu.com",1],["upshrink.com",1],["trangchu.news",1],["banaraswap.in",1],["download.megaup.net",2]]);
+const hostnamesMap = new Map([["techcyan.com",0],["kiktu.com",0],["upshrink.com",0],["trangchu.news",0],["banaraswap.in",0],["download.megaup.net",1]]);
 
-const entitiesMap = new Map([["kimcartoon",0]]);
+const entitiesMap = new Map([]);
 
 const exceptionsMap = new Map([]);
 
@@ -172,6 +172,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

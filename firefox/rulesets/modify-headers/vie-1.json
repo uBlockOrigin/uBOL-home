@@ -51,14 +51,14 @@
    {
     "header": "content-security-policy",
     "operation": "append",
-    "value": "script-src 'self' 'unsafe-eval'"
+    "value": "script-src 'self' 'unsafe-inline' https:"
    }
   ],
   "type": "modifyHeaders"
  },
  "condition": {
   "requestDomains": [
-   "sexdiaryx.blog"
+   "fphimhdc.com"
   ],
   "resourceTypes": [
    "main_frame",
@@ -73,14 +73,14 @@
    {
     "header": "content-security-policy",
     "operation": "append",
-    "value": "script-src 'self' 'unsafe-inline' https:"
+    "value": "script-src 'self' 'unsafe-eval'"
    }
   ],
   "type": "modifyHeaders"
  },
  "condition": {
   "requestDomains": [
-   "vphimhdc.com"
+   "sexdiaryx.guru"
   ],
   "resourceTypes": [
    "main_frame",

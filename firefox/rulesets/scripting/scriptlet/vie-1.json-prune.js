@@ -42,9 +42,9 @@ const uBOL_jsonPrune = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["0.time_mobile 0.time 0.link_video 0.link_video_mobile 0.link 0.link_mobile 1.time_mobile 1.time 1.link_video 1.link_video_mobile 1.link 1.link_mobile"],["ads"]];
+const argsList = [["0.time_mobile 0.time 0.link_video 0.link_video_mobile 0.link 0.link_mobile 1.time_mobile 1.time 1.link_video 1.link_video_mobile 1.link 1.link_mobile"]];
 
-const hostnamesMap = new Map([["luotphim1.net",0],["webphim6.com",0],["cdnwp.icu",0],["phimmoi4s.com",1]]);
+const hostnamesMap = new Map([["luotphim1.net",0],["mephim.ink",0],["cdnwp.icu",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -141,6 +141,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

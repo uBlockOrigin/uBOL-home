@@ -54,24 +54,29 @@ const exceptionsMap = new Map([]);
 
 function trustedReplaceArgument(
     propChain = '',
-    argpos = '',
+    argposRaw = '',
     argraw = ''
 ) {
     if ( propChain === '' ) { return; }
-    if ( argpos === '' ) { return; }
-    if ( argraw === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('trusted-replace-argument', propChain, argpos, argraw);
+    const logPrefix = safe.makeLogPrefix('trusted-replace-argument', propChain, argposRaw, argraw);
+    const argpos = parseInt(argposRaw, 10) || 0;
     const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
     const normalValue = validateConstantFn(true, argraw);
     const reCondition = extraArgs.condition
         ? safe.patternToRegex(extraArgs.condition)
         : /^/;
     const reflector = proxyApplyFn(propChain, function(...args) {
+        if ( argposRaw === '' ) {
+            safe.uboLog(logPrefix, `Arguments:\n${args.join('\n')}`);
+            return reflector(...args);
+        }
         const arglist = args[args.length-1];
         if ( Array.isArray(arglist) === false ) { return reflector(...args); }
         const argBefore = arglist[argpos];
-        if ( reCondition.test(argBefore) === false ) { return reflector(...args); }
+        if ( safe.RegExp_test.call(reCondition, argBefore) === false ) {
+            return reflector(...args);
+        }
         arglist[argpos] = normalValue;
         safe.uboLog(logPrefix, `Replaced argument:\nBefore: ${JSON.stringify(argBefore)}\nAfter: ${normalValue}`);
         return reflector(...args);
@@ -117,6 +122,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

@@ -42,9 +42,9 @@ const uBOL_replaceNodeText = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["script","if(floovy()) {","if(false) {"],["script","/Function\\(r\\)\\(\\)/","r.startsWith(\"return typeof\")?\"function\":Function(r)()"],["script","window.location.reload"]];
+const argsList = [["script","if(floovy()) {","if(false) {"],["script","window.location.reload"],["style","@media print"],["style","/\\.novel-box \\*:not\\(a\\)|@media print/g"]];
 
-const hostnamesMap = new Map([["heidisql.com",0],["arras.io",1],["arras.netlify.app",1],["arrax.io",1],["baumbet.ro",2]]);
+const hostnamesMap = new Map([["heidisql.com",0],["baumbet.ro",1],["karsaz-law.com",2],["mskmangaz.blogspot.com",3]]);
 
 const entitiesMap = new Map([]);
 
@@ -183,6 +183,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,

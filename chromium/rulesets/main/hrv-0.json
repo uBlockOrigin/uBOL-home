@@ -29,7 +29,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||mob.hr^*-300x250."},"id":28},
 {"action":{"type":"block"},"condition":{"urlFilter":"||pcchip.hr/wp-content/uploads*banner"},"id":29},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["animesrbija.com"],"requestDomains":["zotabox.com"]},"id":30},
-{"action":{"type":"block"},"condition":{"requestDomains":["banner.mob.hr","widgets.jutarnji.hr"]},"id":31},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["gloria.hr"],"urlFilter":"||html-load.com/loader.min.js^"},"id":31},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||farmer.ba/files/banners^"},"id":32},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||nap.ba/storage/userfiles/images/slike"},"id":33},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||navidiku.rs/banerslike^"},"id":34},
@@ -49,9 +49,10 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||sultanovic.net/?*%"},"id":48},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["sportske.net"],"requestDomains":["betwidget.admiralbet.rs"],"resourceTypes":["sub_frame"]},"id":49},
 {"action":{"type":"block"},"condition":{"requestDomains":["klik-slider.morgancode.com"],"resourceTypes":["sub_frame"]},"id":50},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["a.mabipa.com","avalaads.com","linker.hr","lupon.media","native.tportal.hr","subs.vingd.com","traffic.styria.hr","widget.admiral.hr"]},"id":51},
+{"action":{"type":"block"},"condition":{"requestDomains":["banner.mob.hr","eph-adsjutarnji.cdn.sysbee.net","linker.hr","widgets.jutarnji.hr"]},"id":51},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["redakcija.alo.rs"],"resourceTypes":["image"]},"id":52},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["slobodnadalmacija.hr"],"resourceTypes":["script"],"urlFilter":"|https://html-load.com^"},"id":53},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||widget.halooglasi.com/nekretnine.html"},"id":54},
-{"action":{"type":"allow"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ads.api.24ur.si/adserver/adblock."},"id":55}
+{"action":{"type":"allow"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ads.api.24ur.si/adserver/adblock."},"id":55},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["a.mabipa.com","avalaads.com","cxpublic.com","lupon.media","native.tportal.hr","subs.vingd.com","traffic.styria.hr","widget.admiral.hr"]},"id":56}
 ]

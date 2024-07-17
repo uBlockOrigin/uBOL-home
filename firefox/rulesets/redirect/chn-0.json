@@ -1,5 +1,6 @@
 [
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/google-ima.js"},"type":"redirect"},"condition":{"initiatorDomains":["linetv.tw","now.com"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":1,"priority":12},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"requestDomains":["ad.ettoday.net"],"resourceTypes":["image","media","other","script","stylesheet","sub_frame","xmlhttprequest"]},"id":2,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"resourceTypes":["image","media","other","script","stylesheet","sub_frame","xmlhttprequest"],"urlFilter":"||85tube.com/player/html.php?aid=*_html&video_id=*&*&referer"},"id":6329,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"resourceTypes":["image"],"urlFilter":"||nfmovies.com/static/*.jpg"},"id":6332,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"initiatorDomains":["8maple.ru"],"resourceTypes":["image"],"urlFilter":"||8maple.ru/dzcm"},"id":6333,"priority":2},

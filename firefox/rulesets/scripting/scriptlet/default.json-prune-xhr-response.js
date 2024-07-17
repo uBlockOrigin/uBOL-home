@@ -42,9 +42,9 @@ const uBOL_jsonPruneXhrResponse = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["data.home.home_timeline_urt.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/Home"],["data.search_by_raw_query.search_timeline.timeline.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/SearchTimeline"],["data.threaded_conversation_with_injections_v2.instructions.[].entries.[-].content.items.[].item.itemContent.promotedMetadata","","propsToMatch","url:/TweetDetail"],["data.user.result.timeline_v2.timeline.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/UserTweets"]];
+const argsList = [["data.viewer.instream_video_ads data.scrubber","","propsToMatch","/api/graphql"],["data.home.home_timeline_urt.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/Home"],["data.search_by_raw_query.search_timeline.timeline.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/SearchTimeline"],["data.threaded_conversation_with_injections_v2.instructions.[].entries.[-].content.items.[].item.itemContent.promotedMetadata","","propsToMatch","url:/TweetDetail"],["data.user.result.timeline_v2.timeline.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/UserTweets"]];
 
-const hostnamesMap = new Map([["twitter.com",[0,1,2,3]],["x.com",[0,1,2,3]]]);
+const hostnamesMap = new Map([["web.facebook.com",0],["www.facebook.com",0],["twitter.com",[1,2,3,4]],["x.com",[1,2,3,4]]]);
 
 const entitiesMap = new Map([]);
 
@@ -239,6 +239,7 @@ function safeSelf() {
         'Math_random': Math.random,
         'Object': Object,
         'Object_defineProperty': Object.defineProperty.bind(Object),
+        'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'RegExp': self.RegExp,
