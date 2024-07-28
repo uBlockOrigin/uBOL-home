@@ -3066,6 +3066,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"/soralink"},"id":3065},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||adsafelink.com/js/webscript.js"},"id":3066},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||snacklink.id/js/web-script.js"},"id":3067},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/kaya303_desktop."},"id":3068},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.funtasticko.net"],"resourceTypes":["script"],"urlFilter":"||js.rfp.fout.jp/rfp-display.js"},"id":3069},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.funtasticko.net"],"resourceTypes":["script"],"urlFilter":"||js.rfp.fout.jp/rfp-infeed.js"},"id":3070},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kompas.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pubads.g.doubleclick.net/gampad/ads?"},"id":3071},

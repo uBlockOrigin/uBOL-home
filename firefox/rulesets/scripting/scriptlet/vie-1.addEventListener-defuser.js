@@ -44,7 +44,7 @@ const scriptletGlobals = {}; // jshint ignore: line
 
 const argsList = [["click","open"]];
 
-const hostnamesMap = new Map([["femax20.com",0]]);
+const hostnamesMap = new Map([["femax20.com",0],["motchilltv.us",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -195,6 +195,7 @@ function safeSelf() {
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
+        'String_fromCharCode': String.fromCharCode,
         'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,

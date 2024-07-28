@@ -22,6 +22,22 @@
 {
  "action": {
   "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.css"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "stylesheet"
+  ],
+  "urlFilter": "||fast.fonts.net/*/1.css"
+ },
+ "id": 2,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
    "extensionPath": "/web_accessible_resources/32x32.png"
   },
   "type": "redirect"

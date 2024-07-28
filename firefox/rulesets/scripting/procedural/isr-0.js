@@ -33,9 +33,9 @@
 
 /******************************************************************************/
 
-const argsList = [["{\"selector\":\".biz-item-box\",\"tasks\":[[\"has\",{\"selector\":\".biz-item-modaa\"}]]}"],["{\"selector\":\"span\",\"tasks\":[[\"has\",{\"selector\":\"[href*=\\\"promo\\\"]\"}],[\"xpath\",\"..\"]]}"],["{\"selector\":\"div[aria-label*=\\\"המחלקה המסחרית\\\"]\",\"tasks\":[[\"upward\",5]]}"],["{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"admiral\"]]}"],["{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"(window)}catch\"]]}","{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"200===\"]]}","{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"responseText\"]]}"]];
+const argsList = [["{\"selector\":\"button\",\"tasks\":[[\"has\",{\"selector\":\"> div > div > div > span\",\"tasks\":[[\"has-text\",\"ממומן\"]]}]]}","{\"selector\":\"div\",\"tasks\":[[\"has\",{\"selector\":\"> div > div > div > div > div > p\",\"tasks\":[[\"has-text\",\"ממומן\"]]}]]}"],["{\"selector\":\".biz-item-box\",\"tasks\":[[\"has\",{\"selector\":\".biz-item-modaa\"}]]}"],["{\"selector\":\"span\",\"tasks\":[[\"has\",{\"selector\":\"[href*=\\\"promo\\\"]\"}],[\"xpath\",\"..\"]]}"],["{\"selector\":\"div[aria-label*=\\\"המחלקה המסחרית\\\"]\",\"tasks\":[[\"upward\",5]]}"],["{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"admiral\"]]}"],["{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"(window)}catch\"]]}","{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"200===\"]]}","{\"selector\":\"script\",\"tasks\":[[\"has-text\",\"responseText\"]]}"]];
 
-const hostnamesMap = new Map([["easy.co.il",0],["haaretz.co.il",1],["www-haaretz-co-il.eu1.proxy.openathens.net",1],["www.kikar.co.il",2],["morfix.co.il",3],["sheee.co.il",4],["walla.co.il",4]]);
+const hostnamesMap = new Map([["wolt.com",0],["easy.co.il",1],["haaretz.co.il",2],["www-haaretz-co-il.eu1.proxy.openathens.net",2],["www.kikar.co.il",3],["morfix.co.il",4],["sheee.co.il",5],["walla.co.il",5]]);
 
 const entitiesMap = new Map(undefined);
 

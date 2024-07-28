@@ -42,9 +42,9 @@ const uBOL_noXhrIf = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [[".js"],["doubleclick.net"]];
+const argsList = [["doubleclick.net"]];
 
-const hostnamesMap = new Map([["exploader.net",0],["lemino.docomo.ne.jp",1]]);
+const hostnamesMap = new Map([["lemino.docomo.ne.jp",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -309,6 +309,7 @@ function safeSelf() {
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
+        'String_fromCharCode': String.fromCharCode,
         'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,

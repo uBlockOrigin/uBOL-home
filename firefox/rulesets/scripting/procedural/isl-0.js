@@ -33,9 +33,9 @@
 
 /******************************************************************************/
 
-const argsList = [["{\"selector\":\"div[class^=\\\"col-\\\"]\",\"tasks\":[[\"has\",{\"selector\":\"[class*=\\\"advertisement-spot-\\\"]\"}]]}"]];
+const argsList = [["{\"selector\":\".d-flex.flex-column.mx-auto\",\"tasks\":[[\"has-text\",\"AUGLÝSING\"]]}"],["{\"selector\":\"div[class^=\\\"col-\\\"]\",\"tasks\":[[\"has\",{\"selector\":\"[class*=\\\"advertisement-spot-\\\"]\"}]]}"]];
 
-const hostnamesMap = new Map([["bilasolur.is",0]]);
+const hostnamesMap = new Map([["1819.is",0],["bilasolur.is",1]]);
 
 const entitiesMap = new Map(undefined);
 

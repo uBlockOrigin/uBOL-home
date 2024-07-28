@@ -25,7 +25,7 @@
 
 'use strict';
 
-// ruleset: annoyances-overlays
+// ruleset: tur-0
 
 /******************************************************************************/
 
@@ -38,13 +38,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_hrefSanitizer = function() {
+const uBOL_preventRefresh = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["a[href^=\"https://www.youtube.com/redirect?event=video_description\"][href*=\"&q=http\"]","?q"]];
+const argsList = [[]];
 
-const hostnamesMap = new Map([["m.youtube.com",0],["music.youtube.com",0],["tv.youtube.com",0],["www.youtube.com",0],["youtubekids.com",0],["youtube-nocookie.com",0]]);
+const hostnamesMap = new Map([["burdurweb.com",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -52,107 +52,25 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function hrefSanitizer(
-    selector = '',
-    source = ''
+function preventRefresh(
+    arg1 = ''
 ) {
-    if ( typeof selector !== 'string' ) { return; }
-    if ( selector === '' ) { return; }
+    if ( typeof arg1 !== 'string' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('href-sanitizer', selector, source);
-    if ( source === '' ) { source = 'text'; }
-    const sanitizeCopycats = (href, text) => {
-        let elems = [];
-        try {
-            elems = document.querySelectorAll(`a[href="${href}"`);
-        }
-        catch(ex) {
-        }
-        for ( const elem of elems ) {
-            elem.setAttribute('href', text);
-        }
-        return elems.length;
+    const logPrefix = safe.makeLogPrefix('prevent-refresh', arg1);
+    const defuse = ( ) => {
+        const meta = document.querySelector('meta[http-equiv="refresh" i][content]');
+        if ( meta === null ) { return; }
+        safe.uboLog(logPrefix, `Prevented "${meta.textContent}"`);
+        const s = arg1 === ''
+            ? meta.getAttribute('content')
+            : arg1;
+        const ms = Math.max(parseFloat(s) || 0, 0) * 1000;
+        setTimeout(( ) => { window.stop(); }, ms);
     };
-    const validateURL = text => {
-        if ( text === '' ) { return ''; }
-        if ( /[\x00-\x20\x7f]/.test(text) ) { return ''; }
-        try {
-            const url = new URL(text, document.location);
-            return url.href;
-        } catch(ex) {
-        }
-        return '';
-    };
-    const extractText = (elem, source) => {
-        if ( /^\[.*\]$/.test(source) ) {
-            return elem.getAttribute(source.slice(1,-1).trim()) || '';
-        }
-        if ( source.startsWith('?') ) {
-            try {
-                const url = new URL(elem.href, document.location);
-                return url.searchParams.get(source.slice(1)) || '';
-            } catch(x) {
-            }
-            return '';
-        }
-        if ( source === 'text' ) {
-            return elem.textContent
-                .replace(/^[^\x21-\x7e]+/, '') // remove leading invalid characters
-                .replace(/[^\x21-\x7e]+$/, '') // remove trailing invalid characters
-            ;
-        }
-        return '';
-    };
-    const sanitize = ( ) => {
-        let elems = [];
-        try {
-            elems = document.querySelectorAll(selector);
-        }
-        catch(ex) {
-            return false;
-        }
-        for ( const elem of elems ) {
-            if ( elem.localName !== 'a' ) { continue; }
-            if ( elem.hasAttribute('href') === false ) { continue; }
-            const href = elem.getAttribute('href');
-            const text = extractText(elem, source);
-            const hrefAfter = validateURL(text);
-            if ( hrefAfter === '' ) { continue; }
-            if ( hrefAfter === href ) { continue; }
-            elem.setAttribute('href', hrefAfter);
-            const count = sanitizeCopycats(href, hrefAfter);
-            safe.uboLog(logPrefix, `Sanitized ${count+1} links to\n${hrefAfter}`);
-        }
-        return true;
-    };
-    let observer, timer;
-    const onDomChanged = mutations => {
-        if ( timer !== undefined ) { return; }
-        let shouldSanitize = false;
-        for ( const mutation of mutations ) {
-            if ( mutation.addedNodes.length === 0 ) { continue; }
-            for ( const node of mutation.addedNodes ) {
-                if ( node.nodeType !== 1 ) { continue; }
-                shouldSanitize = true;
-                break;
-            }
-            if ( shouldSanitize ) { break; }
-        }
-        if ( shouldSanitize === false ) { return; }
-        timer = safe.onIdle(( ) => {
-            timer = undefined;
-            sanitize();
-        });
-    };
-    const start = ( ) => {
-        if ( sanitize() === false ) { return; }
-        observer = new MutationObserver(onDomChanged);
-        observer.observe(document.body, {
-            subtree: true,
-            childList: true,
-        });
-    };
-    runAt(( ) => { start(); }, 'interactive');
+    runAt(( ) => {
+        defuse();
+    }, 'interactive');
 }
 
 function runAt(fn, when) {
@@ -207,6 +125,7 @@ function safeSelf() {
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
+        'String_fromCharCode': String.fromCharCode,
         'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
@@ -402,7 +321,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { hrefSanitizer(...argsList[i]); }
+    try { preventRefresh(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -424,7 +343,7 @@ const targetWorld = 'ISOLATED';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_hrefSanitizer();
+    return uBOL_preventRefresh();
 }
 
 // Firefox
@@ -432,11 +351,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_hrefSanitizer = cloneInto([
-            [ '(', uBOL_hrefSanitizer.toString(), ')();' ],
+        page.uBOL_preventRefresh = cloneInto([
+            [ '(', uBOL_preventRefresh.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_hrefSanitizer);
+        const blob = new page.Blob(...page.uBOL_preventRefresh);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -450,7 +369,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_hrefSanitizer;
+    delete page.uBOL_preventRefresh;
 }
 
 /******************************************************************************/

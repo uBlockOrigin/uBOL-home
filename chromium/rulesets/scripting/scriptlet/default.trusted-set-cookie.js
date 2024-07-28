@@ -44,7 +44,7 @@ const scriptletGlobals = {}; // jshint ignore: line
 
 const argsList = [["adTakeOver","seen"],["ajs_anonymous_id","OK","","","domain","barstoolsports.com"],["_ga","GA1.1.000000000.1900000000","","","domain","globo.com"],["wallpaper","click"],["WPdp","gqcHFMkMCFBXQpBBBpBXUNPRRIQARgHRUtBPCxBS1MAFAEKA1NZRSpSOlNPRRcTRUtSS1MOFVNZVl1BCgVBXUJPRQUQRUtSUEFTUkBUUkJVUUVSGl1BMyFBXQpBBBpBXUBPRRIQARgHRUtBPCxBS1MAFAEKA1NZRSo+RV1BAQFBXUBPRRwRRUtSS1MOE1NZVF1BEwJBXUBUV0FWVkZWVEdVU0AeS1M0NzxBXQpBBBpBXUNPRRIQARgHRUtBPCxBS1MAFAEKA1NZRSpSOlNPRRcTRUtSS1MOFVNZVl1BCgVBXUJPRQUQRUtSUEFTUkBUUkJVUUVSS1MWBlNZVgwe"],["WPtcs2","CP1ik8AP1ik8ABIACDPLAbEgAAAAAEPgAB5YAABBqhmgAIgAUABcADgAPgAoACoAFwAOQAeACAAEgALoAYABlADQANQAeAA_ACIAEcAJgAUIApACmAFWALgAugBiADMAGgAN4AegA_ACEAENAIgAiQBHACWAE0AJwAUYAwABhwDKAMsAZoA0QBsgDkAHPAO4A7wB7AD4gH2AfsA_wEAgIOAhABEQCKQEWARgAjUBHAEdAJEASUAlIBOwCfgFBgKgAqIBVwCxAFzALrAXkBegC-gGKANEAa8A2gBuADiAHHAOkAdQA7YB7QD7AH_ARMAi8BHsCRAJFASoAlYBMUCZAJlATaAnYBQ8CjwKRAUnApoCmwFPgKhgVIBUoCqgFWAK5AV2AsKBYgFigLKAWiAtQBbEC3ALdAXAAuQBdAC7QF3wLyAvMBfQC_wGCAMGAYaAxABiwDHgGQwMjAySBkwGTgMqAZYAzMBnIDPAGiANGAaaA1MBqsDVwNZAa8A2iBtwG3wN0A3UBwADggHFgOPAcnA5YDlwHPgOsAeKA8eB5IHlAPigfIB8oD6QH1wPtA-6B-wH7gQBAgIBAwCB4EEQIJgQYAg2BCECFAEK4IWghcBDECGcEOQQ6gh4CHoEPwIpgRgAjSBGsCN4EcQI6AR2Aj2BH0CP4EhAJFASNgkgCScEmASZglQCVIEsAJZwS3BLiCXQJdgS-gmACYIEwwJiwTMBM4CagE2IJtgm5BN4E3wJwhBqAAAA.YAAAAAAAAAAA"],["WPcbadcp","$now$"]];
 
-const hostnamesMap = new Map([["govtech.com",0],["barstoolsports.com",1],["globo.com",2],["theporndude.com",3],["wp.pl",[4,5,6]],["money.pl",[4,5,6]],["pysznosci.pl",[4,5,6]],["pudelek.pl",[4,5,6]],["gadzetomania.pl",[4,5,6]],["fotoblogia.pl",[4,5,6]],["komorkomania.pl",[4,5,6]],["dobreprogramy.pl",[4,5,6]],["autokult.pl",[4,5,6]],["genialne.pl",[4,5,6]],["o2.pl",6],["parenting.pl",6],["polygamia.pl",6],["abczdrowie.pl",6],["open.fm",6],["benchmark.pl",6],["kafeteria.pl",6],["autocentrum.pl",6],["jastrzabpost.pl",6]]);
+const hostnamesMap = new Map([["govtech.com",0],["governing.com",0],["barstoolsports.com",1],["globo.com",2],["theporndude.com",3],["wp.pl",[4,5,6]],["money.pl",[4,5,6]],["pysznosci.pl",[4,5,6]],["pudelek.pl",[4,5,6]],["gadzetomania.pl",[4,5,6]],["fotoblogia.pl",[4,5,6]],["komorkomania.pl",[4,5,6]],["dobreprogramy.pl",[4,5,6]],["autokult.pl",[4,5,6]],["genialne.pl",[4,5,6]],["o2.pl",6],["parenting.pl",6],["polygamia.pl",6],["abczdrowie.pl",6],["open.fm",6],["benchmark.pl",6],["kafeteria.pl",6],["autocentrum.pl",6],["jastrzabpost.pl",6]]);
 
 const entitiesMap = new Map([]);
 
@@ -124,6 +124,7 @@ function safeSelf() {
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
+        'String_fromCharCode': String.fromCharCode,
         'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,

@@ -19,8 +19,33 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-/* isl-0 */
+/* jshint esversion:11 */
 
-A[href^="/framework/resources/forms/ads.aspx"] {
-    display: none !important;
-}
+'use strict';
+
+// ruleset: isl-0
+
+/******************************************************************************/
+
+// Important!
+// Isolate from global scope
+(function uBOL_cssProceduralImport() {
+
+/******************************************************************************/
+
+const argsList = [["{\"selector\":\".d-flex.flex-column.mx-auto\",\"tasks\":[[\"has-text\",\"AUGLÝSING\"]]}"]];
+
+const hostnamesMap = new Map([["1819.is",0]]);
+
+const entitiesMap = new Map(undefined);
+
+const exceptionsMap = new Map(undefined);
+
+self.proceduralImports = self.proceduralImports || [];
+self.proceduralImports.push({ argsList, hostnamesMap, entitiesMap, exceptionsMap });
+
+/******************************************************************************/
+
+})();
+
+/******************************************************************************/

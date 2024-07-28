@@ -42,13 +42,13 @@ const uBOL_noFetchIf = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["/buzzoola\\.com|plrjs\\.org/"],["/\\/res\\//"]];
+const argsList = [["/buzzoola\\.com|plrjs\\.org/"],["doubleclick.net"],["/\\/apic\\//"]];
 
-const hostnamesMap = new Map([["volley.ru",0],["mail.ru",1]]);
+const hostnamesMap = new Map([["volley.ru",0],["animix.lol",1],["mail.ru",2]]);
 
 const entitiesMap = new Map([]);
 
-const exceptionsMap = new Map([["3igames.mail.ru",[1]],["account.mail.ru",[1]],["auto.mail.ru",[1]],["biz.mail.ru",[1]],["blog.mail.ru",[1]],["bonus.mail.ru",[1]],["calendar.mail.ru",[1]],["calls.mail.ru",[1]],["cloud.mail.ru",[1]],["connect.mail.ru",[1]],["deti.mail.ru",[1]],["dobro.mail.ru",[1]],["e.mail.ru",[1]],["gibdd.mail.ru",[1]],["health.mail.ru",[1]],["help.mail.ru",[1]],["hi-tech.mail.ru",[1]],["horo.mail.ru",[1]],["kino.mail.ru",[1]],["lady.mail.ru",[1]],["love.mail.ru",[1]],["mcs.mail.ru",[1]],["minigames.mail.ru",[1]],["my.mail.ru",[1]],["news.mail.ru",[1]],["o2.mail.ru",[1]],["octavius.mail.ru",[1]],["okminigames.mail.ru",[1]],["otvet.mail.ru",[1]],["pets.mail.ru",[1]],["player-smotri.mail.ru",[1]],["pogoda.mail.ru",[1]],["top.mail.ru",[1]],["touch.mail.ru",[1]],["tv.mail.ru",[1]]]);
+const exceptionsMap = new Map([["3igames.mail.ru",[2]],["account.mail.ru",[2]],["auto.mail.ru",[2]],["biz.mail.ru",[2]],["blog.mail.ru",[2]],["bonus.mail.ru",[2]],["calendar.mail.ru",[2]],["calls.mail.ru",[2]],["cloud.mail.ru",[2]],["connect.mail.ru",[2]],["deti.mail.ru",[2]],["dobro.mail.ru",[2]],["e.mail.ru",[2]],["gibdd.mail.ru",[2]],["health.mail.ru",[2]],["help.mail.ru",[2]],["hi-tech.mail.ru",[2]],["horo.mail.ru",[2]],["kino.mail.ru",[2]],["lady.mail.ru",[2]],["love.mail.ru",[2]],["mcs.mail.ru",[2]],["minigames.mail.ru",[2]],["my.mail.ru",[2]],["news.mail.ru",[2]],["o2.mail.ru",[2]],["octavius.mail.ru",[2]],["okminigames.mail.ru",[2]],["otvet.mail.ru",[2]],["pets.mail.ru",[2]],["player-smotri.mail.ru",[2]],["pogoda.mail.ru",[2]],["top.mail.ru",[2]],["touch.mail.ru",[2]],["tv.mail.ru",[2]]]);
 
 /******************************************************************************/
 
@@ -228,6 +228,7 @@ function safeSelf() {
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
+        'String_fromCharCode': String.fromCharCode,
         'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,

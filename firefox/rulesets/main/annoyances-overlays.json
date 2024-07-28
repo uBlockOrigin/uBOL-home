@@ -147,7 +147,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||hbzb111.com/api/advert/"},"id":146},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["dailyprincetonian.com"],"urlFilter":"||blink.net/iframe.html"},"id":147},
 {"action":{"type":"block"},"condition":{"urlFilter":"||droetker.*/static/js/privacy-dialog/"},"id":148},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["counciloflove.com","ezmanga.net","ferroviando.com.br","gourmetscans.net","infokik.com","jafekri.com","kulinarnastronamocy.pl","truyenbanquyen.com"],"urlFilter":"/wp-content/plugins/wccp-pro/"},"id":149},
+{"action":{"type":"block"},"condition":{"urlFilter":"||arsenalinsider.com/subscribe/"},"id":149},
 {"action":{"type":"block"},"condition":{"requestDomains":["4kwebplay.xyz","claplivehdplay.ru","coolcast2.com","esportivos.fun","lewblivehdplay.ru","ntuplay.xyz","qqwebplay.xyz","streamservicehd.click","stylisheleg4nt.com","tutlehd4.com","viwlivehdplay.ru"],"urlFilter":"/blast.js^"},"id":150},
 {"action":{"type":"block"},"condition":{"urlFilter":"||phimlongtieng.net/js/devtool.js"},"id":151},
 {"action":{"type":"block"},"condition":{"urlFilter":"||phimlongtieng.net/templates/themes/phim/js/antihtml.js"},"id":152},
@@ -281,6 +281,11 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||web.archive.org/web/*/http://rpc.blogrolling.com/display.php?r="},"id":280},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||manoramaonline.com/content/*/evlok/ev-dab/*/ev-dab.min.js"},"id":281},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||manoramaonline.com/acd/api/3.0/authorize/json?"},"id":282},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","rawstory.com","refinery29.com","rollingstone.com","sifted.eu","thedailybeast.com","theintercept.com","thenation.com","wwd.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":283},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["api.pico.tools","app.avada.io","confirmsubscription.com","content-settings.com","copypoison.com","faves.grow.me","fkrkkmxsqeb5bj9r.s3.amazonaws.com","holyclock.com","maillist-manage.com","optinly.net","popupsmart.com","sendlane.com","shomershabes.co.il","shomershabes.com","site-config.com","smarthint.co","spinasale.com","targetbay.com","yourmarketingemail.com"]},"id":284}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["counciloflove.com","ezmanga.net","ferroviando.com.br","gourmetscans.net","infokik.com","jafekri.com","kulinarnastronamocy.pl","secondlifetranslations.com","truyenbanquyen.com"],"urlFilter":"/wp-content/plugins/wccp-pro/"},"id":283},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["api.pico.tools","app.avada.io","confirmsubscription.com","content-settings.com","copypoison.com","faves.grow.me","fkrkkmxsqeb5bj9r.s3.amazonaws.com","holyclock.com","maillist-manage.com","optinly.net","popupsmart.com","sendlane.com","shomershabes.co.il","shomershabes.com","site-config.com","smarthint.co","spinasale.com","targetbay.com","yourmarketingemail.com"]},"id":284},
+{"action":{"type":"block"},"condition":{"urlFilter":"||animet1.net/*/detect.dev.js^"},"id":285},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","npr.org","rawstory.com","refinery29.com","rollingstone.com","sifted.eu","thedailybeast.com","theintercept.com","thenation.com","wwd.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":286},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/wp-content/plugins/wpshield-content-protector/dist/app.min.js"},"id":287},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["rubystm.com"],"resourceTypes":["script"],"urlFilter":"||streamruby.com/js/devtools-detector.js^"},"id":288},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["rydercup.com"],"resourceTypes":["script"],"urlFilter":"||lightboxcdn.com/vendor/"},"id":289}
 ]

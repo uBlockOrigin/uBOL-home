@@ -42,9 +42,9 @@ const uBOL_abortOnPropertyRead = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["parseInt"],["adpiaListUrl"],["Math.round"],["pushOnPageGala"],["links"],["localStorage"],["ads"],["adsPlayer"],["adsPopupPlayer"],["adsTvc"],["keyPlayer"],["adsRedirectPopups"],["sessionStorage"],["document.cookie"],["nFNcksmwU"],["open"],["oneClick"],["sp"],["atob"],["adtimaConfig"]];
+const argsList = [["parseInt"],["adpiaListUrl"],["Math.round"],["pushOnPageGala"],["links"],["localStorage"],["ads"],["adsPlayer"],["adsPopupPlayer"],["adsTvc"],["keyPlayer"],["sessionStorage"],["document.cookie"],["nFNcksmwU"],["open"],["oneClick"],["sp"],["adsRedirectPopups"],["atob"],["adtimaConfig"]];
 
-const hostnamesMap = new Map([["aoe.vn",0],["audiotruyenfull.com",1],["javnong.cc",2],["linkneverdie.net",3],["nettruyenaa.com",4],["phimdinhcao.net",5],["phimlongtieng.net",5],["phimdinhcao.com",5],["plvb.xyz",[6,7,8,9,10]],["rk.plcdn.xyz",[6,7,8,9,10]],["quick-counter.net",11],["tinsoikeo.live",12],["truyensieuhay.com",13],["phimvietsub.pro",13],["quangcaoyenbai.com",13],["sieudamtv.dev",13],["ephimchill.com",13],["ophimhdvn3.net",13],["thuvienhd.xyz",13],["xemtv.tvhayhd.tv",13],["www.khophim88s.com",13],["nhentaivn.online",13],["motphimmoi.net",13],["mv.dailyphimz.com",13],["mv.phimbathu.one",13],["veryfiles.com",14],["viettoons.tv",15],["mv.phimmoiaz.cc",15],["dood.pm",15],["ytstv.me",15],["animet1.net",15],["anh.moe",15],["hentaivn.forum",15],["maclife.io",15],["javfc2.net",15],["hoctot.hocmai.vn",15],["bluphim.art",15],["cdn2.blueskychilling.online",15],["moviking.ohaha79xxx.site",15],["vinaurl.net",16],["www.nettruyenupp.com",17],["yts.do",18],["yts.mx",18],["yts.rs",18],["znews.vn",19]]);
+const hostnamesMap = new Map([["aoe.vn",0],["audiotruyenfull.com",1],["javnong.cc",2],["linkneverdie.net",3],["nettruyenaa.com",4],["phimdinhcao.net",5],["phimlongtieng.net",5],["phimdinhcao.com",5],["plvb.xyz",[6,7,8,9,10]],["rk.plcdn.xyz",[6,7,8,9,10]],["tinsoikeo.live",11],["truyensieuhay.com",12],["phimvietsub.pro",12],["quangcaoyenbai.com",12],["sieudamtv.dev",12],["ephimchill.com",12],["ophimhdvn3.net",12],["thuvienhd.xyz",12],["xemtv.tvhayhd.tv",12],["www.khophim88s.com",12],["nhentaivn.online",12],["motphimmoi.net",12],["mv.dailyphimz.com",12],["mv.phimbathu.one",12],["veryfiles.com",13],["viettoons.tv",14],["mv.phimmoiaz.cc",14],["dood.pm",14],["ytstv.me",14],["animet1.net",14],["anh.moe",14],["hentaivn.forum",14],["maclife.io",14],["javfc2.net",14],["hoctot.hocmai.vn",14],["bluphim.art",14],["cdn2.blueskychilling.online",14],["moviking.ohaha79xxx.site",14],["vinaurl.net",15],["www.nettruyenupp.com",16],["xoilacs.cc",17],["yts.do",18],["yts.mx",18],["yts.rs",18],["znews.vn",19]]);
 
 const entitiesMap = new Map([]);
 
@@ -102,7 +102,7 @@ function abortOnPropertyRead(
 function getExceptionToken() {
     const safe = safeSelf();
     const token =
-        String.fromCharCode(Date.now() % 26 + 97) +
+        safe.String_fromCharCode(Date.now() % 26 + 97) +
         safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
     const oe = self.onerror;
     self.onerror = function(msg, ...args) {
@@ -137,6 +137,7 @@ function safeSelf() {
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
+        'String_fromCharCode': String.fromCharCode,
         'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,

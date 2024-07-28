@@ -42,9 +42,9 @@ const uBOL_spoofCSS = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["[id=\"aswift_0_host\"], [id=\"aswift_1_host\"], [id=\"aswift_2_host\"], [id=\"aswift_3_host\"], [id=\"aswift_4_host\"], [id=\"aswift_5_host\"]","clip-path","none"],["#btx1, #btx2, #wg-genx > .mediafire","visibility","visible"],["a img:not([src=\"images/main_logo_inverted.png\"])","visibility","visible"]];
+const argsList = [["[id=\"aswift_0_host\"], [id=\"aswift_1_host\"], [id=\"aswift_2_host\"], [id=\"aswift_3_host\"], [id=\"aswift_4_host\"], [id=\"aswift_5_host\"]","clip-path","none"],["#btx1, #btx2, #wg-genx > .mediafire","visibility","visible"],["a img:not([src=\"images/main_logo_inverted.png\"])","visibility","visible"],["article > div[style=\"margin-left: -63px;width: 1120px;height: 450px;margin-bottom: 5px;display: flex;align-items: center;\"] > div","left","auto"]];
 
-const hostnamesMap = new Map([["decrypt.day",0],["techcyan.com",1],["kiktu.com",1],["upshrink.com",1],["trangchu.news",1],["banaraswap.in",1],["download.megaup.net",2]]);
+const hostnamesMap = new Map([["decrypt.day",0],["techcyan.com",1],["kiktu.com",1],["upshrink.com",1],["trangchu.news",1],["banaraswap.in",1],["download.megaup.net",2],["exploader.net",3]]);
 
 const entitiesMap = new Map([]);
 
@@ -179,6 +179,7 @@ function safeSelf() {
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
+        'String_fromCharCode': String.fromCharCode,
         'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
