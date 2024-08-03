@@ -38,7 +38,7 @@ The default ruleset corresponds to at least uBlock Origin's default filterset:
 - EasyPrivacy
 - Peter Lowe’s Ad and tracking server list
 
-You can add more rulesets by visiting the options page -- click the _Cogs_ icon in the popup panel.
+You can enable more rulesets by visiting the options page -- click the _Cogs_ icon in the popup panel.
 
 Keep in mind this is still a work in progress, with these end goals:
 
