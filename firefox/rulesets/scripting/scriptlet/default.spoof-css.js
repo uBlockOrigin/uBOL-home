@@ -42,9 +42,9 @@ const uBOL_spoofCSS = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["#btx1, #btx2, #wg-genx > .mediafire","visibility","visible"],["a img:not([src=\"images/main_logo_inverted.png\"])","visibility","visible"],["article > div[style=\"margin-left: -63px;width: 1120px;height: 450px;margin-bottom: 5px;display: flex;align-items: center;\"] > div","left","auto"]];
+const argsList = [["#btx1, #btx2, #wg-genx > .mediafire","visibility","visible"],["a img:not([src=\"images/main_logo_inverted.png\"])","visibility","visible"]];
 
-const hostnamesMap = new Map([["techcyan.com",0],["kiktu.com",0],["upshrink.com",0],["trangchu.news",0],["banaraswap.in",0],["download.megaup.net",1],["exploader.net",2]]);
+const hostnamesMap = new Map([["techcyan.com",0],["kiktu.com",0],["upshrink.com",0],["trangchu.news",0],["banaraswap.in",0],["download.megaup.net",1]]);
 
 const entitiesMap = new Map([]);
 

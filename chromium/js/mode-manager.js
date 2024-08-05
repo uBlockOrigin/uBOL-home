@@ -19,18 +19,17 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-/* jshint esversion:11 */
-
-'use strict';
-
-/******************************************************************************/
+import {
+    TRUSTED_DIRECTIVE_BASE_RULE_ID,
+    getDynamicRules,
+} from './ruleset-manager.js';
 
 import {
+    adminRead,
     browser,
     dnr,
-    localRead, localWrite, localRemove,
+    localRead, localRemove, localWrite,
     sessionRead, sessionWrite,
-    adminRead,
 } from './ext.js';
 
 import {
@@ -39,11 +38,6 @@ import {
     isDescendantHostnameOfIter,
     toBroaderHostname,
 } from './utils.js';
-
-import {
-    TRUSTED_DIRECTIVE_BASE_RULE_ID,
-    getDynamicRules
-} from './ruleset-manager.js';
 
 /******************************************************************************/
 
@@ -80,6 +74,7 @@ const pruneHostnameFromSet = (hostname, hnSet) => {
 /******************************************************************************/
 
 const eqSets = (setBefore, setAfter) => {
+    if ( setBefore.size !== setAfter.size ) { return false; }
     for ( const hn of setAfter ) {
         if ( setBefore.has(hn) === false ) { return false; }
     }
@@ -288,22 +283,49 @@ async function writeFilteringModeDetails(afterDetails) {
 
 async function filteringModesToDNR(modes) {
     const dynamicRuleMap = await getDynamicRules();
-    const presentRule = dynamicRuleMap.get(TRUSTED_DIRECTIVE_BASE_RULE_ID+0);
-    const presentNone = new Set(
-        presentRule && presentRule.condition.requestDomains
-    );
-    if ( eqSets(presentNone, modes.none) ) { return; }
-    const removeRuleIds = [];
-    if ( presentRule !== undefined ) {
-        removeRuleIds.push(TRUSTED_DIRECTIVE_BASE_RULE_ID+0);
-        removeRuleIds.push(TRUSTED_DIRECTIVE_BASE_RULE_ID+1);
-        dynamicRuleMap.delete(TRUSTED_DIRECTIVE_BASE_RULE_ID+0);
-        dynamicRuleMap.delete(TRUSTED_DIRECTIVE_BASE_RULE_ID+1);
+    const trustedRule = dynamicRuleMap.get(TRUSTED_DIRECTIVE_BASE_RULE_ID+0);
+    const beforeRequestDomainSet = new Set(trustedRule?.condition.requestDomains);
+    const beforeExcludedRrequestDomainSet = new Set(trustedRule?.condition.excludedRequestDomains);
+    if ( trustedRule !== undefined && beforeRequestDomainSet.size === 0 ) {
+        beforeRequestDomainSet.add('all-urls');
+    } else {
+        beforeExcludedRrequestDomainSet.add('all-urls');
     }
+
+    const noneHostnames = new Set([ ...modes.none ]);
+    const notNoneHostnames = new Set([ ...modes.basic, ...modes.optimal, ...modes.complete ]);
+    let afterRequestDomainSet = new Set();
+    let afterExcludedRequestDomainSet = new Set();
+    if ( noneHostnames.has('all-urls') ) {
+        afterRequestDomainSet = new Set([ 'all-urls' ]);
+        afterExcludedRequestDomainSet = notNoneHostnames;
+    } else {
+        afterRequestDomainSet = noneHostnames;
+        afterExcludedRequestDomainSet = new Set([ 'all-urls' ]);
+    }
+
+    if ( eqSets(beforeRequestDomainSet, afterRequestDomainSet) ) {
+        if ( eqSets(beforeExcludedRrequestDomainSet, afterExcludedRequestDomainSet) ) {
+            return;
+        }
+    }
+
+    const removeRuleIds = [
+        TRUSTED_DIRECTIVE_BASE_RULE_ID+0,
+        TRUSTED_DIRECTIVE_BASE_RULE_ID+1,
+    ];
+    dynamicRuleMap.delete(TRUSTED_DIRECTIVE_BASE_RULE_ID+0);
+    dynamicRuleMap.delete(TRUSTED_DIRECTIVE_BASE_RULE_ID+1);
+
+    const allowEverywhere = afterRequestDomainSet.delete('all-urls');
+    afterExcludedRequestDomainSet.delete('all-urls');
+
     const addRules = [];
-    const noneHostnames = [ ...modes.none ];
-    const notNoneHostnames = [ ...modes.basic, ...modes.optimal, ...modes.complete ];
-    if ( noneHostnames.length !== 0 ) {
+    if (
+        allowEverywhere ||
+        afterRequestDomainSet.size !== 0 ||
+        afterExcludedRequestDomainSet.size !== 0
+    ) {
         const rule0 = {
             id: TRUSTED_DIRECTIVE_BASE_RULE_ID+0,
             action: { type: 'allowAllRequests' },
@@ -312,10 +334,10 @@ async function filteringModesToDNR(modes) {
             },
             priority: 100,
         };
-        if ( modes.none.has('all-urls') === false ) {
-            rule0.condition.requestDomains = noneHostnames.slice();
-        } else if ( notNoneHostnames.length !== 0 ) {
-            rule0.condition.excludedRequestDomains = notNoneHostnames.slice();
+        if ( afterRequestDomainSet.size !== 0 ) {
+            rule0.condition.requestDomains = Array.from(afterRequestDomainSet);
+        } else if ( afterExcludedRequestDomainSet.size !== 0 ) {
+            rule0.condition.excludedRequestDomains = Array.from(afterExcludedRequestDomainSet);
         }
         addRules.push(rule0);
         dynamicRuleMap.set(TRUSTED_DIRECTIVE_BASE_RULE_ID+0, rule0);
@@ -328,20 +350,18 @@ async function filteringModesToDNR(modes) {
             },
             priority: 100,
         };
-        if ( modes.none.has('all-urls') === false ) {
-            rule1.condition.initiatorDomains = noneHostnames.slice();
-        } else if ( notNoneHostnames.length !== 0 ) {
-            rule1.condition.excludedInitiatorDomains = notNoneHostnames.slice();
+        if ( rule0.condition.requestDomains ) {
+            rule1.condition.initiatorDomains = rule0.condition.requestDomains.slice();
+        } else if ( rule0.condition.excludedRequestDomains ) {
+            rule1.condition.excludedInitiatorDomains = rule0.condition.excludedRequestDomains.slice();
         }
         addRules.push(rule1);
         dynamicRuleMap.set(TRUSTED_DIRECTIVE_BASE_RULE_ID+1, rule1);
     }
-    const updateOptions = {};
+
+    const updateOptions = { removeRuleIds };
     if ( addRules.length ) {
         updateOptions.addRules = addRules;
-    }
-    if ( removeRuleIds.length ) {
-        updateOptions.removeRuleIds = removeRuleIds;
     }
     await dnr.updateDynamicRules(updateOptions);
 }
@@ -394,6 +414,11 @@ export async function setTrustedSites(hostnames) {
     const { none } = filteringModes;
     const hnSet = new Set(hostnames);
     let modified = false;
+    // Set default mode to Basic when removing No-filtering as default mode
+    if ( none.has('all-urls') && hnSet.has('all-urls') === false ) {
+        applyFilteringMode(filteringModes, 'all-urls', MODE_BASIC);
+        modified = true;
+    }
     for ( const hn of none ) {
         if ( hnSet.has(hn) ) {
             hnSet.delete(hn);

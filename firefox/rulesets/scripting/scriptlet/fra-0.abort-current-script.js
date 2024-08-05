@@ -42,9 +42,9 @@ const uBOL_abortCurrentScript = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["chp_ads_blocker_detector"],["document.getElementById","Blocking Ads"],["document.createElement","adblock"],["document.write","alert"],["setTimeout","bloqueur"],["Promise","alert"],["document.getElementById","msg_ab"],["document.querySelector","oadbActive"],["$","checkAds"],["$","!document.getElementById(btoa"],["document.getElementById","adback"],["JSON.parse","document.createElement('script')"],["document.createElement","document.documentElement).appendChild"],["document.getElementById","window.open"]];
+const argsList = [["chp_ads_blocker_detector"],["document.getElementById","Blocking Ads"],["document.createElement","adblock"],["document.write","alert"],["setTimeout","bloqueur"],["Promise","alert"],["document.getElementById","msg_ab"],["document.querySelector","oadbActive"],["$","checkAds"],["$","!document.getElementById(btoa"],["document.getElementById","adback"],["JSON.parse","document.createElement('script')"],["document.createElement","document.documentElement).appendChild"]];
 
-const hostnamesMap = new Map([["super-ethanol.com",0],["monumentum.fr",1],["lemanip.com",2],["crunchyscan.fr",[3,4,5]],["abcbourse.com",6],["cliqueduplateau.com",7],["monacomatin.mc",8],["leakgaming.fr",9],["recreatisse.com",10],["ultimate-catch.eu",10],["japscan.me",[11,12]],["scan-manga.com",13]]);
+const hostnamesMap = new Map([["super-ethanol.com",0],["monumentum.fr",1],["lemanip.com",2],["crunchyscan.fr",[3,4,5]],["abcbourse.com",6],["cliqueduplateau.com",7],["monacomatin.mc",8],["leakgaming.fr",9],["recreatisse.com",10],["ultimate-catch.eu",10],["japscan.me",[11,12]]]);
 
 const entitiesMap = new Map([]);
 
@@ -177,10 +177,7 @@ function runAtHtmlElementFn(fn) {
 }
 
 function getExceptionToken() {
-    const safe = safeSelf();
-    const token =
-        safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+    const token = getRandomToken();
     const oe = self.onerror;
     self.onerror = function(msg, ...args) {
         if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
@@ -353,6 +350,12 @@ function safeSelf() {
 function shouldDebug(details) {
     if ( details instanceof Object === false ) { return false; }
     return scriptletGlobals.canDebug && details.debug;
+}
+
+function getRandomToken() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
 }
 
 /******************************************************************************/

@@ -19,10 +19,8 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-'use strict';
-
-import { runtime } from './ext.js';
 import { dom } from './dom.js';
+import { runtime } from './ext.js';
 
 /******************************************************************************/
 

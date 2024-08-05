@@ -42,9 +42,9 @@ const uBOL_addEventListenerDefuser = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["load","isAdblock"],["DOMContentLoaded","/\\['classList'\\][\\s\\S]*?\\['target'\\]/"],["DOMContentLoaded","adsbygoogle"],["click","Popup"],["DOMContentLoaded","interstitial"]];
+const argsList = [["load","isAdblock"],["DOMContentLoaded","/\\)\\(\\);\\s*\\}.{400\\\\","500}$/"],["DOMContentLoaded","/\\['classList'\\][\\s\\S]*?\\['target'\\]/"],["DOMContentLoaded","adsbygoogle"],["click","Popup"],["DOMContentLoaded","interstitial"]];
 
-const hostnamesMap = new Map([["cyclismactu.net",0],["japscan.lol",1],["lecourrier-du-soir.com",2],["player.melaniezettofrais.online",3],["macg.co",4]]);
+const hostnamesMap = new Map([["cyclismactu.net",0],["japscan.lol",[1,2]],["lecourrier-du-soir.com",3],["player.melaniezettofrais.online",4],["macg.co",5]]);
 
 const entitiesMap = new Map([]);
 

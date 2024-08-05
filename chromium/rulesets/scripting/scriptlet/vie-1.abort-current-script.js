@@ -44,7 +44,7 @@ const scriptletGlobals = {}; // jshint ignore: line
 
 const argsList = [["$","popup"],["document.addEventListener","window.open"],["Object.defineProperty","ADMStorageFileCDN"],["document.addEventListener","opened_window_shoppe"],["document.addEventListener","popunder"],["document.addEventListener","popup"],["document.createElement","script"],["WebAssembly","globalThis"],["navigator","devtoolsDetector"],["document.createElement",";break;case"],["window.addEventListener","window.open"],["setTimeout","Aff"],["setTimeout","ad_block"],["setInterval","offsetHeight"],["document.createElement","optad"],["JSON.parse","break;case $."],["$","PopUnder"],["Promise","break;case"],["eval","$._Eu"],["jQuery","popurl"],["addEvent","popu"],["jQuery","click_time"],["$","p0pUpRandom"],["document.documentElement","break;case $."],["document.querySelectorAll","popMagic"],["document.getElementById","myModal"],["$","pop"],["document.addEventListener","open"],["document.addEventListener","linksToOpen"],["jQuery","PopUnder"],["$","window.open"],["eval"],["jQuery","click_ads"],["$","btpop"],["document.body.addEventListener","window.open"],["jQuery","window.open"],["WebAssembly","instantiate"],["document.write","snow"],["Promise","instance"],["setTimeout","open"],["setTimeout","window.location"]];
 
-const hostnamesMap = new Map([["abtruyen.net",0],["animehay.in",[1,36]],["cafef.vn",2],["gamek.vn",2],["genk.vn",2],["kenh14.vn",2],["soha.vn",2],["tuoitre.vn",2],["afamily.vn",2],["cunghocvui.com",3],["dualeotruyenbi.com",[4,36]],["m.blogtruyenmoi.com",4],["ffmovie.online",5],["truyensextv.com",5],["gocphimi.com",6],["p.thoctv.com",6],["goctruyentranhvui2.com",7],["mobiblog.club",7],["truyenqqviet.com",7],["gotphim.com",8],["hh3dhay.lol",9],["hh3dhay.xyz",9],["holyfilm.org",10],["imail.edu.vn",[11,12]],["ios.codevn.net",13],["linkneverdie.net",14],["lrepacks.net",15],["lxmanga.life",16],["nettruyenhq.com",17],["phimgichill.net",[18,19]],["hhhay.tv",18],["hh3dhay.pro",18],["truyengihotnha.com",[18,36]],["truyengihotnha.net",[18,36]],["3dchill.shop",18],["animevietsub.app",18],["mephimnhe1.net",19],["phimmoiiii.net",20],["motphimww.com",20],["phimmoinay.vip",21],["phimtho.net",22],["phimtuoitho.tv",23],["rphang.vin",24],["misskon.com",24],["saigon24.net",25],["sex.chichnhau.net",26],["sexhd88.live",27],["sphimhdc.com",28],["thongtintruyen.com",29],["tinsoikeo.live",30],["truyen2u.net",31],["truyen35.shop",32],["truyentuan.xyz",33],["ungtycomicsvip.net",[34,36]],["vailonxx.co",35],["phimlongtieng.com",35],["phimlongtieng.net",35],["viet69.name",36],["ungtycomicsvip.com",36],["vlxx.mobi",36],["yurineko.net",36],["vlxyz.tube",36],["javhay.click",36],["phimsexhay669.pro",36],["cliphot69.blog",36],["doctruyen3qvn.pro",36],["hentaizz.biz",36],["heo69.moe",36],["sexvn.tuoi69s.com",36],["top1sex.club",36],["lenlut.tv",36],["sexmup18.com",36],["hentaivn.today",36],["cdn.streamvl.sbs",36],["www.buomtv.vip",36],["truyenvn.cam",36],["cdnstream.sbs",36],["javtiful.com",36],["truyengihotdo.net",36],["truyengihotzay.net",36],["truyengihotqua.net",36],["truyengihotqua.com",36],["truyengihotnay.com",36],["quatvn.baby",36],["tenmientruyengi.net",36],["topviet69.com",36],["phim18hd.sex",36],["live.sexviet88.dev",36],["sexnhe.biz",36],["demo.14412882.com",36],["sexphimhd.vip",36],["xem.phim18c.org",36],["vn.cliphot69.live",36],["hhtq5.vip",36],["sayhentai.one",36],["vungoctuan.vn",37],["www.toptruyenvn.pro",[38,39]],["xnxx-sex-videos.com",40]]);
+const hostnamesMap = new Map([["abtruyen.net",0],["animehay.in",[1,36]],["cafef.vn",2],["gamek.vn",2],["genk.vn",2],["kenh14.vn",2],["soha.vn",2],["tuoitre.vn",2],["afamily.vn",2],["cunghocvui.com",3],["dualeotruyenbi.com",[4,36]],["m.blogtruyenmoi.com",4],["ffmovie.online",5],["truyensextv.com",5],["gocphimii.com",6],["p.thoctv.com",6],["goctruyentranhvui2.com",7],["mobiblog.club",7],["truyenqqviet.com",7],["gotphim.com",8],["hh3dhay.lol",9],["hh3dhay.xyz",9],["holyfilm.org",10],["imail.edu.vn",[11,12]],["ios.codevn.net",13],["linkneverdie.net",14],["lrepacks.net",15],["lxmanga.life",16],["nettruyenhq.com",17],["phimgichill.net",[18,19]],["hhhay.tv",18],["hh3dhay.pro",18],["truyengihotnha.com",[18,36]],["truyengihotnha.net",[18,36]],["3dchill.shop",18],["animevietsub.app",18],["mephimnhe1.net",19],["phimmoiiii.net",20],["motphimww.com",20],["phimmoinay.vip",21],["phimtho.net",22],["phimtuoitho.tv",23],["rphang.vin",24],["misskon.com",24],["saigon24.net",25],["sex.chichnhau.net",26],["sexhd88.live",27],["sphimhdc.com",28],["thongtintruyen.com",29],["tinsoikeo.live",30],["truyen2u.net",31],["truyen35.shop",32],["truyentuan.xyz",33],["ungtycomicsvip.net",[34,36]],["vailonxx.co",35],["phimlongtieng.com",35],["phimlongtieng.net",35],["viet69.name",36],["ungtycomicsvip.com",36],["vlxx.mobi",36],["yurineko.net",36],["vlxyz.tube",36],["javhay.click",36],["phimsexhay669.pro",36],["cliphot69.blog",36],["doctruyen3qvn.pro",36],["hentaizz.biz",36],["heo69.moe",36],["sexvn.tuoi69s.com",36],["top1sex.club",36],["lenlut.tv",36],["sexmup18.com",36],["hentaivn.today",36],["cdn.streamvl.sbs",36],["www.buomtv.vip",36],["truyenvn.cam",36],["cdnstream.sbs",36],["javtiful.com",36],["truyengihotdo.net",36],["truyengihotzay.net",36],["truyengihotqua.net",36],["truyengihotqua.com",36],["truyengihotnay.com",36],["quatvn.baby",36],["tenmientruyengi.net",36],["topviet69.com",36],["phim18hd.sex",36],["live.sexviet88.dev",36],["sexnhe.biz",36],["demo.14412882.com",36],["sexphimhd.vip",36],["xem.phim18c.org",36],["vn.cliphot69.live",36],["hhtq5.vip",36],["sayhentai.one",36],["vungoctuan.vn",37],["www.toptruyenvn.pro",[38,39]],["xnxx-sex-videos.com",40]]);
 
 const entitiesMap = new Map([]);
 
@@ -177,10 +177,7 @@ function runAtHtmlElementFn(fn) {
 }
 
 function getExceptionToken() {
-    const safe = safeSelf();
-    const token =
-        safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+    const token = getRandomToken();
     const oe = self.onerror;
     self.onerror = function(msg, ...args) {
         if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
@@ -353,6 +350,12 @@ function safeSelf() {
 function shouldDebug(details) {
     if ( details instanceof Object === false ) { return false; }
     return scriptletGlobals.canDebug && details.debug;
+}
+
+function getRandomToken() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
 }
 
 /******************************************************************************/

@@ -8,7 +8,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["stratege.ru"],"regexFilter":"^https?:\\/\\/www\\.stratege\\.ru\\/misc\\/[a-z0-9]{25,}","resourceTypes":["image"]},"id":3569},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["nb.by"],"regexFilter":"nb.by\\/img\\/ban\\d\\/","resourceTypes":["image"]},"id":3576},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["yandex.by","yandex.kz","yandex.ru","yandex.uz"],"regexFilter":"^https?:\\/\\/yastatic\\.net\\/www\\/_\\/[^\\s]{150,}","resourceTypes":["image"]},"id":3760},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["xn--90adear.xn--p1ai"],"regexFilter":"proxy\\/check\\/popup","resourceTypes":["script"]},"id":3905},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["spletnik.ru"],"regexFilter":"^https?:\\/\\/www\\.spletnik\\.ru\\/[^\\s]{70,}","resourceTypes":["script","xmlhttprequest"]},"id":4101},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["widgets.kinopoisk.ru","www.kinopoisk.ru","yastatic.net"],"regexFilter":"^https?:\\/\\/strm\\.yandex\\.ru\\/get\\/[^\\s]{1300,}$","resourceTypes":["xmlhttprequest"]},"id":4391},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","regexFilter":"\\/[A-Za-z0-9]{5}\\/[A-Za-z0-9]{33}\\d{4}\\.js$","resourceTypes":["script"]},"id":4484},

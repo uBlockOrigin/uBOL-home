@@ -140,7 +140,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["mtvuutiset.fi"],"urlFilter":"leiki.com/mtv3/widgets/loader/"},"id":139},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["c1.hinta.fi","nostemedia.bbvms.com","strongbox.nostemedia.fi"],"resourceTypes":["script"]},"id":140},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||tags.tiqcdn.com/utag/sanoma-fi/*/utag.js"},"id":141},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["oma.posti.fi"],"requestDomains":["salesforceliveagent.com","service.force.com"]},"id":142},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["oma.posti.fi","service.force.com"],"requestDomains":["salesforceliveagent.com"]},"id":142},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.seurakuntalainen.fi"],"urlFilter":"||consent.cookiebot.com/uc.js"},"id":143},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.seurakuntalainen.fi"],"urlFilter":"||consent.cookiebot.com/*/cc.js?renew=true"},"id":144},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["etuovi.com","iltalehti.fi"],"requestDomains":["leiki.com"]},"id":145},
@@ -164,5 +164,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["click.redditmail.com"]},"id":163},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["elisa.fi"],"urlFilter":"||googletagmanager.com/gtm.js?"},"id":164},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["clk.tradedoubler.com"],"resourceTypes":["main_frame"],"urlFilter":"||clk.tradedoubler.com/click*cdon.fi"},"id":165},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["ad.doubleclick.net"],"resourceTypes":["main_frame"],"urlFilter":"||ad.doubleclick.net/ddm/clk/*coolshop.fi/tuote/"},"id":166}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["ad.doubleclick.net"],"resourceTypes":["main_frame"],"urlFilter":"||ad.doubleclick.net/ddm/clk/*coolshop.fi/tuote/"},"id":166},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["oma.posti.fi"],"requestDomains":["service.force.com"]},"id":167}
 ]

@@ -3070,6 +3070,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.funtasticko.net"],"resourceTypes":["script"],"urlFilter":"||js.rfp.fout.jp/rfp-display.js"},"id":3069},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.funtasticko.net"],"resourceTypes":["script"],"urlFilter":"||js.rfp.fout.jp/rfp-infeed.js"},"id":3070},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kompas.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pubads.g.doubleclick.net/gampad/ads?"},"id":3071},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/airasiabet.gif|"},"id":3072},
 {"action":{"type":"block"},"condition":{"requestDomains":["chitchooms.net","xosbkqblniusql.com"],"resourceTypes":["xmlhttprequest"]},"id":3073},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kaskus.co.id"],"resourceTypes":["sub_frame"],"urlFilter":"||ads.kaskus.co.id/widget/ads/create"},"id":3074},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.care/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3075},
@@ -3077,5 +3078,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.lol/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3077},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||rbreezy.xyz/nativeads-v2.js"},"id":3078},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||xmalay.net/nativeads-v2.js"},"id":3079},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||shinigamitoon.id/wp-content/plugins/halfdata-green-popups/js/lepopup.js"},"id":3080}
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||shinigamitoon.id/wp-content/plugins/halfdata-green-popups/js/lepopup.js"},"id":3080},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/kerabatslot.gif|"},"id":3081}
 ]

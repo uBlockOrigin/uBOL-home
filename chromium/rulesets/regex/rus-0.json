@@ -7,7 +7,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["stratege.ru"],"regexFilter":"^https?:\\/\\/www\\.stratege\\.ru\\/misc\\/[a-z0-9]{25,}","resourceTypes":["image"]},"id":6},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["nb.by"],"regexFilter":"nb.by\\/img\\/ban\\d\\/","resourceTypes":["image"]},"id":7},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["yandex.by","yandex.kz","yandex.ru","yandex.uz"],"regexFilter":"^https?:\\/\\/yastatic\\.net\\/www\\/_\\/[^\\s]{150,}","resourceTypes":["image"]},"id":8},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["xn--90adear.xn--p1ai"],"regexFilter":"proxy\\/check\\/popup","resourceTypes":["script"]},"id":9},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["spletnik.ru"],"regexFilter":"^https?:\\/\\/www\\.spletnik\\.ru\\/[^\\s]{70,}","resourceTypes":["script","xmlhttprequest"]},"id":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","regexFilter":"\\/[A-Za-z0-9]{5}\\/[A-Za-z0-9]{33}\\d{4}\\.js$","resourceTypes":["script"]},"id":11},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"\\/[a-z]{1,3}\\?zoneId\\=\\d{7}\\-\\d{7}$","resourceTypes":["script"]},"id":12},

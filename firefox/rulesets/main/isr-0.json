@@ -126,6 +126,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["13news.co.il","13tv.co.il","nifgashim.net"],"urlFilter":"||googletagservices.com/tag/js/gpt.js"},"id":125},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||gplanet.co.il/js/adx.js"},"id":126},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["eshet.com","one.co.il"],"resourceTypes":["script"],"urlFilter":"||googletagmanager.com/gtm.js"},"id":127},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["13news.co.il","13tv.co.il"],"resourceTypes":["script"],"urlFilter":"||cdn.taboola.com/libtrc/reshet-reshet/loader.js"},"id":128},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["holmesplace.co.il"],"urlFilter":"||holmesplace.co.il/sites/all/modules"},"id":130},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||kikar.co.il/js/ads.js"},"id":131},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||lamehadrin.co.il/_layouts/shufersal.yesh/scripts/gtm.js"},"id":132},

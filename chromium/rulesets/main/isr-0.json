@@ -225,5 +225,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||sport5.co.il^*/dfp."},"id":224},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||sport5.co.il^*/dfp/"},"id":225},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||weather2day.co.il/ads.js?"},"id":226},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||foodsdictionary.co.il/static/"},"id":227}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||foodsdictionary.co.il/static/"},"id":227},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["13news.co.il","13tv.co.il"],"resourceTypes":["script"],"urlFilter":"||cdn.taboola.com/libtrc/reshet-reshet/loader.js"},"id":228}
 ]
