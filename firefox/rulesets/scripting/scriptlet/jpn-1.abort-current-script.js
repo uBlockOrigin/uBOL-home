@@ -42,7 +42,7 @@ const uBOL_abortCurrentScript = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["onload","google_esf"],["onload","adsCount"],["navigator.brave"],["document.getElementById","_0x"],["document.querySelector","_0x"],["jQuery","decodeURIComponent"],["document.write","sitejack"],["Math.floor","amazon"],["document.createElement","overview"],["$","google_ads_iframe_"],["onload","puHref"],["document.referrer","gmo_bb"],["document.write","LinkURL"],["document.currentScript","insertAdjacentHTML"],["jQuery","floatingAd"],["tag","Math.random"],["addEventListener","style.display"],["jmp","Math"],["document.getElementById","lists"],["__htapop"]];
+const argsList = [["onload","google_esf"],["onload","adsCount"],["navigator.brave"],["document.getElementById","_0x"],["document.querySelector","_0x"],["jQuery","decodeURIComponent"],["document.write","sitejack"],["Array.prototype.join","amazon"],["document.createElement","overview"],["$","google_ads_iframe_"],["onload","puHref"],["document.referrer","gmo_bb"],["document.write","LinkURL"],["document.currentScript","insertAdjacentHTML"],["jQuery","floatingAd"],["tag","Math.random"],["addEventListener","style.display"],["jmp","Math"],["document.getElementById","lists"],["__htapop"]];
 
 const hostnamesMap = new Map([["qa.crefan.jp",0],["blog-and-destroy.com",1],["musenboya.com",2],["kledgeb.blogspot.com",3],["connect.coron.tech",5],["akibablog.blog.jp",6],["blog.livedoor.jp",[6,7,14,17]],["erommd-street.com",8],["ac-illust.com",9],["photo-ac.com",9],["javple.com",10],["encount.press",11],["realsound.jp",11],["h1g.jp",11],["russianbeauties.jp",12],["agora-web.jp",13],["2chblog.jp",14],["yugioh-starlight.com",14],["kijomatomelog.com",14],["gundamlog.com",14],["doorblog.jp",14],["digital-thread.com",14],["livedoor.blog",14],["blog.jp",14],["majikichi.com",15],["xn--gmq92kd2rm1kx34a.com",16],["momoiroadult.com",18],["avgle.com",19]]);
 
@@ -310,6 +310,12 @@ function safeSelf() {
             }
             return self.requestAnimationFrame(fn);
         },
+        offIdle(id) {
+            if ( self.requestIdleCallback ) {
+                return self.cancelIdleCallback(id);
+            }
+            return self.cancelAnimationFrame(id);
+        }
     };
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }

@@ -2,6 +2,22 @@
 {
  "action": {
   "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "www.phimlongtieng.com"
+  ],
+  "urlFilter": "||www.phimlongtieng.com/3s.m3u8"
+ },
+ "id": 1,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
    "extensionPath": "/web_accessible_resources/google-ima.js"
   },
   "type": "redirect"

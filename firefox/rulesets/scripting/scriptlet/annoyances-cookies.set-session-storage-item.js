@@ -42,9 +42,9 @@ const uBOL_setSessionStorageItem = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["cookieModal2","1"],["cookieMessageDisagree","true"],["disclaimerOpened","1"],["terms-and-policy-accepted","true"],["hasConsent","1"],["hasDsg","1"],["griffinConsentIgnored","1"],["ACCEPT_LGPD","true"],["acceptCookies","false"],["terms-and-policy-accepted","yes"],["CookieBannerShown","yes"]];
+const argsList = [["cookieModal2","1"],["cookieMessageDisagree","true"],["disclaimerOpened","1"],["terms-and-policy-accepted","true"],["cookieConfirmed","true"],["hasConsent","1"],["hasDsg","1"],["griffinConsentIgnored","1"],["ACCEPT_LGPD","true"],["acceptCookies","false"],["terms-and-policy-accepted","yes"],["CookieBannerShown","yes"]];
 
-const hostnamesMap = new Map([["workwide.de",0],["erco.com",1],["communitycrimemap.com",2],["smartwielen.lu",3],["cachecrawler.com",[4,5]],["griffin.com",6],["c6bank.com.br",7],["gedik.com",8],["collato.com",[9,10]]]);
+const hostnamesMap = new Map([["workwide.de",0],["erco.com",1],["communitycrimemap.com",2],["smartwielen.lu",3],["ssga.com",4],["cachecrawler.com",[5,6]],["griffin.com",7],["c6bank.com.br",8],["gedik.com",9],["collato.com",[10,11]]]);
 
 const entitiesMap = new Map([]);
 
@@ -246,6 +246,12 @@ function safeSelf() {
             }
             return self.requestAnimationFrame(fn);
         },
+        offIdle(id) {
+            if ( self.requestIdleCallback ) {
+                return self.cancelIdleCallback(id);
+            }
+            return self.cancelAnimationFrame(id);
+        }
     };
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }

@@ -42,9 +42,9 @@ const uBOL_trustedSuppressNativeMethod = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["XMLHttpRequest.prototype.open","| \"adsbygoogle\"","prevent"]];
+const argsList = [["XMLHttpRequest.prototype.open","| \"adsbygoogle\"","prevent"],["XMLHttpRequest.prototype.open","|\"ad-provider.js\"","prevent"]];
 
-const hostnamesMap = new Map([["veev.to",0]]);
+const hostnamesMap = new Map([["veev.to",[0,1]]]);
 
 const entitiesMap = new Map([]);
 
@@ -258,6 +258,12 @@ function safeSelf() {
             }
             return self.requestAnimationFrame(fn);
         },
+        offIdle(id) {
+            if ( self.requestIdleCallback ) {
+                return self.cancelIdleCallback(id);
+            }
+            return self.cancelAnimationFrame(id);
+        }
     };
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }

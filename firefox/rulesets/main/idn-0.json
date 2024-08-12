@@ -3054,7 +3054,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"/soralink"},"id":3053},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||adsafelink.com/js/webscript.js"},"id":3054},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||snacklink.id/js/web-script.js"},"id":3055},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["linkgenerator.xyz","noobscript.com"],"resourceTypes":["script"]},"id":3056},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/dewacuan-"},"id":3056},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.funtasticko.net"],"resourceTypes":["script"],"urlFilter":"||js.rfp.fout.jp/rfp-display.js"},"id":3057},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.funtasticko.net"],"resourceTypes":["script"],"urlFilter":"||js.rfp.fout.jp/rfp-infeed.js"},"id":3058},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kompas.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pubads.g.doubleclick.net/gampad/ads?"},"id":3059},
@@ -3079,5 +3079,8 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/mansion77ku.gif|"},"id":3078},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||xmalay.net/nativeads-v2.js"},"id":3079},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||shinigamitoon.id/wp-content/plugins/halfdata-green-popups/js/lepopup.js"},"id":3080},
-{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/kerabatslot.gif|"},"id":3081}
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/kerabatslot.gif|"},"id":3081},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/hokidewa-"},"id":3082},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/indokasino-"},"id":3083},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["curoax.com","linkgenerator.xyz","noobscript.com"],"resourceTypes":["script"]},"id":3084}
 ]

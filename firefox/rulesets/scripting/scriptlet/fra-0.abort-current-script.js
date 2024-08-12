@@ -42,9 +42,9 @@ const uBOL_abortCurrentScript = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["chp_ads_blocker_detector"],["document.getElementById","Blocking Ads"],["document.createElement","adblock"],["document.write","alert"],["setTimeout","bloqueur"],["Promise","alert"],["document.getElementById","msg_ab"],["document.querySelector","oadbActive"],["$","checkAds"],["$","!document.getElementById(btoa"],["document.getElementById","adback"],["JSON.parse","document.createElement('script')"],["document.createElement","document.documentElement).appendChild"]];
+const argsList = [["jQuery","adblocker"],["chp_ads_blocker_detector"],["document.getElementById","Blocking Ads"],["addEventListener","String.fromCharCode"],["document.createElement","adblock"],["document.write","alert"],["setTimeout","bloqueur"],["Promise","alert"],["document.getElementById","msg_ab"],["document.querySelector","oadbActive"],["$","checkAds"],["$","!document.getElementById(btoa"],["document.getElementById","adback"],["JSON.parse","document.createElement('script')"],["document.createElement","document.documentElement).appendChild"]];
 
-const hostnamesMap = new Map([["super-ethanol.com",0],["monumentum.fr",1],["lemanip.com",2],["crunchyscan.fr",[3,4,5]],["abcbourse.com",6],["cliqueduplateau.com",7],["monacomatin.mc",8],["leakgaming.fr",9],["recreatisse.com",10],["ultimate-catch.eu",10],["japscan.me",[11,12]]]);
+const hostnamesMap = new Map([["adala-news.fr",0],["super-ethanol.com",1],["monumentum.fr",2],["japscan.lol",3],["lemanip.com",4],["crunchyscan.fr",[5,6,7]],["abcbourse.com",8],["cliqueduplateau.com",9],["monacomatin.mc",10],["leakgaming.fr",11],["recreatisse.com",12],["ultimate-catch.eu",12],["japscan.me",[13,14]]]);
 
 const entitiesMap = new Map([]);
 
@@ -310,6 +310,12 @@ function safeSelf() {
             }
             return self.requestAnimationFrame(fn);
         },
+        offIdle(id) {
+            if ( self.requestIdleCallback ) {
+                return self.cancelIdleCallback(id);
+            }
+            return self.cancelAnimationFrame(id);
+        }
     };
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }

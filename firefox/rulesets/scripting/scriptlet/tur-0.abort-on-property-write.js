@@ -42,11 +42,11 @@ const uBOL_abortOnPropertyWrite = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["adregain_wall"],["rInt"],["openRandomUrl"],["popURL"],["onPopUnderLoaded"],["window.onload"],["yeniSekmeAdresi"],["adx"]];
+const argsList = [["adregain_wall"],["rInt"],["openRandomUrl"],["popURL"],["onPopUnderLoaded"],["window.onload"],["yeniSekmeAdresi"],["getLink"],["adx"]];
 
-const hostnamesMap = new Map([["memoryhackers.org",0],["r10.net",1],["yeppuu.com",2],["dizipia.com",3],["birasyadizi.com",4],["seyredeger.com",4],["indirmedenfilmizle.vip",4],["dizilost.com",[4,5]],["mixizle.com",6],["fullhdabifilm.com",6],["hdmixfilim.com",6]]);
+const hostnamesMap = new Map([["memoryhackers.org",0],["r10.net",1],["yeppuu.com",2],["dizipia.com",3],["birasyadizi.com",4],["seyredeger.com",4],["indirmedenfilmizle.vip",4],["dizilost.com",[4,5]],["mixizle.com",6],["fullhdabifilm.com",6],["hdmixfilim.com",6],["erotikhdfilmx3.shop",7]]);
 
-const entitiesMap = new Map([["4kfilmizlesene",7]]);
+const entitiesMap = new Map([["4kfilmizlesene",8]]);
 
 const exceptionsMap = new Map([]);
 
@@ -211,6 +211,12 @@ function safeSelf() {
             }
             return self.requestAnimationFrame(fn);
         },
+        offIdle(id) {
+            if ( self.requestIdleCallback ) {
+                return self.cancelIdleCallback(id);
+            }
+            return self.cancelAnimationFrame(id);
+        }
     };
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
