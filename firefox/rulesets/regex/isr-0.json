@@ -1,6 +1,44 @@
 [
 {
  "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "13news.co.il",
+   "13tv.co.il"
+  ],
+  "regexFilter": "^https?:\\/+(www\\.)?google\\.(com?\\.)?[a-zA-Z0-9]{2,22}\\.?\\/ads\\/ga-audiences\\?",
+  "resourceTypes": [
+   "image"
+  ]
+ },
+ "id": 1,
+ "priority": 20
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "13news.co.il",
+   "13tv.co.il",
+   "hamal.co.il",
+   "sheee.co.il",
+   "walla.co.il",
+   "ynet.co.il"
+  ],
+  "regexFilter": "^https?:\\/+adservice\\.google\\.(com?\\.)?[a-zA-Z0-9]{2,22}\\.?\\/adsid\\/integrator.js\\?",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 2,
+ "priority": 20
+},
+{
+ "action": {
   "type": "block"
  },
  "condition": {
@@ -75,41 +113,5 @@
   ]
  },
  "id": 113
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "initiatorDomains": [
-   "13news.co.il",
-   "13tv.co.il"
-  ],
-  "regexFilter": "^https?:\\/+(www\\.)?google\\.(com?\\.)?[a-zA-Z0-9]{2,22}\\.?\\/ads\\/ga-audiences\\?",
-  "resourceTypes": [
-   "image"
-  ]
- },
- "id": 152
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "initiatorDomains": [
-   "13news.co.il",
-   "13tv.co.il",
-   "hamal.co.il",
-   "sheee.co.il",
-   "walla.co.il",
-   "ynet.co.il"
-  ],
-  "regexFilter": "^https?:\\/+adservice\\.google\\.(com?\\.)?[a-zA-Z0-9]{2,22}\\.?\\/adsid\\/integrator.js\\?",
-  "resourceTypes": [
-   "script"
-  ]
- },
- "id": 169
 }
 ]

@@ -27,7 +27,8 @@
    "127.0.0.1"
   ]
  },
- "id": 1
+ "id": 1,
+ "priority": 20
 },
 {
  "action": {
@@ -41,7 +42,8 @@
    "localhost"
   ]
  },
- "id": 2
+ "id": 2,
+ "priority": 20
 },
 {
  "action": {
@@ -59,7 +61,8 @@
    "xmlhttprequest"
   ]
  },
- "id": 3
+ "id": 3,
+ "priority": 20
 },
 {
  "action": {
@@ -183,7 +186,24 @@
    "websocket"
   ]
  },
- "id": 7
+ "id": 7,
+ "priority": 20
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "initiatorDomains": [
+   "musicbrainz.org"
+  ],
+  "requestDomains": [
+   "127.0.0.1"
+  ]
+ },
+ "id": 8,
+ "priority": 20
 },
 {
  "action": {
@@ -205,20 +225,5 @@
   ]
  },
  "id": 11
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "initiatorDomains": [
-   "musicbrainz.org"
-  ],
-  "requestDomains": [
-   "127.0.0.1"
-  ]
- },
- "id": 14
 }
 ]

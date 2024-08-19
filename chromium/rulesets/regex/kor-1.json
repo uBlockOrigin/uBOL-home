@@ -153,8 +153,8 @@
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/[A-z0-9\\.]*[A-z0-9]+\\.[A-z]+\\/\\?u=[A-z0-9]{7}&o=[A-z0-9]{7}","resourceTypes":["main_frame"]},"id":152},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/[A-z]+\\.[A-z]+\\.[A-z]+\\/[A-z]+-robot\\/\\?pl=[A-z0-9-]{22}&sm=[A-z]+-robot&hash=[A-z0-9-]{22}&exp=[0-9]{10}","resourceTypes":["main_frame"]},"id":153},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/[0-9]{9}\\.[A-z0-9-]+\\.[A-z]{2}\\/[0-9]{6}\\.html$","resourceTypes":["main_frame"]},"id":154},
-{"action":{"type":"allow"},"condition":{"regexFilter":"^(http|https):\\/\\/image\\.kyobobook\\.co\\.kr\\/ink\\/images\\/prom\\/[0-9]{4}\\/general\\/[0-9]{6}_dailyCheck\\/"},"id":155},
-{"action":{"type":"allow"},"condition":{"regexFilter":"^https:\\/\\/www\\.ehanex\\.com\\/images\\/main\\/[a-z]{2}_ad\\.gif$"},"id":156},
+{"action":{"type":"allow"},"condition":{"regexFilter":"^(http|https):\\/\\/image\\.kyobobook\\.co\\.kr\\/ink\\/images\\/prom\\/[0-9]{4}\\/general\\/[0-9]{6}_dailyCheck\\/"},"id":155,"priority":20},
+{"action":{"type":"allow"},"condition":{"regexFilter":"^https:\\/\\/www\\.ehanex\\.com\\/images\\/main\\/[a-z]{2}_ad\\.gif$"},"id":156,"priority":20},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["avpink365.com","avpink366.com","avpink367.com","avpink368.com","avpink369.com","avpink370.com","avpink371.com","avpink372.com","avpink373.com"],"regexFilter":"^https:\\/\\/avpink[0-9]+\\.com\\/wp-content\\/uploads\\/[0-9]+\\/[0-9]+\\/[0-9-%A-Z]+x[0-9]+"},"id":157},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["avpink365.com","avpink366.com","avpink367.com","avpink368.com","avpink369.com","avpink370.com","avpink371.com","avpink372.com","avpink373.com"],"regexFilter":"^https:\\/\\/avpink[0-9]+\\.com\\/wp-content\\/uploads\\/[0-9]+\\/[0-9]+\\/[0-9]+-[0-9]+-[0-9]+\\."},"id":158}
 ]

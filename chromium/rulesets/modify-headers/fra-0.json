@@ -67,6 +67,77 @@
    {
     "header": "content-security-policy",
     "operation": "append",
+    "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudflare.com *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com *.jwpcdn.com *.recaptcha.net *.tapecontent.net *.video-delivery.net *.youtube.com *.zencdn.net i.doodcdn.co img.doodcdn.co static.doodcdn.co"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "adblockeronstreamtape.xyz",
+   "adblockplustape.com",
+   "adblockplustape.xyz",
+   "adblockstreamtape.art",
+   "adblockstreamtape.site",
+   "adblockstrtape.link",
+   "d0000d.com",
+   "d000d.com",
+   "do0od.com",
+   "dood.la",
+   "dood.li",
+   "dood.pm",
+   "dood.re",
+   "dood.sh",
+   "dood.so",
+   "dood.to",
+   "dood.watch",
+   "dood.wf",
+   "dood.ws",
+   "dood.yt",
+   "doods.pro",
+   "doodstream.co",
+   "doodstream.com",
+   "doodstream.me",
+   "dooood.com",
+   "gettapeads.com",
+   "gettapeads.com",
+   "noblocktape.com",
+   "shavetape.cash",
+   "stapadblockuser.xyz",
+   "stapewithadblock.monster",
+   "strcloud.club",
+   "strcloud.link",
+   "streamadblocker.xyz",
+   "streamadblockplus.com",
+   "streamadblockplus.xyz",
+   "streamta.pe",
+   "streamtape.cc",
+   "streamtape.com",
+   "streamtape.net",
+   "streamtape.to",
+   "streamtape.xyz",
+   "streamtapeadblock.art",
+   "strema.site",
+   "strtape.cloud",
+   "strtape.site",
+   "strtape.tech",
+   "strtapeadblock.club",
+   "strtapeadblock.me",
+   "tapewithadblock.org"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 2
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
     "value": "frame-src 'none' http: https:"
    }
   ],

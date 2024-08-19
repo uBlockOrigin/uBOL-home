@@ -16,47 +16,7 @@
   "urlFilter": "||adservice.google.com/adsid/integrator.js"
  },
  "id": 1,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "mtv.fi",
-   "mtvuutiset.fi"
-  ],
-  "resourceTypes": [
-   "media"
-  ],
-  "urlFilter": "||cloudfront.net/creatives/assets/*.mp4"
- },
- "id": 2,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "ruutu.fi",
-   "supla.fi"
-  ],
-  "resourceTypes": [
-   "media"
-  ],
-  "urlFilter": "||nelonenmedia-pmd-ads-*.nm-stream.nelonenmedia.fi^"
- },
- "id": 3,
- "priority": 2
+ "priority": 1
 },
 {
  "action": {
@@ -76,8 +36,28 @@
    "xmlhttprequest"
   ]
  },
- "id": 166,
- "priority": 2
+ "id": 2,
+ "priority": 1
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "mtv.fi",
+   "mtvuutiset.fi"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||cloudfront.net/creatives/assets/*.mp4"
+ },
+ "id": 3,
+ "priority": 1
 },
 {
  "action": {
@@ -98,7 +78,27 @@
    "media"
   ]
  },
- "id": 168,
- "priority": 2
+ "id": 4,
+ "priority": 1
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "ruutu.fi",
+   "supla.fi"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||nelonenmedia-pmd-ads-*.nm-stream.nelonenmedia.fi^"
+ },
+ "id": 5,
+ "priority": 1
 }
 ]

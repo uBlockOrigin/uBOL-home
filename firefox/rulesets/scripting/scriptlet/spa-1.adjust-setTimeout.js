@@ -42,11 +42,11 @@ const uBOL_adjustSetTimeout = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [[".html(","*","0.001"],["playFunction","*","0.001"],["resumeVideoFromAd","*","0.001"],["atualizar","*","0.02"],[".delay","*","0.001"],["videoliberado","*","0.02"],["PLAYER","*","0.02"],["liberaDownload","*","0.02"],["contador","","0.02"],["PLAYER LIBERADO","10000","0.02"],["redirect","*","0.02"]];
+const argsList = [["contador","*","0.001"],["counter","*","0.001"],[".html(","*","0.001"],["playFunction","*","0.001"],["resumeVideoFromAd","*","0.001"],["/atualizar|hided/","*","0.001"],[".delay","*","0.001"],["videoliberado","*","0.02"],["PLAYER","*","0.02"],["liberaDownload","*","0.02"],["contador","","0.02"],["PLAYER LIBERADO","10000","0.02"],["redirect","*","0.02"]];
 
-const hostnamesMap = new Map([["sabornutritivo.com",0],["guiacripto.online",1],["terra.com.br",2],["modsimuladores.com",3],["assistirfilmesdaluna.com",3],["vejaideias.com.br",3],["jogoscompleto.xyz",3],["fazercurriculo.online",4],["usandoapp.com",4],["arnolds.com.br",5],["receitasoncaseiras.online",6],["automotivocarros.com",7],["portecnologia.com",7],["cartaocreditoplatinum.org",7],["criarjogosandroid.com",8],["adrenalinagames.com",8],["nutricaohoje.website",9]]);
+const hostnamesMap = new Map([["dicasdereceitas.net",0],["dicasgeeks.net",0],["boafinancas.com",1],["sabornutritivo.com",2],["guiacripto.online",3],["terra.com.br",4],["receitasnatural.com",5],["financastop.online",5],["cryptobr.biz",5],["modsimuladores.com",5],["assistirfilmesdaluna.com",5],["vejaideias.com.br",5],["jogoscompleto.xyz",5],["fazercurriculo.online",6],["usandoapp.com",6],["arnolds.com.br",7],["receitasoncaseiras.online",8],["automotivocarros.com",9],["portecnologia.com",9],["cartaocreditoplatinum.org",9],["criarjogosandroid.com",10],["adrenalinagames.com",10],["nutricaohoje.website",11]]);
 
-const entitiesMap = new Map([["lectulandia",10]]);
+const entitiesMap = new Map([["lectulandia",12]]);
 
 const exceptionsMap = new Map([]);
 

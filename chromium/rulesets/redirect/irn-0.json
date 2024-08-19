@@ -8,13 +8,29 @@
  },
  "condition": {
   "domainType": "firstParty",
+  "requestDomains": [
+   "khabarchin.basalam.com"
+  ]
+ },
+ "id": 1,
+ "priority": 1
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.txt"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "domainType": "firstParty",
   "resourceTypes": [
    "xmlhttprequest"
   ],
   "urlFilter": "||safarmarket.com/api/v1/trace/traceflight^"
  },
- "id": 1,
- "priority": 2
+ "id": 2,
+ "priority": 1
 },
 {
  "action": {
@@ -33,8 +49,8 @@
   ],
   "urlFilter": "||melodify.pw/serve/v1/limitation/*.mp3^"
  },
- "id": 2,
- "priority": 2
+ "id": 3,
+ "priority": 1
 },
 {
  "action": {
@@ -53,23 +69,7 @@
   ],
   "urlFilter": "||tamashakhoneh.ir/src/video/intro.mp4^"
  },
- "id": 3,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.txt"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "domainType": "firstParty",
-  "requestDomains": [
-   "khabarchin.basalam.com"
-  ]
- },
- "id": 600,
- "priority": 2
+ "id": 4,
+ "priority": 1
 }
 ]

@@ -42,9 +42,9 @@ const uBOL_trustedReplaceArgument = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["document.getElementById","0","null","condition","adsense-container"],["document.getElementById","0","null","condition","modal"],["fetch","0","{\"value\": \"https://www.apkmoddone.com/feeds/posts/summary/-/_Apps?alt=json&max-results=0\"}","condition","ipinfo.io"],["document.querySelector","0","{\"value\": \"body\"}","condition","iframe"],["String.prototype.endsWith","0","''","condition","translate.goog"],["HTMLScriptElement.prototype.setAttribute","1","{\"value\": \"(function(){let link=document.createElement('link');link.rel='stylesheet';link.href='//image.ygosu.com/style/main.css';document.head.appendChild(link)})()\"}","condition","error-report"],["HTMLScriptElement.prototype.setAttribute","1","{\"value\": \"(function(){let link=document.createElement('link');link.rel='stylesheet';link.href='https://loawa.com/assets/css/loawa.min.css';document.head.appendChild(link)})()\"}","condition","error-report"],["document.querySelector","0","noopFunc","condition","adblock"]];
+const argsList = [["document.getElementById","0","null","condition","adsense-container"],["document.getElementById","0","null","condition","modal"],["fetch","0","{\"value\": \"https://www.apkmoddone.com/feeds/posts/summary/-/_Apps?alt=json&max-results=0\"}","condition","ipinfo.io"],["document.querySelector","0","{\"value\": \"body\"}","condition","iframe"],["HTMLScriptElement.prototype.setAttribute","1","{\"value\": \"(function(){let link=document.createElement('link');link.rel='stylesheet';link.href='//image.ygosu.com/style/main.css';document.head.appendChild(link)})()\"}","condition","error-report"],["HTMLScriptElement.prototype.setAttribute","1","{\"value\": \"(function(){let link=document.createElement('link');link.rel='stylesheet';link.href='https://loawa.com/assets/css/loawa.min.css';document.head.appendChild(link)})()\"}","condition","error-report"],["document.querySelector","0","noopFunc","condition","adblock"]];
 
-const hostnamesMap = new Map([["copyseeker.net",0],["zonebourse.com",1],["apkmoddone.com",2],["www.apkmoddone.com",3],["dogdrip.net",4],["ygosu.com",5],["bamgosu.site",5],["loawa.com",6],["autosport.com",7],["motorsport.com",7],["motorsport.uol.com.br",7]]);
+const hostnamesMap = new Map([["copyseeker.net",0],["zonebourse.com",1],["apkmoddone.com",2],["www.apkmoddone.com",3],["ygosu.com",4],["bamgosu.site",4],["loawa.com",5],["autosport.com",6],["motorsport.com",6],["motorsport.uol.com.br",6]]);
 
 const entitiesMap = new Map([]);
 
@@ -98,12 +98,26 @@ function proxyApplyFn(
     }
     const fn = context[prop];
     if ( typeof fn !== 'function' ) { return; }
+    const fnStr = fn.toString();
+    const toString = (function toString() { return fnStr; }).bind(null);
     if ( fn.prototype && fn.prototype.constructor === fn ) {
-        context[prop] = new Proxy(fn, { construct: handler });
-        return (...args) => { return Reflect.construct(...args); };
+        context[prop] = new Proxy(fn, {
+            construct: handler,
+            get(target, prop, receiver) {
+                if ( prop === 'toString' ) { return toString; }
+                return Reflect.get(target, prop, receiver);
+            },
+        });
+        return (...args) => Reflect.construct(...args);
     }
-    context[prop] = new Proxy(fn, { apply: handler });
-    return (...args) => { return Reflect.apply(...args); };
+    context[prop] = new Proxy(fn, {
+        apply: handler,
+        get(target, prop, receiver) {
+            if ( prop === 'toString' ) { return toString; }
+            return Reflect.get(target, prop, receiver);
+        },
+    });
+    return (...args) => Reflect.apply(...args);
 }
 
 function safeSelf() {

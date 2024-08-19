@@ -33,9 +33,9 @@
 
 /******************************************************************************/
 
-const argsList = [["{\"selector\":\".post-footer\",\"tasks\":[[\"has\",{\"selector\":\"> .share\"}]]}"],["{\"selector\":\".herald-single-sticky\",\"tasks\":[[\"has\",{\"selector\":\".herald-share\"}]]}"]];
+const argsList = [["{\"selector\":\".execphpwidget\",\"tasks\":[[\"has-text\",\"FREE UPDATES!\"]]}"],["{\"selector\":\".post-footer\",\"tasks\":[[\"has\",{\"selector\":\"> .share\"}]]}"],["{\"selector\":\".herald-single-sticky\",\"tasks\":[[\"has\",{\"selector\":\".herald-share\"}]]}"]];
 
-const hostnamesMap = new Map([["apotti.fi",0],["forssanlehti.fi",1]]);
+const hostnamesMap = new Map([["openculture.com",0],["apotti.fi",1],["forssanlehti.fi",2]]);
 
 const entitiesMap = new Map(undefined);
 

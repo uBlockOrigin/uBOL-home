@@ -53,6 +53,6 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["redakcija.alo.rs"],"resourceTypes":["image"]},"id":52},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["slobodnadalmacija.hr"],"resourceTypes":["script"],"urlFilter":"|https://html-load.com^"},"id":53},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||widget.halooglasi.com/nekretnine.html"},"id":54},
-{"action":{"type":"allow"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ads.api.24ur.si/adserver/adblock."},"id":55},
+{"action":{"type":"allow"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ads.api.24ur.si/adserver/adblock."},"id":55,"priority":20},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["a.mabipa.com","avalaads.com","cxpublic.com","lupon.media","native.tportal.hr","subs.vingd.com","traffic.styria.hr","widget.admiral.hr"]},"id":56}
 ]

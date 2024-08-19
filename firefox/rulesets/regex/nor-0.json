@@ -16,6 +16,37 @@
 },
 {
  "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "billetlugen.dk",
+   "eventim.no"
+  ],
+  "regexFilter": "obj\\/global\\/feature\\/tagCommander",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 2,
+ "priority": 20
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "regexFilter": "^https:\\/\\/www.gamer.no\\/[0-9a-f]{32,40}$",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 3,
+ "priority": 20
+},
+{
+ "action": {
   "type": "block"
  },
  "condition": {
@@ -35,34 +66,5 @@
   "regexFilter": ":\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpg|png|jpeg)"
  },
  "id": 462
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "initiatorDomains": [
-   "billetlugen.dk",
-   "eventim.no"
-  ],
-  "regexFilter": "obj\\/global\\/feature\\/tagCommander",
-  "resourceTypes": [
-   "script"
-  ]
- },
- "id": 520
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "domainType": "firstParty",
-  "regexFilter": "^https:\\/\\/www.gamer.no\\/[0-9a-f]{32,40}$",
-  "resourceTypes": [
-   "script"
-  ]
- },
- "id": 530
 }
 ]

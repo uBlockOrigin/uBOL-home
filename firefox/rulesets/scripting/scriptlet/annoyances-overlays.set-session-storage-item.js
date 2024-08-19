@@ -42,9 +42,9 @@ const uBOL_setSessionStorageItem = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["floating-sign-up-dismissed","true"],["banner_session","true"],["fs.adb.dis","1"],["adblock","true"]];
+const argsList = [["floating-sign-up-dismissed","true"],["emailSignupModal_isShown","true"],["banner_session","true"],["fs.adb.dis","1"],["adblock","true"]];
 
-const hostnamesMap = new Map([["semafor.com",0],["sears.com",1],["270towin.com",2],["getemoji.com",2],["afterclass.io",3]]);
+const hostnamesMap = new Map([["semafor.com",0],["virginvoyages.com",1],["sears.com",2],["270towin.com",3],["getemoji.com",3],["afterclass.io",4]]);
 
 const entitiesMap = new Map([]);
 

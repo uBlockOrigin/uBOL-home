@@ -174,12 +174,6 @@
     ]
    ],
    [
-    "noeval-if",
-    [
-     "*"
-    ]
-   ],
-   [
     "disable-newtab-links",
     [
      "*"
@@ -195,6 +189,12 @@
    ],
    [
     "set-cookie",
+    [
+     "*"
+    ]
+   ],
+   [
+    "noeval-if",
     [
      "*"
     ]
@@ -269,7 +269,6 @@
      "autosport.com",
      "bamgosu.site",
      "copyseeker.net",
-     "dogdrip.net",
      "loawa.com",
      "motorsport.com",
      "motorsport.uol.com.br",
@@ -403,13 +402,7 @@
    [
     "set-attr",
     [
-     "18kalebettv.xyz",
-     "19kalebettv.xyz",
-     "phileweb.com",
-     "rocketnews24.com",
-     "soranews24.com",
-     "statisticsanddata.org",
-     "youpouch.com"
+     "*"
     ]
    ],
    [
@@ -438,6 +431,7 @@
      "fedex.com",
      "flatpanelshd.com",
      "fntimes.com",
+     "freemcserver.net",
      "freewsad.com",
      "gadgets360.com",
      "genshinlab.com",
@@ -459,6 +453,7 @@
      "mydaily.co.kr",
      "ndtvprofit.com",
      "picrew.me",
+     "pravda.com.ua",
      "raenonx.cc",
      "reportera.co.kr",
      "secure-signup.net",
@@ -467,13 +462,13 @@
      "sportsrec.com",
      "taxguru.in",
      "text-compare.com",
-     "thephoblographer.com",
      "thesaurus.net",
      "thestar.co.uk",
      "thestockmarketwatch.com",
      "tv5mondeplus.com",
      "videogamemods.com",
      "wfmz.com",
+     "winfuture.de",
      "worldhistory.org",
      "ygosu.com",
      "yorkshirepost.co.uk"
@@ -542,6 +537,12 @@
      "smostafa.ir",
      "soft98.ir",
      "sysban.ir"
+    ]
+   ],
+   [
+    "trusted-replace-outbound-text",
+    [
+     "dogdrip.net"
     ]
    ],
    [
@@ -1394,6 +1395,8 @@
    [
     "no-window-open-if",
     [
+     "androidtime.com",
+     "appiroid.ir",
      "artmusics.top",
      "farsroid.com",
      "getandroid.ir",
@@ -1531,9 +1534,11 @@
      "kihanb.ir",
      "musiceman.net",
      "najiremix.ir",
+     "persian-fa.ir",
      "public-psychology.ir",
      "sclinic.ir",
-     "tgju.org"
+     "tgju.org",
+     "vaamfaa.ir"
     ]
    ],
    [
@@ -1594,6 +1599,12 @@
     "close-window",
     [
      "instagram.com"
+    ]
+   ],
+   [
+    "no-setTimeout-if",
+    [
+     "targoman.ir"
     ]
    ],
    [
@@ -1737,6 +1748,7 @@
      "iwb.jp",
      "jukenbbs.com",
      "kakenhi.net",
+     "negisoku.com",
      "seesaa.net",
      "tokyomotion.net",
      "twi-fans.com",
@@ -1871,7 +1883,7 @@
      "asg.to",
      "dl.520cc.cc",
      "kokeshi-doll.com",
-     "oppaideippai.net",
+     "motimoti3d.jp",
      "trendynailwraps.com",
      "uraaka-joshi.com",
      "wav.tv"
@@ -3246,9 +3258,20 @@
   "spa-1",
   [
    [
-    "abort-current-script",
+    "set-local-storage-item",
     [
-     "*"
+     "blog.whatsappgb.top",
+     "financeiropronto.vip",
+     "fomedereceitas.online",
+     "gastroponto.com",
+     "infoinvest.org",
+     "investimentosfacil.online",
+     "megacurioso.online",
+     "nossoprato.online",
+     "receitasdafazenda.com",
+     "receitasdocheff.online",
+     "receitastop.click",
+     "receitasvegana.com"
     ]
    ],
    [
@@ -3286,6 +3309,7 @@
      "ggames.com.br",
      "hinatasoul.com",
      "independentespanol.com",
+     "istigo.net",
      "lawebdelprogramador.com",
      "link-descarga.site",
      "listas.pro",
@@ -3330,21 +3354,10 @@
     ]
    ],
    [
-    "set-constant",
-    [
-     "*"
-    ]
-   ],
-   [
-    "remove-node-text",
-    [
-     "daemon-hentai.com"
-    ]
-   ],
-   [
     "no-setTimeout-if",
     [
      "acortalink.me",
+     "cozinhabr.top",
      "dicasgostosas.com",
      "escplus.es",
      "forodecostarica.com",
@@ -3370,6 +3383,30 @@
      "vivercomsaude.online",
      "xerifetech.com",
      "zona-leros.com"
+    ]
+   ],
+   [
+    "adjust-setTimeout",
+    [
+     "*"
+    ]
+   ],
+   [
+    "abort-current-script",
+    [
+     "*"
+    ]
+   ],
+   [
+    "set-constant",
+    [
+     "*"
+    ]
+   ],
+   [
+    "remove-node-text",
+    [
+     "daemon-hentai.com"
     ]
    ],
    [
@@ -3431,18 +3468,10 @@
    [
     "no-xhr-if",
     [
-     "anitube.vip",
      "aqualapp.com",
      "dicasgostosas.com",
-     "hinatasoul.com",
      "minhaconexao.com.br",
      "raulprietofernandez.net"
-    ]
-   ],
-   [
-    "adjust-setTimeout",
-    [
-     "*"
     ]
    ],
    [
@@ -3488,19 +3517,6 @@
     "no-window-open-if",
     [
      "*"
-    ]
-   ],
-   [
-    "set-local-storage-item",
-    [
-     "gastroponto.com",
-     "infoinvest.org",
-     "megacurioso.online",
-     "nossoprato.online",
-     "receitasdafazenda.com",
-     "receitasdocheff.online",
-     "receitastop.click",
-     "receitasvegana.com"
     ]
    ],
    [
@@ -4039,6 +4055,7 @@
     "remove-node-text",
     [
      "birsenaltuntas.com",
+     "efullizle.com",
      "m.4khd.com"
     ]
    ],
@@ -4593,7 +4610,7 @@
      "cliphot69.blog",
      "cunghocvui.com",
      "demo.14412882.com",
-     "doctruyen3qvn.pro",
+     "doctruyen3qtv.pro",
      "dualeotruyenbi.com",
      "ffmovie.online",
      "gamek.vn",
@@ -4616,16 +4633,13 @@
      "javhay.click",
      "javtiful.com",
      "kenh14.vn",
-     "lenlut.tv",
      "linkneverdie.net",
      "live.sexviet88.dev",
      "lrepacks.net",
      "lxmanga.life",
      "m.blogtruyenmoi.com",
-     "mephimhdc.net",
      "mephimnhe1.net",
      "misskon.com",
-     "mobiblog.club",
      "motphimww.com",
      "nettruyenhq.com",
      "p.thoctv.com",
@@ -4650,6 +4664,7 @@
      "sexphimhd.vip",
      "sexvn.tuoi69s.com",
      "soha.vn",
+     "sphimhdc.com",
      "streamvl.top",
      "tenmientruyengi.net",
      "thongtintruyen.com",
@@ -4696,6 +4711,7 @@
      "cdn2.blueskychilling.online",
      "dood.pm",
      "ephimchill.com",
+     "fastscans.net",
      "hoctot.hocmai.vn",
      "javfc2.net",
      "javnong.cc",
@@ -4704,7 +4720,7 @@
      "mv.dailyphimz.com",
      "mv.phimbathu.one",
      "mv.phimmoiaz.cc",
-     "nettruyenaa.com",
+     "nettruyenww.com",
      "nhentaivn.online",
      "ohaha79xxx.site",
      "ophimhdvn3.net",
@@ -4712,9 +4728,9 @@
      "phimdinhcao.net",
      "phimlongtieng.net",
      "phimvietsub.pro",
+     "plcdn.xyz",
      "plvb.xyz",
      "quangcaoyenbai.com",
-     "rk.plcdn.xyz",
      "sieudamtv.dev",
      "thuvienhd.xyz",
      "tinsoikeo.live",
@@ -4726,7 +4742,7 @@
      "www.khophim88s.com",
      "www.nettruyenupp.com",
      "xemtv.tvhayhd.tv",
-     "xoilacx.cc",
+     "xoilaci.cc",
      "yts.do",
      "yts.mx",
      "yts.rs",
@@ -4756,6 +4772,7 @@
      "gm.phimsexnhanh.tv",
      "gvnvh18.com",
      "kenh14.vn",
+     "link.ditnhau.cc",
      "mobile.clipsex.xxx",
      "phim.sexhayvl.org",
      "phimsexviet.io",
@@ -4775,7 +4792,6 @@
      "vuasex.club",
      "web.motsex.net",
      "www.iosviet.com",
-     "x.ditnhau.cc",
      "xoivo2.online",
      "xx.clipsexhot.net",
      "xx.sexkhongchemoi.com"
@@ -6089,6 +6105,7 @@
      "opako.pl",
      "opera.com",
      "oserlafrique.com",
+     "osprey.com",
      "osteofisintegral.es",
      "out.com",
      "overdrive.com",
@@ -6163,6 +6180,7 @@
      "rb-eching.de",
      "rb-hardt-bruhrain.de",
      "rb-oberaudorf.de",
+     "rb-os.de",
      "rb-sondelfingen.de",
      "recettesetcabas.com",
      "rectoraldecastillon.com",
@@ -6504,6 +6522,7 @@
      "bittimittari.fi",
      "businessclass.com",
      "byfood.com",
+     "canonvannederland.nl",
      "changelly.com",
      "cityfalcon.ai",
      "codedead.com",
@@ -6556,6 +6575,7 @@
      "gronkh.tv",
      "happiful.com",
      "helium.com",
+     "home.shortcutssoftware.com",
      "humandataincome.com",
      "improvethenews.org",
      "inselberlin.de",
@@ -6583,6 +6603,7 @@
      "mediathekviewweb.de",
      "medium.com",
      "mojposao.hr",
+     "my-account.storage-mart.com",
      "namensetiketten.de",
      "nationalexpress.de",
      "nhnieuws.nl",
@@ -6606,6 +6627,7 @@
      "revanced.app",
      "rts.com.ec",
      "saamexe.com",
+     "sacal.it",
      "safe.global",
      "sawren.pl",
      "schneideranwaelte.de",
@@ -6632,6 +6654,7 @@
      "triumphtechnicalinformation.com",
      "tropicalida.com.ec",
      "ultrahuman.com",
+     "v2.xmeye.net",
      "vietjetair.com",
      "virginexperiencedays.co.uk",
      "visnos.com",
@@ -6773,6 +6796,7 @@
      "hatch.co",
      "hopetv.de",
      "if-cdn.com",
+     "interactivebrokers.com",
      "komoot.com",
      "komoot.de",
      "krasa.cz",
@@ -6781,6 +6805,7 @@
      "luminousindia.com",
      "manta.net",
      "monkeytype.com",
+     "mundwerk-rottweil.de",
      "online.depo-diy.ee",
      "primor.eu",
      "salomon.com",
@@ -6906,7 +6931,8 @@
      "afterclass.io",
      "getemoji.com",
      "sears.com",
-     "semafor.com"
+     "semafor.com",
+     "virginvoyages.com"
     ]
    ],
    [
@@ -7180,6 +7206,20 @@
      "platform.twitter.com",
      "twitter.com",
      "x.com"
+    ]
+   ]
+  ]
+ ],
+ [
+  "annoyances-social",
+  [
+   [
+    "set-cookie",
+    [
+     "actvid.rs",
+     "himovies.sx",
+     "moviesjoy.is",
+     "swatchseries.is"
     ]
    ]
   ]

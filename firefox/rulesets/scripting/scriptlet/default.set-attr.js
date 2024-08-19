@@ -42,11 +42,11 @@ const uBOL_setAttr = function() {
 
 const scriptletGlobals = {}; // jshint ignore: line
 
-const argsList = [["iframe[data-src-cmplz][src=\"about:blank\"]","src","[data-src-cmplz]"],[".video-skip[data-time]","data-time","0"],[".lazy","src","[data-sco-src]"],["span[class] img.lazyload[width]","src","[data-src]"]];
+const argsList = [["iframe[data-src-cmplz][src=\"about:blank\"]","src","[data-src-cmplz]"],[".video-skip[data-time]","data-time","0"],[".lazy","src","[data-sco-src]"],["c-wiz[data-p] [data-query] a[target=\"_blank\"][role=\"link\"]","rlhc","1"],["span[class] img.lazyload[width]","src","[data-src]"]];
 
-const hostnamesMap = new Map([["statisticsanddata.org",0],["18kalebettv.xyz",1],["19kalebettv.xyz",1],["rocketnews24.com",2],["soranews24.com",2],["youpouch.com",2],["phileweb.com",3]]);
+const hostnamesMap = new Map([["statisticsanddata.org",0],["18kalebettv.xyz",1],["19kalebettv.xyz",1],["rocketnews24.com",2],["soranews24.com",2],["youpouch.com",2],["phileweb.com",4]]);
 
-const entitiesMap = new Map([]);
+const entitiesMap = new Map([["www.google",3]]);
 
 const exceptionsMap = new Map([]);
 

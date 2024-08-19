@@ -742,5 +742,5 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["movie2free.com","movies-x.com","ssnn.site","ufa191.com","ufabet678.com"]},"id":741},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||iwilldoforking.com/coverpage.js"},"id":742},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["tn.com.ar"],"requestDomains":["cxense.com"]},"id":743},
-{"action":{"type":"allow"},"condition":{"urlFilter":"||gelbooru.com/ads.js?"},"id":744}
+{"action":{"type":"allow"},"condition":{"urlFilter":"||gelbooru.com/ads.js?"},"id":744,"priority":20}
 ]

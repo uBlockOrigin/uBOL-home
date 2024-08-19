@@ -16,7 +16,7 @@
   "urlFilter": "||acdn.adnxs.com/ast/ast.js"
  },
  "id": 1,
- "priority": 12
+ "priority": 32
 },
 {
  "action": {
@@ -35,7 +35,7 @@
   "urlFilter": "||damoh.vgtv.no/hic_qos"
  },
  "id": 2,
- "priority": 2
+ "priority": 1
 },
 {
  "action": {
@@ -54,7 +54,7 @@
   "urlFilter": "||googletagservices.com/tag/js/gpt.js"
  },
  "id": 3,
- "priority": 12
+ "priority": 32
 },
 {
  "action": {
@@ -70,26 +70,7 @@
   "urlFilter": "||vgc.no/cdn/js/libs/homad-config.json"
  },
  "id": 4,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "bold.dk"
-  ],
-  "resourceTypes": [
-   "media"
-  ],
-  "urlFilter": "||freewheel-mtgx-tv.akamaized.net/*.mp4"
- },
- "id": 5,
- "priority": 2
+ "priority": 1
 },
 {
  "action": {
@@ -109,7 +90,26 @@
    "media"
   ]
  },
- "id": 539,
- "priority": 2
+ "id": 5,
+ "priority": 1
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "bold.dk"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||freewheel-mtgx-tv.akamaized.net/*.mp4"
+ },
+ "id": 6,
+ "priority": 1
 }
 ]
