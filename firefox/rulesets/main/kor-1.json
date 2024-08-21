@@ -766,6 +766,8 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||jmana.*/resouce/img/adimg/"},"id":765},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["klauncher.kr"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||adservice.google.com^|"},"id":766,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["tsuvod.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":767,"priority":20},
+{"action":{"type":"block"},"condition":{"urlFilter":"/studio_backend/adforus."},"id":768},
+{"action":{"type":"block"},"condition":{"urlFilter":"||anilife.live/assets/banner/"},"id":769},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tvhot.cc/b/"},"id":772},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.jjun.live/banner/*.gif"},"id":774},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tvmon.*/img/ba"},"id":775},

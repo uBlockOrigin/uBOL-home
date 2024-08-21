@@ -1011,12 +1011,12 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".co.jp.*.com/login|"},"id":1010},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/index.html?num=0101+"},"id":1011},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/index.php?signin=openid.pape.max_auth_age0&openid.return_to=https%3a%2f%2fwww.offfffff.co.jp%2f"},"id":1012},
-{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/amaterasu/2_ja/"},"id":1013},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".cn/pc/wctxnbcw2101.doa.php"},"id":1013},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://www.eki.*.*.com/"},"id":1014},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://www.etc.*.*.com/"},"id":1015},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["club"],"resourceTypes":["main_frame"],"urlFilter":"://www.etc."},"id":1016},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".cn/webdesk/www/index.php"},"id":1017},
-{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"?ph0ne=050-"},"id":1018},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".cn/phone/wctxnbcw2101.doa.php"},"id":1018},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".co.jp.*.cn/ai/"},"id":1019},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||z13.web.core.windows.net/index.html^"},"id":1020},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".top/index2.html|"},"id":1021},
@@ -1415,7 +1415,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||video.fc2.com/ad_rentangle.php"},"id":1414},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||exploader.net/d/"},"id":1415},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["buzz","cfd"],"resourceTypes":["main_frame"],"urlFilter":"://sm*/sp/index"},"id":1416},
-{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".fixdynamics.info/hh/"},"id":1417},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://rakuten.*/rms/nid/logini"},"id":1417},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["cn","com"],"resourceTypes":["main_frame"],"urlFilter":"/?_encoding=utf8&openid.assoc_handle=jpflex&openid.claimed_id=&action=sign-in&path=home&ref_=nav_account&signin=1&useredirectonsuccess=1|"},"id":1418},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"?m=000&t=000&ip="},"id":1419},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||cont.pancolle-movie.jp/goods/"},"id":1420},
@@ -1430,5 +1430,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||point-g.rakuten.co.jp/pg_assets/item/contets/*_300x250"},"id":1429,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||afi-b.com/assets/dist/img/general/top/img/ad/"},"id":1430,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||sst.rocketnews24.com/gtm.js"},"id":1431,"priority":20},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||image.ias.rakuten.co.jp/dst/ec/"},"id":1432,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||image.ias.rakuten.co.jp/dst/ec/"},"id":1432,"priority":20},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/m08myr0hotline0jp07/"},"id":1433}
 ]

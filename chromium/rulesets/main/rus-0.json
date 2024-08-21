@@ -667,7 +667,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["auto43.ru","dom43.ru","gorodkirov.ru","job43.ru"],"urlFilter":"/static/js/build/adidas.min.js"},"id":666},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["1sn.ru","banki.loans","sportliga.com"],"urlFilter":"/storage/banners/"},"id":667},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["new.fastpic.org"],"initiatorDomains":["fastpic.org"],"urlFilter":"/store.everything.min.js"},"id":668},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["scores24.live"],"urlFilter":"/upload/bookmaker-"},"id":669},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["pikabu.ru","sport-express.ru"],"requestDomains":["autofill.yandex.ru"]},"id":669},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["37.ru","62info.ru","actualcomment.ru","afanasy.biz","agrostory.com","allcio.ru","arsenaltula.ru","asn24.ru","automobili.ru","avtosreda.ru","baikal-daily.ru","bits.media","con-med.ru","cryptolymp.ru","dnl.com.ua","dnl.dn.ua","floraprice.ru","footballreview.ru","go64.ru","gorod48.ru","gubkinskiy.com","hi-fi.ru","hsl.com.ua","i2hard.ru","infoniac.ru","innov.ru","it-weekly.ru","it-world.ru","k1news.ru","kluch.media","kubnews.ru","lgz.ru","likeni.ru","lipetskmedia.ru","marpravda.ru","matchfishing.ru","mediaryazan.ru","mgazeta.com","mk.tula.ru","mnmag.ru","mos.news","newkaliningrad.ru","newsroom24.ru","nmosktoday.com","officelife.media","ohranatruda.ru","onlinetambov.ru","paparazzi.ru","planetaseminarov.ru","portamur.ru","rabochy-put.ru","riavrn.ru","securitylab.ru","seonews.ru","sochi.com","tvk6.ru","ural56.ru","vdvsn.ru","velikiynovgorod.ru","vladtv.ru","vn.ru","vt-inform.ru","x-race.info","ya62.ru","yantann.rbsmi.ru","yanzori.rbsmi.ru","zebra-tv.ru","zi.ua"],"urlFilter":"/upload/rk/"},"id":670},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["volkovysk.by"],"urlFilter":"/uploaded/banners/"},"id":671},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["imperia-of-hentai.biz","imperia-of-hentai.net"],"urlFilter":"/uploads/ad_inc/"},"id":672},
@@ -2339,7 +2339,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||sbup.com/scripts/*banner"},"id":2338},
 {"action":{"type":"block"},"condition":{"urlFilter":"||sbup.com/scripts/dom_hos.js"},"id":2339},
 {"action":{"type":"block"},"condition":{"urlFilter":"||scask.ru/images/fx4you."},"id":2340},
-{"action":{"type":"block"},"condition":{"urlFilter":"||scores24.live/tvsv/"},"id":2341},
+{"action":{"type":"block"},"condition":{"urlFilter":"||scores24.live/tsr/"},"id":2341},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["soccer365.com.ua","soccer365.ru"],"urlFilter":"||scr365.net/a/"},"id":2342},
 {"action":{"type":"block"},"condition":{"urlFilter":"||scripts.pogodnik.com/public/js/a_detector.js"},"id":2343},
 {"action":{"type":"block"},"condition":{"urlFilter":"||sdamgia.ru/adv/"},"id":2344},
@@ -5749,5 +5749,8 @@
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||piguiqproxy.com/z|"},"id":5748,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||v*.plrjs.org/*.xml|"},"id":5749,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","requestDomains":["callback.pw","multilanguage.xyz","nyan.pw","programma.space"],"resourceTypes":["xmlhttprequest"]},"id":5750,"priority":20},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||myvi.xyz/embed/"},"id":5751,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||myvi.xyz/embed/"},"id":5751,"priority":20},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||e.radikal.host/2024/07/19/gghhhgggg."},"id":5752},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["in-poland.com"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":5753,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["in-poland.com"],"resourceTypes":["script"],"urlFilter":"||resources.infolinks.com/js/infolinks_main.js|"},"id":5754,"priority":20}
 ]

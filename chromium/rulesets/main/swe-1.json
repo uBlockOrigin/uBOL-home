@@ -237,7 +237,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["flashscore.se"],"urlFilter":"/frontendlogger"},"id":236},
 {"action":{"type":"block"},"condition":{"urlFilter":"/fullpagead.js"},"id":237},
 {"action":{"type":"block"},"condition":{"urlFilter":"/fullpage-ad.js"},"id":238},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["helgon.se"],"urlFilter":"/ga.js"},"id":239},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["gamemonetize.com","helgon.se"],"urlFilter":"/ga.js"},"id":239},
 {"action":{"type":"block"},"condition":{"urlFilter":"/ga_cookie_track.js"},"id":240},
 {"action":{"type":"block"},"condition":{"urlFilter":"/chartbeat_mab.js"},"id":241},
 {"action":{"type":"block"},"condition":{"urlFilter":"/getadbyid.php?"},"id":242},
@@ -1225,5 +1225,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["corren.se","ekuriren.se","eposten.se","folkbladet.se","gotlandjustnu.se","helagotland.se","kindaposten.se","kkuriren.se","kuriren.nu","mvt.se","norran.se","nsd.se","nt.se","pt.se","sn.se","strengnastidning.se","unt.se","vimmerbytidning.se","vt.se"],"urlFilter":"/assets/ads-dm.js"},"id":1224,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["di.se"],"urlFilter":"/scripts/advert_"},"id":1225,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"/plugins/convertplug/modules/modal/*/cross.png"},"id":1226,"priority":20},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["fotosidan.se","utsidan.se"],"resourceTypes":["script"],"urlFilter":"/adserver."},"id":1227,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["fotosidan.se","utsidan.se"],"resourceTypes":["script"],"urlFilter":"/adserver."},"id":1227,"priority":20},
+{"action":{"type":"block"},"condition":{"urlFilter":"||topbar.svenskelitfotboll.se/top-bar-script"},"id":1228}
 ]

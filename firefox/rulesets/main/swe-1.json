@@ -234,7 +234,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["flashscore.se"],"urlFilter":"/frontendlogger"},"id":233},
 {"action":{"type":"block"},"condition":{"urlFilter":"/fullpagead.js"},"id":234},
 {"action":{"type":"block"},"condition":{"urlFilter":"/fullpage-ad.js"},"id":235},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["helgon.se"],"urlFilter":"/ga.js"},"id":236},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["gamemonetize.com","helgon.se"],"urlFilter":"/ga.js"},"id":236},
 {"action":{"type":"block"},"condition":{"urlFilter":"/ga_cookie_track.js"},"id":237},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["thelocal.se"],"urlFilter":"/swg-gaa.js"},"id":238},
 {"action":{"type":"block"},"condition":{"urlFilter":"/getadbyid.php?"},"id":239},
@@ -1225,5 +1225,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["sistersinlaw.se"],"resourceTypes":["script"],"urlFilter":"/popup-overlay"},"id":1224},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["epochtimes.se"],"resourceTypes":["ping","xmlhttprequest"],"urlFilter":"/track"},"id":1225},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"/plugins/convertplug/modules/modal/*/cross.png"},"id":1226,"priority":20},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["fotosidan.se","utsidan.se"],"resourceTypes":["script"],"urlFilter":"/adserver."},"id":1227,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["fotosidan.se","utsidan.se"],"resourceTypes":["script"],"urlFilter":"/adserver."},"id":1227,"priority":20},
+{"action":{"type":"block"},"condition":{"urlFilter":"||topbar.svenskelitfotboll.se/top-bar-script"},"id":1228}
 ]

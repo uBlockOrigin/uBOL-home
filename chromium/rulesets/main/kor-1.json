@@ -814,6 +814,8 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["nunu10.tv","nunu11.tv","nunu4.tv","nunu5.tv","nunu6.tv","nunu7.tv","nunu8.tv","nunu9.tv"],"urlFilter":"/theme/basic/img/banner/"},"id":813},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["klauncher.kr"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||adservice.google.com^|"},"id":814,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["tsuvod.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":815,"priority":20},
+{"action":{"type":"block"},"condition":{"urlFilter":"/studio_backend/adforus."},"id":816},
+{"action":{"type":"block"},"condition":{"urlFilter":"||anilife.live/assets/banner/"},"id":817},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["sogirl.so"],"requestDomains":["1.bp.blogspot.com","hcdn1.maxsocdn.net"]},"id":853},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["tistory.com"],"requestDomains":["link.coupang.com"],"resourceTypes":["object"]},"id":883},
 {"action":{"type":"block"},"condition":{"requestDomains":["ad.planbplus.co.kr","api.linkmine.co.kr","categorysort.com","nefing.com","trendpick.shopping.naver.com"],"resourceTypes":["main_frame"]},"id":889}

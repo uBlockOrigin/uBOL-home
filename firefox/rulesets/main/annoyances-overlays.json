@@ -264,8 +264,10 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["buktube.com","fullxh.com","megaxh.com","movingxh.world","seexh.com","taoxh.life","unlockxh4.com","xhaccess.com","xhadult2.com","xhadult3.com","xhadult4.com","xhadult5.com","xhamster46.com","xhbig.com","xhday.com","xhday1.com","xhmoon5.com","xhplanet1.com","xhplanet2.com","xhreal2.com","xhreal3.com","xhtab2.com","xhtree.com","xhvictory.com","xhwebsite.com","xhwebsite2.com","xhwide1.com"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":263,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["raenonx.cc"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":264,"priority":20},
 {"action":{"type":"block"},"condition":{"urlFilter":"||latercera.com/newsletters/"},"id":265},
+{"action":{"type":"block"},"condition":{"urlFilter":"||cined.com/content/plugins/abss-adblock"},"id":266},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||9animetv.to/js/safe.ob.min.js"},"id":267},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["miuratakuya.store","yourcelebritymagazines.com"],"requestDomains":["omnisnippet1.com"]},"id":268},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["rubystm.com","rubyvid.com"],"resourceTypes":["script"],"urlFilter":"/js/devtools-detector.js^"},"id":269},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["grist.org","prospect.org"],"requestDomains":["wisepops.com"]},"id":270},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||businessworld.in/assets/custom/custom.js"},"id":271},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||sixriversmedia.com/gfembed/"},"id":272},
@@ -280,6 +282,5 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["api.pico.tools","app.avada.io","confirmsubscription.com","content-settings.com","copypoison.com","faves.grow.me","fkrkkmxsqeb5bj9r.s3.amazonaws.com","holyclock.com","maillist-manage.com","optinly.net","popupsmart.com","sendlane.com","shomershabes.co.il","shomershabes.com","site-config.com","smarthint.co","spinasale.com","targetbay.com","yourmarketingemail.com"]},"id":284},
 {"action":{"type":"block"},"condition":{"urlFilter":"||animet1.net/*/detect.dev.js^"},"id":285},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","npr.org","rawstory.com","refinery29.com","rollingstone.com","sifted.eu","thedailybeast.com","theintercept.com","thenation.com","wwd.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":286},
-{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/wp-content/plugins/wpshield-content-protector/dist/app.min.js"},"id":287},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["rubystm.com"],"resourceTypes":["script"],"urlFilter":"||streamruby.com/js/devtools-detector.js^"},"id":288}
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/wp-content/plugins/wpshield-content-protector/dist/app.min.js"},"id":287}
 ]

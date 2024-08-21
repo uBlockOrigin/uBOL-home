@@ -20,10 +20,8 @@
 
 */
 
-/* jshint esversion:11 */
+/* eslint-disable indent */
 /* global cloneInto */
-
-'use strict';
 
 // ruleset: spa-1
 
@@ -40,11 +38,11 @@
 // Start of code to inject
 const uBOL_noSetTimeoutIf = function() {
 
-const scriptletGlobals = {}; // jshint ignore: line
+const scriptletGlobals = {}; // eslint-disable-line
 
 const argsList = [["hasAdblock"],["ad blocker"],["Promise[\\'all\\'](urls"],["/adBlock|\\.height\\(\\)/"],["checkAdblockUser"],["_0x"],["Por favor, desative"],["/Adblock|\\.height\\(\\)/"],["]]=== 0"],[".adsbygoogle"],["adsbygoogle"],["0=== _0x"],["cicklow_"],["/Tamamo_Blocker|aadb_recheck/"],["adJsView"],["window.location.href"],["adsdirect"]];
 
-const hostnamesMap = new Map([["cozinhabr.top",0],["ricasdelicias.online",0],["sabornutritivo.com",0],["dicasgostosas.com",0],["packsmega.info",1],["peliculas8k.com",2],["guiacripto.online",3],["zona-leros.com",4],["xerifetech.com",5],["suaads.com",6],["reidoplacar.com",6],["suaurl.com",[6,15]],["guianoticiario.net",7],["resenhasglobais.com",8],["tecword.info",8],["smartdoing.tech",8],["vivercomsaude.online",8],["escplus.es",9],["genshinpro.com.br",10],["it-swarm-es.com",10],["manchetehoje.xyz",11],["hartico.com",12],["seriesdonghua.com",13],["mundodonghua.com",13],["forodecostarica.com",14],["acortalink.me",15],["seriesgratis.biz",16]]);
+const hostnamesMap = new Map([["cozinhabr.top",0],["ricasdelicias.online",0],["sabornutritivo.com",0],["caroloportunidades.com.br",0],["dicasgostosas.com",0],["packsmega.info",1],["peliculas8k.com",2],["guiacripto.online",3],["zona-leros.com",4],["xerifetech.com",5],["suaads.com",6],["reidoplacar.com",6],["suaurl.com",[6,15]],["guianoticiario.net",7],["resenhasglobais.com",8],["tecword.info",8],["smartdoing.tech",8],["vivercomsaude.online",8],["escplus.es",9],["genshinpro.com.br",10],["it-swarm-es.com",10],["manchetehoje.xyz",11],["hartico.com",12],["seriesdonghua.com",13],["mundodonghua.com",13],["forodecostarica.com",14],["acortalink.me",15],["seriesgratis.biz",16]]);
 
 const entitiesMap = new Map([]);
 
@@ -298,7 +296,19 @@ function safeSelf() {
 /******************************************************************************/
 
 const hnParts = [];
-try { hnParts.push(...document.location.hostname.split('.')); }
+try {
+    let origin = document.location.origin;
+    if ( origin === 'null' ) {
+        const origins = document.location.ancestorOrigins;
+        for ( let i = 0; i < origins.length; i++ ) {
+            origin = origins[i];
+            if ( origin !== 'null' ) { break; }
+        }
+    }
+    const pos = origin.lastIndexOf('://');
+    if ( pos === -1 ) { return; }
+    hnParts.push(...origin.slice(pos+3).split('.'));
+}
 catch(ex) { }
 const hnpartslen = hnParts.length;
 if ( hnpartslen === 0 ) { return; }
