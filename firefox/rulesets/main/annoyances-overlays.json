@@ -80,7 +80,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/v1/newsletters/"},"id":79},
 {"action":{"type":"block"},"condition":{"urlFilter":"/wonderplugin-popup-engine.js"},"id":80},
 {"action":{"type":"block"},"condition":{"urlFilter":"/wp-subscribe-pro/js/wp-subscribe-form.js"},"id":81},
-{"action":{"type":"block"},"condition":{"urlFilter":"/wysija-newsletters/css/validationengine.jquery.css"},"id":82},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["coloradotimesrecorder.com","fatgirlskinny.net","hypebot.com","matomo.org","mercadonegro.pe","moneymagpie.com","sfpublicpress.org","thurrott.com","total-croatia-news.com","verdadeiroolhar.pt"],"urlFilter":"/pum-site-scripts.js"},"id":82},
 {"action":{"type":"block"},"condition":{"urlFilter":"/xwpblocks-newsletter-subscription-style.css?"},"id":83},
 {"action":{"type":"block"},"condition":{"urlFilter":"||appspot.com/newsletter/dhtml?"},"id":84},
 {"action":{"type":"block"},"condition":{"urlFilter":"||buy-au.piano.io/checkout/template/cacheableshow?*&experienceid=*&widget=template"},"id":85},

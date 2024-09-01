@@ -23,7 +23,7 @@
 /* eslint-disable indent */
 /* global cloneInto */
 
-// ruleset: default
+// ruleset: fra-0
 
 /******************************************************************************/
 
@@ -36,13 +36,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_trustedSuppressNativeMethod = function() {
+const uBOL_spoofCSS = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["XMLHttpRequest.prototype.open","| \"adsbygoogle\"","prevent"]];
+const argsList = [[".navbar-nav > li.nav-item > a[href^=\"https://www.origoclick.com/manga/?type=nav&\"]","display","block"]];
 
-const hostnamesMap = new Map([["veev.to",0]]);
+const hostnamesMap = new Map([["japscan.lol",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -50,102 +50,108 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function trustedSuppressNativeMethod(
-    methodPath = '',
-    signature = '',
-    how = '',
-    stack = ''
+function spoofCSS(
+    selector,
+    ...args
 ) {
-    if ( methodPath === '' ) { return; }
-    if ( stack !== '' ) { return; }
+    if ( typeof selector !== 'string' ) { return; }
+    if ( selector === '' ) { return; }
+    const toCamelCase = s => s.replace(/-[a-z]/g, s => s.charAt(1).toUpperCase());
+    const propToValueMap = new Map();
+    for ( let i = 0; i < args.length; i += 2 ) {
+        if ( typeof args[i+0] !== 'string' ) { break; }
+        if ( args[i+0] === '' ) { break; }
+        if ( typeof args[i+1] !== 'string' ) { break; }
+        propToValueMap.set(toCamelCase(args[i+0]), args[i+1]);
+    }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('trusted-suppress-native-method', methodPath, signature, how);
-    const signatureArgs = signature.split(/\s*\|\s*/).map(v => {
-        if ( /^".*"$/.test(v) ) {
-            return { type: 'pattern', re: safe.patternToRegex(v.slice(1, -1)) };
+    const logPrefix = safe.makeLogPrefix('spoof-css', selector, ...args);
+    const canDebug = scriptletGlobals.canDebug;
+    const shouldDebug = canDebug && propToValueMap.get('debug') || 0;
+    const instanceProperties = [ 'cssText', 'length', 'parentRule' ];
+    const spoofStyle = (prop, real) => {
+        const normalProp = toCamelCase(prop);
+        const shouldSpoof = propToValueMap.has(normalProp);
+        const value = shouldSpoof ? propToValueMap.get(normalProp) : real;
+        if ( shouldSpoof ) {
+            safe.uboLog(logPrefix, `Spoofing ${prop} to ${value}`);
         }
-        if ( v === 'false' ) {
-            return { type: 'exact', value: false };
-        }
-        if ( v === 'true' ) {
-            return { type: 'exact', value: true };
-        }
-        if ( v === 'null' ) {
-            return { type: 'exact', value: null };
-        }
-        if ( v === 'undefined' ) {
-            return { type: 'exact', value: undefined };
-        }
-    });
-    const reflector = proxyApplyFn(methodPath, function(...args) {
-        if ( signature === '' ) {
-            safe.uboLog(logPrefix, `Arguments:\n${args.join('\n')}`);
-            return reflector(...args);
-        }
-        const arglist = args[args.length-1];
-        if ( Array.isArray(arglist) === false ) {
-            return reflector(...args);
-        }
-        if ( arglist.length < signatureArgs.length ) {
-            return reflector(...args);
-        }
-        for ( let i = 0; i < signatureArgs.length; i++ ) {
-            const signatureArg = signatureArgs[i];
-            if ( signatureArg === undefined ) { continue; }
-            const targetArg = arglist[i];
-            if ( signatureArg.type === 'exact' ) {
-                if ( targetArg !== signatureArg.value ) {
-                    return reflector(...args);
-                }
-            }
-            if ( signatureArg.type === 'pattern' ) {
-                if ( safe.RegExp_test.call(signatureArg.re, targetArg) === false ) {
-                    return reflector(...args);
-                }
-            }
-        }
-        safe.uboLog(logPrefix, `Suppressed:\n${args.join('\n')}`);
-        if ( how === 'abort' ) {
-            throw new ReferenceError();
-        }
-    });
-}
-
-function proxyApplyFn(
-    target = '',
-    handler = ''
-) {
-    let context = globalThis;
-    let prop = target;
-    for (;;) {
-        const pos = prop.indexOf('.');
-        if ( pos === -1 ) { break; }
-        context = context[prop.slice(0, pos)];
-        if ( context instanceof Object === false ) { return; }
-        prop = prop.slice(pos+1);
-    }
-    const fn = context[prop];
-    if ( typeof fn !== 'function' ) { return; }
-    const fnStr = fn.toString();
-    const toString = (function toString() { return fnStr; }).bind(null);
-    if ( fn.prototype && fn.prototype.constructor === fn ) {
-        context[prop] = new Proxy(fn, {
-            construct: handler,
-            get(target, prop, receiver) {
-                if ( prop === 'toString' ) { return toString; }
-                return Reflect.get(target, prop, receiver);
-            },
+        return value;
+    };
+    const cloackFunc = (fn, thisArg, name) => {
+        const trap = fn.bind(thisArg);
+        Object.defineProperty(trap, 'name', { value: name });
+        Object.defineProperty(trap, 'toString', {
+            value: ( ) => `function ${name}() { [native code] }`
         });
-        return (...args) => Reflect.construct(...args);
-    }
-    context[prop] = new Proxy(fn, {
-        apply: handler,
+        return trap;
+    };
+    self.getComputedStyle = new Proxy(self.getComputedStyle, {
+        apply: function(target, thisArg, args) {
+            // eslint-disable-next-line no-debugger
+            if ( shouldDebug !== 0 ) { debugger; }
+            const style = Reflect.apply(target, thisArg, args);
+            const targetElements = new WeakSet(document.querySelectorAll(selector));
+            if ( targetElements.has(args[0]) === false ) { return style; }
+            const proxiedStyle = new Proxy(style, {
+                get(target, prop, receiver) {
+                    if ( typeof target[prop] === 'function' ) {
+                        if ( prop === 'getPropertyValue' ) {
+                            return cloackFunc(function getPropertyValue(prop) {
+                                return spoofStyle(prop, target[prop]);
+                            }, target, 'getPropertyValue');
+                        }
+                        return cloackFunc(target[prop], target, prop);
+                    }
+                    if ( instanceProperties.includes(prop) ) {
+                        return Reflect.get(target, prop);
+                    }
+                    return spoofStyle(prop, Reflect.get(target, prop, receiver));
+                },
+                getOwnPropertyDescriptor(target, prop) {
+                    if ( propToValueMap.has(prop) ) {
+                        return {
+                            configurable: true,
+                            enumerable: true,
+                            value: propToValueMap.get(prop),
+                            writable: true,
+                        };
+                    }
+                    return Reflect.getOwnPropertyDescriptor(target, prop);
+                },
+            });
+            return proxiedStyle;
+        },
         get(target, prop, receiver) {
-            if ( prop === 'toString' ) { return toString; }
+            if ( prop === 'toString' ) {
+                return target.toString.bind(target);
+            }
             return Reflect.get(target, prop, receiver);
         },
     });
-    return (...args) => Reflect.apply(...args);
+    Element.prototype.getBoundingClientRect = new Proxy(Element.prototype.getBoundingClientRect, {
+        apply: function(target, thisArg, args) {
+            // eslint-disable-next-line no-debugger
+            if ( shouldDebug !== 0 ) { debugger; }
+            const rect = Reflect.apply(target, thisArg, args);
+            const targetElements = new WeakSet(document.querySelectorAll(selector));
+            if ( targetElements.has(thisArg) === false ) { return rect; }
+            let { height, width } = rect;
+            if ( propToValueMap.has('width') ) {
+                width = parseFloat(propToValueMap.get('width'));
+            }
+            if ( propToValueMap.has('height') ) {
+                height = parseFloat(propToValueMap.get('height'));
+            }
+            return new self.DOMRect(rect.x, rect.y, width, height);
+        },
+        get(target, prop, receiver) {
+            if ( prop === 'toString' ) {
+                return target.toString.bind(target);
+            }
+            return Reflect.get(target, prop, receiver);
+        },
+    });
 }
 
 function safeSelf() {
@@ -385,7 +391,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { trustedSuppressNativeMethod(...argsList[i]); }
+    try { spoofCSS(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -407,7 +413,7 @@ const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_trustedSuppressNativeMethod();
+    return uBOL_spoofCSS();
 }
 
 // Firefox
@@ -415,11 +421,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_trustedSuppressNativeMethod = cloneInto([
-            [ '(', uBOL_trustedSuppressNativeMethod.toString(), ')();' ],
+        page.uBOL_spoofCSS = cloneInto([
+            [ '(', uBOL_spoofCSS.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_trustedSuppressNativeMethod);
+        const blob = new page.Blob(...page.uBOL_spoofCSS);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -433,7 +439,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_trustedSuppressNativeMethod;
+    delete page.uBOL_spoofCSS;
 }
 
 /******************************************************************************/

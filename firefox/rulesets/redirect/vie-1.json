@@ -33,5 +33,21 @@
  },
  "id": 2,
  "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "phimreview.org"
+  ],
+  "urlFilter": "||phimreview.org/playergk/phimreview.mp4"
+ },
+ "id": 3,
+ "priority": 2
 }
 ]

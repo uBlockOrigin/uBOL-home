@@ -23,7 +23,7 @@
 /* eslint-disable indent */
 /* global cloneInto */
 
-// ruleset: vie-1
+// ruleset: swe-1
 
 /******************************************************************************/
 
@@ -36,13 +36,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_setSessionStorageItem = function() {
+const uBOL_setLocalStorageItem = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["logged","1"]];
+const argsList = [["/^ev_did|ev_sid/","$remove$"]];
 
-const hostnamesMap = new Map([["freeplayervideo.com",0],["abysscdn.com",0],["player-cdn.com",0],["geoip.redirect-ads.com",0]]);
+const hostnamesMap = new Map([["synonymer.se",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -50,8 +50,8 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function setSessionStorageItem(key = '', value = '') {
-    setLocalStorageItemFn('session', false, key, value);
+function setLocalStorageItem(key = '', value = '') {
+    setLocalStorageItemFn('local', false, key, value);
 }
 
 function setLocalStorageItemFn(
@@ -376,7 +376,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { setSessionStorageItem(...argsList[i]); }
+    try { setLocalStorageItem(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -398,7 +398,7 @@ const targetWorld = 'ISOLATED';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_setSessionStorageItem();
+    return uBOL_setLocalStorageItem();
 }
 
 // Firefox
@@ -406,11 +406,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_setSessionStorageItem = cloneInto([
-            [ '(', uBOL_setSessionStorageItem.toString(), ')();' ],
+        page.uBOL_setLocalStorageItem = cloneInto([
+            [ '(', uBOL_setLocalStorageItem.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_setSessionStorageItem);
+        const blob = new page.Blob(...page.uBOL_setLocalStorageItem);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -424,7 +424,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_setSessionStorageItem;
+    delete page.uBOL_setLocalStorageItem;
 }
 
 /******************************************************************************/

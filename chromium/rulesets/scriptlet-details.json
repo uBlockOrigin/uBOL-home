@@ -6,6 +6,7 @@
     "trusted-replace-xhr-response",
     [
      "app.hellovaia.com",
+     "app.studysmarter.de",
      "app.vaia.com",
      "in-jpn.com",
      "tv.youtube.com",
@@ -68,16 +69,6 @@
     ]
    ],
    [
-    "json-prune-xhr-response",
-    [
-     "twitter.com",
-     "web.facebook.com",
-     "www.facebook.com",
-     "www.youtube.com",
-     "x.com"
-    ]
-   ],
-   [
     "no-setTimeout-if",
     [
      "*"
@@ -117,6 +108,16 @@
     "prevent-fetch",
     [
      "*"
+    ]
+   ],
+   [
+    "json-prune-xhr-response",
+    [
+     "twitter.com",
+     "web.facebook.com",
+     "www.facebook.com",
+     "www.youtube.com",
+     "x.com"
     ]
    ],
    [
@@ -265,10 +266,10 @@
    [
     "trusted-replace-argument",
     [
-     "apkmoddone.com",
      "autosport.com",
      "bamgosu.site",
      "copyseeker.net",
+     "infinityfree.com",
      "loawa.com",
      "motorsport.com",
      "motorsport.uol.com.br",
@@ -419,7 +420,9 @@
      "bamgosu.site",
      "bravedown.com",
      "cool-style.com.tw",
+     "cruciverba.it",
      "dogdrip.net",
+     "dramabeans.com",
      "dziennik.pl",
      "economist.co.kr",
      "edaily.co.kr",
@@ -440,6 +443,7 @@
      "hdfilmcehennemi2.cx",
      "hometownstation.com",
      "honkailab.com",
+     "infinityfree.com",
      "islamicfinder.org",
      "isplus.com",
      "issuya.com",
@@ -451,8 +455,11 @@
      "logicieleducatif.fr",
      "maketecheasier.com",
      "mindbodygreen.com",
+     "motscroises.fr",
      "mydaily.co.kr",
+     "mynet.com",
      "ndtvprofit.com",
+     "palabr.as",
      "picrew.me",
      "pravda.com.ua",
      "raenonx.cc",
@@ -461,6 +468,7 @@
      "slobodnadalmacija.hr",
      "sportalkorea.com",
      "sportsrec.com",
+     "sportsseoul.com",
      "taxguru.in",
      "text-compare.com",
      "thesaurus.net",
@@ -470,7 +478,9 @@
      "videogamemods.com",
      "wfmz.com",
      "winfuture.de",
+     "word-grabber.com",
      "worldhistory.org",
+     "wort-suchen.de",
      "ygosu.com",
      "yorkshirepost.co.uk"
     ]
@@ -499,6 +509,7 @@
     [
      "banaraswap.in",
      "download.megaup.net",
+     "japscan.lol",
      "kiktu.com",
      "techcyan.com",
      "trangchu.news",
@@ -560,12 +571,6 @@
      "m.nivod4.tv",
      "m.nivod5.tv",
      "m1.nivod.tv"
-    ]
-   ],
-   [
-    "trusted-suppress-native-method",
-    [
-     "veev.to"
     ]
    ]
   ]
@@ -720,6 +725,7 @@
    [
     "json-prune",
     [
+     "bilibili.com",
      "moorzon.com",
      "msn.cn",
      "new.qq.com",
@@ -939,7 +945,8 @@
    [
     "remove-attr",
     [
-     "super.cz"
+     "super.cz",
+     "titulky.com"
     ]
    ],
    [
@@ -1120,6 +1127,12 @@
      "lindependant.fr",
      "radio.fr",
      "vostfr.stream"
+    ]
+   ],
+   [
+    "spoof-css",
+    [
+     "japscan.lol"
     ]
    ],
    [
@@ -1361,6 +1374,8 @@
      "anichin.top",
      "kimcilonly.site",
      "kiryuu.id",
+     "kiryuu.org",
+     "njavtv.com",
      "subindojav.cc"
     ]
    ],
@@ -2846,6 +2861,7 @@
      "kanobu.ru",
      "kodik.cc",
      "kodik.info",
+     "kodikdb.com",
      "kufar.by",
      "ok.ru",
      "pikabu.ru",
@@ -2882,7 +2898,7 @@
      "startgamer.ru",
      "studizba.com",
      "surl.li",
-     "uakino.club",
+     "uakino.me",
      "vgtimes.ru",
      "vip-mods.ru",
      "wallegend.net",
@@ -3651,7 +3667,6 @@
      "boktugg.se",
      "byggahus.se",
      "cafe.se",
-     "devote.se",
      "di.se",
      "elle.se",
      "femina.se",
@@ -3736,7 +3751,6 @@
     "remove-node-text",
     [
      "dinbyggare.se",
-     "elevspel.se",
      "garaget.org"
     ]
    ],
@@ -3883,6 +3897,12 @@
     "alert-buster",
     [
      "stallet.se"
+    ]
+   ],
+   [
+    "set-local-storage-item",
+    [
+     "synonymer.se"
     ]
    ],
    [
@@ -4618,34 +4638,40 @@
    [
     "abort-current-script",
     [
+     "10gb.vn",
      "3dchill.shop",
      "abtruyen.net",
+     "abysscdn.com",
      "afamily.vn",
      "animehay.in",
      "animevietsub.app",
      "cafef.vn",
      "cdnstream.sbs",
      "cliphot69.blog",
+     "clipss.viet69net.com",
      "cunghocvui.com",
+     "damsextv.pro",
      "demo.14412882.com",
      "doctruyen3qtv.pro",
-     "dualeotruyenbi.com",
+     "dualeotruyenqi.com",
      "ffmovie.online",
+     "freeplayervideo.com",
      "gamek.vn",
      "genk.vn",
-     "gocphimii.net",
+     "geoip.redirect-ads.com",
+     "gocmod.com",
+     "gocphimiz.com",
      "goctruyentranhvui2.com",
      "gotphim.com",
      "hentaivn.today",
-     "hentaizz.biz",
      "heo69.moe",
      "hh3dhay.life",
-     "hh3dhay.lol",
      "hh3dhay.pro",
      "hh3dhay.xyz",
      "hhhay.tv",
      "hhtq5.vip",
      "holyfilm.org",
+     "ihentaiz.com",
      "imail.edu.vn",
      "ios.codevn.net",
      "javhay.click",
@@ -4671,8 +4697,10 @@
      "phimsexhay669.pro",
      "phimtho.net",
      "phimtuoitho.tv",
+     "player-cdn.com",
+     "playhydrax.com",
      "quatvn.baby",
-     "rphang.vin",
+     "rphang.zip",
      "saigon24.net",
      "sayhentai.one",
      "sex.chichnhau.net",
@@ -4680,15 +4708,14 @@
      "sexhd88.live",
      "sexmup18.com",
      "sexnhe.biz",
-     "sexphimhd.vip",
+     "sextop1.site",
      "sexvn.tuoi69s.com",
      "soha.vn",
-     "sphimhdc.com",
      "streamvl.top",
      "tenmientruyengi.net",
      "thongtintruyen.com",
      "tinsoikeo.live",
-     "top1sex.club",
+     "top1sex.me",
      "topviet69.com",
      "truyen2u.net",
      "truyen35.shop",
@@ -4702,7 +4729,7 @@
      "truyenqqto.com",
      "truyensextv.com",
      "truyentuan.xyz",
-     "truyenvn.cam",
+     "truyenvn.mobi",
      "tuoitre.vn",
      "ungtycomicsvip.com",
      "ungtycomicsvip.net",
@@ -4713,7 +4740,9 @@
      "vn.cliphot69.live",
      "vungoctuan.vn",
      "www.buomtv.vip",
-     "www.toptruyenvn.pro",
+     "www.toptruyenqq.pro",
+     "xem.phim18c.org",
+     "xemphimhdc.us",
      "xnxx-sex-videos.com",
      "yurineko.net"
     ]
@@ -4730,6 +4759,7 @@
      "dood.pm",
      "ephimchill.com",
      "fastscans.net",
+     "hentaivn.forum",
      "hoctot.hocmai.vn",
      "javfc2.net",
      "javnong.cc",
@@ -4751,7 +4781,6 @@
      "sieudamtv.dev",
      "thuvienhd.xyz",
      "tinsoikeo.live",
-     "truyenhentai.bio",
      "truyensieuhay.com",
      "veryfiles.com",
      "viettoons.tv",
@@ -4759,7 +4788,7 @@
      "www.khophim88s.com",
      "www.nettruyenupp.com",
      "xemtv.tvhayhd.tv",
-     "xoilaci.cc",
+     "xoilac86z24.live",
      "yts.do",
      "yts.mx",
      "yts.rs",
@@ -4777,6 +4806,7 @@
    [
     "set-constant",
     [
+     "3x.clipsexhot.net",
      "abysscdn.com",
      "afamily.vn",
      "api.anime3s.com",
@@ -4789,8 +4819,8 @@
      "gm.phimsexnhanh.tv",
      "gvnvh18.com",
      "kenh14.vn",
-     "mobi.ditnhau.cc",
-     "mobile.clipsex.xxx",
+     "link.ditnhau.cc",
+     "mobi.clipsex.xxx",
      "phim.sexhayvl.org",
      "phimsexviet.io",
      "phimsexvietnam.app",
@@ -4810,7 +4840,6 @@
      "web.motsex.net",
      "www.iosviet.com",
      "xoivo2.online",
-     "xx.clipsexhot.net",
      "xx.sexkhongchemoi.com"
     ]
    ],
@@ -4819,15 +4848,6 @@
     [
      "femax20.com",
      "motchilltv.vc"
-    ]
-   ],
-   [
-    "set-session-storage-item",
-    [
-     "abysscdn.com",
-     "freeplayervideo.com",
-     "geoip.redirect-ads.com",
-     "player-cdn.com"
     ]
    ],
    [
@@ -5325,6 +5345,7 @@
      "philosophenlexikon.de",
      "philosophia-perennis.com",
      "photofloh.de",
+     "phpconference.com",
      "piazzadeimestieri.it",
      "picipix.com",
      "picockpit.com",
@@ -5624,6 +5645,7 @@
      "brendanoharamp.scot",
      "briau.com",
      "brico-travo.com",
+     "brightdata.com",
      "broncoillustration.com",
      "brutalvisual.com",
      "bubblessea.es",
@@ -6007,6 +6029,7 @@
      "karenmillen.com",
      "kaunokapiniuprieziura.lt",
      "kcmkompresor.com",
+     "kd-bank.de",
      "kdn-elektro.de",
      "kennedyslaw.com",
      "kewaccountants.co.uk",
@@ -6130,6 +6153,7 @@
      "paintballalcorcon.com",
      "pallejabcn.com",
      "panwybierak.pl",
+     "panzerfux.de",
      "pathe.nl",
      "patronatpremia.cat",
      "pcgamer.com",
@@ -6319,6 +6343,7 @@
      "tctech.se",
      "techbook.de",
      "techconnect.com",
+     "technoalpin.com",
      "tecsafe.de",
      "teknoduegroup.it",
      "teloliquido.com",
@@ -6549,10 +6574,12 @@
      "crealitycloud.com",
      "cryptofalka.hu",
      "cuba-buddy.de",
+     "cwallet.com",
      "daraz.com",
      "datamask.app",
      "dbschenker.com",
      "deribit.com",
+     "dev.near.org",
      "digitalparking.city",
      "diylifetech.com",
      "dorkgpt.com",
@@ -6589,6 +6616,7 @@
      "glose.com",
      "go.bkk.hu",
      "gonxt.com",
+     "goodpods.com",
      "goodram.com",
      "gostanford.com",
      "gronkh.tv",
@@ -6621,10 +6649,14 @@
      "markimicrowave.com",
      "mediathekviewweb.de",
      "medium.com",
+     "mojmaxtv.hrvatskitelekom.hr",
      "mojposao.hr",
      "my-account.storage-mart.com",
      "namensetiketten.de",
      "nationalexpress.de",
+     "near.ai",
+     "near.org",
+     "news.abs-cbn.com",
      "nhnieuws.nl",
      "nloto.ru",
      "nordkurier.de",
@@ -6655,6 +6687,7 @@
      "simpleswap.io",
      "sneakerfreaker.com",
      "solana.com",
+     "sonyliv.com",
      "soquest.xyz",
      "starwalk.space",
      "streamclipsgermany.de",
@@ -6700,6 +6733,7 @@
    [
     "set-session-storage-item",
     [
+     "brightonandhovealbion.com",
      "c6bank.com.br",
      "cachecrawler.com",
      "collato.com",
@@ -6892,6 +6926,7 @@
      "kermitlynch.com",
      "loungefly.com",
      "monarchmoney.com",
+     "objectivebayesian.com",
      "oled-info.com",
      "railsnotes.xyz",
      "readergrev.com",
@@ -7301,6 +7336,7 @@
      "csmonitor.com",
      "dailynewshungary.com",
      "deepl.com",
+     "irishnews.com",
      "nisanyansozluk.com",
      "pawread.com",
      "quillbot.com",

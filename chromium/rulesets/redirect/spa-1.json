@@ -24,5 +24,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["pobre.wtf"],"resourceTypes":["media"],"urlFilter":"||cloud.mail.ru/weblink/view/*?advideo"},"id":23,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["player.hentaistube.com"],"resourceTypes":["media"],"urlFilter":"||baixarhentais.com/*/*-pre-roll-*.mp4"},"id":24,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||pobre.tv/videos/bt.mp4"},"id":25,"priority":2},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||hentaiporno.xxx/wp-content/uploads/*/*_video.mp4.mp4"},"id":26,"priority":2}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||hentaiporno.xxx/wp-content/uploads/*/*_video.mp4.mp4"},"id":26,"priority":2},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/google-ima.js"},"type":"redirect"},"condition":{"initiatorDomains":["mais.sbt.com.br"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3_debug.js"},"id":27,"priority":2}
 ]

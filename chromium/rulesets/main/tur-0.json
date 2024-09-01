@@ -232,7 +232,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||hdfilmseyircisi.org/sprlazy/like-ajax.php"},"id":231},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hdfilmseyircisi.org/images/priv.mp4"},"id":232},
 {"action":{"type":"block"},"condition":{"urlFilter":"||dizilost.com/popunderxx.js"},"id":233},
-{"action":{"type":"block"},"condition":{"urlFilter":"||cloudflarestream.com/*/downloads/default.mp4"},"id":234},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["zed.dev"],"urlFilter":"||cloudflarestream.com/*/downloads/default.mp4"},"id":234},
 {"action":{"type":"block"},"condition":{"urlFilter":"||izlehdfilm.net/wp-content/uploads/*/*.mp4"},"id":235},
 {"action":{"type":"block"},"condition":{"urlFilter":"||akhisarhaber.com/reklam"},"id":236},
 {"action":{"type":"block"},"condition":{"urlFilter":"||haberkibris.com/banner"},"id":237},

@@ -1,5 +1,6 @@
 [
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["bCode","camCode","promo_creative","promo_name","promo_position"]}}},"type":"redirect"},"condition":{"requestDomains":["www.digikala.com"],"resourceTypes":["main_frame"]},"id":1},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["UDID","appVersion","deviceType"]}}},"type":"redirect"},"condition":{"domainType":"firstParty","requestDomains":["snappfood.ir"],"requestMethods":["get"],"resourceTypes":["xmlhttprequest"]},"id":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["ref"]}}},"type":"redirect"},"condition":{"requestDomains":["arnr.ir","upera.tv"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":603},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["rssRedirect"]}}},"type":"redirect"},"condition":{"requestDomains":["eghtesadnews.com"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":605},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["_ga","_gl"]}}},"type":"redirect"},"condition":{"requestDomains":["app.technews-iran.com"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":606},
