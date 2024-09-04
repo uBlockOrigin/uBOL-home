@@ -1,7 +1,7 @@
 # uBO Lite
 
 <p align="center">
-<a href="https://addons.mozilla.org/addon/ublock-origin-lite/"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="Get uBO Lite for Firefox"></a>
+<!-- <a href="https://addons.mozilla.org/addon/ublock-origin-lite/"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="Get uBO Lite for Firefox"></a> -->
 <a href="https://chrome.google.com/webstore/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh"><img src="https://user-images.githubusercontent.com/585534/107280622-91a8ea80-6a26-11eb-8d07-77c548b28665.png" alt="Get uBO Lite for Chromium"></a>
 <a href="https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn"><img src="https://user-images.githubusercontent.com/585534/107280673-a5ece780-6a26-11eb-9cc7-9fa9f9f81180.png" alt="Get uBlock Origin Lite for Microsoft Edge"></a>
 
