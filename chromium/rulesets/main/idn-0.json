@@ -221,7 +221,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||wp.com/ryuukoi.web.id/wp-content/uploads/*/antiadblock"},"id":220},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||www.cararegistrasi.com/img/download_1.png"},"id":221},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||www.riau24.com/portal/adv/"},"id":222},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["149.56.24.226","15.235.11.45","anime-indo.id","baladfilm.guru","baladfilm.skin","bgibola.com","bioskopkerenin.org","dunia21.club","dutafilm.cfd","kiryuu.org","komikmanhwa.me","ld2tv.net","lk21.london","lk21official.biz","lk21official.live","lk21official.org","lk21tv.com","mangakita.id","movieajip.online","oploverz.best","oploverz.co.in","oploverz.love","oploverz.tv","otakudesu.ltd","rbtv77.com","samehadaku.show","shinigami03.com"],"resourceTypes":["image"],"urlFilter":".gif"},"id":223},
+{"action":{"type":"block"},"condition":{"urlFilter":"||emitennews.com/uploads/ads/ads_"},"id":223},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-abgqq."},"id":224},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-agen-judi-"},"id":225},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-agen-poker-"},"id":226},
@@ -3082,5 +3082,12 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/kerabatslot.gif|"},"id":3081},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/hokidewa-"},"id":3082},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/indokasino-"},"id":3083},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["curoax.com","linkgenerator.xyz","noobscript.com"],"resourceTypes":["script"]},"id":3084}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["curoax.com","linkgenerator.xyz","noobscript.com"],"resourceTypes":["script"]},"id":3084},
+{"action":{"type":"block"},"condition":{"urlFilter":"||img.koran-jakarta.com/images/ads/"},"id":3085},
+{"action":{"type":"block"},"condition":{"urlFilter":"||img.koran-jakarta.com/images/advertisement/"},"id":3086},
+{"action":{"type":"block"},"condition":{"urlFilter":"||nomat.top/img/banner-ad"},"id":3087},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["ragihospitalkukatpally.com"],"resourceTypes":["image"],"urlFilter":"||nontonfilmgratis.club/image/*.webp"},"id":3088},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["149.56.24.226","15.235.11.45","anime-indo.id","baladfilm.guru","baladfilm.skin","bgibola.com","bioskopkerenin.org","dunia21.club","dutafilm.cfd","kiryuu.org","komikmanhwa.me","ld2tv.net","lk21.london","lk21official.biz","lk21official.live","lk21official.org","lk21tv.com","mangakita.id","movieajip.online","nomat.top","nontonfilmgratis.club","oploverz.best","oploverz.co.in","oploverz.love","oploverz.tv","otakudesu.ltd","ragihospitalkukatpally.com","rbtv77.com","samehadaku.show","shinigami03.com"],"resourceTypes":["image"],"urlFilter":".gif"},"id":3089},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||nontonfilmgratis.club/image/*.webm"},"id":3090},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||ragihospitalkukatpally.com/image/*.webm"},"id":3091}
 ]

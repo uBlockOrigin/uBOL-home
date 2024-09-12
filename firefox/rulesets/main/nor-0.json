@@ -175,7 +175,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["vglive.no"],"urlFilter":"||cloudfront.net/v*/liveoddsen.aspx^"},"id":174},
 {"action":{"type":"block"},"condition":{"urlFilter":"||gamereactor.*/ads^"},"id":175},
 {"action":{"type":"block"},"condition":{"urlFilter":"||gamereactor.*/exclusive.json^"},"id":176},
-{"action":{"type":"block"},"condition":{"urlFilter":"||img.sofabold.dk/images/banner"},"id":177},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["dahl.no"],"resourceTypes":["image"],"urlFilter":"_toppbanner_"},"id":178},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||paypal.*.no|"},"id":179},
 {"action":{"type":"block"},"condition":{"urlFilter":"||appleid.*.no^"},"id":180},

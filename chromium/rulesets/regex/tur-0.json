@@ -12,6 +12,5 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["afsinhabermerkezi.com"],"regexFilter":"afsinhabermerkezi.com\\/wp-content\\/uploads\\/.*(-emlak|aad.jpg|ak-suY|PAM%C4%B0RA)"},"id":11},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["filmmodu10.com","filmmodu11.com","filmmodu12.com","filmmodu13.com","filmmodu14.com","filmmodu15.com","filmmodu16.com","filmmodu17.com","filmmodu18.com","filmmodu19.com","filmmodu20.com","filmmodu9.com"],"regexFilter":"\\/pageskin\\/[a-z]{2}1\\.jpg"},"id":12},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["giynikgazetesi.com"],"regexFilter":"\\d+x\\d+","resourceTypes":["image"]},"id":13},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["itemci.com"],"regexFilter":"cdn.itemci.com\\/storage\\/images\\/content\\/[-a-z0-9]{10,}\\.(jpg|gif)","resourceTypes":["image"]},"id":14},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["tekniknot.com"],"regexFilter":":\\/\\/tekniknot\\.com\\/\\w+$","resourceTypes":["xmlhttprequest"]},"id":15}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["itemci.com"],"regexFilter":"cdn.itemci.com\\/storage\\/images\\/content\\/[-a-z0-9]{10,}\\.(jpg|gif)","resourceTypes":["image"]},"id":14}
 ]

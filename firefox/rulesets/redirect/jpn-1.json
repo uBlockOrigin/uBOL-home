@@ -22,7 +22,7 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["nissan.co.jp"],"requestDomains":["penta.a.one.impact-ad.jp"],"resourceTypes":["script"]},"id":21,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.html"},"type":"redirect"},"condition":{"initiatorDomains":["rocketnews24.com","youpouch.com"],"resourceTypes":["sub_frame"],"urlFilter":"||googlesyndication.com/safeframe/"},"id":22,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.html"},"type":"redirect"},"condition":{"initiatorDomains":["realtime-chart.info","sekai-kabuka.com"],"resourceTypes":["sub_frame"],"urlFilter":"||googleads.g.doubleclick.net/pagead/ads?"},"id":23,"priority":2},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"requestDomains":["cu-ad.tbs.co.jp","cu-cdn-ad-v3.ntv.co.jp"],"resourceTypes":["media"]},"id":24,"priority":2},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"requestDomains":["cu-ad.tbs.co.jp","cu-cdn-ad-v3.ntv.co.jp","i.socdm.com"],"resourceTypes":["media"]},"id":24,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["funny-ai.com"],"resourceTypes":["media"],"urlFilter":"||stream.playerserve.com/stream/server/"},"id":25,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["ordermaid.ai"],"requestDomains":["nend.net"],"resourceTypes":["media"]},"id":26,"priority":32}
 ]

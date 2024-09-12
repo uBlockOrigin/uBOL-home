@@ -1816,5 +1816,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["fubas.it"],"urlFilter":"||blob.core.windows.net/images/volksbank_new_anzeige.jpg"},"id":1815},
 {"action":{"type":"block"},"condition":{"urlFilter":"||der-theaterverlag.de/banners.html"},"id":1816},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ruw.de/js/layoutforads.js"},"id":1817},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["windowspro.de"],"resourceTypes":["xmlhttprequest"]},"id":1818,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["windowspro.de"],"resourceTypes":["xmlhttprequest"]},"id":1818,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["4p.de","derwesten.de","futurezone.de","leckerschmecker.me","moin.de","news38.de","thueringen24.de","wmn.de"],"urlFilter":"||rubiconproject.com/prebid/dynamic/18086.js"},"id":1819,"priority":20}
 ]

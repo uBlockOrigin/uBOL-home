@@ -124,5 +124,9 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||api.youradio.cz/v2/ads/preroll"},"id":123,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["firmy.cz","garaz.cz","novinky.cz","sbazar.cz","seznam.cz","seznamzpravy.cz","sport.cz","stream.cz","super.cz"],"resourceTypes":["xmlhttprequest"],"urlFilter":".png"},"id":124,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["sport.aktuality.sk"],"resourceTypes":["sub_frame"],"urlFilter":"||admedia.joj.sk/outstream/embed?iframe"},"id":125,"priority":20},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["www.top-reklama.sk"]},"id":126,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["www.top-reklama.sk"]},"id":126,"priority":20},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kurzy.cz/l/s_back.js"},"id":127},
+{"action":{"type":"block"},"condition":{"urlFilter":"||img.kurzy.cz/block/"},"id":128},
+{"action":{"type":"allow"},"condition":{"urlFilter":"img.kurzy.cz/ban/ad_ads_advert_advertisement_adform_pub_300x250.png"},"id":129,"priority":20},
+{"action":{"type":"allow"},"condition":{"urlFilter":"||heureka.*/ocm/sdk.js"},"id":130,"priority":20}
 ]

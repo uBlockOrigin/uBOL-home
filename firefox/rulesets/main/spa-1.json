@@ -220,7 +220,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["pelisplus.so"],"urlFilter":"/apu.php?zoneid="},"id":219},
 {"action":{"type":"block"},"condition":{"urlFilter":"||baixartorrents.org/subs/popup.js"},"id":220},
 {"action":{"type":"block"},"condition":{"urlFilter":"||naoconto.com/wp-content/uploads/2021/09/camerahot-"},"id":221},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["anitube.vip","hinatasoul.com"],"urlFilter":"/asb1.js"},"id":222},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["anitube.us","anitube.vip","hinatasoul.com"],"urlFilter":"/asb1.js"},"id":222},
 {"action":{"type":"block"},"condition":{"urlFilter":"||muacknet.ipower.com/blanco.php"},"id":223},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ledgerwallet.com/affiliate/"},"id":224},
 {"action":{"type":"block"},"condition":{"urlFilter":"||plantaomaringa.com/fotos/anuncios"},"id":225},
@@ -831,7 +831,7 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||freelibros.com/wp-content/plugins/no-adblock/"},"id":830,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["sinensistoon.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||jsc.adskeeper.com/site/"},"id":831,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["emperorscan.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js|"},"id":832,"priority":20},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["animefire.info","animesonlinecc.us","animesup.info","animeyabu.net","animeyabu.org","anitube.vip","dattebayo-br.com","drstonebr.com","goanimes.vip","goyabu.us","hinatasoul.com","isekaibrasil.com","meuanime.info","otakuanimess.net"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":833,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["animefire.info","animesonlinecc.us","animesup.info","animeyabu.net","animeyabu.org","anitube.us","anitube.vip","dattebayo-br.com","drstonebr.com","goanimes.vip","goyabu.us","hinatasoul.com","isekaibrasil.com","meuanime.info","otakuanimess.net"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":833,"priority":20},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||ads.anitube.vip^|"},"id":834,"priority":20},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||ads.anitube.vip/*.php|"},"id":835,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["atresplayer.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||googleadservices.com/pagead/conversion_async.js"},"id":836,"priority":20},
@@ -853,6 +853,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||ecuavisa.com/widget/*/catalog/mm_publicidad_"},"id":852,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["netcine3.la"],"resourceTypes":["xmlhttprequest"]},"id":853,"priority":20},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||ads.anitube.vip/?token="},"id":854,"priority":20},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["animefire.info","animesonlinecc.us","animesup.info","animeyabu.net","animeyabu.org","anitube.vip","caroloportunidades.com.br","dattebayo-br.com","drstonebr.com","goanimes.vip","goyabu.us","hinatasoul.com","isekaibrasil.com","meuanime.info","otakuanimess.net"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||popads.net/js/adblock.js"},"id":855,"priority":20},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["anitube.vip","dattebayo-br.com","hinatasoul.com"],"requestDomains":["ads.anitube.vip"],"resourceTypes":["xmlhttprequest"]},"id":856,"priority":20}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["animefire.info","animesonlinecc.us","animesup.info","animeyabu.net","animeyabu.org","anitube.us","anitube.vip","caroloportunidades.com.br","dattebayo-br.com","drstonebr.com","goanimes.vip","goyabu.us","hinatasoul.com","isekaibrasil.com","meuanime.info","otakuanimess.net"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||popads.net/js/adblock.js"},"id":855,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["anitube.us","anitube.vip","dattebayo-br.com","hinatasoul.com"],"requestDomains":["ads.anitube.vip"],"resourceTypes":["xmlhttprequest"]},"id":856,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["anitube.us","anitube.vip","dattebayo-br.com","hinatasoul.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||widgets.outbrain.com/outbrain.js"},"id":857,"priority":20}
 ]

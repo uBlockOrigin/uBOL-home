@@ -4,6 +4,62 @@
   "type": "block"
  },
  "condition": {
+  "domainType": "thirdParty",
+  "excludedResourceTypes": [
+   "main_frame",
+   "media",
+   "sub_frame"
+  ],
+  "initiatorDomains": [
+   "190.115.18.20",
+   "aniworld.to",
+   "bs.to",
+   "burningseries.ac",
+   "burningseries.nz",
+   "burningseries.se",
+   "burningseries.sx",
+   "burningseries.vc",
+   "kinoger.to",
+   "kinokiste.live",
+   "kinox.top",
+   "megakino.co",
+   "s.to",
+   "serien.cam",
+   "serienstream.to",
+   "streamcloud.movie",
+   "topstreamfilm.live"
+  ],
+  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
+ },
+ "id": 1
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "excludedResourceTypes": [
+   "main_frame",
+   "media"
+  ],
+  "initiatorDomains": [
+   "kinoger.com",
+   "kinoger.pw",
+   "kinokiste.live",
+   "megakino.co",
+   "streamcloud.movie",
+   "topstreamfilm.live"
+  ],
+  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*"
+ },
+ "id": 2
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
   "initiatorDomains": [
    "beeg-pornos.com",
    "besterpornos.com",
@@ -64,59 +120,5 @@
   ]
  },
  "id": 1527
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "excludedResourceTypes": [
-   "main_frame",
-   "media",
-   "sub_frame"
-  ],
-  "initiatorDomains": [
-   "190.115.18.20",
-   "aniworld.to",
-   "bs.to",
-   "burningseries.ac",
-   "burningseries.nz",
-   "burningseries.se",
-   "burningseries.sx",
-   "burningseries.vc",
-   "kinokiste.live",
-   "kinox.top",
-   "megakino.co",
-   "s.to",
-   "serien.cam",
-   "serienstream.to",
-   "streamcloud.movie",
-   "topstreamfilm.live"
-  ],
-  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
- },
- "id": 1673
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "excludedResourceTypes": [
-   "main_frame",
-   "media"
-  ],
-  "initiatorDomains": [
-   "kinoger.com",
-   "kinokiste.live",
-   "megakino.co",
-   "streamcloud.movie",
-   "topstreamfilm.live"
-  ],
-  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*"
- },
- "id": 1674
 }
 ]

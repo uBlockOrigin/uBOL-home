@@ -136,7 +136,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||jootc.com/wp-content/plugins/wccp-pro/"},"id":135},
 {"action":{"type":"block"},"condition":{"urlFilter":"||htstreaming.com/player/assets/debugger.js"},"id":136},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["javboys.com"],"urlFilter":"||googleapis.com/loadermain.appspot.com/main.js"},"id":137},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["fastcompany.com"],"requestDomains":["piano.io"]},"id":138},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","fastcompany.com","npr.org","rawstory.com","refinery29.com","rollingstone.com","sifted.eu","thedailybeast.com","theintercept.com","thenation.com","wwd.com"],"requestDomains":["piano.io"]},"id":138},
 {"action":{"type":"block"},"condition":{"urlFilter":"||4399.com/antijs/antiindulgence.js"},"id":139},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hm.baidu.com/hm.js"},"id":140},
 {"action":{"type":"block"},"condition":{"urlFilter":"/wp-content/plugins/smio-push-notification"},"id":141},
@@ -261,7 +261,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["cheatnetwork.eu","hbstack.dev","pokemonsleep.club"],"resourceTypes":["script"]},"id":260,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["bigten.org","cheatnetwork.eu","hbstack.dev","sheffieldforum.co.uk"],"resourceTypes":["xmlhttprequest"]},"id":261,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||luckydesigner.space/adview_"},"id":262,"priority":20},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["buktube.com","fullxh.com","megaxh.com","movingxh.world","seexh.com","taoxh.life","unlockxh4.com","xhaccess.com","xhadult2.com","xhadult3.com","xhadult4.com","xhadult5.com","xhamster46.com","xhbig.com","xhday.com","xhday1.com","xhmoon5.com","xhplanet1.com","xhplanet2.com","xhreal2.com","xhreal3.com","xhtab2.com","xhtree.com","xhvictory.com","xhwebsite.com","xhwebsite2.com","xhwide1.com"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":263,"priority":20},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","npr.org","rawstory.com","refinery29.com","rollingstone.com","sifted.eu","thedailybeast.com","theintercept.com","thenation.com","wwd.com"],"requestDomains":["tinypass.com"]},"id":263},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["raenonx.cc"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":264,"priority":20},
 {"action":{"type":"block"},"condition":{"urlFilter":"||latercera.com/newsletters/"},"id":265},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cined.com/content/plugins/abss-adblock"},"id":266},
@@ -271,6 +271,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["grist.org","prospect.org"],"requestDomains":["wisepops.com"]},"id":270},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||businessworld.in/assets/custom/custom.js"},"id":271},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||sixriversmedia.com/gfembed/"},"id":272},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["buktube.com","fullxh.com","galleryxh.site","megaxh.com","movingxh.world","seexh.com","taoxh.life","unlockxh4.com","valuexh.life","xhaccess.com","xhadult2.com","xhadult3.com","xhadult4.com","xhadult5.com","xhamster46.com","xhbig.com","xhbranch5.com","xhdate.world","xhday.com","xhday1.com","xhmoon5.com","xhplanet1.com","xhplanet2.com","xhreal2.com","xhreal3.com","xhtab2.com","xhtab4.com","xhtree.com","xhvictory.com","xhwebsite.com","xhwebsite2.com","xhwide1.com"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":273,"priority":20},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["1jour1film.homes"],"resourceTypes":["script"],"urlFilter":"/cdn.jsdelivr.net/npm/disable-devtool"},"id":276},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||player.melaniezettofrais.online/assets/js/devtools-detector"},"id":277},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||news.atptour.com/p/"},"id":278},
@@ -281,6 +282,5 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["counciloflove.com","ezmanga.net","ferroviando.com.br","gourmetscans.net","infokik.com","jafekri.com","kulinarnastronamocy.pl","secondlifetranslations.com","truyenbanquyen.com"],"urlFilter":"/wp-content/plugins/wccp-pro/"},"id":283},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["api.pico.tools","app.avada.io","confirmsubscription.com","content-settings.com","copypoison.com","faves.grow.me","fkrkkmxsqeb5bj9r.s3.amazonaws.com","holyclock.com","maillist-manage.com","optinly.net","popupsmart.com","sendlane.com","shomershabes.co.il","shomershabes.com","site-config.com","smarthint.co","spinasale.com","targetbay.com","yourmarketingemail.com"]},"id":284},
 {"action":{"type":"block"},"condition":{"urlFilter":"||animet1.net/*/detect.dev.js^"},"id":285},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["bbcgoodfood.com","billboard.com","npr.org","rawstory.com","refinery29.com","rollingstone.com","sifted.eu","thedailybeast.com","theintercept.com","thenation.com","wwd.com"],"resourceTypes":["script"],"urlFilter":"||tinypass.com/api/tinypass.min.js"},"id":286},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/wp-content/plugins/wpshield-content-protector/dist/app.min.js"},"id":287}
 ]
