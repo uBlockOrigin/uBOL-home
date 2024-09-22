@@ -178,7 +178,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["hamal.co.il","sheee.co.il","walla.co.il"],"resourceTypes":["script"],"urlFilter":"||cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/"},"id":177,"priority":20},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||dmag.co.il/pub/shvii/"},"id":178,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["13news.co.il","13tv.co.il","one.co.il"],"resourceTypes":["script"],"urlFilter":"||googletagmanager.com/gtag/js?id="},"id":179,"priority":20},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["eshet.com","one.co.il"],"resourceTypes":["script"],"urlFilter":"||googletagmanager.com/gtm.js"},"id":180,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["clalitsmile.co.il","eshet.com","one.co.il"],"resourceTypes":["script"],"urlFilter":"||googletagmanager.com/gtm.js"},"id":180,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["13news.co.il","13tv.co.il","bizportal.co.il","calcalist.co.il","hamal.co.il","maariv.co.il","mako.co.il","n12.co.il","one.co.il","sport5.co.il","tech12.co.il","tvbee.co.il","ynet.co.il"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":181,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["inn.co.il"],"resourceTypes":["script"],"urlFilter":"||info.a7.org/info/a7delivery_f.php"},"id":182,"priority":20},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||info.jdn.co.il/r/a7delivery_f.php?func=floadone"},"id":183,"priority":20},

@@ -17,5 +17,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["kultfilmler.com"],"resourceTypes":["media"],"urlFilter":".mp4"},"id":16,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||webteizle*.info/i/vid-onu-*.mp4"},"id":17,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["if.strmrdrfronf.click","ifra.strmrdrfronf.click"],"resourceTypes":["media"],"urlFilter":"||video.twimg.com/ext_tw_video/*/pu/*/*.m4s"},"id":18,"priority":2},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||filmmodu*.com/uploads/"},"id":19,"priority":2}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||filmmodu*.com/uploads/"},"id":19,"priority":2},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"domainType":"thirdParty","requestDomains":["hops1s.site"],"resourceTypes":["media"]},"id":20,"priority":2}
 ]

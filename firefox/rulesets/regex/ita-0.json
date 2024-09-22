@@ -7,7 +7,7 @@
   "domainType": "thirdParty",
   "initiatorDomains": [
    "animeunity.to",
-   "calcio.re",
+   "calcio.run",
    "guardaserie01.click",
    "onepiecepower.com",
    "pepperlive.info",
@@ -20,6 +20,24 @@
   ]
  },
  "id": 1
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "initiatorDomains": [
+   "altadefinizione01.lol",
+   "ilgeniodellostreaming.zone"
+  ],
+  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*",
+  "resourceTypes": [
+   "script",
+   "xmlhttprequest"
+  ]
+ },
+ "id": 2
 },
 {
  "action": {
@@ -74,22 +92,5 @@
   ]
  },
  "id": 1294
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "initiatorDomains": [
-   "ilgeniodellostreaming.zone"
-  ],
-  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*",
-  "resourceTypes": [
-   "script",
-   "xmlhttprequest"
-  ]
- },
- "id": 1360
 }
 ]

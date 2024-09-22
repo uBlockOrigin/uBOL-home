@@ -175,6 +175,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["vglive.no"],"urlFilter":"||cloudfront.net/v*/liveoddsen.aspx^"},"id":174},
 {"action":{"type":"block"},"condition":{"urlFilter":"||gamereactor.*/ads^"},"id":175},
 {"action":{"type":"block"},"condition":{"urlFilter":"||gamereactor.*/exclusive.json^"},"id":176},
+{"action":{"type":"block"},"condition":{"urlFilter":"/annonser-vert.gif^"},"id":177},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["dahl.no"],"resourceTypes":["image"],"urlFilter":"_toppbanner_"},"id":178},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||paypal.*.no|"},"id":179},
 {"action":{"type":"block"},"condition":{"urlFilter":"||appleid.*.no^"},"id":180},
@@ -540,5 +541,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||dnnbcorporat*.mine.nu^"},"id":540},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||tv2.no/*/config/analytics.json"},"id":541,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||cmp.ekstrabladet.dk/get_site_data"},"id":542,"priority":20},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["itavisen.no"],"requestDomains":["sixscissors.com"]},"id":543,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["itavisen.no"],"requestDomains":["sixscissors.com"]},"id":543,"priority":20},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":".no/images/banners/"},"id":544}
 ]

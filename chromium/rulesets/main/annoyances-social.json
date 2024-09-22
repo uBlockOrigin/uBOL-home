@@ -600,6 +600,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||static.parastorage.com/services/editor-elements/dist/facebookshare."},"id":599,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||instagram.com/p/"},"id":600,"priority":20},
 {"action":{"type":"block"},"condition":{"urlFilter":"||opto.sic.pt/footer/socials/"},"id":601},
+{"action":{"type":"block"},"condition":{"urlFilter":"||harem69.com.br/img/social.png"},"id":602},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["addthis.com"],"requestDomains":["addthiscdn.com"]},"id":652},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["matsukiyococokara-online.com"],"requestDomains":["fireworkapi1.com"]},"id":658},
 {"action":{"type":"block"},"condition":{"urlFilter":"||focus.it/images/embed/banner-canale-whats-up/"},"id":659},

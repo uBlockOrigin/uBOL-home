@@ -15,6 +15,5 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["player-films.online"],"resourceTypes":["media"],"urlFilter":"||s-cdn.org/promo/*.mp4"},"id":14,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["player-films.online"],"resourceTypes":["media"],"urlFilter":"||s-club.tv/promo/*.mp4"},"id":15,"priority":2},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/empty"},"type":"redirect"},"condition":{"initiatorDomains":["1tv.ru","karaoke.ru","mediavitrina.ru","yastatic.net"],"requestDomains":["strm.yandex.ru"],"resourceTypes":["media"]},"id":16,"priority":2},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||ts.kg/olol*.mp4"},"id":17,"priority":2},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-vast3.xml"},"type":"redirect"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||v*.plrjs.org/*.xml"},"id":18,"priority":32}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||ts.kg/olol*.mp4"},"id":17,"priority":2}
 ]

@@ -19,20 +19,5 @@
   ]
  },
  "id": 1
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "initiatorDomains": [
-   "livsstil.se"
-  ],
-  "regexFilter": "www.livsstil.se\\/cnp-assets\\/[0-9]+.",
-  "resourceTypes": [
-   "script"
-  ]
- },
- "id": 2
 }
 ]
