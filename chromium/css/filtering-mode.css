@@ -5,17 +5,22 @@
     justify-content: center;
     position: relative;
     width: 240px;
-    }
+    background-color: var(--surface-2);
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
 .filteringModeButton {
     background-color: var(--surface-1);
     box-sizing: border-box;
-    border-radius: 30% 15% / 15% 30%;
+    border-radius: 50%;
     height: 100%;
     position: absolute;
     width: 25%;
     z-index: 10;
-    }
+    transition: left 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
 .filteringModeButton > div {
     background-color: var(--accent-surface-1);
@@ -25,17 +30,18 @@
     height: calc(100% - 2px);
     margin: 1px;
     width: calc(100% - 2px);
-    }
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
 
 .filteringModeSlider.moving .filteringModeButton > div,
 .filteringModeButton > div:hover {
-    filter: brightness(0.9);
-    }
+    filter: brightness(1.1);
+}
 
 .filteringModeSlider[data-level="0"] .filteringModeButton > div {
     background-color: var(--surface-2);
     border-color: var(--surface-2);
-    }
+}
 
 .filteringModeSlider span[data-level] {
     background-color: var(--accent-surface-1);
@@ -43,50 +49,59 @@
     height: 30%;
     margin-left: 1px;
     width: 25%;
-    }
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+}
 
 .filteringModeSlider.moving span[data-level] {
     pointer-events: none;
-    }
+}
 
 .filteringModeSlider[data-level="0"] .filteringModeButton {
     left: 0;
-    }
+}
+
 .filteringModeSlider[data-level="1"] .filteringModeButton {
     left: 25%;
-    }
+}
+
 .filteringModeSlider[data-level="2"] .filteringModeButton {
     left: 50%;
-    }
+}
+
 .filteringModeSlider[data-level="3"] .filteringModeButton {
     left: 75%;
-    }
+}
+
 [dir="rtl"] .filteringModeSlider[data-level="0"] .filteringModeButton {
     left: 75%;
-    }
+}
+
 [dir="rtl"] .filteringModeSlider[data-level="1"] .filteringModeButton {
     left: 50%;
-    }
+}
+
 [dir="rtl"] .filteringModeSlider[data-level="2"] .filteringModeButton {
     left: 25%;
-    }
+}
+
 [dir="rtl"] .filteringModeSlider[data-level="3"] .filteringModeButton {
     left: 0;
-    }
-
+}
 
 .filteringModeSlider[data-level="0"] span[data-level] {
     background-color: var(--surface-2);
-    }
+}
 
 .filteringModeSlider[data-level="1"] span[data-level]:nth-of-type(1) ~ span[data-level] {
     background-color: var(--surface-2);
-    }
+}
 
 .filteringModeSlider[data-level="2"] span[data-level]:nth-of-type(2) ~ span[data-level] {
     background-color: var(--surface-2);
-    }
+}
 
 .filteringModeSlider[data-level]:not(.moving) span[data-level]:hover {
-    filter: brightness(0.9);
-    }
+    filter: brightness(1.1);
+    cursor: pointer;
+}
