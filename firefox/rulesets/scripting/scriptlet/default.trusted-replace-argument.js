@@ -40,11 +40,11 @@ const uBOL_trustedReplaceArgument = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["document.getElementById","0","null","condition","adsense-container"],["document.getElementById","0","null","condition","modal"],["String.prototype.includes","0","''","condition","NAVER"],["HTMLScriptElement.prototype.setAttribute","1","{\"value\": \"(function(){let link=document.createElement('link');link.rel='stylesheet';link.href='//image.ygosu.com/style/main.css';document.head.appendChild(link)})()\"}","condition","error-report"],["HTMLScriptElement.prototype.setAttribute","1","{\"value\": \"(function(){let link=document.createElement('link');link.rel='stylesheet';link.href='https://loawa.com/assets/css/loawa.min.css';document.head.appendChild(link)})()\"}","condition","error-report"],["document.querySelector","0","noopFunc","condition","adblock"],["history.replaceState","2","''","condition","?orgRef"]];
+const argsList = [["document.getElementById","0","null","condition","adsense-container"],["document.getElementById","0","null","condition","modal"],["document.createElement","0","''","condition","iframe"],["String.prototype.includes","0","''","condition","NAVER"],["HTMLScriptElement.prototype.setAttribute","1","{\"value\": \"(function(){let link=document.createElement('link');link.rel='stylesheet';link.href='//image.ygosu.com/style/main.css';document.head.appendChild(link)})()\"}","condition","error-report"],["HTMLScriptElement.prototype.setAttribute","1","{\"value\": \"(function(){let link=document.createElement('link');link.rel='stylesheet';link.href='https://loawa.com/assets/css/loawa.min.css';document.head.appendChild(link)})()\"}","condition","error-report"],["document.querySelector","0","noopFunc","condition","adblock"],["history.replaceState","2","''","condition","?orgRef"]];
 
-const hostnamesMap = new Map([["copyseeker.net",0],["zonebourse.com",1],["dogdrip.net",2],["infinityfree.com",2],["smsonline.cloud",2],["ygosu.com",3],["bamgosu.site",3],["loawa.com",4],["autosport.com",5],["motorsport.com",5],["motorsport.uol.com.br",5],["www.lenovo.com",6]]);
+const hostnamesMap = new Map([["copyseeker.net",0],["zonebourse.com",1],["dogdrip.net",3],["infinityfree.com",3],["smsonline.cloud",3],["ygosu.com",4],["bamgosu.site",4],["loawa.com",5],["autosport.com",6],["motorsport.com",6],["motorsport.uol.com.br",6],["www.lenovo.com",7]]);
 
-const entitiesMap = new Map([]);
+const entitiesMap = new Map([["nsw2u",2]]);
 
 const exceptionsMap = new Map([]);
 

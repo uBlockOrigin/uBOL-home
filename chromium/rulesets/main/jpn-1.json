@@ -707,7 +707,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||games.wkb.jp/html5games/jack/"},"id":706},
 {"action":{"type":"block"},"condition":{"urlFilter":"||games.wkb.jp/html5games/play/jewelexplode/ads-"},"id":707},
 {"action":{"type":"block"},"condition":{"urlFilter":"||play.gamepix.com/player/ads/"},"id":708},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["futabanet.jp","futabanex.jp","futabasha.co.jp"],"urlFilter":"/gamoverlay.js"},"id":709},
+{"action":{"type":"block"},"condition":{"urlFilter":"||futabasha.co.jp/parts/gamoverlay.js"},"id":709},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mag2.com/ovtr/"},"id":710},
 {"action":{"type":"block"},"condition":{"urlFilter":"||39.benesse.ne.jp/resource/ad/"},"id":711},
 {"action":{"type":"block"},"condition":{"urlFilter":"||matomedane.jp/js/right_navi/"},"id":712},
@@ -1444,5 +1444,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["nijigen-erogazou.com"],"resourceTypes":["script"]},"id":1443},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["sp.seiga.nicovideo.jp"],"urlFilter":"||res.ads.nicovideo.jp/assets/js/ads2.js"},"id":1444,"priority":20},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||0115765.com/assets/ads/main.js"},"id":1445,"priority":20},
-{"action":{"type":"allow"},"condition":{"urlFilter":"||goonews.jp/common/img/sub/right/g0121_goonet_ryutsu_bnr_h.jpg"},"id":1446,"priority":20}
+{"action":{"type":"allow"},"condition":{"urlFilter":"||goonews.jp/common/img/sub/right/g0121_goonet_ryutsu_bnr_h.jpg"},"id":1446,"priority":20},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://web-mbservice.*.*.top/login^"},"id":1447},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["cfd","top"],"resourceTypes":["main_frame"],"urlFilter":"/shopping/item/m*/?zenid="},"id":1448}
 ]

@@ -40,9 +40,9 @@ const uBOL_abortCurrentScript = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["jQuery","adblocker"],["chp_ads_blocker_detector"],["document.getElementById","Blocking Ads"],["document.createElement","adblock"],["document.write","alert"],["setTimeout","bloqueur"],["Promise","alert"],["document.getElementById","msg_ab"],["document.querySelector","oadbActive"],["$","checkAds"],["document.getElementById","adback"],["JSON.parse","document.createElement('script')"],["document.createElement","document.documentElement).appendChild"]];
+const argsList = [["jQuery","adblocker"],["chp_ads_blocker_detector"],["document.getElementById","Blocking Ads"],["addEventListener","/468_60."],["document.createElement","adblock"],["document.write","alert"],["setTimeout","bloqueur"],["Promise","alert"],["document.getElementById","msg_ab"],["document.querySelector","oadbActive"],["$","checkAds"],["document.getElementById","adback"],["JSON.parse","document.createElement('script')"],["document.createElement","document.documentElement).appendChild"]];
 
-const hostnamesMap = new Map([["adala-news.fr",0],["super-ethanol.com",1],["monumentum.fr",2],["lemanip.com",3],["crunchyscan.fr",[4,5,6]],["abcbourse.com",7],["cliqueduplateau.com",8],["monacomatin.mc",9],["recreatisse.com",10],["ultimate-catch.eu",10],["japscan.me",[11,12]]]);
+const hostnamesMap = new Map([["adala-news.fr",0],["super-ethanol.com",1],["monumentum.fr",2],["japscan.lol",3],["lemanip.com",4],["crunchyscan.fr",[5,6,7]],["abcbourse.com",8],["cliqueduplateau.com",9],["monacomatin.mc",10],["recreatisse.com",11],["ultimate-catch.eu",11],["japscan.me",[12,13]]]);
 
 const entitiesMap = new Map([]);
 

@@ -512,5 +512,6 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["clid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||adguard-vpn."},"id":511},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["aid"]}}},"type":"redirect"},"condition":{"initiatorDomains":["adgardvpn-help.info","adguard-dns.io","adguard-vpn.com","adguard.com","adguard.info"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":512},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["buvid","from_spm_id","plat_id","seid","share_from","share_medium","share_plat","share_session_id","share_source","share_tag","spm_id_from","spmid","unique_k","up_id","vd_source"]}}},"type":"redirect"},"condition":{"requestDomains":["bilibili.com"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":513},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cvid"]}}},"type":"redirect"},"condition":{"requestDomains":["bing.com"],"resourceTypes":["main_frame"]},"id":514}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cvid"]}}},"type":"redirect"},"condition":{"requestDomains":["bing.com"],"resourceTypes":["main_frame"]},"id":514},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["source_location","user_flow"]}}},"type":"redirect"},"condition":{"requestDomains":["change.org"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":515}
 ]

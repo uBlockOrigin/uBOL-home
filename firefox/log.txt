@@ -1,25 +1,25 @@
-Version: 2024.9.22.986
-Secret: d5245bc1bdfced73
+Version: 2024.9.24.1359
+Secret: 36909a55c48ede3f
 ============================
 Listset for 'default':
 	Fetched local https://ublockorigin.github.io/uAssets/filters/privacy.min.txt
-	Fetched local https://ublockorigin.github.io/uAssets/filters/unbreak.min.txt
 	Fetched local https://ublockorigin.github.io/uAssets/filters/badware.min.txt
 	Fetched local https://ublockorigin.github.io/uAssets/filters/quick-fixes.min.txt
 	Fetched local https://ublockorigin.github.io/uAssets/filters/ubol-filters.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/unbreak.min.txt
 	Fetched local https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext
 	Fetched local https://ublockorigin.github.io/uAssets/filters/filters.min.txt
 	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easyprivacy.txt
 	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist.txt
-Input filter count: 124817
-	Accepted filter count: 123498
+Input filter count: 124974
+	Accepted filter count: 123654
 	Rejected filter count: 141
-Output rule count: 17005
-	Pruning requestDomains: from 82896 to 82589
-	Pruning requestDomains: from 3745 to 3742
+Output rule count: 17015
+	Pruning requestDomains: from 82989 to 82682
+	Pruning requestDomains: from 3781 to 3778
 	Pruning requestDomains: from 5751 to 5743
 	Fetched local https://ublockorigin.github.io/uAssets/dnr/default.json
-	Plain good: 15258
+	Plain good: 15263
 		Salvaged rule by ignoring 1 unsupported domain= option: erotic-beauties.com|hardsex.cc|rule34.top|sex-movies.biz|tube18.sexy|xvideos.name|booru.*
 		Salvaged rule by ignoring 1 unsupported domain= option: 8boobs.com|angelgals.com|babesexy.com|babesinporn.com|fooxybabes.com|hotbabeswanted.com|hotstunners.com|mainbabes.com|nakedbabes.club|nakedgirlsroom.com|nudebabes.sexy|pleasuregirl.net|rabbitsfun.com|sexybabes.club|sexybabesart.com|wantedbabes.com|silkengirl.*
 		Salvaged rule by ignoring 1 unsupported domain= option: web.de|gmx.*
@@ -74,7 +74,7 @@ Output rule count: 17005
 	redirect=: 402
 	removeparams= (accepted/discarded): 53/14
 	modifyHeaders=: 59
-	Unsupported: 1022
+	Unsupported: 1027
 		Can't salvage rule with unsupported domain= option: vidmoly.*
 		Can't salvage rule with unsupported domain= option: megalink.*
 		Can't salvage rule with unsupported domain= option: gplinks.*
@@ -137,6 +137,11 @@ Output rule count: 17005
 		Can't salvage rule with unsupported domain= option: roblox.*
 		"ipaddress=148.251.54.196" not supported
 		"ipaddress=148.251.54.196" not supported
+		Can't salvage rule with unsupported domain= option: belliniepecuniaimmobili.*
+		Can't salvage rule with unsupported domain= option: immobilibelliniepecunia.*
+		Can't salvage rule with unsupported domain= option: bpecuniaimmobili.*
+		Can't salvage rule with unsupported domain= option: belliniepecuniaimmobilisrl.*
+		Can't salvage rule with unsupported domain= option: immobiliarebelliniepecunia.*
 		strict1p not supported
 		Can't salvage rule with unsupported domain= option: 1337x.*|1337x.g3g.*|unblockit.*|x1337x.*
 		Can't salvage rule with unsupported domain= option: bluemediadownload.*|bluemediafile.*|bluemedialink.*|bluemediastorage.*|bluemediaurls.*|urlbluemedia.*
@@ -489,7 +494,6 @@ Output rule count: 17005
 		Incompatible with DNR: ||mairdumont.com^$script,redirect-rule=noopjs,domain=kachelmannwetter.com
 		Incompatible with DNR: ||md-nx.com^$script,redirect-rule=noopjs,domain=meteologix.com|weather.us
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=extremereportbot.com
-		Incompatible with DNR: *$script,xhr,redirect-rule=noopjs,domain=1001tracklists.com
 		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=flashgirlgames.com|onlinesudoku.games
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=coinlyhub.com|cryptotinker.com
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=leechall.download|leechall.com
@@ -556,6 +560,7 @@ Output rule count: 17005
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=hentaihaven.xxx
 		Incompatible with DNR: ||adservice.google.com^$script,redirect-rule=noopjs,domain=yallo.tv
 		Incompatible with DNR: *$object,redirect-rule=noopframe,domain=rtl.hr
+		Incompatible with DNR: *$script,xhr,redirect-rule=noopjs,domain=1001tracklists.com
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=defienietlynotme.com|embedme.*|filemoon.*|filemooon.top|fmembed.cc|fmoonembed.pro|finfang.*|hellnaw.*|moonembed.*|rgeyyddl.skin|sbnmp.bar|sulleiman.com|vpcxz19p.xyz|z12z0vla.*
 		Incompatible with DNR: *$image,domain=pmvhaven.com,redirect-rule=1x1.gif
 		Incompatible with DNR: ||ezodn.com^$redirect-rule=noopjs,domain=tv.bdix.app
@@ -1099,14 +1104,14 @@ Output rule count: 17005
 		Rejected filter: redtube.com,tube8.com,tube8.es,tube8.fr,xvideos.com,youjizz.com,youporn.com,youporngay.com#?#:-abp-properties(image/)
 CSS-generic: 13706 plain CSS selectors
 CSS-generic-high: 524 plain CSS selectors
-CSS-specific: 11372 distinct filters
-	Combined into 10855 distinct hostnames
+CSS-specific: 11379 distinct filters
+	Combined into 10860 distinct hostnames
 	Combined into 510 distinct entities
-CSS-declarative: 527 distinct filters
-	Combined into 896 distinct hostnames
+CSS-declarative: 528 distinct filters
+	Combined into 897 distinct hostnames
 	Combined into 52 distinct entities
-Procedural-related distinct filters: 1512 distinct combined selectors
-	Combined into 1918 distinct hostnames
+Procedural-related distinct filters: 1514 distinct combined selectors
+	Combined into 1919 distinct hostnames
 	Combined into 126 distinct entities
 ============================
 Listset for 'alb-0':
@@ -1157,35 +1162,39 @@ CSS-specific: 373 distinct filters
 ============================
 Listset for 'chn-0':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/224.txt
-Input filter count: 13933
-	Accepted filter count: 13925
+Input filter count: 13964
+	Accepted filter count: 13956
 	Rejected filter count: 2
-Output rule count: 6448
+Output rule count: 6454
 	Pruning requestDomains: from 328 to 326
-	Plain good: 6384
+	Plain good: 6386
 
 	Maybe good (regexes): 12
 	redirect=: 37
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 8
-	Unsupported: 7
+	Unsupported: 11
 		regexFilter is not RE2-compatible: bookhaitang\.com\/assets\/.+\.js(?<!\.min\.js|pageTran\.js)
+		Can't salvage rule with unsupported domain= option: /87[0-9]{2}ck\.cc/
+		Can't salvage rule with unsupported domain= option: /87[0-9]{2}ck\.cc/
 		regexFilter is not RE2-compatible: ^(?!.*(authkong.com|rsc.cdn77.org|linkvertise.com|fastly.net|statically.io|sharecast.ws|b-cdn.net|bunnycdn.ru|bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|(\/\/|\.)vk\.com|yandex.|yastatic.net|ytimg.com|zencdn.net|player|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com|imgsmail.ru|cloudflare.net|(\/\/|\.)x\.com)).*$
 		Unsupported csp exception: script-src 'self' * 'sha256-0McqMM66/wAVZmxF6zXpjNsb1UMbTl4LXBXdhqPKxws='
 		Unsupported csp exception: script-src 'self' * 'sha256-0McqMM66/wAVZmxF6zXpjNsb1UMbTl4LXBXdhqPKxws='
+		Rejected filter: [$domain=/87\d{2}ck\.cc/]##body > div[style] > a[href][target="_blank"]
+		Rejected filter: [$domain=/87\d{2}ck\.cc/]##.stui-vodlist > li:has(> div.stui-vodlist__box > a[href][target="_blank"])
 		Rejected filter: douyin.com###videoSideBar:-abp-has(div:-abp-contains(/商品|商家|退款|店铺/))
 		Invalid network filter in chn-0: @@||ad.alimama.com^$genericblock
 		Invalid network filter in chn-0: @@||cmechina.net^$genericblock
 CSS-generic: 822 plain CSS selectors
 CSS-generic-high: 211 plain CSS selectors
-CSS-specific: 6553 distinct filters
-	Combined into 2865 distinct hostnames
+CSS-specific: 6555 distinct filters
+	Combined into 2870 distinct hostnames
 	Combined into 2 distinct entities
 CSS-declarative: 71 distinct filters
 	Combined into 104 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 342 distinct combined selectors
-	Combined into 271 distinct hostnames
+Procedural-related distinct filters: 347 distinct combined selectors
+	Combined into 274 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'cze-0':
@@ -1220,19 +1229,17 @@ Procedural-related distinct filters: 29 distinct combined selectors
 ============================
 Listset for 'deu-0':
 	Fetched local https://easylist.to/easylistgermany/easylistgermany.txt
-Input filter count: 2344
-	Accepted filter count: 2344
+Input filter count: 2341
+	Accepted filter count: 2341
 	Rejected filter count: 0
-Output rule count: 1824
-	Plain good: 1808
+Output rule count: 1820
+	Plain good: 1806
 
 	Maybe good (regexes): 4
 	redirect=: 4
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 0
-	Unsupported: 8
-		Rejected filter: chip.de#?#a:-abp-properties(max-width: 970px;)
-		Rejected filter: chip.de#?#a:-abp-properties(min-height: 15.625rem;)
+	Unsupported: 6
 		Rejected filter: chip.de#?#div:-abp-properties(min-height: 250px;)
 		Rejected filter: golem.de#?#li[data-article-id]:-abp-has(h3:-abp-properties(ANZEIGE))
 		Rejected filter: golem.de#?#li[data-article-id]:-abp-has(span.media__kicker:-abp-properties(ANZEIGE))
@@ -1241,10 +1248,10 @@ Output rule count: 1824
 		Invalid network filter in deu-0: @@||gofeminin.de^$genericblock
 CSS-generic: 362 plain CSS selectors
 CSS-generic-high: 35 plain CSS selectors
-CSS-specific: 2585 distinct filters
+CSS-specific: 2582 distinct filters
 	Combined into 1916 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 201 distinct combined selectors
+Procedural-related distinct filters: 197 distinct combined selectors
 	Combined into 142 distinct hostnames
 	Combined into 0 distinct entities
 ============================
@@ -1277,10 +1284,10 @@ Procedural-related distinct filters: 386 distinct combined selectors
 ============================
 Listset for 'fra-0':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/16.txt
-Input filter count: 18667
-	Accepted filter count: 18579
+Input filter count: 18668
+	Accepted filter count: 18580
 	Rejected filter count: 77
-Output rule count: 6231
+Output rule count: 6232
 	Pruning requestDomains: from 8351 to 8342
 	Plain good: 6175
 		Salvaged rule by ignoring 1 unsupported domain= option: annuaire-telechargement.tel|dl-protect.net|zone-telechargement.moe|wawacity.*
@@ -1291,8 +1298,9 @@ Output rule count: 6231
 	redirect=: 34
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 6
-	Unsupported: 9
+	Unsupported: 10
 		regexFilter is not RE2-compatible: ^(?!.*(authkong.com|rsc.cdn77.org|linkvertise.com|fastly.net|statically.io|sharecast.ws|b-cdn.net|bunnycdn.ru|bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|(\/\/|\.)vk\.com|yandex.|yastatic.net|ytimg.com|zencdn.net|player|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com|imgsmail.ru|cloudflare.net|(\/\/|\.)x\.com)).*$
+		Can't salvage rule with unsupported domain= option: zone-telechargement.*
 		Can't salvage rule with unsupported domain= option: vidembed.*
 		Can't salvage rule with unsupported domain= option: vidembed.*
 		Can't salvage rule with unsupported domain= option: fmovies.*
@@ -1367,11 +1375,11 @@ Procedural-related distinct filters: 34 distinct combined selectors
 ============================
 Listset for 'hun-0':
 	Fetched local https://cdn.jsdelivr.net/gh/hufilter/hufilter@gh-pages/hufilter-ublock.txt
-Input filter count: 320
-	Accepted filter count: 320
+Input filter count: 319
+	Accepted filter count: 319
 	Rejected filter count: 0
-Output rule count: 203
-	Plain good: 199
+Output rule count: 202
+	Plain good: 198
 
 	Maybe good (regexes): 1
 	redirect=: 3
@@ -1381,8 +1389,8 @@ Output rule count: 203
 
 CSS-generic: 60 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
-CSS-specific: 1002 distinct filters
-	Combined into 470 distinct hostnames
+CSS-specific: 1001 distinct filters
+	Combined into 469 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 27 distinct filters
 	Combined into 23 distinct hostnames
@@ -1419,11 +1427,11 @@ Procedural-related distinct filters: 38 distinct combined selectors
 ============================
 Listset for 'ind-0':
 	Fetched local https://easylist-downloads.adblockplus.org/indianlist.txt
-Input filter count: 4746
-	Accepted filter count: 4746
+Input filter count: 4753
+	Accepted filter count: 4753
 	Rejected filter count: 0
-Output rule count: 4703
-	Plain good: 4703
+Output rule count: 4710
+	Plain good: 4710
 
 	Maybe good (regexes): 0
 	redirect=: 0
@@ -1431,8 +1439,8 @@ Output rule count: 4703
 	modifyHeaders=: 0
 	Unsupported: 0
 
-CSS-specific: 4089 distinct filters
-	Combined into 4707 distinct hostnames
+CSS-specific: 4101 distinct filters
+	Combined into 4711 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 218 distinct combined selectors
 	Combined into 216 distinct hostnames
@@ -1445,9 +1453,9 @@ Input filter count: 1217
 	Rejected filter count: 0
 Output rule count: 657
 	Pruning requestDomains: from 230 to 227
-	Plain good: 615
+	Plain good: 614
 
-	Maybe good (regexes): 0
+	Maybe good (regexes): 1
 	redirect=: 4
 	removeparams= (accepted/discarded): 14/18
 	modifyHeaders=: 2
@@ -1481,8 +1489,8 @@ CSS-specific: 688 distinct filters
 CSS-declarative: 587 distinct filters
 	Combined into 67 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 272 distinct combined selectors
-	Combined into 179 distinct hostnames
+Procedural-related distinct filters: 273 distinct combined selectors
+	Combined into 180 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'isl-0':
@@ -1532,7 +1540,7 @@ Output rule count: 260
 		Rejected filter: *$webrtc,domain=13news.co.il|13tv.co.il|calcalist.co.il|globes.co.il|mako.co.il|walla.co.il|yad2.co.il|ynet.co.il
 		Incompatible with DNR: ||doubleclick.net^$xhr,redirect-rule=nooptext,domain=13news.co.il|13tv.co.il
 CSS-generic: 5 plain CSS selectors
-CSS-specific: 551 distinct filters
+CSS-specific: 557 distinct filters
 	Combined into 360 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 4 distinct filters
@@ -1544,11 +1552,11 @@ Procedural-related distinct filters: 10 distinct combined selectors
 ============================
 Listset for 'ita-0':
 	Fetched local https://easylist-downloads.adblockplus.org/easylistitaly.txt
-Input filter count: 1725
-	Accepted filter count: 1724
+Input filter count: 1727
+	Accepted filter count: 1726
 	Rejected filter count: 0
-Output rule count: 1471
-	Plain good: 1467
+Output rule count: 1472
+	Plain good: 1468
 
 	Maybe good (regexes): 4
 	redirect=: 0
@@ -1558,8 +1566,8 @@ Output rule count: 1471
 
 CSS-generic: 387 plain CSS selectors
 CSS-generic-high: 53 plain CSS selectors
-CSS-specific: 2828 distinct filters
-	Combined into 3318 distinct hostnames
+CSS-specific: 2830 distinct filters
+	Combined into 3319 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 35 distinct combined selectors
 	Combined into 34 distinct hostnames
@@ -1567,14 +1575,14 @@ Procedural-related distinct filters: 35 distinct combined selectors
 ============================
 Listset for 'jpn-1':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/7.txt
-Input filter count: 2079
-	Accepted filter count: 2079
+Input filter count: 2087
+	Accepted filter count: 2086
 	Rejected filter count: 0
-Output rule count: 1503
+Output rule count: 1507
 	Pruning requestDomains: from 177 to 176
-	Plain good: 1446
+	Plain good: 1448
 
-	Maybe good (regexes): 17
+	Maybe good (regexes): 19
 	redirect=: 26
 	removeparams= (accepted/discarded): 0/1
 	modifyHeaders=: 0
@@ -1595,13 +1603,13 @@ Output rule count: 1503
 		Rejected filter: minpo.jp##.thumbnail-list > li:is(:has(> div[id^="div-gpt-ad-"]), :has(> .ads))
 CSS-generic: 124 plain CSS selectors
 CSS-generic-high: 12 plain CSS selectors
-CSS-specific: 6326 distinct filters
-	Combined into 4294 distinct hostnames
+CSS-specific: 6329 distinct filters
+	Combined into 4292 distinct hostnames
 	Combined into 8 distinct entities
 CSS-declarative: 207 distinct filters
 	Combined into 172 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 1586 distinct combined selectors
+Procedural-related distinct filters: 1587 distinct combined selectors
 	Combined into 1209 distinct hostnames
 	Combined into 1 distinct entities
 ============================
@@ -1611,31 +1619,31 @@ Listset for 'kor-1':
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/1st_domains.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/general_elemhide.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_ELEMHIDE.txt
-	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/general_url.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/general_url.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/general_url.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/specific_URL.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/extended_css_ELEMHIDE.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/extended_css_INJECTION.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_REDIRECT.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/allowlist.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/specific_ELEMHIDE.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/extended_css_ELEMHIDE.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/extended_css_INJECTION.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/scriptlets.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/javascript.txt
-	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/allowlist.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/javascript.txt
-	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/allowlist.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/antiadblock.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/removeparam.txt
-	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_CSS.txt
-	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/specific_CSS.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/allowlist.txt
 	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_URL.txt
-Input filter count: 1416
-	Accepted filter count: 1410
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/specific_CSS.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_CSS.txt
+Input filter count: 1417
+	Accepted filter count: 1411
 	Rejected filter count: 0
-Output rule count: 1037
+Output rule count: 1038
 	Pruning requestDomains: from 319 to 314
-	Plain good: 824
+	Plain good: 825
 
 	Maybe good (regexes): 159
 	redirect=: 21
@@ -1676,10 +1684,10 @@ Output rule count: 1037
 		Rejected filter: mlbpark.donga.com#$#div[id^="SmartPhone_"][id$="_today"] .lists > li:before { padding-top: 0px !important; border-bottom: none !important; }
 CSS-generic: 12 plain CSS selectors
 CSS-generic-high: 70 plain CSS selectors
-CSS-specific: 1211 distinct filters
-	Combined into 1431 distinct hostnames
+CSS-specific: 1212 distinct filters
+	Combined into 1432 distinct hostnames
 	Combined into 11 distinct entities
-CSS-declarative: 171 distinct filters
+CSS-declarative: 170 distinct filters
 	Combined into 173 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 305 distinct combined selectors
@@ -1761,11 +1769,11 @@ CSS-declarative: 2 distinct filters
 ============================
 Listset for 'nld-0':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/8.txt
-Input filter count: 534
-	Accepted filter count: 532
+Input filter count: 535
+	Accepted filter count: 533
 	Rejected filter count: 0
-Output rule count: 462
-	Plain good: 459
+Output rule count: 463
+	Plain good: 460
 
 	Maybe good (regexes): 1
 	redirect=: 2
@@ -1775,7 +1783,7 @@ Output rule count: 462
 
 CSS-generic: 46 plain CSS selectors
 CSS-generic-high: 5 plain CSS selectors
-CSS-specific: 952 distinct filters
+CSS-specific: 953 distinct filters
 	Combined into 831 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 11 distinct filters
@@ -1788,8 +1796,8 @@ Procedural-related distinct filters: 53 distinct combined selectors
 Listset for 'nor-0':
 	Fetched local https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt
 	Fetched local https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/AntiAdblockEntries.txt
-	Fetched local https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotBrave.txt
 	Fetched local https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/AdditionalGenericEntriesForUBO.txt
+	Fetched local https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotBrave.txt
 Input filter count: 2367
 	Accepted filter count: 2367
 	Rejected filter count: 0
@@ -1892,25 +1900,25 @@ Procedural-related distinct filters: 170 distinct combined selectors
 ============================
 Listset for 'rus-0':
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/RuAdList-uBO.txt
-	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/first_level.txt
-	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/general_block.txt
-	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/general_hide.txt
-	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/popup.txt
-	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/specific_antisocial.txt
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/adservers.txt
+	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/general_block.txt
+	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/first_level.txt
+	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/specific_antisocial.txt
+	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/popup.txt
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/specific_block.txt
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/specific_special.txt
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/thirdparty.txt
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/whitelist.txt
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/css-fixes-experimental.txt
-	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/AWRL-non-sync.txt
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/js-fixes-experimental.txt
+	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/AWRL-non-sync.txt
 	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/specific_hide.txt
-Input filter count: 18746
-	Accepted filter count: 18735
+	Fetched local https://raw.githubusercontent.com/easylist/ruadlist/master/advblock/general_hide.txt
+Input filter count: 18751
+	Accepted filter count: 18740
 	Rejected filter count: 7
-Output rule count: 5857
-	Plain good: 5768
+Output rule count: 5859
+	Plain good: 5770
 
 	Maybe good (regexes): 19
 	redirect=: 17
@@ -1925,8 +1933,8 @@ Output rule count: 5857
 		Unsupported removeparam exception: 
 CSS-generic: 332 plain CSS selectors
 CSS-generic-high: 478 plain CSS selectors
-CSS-specific: 9177 distinct filters
-	Combined into 6976 distinct hostnames
+CSS-specific: 9179 distinct filters
+	Combined into 6977 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 892 distinct filters
 	Combined into 892 distinct hostnames
@@ -1984,8 +1992,8 @@ Output rule count: 898
 		Incompatible with DNR: $xmlhttprequest,redirect-rule=noop.txt,domain=suaurl.com|reidoplacar.com|suaads.com
 CSS-generic: 87 plain CSS selectors
 CSS-generic-high: 4 plain CSS selectors
-CSS-specific: 2596 distinct filters
-	Combined into 1554 distinct hostnames
+CSS-specific: 2597 distinct filters
+	Combined into 1557 distinct hostnames
 	Combined into 12 distinct entities
 CSS-declarative: 107 distinct filters
 	Combined into 162 distinct hostnames
@@ -2018,11 +2026,11 @@ Procedural-related distinct filters: 5 distinct combined selectors
 ============================
 Listset for 'swe-1':
 	Fetched local https://raw.githubusercontent.com/lassekongo83/Frellwits-filter-lists/master/Frellwits-Swedish-Filter.txt
-Input filter count: 1645
-	Accepted filter count: 1645
+Input filter count: 1648
+	Accepted filter count: 1648
 	Rejected filter count: 0
-Output rule count: 1267
-	Plain good: 1244
+Output rule count: 1271
+	Plain good: 1248
 
 	Maybe good (regexes): 1
 	redirect=: 12
@@ -2034,14 +2042,14 @@ Output rule count: 1267
 		Incompatible with DNR: ||plausible.io^$script,redirect-rule=noop.js,domain=feber.se|tjock.se
 CSS-generic: 220 plain CSS selectors
 CSS-generic-high: 46 plain CSS selectors
-CSS-specific: 728 distinct filters
-	Combined into 1266 distinct hostnames
+CSS-specific: 729 distinct filters
+	Combined into 1267 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 82 distinct filters
 	Combined into 241 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 496 distinct combined selectors
-	Combined into 422 distinct hostnames
+Procedural-related distinct filters: 498 distinct combined selectors
+	Combined into 424 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'tha-0':
@@ -2069,11 +2077,11 @@ Procedural-related distinct filters: 117 distinct combined selectors
 ============================
 Listset for 'tur-0':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/13.txt
-Input filter count: 1402
-	Accepted filter count: 1402
+Input filter count: 1405
+	Accepted filter count: 1405
 	Rejected filter count: 0
-Output rule count: 1186
-	Plain good: 1092
+Output rule count: 1199
+	Plain good: 1095
 		Salvaged rule by ignoring 3 unsupported domain= option: 1dizifilmizle.com|ajans32.com|asyadiziizle.com|balfilmizle1.com|birasyadizi.com|buyuktorbali.com|dizicaps.*|dizifast.net|dizilost.com|diziplus.*|duzcetv.com|erotikfilmtube.com|ertehaber.com|filmsezonu.com|haber32.com.tr|haberant.com|hdfilmizleamk.*|jokerfilmizle.com|kozfilm.com|malatyamegahaber.com|medya32.com|muglayenigun.com|sexfilmleriizle.com|sinemangoo.org|technopat.net|unyenethaber.com|zerotikk.com
 		Salvaged rule by ignoring 2 unsupported domain= option: 720pizle.*|diziroll.*|roketdizi.co
 		Salvaged rule by ignoring 1 unsupported domain= option: fullhdfilm.pro|fullhdfilmizle.*
@@ -2084,7 +2092,7 @@ Output rule count: 1186
 	redirect=: 20
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 0
-	Unsupported: 60
+	Unsupported: 70
 		Can't salvage rule with unsupported domain= option: dizifilmbox.*|fullhdizle.*|siyahfilmizle.*
 		Can't salvage rule with unsupported domain= option: jetfilmizle.*
 		Can't salvage rule with unsupported domain= option: fullhdfilmizlesene.*
@@ -2099,6 +2107,16 @@ Output rule count: 1186
 		Rejected filter: [$domain=/^trgoals\d+\.xyz$/]##+js(set-constant, config.adv, {})
 		Rejected filter: [$domain=/^trgoals\d+\.xyz$/]##+js(set-constant, isShow, true)
 		Rejected filter: [$domain=/^i\[a-z\]*\.strmrdr\[a-z\]+\..*/]##+js(set-constant, adscfg.enabled, false)
+		Rejected filter: [$domain=/(^\|.+\.)kuponuna\d+\.top/]##.iframe_728
+		Rejected filter: [$domain=/(^\|.+\.)kuponuna\d+\.top/]##.header_r
+		Rejected filter: [$domain=/(^\|.+\.)kuponuna\d+\.top/]##.kapat
+		Rejected filter: [$domain=/(^\|.+\.)kuponuna\d+\.top/]##.chat_over_reklam
+		Rejected filter: [$domain=/(^\|.+\.)kuponuna\d+\.top/]##.full_bg
+		Rejected filter: [$domain=/(^\|.+\.)kuponuna\d+\.top/]###xbetpu
+		Rejected filter: [$domain=/(^\|.+\.)kuponuna\d+\.top/]##.w100p
+		Rejected filter: [$domain=/(^\|.+\.)kuponuna\d+\.top/]##div#stream_holder > iframe#video_reklam
+		Rejected filter: [$domain=/(^\|.+\.)kuponuna\d+\.top/]##div[class="clearfix mt10"]
+		Rejected filter: [$domain=/(^\|.+\.)kuponuna\d+\.top/]##div[class^="r_"]
 		Rejected filter: [$domain=/dizipal\d+.com/]###mPlayerFds
 		Rejected filter: [$domain=/dizipal\d+.com/]##.alert
 		Rejected filter: [$domain=/dizipal\d+.com/]##a[target="_blank"][rel="nofollow"]
@@ -2147,8 +2165,8 @@ Output rule count: 1186
 		Rejected filter: [$domain=/^trgoals\d+\.xyz$/]##.contentReklam
 CSS-generic: 159 plain CSS selectors
 CSS-generic-high: 58 plain CSS selectors
-CSS-specific: 2814 distinct filters
-	Combined into 2618 distinct hostnames
+CSS-specific: 2815 distinct filters
+	Combined into 2629 distinct hostnames
 	Combined into 41 distinct entities
 CSS-declarative: 159 distinct filters
 	Combined into 266 distinct hostnames
@@ -2159,8 +2177,8 @@ Procedural-related distinct filters: 175 distinct combined selectors
 ============================
 Listset for 'vie-1':
 	Fetched local https://raw.githubusercontent.com/abpvn/abpvn/master/filter/abpvn_ublock.txt
-Input filter count: 506
-	Accepted filter count: 506
+Input filter count: 505
+	Accepted filter count: 505
 	Rejected filter count: 0
 Output rule count: 348
 	Plain good: 336
@@ -2171,10 +2189,10 @@ Output rule count: 348
 	modifyHeaders=: 9
 	Unsupported: 0
 
-CSS-generic: 14 plain CSS selectors
+CSS-generic: 15 plain CSS selectors
 CSS-generic-high: 5 plain CSS selectors
-CSS-specific: 818 distinct filters
-	Combined into 510 distinct hostnames
+CSS-specific: 819 distinct filters
+	Combined into 506 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 5 distinct filters
 	Combined into 8 distinct hostnames
@@ -2216,15 +2234,15 @@ Output rule count: 1
 ============================
 Listset for 'adguard-spyware-url':
 	Fetched local https://filters.adtidy.org/extension/ublock/filters/17.txt
-Input filter count: 1706
-	Accepted filter count: 1699
+Input filter count: 1708
+	Accepted filter count: 1701
 	Rejected filter count: 0
-Output rule count: 608
+Output rule count: 609
 	Plain good: 0
 
 	Maybe good (regexes): 0
 	redirect=: 0
-	removeparams= (accepted/discarded): 514/94
+	removeparams= (accepted/discarded): 515/94
 	modifyHeaders=: 0
 	Unsupported: 94
 		Unsupported regex-based removeParam: /^at_custom/
@@ -2340,13 +2358,13 @@ Output rule count: 1621
 	modifyHeaders=: 0
 	Unsupported: 1
 		Incompatible with DNR: ||clickio.mgr.consensu.org^$script,redirect-rule=noop.js,domain=mdn.lol
-CSS-generic: 16912 plain CSS selectors
+CSS-generic: 16911 plain CSS selectors
 CSS-generic-high: 349 plain CSS selectors
-CSS-specific: 6211 distinct filters
-	Combined into 18107 distinct hostnames
+CSS-specific: 6213 distinct filters
+	Combined into 18112 distinct hostnames
 	Combined into 3 distinct entities
 CSS-declarative: 81 distinct filters
-	Combined into 5533 distinct hostnames
+	Combined into 5535 distinct hostnames
 	Combined into 3 distinct entities
 Procedural-related distinct filters: 40 distinct combined selectors
 	Combined into 51 distinct hostnames
@@ -2404,8 +2422,8 @@ Output rule count: 333
 		Incompatible with DNR: ||a.pub.network/fancaps-net/pubfig.min.js$script,redirect-rule=noopjs,domain=fancaps.net
 CSS-generic: 1266 plain CSS selectors
 CSS-generic-high: 17 plain CSS selectors
-CSS-specific: 3292 distinct filters
-	Combined into 4559 distinct hostnames
+CSS-specific: 3293 distinct filters
+	Combined into 4560 distinct hostnames
 	Combined into 8 distinct entities
 CSS-declarative: 208 distinct filters
 	Combined into 1015 distinct hostnames
@@ -2476,7 +2494,7 @@ Output rule count: 408
 	modifyHeaders=: 0
 	Unsupported: 0
 
-CSS-generic: 774 plain CSS selectors
+CSS-generic: 775 plain CSS selectors
 CSS-generic-high: 19 plain CSS selectors
 CSS-specific: 1903 distinct filters
 	Combined into 2386 distinct hostnames
@@ -2490,11 +2508,11 @@ Procedural-related distinct filters: 21 distinct combined selectors
 ============================
 Listset for 'stevenblack-hosts':
 	Fetched local https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-Input filter count: 114742
-	Accepted filter count: 114742
+Input filter count: 113640
+	Accepted filter count: 113640
 	Rejected filter count: 0
 Output rule count: 2
-	Pruning requestDomains: from 114742 to 61304
+	Pruning requestDomains: from 113640 to 60250
 	Plain good: 1
 
 	Maybe good (regexes): 0

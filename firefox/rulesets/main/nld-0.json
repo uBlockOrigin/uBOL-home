@@ -450,6 +450,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||vinatera.be/wp-content/uploads/*_300x600."},"id":449,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||files.skoften.net/website/lib/vjs/plugins/ads/videojs.ads.min.js"},"id":450,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","requestDomains":["kpn.com"]},"id":451,"priority":20},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["npo.nl"],"requestDomains":["wertuipsertj34.azurewebsites.net"],"resourceTypes":["xmlhttprequest"]},"id":452},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"://promotie."},"id":474},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||jobat.be/extra/trackuityhn/ticker_new.html"},"id":478},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||strafrechtadvocaten.nl/media/banner/"},"id":479},

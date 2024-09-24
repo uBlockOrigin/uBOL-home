@@ -40,9 +40,9 @@ const uBOL_setLocalStorageItem = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["tls_newsletter_visibility","true"],["emailLightBox","true"],["rl","$remove$"],["hide-cookbook-modal-0","true"],["nbaSIBWidgetSeen","true"],["show-email-intake-form","false"],["hasShownPopup","true"],["modalViewed","1"],["signUpModalClosed_slot-paulaschoice_us-global-signUpModal-sfmcModal","1"],["rprw","$remove$"],["social-qa/machineId","$remove$"],["simple-funnel-name","$remove$"],["WkdGcGJIbEpiV0ZuWlVSaGRHRT0=","$remove$"],["ad_blocker","false"]];
+const argsList = [["tls_newsletter_visibility","true"],["emailLightBox","true"],["rl","$remove$"],["hide-cookbook-modal-0","true"],["nbaSIBWidgetSeen","true"],["show-email-intake-form","false"],["hasShownPopup","true"],["modalViewed","1"],["signUpModalClosed_slot-paulaschoice_us-global-signUpModal-sfmcModal","1"],["rprw","$remove$"],["social-qa/machineId","$remove$"],["simple-funnel-name","$remove$"],["WkdGcGJIbEpiV0ZuWlVSaGRHRT0=","$remove$"],["ad_blocker","false"],["adblockNoticePermaDismiss","true"]];
 
-const hostnamesMap = new Map([["the-tls.co.uk",0],["duluthtrading.com",1],["themonthly.com.au",2],["thesaturdaypaper.com.au",2],["tastemade.com",3],["clutchpoints.com",4],["core.app",5],["interestingengineering.com",6],["urbanoutfitters.com",7],["paulaschoice.com",8],["realpython.com",9],["www.watermarkremover.io",12],["scenexe.io",13]]);
+const hostnamesMap = new Map([["the-tls.co.uk",0],["duluthtrading.com",1],["themonthly.com.au",2],["thesaturdaypaper.com.au",2],["tastemade.com",3],["clutchpoints.com",4],["core.app",5],["interestingengineering.com",6],["urbanoutfitters.com",7],["paulaschoice.com",8],["realpython.com",9],["www.watermarkremover.io",12],["scenexe.io",13],["camspider.com",14]]);
 
 const entitiesMap = new Map([["brainly",[10,11]]]);
 

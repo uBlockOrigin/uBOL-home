@@ -457,5 +457,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["flirtmee.nl"],"resourceTypes":["sub_frame"],"urlFilter":"||tools.vpscash.nl/datingv3/docs/plug_and_play/"},"id":456,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||vinatera.be/wp-content/uploads/*_300x600."},"id":457,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||files.skoften.net/website/lib/vjs/plugins/ads/videojs.ads.min.js"},"id":458,"priority":20},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","requestDomains":["kpn.com"]},"id":459,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","requestDomains":["kpn.com"]},"id":459,"priority":20},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["npo.nl"],"requestDomains":["wertuipsertj34.azurewebsites.net"],"resourceTypes":["xmlhttprequest"]},"id":460}
 ]

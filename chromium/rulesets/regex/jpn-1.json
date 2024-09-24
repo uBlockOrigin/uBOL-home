@@ -15,5 +15,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["goonews.jp"],"regexFilter":"\\/right\\/(?:[a-z]+([a-z_]+\\d{2})?|[0-9a-z_-]*(?:bnr|banner)[0-9a-z-_]*)\\.(?:gif|jpg|png)$","resourceTypes":["image"]},"id":14},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["logistics.jp"],"isUrlFilterCaseSensitive":true,"regexFilter":"dcms_media\\/image\\/(?:bownow|[%_0-9A-Z]{30,})\\.(?:png|jpg)$","resourceTypes":["image"]},"id":15},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["anime365.net"],"regexFilter":"\\/js\\/(?:anime|comic|doujin|game)Ranking","resourceTypes":["xmlhttprequest"]},"id":16},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["2jigiri.net","pig109.net"],"regexFilter":"\\.net\\/[-a-z]{2,6}0\\d{2}\\.html$","resourceTypes":["sub_frame"]},"id":17}
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["2jigiri.net","pig109.net"],"regexFilter":"\\.net\\/[-a-z]{2,6}0\\d{2}\\.html$","resourceTypes":["sub_frame"]},"id":17},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]{4,8}\\.[a-z]{7,10}\\.shop\\/product\\/\\d{4,7}$","resourceTypes":["main_frame"]},"id":18},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]{6,8}\\.com\\/item-[0-9a-z]{10}\\.html$","resourceTypes":["main_frame"]},"id":19}
 ]
