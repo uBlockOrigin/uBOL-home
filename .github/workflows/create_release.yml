@@ -48,17 +48,6 @@ jobs:
           rm -rf chromium
           mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
           cp "$UBLOCK_REPO_DIR/dist/build/mv3-data/log.txt" chromium/
-      # Firefox
-      - name: Build Firefox uBOLite MV3 packages
-        run: |
-          UBOL_REPO_DIR=$(pwd)
-          cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh firefox ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
-          echo "FIREFOX_PACKAGE=${{ env.TAGNAME }}.firefox.mv3.xpi" >> $GITHUB_ENV
-          cd - > /dev/null
-          rm -rf firefox
-          mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.firefox" firefox
-          cp "$UBLOCK_REPO_DIR/dist/build/mv3-data/log.txt" firefox/
       # Edge
       - name: Build Edge uBOLite MV3 packages
         run: |
@@ -97,13 +86,11 @@ jobs:
             
             - Chromium-based browsers: Install [from the Chrome Web Store](https://chrome.google.com/webstore/detail/ddkjiahejlhfcafbddmgiahcphecmpfh)
             - Microsoft Edge: Install [from the Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn)
-            - Firefox: Click [${{ env.TAGNAME }}.firefox.signed.mv3.xpi](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.firefox.signed.mv3.xpi)
               This is a self-hosted version as uBO Lite is no longer available on AMO, see <https://github.com/uBlockOrigin/uBOL-home/issues/197>. The extension will auto-update when a new version is published.
             
             <details><summary>Manual installation</summary>
             
             - Chromium: Download the [${{ env.TAGNAME }}.chromium.mv3.zip](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.chromium.mv3.zip) package below, unzip, navigate to `chrome://extensions/` in your browser, then [tell the browser to load the extension](https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outside-the-chrome-web-store/24577660#24577660). You will have to update the extension manually.
-            - Firefox: Click [${{ env.TAGNAME }}.firefox.signed.mv3.xpi](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.firefox.signed.mv3.xpi)
             
             </details>
       - name: Upload Chromium uBOLite MV3 package
@@ -113,13 +100,6 @@ jobs:
         with:
           tag_name: ${{ env.TAGNAME }}
           files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
-      - name: Upload Firefox uBOLite MV3 package
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ env.TAGNAME }}
-          files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.FIREFOX_PACKAGE }}
       - name: Upload Edge uBOLite MV3 package
         uses: softprops/action-gh-release@v1
         env:
