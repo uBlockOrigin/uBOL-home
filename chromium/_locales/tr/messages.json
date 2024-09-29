@@ -31,6 +31,10 @@
     "message": "Filtreleme modu",
     "description": "Label in the popup panel for the current filtering mode"
   },
+  "popupTipReport": {
+    "message": "Bu sitedeki bir sorunu bildir",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
   "popupTipDashboard": {
     "message": "Kontrol panelini aç",
     "description": "English: Click to open the dashboard"
@@ -98,6 +102,70 @@
   "aboutDependencies": {
     "message": "Dış bağlılıklar (GPLv3-uyumlu):",
     "description": "Shown in the About pane"
+  },
+  "supportS6H": {
+    "message": "Bir filtre sorununu bildir",
+    "description": "Header of 'Report a filter issue' section in Support pane"
+  },
+  "supportS3P1": {
+    "message": "Bir sitedeki filtre sorunlarını bildirmek için <span data-url=\"https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue\"><code>uBlockOrigin/uAssets</code> issue tracker</span> kullanın. <u>Bir GitHub hesabı gerekir.</u>",
+    "description": "First paragraph of 'Filter issues' section in Support pane"
+  },
+  "supportS6P1S1": {
+    "message": "Gönüllüleri benzer raporlar ile bezdirmemek için sorunun zaten bildirilip bildirilmediğine bakın.",
+    "description": "A paragraph in the filter issue reporter section"
+  },
+  "supportFindSpecificButton": {
+    "message": "Benzer raporları bul",
+    "description": "A clickable link in the filter issue reporter section"
+  },
+  "supportS6URL": {
+    "message": "Web sayfasının adresi:",
+    "description": "Label for the URL of the page"
+  },
+  "supportS6Select1": {
+    "message": "Web sayfası…",
+    "description": "Label for widget to select type of issue"
+  },
+  "supportS6Select1Option0": {
+    "message": "-- Bir girdi seçin --",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option1": {
+    "message": "Reklamlar veya reklam artıkları gösteriyor",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option2": {
+    "message": "Arayüzde kaplamalar veya diğer sıkıntıları var",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option3": {
+    "message": "uBO Lite tespit ediliyor",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option4": {
+    "message": "Gizlilikle ilgili sorunları var",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option5": {
+    "message": "uBO Lite kullanımdayken sayfa bozuluyor ",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option6": {
+    "message": "İstenmeyen sekme veya pencereler açıyor",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "Kötü niyetli yazılıma yönlendiriyor, oltalama",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Checkbox1": {
+    "message": "Sayfayı “NSFW” (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">“iş için güvenli değil”</a>) olarak işaretle",
+    "description": "A checkbox to use for NSFW sites"
+  },
+  "supportReportSpecificButton": {
+    "message": "Yeni rapor oluştur",
+    "description": "Text for button which open an external webpage in Support pane"
   },
   "firstRunSectionLabel": {
     "message": "Hoş geldiniz",

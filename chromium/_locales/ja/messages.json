@@ -31,6 +31,10 @@
     "message": "フィルタリングモード",
     "description": "Label in the popup panel for the current filtering mode"
   },
+  "popupTipReport": {
+    "message": "このサイト上での問題を報告",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
   "popupTipDashboard": {
     "message": "ダッシュボードを開く",
     "description": "English: Click to open the dashboard"
@@ -98,6 +102,70 @@
   "aboutDependencies": {
     "message": "外部依存関係 (GPLv3 互換):",
     "description": "Shown in the About pane"
+  },
+  "supportS6H": {
+    "message": "フィルターの問題を報告する",
+    "description": "Header of 'Report a filter issue' section in Support pane"
+  },
+  "supportS3P1": {
+    "message": "<span data-url=\"https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue\"><code>uBlockOrigin/uAssets</code> issue tracker</span> で特定のウェブサイトでのフィルターの問題を報告します。<u>GitHub アカウントが必要です</u>",
+    "description": "First paragraph of 'Filter issues' section in Support pane"
+  },
+  "supportS6P1S1": {
+    "message": "重複した報告によってボランティアに負担をかけないように、問題がすでに報告されていないか確認してください。",
+    "description": "A paragraph in the filter issue reporter section"
+  },
+  "supportFindSpecificButton": {
+    "message": "似た報告を探す",
+    "description": "A clickable link in the filter issue reporter section"
+  },
+  "supportS6URL": {
+    "message": "ウェブページのアドレス:",
+    "description": "Label for the URL of the page"
+  },
+  "supportS6Select1": {
+    "message": "ウェブページ…",
+    "description": "Label for widget to select type of issue"
+  },
+  "supportS6Select1Option0": {
+    "message": "-- エントリーを選択 --",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option1": {
+    "message": "広告または消し残りが表示される",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option2": {
+    "message": "オーバーレイなど邪魔なものがある",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option3": {
+    "message": "uBO Lite が検出される",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option4": {
+    "message": "プライバシーに関連する問題がある",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option5": {
+    "message": "uBO Lite 有効時に機能しなくなる",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option6": {
+    "message": "勝手にタブやウィンドウが開く",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "悪質ソフトやフィッシングへの誘導",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Checkbox1": {
+    "message": "ウェブページを “NSFW” (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">“Not Safe For Work”</a>) としてラベル付け",
+    "description": "A checkbox to use for NSFW sites"
+  },
+  "supportReportSpecificButton": {
+    "message": "新しい報告を作成",
+    "description": "Text for button which open an external webpage in Support pane"
   },
   "firstRunSectionLabel": {
     "message": "ようこそ",

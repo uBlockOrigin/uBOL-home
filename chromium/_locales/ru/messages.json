@@ -31,6 +31,10 @@
     "message": "режим фильтрации",
     "description": "Label in the popup panel for the current filtering mode"
   },
+  "popupTipReport": {
+    "message": "Сообщить о проблеме на этом сайте",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
   "popupTipDashboard": {
     "message": "Открыть панель управления",
     "description": "English: Click to open the dashboard"
@@ -98,6 +102,70 @@
   "aboutDependencies": {
     "message": "Внешние зависимости (совместимые с GPLv3):",
     "description": "Shown in the About pane"
+  },
+  "supportS6H": {
+    "message": "Сообщить о проблеме в фильтре",
+    "description": "Header of 'Report a filter issue' section in Support pane"
+  },
+  "supportS3P1": {
+    "message": "Сообщайте о проблемах с фильтрами на определённых сайтах в <span data-url=\"https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue\">трекер ошибок <code>uBlockOrigin/uAssets</code></span>. <u>Требуется учётная запись в GitHub.</u>",
+    "description": "First paragraph of 'Filter issues' section in Support pane"
+  },
+  "supportS6P1S1": {
+    "message": "Чтобы не обременять волонтеров повторяющимися отчетами, пожалуйста, убедитесь, что о данной проблеме еще не сообщали.",
+    "description": "A paragraph in the filter issue reporter section"
+  },
+  "supportFindSpecificButton": {
+    "message": "Найти похожие отчеты",
+    "description": "A clickable link in the filter issue reporter section"
+  },
+  "supportS6URL": {
+    "message": "Адрес веб-страницы:",
+    "description": "Label for the URL of the page"
+  },
+  "supportS6Select1": {
+    "message": "Веб-страница…",
+    "description": "Label for widget to select type of issue"
+  },
+  "supportS6Select1Option0": {
+    "message": "-- Выберите категорию --",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option1": {
+    "message": "Показывается реклама или ее заполнители",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option2": {
+    "message": "Всплывающие окна или другие помехи",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option3": {
+    "message": "Обнаруживается uBO Lite",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option4": {
+    "message": "Проблемы, связанные с приватностью",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option5": {
+    "message": "Неполадки при работе uBO Lite",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option6": {
+    "message": "Открываются нежелательные вкладки или окна",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "Вредоносное ПО, фишинг",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Checkbox1": {
+    "message": "Пометить эту страницу «небезопасной для просмотра на работе» (<a href=\"https://ru.wikipedia.org/wiki/NSFW\">«NSFW»</a>)",
+    "description": "A checkbox to use for NSFW sites"
+  },
+  "supportReportSpecificButton": {
+    "message": "Создать новый отчет",
+    "description": "Text for button which open an external webpage in Support pane"
   },
   "firstRunSectionLabel": {
     "message": "Добро пожаловать",

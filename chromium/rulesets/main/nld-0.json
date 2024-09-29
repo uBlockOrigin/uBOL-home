@@ -408,7 +408,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["vi.nl"],"urlFilter":"||ads.nextday.media/prebid/jw-video/7.43.0.min.js"},"id":407,"priority":20},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||stepstone.be/*?event=widgettool."},"id":408},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||strafrechtadvocaten.nl/media/banner/"},"id":409},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["dailybuzz.nl","skoften.net","sportnieuws.nl","vtm.be","weerplaza.nl"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":410,"priority":20},
+{"action":{"type":"block"},"condition":{"requestDomains":["wertuipsertj34.azurewebsites.net"],"resourceTypes":["xmlhttprequest"]},"id":410},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["spelletjes.nl"],"urlFilter":"||improvedigital.com/pbw/headerlift.min.js"},"id":411,"priority":20},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||showmodeluitverkoop.nl/upload/advertentie/"},"id":412,"priority":20},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||sliedrecht24.nl/wp-content/uploads/2022/02/banner-300x250-1.jpg.webp"},"id":413,"priority":20},
@@ -457,5 +457,8 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["flirtmee.nl"],"resourceTypes":["sub_frame"],"urlFilter":"||tools.vpscash.nl/datingv3/docs/plug_and_play/"},"id":456,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||vinatera.be/wp-content/uploads/*_300x600."},"id":457,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||files.skoften.net/website/lib/vjs/plugins/ads/videojs.ads.min.js"},"id":458,"priority":20},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","requestDomains":["kpn.com"]},"id":459,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","requestDomains":["kpn.com"]},"id":459,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["crime-nieuws.nl","dailybuzz.nl","skoften.net","sportnieuws.nl","vtm.be","weerplaza.nl"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":460,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["crime-nieuws.nl"],"resourceTypes":["script"],"urlFilter":"||ads.viralize.tv/display/?zid="},"id":461,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["crime-nieuws.nl"],"resourceTypes":["script"],"urlFilter":"||monetize-static.viralize.tv/viralize_player_content."},"id":462,"priority":20}
 ]

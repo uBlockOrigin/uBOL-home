@@ -31,6 +31,10 @@
     "message": "Način filtriranja",
     "description": "Label in the popup panel for the current filtering mode"
   },
+  "popupTipReport": {
+    "message": "Prijavite problem na ovoj web stranici",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
   "popupTipDashboard": {
     "message": "Otvori nadzornu ploču",
     "description": "English: Click to open the dashboard"
@@ -98,6 +102,70 @@
   "aboutDependencies": {
     "message": "Vanjski korišteni programi (GPLv3-kompatiblini):",
     "description": "Shown in the About pane"
+  },
+  "supportS6H": {
+    "message": "Prijavi problem sa filterom",
+    "description": "Header of 'Report a filter issue' section in Support pane"
+  },
+  "supportS3P1": {
+    "message": "Prijavite probleme s filtrima s određenim web-lokacijama <span data-url=\"https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue\"><code>uBlockOrigin/uAssets</code> alatu za praćenje problema</span>. <u>Potreban je GitHub račun.</u>",
+    "description": "First paragraph of 'Filter issues' section in Support pane"
+  },
+  "supportS6P1S1": {
+    "message": "Kako biste izbjegli opterećivanje volontera duplim prijavama, provjerite nije li problem već prijavljen.",
+    "description": "A paragraph in the filter issue reporter section"
+  },
+  "supportFindSpecificButton": {
+    "message": "Nađi slične prijave",
+    "description": "A clickable link in the filter issue reporter section"
+  },
+  "supportS6URL": {
+    "message": "Adresa web stranice:",
+    "description": "Label for the URL of the page"
+  },
+  "supportS6Select1": {
+    "message": "Web stranica...",
+    "description": "Label for widget to select type of issue"
+  },
+  "supportS6Select1Option0": {
+    "message": "-- Odaberite unos --",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option1": {
+    "message": "Prikazuje oglase ili ostatke oglasa",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option2": {
+    "message": "Ima overlaye ili druge smetnje",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option3": {
+    "message": "Otkriva uBO Lite",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option4": {
+    "message": "Ima problema u vezi s privatnošću",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option5": {
+    "message": "Neispravno kada je uBO Lite omogućen",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option6": {
+    "message": "Otvara neželjene kartice ili prozore",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "Vodi do zloćudnog softvera, krađe identiteta",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Checkbox1": {
+    "message": "Označite web stranicu kao “NSFW” (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">“Nije sigurno za rad”</a>)",
+    "description": "A checkbox to use for NSFW sites"
+  },
+  "supportReportSpecificButton": {
+    "message": "Napravi novu prijavu",
+    "description": "Text for button which open an external webpage in Support pane"
   },
   "firstRunSectionLabel": {
     "message": "Dobrodošli",

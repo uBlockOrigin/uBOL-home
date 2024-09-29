@@ -31,6 +31,10 @@
     "message": "מצב מסנן",
     "description": "Label in the popup panel for the current filtering mode"
   },
+  "popupTipReport": {
+    "message": "דווח על בעיה באתר זה",
+    "description": "Tooltip used for the 'chat' icon in the panel"
+  },
   "popupTipDashboard": {
     "message": "פתיחת לוח־המחוונים",
     "description": "English: Click to open the dashboard"
@@ -98,6 +102,70 @@
   "aboutDependencies": {
     "message": "תלויות חיצוניות (תואם GPLv3):",
     "description": "Shown in the About pane"
+  },
+  "supportS6H": {
+    "message": "דיווח על בעיית מסנן",
+    "description": "Header of 'Report a filter issue' section in Support pane"
+  },
+  "supportS3P1": {
+    "message": "לדיווח על בעיות באתרים ספציפים יש לפתוח דיווח חדש <span data-url=\"https://github.com/uBlockOrigin/uAssets/issues?q=is%3Aissue\">במעקב הדיווחים של <code>uBlockOrigin/uAssets</code>. <u>נדרש חשבון ב GitHub.</u>",
+    "description": "First paragraph of 'Filter issues' section in Support pane"
+  },
+  "supportS6P1S1": {
+    "message": "כדי להימנע מהכבדה על מתנדבים בדווחים כפולים, נא לודא שבעיה דומה טרם דווחה.",
+    "description": "A paragraph in the filter issue reporter section"
+  },
+  "supportFindSpecificButton": {
+    "message": "מצאו דיווחים דומים",
+    "description": "A clickable link in the filter issue reporter section"
+  },
+  "supportS6URL": {
+    "message": "כתובת דף האינטרנט:",
+    "description": "Label for the URL of the page"
+  },
+  "supportS6Select1": {
+    "message": "דף האינטרנט…",
+    "description": "Label for widget to select type of issue"
+  },
+  "supportS6Select1Option0": {
+    "message": "-- בחר קטגוריה --",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option1": {
+    "message": "הצגת פרסומות או שאריות שלהן",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option2": {
+    "message": "קיים ריבוד או מטרד אחר",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option3": {
+    "message": "מזהה את uBO Lite",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option4": {
+    "message": "בעיות הקשורות לפרטיות",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option5": {
+    "message": "כשל תפעולי כאשר uBO Lite פעיל",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option6": {
+    "message": "נפתחים לשוניות או חלונות לא רצויים",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Select1Option7": {
+    "message": "מוביל לנוזקה, פישינג",
+    "description": "An entry in the widget used to select the type of issue"
+  },
+  "supportS6Checkbox1": {
+    "message": "תייג את הדף כ \"NSFW\" (<a href=\"https://he.wikipedia.org/wiki/NSFW\">“Not Safe For Work” - לא בטוח למקום העבודה</a>)",
+    "description": "A checkbox to use for NSFW sites"
+  },
+  "supportReportSpecificButton": {
+    "message": "צור דיווח חדש",
+    "description": "Text for button which open an external webpage in Support pane"
   },
   "firstRunSectionLabel": {
     "message": "ברוך בואך",
