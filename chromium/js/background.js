@@ -428,7 +428,7 @@ async function start() {
 }
 
 // https://github.com/uBlockOrigin/uBOL-home/issues/199
-// Force a restart of the extension once when an "internal error" occurs
+// Force a restart of the extension once when an "internal error" occurs 
 start().then(( ) => {
     localWrite({ goodStart: true });
 }).catch(reason => {
@@ -440,3 +440,14 @@ start().then(( ) => {
         });
     });
 });
+//more patches for static rulesets // https://github.com/uBlockOrigin/uBOL-home/issues/199
+chrome.declarativeNetRequest.getEnabledRulesets((rulesets) => {
+  if (rulesets.length > 0) {
+    console.log('Enabled rulesets found:', rulesets);
+  } else {
+    console.log('No enabled rulesets found. Reloading extension...');
+    chrome.runtime.reload();
+  }
+});
+
+///
