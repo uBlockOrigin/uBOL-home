@@ -60,15 +60,7 @@ All uBO Lite-related issues (including filter-related ones) [go here](https://gi
 
 ## Admin policies
 
-uBOL exposes settings to be defined by administrators through [managed storage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/managed):
-
-#### `noFiltering`
-
-An array of hostnames (string) for which no filtering will occur.
-
-#### `disableFirstRunPage`
-
-A boolean which if set to `true` will prevent uBOL's first-run page to be opened.
+uBOL exposes settings to be defined by administrators through [managed storage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/managed), see [Managed settings](https://github.com/uBlockOrigin/uBOL-home/wiki/Managed-settings)
 
 ## Frequently asked questions (FAQ)
 
