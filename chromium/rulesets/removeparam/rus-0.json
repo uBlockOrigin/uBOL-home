@@ -1,5 +1,5 @@
 [
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["js_api"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mail.ru"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||vk.com/video_ext.php?*autoplay=1"},"id":1},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["js_api"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mail.ru","sportmail.ru"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||vk.com/video_ext.php?*autoplay=1"},"id":1},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["geoblock"]}}},"type":"redirect"},"condition":{"regexFilter":"(aniqit|kodik).","resourceTypes":["sub_frame"]},"id":2},
 {"action":{"redirect":{"transform":{"query":""}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||1plus1.video/*/embed/*autoplay=1"},"id":3},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["autoplay"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||cosmonova-broadcast.tv/player?autoplay="},"id":4},

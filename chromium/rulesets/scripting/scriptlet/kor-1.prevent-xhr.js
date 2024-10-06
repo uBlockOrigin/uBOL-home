@@ -23,7 +23,7 @@
 /* eslint-disable indent */
 /* global cloneInto */
 
-// ruleset: nld-0
+// ruleset: kor-1
 
 /******************************************************************************/
 
@@ -36,13 +36,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_noFetchIf = function() {
+const uBOL_preventXhr = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["securepubads.g.doubleclick.net"],["v.fwmrm.net"],["/a[ab]\\.tweakers\\.nl/"],["pubads.g.doubleclick.net/gampad/ads"]];
+const argsList = [["api/avods/v1/advertisement"],["/^https.\\/\\/videoads\\.kakao\\.com\\/adserver\\/api\\/v[0-9]{1","2}\\/vmap$/"],["imasdk.googleapis.com/js/sdkloader/ima3.js"],["pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"],["adsbygoogle"],["/compass.adop.cc|adsbygoogle/"]];
 
-const hostnamesMap = new Map([["filmvandaag.nl",0],["vtmgo.be",1],["tweakers.net",2],["goplay.be",3]]);
+const hostnamesMap = new Map([["laftel.net",0],["tv.kakao.com",1],["play-tv.kakao.com",1],["kakaotv.daum.net",1],["spotvnow.co.kr",[2,3]],["noonnu.cc",3],["luckyquiz3.blogspot.com",4],["3dpchip.com",5]]);
 
 const entitiesMap = new Map([]);
 
@@ -50,103 +50,183 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function noFetchIf(
+function preventXhr(...args) {
+    return preventXhrFn(false, ...args);
+}
+
+function preventXhrFn(
+    trusted = false,
     propsToMatch = '',
-    responseBody = '',
-    responseType = ''
+    directive = ''
 ) {
+    if ( typeof propsToMatch !== 'string' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('prevent-fetch', propsToMatch, responseBody, responseType);
-    const needles = [];
-    for ( const condition of propsToMatch.split(/\s+/) ) {
-        if ( condition === '' ) { continue; }
-        const pos = condition.indexOf(':');
-        let key, value;
-        if ( pos !== -1 ) {
-            key = condition.slice(0, pos);
-            value = condition.slice(pos + 1);
-        } else {
-            key = 'url';
-            value = condition;
-        }
-        needles.push({ key, pattern: safe.initPattern(value, { canNegate: true }) });
-    }
-    const validResponseProps = {
-        ok: [ false, true ],
-        statusText: [ '', 'Not Found' ],
-        type: [ 'basic', 'cors', 'default', 'error', 'opaque' ],
-    };
-    const responseProps = {
-        statusText: { value: 'OK' },
-    };
-    if ( /^\{.*\}$/.test(responseType) ) {
+    const scriptletName = trusted ? 'trusted-prevent-xhr' : 'prevent-xhr';
+    const logPrefix = safe.makeLogPrefix(scriptletName, propsToMatch, directive);
+    const xhrInstances = new WeakMap();
+    const propNeedles = parsePropertiesToMatch(propsToMatch, 'url');
+    const warOrigin = scriptletGlobals.warOrigin;
+    const safeDispatchEvent = (xhr, type) => {
         try {
-            Object.entries(JSON.parse(responseType)).forEach(([ p, v ]) => {
-                if ( validResponseProps[p] === undefined ) { return; }
-                if ( validResponseProps[p].includes(v) === false ) { return; }
-                responseProps[p] = { value: v };
+            xhr.dispatchEvent(new Event(type));
+        } catch(_) {
+        }
+    };
+    const XHRBefore = XMLHttpRequest.prototype;
+    self.XMLHttpRequest = class extends self.XMLHttpRequest {
+        open(method, url, defer, ...args) {
+            xhrInstances.delete(this);
+            if ( warOrigin !== undefined && url.startsWith(warOrigin) ) {
+                return super.open(method, url, defer, ...args);
+            }
+            const haystack = { method, url };
+            if ( propsToMatch === '' && directive === '' ) {
+                safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(haystack, null, 2)}`);
+                return super.open(method, url, defer, ...args);
+            }
+            if ( matchObjectProperties(propNeedles, haystack) ) {
+                const xhrDetails = Object.assign(haystack, {
+                    xhr: this,
+                    defer,
+                    directive,
+                    headers: {
+                        'date': '',
+                        'content-type': '',
+                        'content-length': '',
+                    },
+                    props: {
+                        response: { value: '' },
+                        responseText: { value: '' },
+                        responseXML: { value: null },
+                        responseURL: { value: haystack.url },
+                    },
+                });
+                xhrInstances.set(this, xhrDetails);
+            }
+            return super.open(method, url, defer, ...args);
+        }
+        send(...args) {
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined ) {
+                return super.send(...args);
+            }
+            xhrDetails.headers['date'] = (new Date()).toUTCString();
+            let xhrText = '';
+            switch ( this.responseType ) {
+            case 'arraybuffer':
+                xhrDetails.props.response.value = new ArrayBuffer(0);
+                xhrDetails.headers['content-type'] = 'application/octet-stream';
+                break;
+            case 'blob':
+                xhrDetails.props.response.value = new Blob([]);
+                xhrDetails.headers['content-type'] = 'application/octet-stream';
+                break;
+            case 'document': {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString('', 'text/html');
+                xhrDetails.props.response.value = doc;
+                xhrDetails.props.responseXML.value = doc;
+                xhrDetails.headers['content-type'] = 'text/html';
+                break;
+            }
+            case 'json':
+                xhrDetails.props.response.value = {};
+                xhrDetails.props.responseText.value = '{}';
+                xhrDetails.headers['content-type'] = 'application/json';
+                break;
+            default: {
+                if ( directive === '' ) { break; }
+                xhrText = generateContentFn(trusted, xhrDetails.directive);
+                if ( xhrText instanceof Promise ) {
+                    xhrText = xhrText.then(text => {
+                        xhrDetails.props.response.value = text;
+                        xhrDetails.props.responseText.value = text;
+                    });
+                } else {
+                    xhrDetails.props.response.value = xhrText;
+                    xhrDetails.props.responseText.value = xhrText;
+                }
+                xhrDetails.headers['content-type'] = 'text/plain';
+                break;
+            }
+            }
+            if ( xhrDetails.defer === false ) {
+                xhrDetails.headers['content-length'] = `${xhrDetails.props.response.value}`.length;
+                Object.defineProperties(xhrDetails.xhr, {
+                    readyState: { value: 4 },
+                    status: { value: 200 },
+                    statusText: { value: 'OK' },
+                });
+                Object.defineProperties(xhrDetails.xhr, xhrDetails.props);
+                return;
+            }
+            Promise.resolve(xhrText).then(( ) => xhrDetails).then(details => {
+                Object.defineProperties(details.xhr, {
+                    readyState: { value: 1, configurable: true },
+                });
+                safeDispatchEvent(details.xhr, 'readystatechange');
+                return details;
+            }).then(details => {
+                xhrDetails.headers['content-length'] = `${details.props.response.value}`.length;
+                Object.defineProperties(details.xhr, {
+                    readyState: { value: 2, configurable: true },
+                    status: { value: 200 },
+                    statusText: { value: 'OK' },
+                });
+                safeDispatchEvent(details.xhr, 'readystatechange');
+                return details;
+            }).then(details => {
+                Object.defineProperties(details.xhr, {
+                    readyState: { value: 3, configurable: true },
+                });
+                Object.defineProperties(details.xhr, details.props);
+                safeDispatchEvent(details.xhr, 'readystatechange');
+                return details;
+            }).then(details => {
+                Object.defineProperties(details.xhr, {
+                    readyState: { value: 4 },
+                });
+                safeDispatchEvent(details.xhr, 'readystatechange');
+                safeDispatchEvent(details.xhr, 'load');
+                safeDispatchEvent(details.xhr, 'loadend');
+                safe.uboLog(logPrefix, `Prevented with response:\n${details.xhr.response}`);
             });
         }
-        catch(ex) {}
-    } else if ( responseType !== '' ) {
-        if ( validResponseProps.type.includes(responseType) ) {
-            responseProps.type = { value: responseType };
+        getResponseHeader(headerName) {
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
+                return super.getResponseHeader(headerName);
+            }
+            const value = xhrDetails.headers[headerName.toLowerCase()];
+            if ( value !== undefined && value !== '' ) { return value; }
+            return null;
         }
-    }
-    proxyApplyFn('fetch', function fetch(context) {
-        const { callArgs } = context;
-        const details = callArgs[0] instanceof self.Request
-            ? callArgs[0]
-            : Object.assign({ url: callArgs[0] }, callArgs[1]);
-        let proceed = true;
-        try {
-            const props = new Map();
-            for ( const prop in details ) {
-                let v = details[prop];
-                if ( typeof v !== 'string' ) {
-                    try { v = safe.JSON_stringify(v); }
-                    catch(ex) { }
-                }
-                if ( typeof v !== 'string' ) { continue; }
-                props.set(prop, v);
+        getAllResponseHeaders() {
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
+                return super.getAllResponseHeaders();
             }
-            if ( safe.logLevel > 1 || propsToMatch === '' && responseBody === '' ) {
-                const out = Array.from(props).map(a => `${a[0]}:${a[1]}`);
-                safe.uboLog(logPrefix, `Called: ${out.join('\n')}`);
+            const out = [];
+            for ( const [ name, value ] of Object.entries(xhrDetails.headers) ) {
+                if ( !value ) { continue; }
+                out.push(`${name}: ${value}`);
             }
-            if ( propsToMatch === '' && responseBody === '' ) {
-                return context.reflect();
-            }
-            proceed = needles.length === 0;
-            for ( const { key, pattern } of needles ) {
-                if (
-                    pattern.expect && props.has(key) === false ||
-                    safe.testPattern(pattern, props.get(key)) === false
-                ) {
-                    proceed = true;
-                    break;
-                }
-            }
-        } catch(ex) {
+            if ( out.length !== 0 ) { out.push(''); }
+            return out.join('\r\n');
         }
-        if ( proceed ) {
-            return context.reflect();
-        }
-        return Promise.resolve(generateContentFn(false, responseBody)).then(text => {
-            safe.uboLog(logPrefix, `Prevented with response "${text}"`);
-            const response = new Response(text, {
-                headers: {
-                    'Content-Length': text.length,
-                }
-            });
-            const props = Object.assign(
-                { url: { value: details.url } },
-                responseProps
-            );
-            safe.Object_defineProperties(response, props);
-            return response;
-        });
-    });
+    };
+    self.XMLHttpRequest.prototype.open.toString = function() {
+        return XHRBefore.open.toString();
+    };
+    self.XMLHttpRequest.prototype.send.toString = function() {
+        return XHRBefore.send.toString();
+    };
+    self.XMLHttpRequest.prototype.getResponseHeader.toString = function() {
+        return XHRBefore.getResponseHeader.toString();
+    };
+    self.XMLHttpRequest.prototype.getAllResponseHeaders.toString = function() {
+        return XHRBefore.getAllResponseHeaders.toString();
+    };
 }
 
 function generateContentFn(trusted, directive) {
@@ -207,85 +287,52 @@ function generateContentFn(trusted, directive) {
     return '';
 }
 
-function proxyApplyFn(
-    target = '',
-    handler = ''
-) {
-    let context = globalThis;
-    let prop = target;
-    for (;;) {
-        const pos = prop.indexOf('.');
-        if ( pos === -1 ) { break; }
-        context = context[prop.slice(0, pos)];
-        if ( context instanceof Object === false ) { return; }
-        prop = prop.slice(pos+1);
-    }
-    const fn = context[prop];
-    if ( typeof fn !== 'function' ) { return; }
-    if ( proxyApplyFn.CtorContext === undefined ) {
-        proxyApplyFn.ctorContexts = [];
-        proxyApplyFn.CtorContext = class {
-            constructor(...args) {
-                this.init(...args);
-            }
-            init(callFn, callArgs) {
-                this.callFn = callFn;
-                this.callArgs = callArgs;
-                return this;
-            }
-            reflect() {
-                const r = Reflect.construct(this.callFn, this.callArgs);
-                this.callFn = this.callArgs = undefined;
-                proxyApplyFn.ctorContexts.push(this);
-                return r;
-            }
-            static factory(...args) {
-                return proxyApplyFn.ctorContexts.length !== 0
-                    ? proxyApplyFn.ctorContexts.pop().init(...args)
-                    : new proxyApplyFn.CtorContext(...args);
-            }
-        };
-        proxyApplyFn.applyContexts = [];
-        proxyApplyFn.ApplyContext = class {
-            constructor(...args) {
-                this.init(...args);
-            }
-            init(callFn, thisArg, callArgs) {
-                this.callFn = callFn;
-                this.thisArg = thisArg;
-                this.callArgs = callArgs;
-                return this;
-            }
-            reflect() {
-                const r = Reflect.apply(this.callFn, this.thisArg, this.callArgs);
-                this.callFn = this.thisArg = this.callArgs = undefined;
-                proxyApplyFn.applyContexts.push(this);
-                return r;
-            }
-            static factory(...args) {
-                return proxyApplyFn.applyContexts.length !== 0
-                    ? proxyApplyFn.applyContexts.pop().init(...args)
-                    : new proxyApplyFn.ApplyContext(...args);
+function matchObjectProperties(propNeedles, ...objs) {
+    if ( matchObjectProperties.extractProperties === undefined ) {
+        matchObjectProperties.extractProperties = (src, des, props) => {
+            for ( const p of props ) {
+                const v = src[p];
+                if ( v === undefined ) { continue; }
+                des[p] = src[p];
             }
         };
     }
-    const fnStr = fn.toString();
-    const toString = (function toString() { return fnStr; }).bind(null);
-    const proxyDetails = {
-        apply(target, thisArg, args) {
-            return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) { return toString; }
-            return Reflect.get(target, prop);
-        },
-    };
-    if ( fn.prototype?.constructor === fn ) {
-        proxyDetails.construct = function(target, args) {
-            return handler(proxyApplyFn.CtorContext.factory(target, args));
-        };
+    const safe = safeSelf();
+    const haystack = {};
+    const props = safe.Array_from(propNeedles.keys());
+    for ( const obj of objs ) {
+        if ( obj instanceof Object === false ) { continue; }
+        matchObjectProperties.extractProperties(obj, haystack, props);
     }
-    context[prop] = new Proxy(fn, proxyDetails);
+    for ( const [ prop, details ] of propNeedles ) {
+        let value = haystack[prop];
+        if ( value === undefined ) { continue; }
+        if ( typeof value !== 'string' ) {
+            try { value = safe.JSON_stringify(value); }
+            catch(ex) { }
+            if ( typeof value !== 'string' ) { continue; }
+        }
+        if ( safe.testPattern(details, value) ) { continue; }
+        return false;
+    }
+    return true;
+}
+
+function parsePropertiesToMatch(propsToMatch, implicit = '') {
+    const safe = safeSelf();
+    const needles = new Map();
+    if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
+    const options = { canNegate: true };
+    for ( const needle of propsToMatch.split(/\s+/) ) {
+        const [ prop, pattern ] = needle.split(':');
+        if ( prop === '' ) { continue; }
+        if ( pattern !== undefined ) {
+            needles.set(prop, safe.initPattern(pattern, options));
+        } else if ( implicit !== '' ) {
+            needles.set(implicit, safe.initPattern(prop, options));
+        }
+    }
+    return needles;
 }
 
 function safeSelf() {
@@ -534,7 +581,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { noFetchIf(...argsList[i]); }
+    try { preventXhr(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -556,7 +603,7 @@ const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_noFetchIf();
+    return uBOL_preventXhr();
 }
 
 // Firefox
@@ -564,11 +611,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_noFetchIf = cloneInto([
-            [ '(', uBOL_noFetchIf.toString(), ')();' ],
+        page.uBOL_preventXhr = cloneInto([
+            [ '(', uBOL_preventXhr.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_noFetchIf);
+        const blob = new page.Blob(...page.uBOL_preventXhr);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -582,7 +629,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_noFetchIf;
+    delete page.uBOL_preventXhr;
 }
 
 /******************************************************************************/

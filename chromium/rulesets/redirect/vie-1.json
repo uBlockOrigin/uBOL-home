@@ -59,12 +59,32 @@
  },
  "condition": {
   "initiatorDomains": [
-   "phevkl.cx",
-   "viet69.sbs"
+   "phevkl.mx",
+   "viet69.vote"
   ],
   "urlFilter": "||i2.vlstorage.com/da88_1080p.mp4"
  },
  "id": 4,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "apkmoddone.com"
+  ],
+  "resourceTypes": [
+   "script",
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||alwingulla.com/88/tag.min.js"
+ },
+ "id": 5,
  "priority": 2
 }
 ]

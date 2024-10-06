@@ -23,7 +23,7 @@
 /* eslint-disable indent */
 /* global cloneInto */
 
-// ruleset: spa-1
+// ruleset: rus-0
 
 /******************************************************************************/
 
@@ -36,13 +36,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_noXhrIf = function() {
+const uBOL_preventXhr = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["pagead2.googlesyndication.com"],["securepubads.g.doubleclick.net/pagead/ppub_config"],["popads.net"]];
+const argsList = [["/ad\\.mail|adfox|adhigh|adriver|mc\\.yandex|mediametrics|otm-r|static-mon/"],["/br/"],["/getCode|\\/vast/"],["/hits/event/","method:POST"],["/m2?_"],["/wl-analytics\\.tsp\\.li/"],["livejournal.com/video/check?recordId="],["method:GET"],["strm.yandex.ru/get/"]];
 
-const hostnamesMap = new Map([["aqualapp.com",0],["raulprietofernandez.net",0],["minhaconexao.com.br",1],["caroloportunidades.com.br",2],["dicasgostosas.com",2]]);
+const hostnamesMap = new Map([["liveinternet.ru",0],["motorpage.ru",1],["anidub.vip",2],["anidubonline.com",2],["116.ru",3],["14.ru",3],["161.ru",3],["164.ru",3],["173.ru",3],["178.ru",3],["26.ru",3],["29.ru",3],["35.ru",3],["43.ru",3],["45.ru",3],["48.ru",3],["51.ru",3],["53.ru",3],["56.ru",3],["59.ru",3],["60.ru",3],["62.ru",3],["63.ru",3],["68.ru",3],["71.ru",3],["72.ru",3],["74.ru",3],["76.ru",3],["86.ru",3],["89.ru",3],["93.ru",3],["chita.ru",3],["e1.ru",3],["ircity.ru",3],["izh1.ru",3],["mgorsk.ru",3],["msk1.ru",3],["ngs.ru",3],["ngs22.ru",3],["ngs24.ru",3],["ngs42.ru",3],["ngs55.ru",3],["ngs70.ru",3],["nn.ru",3],["sochi1.ru",3],["sterlitamak1.ru",3],["tolyatty.ru",3],["ufa1.ru",3],["v1.ru",3],["vladivostok1.ru",3],["voronezh1.ru",3],["www.fontanka.ru",3],["4pda.to",4],["adme.media",5],["livejournal.com",6],["sm.news",7],["dzen.ru",8],["frontend.vh.yandex.ru",8],["naydex.net",8],["widgets.kinopoisk.ru",8],["www.kinopoisk.ru",8],["yastatic.net",8]]);
 
 const entitiesMap = new Map([]);
 
@@ -50,21 +50,22 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function noXhrIf(
+function preventXhr(...args) {
+    return preventXhrFn(false, ...args);
+}
+
+function preventXhrFn(
+    trusted = false,
     propsToMatch = '',
     directive = ''
 ) {
     if ( typeof propsToMatch !== 'string' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('prevent-xhr', propsToMatch, directive);
+    const scriptletName = trusted ? 'trusted-prevent-xhr' : 'prevent-xhr';
+    const logPrefix = safe.makeLogPrefix(scriptletName, propsToMatch, directive);
     const xhrInstances = new WeakMap();
     const propNeedles = parsePropertiesToMatch(propsToMatch, 'url');
     const warOrigin = scriptletGlobals.warOrigin;
-    const headers = {
-        'date': '',
-        'content-type': '',
-        'content-length': '',
-    };
     const safeDispatchEvent = (xhr, type) => {
         try {
             xhr.dispatchEvent(new Event(type));
@@ -73,98 +74,100 @@ function noXhrIf(
     };
     const XHRBefore = XMLHttpRequest.prototype;
     self.XMLHttpRequest = class extends self.XMLHttpRequest {
-        open(method, url, ...args) {
+        open(method, url, defer, ...args) {
             xhrInstances.delete(this);
             if ( warOrigin !== undefined && url.startsWith(warOrigin) ) {
-                return super.open(method, url, ...args);
+                return super.open(method, url, defer, ...args);
             }
             const haystack = { method, url };
             if ( propsToMatch === '' && directive === '' ) {
                 safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(haystack, null, 2)}`);
-                return super.open(method, url, ...args);
+                return super.open(method, url, defer, ...args);
             }
             if ( matchObjectProperties(propNeedles, haystack) ) {
-                xhrInstances.set(this, haystack);
+                const xhrDetails = Object.assign(haystack, {
+                    xhr: this,
+                    defer,
+                    directive,
+                    headers: {
+                        'date': '',
+                        'content-type': '',
+                        'content-length': '',
+                    },
+                    props: {
+                        response: { value: '' },
+                        responseText: { value: '' },
+                        responseXML: { value: null },
+                        responseURL: { value: haystack.url },
+                    },
+                });
+                xhrInstances.set(this, xhrDetails);
             }
-            haystack.headers = Object.assign({}, headers);
-            return super.open(method, url, ...args);
+            return super.open(method, url, defer, ...args);
         }
         send(...args) {
-            const haystack = xhrInstances.get(this);
-            if ( haystack === undefined ) {
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined ) {
                 return super.send(...args);
             }
-            haystack.headers['date'] = (new Date()).toUTCString();
-            let promise = Promise.resolve({
-                xhr: this,
-                directive,
-                response: {
-                    response: { value: '' },
-                    responseText: { value: '' },
-                    responseXML: { value: null },
-                    responseURL: { value: haystack.url },
-                }
-            });
+            xhrDetails.headers['date'] = (new Date()).toUTCString();
+            let xhrText = '';
             switch ( this.responseType ) {
             case 'arraybuffer':
-                promise = promise.then(details => {
-                    const response = details.response;
-                    response.response.value = new ArrayBuffer(0);
-                    return details;
-                });
-                haystack.headers['content-type'] = 'application/octet-stream';
+                xhrDetails.props.response.value = new ArrayBuffer(0);
+                xhrDetails.headers['content-type'] = 'application/octet-stream';
                 break;
             case 'blob':
-                promise = promise.then(details => {
-                    const response = details.response;
-                    response.response.value = new Blob([]);
-                    return details;
-                });
-                haystack.headers['content-type'] = 'application/octet-stream';
+                xhrDetails.props.response.value = new Blob([]);
+                xhrDetails.headers['content-type'] = 'application/octet-stream';
                 break;
             case 'document': {
-                promise = promise.then(details => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString('', 'text/html');
-                    const response = details.response;
-                    response.response.value = doc;
-                    response.responseXML.value = doc;
-                    return details;
-                });
-                haystack.headers['content-type'] = 'text/html';
+                const parser = new DOMParser();
+                const doc = parser.parseFromString('', 'text/html');
+                xhrDetails.props.response.value = doc;
+                xhrDetails.props.responseXML.value = doc;
+                xhrDetails.headers['content-type'] = 'text/html';
                 break;
             }
             case 'json':
-                promise = promise.then(details => {
-                    const response = details.response;
-                    response.response.value = {};
-                    response.responseText.value = '{}';
-                    return details;
-                });
-                haystack.headers['content-type'] = 'application/json';
+                xhrDetails.props.response.value = {};
+                xhrDetails.props.responseText.value = '{}';
+                xhrDetails.headers['content-type'] = 'application/json';
                 break;
-            default:
+            default: {
                 if ( directive === '' ) { break; }
-                promise = promise.then(details => {
-                    return generateContentFn(details.directive).then(text => {
-                        const response = details.response;
-                        response.response.value = text;
-                        response.responseText.value = text;
-                        return details;
+                xhrText = generateContentFn(trusted, xhrDetails.directive);
+                if ( xhrText instanceof Promise ) {
+                    xhrText = xhrText.then(text => {
+                        xhrDetails.props.response.value = text;
+                        xhrDetails.props.responseText.value = text;
                     });
-                });
-                haystack.headers['content-type'] = 'text/plain';
+                } else {
+                    xhrDetails.props.response.value = xhrText;
+                    xhrDetails.props.responseText.value = xhrText;
+                }
+                xhrDetails.headers['content-type'] = 'text/plain';
                 break;
             }
-            promise.then(details => {
+            }
+            if ( xhrDetails.defer === false ) {
+                xhrDetails.headers['content-length'] = `${xhrDetails.props.response.value}`.length;
+                Object.defineProperties(xhrDetails.xhr, {
+                    readyState: { value: 4 },
+                    status: { value: 200 },
+                    statusText: { value: 'OK' },
+                });
+                Object.defineProperties(xhrDetails.xhr, xhrDetails.props);
+                return;
+            }
+            Promise.resolve(xhrText).then(( ) => xhrDetails).then(details => {
                 Object.defineProperties(details.xhr, {
                     readyState: { value: 1, configurable: true },
                 });
                 safeDispatchEvent(details.xhr, 'readystatechange');
                 return details;
             }).then(details => {
-                const response = details.response;
-                haystack.headers['content-length'] = `${response.response.value}`.length;
+                xhrDetails.headers['content-length'] = `${details.props.response.value}`.length;
                 Object.defineProperties(details.xhr, {
                     readyState: { value: 2, configurable: true },
                     status: { value: 200 },
@@ -176,7 +179,7 @@ function noXhrIf(
                 Object.defineProperties(details.xhr, {
                     readyState: { value: 3, configurable: true },
                 });
-                Object.defineProperties(details.xhr, details.response);
+                Object.defineProperties(details.xhr, details.props);
                 safeDispatchEvent(details.xhr, 'readystatechange');
                 return details;
             }).then(details => {
@@ -190,21 +193,21 @@ function noXhrIf(
             });
         }
         getResponseHeader(headerName) {
-            const haystack = xhrInstances.get(this);
-            if ( haystack === undefined || this.readyState < this.HEADERS_RECEIVED ) {
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
                 return super.getResponseHeader(headerName);
             }
-            const value = haystack.headers[headerName.toLowerCase()];
+            const value = xhrDetails.headers[headerName.toLowerCase()];
             if ( value !== undefined && value !== '' ) { return value; }
             return null;
         }
         getAllResponseHeaders() {
-            const haystack = xhrInstances.get(this);
-            if ( haystack === undefined || this.readyState < this.HEADERS_RECEIVED ) {
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
                 return super.getAllResponseHeaders();
             }
             const out = [];
-            for ( const [ name, value ] of Object.entries(haystack.headers) ) {
+            for ( const [ name, value ] of Object.entries(xhrDetails.headers) ) {
                 if ( !value ) { continue; }
                 out.push(`${name}: ${value}`);
             }
@@ -226,7 +229,7 @@ function noXhrIf(
     };
 }
 
-function generateContentFn(directive) {
+function generateContentFn(trusted, directive) {
     const safe = safeSelf();
     const randomize = len => {
         const chunks = [];
@@ -240,27 +243,27 @@ function generateContentFn(directive) {
         return chunks.join(' ').slice(0, len);
     };
     if ( directive === 'true' ) {
-        return Promise.resolve(randomize(10));
+        return randomize(10);
     }
     if ( directive === 'emptyObj' ) {
-        return Promise.resolve('{}');
+        return '{}';
     }
     if ( directive === 'emptyArr' ) {
-        return Promise.resolve('[]');
+        return '[]';
     }
     if ( directive === 'emptyStr' ) {
-        return Promise.resolve('');
+        return '';
     }
     if ( directive.startsWith('length:') ) {
         const match = /^length:(\d+)(?:-(\d+))?$/.exec(directive);
-        if ( match ) {
-            const min = parseInt(match[1], 10);
-            const extent = safe.Math_max(parseInt(match[2], 10) || 0, min) - min;
-            const len = safe.Math_min(min + extent * safe.Math_random(), 500000);
-            return Promise.resolve(randomize(len | 0));
-        }
+        if ( match === null ) { return ''; }
+        const min = parseInt(match[1], 10);
+        const extent = safe.Math_max(parseInt(match[2], 10) || 0, min) - min;
+        const len = safe.Math_min(min + extent * safe.Math_random(), 500000);
+        return randomize(len | 0);
     }
-    if ( directive.startsWith('war:') && scriptletGlobals.warOrigin ) {
+    if ( directive.startsWith('war:') ) {
+        if ( scriptletGlobals.warOrigin === undefined ) { return ''; }
         return new Promise(resolve => {
             const warOrigin = scriptletGlobals.warOrigin;
             const warName = directive.slice(4);
@@ -276,9 +279,12 @@ function generateContentFn(directive) {
             };
             warXHR.open('GET', fullpath.join(''));
             warXHR.send();
-        });
+        }).catch(( ) => '');
     }
-    return Promise.resolve('');
+    if ( trusted ) {
+        return directive;
+    }
+    return '';
 }
 
 function matchObjectProperties(propNeedles, ...objs) {
@@ -575,7 +581,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { noXhrIf(...argsList[i]); }
+    try { preventXhr(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -597,7 +603,7 @@ const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_noXhrIf();
+    return uBOL_preventXhr();
 }
 
 // Firefox
@@ -605,11 +611,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_noXhrIf = cloneInto([
-            [ '(', uBOL_noXhrIf.toString(), ')();' ],
+        page.uBOL_preventXhr = cloneInto([
+            [ '(', uBOL_preventXhr.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_noXhrIf);
+        const blob = new page.Blob(...page.uBOL_preventXhr);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -623,7 +629,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_noXhrIf;
+    delete page.uBOL_preventXhr;
 }
 
 /******************************************************************************/

@@ -1670,7 +1670,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/player/jw/ad.js"},"id":1669},
 {"action":{"type":"block"},"condition":{"urlFilter":"/player_ad."},"id":1670},
 {"action":{"type":"block"},"condition":{"urlFilter":"/player_sda."},"id":1671},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["6play.fr","animationdigitalnetwork.fr","animedigitalnetwork.fr","linternaute.com","p.ccmbg.com","playtv.fr","tirexo.work","voircomplet.com"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":1672,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["6play.fr","animedigitalnetwork.fr","linternaute.com","p.ccmbg.com","playtv.fr","tirexo.work","voircomplet.com"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":1672,"priority":20},
 {"action":{"type":"block"},"condition":{"urlFilter":"/plugins/em_ad/"},"id":1673},
 {"action":{"type":"block"},"condition":{"urlFilter":"/plugins/vp_pub/"},"id":1674},
 {"action":{"type":"block"},"condition":{"urlFilter":"/plus728."},"id":1675},

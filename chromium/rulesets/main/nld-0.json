@@ -395,7 +395,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||pcnltelecom.tdsapi.com/portal/iframe.js"},"id":394},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["kijk.nl"],"urlFilter":"||serving-sys.com/*.mp4^"},"id":395},
 {"action":{"type":"block"},"condition":{"urlFilter":"||totaaltv.nl/upload/banner-sep-astrasat.gif"},"id":396},
-{"action":{"type":"block"},"condition":{"requestDomains":["a.medialaancdn.be","aa.hwigroup.com","aa.tweakers.nl","ab.hwigroup.com","ab.tweakers.nl","ads.nextday.media","advertising-cdn.dpgmedia.cloud","advertising-module.api.dpgmedia.cloud","cdn.optoutadvertising.com","content1.pcmweb.nl","content1.pu.nl","content1.wasmachines.nl","content1.zoom.nl","content2.besteproduct.nl","content2.kieskeurig.nl","content2.nrc.nl","content2.pu.nl","content2.wasmachines.nl","content2.zoom.nl","crnsgngrpj.nl","cryptobeneluxbanner.care","cryptosplash.care","dntblckmpls.nl","go2.go2cloud.org","kjdsfjisdfjr23.azurewebsites.net","mt67.net","nextdaymedia-ads.s3.amazonaws.com","nojazz.eu","traffic.12flirt.com","viadata.store"]},"id":397},
+{"action":{"type":"block"},"condition":{"urlFilter":"||fcutrecht.net/img/banners/"},"id":397},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["start-player.npo.nl"],"resourceTypes":["xmlhttprequest"],"urlFilter":".nl/adurl/"},"id":398},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||notebookcheck.nl/fileadmin/sonstiges/amaz_"},"id":399},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"://promotie."},"id":400},
@@ -460,5 +460,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","requestDomains":["kpn.com"]},"id":459,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["crime-nieuws.nl","dailybuzz.nl","skoften.net","sportnieuws.nl","vtm.be","weerplaza.nl"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":460,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["crime-nieuws.nl"],"resourceTypes":["script"],"urlFilter":"||ads.viralize.tv/display/?zid="},"id":461,"priority":20},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["crime-nieuws.nl"],"resourceTypes":["script"],"urlFilter":"||monetize-static.viralize.tv/viralize_player_content."},"id":462,"priority":20}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["crime-nieuws.nl"],"resourceTypes":["script"],"urlFilter":"||monetize-static.viralize.tv/viralize_player_content."},"id":462,"priority":20},
+{"action":{"type":"block"},"condition":{"urlFilter":"||groentennieuws.nl^*/banners/"},"id":463},
+{"action":{"type":"block"},"condition":{"requestDomains":["a.medialaancdn.be","aa.hwigroup.com","aa.tweakers.nl","ab.hwigroup.com","ab.tweakers.nl","ads.nextday.media","advertising-cdn.dpgmedia.cloud","advertising-module.api.dpgmedia.cloud","cdn.optoutadvertising.com","content1.pcmweb.nl","content1.pu.nl","content1.wasmachines.nl","content1.zoom.nl","content2.besteproduct.nl","content2.kieskeurig.nl","content2.nrc.nl","content2.pu.nl","content2.wasmachines.nl","content2.zoom.nl","crnsgngrpj.nl","cryptobeneluxbanner.care","cryptosplash.care","dntblckmpls.nl","go2.go2cloud.org","kjdsfjisdfjr23.azurewebsites.net","mt67.net","nextdaymedia-ads.s3.amazonaws.com","nojazz.eu","tags.refinery89.com","traffic.12flirt.com","viadata.store"]},"id":464}
 ]
