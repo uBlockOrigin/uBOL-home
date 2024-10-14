@@ -24,6 +24,8 @@
 A[href*=".com/?Agent="],
 A[href="http://t.cn/A6hQCVsv"],
 A[href^="/e/public/ClickAd?adid="],
+DIV[style=" max-width:990px; margin:0 auto;"] > A > IMG[height="120px"],
+DIV[style=" max-width:990px; margin:0 auto;"] > A > IMG[height="60px"],
 [class][onclick="window.location.href='/api/goapp/'"],
 [class][onclick="window.location.href='https://www.suyuexs.com'"],
 [class][onclick="window.location.href='https://www.tsqcy.cn'"],
@@ -210,6 +212,7 @@ div[style^="width: 100%;"][style$="margin: 0px;"] iframe[scrolling="no"][src*="/
 div[style^="width: 100%;"][style$="opacity: 100;"] iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"],
 div[style^="width: 100%;"][style$="overflow: hidden;"] iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"],
 div[style^="width: 100%;"][style$="z-index: inherit;"] iframe[scrolling="no"][src*="//"][src*="?"][src*="="][src*="&"][width][height][frameborder="0"],
+header + main > div[class$=" block"][id="rd0"][data-v-app],
 iframe[src*=".xxmh"][src*="?u="],
 img[data-link][data-src*="/u/"]:not([data-link*="/i/"]),
 img[data-src*=".alicdn.com/img/ibank/"][src="/static/images/loadingerror.gif"],
@@ -238,6 +241,6 @@ span[title="neteasefooter"],
 table[style="border:#7D8C8E solid 1px;height: 30px;text-align: center;"],
 td[id^="td_"] > a[href^="/htmm/"],
 vg-pause-ads,
-vg-pause-d {
+vg-pause-f {
     display: none !important;
 }

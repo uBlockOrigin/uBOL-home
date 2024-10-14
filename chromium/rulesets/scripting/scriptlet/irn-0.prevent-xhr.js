@@ -40,9 +40,9 @@ const uBOL_preventXhr = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["/fa/generate/userid"],["candidatelogapi method:POST"],["PlayReports"]];
+const argsList = [["candidatelogapi method:POST"],["PlayReports"]];
 
-const hostnamesMap = new Map([["asriran.com",0],["jobvision.ir",1],["play.namava.ir",2]]);
+const hostnamesMap = new Map([["jobvision.ir",0],["play.namava.ir",1]]);
 
 const entitiesMap = new Map([]);
 

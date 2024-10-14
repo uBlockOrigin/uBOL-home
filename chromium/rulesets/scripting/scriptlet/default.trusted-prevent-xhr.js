@@ -42,7 +42,7 @@ const scriptletGlobals = {}; // eslint-disable-line
 
 const argsList = [["outbrain.com","outbrain"]];
 
-const hostnamesMap = new Map([["animefire.info",0],["animesonlinecc.us",0],["animesup.info",0],["animeyabu.net",0],["animeyabu.org",0],["anitube.us",0],["anitube.vip",0],["caroloportunidades.com.br",0],["dattebayo-br.com",0],["drstonebr.com",0],["flyanimes.cloud",0],["goanimes.vip",0],["goyabu.us",0],["hinatasoul.com",0],["isekaibrasil.com",0],["meuanime.info",0],["otakuanimess.net",0]]);
+const hostnamesMap = new Map([["animefire.info",0],["animesonlinecc.us",0],["animesonliner4.com",0],["animesup.info",0],["animeyabu.net",0],["animeyabu.org",0],["anitube.us",0],["anitube.vip",0],["caroloportunidades.com.br",0],["dattebayo-br.com",0],["drstonebr.com",0],["flyanimes.cloud",0],["goanimes.vip",0],["goyabu.us",0],["hinatasoul.com",0],["isekaibrasil.com",0],["meuanime.info",0],["otakuanimess.net",0],["superanimes.in",0]]);
 
 const entitiesMap = new Map([]);
 

@@ -114,6 +114,7 @@
    [
     "json-prune-xhr-response",
     [
+     "twitter.com",
      "web.facebook.com",
      "www.facebook.com",
      "www.youtube.com",
@@ -260,8 +261,7 @@
    [
     "alert-buster",
     [
-     "1001tracklists.com",
-     "66ccff.work"
+     "*"
     ]
    ],
    [
@@ -519,6 +519,7 @@
     [
      "animefire.info",
      "animesonlinecc.us",
+     "animesonliner4.com",
      "animesup.info",
      "animeyabu.net",
      "animeyabu.org",
@@ -533,7 +534,8 @@
      "hinatasoul.com",
      "isekaibrasil.com",
      "meuanime.info",
-     "otakuanimess.net"
+     "otakuanimess.net",
+     "superanimes.in"
     ]
    ]
   ]
@@ -1468,14 +1470,6 @@
     ]
    ],
    [
-    "prevent-xhr",
-    [
-     "asriran.com",
-     "jobvision.ir",
-     "play.namava.ir"
-    ]
-   ],
-   [
     "set-session-storage-item",
     [
      "alaatv.com"
@@ -1564,6 +1558,13 @@
      "tabanmusic.com",
      "takmili.com",
      "texahang.org"
+    ]
+   ],
+   [
+    "prevent-xhr",
+    [
+     "jobvision.ir",
+     "play.namava.ir"
     ]
    ],
    [
@@ -1727,6 +1728,12 @@
     ]
    ],
    [
+    "abort-on-stack-trace",
+    [
+     "wiki.yjsnpi.nu"
+    ]
+   ],
+   [
     "prevent-fetch",
     [
      "*"
@@ -1770,6 +1777,12 @@
     ]
    ],
    [
+    "no-setTimeout-if",
+    [
+     "*"
+    ]
+   ],
+   [
     "addEventListener-defuser",
     [
      "anacap.doorblog.jp",
@@ -1778,7 +1791,6 @@
      "blog.housinkai.com",
      "coolpan.net",
      "ero-video.net",
-     "iwb.jp",
      "jukenbbs.com",
      "kakenhi.net",
      "negisoku.com",
@@ -1787,12 +1799,6 @@
      "twidouga.net",
      "twivideo.net",
      "uraaka-joshi.com"
-    ]
-   ],
-   [
-    "no-setTimeout-if",
-    [
-     "*"
     ]
    ],
    [
@@ -3982,8 +3988,17 @@
     ]
    ],
    [
+    "no-setInterval-if",
+    [
+     "ensonhaber.com",
+     "gecmisi.com.tr",
+     "nowtv.com.tr"
+    ]
+   ],
+   [
     "prevent-xhr",
     [
+     "/(^\\|.+\\.)canlitribun\\d+\\.live/",
      "canlitribun237.live",
      "canlitribun238.live",
      "canlitribun239.live",
@@ -4414,13 +4429,6 @@
     ]
    ],
    [
-    "no-setInterval-if",
-    [
-     "ensonhaber.com",
-     "nowtv.com.tr"
-    ]
-   ],
-   [
     "remove-class",
     [
      "turkakisi.tv"
@@ -4441,6 +4449,7 @@
    [
     "set-attr",
     [
+     "/^inattv\\d+\\.xyz$/",
      "inattvhd188.xyz",
      "inattvhd189.xyz",
      "inattvhd190.xyz",
@@ -4513,7 +4522,7 @@
      "heodam.moe",
      "hh3dhay.life",
      "hh3dhay.xyz",
-     "hhhay.tv",
+     "hhhay.me",
      "hhtq5.vip",
      "hhvsub.com",
      "holyfilm.org",
@@ -4525,8 +4534,9 @@
      "linkneverdie.net",
      "linkneverdie.top",
      "linkneverdie2.com",
+     "live.sexviet88.xyz",
      "lrepacks.net",
-     "luotphimi.net",
+     "luotphimtv.lat",
      "lxmanga.ink",
      "m.blogtruyenmoi.com",
      "mephimnhe1.net",
@@ -4545,17 +4555,15 @@
      "phimtuoitho.site",
      "player-cdn.com",
      "playhydrax.com",
-     "quatvn.guru",
+     "quatvn.fit",
      "rphang.love",
      "saigon24.net",
      "sayhentai.one",
-     "sex.chichnhau.me",
      "sex.tuoi69.store",
      "sexdiary.club",
      "sexhd88.live",
      "sexmup18.com",
      "sextop1.pw",
-     "sexviet88.men",
      "soha.vn",
      "streamvl.top",
      "tenmientruyengi.net",
@@ -4578,7 +4586,7 @@
      "truyenqqto.com",
      "truyensextv.com",
      "truyentuan.xyz",
-     "truyenvn.fit",
+     "truyenvn.blog",
      "tuoitre.vn",
      "tvphimsex.pro",
      "ungtycomicsvip.com",
@@ -4586,7 +4594,7 @@
      "vailonxx.vip",
      "viet69.ing",
      "viet69.rent",
-     "viet69.vote",
+     "viet69.run",
      "vlxx.mx",
      "vlxyz.tube",
      "vungoctuan.vn",
@@ -4612,7 +4620,7 @@
      "ephimchill.com",
      "fastscans1.net",
      "hayhaytv.org",
-     "hentaivn.blog",
+     "hentaivn.love",
      "herotruyen.com",
      "hoctot.hocmai.vn",
      "javnong.cc",
@@ -4630,7 +4638,7 @@
      "phimlongtieng.net",
      "plcdn.xyz",
      "quangcaoyenbai.com",
-     "sieudamtv.biz",
+     "sieudamtv.vin",
      "thuvienhd.xyz",
      "tinsoikeo.live",
      "truyensieuhay.com",
@@ -4642,12 +4650,18 @@
      "www.phimdinhcaoz.com",
      "xemphimjav.com",
      "xemtv.tvhayhd.tv",
-     "xoilac86z42.live",
+     "xoilacq.cc",
      "yts.do",
      "yts.mx",
      "yts.rs",
      "ytstv.me",
      "znews.vn"
+    ]
+   ],
+   [
+    "set-cookie",
+    [
+     "apkmoddone.phongroblox.com"
     ]
    ],
    [
@@ -4679,9 +4693,9 @@
      "phimsexvietnam.app",
      "phimvuihd.org",
      "player-cdn.com",
-     "sexdiaryx.one",
+     "sexdiaryx.live",
      "soha.vn",
-     "subnhanh.xyz",
+     "subnhanh1.org",
      "tailieumoi.vn",
      "thanhnien.vn",
      "tructiepdabong5.co",
@@ -5080,6 +5094,7 @@
      "ichbindochnichthierumbeliebtzusein.com",
      "ideentitaet.com",
      "igvm.de",
+     "ilgazzettino.it",
      "ilonpolku.fi",
      "ilyabiz.com",
      "immobilien-skiba.de",
@@ -5139,6 +5154,7 @@
      "lichtempfindlich.org",
      "lichttraeumer.de",
      "lightcon.com",
+     "linternaute.com",
      "lobetalarbeit.de",
      "locafrique-sf.com",
      "locandazita.com",
@@ -5361,6 +5377,7 @@
      "wind-craft.eu",
      "windata.de",
      "windowspower.de",
+     "winfuture.de",
      "winlocal.de",
      "wohnmobilcenter-drechsler.de",
      "wolfgangallgaeuer.com",
@@ -6430,6 +6447,7 @@
      "cuba-buddy.de",
      "cwallet.com",
      "daraz.com",
+     "data.carbonmapper.org",
      "datamask.app",
      "dbschenker.com",
      "deribit.com",
@@ -6663,7 +6681,8 @@
    [
     "no-setTimeout-if",
     [
-     "svd.se"
+     "svd.se",
+     "winfuture.de"
     ]
    ],
    [
@@ -6716,6 +6735,7 @@
      "easyfind.ch",
      "eurobaustoff.com",
      "express.co.uk",
+     "florence.com.tr",
      "forums.tomsguide.com",
      "hatch.co",
      "hopetv.de",
@@ -6767,6 +6787,12 @@
     "trusted-set-session-storage-item",
     [
      "makemytrip.com"
+    ]
+   ],
+   [
+    "trusted-replace-node-text",
+    [
+     "linternaute.com"
     ]
    ]
   ]
@@ -6974,6 +7000,7 @@
      "citizen428.net",
      "coach.me",
      "codeburst.io",
+     "cu.tbs.co.jp",
      "dave-bailey.com",
      "discordapp.com",
      "doist.com",

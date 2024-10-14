@@ -17,5 +17,5 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["anime365.net"],"regexFilter":"\\/js\\/(?:anime|comic|doujin|game)Ranking","resourceTypes":["xmlhttprequest"]},"id":16},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["2jigiri.net","pig109.net"],"regexFilter":"\\.net\\/[-a-z]{2,6}0\\d{2}\\.html$","resourceTypes":["sub_frame"]},"id":17},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]{4,8}\\.[a-z]{7,10}\\.shop\\/product\\/\\d{4,7}$","resourceTypes":["main_frame"]},"id":18},
-{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]{6,8}\\.com\\/item-[0-9a-z]{10}\\.html$","resourceTypes":["main_frame"]},"id":19}
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[-0-9a-z]{6,20}\\.com\\/item-[0-9a-z]{10}\\.html$","resourceTypes":["main_frame"]},"id":19}
 ]

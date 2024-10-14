@@ -23,7 +23,7 @@
 /* eslint-disable indent */
 /* global cloneInto */
 
-// ruleset: spa-1
+// ruleset: annoyances-cookies
 
 /******************************************************************************/
 
@@ -36,174 +36,135 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_setConstant = function() {
+const uBOL_replaceNodeText = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["checkAdBlock","noopFunc"],["detectedAdblock","noopFunc"],["hasAdblocker","false"],["antiAdBlockerHandler","noopFunc"],["detectAdBlock","noopFunc"],["googletag","{}"],["googletag._loaded_","true"],["AdblockDetector","{}"],["canRunAds","true"],["blockAdBlock._options","noopFunc"],["adManagerBlocked","undefined"],["$MICROSITE_INFO.blockAdBlock","false"],["adblock.check","noopFunc"],["adBlockerActive","false"],["cdo","0"],["eazy_ad_unblocker_msg_var",""],["DeRunAds","true"],["Object.prototype.adblockerEnabled","false"],["adsbygoogle.loaded","true"],["adBlockCheck","true"],["pp_show_popupmessage","noopFunc"],["easySettings.adblock","0"],["onload","null"],["adblockDetector.init","noopFunc"],["adsbygoogle.length","undefined"],["WSL2.config.enableAdblockEcommerce","0"],["ads_unblocked","true"],["adblock","true"],["better_ads_adblock","true"],["adBlockDetected","false"],["isAdsDisplayed","true"],["ATESTADO","1"],["Lata","1"],["loadingAds","true"],["runningAdsAllowed","true"],["ShowRewards","noopFunc"],["initPopunder","noopFunc"],["URL_VAST_YOUTUBE","{}"],["__configuredDFPTags","{}"],["contadorClics","1"],["Object.prototype.adSlot",""],["google.ima.OmidVerificationVendor","{}"],["ads","false"],["acdl","noopFunc"],["global.noobMaxTry","0"],["player.preroll","noopFunc"],["anunciotag","noopFunc"],["loadingAds","undefined"],["click","1"],["clickd","1"],["xxxStore","undefined"],["vidorev_jav_plugin_video_ads_object.vid_ads_m_video_ads",""],["a_consola","noopFunc"]];
+const argsList = [["script","typeof jQuery !==","(()=>{window.addEventListener(\"load\",(function(){if(window.localStorage.appconsent){const consents=window.JSON.parse(window.localStorage.appconsent);if(consents&&consents.consents&&consents.consents.vendors){for(vendor of consents.consents.vendors){if(vendor.name===\"Facebook\"&&vendor.status===1)return}}}let i=0;var intervalId=window.setInterval((function(){try{i+=1;if(typeof _gtm?.consent?.cm?.strategy?.updateExtraVendorStatus!==\"function\")return;[\"facebook\",\"instagram\",\"pinterest\",\"twitter\",\"youtube\"].forEach((vendor=>{_gtm.consent.cm.strategy.updateExtraVendorStatus(vendor,!0)}))}catch(_){return}if(i===5)clearInterval(intervalId)}),1e3)}))})();typeof jQuery !=="]];
 
-const hostnamesMap = new Map([["cinelatino.net",0],["descargaseriestv.com",1],["coempregos.com.br",1],["anitube.us",1],["anitube.vip",1],["hinatasoul.com",1],["3djuegos.com",2],["3djuegosguias.com",2],["3djuegospc.com",2],["applesfera.com",2],["compradiccion.com",2],["directoalpaladar.com",[2,25]],["elblogsalmon.com",[2,25]],["espinof.com",2],["genbeta.com",2],["mundoxiaomi.com",2],["trendencias.com",2],["trendenciashombre.com",2],["vidaextra.com",2],["vitonica.com",2],["xataka.com",2],["xatakaciencia.com",2],["xatakafoto.com",2],["xatakahome.com",2],["xatakamovil.com",2],["xatakandroid.com",2],["xatakawindows.com",2],["financasdeouro.com",3],["animeszone.net",4],["atv.pe",[5,6]],["monumental.co.cr",[5,6]],["elcomercio.com",[5,6]],["antena7.com.do",[5,6]],["rqp.com.bo",[5,6]],["canal12.com.sv",[5,6]],["chapintv.com",[5,6]],["vtv.com.hn",[5,6]],["tn23.tv",[5,6]],["canal13mexico.com",[5,6]],["c9n.com.py",[5,6]],["repretel.com",[5,6]],["redbolivision.tv.bo",[5,6]],["animesonline.nz",7],["mdr.ar",8],["impactoespananoticias.com",8],["skynovels.net",8],["botinnifit.com",8],["minhasdelicias.com",8],["luchaonline.com",8],["meocloud.pt",9],["fichajes.com",10],["niusdiario.es",[11,41]],["xerifetech.com",12],["pobre.wtf",[13,42]],["suaads.com",14],["reidoplacar.com",[14,43]],["suaurl.com",[14,43]],["legendei.net",15],["documaniatv.com",16],["cadenaser.com",17],["texto.kom.gt",18],["infojobs.com.br",19],["maringapost.com.br",20],["bandab.com.br",20],["ouniversodatv.com",21],["tribunaavila.com",22],["deportealdia.live",23],["elquintobeatle.com",24],["empregoestagios.com",24],["satcesc.com",24],["bebesymas.com",25],["diariodelviajero.com",25],["motorpasion.com",25],["motorpasionmoto.com",25],["pymesyautonomos.com",25],["docer.com.ar",26],["doceru.com",26],["docero.com.br",26],["comandotorrents.org",27],["adslayuda.com",28],["outerspace.com.br",29],["doramasmp4.com",30],["file4go.net",32],["seriesdonghua.com",33],["mundodonghua.com",33],["playview.io",34],["clickjogos.com.br",35],["3xyaoi.com",36],["uol.com.br",[37,38]],["megafire.net",39],["elmundo.es",40],["gourlpro.com",44],["adclic.es",44],["adclic.org",44],["mundopolo.net",44],["jurisfera.com",44],["adclicker.info",44],["adclicker.io",44],["safepc.online",44],["solopc.net",44],["player.hentaistube.com",45],["playnewserie.xyz",46],["tiohentai.xyz",47],["otakustv.com",[48,49]],["pornolandia.xxx",50],["hentaiporno.xxx",51],["fakings.com",52]]);
+const hostnamesMap = new Map([["linternaute.com",0]]);
 
-const entitiesMap = new Map([["anitube",31]]);
+const entitiesMap = new Map([]);
 
 const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function setConstant(
-    ...args
+function replaceNodeText(
+    nodeName,
+    pattern,
+    replacement,
+    ...extraArgs
 ) {
-    setConstantFn(false, ...args);
+    replaceNodeTextFn(nodeName, pattern, replacement, ...extraArgs);
 }
 
-function setConstantFn(
-    trusted = false,
-    chain = '',
-    rawValue = ''
+function replaceNodeTextFn(
+    nodeName = '',
+    pattern = '',
+    replacement = ''
 ) {
-    if ( chain === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
+    const logPrefix = safe.makeLogPrefix('replace-node-text.fn', ...Array.from(arguments));
+    const reNodeName = safe.patternToRegex(nodeName, 'i', true);
+    const rePattern = safe.patternToRegex(pattern, 'gms');
     const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    function setConstant(chain, rawValue) {
-        const trappedProp = (( ) => {
-            const pos = chain.lastIndexOf('.');
-            if ( pos === -1 ) { return chain; }
-            return chain.slice(pos+1);
-        })();
-        const cloakFunc = fn => {
-            safe.Object_defineProperty(fn, 'name', { value: trappedProp });
-            return new Proxy(fn, {
-                defineProperty(target, prop) {
-                    if ( prop !== 'toString' ) {
-                        return Reflect.defineProperty(...arguments);
-                    }
-                    return true;
-                },
-                deleteProperty(target, prop) {
-                    if ( prop !== 'toString' ) {
-                        return Reflect.deleteProperty(...arguments);
-                    }
-                    return true;
-                },
-                get(target, prop) {
-                    if ( prop === 'toString' ) {
-                        return function() {
-                            return `function ${trappedProp}() { [native code] }`;
-                        }.bind(null);
-                    }
-                    return Reflect.get(...arguments);
-                },
-            });
-        };
-        if ( trappedProp === '' ) { return; }
-        const thisScript = document.currentScript;
-        let normalValue = validateConstantFn(trusted, rawValue, extraArgs);
-        if ( rawValue === 'noopFunc' || rawValue === 'trueFunc' || rawValue === 'falseFunc' ) {
-            normalValue = cloakFunc(normalValue);
+    const reIncludes = extraArgs.includes || extraArgs.condition
+        ? safe.patternToRegex(extraArgs.includes || extraArgs.condition, 'ms')
+        : null;
+    const reExcludes = extraArgs.excludes
+        ? safe.patternToRegex(extraArgs.excludes, 'ms')
+        : null;
+    const stop = (takeRecord = true) => {
+        if ( takeRecord ) {
+            handleMutations(observer.takeRecords());
         }
-        let aborted = false;
-        const mustAbort = function(v) {
-            if ( trusted ) { return false; }
-            if ( aborted ) { return true; }
-            aborted =
-                (v !== undefined && v !== null) &&
-                (normalValue !== undefined && normalValue !== null) &&
-                (typeof v !== typeof normalValue);
-            if ( aborted ) {
-                safe.uboLog(logPrefix, `Aborted because value set to ${v}`);
-            }
-            return aborted;
-        };
-        // https://github.com/uBlockOrigin/uBlock-issues/issues/156
-        //   Support multiple trappers for the same property.
-        const trapProp = function(owner, prop, configurable, handler) {
-            if ( handler.init(configurable ? owner[prop] : normalValue) === false ) { return; }
-            const odesc = safe.Object_getOwnPropertyDescriptor(owner, prop);
-            let prevGetter, prevSetter;
-            if ( odesc instanceof safe.Object ) {
-                owner[prop] = normalValue;
-                if ( odesc.get instanceof Function ) {
-                    prevGetter = odesc.get;
-                }
-                if ( odesc.set instanceof Function ) {
-                    prevSetter = odesc.set;
+        observer.disconnect();
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, 'Quitting');
+        }
+    };
+    const textContentFactory = (( ) => {
+        const out = { createScript: s => s };
+        const { trustedTypes: tt } = self;
+        if ( tt instanceof Object ) {
+            if ( typeof tt.getPropertyType === 'function' ) {
+                if ( tt.getPropertyType('script', 'textContent') === 'TrustedScript' ) {
+                    return tt.createPolicy(getRandomToken(), out);
                 }
             }
-            try {
-                safe.Object_defineProperty(owner, prop, {
-                    configurable,
-                    get() {
-                        if ( prevGetter !== undefined ) {
-                            prevGetter();
-                        }
-                        return handler.getter();
-                    },
-                    set(a) {
-                        if ( prevSetter !== undefined ) {
-                            prevSetter(a);
-                        }
-                        handler.setter(a);
-                    }
-                });
-                safe.uboLog(logPrefix, 'Trap installed');
-            } catch(ex) {
-                safe.uboErr(logPrefix, ex);
+        }
+        return out;
+    })();
+    let sedCount = extraArgs.sedCount || 0;
+    const handleNode = node => {
+        const before = node.textContent;
+        if ( reIncludes ) {
+            reIncludes.lastIndex = 0;
+            if ( safe.RegExp_test.call(reIncludes, before) === false ) { return true; }
+        }
+        if ( reExcludes ) {
+            reExcludes.lastIndex = 0;
+            if ( safe.RegExp_test.call(reExcludes, before) ) { return true; }
+        }
+        rePattern.lastIndex = 0;
+        if ( safe.RegExp_test.call(rePattern, before) === false ) { return true; }
+        rePattern.lastIndex = 0;
+        const after = pattern !== ''
+            ? before.replace(rePattern, replacement)
+            : replacement;
+        node.textContent = node.nodeName === 'SCRIPT'
+            ? textContentFactory.createScript(after)
+            : after;
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `Text before:\n${before.trim()}`);
+        }
+        safe.uboLog(logPrefix, `Text after:\n${after.trim()}`);
+        return sedCount === 0 || (sedCount -= 1) !== 0;
+    };
+    const handleMutations = mutations => {
+        for ( const mutation of mutations ) {
+            for ( const node of mutation.addedNodes ) {
+                if ( reNodeName.test(node.nodeName) === false ) { continue; }
+                if ( handleNode(node) ) { continue; }
+                stop(false); return;
             }
-        };
-        const trapChain = function(owner, chain) {
-            const pos = chain.indexOf('.');
-            if ( pos === -1 ) {
-                trapProp(owner, chain, false, {
-                    v: undefined,
-                    init: function(v) {
-                        if ( mustAbort(v) ) { return false; }
-                        this.v = v;
-                        return true;
-                    },
-                    getter: function() {
-                        if ( document.currentScript === thisScript ) {
-                            return this.v;
-                        }
-                        safe.uboLog(logPrefix, 'Property read');
-                        return normalValue;
-                    },
-                    setter: function(a) {
-                        if ( mustAbort(a) === false ) { return; }
-                        normalValue = a;
-                    }
-                });
-                return;
-            }
-            const prop = chain.slice(0, pos);
-            const v = owner[prop];
-            chain = chain.slice(pos + 1);
-            if ( v instanceof safe.Object || typeof v === 'object' && v !== null ) {
-                trapChain(v, chain);
-                return;
-            }
-            trapProp(owner, prop, true, {
-                v: undefined,
-                init: function(v) {
-                    this.v = v;
-                    return true;
-                },
-                getter: function() {
-                    return this.v;
-                },
-                setter: function(a) {
-                    this.v = a;
-                    if ( a instanceof safe.Object ) {
-                        trapChain(a, chain);
-                    }
-                }
-            });
-        };
-        trapChain(window, chain);
+        }
+    };
+    const observer = new MutationObserver(handleMutations);
+    observer.observe(document, { childList: true, subtree: true });
+    if ( document.documentElement ) {
+        const treeWalker = document.createTreeWalker(
+            document.documentElement,
+            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT
+        );
+        let count = 0;
+        for (;;) {
+            const node = treeWalker.nextNode();
+            count += 1;
+            if ( node === null ) { break; }
+            if ( reNodeName.test(node.nodeName) === false ) { continue; }
+            if ( node === document.currentScript ) { continue; }
+            if ( handleNode(node) ) { continue; }
+            stop(); break;
+        }
+        safe.uboLog(logPrefix, `${count} nodes present before installing mutation observer`);
     }
+    if ( extraArgs.stay ) { return; }
     runAt(( ) => {
-        setConstant(chain, rawValue);
-    }, extraArgs.runAt);
+        const quitAfter = extraArgs.quitAfter || 0;
+        if ( quitAfter !== 0 ) {
+            setTimeout(( ) => { stop(); }, quitAfter);
+        } else {
+            stop();
+        }
+    }, 'interactive');
+}
+
+function getRandomToken() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
 }
 
 function runAt(fn, when) {
@@ -409,58 +370,6 @@ function safeSelf() {
     return safe;
 }
 
-function validateConstantFn(trusted, raw, extraArgs = {}) {
-    const safe = safeSelf();
-    let value;
-    if ( raw === 'undefined' ) {
-        value = undefined;
-    } else if ( raw === 'false' ) {
-        value = false;
-    } else if ( raw === 'true' ) {
-        value = true;
-    } else if ( raw === 'null' ) {
-        value = null;
-    } else if ( raw === "''" || raw === '' ) {
-        value = '';
-    } else if ( raw === '[]' || raw === 'emptyArr' ) {
-        value = [];
-    } else if ( raw === '{}' || raw === 'emptyObj' ) {
-        value = {};
-    } else if ( raw === 'noopFunc' ) {
-        value = function(){};
-    } else if ( raw === 'trueFunc' ) {
-        value = function(){ return true; };
-    } else if ( raw === 'falseFunc' ) {
-        value = function(){ return false; };
-    } else if ( raw === 'throwFunc' ) {
-        value = function(){ throw ''; };
-    } else if ( /^-?\d+$/.test(raw) ) {
-        value = parseInt(raw);
-        if ( isNaN(raw) ) { return; }
-        if ( Math.abs(raw) > 0x7FFF ) { return; }
-    } else if ( trusted ) {
-        if ( raw.startsWith('json:') ) {
-            try { value = safe.JSON_parse(raw.slice(5)); } catch(ex) { return; }
-        } else if ( raw.startsWith('{') && raw.endsWith('}') ) {
-            try { value = safe.JSON_parse(raw).value; } catch(ex) { return; }
-        }
-    } else {
-        return;
-    }
-    if ( extraArgs.as !== undefined ) {
-        if ( extraArgs.as === 'function' ) {
-            return ( ) => value;
-        } else if ( extraArgs.as === 'callback' ) {
-            return ( ) => (( ) => value);
-        } else if ( extraArgs.as === 'resolved' ) {
-            return Promise.resolve(value);
-        } else if ( extraArgs.as === 'rejected' ) {
-            return Promise.reject(value);
-        }
-    }
-    return value;
-}
-
 /******************************************************************************/
 
 const hnParts = [];
@@ -533,7 +442,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { setConstant(...argsList[i]); }
+    try { replaceNodeText(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -551,11 +460,11 @@ argsList.length = 0;
 //   'MAIN' world not yet supported in Firefox, so we inject the code into
 //   'MAIN' ourself when environment in Firefox.
 
-const targetWorld = 'MAIN';
+const targetWorld = 'ISOLATED';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_setConstant();
+    return uBOL_replaceNodeText();
 }
 
 // Firefox
@@ -563,11 +472,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_setConstant = cloneInto([
-            [ '(', uBOL_setConstant.toString(), ')();' ],
+        page.uBOL_replaceNodeText = cloneInto([
+            [ '(', uBOL_replaceNodeText.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_setConstant);
+        const blob = new page.Blob(...page.uBOL_replaceNodeText);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -581,7 +490,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_setConstant;
+    delete page.uBOL_replaceNodeText;
 }
 
 /******************************************************************************/

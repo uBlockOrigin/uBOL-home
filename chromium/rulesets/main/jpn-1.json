@@ -1091,7 +1091,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||dialyblog.com/gooddeai/"},"id":1090},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||kuronekoyemato."},"id":1091},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||sites.google.com/view/8loomy-love/halaman-muka"},"id":1092},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["asia","bar","beauty","best","bond","buzz","cam","cfd","click","cloud","cyou","fit","fun","homes","icu","ink","life","live","ltd","me","monster","online","pics","quest","ru.com","sa.com","sbs","shop","site","space","store","tokyo","top","website","work","xyz","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info*&cpath="},"id":1093},
+{"action":{"type":"block"},"condition":{"urlFilter":"||eroitaiken.blog.jp/banner/denshoba.png"},"id":1093},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||blob.core.windows.net/*/xdsxwrxxokisawachjp/index.html"},"id":1094},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||52.25.25.125/img.php?adid="},"id":1095},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","urlFilter":"||coron.tech/wp-content/uploads/*.jpg.webp"},"id":1096},
@@ -1148,7 +1148,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["dmm.co.jp"],"urlFilter":"||dmm.com/affiliate/"},"id":1147},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||hanimez.com/img/series/805/700.jpg"},"id":1148},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||blogring.info/blogparts-img?"},"id":1149},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["asia","bar","beauty","best","bond","buzz","cam","cfd","click","cloud","cyou","fit","fun","homes","icu","ink","life","live","ltd","me","monster","online","pics","quest","ru.com","sa.com","sbs","shop","site","space","store","tokyo","top","website","work","xyz","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info&products_id="},"id":1150},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kaigai-antenna.com/ads/"},"id":1150},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||wp.com/a-affiliate.net/"},"id":1151},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||lovense.com/uploadfiles/web/affiliate/"},"id":1152},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||dmm.co.jp/images/affiliate_banner/"},"id":1153},
@@ -1464,5 +1464,13 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||myaf.estore.co.jp/shopserve/"},"id":1463},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||cyberlink.com/*/edms/jpn/affiliate/"},"id":1464},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["bihann.com","freemen.jp","gamemod.blog.fc2.com","helpsupport.blog.fc2.com","musmus.main.jp","nehannn.com","playai.nu"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":1465,"priority":20},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["wiki.yjsnpi.nu"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||wiki.yjsnpi.nu/plugins/betube-ads/"},"id":1466,"priority":20}
+{"action":{"type":"block"},"condition":{"urlFilter":"||kijonotakuhaibin.com/ads/"},"id":1466},
+{"action":{"type":"block"},"condition":{"urlFilter":"||gamewith.jp/js/dist/jp/search/cta.js"},"id":1467},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["pashplus.jp"],"requestDomains":["taboola.com"]},"id":1468},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||doujinnomori.com/*.php"},"id":1469},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/?p=(0101)-"},"id":1470},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/m0csmwer00jp1/"},"id":1471},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["asia","bar","beauty","best","bond","buzz","cam","cfd","click","cloud","cyou","fit","fun","homes","icu","ink","life","live","ltd","me","monster","one","online","pics","quest","ru.com","sa.com","sbs","shop","site","space","store","tokyo","top","website","work","xyz","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info*&cpath="},"id":1472},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["asia","bar","beauty","best","bond","buzz","cam","cfd","click","cloud","cyou","fit","fun","homes","icu","ink","life","live","ltd","me","monster","one","online","pics","quest","ru.com","sa.com","sbs","shop","site","space","store","tokyo","top","website","work","xyz","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info&products_id="},"id":1473},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["wiki.yjsnpi.nu"],"resourceTypes":["image","xmlhttprequest"]},"id":1474,"priority":20}
 ]
