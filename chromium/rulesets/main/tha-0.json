@@ -733,7 +733,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||tigthai.com/js/popup_facebook.js"},"id":732},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||sistacafe.com/assets/jquery.cookie-*.js"},"id":733},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||sistacafe.com/assets/popup_notification-*.js"},"id":734},
-{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||shopee.co.th/__t__"},"id":735},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["ranker-manga.com"],"requestDomains":["image.cdend.com"],"resourceTypes":["image"]},"id":735},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||shopee.co.th/userstats_record"},"id":736},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||shopeemobile.com/th/tr"},"id":737},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||techmoblog.com/tmb-advertise^"},"id":738},
@@ -742,5 +742,6 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["movie2free.com","movies-x.com","ssnn.site","ufa191.com","ufabet678.com"]},"id":741},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||iwilldoforking.com/coverpage.js"},"id":742},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["tn.com.ar"],"requestDomains":["cxense.com"]},"id":743},
-{"action":{"type":"allow"},"condition":{"urlFilter":"||gelbooru.com/ads.js?"},"id":744,"priority":20}
+{"action":{"type":"allow"},"condition":{"urlFilter":"||gelbooru.com/ads.js?"},"id":744,"priority":20},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||image7.kingsmanga.net/00/00/gclub2.jpg"},"id":745}
 ]

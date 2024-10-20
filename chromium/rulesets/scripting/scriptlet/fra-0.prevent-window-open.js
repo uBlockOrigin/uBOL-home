@@ -23,7 +23,7 @@
 /* eslint-disable indent */
 /* global cloneInto */
 
-// ruleset: default
+// ruleset: fra-0
 
 /******************************************************************************/
 
@@ -36,75 +36,103 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_trustedSuppressNativeMethod = function() {
+const uBOL_noWindowOpenIf = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["fetch","\"adsbygoogle.js\"","abort"]];
+const argsList = [[]];
 
-const hostnamesMap = new Map([["superpsx.com",0]]);
+const hostnamesMap = new Map([["japscan.lol",0],["empire-anime.com",0],["empire-streamz.fr",0],["empire-stream.net",0],["ddl-francais.com",0]]);
 
-const entitiesMap = new Map([]);
+const entitiesMap = new Map([["empire-streaming",0]]);
 
 const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function trustedSuppressNativeMethod(
-    methodPath = '',
-    signature = '',
-    how = '',
-    stack = ''
+function noWindowOpenIf(
+    pattern = '',
+    delay = '',
+    decoy = ''
 ) {
-    if ( methodPath === '' ) { return; }
-    if ( stack !== '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('trusted-suppress-native-method', methodPath, signature, how);
-    const signatureArgs = signature.split(/\s*\|\s*/).map(v => {
-        if ( /^".*"$/.test(v) ) {
-            return { type: 'pattern', re: safe.patternToRegex(v.slice(1, -1)) };
+    const logPrefix = safe.makeLogPrefix('no-window-open-if', pattern, delay, decoy);
+    const targetMatchResult = pattern.startsWith('!') === false;
+    if ( targetMatchResult === false ) {
+        pattern = pattern.slice(1);
+    }
+    const rePattern = safe.patternToRegex(pattern);
+    const autoRemoveAfter = (parseFloat(delay) || 0) * 1000;
+    const setTimeout = self.setTimeout;
+    const createDecoy = function(tag, urlProp, url) {
+        const decoyElem = document.createElement(tag);
+        decoyElem[urlProp] = url;
+        decoyElem.style.setProperty('height','1px', 'important');
+        decoyElem.style.setProperty('position','fixed', 'important');
+        decoyElem.style.setProperty('top','-1px', 'important');
+        decoyElem.style.setProperty('width','1px', 'important');
+        document.body.appendChild(decoyElem);
+        setTimeout(( ) => { decoyElem.remove(); }, autoRemoveAfter);
+        return decoyElem;
+    };
+    const noopFunc = function(){};
+    proxyApplyFn('open', function open(context) {
+        if ( pattern === 'debug' && safe.logLevel !== 0 ) {
+            debugger; // eslint-disable-line no-debugger
+            return context.reflect();
         }
-        if ( v === 'false' ) {
-            return { type: 'exact', value: false };
-        }
-        if ( v === 'true' ) {
-            return { type: 'exact', value: true };
-        }
-        if ( v === 'null' ) {
-            return { type: 'exact', value: null };
-        }
-        if ( v === 'undefined' ) {
-            return { type: 'exact', value: undefined };
-        }
-    });
-    proxyApplyFn(methodPath, function(context) {
         const { callArgs } = context;
-        if ( signature === '' ) {
-            safe.uboLog(logPrefix, `Arguments:\n${callArgs.join('\n')}`);
+        const haystack = callArgs.join(' ');
+        if ( rePattern.test(haystack) !== targetMatchResult ) {
+            if ( safe.logLevel > 1 ) {
+                safe.uboLog(logPrefix, `Allowed (${callArgs.join(', ')})`);
+            }
             return context.reflect();
         }
-        if ( callArgs.length < signatureArgs.length ) {
-            return context.reflect();
+        safe.uboLog(logPrefix, `Prevented (${callArgs.join(', ')})`);
+        if ( delay === '' ) { return null; }
+        if ( decoy === 'blank' ) {
+            callArgs[0] = 'about:blank';
+            const r = context.reflect();
+            setTimeout(( ) => { r.close(); }, autoRemoveAfter);
+            return r;
         }
-        for ( let i = 0; i < signatureArgs.length; i++ ) {
-            const signatureArg = signatureArgs[i];
-            if ( signatureArg === undefined ) { continue; }
-            const targetArg = callArgs[i];
-            if ( signatureArg.type === 'exact' ) {
-                if ( targetArg !== signatureArg.value ) {
-                    return context.reflect();
-                }
-            }
-            if ( signatureArg.type === 'pattern' ) {
-                if ( safe.RegExp_test.call(signatureArg.re, targetArg) === false ) {
-                    return context.reflect();
-                }
-            }
+        const decoyElem = decoy === 'obj'
+            ? createDecoy('object', 'data', ...callArgs)
+            : createDecoy('iframe', 'src', ...callArgs);
+        let popup = decoyElem.contentWindow;
+        if ( typeof popup === 'object' && popup !== null ) {
+            Object.defineProperty(popup, 'closed', { value: false });
+        } else {
+            popup = new Proxy(self, {
+                get: function(target, prop, ...args) {
+                    if ( prop === 'closed' ) { return false; }
+                    const r = Reflect.get(target, prop, ...args);
+                    if ( typeof r === 'function' ) { return noopFunc; }
+                    return r;
+                },
+                set: function(...args) {
+                    return Reflect.set(...args);
+                },
+            });
         }
-        safe.uboLog(logPrefix, `Suppressed:\n${callArgs.join('\n')}`);
-        if ( how === 'abort' ) {
-            throw new ReferenceError();
+        if ( safe.logLevel !== 0 ) {
+            popup = new Proxy(popup, {
+                get: function(target, prop, ...args) {
+                    const r = Reflect.get(target, prop, ...args);
+                    safe.uboLog(logPrefix, `popup / get ${prop} === ${r}`);
+                    if ( typeof r === 'function' ) {
+                        return (...args) => { return r.call(target, ...args); };
+                    }
+                    return r;
+                },
+                set: function(target, prop, value, ...args) {
+                    safe.uboLog(logPrefix, `popup / set ${prop} = ${value}`);
+                    return Reflect.set(target, prop, value, ...args);
+                },
+            });
         }
+        return popup;
     });
 }
 
@@ -321,13 +349,11 @@ function safeSelf() {
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
-    const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
-    let bcBuffer = [];
     safe.logLevel = scriptletGlobals.logLevel || 1;
     let lastLogType = '';
     let lastLogText = '';
     let lastLogTime = 0;
-    safe.sendToLogger = (type, ...args) => {
+    safe.toLogText = (type, ...args) => {
         if ( args.length === 0 ) { return; }
         const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
         if ( text === lastLogText && type === lastLogType ) {
@@ -336,30 +362,45 @@ function safeSelf() {
         lastLogType = type;
         lastLogText = text;
         lastLogTime = Date.now();
-        if ( bcBuffer === undefined ) {
-            return bc.postMessage({ what: 'messageToLogger', type, text });
-        }
-        bcBuffer.push({ type, text });
+        return text;
     };
-    bc.onmessage = ev => {
-        const msg = ev.data;
-        switch ( msg ) {
-        case 'iamready!':
-            if ( bcBuffer === undefined ) { break; }
-            bcBuffer.forEach(({ type, text }) =>
-                bc.postMessage({ what: 'messageToLogger', type, text })
-            );
-            bcBuffer = undefined;
-            break;
-        case 'setScriptletLogLevelToOne':
-            safe.logLevel = 1;
-            break;
-        case 'setScriptletLogLevelToTwo':
-            safe.logLevel = 2;
-            break;
-        }
-    };
-    bc.postMessage('areyouready?');
+    try {
+        const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
+        let bcBuffer = [];
+        safe.sendToLogger = (type, ...args) => {
+            const text = safe.toLogText(type, ...args);
+            if ( text === undefined ) { return; }
+            if ( bcBuffer === undefined ) {
+                return bc.postMessage({ what: 'messageToLogger', type, text });
+            }
+            bcBuffer.push({ type, text });
+        };
+        bc.onmessage = ev => {
+            const msg = ev.data;
+            switch ( msg ) {
+            case 'iamready!':
+                if ( bcBuffer === undefined ) { break; }
+                bcBuffer.forEach(({ type, text }) =>
+                    bc.postMessage({ what: 'messageToLogger', type, text })
+                );
+                bcBuffer = undefined;
+                break;
+            case 'setScriptletLogLevelToOne':
+                safe.logLevel = 1;
+                break;
+            case 'setScriptletLogLevelToTwo':
+                safe.logLevel = 2;
+                break;
+            }
+        };
+        bc.postMessage('areyouready?');
+    } catch(_) {
+        safe.sendToLogger = (type, ...args) => {
+            const text = safe.toLogText(type, ...args);
+            if ( text === undefined ) { return; }
+            safe.log(`uBO ${text}`);
+        };
+    }
     return safe;
 }
 
@@ -435,7 +476,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { trustedSuppressNativeMethod(...argsList[i]); }
+    try { noWindowOpenIf(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -457,7 +498,7 @@ const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_trustedSuppressNativeMethod();
+    return uBOL_noWindowOpenIf();
 }
 
 // Firefox
@@ -465,11 +506,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_trustedSuppressNativeMethod = cloneInto([
-            [ '(', uBOL_trustedSuppressNativeMethod.toString(), ')();' ],
+        page.uBOL_noWindowOpenIf = cloneInto([
+            [ '(', uBOL_noWindowOpenIf.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_trustedSuppressNativeMethod);
+        const blob = new page.Blob(...page.uBOL_noWindowOpenIf);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -483,7 +524,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_trustedSuppressNativeMethod;
+    delete page.uBOL_noWindowOpenIf;
 }
 
 /******************************************************************************/

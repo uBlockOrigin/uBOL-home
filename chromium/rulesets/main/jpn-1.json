@@ -48,7 +48,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/wp-content/plugins/amazonjs/"},"id":47},
 {"action":{"type":"block"},"condition":{"urlFilter":"||lyze.jp/img/banner/"},"id":48},
 {"action":{"type":"block"},"condition":{"urlFilter":"||m-pe.tv/img/banner/"},"id":49},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["poitan.jp"],"urlFilter":"||news.google.com/*/swg-basic.js"},"id":50},
+{"action":{"type":"block"},"condition":{"urlFilter":"||eegg.fun/js/for_ad/"},"id":50},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["finance.yahoo.co.jp"],"urlFilter":"||s.yimg.jp/images/finance/nisa/image/banner/sbi/"},"id":51},
 {"action":{"type":"block"},"condition":{"urlFilter":"||stat.ameba.jp/user_images/20210415/17/kotaro-izawa/69/4f/j/o1080108014926818586.jpg"},"id":52},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["hobbylabon.com"],"urlFilter":"||suruga-ya.jp/images/idol_bn.jpg"},"id":53},
@@ -1443,7 +1443,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".cn/ap/signin?openid.*&openid.return_to=https%3a%2f%2fwww.amazon.co.jp"},"id":1442},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["nijigen-erogazou.com"],"resourceTypes":["script"]},"id":1443},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["sp.seiga.nicovideo.jp"],"urlFilter":"||res.ads.nicovideo.jp/assets/js/ads2.js"},"id":1444,"priority":20},
-{"action":{"type":"allow"},"condition":{"urlFilter":"||0115765.com/assets/ads/main.js"},"id":1445,"priority":20},
+{"action":{"type":"block"},"condition":{"urlFilter":"||eegg.fun/js/adrl_s.js"},"id":1445},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||goonews.jp/common/img/sub/right/g0121_goonet_ryutsu_bnr_h.jpg"},"id":1446,"priority":20},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["shinmai.co.jp"],"urlFilter":"||smart-bdash.com/reception-script/"},"id":1447},
 {"action":{"type":"block"},"condition":{"requestDomains":["185.161.248.253","ad1.girls-affiliate.com","amazonlogistics.jp","askfollow.us","bartinkizogrenciyurdu.com","best-lucky-cat.xyz","click-count.info","corectcustom.com","enmusubimail000.com","freeadd.me","givesthtosb.com","googleailesi.com","hydrangeao.com","infohimatalk77.net","jpshopes.com","more-followers.com","moro-douga.link","nectarineple.com","safemy-ios.com","snapdragonox.com","thepsusiwho.com","twitob.com","twitterfollowers.site","unddeliv.com"],"resourceTypes":["main_frame"]},"id":1448},
@@ -1472,5 +1472,8 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/m0csmwer00jp1/"},"id":1471},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["asia","bar","beauty","best","bond","buzz","cam","cfd","click","cloud","cyou","fit","fun","homes","icu","ink","life","live","ltd","me","monster","one","online","pics","quest","ru.com","sa.com","sbs","shop","site","space","store","tokyo","top","website","work","xyz","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info*&cpath="},"id":1472},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["asia","bar","beauty","best","bond","buzz","cam","cfd","click","cloud","cyou","fit","fun","homes","icu","ink","life","live","ltd","me","monster","one","online","pics","quest","ru.com","sa.com","sbs","shop","site","space","store","tokyo","top","website","work","xyz","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info&products_id="},"id":1473},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["wiki.yjsnpi.nu"],"resourceTypes":["image","xmlhttprequest"]},"id":1474,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["wiki.yjsnpi.nu"],"resourceTypes":["image","xmlhttprequest"]},"id":1474,"priority":20},
+{"action":{"type":"block"},"condition":{"urlFilter":"||antennasync.me/ad.php"},"id":1475},
+{"action":{"type":"block"},"condition":{"urlFilter":"||antennasync.me/listjson1.2.1a.js"},"id":1476},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["7-24blog.com","poitan.jp"],"urlFilter":"||news.google.com/*/swg-basic.js"},"id":1477}
 ]

@@ -1,0 +1,26 @@
+[
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "ad",
+      "adExt"
+     ]
+    }
+   }
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame",
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||mesh.if.iqiyi.com/portal/lw/search/"
+ },
+ "id": 6454
+}
+]

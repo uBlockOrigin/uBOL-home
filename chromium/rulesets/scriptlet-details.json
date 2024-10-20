@@ -152,7 +152,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "*"
     ]
@@ -280,6 +280,7 @@
      "purepeople.com",
      "red17.co.uk",
      "smsonline.cloud",
+     "wiki.yjsnpi.nu",
      "workplace-products.co.uk",
      "www.lenovo.com",
      "ygosu.com",
@@ -430,6 +431,7 @@
      "cineplus123.org",
      "emturbovid.com",
      "findjav.com",
+     "javggvideo.xyz",
      "mmtv01.xyz",
      "mobileweb.bankmellat.ir",
      "paraveronline.org",
@@ -480,12 +482,6 @@
      "turbobita.net",
      "turbobits.cc",
      "turboobit.com"
-    ]
-   ],
-   [
-    "trusted-suppress-native-method",
-    [
-     "superpsx.com"
     ]
    ],
    [
@@ -669,7 +665,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "5278.cc",
      "88files.net",
@@ -1002,7 +998,8 @@
     "set-cookie",
     [
      "aalto.fi",
-     "srk.fi"
+     "srk.fi",
+     "www.tek.fi"
     ]
    ],
    [
@@ -1138,6 +1135,18 @@
     ]
    ],
    [
+    "adjust-setTimeout",
+    [
+     "20min.ch",
+     "cosmopolitan.fr",
+     "lessentiel.lu",
+     "magicmaman.com",
+     "marieclaire.fr",
+     "sudouest.fr",
+     "zoneseries.stream"
+    ]
+   ],
+   [
     "remove-attr",
     [
      "1jour1film.cyou",
@@ -1147,18 +1156,7 @@
     ]
    ],
    [
-    "adjust-setTimeout",
-    [
-     "20min.ch",
-     "cosmopolitan.fr",
-     "lessentiel.lu",
-     "magicmaman.com",
-     "sudouest.fr",
-     "zoneseries.stream"
-    ]
-   ],
-   [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "*"
     ]
@@ -1212,7 +1210,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "hosszupuskasub.com"
     ]
@@ -1342,7 +1340,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "anichin.top",
      "kimcilonly.site",
@@ -1382,7 +1380,7 @@
   "irn-0",
   [
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "androidtime.com",
      "appiroid.ir",
@@ -1436,6 +1434,26 @@
     ]
    ],
    [
+    "addEventListener-defuser",
+    [
+     "app.blubank.com",
+     "autosafkar.com",
+     "bizma.ir",
+     "downloadha.com",
+     "elmefarda.com",
+     "ganjipakhsh.com",
+     "iran-music.com",
+     "javan-musics.com",
+     "lenz.ir",
+     "mopon.ir",
+     "noorlib.ir",
+     "s-moshaver.com",
+     "subkade.ir",
+     "tabanmusic.com",
+     "texahang.org"
+    ]
+   ],
+   [
     "adjust-setInterval",
     [
      "animelist.tv",
@@ -1461,6 +1479,7 @@
      "jafekri.com",
      "jeyran.net",
      "mybia4music.com",
+     "p30konkor.com",
      "sclinic.ir",
      "searchline.ir",
      "tabnak.ir",
@@ -1476,30 +1495,12 @@
     ]
    ],
    [
-    "addEventListener-defuser",
-    [
-     "app.blubank.com",
-     "bizma.ir",
-     "downloadha.com",
-     "elmefarda.com",
-     "ganjipakhsh.com",
-     "iran-music.com",
-     "javan-musics.com",
-     "lenz.ir",
-     "mopon.ir",
-     "noorlib.ir",
-     "s-moshaver.com",
-     "subkade.ir",
-     "tabanmusic.com",
-     "texahang.org"
-    ]
-   ],
-   [
     "abort-on-property-read",
     [
      "coffeeapps.ir",
      "nab-music.com",
      "oila.tj",
+     "p30konkor.com",
      "sclinic.ir",
      "shahanmusic.ir",
      "tak3da.com",
@@ -1685,7 +1686,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "inn.co.il"
     ]
@@ -1728,21 +1729,8 @@
     ]
    ],
    [
-    "abort-on-stack-trace",
-    [
-     "wiki.yjsnpi.nu"
-    ]
-   ],
-   [
-    "prevent-fetch",
-    [
-     "*"
-    ]
-   ],
-   [
     "set-constant",
     [
-     "0115765.com",
      "520call.me",
      "520cc.cc",
      "bridalgown.work",
@@ -1773,7 +1761,14 @@
      "sukima.me",
      "tapestry.work",
      "teaceremony.work",
-     "weddinghall.work"
+     "weddinghall.work",
+     "wiki.yjsnpi.nu"
+    ]
+   ],
+   [
+    "prevent-fetch",
+    [
+     "*"
     ]
    ],
    [
@@ -1875,7 +1870,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "asg.to",
      "dl.520cc.cc",
@@ -2191,7 +2186,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "37.16.75.37",
      "player.filmux.to"
@@ -2349,7 +2344,7 @@
   "pol-0",
   [
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "ebd.cda.pl"
     ]
@@ -2641,7 +2636,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "*"
     ]
@@ -2743,6 +2738,7 @@
      "carservic.ru",
      "cdn.viqeo.tv",
      "cq.ru",
+     "e.mail.ru",
      "fastpic.org",
      "fm-app.ru",
      "in-poland.com",
@@ -2759,6 +2755,7 @@
      "liveball.uno",
      "m.lenta.ru",
      "mk.ru",
+     "octavius.mail.ru",
      "ohotniki.ru",
      "otvet.mail.ru",
      "overclockers.ru",
@@ -2960,6 +2957,7 @@
      "in-poland.com",
      "litehd.tv",
      "num-words.com",
+     "octavius.mail.ru",
      "otzovik.com",
      "razlozhi.ru",
      "russia-tv.online",
@@ -3213,7 +3211,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "08sportbar.com",
      "08sportbar.online",
@@ -3275,34 +3273,6 @@
   "spa-1",
   [
    [
-    "prevent-xhr",
-    [
-     "aqualapp.com",
-     "caroloportunidades.com.br",
-     "dicasgostosas.com",
-     "file4go.net",
-     "minhaconexao.com.br",
-     "raulprietofernandez.net"
-    ]
-   ],
-   [
-    "set-local-storage-item",
-    [
-     "blog.whatsappgb.top",
-     "financeiropronto.vip",
-     "fomedereceitas.online",
-     "gastroponto.com",
-     "infoinvest.org",
-     "investimentosfacil.online",
-     "megacurioso.online",
-     "nossoprato.online",
-     "receitasdafazenda.com",
-     "receitasdocheff.online",
-     "receitastop.click",
-     "receitasvegana.com"
-    ]
-   ],
-   [
     "prevent-fetch",
     [
      "acortados.com",
@@ -3319,6 +3289,7 @@
      "c9n.com.py",
      "canal12.com.sv",
      "canal13mexico.com",
+     "casperhd.com",
      "cerisetoon.com",
      "chapintv.com",
      "coempregos.com.br",
@@ -3337,6 +3308,7 @@
      "financasdeouro.com",
      "gadgetzona.net",
      "ggames.com.br",
+     "gourlpro.com",
      "hinatasoul.com",
      "independentespanol.com",
      "istigo.net",
@@ -3369,6 +3341,7 @@
      "repretel.com",
      "rqp.com.bo",
      "sabornutritivo.com",
+     "short.7hd.club",
      "sinensistoon.com",
      "southpark.lat",
      "southparkstudios.com.br",
@@ -3381,6 +3354,34 @@
      "todostartups.com",
      "tudonoticiasbr.com",
      "vtv.com.hn"
+    ]
+   ],
+   [
+    "prevent-xhr",
+    [
+     "aqualapp.com",
+     "caroloportunidades.com.br",
+     "dicasgostosas.com",
+     "file4go.net",
+     "minhaconexao.com.br",
+     "raulprietofernandez.net"
+    ]
+   ],
+   [
+    "set-local-storage-item",
+    [
+     "blog.whatsappgb.top",
+     "financeiropronto.vip",
+     "fomedereceitas.online",
+     "gastroponto.com",
+     "infoinvest.org",
+     "investimentosfacil.online",
+     "megacurioso.online",
+     "nossoprato.online",
+     "receitasdafazenda.com",
+     "receitasdocheff.online",
+     "receitastop.click",
+     "receitasvegana.com"
     ]
    ],
    [
@@ -3540,7 +3541,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "*"
     ]
@@ -3998,7 +3999,6 @@
    [
     "prevent-xhr",
     [
-     "/(^\\|.+\\.)canlitribun\\d+\\.live/",
      "canlitribun237.live",
      "canlitribun238.live",
      "canlitribun239.live",
@@ -4373,7 +4373,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "*"
     ]
@@ -4449,7 +4449,6 @@
    [
     "set-attr",
     [
-     "/^inattv\\d+\\.xyz$/",
      "inattvhd188.xyz",
      "inattvhd189.xyz",
      "inattvhd190.xyz",
@@ -4498,50 +4497,50 @@
      "abtruyenmoi.com",
      "abysscdn.com",
      "afamily.vn",
-     "animehay.kim",
-     "animevietsub.tube",
+     "animehay.my",
+     "animevietsub.run",
      "anivn.club",
      "cafef.vn",
      "cdnstream.sbs",
-     "cliphot69.fun",
-     "cliphot69.mom",
+     "cliphot69.my",
+     "cliphot69.uno",
      "cunghocvui.com",
      "damsextv.pro",
      "demo.14412882.com",
-     "doctruyen3qmoi.pro",
-     "dualeotruyenbff.com",
+     "doctruyen3qw.pro",
+     "dualeotruyenman.com",
      "freeplayervideo.com",
      "gamek.vn",
      "genk.vn",
      "geoip.redirect-ads.com",
      "gocmod.com",
-     "goctruyentranhvui2.com",
+     "goctruyentranhvui3.com",
      "gotphim.com",
      "hd.javhay.site",
      "hentaivn.today",
-     "heodam.moe",
      "hh3dhay.life",
      "hh3dhay.xyz",
      "hhhay.me",
      "hhtq5.vip",
      "hhvsub.com",
      "holyfilm.org",
-     "ihentai.vip",
+     "ihentai.wiki",
      "imail.edu.vn",
      "ios.codevn.net",
+     "javhd.baby",
      "javtiful.com",
      "kenh14.vn",
      "linkneverdie.net",
      "linkneverdie.top",
      "linkneverdie2.com",
-     "live.sexviet88.xyz",
      "lrepacks.net",
-     "luotphimtv.lat",
-     "lxmanga.ink",
+     "luotphimtv.cam",
+     "lxmanga.online",
      "m.blogtruyenmoi.com",
      "mephimnhe1.net",
      "misskon.com",
      "motphimww.net",
+     "mupdep.net",
      "nettruyenww.com",
      "p.thoctv.com",
      "phim18hd.sex",
@@ -4556,14 +4555,14 @@
      "player-cdn.com",
      "playhydrax.com",
      "quatvn.fit",
-     "rphang.love",
+     "rphang.dog",
      "saigon24.net",
      "sayhentai.one",
      "sex.tuoi69.store",
      "sexdiary.club",
      "sexhd88.live",
      "sexmup18.com",
-     "sextop1.pw",
+     "sextop1.mx",
      "soha.vn",
      "streamvl.top",
      "tenmientruyengi.net",
@@ -4571,9 +4570,9 @@
      "tiemsachhay.net",
      "tinsoikeo.live",
      "top1sex.me",
-     "topviet69.net",
+     "topviet69.online",
      "tram3d.net",
-     "truyen2u.pro",
+     "truyen2u.top",
      "truyen35.shop",
      "truyengihotdo.net",
      "truyengihotnay.com",
@@ -4582,26 +4581,25 @@
      "truyengihotqua.com",
      "truyengihotqua.net",
      "truyengihotzay.net",
-     "truyengpt.com",
+     "truyenqq.uk",
      "truyenqqto.com",
      "truyensextv.com",
      "truyentuan.xyz",
-     "truyenvn.blog",
+     "truyenvn.wiki",
      "tuoitre.vn",
-     "tvphimsex.pro",
      "ungtycomicsvip.com",
      "ungtycomicsvip.org",
      "vailonxx.vip",
-     "viet69.ing",
-     "viet69.rent",
-     "viet69.run",
+     "viet69.do",
+     "viet69.la",
+     "viet69.team",
      "vlxx.mx",
      "vlxyz.tube",
+     "vn.sexviet88.xyz",
      "vungoctuan.vn",
-     "www.buomtv.vip",
-     "www.toptruyen68.pro",
-     "xemphim18.vip",
-     "xemphimhdcv.com",
+     "www.buomtv.me",
+     "www.toptruyenww.pro",
+     "xemphimhdc.vip",
      "xnxx-sex-videos.com",
      "yurineko.net"
     ]
@@ -4610,7 +4608,7 @@
     "abort-on-property-read",
     [
      "anh.moe",
-     "animet3.pro",
+     "animet3.biz",
      "animevietsubs.com",
      "aoe.vn",
      "audiotruyenfull.com",
@@ -4618,7 +4616,7 @@
      "cdn2.blueskychilling.online",
      "dood.pm",
      "ephimchill.com",
-     "fastscans1.net",
+     "fastscans2.net",
      "hayhaytv.org",
      "hentaivn.love",
      "herotruyen.com",
@@ -4638,9 +4636,10 @@
      "phimlongtieng.net",
      "plcdn.xyz",
      "quangcaoyenbai.com",
-     "sieudamtv.vin",
+     "sieudamtv.lol",
      "thuvienhd.xyz",
      "tinsoikeo.live",
+     "truyenfull.io",
      "truyensieuhay.com",
      "veryfiles.com",
      "viettoons.tv",
@@ -4650,7 +4649,7 @@
      "www.phimdinhcaoz.com",
      "xemphimjav.com",
      "xemtv.tvhayhd.tv",
-     "xoilacq.cc",
+     "xoilacxi.cc",
      "yts.do",
      "yts.mx",
      "yts.rs",
@@ -4678,7 +4677,7 @@
      "afamily.vn",
      "api.anime3s.com",
      "cafef.vn",
-     "cliphot69.mom",
+     "cliphot69.uno",
      "clipsex.cam",
      "coiphimsex.net",
      "freeplayervideo.com",
@@ -4716,7 +4715,7 @@
     "addEventListener-defuser",
     [
      "femax20.com",
-     "motchilltv.my"
+     "motchilltv.li"
     ]
    ],
    [
@@ -4751,6 +4750,19 @@
     "remove-attr",
     [
      "xnxx-sex-videos.com"
+    ]
+   ]
+  ]
+ ],
+ [
+  "est-0",
+  [
+   [
+    "addEventListener-defuser",
+    [
+     "aripaev.ee",
+     "delfi.ee",
+     "postimees.ee"
     ]
    ]
   ]
@@ -5095,7 +5107,9 @@
      "ideentitaet.com",
      "igvm.de",
      "ilgazzettino.it",
+     "ilmessaggero.it",
      "ilonpolku.fi",
+     "ilsecoloxix.it",
      "ilyabiz.com",
      "immobilien-skiba.de",
      "imprimare3d.com",
@@ -6437,6 +6451,7 @@
      "byfood.com",
      "canonvannederland.nl",
      "changelly.com",
+     "chipcitycookies.com",
      "cityfalcon.ai",
      "codedead.com",
      "column.com",
@@ -7142,7 +7157,7 @@
     ]
    ],
    [
-    "no-window-open-if",
+    "prevent-window-open",
     [
      "adbypass.org",
      "bypass.city",

@@ -23,7 +23,7 @@
 /* eslint-disable indent */
 /* global cloneInto */
 
-// ruleset: rou-1
+// ruleset: est-0
 
 /******************************************************************************/
 
@@ -36,100 +36,95 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_noWindowOpenIf = function() {
+const uBOL_addEventListenerDefuser = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [[],["","10"]];
+const argsList = [["copy"]];
 
-const hostnamesMap = new Map([["nosteam.ro",0],["nosteamgames.ro",0],["posturi.live",0],["vzlinks.com",0],["kimdesene.org",0],["onlyplay.online",1]]);
+const hostnamesMap = new Map([["aripaev.ee",0],["delfi.ee",0],["postimees.ee",0]]);
 
-const entitiesMap = new Map([["filmeserialegratis",0],["fsplayer",0]]);
+const entitiesMap = new Map([]);
 
 const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function noWindowOpenIf(
-    pattern = '',
-    delay = '',
-    decoy = ''
+function addEventListenerDefuser(
+    type = '',
+    pattern = ''
 ) {
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('no-window-open-if', pattern, delay, decoy);
-    const targetMatchResult = pattern.startsWith('!') === false;
-    if ( targetMatchResult === false ) {
-        pattern = pattern.slice(1);
-    }
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
+    const reType = safe.patternToRegex(type, undefined, true);
     const rePattern = safe.patternToRegex(pattern);
-    const autoRemoveAfter = (parseFloat(delay) || 0) * 1000;
-    const setTimeout = self.setTimeout;
-    const createDecoy = function(tag, urlProp, url) {
-        const decoyElem = document.createElement(tag);
-        decoyElem[urlProp] = url;
-        decoyElem.style.setProperty('height','1px', 'important');
-        decoyElem.style.setProperty('position','fixed', 'important');
-        decoyElem.style.setProperty('top','-1px', 'important');
-        decoyElem.style.setProperty('width','1px', 'important');
-        document.body.appendChild(decoyElem);
-        setTimeout(( ) => { decoyElem.remove(); }, autoRemoveAfter);
-        return decoyElem;
+    const debug = shouldDebug(extraArgs);
+    const targetSelector = extraArgs.elements || undefined;
+    const elementMatches = elem => {
+        if ( targetSelector === 'window' ) { return elem === window; }
+        if ( targetSelector === 'document' ) { return elem === document; }
+        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
+        const elems = Array.from(document.querySelectorAll(targetSelector));
+        return elems.includes(elem);
     };
-    const noopFunc = function(){};
-    proxyApplyFn('open', function open(context) {
-        const { callArgs } = context;
-        const haystack = callArgs.join(' ');
-        if ( rePattern.test(haystack) !== targetMatchResult ) {
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `Allowed (${callArgs.join(', ')})`);
+    const elementDetails = elem => {
+        if ( elem instanceof Window ) { return 'window'; }
+        if ( elem instanceof Document ) { return 'document'; }
+        if ( elem instanceof Element === false ) { return '?'; }
+        const parts = [];
+        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
+        const id = String(elem.id);
+        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
+        for ( let i = 0; i < elem.classList.length; i++ ) {
+            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
+        }
+        for ( let i = 0; i < elem.attributes.length; i++ ) {
+            const attr = elem.attributes.item(i);
+            if ( attr.name === 'id' ) { continue; }
+            if ( attr.name === 'class' ) { continue; }
+            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
+        }
+        return parts.join('');
+    };
+    const shouldPrevent = (thisArg, type, handler) => {
+        const matchesType = safe.RegExp_test.call(reType, type);
+        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesEither = matchesType || matchesHandler;
+        const matchesBoth = matchesType && matchesHandler;
+        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
+            debugger; // eslint-disable-line no-debugger
+        }
+        if ( matchesBoth && targetSelector !== undefined ) {
+            if ( elementMatches(thisArg) === false ) { return false; }
+        }
+        return matchesBoth;
+    };
+    runAt(( ) => {
+        proxyApplyFn('EventTarget.prototype.addEventListener', function(context) {
+            const { callArgs, thisArg } = context;
+            let t, h;
+            try {
+                t = String(callArgs[0]);
+                if ( typeof callArgs[1] === 'function' ) {
+                    h = String(safe.Function_toString(callArgs[1]));
+                } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
+                    if ( typeof callArgs[1].handleEvent === 'function' ) {
+                        h = String(safe.Function_toString(callArgs[1].handleEvent));
+                    }
+                } else {
+                    h = String(callArgs[1]);
+                }
+            } catch(ex) {
+            }
+            if ( type === '' && pattern === '' ) {
+                safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
+            } else if ( shouldPrevent(thisArg, t, h) ) {
+                return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
             }
             return context.reflect();
-        }
-        safe.uboLog(logPrefix, `Prevented (${callArgs.join(', ')})`);
-        if ( delay === '' ) { return null; }
-        if ( decoy === 'blank' ) {
-            callArgs[0] = 'about:blank';
-            const r = context.reflect();
-            setTimeout(( ) => { r.close(); }, autoRemoveAfter);
-            return r;
-        }
-        const decoyElem = decoy === 'obj'
-            ? createDecoy('object', 'data', ...callArgs)
-            : createDecoy('iframe', 'src', ...callArgs);
-        let popup = decoyElem.contentWindow;
-        if ( typeof popup === 'object' && popup !== null ) {
-            Object.defineProperty(popup, 'closed', { value: false });
-        } else {
-            popup = new Proxy(self, {
-                get: function(target, prop, ...args) {
-                    if ( prop === 'closed' ) { return false; }
-                    const r = Reflect.get(target, prop, ...args);
-                    if ( typeof r === 'function' ) { return noopFunc; }
-                    return r;
-                },
-                set: function(...args) {
-                    return Reflect.set(...args);
-                },
-            });
-        }
-        if ( safe.logLevel !== 0 ) {
-            popup = new Proxy(popup, {
-                get: function(target, prop, ...args) {
-                    const r = Reflect.get(target, prop, ...args);
-                    safe.uboLog(logPrefix, `popup / get ${prop} === ${r}`);
-                    if ( typeof r === 'function' ) {
-                        return (...args) => { return r.call(target, ...args); };
-                    }
-                    return r;
-                },
-                set: function(target, prop, value, ...args) {
-                    safe.uboLog(logPrefix, `popup / set ${prop} = ${value}`);
-                    return Reflect.set(target, prop, value, ...args);
-                },
-            });
-        }
-        return popup;
-    });
+        });
+    }, extraArgs.runAt);
 }
 
 function proxyApplyFn(
@@ -211,6 +206,35 @@ function proxyApplyFn(
         };
     }
     context[prop] = new Proxy(fn, proxyDetails);
+}
+
+function runAt(fn, when) {
+    const intFromReadyState = state => {
+        const targets = {
+            'loading': 1, 'asap': 1,
+            'interactive': 2, 'end': 2, '2': 2,
+            'complete': 3, 'idle': 3, '3': 3,
+        };
+        const tokens = Array.isArray(state) ? state : [ state ];
+        for ( const token of tokens ) {
+            const prop = `${token}`;
+            if ( targets.hasOwnProperty(prop) === false ) { continue; }
+            return targets[prop];
+        }
+        return 0;
+    };
+    const runAt = intFromReadyState(when);
+    if ( intFromReadyState(document.readyState) >= runAt ) {
+        fn(); return;
+    }
+    const onStateChange = ( ) => {
+        if ( intFromReadyState(document.readyState) < runAt ) { return; }
+        fn();
+        safe.removeEventListener.apply(document, args);
+    };
+    const safe = safeSelf();
+    const args = [ 'readystatechange', onStateChange, { capture: true } ];
+    safe.addEventListener.apply(document, args);
 }
 
 function safeSelf() {
@@ -345,13 +369,11 @@ function safeSelf() {
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
-    const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
-    let bcBuffer = [];
     safe.logLevel = scriptletGlobals.logLevel || 1;
     let lastLogType = '';
     let lastLogText = '';
     let lastLogTime = 0;
-    safe.sendToLogger = (type, ...args) => {
+    safe.toLogText = (type, ...args) => {
         if ( args.length === 0 ) { return; }
         const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
         if ( text === lastLogText && type === lastLogType ) {
@@ -360,31 +382,51 @@ function safeSelf() {
         lastLogType = type;
         lastLogText = text;
         lastLogTime = Date.now();
-        if ( bcBuffer === undefined ) {
-            return bc.postMessage({ what: 'messageToLogger', type, text });
-        }
-        bcBuffer.push({ type, text });
+        return text;
     };
-    bc.onmessage = ev => {
-        const msg = ev.data;
-        switch ( msg ) {
-        case 'iamready!':
-            if ( bcBuffer === undefined ) { break; }
-            bcBuffer.forEach(({ type, text }) =>
-                bc.postMessage({ what: 'messageToLogger', type, text })
-            );
-            bcBuffer = undefined;
-            break;
-        case 'setScriptletLogLevelToOne':
-            safe.logLevel = 1;
-            break;
-        case 'setScriptletLogLevelToTwo':
-            safe.logLevel = 2;
-            break;
-        }
-    };
-    bc.postMessage('areyouready?');
+    try {
+        const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
+        let bcBuffer = [];
+        safe.sendToLogger = (type, ...args) => {
+            const text = safe.toLogText(type, ...args);
+            if ( text === undefined ) { return; }
+            if ( bcBuffer === undefined ) {
+                return bc.postMessage({ what: 'messageToLogger', type, text });
+            }
+            bcBuffer.push({ type, text });
+        };
+        bc.onmessage = ev => {
+            const msg = ev.data;
+            switch ( msg ) {
+            case 'iamready!':
+                if ( bcBuffer === undefined ) { break; }
+                bcBuffer.forEach(({ type, text }) =>
+                    bc.postMessage({ what: 'messageToLogger', type, text })
+                );
+                bcBuffer = undefined;
+                break;
+            case 'setScriptletLogLevelToOne':
+                safe.logLevel = 1;
+                break;
+            case 'setScriptletLogLevelToTwo':
+                safe.logLevel = 2;
+                break;
+            }
+        };
+        bc.postMessage('areyouready?');
+    } catch(_) {
+        safe.sendToLogger = (type, ...args) => {
+            const text = safe.toLogText(type, ...args);
+            if ( text === undefined ) { return; }
+            safe.log(`uBO ${text}`);
+        };
+    }
     return safe;
+}
+
+function shouldDebug(details) {
+    if ( details instanceof Object === false ) { return false; }
+    return scriptletGlobals.canDebug && details.debug;
 }
 
 /******************************************************************************/
@@ -459,7 +501,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { noWindowOpenIf(...argsList[i]); }
+    try { addEventListenerDefuser(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -481,7 +523,7 @@ const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_noWindowOpenIf();
+    return uBOL_addEventListenerDefuser();
 }
 
 // Firefox
@@ -489,11 +531,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_noWindowOpenIf = cloneInto([
-            [ '(', uBOL_noWindowOpenIf.toString(), ')();' ],
+        page.uBOL_addEventListenerDefuser = cloneInto([
+            [ '(', uBOL_addEventListenerDefuser.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_noWindowOpenIf);
+        const blob = new page.Blob(...page.uBOL_addEventListenerDefuser);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -507,7 +549,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_noWindowOpenIf;
+    delete page.uBOL_addEventListenerDefuser;
 }
 
 /******************************************************************************/

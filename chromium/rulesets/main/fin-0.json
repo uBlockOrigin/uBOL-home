@@ -165,5 +165,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["clk.tradedoubler.com"],"resourceTypes":["main_frame"],"urlFilter":"||clk.tradedoubler.com/click*cdon.fi"},"id":164,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["ad.doubleclick.net"],"resourceTypes":["main_frame"],"urlFilter":"||ad.doubleclick.net/ddm/clk/*coolshop.fi/tuote/"},"id":165,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["click.redditmail.com"]},"id":166,"priority":20},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["elisa.fi"],"urlFilter":"||googletagmanager.com/gtm.js?"},"id":167,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["elisa.fi"],"urlFilter":"||googletagmanager.com/gtm.js?"},"id":167,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["www.tek.fi"],"resourceTypes":["script"],"urlFilter":"/eu_cookie_compliance.min.js"},"id":168,"priority":20}
 ]

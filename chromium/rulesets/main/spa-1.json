@@ -854,5 +854,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["netcine3.la"],"resourceTypes":["xmlhttprequest"]},"id":853,"priority":20},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||ads.anitube.vip/?token="},"id":854,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["animesonliner4.com","anitube.us","anitube.vip","coempregos.com.br","dattebayo-br.com","hinatasoul.com"],"requestDomains":["ads.anitube.vip"],"resourceTypes":["xmlhttprequest"]},"id":855,"priority":20},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["animesonliner4.com","anitube.us","anitube.vip","coempregos.com.br","dattebayo-br.com","hinatasoul.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||widgets.outbrain.com/outbrain.js"},"id":856,"priority":20}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["animesonliner4.com","anitube.us","anitube.vip","coempregos.com.br","dattebayo-br.com","hinatasoul.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||widgets.outbrain.com/outbrain.js"},"id":856,"priority":20},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedRequestDomains":["cdn.jkdesu.com"],"initiatorDomains":["jkanime.net"],"resourceTypes":["script"]},"id":857}
 ]

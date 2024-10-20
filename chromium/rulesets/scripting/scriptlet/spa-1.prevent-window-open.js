@@ -23,7 +23,7 @@
 /* eslint-disable indent */
 /* global cloneInto */
 
-// ruleset: idn-0
+// ruleset: spa-1
 
 /******************************************************************************/
 
@@ -40,11 +40,11 @@ const uBOL_noWindowOpenIf = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [[]];
+const argsList = [[],["","10"],["!/download\\/|link|atomtt\\.com\\//"],["?sid="],["?key="],["passeura"],["/^https?:\\/\\/movieknowing\\.com\\/$/","trueFunc"],["redirdx.in/go/"]];
 
-const hostnamesMap = new Map([["anichin.top",0],["kimcilonly.site",0],["kiryuu.id",0],["kiryuu.org",0],["njavtv.com",0],["subindojav.cc",0]]);
+const hostnamesMap = new Map([["darkmahou.org",0],["movidy.lat",0],["warezstream.net",0],["embedder.net",0],["beautyskincarebrasil.com",0],["pelispedia.life",0],["poseidonhd2.co",0],["geeknetic.es",0],["animeblix.com",[0,5]],["servertwo.xyz",0],["megaseriesonline.pro",0],["chinesetubex.com.es",0],["playnewserie.xyz",0],["desenhosanimados.site",0],["pelispedia-v2.wtf",0],["paky3.me",0],["pelismart.com",0],["pelismarthd.com",0],["pelispedia-v1.wtf",0],["cuevana-3.wtf",0],["muyzorras.com",0],["vernaruto.tv",0],["clickhouse.xyz",0],["deportealdia.live",0],["repelis.io",0],["otakustv.com",0],["repelisgt.net",0],["playpaste.com",0],["okpeliz.com",0],["player.seriesgod.com",0],["player.pelisgod.com",0],["pulpulyy.club",1],["atomohd.com",2],["atomtt.com",2],["maxitorrent.com",3],["verdragonball.online",4],["torrentjogos.com.br",4],["movieknowing.com",6],["redirdx.in",7]]);
 
-const entitiesMap = new Map([]);
+const entitiesMap = new Map([["cuevana3",0],["gnula",0],["cuevana2espanol",0],["cuevana",0],["netcine",0],["atomixhq",2]]);
 
 const exceptionsMap = new Map([]);
 
@@ -77,6 +77,10 @@ function noWindowOpenIf(
     };
     const noopFunc = function(){};
     proxyApplyFn('open', function open(context) {
+        if ( pattern === 'debug' && safe.logLevel !== 0 ) {
+            debugger; // eslint-disable-line no-debugger
+            return context.reflect();
+        }
         const { callArgs } = context;
         const haystack = callArgs.join(' ');
         if ( rePattern.test(haystack) !== targetMatchResult ) {
@@ -345,13 +349,11 @@ function safeSelf() {
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
-    const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
-    let bcBuffer = [];
     safe.logLevel = scriptletGlobals.logLevel || 1;
     let lastLogType = '';
     let lastLogText = '';
     let lastLogTime = 0;
-    safe.sendToLogger = (type, ...args) => {
+    safe.toLogText = (type, ...args) => {
         if ( args.length === 0 ) { return; }
         const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
         if ( text === lastLogText && type === lastLogType ) {
@@ -360,30 +362,45 @@ function safeSelf() {
         lastLogType = type;
         lastLogText = text;
         lastLogTime = Date.now();
-        if ( bcBuffer === undefined ) {
-            return bc.postMessage({ what: 'messageToLogger', type, text });
-        }
-        bcBuffer.push({ type, text });
+        return text;
     };
-    bc.onmessage = ev => {
-        const msg = ev.data;
-        switch ( msg ) {
-        case 'iamready!':
-            if ( bcBuffer === undefined ) { break; }
-            bcBuffer.forEach(({ type, text }) =>
-                bc.postMessage({ what: 'messageToLogger', type, text })
-            );
-            bcBuffer = undefined;
-            break;
-        case 'setScriptletLogLevelToOne':
-            safe.logLevel = 1;
-            break;
-        case 'setScriptletLogLevelToTwo':
-            safe.logLevel = 2;
-            break;
-        }
-    };
-    bc.postMessage('areyouready?');
+    try {
+        const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
+        let bcBuffer = [];
+        safe.sendToLogger = (type, ...args) => {
+            const text = safe.toLogText(type, ...args);
+            if ( text === undefined ) { return; }
+            if ( bcBuffer === undefined ) {
+                return bc.postMessage({ what: 'messageToLogger', type, text });
+            }
+            bcBuffer.push({ type, text });
+        };
+        bc.onmessage = ev => {
+            const msg = ev.data;
+            switch ( msg ) {
+            case 'iamready!':
+                if ( bcBuffer === undefined ) { break; }
+                bcBuffer.forEach(({ type, text }) =>
+                    bc.postMessage({ what: 'messageToLogger', type, text })
+                );
+                bcBuffer = undefined;
+                break;
+            case 'setScriptletLogLevelToOne':
+                safe.logLevel = 1;
+                break;
+            case 'setScriptletLogLevelToTwo':
+                safe.logLevel = 2;
+                break;
+            }
+        };
+        bc.postMessage('areyouready?');
+    } catch(_) {
+        safe.sendToLogger = (type, ...args) => {
+            const text = safe.toLogText(type, ...args);
+            if ( text === undefined ) { return; }
+            safe.log(`uBO ${text}`);
+        };
+    }
     return safe;
 }
 

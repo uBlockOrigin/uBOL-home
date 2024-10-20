@@ -185,6 +185,11 @@
         "path": "/rulesets/main/vie-1.json"
       },
       {
+        "id": "est-0",
+        "enabled": false,
+        "path": "/rulesets/main/est-0.json"
+      },
+      {
         "id": "block-lan",
         "enabled": false,
         "path": "/rulesets/main/block-lan.json"
@@ -256,7 +261,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2024.10.14.189",
+  "version": "2024.10.20.869",
   "web_accessible_resources": [
     {
       "resources": [

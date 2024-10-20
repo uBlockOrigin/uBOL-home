@@ -23,7 +23,7 @@
 /* eslint-disable indent */
 /* global cloneInto */
 
-// ruleset: tur-0
+// ruleset: isr-0
 
 /******************************************************************************/
 
@@ -40,11 +40,11 @@ const uBOL_noWindowOpenIf = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [[],["bit.ly"],["google.com/url?"]];
+const argsList = [[]];
 
-const hostnamesMap = new Map([["rcjza2fzqyr4.buzz",0],["d3xg9jm5zucs.buzz",0],["fwlcqyxc88qx.buzz",0],["lgrmdr8asu8l.buzz",0],["kc2uta38qg2t.buzz",0],["agb3nquu6rzw.buzz",0],["yvt2bm7hzgtt.cloud",0],["elzemfilm.org",0],["movietube32.xyz",0],["turkerotikfilm.com",0],["diziwatch.net",0],["hdizlefilmleri.com",0],["izleorg3.org",0],["youtubemp3.us",0],["izlekolik.org",0],["pchocasi.com.tr",1],["sinema.cx",2]]);
+const hostnamesMap = new Map([["inn.co.il",0]]);
 
-const entitiesMap = new Map([["erosfilmizle",0],["breakingbadizle",0],["jetfilmizle",0],["4kfilmizlesene",0]]);
+const entitiesMap = new Map([]);
 
 const exceptionsMap = new Map([]);
 
@@ -77,6 +77,10 @@ function noWindowOpenIf(
     };
     const noopFunc = function(){};
     proxyApplyFn('open', function open(context) {
+        if ( pattern === 'debug' && safe.logLevel !== 0 ) {
+            debugger; // eslint-disable-line no-debugger
+            return context.reflect();
+        }
         const { callArgs } = context;
         const haystack = callArgs.join(' ');
         if ( rePattern.test(haystack) !== targetMatchResult ) {
@@ -345,13 +349,11 @@ function safeSelf() {
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
-    const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
-    let bcBuffer = [];
     safe.logLevel = scriptletGlobals.logLevel || 1;
     let lastLogType = '';
     let lastLogText = '';
     let lastLogTime = 0;
-    safe.sendToLogger = (type, ...args) => {
+    safe.toLogText = (type, ...args) => {
         if ( args.length === 0 ) { return; }
         const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
         if ( text === lastLogText && type === lastLogType ) {
@@ -360,30 +362,45 @@ function safeSelf() {
         lastLogType = type;
         lastLogText = text;
         lastLogTime = Date.now();
-        if ( bcBuffer === undefined ) {
-            return bc.postMessage({ what: 'messageToLogger', type, text });
-        }
-        bcBuffer.push({ type, text });
+        return text;
     };
-    bc.onmessage = ev => {
-        const msg = ev.data;
-        switch ( msg ) {
-        case 'iamready!':
-            if ( bcBuffer === undefined ) { break; }
-            bcBuffer.forEach(({ type, text }) =>
-                bc.postMessage({ what: 'messageToLogger', type, text })
-            );
-            bcBuffer = undefined;
-            break;
-        case 'setScriptletLogLevelToOne':
-            safe.logLevel = 1;
-            break;
-        case 'setScriptletLogLevelToTwo':
-            safe.logLevel = 2;
-            break;
-        }
-    };
-    bc.postMessage('areyouready?');
+    try {
+        const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
+        let bcBuffer = [];
+        safe.sendToLogger = (type, ...args) => {
+            const text = safe.toLogText(type, ...args);
+            if ( text === undefined ) { return; }
+            if ( bcBuffer === undefined ) {
+                return bc.postMessage({ what: 'messageToLogger', type, text });
+            }
+            bcBuffer.push({ type, text });
+        };
+        bc.onmessage = ev => {
+            const msg = ev.data;
+            switch ( msg ) {
+            case 'iamready!':
+                if ( bcBuffer === undefined ) { break; }
+                bcBuffer.forEach(({ type, text }) =>
+                    bc.postMessage({ what: 'messageToLogger', type, text })
+                );
+                bcBuffer = undefined;
+                break;
+            case 'setScriptletLogLevelToOne':
+                safe.logLevel = 1;
+                break;
+            case 'setScriptletLogLevelToTwo':
+                safe.logLevel = 2;
+                break;
+            }
+        };
+        bc.postMessage('areyouready?');
+    } catch(_) {
+        safe.sendToLogger = (type, ...args) => {
+            const text = safe.toLogText(type, ...args);
+            if ( text === undefined ) { return; }
+            safe.log(`uBO ${text}`);
+        };
+    }
     return safe;
 }
 
