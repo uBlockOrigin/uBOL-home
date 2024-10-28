@@ -540,7 +540,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||denfaminicogamer.jp/wp-content/themes/dfng_news_org/js/*-jack.js"},"id":539},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ero-video.net/advert/"},"id":540},
 {"action":{"type":"block"},"condition":{"urlFilter":"||jannyumon.jp/static/images/banner/bannernormal.jpg"},"id":541},
-{"action":{"type":"block"},"condition":{"urlFilter":"||lv73.net/wordpress/wp-content/themes/*/library/js/ko-ko-ku/ko-ko-ku.js"},"id":542},
+{"action":{"type":"block"},"condition":{"urlFilter":"||favry.app/ad-sp.png"},"id":542},
 {"action":{"type":"block"},"condition":{"urlFilter":"||rakuten-bank.co.jp/shared/js/ad.js"},"id":543},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ygokamo.com/wp-content/uploads/mercard1200.jpg"},"id":544},
 {"action":{"type":"block"},"condition":{"urlFilter":"||fujitsu-webmart.com/image/ls/banner/"},"id":545},
@@ -1475,5 +1475,15 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["wiki.yjsnpi.nu"],"resourceTypes":["image","xmlhttprequest"]},"id":1474,"priority":20},
 {"action":{"type":"block"},"condition":{"urlFilter":"||antennasync.me/ad.php"},"id":1475},
 {"action":{"type":"block"},"condition":{"urlFilter":"||antennasync.me/listjson1.2.1a.js"},"id":1476},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["7-24blog.com","poitan.jp"],"urlFilter":"||news.google.com/*/swg-basic.js"},"id":1477}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["7-24blog.com","poitan.jp"],"urlFilter":"||news.google.com/*/swg-basic.js"},"id":1477},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kazokuchannel.doorblog.jp/ads/"},"id":1478},
+{"action":{"type":"block"},"condition":{"urlFilter":"||gakufu.gakki.me/banner/banner_guitar_feat_oda_big_"},"id":1479},
+{"action":{"type":"block"},"condition":{"urlFilter":"||sutekinakijo.com/ads/"},"id":1480},
+{"action":{"type":"block"},"condition":{"urlFilter":"||city.bunkyo.lg.jp/banner/"},"id":1481},
+{"action":{"type":"block"},"condition":{"urlFilter":"||minkara.carview.co.jp/include_api/yahoo/"},"id":1482},
+{"action":{"type":"block"},"condition":{"urlFilter":"||city.tsuchiura.lg.jp/data/banner/"},"id":1483},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hasunoha.jp/assets/ad/"},"id":1484},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["amazonaws.com","blob.core.windows.net"],"resourceTypes":["main_frame"],"urlFilter":"/explore2/index.html"},"id":1485},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".top/eorico/login.php?_ga="},"id":1486},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/jp-mason-goo-dynamic/?"},"id":1487}
 ]

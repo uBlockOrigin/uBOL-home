@@ -23,7 +23,7 @@
 /* eslint-disable indent */
 /* global cloneInto */
 
-// ruleset: vie-1
+// ruleset: jpn-1
 
 /******************************************************************************/
 
@@ -36,13 +36,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_abortCurrentScript = function() {
+const uBOL_abortOnStackTrace = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["Promise","detectedAdblock"],["$","popup"],["Number",";break;case"],["document.addEventListener","window.open"],["Object.defineProperty","ADMStorageFileCDN"],["$","open"],["document.addEventListener","opened_window_shoppe"],["document.addEventListener","popunder"],["document.getElementById","openPop"],["jQuery","popup"],["WebAssembly","globalThis"],["navigator","devtoolsDetector"],["Symbol","break;case $"],["document.createElement",";break;case"],["window.addEventListener","window.open"],["setTimeout","Aff"],["setTimeout","ad_block"],["setInterval","offsetHeight"],["document.createElement","optad"],["JSON.parse","break;case $."],["$","PopUnder"],["document.createElement","script"],["jQuery","popurl"],["eval","$._Eu"],["addEvent","popu"],["jQuery","click_time"],["$","p0pUpRandom"],["document.documentElement","break;case $."],["document.querySelectorAll","popMagic"],["document.getElementById","myModal"],["document.addEventListener","open"],["jQuery","PopUnder"],["$","window.open"],["eval"],["jQuery","click_ads"],["Promise","break;case"],["WebAssembly","localStorage"],["document.addEventListener","popup"],["$","btpop"],["document.body.addEventListener","window.open"],["jQuery","window.open"],["WebAssembly","instantiate"],["jQuery","open"],["document.write","snow"],["document.addEventListener","linksToOpen"],["Promise","instance"],["setTimeout","open"],["setTimeout","window.location"]];
+const argsList = [["Object.constructor.prototype.bind","/wW\\s.+comments\\.js/"]];
 
-const hostnamesMap = new Map([["10gb.vn",0],["abtruyenmoi.com",1],["animehay.my",[2,3]],["anivn.club",3],["cafef.vn",4],["gamek.vn",4],["genk.vn",4],["kenh14.vn",4],["soha.vn",4],["tuoitre.vn",4],["afamily.vn",4],["thanhnien.vn",4],["chichnhau.vin",5],["cunghocvui.com",6],["dualeotruyenman.com",[7,41]],["m.blogtruyenmoi.com",7],["freeplayervideo.com",8],["abysscdn.com",8],["player-cdn.com",8],["geoip.redirect-ads.com",8],["playhydrax.com",8],["gocmod.com",9],["goctruyentranhvui3.com",10],["nettruyenww.com",10],["sextop1.mx",10],["hhvsub.com",10],["sayhentai.one",10],["vn.sexviet88.xyz",[10,41]],["gotphim.com",11],["hh3dhay.life",[12,13,23]],["hh3dhay.xyz",13],["holyfilm.org",14],["imail.edu.vn",[15,16]],["ios.codevn.net",17],["linkneverdie.net",18],["linkneverdie.top",18],["linkneverdie2.com",18],["lrepacks.net",19],["lxmanga.online",20],["p.thoctv.com",21],["phimgichill.net",[22,23]],["hhhay.me",23],["truyengihotnha.com",[23,41]],["truyengihotnha.net",[23,41]],["tram3d.net",23],["animevietsub.run",23],["phimmoi.club",24],["motphimww.net",24],["phimmoinay.vip",25],["phimtho.net",26],["phimtuoitho.site",27],["rphang.dog",28],["misskon.com",28],["saigon24.net",29],["sexhd88.live",30],["tiemsachhay.net",31],["tinsoikeo.live",32],["truyen2u.top",33],["truyen35.shop",34],["truyenqq.uk",35],["viet69.team",35],["truyenqqto.com",36],["truyensextv.com",37],["truyentuan.xyz",38],["ungtycomicsvip.org",[39,41]],["vailonxx.vip",40],["phimlongtieng.com",40],["phimlongtieng.net",40],["viet69.do",41],["ungtycomicsvip.com",41],["vlxx.mx",41],["yurineko.net",41],["vlxyz.tube",41],["hd.javhay.site",41],["phimsexhay669.pro",41],["cliphot69.my",41],["doctruyen3qw.pro",41],["ihentai.wiki",41],["jav.vc",41],["sex.tuoi69.store",41],["top1sex.me",41],["sexmup18.com",41],["hentaivn.today",41],["streamvl.top",41],["www.buomtv.me",41],["truyenvn.wiki",41],["cdnstream.sbs",41],["javtiful.com",41],["truyengihotdo.net",41],["truyengihotzay.net",41],["truyengihotqua.net",41],["truyengihotqua.com",41],["truyengihotnay.com",41],["quatvn.fit",41],["tenmientruyengi.net",41],["topviet69.online",41],["phim18hd.sex",41],["mupdep.net",41],["demo.14412882.com",41],["damsextv.pro",41],["cliphot69.uno",41],["hhtq5.vip",41],["sexdiary.club",41],["viet69.la",42],["vungoctuan.vn",43],["ww1.xemphimhdc.com",44],["www.toptruyenww.pro",[45,46]],["xnxx-sex-videos.com",47]]);
+const hostnamesMap = new Map([["wiki.yjsnpi.nu",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -50,128 +50,56 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function abortCurrentScript(...args) {
-    runAtHtmlElementFn(( ) => {
-        abortCurrentScriptCore(...args);
-    });
-}
-
-function abortCurrentScriptCore(
-    target = '',
-    needle = '',
-    context = ''
+function abortOnStackTrace(
+    chain = '',
+    needle = ''
 ) {
-    if ( typeof target !== 'string' ) { return; }
-    if ( target === '' ) { return; }
+    if ( typeof chain !== 'string' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('abort-current-script', target, needle, context);
-    const reNeedle = safe.patternToRegex(needle);
-    const reContext = safe.patternToRegex(context);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    const thisScript = document.currentScript;
-    const chain = target.split('.');
-    let owner = window;
-    let prop;
-    for (;;) {
-        prop = chain.shift();
-        if ( chain.length === 0 ) { break; }
-        if ( prop in owner === false ) { break; }
-        owner = owner[prop];
-        if ( owner instanceof Object === false ) { return; }
-    }
-    let value;
-    let desc = Object.getOwnPropertyDescriptor(owner, prop);
-    if (
-        desc instanceof Object === false ||
-        desc.get instanceof Function === false
-    ) {
-        value = owner[prop];
-        desc = undefined;
-    }
-    const debug = shouldDebug(extraArgs);
-    const exceptionToken = getExceptionToken();
-    const scriptTexts = new WeakMap();
-    const getScriptText = elem => {
-        let text = elem.textContent;
-        if ( text.trim() !== '' ) { return text; }
-        if ( scriptTexts.has(elem) ) { return scriptTexts.get(elem); }
-        const [ , mime, content ] =
-            /^data:([^,]*),(.+)$/.exec(elem.src.trim()) ||
-            [ '', '', '' ];
-        try {
-            switch ( true ) {
-            case mime.endsWith(';base64'):
-                text = self.atob(content);
-                break;
-            default:
-                text = self.decodeURIComponent(content);
-                break;
-            }
-        } catch(ex) {
-        }
-        scriptTexts.set(elem, text);
-        return text;
-    };
-    const validate = ( ) => {
-        const e = document.currentScript;
-        if ( e instanceof HTMLScriptElement === false ) { return; }
-        if ( e === thisScript ) { return; }
-        if ( context !== '' && reContext.test(e.src) === false ) {
-            // eslint-disable-next-line no-debugger
-            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }
+    const needleDetails = safe.initPattern(needle, { canNegate: true });
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    if ( needle === '' ) { extraArgs.log = 'all'; }
+    const makeProxy = function(owner, chain) {
+        const pos = chain.indexOf('.');
+        if ( pos === -1 ) {
+            let v = owner[chain];
+            Object.defineProperty(owner, chain, {
+                get: function() {
+                    if ( matchesStackTrace(needleDetails, extraArgs.log) ) {
+                        throw new ReferenceError(getExceptionToken());
+                    }
+                    return v;
+                },
+                set: function(a) {
+                    if ( matchesStackTrace(needleDetails, extraArgs.log) ) {
+                        throw new ReferenceError(getExceptionToken());
+                    }
+                    v = a;
+                },
+            });
             return;
         }
-        if ( safe.logLevel > 1 && context !== '' ) {
-            safe.uboLog(logPrefix, `Matched src\n${e.src}`);
-        }
-        const scriptText = getScriptText(e);
-        if ( reNeedle.test(scriptText) === false ) {
-            // eslint-disable-next-line no-debugger
-            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }
+        const prop = chain.slice(0, pos);
+        let v = owner[prop];
+        chain = chain.slice(pos + 1);
+        if ( v ) {
+            makeProxy(v, chain);
             return;
         }
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, `Matched text\n${scriptText}`);
-        }
-        // eslint-disable-next-line no-debugger
-        if ( debug === 'match' || debug === 'all' ) { debugger; }
-        safe.uboLog(logPrefix, 'Aborted');
-        throw new ReferenceError(exceptionToken);
-    };
-    // eslint-disable-next-line no-debugger
-    if ( debug === 'install' ) { debugger; }
-    try {
+        const desc = Object.getOwnPropertyDescriptor(owner, prop);
+        if ( desc && desc.set !== undefined ) { return; }
         Object.defineProperty(owner, prop, {
-            get: function() {
-                validate();
-                return desc instanceof Object
-                    ? desc.get.call(owner)
-                    : value;
-            },
+            get: function() { return v; },
             set: function(a) {
-                validate();
-                if ( desc instanceof Object ) {
-                    desc.set.call(owner, a);
-                } else {
-                    value = a;
+                v = a;
+                if ( a instanceof Object ) {
+                    makeProxy(a, chain);
                 }
             }
         });
-    } catch(ex) {
-        safe.uboErr(logPrefix, `Error: ${ex}`);
-    }
-}
-
-function runAtHtmlElementFn(fn) {
-    if ( document.documentElement ) {
-        fn();
-        return;
-    }
-    const observer = new MutationObserver(( ) => {
-        observer.disconnect();
-        fn();
-    });
-    observer.observe(document, { childList: true });
+    };
+    const owner = window;
+    makeProxy(owner, chain);
 }
 
 function getExceptionToken() {
@@ -184,6 +112,51 @@ function getExceptionToken() {
         }
     }.bind();
     return token;
+}
+
+function matchesStackTrace(
+    needleDetails,
+    logLevel = ''
+) {
+    const safe = safeSelf();
+    const exceptionToken = getExceptionToken();
+    const error = new safe.Error(exceptionToken);
+    const docURL = new URL(self.location.href);
+    docURL.hash = '';
+    // Normalize stack trace
+    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
+    const lines = [];
+    for ( let line of error.stack.split(/[\n\r]+/) ) {
+        if ( line.includes(exceptionToken) ) { continue; }
+        line = line.trim();
+        const match = safe.RegExp_exec.call(reLine, line);
+        if ( match === null ) { continue; }
+        let url = match[2];
+        if ( url.startsWith('(') ) { url = url.slice(1); }
+        if ( url === docURL.href ) {
+            url = 'inlineScript';
+        } else if ( url.startsWith('<anonymous>') ) {
+            url = 'injectedScript';
+        }
+        let fn = match[1] !== undefined
+            ? match[1].slice(0, -1)
+            : line.slice(0, match.index).trim();
+        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
+        let rowcol = match[3];
+        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
+    }
+    lines[0] = `stackDepth:${lines.length-1}`;
+    const stack = lines.join('\t');
+    const r = needleDetails.matchAll !== true &&
+        safe.testPattern(needleDetails, stack);
+    if (
+        logLevel === 'all' ||
+        logLevel === 'match' && r ||
+        logLevel === 'nomatch' && !r
+    ) {
+        safe.uboLog(stack.replace(/\t/g, '\n'));
+    }
+    return r;
 }
 
 function safeSelf() {
@@ -373,11 +346,6 @@ function safeSelf() {
     return safe;
 }
 
-function shouldDebug(details) {
-    if ( details instanceof Object === false ) { return false; }
-    return scriptletGlobals.canDebug && details.debug;
-}
-
 function getRandomToken() {
     const safe = safeSelf();
     return safe.String_fromCharCode(Date.now() % 26 + 97) +
@@ -456,7 +424,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { abortCurrentScript(...argsList[i]); }
+    try { abortOnStackTrace(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -478,7 +446,7 @@ const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_abortCurrentScript();
+    return uBOL_abortOnStackTrace();
 }
 
 // Firefox
@@ -486,11 +454,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_abortCurrentScript = cloneInto([
-            [ '(', uBOL_abortCurrentScript.toString(), ')();' ],
+        page.uBOL_abortOnStackTrace = cloneInto([
+            [ '(', uBOL_abortOnStackTrace.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_abortCurrentScript);
+        const blob = new page.Blob(...page.uBOL_abortOnStackTrace);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -504,7 +472,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_abortCurrentScript;
+    delete page.uBOL_abortOnStackTrace;
 }
 
 /******************************************************************************/
