@@ -41,7 +41,7 @@ body:
     attributes:
       label: A specific URL where the issue occurs.
       description: "An exact URL is MANDATORY for an issue affecting a web page, even if it happens \"everywhere\"."
-      render: yaml
+      render: text
     validations:
       required: true
 
