@@ -1,0 +1,89 @@
+name: Bug Report
+description: 'File a bug report with the extension itself. Do NOT report issues with websites (such as: ads, adblock detection or broken functionality) in this repository.'
+body:
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      description: |
+        To rule out invalid issues, confirm and check each one of the checkboxes.
+        If you are unable to determine whether it's a filter list issue, do not open an issue here; first seek help on support forums.
+        If selecting "no filtering" mode makes the issue go away, then it is likely a filter issue.
+        If the issue is still present after disabling uBO Lite in the browser, it is unrelated to uBO Lite.
+      options:
+        - label: I verified that this is not a filter list issue. Report any issues with filter lists or broken website functionality by using the _chat_ icon in the popup panel.
+          required: true
+        - label: This is **NOT** a [_YouTube_](https://github.com/uBlockOrigin/uAssets/issues/20586), [_Facebook_](https://github.com/uBlockOrigin/uAssets/issues/3367) or [_Twitch_](https://github.com/uBlockOrigin/uAssets/issues/5184) report. _These sites MUST be reported by clicking their **respective links**_.
+          required: true
+        - label: This is not a support issue or a question. For support, questions, or help, visit [/r/uBlockOrigin](https://www.reddit.com/r/uBlockOrigin/).
+          required: true
+        - label: I performed a [cursory search of the issue tracker](https://github.com/uBlockOrigin/uBOL-home/issues?q=is%3Aissue) to avoid opening a duplicate issue.
+          required: true
+        - label: The issue is not present after disabling uBO Lite in the browser.
+          required: true
+
+  - type: checkboxes
+    attributes:
+      label: I tried to reproduce the issue when...
+      options:
+        - label: uBO Lite is the only extension.
+          required: true
+        - label: using a new, unmodified browser profile.
+          required: true
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Description of the bug or feature.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: A specific URL where the issue occurs.
+      description: "An exact URL is MANDATORY for an issue affecting a web page, even if it happens \"everywhere\"."
+      render: yaml
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: Provide as much detail as possible. We must be able to reproduce to investigate.
+      placeholder: |
+        1. [First Step]
+        2. [Second Step]
+        3. [and so on...]
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: What you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Actual behavior
+      description: What happened?
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: uBO Lite version
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Browser name and version
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Operating system and version
+    validations:
+      required: true
