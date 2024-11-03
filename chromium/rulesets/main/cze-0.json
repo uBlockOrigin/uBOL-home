@@ -128,5 +128,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||kurzy.cz/l/s_back.js"},"id":127},
 {"action":{"type":"block"},"condition":{"urlFilter":"||img.kurzy.cz/block/"},"id":128},
 {"action":{"type":"allow"},"condition":{"urlFilter":"img.kurzy.cz/ban/ad_ads_advert_advertisement_adform_pub_300x250.png"},"id":129,"priority":20},
-{"action":{"type":"allow"},"condition":{"urlFilter":"||heureka.*/ocm/sdk.js"},"id":130,"priority":20}
+{"action":{"type":"allow"},"condition":{"urlFilter":"||heureka.*/ocm/sdk.js"},"id":130,"priority":20},
+{"action":{"type":"allow"},"condition":{"urlFilter":"||ads.eduself.sk/_prebid.js"},"id":131,"priority":20}
 ]

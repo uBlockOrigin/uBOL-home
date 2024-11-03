@@ -986,5 +986,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||naekranie.pl/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-download-tracker.js"},"id":985,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||login.ingbank.pl/mojeing/app/assets/js/vendor/dtm/*/satellitelib-"},"id":986,"priority":20},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["polfan.pl"],"resourceTypes":["script"],"urlFilter":"||polfan.pl/*/fingerprint2.min.js"},"id":987,"priority":20},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["diety.wp.pl"],"resourceTypes":["image"],"urlFilter":"||vitalia.pl/gfx/*/reklama/danie.png"},"id":988,"priority":20}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["diety.wp.pl"],"resourceTypes":["image"],"urlFilter":"||vitalia.pl/gfx/*/reklama/danie.png"},"id":988,"priority":20},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||cdnt.onnetwork.tv/bra/"},"id":989}
 ]

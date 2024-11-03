@@ -376,7 +376,6 @@
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["tipster.no"],"requestDomains":["widget.tippebannere.no"],"resourceTypes":["sub_frame"]},"id":375},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/pakkerlevering/"},"id":376},
 {"action":{"type":"block"},"condition":{"requestDomains":["isweb.no"],"resourceTypes":["sub_frame"]},"id":377},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["tv3sport.dk"],"requestDomains":["freewheel-mtgx-tv.akamaized.net"],"resourceTypes":["media"]},"id":378},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["facebook.com"],"resourceTypes":["main_frame"],"urlFilter":"/finn.no/finno.htm"},"id":379},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".gratis-reisebilletter."},"id":380},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||coop.no."},"id":381},
