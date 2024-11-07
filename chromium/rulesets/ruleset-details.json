@@ -1137,6 +1137,93 @@
   "scriptlets": 0
  },
  {
+    "id": "Linkumori-ruleset1",
+    "name": "Linkumori clean urls level 1 protection ",
+    "enabled": false,
+    "homeURL": "https://github.com/subham8907/Linkumori",
+    "filters": {
+     "total": 66,
+     "accepted": 66,
+     "rejected": 0
+    },
+    "rules": {
+     "total": 8,
+     "plain": 0,
+     "regex": 1,
+     "removeparam": 7,
+     "redirect": 0,
+     "modifyHeaders": 0,
+     "discarded": 0,
+     "rejected": 0
+    },
+    "css": {
+     "generic": 0,
+     "generichigh": 0,
+     "specific": 3,
+     "declarative": 0,
+     "procedural": 0
+    },
+    "scriptlets": 0
+   },
+   {
+    "id": "Linkumori-ruleset2",
+    "name": "Linkumori clean urls level 2 protection ",
+    "enabled": false,
+    "homeURL": "https://github.com/subham8907/Linkumori",
+    "filters": {
+     "total": 510,
+     "accepted": 510,
+     "rejected": 0
+    },
+    "rules": {
+     "total": 122,
+     "plain": 0,
+     "regex": 2,
+     "removeparam": 120,
+     "redirect": 0,
+     "modifyHeaders": 0,
+     "discarded": 0,
+     "rejected": 0
+    },
+    "css": {
+     "generic": 0,
+     "generichigh": 0,
+     "specific": 0,
+     "declarative": 0,
+     "procedural": 0
+    },
+    "scriptlets": 0
+   },
+   {
+    "id": "Linkumori-ruleset3",
+    "name": "Linkumori clean urls level 3 protection ",
+    "enabled": false,
+    "homeURL": "https://github.com/subham8907/Linkumori",
+    "filters": {
+     "total": 1050,
+     "accepted": 1050,
+     "rejected": 0
+    },
+    "rules": {
+     "total": 395,
+     "plain": 0,
+     "regex": 0,
+     "removeparam":395,
+     "redirect": 0,
+     "modifyHeaders": 0,
+     "discarded": 0,
+     "rejected": 0
+    },
+    "css": {
+     "generic": 0,
+     "generichigh": 0,
+     "specific": 0,
+     "declarative": 0,
+     "procedural": 0
+    },
+    "scriptlets": 0
+   },
+ {
   "id": "annoyances-cookies",
   "name": "EasyList/uBO – Cookie Notices",
   "group": "annoyances",

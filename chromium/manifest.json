@@ -233,7 +233,22 @@
         "id": "stevenblack-hosts",
         "enabled": false,
         "path": "/rulesets/main/stevenblack-hosts.json"
-      }
+      },
+      {
+      "id": "Linkumori-ruleset1",
+       "enabled": false,
+        "path": "/rulesets/linkumori/rules1.json"
+    },
+    {
+      "id": "Linkumori-ruleset2",
+       "enabled": false,
+        "path": "/rulesets/linkumori/rules2.json"
+    },
+    {
+      "id": "Linkumori-ruleset3",
+       "enabled": false,
+        "path": "/rulesets/linkumori/rules3.json"
+    }
     ]
   },
   "default_locale": "en",
