@@ -40,9 +40,9 @@ const uBOL_removeNodeText = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["script","function RnA"],["script","=\\'/0\\'"]];
+const argsList = [["script","/728x90|function NoA/"]];
 
-const hostnamesMap = new Map([["japscan.lol",[0,1]]]);
+const hostnamesMap = new Map([["japscan.lol",0]]);
 
 const entitiesMap = new Map([]);
 

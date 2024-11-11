@@ -67,9 +67,9 @@ function setCookie(
     const unquoted = match && match[2] || normalized;
     const validValues = getSafeCookieValuesFn();
     if ( validValues.includes(unquoted) === false ) {
-        if ( /^\d+$/.test(unquoted) === false ) { return; }
-        const n = parseInt(value, 10);
-        if ( n > 32767 ) { return; }
+        if ( /^-?\d+$/.test(unquoted) === false ) { return; }
+        const n = parseInt(value, 10) || 0;
+        if ( n < -32767 || n > 32767 ) { return; }
     }
 
     const done = setCookieFn(

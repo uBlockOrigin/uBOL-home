@@ -40,11 +40,11 @@ const uBOL_setAttr = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [[".media > .andropov-video > video","controls","true"],[".owl-item > a > img","src","[data-src]"],["img[src=\"https://overclockers.ru/assets/logo_gray_stub.gif\"]","src","[data-src]"],["video[controls=\"controls\"]","controls","true"],["#progress-value","data-timer","16"]];
+const argsList = [[".media > .andropov-video > video","controls","true"],[".owl-item > a > img","src","[data-src]"],["img[src=\"https://overclockers.ru/assets/logo_gray_stub.gif\"]","src","[data-src]"],["video","controls","true"],["video[controls=\"controls\"]","controls","true"],["#progress-value","data-timer","16"]];
 
-const hostnamesMap = new Map([["dtf.ru",0],["vc.ru",0],["eneyida.tv",1],["overclockers.ru",2],["3dnews.kz",3],["3dnews.ru",3]]);
+const hostnamesMap = new Map([["dtf.ru",0],["vc.ru",0],["eneyida.tv",1],["overclockers.ru",2],["joyreactor.cc",3],["reactor.cc",3],["3dnews.kz",4],["3dnews.ru",4]]);
 
-const entitiesMap = new Map([["howdyho",4]]);
+const entitiesMap = new Map([["howdyho",5]]);
 
 const exceptionsMap = new Map([]);
 

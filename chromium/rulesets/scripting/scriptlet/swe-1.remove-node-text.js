@@ -40,9 +40,9 @@ const uBOL_removeNodeText = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["noscript"],["script","/wccp_pro/"],["#text","casino"],["script","decodeURIComponent"]];
+const argsList = [["noscript"],["script","/wccp_pro/"],["#text","casino"],["script","decodeURIComponent"],["script","checkAdsBlocked"]];
 
-const hostnamesMap = new Map([["dinbyggare.se",[0,1]],["garaget.org",2],["pilsner.nu",3]]);
+const hostnamesMap = new Map([["dinbyggare.se",[0,1]],["garaget.org",2],["pilsner.nu",3],["swedroid.se",4]]);
 
 const entitiesMap = new Map([]);
 

@@ -416,5 +416,7 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||megatv.com/*/xml/jw/adverts.asp?"},"id":415,"priority":20},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||skaihd-f.akamaihd.net/z/advert/"},"id":416,"priority":20},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||xe.gr/property/recent_ads?"},"id":417,"priority":20},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["www.antenna.gr"],"resourceTypes":["script"],"urlFilter":"||www.antenna.gr/js/adman-video*.js"},"id":418,"priority":20}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["www.antenna.gr"],"resourceTypes":["script"],"urlFilter":"||www.antenna.gr/js/adman-video*.js"},"id":418,"priority":20},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||static.crete2day.com/files/banners/*/*.gif"},"id":419},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||static.crete2day.com/files/banners/*.jpg"},"id":420}
 ]

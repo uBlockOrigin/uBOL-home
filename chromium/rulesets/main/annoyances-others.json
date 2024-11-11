@@ -399,11 +399,14 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["purch.com"],"resourceTypes":["script"]},"id":398},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["concoursultimesousmaringourmiam.ca"],"resourceTypes":["script"],"urlFilter":"||mikesca.activehosted.com/f/embed.php"},"id":399,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["docs.ansible.com"],"resourceTypes":["script"],"urlFilter":"||s.swiftypecdn.com/install/"},"id":400,"priority":20},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["mastory.jp"],"urlFilter":"||amazonaws.com/cdn.ma-site.com/common/chatbots.js"},"id":401},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nutrija.com/js/*_backtotop.js"},"id":402,"priority":20},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["theregister.com"],"requestDomains":["embed.typeform.com"]},"id":403},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||tv-asahi.co.jp/ch/js/scrolltopcontrol.js"},"id":404,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["app.buidlbox.io","bitsacard.com","consumercellular.com","creative.com","help.textnow.com","investopedia.com","jeedoo.com","meundies.com","myurbanjungle.com","nvidia.eu","pionex.com","portal.afterpay.com","skroutz.gr","streamelements.com","superbet.pl","support.zonealarm.com","xjuggler.de"],"urlFilter":"||zdassets.com/ekr/snippet.js"},"id":405,"priority":20},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||donorbox.org/embed/"},"id":406},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||images.dmca.com/badges/"},"id":407},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedResourceTypes":["main_frame","sub_frame"],"requestDomains":["printfriendly.com"]},"id":409}
+{"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||chatbot.denizbank.com/content/media/"},"id":408},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedResourceTypes":["main_frame","sub_frame"],"requestDomains":["printfriendly.com"]},"id":409},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["smartcharts.net"],"resourceTypes":["script"],"urlFilter":"||wurfl.io/wurfl.js"},"id":410,"priority":20}
 ]

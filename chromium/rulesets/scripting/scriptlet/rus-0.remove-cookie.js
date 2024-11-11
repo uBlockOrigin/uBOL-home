@@ -36,7 +36,7 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_cookieRemover = function() {
+const uBOL_removeCookie = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
@@ -50,7 +50,7 @@ const exceptionsMap = new Map([["passport.yandex.by",[1]],["passport.yandex.kz",
 
 /******************************************************************************/
 
-function cookieRemover(
+function removeCookie(
     needle = ''
 ) {
     if ( typeof needle !== 'string' ) { return; }
@@ -64,7 +64,7 @@ function cookieRemover(
             fn();
         }, ms);
     };
-    const removeCookie = ( ) => {
+    const remove = ( ) => {
         document.cookie.split(';').forEach(cookieStr => {
             const pos = cookieStr.indexOf('=');
             if ( pos === -1 ) { return; }
@@ -99,15 +99,15 @@ function cookieRemover(
             }
         });
     };
-    removeCookie();
-    window.addEventListener('beforeunload', removeCookie);
+    remove();
+    window.addEventListener('beforeunload', remove);
     if ( typeof extraArgs.when !== 'string' ) { return; }
     const supportedEventTypes = [ 'scroll', 'keydown' ];
     const eventTypes = extraArgs.when.split(/\s/);
     for ( const type of eventTypes ) {
         if ( supportedEventTypes.includes(type) === false ) { continue; }
         document.addEventListener(type, ( ) => {
-            throttle(removeCookie);
+            throttle(remove);
         }, { passive: true });
     }
 }
@@ -371,7 +371,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { cookieRemover(...argsList[i]); }
+    try { removeCookie(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -393,7 +393,7 @@ const targetWorld = 'ISOLATED';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_cookieRemover();
+    return uBOL_removeCookie();
 }
 
 // Firefox
@@ -401,11 +401,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_cookieRemover = cloneInto([
-            [ '(', uBOL_cookieRemover.toString(), ')();' ],
+        page.uBOL_removeCookie = cloneInto([
+            [ '(', uBOL_removeCookie.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_cookieRemover);
+        const blob = new page.Blob(...page.uBOL_removeCookie);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -419,7 +419,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_cookieRemover;
+    delete page.uBOL_removeCookie;
 }
 
 /******************************************************************************/

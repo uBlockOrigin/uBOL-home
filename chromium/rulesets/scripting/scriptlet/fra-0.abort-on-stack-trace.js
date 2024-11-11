@@ -42,7 +42,7 @@ const scriptletGlobals = {}; // eslint-disable-line
 
 const argsList = [["document.createEvent","Object.trigger"]];
 
-const hostnamesMap = new Map([["zone-telechargement.moe",0],["dl-protect.net",0],["annuaire-telechargement.tel",0]]);
+const hostnamesMap = new Map([["dl-protect.net",0],["annuaire-telechargement.tel",0]]);
 
 const entitiesMap = new Map([]);
 

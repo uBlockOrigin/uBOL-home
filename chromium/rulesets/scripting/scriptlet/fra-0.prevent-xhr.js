@@ -40,11 +40,11 @@ const uBOL_preventXhr = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["pagead2.googlesyndication.com"],["v.fwmrm.net/","true"],["/ping?token="]];
+const argsList = [["v.fwmrm.net"],["pagead2.googlesyndication.com"],["v.fwmrm.net/","true"],["/ping?token="]];
 
-const hostnamesMap = new Map([["air-journal.fr",0],["systemed.fr",0],["empire-anime.com",0],["ebookdz.com",0],["6play.fr",1],["app.molotov.tv",2]]);
+const hostnamesMap = new Map([["m6.fr",0],["air-journal.fr",1],["systemed.fr",1],["empire-anime.com",1],["ebookdz.com",1],["6play.fr",2],["app.molotov.tv",3]]);
 
-const entitiesMap = new Map([["empire-streaming",0]]);
+const entitiesMap = new Map([["empire-streaming",1]]);
 
 const exceptionsMap = new Map([]);
 
@@ -94,11 +94,11 @@ function preventXhrFn(
                         'content-type': '',
                         'content-length': '',
                     },
+                    url: haystack.url,
                     props: {
                         response: { value: '' },
                         responseText: { value: '' },
                         responseXML: { value: null },
-                        responseURL: { value: haystack.url },
                     },
                 });
                 xhrInstances.set(this, xhrDetails);
@@ -154,6 +154,7 @@ function preventXhrFn(
                 xhrDetails.headers['content-length'] = `${xhrDetails.props.response.value}`.length;
                 Object.defineProperties(xhrDetails.xhr, {
                     readyState: { value: 4 },
+                    responseURL: { value: xhrDetails.url },
                     status: { value: 200 },
                     statusText: { value: 'OK' },
                 });
@@ -163,6 +164,7 @@ function preventXhrFn(
             Promise.resolve(xhrText).then(( ) => xhrDetails).then(details => {
                 Object.defineProperties(details.xhr, {
                     readyState: { value: 1, configurable: true },
+                    responseURL: { value: xhrDetails.url },
                 });
                 safeDispatchEvent(details.xhr, 'readystatechange');
                 return details;

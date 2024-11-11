@@ -42,7 +42,7 @@ const scriptletGlobals = {}; // eslint-disable-line
 
 const argsList = [["adbEnableForPage"]];
 
-const hostnamesMap = new Map([["forexgruppen.se",0]]);
+const hostnamesMap = new Map([["forexgruppen.se",0],["kattannonser.se",0]]);
 
 const entitiesMap = new Map([]);
 

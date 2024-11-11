@@ -23,7 +23,7 @@
 /* eslint-disable indent */
 /* global cloneInto */
 
-// ruleset: chn-0
+// ruleset: default
 
 /******************************************************************************/
 
@@ -36,13 +36,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_setSessionStorageItem = function() {
+const uBOL_trustedReplaceOutboundText = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["hassession","1"]];
+const argsList = [["Array.prototype.shift","/^.+$/s","","condition","https"],["atob","window.matchMedia('(display-mode: standalone)').matches","true"]];
 
-const hostnamesMap = new Map([["subhd.com",0]]);
+const hostnamesMap = new Map([["abysscdn.com",0],["hihihaha1.xyz",0],["playhydrax.com",0],["infinityscans.xyz",1],["infinityscans.net",1]]);
 
 const entitiesMap = new Map([]);
 
@@ -50,94 +50,127 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function setSessionStorageItem(key = '', value = '') {
-    setLocalStorageItemFn('session', false, key, value);
-}
-
-function setLocalStorageItemFn(
-    which = 'local',
-    trusted = false,
-    key = '',
-    value = '',
+function trustedReplaceOutboundText(
+    propChain = '',
+    rawPattern = '',
+    rawReplacement = '',
+    ...args
 ) {
-    if ( key === '' ) { return; }
-
-    // For increased compatibility with AdGuard
-    if ( value === 'emptyArr' ) {
-        value = '[]';
-    } else if ( value === 'emptyObj' ) {
-        value = '{}';
-    }
-
-    const trustedValues = [
-        '',
-        'undefined', 'null',
-        '{}', '[]', '""',
-        '$remove$',
-        ...getSafeCookieValuesFn(),
-    ];
-
-    if ( trusted ) {
-        if ( value.includes('$now$') ) {
-            value = value.replaceAll('$now$', Date.now());
+    if ( propChain === '' ) { return; }
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('trusted-replace-outbound-text', propChain, rawPattern, rawReplacement, ...args);
+    const rePattern = safe.patternToRegex(rawPattern);
+    const replacement = rawReplacement.startsWith('json:')
+        ? safe.JSON_parse(rawReplacement.slice(5))
+        : rawReplacement;
+    const extraArgs = safe.getExtraArgs(args);
+    const reCondition = safe.patternToRegex(extraArgs.condition || '');
+    proxyApplyFn(propChain, function(context) {
+        const encodedTextBefore = context.reflect();
+        let textBefore = encodedTextBefore;
+        if ( extraArgs.encoding === 'base64' ) {
+            try { textBefore = self.atob(encodedTextBefore); }
+            catch(ex) { return encodedTextBefore; }
         }
-        if ( value.includes('$currentDate$') ) {
-            value = value.replaceAll('$currentDate$', `${Date()}`);
+        if ( rawPattern === '' ) {
+            safe.uboLog(logPrefix, 'Decoded outbound text:\n', textBefore);
+            return encodedTextBefore;
         }
-        if ( value.includes('$currentISODate$') ) {
-            value = value.replaceAll('$currentISODate$', (new Date()).toISOString());
+        reCondition.lastIndex = 0;
+        if ( reCondition.test(textBefore) === false ) { return encodedTextBefore; }
+        const textAfter = textBefore.replace(rePattern, replacement);
+        if ( textAfter === textBefore ) { return encodedTextBefore; }
+        safe.uboLog(logPrefix, 'Matched and replaced');
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, 'Modified decoded outbound text:\n', textAfter);
         }
-    } else {
-        const normalized = value.toLowerCase();
-        const match = /^("?)(.+)\1$/.exec(normalized);
-        const unquoted = match && match[2] || normalized;
-        if ( trustedValues.includes(unquoted) === false ) {
-            if ( /^-?\d+$/.test(unquoted) === false ) { return; }
-            const n = parseInt(unquoted, 10) || 0;
-            if ( n < -32767 || n > 32767 ) { return; }
+        let encodedTextAfter = textAfter;
+        if ( extraArgs.encoding === 'base64' ) {
+            encodedTextAfter = self.btoa(textAfter);
         }
-    }
-
-    try {
-        const storage = self[`${which}Storage`];
-        if ( value === '$remove$' ) {
-            const safe = safeSelf();
-            const pattern = safe.patternToRegex(key, undefined, true );
-            const toRemove = [];
-            for ( let i = 0, n = storage.length; i < n; i++ ) {
-                const key = storage.key(i);
-                if ( pattern.test(key) ) { toRemove.push(key); }
-            }
-            for ( const key of toRemove ) {
-                storage.removeItem(key);
-            }
-        } else {
-            storage.setItem(key, `${value}`);
-        }
-    } catch(ex) {
-    }
+        return encodedTextAfter;
+    });
 }
 
-function getSafeCookieValuesFn() {
-    return [
-        'accept', 'reject',
-        'accepted', 'rejected', 'notaccepted',
-        'allow', 'disallow', 'deny',
-        'allowed', 'denied',
-        'approved', 'disapproved',
-        'checked', 'unchecked',
-        'dismiss', 'dismissed',
-        'enable', 'disable',
-        'enabled', 'disabled',
-        'essential', 'nonessential',
-        'forbidden', 'forever',
-        'hide', 'hidden',
-        'necessary', 'required',
-        'ok',
-        'on', 'off',
-        'true', 't', 'false', 'f',
-        'yes', 'y', 'no', 'n',
-    ];
+function proxyApplyFn(
+    target = '',
+    handler = ''
+) {
+    let context = globalThis;
+    let prop = target;
+    for (;;) {
+        const pos = prop.indexOf('.');
+        if ( pos === -1 ) { break; }
+        context = context[prop.slice(0, pos)];
+        if ( context instanceof Object === false ) { return; }
+        prop = prop.slice(pos+1);
+    }
+    const fn = context[prop];
+    if ( typeof fn !== 'function' ) { return; }
+    if ( proxyApplyFn.CtorContext === undefined ) {
+        proxyApplyFn.ctorContexts = [];
+        proxyApplyFn.CtorContext = class {
+            constructor(...args) {
+                this.init(...args);
+            }
+            init(callFn, callArgs) {
+                this.callFn = callFn;
+                this.callArgs = callArgs;
+                return this;
+            }
+            reflect() {
+                const r = Reflect.construct(this.callFn, this.callArgs);
+                this.callFn = this.callArgs = undefined;
+                proxyApplyFn.ctorContexts.push(this);
+                return r;
+            }
+            static factory(...args) {
+                return proxyApplyFn.ctorContexts.length !== 0
+                    ? proxyApplyFn.ctorContexts.pop().init(...args)
+                    : new proxyApplyFn.CtorContext(...args);
+            }
+        };
+        proxyApplyFn.applyContexts = [];
+        proxyApplyFn.ApplyContext = class {
+            constructor(...args) {
+                this.init(...args);
+            }
+            init(callFn, thisArg, callArgs) {
+                this.callFn = callFn;
+                this.thisArg = thisArg;
+                this.callArgs = callArgs;
+                return this;
+            }
+            reflect() {
+                const r = Reflect.apply(this.callFn, this.thisArg, this.callArgs);
+                this.callFn = this.thisArg = this.callArgs = undefined;
+                proxyApplyFn.applyContexts.push(this);
+                return r;
+            }
+            static factory(...args) {
+                return proxyApplyFn.applyContexts.length !== 0
+                    ? proxyApplyFn.applyContexts.pop().init(...args)
+                    : new proxyApplyFn.ApplyContext(...args);
+            }
+        };
+    }
+    const fnStr = fn.toString();
+    const toString = (function toString() { return fnStr; }).bind(null);
+    const proxyDetails = {
+        apply(target, thisArg, args) {
+            return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
+        },
+        get(target, prop) {
+            if ( prop === 'toString' ) { return toString; }
+            return Reflect.get(target, prop);
+        },
+    };
+    if ( fn.prototype?.constructor === fn ) {
+        proxyDetails.construct = function(target, args) {
+            return handler(proxyApplyFn.CtorContext.factory(target, args));
+        };
+    }
+    context[prop] = new Proxy(fn, proxyDetails);
 }
 
 function safeSelf() {
@@ -399,7 +432,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { setSessionStorageItem(...argsList[i]); }
+    try { trustedReplaceOutboundText(...argsList[i]); }
     catch(ex) {}
 }
 argsList.length = 0;
@@ -417,11 +450,11 @@ argsList.length = 0;
 //   'MAIN' world not yet supported in Firefox, so we inject the code into
 //   'MAIN' ourself when environment in Firefox.
 
-const targetWorld = 'ISOLATED';
+const targetWorld = 'MAIN';
 
 // Not Firefox
 if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_setSessionStorageItem();
+    return uBOL_trustedReplaceOutboundText();
 }
 
 // Firefox
@@ -429,11 +462,11 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
     const page = self.wrappedJSObject;
     let script, url;
     try {
-        page.uBOL_setSessionStorageItem = cloneInto([
-            [ '(', uBOL_setSessionStorageItem.toString(), ')();' ],
+        page.uBOL_trustedReplaceOutboundText = cloneInto([
+            [ '(', uBOL_trustedReplaceOutboundText.toString(), ')();' ],
             { type: 'text/javascript; charset=utf-8' },
         ], self);
-        const blob = new page.Blob(...page.uBOL_setSessionStorageItem);
+        const blob = new page.Blob(...page.uBOL_trustedReplaceOutboundText);
         url = page.URL.createObjectURL(blob);
         const doc = page.document;
         script = doc.createElement('script');
@@ -447,7 +480,7 @@ if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
         if ( script ) { script.remove(); }
         page.URL.revokeObjectURL(url);
     }
-    delete page.uBOL_setSessionStorageItem;
+    delete page.uBOL_trustedReplaceOutboundText;
 }
 
 /******************************************************************************/

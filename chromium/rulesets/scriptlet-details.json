@@ -39,6 +39,7 @@
     [
      "crackle.com",
      "deezer.com",
+     "fomo.id",
      "hulu.com",
      "iprima.cz",
      "m.youtube.com",
@@ -259,6 +260,16 @@
     ]
    ],
    [
+    "trusted-replace-outbound-text",
+    [
+     "abysscdn.com",
+     "hihihaha1.xyz",
+     "infinityscans.net",
+     "infinityscans.xyz",
+     "playhydrax.com"
+    ]
+   ],
+   [
     "trusted-replace-argument",
     [
      "autosport.com",
@@ -420,7 +431,9 @@
    [
     "trusted-set-constant",
     [
+     "animeseries.so",
      "app.blubank.com",
+     "audiobookbay.li",
      "cinelatino.net",
      "cinemitas.org",
      "cineplus123.org",
@@ -429,11 +442,14 @@
      "globo.com",
      "javggvideo.xyz",
      "jetpunk.com",
+     "kahoo.it",
      "mmtv01.xyz",
      "mobileweb.bankmellat.ir",
      "paraveronline.org",
      "pobreflix.vc",
+     "savefrom.net",
      "seclore.com",
+     "skipthecommericals.xyz",
      "stbturbo.xyz",
      "streamsilk.com",
      "tuborstb.co",
@@ -1026,6 +1042,12 @@
   "fra-0",
   [
    [
+    "prevent-xhr",
+    [
+     "*"
+    ]
+   ],
+   [
     "abort-current-script",
     [
      "abcbourse.com",
@@ -1065,12 +1087,6 @@
      "japscan.lol",
      "jeune-gay.fr",
      "voyageforum.com"
-    ]
-   ],
-   [
-    "prevent-xhr",
-    [
-     "*"
     ]
    ],
    [
@@ -1125,8 +1141,7 @@
     [
      "chat.babel.com",
      "dl-protect.info",
-     "lecourrier-du-soir.com",
-     "zone-telechargement.work"
+     "lecourrier-du-soir.com"
     ]
    ],
    [
@@ -1169,8 +1184,7 @@
     "abort-on-stack-trace",
     [
      "annuaire-telechargement.tel",
-     "dl-protect.net",
-     "zone-telechargement.moe"
+     "dl-protect.net"
     ]
    ],
    [
@@ -1755,12 +1769,9 @@
     ]
    ],
    [
-    "noeval-if",
+    "abort-current-script",
     [
-     "mjoato3uion.ky-3.net",
-     "ov53i9il.blog.fc2.com",
-     "qaacacthlive.omaww.net",
-     "wiki.yjsnpi.nu"
+     "*"
     ]
    ],
    [
@@ -1776,9 +1787,15 @@
     ]
    ],
    [
-    "abort-current-script",
+    "remove-attr",
     [
-     "*"
+     "380cc.cc",
+     "coron.tech",
+     "jprime.jp",
+     "lifematome.blog",
+     "rocketnews24.com",
+     "wav.tv",
+     "youpouch.com"
     ]
    ],
    [
@@ -1840,20 +1857,10 @@
     ]
    ],
    [
-    "remove-attr",
-    [
-     "380cc.cc",
-     "coron.tech",
-     "lifematome.blog",
-     "rocketnews24.com",
-     "wav.tv",
-     "youpouch.com"
-    ]
-   ],
-   [
     "remove-node-text",
     [
      "betweenjpandkr.blog",
+     "blog.livedoor.jp",
      "ch-review.net",
      "dvdrev.com",
      "fm.sekkaku.net",
@@ -1905,6 +1912,14 @@
      "ponta.abstractpainting.work",
      "simplegame.jp",
      "tver.jp"
+    ]
+   ],
+   [
+    "noeval-if",
+    [
+     "mjoato3uion.ky-3.net",
+     "ov53i9il.blog.fc2.com",
+     "qaacacthlive.omaww.net"
     ]
    ],
    [
@@ -2908,6 +2923,7 @@
      "windows-driver.com",
      "windows-driver.net",
      "windows-program.com",
+     "wotspeak.org",
      "wowskill.ru"
     ]
    ],
@@ -2961,6 +2977,7 @@
      "fonmod.com",
      "hdkinoteatr.com",
      "in-poland.com",
+     "limehd.tv",
      "litehd.tv",
      "num-words.com",
      "octavius.mail.ru",
@@ -3728,12 +3745,11 @@
      "lakartidningen.se",
      "matsafari.nu",
      "melodifestivalklubben.se",
-     "mitti.se",
      "mobilanyheter.net",
      "morotsliv.com",
+     "nyadagbladet.se",
      "ordbokpro.se",
      "spray.se",
-     "swedroid.se",
      "thatsup.se",
      "tinyurl.se",
      "tjock.se",
@@ -3772,7 +3788,8 @@
     [
      "dinbyggare.se",
      "garaget.org",
-     "pilsner.nu"
+     "pilsner.nu",
+     "swedroid.se"
     ]
    ],
    [
@@ -3874,7 +3891,8 @@
    [
     "noeval-if",
     [
-     "forexgruppen.se"
+     "forexgruppen.se",
+     "kattannonser.se"
     ]
    ],
    [
@@ -4530,7 +4548,7 @@
      "hhtq5.vip",
      "hhvsub.com",
      "holyfilm.org",
-     "ihentai.wiki",
+     "ihentai.fit",
      "imail.edu.vn",
      "ios.codevn.net",
      "jav.vc",
@@ -4548,22 +4566,23 @@
      "p.thoctv.com",
      "phim18hd.sex",
      "phimgichill.net",
+     "phimhdc.us",
      "phimlongtieng.com",
      "phimlongtieng.net",
      "phimmoi.club",
-     "phimmoinay.vip",
+     "phimmoinay.info",
      "phimsexhay669.pro",
      "phimtho.net",
      "phimtuoitho.site",
      "player-cdn.com",
      "playhydrax.com",
      "quatvn.fit",
-     "rphang.dog",
+     "rphang.lat",
      "saigon24.net",
      "sayhentai.one",
      "sex.tuoi69.store",
      "sexdiary.club",
-     "sexhd88.live",
+     "sexhd88.club",
      "sexhdpro.net",
      "sexmup18.com",
      "sextop1.blog",
@@ -4585,7 +4604,7 @@
      "truyengihotqua.com",
      "truyengihotqua.net",
      "truyengihotzay.net",
-     "truyenqq.uk",
+     "truyenqq2.com",
      "truyenqqto.com",
      "truyensextv.com",
      "truyentuan.xyz",
@@ -4601,11 +4620,10 @@
      "vlxyz.tube",
      "vn.sexviet88.link",
      "vungoctuan.vn",
-     "ww1.xemphimhdc.com",
      "www.buomtv.one",
      "www.toptruyenww.pro",
      "xnxx-sex-videos.com",
-     "yurineko.net"
+     "yurineko.moe"
     ]
    ],
    [
@@ -4635,12 +4653,11 @@
      "mv.phimmoiaz.cc",
      "nhentaivn.online",
      "ohaha79xxx.site",
-     "ophimhdvn3.net",
      "phimdinhcao.net",
      "phimlongtieng.net",
      "plcdn.xyz",
      "quangcaoyenbai.com",
-     "sieudamtv.run",
+     "sieudam.vin",
      "thichxemphim1.net",
      "thuvienhd.xyz",
      "tinsoikeo.live",
@@ -5900,6 +5917,7 @@
      "jdmusic.se",
      "jezebel.com",
      "jobs.cz",
+     "johnmuirhealth.com",
      "jongcdenv.be",
      "joyella.com",
      "jugend-praesentiert.de",
@@ -6489,6 +6507,7 @@
      "garageproject.co.nz",
      "geomiq.com",
      "geotastic.net",
+     "getgrass.io",
      "gitconnected.com",
      "glose.com",
      "go.bkk.hu",
@@ -6556,6 +6575,7 @@
      "pngtree.com",
      "polar.sh",
      "polypane.app",
+     "popcornmovies.to",
      "posthog.com",
      "reebok.eu",
      "region-bayreuth.de",
@@ -6947,6 +6967,7 @@
      "crunchyroll.com",
      "deezer.com",
      "moovitapp.com",
+     "rutube.ru",
      "teller.jp",
      "wrtn.jp"
     ]

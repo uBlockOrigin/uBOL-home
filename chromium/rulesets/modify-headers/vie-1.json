@@ -58,7 +58,7 @@
  },
  "condition": {
   "requestDomains": [
-   "ww1.xemphimhdc.com"
+   "phimhdc.us"
   ],
   "resourceTypes": [
    "main_frame",
@@ -88,6 +88,28 @@
   ]
  },
  "id": 4
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src self * data:* 'unsafe-inline'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "ungtycomics.io"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 5
 },
 {
  "action": {

@@ -92,9 +92,9 @@ function setLocalStorageItemFn(
         const match = /^("?)(.+)\1$/.exec(normalized);
         const unquoted = match && match[2] || normalized;
         if ( trustedValues.includes(unquoted) === false ) {
-            if ( /^\d+$/.test(unquoted) === false ) { return; }
-            const n = parseInt(unquoted, 10);
-            if ( n > 32767 ) { return; }
+            if ( /^-?\d+$/.test(unquoted) === false ) { return; }
+            const n = parseInt(unquoted, 10) || 0;
+            if ( n < -32767 || n > 32767 ) { return; }
         }
     }
 

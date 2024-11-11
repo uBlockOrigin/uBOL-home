@@ -40,9 +40,9 @@ const uBOL_noSetIntervalIf = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["window.location"],["adsbygoogle"],["this[_0x"],["var _0x"]];
+const argsList = [["window.location"],["adsbygoogle"],["var _0x"]];
 
-const hostnamesMap = new Map([["chat.babel.com",0],["lecourrier-du-soir.com",1],["zone-telechargement.work",2],["dl-protect.info",3]]);
+const hostnamesMap = new Map([["chat.babel.com",0],["lecourrier-du-soir.com",1],["dl-protect.info",2]]);
 
 const entitiesMap = new Map([]);
 
