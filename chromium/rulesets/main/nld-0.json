@@ -417,7 +417,7 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||zilverengoudkopen.nl/banners/onder.jpg"},"id":416,"priority":20},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||tweakers.net/i^"},"id":417,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["hardware.info"],"urlFilter":"||content.hwigroup.net/images^"},"id":418,"priority":20},
-{"action":{"type":"allow"},"condition":{"urlFilter":"||looopings.nl/*ad*.js"},"id":419,"priority":20},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||looopings.nl/*.js"},"id":419,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["tweakers.net"],"urlFilter":"||aa.tweakers.nl/json"},"id":420,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kijk.nl"],"urlFilter":"/prebid/ad.gif?user=*&adid="},"id":421,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kijk.nl"],"urlFilter":"||ads-talpa.adhese.com/json/"},"id":422,"priority":20},

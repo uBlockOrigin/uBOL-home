@@ -289,6 +289,7 @@
      "smsonline.cloud",
      "workplace-products.co.uk",
      "www.lenovo.com",
+     "www.startpage.com",
      "ygosu.com",
      "zonebourse.com"
     ]
@@ -450,10 +451,12 @@
      "savefrom.net",
      "seclore.com",
      "skipthecommericals.xyz",
+     "sshagan.net",
      "stbturbo.xyz",
      "streamsilk.com",
      "tuborstb.co",
-     "verpelis.gratis"
+     "verpelis.gratis",
+     "vuescript.com"
     ]
    ],
    [
@@ -559,18 +562,6 @@
   "chn-0",
   [
    [
-    "prevent-fetch",
-    [
-     "04647.club",
-     "fsbot.xyz",
-     "hmanga.world",
-     "linetv.tw",
-     "mpyit.com",
-     "taiwanlibrarysearch.herokuapp.com",
-     "wandhi.com"
-    ]
-   ],
-   [
     "no-setTimeout-if",
     [
      "18comic.vip",
@@ -597,6 +588,18 @@
      "tsubasa.im",
      "xbeibeix.com",
      "zhenbuka.com"
+    ]
+   ],
+   [
+    "prevent-fetch",
+    [
+     "04647.club",
+     "fsbot.xyz",
+     "hmanga.world",
+     "linetv.tw",
+     "mpyit.com",
+     "taiwanlibrarysearch.herokuapp.com",
+     "wandhi.com"
     ]
    ],
    [
@@ -713,6 +716,7 @@
      "new.qq.com",
      "news.qq.com",
      "qq.com",
+     "sports.qq.com",
      "v.qq.com",
      "www.qq.com"
     ]
@@ -1042,18 +1046,13 @@
   "fra-0",
   [
    [
-    "prevent-xhr",
-    [
-     "*"
-    ]
-   ],
-   [
     "abort-current-script",
     [
      "abcbourse.com",
      "adala-news.fr",
      "cliqueduplateau.com",
      "crunchyscan.fr",
+     "equinoxmagazine.fr",
      "japscan.me",
      "lemanip.com",
      "monacomatin.mc",
@@ -1087,6 +1086,12 @@
      "japscan.lol",
      "jeune-gay.fr",
      "voyageforum.com"
+    ]
+   ],
+   [
+    "prevent-xhr",
+    [
+     "*"
     ]
    ],
    [
@@ -1769,9 +1774,25 @@
     ]
    ],
    [
-    "abort-current-script",
+    "remove-node-text",
     [
-     "*"
+     "betweenjpandkr.blog",
+     "blog.livedoor.jp",
+     "ch-review.net",
+     "dvdrev.com",
+     "fm.sekkaku.net",
+     "free-avx.jp",
+     "gametohkenranbu.sakuraweb.com",
+     "ideal2ch.livedoor.biz",
+     "jisakuhibi.jp",
+     "kabegami.jpn.org",
+     "kasegeru.blog.jp",
+     "lifematome.blog",
+     "rank1-media.com",
+     "resizer.myct.jp",
+     "seikeidouga.blog.jp",
+     "tcg-bloglife.com",
+     "wiki.yjsnpi.nu"
     ]
    ],
    [
@@ -1796,6 +1817,12 @@
      "rocketnews24.com",
      "wav.tv",
      "youpouch.com"
+    ]
+   ],
+   [
+    "abort-current-script",
+    [
+     "*"
     ]
    ],
    [
@@ -1854,27 +1881,6 @@
      "o-dan.net",
      "phileweb.com",
      "video.laxd.com"
-    ]
-   ],
-   [
-    "remove-node-text",
-    [
-     "betweenjpandkr.blog",
-     "blog.livedoor.jp",
-     "ch-review.net",
-     "dvdrev.com",
-     "fm.sekkaku.net",
-     "free-avx.jp",
-     "gametohkenranbu.sakuraweb.com",
-     "ideal2ch.livedoor.biz",
-     "jisakuhibi.jp",
-     "kabegami.jpn.org",
-     "kasegeru.blog.jp",
-     "lifematome.blog",
-     "rank1-media.com",
-     "resizer.myct.jp",
-     "seikeidouga.blog.jp",
-     "tcg-bloglife.com"
     ]
    ],
    [
@@ -3296,6 +3302,15 @@
   "spa-1",
   [
    [
+    "no-setInterval-if",
+    [
+     "kumanga.com",
+     "reidoplacar.com",
+     "suaads.com",
+     "suaurl.com"
+    ]
+   ],
+   [
     "no-setTimeout-if",
     [
      "acortalink.me",
@@ -3478,6 +3493,7 @@
    [
     "addEventListener-defuser",
     [
+     "allcalidad.pro",
      "canal12.com.sv",
      "comandotorrents.org",
      "depor.com",
@@ -3536,14 +3552,6 @@
     "adjust-setInterval",
     [
      "*"
-    ]
-   ],
-   [
-    "no-setInterval-if",
-    [
-     "reidoplacar.com",
-     "suaads.com",
-     "suaurl.com"
     ]
    ],
    [
@@ -3735,6 +3743,7 @@
      "fastighetsvarlden.se",
      "feber.se",
      "findit.se",
+     "folkbladet.nu",
      "forexgruppen.se",
      "fssweden.se",
      "fz.se",
@@ -3743,21 +3752,25 @@
      "jobsinsweden.se",
      "kamrat.com",
      "lakartidningen.se",
+     "lokaltidningen.nu",
      "matsafari.nu",
+     "mellanbygden.nu",
      "melodifestivalklubben.se",
      "mobilanyheter.net",
      "morotsliv.com",
+     "nordsverige.se",
      "nyadagbladet.se",
      "ordbokpro.se",
-     "spray.se",
      "thatsup.se",
      "tinyurl.se",
      "tjock.se",
      "trafiksakerhet.se",
      "trafikskola.se",
      "utslappsratt.se",
+     "vasterbottningen.se",
      "villalivet.se",
      "vinochmatguiden.se",
+     "vk.se",
      "zeinaskitchen.se"
     ]
    ],

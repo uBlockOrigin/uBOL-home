@@ -21,7 +21,6 @@
 */
 
 /* eslint-disable indent */
-/* global cloneInto */
 
 // ruleset: fra-0
 
@@ -40,11 +39,11 @@ const uBOL_preventXhr = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["v.fwmrm.net"],["pagead2.googlesyndication.com"],["v.fwmrm.net/","true"],["/ping?token="]];
+const argsList = [["pagead2.googlesyndication.com"],["v.fwmrm.net"],["/ping?token="]];
 
-const hostnamesMap = new Map([["m6.fr",0],["air-journal.fr",1],["systemed.fr",1],["empire-anime.com",1],["ebookdz.com",1],["6play.fr",2],["app.molotov.tv",3]]);
+const hostnamesMap = new Map([["air-journal.fr",0],["systemed.fr",0],["empire-anime.com",0],["ebookdz.com",0],["m6.fr",1],["app.molotov.tv",2]]);
 
-const entitiesMap = new Map([["empire-streaming",1]]);
+const entitiesMap = new Map([["empire-streaming",0]]);
 
 const exceptionsMap = new Map([]);
 
@@ -608,44 +607,7 @@ argsList.length = 0;
 
 /******************************************************************************/
 
-// Inject code
-
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1736575
-//   'MAIN' world not yet supported in Firefox, so we inject the code into
-//   'MAIN' ourself when environment in Firefox.
-
-const targetWorld = 'MAIN';
-
-// Not Firefox
-if ( typeof wrappedJSObject !== 'object' || targetWorld === 'ISOLATED' ) {
-    return uBOL_preventXhr();
-}
-
-// Firefox
-{
-    const page = self.wrappedJSObject;
-    let script, url;
-    try {
-        page.uBOL_preventXhr = cloneInto([
-            [ '(', uBOL_preventXhr.toString(), ')();' ],
-            { type: 'text/javascript; charset=utf-8' },
-        ], self);
-        const blob = new page.Blob(...page.uBOL_preventXhr);
-        url = page.URL.createObjectURL(blob);
-        const doc = page.document;
-        script = doc.createElement('script');
-        script.async = false;
-        script.src = url;
-        (doc.head || doc.documentElement || doc).append(script);
-    } catch (ex) {
-        console.error(ex);
-    }
-    if ( url ) {
-        if ( script ) { script.remove(); }
-        page.URL.revokeObjectURL(url);
-    }
-    delete page.uBOL_preventXhr;
-}
+uBOL_preventXhr();
 
 /******************************************************************************/
 

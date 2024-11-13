@@ -3098,5 +3098,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/adobet.gif"},"id":3097},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/agenpaitoslot."},"id":3098},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"/mejahoki."},"id":3099},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"/vitobet88."},"id":3100}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"/vitobet88."},"id":3100},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["kontenterabox.com"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":3101,"priority":20}
 ]
