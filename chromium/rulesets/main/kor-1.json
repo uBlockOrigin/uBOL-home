@@ -829,6 +829,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["dcinside.com"],"urlFilter":"||dctrend.ai/widget/trendwidget.html"},"id":828},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["33across.com","360yield.com","acrosspf.com","adhooah.com","adnxs.com","adop.cc","adskeeper.com","authanalysis.com","casalemedia.com","criteo.com","impactify.io","keywordsconnect.com","kiesta.net","lijit.com","marketingking.co.kr","middlepoint.co.kr","mobon.net","mrep.kr","nhnace.com","onepx.kr","openx.net","planmix.co.kr","pubmatic.com","quantserve.com","rubiconproject.com","smartadserver.com","stax.kr","tadapi.info","tenping.kr","thetopic.co.kr","widerplanet.com"]},"id":829},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["chzzk.naver.com"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||ssl.pstatic.net/tveta/libs/glad/prod/"},"id":830,"priority":20},
+{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.theddari.com/banner/"},"id":831},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["sogirl.so"],"requestDomains":["1.bp.blogspot.com","hcdn1.maxsocdn.net"]},"id":853},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["tistory.com"],"requestDomains":["link.coupang.com"],"resourceTypes":["object"]},"id":883},
 {"action":{"type":"block"},"condition":{"requestDomains":["ad.planbplus.co.kr","api.linkmine.co.kr","categorysort.com","nefing.com","trendpick.shopping.naver.com"],"resourceTypes":["main_frame"]},"id":889}

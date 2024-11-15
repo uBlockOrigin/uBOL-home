@@ -1848,6 +1848,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["canalplus.com"],"urlFilter":"||static.canal-plus.net/resources/adframe.html?adname="},"id":1847,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["canalplus.com"],"urlFilter":"||proxy.ads.canalplus-bo.net/web/*/adserver/info/?asset="},"id":1848,"priority":20},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["prod-player.tf1.fr"],"urlFilter":"||v.fwmrm.net/ad/g/1"},"id":1849,"priority":20},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["m6.fr"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||yospace.com/csm/*.mpd"},"id":1850,"priority":20},
 {"action":{"type":"block"},"condition":{"urlFilter":"/pub_header."},"id":1853},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["rtlplay.be"],"urlFilter":"||be-rtl.videoplaza.tv/proxy/distributor/"},"id":1854,"priority":20},
 {"action":{"type":"block"},"condition":{"urlFilter":"/pub_html5/"},"id":1855},

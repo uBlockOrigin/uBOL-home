@@ -39,9 +39,9 @@ const uBOL_trustedPreventXhr = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["outbrain.com","outbrain"]];
+const argsList = [["googlesyndication","a.getAttribute(\"data-ad-client\")||\"\""],["outbrain.com","outbrain"]];
 
-const hostnamesMap = new Map([["animefire.info",0],["animesonlinecc.us",0],["animesonliner4.com",0],["animesup.info",0],["animeyabu.net",0],["animeyabu.org",0],["anitube.us",0],["anitube.vip",0],["caroloportunidades.com.br",0],["dattebayo-br.com",0],["drstonebr.com",0],["flyanimes.cloud",0],["goanimes.vip",0],["goyabu.us",0],["hinatasoul.com",0],["isekaibrasil.com",0],["meuanime.info",0],["otakuanimess.net",0],["superanimes.in",0]]);
+const hostnamesMap = new Map([["koramaup.com",0],["1cloudfile.com",0],["animefire.info",1],["animesonlinecc.us",1],["animesonliner4.com",1],["animesup.info",1],["animeyabu.net",1],["animeyabu.org",1],["anitube.us",1],["anitube.vip",1],["caroloportunidades.com.br",1],["dattebayo-br.com",1],["drstonebr.com",1],["flyanimes.cloud",1],["goanimes.vip",1],["goyabu.us",1],["hinatasoul.com",1],["isekaibrasil.com",1],["meuanime.info",1],["otakuanimess.net",1],["superanimes.in",1]]);
 
 const entitiesMap = new Map([]);
 

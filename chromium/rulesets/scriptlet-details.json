@@ -441,12 +441,15 @@
      "emturbovid.com",
      "findjav.com",
      "globo.com",
+     "hhdstreams.club",
+     "janitor.ai",
      "javggvideo.xyz",
      "jetpunk.com",
      "kahoo.it",
      "mmtv01.xyz",
      "mobileweb.bankmellat.ir",
      "paraveronline.org",
+     "pix4link.com",
      "pobreflix.vc",
      "savefrom.net",
      "seclore.com",
@@ -455,8 +458,33 @@
      "stbturbo.xyz",
      "streamsilk.com",
      "tuborstb.co",
-     "verpelis.gratis",
-     "vuescript.com"
+     "verpelis.gratis"
+    ]
+   ],
+   [
+    "trusted-prevent-xhr",
+    [
+     "1cloudfile.com",
+     "animefire.info",
+     "animesonlinecc.us",
+     "animesonliner4.com",
+     "animesup.info",
+     "animeyabu.net",
+     "animeyabu.org",
+     "anitube.us",
+     "anitube.vip",
+     "caroloportunidades.com.br",
+     "dattebayo-br.com",
+     "drstonebr.com",
+     "flyanimes.cloud",
+     "goanimes.vip",
+     "goyabu.us",
+     "hinatasoul.com",
+     "isekaibrasil.com",
+     "koramaup.com",
+     "meuanime.info",
+     "otakuanimess.net",
+     "superanimes.in"
     ]
    ],
    [
@@ -530,30 +558,6 @@
      "m.nivod4.tv",
      "m.nivod5.tv",
      "m1.nivod.tv"
-    ]
-   ],
-   [
-    "trusted-prevent-xhr",
-    [
-     "animefire.info",
-     "animesonlinecc.us",
-     "animesonliner4.com",
-     "animesup.info",
-     "animeyabu.net",
-     "animeyabu.org",
-     "anitube.us",
-     "anitube.vip",
-     "caroloportunidades.com.br",
-     "dattebayo-br.com",
-     "drstonebr.com",
-     "flyanimes.cloud",
-     "goanimes.vip",
-     "goyabu.us",
-     "hinatasoul.com",
-     "isekaibrasil.com",
-     "meuanime.info",
-     "otakuanimess.net",
-     "superanimes.in"
     ]
    ]
   ]
@@ -1774,6 +1778,12 @@
     ]
    ],
    [
+    "abort-current-script",
+    [
+     "*"
+    ]
+   ],
+   [
     "remove-node-text",
     [
      "betweenjpandkr.blog",
@@ -1817,12 +1827,6 @@
      "rocketnews24.com",
      "wav.tv",
      "youpouch.com"
-    ]
-   ],
-   [
-    "abort-current-script",
-    [
-     "*"
     ]
    ],
    [
@@ -3353,7 +3357,6 @@
     [
      "acortados.com",
      "acortalink.me",
-     "acortalo.net",
      "acortame-esto.com",
      "alarmadefraude.com",
      "animesonline.nz",
@@ -3379,7 +3382,6 @@
      "discografias.net",
      "elcomercio.com",
      "emperorscan.com",
-     "enlacito.com",
      "expertplay.net",
      "financasdeouro.com",
      "gadgetzona.net",
@@ -3608,15 +3610,21 @@
     ]
    ],
    [
+    "prevent-refresh",
+    [
+     "*"
+    ]
+   ],
+   [
     "noeval-if",
     [
      "comicspornohentai.com"
     ]
    ],
    [
-    "prevent-refresh",
+    "href-sanitizer",
     [
-     "*"
+     "hentai-id.tv"
     ]
    ]
   ]
@@ -4534,8 +4542,8 @@
      "abtruyenmoi.com",
      "abysscdn.com",
      "afamily.vn",
-     "animehay.de",
-     "animevietsub.ink",
+     "animehay.ink",
+     "animevietsub.cx",
      "anivn.club",
      "cafef.vn",
      "cdnstream.sbs",
@@ -4571,7 +4579,7 @@
      "linkneverdie.top",
      "linkneverdie2.com",
      "lrepacks.net",
-     "lxmanga.site",
+     "lxmanga.store",
      "m.blogtruyenmoi.com",
      "misskon.com",
      "motphimww.net",
@@ -7175,6 +7183,14 @@
     "prevent-fetch",
     [
      "*"
+    ]
+   ],
+   [
+    "trusted-set-cookie",
+    [
+     "entra.news",
+     "microsoftsecurityinsights.com",
+     "substack.com"
     ]
    ],
    [

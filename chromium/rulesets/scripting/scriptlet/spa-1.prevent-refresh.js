@@ -41,7 +41,7 @@ const scriptletGlobals = {}; // eslint-disable-line
 
 const argsList = [[]];
 
-const hostnamesMap = new Map([["cl1ca.com",0],["4br.me",0],["fir3.net",0]]);
+const hostnamesMap = new Map([["enrt.eu",0],["dev.encurta.app",0],["fir3.net",0],["ent4.net",0],["cl1ca.com",0],["4br.me",0]]);
 
 const entitiesMap = new Map([["seulink",0],["encurtalink",0]]);
 
