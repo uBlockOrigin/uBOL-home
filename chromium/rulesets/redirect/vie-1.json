@@ -2,41 +2,6 @@
 {
  "action": {
   "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "www.phimlongtieng.com"
-  ],
-  "urlFilter": "||www.phimlongtieng.com/3s.m3u8"
- },
- "id": 1,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/google-ima.js"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "vtvcab.vn"
-  ],
-  "resourceTypes": [
-   "script"
-  ],
-  "urlFilter": "||on-web-cdn.gviet.vn/public/js/player/ads/ima3.js"
- },
- "id": 2,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
    "extensionPath": "/web_accessible_resources/noop-1s.mp4"
   },
   "type": "redirect"
@@ -47,8 +12,40 @@
   ],
   "urlFilter": "||phimreview.org/playergk/phimreview.mp4"
  },
+ "id": 1,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "thichxemphim1.net"
+  ],
+  "urlFilter": "||thichxemphim1.net/fb88-28012023.mp4"
+ },
+ "id": 2,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "www.phimlongtieng.com"
+  ],
+  "urlFilter": "||www.phimlongtieng.com/3s.m3u8"
+ },
  "id": 3,
- "priority": 2
+ "priority": 11
 },
 {
  "action": {
@@ -65,7 +62,7 @@
   "urlFilter": "||i2.vlstorage.com/da88_1080p.mp4"
  },
  "id": 4,
- "priority": 2
+ "priority": 11
 },
 {
  "action": {
@@ -85,22 +82,25 @@
   "urlFilter": "||alwingulla.com/88/tag.min.js"
  },
  "id": 5,
- "priority": 2
+ "priority": 11
 },
 {
  "action": {
   "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+   "extensionPath": "/web_accessible_resources/google-ima.js"
   },
   "type": "redirect"
  },
  "condition": {
   "initiatorDomains": [
-   "thichxemphim1.net"
+   "vtvcab.vn"
   ],
-  "urlFilter": "||thichxemphim1.net/fb88-28012023.mp4"
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||on-web-cdn.gviet.vn/public/js/player/ads/ima3.js"
  },
  "id": 6,
- "priority": 2
+ "priority": 11
 }
 ]

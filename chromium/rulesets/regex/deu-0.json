@@ -21,7 +21,6 @@
    "meinyouporn.com",
    "nacktepaare.com",
    "nurxxx.mobi",
-   "orgasmusporn.com",
    "pornoaffe.com",
    "pornoente.tv",
    "pornofisch.com",
@@ -36,7 +35,6 @@
    "reifporn.de",
    "sexente.com",
    "sexvideos-hd.com",
-   "spitzetitten.com",
    "tube8-pornos.com",
    "xhamster-sexvideos.com",
    "xnxx-porno.com"
@@ -48,7 +46,8 @@
    "sub_frame"
   ]
  },
- "id": 1
+ "id": 1,
+ "priority": 10
 },
 {
  "action": {
@@ -63,7 +62,8 @@
    "script"
   ]
  },
- "id": 2
+ "id": 2,
+ "priority": 10
 },
 {
  "action": {
@@ -97,7 +97,8 @@
   ],
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
  },
- "id": 3
+ "id": 3,
+ "priority": 10
 },
 {
  "action": {
@@ -119,6 +120,7 @@
   ],
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*"
  },
- "id": 4
+ "id": 4,
+ "priority": 10
 }
 ]

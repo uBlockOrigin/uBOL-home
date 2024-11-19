@@ -12,7 +12,8 @@
    "xmlhttprequest"
   ]
  },
- "id": 1
+ "id": 1,
+ "priority": 10
 },
 {
  "action": {
@@ -24,7 +25,8 @@
    "main_frame"
   ]
  },
- "id": 2
+ "id": 2,
+ "priority": 10
 },
 {
  "action": {
@@ -34,7 +36,8 @@
   "domainType": "thirdParty",
   "regexFilter": ":\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpg|png|jpeg)"
  },
- "id": 3
+ "id": 3,
+ "priority": 10
 },
 {
  "action": {
@@ -51,7 +54,7 @@
   ]
  },
  "id": 4,
- "priority": 20
+ "priority": 30
 },
 {
  "action": {
@@ -65,6 +68,6 @@
   ]
  },
  "id": 5,
- "priority": 20
+ "priority": 30
 }
 ]

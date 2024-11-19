@@ -20,6 +20,51 @@
         "path": "/rulesets/main/default.json"
       },
       {
+        "id": "block-lan",
+        "enabled": false,
+        "path": "/rulesets/main/block-lan.json"
+      },
+      {
+        "id": "dpollock-0",
+        "enabled": false,
+        "path": "/rulesets/main/dpollock-0.json"
+      },
+      {
+        "id": "adguard-spyware-url",
+        "enabled": false,
+        "path": "/rulesets/main/adguard-spyware-url.json"
+      },
+      {
+        "id": "annoyances-cookies",
+        "enabled": false,
+        "path": "/rulesets/main/annoyances-cookies.json"
+      },
+      {
+        "id": "annoyances-overlays",
+        "enabled": false,
+        "path": "/rulesets/main/annoyances-overlays.json"
+      },
+      {
+        "id": "annoyances-social",
+        "enabled": false,
+        "path": "/rulesets/main/annoyances-social.json"
+      },
+      {
+        "id": "annoyances-widgets",
+        "enabled": false,
+        "path": "/rulesets/main/annoyances-widgets.json"
+      },
+      {
+        "id": "annoyances-others",
+        "enabled": false,
+        "path": "/rulesets/main/annoyances-others.json"
+      },
+      {
+        "id": "stevenblack-hosts",
+        "enabled": false,
+        "path": "/rulesets/main/stevenblack-hosts.json"
+      },
+      {
         "id": "alb-0",
         "enabled": false,
         "path": "/rulesets/main/alb-0.json"
@@ -150,6 +195,11 @@
         "path": "/rulesets/main/rus-0.json"
       },
       {
+        "id": "rus-1",
+        "enabled": false,
+        "path": "/rulesets/main/rus-1.json"
+      },
+      {
         "id": "spa-0",
         "enabled": false,
         "path": "/rulesets/main/spa-0.json"
@@ -188,51 +238,6 @@
         "id": "est-0",
         "enabled": false,
         "path": "/rulesets/main/est-0.json"
-      },
-      {
-        "id": "block-lan",
-        "enabled": false,
-        "path": "/rulesets/main/block-lan.json"
-      },
-      {
-        "id": "dpollock-0",
-        "enabled": false,
-        "path": "/rulesets/main/dpollock-0.json"
-      },
-      {
-        "id": "adguard-spyware-url",
-        "enabled": false,
-        "path": "/rulesets/main/adguard-spyware-url.json"
-      },
-      {
-        "id": "annoyances-cookies",
-        "enabled": false,
-        "path": "/rulesets/main/annoyances-cookies.json"
-      },
-      {
-        "id": "annoyances-overlays",
-        "enabled": false,
-        "path": "/rulesets/main/annoyances-overlays.json"
-      },
-      {
-        "id": "annoyances-social",
-        "enabled": false,
-        "path": "/rulesets/main/annoyances-social.json"
-      },
-      {
-        "id": "annoyances-widgets",
-        "enabled": false,
-        "path": "/rulesets/main/annoyances-widgets.json"
-      },
-      {
-        "id": "annoyances-others",
-        "enabled": false,
-        "path": "/rulesets/main/annoyances-others.json"
-      },
-      {
-        "id": "stevenblack-hosts",
-        "enabled": false,
-        "path": "/rulesets/main/stevenblack-hosts.json"
       }
     ]
   },
@@ -261,7 +266,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2024.11.15.813",
+  "version": "2024.11.19.1126",
   "web_accessible_resources": [
     {
       "resources": [

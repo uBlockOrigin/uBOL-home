@@ -1,0 +1,22 @@
+[
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'unsafe-inline'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ],
+  "urlFilter": "||browserleaks.com/proxy"
+ },
+ "id": 690
+}
+]

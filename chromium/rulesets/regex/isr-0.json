@@ -58,7 +58,8 @@
    "sub_frame"
   ]
  },
- "id": 1
+ "id": 1,
+ "priority": 10
 },
 {
  "action": {
@@ -74,7 +75,8 @@
    "xmlhttprequest"
   ]
  },
- "id": 2
+ "id": 2,
+ "priority": 10
 },
 {
  "action": {
@@ -91,7 +93,7 @@
   ]
  },
  "id": 3,
- "priority": 20
+ "priority": 30
 },
 {
  "action": {
@@ -112,6 +114,6 @@
   ]
  },
  "id": 4,
- "priority": 20
+ "priority": 30
 }
 ]

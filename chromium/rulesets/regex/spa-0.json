@@ -12,7 +12,8 @@
    "image"
   ]
  },
- "id": 1
+ "id": 1,
+ "priority": 10
 },
 {
  "action": {
@@ -36,7 +37,8 @@
    "sub_frame"
   ]
  },
- "id": 2
+ "id": 2,
+ "priority": 10
 },
 {
  "action": {
@@ -55,7 +57,8 @@
    "script"
   ]
  },
- "id": 3
+ "id": 3,
+ "priority": 10
 },
 {
  "action": {
@@ -70,7 +73,8 @@
    "script"
   ]
  },
- "id": 4
+ "id": 4,
+ "priority": 10
 },
 {
  "action": {
@@ -116,7 +120,8 @@
   ],
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*"
  },
- "id": 5
+ "id": 5,
+ "priority": 10
 },
 {
  "action": {
@@ -143,7 +148,8 @@
   ],
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*"
  },
- "id": 6
+ "id": 6,
+ "priority": 10
 },
 {
  "action": {
@@ -156,7 +162,8 @@
    "script"
   ]
  },
- "id": 7
+ "id": 7,
+ "priority": 10
 },
 {
  "action": {
@@ -169,6 +176,7 @@
    "script"
   ]
  },
- "id": 8
+ "id": 8,
+ "priority": 10
 }
 ]

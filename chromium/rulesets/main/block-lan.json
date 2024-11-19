@@ -1,68 +1,22 @@
 [
 {
  "action": {
-  "type": "allow"
+  "type": "block"
  },
  "condition": {
-  "initiatorDomains": [
-   "bayernportal.de",
-   "bund.de",
-   "client.foldingathome.org",
-   "intel.cn",
-   "intel.co.id",
-   "intel.co.jp",
-   "intel.co.kr",
-   "intel.com",
-   "intel.com.br",
-   "intel.com.tw",
-   "intel.de",
-   "intel.fr",
-   "intel.la",
-   "intel.vn",
-   "mega.nz",
-   "mv-serviceportal.de",
-   "organspende-register.de"
+  "domainType": "thirdParty",
+  "excludedInitiatorDomains": [
+   "0.0.0.0",
+   "127.0.0.1",
+   "[::1]",
+   "[::]",
+   "local",
+   "localhost"
   ],
-  "requestDomains": [
-   "127.0.0.1"
-  ]
+  "urlFilter": "[::1]^"
  },
  "id": 1,
- "priority": 20
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "initiatorDomains": [
-   "deutsche-rentenversicherung.de"
-  ],
-  "requestDomains": [
-   "localhost"
-  ]
- },
- "id": 2,
- "priority": 20
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "initiatorDomains": [
-   "battlelog.battlefield.com",
-   "figma.com"
-  ],
-  "requestDomains": [
-   "127.0.0.1"
-  ],
-  "resourceTypes": [
-   "xmlhttprequest"
-  ]
- },
- "id": 3,
- "priority": 20
+ "priority": 10
 },
 {
  "action": {
@@ -133,25 +87,8 @@
    "web.setup.home"
   ]
  },
- "id": 4
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "excludedInitiatorDomains": [
-   "0.0.0.0",
-   "127.0.0.1",
-   "[::1]",
-   "[::]",
-   "local",
-   "localhost"
-  ],
-  "urlFilter": "[::1]^"
- },
- "id": 5
+ "id": 2,
+ "priority": 10
 },
 {
  "action": {
@@ -169,41 +106,8 @@
   ],
   "urlFilter": "[::]^"
  },
- "id": 6
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "initiatorDomains": [
-   "www.faceit.com"
-  ],
-  "requestDomains": [
-   "localhost"
-  ],
-  "resourceTypes": [
-   "websocket"
-  ]
- },
- "id": 7,
- "priority": 20
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "initiatorDomains": [
-   "musicbrainz.org"
-  ],
-  "requestDomains": [
-   "127.0.0.1"
-  ]
- },
- "id": 8,
- "priority": 20
+ "id": 3,
+ "priority": 10
 },
 {
  "action": {
@@ -224,6 +128,106 @@
    "plex.direct"
   ]
  },
- "id": 11
+ "id": 4,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "bayernportal.de",
+   "bund.de",
+   "client.foldingathome.org",
+   "intel.cn",
+   "intel.co.id",
+   "intel.co.jp",
+   "intel.co.kr",
+   "intel.com",
+   "intel.com.br",
+   "intel.com.tw",
+   "intel.de",
+   "intel.fr",
+   "intel.la",
+   "intel.vn",
+   "mega.nz",
+   "mv-serviceportal.de",
+   "organspende-register.de"
+  ],
+  "requestDomains": [
+   "127.0.0.1"
+  ]
+ },
+ "id": 5,
+ "priority": 30
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "deutsche-rentenversicherung.de"
+  ],
+  "requestDomains": [
+   "localhost"
+  ]
+ },
+ "id": 6,
+ "priority": 30
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "battlelog.battlefield.com",
+   "figma.com"
+  ],
+  "requestDomains": [
+   "127.0.0.1"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ]
+ },
+ "id": 7,
+ "priority": 30
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "www.faceit.com"
+  ],
+  "requestDomains": [
+   "localhost"
+  ],
+  "resourceTypes": [
+   "websocket"
+  ]
+ },
+ "id": 8,
+ "priority": 30
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "initiatorDomains": [
+   "musicbrainz.org"
+  ],
+  "requestDomains": [
+   "127.0.0.1"
+  ]
+ },
+ "id": 9,
+ "priority": 30
 }
 ]

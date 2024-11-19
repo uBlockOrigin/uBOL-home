@@ -7,22 +7,6 @@
   "type": "redirect"
  },
  "condition": {
-  "resourceTypes": [
-   "script"
-  ],
-  "urlFilter": "||readthedocs.org/api/v2/sustainability/"
- },
- "id": 1,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.js"
-  },
-  "type": "redirect"
- },
- "condition": {
   "initiatorDomains": [
    "vide-greniers.org"
   ],
@@ -31,8 +15,8 @@
   ],
   "urlFilter": "||pagead2.googlesyndication.com/pagead/"
  },
- "id": 2,
- "priority": 2
+ "id": 1,
+ "priority": 11
 },
 {
  "action": {
@@ -50,8 +34,8 @@
   ],
   "urlFilter": "||global.proper.io/tvtropes.min.js"
  },
- "id": 3,
- "priority": 2
+ "id": 2,
+ "priority": 11
 },
 {
  "action": {
@@ -69,8 +53,8 @@
   ],
   "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
  },
- "id": 4,
- "priority": 2
+ "id": 3,
+ "priority": 11
 },
 {
  "action": {
@@ -88,8 +72,8 @@
    "script"
   ]
  },
- "id": 5,
- "priority": 2
+ "id": 4,
+ "priority": 11
 },
 {
  "action": {
@@ -107,8 +91,8 @@
   ],
   "urlFilter": "||googlesyndication.com/pagead/js/adsbygoogle.js"
  },
- "id": 6,
- "priority": 2
+ "id": 5,
+ "priority": 11
 },
 {
  "action": {
@@ -124,8 +108,8 @@
   ],
   "urlFilter": "||georgiadogs.com/js/prebid-"
  },
- "id": 7,
- "priority": 2
+ "id": 6,
+ "priority": 11
 },
 {
  "action": {
@@ -146,7 +130,7 @@
    "script"
   ]
  },
- "id": 8,
- "priority": 2
+ "id": 7,
+ "priority": 11
 }
 ]

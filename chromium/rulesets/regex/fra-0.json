@@ -6,7 +6,8 @@
  "condition": {
   "regexFilter": "afiliasi\\/*\\/banners"
  },
- "id": 1
+ "id": 1,
+ "priority": 10
 },
 {
  "action": {
@@ -15,7 +16,8 @@
  "condition": {
   "regexFilter": "anuncy\\/*\\/ads"
  },
- "id": 2
+ "id": 2,
+ "priority": 10
 },
 {
  "action": {
@@ -24,7 +26,8 @@
  "condition": {
   "regexFilter": "images\\/*_ads"
  },
- "id": 3
+ "id": 3,
+ "priority": 10
 },
 {
  "action": {
@@ -33,7 +36,8 @@
  "condition": {
   "regexFilter": "static\\/*\\/ads"
  },
- "id": 4
+ "id": 4,
+ "priority": 10
 },
 {
  "action": {
@@ -46,7 +50,8 @@
    "xmlhttprequest"
   ]
  },
- "id": 6
+ "id": 5,
+ "priority": 10
 },
 {
  "action": {
@@ -59,6 +64,7 @@
    "xmlhttprequest"
   ]
  },
- "id": 7
+ "id": 6,
+ "priority": 10
 }
 ]

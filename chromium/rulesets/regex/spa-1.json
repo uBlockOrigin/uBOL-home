@@ -9,7 +9,8 @@
   ],
   "regexFilter": "loskatchorros\\.com\\.br\\/forum\\/uploads\\/set_resources_\\d+\\/[a-z0-9]+_[a-zA-Z0-9]+\\.js"
  },
- "id": 1
+ "id": 1,
+ "priority": 10
 },
 {
  "action": {
@@ -21,7 +22,8 @@
   ],
   "regexFilter": "qvncc.tvcanales.cf\\/js\\/[_-a-zA-Z0-9]{5,}.js"
  },
- "id": 2
+ "id": 2,
+ "priority": 10
 },
 {
  "action": {
@@ -36,7 +38,8 @@
    "script"
   ]
  },
- "id": 3
+ "id": 3,
+ "priority": 10
 },
 {
  "action": {
@@ -51,7 +54,8 @@
    "script"
   ]
  },
- "id": 4
+ "id": 4,
+ "priority": 10
 },
 {
  "action": {
@@ -66,6 +70,7 @@
    "script"
   ]
  },
- "id": 5
+ "id": 5,
+ "priority": 10
 }
 ]
