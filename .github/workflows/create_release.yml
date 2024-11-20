@@ -47,7 +47,6 @@ jobs:
           cd - > /dev/null
           rm -rf chromium
           mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
-          cp "$UBLOCK_REPO_DIR/dist/build/mv3-data/log.txt" chromium/
       # Edge
       - name: Build Edge uBOLite MV3 packages
         run: |
