@@ -610,5 +610,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||glow.posten.no/api/tracking/"},"id":609,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||tv2.no/*/config/analytics.json"},"id":610,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||cmp.ekstrabladet.dk/get_site_data"},"id":611,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["itavisen.no"],"requestDomains":["sixscissors.com"]},"id":612,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["itavisen.no"],"requestDomains":["sixscissors.com"]},"id":612,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||tvsporten.dk/media/tvchannels/100x60_logo.png^"},"id":613,"priority":10}
 ]
