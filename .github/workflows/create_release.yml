@@ -59,17 +59,16 @@ jobs:
         # https://github.com/marketplace/actions/github-action-for-committing-changes-to-a-repository
         uses: devops-infra/action-commit-push@master
         with:
-          github_token: ${{ github.token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           commit_message: "[workflow] Update uBOLite MV3 package files for ${{ env.TAGNAME }}"
       - name: Create GitHub release
         id: create_release
         uses: softprops/action-gh-release@v2
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.TAGNAME }}
           name: ${{ env.TAGNAME }}
-          draft: true
           prerelease: true
           body: |
             **uBO Lite** (uBOL), a **permission-less** [MV3 API-based](https://developer.chrome.com/docs/extensions/mv3/intro/) content blocker.
@@ -98,14 +97,14 @@ jobs:
       - name: Upload Chromium uBOLite MV3 package
         uses: softprops/action-gh-release@v2
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.TAGNAME }}
           files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
       - name: Upload Edge uBOLite MV3 package
         uses: softprops/action-gh-release@v2
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.TAGNAME }}
           files: build/${{ env.EDGE_PACKAGE }}
