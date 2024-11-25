@@ -6170,5 +6170,10 @@
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","requestDomains":["serrurier-menuisier-31-ad2.site-privilege.pagesjaunes.fr"],"resourceTypes":["image"]},"id":6169,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["aphp.fr"],"resourceTypes":["script"],"urlFilter":"||partners.doctolib.fr/doctors/detect_partner_profile?"},"id":6170,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||partner.skiset.com/*/motor/*?sid="},"id":6171,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","requestDomains":["partners.doctolib.fr"],"resourceTypes":["sub_frame"]},"id":6172,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","requestDomains":["partners.doctolib.fr"],"resourceTypes":["sub_frame"]},"id":6172,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||lacoccinelle.net/extra.js"},"id":6173,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["file-upload.org"],"requestDomains":["code.jquery.com"]},"id":6174,"priority":30},
+{"action":{"type":"allow"},"condition":{"urlFilter":"||file-upload.download/cgi-bin/"},"id":6175,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["file-up.org"],"requestDomains":["file-upload.org"]},"id":6176,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["crunchyscan.fr"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||jsc.adskeeper.co.uk/c/r/crunchyscan.fr"},"id":6177,"priority":30}
 ]

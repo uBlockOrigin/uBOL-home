@@ -44,6 +44,14 @@ function normalizedHostname(hn) {
 
 /******************************************************************************/
 
+function renderAdminRules() {
+    const { disabledFeatures: forbid = [] } = popupPanelData;
+    if ( forbid.length === 0 ) { return; }
+    dom.body.dataset.forbid = forbid.join(' ');
+}
+
+/******************************************************************************/
+
 const BLOCKING_MODE_MAX = 3;
 
 function setFilteringMode(level, commit = false) {
@@ -325,12 +333,15 @@ async function init() {
         }
     }
 
+    renderAdminRules();
+
     setFilteringMode(popupPanelData.level);
 
     dom.text('#hostname', punycode.toUnicode(tabHostname));
 
     dom.cl.toggle('#showMatchedRules', 'enabled',
         popupPanelData.isSideloaded === true &&
+        popupPanelData.developerMode &&
         typeof currentTab.id === 'number' &&
         isNaN(currentTab.id) === false
     );

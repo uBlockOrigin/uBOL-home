@@ -1493,5 +1493,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||point-g.rakuten.co.jp/pg_assets/item/contets/*_300x250"},"id":1492,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||afi-b.com/assets/dist/img/general/top/img/ad/"},"id":1493,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||sst.rocketnews24.com/gtm.js"},"id":1494,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||image.ias.rakuten.co.jp/dst/ec/"},"id":1495,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||image.ias.rakuten.co.jp/dst/ec/"},"id":1495,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||pixnest.pipio.site/adblock.js"},"id":1496,"priority":10}
 ]

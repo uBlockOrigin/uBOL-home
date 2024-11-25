@@ -363,5 +363,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||dez.ro/media/images/ads/"},"id":362,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||vitan-auto.ro/*/ads_images/"},"id":363,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||obiectivbr.ro/sites/default/files/banner/bogdi1024-web.jpg"},"id":364,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["digisport.ro"],"resourceTypes":["xmlhttprequest"]},"id":365,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["digisport.ro"],"resourceTypes":["xmlhttprequest"]},"id":365,"priority":30},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["filmexxx.live"],"resourceTypes":["script"],"urlFilter":"||gonowx.com/*?filmexxx.live"},"id":366,"priority":10}
 ]

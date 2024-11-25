@@ -1014,7 +1014,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["gecmisi.com.tr"],"urlFilter":"/favicon.ico|"},"id":1013,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||canlimacizlemax*.com/*/advert.js"},"id":1014,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||justintvizle*.pro/cdn/advert.js"},"id":1015,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["altin.in","m.pes24.com","mangawt.com","mordefter.com","myjest.com","ui.memoryhackers.org"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":1016,"priority":30},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["sporx.com"],"requestDomains":["googletagmanager.com"]},"id":1016,"priority":10},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||mobilkulup.com/js/*/*-page-ad.js"},"id":1017,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["oyungemisi.com"],"urlFilter":"||hb.improvedigital.com/pbw/headerlift.min.js"},"id":1018,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||wheel-size.com.tr/static/v*/js/prebid-ads.js"},"id":1019,"priority":30},
@@ -1024,7 +1024,7 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||puhutv.com/banner-ad*.png"},"id":1023,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||cnnturk.com/scripts/ad-type.bundle.js"},"id":1024,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||cnnturk.com//assets/dist/js/300x250_dfp.js"},"id":1025,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["beinsports.com","exxen.com","haberglobal.com.tr","kanald.com.tr","karnaval.com","liderform.com.tr","newgames.com","oyunkuzusu.com","oyunlarskor.com","tokoyun.com","tranimeci.com","videonuz.ensonhaber.com"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":1026,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["beinsports.com","blutv.com","exxen.com","haberglobal.com.tr","kanald.com.tr","karnaval.com","liderform.com.tr","newgames.com","oyunkuzusu.com","oyunlarskor.com","tokoyun.com","tranimeci.com","videonuz.ensonhaber.com"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":1026,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||kanald.com.tr/*scripts/ad*.js"},"id":1027,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kanald.com.tr"],"urlFilter":"||cdn.medyanetads.com/assets/adservice.css"},"id":1028,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kanald.com.tr"],"urlFilter":"||ad.medyanetads.com/adservice/adservice.js"},"id":1029,"priority":30},
@@ -1102,5 +1102,9 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||samsunhaber.com/images/banner/*logo"},"id":1101,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||impula.com/wp-content/uploads/*/reklam-"},"id":1102,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||hepfinans.com/wp-content/uploads/*/google-adsense-"},"id":1103,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||dijilopedi.com/wp-content/uploads/"},"id":1104,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||dijilopedi.com/wp-content/uploads/"},"id":1104,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["altin.in","gecmisi.com.tr","m.pes24.com","mangawt.com","mordefter.com","myjest.com","ui.memoryhackers.org"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":1105,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["gecmisi.com.tr"],"urlFilter":"||pagead2.googlesyndication.com/pagead/managed/js/adsense/*/show_ads*fy2021.js"},"id":1106,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["gecmisi.com.tr"],"urlFilter":"||pagead2.googlesyndication.com/pagead/ads"},"id":1107,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["blutv.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"/reklamlar/web/player"},"id":1108,"priority":30}
 ]
