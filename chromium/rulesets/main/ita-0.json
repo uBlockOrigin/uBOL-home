@@ -1464,5 +1464,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||api.everli.com/sm/api/*&adgroupid="},"id":1463,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||mail1.libero.it/appsuite/api/apps/load/"},"id":1464,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["media"],"urlFilter":"||gay.it/adv/empty.mp4"},"id":1465,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["quotidiano.net"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||ads.viralize.tv/player/"},"id":1466,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["quotidiano.net"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||ads.viralize.tv/player/"},"id":1466,"priority":30},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["cpop.it"],"urlFilter":"||b-cdn.net/assets/partners/"},"id":1467,"priority":10}
 ]

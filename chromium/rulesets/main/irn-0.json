@@ -3,7 +3,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||k2cod.com/ip/show-ip"},"id":2,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||k2cod.com/statistics/"},"id":3,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||10.10.34."},"id":4,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||parsiblog.com/ga.js"},"id":5,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||parsiblog.com/ga.js^"},"id":5,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||rizy.ir/js/ads.js"},"id":6,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||slideskin.ir/ads/pop.php^"},"id":7,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||seyedrezabazyar.com/codetools/files/close-right-click.js"},"id":8,"priority":10},

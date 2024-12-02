@@ -1,5 +1,5 @@
-Version: 2024.11.25.1376
-Secret: 77729dfddf13fa38
+Version: 2024.12.2.22
+Secret: 036bbe4907608d25
 ============================
 Listset for 'default':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/filters.min.txt
@@ -11,15 +11,15 @@ Listset for 'default':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easyprivacy.txt
 	Fetching remote https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext
-Input filter count: 118571
-	Accepted filter count: 117247
+Input filter count: 117954
+	Accepted filter count: 116612
 	Rejected filter count: 136
-Output rule count: 17450
-	Pruning requestDomains: from 75632 to 75322
-	Pruning requestDomains: from 3829 to 3827
-	Pruning requestDomains: from 5725 to 5717
+Output rule count: 17428
+	Pruning requestDomains: from 74734 to 74424
+	Pruning requestDomains: from 3832 to 3830
+	Pruning requestDomains: from 5721 to 5713
 	Fetching remote https://ublockorigin.github.io/uAssets/dnr/default.json
-	Plain good: 15544
+	Plain good: 15569
 		Salvaged rule by ignoring 1 unsupported domain= option: erotic-beauties.com|hardsex.cc|rule34.top|sex-movies.biz|tube18.sexy|xvideos.name|booru.*
 		Salvaged rule by ignoring 1 unsupported domain= option: 8boobs.com|angelgals.com|babesexy.com|babesinporn.com|fooxybabes.com|hotbabeswanted.com|hotstunners.com|mainbabes.com|nakedbabes.club|nakedgirlsroom.com|nudebabes.sexy|pleasuregirl.net|rabbitsfun.com|sexybabes.club|sexybabesart.com|wantedbabes.com|silkengirl.*
 		Salvaged rule by ignoring 1 unsupported domain= option: web.de|gmx.*
@@ -70,11 +70,11 @@ Output rule count: 17450
 		Salvaged rule by ignoring 5 unsupported domain= option: mylink.*|my1ink.*|myl1nk.*|myli3k.*|solvetube.*|digikey.co.za|digikey.cn|digikey.ee|digikey.at|digikey.be|digikey.bg|digikey.cz|digikey.dk|digikey.fi|digikey.fr|digikey.de|digikey.gr|digikey.hu|digikey.ie|digikey.it|digikey.lv|digikey.lt|digikey.lu|digikey.nl|digikey.no|digikey.pl|digikey.pt|digikey.ro|digikey.sk|digikey.si|digikey.es|digikey.se|digikey.ch|digikey.co.uk|digikey.co.il|digikey.com.mx|digikey.ca|digikey.com.br|digikey.co.nz|digikey.com.au|digikey.co.th|digikey.tw|digikey.kr|digikey.sg|digikey.ph|digikey.my|digikey.jp|digikey.in|digikey.hk|digikey.com|ytlarge.com|starkroboticsfrc.com|sinonimos.de|antonimos.de|quesignifi.ca|tiktokrealtime.com|tiktokcounter.net|tpayr.xyz|poqzn.xyz|ashrfd.xyz|rezsx.xyz|tryzt.xyz|ashrff.xyz|rezst.xyz|dawenet.com|erzar.xyz|waezm.xyz|waezg.xyz|blackwoodacademy.org|cryptednews.space|vivuq.com|swgop.com|vbnmll.com|telcoinfo.online|dshytb.com|promo-visits.site|satoshi-win.xyz|allcryptoz.net|batmanfactor.com|crewbase.net|crewus.net|documentaryplanet.xyz|gametechreviewer.com|midebalonu.net|misterio.ro|seory.xyz|shinbhu.net|shinchu.net|substitutefor.com|talkforfitness.com|thefitbrit.co.uk|thumb8.net|thumb9.net|topcryptoz.net|uniqueten.net|ultraten.net|maxstream.video|maxlinks.online|maxstreams.site|mobitaak.com|infinityscans.xyz|infinityscans.net
 		Salvaged rule by ignoring 2 unsupported domain= option: gentside.*|ohmymag.*|maxisciences.com
 		Salvaged rule by ignoring 1 unsupported domain= option: asiaontop.com|asiaon.*
-	Maybe good (regexes): 240
-	redirect=: 432
+	Maybe good (regexes): 235
+	redirect=: 510
 	removeparams= (accepted/discarded): 53/14
-	modifyHeaders=: 67
-	Unsupported: 1114
+	modifyHeaders=: 68
+	Unsupported: 993
 		Can't salvage rule with unsupported domain= option: vidmoly.*
 		Can't salvage rule with unsupported domain= option: megalink.*
 		Can't salvage rule with unsupported domain= option: gplinks.*
@@ -83,7 +83,6 @@ Output rule count: 17450
 		strict3p not supported
 		Can't salvage rule with unsupported domain= option: nishankhatri.*
 		Can't salvage rule with unsupported domain= option: vizcloud.*|vizcloud2.*
-		Can't salvage rule with unsupported domain= option: nekopoi.*
 		Can't salvage rule with unsupported domain= option: vinaurl.*
 		Can't salvage rule with unsupported domain= option: komikcast.*
 		Can't salvage rule with unsupported domain= option: hubcloud.*
@@ -91,6 +90,7 @@ Output rule count: 17450
 		Can't salvage rule with unsupported domain= option: movieon21.*
 		Can't salvage rule with unsupported domain= option: oploverz.*
 		Can't salvage rule with unsupported domain= option: mangaku.*
+		Can't salvage rule with unsupported domain= option: nekopoi.*
 		Can't salvage rule with unsupported domain= option: doomovie-hd.*
 		Can't salvage rule with unsupported domain= option: xprime4u.*
 		Can't salvage rule with unsupported domain= option: sadisflix.*
@@ -159,6 +159,7 @@ Output rule count: 17450
 		strict1p not supported
 		strict3p not supported
 		Can't salvage rule with unsupported domain= option: strcloud.*|streamta.*|streamtape.*|strtape.*|strtapeadblock.*|strtpe.*
+		strict1p not supported
 		Can't salvage rule with unsupported domain= option: bigkickass.*|kat.*|kat2.*|katbay.*|katfreak.*|kathydra.*|katkickass.*|katkickass.*|kattracker.*|kick4ss.*|kickass-usa.*|kickass.*|kickass2.*|kickassaustralia.*|kickassbay.*|kickassdb.*|kickassfull.*|kickassgo.*|kickasshydra.*|kickassindia.*|kickasskat.*|kickassminds.*|kickassmovies.*|kickasspk.*|kickasst.*|kickasstorrents.*|kickasstorrents2.*|kickasstracker.*|kickasstrusty.*|kickassuk.*|kickassunlocked.*|kickassz.*|kkat.*|kkickass.*|thekat.*|thekickass.*|topkickass.*|torrentkat.*|torrentskickass.*
 		Can't salvage rule with unsupported domain= option: isohunt.*|isohunters.*|isohunthydra.*|isohunting.*|isohunts.*|isohuntx.*|isohuntz.*|myisohunt.*
 		regexFilter is not RE2-compatible: ^https?:\/\/(?=[a-z]{0,10}\d)[0-9a-z]{11}\.[-0-9a-z]{6,}\.com\/(?=[a-z]*[0-9A-Z])[0-9a-zA-Z]{5,7}\.js$,		strict3p not supported
@@ -351,6 +352,7 @@ Output rule count: 17450
 		Can't salvage rule with unsupported domain= option: empire-anime.*|empire-stream.*|empire-streaming.*|empire-streamz.*
 		Can't salvage rule with unsupported domain= option: empire-anime.*|empire-stream.*|empire-streaming.*|empire-streamz.*
 		Can't salvage rule with unsupported domain= option: southpark.*|southparkstudios.*
+		Can't salvage rule with unsupported domain= option: guardaserie.*
 		Can't salvage rule with unsupported domain= option: southparkstudios.*
 		Can't salvage rule with unsupported domain= option: southpark.*|southparkstudios.*
 		Can't salvage rule with unsupported domain= option: southpark.*|southparkstudios.*
@@ -424,8 +426,6 @@ Output rule count: 17450
 		header="x-datacenter" not supported
 		regexFilter is not RE2-compatible: ^https?:\/\/[-a-z]{5,12}\.[a-z]{3,}\/[0-9a-z]{1,20}\?(?=[A-Za-z]{0,21}\d?)(?=[0-9a-z]{0,21}[A-Z])[0-9A-Za-z]{15,22}=(?=[%a-z]*[0-9A-Z])[%0-9A-Za-z]{35,2000}$,		header="via:2.0 nginx" not supported
 		regexFilter is not RE2-compatible: ^https?:\/\/[-a-z]{5,12}\.[a-z]{3,}\/[0-9a-z]{1,20}\?(?=[A-Za-z]{0,21}\d?)(?=[0-9a-z]{0,21}[A-Z])[0-9A-Za-z]{15,22}=(?=[%a-z]*[0-9A-Z])[%0-9A-Za-z]{35,2000}$,		header="Via:2.0 nginx" not supported
-		header="x-traceid2" not supported
-		header="x-traceid2" not supported
 		header="access-control-expose-headers:/X-DirectionPartner-Id/" not supported
 		header="access-control-expose-headers:/X-DirectionPartner-Id/" not supported
 		header="popads-node" not supported
@@ -521,12 +521,22 @@ Output rule count: 17450
 		Unsupported modifier urlskip
 		Unsupported modifier urlskip
 		Unsupported modifier urlskip
-		Incompatible with DNR: ||rddywd.com^$image,redirect-rule=1x1.gif
-		Incompatible with DNR: ||sprzedaz2.oczarjk.pl/img/ads/banner.gif$image,redirect-rule=1x1.gif,domain=im9.eu
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=indiatimes.com|iamgujarat.com|vijaykarnataka.com|tamil.samayam.com|telugu.samayam.com|malayalam.samayam.com,redirect-rule=google-ima.js
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=m.economictimes.com
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
+		Unsupported modifier urlskip
 		Incompatible with DNR: *$script,domain=aranzulla.it,redirect-rule=noopjs
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=m.timesofindia.com,redirect-rule=google-ima.js
 		Incompatible with DNR: ||indiatimes.com^$image,redirect-rule=1x1.gif
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=web.de
 		Incompatible with DNR: *$image,redirect-rule=32x32.png,domain=afreesms.com
@@ -535,27 +545,19 @@ Output rule count: 17450
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=9to5google.com|9to5mac.com|9to5toys.com|dronedj.com|electrek.co|marketrealist.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=mylink.*|my1ink.*|myl1nk.*|myli3k.*
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=mp4upload.com
-		Incompatible with DNR: ||googletagmanager.com/ns.html$redirect-rule=noop.js
 		Incompatible with DNR: ||vkcdnservice.com^$script,redirect-rule=noopjs,3p
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=adbull.org
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=simply-hentai.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=ouo.*
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=bestgames.com|yiv.com,redirect-rule=google-ima.js
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=viki.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=next-episode.net
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=aternos.org
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=uptostream.com
 		Incompatible with DNR: ||thebookee.net^$image,redirect-rule=1x1.gif,1p
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=freeopenvpn.org
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=spiegel.de
 		Incompatible with DNR: *$xhr,redirect-rule=noopjs,domain=spiegel.de
 		Incompatible with DNR: *$script,domain=ariva.de,redirect-rule=noopjs
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=nrl.com
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=strikeout.*
-		Incompatible with DNR: ||wpfc.ml/b.gif$image,redirect-rule=1x1.gif,domain=satcesc.com
-		Incompatible with DNR: ||a-ads.com^$frame,redirect-rule=noopframe,domain=dogefaucet.com
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=vipbox.*
-		Incompatible with DNR: ||ugdturner.com/xd.sjs$script,redirect-rule=noopjs,domain=nba.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=animedao.*
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=youmath.it
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=sbs.com.au
@@ -566,35 +568,22 @@ Output rule count: 17450
 		Incompatible with DNR: *$image,domain=delcotimes.com|macombdaily.com|santacruzsentinel.com|saratogian.com|theoaklandpress.com|trentonian.com,redirect-rule=2x2.png
 		Incompatible with DNR: *$script,domain=ebookdz.com,redirect-rule=noopjs
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=marie-claire.es
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=hungama.com
-		Incompatible with DNR: ||adblockanalytics.com^$xhr,redirect-rule=noop.txt
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=fupa.net
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=muyinteresante.es
 		Incompatible with DNR: *$image,1p,redirect-rule=1x1.gif,domain=leechpremium.link
-		Incompatible with DNR: ||googlesyndication.com^$script,redirect-rule=googlesyndication_adsbygoogle.js,domain=3dzip.org
-		Incompatible with DNR: ||googlesyndication.com^$script,redirect-rule=googlesyndication_adsbygoogle.js,domain=fatgirlskinny.net
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=canaltdt.es
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=audiotools.blog
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=gamezhero.com
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=4j.com|veedi.com,redirect-rule=google-ima.js
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=neongames.com
 		Incompatible with DNR: *$1p,image,redirect-rule=1x1.gif,domain=rte.ie
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=youku.com
-		Incompatible with DNR: ||siriusfiles.com/adframe.js$frame,redirect-rule=noop.html
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=debilizator.tv
 		Incompatible with DNR: *$image,domain=audiotag.info,redirect-rule=1x1.gif
-		Incompatible with DNR: ||fautsy.com/adblock.php$xhr,redirect-rule=nooptext,1p
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=kinoger.pw
 		Incompatible with DNR: *$script,redirect-rule=noopjs,from=dutchycorp.*,to=~sentry-cdn.com
-		Incompatible with DNR: ||ads-twitter.com/uwt.js$xhr,3p,redirect-rule=noop.txt
 		Incompatible with DNR: ||link-to.net^$image,redirect-rule=1x1.gif,1p
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=finobe.com
 		Incompatible with DNR: *$script,3p,domain=gsmturkey.net,redirect-rule=noopjs
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=polsatnews.pl
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=ustream.to
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=oko.sh
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=oko.sh
-		Incompatible with DNR: ||inklinkor.com/tag.min.js$script,xhr,redirect-rule=noop.js,domain=oko.sh
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=streameast.*|thestreameast.*
 		Incompatible with DNR: *$image,redirect-rule=32x32.png,domain=streameast.*|thestreameast.*
 		Incompatible with DNR: *$image,domain=krunker.io,redirect-rule=1x1.gif
@@ -606,31 +595,24 @@ Output rule count: 17450
 		Incompatible with DNR: ||mairdumont.com^$script,redirect-rule=noopjs,domain=kachelmannwetter.com
 		Incompatible with DNR: ||md-nx.com^$script,redirect-rule=noopjs,domain=meteologix.com|weather.us
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=extremereportbot.com
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=flashgirlgames.com|onlinesudoku.games
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=coinlyhub.com|cryptotinker.com
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=leechall.download|leechall.com
-		Incompatible with DNR: ||bebi.com^$script,redirect-rule=noopjs,domain=lifestylehack.info
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=unfriend-app.com
 		Incompatible with DNR: ||flsaudio.com^$image,redirect-rule=1x1.gif,1p
 		Incompatible with DNR: *$image,redirect-rule=32x32.png,domain=bluemediafiles.*
 		Incompatible with DNR: */assets.sidearmsports.com/$script,redirect-rule=noopjs
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=acusports.com|atlantic10.com|big12sports.com|bigten.org|cmumavericks.com|conferenceusa.com|dartmouthsports.com|daytonflyers.com|dbupatriots.com|dbusports.com|fduknights.com|floridagators.com|friscofighters.com|gamecocksonline.com|gobobcats.com|gocreighton.com|goetbutigers.com|golobos.com|gophersports.com|gopsusports.com|goracers.com|goshockers.com|goterriers.com|gotigersgo.com|gousfbulls.com|govandals.com|gowyo.com|goxavier.com|gozags.com|gozips.com|griffinathletics.com|guhoyas.com|gwusports.com|hailstate.com|hamptonpirates.com|hawaiiathletics.com|hokiesports.com|huskers.com|icgaels.com|iuhoosiers.com|jsugamecocksports.com|longbeachstate.com|loyolaramblers.com|lrtrojans.com|lsusports.net|morrisvillemustangs.com|msuspartans.com|muleriderathletics.com|mutigers.com|navysports.com|nevadawolfpack.com|niuhuskies.com|nulakers.ca|nkunorse.com|nuhuskies.com|nusports.com|oceanbreezenyc.org|okstate.com|olemisssports.com|omavs.com|ovcsports.com|owlsports.com|purduesports.com|redstormsports.com|richmondspiders.com|sfajacks.com|shupirates.com|siusalukis.com|smcgaels.com|smumustangs.com|soconsports.com|soonersports.com|themw.com|tulsahurricane.com|txst.com|txstatebobcats.com|ubbulls.com|ucfknights.com|ucirvinesports.com|uconnhuskies.com|uhcougars.com|uicflames.com|umterps.com|uncwsports.com|unipanthers.com|unlvrebels.com|uoflsports.com|usdtoreros.com|utahstateaggies.com|utepathletics.com|utrockets.com|uvmathletics.com|uwbadgers.com|villanova.com|wkusports.com|wmubroncos.com|woffordterriers.com|1pack1goal.com|bcuathletics.com|bubraves.com|goblackbears.com|golightsgo.com|gomcpanthers.com|goutsa.com|mercerbears.com|pirateblue.com|pirateblue.net|pirateblue.org|quinnipiacbobcats.com|towsontigers.com|tribeathletics.com|tribeclub.com|utepminermaniacs.com|utepminers.com|wkutickets.com|aopathletics.org|atlantichockeyonline.com|bigsouthnetwork.com|bigsouthsports.com|chawomenshockey.com|dbupatriots.org|drakerelays.org|ecac.org|ecacsports.com|emueagles.com|emugameday.com|gculopes.com|godrakebulldog.com|godrakebulldogs.com|godrakebulldogs.net|goeags.com|goislander.com|goislanders.com|gojacks.com|gomacsports.com|gseagles.com|hubison.com|iowaconference.com|ksuowls.com|lonestarconference.org|mascac.org|midwestconference.org|mountaineast.org|niu-pack.com|niuhuskies.com|oswegolakers.com|ovcdigitalnetwork.com|pacersports.com|rmacsports.org|rollrivers.com|samfordsports.com|uncpbraves.com|usfdons.com|wiacsports.com|alaskananooks.com|broncathleticfund.com|cameronaggies.com|columbiacougars.com|etownbluejays.com|gobadgers.ca|golancers.ca|gometrostate.com|gothunderbirds.ca|kentstatesports.com|lehighsports.com|lopers.com|lycoathletics.com|lycomingathletics.com|maraudersports.com|mauiinvitational.com|msumavericks.com|nauathletics.com|nueagles.com|nwusports.com|patriotathleticfund.com|pittband.com|principiaathletics.com|roadrunnersathletics.com|sidearmsocial.com|snhupenmen.com|stablerarena.com|stoutbluedevils.com|uwlathletics.com|yumacs.com|collegefootballplayoff.com|csurams.com|cubuffs.com|gobearcats.com|gohuskies.com|mgoblue.com|osubeavers.com|pittsburghpanthers.com|rolltide.com|texassports.com|thesundevils.com|uclabruins.com|wvuathletics.com|wvusports.com|arizonawildcats.com|calbears.com|cuse.com|georgiadogs.com|goducks.com|goheels.com|insidekstatesports.com|insidekstatesports.info|insidekstatesports.net|insidekstatesports.org|k-stateathletics.com|k-statefootball.net|k-statefootball.org|k-statesports.com|k-statesports.net|k-statesports.org|k-statewomenshoops.com|k-statewomenshoops.net|k-statewomenshoops.org|kstateathletics.com|kstatefootball.net|kstatefootball.org|kstatesports.com|kstatewomenshoops.com|kstatewomenshoops.net|kstatewomenshoops.org|ksuathletics.com|ksusports.com|scarletknights.com|showdownforrelief.com|syracusecrunch.com|texastech.com|theacc.com|ukathletics.com|usctrojans.com|utahutes.com|utsports.com|wsucougars.com
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js:5,domain=12thman.com|auburntigers.com|baylorbears.com|bceagles.com|bgsufalcons.com|bradleybraves.com|butlersports.com|cyclones.com|denverpioneers.com|fgcuathletics.com|fightinghawks.com|fightingillini.com|friars.com|goarmywestpoint.com|gobison.com|goblueraiders.com|gocards.com|godeacs.com|goexplorers.com|gofrogs.com|gogriffs.com|gogriz.com|gomarquette.com|gopack.com|goprincetontigers.com
 		Incompatible with DNR: *$media,redirect-rule=noop-0.1s.mp3,3p,domain=gmx.*|web.de
-		Incompatible with DNR: ||googlesyndication.com/pagead/js/adsbygoogle.js$xhr,redirect-rule=noopjs,domain=adshrink.it
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=turkanime.*
 		Incompatible with DNR: *$frame,domain=forum.release-apk.com,redirect-rule=noopframe
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=forum.release-apk.com
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=freevocabulary.com
 		Incompatible with DNR: $xhr,redirect-rule=noopjs,domain=player.pl
-		Incompatible with DNR: ||googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=jmusic.me,redirect-rule=noopjs
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=btik.com
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=babygames.com
 		Incompatible with DNR: *$frame,redirect-rule=noopframe,domain=camera.aeonax.com
 		Incompatible with DNR: *$xhr,redirect-rule=noopjs,domain=audioblog.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=hausbau-forum.de
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=texviewer.herokuapp.com
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=noopjs,domain=881903.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=myschool-eng.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=ehubsoft.herokuapp.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=onemanhua.com
@@ -639,8 +621,6 @@ Output rule count: 17450
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=puregym.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=tgbeautymedia.blogspot.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=sportif.id
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=motorsport.tv,redirect-rule=google-ima.js
-		Incompatible with DNR: ||static.adsafeprotected.com/vans-adapter-google-ima.js$script,domain=motorsport.tv,redirect-rule=google-ima.js
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=allkaicerteam.com
 		Incompatible with DNR: *$image,redirect-rule=2x2.png,domain=redbox.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=luscious.net
@@ -650,7 +630,6 @@ Output rule count: 17450
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=savesubs.com
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=duit.cc|ockles.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=olinevid.com
-		Incompatible with DNR: ||googlesyndication.com/pagead/js/adsbygoogle.js$xhr,redirect-rule=noopjs,domain=btgyama.blogspot.com
 		Incompatible with DNR: *$script,domain=btgyama.blogspot.com,redirect-rule=noopjs
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=thumpertalk.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=bigbrothercanada.ca
@@ -668,19 +647,15 @@ Output rule count: 17450
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=thehouseofportable.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=linkneverdie.net
 		Incompatible with DNR: *$xhr,redirect-rule=noop.txt,domain=tunein.com
-		Incompatible with DNR: /ap-plugin-scripteo/frontend/img/728x90.png$image,redirect-rule=1x1.gif
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=hentaihaven.xxx
-		Incompatible with DNR: ||adservice.google.com^$script,redirect-rule=noopjs,domain=yallo.tv
 		Incompatible with DNR: *$object,redirect-rule=noopframe,domain=rtl.hr
 		Incompatible with DNR: *$frame,redirect-rule=noopframe,domain=xfreehd.com
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=defienietlynotme.com|embedme.*|filemoon.*|filemooon.top|fmembed.cc|fmoonembed.pro|finfang.*|hellnaw.*|moonembed.*|rgeyyddl.skin|sbnmp.bar|sulleiman.com|vpcxz19p.xyz|z12z0vla.*
 		Incompatible with DNR: *$image,domain=pmvhaven.com,redirect-rule=1x1.gif
 		Incompatible with DNR: ||ezodn.com^$redirect-rule=noopjs,domain=tv.bdix.app
 		Incompatible with DNR: *$xhr,3p,redirect-rule=noop.txt,domain=tv.bdix.live
-		Incompatible with DNR: ||ads.civitai.com^$script,1p,redirect-rule=noopjs
 		Incompatible with DNR: ||voxiom.io^$xhr,1p,redirect-rule=nooptext
 		Incompatible with DNR: ||fussballtransfers.com^$script,1p,redirect-rule=noopjs
-		Incompatible with DNR: /yzfdmoan.js$script,redirect-rule=noop.js
 		Incompatible with DNR: *$image,redirect-rule=2x2.png,domain=tvlive.fctvhd.com
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,3p,domain=bizjournals.com
 		Incompatible with DNR: *$script,3p,redirect-rule=noop.js,domain=streamelements.com|strms.net
@@ -689,7 +664,6 @@ Output rule count: 17450
 		Incompatible with DNR: @@||realm.hearst3pcc.com^$script,3p,redirect-rule,from=sfchronicle.com|expressnews.com
 		Incompatible with DNR: *$frame,domain=fplstatistics.com,redirect-rule=noopframe
 		Incompatible with DNR: *$frame,redirect-rule=noopframe,domain=decrypt.day
-		Incompatible with DNR: ||trackad.cz/adtrack.php^$script,3p,redirect-rule=noopjs
 		Incompatible with DNR: ||wochenblitz.com^$xhr,1p,redirect-rule=nooptext
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext:-1,to=~fundingchoicesmessages.google.com|~sentry.io,domain=hackerrank.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=infinityscans.xyz|infinityscans.net
@@ -730,14 +704,12 @@ Output rule count: 17450
 		Incompatible with DNR: *$frame,redirect-rule=noopframe,domain=desktophut.com
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=desktophut.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=runmods.com
-		Incompatible with DNR: ||pub.network^$script,redirect-rule=noopjs,domain=vrcmods.com
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=minorpatch.com
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=sythe.org
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=tapetus.pl
 		Incompatible with DNR: *$media,redirect-rule=noopmp3-0.1s,domain=eroasmr.com
 		Incompatible with DNR: ||oklivetv.com^$xhr,1p,redirect-rule=nooptext
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=oklivetv.com
-		Incompatible with DNR: ||doubleclick.net^$frame,redirect-rule=noopframe,domain=cpu-world.com
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=freebinchecker.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=bandab.com.br
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=animesanka.*
@@ -745,8 +717,6 @@ Output rule count: 17450
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=hhkungfu.tv
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=pricez.co.il
 		Incompatible with DNR: *$media,3p,redirect-rule=noop-1s.mp4:10,domain=open.spotify.com
-		Incompatible with DNR: ||intergient.com^$script,domain=emoji.gg,redirect-rule=noopjs
-		Incompatible with DNR: ||static.adsafeprotected.com/vans-adapter-google-ima.js$script,redirect-rule=noopjs,domain=motortrend.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=siamblockchain.com
 		Incompatible with DNR: *$object,redirect-rule=noopframe,domain=larvelfaucet.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=booogle.net
@@ -755,20 +725,16 @@ Output rule count: 17450
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=katholisches.info
 		Incompatible with DNR: *$image,redirect-rule=2x2.png,domain=atozmath.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=atozmath.com
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js:5,domain=atozmath.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=puressh.net
 		Incompatible with DNR: *$image,redirect-rule=2x2.png,domain=tel-emporio10.blogspot.com
 		Incompatible with DNR: *$xhr,domain=indianwebseries.*,redirect-rule=nooptext
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=dynast.io
 		Incompatible with DNR: *$script,domain=outerspace.com.br,redirect-rule=noopjs
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect-rule=google-ima.js,domain=vix.com
 		Incompatible with DNR: *$script,redirect-rule=noop.js,domain=flowsoft7.com
 		Incompatible with DNR: *$script,domain=ad-doge.com,redirect-rule=noopjs
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=nulleb.com
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=staples.ca
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=drphil.com
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=iinbinlist.com|osqa.net|vanhawks.com
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=ufreegames.com,redirect-rule=google-ima.js
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=speedtesting.herokuapp.com|excelviewer.herokuapp.com|exifviewer.herokuapp.com|pdfrecover.herokuapp.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=purposegames.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=downloadrepack.com
@@ -783,69 +749,46 @@ Output rule count: 17450
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=vidmoly.me|vidmoly.net|vidmoly.to
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=unityassets4free.com
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=lewdninja.com|new.lewd.ninja
-		Incompatible with DNR: ||advertserve.com/servlet/view/banner/$frame,redirect-rule=noop.html,domain=trk-imps.com
-		Incompatible with DNR: ||googlesyndication.com^$script,redirect-rule=googlesyndication_adsbygoogle.js,domain=pngtosvg.com
-		Incompatible with DNR: ||googlesyndication.com^$script,redirect-rule=googlesyndication_adsbygoogle.js,domain=sitarchive.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=telek.top
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=codimth.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=fiyaplatform.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=taufiqhdyt.com
-		Incompatible with DNR: ||googlesyndication.com^$script,redirect-rule=googlesyndication_adsbygoogle.js,domain=mr9soft.com
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=freemagazines.top
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=konnoznet.xyz
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=examsnet.com
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=hitbits.io
-		Incompatible with DNR: ||adsafeprotected.com/vans-adapter-google-ima.js^$redirect-rule=noopjs,script,domain=unilad.co.uk
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=topnewsshow.com
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=rollercoin.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=windowsmatters.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=masbrooo.com|2ndrun.tv
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=fr.de
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,redirect-rule=google-ima.js,domain=timesnownews.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=kursors.lv
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=ottwow.com,redirect-rule=google-ima.js
 		Incompatible with DNR: *$script,domain=novelmultiverse.com,redirect-rule=noopjs
-		Incompatible with DNR: ||api.adinplay.com^$redirect-rule=noopjs,script,domain=taming.io
 		Incompatible with DNR: *$image,3p,redirect-rule=1x1.gif,domain=world4.eu
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=cybermania.ws
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=pinoyalbums.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=jnckmedia.com
-		Incompatible with DNR: ||googletagmanager.com/gtag/js^$redirect-rule=google-analytics_analytics.js,domain=guardaserie.*
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=cryptojunkie.net
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=vpnstunnel.com
-		Incompatible with DNR: ||googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect-rule=noop.js,domain=anidraw.net
-		Incompatible with DNR: ||static.adsafeprotected.com/vans-adapter-google-ima.js^$script,redirect-rule=noopjs,domain=sportbible.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=telegraf.rs|telegraf.tv
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=cozinha.minhasdelicias.com
-		Incompatible with DNR: ||googleads.g.doubleclick.net/pagead/$xhr,redirect-rule=nooptext,domain=danshort.com
-		Incompatible with DNR: ||evolok.net/*/authorize/*$xhr,redirect-rule=nooptext,domain=nation.africa
-		Incompatible with DNR: ||pagead2.googlesyndication.com/pagead/$redirect-rule=noopjs,script,domain=overbits.herokuapp.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=pewgame.com
 		Incompatible with DNR: *$frame,redirect-rule=noopframe,domain=skmedix.pl
-		Incompatible with DNR: ||raw.githubusercontent.com/*/just-detect-adblock/*$3p,xhr,redirect-rule=nooptext
-		Incompatible with DNR: ||googletagmanager.com/gtag/js$script,redirect-rule=noopjs,domain=rotana.net
-		Incompatible with DNR: ||antiblock.b-cdn.net/banner_ad.png$image,redirect-rule=1x1.gif,domain=getpaidstock.com
 		Incompatible with DNR: *$frame,redirect-rule=noopframe,domain=getpaidstock.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=simplebits.io
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=simplebits.io
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=costumbresmexico.com
-		Incompatible with DNR: ||adsafeprotected.com/$script,redirect-rule=noopjs,domain=gamingbible.co.uk
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=chiemgau24.de|ovb-online.de|rosenheim24.de|bgland24.de|innsalzach24.de|mangfall24.de|wasserburg24.de
-		Incompatible with DNR: ||iclickcdn.com^$script,redirect-rule=noopjs,domain=gifans.com
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=cinemakottaga.*
 		Incompatible with DNR: ||explosivemenu.com^$image,redirect-rule=1x1.gif,1p
 		Incompatible with DNR: host-cdn.net^$image,redirect-rule=32x32.png,domain=maxstream.video|maxlinks.online|maxstreams.site
 		Incompatible with DNR: @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,redirect-rule,domain=carousell.*
-		Incompatible with DNR: ||sentry-cdn.com^$script,redirect-rule=noopjs,domain=proinfinity.fun
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,redirect-rule=noopjs,domain=howstuffworks.com
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=userload.*
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/$script,redirect-rule=noopjs,domain=timesnowhindi.com|timesnowmarathi.com|tvid.in
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=shaalaa.com
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=elahmad.com
 		Incompatible with DNR: *$redirect-rule=noopjs,script,domain=elahmad.com
 		Incompatible with DNR: /images/ads.$image,redirect-rule=1x1.gif
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=rbxscripts.xyz
-		Incompatible with DNR: ||adbox.lv^$script,redirect-rule=noop.js,domain=mail.ee
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=bowfile.com
 		Incompatible with DNR: *$frame,redirect-rule=noopframe,domain=bowfile.com
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=bowfile.com
@@ -853,30 +796,8 @@ Output rule count: 17450
 		Incompatible with DNR: *$script,domain=miraculous.to,redirect-rule=noopjs
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=paraphrasetool.com
 		Incompatible with DNR: *$script,domain=wyze.com,redirect-rule=noopjs
-		Incompatible with DNR: /reclama/ads.js$script,redirect-rule=prebid-ads.js
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=zwielkopolski24.pl
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=coin-free.com|kienthucrangmieng.com|chinhnhacoban.com|95news.com|vnpttelle.com
-		Incompatible with DNR: ||ads.twitter.com/favicon.ico$image,3p,redirect-rule=32x32.png
-		Incompatible with DNR: ||advertising.yahoo.com/favicon.ico$image,3p,redirect-rule=32x32.png
-		Incompatible with DNR: ||doubleclickbygoogle.com/favicon.ico$image,3p,redirect-rule=32x32.png
-		Incompatible with DNR: ||google.com/adsense/start/images/favicon.ico$image,3p,redirect-rule=32x32.png
-		Incompatible with DNR: ||gstatic.com/adx/doubleclick.ico$image,3p,redirect-rule=32x32.png
-		Incompatible with DNR: /ads-prebid.js$script,redirect-rule=prebid-ads.js
-		Incompatible with DNR: /prebid-ads.js$script,redirect-rule=prebid-ads.js,domain=~exey.io
-		Incompatible with DNR: /prebid-ads/adsensebase.js$script,redirect-rule=prebid-ads.js
-		Incompatible with DNR: /prebid-article-ad-ad-300x250.js$script,redirect-rule=prebid-ads.js
-		Incompatible with DNR: ||media.fastclick.net/|$xhr,3p,redirect-rule=noop.txt
-		Incompatible with DNR: ||ads.facebook.com/|$xhr,3p,redirect-rule=noop.txt
-		Incompatible with DNR: ||advice-ads.s3.amazonaws.com/|$xhr,3p,redirect-rule=noop.txt
-		Incompatible with DNR: ||ads.youtube.com/|$xhr,3p,redirect-rule=noop.txt
-		Incompatible with DNR: ||ads.reddit.com/|$xhr,3p,redirect-rule=noop.txt
-		Incompatible with DNR: ||ads-api.twitter.com/|$xhr,3p,redirect-rule=nooptext
-		Incompatible with DNR: ||ads.pinterest.com/|$xhr,3p,redirect-rule=noop.txt
-		Incompatible with DNR: ||adversal.com/|$xhr,3p,redirect-rule=noop.txt
-		Incompatible with DNR: ||sovrn.com/|$xhr,3p,redirect-rule=noop.txt
-		Incompatible with DNR: ||ads.tiktok.com/|$xhr,3p,redirect-rule=noop.txt
-		Incompatible with DNR: ||propellerads.com/|$xhr,3p,redirect-rule=noop.txt
-		Incompatible with DNR: ||infolinks.com/|$xhr,3p,redirect-rule=noop.txt
 		Incompatible with DNR: ||www.sfr.fr^$script,redirect-rule=noop.js,domain=red-by-sfr.fr
 		Incompatible with DNR: *$image,redirect-rule=2x2.png,domain=searchenginereports.net
 		Incompatible with DNR: ||ads-twitter.com^$frame,redirect-rule=noopframe,domain=media.cms.nova.cz
@@ -978,20 +899,12 @@ Output rule count: 17450
 		Incompatible with DNR: *$script,domain=adshnk.com,redirect-rule=noopjs
 		Incompatible with DNR: *$3p,script,redirect-rule=noop.js,domain=toolxox.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=nobitafc.com
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=ketchuptv.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=adsy.pw|playstore.pw
 		Incompatible with DNR: *$frame,redirect-rule=noopframe,domain=adsy.pw|playstore.pw
-		Incompatible with DNR: ||js.wpadmngr.com/static/adManager.js$script,redirect-rule=noopjs
-		Incompatible with DNR: ||mail-ads.google.com^$xhr,domain=rxd-mods.xyz,redirect-rule=nooptext
-		Incompatible with DNR: ||ad.71i.de/somtag/config/$script,redirect-rule=noopjs,domain=sat1.de|wetter.com
 		Incompatible with DNR: *$script,redirect-rule=noop.js,domain=soranews24.com
 		Incompatible with DNR: @@||googletagmanager.com/gtm.js$script,redirect-rule,domain=soranews24.com
-		Incompatible with DNR: ||googlesyndication.com/safeframe/$frame,redirect-rule=noop.html,domain=soranews24.com
-		Incompatible with DNR: ||tpc.googlesyndication.com^$image,redirect-rule=1x1.gif,domain=soranews24.com
 		Incompatible with DNR: @@||amazon-adsystem.com/aax2/apstag.js$script,redirect-rule,domain=youpouch.com
 		Incompatible with DNR: *$script,domain=termux.xyz,redirect-rule=noopjs
-		Incompatible with DNR: ||adoto.net/dashboard/display/items.php$xhr,redirect-rule=nooptext
-		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=jiocinema.com
 		Incompatible with DNR: *$script,domain=koamnewsnow.com,redirect-rule=noopjs
 		Incompatible with DNR: *$script,domain=manga-oni.com,redirect-rule=noopjs
 		Incompatible with DNR: *$script,domain=grabcrypto.co,redirect-rule=noopjs
@@ -1000,29 +913,21 @@ Output rule count: 17450
 		Incompatible with DNR: *$script,domain=senda.pl,redirect-rule=noopjs
 		Incompatible with DNR: ||secretflying.com^$1p,frame,redirect-rule=noopframe
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=sportfacts.net|sportshub.to|sportnews.to|werfgt.fun
-		Incompatible with DNR: ||domain.com/ads.html$frame,3p,redirect-rule=noopframe
 		Incompatible with DNR: *$xhr,domain=luffytra.xyz,redirect-rule=nooptext
-		Incompatible with DNR: ||googlesyndication.com^$image,domain=smartkhabrinews.com|streama2z.com,redirect-rule=1x1.gif
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=smartkhabrinews.com
-		Incompatible with DNR: ||hostingcloud.racing^$xhr,domain=bytecash.in,redirect-rule=nooptext
 		Incompatible with DNR: *$script,xhr,redirect-rule=noopjs,domain=earnbtc.pw
 		Incompatible with DNR: *$script,domain=esopress.com,redirect-rule=noopjs
 		Incompatible with DNR: *$script,domain=leaveadvice.com,redirect-rule=noopjs
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=xpornium.net
-		Incompatible with DNR: /prebid7.$xhr,redirect-rule=noop.js
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=javguard.xyz
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=coins-battle.com
 		Incompatible with DNR: *$script,domain=xxxtik.com,redirect-rule=noopjs
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=dktechnicalmate.com
-		Incompatible with DNR: ||arc.io/arc-sw.js$script,domain=bitcosite.com|bitzite.com,redirect-rule=noopjs
-		Incompatible with DNR: ||googleads.g.doubleclick.net/favicon.ico$image,domain=mixrootmod.com,redirect-rule=32x32.png
 		Incompatible with DNR: *$script,xhr,redirect-rule=noopjs,domain=tron-free.com
 		Incompatible with DNR: *$script,domain=terafly.me,redirect-rule=noopjs
-		Incompatible with DNR: ||pagead2.googlesyndication.com/pagead/imp.gif$image,redirect-rule=1x1.gif
 		Incompatible with DNR: *$script,domain=wp.pl|money.pl|o2.pl|parenting.pl|pudelek.pl|autokult.pl|gadzetomania.pl|fotoblogia.pl|komorkomania.pl|polygamia.pl|abczdrowie.pl|benchmark.pl|kafeteria.pl|pysznosci.pl|dobreprogramy.pl|genialne.pl|autocentrum.pl|jastrzabpost.pl|deliciousmagazine.pl,redirect-rule=noopjs
 		Incompatible with DNR: *$script,domain=herokuapp.com,redirect-rule=noopjs
 		Incompatible with DNR: *$frame,redirect-rule=noopframe,domain=busuu.com
-		Incompatible with DNR: /js/friendbuy.min.js$script,redirect-rule=noopjs,domain=coursera.org
 		Incompatible with DNR: *$image,1p,redirect-rule=1x1.gif,domain=viralpornhub.com
 		Incompatible with DNR: *$script,1p,redirect-rule=noopjs,domain=fresources.tech
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=vgfplay.com
@@ -1030,14 +935,11 @@ Output rule count: 17450
 		Incompatible with DNR: ||tvonline123.com^$1p,frame,redirect-rule=noop.html
 		Incompatible with DNR: *$image,domain=freebnbcoin.com,redirect-rule=1x1.gif
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=freebnbcoin.com
-		Incompatible with DNR: ||acceptable.a-ads.com/1^$xhr,redirect-rule=noop.txt
 		Incompatible with DNR: ||acacdn.com^$script,redirect-rule=noopjs
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=bembed.net|embedv.net
 		Incompatible with DNR: ||oaphoace.net^$script,3p,redirect-rule=noopjs
-		Incompatible with DNR: ||cpx-research.com/assets/js/script_tag_v2.0.js$script,redirect-rule=noop.js
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=kbjfree.com|lnk111.xyz|lnk112.xyz
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=kbjfree.com|lnk111.xyz|lnk112.xyz
-		Incompatible with DNR: ||banner.infoey.com^$image,redirect-rule=1x1.gif,domain=bazadecrypto.com
 		Incompatible with DNR: *$frame,redirect-rule=noop.txt,domain=bazadecrypto.com
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=linkebr.com
 		Incompatible with DNR: *$object,3p,redirect-rule=noopframe,domain=24ur.com
@@ -1045,14 +947,11 @@ Output rule count: 17450
 		Incompatible with DNR: *$xhr,script,redirect-rule=empty,domain=4khd.com
 		Incompatible with DNR: *$frame,redirect-rule=noopframe,domain=megaup.net
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=2the.space|paylinks.cloud
-		Incompatible with DNR: ||ourtecads.com/assets/$script,redirect-rule=noopjs
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=shrinkbit.in
 		Incompatible with DNR: *$xhr,3p,method=head,redirect-rule=nooptext:-1,to=~adblockanalytics.com|~doubleclick.net|~pagead2.googlesyndication.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=channel5.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=client.falixnodes.net
-		Incompatible with DNR: ||succeedscene.com/ads_*/ads.load.js$script,redirect-rule=noop.js
 		Incompatible with DNR: ||arc.io^$script,redirect-rule=noopjs,domain=hinatasoul.com
-		Incompatible with DNR: ||googletagmanager.com^$script,domain=netuplayer.top,redirect-rule=noopjs
 		Incompatible with DNR: *$image,domain=netuplayer.top,redirect-rule=1x1.gif
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=truyen-hentai.com
 		Incompatible with DNR: ||fuseplatform.net^$redirect-rule=noopjs,domain=quackr.io
@@ -1067,8 +966,6 @@ Output rule count: 17450
 		Incompatible with DNR: ||jsdelivr.net^*/fp.min.js$script,redirect-rule=fingerprint3.js:10
 		Incompatible with DNR: ||computerworld.com/*/gpt_includes.js$script,redirect-rule=googletagservices_gpt.js
 		Incompatible with DNR: *$script,domain=abcya.com,redirect-rule=noopjs
-		Incompatible with DNR: ||googlesyndication.com/safeframe/*/container.html$frame,redirect-rule=noop.html,domain=los40.com
-		Incompatible with DNR: ||assets.adobedtm.com/*/satelliteLib$script,redirect-rule=noopjs,domain=8world.com
 		Incompatible with DNR: ||player.ooyala.com^$script,redirect-rule=noopjs,domain=8world.com
 		Incompatible with DNR: ||amazonaws.com^$xhr,redirect-rule=nooptext,domain=viu.com
 		Incompatible with DNR: ||amazon-adsystem.com/*/apstag.js$xhr,redirect-rule=amazon_apstag.js:5
@@ -1078,13 +975,10 @@ Output rule count: 17450
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=hopkinssports.com
 		Incompatible with DNR: *$script,domain=larena.it,redirect-rule=noopjs
 		Incompatible with DNR: *$xhr,redirect-rule=noopjs,domain=themeslide.com
-		Incompatible with DNR: ||doubleclick.net/tag/js/gpt.js$script,redirect-rule=googletagservices_gpt.js,domain=aristeguinoticias.com
-		Incompatible with DNR: ||doubleclick.net/tag/js/gpt.js$script,redirect-rule=googletagservices_gpt.js,domain=usnews.com
 		Incompatible with DNR: ||lequipe.fr/*/prebid.js$redirect-rule=noopjs
 		Incompatible with DNR: ||otaserve.net^$frame,redirect-rule=noop.html,domain=chan.sankakucomplex.com
 		Incompatible with DNR: @@||google-analytics.com/analytics.js$script,redirect-rule=google-analytics.com/analytics.js,domain=indigenousoap.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=seeitlive.co
-		Incompatible with DNR: ||static.adsafeprotected.com/vans-adapter-google-ima.js^$script,redirect-rule=noopjs,domain=tyla.com
 		Incompatible with DNR: ||epimg.net/t.gif$image,redirect-rule=1x1.gif,domain=as.com
 		Incompatible with DNR: ||news38.de/resources/*$image,1p,redirect-rule=1x1.gif
 		Incompatible with DNR: @@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect-rule,domain=golf.com
@@ -1093,8 +987,6 @@ Output rule count: 17450
 		Incompatible with DNR: @@||googletagmanager.com/gtm.js$script,redirect-rule,domain=lingvolive.com
 		Incompatible with DNR: @@||google-analytics.com/analytics.js$script,redirect-rule=google-analytics.com/analytics.js,domain=ultimateclassicrock.com
 		Incompatible with DNR: @@||googletagmanager.com/gtm.js$script,redirect-rule=googletagmanager.com/gtm.js,domain=ultimateclassicrock.com
-		Incompatible with DNR: ||google-analytics.com/analytics.js$script,redirect-rule=noopjs,domain=hudsonvalleypost.com|seacoastcurrent.com|popcrush.com,important
-		Incompatible with DNR: ||googletagmanager.com/gtm.js$script,redirect-rule=noopjs,domain=hudsonvalleypost.com|seacoastcurrent.com|popcrush.com,important
 		Incompatible with DNR: @@||google-analytics.com/analytics.js$script,3p,redirect-rule,domain=k2radio.com|kowb1290.com|koel.com|loudwire.com
 		Incompatible with DNR: @@||googletagmanager.com/gtm.js$script,3p,redirect-rule,domain=k2radio.com|kowb1290.com|koel.com|loudwire.com
 		Incompatible with DNR: @@||googletagmanager.com^$redirect-rule,domain=invisibleoranges.com|nj1015.com|tasteofcountry.com|wyrk.com|xxlmag.com
@@ -1102,13 +994,11 @@ Output rule count: 17450
 		Incompatible with DNR: ||clustrmaps.com^$image,redirect-rule=1x1.gif
 		Incompatible with DNR: @@||amazon-adsystem.com/*/apstag.js$script,redirect-rule=amazon_apstag.js,domain=video.sky.it
 		Incompatible with DNR: @@||googletagmanager.com/gtm.js$script,redirect-rule=googletagmanager.com/gtm.js,domain=autotrader.ca
-		Incompatible with DNR: ||wdr.de/*/tracker/tracker.min.js$script,redirect-rule=noop.js,domain=sportschau.de
 		Incompatible with DNR: @@||googletagmanager.com/gtm.js$script,redirect-rule,domain=corsair.com
 		Incompatible with DNR: @@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect-rule,domain=gamedeveloper.com
 		Incompatible with DNR: @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect-rule,domain=heim.jp
 		Incompatible with DNR: @@||googletagmanager.com/gtm.js$script,redirect-rule,domain=mf-realty.jp
 		Incompatible with DNR: ||cloudflare.com/cdn-cgi/trace$xhr,3p,redirect-rule=noop.txt,domain=~funimation.com|~1bit.space|~1bitspace.com
-		Incompatible with DNR: ||d2r1yp2w7bby2u.cloudfront.net/js/localforage.min.js$script,redirect-rule=noopjs,domain=sonyliv.com
 		Incompatible with DNR: @@||googletagmanager.com/gtm.js$script,redirect-rule,domain=simon.com
 		Incompatible with DNR: ||videoplayerhub.com^$script,domain=shockwave.com,redirect-rule=noopjs
 		Incompatible with DNR: ||natureetdecouvertes.com^$1p,image,redirect-rule=2x2.png
@@ -1125,10 +1015,8 @@ Output rule count: 17450
 		Incompatible with DNR: ||booking.rm.dk/selvbooking/*/analytics/*$xhr,1p,redirect-rule=nooptext
 		Incompatible with DNR: @@||google-analytics.com/analytics.js$script,redirect-rule=google-analytics.com/analytics.js:5,domain=stern.de
 		Incompatible with DNR: @@||googletagmanager.com/gtm.js$script,redirect-rule=googletagmanager_gtm.js:5,domain=stern.de
-		Incompatible with DNR: ||elpais.com/t.gif$image,1p,redirect-rule=1x1.gif,important
 		Incompatible with DNR: ||tag.atom.gamedistribution.com^$xhr,redirect-rule=nooptext,1p
 		Incompatible with DNR: @@||googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect-rule,domain=html5.gamedistribution.com
-		Incompatible with DNR: ||hits.informer.com/log.php$image,domain=funny.pho.to,redirect-rule=1x1.gif
 		Incompatible with DNR: @@/prebid-ads/adsensebase.js$script,redirect-rule=prebid-ads.js,domain=darkreading.com
 		Incompatible with DNR: ||wpfc.ml^$image,redirect-rule=1x1.gif,domain=thestoryexchange.org
 		Incompatible with DNR: @@||googletagmanager.com/gtm.js$script,redirect-rule=googletagmanager_gtm.js:5,domain=kleinanzeigen.de
@@ -1146,29 +1034,19 @@ Output rule count: 17450
 		Incompatible with DNR: @@||amazon-adsystem.com/*/apstag.js$script,redirect-rule,domain=weather.com
 		Incompatible with DNR: @@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect-rule,domain=honestjohn.co.uk
 		Incompatible with DNR: @@||googletagmanager.com/gtag/js$script,redirect-rule,domain=contactpoints.org
-		Incompatible with DNR: ||encar.com/js/*/analytics.js$script,1p,redirect-rule=noop.js
 		Incompatible with DNR: @@||google-analytics.com/analytics.js$script,redirect-rule,domain=youtube.videodeck.net
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=gamingbible.com
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=gamingbible.com
 		Incompatible with DNR: ||samash.com^$script,redirect-rule=noopjs
-		Incompatible with DNR: /google-tag-manager.min.js$script,domain=511tactical.com,redirect-rule=googletagmanager_gtm.js
 		Incompatible with DNR: @@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect-rule=googletagservices_gpt.js:5,domain=aibusiness.com
-		Incompatible with DNR: /img/ads/Spinner.png$image,redirect-rule=1x1.gif
 		Incompatible with DNR: ||coveo.com^$script,domain=basspro.com,redirect-rule=noopjs
 		Incompatible with DNR: ||lightning.cnn.com/launch/$script,redirect-rule=noopjs
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=go-girl.com
 		Incompatible with DNR: ||startpage.com/sp/adsense/$script,redirect-rule=noopjs
-		Incompatible with DNR: ||sho.com/www/sho/lib/omniture/AppMeasurement.js$xhr,1p,redirect-rule=noop.js
-		Incompatible with DNR: ||ad-link.jp/sugoroku64/static/img/promotion_5/spacer.gif$image,redirect-rule=1x1.gif,domain=sugoroku64.ad-link.jp
-		Incompatible with DNR: ||shop.motorolasolutions.com/msi-files/libs/dynatrace.js$script,redirect-rule=noopjs,from=shop.motorolasolutions.com
-		Incompatible with DNR: ||shop.motorolasolutions.com/msi-files/page-tags/head/dynatrace-loader.js$script,redirect-rule=noopjs,from=shop.motorolasolutions.com
-		Incompatible with DNR: ||googletagmanager.com/gtag/js$script,redirect-rule=noop.js:10,domain=scobel.pasaz24.pl
 		Incompatible with DNR: ||useinsider.com^$image,redirect-rule=2x2.png,domain=akbank.com
 		Incompatible with DNR: ||nextday.media^$script,redirect-rule=noopjs,domain=gpblog.com
-		Incompatible with DNR: ||adobe.com/newrelic.js$script,redirect-rule=noopjs,1p
 		Incompatible with DNR: ||adsafeprotected.com^$script,redirect-rule=noopjs,domain=theonion.com
 		Incompatible with DNR: @@||googletagmanager.com/gtag/js$script,redirect-rule=googletagmanager_gtm.js:5,domain=trovvve.com
-		Incompatible with DNR: ||analytics.skroutz.gr/analytics.min.js^$script,1p,redirect-rule=noop.js
 		Incompatible with DNR: ||googletagmanager.com^$script,redirect-rule=googletagmanager_gtm.js,domain=economictimes.com|eisamay.com|iamgujarat.com|indiatimes.com|samayam.com|vijaykarnataka.com
 		Incompatible with DNR: ||ccstatic.toggo.de/cc-static-files/bumper-video/$media,redirect-rule=noop-0.1s.mp3,domain=toggo.de
 		Incompatible with DNR: ||flashtalking.com^*.mp4$media,redirect-rule=noop-0.1s.mp3,domain=toggo.de
@@ -1181,6 +1059,7 @@ Output rule count: 17450
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=panel.freemcserver.net
 		Incompatible with DNR: *$script,3p,domain=poophq.com|veev.to,redirect-rule=noopjs
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=sportnews.to|sportshub.to
+		Incompatible with DNR: *$script,1p,redirect-rule=noop.js,domain=wiki.yjsnpi.nu
 		Rejected filter: $webrtc,websocket,xmlhttprequest,domain=pirateproxy.live|thehiddenbay.com|thepiratebay.org|thepiratebay10.org
 		Rejected filter: $webrtc,domain=ack.net|allthetests.com|azvideo.net|champion.gg|clicknupload.link|colourlovers.com|csgolounge.com|dispatch.com|go4up.com|janjua.tv|jpost.com|megaup.net|netdna-storage.com|ouo.io|ouo.press|sourceforge.net|spanishdict.com|telegram.com|torlock2.com|uptobox.com|uptobox.eu|uptobox.fr|uptobox.link|vidtodo.com|yts.gs|yts.mx
 		Rejected filter: pornhub.com#?#:-abp-properties(height: 300px; width: 315px;)
@@ -1189,16 +1068,16 @@ Output rule count: 17450
 		Rejected filter: redtube.com,tube8.com,tube8.es,tube8.fr,xvideos.com,youjizz.com,youporn.com,youporngay.com#?#:-abp-properties(base64)
 		Rejected filter: redtube.com,tube8.com,tube8.es,tube8.fr,xvideos.com,youjizz.com,youporn.com,youporngay.com#?#:-abp-properties(data:)
 		Rejected filter: redtube.com,tube8.com,tube8.es,tube8.fr,xvideos.com,youjizz.com,youporn.com,youporngay.com#?#:-abp-properties(image/)
-CSS-generic: 13682 plain CSS selectors
-CSS-generic-high: 523 plain CSS selectors
-CSS-specific: 12323 distinct filters
-	Combined into 11544 distinct hostnames
-	Combined into 522 distinct entities
-CSS-declarative: 540 distinct filters
+CSS-generic: 13670 plain CSS selectors
+CSS-generic-high: 517 plain CSS selectors
+CSS-specific: 12373 distinct filters
+	Combined into 11181 distinct hostnames
+	Combined into 520 distinct entities
+CSS-declarative: 542 distinct filters
 	Combined into 918 distinct hostnames
 	Combined into 55 distinct entities
-Procedural-related distinct filters: 836 distinct combined selectors
-	Combined into 1043 distinct hostnames
+Procedural-related distinct filters: 837 distinct combined selectors
+	Combined into 1045 distinct hostnames
 	Combined into 104 distinct entities
 ============================
 Listset for 'block-lan':
@@ -1218,11 +1097,11 @@ Output rule count: 16
 ============================
 Listset for 'dpollock-0':
 	Fetching remote https://someonewhocares.org/hosts/hosts
-Input filter count: 11712
-	Accepted filter count: 11712
+Input filter count: 11713
+	Accepted filter count: 11713
 	Rejected filter count: 0
 Output rule count: 1
-	Pruning requestDomains: from 11712 to 9462
+	Pruning requestDomains: from 11713 to 9463
 	Plain good: 1
 
 	Maybe good (regexes): 0
@@ -1234,17 +1113,17 @@ Output rule count: 1
 ============================
 Listset for 'adguard-spyware-url':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/17.txt
-Input filter count: 1797
-	Accepted filter count: 1788
+Input filter count: 1802
+	Accepted filter count: 1793
 	Rejected filter count: 0
-Output rule count: 625
+Output rule count: 627
 	Plain good: 0
 
 	Maybe good (regexes): 0
 	redirect=: 0
-	removeparams= (accepted/discarded): 529/96
+	removeparams= (accepted/discarded): 529/98
 	modifyHeaders=: 0
-	Unsupported: 96
+	Unsupported: 98
 		Unsupported regex-based removeParam: /^at_custom/
 		Unsupported regex-based removeParam: /^cm_mmc/
 		Unsupported regex-based removeParam: /^__s=[A-Za-z0-9]{6,}/
@@ -1282,6 +1161,8 @@ Output rule count: 625
 		Unsupported regex-based removeParam: /^affExtParam/
 		Unsupported regex-based removeParam: /^otracker/
 		Unsupported regex-based removeParam: /spm=|scm=|from=|keyori=|sugg=|search=|mp=|c=|^abtest|^abbucket|pos=|themeID=|algArgs=|clickTrackInfo=|acm=|item_id=|version=|up_id=|pvid=/
+		Unsupported removeparam exception: utm_campaign
+		Unsupported removeparam exception: utm_source
 		Unsupported removeparam exception: utm_source
 		Unsupported removeparam exception: utm_content
 		Unsupported removeparam exception: erid
@@ -1348,11 +1229,11 @@ CSS-specific: 1 distinct filters
 Listset for 'annoyances-cookies':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-cookies.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/annoyances-cookies.txt
-Input filter count: 1945
-	Accepted filter count: 1943
+Input filter count: 1949
+	Accepted filter count: 1947
 	Rejected filter count: 0
-Output rule count: 1635
-	Plain good: 1633
+Output rule count: 1639
+	Plain good: 1637
 
 	Maybe good (regexes): 1
 	redirect=: 0
@@ -1360,13 +1241,13 @@ Output rule count: 1635
 	modifyHeaders=: 0
 	Unsupported: 1
 		Incompatible with DNR: ||clickio.mgr.consensu.org^$script,redirect-rule=noop.js,domain=mdn.lol
-CSS-generic: 16898 plain CSS selectors
-CSS-generic-high: 343 plain CSS selectors
-CSS-specific: 6272 distinct filters
-	Combined into 18158 distinct hostnames
+CSS-generic: 16883 plain CSS selectors
+CSS-generic-high: 342 plain CSS selectors
+CSS-specific: 6274 distinct filters
+	Combined into 18117 distinct hostnames
 	Combined into 6 distinct entities
 CSS-declarative: 93 distinct filters
-	Combined into 5550 distinct hostnames
+	Combined into 5554 distinct hostnames
 	Combined into 3 distinct entities
 Procedural-related distinct filters: 18 distinct combined selectors
 	Combined into 19 distinct hostnames
@@ -1375,17 +1256,17 @@ Procedural-related distinct filters: 18 distinct combined selectors
 Listset for 'annoyances-overlays':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-newsletters.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/annoyances-others.txt
-Input filter count: 444
-	Accepted filter count: 444
+Input filter count: 453
+	Accepted filter count: 453
 	Rejected filter count: 0
-Output rule count: 337
-	Plain good: 285
+Output rule count: 336
+	Plain good: 287
 		Salvaged rule by ignoring 20 unsupported domain= option: buktube.com|fullxh.com|galleryxh.site|hamsterix.*|megaxh.com|movingxh.world|seexh.com|unlockxh4.com|valuexh.life|xhaccess.com|xhadult2.com|xhadult3.com|xhadult4.com|xhadult5.com|xhamster.*|xhamster10.*|xhamster11.*|xhamster12.*|xhamster13.*|xhamster14.*|xhamster15.*|xhamster16.*|xhamster17.*|xhamster18.*|xhamster19.*|xhamster2.*|xhamster20.*|xhamster3.*|xhamster4.*|xhamster42.*|xhamster46.com|xhamster5.*|xhamster7.*|xhamster8.*|xhamsterporno.mx|xhbig.com|xhbranch5.com|xhchannel.com|xhchannel2.com|xhdate.world|xhday.com|xhday1.com|xhlease.world|xhmoon5.com|xhofficial.com|xhopen.com|xhplanet1.com|xhplanet2.com|xhreal2.com|xhreal3.com|xhspot.com|xhtab2.com|xhtab4.com|xhtotal.com|xhtree.com|xhvictory.com|xhwebsite.com|xhwebsite2.com|xhwebsite5.com|xhwide1.com|xhwide2.com|xhwide5.com|xhxh3.xyz
 	Maybe good (regexes): 0
-	redirect=: 7
+	redirect=: 14
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 5
-	Unsupported: 40
+	Unsupported: 30
 		strict1p not supported
 		Incompatible with DNR: uritransform=/^\/impf\/+//
 		Incompatible with DNR: uritransform=/#autoplay=.*//
@@ -1403,36 +1284,26 @@ Output rule count: 337
 		Incompatible with DNR: *$script,domain=abcya.com,redirect-rule=noopjs
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=dailyvoice.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=exame.com
-		Incompatible with DNR: ||googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect-rule=googlesyndication_adsbygoogle.js,domain=colnect.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=json2csharp.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=forums.lostmediawiki.com
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=mail.inbox.lv
-		Incompatible with DNR: ||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js^$script,redirect-rule=googlesyndication_adsbygoogle.js,domain=hotcleaner.com
 		Incompatible with DNR: *$xhr,redirect-rule=nooptext,domain=puhekupla.com
-		Incompatible with DNR: ||cm.g.doubleclick.net/pixel$image,redirect-rule=1x1.gif,domain=tpc.googlesyndication.com
-		Incompatible with DNR: ||tpc.googlesyndication.com/pagead/images/x_button_blue2.svg$image,redirect-rule=1x1.gif,domain=tpc.googlesyndication.com
-		Incompatible with DNR: ||cm.g.doubleclick.net/pixel$image,redirect-rule=1x1.gif,domain=diep.io
-		Incompatible with DNR: ||tpc.googlesyndication.com/pagead/images/x_button_blue2.svg$image,redirect-rule=1x1.gif,domain=diep.io
-		Incompatible with DNR: ||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js^$redirect-rule=googlesyndication_adsbygoogle.js,script,domain=mifirm.net
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=ygoprodeck.com
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=guardian.gg
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=inbox.lv|inbox.la
-		Incompatible with DNR: ||moatads.com^$image,redirect-rule=1x1.gif,domain=lightnovelpub.com
 		Incompatible with DNR: *$script,domain=geotastic.net,redirect-rule=noopjs
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=fflogs.com
 		Incompatible with DNR: ||intergient.com^$script,domain=raider.io,redirect-rule=noopjs
 		Incompatible with DNR: ||jsc.adskeeper.co.uk^$script,3p,domain=pastedownload.com,redirect-rule=noop.js
-		Incompatible with DNR: ||pagead2.googlesyndication.com/pagead/show_ads.js$script,redirect-rule=noopjs,domain=ageofconsent.net
 		Incompatible with DNR: *$script,1p,redirect-rule=noopjs,domain=punishworld.com
 		Incompatible with DNR: *$image,domain=peacocktv.com,redirect-rule=1x1.gif
-		Incompatible with DNR: ||a.pub.network/fancaps-net/pubfig.min.js$script,redirect-rule=noopjs,domain=fancaps.net
 CSS-generic: 1187 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
-CSS-specific: 3475 distinct filters
-	Combined into 4819 distinct hostnames
+CSS-specific: 3487 distinct filters
+	Combined into 4831 distinct hostnames
 	Combined into 9 distinct entities
-CSS-declarative: 213 distinct filters
-	Combined into 1019 distinct hostnames
+CSS-declarative: 212 distinct filters
+	Combined into 1016 distinct hostnames
 	Combined into 17 distinct entities
 Procedural-related distinct filters: 212 distinct combined selectors
 	Combined into 446 distinct hostnames
@@ -1440,11 +1311,11 @@ Procedural-related distinct filters: 212 distinct combined selectors
 ============================
 Listset for 'annoyances-social':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-social.txt
-Input filter count: 682
-	Accepted filter count: 682
+Input filter count: 674
+	Accepted filter count: 674
 	Rejected filter count: 0
-Output rule count: 604
-	Plain good: 604
+Output rule count: 596
+	Plain good: 596
 
 	Maybe good (regexes): 0
 	redirect=: 0
@@ -1452,10 +1323,10 @@ Output rule count: 604
 	modifyHeaders=: 0
 	Unsupported: 0
 
-CSS-generic: 10071 plain CSS selectors
+CSS-generic: 10019 plain CSS selectors
 CSS-generic-high: 112 plain CSS selectors
-CSS-specific: 2379 distinct filters
-	Combined into 4217 distinct hostnames
+CSS-specific: 2352 distinct filters
+	Combined into 4196 distinct hostnames
 	Combined into 1 distinct entities
 CSS-declarative: 3 distinct filters
 	Combined into 5 distinct hostnames
@@ -1487,12 +1358,12 @@ CSS-specific: 11 distinct filters
 ============================
 Listset for 'annoyances-others':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-annoyances.txt
-Input filter count: 720
-	Accepted filter count: 720
+Input filter count: 707
+	Accepted filter count: 707
 	Rejected filter count: 0
-Output rule count: 408
-	Pruning requestDomains: from 289 to 288
-	Plain good: 408
+Output rule count: 400
+	Pruning requestDomains: from 285 to 284
+	Plain good: 400
 
 	Maybe good (regexes): 0
 	redirect=: 0
@@ -1502,8 +1373,8 @@ Output rule count: 408
 
 CSS-generic: 774 plain CSS selectors
 CSS-generic-high: 19 plain CSS selectors
-CSS-specific: 1919 distinct filters
-	Combined into 2410 distinct hostnames
+CSS-specific: 1808 distinct filters
+	Combined into 2317 distinct hostnames
 	Combined into 2 distinct entities
 CSS-declarative: 23 distinct filters
 	Combined into 40 distinct hostnames
@@ -1514,11 +1385,11 @@ Procedural-related distinct filters: 22 distinct combined selectors
 ============================
 Listset for 'stevenblack-hosts':
 	Fetching remote https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-Input filter count: 121039
-	Accepted filter count: 121039
+Input filter count: 121860
+	Accepted filter count: 121860
 	Rejected filter count: 0
 Output rule count: 2
-	Pruning requestDomains: from 121039 to 63623
+	Pruning requestDomains: from 121860 to 64051
 	Plain good: 1
 
 	Maybe good (regexes): 0
@@ -1576,13 +1447,13 @@ CSS-specific: 392 distinct filters
 ============================
 Listset for 'chn-0':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/224.txt
-Input filter count: 14401
-	Accepted filter count: 14391
+Input filter count: 14444
+	Accepted filter count: 14434
 	Rejected filter count: 3
-Output rule count: 6476
-	Pruning requestDomains: from 5561 to 5560
+Output rule count: 6477
+	Pruning requestDomains: from 5608 to 5607
 	Pruning requestDomains: from 327 to 325
-	Plain good: 6406
+	Plain good: 6407
 
 	Maybe good (regexes): 16
 	redirect=: 36
@@ -1597,15 +1468,15 @@ Output rule count: 6476
 		Unsupported csp exception: script-src 'self' * 'sha256-0McqMM66/wAVZmxF6zXpjNsb1UMbTl4LXBXdhqPKxws='
 		Invalid network filter in chn-0: @@||ad.alimama.com^$genericblock
 		Invalid network filter in chn-0: @@||cmechina.net^$genericblock
-CSS-generic: 829 plain CSS selectors
-CSS-generic-high: 228 plain CSS selectors
-CSS-specific: 6862 distinct filters
+CSS-generic: 830 plain CSS selectors
+CSS-generic-high: 229 plain CSS selectors
+CSS-specific: 6864 distinct filters
 	Combined into 2951 distinct hostnames
 	Combined into 2 distinct entities
 CSS-declarative: 76 distinct filters
 	Combined into 108 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 104 distinct combined selectors
+Procedural-related distinct filters: 105 distinct combined selectors
 	Combined into 96 distinct hostnames
 	Combined into 0 distinct entities
 ============================
@@ -1660,8 +1531,8 @@ Output rule count: 1819
 		Invalid network filter in deu-0: @@||gofeminin.de^$genericblock
 CSS-generic: 362 plain CSS selectors
 CSS-generic-high: 35 plain CSS selectors
-CSS-specific: 2758 distinct filters
-	Combined into 1965 distinct hostnames
+CSS-specific: 2761 distinct filters
+	Combined into 1967 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 97 distinct combined selectors
 	Combined into 73 distinct hostnames
@@ -1802,8 +1673,8 @@ Output rule count: 202
 
 CSS-generic: 60 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
-CSS-specific: 1047 distinct filters
-	Combined into 472 distinct hostnames
+CSS-specific: 1048 distinct filters
+	Combined into 473 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 29 distinct filters
 	Combined into 23 distinct hostnames
@@ -1827,9 +1698,9 @@ Output rule count: 3101
 	Unsupported: 0
 
 CSS-generic: 248 plain CSS selectors
-CSS-generic-high: 3736 plain CSS selectors
-CSS-specific: 1013 distinct filters
-	Combined into 789 distinct hostnames
+CSS-generic-high: 3737 plain CSS selectors
+CSS-specific: 1012 distinct filters
+	Combined into 785 distinct hostnames
 	Combined into 32 distinct entities
 CSS-declarative: 1 distinct filters
 	Combined into 1 distinct hostnames
@@ -1840,11 +1711,11 @@ Procedural-related distinct filters: 8 distinct combined selectors
 ============================
 Listset for 'ind-0':
 	Fetching remote https://easylist-downloads.adblockplus.org/indianlist.txt
-Input filter count: 4699
-	Accepted filter count: 4699
+Input filter count: 4706
+	Accepted filter count: 4706
 	Rejected filter count: 0
-Output rule count: 4658
-	Plain good: 4658
+Output rule count: 4665
+	Plain good: 4665
 
 	Maybe good (regexes): 0
 	redirect=: 0
@@ -1852,8 +1723,8 @@ Output rule count: 4658
 	modifyHeaders=: 0
 	Unsupported: 0
 
-CSS-specific: 4268 distinct filters
-	Combined into 4830 distinct hostnames
+CSS-specific: 4248 distinct filters
+	Combined into 4840 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 115 distinct combined selectors
 	Combined into 115 distinct hostnames
@@ -1896,8 +1767,8 @@ Output rule count: 661
 		Unsupported regex-based removeParam: /^utm_/
 		Unsupported regex-based removeParam: /^utm_|tatoken/
 CSS-generic: 17 plain CSS selectors
-CSS-specific: 775 distinct filters
-	Combined into 452 distinct hostnames
+CSS-specific: 776 distinct filters
+	Combined into 454 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 586 distinct filters
 	Combined into 68 distinct hostnames
@@ -1930,30 +1801,30 @@ Procedural-related distinct filters: 1 distinct combined selectors
 Listset for 'isr-0':
 	Fetching remote https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew-uBO.txt
-Input filter count: 688
-	Accepted filter count: 688
+Input filter count: 689
+	Accepted filter count: 689
 	Rejected filter count: 0
-Output rule count: 262
+Output rule count: 263
 	Plain good: 234
 
 	Maybe good (regexes): 4
-	redirect=: 12
+	redirect=: 13
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 1
 	Unsupported: 11
 		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+:\/+(api-mail|dal|dcx|isc|iscwne|6days|animals|astrology|b|buzzit|calendar|cars|celebs|e|elections|euro|fashion|finance|food|forums|fun|healthy|home|judaism|kids|mag|maps|milon|movies|mundial|nadlan|news|nick|olympics|search|sports|tags|tech|translate|travel|tv-guide|tv|usaelections|viva|vod|weather|www)\.walla\.co\.il\.?(\/|:|$))^[a-zA-Z0-9\-]+:\/+([a-zA-Z0-9\-]+\.)+walla\.co\.il\.?(\/|:|$)
 		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+:\/+www\.sheee\.co\.il\.?(\/|:|$))^[a-zA-Z0-9\-]+:\/+([a-zA-Z0-9\-]+\.)+sheee\.co\.il\.?(\/|:|$)
-		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+\:\/+([^\/\:\.]+\.)*((gov|idf|muni|ac|k12|net)\.il|(google|blogspot|phpbb|minifier|enable|tadam|nagich|nagishplus|nagishly|livedns|user-a|emap|23tv|glz|icast|ecast|mediacast|livecast|live1|siz|gif|meduzot|telesport|teleline|livegames|newsnow|2net|weather2day|mekorotapp|e-vrit|xword|fav|slash|rabbi|hamara|talniri|kaplanopensource|systematics|israelcoronamap|icdn|wcdn|wallanews|wallashops|wallatours|wallaart|wallaprint|walla|hamal|sheee|globes|madlan|yad2|mipo|b144|bezeq|yes|fxp|nick|d|maariv|iol|dominos|magazineitsuv|doctors|mishpati|lawguide|arcdb|zebarur|wlcdn|linicom|erate)\.co\.il|(kan|kankids|makan|iba|oref|iaf|yeshiva|boi|parks|imj|nli|bh|isoc|hebrew-academy|kineret|teva|zavit|birds|ip6|profile)\.org\.il)\.?([\/\:]|$))^[a-zA-Z0-9\-]+\:\/+[^\/\:]+\.il\.?([\/\:]|$)
-		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+\:\/+([^\/\:\.]+\.)*(facebook|fbcdn|threads|dmcdn|jsdelivr|cloudfront|cloudflare|fastly|fastlylb|ovh|cloudfunctions|gammacdn|edgecastcdn|edgio|blazingcdn|incapdns|footprint|cloudapp|brightcove|akamai|akamaihd|akamaized|akamaiedge|akamaistream|akahost|akadns|ctedgecdn|2mdn|edgesuite|azurewebsites|azureedge|windows|hwcdn|zencdn|bunny|llnwd|llnwi|boltdns|msecnd|a-msedge|l-msedge|t-msedge|msauth|omegacdn|bitsngo|nocookie|recaptcha|imgix|hlsplayer|datatables|docdroid|iframely|slideshare|algolia|3dissue|pinecast|anvato|maphub|virtualearth|cdnpk|dwcdn|typekit|edgefonts|ampproject|viafoura|yastatic|yahoodns|lldns|b-cdn|web-view|hsforms|v0cdn|2cnt|behance|darksky|google|speedtest|twitchcdn|ttvnw|jtvnw|dailyuploads|deviantart|8ch|vodgc|streamlock|streamgates|cdnwz|cdnwiz|playgorithm|vidiom|radwarecloud|f-static|xicdn|mivzakim|mygemel|chartbeat|doubleclick|advsnx|sc-static|artipbox)\.net\.?([\/\:]|$))^[a-zA-Z0-9\-]+\:\/+[^\/\:]+\.net\.?([\/\:]|$)
+		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+\:\/+([^\/\:\.]+\.)*((gov|idf|muni|ac|k12|net)\.il|(google|blogspot|phpbb|minifier|enable|wcag2|tadam|nagich|nagishplus|nagishly|livedns|user-a|emap|23tv|glz|icast|ecast|mediacast|livecast|live1|siz|gif|meduzot|telesport|teleline|livegames|newsnow|2net|weather2day|mavir|mekorotapp|e-vrit|xword|fav|slash|rabbi|hamara|talniri|kaplanopensource|systematics|israelcoronamap|icdn|wcdn|wallanews|wallashops|wallatours|wallaart|wallaprint|walla|hamal|sheee|globes|madlan|yad2|mipo|b144|bezeq|yes|fxp|nick|d|maariv|iol|dominos|magazineitsuv|doctors|mishpati|lawguide|arcdb|zebarur|wlcdn|linicom|erate)\.co\.il|(kan|kankids|makan|iba|oref|iaf|yeshiva|boi|parks|imj|nli|bh|isoc|hebrew-academy|kineret|teva|zavit|birds|ip6|profile)\.org\.il)\.?([\/\:]|$))^[a-zA-Z0-9\-]+\:\/+[^\/\:]+\.il\.?([\/\:]|$)
+		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+\:\/+([^\/\:\.]+\.)*(facebook|fbcdn|threads|dmcdn|jsdelivr|cloudfront|cloudflare|fastly|fastlylb|ovh|cloudfunctions|gammacdn|edgecastcdn|edgio|blazingcdn|incapdns|footprint|cloudapp|brightcove|akamai|akamaihd|akamaized|akamaiedge|akamaistream|akahost|akadns|ctedgecdn|2mdn|edgesuite|azurewebsites|azureedge|windows|hwcdn|zencdn|bunny|llnwd|llnwi|boltdns|msecnd|a-msedge|l-msedge|t-msedge|msauth|omegacdn|sigmacdn|bitsngo|nocookie|recaptcha|imgix|hlsplayer|datatables|docdroid|iframely|slideshare|algolia|3dissue|pinecast|anvato|maphub|virtualearth|cdnpk|dwcdn|typekit|edgefonts|ampproject|viafoura|yastatic|yahoodns|lldns|b-cdn|web-view|hsforms|v0cdn|2cnt|behance|darksky|google|speedtest|twitchcdn|ttvnw|jtvnw|dailyuploads|deviantart|8ch|vodgc|streamlock|streamgates|cdnwz|cdnwiz|playgorithm|vidiom|radwarecloud|f-static|xicdn|mivzakim|mygemel|chartbeat|doubleclick|advsnx|sc-static|artipbox)\.net\.?([\/\:]|$))^[a-zA-Z0-9\-]+\:\/+[^\/\:]+\.net\.?([\/\:]|$)
 		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+\:\/+([^\/\:\.]+\.)*(flowplayer|amara|h5p|d3js|ampproject|promisejs|backbonejs|angularjs|dojotoolkit|staticfile|telegram|telegram-cdn|cdn-telegram|openstreetmap|wmflabs|wikimapia|wikimedia|wikipedia|w3|schema|archive|mozilla|documentcloud|w|mathjax|pannellum|tmdb|muses|npr|weatherwidget|openweathermap|lightningmaps|opensubtitles|chess|geogebra|cookielaw|featuregates|walletlink|walletconnect|cdn77|userway|consensu|ipify|mediamatters|uploadimage|postimages|postimage|imgsafe|4chan|4channel|4cdn|olympic|pbs|pbskids|ntp|gnu|creativecommons|eff|icann|iana|ietf|wikileaks|ourworldindata|un|gutenberg|google|browser-update|wp-accessibility|covid19maps|coronaisrael)\.org\.?([\/\:]|$))^[a-zA-Z0-9\-]+\:\/+[^\/\:]+\.org\.?([\/\:]|$)
 		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+\:\/+([^\/\:\.]+\.)*(google|gstatic|googleapis|jquery|youtube|youtubekids|youtube-nocookie|ytimg|facebook|fbsbx|x|twitter|twimg|instagram|cdninstagram|pinterest|pinimg|tumblr|giphy|vimeo|vimeocdn|dailymotion|flickr|staticflickr|soundcloud|sndcdn|scribd|scribdassets|tiktok|tiktokcdn|tiktokcdn-us|ttwstatic|muscdn|ibytedtos|sharethis|addthis|addthisedge|addthiscdn|reddit|redditmedia|redditstatic|redditgifts|linkedin|licdn|fontawesome|cdnfonts|image-maps|cloudflare|bootstrapcdn|unpkg|cdnjs|stackpathdns|stackpathcdn|maxcdn|maxcdn-edge|netdna-ssl|netdna-cdn|kxcdn|ssl-cdn|muicss|tinymce|createjs|github|githubusercontent|aspnetcdn|azure|amazonaws|awswaf|elasticbeanstalk|bunnycdn|vercel-dns|serverable|herokuapp|herokudns|rackcdn|lwcdn|netlify|jwplayer|jwpcdn|jwpltx|jwpsrv|jwplatform|brightcove|brightcovecdn|flowplayer|foliovision|fluidplayer|jasperplayer|streamable|streamtheworld|mixcloud|bandcamp|bcbits|spotify|spotifycdn|omnystudio|omnycontent|cdnstream1|tritondigital|iheart|spreaker|podbean|buzzsprout|rss|simplecast|simplecastaudio|simplecastcdn|pinecast|acast|podtail|tunein|stitcher|listennotes|apple|cdn-apple|applemediaservices|mzstatic|nobexpartners|podtrac|sermonaudio|audio|wasabisys|soundhelix|vocaroo|embedly|iframely|snapwidget|thinglink|infogram|highcharts|powerbi|airtable|printfriendly|algolianet|gravatar|unisvg|simplesvg|svgur|svgshare|imgur|imgflip|gifer|gfycat|tenor|disqus|disquscdn|disqusservice|oneall|oneallcdn|tapatalk|tapatalk-cdn|fastcomments|hyvor|vuukle|mapbox|maptiler|mapquest|arcgis|arcgisonline|esri|here|hcaptcha|raincaptcha|ted|tedcdn|kickstarter|riddle|strawpoll|9gag|9cache|unsplash|freepik|imageshack|pastebin|desmos|gitlab|githack|rawgit|rawgithub|knockoutjs|gridstackjs|ravenjs|liveleak|ign|ignimgs|365scores|pressreader|3dissue|substack|substackcdn|blogger|blogspot|wordpress|wp|videopress|wptavern|livejournal|googleoptimize|withgoogle|googlegroups|googleusercontent|googlevideo|ggpht|noembed|appspot|firebaseio|firebaseapp|libring|onesignal|stripe|tinypass|paypal|paypalobjects|amazon|ssl-images-amazon|media-amazon|media-imdb|ebay|ebayimg|microsoft|microsoftonline|live|bing|msn|yahoo|yimg|yahooapis|duckduckgo|yandex|webflow|rtlcss|typography|mailerlite|typeform|convertbox|tiqcdn|remixd|sparemin|auth0|optimizely|windy|theweather|weather|accuweather|theweathernetwork|wunderground|sat24|windfinder|rainviewer|uvlens|travelriskmap|dropbox|dropboxusercontent|dropboxstatic|dropbox-dns|youbora|radiojar|musicradio|aaplimg|twitcount|flipboard|buzzfeed|digg|stumbleupon|mix|getpocket|timeanddate|momentjs|statcounter|buymeacoffee|gofundme|cookieinfoscript|cookiebot|privacy-mgmt|ip-api|userapi|vk|polymarket|alchemy|instatus|intercomcdn|walletconnect|moonpay|adobe|adobedtm|onetrust|website-files|investing|tradingview|tradingview-widget|kaltura|openweb|waze|univtec|livefyre|pushwoosh|addtoany|addthisevent|addevent|addtocalendar|sumo|sumome|chatango|bitly|tinyurl|radarbox|radarbox24|avionio|ipcamlive|speedtestcustom|nperf|booking|bstatic|gamepix|steamstatic|playstation|discord|discordapp|odysee|rumble|bitchute|truthsocial|gettr|gab|minds|mewe|parler|mixer|metacafe|mcstatic|slideplayer|firefoxusercontent|box|feedly|feedburner|phpbb|whatsapp|vroptimal-3dx-assets|gamezhero|cnet|cnevids|bbc|cnn|go|nytimes|nyt|washingtonpost|today|usatoday|bloomberg|wsj|nypost|foxnews|espn|eurosport|fifa|uefa|nba|turner|rt|dw|xkcd|icons8|iconfinder|iconarchive|iconscout|flaticon|kindpng|pngitem|reactiongifs|gifbin|gif-finder|gifyu|makeagif|kym-cdn|gyazo|prntscr|tinypic|photobox|photobucket|imgbox|imagebam|deviantart|mtvnservices|cc|tmz|wixstatic|bugsnag|zoro|hebcal|fontsproject|kayma|kayma-dashboards|kayma-insights|kampyle|vicomi|colbass|cincopa|avplayer|vidnt|peer5|h-cdn|bynetcdn|cdnwiz|best-tv|viewbix|streamrail|smv-cdn|cloudvideoplatform|dxmcdn|dxmdp|reblaze|hunchbots|jeeng|cloudinary|sphereup|poloriz|applicaster|cloudwm|cloudwm-waf|negishim|accessibe|accessibeapp|acsbap|vollotech|mk-sense|allyable|purple-lens|rabbicdn|shortaudition|spaceil|clear-map|l7cdn|segmanta|opinionstage|playbuzz|apester|qmerce|outbrain|taboola|taboolasyndication|google-analytics|googletagservices|googletagmanager|googleadservices|googlesyndication|cloudflareinsights|viglink|parsely|sentry-cdn|getsentry|chartbeat|scorecardresearch|serving-sys|exposebox|imrworldwide|hotjar|trackjs|dynamicyield|connatix|coralogix|cooladata|vlitag|browsiprod|petametrics|pusher|carto|fortvision|fortcdn|nick|nickjr|teennick|sinclairstoryline|fresnobee|nbcchicago|magazina-il|raxcdn|pagewiz|pas-rahav|aniview|pubmatic|adnxs|sekindo)\.com\.?([\/\:]|$))^[a-zA-Z0-9\-]+\:\/+[^\/\:]+\.com\.?([\/\:]|$)
-		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+\:\/+([^\/\:]+\.(il|com|net|org|gov|mil|edu|int|(ac|gov|nhs)\.uk|(google|amazon)|(google|amazon|ebay)\.(com?\.)?[a-zA-Z]{2,3})|[0-9\.]+|([^\/\:\.]+\.)*(omny\.fm|anchor\.fm|simplecast\.fm|captivate\.fm|megaphone\.fm|castbox\.fm|transistor\.fm|chrt\.fm|pdst\.fm|pdcn\.co|acast\.cloud|github\.io|gitlab\.io|gitcdn\.xyz|gitcdn\.link|statically\.io|socket\.io|codepen\.io|polyfill\.io|polyfill-fastly\.io|plyr\.io|embed\.ly|iframe\.ly|infogr\.am|jifo\.co|t\.me|flourish\.studio|flourish\.rocks|iconify\.design|uri\.sh|po\.st|pippa\.io|scdn\.co|powr\.io|heyday\.io|prcdn\.co|redcdn\.pl|piano\.io|firebasedatabase\.app|gfx\.ms|marker\.io|sided\.co|tg\.dev|last\.fm|adobe\.io|viafoura\.co|mastodon\.social|floss\.social|weatherwidget\.io|lmao\.ninja|disease\.sh|web\.app|stripe\.network|growthbook\.io|mailmunch\.co|beyondwords\.io|soundcloud\.cloud|tredio\.io|iris\.tv|arc\.io|intercom\.io|privy\.io|magic\.link|redd\.it|tenor\.co|twitch\.tv|dlive\.tv|rumble\.cloud|rmbl\.ws|ok\.ru|triller\.co|popkey\.co|ibb\.co|vgy\.me|postimg\.cc|imageshack\.us|prnt\.sc|imagesup\.co|weserv\.nl|archive\.is|archive\.ph|pluro\.ai|trinitymedia\.ai|stories\.sc|storycards\.co|spot\.im|spots\.im|inthegame\.io|cybercdn\.live|livecdn\.biz|g-mana\.live|g-mana\.online|immergo\.tv|wiztivi\.io|h-cdn\.co|minute\.ly|vttp\.co|tldw\.me|tawk\.to|cbox\.ws|crisp\.chat|feeder\.co|del\.icio\.us|telesco\.pe|telegram\.me|yandex\.ru|bit\.ly|goo\.gl|g\.co|youtu\.be|t\.co|fb\.me|m\.me|instagr\.am|wa\.me|amzn\.to|wp\.me|git\.io|docdro\.id|arcg\.is|ow\.ly|disq\.us|discord\.gg|trib\.al|rb\.ly|t\.ly|tiny\.cc|periscope\.tv|pscp\.tv|vine\.co|vid\.me|dailymail\.co\.uk|dailystar\.co\.uk|bbc\.net\.uk|bbc\.co\.uk|cnn\.io|ex\.co|jogo\.studio|amagi\.tv|nagishly\.co|user1st\.info|knesset\.tv|knesset\.live|walla\.cloud|103\.fm|nickjr\.tv|sentry\.io|atom-data\.io|gemius\.pl|clarity\.ms|logidea\.info|zoomanalytics\.co|snackly\.co|trace\.events|firstimpression\.io|rtk\.io|trb\.tv|ren\.tv|outbid\.io))\.?([\/\:]|$))^[^\/\:\.]+\:\/+[^\/\:\.]
+		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+\:\/+([^\/\:]+\.(il|com|net|org|gov|mil|edu|int|(ac|gov|nhs)\.uk|(google|amazon|microsoft|apple|yahoo|yandex|youtube)|(google|amazon|ebay)\.(com?\.)?[a-zA-Z]{2,3})|[0-9\.]+|([^\/\:\.]+\.)*(omny\.fm|anchor\.fm|simplecast\.fm|captivate\.fm|megaphone\.fm|castbox\.fm|transistor\.fm|chrt\.fm|pdst\.fm|pdcn\.co|acast\.cloud|github\.io|gitlab\.io|gitcdn\.xyz|gitcdn\.link|statically\.io|socket\.io|codepen\.io|polyfill\.io|polyfill-fastly\.io|plyr\.io|embed\.ly|iframe\.ly|infogr\.am|jifo\.co|t\.me|flourish\.studio|flourish\.rocks|iconify\.design|uri\.sh|po\.st|pippa\.io|scdn\.co|powr\.io|heyday\.io|prcdn\.co|redcdn\.pl|piano\.io|firebasedatabase\.app|gfx\.ms|marker\.io|sided\.co|tg\.dev|last\.fm|adobe\.io|viafoura\.co|mastodon\.social|floss\.social|weatherwidget\.io|lmao\.ninja|disease\.sh|web\.app|stripe\.network|growthbook\.io|mailmunch\.co|beyondwords\.io|soundcloud\.cloud|tredio\.io|iris\.tv|arc\.io|intercom\.io|privy\.io|magic\.link|redd\.it|tenor\.co|twitch\.tv|dlive\.tv|rumble\.cloud|rmbl\.ws|ok\.ru|triller\.co|popkey\.co|ibb\.co|vgy\.me|postimg\.cc|imageshack\.us|prnt\.sc|imagesup\.co|weserv\.nl|archive\.is|archive\.ph|pluro\.ai|trinitymedia\.ai|stories\.sc|storycards\.co|spot\.im|spots\.im|inthegame\.io|cybercdn\.live|livecdn\.biz|g-mana\.live|g-mana\.online|immergo\.tv|wiztivi\.io|h-cdn\.co|minute\.ly|vttp\.co|tldw\.me|tawk\.to|cbox\.ws|crisp\.chat|feeder\.co|del\.icio\.us|telesco\.pe|telegram\.me|yandex\.ru|bit\.ly|goo\.gl|g\.co|youtu\.be|t\.co|fb\.me|m\.me|instagr\.am|wa\.me|amzn\.to|wp\.me|git\.io|docdro\.id|arcg\.is|ow\.ly|disq\.us|discord\.gg|trib\.al|rb\.ly|t\.ly|tiny\.cc|did\.li|periscope\.tv|pscp\.tv|vine\.co|vid\.me|dailymail\.co\.uk|dailystar\.co\.uk|metro\.co\.uk|bbc\.net\.uk|bbc\.co\.uk|cnn\.io|ex\.co|jogo\.studio|amagi\.tv|nagishly\.co|user1st\.info|knesset\.tv|knesset\.live|walla\.cloud|103\.fm|nickjr\.tv|sentry\.io|atom-data\.io|gemius\.pl|clarity\.ms|logidea\.info|zoomanalytics\.co|snackly\.co|trace\.events|firstimpression\.io|rtk\.io|trb\.tv|ren\.tv|outbid\.io))\.?([\/\:]|$))^[^\/\:\.]+\:\/+[^\/\:\.]
 		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+:\/+www\.(walla(news|shops|tours|art|print)|hamal|sheee)\.co\.il\.?(\/|:|$))^[a-zA-Z0-9\-]+:\/+([a-zA-Z0-9\-]+\.)+(walla(news|shops|tours|art|print)|hamal|sheee)\.co\.il\.?(\/|:|$)
 		regexFilter is not RE2-compatible: ^(?![a-zA-Z0-9\-]+:\/+(www\.(walla(news|shops|tours|art|print)|hamal)|(api-mail|dal|dcx|isc|iscwne|www)\.walla)\.co\.il\.?(\/|:|$))^[a-zA-Z0-9\-]+:\/+([a-zA-Z0-9\-]+\.)+(walla(news|shops|tours|art|print)?|hamal)\.co\.il\.?(\/|:|$)
 		Rejected filter: *$webrtc,domain=13news.co.il|13tv.co.il|calcalist.co.il|globes.co.il|mako.co.il|walla.co.il|yad2.co.il|ynet.co.il
 		Incompatible with DNR: ||doubleclick.net^$xhr,redirect-rule=nooptext,domain=13news.co.il|13tv.co.il
 CSS-generic: 5 plain CSS selectors
-CSS-specific: 587 distinct filters
+CSS-specific: 593 distinct filters
 	Combined into 365 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 4 distinct filters
@@ -1965,11 +1836,11 @@ Procedural-related distinct filters: 9 distinct combined selectors
 ============================
 Listset for 'ita-0':
 	Fetching remote https://easylist-downloads.adblockplus.org/easylistitaly.txt
-Input filter count: 1724
-	Accepted filter count: 1723
+Input filter count: 1725
+	Accepted filter count: 1724
 	Rejected filter count: 0
-Output rule count: 1470
-	Plain good: 1466
+Output rule count: 1471
+	Plain good: 1467
 
 	Maybe good (regexes): 4
 	redirect=: 0
@@ -1979,8 +1850,8 @@ Output rule count: 1470
 
 CSS-generic: 391 plain CSS selectors
 CSS-generic-high: 54 plain CSS selectors
-CSS-specific: 2862 distinct filters
-	Combined into 3324 distinct hostnames
+CSS-specific: 2865 distinct filters
+	Combined into 3325 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 20 distinct combined selectors
 	Combined into 20 distinct hostnames
@@ -1988,12 +1859,12 @@ Procedural-related distinct filters: 20 distinct combined selectors
 ============================
 Listset for 'jpn-1':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/7.txt
-Input filter count: 2110
-	Accepted filter count: 2109
+Input filter count: 2111
+	Accepted filter count: 2110
 	Rejected filter count: 0
-Output rule count: 1558
+Output rule count: 1559
 	Pruning requestDomains: from 166 to 165
-	Plain good: 1496
+	Plain good: 1497
 
 	Maybe good (regexes): 20
 	redirect=: 28
@@ -2016,21 +1887,21 @@ Output rule count: 1558
 		Incompatible with DNR: ||fundingchoicesmessages.google.com^$script,redirect-rule=noop.js,domain=rocketnews24.com|youpouch.com
 CSS-generic: 125 plain CSS selectors
 CSS-generic-high: 12 plain CSS selectors
-CSS-specific: 7237 distinct filters
-	Combined into 4555 distinct hostnames
+CSS-specific: 7245 distinct filters
+	Combined into 4561 distinct hostnames
 	Combined into 7 distinct entities
 CSS-declarative: 222 distinct filters
 	Combined into 180 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 848 distinct combined selectors
-	Combined into 732 distinct hostnames
+Procedural-related distinct filters: 847 distinct combined selectors
+	Combined into 731 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'kor-1':
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filter-uBlockOrigin.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/3rd_domains.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/general_elemhide.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/1st_domains.txt
+	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/general_elemhide.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_ELEMHIDE.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/general_url.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/general_url.txt
@@ -2041,8 +1912,8 @@ Listset for 'kor-1':
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/extended_css_INJECTION.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_REDIRECT.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/extended_css_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/scriptlets.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/extended_css_INJECTION.txt
+	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/scriptlets.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/javascript.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/javascript.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/antiadblock.txt
@@ -2051,12 +1922,12 @@ Listset for 'kor-1':
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_URL.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/specific_CSS.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_CSS.txt
-Input filter count: 1432
-	Accepted filter count: 1425
+Input filter count: 1437
+	Accepted filter count: 1430
 	Rejected filter count: 0
-Output rule count: 1045
-	Pruning requestDomains: from 319 to 314
-	Plain good: 837
+Output rule count: 1049
+	Pruning requestDomains: from 320 to 315
+	Plain good: 841
 
 	Maybe good (regexes): 157
 	redirect=: 21
@@ -2094,8 +1965,8 @@ Output rule count: 1045
 		Rejected filter: mlbpark.donga.com#$#div[id^="SmartPhone_"][id$="_today"] .lists > li:before { padding-top: 0px !important; border-bottom: none !important; }
 CSS-generic: 12 plain CSS selectors
 CSS-generic-high: 70 plain CSS selectors
-CSS-specific: 1430 distinct filters
-	Combined into 1522 distinct hostnames
+CSS-specific: 1437 distinct filters
+	Combined into 1525 distinct hostnames
 	Combined into 12 distinct entities
 CSS-declarative: 188 distinct filters
 	Combined into 183 distinct hostnames
@@ -2207,13 +2078,14 @@ Listset for 'nor-0':
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/AntiAdblockEntries.txt
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotFirefox.txt
-	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotBrave.txt
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/AdditionalGenericEntriesForUBO.txt
-Input filter count: 2419
-	Accepted filter count: 2418
+	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotBrave.txt
+Input filter count: 2426
+	Accepted filter count: 2426
 	Rejected filter count: 0
-Output rule count: 631
-	Plain good: 613
+Output rule count: 632
+	Pruning requestDomains: from 35 to 34
+	Plain good: 614
 
 	Maybe good (regexes): 5
 	redirect=: 6
@@ -2227,7 +2099,7 @@ Output rule count: 631
 		Can't salvage rule with unsupported domain= option: discoveryplus.*
 		Can't salvage rule with unsupported domain= option: discoveryplus.*
 		Can't salvage rule with unsupported domain= option: discoveryplus.*
-CSS-generic: 219 plain CSS selectors
+CSS-generic: 218 plain CSS selectors
 CSS-generic-high: 33 plain CSS selectors
 CSS-specific: 1293 distinct filters
 	Combined into 641 distinct hostnames
@@ -2324,11 +2196,11 @@ Listset for 'rus-0':
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/css-fixes-experimental.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/js-fixes-experimental.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/AWRL-non-sync.txt
-Input filter count: 18774
-	Accepted filter count: 18763
+Input filter count: 18775
+	Accepted filter count: 18764
 	Rejected filter count: 7
-Output rule count: 5857
-	Plain good: 5768
+Output rule count: 5858
+	Plain good: 5769
 
 	Maybe good (regexes): 18
 	redirect=: 18
@@ -2343,28 +2215,28 @@ Output rule count: 5857
 		Unsupported removeparam exception: 
 CSS-generic: 332 plain CSS selectors
 CSS-generic-high: 479 plain CSS selectors
-CSS-specific: 9795 distinct filters
-	Combined into 7090 distinct hostnames
+CSS-specific: 9802 distinct filters
+	Combined into 7088 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 907 distinct filters
-	Combined into 898 distinct hostnames
+	Combined into 897 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 281 distinct combined selectors
-	Combined into 341 distinct hostnames
-	Combined into 0 distinct entities
+Procedural-related distinct filters: 282 distinct combined selectors
+	Combined into 340 distinct hostnames
+	Combined into 1 distinct entities
 ============================
 Listset for 'rus-1':
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/cntblock.txt
-Input filter count: 1374
-	Accepted filter count: 1374
+Input filter count: 1377
+	Accepted filter count: 1377
 	Rejected filter count: 0
-Output rule count: 717
+Output rule count: 718
 	Pruning requestDomains: from 392 to 391
 	Plain good: 593
 
 	Maybe good (regexes): 0
 	redirect=: 6
-	removeparams= (accepted/discarded): 90/27
+	removeparams= (accepted/discarded): 91/27
 	modifyHeaders=: 1
 	Unsupported: 27
 		Unsupported removeparam exception: 
@@ -2408,11 +2280,11 @@ Procedural-related distinct filters: 13 distinct combined selectors
 ============================
 Listset for 'spa-0':
 	Fetching remote https://easylist-downloads.adblockplus.org/easylistspanish.txt
-Input filter count: 733
-	Accepted filter count: 733
+Input filter count: 739
+	Accepted filter count: 739
 	Rejected filter count: 0
-Output rule count: 606
-	Plain good: 598
+Output rule count: 611
+	Plain good: 603
 
 	Maybe good (regexes): 8
 	redirect=: 0
@@ -2422,11 +2294,11 @@ Output rule count: 606
 
 CSS-generic: 246 plain CSS selectors
 CSS-generic-high: 19 plain CSS selectors
-CSS-specific: 1603 distinct filters
-	Combined into 1372 distinct hostnames
+CSS-specific: 1620 distinct filters
+	Combined into 1380 distinct hostnames
 	Combined into 1 distinct entities
-Procedural-related distinct filters: 21 distinct combined selectors
-	Combined into 29 distinct hostnames
+Procedural-related distinct filters: 20 distinct combined selectors
+	Combined into 20 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'spa-1':
@@ -2455,11 +2327,11 @@ Output rule count: 896
 		Incompatible with DNR: $xmlhttprequest,redirect-rule=noop.txt,domain=suaurl.com|reidoplacar.com|suaads.com
 CSS-generic: 87 plain CSS selectors
 CSS-generic-high: 4 plain CSS selectors
-CSS-specific: 2834 distinct filters
-	Combined into 1630 distinct hostnames
+CSS-specific: 2840 distinct filters
+	Combined into 1633 distinct hostnames
 	Combined into 14 distinct entities
-CSS-declarative: 107 distinct filters
-	Combined into 163 distinct hostnames
+CSS-declarative: 108 distinct filters
+	Combined into 164 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 81 distinct combined selectors
 	Combined into 72 distinct hostnames
@@ -2480,7 +2352,7 @@ Output rule count: 82
 	Unsupported: 0
 
 CSS-generic: 4 plain CSS selectors
-CSS-specific: 363 distinct filters
+CSS-specific: 364 distinct filters
 	Combined into 150 distinct hostnames
 	Combined into 0 distinct entities
 Procedural-related distinct filters: 2 distinct combined selectors
@@ -2489,11 +2361,11 @@ Procedural-related distinct filters: 2 distinct combined selectors
 ============================
 Listset for 'swe-1':
 	Fetching remote https://raw.githubusercontent.com/lassekongo83/Frellwits-filter-lists/master/Frellwits-Swedish-Filter.txt
-Input filter count: 1654
-	Accepted filter count: 1654
+Input filter count: 1657
+	Accepted filter count: 1657
 	Rejected filter count: 0
-Output rule count: 1297
-	Plain good: 1274
+Output rule count: 1300
+	Plain good: 1277
 
 	Maybe good (regexes): 1
 	redirect=: 12
@@ -2503,16 +2375,16 @@ Output rule count: 1297
 		Unsupported regex-based removeParam: /^utm_/
 		Incompatible with DNR: ||maxetise.net^$script,redirect-rule=noop.js,domain=feber.se|tjock.se
 		Incompatible with DNR: ||plausible.io^$script,redirect-rule=noop.js,domain=feber.se|tjock.se
-CSS-generic: 228 plain CSS selectors
+CSS-generic: 229 plain CSS selectors
 CSS-generic-high: 46 plain CSS selectors
-CSS-specific: 988 distinct filters
-	Combined into 1321 distinct hostnames
+CSS-specific: 996 distinct filters
+	Combined into 1326 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 78 distinct filters
-	Combined into 236 distinct hostnames
+	Combined into 235 distinct hostnames
 	Combined into 0 distinct entities
-Procedural-related distinct filters: 219 distinct combined selectors
-	Combined into 217 distinct hostnames
+Procedural-related distinct filters: 218 distinct combined selectors
+	Combined into 210 distinct hostnames
 	Combined into 0 distinct entities
 ============================
 Listset for 'tha-0':
@@ -2568,8 +2440,8 @@ Output rule count: 1153
 		Rejected filter: kanald.com.tr#$#body > div > div[id*="ad"\i]:empty { display: block !important; }
 CSS-generic: 159 plain CSS selectors
 CSS-generic-high: 58 plain CSS selectors
-CSS-specific: 2933 distinct filters
-	Combined into 2616 distinct hostnames
+CSS-specific: 2936 distinct filters
+	Combined into 2617 distinct hostnames
 	Combined into 44 distinct entities
 CSS-declarative: 164 distinct filters
 	Combined into 314 distinct hostnames
@@ -2580,11 +2452,11 @@ Procedural-related distinct filters: 75 distinct combined selectors
 ============================
 Listset for 'vie-1':
 	Fetching remote https://raw.githubusercontent.com/abpvn/abpvn/master/filter/abpvn_ublock.txt
-Input filter count: 519
-	Accepted filter count: 519
+Input filter count: 517
+	Accepted filter count: 517
 	Rejected filter count: 0
-Output rule count: 358
-	Plain good: 343
+Output rule count: 355
+	Plain good: 340
 
 	Maybe good (regexes): 0
 	redirect=: 6
@@ -2594,7 +2466,7 @@ Output rule count: 358
 
 CSS-generic: 16 plain CSS selectors
 CSS-generic-high: 4 plain CSS selectors
-CSS-specific: 795 distinct filters
+CSS-specific: 794 distinct filters
 	Combined into 469 distinct hostnames
 	Combined into 0 distinct entities
 CSS-declarative: 9 distinct filters

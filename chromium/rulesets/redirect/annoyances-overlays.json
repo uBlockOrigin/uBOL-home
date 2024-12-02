@@ -1,136 +1,16 @@
 [
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.js"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "vide-greniers.org"
-  ],
-  "resourceTypes": [
-   "script"
-  ],
-  "urlFilter": "||pagead2.googlesyndication.com/pagead/"
- },
- "id": 1,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.js"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "tvtropes.org"
-  ],
-  "resourceTypes": [
-   "script"
-  ],
-  "urlFilter": "||global.proper.io/tvtropes.min.js"
- },
- "id": 2,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.js"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "files2zip.com"
-  ],
-  "resourceTypes": [
-   "script"
-  ],
-  "urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
- },
- "id": 3,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.js"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "requestDomains": [
-   "ads.proboards.com",
-   "bidfilter.com"
-  ],
-  "resourceTypes": [
-   "script"
-  ]
- },
- "id": 4,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.js"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "unknowncheats.me"
-  ],
-  "resourceTypes": [
-   "xmlhttprequest"
-  ],
-  "urlFilter": "||googlesyndication.com/pagead/js/adsbygoogle.js"
- },
- "id": 5,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.txt"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "domainType": "firstParty",
-  "resourceTypes": [
-   "xmlhttprequest"
-  ],
-  "urlFilter": "||georgiadogs.com/js/prebid-"
- },
- "id": 6,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.js"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "initiatorDomains": [
-   "concertarchives.org"
-  ],
-  "requestDomains": [
-   "pub.network"
-  ],
-  "resourceTypes": [
-   "script"
-  ]
- },
- "id": 7,
- "priority": 11
-}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["vide-greniers.org"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/"},"id":1,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["tvtropes.org"],"resourceTypes":["script"],"urlFilter":"||global.proper.io/tvtropes.min.js"},"id":2,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["files2zip.com"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":3,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"requestDomains":["ads.proboards.com","bidfilter.com"],"resourceTypes":["script"]},"id":4,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["unknowncheats.me"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||googlesyndication.com/pagead/js/adsbygoogle.js"},"id":5,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||georgiadogs.com/js/prebid-"},"id":6,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"domainType":"thirdParty","initiatorDomains":["concertarchives.org"],"requestDomains":["pub.network"],"resourceTypes":["script"]},"id":7,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"initiatorDomains":["diep.io","tpc.googlesyndication.com"],"resourceTypes":["image"],"urlFilter":"||cm.g.doubleclick.net/pixel"},"id":8,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"initiatorDomains":["diep.io","tpc.googlesyndication.com"],"resourceTypes":["image"],"urlFilter":"||tpc.googlesyndication.com/pagead/images/x_button_blue2.svg"},"id":9,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"initiatorDomains":["lightnovelpub.com"],"requestDomains":["moatads.com"],"resourceTypes":["image"]},"id":10,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["colnect.com"],"resourceTypes":["script"],"urlFilter":"||googlesyndication.com/pagead/js/adsbygoogle.js"},"id":11,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["hotcleaner.com","mifirm.net"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js^"},"id":12,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["ageofconsent.net"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/show_ads.js"},"id":13,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["fancaps.net"],"resourceTypes":["script"],"urlFilter":"||a.pub.network/fancaps-net/pubfig.min.js"},"id":14,"priority":11}
 ]

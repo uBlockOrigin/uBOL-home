@@ -74,7 +74,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "*"
     ]
@@ -104,7 +104,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "*"
     ]
@@ -186,7 +186,7 @@
     ]
    ],
    [
-    "no-requestAnimationFrame-if",
+    "prevent-requestAnimationFrame",
     [
      "dudestream.com",
      "pussyspace.com",
@@ -273,15 +273,24 @@
     ]
    ],
    [
+    "alert-buster",
+    [
+     "66ccff.work",
+     "onlineatlas.us"
+    ]
+   ],
+   [
     "trusted-replace-argument",
     [
      "autosport.com",
      "bamgosu.site",
+     "coomer.su",
      "copyseeker.net",
      "dogdrip.net",
      "energiasolare100.it",
      "gecmisi.com.tr",
      "infinityfree.com",
+     "kemono.su",
      "loawa.com",
      "lundracing.com",
      "motorsport.com",
@@ -490,6 +499,7 @@
      "dev.miuiflash.com",
      "djxmaza.in",
      "download.megaup.net",
+     "exploader.net",
      "jytechs.in",
      "kiktu.com",
      "techcyan.com",
@@ -532,12 +542,6 @@
      "smostafa.ir",
      "soft98.ir",
      "sysban.ir"
-    ]
-   ],
-   [
-    "alert-buster",
-    [
-     "66ccff.work"
     ]
    ],
    [
@@ -683,6 +687,7 @@
      "asga.ch",
      "aspies.de",
      "audiovision.de",
+     "ausfraukesfeder.de",
      "autobrinkmann.de",
      "automatiksysteme.com",
      "autoverwertung-berk.de",
@@ -2390,6 +2395,7 @@
      "trigger.dev",
      "triumphtechnicalinformation.com",
      "tropicalida.com.ec",
+     "uc.pt",
      "ultrahuman.com",
      "v2.xmeye.net",
      "venom.foundation",
@@ -2479,7 +2485,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "svd.se",
      "winfuture.de"
@@ -2492,7 +2498,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "bbva.be",
      "bbva.es",
@@ -2570,6 +2576,7 @@
      "valostore.fi",
      "valostore.no",
      "valostore.se",
+     "veikkaus.fi",
      "vivantis.sk",
      "vr.fi",
      "vreden.de",
@@ -2623,6 +2630,7 @@
      "columbiasportswear.es",
      "columbiasportswear.fr",
      "columbiasportswear.it",
+     "commondreams.org",
      "funko.com",
      "girlscoutshop.com",
      "gourmetfoodstore.com",
@@ -2632,6 +2640,7 @@
      "jingdaily.com",
      "jointhefollowup.com",
      "kermitlynch.com",
+     "klsescreener.com",
      "loungefly.com",
      "lowpass.cc",
      "monarchmoney.com",
@@ -2667,7 +2676,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "*"
     ]
@@ -2890,13 +2899,13 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "remove-node-text",
     [
      "*"
     ]
    ],
    [
-    "remove-node-text",
+    "prevent-setInterval",
     [
      "*"
     ]
@@ -2986,7 +2995,10 @@
     "trusted-suppress-native-method",
     [
      "ate60vs7zcjhsjo5qgv8.com",
-     "jetv.xyz"
+     "dlions.pro",
+     "embasic.pro",
+     "jetv.xyz",
+     "t.17track.net"
     ]
    ],
    [
@@ -3029,7 +3041,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "analyticsvidhya.com",
      "clarin.com",
@@ -3041,6 +3053,7 @@
    [
     "remove-cookie",
     [
+     "americanaffairsjournal.org",
      "androidpolice.com",
      "bestrecipes.com.au",
      "cbr.com",
@@ -3067,7 +3080,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "zippia.com"
     ]
@@ -3098,6 +3111,7 @@
     [
      "democracynow.org",
      "nzherald.co.nz",
+     "rumble.com",
      "thebump.com"
     ]
    ],
@@ -3176,7 +3190,10 @@
      "abc10.com",
      "abc15.com",
      "ajc.com",
+     "alibaba.com",
+     "aliexpress.com",
      "cbs8.com",
+     "dhgate.com",
      "firstcoastnews.com",
      "fox2now.com",
      "fox61.com",
@@ -3185,6 +3202,7 @@
      "king5.com",
      "ksdk.com",
      "newscentermaine.com",
+     "temu.com",
      "wbir.com",
      "wcnc.com",
      "wfaa.com",
@@ -3218,7 +3236,7 @@
   "chn-0",
   [
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "18comic.vip",
      "233tw.com",
@@ -3304,7 +3322,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "pincong.rocks",
      "tsubasa.im"
@@ -3579,7 +3597,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "sreality.cz"
     ]
@@ -3640,7 +3658,7 @@
   "fin-0",
   [
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "afterdawn.com",
      "dawn.fi",
@@ -3736,7 +3754,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "cookomix.com",
      "japscan.lol",
@@ -3792,7 +3810,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "chat.babel.com",
      "dl-protect.info",
@@ -3854,7 +3872,7 @@
   "hun-0",
   [
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "calculat.org",
      "jofogas.hu",
@@ -4007,7 +4025,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "netq.me"
     ]
@@ -4272,7 +4290,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "targoman.ir"
     ]
@@ -4344,11 +4362,31 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "inn.co.il",
      "jmusic.me",
      "walla.co.il",
+     "ynet.co.il"
+    ]
+   ],
+   [
+    "prevent-fetch",
+    [
+     "13news.co.il",
+     "13tv.co.il",
+     "calcalist.co.il",
+     "haaretz.co.il",
+     "mako.co.il",
+     "n12.co.il",
+     "one.co.il",
+     "sheee.co.il",
+     "sport5.co.il",
+     "themarker.com",
+     "walla.co.il",
+     "www-haaretz-co-il.eu1.proxy.openathens.net",
+     "www-themarker-com.eu1.proxy.openathens.net",
+     "yad2.co.il",
      "ynet.co.il"
     ]
    ],
@@ -4421,7 +4459,6 @@
      "kabegami.jpn.org",
      "kasegeru.blog.jp",
      "lifematome.blog",
-     "qr.quel.jp",
      "rank1-media.com",
      "resizer.myct.jp",
      "rxlife.net",
@@ -4458,6 +4495,7 @@
    [
     "spoof-css",
     [
+     "exploader.net",
      "yourfones.net"
     ]
    ],
@@ -4468,7 +4506,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "*"
     ]
@@ -4552,7 +4590,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "yaraon-blog.com"
     ]
@@ -4686,7 +4724,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "10000recipe.com",
      "digitstar77.com",
@@ -4736,7 +4774,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "laftel.net",
      "zzzz.lol"
@@ -4851,7 +4889,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "delfi.lt"
     ]
@@ -4884,7 +4922,7 @@
   "nld-0",
   [
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "topkleurplaat.nl"
     ]
@@ -5019,7 +5057,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "maskinbladet.dk"
     ]
@@ -5069,7 +5107,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "abczdrowie.pl",
      "aternos.org",
@@ -5257,7 +5295,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "naekranie.pl",
      "playpuls.pl",
@@ -5303,7 +5341,7 @@
   "rou-1",
   [
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "bloground.ro",
      "boardingpass.ro",
@@ -5342,7 +5380,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "posturi.live"
     ]
@@ -5525,6 +5563,7 @@
      "vk.com",
      "vk.ru",
      "vz.ru",
+     "wotspeak.org",
      "www.ixbt.com",
      "youtube.com"
     ]
@@ -5589,7 +5628,6 @@
      "windows-driver.com",
      "windows-driver.net",
      "windows-program.com",
-     "wotspeak.org",
      "wowskill.ru"
     ]
    ],
@@ -5623,45 +5661,19 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
-     "*"
+     "anime-chan.me",
+     "aniu.ru",
+     "fatcatslim.ru",
+     "liveball.uno",
+     "volyninfo.com"
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
-     "allapteki.ru",
-     "anime-chan.me",
-     "aqicn.org",
-     "buhgalter.com.ua",
-     "buhgalter911.com",
-     "e.mail.ru",
-     "factor.ua",
-     "ferr-um.ucoz.ru",
-     "fishki.net",
-     "fonmod.com",
-     "hdkinoteatr.com",
-     "in-poland.com",
-     "limehd.tv",
-     "litehd.tv",
-     "num-words.com",
-     "octavius.mail.ru",
-     "otzovik.com",
-     "razlozhi.ru",
-     "russia-tv.online",
-     "rusvesna.su",
-     "sibnet.ru",
-     "softportal.com",
-     "stalker-2-2012.ucoz.net",
-     "strategium.ru",
-     "testserver.pro",
-     "tradingview.com",
-     "tragtorr.in",
-     "tragtorr.info",
-     "tv-kanali.online",
-     "vseinstrumenti.ru",
-     "websdr.space"
+     "*"
     ]
    ],
    [
@@ -5981,7 +5993,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "*"
     ]
@@ -6021,6 +6033,18 @@
  [
   "spa-1",
   [
+   [
+    "abort-on-property-read",
+    [
+     "*"
+    ]
+   ],
+   [
+    "abort-on-stack-trace",
+    [
+     "*"
+    ]
+   ],
    [
     "prevent-fetch",
     [
@@ -6105,7 +6129,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "kumanga.com",
      "reidoplacar.com",
@@ -6114,7 +6138,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "acortalink.me",
      "anitube.us",
@@ -6208,12 +6232,6 @@
     ]
    ],
    [
-    "abort-on-property-read",
-    [
-     "*"
-    ]
-   ],
-   [
     "addEventListener-defuser",
     [
      "allcalidad.pro",
@@ -6260,15 +6278,9 @@
     ]
    ],
    [
-    "no-requestAnimationFrame-if",
+    "prevent-requestAnimationFrame",
     [
      "seriesemcena.com.br"
-    ]
-   ],
-   [
-    "abort-on-stack-trace",
-    [
-     "*"
     ]
    ],
    [
@@ -6354,7 +6366,7 @@
   "swe-1",
   [
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "accentmagasin.se",
      "etunawebben.se",
@@ -6621,12 +6633,11 @@
      "vimmerbytidning.se",
      "vk.se",
      "vt.se",
-     "vxonews.se",
      "ystadsallehanda.se"
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "feber.se",
      "tjock.se"
@@ -6747,7 +6758,7 @@
   "tur-0",
   [
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "*"
     ]
@@ -6759,7 +6770,7 @@
     ]
    ],
    [
-    "no-setInterval-if",
+    "prevent-setInterval",
     [
      "ensonhaber.com",
      "gecmisi.com.tr",
@@ -7272,7 +7283,6 @@
      "anivn.club",
      "cafef.vn",
      "cdnstream.sbs",
-     "chichnhau.blog",
      "cliphot69.pics",
      "cliphot69.skin",
      "cunghocvui.com",
@@ -7311,9 +7321,9 @@
      "nettruyenww.com",
      "nungmup.net",
      "p.thoctv.com",
-     "phim18hd.sex",
+     "phim18hd.in",
      "phimgichill.net",
-     "phimhdc.us",
+     "phimhdctv.com",
      "phimlongtieng.com",
      "phimlongtieng.net",
      "phimmoi.club",
@@ -7328,6 +7338,7 @@
      "saigon24.net",
      "sayhentai.one",
      "sex.tuoi69.store",
+     "sexchichnhau.net",
      "sexdiary.club",
      "sexhd88.club",
      "sexmup18.com",
@@ -7336,10 +7347,9 @@
      "streamvl.top",
      "tenmientruyengi.net",
      "thanhnien.vn",
-     "tiemsachhay.net",
      "tinsoikeo.live",
      "top1sex.me",
-     "topviet69.me",
+     "topviet69.video",
      "tram3d.me",
      "truyen247.top",
      "truyen35.shop",
@@ -7356,6 +7366,7 @@
      "truyentuan.xyz",
      "truyenvn.vin",
      "tuoitre.vn",
+     "umetruyenhay.com",
      "ungtycomicsvip.com",
      "ungtycomicsvip.org",
      "vailonxx.vip",
@@ -7387,7 +7398,6 @@
      "ephimchill.com",
      "fastscans4.net",
      "hayhaytv.org",
-     "hentaivn.lifesty",
      "herotruyen.com",
      "hoctot.hocmai.vn",
      "javnong.cc",
@@ -7395,7 +7405,7 @@
      "linkneverdie.top",
      "linkneverdie2.com",
      "maclife.io",
-     "motchill.bot",
+     "motchill.so",
      "mv.dailyphimz.com",
      "mv.phimbathu.one",
      "mv.phimmoiaz.cc",
@@ -7407,6 +7417,7 @@
      "phimlongtieng.net",
      "plcdn.xyz",
      "quangcaoyenbai.com",
+     "sexhihiz.ch",
      "sieudam.vin",
      "thichxemphim1.net",
      "thuvienhd.xyz",
@@ -7470,7 +7481,7 @@
      "thanhnien.vn",
      "tructiepdabong5.co",
      "tuoitre.vn",
-     "vaoroiz.tv",
+     "vaoroi7.live",
      "vndoc.com",
      "vx.phimsexvip.cc",
      "web.clipsex.xxx",
@@ -7496,7 +7507,7 @@
     ]
    ],
    [
-    "no-setTimeout-if",
+    "prevent-setTimeout",
     [
      "linkneverdie.net",
      "linkneverdie.top",

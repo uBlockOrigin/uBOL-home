@@ -124,7 +124,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||quechoisir.org/push/"},"id":123,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||rtl.be^*/box-newsletters.js"},"id":124,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||link.sportal.blikk.hu/join/"},"id":125,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||pagamentidigitali.it^*/newsletter.jpg"},"id":126,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||electricfencing.co.uk/prnewsletterpopup/"},"id":126,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||nikkei.com/edit/topic/briefing_newsletter_"},"id":127,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||latercera.com/newsletters/"},"id":128,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||currenttime.tv/a/signup-sidebar-widget/"},"id":129,"priority":10},
@@ -180,7 +180,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ig.com.br"],"resourceTypes":["script"],"urlFilter":"||akamaized.net/assets/*/ig-canais-noticias.min.js"},"id":179,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["tomshw.it"],"resourceTypes":["script"],"urlFilter":"/bioep.js"},"id":180,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["foxnews.com"],"resourceTypes":["script"],"urlFilter":"/google-funding-choices.js"},"id":181,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||www.redditstatic.com/shreddit/*/xpromo-nsfw-blocking-modal-"},"id":182,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||bestx.stream/assets/js/devtools-detector.js"},"id":182,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/wp-content/plugins/secure-copy-content-protection/"},"id":183,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["hulnews.top"],"resourceTypes":["script"],"urlFilter":"||files.vi.zone/player/"},"id":184,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/wp-content/plugins/image-watermark/"},"id":185,"priority":10},
@@ -244,7 +244,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||manoramaonline.com/acd/api/3.0/authorize/json?"},"id":243,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","requestDomains":["prod.theintercept.com"],"resourceTypes":["sub_frame"]},"id":244,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["sub_frame"],"urlFilter":"||dl.gmx.*/uim/connector/live/v2/nonfriendlyiframe.html"},"id":245,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["api.pico.tools","app.avada.io","config-factory.com","confirmsubscription.com","content-settings.com","copypoison.com","faves.grow.me","fkrkkmxsqeb5bj9r.s3.amazonaws.com","holyclock.com","maillist-manage.com","optinly.net","popupsmart.com","sendlane.com","shomershabes.co.il","shomershabes.com","site-config.com","smarthint.co","spinasale.com","targetbay.com","yourmarketingemail.com"]},"id":246,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||redditstatic.com/shreddit/*/xpromo-nsfw-blocking-modal-"},"id":246,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["wetransfer.com"],"urlFilter":"||wetransfer.net/*/adblocker"},"id":247,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js"},"id":248,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||lightboxcdn.com/vendor/"},"id":249,"priority":10},
@@ -283,5 +283,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["bigten.org","cheatnetwork.eu","hbstack.dev","sheffieldforum.co.uk"],"resourceTypes":["xmlhttprequest"]},"id":282,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||luckydesigner.space/adview_"},"id":283,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","initiatorDomains":["buktube.com","fullxh.com","galleryxh.site","megaxh.com","movingxh.world","seexh.com","unlockxh4.com","valuexh.life","xhaccess.com","xhadult2.com","xhadult3.com","xhadult4.com","xhadult5.com","xhamster46.com","xhamsterporno.mx","xhbig.com","xhbranch5.com","xhchannel.com","xhchannel2.com","xhdate.world","xhday.com","xhday1.com","xhlease.world","xhmoon5.com","xhofficial.com","xhopen.com","xhplanet1.com","xhplanet2.com","xhreal2.com","xhreal3.com","xhspot.com","xhtab2.com","xhtab4.com","xhtotal.com","xhtree.com","xhvictory.com","xhwebsite.com","xhwebsite2.com","xhwebsite5.com","xhwide1.com","xhwide2.com","xhwide5.com","xhxh3.xyz"],"requestMethods":["head"],"resourceTypes":["xmlhttprequest"]},"id":284,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["autoweek.nl","cheatnetwork.eu","hbstack.dev","pokemonsleep.club","time.is"],"resourceTypes":["script"]},"id":285,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["autoweek.nl","cheatnetwork.eu","hbstack.dev","pokemonsleep.club","time.is"],"resourceTypes":["script"]},"id":285,"priority":30},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||thedarkblues.co.uk/applications/adsense/interface/js/adbd.js^"},"id":286,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["api.pico.tools","app.avada.io","confirmsubscription.com","copypoison.com","faves.grow.me","holyclock.com","maillist-manage.com","optinly.net","popupsmart.com","sendlane.com","shomershabes.co.il","shomershabes.com","smarthint.co","spinasale.com","targetbay.com","yourmarketingemail.com"]},"id":287,"priority":10}
 ]

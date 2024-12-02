@@ -184,7 +184,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["rybnik.com.pl","siechnice.com.pl","tuwodzislaw.pl"],"resourceTypes":["image"],"urlFilter":"/files/rek/"},"id":183,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["tvmalbork.pl","tvregionalna24.pl","tvsztum.pl","zulawyimierzeja24.pl"],"resourceTypes":["image"],"urlFilter":".pl/data/cameras/banner_"},"id":184,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":".pl/images/reklama120x60.jpg"},"id":185,"priority":10},
-{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["arriva.pl","budus.pl","filmweb.pl"],"resourceTypes":["image"],"urlFilter":"/adv/"},"id":186,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["4chan.org","arriva.pl","filmweb.pl"],"resourceTypes":["image"],"urlFilter":"/adv/"},"id":186,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["www.pasazer.com"],"resourceTypes":["image"],"urlFilter":"/affiliates/"},"id":187,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["katowicetv.eu","macronext.pl","nowiny.rybnik.pl"],"resourceTypes":["image"],"urlFilter":"/baner/"},"id":188,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["raciborz24.pl"],"resourceTypes":["image"],"urlFilter":"/baners/"},"id":189,"priority":10},
