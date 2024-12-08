@@ -231,8 +231,52 @@
     "message": "Anzahl der blockierten Anfragen auf dem Symbol in der Symbolleiste anzeigen",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Striktes Blockieren aktivieren",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Die Navigation zu potenziell unerwünschten Websites wird verhindert, jedoch wird eine Möglichkeit zum Fortfahren angeboten.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Listen suchen",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Seite blockiert",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite hat das Laden der folgenden Seite verhindert:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Die Seite wurde aufgrund eines übereinstimmenden Filters in {{listname}} blockiert.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "Die blockierte Seite möchte zu einer anderen Website weiterleiten. Beim Fortfahren wird folgende Seite aufgerufen: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "ohne Parameter",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Zurück",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Dieses Fenster schließen",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Nicht erneut vor dieser Seite warnen",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Fortfahren",
+    "description": "A button to navigate to the blocked page"
   }
 }

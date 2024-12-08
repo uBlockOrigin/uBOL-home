@@ -231,8 +231,52 @@
     "message": "Tampilkan jumlah permintaan yang diblokir pada ikon toolbar",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Aktifkan pemblokiran ketat",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Navigasi ke situs yang mungkin tidak diinginkan akan diblokir, dan Anda akan ditawari opsi untuk melanjutkan.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
-    "message": "Find lists",
+    "message": "Temukan daftar",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Halaman diblokir",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite telah mencegah pemuatan halaman berikut:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "The page was blocked because of a matching filter in {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "The blocked page wants to redirect to another site. If you choose to proceed, you will navigate directly to: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "tanpa parameter",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Kembali",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Tutup jendela ini",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Jangan peringatkan saya lagi tentang situs ini",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Lanjutkan",
+    "description": "A button to navigate to the blocked page"
   }
 }

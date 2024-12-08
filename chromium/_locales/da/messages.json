@@ -231,8 +231,52 @@
     "message": "Vis antallet af blokerede forespørgsler på værktøjsbjælkeikonet",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Aktivér striks blokering",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Navigering til potentielt uønskede websteder blokeres, men man tilbydes muligheden for at fortsætte.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Find lister",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Side blokeret",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite har forhindret flg. side i at blive indlæst:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Siden blev blokeret grundet et matchende filter i {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "Den blokerede side ønsker at omdirigere til et andet websted. Vælger man at fortsætte, navigeres direkte til: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "uden parametre",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Gå tilbage",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Luk dette vindue",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Advar ikke igen om dette websted",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Fortsæt",
+    "description": "A button to navigate to the blocked page"
   }
 }

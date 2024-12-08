@@ -231,8 +231,52 @@
     "message": "הצגת מספר הבקשות החסומות על הסמל",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "הפעלת חסימה קפדנית",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "ניווט אפשרי לאתרים לא רצויים יחסם ותהיה אפשרות להחליט להמשיך.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "חיפוש רשימות",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "הדף נחסם",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite מנע טעינה של הדפים הבאים:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "הדף נחסם בגלל התאמה למסנן מהרשימה {{listname}}",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "הדף החסום רוצה להעביר אותך לאתר אחר. בחירה להמשיך תעבור ישירות ל {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "ללא פרמטרים",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "חזור",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "סגור חלון זה",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "אל תתריע לי שוב על אתר זה",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "המשך",
+    "description": "A button to navigate to the blocked page"
   }
 }

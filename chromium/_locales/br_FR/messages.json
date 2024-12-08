@@ -160,7 +160,7 @@
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Checkbox1": {
-    "message": "Label the webpage as “NSFW” (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">“Not Safe For Work”</a>)",
+    "message": "Merkañ ar bejenn web evel \"NSFW\" (<a href=\"https://wikipedia.org/wiki/Not_safe_for_work\">“Not Safe For Work”</a>, dizereat evit al labour)",
     "description": "A checkbox to use for NSFW sites"
   },
   "supportReportSpecificButton": {
@@ -231,8 +231,52 @@
     "message": "Diskouez an niver a rekedoù bet stanket war arouez ar varrenn-ostilhoù",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Enaouiñ ar stankañ strizh",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Stanket e vo ar merdeiñ etrezek lec'hiennoù a c'hallfe bezañ dañjerus, ha moaien a vo deoc'h dibab da genderc'hel pe get.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Kavout rolloù",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Pajenn stanket",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite en deus miret ar bajenn-mañ da gargañ:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Stanket eo bet ar bajenn abalamour d'ur sil dereat e-barzh {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "Ar bajenn stanket a fell dezhi adkas d'ul lec'hienn all. M'ho peus c'hoant da genderc'hel e vioc'h kaset d'ar chomlec'h-mañ: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "kuit a arventennoù",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Distreiñ",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Serriñ ar prenestr-mañ",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Arabat kemenn din diwar-benn al lec'hienn-mañ en-dro",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Kenderc'hel",
+    "description": "A button to navigate to the blocked page"
   }
 }

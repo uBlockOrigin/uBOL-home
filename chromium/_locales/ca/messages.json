@@ -231,8 +231,52 @@
     "message": "Mostra el nombre de sol·licituds blocades a la icona de la barra d'eines",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Habilita el blocatge estricte",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Es blocarà la navegació en webs potencialment no desitjables, oferint-vos la possibilitat de continuar.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Cerca llistes",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Pàgina blocada",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "L'uBO Lite ha evitat la càrrega d'aquesta pàgina:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "La pàgina s'ha blocat a causa d'un filtre coincident a {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "La pàgina blocada vol redirigir-vos a un altre web diferent. Si continueu, si us reenviarà a: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "sense paràmetres",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Enrere",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Tanca aquesta finestra",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "No em tornis a avisar sobre aquest lloc",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Continua",
+    "description": "A button to navigate to the blocked page"
   }
 }

@@ -48,5 +48,19 @@
  },
  "id": 3,
  "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "initiatorDomains": [
+   "ro"
+  ],
+  "regexFilter": "wp-content\\/plugins\\/custom-banner-plugin"
+ },
+ "id": 4,
+ "priority": 10
 }
 ]

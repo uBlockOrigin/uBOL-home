@@ -112,7 +112,7 @@
     "description": "First paragraph of 'Filter issues' section in Support pane"
   },
   "supportS6P1S1": {
-    "message": "Para evitar sobrecarregar os voluntários com relatórios duplicados, por favor verifique se o problema ainda não foi relatado.",
+    "message": "Para evitar sobrecarregar os voluntários com relatórios duplicados, verifique se o problema ainda não foi relatado.",
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportFindSpecificButton": {
@@ -124,7 +124,7 @@
     "description": "Label for the URL of the page"
   },
   "supportS6Select1": {
-    "message": "A página web...",
+    "message": "A página web…",
     "description": "Label for widget to select type of issue"
   },
   "supportS6Select1Option0": {
@@ -140,7 +140,7 @@
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Select1Option3": {
-    "message": "Deteta uBO Lite",
+    "message": "Deteta o uBO Lite",
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Select1Option4": {
@@ -148,7 +148,7 @@
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Select1Option5": {
-    "message": "Falha quando o uBO Lite é ativado",
+    "message": "Falha quando o uBO Lite está ativado",
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Select1Option6": {
@@ -231,8 +231,52 @@
     "message": "Mostra o número de pedidos bloqueados no ícone da barra de ferramentas",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Ativar bloqueio estrito",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "A navegação para sites potencialmente indesejáveis será bloqueada e ser-lhe-á dada a opção de proceder.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Encontrar listas",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Página bloqueada",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "O uBO Lite impediu a seguinte página de ser carregada:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "A página foi bloqueada devido a um filtro correspondente em {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "A página bloqueada pretende redirecionar para outro site. Se optar por proceder, navegará diretamente para: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "sem parâmetros",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Voltar",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Fechar esta janela",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Não me avisar novamente acerca deste site",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Proceder",
+    "description": "A button to navigate to the blocked page"
   }
 }

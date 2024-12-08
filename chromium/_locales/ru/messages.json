@@ -231,8 +231,52 @@
     "message": "Показывать количество заблокированных запросов на иконке в панели инструментов",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Включить строгую блокировку",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Переход к потенциально нежелательным сайтам будет заблокирован, и будет дана возможность продолжить переход на сайт",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Найти списки",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Страница заблокирована",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite предотвратил загрузку следующей страницы:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Веб-страница была заблокирована из-за попадания в фильтр из {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "Заблокированная страница собирается перенаправить вас на другой сайт. Если вы решите продолжить, вы перейдете непосредственно на: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "без параметров",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Назад",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Закрыть это окно",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Больше не предупреждать меня об этом сайте",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Продолжить",
+    "description": "A button to navigate to the blocked page"
   }
 }

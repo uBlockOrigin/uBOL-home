@@ -231,8 +231,52 @@
     "message": "Wyświetlaj liczbę zablokowanych żądań na ikonie paska narzędzi",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Włącz ścisłe blokowanie",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Nawigacja do potencjalnie niepożądanych witryn zostanie zablokowana i pojawi się opcja kontynuowania.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Znajdź listy",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Strona zablokowana",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite nie pozwolił załadować się następującej stronie:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Strona została zablokowana z powodu pasującego filtra na liście {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "Zablokowana strona chce przekierować na inną witrynę. Jeśli zdecydujesz się kontynuować, przejdziesz bezpośrednio do: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "bez parametrów",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Wstecz",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Zamknij to okno",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Nie ostrzegaj mnie ponownie o tej witrynie",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Kontynuuj",
+    "description": "A button to navigate to the blocked page"
   }
 }

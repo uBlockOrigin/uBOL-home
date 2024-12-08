@@ -39,7 +39,7 @@ const uBOL_spoofCSS = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["ins.adsbygoogle","display","block"],["article > div[style=\"margin-left: -63px;width: 1120px;height: 450px;margin-bottom: 5px;display: flex;align-items: center;\"]","clip","auto"]];
+const argsList = [["ins.adsbygoogle","display","block"],["a[style*=\"display:\"][href^=\"https://al.dmm.co.jp\"]","display","flex !important"]];
 
 const hostnamesMap = new Map([["yourfones.net",0],["exploader.net",1]]);
 
@@ -191,6 +191,7 @@ function safeSelf() {
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
         'String_fromCharCode': String.fromCharCode,
+        'String_split': String.prototype.split,
         'XMLHttpRequest': self.XMLHttpRequest,
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,

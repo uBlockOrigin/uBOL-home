@@ -231,8 +231,52 @@
     "message": "إظهار عدد الطلبات المحظورة على أيقونة شريط الأدوات",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "تمكين الحظر الصارم",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "سيتم حظر التنقل إلى المواقع غير المرغوب فيها، وسيتم تقديم خيار لك للمتابعة.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "البحث عن القوائم",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "الصفحة محجوبة",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "لقد منع uBO Lite تحميل الصفحة التالية:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "The page was blocked because of a matching filter in {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "The blocked page wants to redirect to another site. If you choose to proceed, you will navigate directly to: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "without parameters",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "رجوع",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "إغلاق هذه النافذة",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "لا تحذرني مرة أخرى من هذا الموقع",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "متابعة",
+    "description": "A button to navigate to the blocked page"
   }
 }

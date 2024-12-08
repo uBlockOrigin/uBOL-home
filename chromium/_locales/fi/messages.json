@@ -231,8 +231,52 @@
     "message": "Näytä estettyjen pyyntöjen määrä työkalupalkin kuvakkeessa",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Käytä tiukkaa estoa",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Potentiaalisesti ei-toivottujen sivustojen avaaminen estetään mahdollisuudella jatkaa.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Etsi listoja",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Sivu estettiin",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite on estänyt seuraavan sivun latauksen:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Sivu estettiin listalla {{listname}} olevan sännön perusteella.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "Estetty sivu ohjautuu eri sivustolle. Jos jatkat, siirryt suoraan osoitteeseen {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "ilman parametreja",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Palaa takaisin",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Sulje tämä ikkuna",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Älä varoita minua tästä sivustosta uudelleen",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Jatka",
+    "description": "A button to navigate to the blocked page"
   }
 }

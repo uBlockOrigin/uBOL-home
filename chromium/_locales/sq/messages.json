@@ -231,8 +231,52 @@
     "message": "Shfaq numrin e kërkesave të bllokuara në ikonën e instrumenteve",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Aktivizoj bllokimin strikt",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Uebsajtet potencialisht të padëshirueshme do të bllokohen dhe do t'ju jepet mundësia për të vazhduar.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Gjej listat",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Faqe e bllokuar",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite pengoi hapjen e faqes vijuese:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Faqja u bllokua për shkak se përputhet me filtrin në {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "Faqja e bllokuar do t'ju drejtojë në një uebsajt tjetër. Në rast se pranoni do të shkoni direkt te: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "pa parametra",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Kthehem",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Mbyll dritaren",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Mos më lajmëro për këtë faqen",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Vazhdoj",
+    "description": "A button to navigate to the blocked page"
   }
 }

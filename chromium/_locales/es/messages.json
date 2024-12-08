@@ -231,8 +231,52 @@
     "message": "Mostrar el número de peticiones bloqueadas en el icono de la barra de herramientas",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Habilitar bloqueo estricto",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "La navegación a sitios potencialmente no deseados será bloqueada, y se te ofrecerá la opción de continuar.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Encontrar listas",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Página bloqueada",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite impidió la carga de la página:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "La página ha sido bloqueada como resultado de un filtro coincidente en {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "La página bloqueada quiere redirigir a otro sitio. Si eliges continuar, navegarás directamente a: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "sin parámetros",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Regresar",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Cerrar esta ventana",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "No me adviertas de nuevo sobre este sitio",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Continuar",
+    "description": "A button to navigate to the blocked page"
   }
 }

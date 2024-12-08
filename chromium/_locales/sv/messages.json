@@ -231,8 +231,52 @@
     "message": "Visa antalet blockerade förfrågningar på verktygsfältsikonen",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Aktivera strikt blockering",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Navigering till potentiellt oönskade webbplatser kommer att blockeras och du kommer att erbjudas alternativet att fortsätta.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Hitta listor",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Sidan blockerad",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite har förhindrat följande sida från att läsas in:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Sidan har blockerats på grund av ett matchande filter i {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "Den blockerade sidan vill omdirigera till en annan webbplats. Om du väljer att fortsätta skickas du direkt till: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "utan parametrar",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Gå tillbaka",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Stäng det här fönstret",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Varna mig inte igen om den här sidan",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Fortsätt",
+    "description": "A button to navigate to the blocked page"
   }
 }

@@ -231,8 +231,52 @@
     "message": "Blokkolt kérések számának megjelenítése az eszköztárikonon",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Szigorú blokkolás engedélyezése",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Az esetleges nem kívánatos webhelyekre való navigáció blokkolva lesz, és rákérdez arra, hogy folytatja-e.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
-    "message": "Find lists",
+    "message": "Listák keresése",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Oldal blokkolva",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "A uBO Lite megakadályozta a következő oldal betöltését:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Az oldal a(z) {{listname}} listában lévő illeszkedő szűrő miatt blokkolva lett.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "A blokkolt oldal egy másik webhelyre akarja átirányítani. Ha a folytatást választja, akkor közvetlenül ide fog navigálni: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "paraméterek nélkül",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Vissza",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Ablak bezárása",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Ne figyelmeztessen többet erről az oldalról",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Folytatás",
+    "description": "A button to navigate to the blocked page"
   }
 }

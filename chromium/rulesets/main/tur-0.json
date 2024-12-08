@@ -1106,5 +1106,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["altin.in","gecmisi.com.tr","m.pes24.com","mangawt.com","mordefter.com","myjest.com","ui.memoryhackers.org"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":1105,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["gecmisi.com.tr"],"urlFilter":"||pagead2.googlesyndication.com/pagead/managed/js/adsense/*/show_ads*fy2021.js"},"id":1106,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["gecmisi.com.tr"],"urlFilter":"||pagead2.googlesyndication.com/pagead/ads"},"id":1107,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["blutv.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"/reklamlar/web/player"},"id":1108,"priority":30}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["blutv.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"/reklamlar/web/player"},"id":1108,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||assets.yenisafak.com/yenisafak/wwwroot/images/gif-banner*.gif"},"id":1109,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["sinefil.tv"],"resourceTypes":["script"],"urlFilter":"||ds.macellan.online/*/?ts="},"id":1110,"priority":10}
 ]

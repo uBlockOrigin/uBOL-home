@@ -231,8 +231,52 @@
     "message": "Het aantal geblokkeerde aanvragen op het werkbalkpictogram tonen",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Strenge blokkering inschakelen",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Navigatie naar mogelijk ongewenste websites wordt geblokkeerd, en nu krijgt de mogelijkheid om door te gaan.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Lijsten zoeken",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Pagina geblokkeerd",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite heeft het laden van de volgende pagina voorkomen:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "De pagina is geblokkeerd vanwege een overeenkomend filter in {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "De geblokkeerde pagina wil u omleiden naar een andere website. Als u doorgaat, navigeert u rechtstreeks naar: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "zonder parameters",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Teruggaan",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Dit venster sluiten",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Mij niet meer waarschuwen over deze website",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Doorgaan",
+    "description": "A button to navigate to the blocked page"
   }
 }

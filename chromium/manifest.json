@@ -60,6 +60,11 @@
         "path": "/rulesets/main/annoyances-others.json"
       },
       {
+        "id": "nrd.30day.phishing",
+        "enabled": true,
+        "path": "/rulesets/main/nrd.30day.phishing.json"
+      },
+      {
         "id": "stevenblack-hosts",
         "enabled": false,
         "path": "/rulesets/main/stevenblack-hosts.json"
@@ -250,7 +255,7 @@
     "128": "img/icon_128.png"
   },
   "manifest_version": 3,
-  "minimum_chrome_version": "119.0",
+  "minimum_chrome_version": "122.0",
   "name": "__MSG_extName__",
   "options_page": "dashboard.html",
   "optional_host_permissions": [
@@ -266,8 +271,16 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2024.12.2.22",
+  "version": "2024.12.8.1320",
   "web_accessible_resources": [
+    {
+      "resources": [
+        "/strictblock.ca867baeab1048a1.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    },
     {
       "resources": [
         "/web_accessible_resources/noop.js",

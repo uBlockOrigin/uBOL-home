@@ -232,5 +232,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||sport5.co.il^*/dfp."},"id":231,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||sport5.co.il^*/dfp/"},"id":232,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||weather2day.co.il/ads.js?"},"id":233,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||foodsdictionary.co.il/static/"},"id":234,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||foodsdictionary.co.il/static/"},"id":234,"priority":30},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["www.kore.co.il"],"resourceTypes":["script"],"urlFilter":"||ext.kore.co.il/out/"},"id":235,"priority":10}
 ]

@@ -231,8 +231,52 @@
     "message": "Prikaži broj blokiranih zahtjeva na ikoni alatne trake",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Omogući strogo blokiranje",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Navigacija do potencijalno nepoželjnih stranica bit će blokirana i bit će vam ponuđena opcija za nastavak.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Pronađi liste",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Stranica blokirana",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite je spriječio učitavanje sljedeće stranice:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Stranica je blokirana zbog odgovarajućeg filtra u {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "Blokirana stranica želi preusmjeriti na drugu stranicu. Ako odlučite nastaviti, otići ćete izravno na: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "bez parametara",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Idi natrag",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Zatvori ovaj prozor",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Ne upozoravaj me više za ovu web stranicu",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Nastavi",
+    "description": "A button to navigate to the blocked page"
   }
 }

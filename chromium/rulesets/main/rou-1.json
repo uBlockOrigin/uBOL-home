@@ -180,7 +180,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||fanatik.ro/*fortuna.svg"},"id":179,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||fanatik.ro^*betano*.svg"},"id":180,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||ziare.com^*.gif"},"id":181,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["arenait.ro"],"resourceTypes":["image"],"urlFilter":"||i0.wp.com/arenait.ro/files/*/banner"},"id":182,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||info1tv.ro/*banner"},"id":182,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||divahair.ro/*/featured_brands/"},"id":183,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||focuspress.ro/wp-content/uploads/*/ad"},"id":184,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||focuspress.ro/*banner"},"id":185,"priority":10},
@@ -364,5 +364,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||vitan-auto.ro/*/ads_images/"},"id":363,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||obiectivbr.ro/sites/default/files/banner/bogdi1024-web.jpg"},"id":364,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["digisport.ro"],"resourceTypes":["xmlhttprequest"]},"id":365,"priority":30},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["filmexxx.live"],"resourceTypes":["script"],"urlFilter":"||gonowx.com/*?filmexxx.live"},"id":366,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["filmexxx.live"],"resourceTypes":["script"],"urlFilter":"||gonowx.com/*?filmexxx.live"},"id":366,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||gsp.ro/usr/widgets/*/cptm*"},"id":367,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["tvonline123.com"],"requestMethods":["get"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":368,"priority":30}
 ]

@@ -231,8 +231,52 @@
     "message": "Engellenen isteklerin sayısını araç çubuğu simgesinde göster",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Sıkı engellemeyi kullanıma al",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "İstenmeyebilecek sitelere giriş engellenecek ve devam edip etmeyeceğiniz size sorulacak.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Liste bul",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Sayfa engellendi",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBo Lite aşağıdaki sayfaların yüklenmesini engelledi:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Bu sayfa {{listname}} içindeki bir süzgece takıldığı için engellenmiştir.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "Engellenen sayfa sizi başka bir siteye yönlendirmek istiyor. Devam etmek isterseniz doğrudan şuraya yönlendirileceksiniz: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "değişkensiz",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Geri git",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Bu pencereyi kapat",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Bu site için beni bir daha uyarma",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Devam et",
+    "description": "A button to navigate to the blocked page"
   }
 }

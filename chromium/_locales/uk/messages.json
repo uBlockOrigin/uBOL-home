@@ -231,8 +231,52 @@
     "message": "Показувати кількість заблокованих запитів на піктограмі панелі інструментів",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Увімкнути суворе блокування",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "Перехід до потенційно небажаних сайтів буде заблоковано, та вам буде запропоновано можливість продовжити",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Знайти списки",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Сторінку заблоковано",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "uBO Lite заблокував завантаження наступних сторінок:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "Сторінку заблоковано, бо вона відповідає фільтру в {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "Заблокована сторінка хоче переадресувати на інший сайт. Якщо ви вирішите продовжити, ви перейдете безпосередньо на: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "без параметрів",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Повернутися",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Закрити це вікно",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Більше не попереджати мене про цей сайт",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Продовжити",
+    "description": "A button to navigate to the blocked page"
   }
 }

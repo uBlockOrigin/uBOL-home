@@ -47,8 +47,11 @@ import {
 
 import {
     enableRulesets,
+    excludeFromStrictBlock,
     getEnabledRulesetsDetails,
     getRulesetDetails,
+    patchDefaultRulesets,
+    setStrictBlockMode,
     updateDynamicRules,
 } from './ruleset-manager.js';
 
@@ -213,6 +216,7 @@ function onMessage(request, sender, callback) {
                 autoReload: rulesetConfig.autoReload,
                 showBlockedCount: rulesetConfig.showBlockedCount,
                 canShowBlockedCount,
+                strictBlockMode: rulesetConfig.strictBlockMode,
                 firstRun: process.firstRun,
                 isSideloaded,
                 developerMode: rulesetConfig.developerMode,
@@ -241,6 +245,13 @@ function onMessage(request, sender, callback) {
         saveRulesetConfig().then(( ) => {
             callback();
             broadcastMessage({ showBlockedCount: rulesetConfig.showBlockedCount });
+        });
+        return true;
+
+    case 'setStrictBlockMode':
+        setStrictBlockMode(request.state).then(( ) => {
+            callback();
+            broadcastMessage({ strictBlockMode: rulesetConfig.strictBlockMode });
         });
         return true;
 
@@ -335,6 +346,13 @@ function onMessage(request, sender, callback) {
         });
         return true;
 
+    case 'excludeFromStrictBlock': {
+        excludeFromStrictBlock(request.hostname, request.permanent).then(( ) => {
+            callback();
+        });
+        return true;
+    }
+
     case 'getMatchedRules':
         getMatchedRules(request.tabId).then(entries => {
             callback(entries);
@@ -360,20 +378,24 @@ function onMessage(request, sender, callback) {
 async function start() {
     await loadRulesetConfig();
 
-    if ( process.wakeupRun === false ) {
-        await enableRulesets(rulesetConfig.enabledRulesets);
+    const currentVersion = getCurrentVersion();
+    const isNewVersion = currentVersion !== rulesetConfig.version;
+
+    // The default rulesets may have changed, find out new ruleset to enable,
+    // obsolete ruleset to remove.
+    if ( isNewVersion ) {
+        ubolLog(`Version change: ${rulesetConfig.version} => ${currentVersion}`);
+        rulesetConfig.version = currentVersion;
+        await patchDefaultRulesets();
+        saveRulesetConfig();
     }
 
+    const rulesetsUpdated = process.wakeupRun === false &&
+        await enableRulesets(rulesetConfig.enabledRulesets);
+
     // We need to update the regex rules only when ruleset version changes.
-    if ( process.wakeupRun === false ) {
-        const currentVersion = getCurrentVersion();
-        if ( currentVersion !== rulesetConfig.version ) {
-            ubolLog(`Version change: ${rulesetConfig.version} => ${currentVersion}`);
-            updateDynamicRules().then(( ) => {
-                rulesetConfig.version = currentVersion;
-                saveRulesetConfig();
-            });
-        }
+    if ( isNewVersion && rulesetsUpdated === false ) {
+        updateDynamicRules();
     }
 
     // Permissions may have been removed while the extension was disabled

@@ -231,8 +231,52 @@
     "message": "Mostrar o número de requisições bloqueadas no ícone da barra de ferramentas",
     "description": "Label for a checkbox in the options page"
   },
+  "enableStrictBlockLabel": {
+    "message": "Ativar bloqueio rigoroso",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enableStrictBlockLegend": {
+    "message": "A navegação até sites potencialmente indesejáveis ​​será bloqueada e será oferecido a você a opção de prosseguir.",
+    "description": "Label for a checkbox in the options page"
+  },
   "findListsPlaceholder": {
     "message": "Achar listas",
     "description": "Placeholder for the input field used to find lists"
+  },
+  "strictblockTitle": {
+    "message": "Página bloqueada",
+    "description": "Webpage title for the strict-blocked page"
+  },
+  "strictblockSentence1": {
+    "message": "O uBO Lite impediu o carregamento da seguinte página:",
+    "description": "Sentence used in the strict-blocked page"
+  },
+  "strictblockReasonSentence1": {
+    "message": "A página foi bloqueada por causa de um filtro que combina no {{listname}}.",
+    "description": "Text informing about what is causing the page to be blocked"
+  },
+  "strictblockRedirectSentence1": {
+    "message": "A página bloqueada quer redirecionar para outro site. Se você escolher prosseguir, você navegará diretamente para: {{url}}",
+    "description": "Text warning about an incoming redirect"
+  },
+  "strictblockNoParamsPrompt": {
+    "message": "sem parâmetros",
+    "description": "Label to be used for the parameter-less URL"
+  },
+  "strictblockBack": {
+    "message": "Voltar",
+    "description": "A button to go back to the previous webpage"
+  },
+  "strictblockClose": {
+    "message": "Fechar esta janela",
+    "description": "A button to close the current tab"
+  },
+  "strictblockDontWarn": {
+    "message": "Não me avise de novo sobre este site",
+    "description": "Label for checkbox in document-blocked page"
+  },
+  "strictblockProceed": {
+    "message": "Prosseguir",
+    "description": "A button to navigate to the blocked page"
   }
 }

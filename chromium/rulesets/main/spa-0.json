@@ -601,5 +601,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||dolarito.ar/static/wallbit/"},"id":600,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||elpotosi.net/img/advertising/"},"id":601,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["api.apolomedia.com","carolina.cl","crhoy.com","niusdiario.es","paxtvmovil.org","radiocandela.cl","romantica.cl","rtve.es","tn.com.ar","vmf.edge-apps.net"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":602,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["vmf.edge-apps.net"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3_dai.js"},"id":603,"priority":30}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["vmf.edge-apps.net"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3_dai.js"},"id":603,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||contextotucuman.com/banners/"},"id":604,"priority":10}
 ]
