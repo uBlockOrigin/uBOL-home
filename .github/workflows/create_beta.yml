@@ -35,23 +35,18 @@ jobs:
           echo "TAGNAME=$TAGNAME" >> $GITHUB_ENV
           echo "Version: $TAGNAME"
       # Chromium
-      - name: Build Chromium uBOLite MV3 packages
+      - name: Build Chromium uBOLite beta
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
           tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
-          echo "CHROMIUM_PACKAGE=${{ env.TAGNAME }}.chromium.mv3.zip" >> $GITHUB_ENV
           cd - > /dev/null
-          rm -rf chromium
-          mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
-      # Edge
-      - name: Build Edge uBOLite MV3 packages
+      - name: Create extension package
+        uses: browser-actions/setup-chrome@v1
         run: |
-          make edge
-          pushd build/uBOLite.edge/ > /dev/null
-          zip ../${{ env.TAGNAME }}.edge.mv3.zip -qr ./*
-          popd > /dev/null
-          echo "EDGE_PACKAGE=${{ env.TAGNAME }}.edge.mv3.zip" >> $GITHUB_ENV
+          chrome --pack-extension="${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.chromium/"
+          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.chromium.crx \
+             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.${{ env.TAGNAME }}.chromium.crx
       - name: Create GitHub beta release
         id: create_beta_release
         uses: softprops/action-gh-release@v2
@@ -70,17 +65,10 @@ jobs:
             **This is a beta version.**
             
             Based on <https://github.com/gorhill/uBlock/tree/${{ env.UBO_VERSION }}>
-      - name: Upload Chromium uBOLite MV3 package
+      - name: Upload Chromium uBOLite beta
         uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.TAGNAME }}
-          files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
-      - name: Upload Edge uBOLite MV3 package
-        uses: softprops/action-gh-release@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ env.TAGNAME }}
-          files: build/${{ env.EDGE_PACKAGE }}
+          files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.${{ env.TAGNAME }}.chromium.crx
