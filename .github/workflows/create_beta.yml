@@ -40,7 +40,7 @@ jobs:
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
           tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
-          echo "CHROMIUM_PACKAGE=${{ env.TAGNAME }}.beta.chromium.mv3.zip" >> $GITHUB_ENV
+          echo "CHROMIUM_PACKAGE=${{ env.TAGNAME }}.chromium.mv3.zip" >> $GITHUB_ENV
           cd - > /dev/null
           rm -rf chromium
           mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
@@ -51,7 +51,7 @@ jobs:
           pushd build/uBOLite.edge/ > /dev/null
           zip ../${{ env.TAGNAME }}.edge.mv3.zip -qr ./*
           popd > /dev/null
-          echo "EDGE_PACKAGE=${{ env.TAGNAME }}.beta.edge.mv3.zip" >> $GITHUB_ENV
+          echo "EDGE_PACKAGE=${{ env.TAGNAME }}.edge.mv3.zip" >> $GITHUB_ENV
       - name: Create GitHub beta release
         id: create_beta_release
         uses: softprops/action-gh-release@v2
