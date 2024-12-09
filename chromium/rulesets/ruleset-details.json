@@ -5,28 +5,28 @@
   "enabled": true,
   "homeURL": "https://github.com/uBlockOrigin/uAssets",
   "filters": {
-   "total": 118315,
-   "accepted": 116970,
+   "total": 118358,
+   "accepted": 117013,
    "rejected": 136
   },
   "rules": {
-   "total": 17493,
-   "plain": 15619,
-   "regex": 238,
+   "total": 17500,
+   "plain": 15620,
+   "regex": 239,
    "removeparam": 53,
    "redirect": 513,
    "modifyHeaders": 69,
-   "strictblock": 74656,
-   "urlskip": 99,
+   "strictblock": 74661,
+   "urlskip": 100,
    "discarded": 0,
-   "rejected": 893
+   "rejected": 897
   },
   "css": {
-   "generic": 13650,
+   "generic": 13651,
    "generichigh": 516,
-   "specific": 11717,
+   "specific": 11718,
    "declarative": 971,
-   "procedural": 1153
+   "procedural": 1152
   },
   "scriptlets": 48
  },
@@ -147,9 +147,9 @@
    "rejected": 1
   },
   "css": {
-   "generic": 16877,
+   "generic": 16853,
    "generichigh": 342,
-   "specific": 18138,
+   "specific": 18140,
    "declarative": 5560,
    "procedural": 20
   },
@@ -181,9 +181,9 @@
   "css": {
    "generic": 1187,
    "generichigh": 14,
-   "specific": 4837,
-   "declarative": 1034,
-   "procedural": 464
+   "specific": 4838,
+   "declarative": 1035,
+   "procedural": 465
   },
   "scriptlets": 30
  },
@@ -211,7 +211,7 @@
    "rejected": 0
   },
   "css": {
-   "generic": 9740,
+   "generic": 9707,
    "generichigh": 112,
    "specific": 4224,
    "declarative": 5,
@@ -289,8 +289,8 @@
   "enabled": true,
   "homeURL": "https://github.com/xRuffKez/NRD?tab=readme-ov-file",
   "filters": {
-   "total": 8733,
-   "accepted": 8733,
+   "total": 8789,
+   "accepted": 8789,
    "rejected": 0
   },
   "rules": {
@@ -300,7 +300,7 @@
    "removeparam": 0,
    "redirect": 0,
    "modifyHeaders": 0,
-   "strictblock": 8733,
+   "strictblock": 8789,
    "urlskip": 0,
    "discarded": 0,
    "rejected": 0
@@ -422,8 +422,8 @@
   "tags": "ads chinese 中文",
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 14512,
-   "accepted": 14502,
+   "total": 14517,
+   "accepted": 14507,
    "rejected": 3
   },
   "rules": {
@@ -433,7 +433,7 @@
    "removeparam": 2,
    "redirect": 36,
    "modifyHeaders": 8,
-   "strictblock": 5675,
+   "strictblock": 5680,
    "urlskip": 0,
    "discarded": 0,
    "rejected": 8
@@ -577,7 +577,7 @@
   "css": {
    "generic": 2422,
    "generichigh": 516,
-   "specific": 1582,
+   "specific": 1583,
    "declarative": 45,
    "procedural": 90
   },
@@ -728,13 +728,13 @@
   "tags": "ads assamese bengali gujarati hindi kannada malayalam marathi nepali punjabi sinhala tamil telugu",
   "homeURL": "https://github.com/mediumkreation/IndianList",
   "filters": {
-   "total": 4703,
-   "accepted": 4703,
+   "total": 4706,
+   "accepted": 4706,
    "rejected": 0
   },
   "rules": {
-   "total": 4663,
-   "plain": 4662,
+   "total": 4666,
+   "plain": 4665,
    "regex": 0,
    "removeparam": 0,
    "redirect": 0,
@@ -747,7 +747,7 @@
   "css": {
    "generic": 0,
    "generichigh": 0,
-   "specific": 4842,
+   "specific": 4841,
    "declarative": 0,
    "procedural": 116
   },
@@ -917,8 +917,8 @@
   "css": {
    "generic": 131,
    "generichigh": 12,
-   "specific": 4584,
-   "declarative": 180,
+   "specific": 4585,
+   "declarative": 181,
    "procedural": 731
   },
   "scriptlets": 20
@@ -1068,13 +1068,13 @@
   "tags": "ads afrikaans be belgië frisian dutch flemish nederlands netherlands nl sr suriname za",
   "homeURL": "https://adguard.com/kb/general/ad-filtering/adguard-filters/",
   "filters": {
-   "total": 541,
-   "accepted": 539,
+   "total": 543,
+   "accepted": 541,
    "rejected": 0
   },
   "rules": {
-   "total": 468,
-   "plain": 465,
+   "total": 469,
+   "plain": 466,
    "regex": 1,
    "removeparam": 0,
    "redirect": 2,
@@ -1102,13 +1102,13 @@
   "tags": "ads norwegian danish icelandic",
   "homeURL": "https://github.com/DandelionSprout/adfilt",
   "filters": {
-   "total": 2428,
-   "accepted": 2428,
+   "total": 2429,
+   "accepted": 2429,
    "rejected": 0
   },
   "rules": {
-   "total": 634,
-   "plain": 616,
+   "total": 635,
+   "plain": 617,
    "regex": 5,
    "removeparam": 0,
    "redirect": 6,
@@ -1121,7 +1121,7 @@
   "css": {
    "generic": 219,
    "generichigh": 33,
-   "specific": 678,
+   "specific": 679,
    "declarative": 132,
    "procedural": 59
   },
@@ -1171,13 +1171,13 @@
   "tags": "ads romanian română moldavian moldovenească молдовеняскэ",
   "homeURL": "https://github.com/tcptomato/ROad-Block",
   "filters": {
-   "total": 509,
-   "accepted": 508,
+   "total": 511,
+   "accepted": 510,
    "rejected": 0
   },
   "rules": {
-   "total": 379,
-   "plain": 368,
+   "total": 381,
+   "plain": 370,
    "regex": 4,
    "removeparam": 0,
    "redirect": 2,
@@ -1190,7 +1190,7 @@
   "css": {
    "generic": 10,
    "generichigh": 2,
-   "specific": 369,
+   "specific": 370,
    "declarative": 3,
    "procedural": 54
   },
@@ -1327,8 +1327,8 @@
   "css": {
    "generic": 87,
    "generichigh": 4,
-   "specific": 1647,
-   "declarative": 164,
+   "specific": 1651,
+   "declarative": 166,
    "procedural": 72
   },
   "scriptlets": 25
@@ -1397,7 +1397,7 @@
    "generichigh": 46,
    "specific": 1328,
    "declarative": 237,
-   "procedural": 210
+   "procedural": 211
   },
   "scriptlets": 18
  },

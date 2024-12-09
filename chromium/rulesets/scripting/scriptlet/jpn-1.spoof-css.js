@@ -39,9 +39,9 @@ const uBOL_spoofCSS = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["ins.adsbygoogle","display","block"],["a[style*=\"display:\"][href^=\"https://al.dmm.co.jp\"]","display","flex !important"]];
+const argsList = [["ins.adsbygoogle","display","block"],["a[style*=\"display:\"][href^=\"https://al.dmm.co.jp\"] img","height","20px"],["a[style*=\"display:\"][href^=\"https://al.dmm.co.jp\"] img","display","block"]];
 
-const hostnamesMap = new Map([["yourfones.net",0],["exploader.net",1]]);
+const hostnamesMap = new Map([["yourfones.net",0],["exploader.net",[1,2]]]);
 
 const entitiesMap = new Map([]);
 

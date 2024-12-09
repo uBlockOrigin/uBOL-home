@@ -366,5 +366,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["digisport.ro"],"resourceTypes":["xmlhttprequest"]},"id":365,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["filmexxx.live"],"resourceTypes":["script"],"urlFilter":"||gonowx.com/*?filmexxx.live"},"id":366,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||gsp.ro/usr/widgets/*/cptm*"},"id":367,"priority":10},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["tvonline123.com"],"requestMethods":["get"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":368,"priority":30}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["tvonline123.com"],"requestMethods":["get"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":368,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"https://github.com/tcptomato/road-block/issues/529"},"id":369,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||citu.ro/ads/"},"id":370,"priority":10}
 ]

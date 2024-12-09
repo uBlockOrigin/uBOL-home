@@ -511,5 +511,5 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.html"},"type":"redirect"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||domain.com/ads.html"},"id":510,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"domainType":"firstParty","urlFilter":"||maps.arcgis.com/apps/*/appmeasurement.js^"},"id":511,"priority":41},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"domainType":"thirdParty","initiatorDomains":["im9.eu"],"resourceTypes":["image"],"urlFilter":"/advert."},"id":512,"priority":11},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["edu","gov"],"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/www\\.[a-z]{12,16}\\.com\\/[a-zA-Z0-9]{3}[\\/a-zA-Z0-9]y\\/[-a-z]{7,15}\\.min\\.js$","requestDomains":["com"],"resourceTypes":["script"]},"id":513,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/googletagservices_gpt.js"},"type":"redirect"},"condition":{"initiatorDomains":["wralsportsfan.com"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||g.doubleclick.net/tag/js/gpt.js"},"id":513,"priority":50}
 ]

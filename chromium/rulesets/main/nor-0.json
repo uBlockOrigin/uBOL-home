@@ -614,5 +614,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||tvsporten.dk/media/tvchannels/100x60_logo.png^"},"id":613,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["admob.dk","admob.no","adnordics.com","adserver.xh.no","adservice.com","adservicemedia.dk","betterbanners.org","bytelab.dk","cluster.chart.dk","cncpt.dk","collector.schibsted.io","delivered-by-madington.com","dotbanner.dk","easy-ad.no","easy-ads.dk","gcp.passendo.com","heartbeat.airserve.net","images.passendo.com","kunde.apt.no","kynning.olis.is","nichehuset.dk","openad.visir.is","plausible.webfokus.no","pliing.com","psscdn.com","samfilm.codelab.is","sannsyn.com","spania.no","static.airserve.net","step.dk","tankeogteknikk.no","vefbordi.is","videotool.fbg.dk","widget.tippebannere.no"]},"id":614,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ukenr.no/bobs/iframe.php^"},"id":615,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ugenr.dk/bobs/iframe.php^"},"id":616,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ugenr.dk/bobs/iframe.php^"},"id":616,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||cdplanet.no/images/previews/*_app_preview.png^"},"id":617,"priority":10}
 ]

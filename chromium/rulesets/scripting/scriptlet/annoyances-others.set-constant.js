@@ -457,7 +457,6 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
         } else if ( raw.startsWith('{') && raw.endsWith('}') ) {
             try { value = safe.JSON_parse(raw).value; } catch(ex) { return; }
         }
-        return raw;
     } else {
         return;
     }

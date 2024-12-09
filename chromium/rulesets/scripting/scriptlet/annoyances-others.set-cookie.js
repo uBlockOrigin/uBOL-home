@@ -39,9 +39,9 @@ const uBOL_setCookie = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["registration_modal_dismissed","true"],["apv","false"],["campaign_seen_today","true"],["premium_popup","1"]];
+const argsList = [["registration_modal_dismissed","true"],["apv","false"],["patreonAnnouncementShown","true"],["campaign_seen_today","true"],["premium_popup","1"]];
 
-const hostnamesMap = new Map([["thebump.com",0],["nzherald.co.nz",1],["democracynow.org",2],["rumble.com",3]]);
+const hostnamesMap = new Map([["thebump.com",0],["nzherald.co.nz",1],["gmap-pedometer.com",2],["democracynow.org",3],["rumble.com",4]]);
 
 const entitiesMap = new Map([]);
 
