@@ -42,7 +42,7 @@ jobs:
           tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
           cd - > /dev/null
           mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.chromium.mv3.zip \
-             ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.beta.chromium.zip
+             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
       - name: Create GitHub beta release
         id: create_beta_release
         uses: softprops/action-gh-release@v2
@@ -67,4 +67,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.TAGNAME }}
-          files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.beta.chromium.zip
+          files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
