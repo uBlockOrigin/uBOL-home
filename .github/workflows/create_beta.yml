@@ -41,7 +41,7 @@ jobs:
           cd $UBLOCK_REPO_DIR
           tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
           cd - > /dev/null
-          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.chromium.zip \
+          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.chromium.mv3.zip \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.beta.chromium.zip
       - name: Create GitHub beta release
         id: create_beta_release
