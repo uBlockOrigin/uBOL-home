@@ -5,28 +5,28 @@
   "enabled": true,
   "homeURL": "https://github.com/uBlockOrigin/uAssets",
   "filters": {
-   "total": 118358,
-   "accepted": 117013,
+   "total": 118413,
+   "accepted": 117066,
    "rejected": 136
   },
   "rules": {
    "total": 17500,
-   "plain": 15620,
+   "plain": 15619,
    "regex": 239,
    "removeparam": 53,
    "redirect": 513,
    "modifyHeaders": 69,
-   "strictblock": 74661,
+   "strictblock": 74709,
    "urlskip": 100,
    "discarded": 0,
-   "rejected": 897
+   "rejected": 898
   },
   "css": {
    "generic": 13651,
    "generichigh": 516,
-   "specific": 11718,
+   "specific": 11725,
    "declarative": 971,
-   "procedural": 1152
+   "procedural": 1153
   },
   "scriptlets": 48
  },
@@ -130,13 +130,13 @@
   "enabled": false,
   "homeURL": "https://github.com/easylist/easylist#fanboy-lists",
   "filters": {
-   "total": 1949,
-   "accepted": 1947,
+   "total": 1947,
+   "accepted": 1945,
    "rejected": 0
   },
   "rules": {
-   "total": 1639,
-   "plain": 1637,
+   "total": 1638,
+   "plain": 1636,
    "regex": 1,
    "removeparam": 0,
    "redirect": 0,
@@ -147,11 +147,11 @@
    "rejected": 1
   },
   "css": {
-   "generic": 16853,
-   "generichigh": 342,
-   "specific": 18140,
-   "declarative": 5560,
-   "procedural": 20
+   "generic": 16748,
+   "generichigh": 291,
+   "specific": 18147,
+   "declarative": 5561,
+   "procedural": 21
   },
   "scriptlets": 18
  },
@@ -181,7 +181,7 @@
   "css": {
    "generic": 1187,
    "generichigh": 14,
-   "specific": 4838,
+   "specific": 4839,
    "declarative": 1035,
    "procedural": 465
   },
@@ -213,7 +213,7 @@
   "css": {
    "generic": 9707,
    "generichigh": 112,
-   "specific": 4224,
+   "specific": 4225,
    "declarative": 5,
    "procedural": 14
   },
@@ -258,13 +258,13 @@
   "enabled": false,
   "homeURL": "https://github.com/easylist/easylist#fanboy-lists",
   "filters": {
-   "total": 705,
-   "accepted": 705,
+   "total": 706,
+   "accepted": 706,
    "rejected": 0
   },
   "rules": {
-   "total": 398,
-   "plain": 398,
+   "total": 399,
+   "plain": 399,
    "regex": 0,
    "removeparam": 0,
    "redirect": 0,
@@ -277,30 +277,30 @@
   "css": {
    "generic": 774,
    "generichigh": 19,
-   "specific": 2331,
+   "specific": 2332,
    "declarative": 42,
    "procedural": 19
   },
   "scriptlets": 11
  },
  {
-  "id": "nrd.30day.phishing",
-  "name": "30-day Phishing Domain List",
+  "id": "urlhaus.full",
+  "name": "Malicious URL Blocklist",
   "enabled": true,
-  "homeURL": "https://github.com/xRuffKez/NRD?tab=readme-ov-file",
+  "homeURL": "https://gitlab.com/malware-filter/urlhaus-filter",
   "filters": {
-   "total": 8789,
-   "accepted": 8789,
+   "total": 66325,
+   "accepted": 66325,
    "rejected": 0
   },
   "rules": {
-   "total": 1,
-   "plain": 1,
+   "total": 2422,
+   "plain": 2422,
    "regex": 0,
    "removeparam": 0,
    "redirect": 0,
    "modifyHeaders": 0,
-   "strictblock": 8789,
+   "strictblock": 63841,
    "urlskip": 0,
    "discarded": 0,
    "rejected": 0
@@ -422,8 +422,8 @@
   "tags": "ads chinese 中文",
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 14517,
-   "accepted": 14507,
+   "total": 14524,
+   "accepted": 14514,
    "rejected": 3
   },
   "rules": {
@@ -433,7 +433,7 @@
    "removeparam": 2,
    "redirect": 36,
    "modifyHeaders": 8,
-   "strictblock": 5680,
+   "strictblock": 5687,
    "urlskip": 0,
    "discarded": 0,
    "rejected": 8
@@ -679,7 +679,7 @@
   "css": {
    "generic": 60,
    "generichigh": 14,
-   "specific": 472,
+   "specific": 471,
    "declarative": 23,
    "procedural": 24
   },
@@ -728,13 +728,13 @@
   "tags": "ads assamese bengali gujarati hindi kannada malayalam marathi nepali punjabi sinhala tamil telugu",
   "homeURL": "https://github.com/mediumkreation/IndianList",
   "filters": {
-   "total": 4706,
-   "accepted": 4706,
+   "total": 4709,
+   "accepted": 4709,
    "rejected": 0
   },
   "rules": {
-   "total": 4666,
-   "plain": 4665,
+   "total": 4669,
+   "plain": 4668,
    "regex": 0,
    "removeparam": 0,
    "redirect": 0,
@@ -747,9 +747,9 @@
   "css": {
    "generic": 0,
    "generichigh": 0,
-   "specific": 4841,
+   "specific": 4845,
    "declarative": 0,
-   "procedural": 116
+   "procedural": 115
   },
   "scriptlets": 0
  },
@@ -898,28 +898,28 @@
   "tags": "ads japanese 日本語",
   "homeURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
   "filters": {
-   "total": 2116,
-   "accepted": 2116,
+   "total": 2121,
+   "accepted": 2121,
    "rejected": 0
   },
   "rules": {
-   "total": 1567,
+   "total": 1568,
    "plain": 1505,
    "regex": 20,
    "removeparam": 0,
    "redirect": 28,
    "modifyHeaders": 0,
-   "strictblock": 165,
+   "strictblock": 166,
    "urlskip": 0,
    "discarded": 0,
-   "rejected": 14
+   "rejected": 15
   },
   "css": {
    "generic": 131,
    "generichigh": 12,
-   "specific": 4585,
-   "declarative": 181,
-   "procedural": 731
+   "specific": 4587,
+   "declarative": 182,
+   "procedural": 732
   },
   "scriptlets": 20
  },
@@ -1225,8 +1225,8 @@
   "css": {
    "generic": 332,
    "generichigh": 479,
-   "specific": 7194,
-   "declarative": 897,
+   "specific": 7198,
+   "declarative": 898,
    "procedural": 342
   },
   "scriptlets": 25
@@ -1327,7 +1327,7 @@
   "css": {
    "generic": 87,
    "generichigh": 4,
-   "specific": 1651,
+   "specific": 1652,
    "declarative": 166,
    "procedural": 72
   },
@@ -1395,9 +1395,9 @@
   "css": {
    "generic": 229,
    "generichigh": 46,
-   "specific": 1328,
+   "specific": 1330,
    "declarative": 237,
-   "procedural": 211
+   "procedural": 213
   },
   "scriptlets": 18
  },
@@ -1478,18 +1478,18 @@
   "tags": "ads vietnamese việt",
   "homeURL": "https://abpvn.com/",
   "filters": {
-   "total": 518,
-   "accepted": 518,
+   "total": 516,
+   "accepted": 516,
    "rejected": 0
   },
   "rules": {
-   "total": 355,
-   "plain": 340,
+   "total": 356,
+   "plain": 341,
    "regex": 0,
    "removeparam": 0,
    "redirect": 6,
    "modifyHeaders": 9,
-   "strictblock": 92,
+   "strictblock": 91,
    "urlskip": 0,
    "discarded": 0,
    "rejected": 0
@@ -1497,7 +1497,7 @@
   "css": {
    "generic": 16,
    "generichigh": 4,
-   "specific": 472,
+   "specific": 473,
    "declarative": 8,
    "procedural": 4
   },

@@ -88,7 +88,7 @@
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["steamcommunity.com"],"regexFilter":"^https:\\/\\/steam\\.(?:community)?workshop-?[a-z]+\\.com\\/","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":87,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["garena.vn"],"regexFilter":"^https:\\/\\/(?:www\\.)?(?:ff[-.])?member[-.]gare[a-z]+a(?:\\.pro)?\\.vn\\/","requestDomains":["vn"],"resourceTypes":["main_frame"]},"id":88,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["garena.vn"],"regexFilter":"^https:\\/\\/(?:www\\.)?(?:ff[-.])?men?mber[-.]garena\\.vn\\/","requestDomains":["vn"],"resourceTypes":["main_frame"]},"id":89,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/[a-f0-9]{58}\\.pages\\.dev\\/","requestDomains":["pages.dev"],"resourceTypes":["main_frame"]},"id":90,"priority":10},
+{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/(?:[a-f0-9]+\\.)?[a-f0-9]{58}\\.pages\\.dev\\/","requestDomains":["pages.dev"],"resourceTypes":["main_frame"]},"id":90,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"\\.com(\\.[a-z]{2})?\\/wp-includes\\/images\\/smilies\\/images?\\/smili?es\\/[a-z]{25,35}\\.html","resourceTypes":["main_frame"]},"id":91,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/[a-z]{14}\\.azureedge\\.net\\/\\d{4}j\\b","requestDomains":["azureedge.net"],"resourceTypes":["main_frame"]},"id":92,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/[-a-z]{4,}\\.dogfriendlytahoe\\.com\\/","requestDomains":["dogfriendlytahoe.com"],"resourceTypes":["main_frame"]},"id":93,"priority":10},

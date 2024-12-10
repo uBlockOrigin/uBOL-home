@@ -60,9 +60,9 @@
         "path": "/rulesets/main/annoyances-others.json"
       },
       {
-        "id": "nrd.30day.phishing",
+        "id": "urlhaus.full",
         "enabled": true,
-        "path": "/rulesets/main/nrd.30day.phishing.json"
+        "path": "/rulesets/main/urlhaus.full.json"
       },
       {
         "id": "stevenblack-hosts",
@@ -271,11 +271,11 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2024.12.9.805",
+  "version": "2024.12.10.932",
   "web_accessible_resources": [
     {
       "resources": [
-        "/strictblock.7c2f5ba629ec7543.html"
+        "/strictblock.949d0b6b31c24176.html"
       ],
       "matches": [
         "<all_urls>"
