@@ -41,11 +41,8 @@ jobs:
           cd $UBLOCK_REPO_DIR
           tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
           cd - > /dev/null
-      - name: Create extension package
-        run: |
-          google-chrome-stable --pack-extension="${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.chromium/"
-          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.chromium.crx \
-             ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.chromium.crx
+          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.chromium.zip \
+             ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.beta.chromium.zip
       - name: Create GitHub beta release
         id: create_beta_release
         uses: softprops/action-gh-release@v2
@@ -70,4 +67,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.TAGNAME }}
-          files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.chromium.crx
+          files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.beta.chromium.zip
