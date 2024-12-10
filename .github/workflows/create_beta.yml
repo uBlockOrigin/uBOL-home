@@ -42,9 +42,9 @@ jobs:
           tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
           cd - > /dev/null
       - name: Create extension package
-        uses: browser-actions/setup-chrome@v1
         run: |
-          chrome --pack-extension="${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.chromium/"
+          sudo apt-get install chromium-browser
+          chromium-browser --pack-extension="${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.chromium/"
           mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.chromium.crx \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.${{ env.TAGNAME }}.chromium.crx
       - name: Create GitHub beta release
