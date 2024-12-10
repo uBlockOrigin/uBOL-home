@@ -43,8 +43,7 @@ jobs:
           cd - > /dev/null
       - name: Create extension package
         run: |
-          sudo apt-get install chromium-browser
-          chromium-browser --pack-extension="${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.chromium/"
+          google-chrome-stable --pack-extension="${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.chromium/"
           mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.chromium.crx \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.${{ env.TAGNAME }}.chromium.crx
       - name: Create GitHub beta release
