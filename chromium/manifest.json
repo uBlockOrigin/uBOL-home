@@ -65,6 +65,11 @@
         "path": "/rulesets/main/urlhaus.full.json"
       },
       {
+        "id": "openphish.domains",
+        "enabled": false,
+        "path": "/rulesets/main/openphish.domains.json"
+      },
+      {
         "id": "stevenblack-hosts",
         "enabled": false,
         "path": "/rulesets/main/stevenblack-hosts.json"
@@ -235,6 +240,11 @@
         "path": "/rulesets/main/tur-0.json"
       },
       {
+        "id": "ukr-0",
+        "enabled": false,
+        "path": "/rulesets/main/ukr-0.json"
+      },
+      {
         "id": "vie-1",
         "enabled": false,
         "path": "/rulesets/main/vie-1.json"
@@ -271,11 +281,11 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2024.12.10.932",
+  "version": "2024.12.15.1269",
   "web_accessible_resources": [
     {
       "resources": [
-        "/strictblock.949d0b6b31c24176.html"
+        "/strictblock.1b18870df6393b68.html"
       ],
       "matches": [
         "<all_urls>"

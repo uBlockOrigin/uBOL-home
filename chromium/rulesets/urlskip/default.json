@@ -34,8 +34,17 @@
  },
  {
   "re": "^https?:\\/\\/(?:[^.]+\\.){2}(?:com|io|net)\\/c(?:\\/\\d+){3}\\/?\\?.*?&?url=http",
+  "c": true,
   "steps": [
    "?url",
+   "+https"
+  ]
+ },
+ {
+  "re": "^https?:\\/\\/(?:[^.]+\\.){2}(?:com|io|net)\\/c(?:\\/\\d+){3}\\/?\\?.*?&?URL=http",
+  "c": true,
+  "steps": [
+   "?URL",
    "+https"
   ]
  },
@@ -76,6 +85,13 @@
   "steps": [
    "/\\/destination:([^\\/]+)/",
    "-uricomponent"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?7tiv\\.net/\\S*?(?:[^%.0-9a-z_-]|$)u=http",
+  "steps": [
+   "?u",
+   "+https"
   ]
  },
  {
@@ -126,6 +142,12 @@
  },
  {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?howl\\.me/link\\S*?(?:[^%.0-9a-z_-]|$)url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?howl\\.link/link\\S*?(?:[^%.0-9a-z_-]|$)url=http",
   "steps": [
    "?url"
   ]
@@ -517,9 +539,22 @@
   ]
  },
  {
-  "re": "^https?:\\/\\/www\\.anrdoezrs\\.net\\/links\\/\\d+\\/type\\/dlg\\/(?:sid\\/[^\\/]+\\/)?http",
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?c\\.next2\\.io/\\S*?(?:[^%.0-9a-z_-]|$)link=http",
   "steps": [
-   "/\\/dlg\\/(?:sid\\/[^\\/]+\\/)?(http.+)/",
+   "?link"
+  ]
+ },
+ {
+  "re": "^https?:\\/\\/(?:www\\.anrdoezrs\\.net|cj\\.dotomi\\.com)\\/links(?:-t)?\\/\\d+\\/sid\\/[^\\/]+\\/http",
+  "steps": [
+   "/\\/sid\\/[^\\/]+\\/(http[^?]+)/",
+   "+https"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?anrdoezrs\\.net/links/\\S*?/type/dlg/http",
+  "steps": [
+   "/\\/dlg\\/(http[^?]+)/",
    "+https"
   ]
  },
@@ -638,6 +673,13 @@
   "re": "/vp/download/goto/\\?u=http",
   "steps": [
    "?u"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?email\\.stripe\\.com/cl0/",
+  "steps": [
+   "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",
+   "-uricomponent"
   ]
  }
 ]

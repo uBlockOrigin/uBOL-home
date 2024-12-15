@@ -181,7 +181,7 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||dmag.co.il/pub/shvii/"},"id":180,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["13news.co.il","13tv.co.il","one.co.il"],"resourceTypes":["script"],"urlFilter":"||googletagmanager.com/gtag/js?id="},"id":181,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["clalitsmile.co.il","eshet.com","one.co.il"],"resourceTypes":["script"],"urlFilter":"||googletagmanager.com/gtm.js"},"id":182,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["13news.co.il","13tv.co.il","bizportal.co.il","calcalist.co.il","hamal.co.il","maariv.co.il","mako.co.il","n12.co.il","one.co.il","sport5.co.il","tech12.co.il","tvbee.co.il","ynet.co.il"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":183,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["13news.co.il","13tv.co.il","bizportal.co.il","calcalist.co.il","hamal.co.il","maariv.co.il","mako.co.il","n12.co.il","now14.co.il","one.co.il","sport5.co.il","tech12.co.il","tvbee.co.il","ynet.co.il"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":183,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["inn.co.il"],"resourceTypes":["script"],"urlFilter":"||info.a7.org/info/a7delivery_f.php"},"id":184,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||info.jdn.co.il/r/a7delivery_f.php?func=floadone"},"id":185,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||jdn.co.il/wp-content/plugins/jdn_ads/js/info.js"},"id":186,"priority":30},
@@ -233,5 +233,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||sport5.co.il^*/dfp/"},"id":232,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||weather2day.co.il/ads.js?"},"id":233,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||foodsdictionary.co.il/static/"},"id":234,"priority":30},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["www.kore.co.il"],"resourceTypes":["script"],"urlFilter":"||ext.kore.co.il/out/"},"id":235,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["www.kore.co.il"],"resourceTypes":["script"],"urlFilter":"||ext.kore.co.il/out/"},"id":235,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["channel14.web-prd.immergo.tv","now14.co.il"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3_dai.js"},"id":236,"priority":30}
 ]

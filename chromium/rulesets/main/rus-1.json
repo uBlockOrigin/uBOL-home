@@ -1,7 +1,7 @@
 [
 {"action":{"type":"block"},"condition":{"urlFilter":".com/a.gif?"},"id":1,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["idaprikol.ru","thg.ru"],"urlFilter":"/1x1.gif"},"id":2,"priority":10},
-{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["bosch-home.ru","bsh-group.ru","comfy.ua","patagonia.com","pgatour.com","sport-express.ru","zobiki.ru"],"urlFilter":"/1x1.png"},"id":3,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["bosch-home.ru","bsh-group.ru","comfy.ua","oplmanager.com","patagonia.com","pgatour.com","sport-express.ru","zobiki.ru"],"urlFilter":"/1x1.png"},"id":3,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/?local_ga_js="},"id":4,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/?sentry_key="},"id":5,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/acint-counter.js"},"id":6,"priority":10},

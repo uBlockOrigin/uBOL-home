@@ -297,6 +297,7 @@
      "infinityscans.net",
      "infinityscans.org",
      "infinityscans.xyz",
+     "player-cdn.com",
      "playhydrax.com"
     ]
    ],
@@ -330,6 +331,7 @@
      "slant.co",
      "smsonline.cloud",
      "startpage.com",
+     "webdesignledger.com",
      "workplace-products.co.uk",
      "www.lenovo.com",
      "ygosu.com",
@@ -498,19 +500,24 @@
    [
     "spoof-css",
     [
-     "1001tracklists.com",
      "banaraswap.in",
      "dev.miuiflash.com",
      "djxmaza.in",
      "download.megaup.net",
-     "exploader.net",
      "jytechs.in",
      "kiktu.com",
      "techcyan.com",
      "thecubexguide.com",
      "trangchu.news",
-     "upshrink.com",
-     "wiki.yjsnpi.nu"
+     "upshrink.com"
+    ]
+   ],
+   [
+    "trusted-override-element-method",
+    [
+     "bing.com",
+     "cety.app",
+     "cuty.me"
     ]
    ],
    [
@@ -551,7 +558,9 @@
    [
     "trusted-suppress-native-method",
     [
-     "cinema.com.my"
+     "cinema.com.my",
+     "sportnews.to",
+     "sportshub.to"
     ]
    ],
    [
@@ -1643,7 +1652,6 @@
      "haeuser.de",
      "hagagruppen.se",
      "halima-magazin.com",
-     "handelsblatt.com",
      "handelskammaren.com",
      "happysocks.com",
      "hausgeraete-kraemer.de",
@@ -1704,6 +1712,7 @@
      "inyova.at",
      "inyova.ch",
      "inyova.de",
+     "istore.co.za",
      "it-times.de",
      "ivass.it",
      "izkigolf.eus",
@@ -2418,6 +2427,7 @@
      "thehub21.com",
      "thingtesting.com",
      "ticketmelon.com",
+     "tme.eu",
      "traefik.io",
      "trigger.dev",
      "triumphtechnicalinformation.com",
@@ -2617,6 +2627,12 @@
     "trusted-replace-node-text",
     [
      "linternaute.com"
+    ]
+   ],
+   [
+    "set-attr",
+    [
+     "salzburg.info"
     ]
    ]
   ]
@@ -2967,6 +2983,7 @@
     "trusted-set-cookie",
     [
      "entra.news",
+     "fandom.com",
      "microsoftsecurityinsights.com",
      "substack.com"
     ]
@@ -3813,6 +3830,12 @@
     ]
    ],
    [
+    "remove-node-text",
+    [
+     "japscan.lol"
+    ]
+   ],
+   [
     "set-cookie",
     [
      "jeune-gay.fr",
@@ -4461,7 +4484,17 @@
    [
     "abort-on-property-write",
     [
-     "pixnest.pipio.site"
+     "bridalgown.work",
+     "contents-group.work",
+     "heisei-housewarming.work",
+     "inkbrushpainting.work",
+     "liquidfoundation.work",
+     "nailcolor.work",
+     "pixnest.pipio.site",
+     "studioglass.work",
+     "tapestry.work",
+     "teaceremony.work",
+     "weddinghall.work"
     ]
    ],
    [
@@ -4519,9 +4552,14 @@
    [
     "spoof-css",
     [
-     "exploader.net",
      "wiki.yjsnpi.nu",
      "yourfones.net"
+    ]
+   ],
+   [
+    "abort-on-stack-trace",
+    [
+     "wiki.yjsnpi.nu"
     ]
    ],
    [
@@ -4561,9 +4599,7 @@
     [
      "520call.me",
      "520cc.cc",
-     "bridalgown.work",
      "cmnw.jp",
-     "contents-group.work",
      "coolpan.net",
      "ddd-smart.net",
      "dotti2.jp",
@@ -4574,22 +4610,14 @@
      "g-pc.info",
      "gotouchi.jp",
      "h-ken.net",
-     "heisei-housewarming.work",
-     "inkbrushpainting.work",
      "intaa.net",
      "jav380.com",
-     "liquidfoundation.work",
-     "nailcolor.work",
      "onagazou.info",
      "pictab.art",
      "pochitto2.jp",
      "ponta.abstractpainting.work",
      "sonae.sankei.co.jp",
-     "studioglass.work",
-     "sukima.me",
-     "tapestry.work",
-     "teaceremony.work",
-     "weddinghall.work"
+     "sukima.me"
     ]
    ],
    [
@@ -5780,7 +5808,6 @@
     "remove-attr",
     [
      "afisha.ru",
-     "byruthub.org",
      "cnews.ru",
      "film.ru",
      "filmpro.ru",
@@ -7295,6 +7322,216 @@
   ]
  ],
  [
+  "ukr-0",
+  [
+   [
+    "remove-node-text",
+    [
+     "1plus1.video",
+     "24tv.ua",
+     "5.ua",
+     "add.ua",
+     "adidas.ua",
+     "agro-business.com.ua",
+     "ain.ua",
+     "alcomag.ua",
+     "apostrophe.ua",
+     "arber.ua",
+     "ascania-auto.com",
+     "ascania-ff.com.ua",
+     "ascania-flora.ua",
+     "ascania-pack.com",
+     "ascania-shina.com",
+     "ascania.energy",
+     "ascania.ua",
+     "atbmarket.com",
+     "auchan.ua",
+     "avrora.ua",
+     "bagatolososia.kiev.ua",
+     "bayadera.ua",
+     "bigmir.net",
+     "bihus.info",
+     "buhgalter.com.ua",
+     "buhgalter911.com",
+     "buki.com.ua",
+     "businessua.com",
+     "censor.net",
+     "champion.com.ua",
+     "chas.news",
+     "chytomo.com",
+     "city24.ua",
+     "click.ua",
+     "codeua.com",
+     "colins.ua",
+     "ctrs.com.ua",
+     "dengi.ua",
+     "dev.ua",
+     "dou.ua",
+     "dsnews.ua",
+     "dtek.com",
+     "dw.com",
+     "easypay.ua",
+     "epravda.com.ua",
+     "espreso.tv",
+     "eurointegration.com.ua",
+     "eurolamp.ua",
+     "f.ua",
+     "f1analytic.com",
+     "fakty.com.ua",
+     "fckarpaty.org.ua",
+     "fckryvbas.com",
+     "finance.ua",
+     "focus.ua",
+     "football-ukraine.com",
+     "football.ua",
+     "football24.ua",
+     "footballgazeta.com",
+     "fora.ua",
+     "forbes.ua",
+     "foxtrot.com.ua",
+     "fozzyshop.ua",
+     "galinfo.com.ua",
+     "galka.if.ua",
+     "gazeta.ua",
+     "glavred.net",
+     "gordonua.com",
+     "gorod.dp.ua",
+     "greendayvodka.com",
+     "highload.today",
+     "hostiq.ua",
+     "hromadske.ua",
+     "i.ua",
+     "ictv.ua",
+     "ideabank.ua",
+     "iforum.ua",
+     "incrypted.com",
+     "inforesist.org",
+     "informator.ua",
+     "inter.ua",
+     "interfax.com.ua",
+     "internetua.com",
+     "intertop.ua",
+     "isport.ua",
+     "istpravda.com.ua",
+     "itc.ua",
+     "itsider.com.ua",
+     "ivona.ua",
+     "kasta.ua",
+     "kinoafisha.ua",
+     "klo.ua",
+     "kniga.biz.ua",
+     "kontramarka.ua",
+     "ktc.ua",
+     "kvas-bev.com.ua",
+     "kyivindependent.com",
+     "kyivpost.com",
+     "kyivstar.ua",
+     "leboutique.com",
+     "lifecell.ua",
+     "liga.net",
+     "ligazakon.net",
+     "maudau.com.ua",
+     "maximum.fm",
+     "megogo.net",
+     "meteo.ua",
+     "meteofor.com.ua",
+     "metinvest-smc.com",
+     "metinvestholding.com",
+     "mezha.media",
+     "mezha.net",
+     "mind.ua",
+     "minfin.com.ua",
+     "mirohost.net",
+     "mmr.ua",
+     "motto.ua",
+     "moyo.ua",
+     "myfishka.com",
+     "newbalance.ua",
+     "novosti.dn.ua",
+     "novus.ua",
+     "novy.tv",
+     "npshopping.com",
+     "nv.ua",
+     "okko.ua",
+     "online.ua",
+     "onlyrose.ua",
+     "osvita.ua",
+     "ottry.com",
+     "pcweek.ua",
+     "platfor.ma",
+     "playua.net",
+     "polissyafc.com",
+     "pravda.com.ua",
+     "psm7.com",
+     "radiosvoboda.org",
+     "real-vin.com",
+     "rivnepost.rv.ua",
+     "rubryka.com",
+     "samsungshop.com.ua",
+     "shafa.ua",
+     "shakhtar.com",
+     "shopping.ua",
+     "sim23.ua",
+     "sinoptik.ua",
+     "slovnyk.ua",
+     "smachno.ua",
+     "socar.ua",
+     "speka.media",
+     "sport.ua",
+     "sport24.ua",
+     "sportanalytic.com",
+     "sushiya.ua",
+     "suspilne.media",
+     "tefal.ua",
+     "telegraf.com.ua",
+     "thepage.ua",
+     "theukrainians.org",
+     "thrash.ua",
+     "ti.ua",
+     "tochka.net",
+     "tribuna.com",
+     "trueua.info",
+     "tv.ua",
+     "ua.news",
+     "uklon.com.ua",
+     "ukr.net",
+     "ukraine.com.ua",
+     "ukrnafta.com",
+     "ukrposhta.ua",
+     "ukrzoloto.ua",
+     "upg.ua",
+     "varus.ua",
+     "vctr.media",
+     "vezha.ua",
+     "vikna.tv",
+     "village.com.ua",
+     "viva.ua",
+     "vodafone.ua",
+     "vogue.ua",
+     "volia.com",
+     "weukraine.tv",
+     "wog.ua",
+     "work.ua",
+     "xsport.ua",
+     "yakaboo.ua",
+     "yesport.com.ua",
+     "zaborona.com",
+     "zakaz.ua",
+     "zara.com",
+     "zaxid.net",
+     "zn.ua",
+     "znoclub.com"
+    ]
+   ],
+   [
+    "set-constant",
+    [
+     "starlight.digital"
+    ]
+   ]
+  ]
+ ],
+ [
   "vie-1",
   [
    [
@@ -7314,7 +7551,7 @@
      "cunghocvui.com",
      "damconuong.fun",
      "demo.14412882.com",
-     "doctruyen3qk.pro",
+     "doctruyen3qw.com",
      "dualeotruyenomega.com",
      "freeplayervideo.com",
      "gamek.vn",
@@ -7323,6 +7560,7 @@
      "gocmod.com",
      "goctruyentranhvui6.com",
      "gotphim.com",
+     "haychillz.com",
      "hd.javhay.site",
      "hentaivn.today",
      "hh3dhay.in",
@@ -7350,7 +7588,7 @@
      "p.thoctv.com",
      "phim18hd.in",
      "phimgichill.net",
-     "phimhdctv.com",
+     "phimhdc.wiki",
      "phimlongtieng.com",
      "phimlongtieng.net",
      "phimmoi.club",
@@ -7361,7 +7599,7 @@
      "player-cdn.com",
      "playhydrax.com",
      "quatvn.fit",
-     "rphang.day",
+     "rphang.online",
      "saigon24.net",
      "sayhentai.one",
      "sex.tuoi69.store",
@@ -7495,7 +7733,6 @@
      "geoip.redirect-ads.com",
      "gm.phimsexnhanh.tv",
      "hayhaytv.org",
-     "ihst.org",
      "kenh14.vn",
      "phim.sexhayvl.org",
      "phimsexviet.io",
@@ -7509,6 +7746,7 @@
      "thanhnien.vn",
      "tructiepdabong5.co",
      "tuoitre.vn",
+     "vaoroii.tv",
      "vndoc.com",
      "ww1.ditnhau.cc",
      "www.gvnvh.net",
@@ -7556,6 +7794,12 @@
     "remove-attr",
     [
      "xnxx-sex-videos.com"
+    ]
+   ],
+   [
+    "m3u-prune",
+    [
+     "yeuphim.cc"
     ]
    ]
   ]

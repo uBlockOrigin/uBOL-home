@@ -3099,5 +3099,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.cash/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3098,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nekopoi.lol/wp-content/themes/themenekopoi/js/adsbygoogle.js"},"id":3099,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||rbreezy.xyz/nativeads-v2.js"},"id":3100,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||xmalay.net/nativeads-v2.js"},"id":3101,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||xmalay.net/nativeads-v2.js"},"id":3101,"priority":30},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/janji-gacor.gif"},"id":3102,"priority":10}
 ]

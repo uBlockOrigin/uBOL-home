@@ -218,7 +218,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||clujust.ro/*banner"},"id":217,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||clujust.ro/*.gif"},"id":218,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||napocanews.ro/*banner"},"id":219,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||anime-kage.eu/media/affiliate/"},"id":220,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||antena3constanta.ro/*/*728x90px.gif"},"id":220,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||geekchronicles.ro/*lisandraad"},"id":221,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||geekchronicles.ro/*/ban"},"id":222,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||opiniabuzau.ro/*banner"},"id":223,"priority":10},
@@ -367,6 +367,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["filmexxx.live"],"resourceTypes":["script"],"urlFilter":"||gonowx.com/*?filmexxx.live"},"id":366,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||gsp.ro/usr/widgets/*/cptm*"},"id":367,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["tvonline123.com"],"requestMethods":["get"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":368,"priority":30},
-{"action":{"type":"block"},"condition":{"urlFilter":"https://github.com/tcptomato/road-block/issues/529"},"id":369,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||cdn.knd.ro/media/*/common/placeholders/"},"id":369,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||citu.ro/ads/"},"id":370,"priority":10}
 ]
