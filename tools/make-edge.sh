@@ -12,6 +12,7 @@ mkdir -p $DES
 
 echo "*** uBOLite.edge: Copying reference chromium-based files"
 cp -R chromium/* $DES/
+rm $DES/log.txt
 
 # Edge store requires that all DNR rulesets are at the root of the package
 # https://learn.microsoft.com/answers/questions/918426/cant-update-extension-with-declarative-net-request
