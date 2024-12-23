@@ -66,7 +66,7 @@
       },
       {
         "id": "openphish.domains",
-        "enabled": false,
+        "enabled": true,
         "path": "/rulesets/main/openphish.domains.json"
       },
       {
@@ -281,11 +281,11 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2024.12.15.1269",
+  "version": "2024.12.23.23",
   "web_accessible_resources": [
     {
       "resources": [
-        "/strictblock.1b18870df6393b68.html"
+        "/strictblock.9888d31fc4b7dcbe.html"
       ],
       "matches": [
         "<all_urls>"

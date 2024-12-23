@@ -166,5 +166,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["clk.tradedoubler.com"],"resourceTypes":["main_frame"],"urlFilter":"||clk.tradedoubler.com/click*cdon.fi"},"id":165,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["ad.doubleclick.net"],"resourceTypes":["main_frame"],"urlFilter":"||ad.doubleclick.net/ddm/clk/*coolshop.fi/tuote/"},"id":166,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["click.redditmail.com"]},"id":167,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["elisa.fi"],"urlFilter":"||googletagmanager.com/gtm.js?"},"id":168,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["elisa.fi"],"urlFilter":"||googletagmanager.com/gtm.js?"},"id":168,"priority":30},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||juomaposti.fi/wp-content/uploads/*/paraatibanner-mobiili.jpg"},"id":169,"priority":10}
 ]

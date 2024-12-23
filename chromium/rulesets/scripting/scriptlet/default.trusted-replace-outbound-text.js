@@ -39,9 +39,9 @@ const uBOL_trustedReplaceOutboundText = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["Array.prototype.shift","/^.+$/s","","condition","https"],["atob","window.matchMedia('(display-mode: standalone)').matches","true"]];
+const argsList = [["Array.prototype.shift","/^.+$/s","","condition","https"],["atob","window.matchMedia('(display-mode: standalone)').matches","true"],["decodeURIComponent","/^(Chrome|Firefox)\\/$/","$1/1"]];
 
-const hostnamesMap = new Map([["abysscdn.com",0],["hihihaha1.xyz",0],["player-cdn.com",0],["playhydrax.com",0],["infinityscans.xyz",1],["infinityscans.net",1],["infinityscans.org",1]]);
+const hostnamesMap = new Map([["abysscdn.com",0],["hihihaha1.xyz",0],["player-cdn.com",0],["playhydrax.com",0],["infinityscans.xyz",1],["infinityscans.net",1],["infinityscans.org",1],["dogdrip.net",2],["infinityfree.com",2],["smsonline.cloud",2],["webdesignledger.com",2]]);
 
 const entitiesMap = new Map([]);
 

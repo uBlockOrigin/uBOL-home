@@ -1,0 +1,24 @@
+[
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval' static.veevcdn.co"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "filmpalast.to"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 1817
+}
+]
