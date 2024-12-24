@@ -43,6 +43,15 @@ jobs:
           cd - > /dev/null
           mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.chromium.mv3.zip \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
+      # Firefox
+      - name: Build Firefox uBOLite MV3 packages
+        run: |
+          UBOL_REPO_DIR=$(pwd)
+          cd $UBLOCK_REPO_DIR
+          tools/make-mv3.sh firefox ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
+          cd - > /dev/null
+          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.firefox.mv3.xpi \
+             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.firefox.xpi
       - name: Create GitHub beta release
         id: create_beta_release
         uses: softprops/action-gh-release@v2
@@ -67,4 +76,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.TAGNAME }}
-          files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
+          files: |
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.firefox.xpi
