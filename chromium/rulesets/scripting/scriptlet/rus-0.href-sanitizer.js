@@ -39,9 +39,9 @@ const uBOL_hrefSanitizer = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["a[href*=\".php?go=\"]","?go"],["a[href*=\"/away.php?\"]","?to"],["a[href*=\"/bitrix/rk.php?goto=https\"]","?goto"],["a[href*=\"/go.php\"]","?url"],["a[href*=\"/redir.php?r=\"]","?r"],["a[href*=\"://click.opennet.ru/cgi-bin/\"]","?to"],["a[href*=\"deeplink=\"]","?deeplink"],["a[href][rel*=\"sponsored\"][target=\"_blank\"]","?goto"],["a[href][target=\"_blank\"][rel=\"nofollow\"]","?ulp"],["a[href^=\"//www.ixbt.com/click/?c=\"]","[title]"],["a[href^=\"/engine/dwn\"]","?xf"],["a[href^=\"/redir/\"]","?exturl"],["a[href^=\"/redir/\"]","?vzurl"],["a[href^=\"https://www.google.com/url?q=\"]"],["a[href^=\"https://www.youtube.com/redirect?event=\"][href*=\"&q=http\"]","?q"],["[href^=\"https://checklink.mail.ru/proxy?\"]","?url"],["[href^=\"https://click.mail.ru/redir?u=\"]","?u"],["[data-cke-saved-href^=\"https://checklink.mail.ru/proxy?\"]"]];
+const argsList = [["a[href*=\".php?go=\"]","?go"],["a[href*=\"/away.php?\"]","?to"],["a[href*=\"/bitrix/rk.php?goto=https\"]","?goto"],["a[href*=\"/go.php\"]","?url"],["a[href*=\"/redir.php?r=\"]","?r"],["a[href*=\"/redir/\"]","?exturl"],["a[href*=\"/redir/\"]","?vzurl"],["a[href*=\"://click.opennet.ru/cgi-bin/\"]","?to"],["a[href*=\"deeplink=\"]","?deeplink"],["a[href][rel*=\"sponsored\"][target=\"_blank\"]","?goto"],["a[href][target=\"_blank\"][rel=\"nofollow\"]","?ulp"],["a[href^=\"//www.ixbt.com/click/?c=\"]","[title]"],["a[href^=\"/engine/dwn\"]","?xf"],["a[href^=\"https://pikabu.ru/\"][href*=\"?u=http\"]","?u"],["a[href^=\"https://www.google.com/url?q=\"]"],["a[href^=\"https://www.youtube.com/redirect?event=\"][href*=\"&q=http\"]","?q"],["[href^=\"https://checklink.mail.ru/proxy?\"]","?url"],["[href^=\"https://click.mail.ru/redir?u=\"]","?u"],["[data-cke-saved-href^=\"https://checklink.mail.ru/proxy?\"]"]];
 
-const hostnamesMap = new Map([["softoroom.org",0],["vk.com",1],["vk.ru",1],["freehat.cc",2],["lalapaluza.ru",2],["game4you.top",3],["innal.top",3],["naylo.top",3],["rustorka.com",3],["rustorka.net",3],["rustorka.top",3],["rustorkacom.lib",3],["stalkermods.ru",4],["opennet.me",5],["opennet.ru",5],["kluchikipro.ru",6],["lifehacker.ru",7],["hot.game",8],["www.ixbt.com",9],["wotspeak.org",10],["vz.ru",[11,12]],["nsportal.ru",13],["youtube.com",14],["light.mail.ru",[15,16]],["e.mail.ru",17],["octavius.mail.ru",17]]);
+const hostnamesMap = new Map([["softoroom.org",0],["vk.com",1],["vk.ru",1],["freehat.cc",2],["lalapaluza.ru",2],["game4you.top",3],["innal.top",3],["naylo.top",3],["rustorka.com",3],["rustorka.net",3],["rustorka.top",3],["rustorkacom.lib",3],["stalkermods.ru",4],["vz.ru",[5,6]],["opennet.me",7],["opennet.ru",7],["kluchikipro.ru",8],["lifehacker.ru",9],["hot.game",10],["www.ixbt.com",11],["wotspeak.org",12],["pikabu.ru",13],["nsportal.ru",14],["youtube.com",15],["light.mail.ru",[16,17]],["e.mail.ru",18],["octavius.mail.ru",18]]);
 
 const entitiesMap = new Map([]);
 
@@ -81,6 +81,20 @@ function hrefSanitizer(
         }
         return '';
     };
+    const extractParam = (href, source) => {
+        if ( Boolean(source) === false ) { return href; }
+        const recursive = source.includes('?', 1);
+        const end = recursive ? source.indexOf('?', 1) : source.length;
+        try {
+            const url = new URL(href, document.location);
+            let value = url.searchParams.get(source.slice(1, end));
+            if ( value === null ) { return href }
+            if ( recursive ) { return extractParam(value, source.slice(end)); }
+            return value;
+        } catch(x) {
+        }
+        return href;
+    };
     const extractURL = (elem, source) => {
         if ( /^\[.*\]$/.test(source) ) {
             return elem.getAttribute(source.slice(1,-1).trim()) || '';
@@ -91,13 +105,13 @@ function hrefSanitizer(
                 .replace(/[^\x21-\x7e]+$/, '') // remove trailing invalid characters
             ;
         }
-        if ( source.startsWith('?') ) {
-            const steps = source.replace(/(\S)\?/g, '\\1?').split(/\s+/);
-            const url = urlSkip(elem.href, false, steps);
-            if ( url === undefined ) { return; }
-            return url.replace(/ /g, '%20');
-        }
-        return '';
+        if ( source.startsWith('?') === false ) { return ''; }
+        const steps = source.replace(/(\S)\?/g, '\\1?').split(/\s+/);
+        const url = steps.length === 1
+            ? extractParam(elem.href, source)
+            : urlSkip(elem.href, false, steps);
+        if ( url === undefined ) { return; }
+        return url.replace(/ /g, '%20');
     };
     const sanitize = ( ) => {
         let elems = [];
@@ -375,6 +389,12 @@ function urlSkip(url, blocked, steps, directive = {}) {
         for ( const step of steps ) {
             const urlin = urlout;
             const c0 = step.charCodeAt(0);
+            // Extract from hash
+            if ( c0 === 0x23 && step === '#' ) { // #
+                const pos = urlin.indexOf('#');
+                urlout = pos !== -1 ? urlin.slice(pos+1) : '';
+                continue;
+            }
             // Extract from URL parameter name at position i
             if ( c0 === 0x26 ) { // &
                 const i = (parseInt(step.slice(1)) || 0) - 1;
@@ -386,14 +406,14 @@ function urlSkip(url, blocked, steps, directive = {}) {
                 continue;
             }
             // Enforce https
-            if ( c0 === 0x2B && step === '+https' ) {
+            if ( c0 === 0x2B && step === '+https' ) { // +
                 const s = urlin.replace(/^https?:\/\//, '');
                 if ( /^[\w-]:\/\//.test(s) ) { return; }
                 urlout = `https://${s}`;
                 continue;
             }
             // Decode
-            if ( c0 === 0x2D ) {
+            if ( c0 === 0x2D ) { // -
                 // Base64
                 if ( step === '-base64' ) {
                     urlout = self.atob(urlin);

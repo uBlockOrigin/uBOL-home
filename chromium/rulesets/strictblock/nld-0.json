@@ -1,32 +1,50 @@
 [
-"a.medialaancdn.be",
-"aa.hwigroup.com",
-"aa.tweakers.nl",
-"ab.hwigroup.com",
-"ab.tweakers.nl",
-"ads.nextday.media",
-"advertising-cdn.dpgmedia.cloud",
-"advertising-module.api.dpgmedia.cloud",
-"cdn.optoutadvertising.com",
-"content1.pcmweb.nl",
-"content1.pu.nl",
-"content1.wasmachines.nl",
-"content1.zoom.nl",
-"content2.besteproduct.nl",
-"content2.kieskeurig.nl",
-"content2.nrc.nl",
-"content2.pu.nl",
-"content2.wasmachines.nl",
-"content2.zoom.nl",
-"crnsgngrpj.nl",
-"cryptobeneluxbanner.care",
-"cryptosplash.care",
-"dntblckmpls.nl",
-"go2.go2cloud.org",
-"kjdsfjisdfjr23.azurewebsites.net",
-"mt67.net",
-"nextdaymedia-ads.s3.amazonaws.com",
-"nojazz.eu",
-"traffic.12flirt.com",
-"viadata.store"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "a.medialaancdn.be",
+   "aa.hwigroup.com",
+   "aa.tweakers.nl",
+   "ab.hwigroup.com",
+   "ab.tweakers.nl",
+   "ads.nextday.media",
+   "advertising-cdn.dpgmedia.cloud",
+   "advertising-module.api.dpgmedia.cloud",
+   "cdn.optoutadvertising.com",
+   "content1.pcmweb.nl",
+   "content1.pu.nl",
+   "content1.wasmachines.nl",
+   "content1.zoom.nl",
+   "content2.besteproduct.nl",
+   "content2.kieskeurig.nl",
+   "content2.nrc.nl",
+   "content2.pu.nl",
+   "content2.wasmachines.nl",
+   "content2.zoom.nl",
+   "crnsgngrpj.nl",
+   "cryptobeneluxbanner.care",
+   "cryptosplash.care",
+   "dntblckmpls.nl",
+   "go2.go2cloud.org",
+   "kjdsfjisdfjr23.azurewebsites.net",
+   "mt67.net",
+   "nextdaymedia-ads.s3.amazonaws.com",
+   "nojazz.eu",
+   "traffic.12flirt.com",
+   "viadata.store"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
 ]

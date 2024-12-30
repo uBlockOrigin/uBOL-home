@@ -1,4 +1,22 @@
 [
-"budvawshes.ru",
-"enodiarahnthedon.com"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "budvawshes.ru",
+   "enodiarahnthedon.com"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
 ]

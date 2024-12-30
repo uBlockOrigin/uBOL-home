@@ -1,4 +1,22 @@
 [
-"app.pulsmedia.is",
-"static.airserve.net"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "app.pulsmedia.is",
+   "static.airserve.net"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
 ]

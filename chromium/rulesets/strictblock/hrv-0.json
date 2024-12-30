@@ -1,6 +1,24 @@
 [
-"banner.mob.hr",
-"eph-adsjutarnji.cdn.sysbee.net",
-"linker.hr",
-"widgets.jutarnji.hr"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "banner.mob.hr",
+   "eph-adsjutarnji.cdn.sysbee.net",
+   "linker.hr",
+   "widgets.jutarnji.hr"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
 ]

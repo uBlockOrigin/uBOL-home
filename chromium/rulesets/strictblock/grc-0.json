@@ -1,32 +1,82 @@
 [
-"ad.gr.doubleclick.net",
-"ad2.linkwise.gr",
-"adman.kathimerini.gr",
-"adman.otenet.gr",
-"ads.24media.gr",
-"ads.naftemporiki.gr",
-"adserver.linkwise.gr",
-"affiliate.linkwise.gr",
-"axiabanners.exodus.gr",
-"banners.dol.gr",
-"bold.adman.gr",
-"call.theowl.gr",
-"cdn.orangeclickmedia.com",
-"clickbanner.gr",
-"d.agkn.com",
-"educate.theowl.gr",
-"el.williamhillcasino.com",
-"gazzetta.adman.gr",
-"gpoint.gpoint.com.gr",
-"gr.partypoker.com",
-"media.mybet.com",
-"obj.adman.gr",
-"phaistos-ssp.adman.gr",
-"promo.gpoint.com.gr",
-"promos.pathfinder.gr",
-"scripts.bestprice.gr",
-"serve.ads.gr",
-"smartadserver.com",
-"static.adman.gr",
-"switch.statman.gr"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "ad.gr.doubleclick.net",
+   "ad2.linkwise.gr",
+   "adman.kathimerini.gr",
+   "adman.otenet.gr",
+   "ads.24media.gr",
+   "ads.naftemporiki.gr",
+   "adserver.linkwise.gr",
+   "affiliate.linkwise.gr",
+   "axiabanners.exodus.gr",
+   "banners.dol.gr",
+   "bold.adman.gr",
+   "call.theowl.gr",
+   "cdn.orangeclickmedia.com",
+   "clickbanner.gr",
+   "d.agkn.com",
+   "educate.theowl.gr",
+   "el.williamhillcasino.com",
+   "gazzetta.adman.gr",
+   "gpoint.gpoint.com.gr",
+   "gr.partypoker.com",
+   "media.mybet.com",
+   "obj.adman.gr",
+   "phaistos-ssp.adman.gr",
+   "promo.gpoint.com.gr",
+   "promos.pathfinder.gr",
+   "scripts.bestprice.gr",
+   "serve.ads.gr",
+   "smartadserver.com",
+   "static.adman.gr",
+   "switch.statman.gr"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^.*goldenconcept\\.ir(?:[^%.0-9a-z_-]|$).*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 2,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^.*indusviva\\.com(?:[^%.0-9a-z_-]|$).*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 3,
+ "priority": 29
+}
 ]

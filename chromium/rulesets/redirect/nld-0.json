@@ -37,5 +37,24 @@
  },
  "id": 2,
  "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "nos.nl"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||cdn-ster-nl.akamaized.net/sterad_p_*.mp4^"
+ },
+ "id": 3,
+ "priority": 11
 }
 ]

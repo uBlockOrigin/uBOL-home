@@ -1,5 +1,84 @@
 [
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?click\\.redditmail\\.com/cl0/",
+  "steps": [
+   "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",
+   "-uricomponent"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?events\\.laylo\\.com/r/redirect\\S*?(?:[^%.0-9a-z_-]|$)link=http",
+  "steps": [
+   "?link"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?youtube\\.com/redirect\\?\\S*?(?:[^%.0-9a-z_-]|$)q=http",
+  "steps": [
+   "?q",
+   "+https"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?onlyfans\\.com/away(?:[^%.0-9a-z_-]|$)",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?shrinkearn\\.com/full\\?\\S*?&type=1",
+  "steps": [
+   "?url",
+   "-base64",
+   "+https"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?podtrac\\.com(?:[^%.0-9a-z_-]|$)\\S*?redirect\\.mp3/",
+  "steps": [
+   "/\\/redirect\\.mp3\\/([^?]+\\.mp3\\b)/",
+   "+https"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pdst\\.fm/e/",
+  "steps": [
+   "/\\/e\\/([^?]+)/",
+   "+https"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?chtbl\\.com/track/",
+  "steps": [
+   "/\\/track\\/\\w+\\/([^?]+)/",
+   "+https"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?mgln\\.ai/e/",
+  "steps": [
+   "/\\/e\\/\\w+\\/([^?]+)/",
+   "+https"
+  ]
+ },
+ {
+  "re": "^",
+  "steps": [
+   "/pdrl\\.fm\\/\\w+\\/([^?]+)/",
+   "+https"
+  ],
+  "hostnames": [
+   "pdrl.fm"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?tonordersitye\\.com/s\\S*?&r",
+  "steps": [
+   "?r",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?wattpad\\.com/et\\S*?(?:[^%.0-9a-z_-]|$)l=http",
   "steps": [
    "?l"
@@ -16,6 +95,10 @@
   "re": "/t/t\\?a=\\S*?&url=http",
   "steps": [
    "?url"
+  ],
+  "hostnames": [
+   "com",
+   "dk"
   ]
  },
  {
@@ -23,6 +106,11 @@
   "steps": [
    "?u",
    "+https"
+  ],
+  "hostnames": [
+   "com",
+   "io",
+   "net"
   ]
  },
  {
@@ -30,6 +118,11 @@
   "steps": [
    "?u",
    "+https"
+  ],
+  "hostnames": [
+   "com",
+   "io",
+   "net"
   ]
  },
  {
@@ -38,6 +131,11 @@
   "steps": [
    "?url",
    "+https"
+  ],
+  "hostnames": [
+   "com",
+   "io",
+   "net"
   ]
  },
  {
@@ -46,6 +144,11 @@
   "steps": [
    "?URL",
    "+https"
+  ],
+  "hostnames": [
+   "com",
+   "io",
+   "net"
   ]
  },
  {
@@ -53,6 +156,10 @@
   "c": true,
   "steps": [
    "?url"
+  ],
+  "hostnames": [
+   "com",
+   "net"
   ]
  },
  {
@@ -60,6 +167,10 @@
   "c": true,
   "steps": [
    "?URL"
+  ],
+  "hostnames": [
+   "com",
+   "net"
   ]
  },
  {
@@ -124,12 +235,19 @@
   "steps": [
    "?urllink",
    "+https"
+  ],
+  "hostnames": [
+   "shareasale-analytics.com",
+   "shareasale.com"
   ]
  },
  {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?cc\\.\\S*?\\.com/v1/otc/\\S*?\\?merchant=\\S*?&url=http",
   "steps": [
    "?url"
+  ],
+  "hostnames": [
+   "com"
   ]
  },
  {
@@ -174,6 +292,14 @@
   "re": "/t/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
   "steps": [
    "?url"
+  ],
+  "hostnames": [
+   "gopjn.com",
+   "pjatr.com",
+   "pjtra.com",
+   "pntra.com",
+   "pntrac.com",
+   "pntrs.com"
   ]
  },
  {
@@ -267,6 +393,9 @@
   "steps": [
    "?p",
    "+https"
+  ],
+  "hostnames": [
+   "awin1.com"
   ]
  },
  {
@@ -274,6 +403,9 @@
   "steps": [
    "?ued",
    "+https"
+  ],
+  "hostnames": [
+   "awin1.com"
   ]
  },
  {
@@ -286,6 +418,10 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?de/trck/eclick/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
   "steps": [
    "?url"
+  ],
+  "hostnames": [
+   "pvn.mediamarkt.de",
+   "pvn.saturn.de"
   ]
  },
  {
@@ -549,6 +685,10 @@
   "steps": [
    "/\\/sid\\/[^\\/]+\\/(http[^?]+)/",
    "+https"
+  ],
+  "hostnames": [
+   "cj.dotomi.com",
+   "www.anrdoezrs.net"
   ]
  },
  {

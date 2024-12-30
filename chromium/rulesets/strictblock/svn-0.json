@@ -1,18 +1,36 @@
 [
-"ad.zurnal24.si",
-"adform.net",
-"ads-oglasi.api.24ur.si",
-"ads-store.24ur.com",
-"ads.24ur.com",
-"bonbonijezero.xyz",
-"clublwd.nl",
-"hranavrt.xyz",
-"kruhzgodovina.xyz",
-"kuminaluna.xyz",
-"mandljigeografija.xyz",
-"maslootok.xyz",
-"piscanecmatematika.xyz",
-"sladicagora.xyz",
-"static.plista.com",
-"zajtrkhisa.xyz"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "ad.zurnal24.si",
+   "adform.net",
+   "ads-oglasi.api.24ur.si",
+   "ads-store.24ur.com",
+   "ads.24ur.com",
+   "bonbonijezero.xyz",
+   "clublwd.nl",
+   "hranavrt.xyz",
+   "kruhzgodovina.xyz",
+   "kuminaluna.xyz",
+   "mandljigeografija.xyz",
+   "maslootok.xyz",
+   "piscanecmatematika.xyz",
+   "sladicagora.xyz",
+   "static.plista.com",
+   "zajtrkhisa.xyz"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
 ]

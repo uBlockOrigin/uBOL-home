@@ -464,5 +464,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||files.skoften.net/website/lib/vjs/plugins/ads/videojs.ads.min.js"},"id":463,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||looopings.nl/*.js"},"id":464,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","requestDomains":["kpn.com"]},"id":465,"priority":30},
-{"action":{"type":"block"},"condition":{"urlFilter":"||hfg.iuknyw5evnygw9v.nl/*?*=omroepzeeland&direct="},"id":466,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||hfg.iuknyw5evnygw9v.nl/*?*=omroepzeeland&direct="},"id":466,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["nos.nl"],"requestDomains":["adconfig.ster.nl"]},"id":467,"priority":10}
 ]

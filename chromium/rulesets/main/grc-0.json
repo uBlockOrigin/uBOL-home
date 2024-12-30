@@ -320,7 +320,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||www.triakilakodika.gr/images/teamworkpm650.png"},"id":319,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||yupiii.gr/banners/bg/"},"id":320,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||zougla.gr/uploads/banners/"},"id":321,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["madinad-data.s3.amazonaws.com"],"urlFilter":"||services.madinad.com/analytics/"},"id":322,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||kavalanews.gr/sites/all/modules/copyprevention/copyprevention.js^"},"id":322,"priority":10},
 {"action":{"type":"block"},"condition":{"requestDomains":["ad.gr.doubleclick.net","ad2.linkwise.gr","adman.kathimerini.gr","adman.otenet.gr","ads.24media.gr","ads.naftemporiki.gr","adserver.linkwise.gr","affiliate.linkwise.gr","axiabanners.exodus.gr","banners.dol.gr","bold.adman.gr","call.theowl.gr","cdn.orangeclickmedia.com","clickbanner.gr","d.agkn.com","educate.theowl.gr","el.williamhillcasino.com","gazzetta.adman.gr","gpoint.gpoint.com.gr","gr.partypoker.com","media.mybet.com","obj.adman.gr","phaistos-ssp.adman.gr","promo.gpoint.com.gr","promos.pathfinder.gr","scripts.bestprice.gr","serve.ads.gr","smartadserver.com","static.adman.gr","switch.statman.gr"]},"id":323,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||www.e-evros.gr/banners/*.gif"},"id":324,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||kavalapoint.gr/wp-content/uploads/2023/11/ezgif.com*"},"id":325,"priority":10},

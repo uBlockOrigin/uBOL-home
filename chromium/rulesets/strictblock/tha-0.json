@@ -1,7 +1,25 @@
 [
-"109.248.59.27",
-"195.133.60.89",
-"46.8.158.101",
-"46.8.158.80",
-"46.8.158.94"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "109.248.59.27",
+   "195.133.60.89",
+   "46.8.158.101",
+   "46.8.158.80",
+   "46.8.158.94"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
 ]

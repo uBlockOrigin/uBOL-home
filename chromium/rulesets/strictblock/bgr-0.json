@@ -1,8 +1,26 @@
 [
-"a.actualno.com",
-"adsy.mail.bg",
-"b.grabo.bg",
-"com.nxtras.banner.imagerotator",
-"profitshare.bg",
-"r5.dir.bg"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "a.actualno.com",
+   "adsy.mail.bg",
+   "b.grabo.bg",
+   "com.nxtras.banner.imagerotator",
+   "profitshare.bg",
+   "r5.dir.bg"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
 ]

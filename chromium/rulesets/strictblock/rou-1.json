@@ -1,76 +1,143 @@
 [
-"3myad.com",
-"7w.ro",
-"adc-teasers.com",
-"adexc.net",
-"admonitoring.bsgroup.ro",
-"ado.icorp.ro",
-"adocean.pl",
-"ads.gadget.ro",
-"ads.tradeads.eu",
-"ads1-adnow.com",
-"ads2-adnow.com",
-"ads2.evz.ro",
-"ads3-adnow.com",
-"adservingfactory.com",
-"adsnative.com",
-"adtlgc.com",
-"aplizz.net",
-"awstaticdn.net",
-"banners.livepartners.com",
-"blaneo.com",
-"brand.ad",
-"brat-online.ro",
-"chargeplatform.com",
-"contestapp.a1.ro",
-"creativcdn.net",
-"crwdcntrl.net",
-"cumult.com",
-"flx1.com",
-"gazeta-romaneasca.ro",
-"get-in-shape.beauty",
-"gravityrd-services.com",
-"gwngdfxtm.ru",
-"hotjar.com",
-"jsecoin.com",
-"jurnalul-militar.ro",
-"klodrum.com",
-"kreativcdn.net",
-"listat.biz",
-"megapopads.com",
-"minecrunch.co",
-"new.cetrk.com",
-"nnowa.com",
-"olt-media.ro",
-"oltenia-actualitati.ro",
-"omniconvert.com",
-"pornlash.com",
-"profiling.avandor.com",
-"profiling1.avandor.com",
-"profitshare.emag.ro",
-"profitshare.ro",
-"pwa.grgs.ro",
-"reasedoper.pw",
-"retargeting.biz",
-"rezistentaromanesca.ro",
-"romania-noastra.ro",
-"romania-unita.ro",
-"romanii-liberi.ro",
-"romanulnationalist.ro",
-"s.atemda.com",
-"s2blosh.com",
-"secure.trafic.ro",
-"serve.efortuna.ro",
-"sgbm.info",
-"st.ad.adnow.com",
-"storage.icorp.ro",
-"storage.trafic.ro",
-"tesseradigital.com",
-"track.atom-data.io",
-"tynt.com",
-"universul-stirilor.ro",
-"www4.smartadserver.com",
-"xamubee.ru",
-"ziarul-democrat.ro",
-"zm232.com"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "3myad.com",
+   "7w.ro",
+   "adc-teasers.com",
+   "adexc.net",
+   "admonitoring.bsgroup.ro",
+   "ado.icorp.ro",
+   "adocean.pl",
+   "ads.gadget.ro",
+   "ads.tradeads.eu",
+   "ads1-adnow.com",
+   "ads2-adnow.com",
+   "ads2.evz.ro",
+   "ads3-adnow.com",
+   "adservingfactory.com",
+   "adsnative.com",
+   "adtlgc.com",
+   "aplizz.net",
+   "awstaticdn.net",
+   "banners.livepartners.com",
+   "blaneo.com",
+   "brand.ad",
+   "brat-online.ro",
+   "chargeplatform.com",
+   "contestapp.a1.ro",
+   "creativcdn.net",
+   "crwdcntrl.net",
+   "cumult.com",
+   "femeisingure.net",
+   "flx1.com",
+   "gazeta-romaneasca.ro",
+   "get-in-shape.beauty",
+   "gravityrd-services.com",
+   "gwngdfxtm.ru",
+   "hotjar.com",
+   "jsecoin.com",
+   "jurnalul-militar.ro",
+   "klodrum.com",
+   "kreativcdn.net",
+   "listat.biz",
+   "megapopads.com",
+   "minecrunch.co",
+   "new.cetrk.com",
+   "nnowa.com",
+   "olt-media.ro",
+   "oltenia-actualitati.ro",
+   "omniconvert.com",
+   "pornlash.com",
+   "profiling.avandor.com",
+   "profiling1.avandor.com",
+   "profitshare.emag.ro",
+   "profitshare.ro",
+   "pwa.grgs.ro",
+   "reasedoper.pw",
+   "retargeting.biz",
+   "rezistentaromanesca.ro",
+   "romania-noastra.ro",
+   "romania-unita.ro",
+   "romanii-liberi.ro",
+   "romanulnationalist.ro",
+   "s.atemda.com",
+   "s2blosh.com",
+   "secure.trafic.ro",
+   "serve.efortuna.ro",
+   "sgbm.info",
+   "st.ad.adnow.com",
+   "storage.icorp.ro",
+   "storage.trafic.ro",
+   "tesseradigital.com",
+   "track.atom-data.io",
+   "tynt.com",
+   "universul-stirilor.ro",
+   "www4.smartadserver.com",
+   "xamubee.ru",
+   "ziarul-democrat.ro",
+   "zm232.com"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?easyaff\\.net/\\?ref.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 2,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^.*/click\\?impid=.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 3,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^.*&ad_campaign_id.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 4,
+ "priority": 29
+}
 ]

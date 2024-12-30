@@ -1,12 +1,30 @@
 [
-"banners.igloro.info",
-"befirstcdn.com",
-"bms.creativepartner.lt",
-"core.dimatter.ai",
-"prod.one.lt",
-"r-scale-fb.static.go3.tv",
-"rkl.draugas.lt",
-"skpiramide.lt",
-"trackers.adtarget.me",
-"trafficbass.com"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "banners.igloro.info",
+   "befirstcdn.com",
+   "bms.creativepartner.lt",
+   "core.dimatter.ai",
+   "prod.one.lt",
+   "r-scale-fb.static.go3.tv",
+   "rkl.draugas.lt",
+   "skpiramide.lt",
+   "trackers.adtarget.me",
+   "trafficbass.com"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
 ]

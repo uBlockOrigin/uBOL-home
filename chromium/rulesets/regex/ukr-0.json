@@ -1,0 +1,15 @@
+[
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "regexFilter": "\\/jphone\\/\\d{7,}$",
+  "resourceTypes": [
+   "xmlhttprequest"
+  ]
+ },
+ "id": 22,
+ "priority": 10
+}
+]

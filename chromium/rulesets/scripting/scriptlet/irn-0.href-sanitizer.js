@@ -81,6 +81,20 @@ function hrefSanitizer(
         }
         return '';
     };
+    const extractParam = (href, source) => {
+        if ( Boolean(source) === false ) { return href; }
+        const recursive = source.includes('?', 1);
+        const end = recursive ? source.indexOf('?', 1) : source.length;
+        try {
+            const url = new URL(href, document.location);
+            let value = url.searchParams.get(source.slice(1, end));
+            if ( value === null ) { return href }
+            if ( recursive ) { return extractParam(value, source.slice(end)); }
+            return value;
+        } catch(x) {
+        }
+        return href;
+    };
     const extractURL = (elem, source) => {
         if ( /^\[.*\]$/.test(source) ) {
             return elem.getAttribute(source.slice(1,-1).trim()) || '';
@@ -91,13 +105,13 @@ function hrefSanitizer(
                 .replace(/[^\x21-\x7e]+$/, '') // remove trailing invalid characters
             ;
         }
-        if ( source.startsWith('?') ) {
-            const steps = source.replace(/(\S)\?/g, '\\1?').split(/\s+/);
-            const url = urlSkip(elem.href, false, steps);
-            if ( url === undefined ) { return; }
-            return url.replace(/ /g, '%20');
-        }
-        return '';
+        if ( source.startsWith('?') === false ) { return ''; }
+        const steps = source.replace(/(\S)\?/g, '\\1?').split(/\s+/);
+        const url = steps.length === 1
+            ? extractParam(elem.href, source)
+            : urlSkip(elem.href, false, steps);
+        if ( url === undefined ) { return; }
+        return url.replace(/ /g, '%20');
     };
     const sanitize = ( ) => {
         let elems = [];
@@ -375,6 +389,12 @@ function urlSkip(url, blocked, steps, directive = {}) {
         for ( const step of steps ) {
             const urlin = urlout;
             const c0 = step.charCodeAt(0);
+            // Extract from hash
+            if ( c0 === 0x23 && step === '#' ) { // #
+                const pos = urlin.indexOf('#');
+                urlout = pos !== -1 ? urlin.slice(pos+1) : '';
+                continue;
+            }
             // Extract from URL parameter name at position i
             if ( c0 === 0x26 ) { // &
                 const i = (parseInt(step.slice(1)) || 0) - 1;
@@ -386,14 +406,14 @@ function urlSkip(url, blocked, steps, directive = {}) {
                 continue;
             }
             // Enforce https
-            if ( c0 === 0x2B && step === '+https' ) {
+            if ( c0 === 0x2B && step === '+https' ) { // +
                 const s = urlin.replace(/^https?:\/\//, '');
                 if ( /^[\w-]:\/\//.test(s) ) { return; }
                 urlout = `https://${s}`;
                 continue;
             }
             // Decode
-            if ( c0 === 0x2D ) {
+            if ( c0 === 0x2D ) { // -
                 // Base64
                 if ( step === '-base64' ) {
                     urlout = self.atob(urlin);

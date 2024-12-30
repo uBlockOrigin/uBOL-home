@@ -5,90 +5,6 @@
    {
     "header": "content-security-policy",
     "operation": "append",
-    "value": "worker-src 'none'"
-   }
-  ],
-  "type": "modifyHeaders"
- },
- "condition": {
-  "initiatorDomains": [
-   "atk-exotics.com",
-   "atkebony.com",
-   "centrum-dramy.pl",
-   "chemikino.ru",
-   "coinfaucet.eu",
-   "crictime.com",
-   "crictime.is",
-   "deltabit.co",
-   "descargas2020.com",
-   "domnuleprimar.ro",
-   "fileone.tv",
-   "filmovix.com",
-   "filmovix.net",
-   "filmovix.org",
-   "firstone.tv",
-   "firstonetv.eu",
-   "firstonetv.live",
-   "funtik.tv",
-   "genashowalter.com",
-   "hdvid.tv",
-   "highstream.tv",
-   "ianimes.org",
-   "lewd.ninja",
-   "nahnoji.cz",
-   "neurozinzin.com",
-   "novator.az",
-   "onion.ly",
-   "onion.pet",
-   "ovid.tv",
-   "peliculas24.me",
-   "powvideo.net",
-   "salon.com",
-   "shush.se",
-   "sickrage.ca",
-   "studio100.it",
-   "tapemovie.com",
-   "theappguruz.com",
-   "thepiratebay.org",
-   "tubetitties.com",
-   "vidoza.co",
-   "void.cat"
-  ],
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ]
- },
- "id": 1
-},
-{
- "action": {
-  "responseHeaders": [
-   {
-    "header": "content-security-policy",
-    "operation": "append",
-    "value": "sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation"
-   }
-  ],
-  "type": "modifyHeaders"
- },
- "condition": {
-  "requestDomains": [
-   "japscan.lol"
-  ],
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ]
- },
- "id": 2
-},
-{
- "action": {
-  "responseHeaders": [
-   {
-    "header": "content-security-policy",
-    "operation": "append",
     "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudflare.com *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com *.jwpcdn.com *.recaptcha.net *.tapecontent.net *.video-delivery.net *.youtube.com *.zencdn.net i.doodcdn.co i.doodcdn.com img.doodcdn.co static.doodcdn.co *.cloudatacdn.com"
    }
   ],
@@ -146,7 +62,91 @@
    "strtape.tech",
    "strtapeadblock.club",
    "strtapeadblock.me",
-   "tapewithadblock.org"
+   "tapewithadblock.org",
+   "watchadsontape.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 1
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "sandbox allow-forms allow-same-origin allow-scripts allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "japscan.lol"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 2
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "worker-src 'none'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "atk-exotics.com",
+   "atkebony.com",
+   "centrum-dramy.pl",
+   "chemikino.ru",
+   "coinfaucet.eu",
+   "crictime.com",
+   "crictime.is",
+   "deltabit.co",
+   "descargas2020.com",
+   "domnuleprimar.ro",
+   "fileone.tv",
+   "filmovix.com",
+   "filmovix.net",
+   "filmovix.org",
+   "firstone.tv",
+   "firstonetv.live",
+   "funtik.tv",
+   "genashowalter.com",
+   "hdvid.tv",
+   "highstream.tv",
+   "ianimes.org",
+   "lewd.ninja",
+   "nahnoji.cz",
+   "neurozinzin.com",
+   "novator.az",
+   "onion.ly",
+   "onion.pet",
+   "ovid.tv",
+   "peliculas24.me",
+   "powvideo.net",
+   "salon.com",
+   "shush.se",
+   "sickrage.ca",
+   "studio100.it",
+   "tapemovie.com",
+   "theappguruz.com",
+   "thepiratebay.org",
+   "tubetitties.com",
+   "vidoza.co",
+   "void.cat"
   ],
   "resourceTypes": [
    "main_frame",

@@ -1,20 +1,38 @@
 [
-"browser-updater.yandex.net",
-"cm.usatoday.com",
-"coordinator.cm.bloomberg.com",
-"d15r06k2ko210l.cloudfront.net",
-"d2yyd1h5u9mauk.cloudfront.net",
-"d9etzk30b05yg.cloudfront.net",
-"dhpikd1t89arn.cloudfront.net",
-"integrate.thrive.today",
-"jobs.mobilemarketingreads.com",
-"mailmunch.s3.amazonaws.com",
-"notifiche.secoloditalia.it",
-"platform.loyaltylion.com",
-"traffic.styria.hr",
-"widget-social-proof-api.one.store",
-"widget.beop.io",
-"widget.justwatch.com",
-"widgets.recruitology.com",
-"widgets.sprinkletxt.com"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "browser-updater.yandex.net",
+   "cm.usatoday.com",
+   "coordinator.cm.bloomberg.com",
+   "d15r06k2ko210l.cloudfront.net",
+   "d2yyd1h5u9mauk.cloudfront.net",
+   "d9etzk30b05yg.cloudfront.net",
+   "dhpikd1t89arn.cloudfront.net",
+   "integrate.thrive.today",
+   "jobs.mobilemarketingreads.com",
+   "mailmunch.s3.amazonaws.com",
+   "notifiche.secoloditalia.it",
+   "platform.loyaltylion.com",
+   "traffic.styria.hr",
+   "widget-social-proof-api.one.store",
+   "widget.beop.io",
+   "widget.justwatch.com",
+   "widgets.recruitology.com",
+   "widgets.sprinkletxt.com"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
 ]

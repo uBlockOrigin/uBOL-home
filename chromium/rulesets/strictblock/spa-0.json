@@ -1,22 +1,40 @@
 [
-"0-02.net",
-"adzonestatic.com",
-"bannersweb.s3.amazonaws.com",
-"cdnpublicidad.milenio.com",
-"d1r08wok4169a5.cloudfront.net",
-"do67etikr7pwz.cloudfront.net",
-"minube.click",
-"news.grm.cl",
-"pahtfi.tech",
-"palibzh.tech",
-"plx.pornes.xxx",
-"positive-ads.com",
-"pub.tappx.com",
-"publyads.jstag.space",
-"ra.poringa.net",
-"revenuemakerdata.com",
-"ssp.emol.com",
-"sspnm.emol.com",
-"trafico.prensaiberica.es",
-"triggy-banners.web.app"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "0-02.net",
+   "adzonestatic.com",
+   "bannersweb.s3.amazonaws.com",
+   "cdnpublicidad.milenio.com",
+   "d1r08wok4169a5.cloudfront.net",
+   "do67etikr7pwz.cloudfront.net",
+   "minube.click",
+   "news.grm.cl",
+   "pahtfi.tech",
+   "palibzh.tech",
+   "plx.pornes.xxx",
+   "positive-ads.com",
+   "pub.tappx.com",
+   "publyads.jstag.space",
+   "ra.poringa.net",
+   "revenuemakerdata.com",
+   "ssp.emol.com",
+   "sspnm.emol.com",
+   "trafico.prensaiberica.es",
+   "triggy-banners.web.app"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
 ]

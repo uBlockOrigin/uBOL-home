@@ -39,9 +39,9 @@ const uBOL_setAttr = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [[".lazy","src","[data-sco-src]"],["iframe[data-src-cmplz][src=\"about:blank\"]","src","[data-src-cmplz]"],[".video-skip[data-time]","data-time","0"],["c-wiz[data-p] [data-query] a[target=\"_blank\"][role=\"link\"]","rlhc","1"],[":is(.watch-on-link-logo, li.post) img.ezlazyload[src^=\"data:image\"][data-ezsrc]","src","[data-ezsrc]"],[".navbar-nav > li#navpromo2.nav-item > a","href",""],["span[class] img.lazyload[width]","src","[data-src]"]];
+const argsList = [[".lazy","src","[data-sco-src]"],["iframe[data-src-cmplz][src=\"about:blank\"]","src","[data-src-cmplz]"],[".video-skip[data-time]","data-time","0"],["c-wiz[data-p] [data-query] a[target=\"_blank\"][role=\"link\"]","rlhc","1"],[":is(.watch-on-link-logo, li.post) img.ezlazyload[src^=\"data:image\"][data-ezsrc]","src","[data-ezsrc]"],["span[class] img.lazyload[width]","src","[data-src]"]];
 
-const hostnamesMap = new Map([["rocketnews24.com",0],["soranews24.com",0],["youpouch.com",0],["statisticsanddata.org",1],["18kalebettv.xyz",2],["19kalebettv.xyz",2],["wnynewsnow.com",4],["japscan.lol",5],["phileweb.com",6]]);
+const hostnamesMap = new Map([["rocketnews24.com",0],["soranews24.com",0],["youpouch.com",0],["statisticsanddata.org",1],["18kalebettv.xyz",2],["19kalebettv.xyz",2],["wnynewsnow.com",4],["phileweb.com",5]]);
 
 const entitiesMap = new Map([["www.google",3]]);
 

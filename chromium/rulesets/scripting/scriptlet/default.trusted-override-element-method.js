@@ -39,9 +39,9 @@ const uBOL_trustedOverrideElementMethod = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["HTMLAnchorElement.prototype.click","a[target=\"_blank\"][style]"]];
+const argsList = [["HTMLAnchorElement.prototype.click","a[target=\"_blank\"][style]"],["HTMLAnchorElement.prototype.click","a[target=\"_blank\"]"]];
 
-const hostnamesMap = new Map([["cety.app",0],["cuty.me",0]]);
+const hostnamesMap = new Map([["cety.app",0],["cuty.me",0],["upn.one",1]]);
 
 const entitiesMap = new Map([]);
 

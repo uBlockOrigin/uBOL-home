@@ -1,16 +1,34 @@
 [
-"assistant.almaintelligence.com",
-"call.chatra.io",
-"chat-widget.hiverhq.com",
-"chatbot.pef.czu.cz",
-"lptag-cdn.liveperson.net",
-"lptag.liveperson.net",
-"pageview.activengage.com",
-"webchat.omni.cafe",
-"widget.chatbot.laiye.com",
-"widget.helpcrunch.com",
-"widget.intercom.io",
-"widget.kommunicate.io",
-"widget.trengo.eu",
-"widgets.leadconnectorhq.com"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "assistant.almaintelligence.com",
+   "call.chatra.io",
+   "chat-widget.hiverhq.com",
+   "chatbot.pef.czu.cz",
+   "lptag-cdn.liveperson.net",
+   "lptag.liveperson.net",
+   "pageview.activengage.com",
+   "webchat.omni.cafe",
+   "widget.chatbot.laiye.com",
+   "widget.helpcrunch.com",
+   "widget.intercom.io",
+   "widget.kommunicate.io",
+   "widget.trengo.eu",
+   "widgets.leadconnectorhq.com"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
 ]

@@ -1,27 +1,61 @@
 [
-"0af2a962b0102942d9a7df351b20be55.com",
-"a.blesk.cz",
-"a.centrum.cz",
-"a.csfd.cz",
-"a.denik.cz",
-"adb.azet.sk",
-"api-exponea.o2.cz",
-"api-exponea.o2.sk",
-"bannersector.sector.sk",
-"bannery.ccb.cz",
-"bannery.navratdoreality.cz",
-"c.seznam.cz",
-"cdn.cpex.cz",
-"central-beta.mall.tv",
-"central.mall.tv",
-"image.sector.sk",
-"liveagent.mobilbonus.cz",
-"reklama.warforum.cz",
-"report.seznamzpravy.cz",
-"report.sport.cz",
-"ssp.seznam.cz",
-"stat.novinky.cz",
-"stat.super.cz",
-"tracker.cncenter.cz",
-"videoad.cz"
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "0af2a962b0102942d9a7df351b20be55.com",
+   "a.blesk.cz",
+   "a.centrum.cz",
+   "a.csfd.cz",
+   "a.denik.cz",
+   "adb.azet.sk",
+   "api-exponea.o2.cz",
+   "api-exponea.o2.sk",
+   "bannersector.sector.sk",
+   "bannery.ccb.cz",
+   "bannery.navratdoreality.cz",
+   "c.seznam.cz",
+   "cdn.cpex.cz",
+   "central-beta.mall.tv",
+   "central.mall.tv",
+   "image.sector.sk",
+   "liveagent.mobilbonus.cz",
+   "reklama.warforum.cz",
+   "report.seznamzpravy.cz",
+   "report.sport.cz",
+   "ssp.seznam.cz",
+   "stat.novinky.cz",
+   "stat.super.cz",
+   "tracker.cncenter.cz",
+   "videoad.cz"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?indian-tv\\.cz/uploads/.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 2,
+ "priority": 29
+}
 ]
