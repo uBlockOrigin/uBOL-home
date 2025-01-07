@@ -26,5 +26,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.html"},"type":"redirect"},"condition":{"initiatorDomains":["realtime-chart.info","sekai-kabuka.com"],"resourceTypes":["sub_frame"],"urlFilter":"||googleads.g.doubleclick.net/pagead/ads?"},"id":25,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"requestDomains":["cdn-ads.api.tv-tokyo.co.jp","cu-ad.tbs.co.jp","cu-cdn-ad-v3.ntv.co.jp","i.socdm.com"],"resourceTypes":["media"]},"id":26,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["funny-ai.com"],"resourceTypes":["media"],"urlFilter":"||stream.playerserve.com/stream/server/"},"id":27,"priority":11},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["ordermaid.ai"],"requestDomains":["nend.net"],"resourceTypes":["media"]},"id":28,"priority":41}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["ordermaid.ai"],"requestDomains":["nend.net"],"resourceTypes":["media"]},"id":28,"priority":41},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/32x32.png"},"type":"redirect"},"condition":{"initiatorDomains":["exploader.net"],"requestDomains":["daotag.com"],"resourceTypes":["image"]},"id":29,"priority":11}
 ]

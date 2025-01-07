@@ -5,7 +5,7 @@
    {
     "header": "content-security-policy",
     "operation": "append",
-    "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudflare.com *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com *.jwpcdn.com *.recaptcha.net *.tapecontent.net *.video-delivery.net *.youtube.com *.zencdn.net i.doodcdn.co i.doodcdn.com img.doodcdn.co static.doodcdn.co *.cloudatacdn.com"
+    "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudatacdn.com *.cloudflare.com *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com *.jwpcdn.com *.plyr.io *.recaptcha.net *.tapecontent.net *.video-delivery.net *.youtube.com *.veev.to *.zencdn.net i.doodcdn.co i.doodcdn.com img.doodcdn.co static.doodcdn.co static.veevcdn.co"
    }
   ],
   "type": "modifyHeaders"
@@ -62,7 +62,9 @@
    "strtape.tech",
    "strtapeadblock.club",
    "strtapeadblock.me",
+   "tapenoads.com",
    "tapewithadblock.org",
+   "veev.to",
    "watchadsontape.com"
   ],
   "resourceTypes": [
