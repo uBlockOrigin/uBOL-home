@@ -14,5 +14,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"\\.[a-z]oubli[a-z].top\\/","resourceTypes":["script"]},"id":13,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"\\.[a-z]yjqgp[a-z].top\\/","resourceTypes":["script"]},"id":14,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"\\.[a-z]weisi[a-z].top\\/","resourceTypes":["script"]},"id":15,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"\\.(cc|com|top|xyz)\\/i\\/v$","resourceTypes":["xmlhttprequest"]},"id":16,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"\\.(cc|com|top|xyz)\\/i\\/v$","resourceTypes":["xmlhttprequest"]},"id":16,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"\\.[a-z]dyurli[a-z].top\\/","resourceTypes":["script"]},"id":17,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"\\.[a-z]domsi[a-z].top\\/","resourceTypes":["script"]},"id":18,"priority":10}
 ]

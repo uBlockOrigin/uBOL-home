@@ -20,6 +20,7 @@
     [
      "canela.tv",
      "deezer.com",
+     "rooter.gg",
      "tokopedia.com",
      "www.youtube.com"
     ]
@@ -214,17 +215,21 @@
     ]
    ],
    [
-    "m3u-prune",
+    "xml-prune",
     [
-     "10play.com.au",
-     "fox.com",
-     "foxsports.com",
-     "mephimtv.cc",
-     "phim1080.in",
-     "player.theplatform.com",
-     "sbs.com.au",
-     "vix.com",
-     "yhmgo.com"
+     "*"
+    ]
+   ],
+   [
+    "href-sanitizer",
+    [
+     "*"
+    ]
+   ],
+   [
+    "prevent-refresh",
+    [
+     "*"
     ]
    ],
    [
@@ -247,52 +252,6 @@
     ]
    ],
    [
-    "trusted-prevent-xhr",
-    [
-     "1cloudfile.com",
-     "animefire.info",
-     "animesonlinecc.us",
-     "animesonliner4.com",
-     "animesup.info",
-     "animeyabu.net",
-     "animeyabu.org",
-     "anitube.us",
-     "anitube.vip",
-     "bowfile.com",
-     "caroloportunidades.com.br",
-     "dattebayo-br.com",
-     "drstonebr.com",
-     "flyanimes.cloud",
-     "goanimes.vip",
-     "goyabu.us",
-     "hinatasoul.com",
-     "isekaibrasil.com",
-     "koramaup.com",
-     "meuanime.info",
-     "otakuanimess.net",
-     "sbs.com.au",
-     "superanimes.in"
-    ]
-   ],
-   [
-    "xml-prune",
-    [
-     "*"
-    ]
-   ],
-   [
-    "href-sanitizer",
-    [
-     "*"
-    ]
-   ],
-   [
-    "prevent-refresh",
-    [
-     "*"
-    ]
-   ],
-   [
     "spoof-css",
     [
      "1001tracklists.com",
@@ -300,7 +259,6 @@
      "dev.miuiflash.com",
      "djxmaza.in",
      "download.megaup.net",
-     "japscan.lol",
      "jytechs.in",
      "kiktu.com",
      "techcyan.com",
@@ -389,6 +347,7 @@
      "cinelatino.net",
      "cinemitas.org",
      "cineplus123.org",
+     "comdotgame.com",
      "dogdrip.net",
      "emturbovid.com",
      "findjav.com",
@@ -400,13 +359,14 @@
      "mobileweb.bankmellat.ir",
      "paraveronline.org",
      "pobreflix.vc",
+     "rooter.gg",
      "savefrom.net",
      "seclore.com",
+     "slashdot.org",
      "smsonline.cloud",
      "stbturbo.xyz",
      "streamelements.com",
      "streamsilk.com",
-     "tuborstb.co",
      "verpelis.gratis"
     ]
    ],
@@ -414,6 +374,20 @@
     "set-local-storage-item",
     [
      "*"
+    ]
+   ],
+   [
+    "m3u-prune",
+    [
+     "10play.com.au",
+     "fox.com",
+     "foxsports.com",
+     "mephimtv.cc",
+     "phim1080.in",
+     "player.theplatform.com",
+     "sbs.com.au",
+     "vix.com",
+     "yhmgo.com"
     ]
    ],
    [
@@ -444,6 +418,34 @@
      "sumax43.autos",
      "theporndude.com",
      "wp.pl"
+    ]
+   ],
+   [
+    "trusted-prevent-xhr",
+    [
+     "1cloudfile.com",
+     "animefire.info",
+     "animesonlinecc.us",
+     "animesonliner4.com",
+     "animesup.info",
+     "animeyabu.net",
+     "animeyabu.org",
+     "anitube.us",
+     "anitube.vip",
+     "bowfile.com",
+     "caroloportunidades.com.br",
+     "dattebayo-br.com",
+     "drstonebr.com",
+     "flyanimes.cloud",
+     "goanimes.vip",
+     "goyabu.us",
+     "hinatasoul.com",
+     "isekaibrasil.com",
+     "koramaup.com",
+     "meuanime.info",
+     "otakuanimess.net",
+     "sbs.com.au",
+     "superanimes.in"
     ]
    ],
    [
@@ -489,8 +491,7 @@
    [
     "trusted-suppress-native-method",
     [
-     "cinema.com.my",
-     "japscan.lol"
+     "cinema.com.my"
     ]
    ],
    [
@@ -1609,9 +1610,13 @@
      "collato.com",
      "communitycrimemap.com",
      "erco.com",
+     "farmaline.be",
      "fatalmodel.com",
      "gedik.com",
      "griffin.com",
+     "redcare.it",
+     "shop-apotheke.at",
+     "shop-apotheke.com",
      "smartwielen.lu",
      "ssga.com",
      "workwide.de"
@@ -1704,8 +1709,6 @@
      "bestdrive.fi",
      "bestdrive.no",
      "carvertical.com",
-     "cmpv2.fanpage.it",
-     "cmpv2.geopop.it",
      "cnmaarthouse.de",
      "crumblcookies.com",
      "dlnews.com",
@@ -1801,6 +1804,7 @@
      "columbiasportswear.fr",
      "columbiasportswear.it",
      "commondreams.org",
+     "egopowerplus.com",
      "funko.com",
      "girlscoutshop.com",
      "gourmetfoodstore.com",
@@ -2374,6 +2378,7 @@
      "fox61.com",
      "instagram.com",
      "kare11.com",
+     "kens5.com",
      "khou.com",
      "king5.com",
      "ksdk.com",
@@ -2688,6 +2693,7 @@
    [
     "set-constant",
     [
+     "ewrc.cz",
      "fdrive.cz",
      "fzone.cz",
      "hokej.cz",
@@ -2758,6 +2764,12 @@
     ]
    ],
    [
+    "prevent-setTimeout",
+    [
+     "kurzy.cz"
+    ]
+   ],
+   [
     "set-cookie",
     [
      "playzone.cz"
@@ -2786,6 +2798,12 @@
     "remove-attr",
     [
      "super.cz"
+    ]
+   ],
+   [
+    "spoof-css",
+    [
+     "titulky.com"
     ]
    ],
    [
@@ -3301,6 +3319,7 @@
      "androidgozar.com",
      "barcanews.org",
      "binanews.ir",
+     "blog.ir",
      "fidibo.com",
      "fontyab.com",
      "ketabesabz.com",
@@ -3426,6 +3445,7 @@
      "persian-fa.ir",
      "public-psychology.ir",
      "sclinic.ir",
+     "tarafdari.com",
      "tgju.org",
      "vaamfaa.ir"
     ]
@@ -3678,7 +3698,6 @@
      "ch-review.net",
      "dvdrev.com",
      "fm.sekkaku.net",
-     "free-avx.jp",
      "gametohkenranbu.sakuraweb.com",
      "ideal2ch.livedoor.biz",
      "jisakuhibi.jp",
@@ -5246,12 +5265,6 @@
   "spa-1",
   [
    [
-    "set-constant",
-    [
-     "*"
-    ]
-   ],
-   [
     "prevent-fetch",
     [
      "acortados.com",
@@ -5324,6 +5337,7 @@
      "southparkstudios.com.br",
      "suaads.com",
      "suaurl.com",
+     "sussyscan.com",
      "sussytoons.site",
      "teleculinaria.pt",
      "tivify.tv",
@@ -5332,6 +5346,12 @@
      "todostartups.com",
      "tudonoticiasbr.com",
      "vtv.com.hn"
+    ]
+   ],
+   [
+    "set-constant",
+    [
+     "*"
     ]
    ],
    [
@@ -5454,7 +5474,9 @@
      "guideautoweb.com",
      "irmaosdotados.net",
      "lapumia.org",
+     "peliculas8k.com",
      "satcesc.com",
+     "seriesperu.com",
      "softwareany.net",
      "superflix.net",
      "xerifetech.com"
@@ -5712,14 +5734,6 @@
     ]
    ],
    [
-    "remove-cookie",
-    [
-     "chef.se",
-     "lexbase.se",
-     "synonymer.se"
-    ]
-   ],
-   [
     "set-cookie",
     [
      "destination.se",
@@ -5730,6 +5744,7 @@
    [
     "abort-current-script",
     [
+     "alekuriren.se",
      "boktugg.se",
      "branschkoll.se",
      "classicmotor.se",
@@ -5909,6 +5924,12 @@
     ]
    ],
    [
+    "remove-cookie",
+    [
+     "synonymer.se"
+    ]
+   ],
+   [
     "set-local-storage-item",
     [
      "synonymer.se",
@@ -5918,6 +5939,7 @@
    [
     "xml-prune",
     [
+     "embed.viaplay.com",
      "fotbollskanalen.se",
      "koket.se",
      "tv4.se",
@@ -6554,7 +6576,7 @@
      "damconuong.club",
      "demo.14412882.com",
      "doctruyen3q3.net",
-     "dualeotruyenalpha.com",
+     "dualeotruyenbeta.com",
      "freeplayervideo.com",
      "gamek.vn",
      "genk.vn",
@@ -6613,8 +6635,8 @@
      "tenmientruyengi.net",
      "thanhnien.vn",
      "tinsoikeo.live",
+     "top1phimsex.com",
      "top1sex.me",
-     "topviet69.video",
      "truyen247.pro",
      "truyen35.shop",
      "truyengihotdo.net",
@@ -6640,7 +6662,7 @@
      "vn2.xvideos69.xxx",
      "vungoctuan.vn",
      "www.buomtv.io",
-     "www.phimchaua.com",
+     "www.phimchaua.net",
      "www.toptruyen28.net",
      "xem.sexviet88.xyz",
      "xnxx-sex-videos.com",
@@ -6668,19 +6690,18 @@
      "linkneverdie.top",
      "linkneverdie2.com",
      "maclife.io",
-     "motchill.pe",
+     "motchill.ph",
      "mv.dailyphimz.com",
      "mv.phimbathu.one",
      "mv.phimmoiaz.cc",
      "nhentaivn.online",
      "nungdam.pro",
      "ohaha79xxx.site",
-     "ohaytv.biz",
-     "phimdinhcao.net",
+     "ohaytv.vip",
      "phimlongtieng.org",
      "plcdn.xyz",
      "quangcaoyenbai.com",
-     "sexhihiz.top",
+     "sexhihiz.co",
      "sieudamsex.com",
      "thichxemphim1.net",
      "thuvienhd.xyz",
@@ -6692,9 +6713,11 @@
      "vinaurl.net",
      "www.khophim88s.com",
      "www.nettruyenupp.com",
+     "www.phimdinhcao.online",
      "www.phimdinhcaoz.com",
      "xemphimjav.com",
      "xemtivi.tvhayhd.tv",
+     "xnhau.pro",
      "xoilacxj.cc",
      "yts.do",
      "yts.mx",
@@ -6775,7 +6798,7 @@
    [
     "addEventListener-defuser",
     [
-     "motchilltv.love",
+     "motchilltv.name",
      "survey-smiles.com"
     ]
    ],
@@ -6794,7 +6817,7 @@
    [
     "m3u-prune",
     [
-     "yeuphim.vip"
+     "yeuphim.me"
     ]
    ]
   ]

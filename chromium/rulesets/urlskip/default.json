@@ -818,6 +818,12 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?page\\.link/\\S*?(?:[^%.0-9a-z_-]|$)ofl=http",
+  "steps": [
+   "?ofl"
+  ]
+ },
+ {
   "re": "/vp/player/to/\\?u=http",
   "steps": [
    "?u"

@@ -615,5 +615,13 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["admob.dk","admob.no","adnordics.com","adserver.xh.no","adservice.com","adservicemedia.dk","betterbanners.org","bytelab.dk","cluster.chart.dk","cncpt.dk","collector.schibsted.io","delivered-by-madington.com","dotbanner.dk","easy-ad.no","easy-ads.dk","gcp.passendo.com","heartbeat.airserve.net","images.passendo.com","kunde.apt.no","kynning.olis.is","nichehuset.dk","openad.visir.is","plausible.webfokus.no","pliing.com","psscdn.com","samfilm.codelab.is","sannsyn.com","spania.no","static.airserve.net","step.dk","tankeogteknikk.no","vefbordi.is","videotool.fbg.dk","widget.tippebannere.no"]},"id":614,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ukenr.no/bobs/iframe.php^"},"id":615,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ugenr.dk/bobs/iframe.php^"},"id":616,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||cdplanet.no/images/previews/*_app_preview.png^"},"id":617,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||cdplanet.no/images/previews/*_app_preview.png^"},"id":617,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||storfjordnytt.no/wp-content/uploads/*_bilsenter.jpg^"},"id":618,"priority":40},
+{"action":{"type":"block"},"condition":{"urlFilter":"||storfjordnytt.no/wp-content/uploads/*_hovleriet.jpg^"},"id":619,"priority":40},
+{"action":{"type":"block"},"condition":{"urlFilter":"||storfjordnytt.no/wp-content/uploads/*_muri.jpg^"},"id":620,"priority":40},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["ekstrabladet-dk.translate.goog","ekstrabladet.dk"],"urlFilter":"||v.fwmrm.net/ad/g/"},"id":621,"priority":40},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||xn--bredbnd-ixa.dk/wp-content/*/velkommen_banner"},"id":622,"priority":40},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["vg.no"],"resourceTypes":["script"],"urlFilter":"||acdn.adnxs.com/ast/ast.js"},"id":623,"priority":40},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["vg.no"],"resourceTypes":["script"],"urlFilter":"||ssl.p.jwpcdn.com^*/jwpsrv.js"},"id":624,"priority":40},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["vg.no"],"resourceTypes":["script"],"urlFilter":"||ssl.p.jwpcdn.com^*/vast.js"},"id":625,"priority":40}
 ]

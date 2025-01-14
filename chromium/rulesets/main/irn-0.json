@@ -625,5 +625,6 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||api.yeklinks.ir/api/landing/click^"},"id":624,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||api.yeklinks.ir/api/domain/*/view^"},"id":625,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||api.divar.ir/v8/ad-auction^"},"id":626,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||melkana.com/ngx_pagespeed_beacon?url="},"id":627,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||melkana.com/ngx_pagespeed_beacon?url="},"id":627,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["wisgoon.com"],"resourceTypes":["sub_frame"],"urlFilter":"||imasdk.googleapis.com/js/core/bridge*.html"},"id":628,"priority":40}
 ]

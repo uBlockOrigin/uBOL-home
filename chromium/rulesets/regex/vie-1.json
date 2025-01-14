@@ -1,0 +1,16 @@
+[
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "regexFilter": "^https:\\/\\/[a-z]{8,12}\\.com\\/en\\/(?:[a-z]{2,5}\\/){0,2}[a-z]{2,}\\?(?:[a-z]+=(?:\\d+|[a-z]+)&)*?id=[12]\\d{6}",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 307,
+ "priority": 10
+}
+]

@@ -45,5 +45,6 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||sprinklr.com/api/livechat/"},"id":44,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||supportai.yandex/widget/"},"id":45,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||zohopublic.com/watchws?"},"id":46,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["components.justanswer.com"],"resourceTypes":["script"]},"id":47,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["components.justanswer.com"],"resourceTypes":["script"]},"id":47,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["casbin.org"],"requestDomains":["ai.casbin.com"]},"id":48,"priority":10}
 ]
