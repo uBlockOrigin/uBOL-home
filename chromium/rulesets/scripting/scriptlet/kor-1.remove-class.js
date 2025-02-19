@@ -22,9 +22,7 @@
 
 /* eslint-disable indent */
 
-// ruleset: cze-0
-
-/******************************************************************************/
+// ruleset: kor-1
 
 // Important!
 // Isolate from global scope
@@ -35,13 +33,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_spoofCSS = function() {
+const uBOL_removeClass = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["#bnn_nu300x300","display","block"]];
+const argsList = [["type_ad","#shortcutArea"]];
 
-const hostnamesMap = new Map([["titulky.com",0]]);
+const hostnamesMap = new Map([["www.naver.com",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -49,122 +47,96 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function spoofCSS(
-    selector,
-    ...args
+function removeClass(
+    rawToken = '',
+    rawSelector = '',
+    behavior = ''
 ) {
-    if ( typeof selector !== 'string' ) { return; }
-    if ( selector === '' ) { return; }
-    const toCamelCase = s => s.replace(/-[a-z]/g, s => s.charAt(1).toUpperCase());
-    const propToValueMap = new Map();
-    const privatePropToValueMap = new Map();
-    for ( let i = 0; i < args.length; i += 2 ) {
-        const prop = toCamelCase(args[i+0]);
-        if ( prop === '' ) { break; }
-        const value = args[i+1];
-        if ( typeof value !== 'string' ) { break; }
-        if ( prop.charCodeAt(0) === 0x5F /* _ */ ) {
-            privatePropToValueMap.set(prop, value);
-        } else {
-            propToValueMap.set(prop, value);
-        }
-    }
+    if ( typeof rawToken !== 'string' ) { return; }
+    if ( rawToken === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('spoof-css', selector, ...args);
-    const instanceProperties = [ 'cssText', 'length', 'parentRule' ];
-    const spoofStyle = (prop, real) => {
-        const normalProp = toCamelCase(prop);
-        const shouldSpoof = propToValueMap.has(normalProp);
-        const value = shouldSpoof ? propToValueMap.get(normalProp) : real;
-        if ( shouldSpoof ) {
-            safe.uboLog(logPrefix, `Spoofing ${prop} to ${value}`);
+    const logPrefix = safe.makeLogPrefix('remove-class', rawToken, rawSelector, behavior);
+    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
+    const selector = tokens
+        .map(a => `${rawSelector}.${CSS.escape(a)}`)
+        .join(',');
+    if ( safe.logLevel > 1 ) {
+        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
+    }
+    const mustStay = /\bstay\b/.test(behavior);
+    let timer;
+    const rmclass = ( ) => {
+        timer = undefined;
+        try {
+            const nodes = document.querySelectorAll(selector);
+            for ( const node of nodes ) {
+                node.classList.remove(...tokens);
+                safe.uboLog(logPrefix, 'Removed class(es)');
+            }
+        } catch {
         }
-        return value;
+        if ( mustStay ) { return; }
+        if ( document.readyState !== 'complete' ) { return; }
+        observer.disconnect();
     };
-    const cloackFunc = (fn, thisArg, name) => {
-        const trap = fn.bind(thisArg);
-        Object.defineProperty(trap, 'name', { value: name });
-        Object.defineProperty(trap, 'toString', {
-            value: ( ) => `function ${name}() { [native code] }`
+    const mutationHandler = mutations => {
+        if ( timer !== undefined ) { return; }
+        let skip = true;
+        for ( let i = 0; i < mutations.length && skip; i++ ) {
+            const { type, addedNodes, removedNodes } = mutations[i];
+            if ( type === 'attributes' ) { skip = false; }
+            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
+                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
+            }
+            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
+                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
+            }
+        }
+        if ( skip ) { return; }
+        timer = safe.onIdle(rmclass, { timeout: 67 });
+    };
+    const observer = new MutationObserver(mutationHandler);
+    const start = ( ) => {
+        rmclass();
+        observer.observe(document, {
+            attributes: true,
+            attributeFilter: [ 'class' ],
+            childList: true,
+            subtree: true,
         });
-        return trap;
     };
-    self.getComputedStyle = new Proxy(self.getComputedStyle, {
-        apply: function(target, thisArg, args) {
-            // eslint-disable-next-line no-debugger
-            if ( privatePropToValueMap.has('_debug') ) { debugger; }
-            const style = Reflect.apply(target, thisArg, args);
-            const targetElements = new WeakSet(document.querySelectorAll(selector));
-            if ( targetElements.has(args[0]) === false ) { return style; }
-            const proxiedStyle = new Proxy(style, {
-                get(target, prop) {
-                    if ( typeof target[prop] === 'function' ) {
-                        if ( prop === 'getPropertyValue' ) {
-                            return cloackFunc(function getPropertyValue(prop) {
-                                return spoofStyle(prop, target[prop]);
-                            }, target, 'getPropertyValue');
-                        }
-                        return cloackFunc(target[prop], target, prop);
-                    }
-                    if ( instanceProperties.includes(prop) ) {
-                        return Reflect.get(target, prop);
-                    }
-                    return spoofStyle(prop, Reflect.get(target, prop));
-                },
-                getOwnPropertyDescriptor(target, prop) {
-                    if ( propToValueMap.has(prop) ) {
-                        return {
-                            configurable: true,
-                            enumerable: true,
-                            value: propToValueMap.get(prop),
-                            writable: true,
-                        };
-                    }
-                    return Reflect.getOwnPropertyDescriptor(target, prop);
-                },
-            });
-            return proxiedStyle;
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) {
-                return target.toString.bind(target);
-            }
-            return Reflect.get(target, prop);
-        },
-    });
-    Element.prototype.getBoundingClientRect = new Proxy(Element.prototype.getBoundingClientRect, {
-        apply: function(target, thisArg, args) {
-            // eslint-disable-next-line no-debugger
-            if ( privatePropToValueMap.has('_debug') ) { debugger; }
-            const rect = Reflect.apply(target, thisArg, args);
-            const targetElements = new WeakSet(document.querySelectorAll(selector));
-            if ( targetElements.has(thisArg) === false ) { return rect; }
-            let { x, y, height, width } = rect;
-            if ( privatePropToValueMap.has('_rectx') ) {
-                x = parseFloat(privatePropToValueMap.get('_rectx'));
-            }
-            if ( privatePropToValueMap.has('_recty') ) {
-                y = parseFloat(privatePropToValueMap.get('_recty'));
-            }
-            if ( privatePropToValueMap.has('_rectw') ) {
-                width = parseFloat(privatePropToValueMap.get('_rectw'));
-            } else if ( propToValueMap.has('width') ) {
-                width = parseFloat(propToValueMap.get('width'));
-            }
-            if ( privatePropToValueMap.has('_recth') ) {
-                height = parseFloat(privatePropToValueMap.get('_recth'));
-            } else if ( propToValueMap.has('height') ) {
-                height = parseFloat(propToValueMap.get('height'));
-            }
-            return new self.DOMRect(x, y, width, height);
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) {
-                return target.toString.bind(target);
-            }
-            return Reflect.get(target, prop);
-        },
-    });
+    runAt(( ) => {
+        start();
+    }, /\bcomplete\b/.test(behavior) ? 'idle' : 'loading');
+}
+
+function runAt(fn, when) {
+    const intFromReadyState = state => {
+        const targets = {
+            'loading': 1, 'asap': 1,
+            'interactive': 2, 'end': 2, '2': 2,
+            'complete': 3, 'idle': 3, '3': 3,
+        };
+        const tokens = Array.isArray(state) ? state : [ state ];
+        for ( const token of tokens ) {
+            const prop = `${token}`;
+            if ( targets.hasOwnProperty(prop) === false ) { continue; }
+            return targets[prop];
+        }
+        return 0;
+    };
+    const runAt = intFromReadyState(when);
+    if ( intFromReadyState(document.readyState) >= runAt ) {
+        fn(); return;
+    }
+    const onStateChange = ( ) => {
+        if ( intFromReadyState(document.readyState) < runAt ) { return; }
+        fn();
+        safe.removeEventListener.apply(document, args);
+    };
+    const safe = safeSelf();
+    const args = [ 'readystatechange', onStateChange, { capture: true } ];
+    safe.addEventListener.apply(document, args);
 }
 
 function safeSelf() {
@@ -370,8 +342,8 @@ try {
     const pos = origin.lastIndexOf('://');
     if ( pos === -1 ) { return; }
     hnParts.push(...origin.slice(pos+3).split('.'));
+} catch {
 }
-catch(ex) { }
 const hnpartslen = hnParts.length;
 if ( hnpartslen === 0 ) { return; }
 
@@ -427,8 +399,8 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { spoofCSS(...argsList[i]); }
-    catch(ex) {}
+    try { removeClass(...argsList[i]); }
+    catch { }
 }
 argsList.length = 0;
 
@@ -439,7 +411,7 @@ argsList.length = 0;
 
 /******************************************************************************/
 
-uBOL_spoofCSS();
+uBOL_removeClass();
 
 /******************************************************************************/
 

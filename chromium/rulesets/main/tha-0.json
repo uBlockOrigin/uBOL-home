@@ -743,5 +743,9 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"-adnow.com"},"id":742,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["tn.com.ar"],"requestDomains":["cxense.com"]},"id":743,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||iwilldoforking.com/coverpage.js"},"id":744,"priority":10},
-{"action":{"type":"allow"},"condition":{"urlFilter":"||gelbooru.com/ads.js?"},"id":745,"priority":30}
+{"action":{"type":"allow"},"condition":{"urlFilter":"||gelbooru.com/ads.js?"},"id":745,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||037hdmovie.com/ads^"},"id":746,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["037hdmovie.com"],"resourceTypes":["image"],"urlFilter":".gif"},"id":747,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["leoplayer7.com"],"resourceTypes":["media"],"urlFilter":"||rsc.cdn77.org/videos/ads-"},"id":748,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["leoplayer7.com"],"resourceTypes":["media"],"urlFilter":"||upfastfile.com/upload/"},"id":749,"priority":10}
 ]

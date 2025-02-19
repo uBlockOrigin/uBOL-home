@@ -19,5 +19,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["m.sports.naver.com"],"resourceTypes":["script"],"urlFilter":"||ssl.pstatic.net/tveta/libs/ssp-video/prod/ssp.web.sdk_"},"id":18,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["aagag.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":19,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["maxmovie.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||mtag.mman.kr/get_ad.mezzo/"},"id":20,"priority":11},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||advod.sbs.co.kr/sbsad/"},"id":21,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||advod.sbs.co.kr/sbsad/"},"id":21,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["3dpchip.com"],"requestDomains":["compass.adop.cc"],"resourceTypes":["script"]},"id":22,"priority":11}
 ]

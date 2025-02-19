@@ -28,6 +28,5 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||static.canal-plus.net/pub/*/*_*.mp4"},"id":30,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["tf1.fr"],"resourceTypes":["media"],"urlFilter":"||delivery.tf1.fr/pub"},"id":31,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["tf1.fr"],"requestDomains":["dnl-adv-ssl.tf1.fr","slpubmedias.tf1.fr"],"resourceTypes":["media"]},"id":32,"priority":11},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["01fmovies.com"],"resourceTypes":["media"],"urlFilter":"||loadshare.org/custom/"},"id":33,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["6play.fr"],"resourceTypes":["media"],"urlFilter":"||static.6cloud.fr^*.mp4"},"id":34,"priority":11}
 ]

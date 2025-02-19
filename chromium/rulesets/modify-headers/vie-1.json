@@ -12,7 +12,7 @@
  },
  "condition": {
   "requestDomains": [
-   "cliphot69.cfd",
+   "cliphot69.bar",
    "truyen4u.pro"
   ],
   "resourceTypes": [
@@ -50,14 +50,14 @@
    {
     "header": "content-security-policy",
     "operation": "append",
-    "value": "script-src 'self' 'unsafe-inline' https:"
+    "value": "script-src self * data:* 'unsafe-inline'"
    }
   ],
   "type": "modifyHeaders"
  },
  "condition": {
   "requestDomains": [
-   "phimhdc.wiki"
+   "ungtycomicsnay.com"
   ],
   "resourceTypes": [
    "main_frame",
@@ -87,28 +87,6 @@
   ]
  },
  "id": 4
-},
-{
- "action": {
-  "responseHeaders": [
-   {
-    "header": "content-security-policy",
-    "operation": "append",
-    "value": "script-src self * data:* 'unsafe-inline'"
-   }
-  ],
-  "type": "modifyHeaders"
- },
- "condition": {
-  "requestDomains": [
-   "ungtycomicsxyz.com"
-  ],
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ]
- },
- "id": 5
 },
 {
  "action": {

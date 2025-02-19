@@ -40,11 +40,27 @@
  },
  "condition": {
   "initiatorDomains": [
-   "www.phimchaua.net"
+   "motchillcx.com"
   ],
-  "urlFilter": "||www.phimchaua.net/3s.m3u8"
+  "urlFilter": "||motchillcx.com/3s.m3u8"
  },
  "id": 3,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "xem15.com"
+  ],
+  "urlFilter": "||xem15.com/video888.mp4"
+ },
+ "id": 4,
  "priority": 11
 },
 {
@@ -56,30 +72,10 @@
  },
  "condition": {
   "initiatorDomains": [
-   "phevkl.to",
-   "viet69.ws"
+   "phevkl.im",
+   "viet69.ong"
   ],
   "urlFilter": "||i2.vlstorage.com/da88_1080p.mp4"
- },
- "id": 4,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.js"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "apkmoddone.com"
-  ],
-  "resourceTypes": [
-   "script",
-   "xmlhttprequest"
-  ],
-  "urlFilter": "||alwingulla.com/88/tag.min.js"
  },
  "id": 5,
  "priority": 11

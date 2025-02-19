@@ -34,7 +34,7 @@
  },
  "condition": {
   "domainType": "thirdParty",
-  "regexFilter": ":\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpg|png|jpeg)"
+  "regexFilter": "^.*:\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpe?g|png)((\\?|&).*)?$"
  },
  "id": 3,
  "priority": 10

@@ -5,28 +5,15 @@
  },
  "condition": {
   "initiatorDomains": [
-   "amatorialeporno.it",
    "amoreporno.com",
    "clipdisesso.com",
    "culonudo.com",
-   "granditetteporno.it",
-   "listasitiporno.it",
-   "matrignaporno.it",
-   "matureporno.it",
-   "milfporno.it",
    "peneporno.com",
-   "porno-anale.it",
-   "porno-gay.it",
-   "porno-hardcore.it",
-   "porno-lesbica.it",
-   "pornoadolescente.it",
    "pornoamica.com",
    "pornocategorie.com",
    "pornoculi.com",
-   "pornomatura.it",
    "pornotreno.com",
-   "sessoromantico.com",
-   "videoporno-gratis.it"
+   "sessoromantico.com"
   ],
   "regexFilter": "^https?:\\/\\/.*\\/[a-z0-9A-Z_]{2,15}\\.(php|jx|jsx|1ph|jsf|jz|jsm|j$)",
   "resourceTypes": [
@@ -62,12 +49,8 @@
  "condition": {
   "domainType": "thirdParty",
   "initiatorDomains": [
-   "animeunity.to",
-   "calcio.run",
-   "guardaserie01.click",
    "onepiecepower.com",
-   "pepperlive.info",
-   "streamingcommunity.cz"
+   "pepperlive.info"
   ],
   "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.com\\/.*",
   "resourceTypes": [
@@ -76,25 +59,6 @@
   ]
  },
  "id": 3,
- "priority": 10
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "initiatorDomains": [
-   "altadefinizione01.lol",
-   "ilgeniodellostreaming.zone"
-  ],
-  "regexFilter": "^https?:\\/\\/[0-9a-z]{8,}\\.xyz\\/.*",
-  "resourceTypes": [
-   "script",
-   "xmlhttprequest"
-  ]
- },
- "id": 4,
  "priority": 10
 }
 ]

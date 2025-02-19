@@ -68,5 +68,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["play.tv3.ee"],"resourceTypes":["script"],"urlFilter":"||mssl.fwmrm.net/libs/adm/"},"id":67,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["play.tv3.ee"],"resourceTypes":["script"],"urlFilter":"||play.tv3.ee/static/scripts/ima3.js"},"id":68,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["play.tv3.ee"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||static.go3.tv/file/go3/resources/scripts/tv3play/onetrust/lv/onetrust.html"},"id":69,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["postimees.ee","tartupostimees.ee"],"requestDomains":["emediate.se"]},"id":70,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["postimees.ee","tartupostimees.ee"],"requestDomains":["emediate.se"]},"id":70,"priority":30},
+{"action":{"type":"allow"},"condition":{"requestDomains":["auth-delfi-ee.tinypass.com"]},"id":71,"priority":30}
 ]

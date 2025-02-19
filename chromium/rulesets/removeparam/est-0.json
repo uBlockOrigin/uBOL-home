@@ -1,0 +1,28 @@
+[
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "dsrc"
+     ]
+    }
+   }
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "requestDomains": [
+   "delfi.ee"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame",
+   "xmlhttprequest"
+  ]
+ },
+ "id": 72,
+ "priority": 2
+}
+]

@@ -64,31 +64,6 @@
   "type": "redirect"
  },
  "condition": {
-  "initiatorDomains": [
-   "expressen.se"
-  ],
-  "resourceTypes": [
-   "sub_frame"
-  ],
-  "urlFilter": "?autoplay=true"
- },
- "id": 3,
- "priority": 3
-},
-{
- "action": {
-  "redirect": {
-   "transform": {
-    "queryTransform": {
-     "removeParams": [
-      "autoplay"
-     ]
-    }
-   }
-  },
-  "type": "redirect"
- },
- "condition": {
   "resourceTypes": [
    "sub_frame"
   ],

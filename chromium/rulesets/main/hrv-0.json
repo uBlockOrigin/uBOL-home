@@ -54,5 +54,6 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["redakcija.alo.rs"],"resourceTypes":["image"]},"id":53,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["slobodnadalmacija.hr","tportal.hr"],"resourceTypes":["script"],"urlFilter":"|https://html-load.com^"},"id":54,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||widget.halooglasi.com/nekretnine.html"},"id":55,"priority":10},
-{"action":{"type":"allow"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ads.api.24ur.si/adserver/adblock."},"id":56,"priority":30}
+{"action":{"type":"allow"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ads.api.24ur.si/adserver/adblock."},"id":56,"priority":30},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","urlFilter":"/scripts/admiral_widget.min.js^"},"id":57,"priority":10}
 ]

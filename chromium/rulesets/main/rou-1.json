@@ -368,5 +368,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||gsp.ro/usr/widgets/*/cptm*"},"id":367,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["tvonline123.com"],"requestMethods":["get"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":368,"priority":30},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||cdn.knd.ro/media/*/common/placeholders/"},"id":369,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||citu.ro/ads/"},"id":370,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||citu.ro/ads/"},"id":370,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["timesnewroman.ro"],"requestDomains":["widget.apsis.ai"],"resourceTypes":["sub_frame"]},"id":371,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||golazo.ro/storage/2025-01-10/65534/bucovina.mp4"},"id":372,"priority":10}
 ]

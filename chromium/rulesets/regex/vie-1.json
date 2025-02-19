@@ -5,6 +5,20 @@
  },
  "condition": {
   "domainType": "thirdParty",
+  "regexFilter": "^https:\\/\\/[a-z]{3,}\\.com\\/$",
+  "resourceTypes": [
+   "xmlhttprequest"
+  ]
+ },
+ "id": 1,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "thirdParty",
   "regexFilter": "^https:\\/\\/[a-z]{8,12}\\.com\\/en\\/(?:[a-z]{2,5}\\/){0,2}[a-z]{2,}\\?(?:[a-z]+=(?:\\d+|[a-z]+)&)*?id=[12]\\d{6}",
   "resourceTypes": [
    "script"

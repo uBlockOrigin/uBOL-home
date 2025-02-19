@@ -39,7 +39,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||kaksplus.fi/upotukset/hintaopas^"},"id":38,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["tekniikanmaailma.fi"],"urlFilter":"||kotiliesi.fi/upotukset/hintaopas/"},"id":39,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["lbaanijakuva.fi"],"urlFilter":"||lbaanijakuva.fi/test/*?template=prisjakt"},"id":40,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||matkaendurot.net/images/*banner,domain=matkaendurot.net"},"id":41,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["matkaendurot.net"],"urlFilter":"||matkaendurot.net/images/*banner"},"id":41,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["is.fi"],"requestDomains":["recommendations.asunnot.oikotie.fi"]},"id":42,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ridemedia.fi"],"urlFilter":"||ridemedia.fi/aspbanner"},"id":43,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["seksitreffit.fi"],"urlFilter":"||seksitreffit.fi/banners/"},"id":44,"priority":10},
