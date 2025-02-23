@@ -270,6 +270,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||re-volver.net/visitor/"},"id":269,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||yanmaga.jp/viewer/banner.html"},"id":270,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mutualart.com/ajax/ajaxloader/popup"},"id":271,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||assetscdn-wchat.freshchat.com/static/assets/"},"id":272,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||wp.com/www.feedburner.com/fb/"},"id":280,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["breakingdefense.com"],"resourceTypes":["script"],"urlFilter":"/jquery.simplemodal."},"id":281,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["tracktion.com","upride.cc"],"resourceTypes":["script"],"urlFilter":"/plugins/popup-maker/"},"id":282,"priority":10},

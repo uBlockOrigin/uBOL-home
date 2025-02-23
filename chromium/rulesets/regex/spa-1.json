@@ -72,5 +72,21 @@
  },
  "id": 5,
  "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "hunterscomics.com"
+  ],
+  "regexFilter": "^https:\\/\\/hunterscomics\\.com\\/wp-content\\/themes(\\/[a-f]{6}){2}\\.js\\?ver=",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 6,
+ "priority": 10
 }
 ]
