@@ -33,32 +33,69 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_disableNewtabLinks = function() {
+const uBOL_overlayBuster = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
 const argsList = [[]];
 
-const hostnamesMap = new Map([["xrares.com",0],["daftporn.com",0],["boost.ink",0],["wootly.ch",0],["sexlist.tv",0],["player.theplatform.com",0],["cine24.online",0],["porntrex.com",0],["stream.hownetwork.xyz",0]]);
+const hostnamesMap = new Map([["cimanow.cc",0],["cimanow.online",0]]);
 
-const entitiesMap = new Map([["europixhd",0],["hdeuropix",0],["hindipix",0],["topeuropix",0],["earnload",0]]);
+const entitiesMap = new Map([]);
 
 const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function disableNewtabLinks() {
-    document.addEventListener('click', ev => {
-        let target = ev.target;
-        while ( target !== null ) {
-            if ( target.localName === 'a' && target.hasAttribute('target') ) {
-                ev.stopPropagation();
-                ev.preventDefault();
+function overlayBuster() {
+    if ( window !== window.top ) { return; }
+    var tstart;
+    var ttl = 30000;
+    var delay = 0;
+    var delayStep = 50;
+    var buster = function() {
+        var docEl = document.documentElement,
+            bodyEl = document.body,
+            vw = Math.min(docEl.clientWidth, window.innerWidth),
+            vh = Math.min(docEl.clientHeight, window.innerHeight),
+            tol = Math.min(vw, vh) * 0.05,
+            el = document.elementFromPoint(vw/2, vh/2),
+            style, rect;
+        for (;;) {
+            if ( el === null || el.parentNode === null || el === bodyEl ) {
                 break;
             }
-            target = target.parentNode;
+            style = window.getComputedStyle(el);
+            if ( parseInt(style.zIndex, 10) >= 1000 || style.position === 'fixed' ) {
+                rect = el.getBoundingClientRect();
+                if ( rect.left <= tol && rect.top <= tol && (vw - rect.right) <= tol && (vh - rect.bottom) < tol ) {
+                    el.parentNode.removeChild(el);
+                    tstart = Date.now();
+                    el = document.elementFromPoint(vw/2, vh/2);
+                    bodyEl.style.setProperty('overflow', 'auto', 'important');
+                    docEl.style.setProperty('overflow', 'auto', 'important');
+                    continue;
+                }
+            }
+            el = el.parentNode;
         }
-    }, { capture: true });
+        if ( (Date.now() - tstart) < ttl ) {
+            delay = Math.min(delay + delayStep, 1000);
+            setTimeout(buster, delay);
+        }
+    };
+    var domReady = function(ev) {
+        if ( ev ) {
+            document.removeEventListener(ev.type, domReady);
+        }
+        tstart = Date.now();
+        setTimeout(buster, delay);
+    };
+    if ( document.readyState === 'loading' ) {
+        document.addEventListener('DOMContentLoaded', domReady);
+    } else {
+        domReady();
+    }
 }
 
 /******************************************************************************/
@@ -133,7 +170,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { disableNewtabLinks(...argsList[i]); }
+    try { overlayBuster(...argsList[i]); }
     catch { }
 }
 argsList.length = 0;
@@ -145,7 +182,7 @@ argsList.length = 0;
 
 /******************************************************************************/
 
-uBOL_disableNewtabLinks();
+uBOL_overlayBuster();
 
 /******************************************************************************/
 

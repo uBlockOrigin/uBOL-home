@@ -544,7 +544,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["sports.ru"],"urlFilter":"||yandex.ru/metrika/watch_visor.js"},"id":543,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.inoreader.com"],"urlFilter":"||www.inoreader.com/adv/"},"id":544,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["dzen.ru","yandex.by","yandex.kz","yandex.ru","yandex.uz"],"urlFilter":"||an.yandex.ru/jserr/1|"},"id":545,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["dzen.ru","yandex.by","yandex.kz","yandex.ru","yandex.uz"],"urlFilter":"||an.yandex.ru/system/context.js|"},"id":546,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["dzen.ru","ya.ru","yandex.by","yandex.kz","yandex.ru","yandex.uz"],"urlFilter":"||an.yandex.ru/system/context.js|"},"id":546,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["dzen.ru","ya.ru","yandex.by","yandex.kz","yandex.ru","yandex.uz"],"urlFilter":"||yandex.ru/ads/system/context.js|"},"id":547,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["yandex.by","yandex.kz","yandex.ru","yandex.uz"],"urlFilter":"||yastatic.net/daas/atom.js|"},"id":548,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["alcogolizm.com"],"resourceTypes":["script","stylesheet"],"urlFilter":"||alcogolizm.com/addons/counter/"},"id":549,"priority":30},

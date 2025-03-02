@@ -22,7 +22,7 @@
 
 /* eslint-disable indent */
 
-// ruleset: tur-0
+// ruleset: fra-0
 
 // Important!
 // Isolate from global scope
@@ -33,13 +33,13 @@
 /******************************************************************************/
 
 // Start of code to inject
-const uBOL_removeClass = function() {
+const uBOL_removeNodeText = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["is-ad-visible"]];
+const argsList = [["script","/const [A-Z][a-z][A-Z]o/"]];
 
-const hostnamesMap = new Map([["turkakisi.tv",0]]);
+const hostnamesMap = new Map([["japscan.lol",0]]);
 
 const entitiesMap = new Map([]);
 
@@ -47,67 +47,120 @@ const exceptionsMap = new Map([]);
 
 /******************************************************************************/
 
-function removeClass(
-    rawToken = '',
-    rawSelector = '',
-    behavior = ''
+function removeNodeText(
+    nodeName,
+    includes,
+    ...extraArgs
 ) {
-    if ( typeof rawToken !== 'string' ) { return; }
-    if ( rawToken === '' ) { return; }
+    replaceNodeTextFn(nodeName, '', '', 'includes', includes || '', ...extraArgs);
+}
+
+function replaceNodeTextFn(
+    nodeName = '',
+    pattern = '',
+    replacement = ''
+) {
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('remove-class', rawToken, rawSelector, behavior);
-    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
-    const selector = tokens
-        .map(a => `${rawSelector}.${CSS.escape(a)}`)
-        .join(',');
-    if ( safe.logLevel > 1 ) {
-        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
-    }
-    const mustStay = /\bstay\b/.test(behavior);
-    let timer;
-    const rmclass = ( ) => {
-        timer = undefined;
-        try {
-            const nodes = document.querySelectorAll(selector);
-            for ( const node of nodes ) {
-                node.classList.remove(...tokens);
-                safe.uboLog(logPrefix, 'Removed class(es)');
-            }
-        } catch {
+    const logPrefix = safe.makeLogPrefix('replace-node-text.fn', ...Array.from(arguments));
+    const reNodeName = safe.patternToRegex(nodeName, 'i', true);
+    const rePattern = safe.patternToRegex(pattern, 'gms');
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const reIncludes = extraArgs.includes || extraArgs.condition
+        ? safe.patternToRegex(extraArgs.includes || extraArgs.condition, 'ms')
+        : null;
+    const reExcludes = extraArgs.excludes
+        ? safe.patternToRegex(extraArgs.excludes, 'ms')
+        : null;
+    const stop = (takeRecord = true) => {
+        if ( takeRecord ) {
+            handleMutations(observer.takeRecords());
         }
-        if ( mustStay ) { return; }
-        if ( document.readyState !== 'complete' ) { return; }
         observer.disconnect();
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, 'Quitting');
+        }
     };
-    const mutationHandler = mutations => {
-        if ( timer !== undefined ) { return; }
-        let skip = true;
-        for ( let i = 0; i < mutations.length && skip; i++ ) {
-            const { type, addedNodes, removedNodes } = mutations[i];
-            if ( type === 'attributes' ) { skip = false; }
-            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
-                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
-                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
+    const textContentFactory = (( ) => {
+        const out = { createScript: s => s };
+        const { trustedTypes: tt } = self;
+        if ( tt instanceof Object ) {
+            if ( typeof tt.getPropertyType === 'function' ) {
+                if ( tt.getPropertyType('script', 'textContent') === 'TrustedScript' ) {
+                    return tt.createPolicy(getRandomToken(), out);
+                }
             }
         }
-        if ( skip ) { return; }
-        timer = safe.onIdle(rmclass, { timeout: 67 });
+        return out;
+    })();
+    let sedCount = extraArgs.sedCount || 0;
+    const handleNode = node => {
+        const before = node.textContent;
+        if ( reIncludes ) {
+            reIncludes.lastIndex = 0;
+            if ( safe.RegExp_test.call(reIncludes, before) === false ) { return true; }
+        }
+        if ( reExcludes ) {
+            reExcludes.lastIndex = 0;
+            if ( safe.RegExp_test.call(reExcludes, before) ) { return true; }
+        }
+        rePattern.lastIndex = 0;
+        if ( safe.RegExp_test.call(rePattern, before) === false ) { return true; }
+        rePattern.lastIndex = 0;
+        const after = pattern !== ''
+            ? before.replace(rePattern, replacement)
+            : replacement;
+        node.textContent = node.nodeName === 'SCRIPT'
+            ? textContentFactory.createScript(after)
+            : after;
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `Text before:\n${before.trim()}`);
+        }
+        safe.uboLog(logPrefix, `Text after:\n${after.trim()}`);
+        return sedCount === 0 || (sedCount -= 1) !== 0;
     };
-    const observer = new MutationObserver(mutationHandler);
-    const start = ( ) => {
-        rmclass();
-        observer.observe(document, {
-            attributes: true,
-            attributeFilter: [ 'class' ],
-            childList: true,
-            subtree: true,
-        });
+    const handleMutations = mutations => {
+        for ( const mutation of mutations ) {
+            for ( const node of mutation.addedNodes ) {
+                if ( reNodeName.test(node.nodeName) === false ) { continue; }
+                if ( handleNode(node) ) { continue; }
+                stop(false); return;
+            }
+        }
     };
+    const observer = new MutationObserver(handleMutations);
+    observer.observe(document, { childList: true, subtree: true });
+    if ( document.documentElement ) {
+        const treeWalker = document.createTreeWalker(
+            document.documentElement,
+            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT
+        );
+        let count = 0;
+        for (;;) {
+            const node = treeWalker.nextNode();
+            count += 1;
+            if ( node === null ) { break; }
+            if ( reNodeName.test(node.nodeName) === false ) { continue; }
+            if ( node === document.currentScript ) { continue; }
+            if ( handleNode(node) ) { continue; }
+            stop(); break;
+        }
+        safe.uboLog(logPrefix, `${count} nodes present before installing mutation observer`);
+    }
+    if ( extraArgs.stay ) { return; }
     runAt(( ) => {
-        start();
-    }, /\bcomplete\b/.test(behavior) ? 'idle' : 'loading');
+        const quitAfter = extraArgs.quitAfter || 0;
+        if ( quitAfter !== 0 ) {
+            setTimeout(( ) => { stop(); }, quitAfter);
+        } else {
+            stop();
+        }
+    }, 'interactive');
+}
+
+function getRandomToken() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
 }
 
 function runAt(fn, when) {
@@ -399,7 +452,7 @@ if ( entitiesMap.size !== 0 ) {
 
 // Apply scriplets
 for ( const i of todoIndices ) {
-    try { removeClass(...argsList[i]); }
+    try { removeNodeText(...argsList[i]); }
     catch { }
 }
 argsList.length = 0;
@@ -411,7 +464,7 @@ argsList.length = 0;
 
 /******************************************************************************/
 
-uBOL_removeClass();
+uBOL_removeNodeText();
 
 /******************************************************************************/
 

@@ -37,9 +37,9 @@ const uBOL_adjustSetInterval = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["timeLeft","*","0.02"],[],["","","0"]];
+const argsList = [["timeLeft","*","0.02"],[],["countdown"],["","","0"]];
 
-const hostnamesMap = new Map([["animelist.tv",0],["gold-team.org",1],["iwo.ir",1],["uupload.ir",1],["up44.ir",2]]);
+const hostnamesMap = new Map([["animelist.tv",0],["gold-team.org",1],["iwo.ir",1],["uupload.ir",1],["subkade.ir",2],["up44.ir",3]]);
 
 const entitiesMap = new Map([]);
 

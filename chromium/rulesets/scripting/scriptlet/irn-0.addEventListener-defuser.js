@@ -37,9 +37,9 @@ const uBOL_addEventListenerDefuser = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["scroll","return\"undefined\""],["load","contextmenu"],["/contextmenu|copy|cut/","return\"undefined\""],["contextmenu","preventDefault"],["DOMContentLoaded","ajax_tptn_tracker"],["contextmenu"],["","t.preventDefault"],["contextmenu","preventDefault","elements","div#rmpPlayer"],["click","720"],["copy","throw"],["/contextmenu|keydown|dragstart|mousemove/","return\"undefined\""],["click","return\"undefined\"","elements","a.indirect[data-get]"],["DOMContentLoaded","videojs.ads"]];
+const argsList = [["scroll","return\"undefined\""],["load","contextmenu"],["/contextmenu|copy|cut/","return\"undefined\""],["contextmenu","preventDefault"],["DOMContentLoaded","ajax_tptn_tracker"],["contextmenu"],["","t.preventDefault"],["contextmenu","preventDefault","elements","div#rmpPlayer"],["click","720"],["copy","throw"],["/contextmenu|keydown|dragstart|mousemove/","return\"undefined\""],["DOMContentLoaded","videojs.ads"]];
 
-const hostnamesMap = new Map([["autosafkar.com",0],["behtaraneh.ir",1],["javan-musics.com",1],["tabanmusic.com",1],["texahang.org",1],["iran-music.com",1],["bizma.ir",2],["app.blubank.com",3],["downloadha.com",4],["elmefarda.com",5],["s-moshaver.com",5],["ganjipakhsh.com",6],["lenz.ir",7],["mopon.ir",8],["noorlib.ir",9],["rebec.ir",10],["subkade.ir",11],["saednews.com",12]]);
+const hostnamesMap = new Map([["autosafkar.com",0],["behtaraneh.ir",1],["javan-musics.com",1],["tabanmusic.com",1],["texahang.org",1],["iran-music.com",1],["bizma.ir",2],["app.blubank.com",3],["downloadha.com",4],["elmefarda.com",5],["s-moshaver.com",5],["ganjipakhsh.com",6],["lenz.ir",7],["mopon.ir",8],["noorlib.ir",9],["rebec.ir",10],["saednews.com",11]]);
 
 const entitiesMap = new Map([]);
 
@@ -97,30 +97,32 @@ function addEventListenerDefuser(
         }
         return matchesBoth;
     };
-    runAt(( ) => {
-        proxyApplyFn('EventTarget.prototype.addEventListener', function(context) {
-            const { callArgs, thisArg } = context;
-            let t, h;
-            try {
-                t = String(callArgs[0]);
-                if ( typeof callArgs[1] === 'function' ) {
-                    h = String(safe.Function_toString(callArgs[1]));
-                } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
-                    if ( typeof callArgs[1].handleEvent === 'function' ) {
-                        h = String(safe.Function_toString(callArgs[1].handleEvent));
-                    }
-                } else {
-                    h = String(callArgs[1]);
+    const proxyFn = function(context) {
+        const { callArgs, thisArg } = context;
+        let t, h;
+        try {
+            t = String(callArgs[0]);
+            if ( typeof callArgs[1] === 'function' ) {
+                h = String(safe.Function_toString(callArgs[1]));
+            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
+                if ( typeof callArgs[1].handleEvent === 'function' ) {
+                    h = String(safe.Function_toString(callArgs[1].handleEvent));
                 }
-            } catch {
+            } else {
+                h = String(callArgs[1]);
             }
-            if ( type === '' && pattern === '' ) {
-                safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
-            } else if ( shouldPrevent(thisArg, t, h) ) {
-                return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
-            }
-            return context.reflect();
-        });
+        } catch {
+        }
+        if ( type === '' && pattern === '' ) {
+            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        } else if ( shouldPrevent(thisArg, t, h) ) {
+            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        }
+        return context.reflect();
+    };
+    runAt(( ) => {
+        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
+        proxyApplyFn('document.addEventListener', proxyFn);
     }, extraArgs.runAt);
 }
 

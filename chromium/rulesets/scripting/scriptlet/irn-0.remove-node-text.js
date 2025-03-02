@@ -37,9 +37,9 @@ const uBOL_removeNodeText = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["script","document.oncontextmenu ="],["script","document.body.oncopy"],["script","ads_app_name"],["script","document.oncontextmenu="],["script","/popTimes_|document\\.onkeydown|'contextmenu'/"],["script","window.location="],["script","displayCountryInConsole"],["script","popTimes_"],["script","ad.setAttribute"],["script","showScrollAlert"],["script","Event.MOUSEDOWN"]];
+const argsList = [["script","document.oncontextmenu ="],["script","ads_app_name"],["script","document.oncontextmenu="],["script","/popTimes_|document\\.onkeydown|'contextmenu'/"],["script","window.location="],["script","displayCountryInConsole"],["script","popTimes_"],["script","ad.setAttribute"],["script","showScrollAlert"],["script","Event.MOUSEDOWN"]];
 
-const hostnamesMap = new Map([["delta3da.cam",0],["public-psychology.ir",0],["sclinic.ir",0],["fontchi.com",1],["farsroid.com",2],["kihanb.ir",3],["musiceman.net",4],["najiremix.ir",5],["persian-fa.ir",6],["iran-music.com",7],["tgju.org",8],["tarafdari.com",9],["vaamfaa.ir",10]]);
+const hostnamesMap = new Map([["delta3da.cam",0],["public-psychology.ir",0],["sclinic.ir",0],["farsroid.com",1],["kihanb.ir",2],["musiceman.net",3],["najiremix.ir",4],["persian-fa.ir",5],["iran-music.com",6],["tgju.org",7],["tarafdari.com",8],["vaamfaa.ir",9]]);
 
 const entitiesMap = new Map([]);
 

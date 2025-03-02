@@ -39,7 +39,7 @@ const scriptletGlobals = {}; // eslint-disable-line
 
 const argsList = [["popundr0","7"],["modalads","yes"],["notheme","1"],["npk","1"]];
 
-const hostnamesMap = new Map([["filmseyretizlet.com",0],["gazeterize.com",1],["bursahaberdar.com",1],["isvecgundemi.com",1],["kgrt.net",1],["halk54.com",1],["eskisehirhaber.com",1],["haberlisin.com",1],["eksisozluk.com",2],["dizipal.org",3]]);
+const hostnamesMap = new Map([["filmseyretizlet.com",0],["gazeterize.com",1],["bursahaberdar.com",1],["kgrt.net",1],["halk54.com",1],["eskisehirhaber.com",1],["haberlisin.com",1],["eksisozluk.com",2],["dizipal.org",3]]);
 
 const entitiesMap = new Map([]);
 

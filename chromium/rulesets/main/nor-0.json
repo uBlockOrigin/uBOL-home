@@ -331,7 +331,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/annonse_"},"id":330,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/annonse-"},"id":331,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/wp-content/uploads/*_annonse_"},"id":332,"priority":10},
-{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["dahl.no"],"resourceTypes":["image"],"urlFilter":"_toppbanner_"},"id":333,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["dahl.no","onninen.no"],"resourceTypes":["image"],"urlFilter":"_toppbanner_"},"id":333,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/_annonser^"},"id":334,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/nettbanner-"},"id":335,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||lh3.googleusercontent.com/*=w468-h60-"},"id":336,"priority":10},

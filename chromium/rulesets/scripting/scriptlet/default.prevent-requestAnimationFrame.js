@@ -37,9 +37,9 @@ const uBOL_preventRequestAnimationFrame = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["exoframe"],["style.opacity"],["/^/"]];
+const argsList = [["exoframe"],["style.opacity"],[".innerHTML"],["/^/"]];
 
-const hostnamesMap = new Map([["pussyspace.com",0],["pussyspace.net",0],["dudestream.com",1],["japscan.lol",2]]);
+const hostnamesMap = new Map([["pussyspace.com",0],["pussyspace.net",0],["dudestream.com",1],["needrom.com",2],["japscan.lol",3]]);
 
 const entitiesMap = new Map([]);
 

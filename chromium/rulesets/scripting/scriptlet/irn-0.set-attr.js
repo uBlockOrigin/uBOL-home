@@ -37,9 +37,9 @@ const uBOL_setAttr = function() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const argsList = [["a.indirect[data-get]","href","[data-get]"],["img[data-src]","src","[data-src]"]];
+const argsList = [["img[data-src]","src","[data-src]"]];
 
-const hostnamesMap = new Map([["subkade.ir",0],["shahanmusic.ir",1]]);
+const hostnamesMap = new Map([["shahanmusic.ir",0]]);
 
 const entitiesMap = new Map([]);
 

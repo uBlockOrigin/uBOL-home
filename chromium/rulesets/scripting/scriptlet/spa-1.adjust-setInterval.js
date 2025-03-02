@@ -39,7 +39,7 @@ const scriptletGlobals = {}; // eslint-disable-line
 
 const argsList = [[".style.display","*","0.02"],["getid","*","0.001"],["myInterval","*","0.001"],["countdown","*","0.001"],["player","","0.02"],["Loading player","","0.02"],["Loading...","","0.02"],["adsHandle_noclick","","0.02"]];
 
-const hostnamesMap = new Map([["olhonaviagem.com",0],["sejasaudavel.net",0],["infohojeonline.blogspot.com",1],["playerflix.com",2],["player.poseidonhd2.co",3],["mundotec.pro",4],["pelispedia-v2.wtf",5],["pelispedia-v1.wtf",5],["cuevana-3.wtf",6]]);
+const hostnamesMap = new Map([["olhonaviagem.com",0],["sejasaudavel.net",0],["infohojeonline.blogspot.com",1],["playerflix.com",2],["xupalace.org",3],["player.poseidonhd2.co",3],["mundotec.pro",4],["pelispedia-v2.wtf",5],["pelispedia-v1.wtf",5],["cuevana-3.wtf",6]]);
 
 const entitiesMap = new Map([["player.cuevana3",3],["player.gnula",3],["player.cuevana2espanol",3],["player.cuevana",3],["topflix",7]]);
 

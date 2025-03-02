@@ -94,7 +94,6 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["13news.co.il"],"requestDomains":["13news.co.il"],"resourceTypes":["websocket"]},"id":94,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["13tv.co.il"],"requestDomains":["13tv.co.il"],"resourceTypes":["websocket"]},"id":95,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["sport5.co.il"],"requestDomains":["sport5.co.il"],"resourceTypes":["websocket"]},"id":96,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["inn.co.il"],"requestDomains":["inn.co.il"],"resourceTypes":["websocket"]},"id":97,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["homeprices.yad2.co.il","my.yad2.co.il","pricelist.yad2.co.il","www.yad2.co.il","yad1.yad2.co.il"],"requestDomains":["yad2.co.il"],"resourceTypes":["websocket"]},"id":98,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["www.bizportal.co.il"],"requestDomains":["www.bizportal.co.il"],"resourceTypes":["websocket"]},"id":99,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedResourceTypes":["font","main_frame"],"requestDomains":["jwtdigital-media.co.il"]},"id":101,"priority":10},
@@ -239,6 +238,5 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["www.calcalist.co.il"],"requestDomains":["www.calcalist.co.il"],"resourceTypes":["websocket"]},"id":243,"priority":40},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["13news.co.il"],"requestDomains":["13news.co.il"],"resourceTypes":["websocket"]},"id":244,"priority":40},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["13tv.co.il"],"requestDomains":["13tv.co.il"],"resourceTypes":["websocket"]},"id":245,"priority":40},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["inn.co.il"],"requestDomains":["inn.co.il"],"resourceTypes":["websocket"]},"id":246,"priority":40},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["homeprices.yad2.co.il","my.yad2.co.il","pricelist.yad2.co.il","www.yad2.co.il","yad1.yad2.co.il"],"requestDomains":["yad2.co.il"],"resourceTypes":["websocket"]},"id":247,"priority":40}
 ]
