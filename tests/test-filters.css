@@ -1,0 +1,67 @@
+.tests {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+}
+.tile {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 0 20px 10px 0;
+    min-width: 100px;
+}
+.tile div {
+    align-items: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+.tile > div {
+    height: 40px;
+    position: relative;
+}
+.tile > div > div {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.tile > code {
+    align-self: center;
+}
+.pass {
+    background-color: green;
+}
+.pass::before {
+    content: 'pass';
+}
+.fail {
+    background-color: red;
+}
+.fail::before {
+    content: 'fail';
+}
+.tests a, .tests b {
+    display: none;
+}
+.tests a::before {
+    opacity: 0;
+}
+.tests b::after {
+    opacity: 0;
+}
+.fail-pseudo::before {
+    align-items: center;
+    background-color: red;
+    content: 'fail';
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+code {
+    display: none;
+}

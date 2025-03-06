@@ -1,0 +1,43 @@
+! Title: uBO Lite test filters
+! Description: Filters used to test uBO Lite
+! URL: http://ublockorigin.github.io/test-filters.html
+
+! Basic network filtering
+/corp1-analytics.$script,to=ublockorigin.github.io|localhost
+/corp2-pixel.$image,to=ublockorigin.github.io|localhost
+
+! Cosmetic filtering
+ublockorigin.github.io,localhost###ccf1 .fail
+ublockorigin.github.io,localhost###ccf2 .fail:not(.a4)
+ublockorigin.github.io,localhost###ccf3 .fail:style(visibility: hidden)
+ublockorigin.github.io,localhost###ccf4 .fail-pseudo::before
+ublockorigin.github.io,localhost###ccf5 .fail-pseudo::before:style(visibility: hidden)
+
+! Procedural cosmetic filtering
+ublockorigin.github.io,localhost#?##pcf1 .fail:has(b)
+ublockorigin.github.io,localhost#?##pcf2 .fail:has(> a > b)
+ublockorigin.github.io,localhost#?##pcf3 .fail:has(+ a > b)
+ublockorigin.github.io,localhost#?##pcf5 .fail:has(:is(.pass a > b))
+ublockorigin.github.io,localhost#?##pcf6 .fail:not(:has(c))
+ublockorigin.github.io,localhost#?##pcf7 .fail:has-text(needle)
+ublockorigin.github.io,localhost#?##pcf8 .fail:has-text(/NEEDLE/i)
+ublockorigin.github.io,localhost#?##pcf9 .fail:not(:has-text(haystack))
+ublockorigin.github.io,localhost#?##pcf10 .fail:matches-css(position: absolute)
+ublockorigin.github.io,localhost#?##pcf11 .fail:has(a:matches-css-before(opacity: 0))
+ublockorigin.github.io,localhost#?##pcf12 .fail:has(b:matches-css-after(opacity: 0))
+ublockorigin.github.io,localhost#?##pcf13 .fail > a > b:upward(2)
+ublockorigin.github.io,localhost#?##pcf14:xpath(.//b/../..)
+ublockorigin.github.io,localhost#?##pcf15 .fail:min-text-length(300)
+ublockorigin.github.io,localhost#?##pcf16 .pass > a:has(b) + .fail
+ublockorigin.github.io,localhost#?##pcf17 .pass > a:has(b) + .fail:has(b)
+ublockorigin.github.io,localhost#?##pcf18 .pass:watch-attr(class) > .fail:has(b.notok)
+ublockorigin.github.io,localhost#?##pcf19 .fail:has(+ a)
+ublockorigin.github.io,localhost#?##pcf20 .fail:has(~ a:has(b))
+ublockorigin.github.io,localhost#?##pcf21 .fail:remove()
+ublockorigin.github.io,localhost#?##pcf22 b:upward(2)
+ublockorigin.github.io,localhost#?##pcf23 b:upward(.fail)
+ublockorigin.github.io,localhost#?##pcf24 b:upward(.fail):style(visibility: hidden !important)
+
+! Scriptlets filtering
+ublockorigin.github.io,localhost##+js(set, corp3Tracker, undefined)
+ublockorigin.github.io,localhost##+js(nostif, corp4AdblockDetected)
