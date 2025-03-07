@@ -3,8 +3,8 @@
 ! URL: https://ublockorigin.github.io/uBOL-home/tests/test-filters.html
 
 ! Basic network filtering
-/corp1-analytics.$script,to=ublockorigin.github.io|localhost
-/corp2-pixel.$image,to=ublockorigin.github.io|localhost
+/bnf1.$script,to=ublockorigin.github.io|localhost
+/bnf2.$image,to=ublockorigin.github.io|localhost
 
 ! Cosmetic filtering
 ublockorigin.github.io,localhost###ccf1 .fail
@@ -39,5 +39,6 @@ ublockorigin.github.io,localhost#?##pcf23 b:upward(.fail)
 ublockorigin.github.io,localhost#?##pcf24 b:upward(.fail):style(visibility: hidden !important)
 
 ! Scriptlets filtering
-ublockorigin.github.io,localhost##+js(set, corp3Tracker, undefined)
-ublockorigin.github.io,localhost##+js(nostif, corp4AdblockDetected)
+ublockorigin.github.io,localhost##+js(set, sf1Sentinel, undefined)
+ublockorigin.github.io,localhost##+js(nostif, sf2Sentinel)
+ublockorigin.github.io>>,localhost>>##+js(set, sf3Sentinel, undefined)

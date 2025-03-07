@@ -25,10 +25,10 @@
     <div id="bnf1" class="tile">
         <div class="pass"><div class="fail"></div></div>
         <code>-analytics.$script,to=…</code>
-        <script src="corp1-analytics.js" async></script>
+        <script src="bnf1.js" async></script>
     </div>
     <div id="bnf2" class="tile">
-        <div class="pass"><div class="fail"><img src="corp2-pixel.gif"></div></div>
+        <div class="pass"><div class="fail"><img src="bnf2.gif"></div></div>
         <code>-pixel.$image,to=…</code>
     </div>
 </div>
@@ -178,13 +178,19 @@
 <div id="sf" class="tests">
     <div id="sf1" class="tile">
         <div class="pass"><div class="fail"></div></div>
-        <code>##+js(set, corp3Tracker, undefined)</code>
-        <script src="corp3-tracker.js" async></script>
+        <code>##+js(set, sf1Sentinel, undefined)</code>
+        <script src="sf1.js" async></script>
     </div>
     <div id="sf2" class="tile">
         <div class="pass"><div class="fail"></div></div>
-        <code>##+js(nostif, corp4AdblockDetected)</code>
-        <script src="corp4-detection.js" async></script>
+        <code>##+js(nostif, sf2Sentinel)</code>
+        <script src="sf2.js" async></script>
+    </div>
+    <div id="sf3" class="tile">
+        <div class="pass"><div class="fail"></div></div>
+        <iframe></iframe>
+        <code>&gt;&gt;##+js(set, sf3Sentinel, undefined)</code>
+        <script src="sf3.js" async></script>
     </div>
 </div>
 

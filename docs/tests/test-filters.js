@@ -27,7 +27,7 @@ const jobs = [];
 /******************************************************************************/
 
 jobs.push(function bnf1() {
-    if ( window.corp1Analytics === true ) { return; }
+    if ( window.bnf1Sentinel !== undefined ) { return; }
     hide('#bnf1 .fail');
 });
 
@@ -38,16 +38,22 @@ jobs.push(function bnf2() {
 });
 
 jobs.push(function sf1() {
-    if ( self.corp3Tracker === true ) { return; }
+    if ( self.sf1Sentinel !== undefined ) { return; }
     hide('#sf1 .fail');
 });
 
 jobs.push(function sf2() {
     const check = ( ) => {
-        if ( self.corp4AdblockDetected === true ) { return; }
+        if ( self.sf2Sentinel === true ) { return; }
         hide('#sf2 .fail');
     };
     setTimeout(( ) => { check(); }, 100);
+});
+
+jobs.push(function sf2() {
+    if ( self.sf3Sentinel === undefined ) { return; }
+    if ( qs$('#sf3 iframe').sf3Sentinel !== undefined ) { return; }
+    hide('#sf3 .fail');
 });
 
 /******************************************************************************/

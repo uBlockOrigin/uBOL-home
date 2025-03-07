@@ -29,6 +29,9 @@
 .tile > code {
     align-self: center;
 }
+.tile iframe {
+    display: none;
+}
 .pass {
     background-color: green;
 }

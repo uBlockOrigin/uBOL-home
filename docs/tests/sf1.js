@@ -1,0 +1,1 @@
+window.sf1Sentinel = true;
