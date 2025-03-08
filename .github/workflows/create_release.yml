@@ -45,8 +45,8 @@ jobs:
           tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
           echo "CHROMIUM_PACKAGE=${{ env.TAGNAME }}.chromium.mv3.zip" >> $GITHUB_ENV
           cd - > /dev/null
-          rm -rf chromium
-          mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
+          # rm -rf chromium
+          # mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
       # Edge
       - name: Build Edge uBOLite MV3 package
         run: |
