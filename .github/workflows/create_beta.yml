@@ -43,8 +43,17 @@ jobs:
           cd - > /dev/null
           mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.chromium.mv3.zip \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
+      # Edge
+      - name: Build Edge uBOLite beta
+        run: |
+          UBOL_REPO_DIR=$(pwd)
+          cd $UBLOCK_REPO_DIR
+          tools/make-mv3.sh edge ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
+          cd - > /dev/null
+          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.edge.mv3.zip \
+             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.edge.zip
       # Firefox
-      - name: Build Firefox uBOLite MV3 packages
+      - name: Build Firefox uBOLite beta
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
@@ -78,4 +87,5 @@ jobs:
           tag_name: ${{ env.TAGNAME }}-beta
           files: |
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.edge.zip
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.firefox.xpi
