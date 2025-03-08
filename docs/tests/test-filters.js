@@ -37,8 +37,13 @@ jobs.push(function bnf2() {
     hide('#bnf2 .fail');
 });
 
+jobs.push(function bnf3() {
+    if ( window.bnf3Sentinel !== true ) { return; }
+    hide('#bnf3 .fail');
+});
+
 jobs.push(function sf1() {
-    if ( self.sf1Sentinel !== undefined ) { return; }
+    if ( self.sf1Sentinel === true ) { return; }
     hide('#sf1 .fail');
 });
 
@@ -50,9 +55,9 @@ jobs.push(function sf2() {
     setTimeout(( ) => { check(); }, 100);
 });
 
-jobs.push(function sf2() {
+jobs.push(function sf3() {
     if ( self.sf3Sentinel === undefined ) { return; }
-    if ( qs$('#sf3 iframe').contentWindow.sf3Sentinel !== undefined ) { return; }
+    if ( qs$('#sf3 iframe').contentWindow.sf3Sentinel === true ) { return; }
     hide('#sf3 .fail');
 });
 

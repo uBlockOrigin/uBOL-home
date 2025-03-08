@@ -5,6 +5,8 @@
 ! Basic network filtering
 /bnf1.$script,to=ublockorigin.github.io|localhost
 /bnf2.$image,to=ublockorigin.github.io|localhost
+/bnf3.$to=ublockorigin.github.io|localhost
+@@/bnf3\.js$/$from=ublockorigin.github.io|localhost
 
 ! Cosmetic filtering
 ublockorigin.github.io,localhost###ccf1 .fail
