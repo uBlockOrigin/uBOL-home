@@ -39,6 +39,18 @@
     </div>
 </div>
 
+<h2>Advanced network filters (DNR)</h2>
+<ul>
+    <li>Should fail when <b>default mode</b> is set to <em>basic</em></li>
+    <li>Should pass when <b>default mode</b> is set to <em>optimal</em> or <em>complete</em> mode</li>
+</ul>
+<div id="anf" class="tests">
+    <div id="anf1" class="tile">
+        <div class="pass"><div class="fail"><img src="anf1.gif"></div></div>
+        <code class="filter">/anf1.$image,redirect=32x32.png,from=…</code>
+    </div>
+</div>
+
 <h2>Specific cosmetic filters</h2>
 <ul>
     <li>Should fail in <em>basic</em> mode</li>
@@ -187,18 +199,6 @@
         <code class="filter">&gt;&gt;##+js(set, sf3Sentinel, undefined)</code>
     </div>
     <script src="sf.js" async></script>
-</div>
-
-<h2>Advanced network filters (DNR)</h2>
-<ul>
-    <li>Should fail when <b>default mode</b> is set to <em>basic</em></li>
-    <li>Should pass when <b>default mode</b> is set to <em>optimal</em> or <em>complete</em> mode</li>
-</ul>
-<div id="anf" class="tests">
-    <div id="anf1" class="tile">
-        <div class="pass"><div class="fail"><img src="anf1.gif"></div></div>
-        <code class="filter">/anf1.$image,redirect=32x32.png,from=…</code>
-    </div>
 </div>
 
 <script src="test-filters.js"></script>
