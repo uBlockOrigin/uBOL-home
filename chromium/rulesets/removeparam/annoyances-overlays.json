@@ -1,0 +1,29 @@
+[
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "_r",
+      "_t"
+     ]
+    }
+   }
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "requestDomains": [
+   "tiktok.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame",
+   "xmlhttprequest"
+  ]
+ },
+ "id": 311,
+ "priority": 2
+}
+]

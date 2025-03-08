@@ -185,6 +185,35 @@
     }
    ],
    [
+    "trusted-replace-argument",
+    {
+     "hostnames": [
+      "autosport.com",
+      "bamgosu.site",
+      "bild.de",
+      "buzzfeednews.com",
+      "coomer.su",
+      "copyseeker.net",
+      "gecmisi.com.tr",
+      "kemono.su",
+      "loawa.com",
+      "motorsport.com",
+      "motorsport.uol.com.br",
+      "picrew.me",
+      "purepeople.com",
+      "scimagojr.com",
+      "slant.co",
+      "startpage.com",
+      "winfuture.de",
+      "wired.com",
+      "www.lenovo.com",
+      "ygosu.com",
+      "zonebourse.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "adjust-setTimeout",
     {
      "hostnames": [
@@ -344,6 +373,7 @@
       "falatron.com",
       "funker530.com",
       "go.gets4link.com",
+      "kwejk.pl",
       "paid4.link",
       "quizlet.com",
       "sbs.com.au",
@@ -527,6 +557,7 @@
       "dobreprogramy.pl",
       "fotoblogia.pl",
       "gadzetomania.pl",
+      "gecmisi.com.tr",
       "genialne.pl",
       "globo.com",
       "governing.com",
@@ -606,33 +637,6 @@
     }
    ],
    [
-    "trusted-replace-argument",
-    {
-     "hostnames": [
-      "autosport.com",
-      "bamgosu.site",
-      "coomer.su",
-      "copyseeker.net",
-      "gecmisi.com.tr",
-      "kemono.su",
-      "loawa.com",
-      "motorsport.com",
-      "motorsport.uol.com.br",
-      "picrew.me",
-      "purepeople.com",
-      "scimagojr.com",
-      "slant.co",
-      "startpage.com",
-      "winfuture.de",
-      "wired.com",
-      "www.lenovo.com",
-      "ygosu.com",
-      "zonebourse.com"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "set-attr",
     {
      "hostnames": [
@@ -668,7 +672,8 @@
     {
      "hostnames": [
       "cimanow.cc",
-      "cimanow.online"
+      "cimanow.online",
+      "freex2line.online"
      ],
      "world": "MAIN"
     }
@@ -2234,6 +2239,7 @@
       "thespec.com",
       "thestar.com",
       "thetravel.com",
+      "triathlete.com",
       "wellandtribune.ca",
       "xda-developers.com",
       "zippia.com"
@@ -2295,53 +2301,21 @@
     "remove-class",
     {
      "hostnames": [
-      "11alive.com",
-      "6abc.com",
-      "9news.com",
-      "abc11.com",
-      "abc13.com",
-      "abc30.com",
-      "abc7.com",
-      "abc7chicago.com",
-      "abc7news.com",
-      "abc7ny.com",
       "allrecipes.com",
       "cbsnews.com",
       "independent.co.uk",
       "inquinte.ca",
-      "kark.com",
       "kbtx.com",
       "kptv.com",
-      "ktla.com",
-      "ktsm.com",
       "msnbc.com",
-      "myarklamiss.com",
-      "mytwintiers.com",
-      "nbc4i.com",
-      "nbcbayarea.com",
-      "nbcboston.com",
-      "nbcchicago.com",
-      "nbcconnecticut.com",
-      "nbcdfw.com",
-      "nbclosangeles.com",
       "nbcnews.com",
-      "nbcnewyork.com",
-      "nbcphiladelphia.com",
-      "nbcsandiego.com",
       "neilpatel.com",
-      "news10.com",
-      "nwahomepage.com",
       "on.orf.at",
       "opensecrets.org",
       "redfin.com",
-      "telemundopr.com",
-      "texasmonthly.com",
-      "thehill.com",
       "today.com",
-      "wavy.com",
       "wfaa.com",
-      "wkyc.com",
-      "yahoo.com"
+      "wkyc.com"
      ],
      "world": "ISOLATED"
     }
@@ -2365,6 +2339,15 @@
     }
    ],
    [
+    "json-prune",
+    {
+     "hostnames": [
+      "m.youtube.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "addEventListener-defuser",
     {
      "hostnames": [
@@ -2374,24 +2357,54 @@
       "13newsnow.com",
       "5newsonline.com",
       "9news.com",
+      "abc.com",
       "abc10.com",
+      "abc11.com",
+      "abc13.com",
       "abc15.com",
+      "abc30.com",
+      "abc7.com",
+      "abc7chicago.com",
+      "abc7news.com",
+      "abc7ny.com",
       "ajc.com",
       "alibaba.com",
       "aliexpress.com",
       "cbs8.com",
       "dhgate.com",
+      "finance.yahoo.com",
       "firstcoastnews.com",
       "fox2now.com",
       "fox61.com",
       "instagram.com",
       "kare11.com",
+      "kark.com",
       "kens5.com",
       "khou.com",
       "king5.com",
       "ksdk.com",
+      "ktla.com",
+      "ktsm.com",
+      "myarklamiss.com",
+      "mytwintiers.com",
+      "nbc4i.com",
+      "nbcbayarea.com",
+      "nbcboston.com",
+      "nbcchicago.com",
+      "nbcconnecticut.com",
+      "nbcdfw.com",
+      "nbclosangeles.com",
+      "nbcnewyork.com",
+      "nbcphiladelphia.com",
+      "nbcsandiego.com",
+      "news10.com",
       "newscentermaine.com",
+      "nwahomepage.com",
+      "telemundopr.com",
       "temu.com",
+      "thehill.com",
+      "theverge.com",
+      "wavy.com",
       "wbir.com",
       "wcnc.com",
       "wfaa.com",
@@ -2410,6 +2423,7 @@
       "wtsp.com",
       "wusa9.com",
       "wwltv.com",
+      "www.yahoo.com",
       "wzzm13.com",
       "x.com"
      ],
@@ -2421,6 +2435,30 @@
     {
      "hostnames": [
       "banistmo.com"
+     ],
+     "world": "MAIN"
+    }
+   ]
+  ]
+ ],
+ [
+  "ubol-tests",
+  [
+   [
+    "set-constant",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "prevent-setTimeout",
+    {
+     "hostnames": [
+      "localhost",
+      "ublockorigin.github.io"
      ],
      "world": "MAIN"
     }
@@ -3146,15 +3184,6 @@
     }
    ],
    [
-    "remove-node-text",
-    {
-     "hostnames": [
-      "japscan.lol"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
     "set-cookie",
     {
      "hostnames": [
@@ -3330,6 +3359,21 @@
     }
    ],
    [
+    "set-constant",
+    {
+     "hostnames": [
+      "angol-magyar-szotar.hu",
+      "embed.indavideo.hu",
+      "femina.hu",
+      "huaweiblog.hu",
+      "laptophardware.hu",
+      "myonlineradio.hu",
+      "player.rtl.hu"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "abort-current-script",
     {
      "hostnames": [
@@ -3350,20 +3394,6 @@
     {
      "hostnames": [
       "vezess.hu"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "set-constant",
-    {
-     "hostnames": [
-      "angol-magyar-szotar.hu",
-      "embed.indavideo.hu",
-      "femina.hu",
-      "huaweiblog.hu",
-      "myonlineradio.hu",
-      "player.rtl.hu"
      ],
      "world": "MAIN"
     }
@@ -4442,7 +4472,6 @@
     "json-prune",
     {
      "hostnames": [
-      "comic.naver.com",
       "doctornow.co.kr",
       "enuri.com",
       "m.fmkorea.com",
@@ -4477,7 +4506,6 @@
     "set-cookie",
     {
      "hostnames": [
-      "naver.com",
       "oh-yes.co.kr",
       "ssodam.com"
      ],
@@ -4537,7 +4565,6 @@
     {
      "hostnames": [
       "3dpchip.com",
-      "chzzk.naver.com",
       "kakaotv.daum.net",
       "laftel.net",
       "luckyquiz3.blogspot.com",
@@ -5449,6 +5476,7 @@
     {
      "hostnames": [
       "appleinsider.ru",
+      "dzen.ru",
       "e.mail.ru",
       "freehat.cc",
       "game4you.top",
@@ -5747,6 +5775,8 @@
     {
      "hostnames": [
       "24boxing.com.ua",
+      "agronews.ua",
+      "agroreview.com",
       "avtovod.com.ua",
       "bigmir.net",
       "bilshe.com",
@@ -5799,6 +5829,7 @@
       "sportanalytic.com",
       "sports.ru",
       "stravy.net",
+      "tapochek.net",
       "tochka.net",
       "tv.ua",
       "utorr.cc",
@@ -6379,19 +6410,6 @@
   "swe-1",
   [
    [
-    "prevent-setTimeout",
-    {
-     "hostnames": [
-      "accentmagasin.se",
-      "etunawebben.se",
-      "flashback.org",
-      "tidningencurie.se",
-      "www.aftonbladet.se"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "href-sanitizer",
     {
      "hostnames": [
@@ -6415,6 +6433,7 @@
       "residencemagazine.se",
       "rodeo.net",
       "svenskdam.se",
+      "veckorevyn.com",
       "vitaestilo.se"
      ],
      "world": "ISOLATED"
@@ -6570,6 +6589,18 @@
       "vadhanderisverige.se",
       "villalivet.se",
       "zeinaskitchen.se"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "prevent-setTimeout",
+    {
+     "hostnames": [
+      "etunawebben.se",
+      "flashback.org",
+      "tidningencurie.se",
+      "www.aftonbladet.se"
      ],
      "world": "MAIN"
     }
@@ -6848,17 +6879,6 @@
     {
      "hostnames": [
       "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-setInterval",
-    {
-     "hostnames": [
-      "ensonhaber.com",
-      "gecmisi.com.tr",
-      "nowtv.com.tr"
      ],
      "world": "MAIN"
     }
@@ -7350,6 +7370,16 @@
     }
    ],
    [
+    "prevent-setInterval",
+    {
+     "hostnames": [
+      "ensonhaber.com",
+      "nowtv.com.tr"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "set-session-storage-item",
     {
      "hostnames": [
@@ -7466,6 +7496,7 @@
       "afamily.vn",
       "animevietsub.one",
       "cafef.vn",
+      "cdn2.insure885.fun",
       "cliphot69.bio",
       "cliphot69.pics",
       "coi.sexviet88.link",
@@ -7490,7 +7521,7 @@
       "ihentai.men",
       "imail.edu.vn",
       "ios.codevn.net",
-      "jav.vc",
+      "javhd.shop",
       "javtiful.com",
       "kenh14.vn",
       "linkneverdie.net",
@@ -7503,13 +7534,13 @@
       "motchillsub.com",
       "motphimww.biz",
       "nettruyenrr.com",
-      "nunglonvl.pro",
       "p.thoctv.com",
       "phim18hd.cam",
       "phimgichill.net",
       "phimmoi.sale",
       "phimmoinay.top",
       "phimsexhay669.pro",
+      "phimsexvietnam.co",
       "phimtho.net",
       "phimtuoitho.site",
       "player-cdn.com",
@@ -7524,7 +7555,6 @@
       "sieutamphim.com",
       "soha.vn",
       "thanhnien.vn",
-      "thiendia.mobi",
       "tinsoikeo.live",
       "top1phimsex.com",
       "tram3d.com",
@@ -7543,10 +7573,11 @@
       "umetruyenhay.com",
       "ungtycomicsvip.org",
       "vailonxx.co",
-      "viet69.digital",
       "viet69.fr",
       "viet69.pe",
-      "vlxx.cm",
+      "viet69.taxi",
+      "vlgaimup.pro",
+      "vlxx.my",
       "vn2.xvideos69.xxx",
       "vungoctuan.vn",
       "www.buomtv.io",
@@ -7579,13 +7610,12 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchiill.ch",
+      "motchiill.sh",
       "motchillsub.com",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
       "noitu.pro",
-      "nunglonvl.pro",
       "ohaha79xxx.site",
       "ohaytv.tv",
       "phimchill.life",
@@ -7604,6 +7634,7 @@
       "veryfiles.com",
       "viettoons.tv",
       "vinaurl.net",
+      "vlgaimup.pro",
       "www.khophim88s.com",
       "www.nettruyenupp.com",
       "www.phimdinhcao.online",
@@ -7647,7 +7678,6 @@
       "cafef.vn",
       "cliphot69.pics",
       "clipsex.cam",
-      "coiphimsex.net",
       "freeplayervideo.com",
       "gamek.vn",
       "genk.vn",
@@ -7724,7 +7754,7 @@
     "m3u-prune",
     {
      "hostnames": [
-      "yeuphim.fun"
+      "yeuphim.mom"
      ],
      "world": "MAIN"
     }

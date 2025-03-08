@@ -7,6 +7,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||profesionalreview.com/wp-content/uploads/*/skin_"},"id":6,"priority":10},
 {"action":{"type":"block"},"condition":{"requestDomains":["0-02.net","adzonestatic.com","bannersweb.s3.amazonaws.com","cdnpublicidad.milenio.com","d1r08wok4169a5.cloudfront.net","do67etikr7pwz.cloudfront.net","minube.click","news.grm.cl","palibzh.tech","plx.pornes.xxx","positive-ads.com","pub.tappx.com","publyads.jstag.space","ra.poringa.net","revenuemakerdata.com","ssp.emol.com","sspnm.emol.com","trafico.prensaiberica.es","triggy-banners.web.app"]},"id":7,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["a.citiservi.es","afiliadoscasadellibro.uinterbox.com","brand.ad","butlercdn.com","equamarketing.com","fuegodevida.com","googledfp.com","iframes.reyesdelchollo.com","kisa-link.blok.link","membrana.media","premiumads.com.br","premiumleads.com","reypelis.tv","stoic-media.com","tpid.es","wemass.com"]},"id":8,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||opcionempleo.com/partners/"},"id":9,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||advgo.net/ads/"},"id":31,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["pandrama.com"],"urlFilter":"||alicdn.com/t/"},"id":32,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["estrenosdoramas.net","m.animeflv.net","pornotorrent.es"],"requestDomains":["amazonaws.com"]},"id":33,"priority":10},

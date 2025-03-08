@@ -291,6 +291,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["nintendolife.com","purexbox.com","pushsquare.com","timeextension.com"],"resourceTypes":["sub_frame"],"urlFilter":"||images."},"id":290,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"/copyprevention.js^"},"id":291,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["allcryptoz.net","crewbase.net","crewus.net","shinbhu.net","shinchu.net","thumb8.net","thumb9.net","topcryptoz.net","ultraten.net","uniqueten.net"],"resourceTypes":["script"],"urlFilter":"/block-keys.js"},"id":292,"priority":40},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["weloma.art"],"resourceTypes":["script"],"urlFilter":"||cdn.jsdelivr.net/npm/disable-devtool"},"id":293,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||n2olabs.pro/devtool.js"},"id":294,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||redditstatic.com/shreddit/en-us/xpromo-nsfw-bypassable-modal-desktop-"},"id":293,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||n2olabs.pro/devtool.js"},"id":294,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["weloma.art","welovemanga.one"],"resourceTypes":["script"],"urlFilter":"||cdn.jsdelivr.net/npm/disable-devtool"},"id":295,"priority":10}
 ]

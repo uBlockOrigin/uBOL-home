@@ -470,5 +470,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["omroepzeeland.nl"],"urlFilter":"||2mdn.net/instream/html5/ima3.js"},"id":469,"priority":40},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tvvisie.be/textads/textads.js"},"id":470,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["crime-nieuws.nl","dailybuzz.nl","goplay.be","skoften.net","sportnieuws.nl","vtm.be","weerplaza.nl"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":471,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["goplay.be"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3_dai.js"},"id":472,"priority":30}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["goplay.be"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3_dai.js"},"id":472,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||flexwebhosting.nl/banners/"},"id":473,"priority":10}
 ]

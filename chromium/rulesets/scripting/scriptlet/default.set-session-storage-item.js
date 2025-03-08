@@ -20,30 +20,13 @@
 
 */
 
-/* eslint-disable indent */
-
 // ruleset: default
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(( ) => {
-
-/******************************************************************************/
-
-// Start of code to inject
-const uBOL_setSessionStorageItem = function() {
-
-const scriptletGlobals = {}; // eslint-disable-line
-
-const argsList = [["realm.Oidc.3pc","$remove$"],["adViewed","true"],["nxt_is_incognito","false"]];
-
-const hostnamesMap = new Map([["expressnews.com",0],["sfchronicle.com",0],["moneycontrol.com",1],["advocate-news.com",2],["akronnewsreporter.com",2],["bocopreps.com",2],["bostonherald.com",2],["broomfieldenterprise.com",2],["brushnewstribune.com",2],["buffzone.com",2],["burlington-record.com",2],["canoncitydailyrecord.com",2],["chicagotribune.com",2],["chicoer.com",2],["coloradodaily.com",2],["coloradohometownweekly.com",2],["courant.com",2],["dailybreeze.com",2],["dailybulletin.com",2],["dailycamera.com",2],["dailydemocrat.com",2],["dailyfreeman.com",2],["dailylocal.com",2],["dailynews.com",2],["dailypress.com",2],["dailytribune.com",2],["delcotimes.com",2],["denverpost.com",2],["eastbaytimes.com",2],["eptrail.com",2],["excelsiorcalifornia.com",2],["fortmorgantimes.com",2],["greeleytribune.com",2],["journal-advocate.com",2],["julesburgadvocate.com",2],["lamarledger.com",2],["lowellsun.com",2],["macombdaily.com",2],["mainlinemedianews.com",2],["marinij.com",2],["mcall.com",2],["mendocinobeacon.com",2],["mercurynews.com",2],["montereyherald.com",2],["morningjournal.com",2],["nashobavalleyvoice.com",2],["news-herald.com",2],["nydailynews.com",2],["ocregister.com",2],["oneidadispatch.com",2],["orlandosentinel.com",2],["orovillemr.com",2],["paradisepost.com",2],["pasadenastarnews.com",2],["pilotonline.com",2],["pottsmerc.com",2],["pressandguide.com",2],["pressenterprise.com",2],["presstelegram.com",2],["readingeagle.com",2],["record-bee.com",2],["redbluffdailynews.com",2],["redlandsdailyfacts.com",2],["reporterherald.com",2],["sandiegouniontribune.com",2],["santacruzsentinel.com",2],["saratogian.com",2],["sbsun.com",2],["sentinelandenterprise.com",2],["sgvtribune.com",2],["siliconvalley.com",2],["southplattesentinel.com",2],["sun-sentinel.com",2],["themorningsun.com",2],["thenewsherald.com",2],["theoaklandpress.com",2],["thereporter.com",2],["thereporteronline.com",2],["times-standard.com",2],["timescall.com",2],["timesherald.com",2],["timesheraldonline.com",2],["trentonian.com",2],["troyrecord.com",2],["twincities.com",2],["ukiahdailyjournal.com",2],["voicenews.com",2],["whittierdailynews.com",2],["willitsnews.com",2]]);
-
-const entitiesMap = new Map([]);
-
-const exceptionsMap = new Map([]);
+(function uBOL_setSessionStorageItem() {
 
 /******************************************************************************/
 
@@ -332,95 +315,83 @@ function safeSelf() {
 
 /******************************************************************************/
 
-const hnParts = [];
-try {
-    let origin = document.location.origin;
-    if ( origin === 'null' ) {
-        const origins = document.location.ancestorOrigins;
-        for ( let i = 0; i < origins.length; i++ ) {
-            origin = origins[i];
-            if ( origin !== 'null' ) { break; }
-        }
-    }
-    const pos = origin.lastIndexOf('://');
-    if ( pos === -1 ) { return; }
-    hnParts.push(...origin.slice(pos+3).split('.'));
-} catch {
-}
-const hnpartslen = hnParts.length;
-if ( hnpartslen === 0 ) { return; }
+const scriptletGlobals = {}; // eslint-disable-line
+const argsList = [["realm.Oidc.3pc","$remove$"],["adViewed","true"],["nxt_is_incognito","false"]];
+const hostnamesMap = new Map([["expressnews.com",0],["sfchronicle.com",0],["moneycontrol.com",1],["advocate-news.com",2],["akronnewsreporter.com",2],["bocopreps.com",2],["bostonherald.com",2],["broomfieldenterprise.com",2],["brushnewstribune.com",2],["buffzone.com",2],["burlington-record.com",2],["canoncitydailyrecord.com",2],["chicagotribune.com",2],["chicoer.com",2],["coloradodaily.com",2],["coloradohometownweekly.com",2],["courant.com",2],["dailybreeze.com",2],["dailybulletin.com",2],["dailycamera.com",2],["dailydemocrat.com",2],["dailyfreeman.com",2],["dailylocal.com",2],["dailynews.com",2],["dailypress.com",2],["dailytribune.com",2],["delcotimes.com",2],["denverpost.com",2],["eastbaytimes.com",2],["eptrail.com",2],["excelsiorcalifornia.com",2],["fortmorgantimes.com",2],["greeleytribune.com",2],["journal-advocate.com",2],["julesburgadvocate.com",2],["lamarledger.com",2],["lowellsun.com",2],["macombdaily.com",2],["mainlinemedianews.com",2],["marinij.com",2],["mcall.com",2],["mendocinobeacon.com",2],["mercurynews.com",2],["montereyherald.com",2],["morningjournal.com",2],["nashobavalleyvoice.com",2],["news-herald.com",2],["nydailynews.com",2],["ocregister.com",2],["oneidadispatch.com",2],["orlandosentinel.com",2],["orovillemr.com",2],["paradisepost.com",2],["pasadenastarnews.com",2],["pilotonline.com",2],["pottsmerc.com",2],["pressandguide.com",2],["pressenterprise.com",2],["presstelegram.com",2],["readingeagle.com",2],["record-bee.com",2],["redbluffdailynews.com",2],["redlandsdailyfacts.com",2],["reporterherald.com",2],["sandiegouniontribune.com",2],["santacruzsentinel.com",2],["saratogian.com",2],["sbsun.com",2],["sentinelandenterprise.com",2],["sgvtribune.com",2],["siliconvalley.com",2],["southplattesentinel.com",2],["sun-sentinel.com",2],["themorningsun.com",2],["thenewsherald.com",2],["theoaklandpress.com",2],["thereporter.com",2],["thereporteronline.com",2],["times-standard.com",2],["timescall.com",2],["timesherald.com",2],["timesheraldonline.com",2],["trentonian.com",2],["troyrecord.com",2],["twincities.com",2],["ukiahdailyjournal.com",2],["voicenews.com",2],["whittierdailynews.com",2],["willitsnews.com",2]]);
+const exceptionsMap = new Map([]);
+const hasEntities = false;
+const hasAncestors = false;
 
-const todoIndices = new Set();
-const tonotdoIndices = [];
-
-// Exceptions
-if ( exceptionsMap.size !== 0 ) {
-    for ( let i = 0; i < hnpartslen; i++ ) {
-        const hn = hnParts.slice(i).join('.');
-        const excepted = exceptionsMap.get(hn);
-        if ( excepted ) { tonotdoIndices.push(...excepted); }
-    }
-    exceptionsMap.clear();
-}
-
-// Hostname-based
-if ( hostnamesMap.size !== 0 ) {
-    const collectArgIndices = hn => {
-        let argsIndices = hostnamesMap.get(hn);
-        if ( argsIndices === undefined ) { return; }
-        if ( typeof argsIndices === 'number' ) { argsIndices = [ argsIndices ]; }
+const collectArgIndices = (hn, map, out) => {
+    let argsIndices = map.get(hn);
+    if ( argsIndices === undefined ) { return; }
+    if ( typeof argsIndices !== 'number' ) {
         for ( const argsIndex of argsIndices ) {
-            if ( tonotdoIndices.includes(argsIndex) ) { continue; }
-            todoIndices.add(argsIndex);
+            out.add(argsIndex);
         }
-    };
-    for ( let i = 0; i < hnpartslen; i++ ) {
-        const hn = hnParts.slice(i).join('.');
-        collectArgIndices(hn);
+    } else {
+        out.add(argsIndices);
     }
-    collectArgIndices('*');
-    hostnamesMap.clear();
-}
+};
 
-// Entity-based
-if ( entitiesMap.size !== 0 ) {
-    const n = hnpartslen - 1;
-    for ( let i = 0; i < n; i++ ) {
-        for ( let j = n; j > i; j-- ) {
-            const en = hnParts.slice(i,j).join('.');
-            let argsIndices = entitiesMap.get(en);
-            if ( argsIndices === undefined ) { continue; }
-            if ( typeof argsIndices === 'number' ) { argsIndices = [ argsIndices ]; }
-            for ( const argsIndex of argsIndices ) {
-                if ( tonotdoIndices.includes(argsIndex) ) { continue; }
-                todoIndices.add(argsIndex);
+const indicesFromHostname = (hostname, suffix = '') => {
+    const hnParts = hostname.split('.');
+    const hnpartslen = hnParts.length;
+    if ( hnpartslen === 0 ) { return; }
+    for ( let i = 0; i < hnpartslen; i++ ) {
+        const hn = `${hnParts.slice(i).join('.')}${suffix}`;
+        collectArgIndices(hn, hostnamesMap, todoIndices);
+        collectArgIndices(hn, exceptionsMap, tonotdoIndices);
+    }
+    if ( hasEntities ) {
+        const n = hnpartslen - 1;
+        for ( let i = 0; i < n; i++ ) {
+            for ( let j = n; j > i; j-- ) {
+                const en = `${hnParts.slice(i,j).join('.')}.*${suffix}`;
+                collectArgIndices(en, hostnamesMap, todoIndices);
+                collectArgIndices(en, exceptionsMap, tonotdoIndices);
             }
         }
     }
-    entitiesMap.clear();
+};
+
+const entries = (( ) => {
+    const docloc = document.location;
+    const origins = [ docloc.origin ];
+    if ( docloc.ancestorOrigins ) {
+        origins.push(...docloc.ancestorOrigins);
+    }
+    return origins.map((origin, i) => {
+        const beg = origin.lastIndexOf('://');
+        if ( beg === -1 ) { return; }
+        const hn = origin.slice(beg+3)
+        const end = hn.indexOf(':');
+        return { hn: end === -1 ? hn : hn.slice(0, end), i };
+    }).filter(a => a !== undefined);
+})();
+if ( entries.length === 0 ) { return; }
+
+const todoIndices = new Set();
+const tonotdoIndices = new Set();
+
+indicesFromHostname(entries[0].hn);
+if ( hasAncestors ) {
+    for ( const entry of entries ) {
+        if ( entry.i === 0 ) { continue; }
+        indicesFromHostname(entry.hn, '>>');
+    }
 }
 
 // Apply scriplets
 for ( const i of todoIndices ) {
+    if ( tonotdoIndices.has(i) ) { continue; }
     try { setSessionStorageItem(...argsList[i]); }
     catch { }
 }
-argsList.length = 0;
-
-/******************************************************************************/
-
-};
-// End of code to inject
-
-/******************************************************************************/
-
-uBOL_setSessionStorageItem();
 
 /******************************************************************************/
 
 // End of local scope
 })();
-
-/******************************************************************************/
 
 void 0;

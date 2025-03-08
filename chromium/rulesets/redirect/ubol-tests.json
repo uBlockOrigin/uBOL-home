@@ -1,0 +1,22 @@
+[
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/32x32.png"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "resourceTypes": [
+   "image"
+  ],
+  "urlFilter": "/anf1."
+ },
+ "id": 5,
+ "priority": 11
+}
+]

@@ -20,30 +20,13 @@
 
 */
 
-/* eslint-disable indent */
-
 // ruleset: default
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(( ) => {
-
-/******************************************************************************/
-
-// Start of code to inject
-const uBOL_adjustSetTimeout = function() {
-
-const scriptletGlobals = {}; // eslint-disable-line
-
-const argsList = [["","10000"],["_0x","*"],["grecaptcha.ready","*"],["redirect","4000"],[],["dlw","40000"],["seconds"],["ez","*","0.02"],["/.?/","4000"],["run"],["disabled"],["","","0"],["tick"],["","","0.02"],["/SplashScreen|BannerAd/"],["countdown","1000","0.02"],["/.?/","","0.02"],["contador","*","0.001"],["","10000","0"],["downloadBtn","*"],["getlink","*","0.001"],["gotoo","*"],["value","*"],["/\\$\\('|ai-close/","*","0.001"],["div_form"],["","*","0.1"],["shortenbl"],["enbll"],["","1000"],["getElementById","*","0.001"],["downloadbtn"],["counter"],["readyToVote","12000"],["","7000","0"],["download","1100"],["countDown"],["countdown","10000"],["animation"],[".fadeIn()","3000"],["load_ads"],["_0x","15000"],["location.href","8000"],["aTagChange","12000"],["window.location.href","*"],["isScrexed","5000"],["() => n(t)","*"],["/__ez|window.location.href/","*"],["adFreePopup","15000","0.02"],["countdown"],["remaining","1000","0.001"],["show","4000"],["download_loading","*"],["submit","5000"],["fa-unlock","3000"],["setinteracted","2000"],["[native code]","5000"],["shortConfig","15000"],["redirectpage","13500","0.001"],["countdown","","0.02"],["decodeURL","*"],["(!1)","*"],["bFired","*"],["setC"],["-1","*","0.001"],["total","1000","0.001"],["countdown","*","0.001"],["tick","1000","0.001"],["startDownload","8000"],["0x","*"],["countdown","*"],["download","1000","0.001"],["count"],["","10000","0.001"],["CountBack","990"],["/outboundLink/"],["t++","500"],["isPeriodic","*"],["native code","15000","0.001"],["(null)","5000","0.001"],["/EzoIvent|TDELAY/","5000"],["b()","3000"],["ads","*"],["readyPromise","5000","0.001"],["taboola timeout","*","0.001"],["clearInterval(run)","5000","0.001"],["/TDELAY|EzoIvent/","*","0.001"],["isPeriodic","2200","0.001"],["isPeriodic","2300","0.001"],["[native code]","3000","0.001"],["i||(e(),i=!0)","2500","0.001"],["adConfig","*","0.001"],["[native code]","17000","0.001"]];
-
-const hostnamesMap = new Map([["spiele.bild.de",0],["gamefront.com",0],["moviepilot.de",1],["imgadult.com",3],["imgdrive.net",3],["imgtaxi.com",3],["imgwallet.com",3],["techmyntra.net",4],["globalbesthosting.com",4],["srt.am",4],["themeslide.com",4],["hubfiles.ws",4],["ausfile.com",4],["siriusfiles.com",4],["juegoviejo.com",4],["4share.vn",4],["lnk2.cc",4],["modagamers.com",4],["sofwaremania.blogspot.com",4],["memoriadatv.com",4],["dosya.co",4],["clipartmax.com",4],["jptorrent.org",4],["quizlet.com",4],["sourceforge.net",4],["juegos.eleconomista.es",4],["katfile.com",4],["1fichier.com",5],["indi-share.com",6],["megaupto.com",6],["onuploads.com",6],["playretrogames.com",7],["gsm1x.xyz",9],["top1iq.com",9],["youku.com",11],["files.im",12],["dokumen.tips",13],["file.magiclen.org",13],["so1.asia",13],["streamvid.net",13],["gamearter.com",14],["dvdgayonline.com",15],["tudogamesbr.com",16],["investnewsbrazil.com",17],["subsvip.com",18],["enit.in",19],["junkyponk.com",20],["healthfirstweb.com",20],["vocalley.com",20],["yogablogfit.com",20],["howifx.com",20],["en.financerites.com",20],["mythvista.com",20],["livenewsflix.com",20],["cureclues.com",20],["apekite.com",20],["hipsonyc.com",21],["theforyou.in",21],["gyanitheme.com",21],["hostadviser.net",21],["bloggingaro.com",21],["fansonlinehub.com",22],["hotmediahub.com",22],["terabox.fun",22],["teralink.me",22],["terashare.me",22],["teraearn.com",22],["rawlazy.si",23],["appsbull.com",24],["diudemy.com",24],["maqal360.com",24],["intercelestial.com",25],["takez.co",[26,27]],["webzeni.com",28],["mooonten.com",29],["msic.site",29],["fx-22.com",29],["gold-24.net",29],["forexrw7.com",29],["uploadking.net",30],["advertisertape.com",31],["gettapeads.com",31],["streamnoads.com",31],["tapeadsenjoyer.com",31],["tapeadvertisement.com",31],["tapeantiads.com",31],["tapeblocker.com",31],["tapelovesads.org",31],["tapenoads.com",31],["tapewithadblock.org",31],["watchadsontape.com",31],["top.gg",32],["emulatorgames.net",33],["actionviewphotography.com",34],["exporntoons.net",34],["noodlemagazine.com",34],["whatisareverseauction.com",34],["sibtok.com",34],["ukdevilz.com",34],["tyler-brown.com",34],["aapks.com",35],["mcrypto.club",36],["codingnepalweb.com",37],["maxstream.video",38],["embed.nana2play.com",39],["mgnet.xyz",40],["1bitspace.com",41],["ytsubme.com",42],["thecustomrom.com",43],["quizack.com",44],["media.cms.nova.cz",45],["yhocdata.com",46],["surfline.com",47],["downloadr.in",48],["downloadudemy.com",48],["xubster.com",49],["uploadcloud.pro",50],["romsgames.net",52],["romsget.io",52],["sub1s.com",53],["mboost.me",54],["atresplayer.com",55],["dktechnicalmate.com",57],["indiakablog.com",57],["recipahi.com",57],["20sfvn.com",58],["hi888.today",58],["oto5s.com",58],["w88.limo",58],["tralhasvarias.blogspot.com",59],["thestar.com",61],["present.rssing.com",62],["infidrive.net",63],["sethphat.com",64],["theapkfolder.com",65],["dfast.app",65],["upapk.io",66],["updown.link",67],["thehouseofportable.com",68],["an1.com",69],["voltupload.com",70],["pimpandhost.com",71],["101soundboards.com",72],["lewdzone.com",73],["cyclingnews.com",74],["abcya.com",75],["watcho.com",76],["dailypost.co.uk",[77,78]],["dailystar.co.uk",[77,78]],["mirror.co.uk",[77,78]],["neurotray.com",79],["theonion.com",[80,81]],["20min.ch",82],["13tv.co.il",[83,84]],["tierlists.com",85],["wunderground.com",[86,87]],["standard.co.uk",[88,89]],["gameplayneo.com",90],["www.youtube.com",91]]);
-
-const entitiesMap = new Map([["slreamplay",2],["pouvideo",2],["povvideo",2],["povw1deo",2],["povwideo",2],["powv1deo",2],["powvibeo",2],["powvideo",2],["powvldeo",2],["bdupload",4],["9xupload",4],["grantorrent",4],["grantorrents",4],["hdfull",4],["pelispedia",4],["uptomega",6],["imgrock",8],["mixdrop",10],["mixdrp",10],["zeefiles",12],["financerites",19],["adblockeronstape",31],["adblockplustape",31],["adblocktape",31],["antiadtape",31],["noblocktape",31],["shavetape",31],["stapadblockuser",31],["strcloud",31],["streamadblockplus",31],["streamta",31],["streamtape",31],["streamtapeadblockuser",31],["strtape",31],["strtapeadblock",31],["adblockeronstreamtape",31],["mat6tube",34],["apkmody",51],["writedroid",56],["empire-anime",60],["empire-stream",60],["empire-streaming",60],["empire-streamz",60]]);
-
-const exceptionsMap = new Map([]);
+(function uBOL_adjustSetTimeout() {
 
 /******************************************************************************/
 
@@ -265,95 +248,83 @@ function safeSelf() {
 
 /******************************************************************************/
 
-const hnParts = [];
-try {
-    let origin = document.location.origin;
-    if ( origin === 'null' ) {
-        const origins = document.location.ancestorOrigins;
-        for ( let i = 0; i < origins.length; i++ ) {
-            origin = origins[i];
-            if ( origin !== 'null' ) { break; }
-        }
-    }
-    const pos = origin.lastIndexOf('://');
-    if ( pos === -1 ) { return; }
-    hnParts.push(...origin.slice(pos+3).split('.'));
-} catch {
-}
-const hnpartslen = hnParts.length;
-if ( hnpartslen === 0 ) { return; }
+const scriptletGlobals = {}; // eslint-disable-line
+const argsList = [["","10000"],["_0x","*"],["grecaptcha.ready","*"],["redirect","4000"],[],["dlw","40000"],["seconds"],["ez","*","0.02"],["/.?/","4000"],["run"],["disabled"],["","","0"],["tick"],["","","0.02"],["/SplashScreen|BannerAd/"],["countdown","1000","0.02"],["/.?/","","0.02"],["contador","*","0.001"],["","10000","0"],["downloadBtn","*"],["getlink","*","0.001"],["gotoo","*"],["value","*"],["/\\$\\('|ai-close/","*","0.001"],["div_form"],["","*","0.1"],["shortenbl"],["enbll"],["","1000"],["getElementById","*","0.001"],["downloadbtn"],["counter"],["readyToVote","12000"],["","7000","0"],["download","1100"],["countDown"],["countdown","10000"],["animation"],[".fadeIn()","3000"],["load_ads"],["_0x","15000"],["location.href","8000"],["aTagChange","12000"],["window.location.href","*"],["isScrexed","5000"],["() => n(t)","*"],["/__ez|window.location.href/","*"],["adFreePopup","15000","0.02"],["countdown"],["remaining","1000","0.001"],["show","4000"],["download_loading","*"],["submit","5000"],["fa-unlock","3000"],["setinteracted","2000"],["[native code]","5000"],["shortConfig","15000"],["redirectpage","13500","0.001"],["countdown","","0.02"],["decodeURL","*"],["(!1)","*"],["bFired","*"],["setC"],["-1","*","0.001"],["total","1000","0.001"],["countdown","*","0.001"],["tick","1000","0.001"],["startDownload","8000"],["0x","*"],["countdown","*"],["download","1000","0.001"],["count"],["","10000","0.001"],["CountBack","990"],["remaining","","0.02"],["/outboundLink/"],["t++","500"],["isPeriodic","*"],["native code","15000","0.001"],["(null)","5000","0.001"],["/EzoIvent|TDELAY/","5000"],["b()","3000"],["ads","*"],["readyPromise","5000","0.001"],["taboola timeout","*","0.001"],["clearInterval(run)","5000","0.001"],["/TDELAY|EzoIvent/","*","0.001"],["isPeriodic","2200","0.001"],["isPeriodic","2300","0.001"],["[native code]","3000","0.001"],["i||(e(),i=!0)","2500","0.001"],["adConfig","*","0.001"],["[native code]","17000","0.001"]];
+const hostnamesMap = new Map([["spiele.bild.de",0],["gamefront.com",0],["moviepilot.de",1],["slreamplay.*",2],["pouvideo.*",2],["povvideo.*",2],["povw1deo.*",2],["povwideo.*",2],["powv1deo.*",2],["powvibeo.*",2],["powvideo.*",2],["powvldeo.*",2],["imgadult.com",3],["imgdrive.net",3],["imgtaxi.com",3],["imgwallet.com",3],["bdupload.*",4],["techmyntra.net",4],["globalbesthosting.com",4],["srt.am",4],["themeslide.com",4],["9xupload.*",4],["grantorrent.*",4],["grantorrents.*",4],["hubfiles.ws",4],["ausfile.com",4],["siriusfiles.com",4],["hdfull.*",4],["juegoviejo.com",4],["4share.vn",4],["lnk2.cc",4],["pelispedia.*",4],["modagamers.com",4],["sofwaremania.blogspot.com",4],["memoriadatv.com",4],["dosya.co",4],["clipartmax.com",4],["jptorrent.org",4],["quizlet.com",4],["sourceforge.net",4],["juegos.eleconomista.es",4],["katfile.com",4],["1fichier.com",5],["indi-share.com",6],["uptomega.*",6],["megaupto.com",6],["onuploads.com",6],["playretrogames.com",7],["imgrock.*",8],["gsm1x.xyz",9],["top1iq.com",9],["mixdrop.*",10],["mixdrp.*",10],["youku.com",11],["zeefiles.*",12],["files.im",12],["dokumen.tips",13],["file.magiclen.org",13],["so1.asia",13],["streamvid.net",13],["gamearter.com",14],["dvdgayonline.com",15],["tudogamesbr.com",16],["investnewsbrazil.com",17],["subsvip.com",18],["enit.in",19],["financerites.*",19],["junkyponk.com",20],["healthfirstweb.com",20],["vocalley.com",20],["yogablogfit.com",20],["howifx.com",20],["en.financerites.com",20],["mythvista.com",20],["livenewsflix.com",20],["cureclues.com",20],["apekite.com",20],["hipsonyc.com",21],["theforyou.in",21],["gyanitheme.com",21],["hostadviser.net",21],["bloggingaro.com",21],["fansonlinehub.com",22],["hotmediahub.com",22],["terabox.fun",22],["teralink.me",22],["terashare.me",22],["teraearn.com",22],["rawlazy.si",23],["appsbull.com",24],["diudemy.com",24],["maqal360.com",24],["intercelestial.com",25],["takez.co",[26,27]],["webzeni.com",28],["mooonten.com",29],["msic.site",29],["fx-22.com",29],["gold-24.net",29],["forexrw7.com",29],["uploadking.net",30],["adblockeronstape.*",31],["adblockplustape.*",31],["adblocktape.*",31],["advertisertape.com",31],["antiadtape.*",31],["gettapeads.com",31],["noblocktape.*",31],["shavetape.*",31],["stapadblockuser.*",31],["strcloud.*",31],["streamadblockplus.*",31],["streamnoads.com",31],["streamta.*",31],["streamtape.*",31],["streamtapeadblockuser.*",31],["strtape.*",31],["strtapeadblock.*",31],["tapeadsenjoyer.com",31],["tapeadvertisement.com",31],["tapeantiads.com",31],["tapeblocker.com",31],["tapelovesads.org",31],["tapenoads.com",31],["tapewithadblock.org",31],["watchadsontape.com",31],["adblockeronstreamtape.*",31],["top.gg",32],["emulatorgames.net",33],["actionviewphotography.com",34],["exporntoons.net",34],["mat6tube.*",34],["noodlemagazine.com",34],["whatisareverseauction.com",34],["sibtok.com",34],["ukdevilz.com",34],["tyler-brown.com",34],["aapks.com",35],["mcrypto.club",36],["codingnepalweb.com",37],["maxstream.video",38],["embed.nana2play.com",39],["mgnet.xyz",40],["1bitspace.com",41],["ytsubme.com",42],["thecustomrom.com",43],["quizack.com",44],["media.cms.nova.cz",45],["yhocdata.com",46],["surfline.com",47],["downloadr.in",48],["downloadudemy.com",48],["xubster.com",49],["uploadcloud.pro",50],["apkmody.*",51],["romsgames.net",52],["romsget.io",52],["sub1s.com",53],["mboost.me",54],["atresplayer.com",55],["writedroid.*",56],["dktechnicalmate.com",57],["indiakablog.com",57],["recipahi.com",57],["20sfvn.com",58],["hi888.today",58],["oto5s.com",58],["w88.limo",58],["tralhasvarias.blogspot.com",59],["empire-anime.*",60],["empire-stream.*",60],["empire-streaming.*",60],["empire-streamz.*",60],["thestar.com",61],["present.rssing.com",62],["infidrive.net",63],["sethphat.com",64],["theapkfolder.com",65],["dfast.app",65],["upapk.io",66],["updown.link",67],["thehouseofportable.com",68],["an1.com",69],["voltupload.com",70],["pimpandhost.com",71],["101soundboards.com",72],["lewdzone.com",73],["transfaze.com",74],["cyclingnews.com",75],["abcya.com",76],["watcho.com",77],["dailypost.co.uk",[78,79]],["dailystar.co.uk",[78,79]],["mirror.co.uk",[78,79]],["neurotray.com",80],["theonion.com",[81,82]],["20min.ch",83],["13tv.co.il",[84,85]],["tierlists.com",86],["wunderground.com",[87,88]],["standard.co.uk",[89,90]],["gameplayneo.com",91],["www.youtube.com",92]]);
+const exceptionsMap = new Map([]);
+const hasEntities = true;
+const hasAncestors = false;
 
-const todoIndices = new Set();
-const tonotdoIndices = [];
-
-// Exceptions
-if ( exceptionsMap.size !== 0 ) {
-    for ( let i = 0; i < hnpartslen; i++ ) {
-        const hn = hnParts.slice(i).join('.');
-        const excepted = exceptionsMap.get(hn);
-        if ( excepted ) { tonotdoIndices.push(...excepted); }
-    }
-    exceptionsMap.clear();
-}
-
-// Hostname-based
-if ( hostnamesMap.size !== 0 ) {
-    const collectArgIndices = hn => {
-        let argsIndices = hostnamesMap.get(hn);
-        if ( argsIndices === undefined ) { return; }
-        if ( typeof argsIndices === 'number' ) { argsIndices = [ argsIndices ]; }
+const collectArgIndices = (hn, map, out) => {
+    let argsIndices = map.get(hn);
+    if ( argsIndices === undefined ) { return; }
+    if ( typeof argsIndices !== 'number' ) {
         for ( const argsIndex of argsIndices ) {
-            if ( tonotdoIndices.includes(argsIndex) ) { continue; }
-            todoIndices.add(argsIndex);
+            out.add(argsIndex);
         }
-    };
-    for ( let i = 0; i < hnpartslen; i++ ) {
-        const hn = hnParts.slice(i).join('.');
-        collectArgIndices(hn);
+    } else {
+        out.add(argsIndices);
     }
-    collectArgIndices('*');
-    hostnamesMap.clear();
-}
+};
 
-// Entity-based
-if ( entitiesMap.size !== 0 ) {
-    const n = hnpartslen - 1;
-    for ( let i = 0; i < n; i++ ) {
-        for ( let j = n; j > i; j-- ) {
-            const en = hnParts.slice(i,j).join('.');
-            let argsIndices = entitiesMap.get(en);
-            if ( argsIndices === undefined ) { continue; }
-            if ( typeof argsIndices === 'number' ) { argsIndices = [ argsIndices ]; }
-            for ( const argsIndex of argsIndices ) {
-                if ( tonotdoIndices.includes(argsIndex) ) { continue; }
-                todoIndices.add(argsIndex);
+const indicesFromHostname = (hostname, suffix = '') => {
+    const hnParts = hostname.split('.');
+    const hnpartslen = hnParts.length;
+    if ( hnpartslen === 0 ) { return; }
+    for ( let i = 0; i < hnpartslen; i++ ) {
+        const hn = `${hnParts.slice(i).join('.')}${suffix}`;
+        collectArgIndices(hn, hostnamesMap, todoIndices);
+        collectArgIndices(hn, exceptionsMap, tonotdoIndices);
+    }
+    if ( hasEntities ) {
+        const n = hnpartslen - 1;
+        for ( let i = 0; i < n; i++ ) {
+            for ( let j = n; j > i; j-- ) {
+                const en = `${hnParts.slice(i,j).join('.')}.*${suffix}`;
+                collectArgIndices(en, hostnamesMap, todoIndices);
+                collectArgIndices(en, exceptionsMap, tonotdoIndices);
             }
         }
     }
-    entitiesMap.clear();
+};
+
+const entries = (( ) => {
+    const docloc = document.location;
+    const origins = [ docloc.origin ];
+    if ( docloc.ancestorOrigins ) {
+        origins.push(...docloc.ancestorOrigins);
+    }
+    return origins.map((origin, i) => {
+        const beg = origin.lastIndexOf('://');
+        if ( beg === -1 ) { return; }
+        const hn = origin.slice(beg+3)
+        const end = hn.indexOf(':');
+        return { hn: end === -1 ? hn : hn.slice(0, end), i };
+    }).filter(a => a !== undefined);
+})();
+if ( entries.length === 0 ) { return; }
+
+const todoIndices = new Set();
+const tonotdoIndices = new Set();
+
+indicesFromHostname(entries[0].hn);
+if ( hasAncestors ) {
+    for ( const entry of entries ) {
+        if ( entry.i === 0 ) { continue; }
+        indicesFromHostname(entry.hn, '>>');
+    }
 }
 
 // Apply scriplets
 for ( const i of todoIndices ) {
+    if ( tonotdoIndices.has(i) ) { continue; }
     try { adjustSetTimeout(...argsList[i]); }
     catch { }
 }
-argsList.length = 0;
-
-/******************************************************************************/
-
-};
-// End of code to inject
-
-/******************************************************************************/
-
-uBOL_adjustSetTimeout();
 
 /******************************************************************************/
 
 // End of local scope
 })();
-
-/******************************************************************************/
 
 void 0;

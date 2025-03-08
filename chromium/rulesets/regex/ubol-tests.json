@@ -1,0 +1,16 @@
+[
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "regexFilter": "bnf3\\.js$"
+ },
+ "id": 4,
+ "priority": 30
+}
+]

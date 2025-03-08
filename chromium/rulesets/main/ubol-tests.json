@@ -1,0 +1,50 @@
+[
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "requestDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "urlFilter": "/bnf3."
+ },
+ "id": 1,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "requestDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "resourceTypes": [
+   "image"
+  ],
+  "urlFilter": "/bnf2."
+ },
+ "id": 2,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "requestDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "/bnf1."
+ },
+ "id": 3,
+ "priority": 10
+}
+]

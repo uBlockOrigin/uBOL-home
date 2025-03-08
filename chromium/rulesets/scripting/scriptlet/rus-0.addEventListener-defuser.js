@@ -20,30 +20,13 @@
 
 */
 
-/* eslint-disable indent */
-
 // ruleset: rus-0
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(( ) => {
-
-/******************************************************************************/
-
-// Start of code to inject
-const uBOL_addEventListenerDefuser = function() {
-
-const scriptletGlobals = {}; // eslint-disable-line
-
-const argsList = [["/^(?:contextmenu|keydown)$/"],["/click|load/","popMagic"],["/click|mousedown/","popunder"],["/contextmenu|copy|keydown|selectstart/"],["/mouse/","cursorVisible"],["DOMContentLoaded",".j-mini-player__video"],["DOMContentLoaded","/pon-/"],["DOMContentLoaded","0x"],["DOMContentLoaded","StrategyHandler"],["DOMContentLoaded","banners"],["DOMContentLoaded","encodedUrl"],["DOMContentLoaded","exo_tracker"],["DOMContentLoaded","feedback"],["click","","elements","a[href*=\"utm_campaign\"]"],["click","[native code]"],["click","matches"],["copy","extra"],["copy","getSelection"],["copy","pagelink"],["getexoloader"],["load","AdBlock"],["load","detect-modal"],["load","mamydirect"],["loadstart","isImmediatePropagationStopped"],["mousedown","pop.doEvent"],["scroll","getBoundingClientRect"],["scroll","players"],["scroll","window.history.pushState"],["load","checkAdblockExistence"],["/click|destroy|mousedown/","","elements",".html-fishing"],["visibilitychange","captureContext"]];
-
-const hostnamesMap = new Map([["7days.ru",[0,30]],["fastpic.org",[1,19]],["biqle.org",2],["biqle.ru",2],["autonews.co.ua",3],["in-poland.com",3],["liveball.cc",3],["liveball.uno",3],["ukrainianwall.com",3],["fm-app.ru",4],["tvapp.su",4],["yootv.ru",4],["rambler.ru",[5,16]],["sibnet.ru",6],["sports.ru",7],["buhplatforma.com.ua",8],["dzplatforma.com.ua",8],["medplatforma.com.ua",8],["oblikbudget.com.ua",8],["oplatforma.com.ua",8],["pro-op.com.ua",8],["prokadry.com.ua",8],["cq.ru",9],["1progs.me",10],["xv-ru.com",11],["litnet.com",12],["regnum.news",13],["regnum.ru",13],["tproger.ru",13],["softonic.ru",14],["smotrim.ru",15],["kp.kg",[17,30]],["kp.kz",[17,30]],["kp.md",[17,30]],["kp.ru",[17,30]],["rbc.ru",17],["sportrbc.ru",17],["carservic.ru",18],["iptv.org.ua",18],["tva.org.ua",18],["ufchgu.ru",18],["romakatya.ru",20],["blackwot.ru",21],["overclockers.ru",22],["bonus-tv.ru",23],["kinoblin.ru",24],["serialai.ru",24],["m.lenta.ru",25],["www.vesti.ru",26],["lenta.ru",27],["otvet.mail.ru",28],["e.mail.ru",29],["octavius.mail.ru",29],["cdn.viqeo.tv",30],["kinonews.ru",30],["mk.ru",30],["ohotniki.ru",30],["portalvirtualreality.ru",30],["radiokp.ru",30],["sportkp.ru",30],["wday.ru",30],["woman.ru",30],["www.fontanka.ru",30]]);
-
-const entitiesMap = new Map([]);
-
-const exceptionsMap = new Map([["new.fastpic.org",[1,19]],["id.rambler.ru",[5,16]],["vp.rambler.ru",[5,16]],["player.smotrim.ru",[15]],["mail.rambler.ru",[16]]]);
+(function uBOL_addEventListenerDefuser() {
 
 /******************************************************************************/
 
@@ -431,95 +414,83 @@ function shouldDebug(details) {
 
 /******************************************************************************/
 
-const hnParts = [];
-try {
-    let origin = document.location.origin;
-    if ( origin === 'null' ) {
-        const origins = document.location.ancestorOrigins;
-        for ( let i = 0; i < origins.length; i++ ) {
-            origin = origins[i];
-            if ( origin !== 'null' ) { break; }
-        }
-    }
-    const pos = origin.lastIndexOf('://');
-    if ( pos === -1 ) { return; }
-    hnParts.push(...origin.slice(pos+3).split('.'));
-} catch {
-}
-const hnpartslen = hnParts.length;
-if ( hnpartslen === 0 ) { return; }
+const scriptletGlobals = {}; // eslint-disable-line
+const argsList = [["/^(?:contextmenu|keydown)$/"],["/click|load/","popMagic"],["/click|mousedown/","popunder"],["/contextmenu|copy|keydown|selectstart/"],["/mouse/","cursorVisible"],["DOMContentLoaded",".j-mini-player__video"],["DOMContentLoaded","/pon-/"],["DOMContentLoaded","0x"],["DOMContentLoaded","StrategyHandler"],["DOMContentLoaded","banners"],["DOMContentLoaded","encodedUrl"],["DOMContentLoaded","exo_tracker"],["DOMContentLoaded","feedback"],["click","","elements","a[href*=\"utm_campaign\"]"],["click","[native code]"],["click","matches"],["copy","extra"],["copy","getSelection"],["copy","pagelink"],["getexoloader"],["load","AdBlock"],["load","detect-modal"],["load","mamydirect"],["loadstart","isImmediatePropagationStopped"],["mousedown","pop.doEvent"],["scroll","getBoundingClientRect"],["scroll","players"],["scroll","window.history.pushState"],["load","checkAdblockExistence"],["/click|destroy|mousedown/","","elements",".html-fishing"],["visibilitychange","captureContext"]];
+const hostnamesMap = new Map([["7days.ru",[0,30]],["fastpic.org",[1,19]],["biqle.org",2],["biqle.ru",2],["autonews.co.ua",3],["in-poland.com",3],["liveball.cc",3],["liveball.uno",3],["ukrainianwall.com",3],["fm-app.ru",4],["tvapp.su",4],["yootv.ru",4],["rambler.ru",[5,16]],["sibnet.ru",6],["sports.ru",7],["buhplatforma.com.ua",8],["dzplatforma.com.ua",8],["medplatforma.com.ua",8],["oblikbudget.com.ua",8],["oplatforma.com.ua",8],["pro-op.com.ua",8],["prokadry.com.ua",8],["cq.ru",9],["1progs.me",10],["xv-ru.com",11],["litnet.com",12],["regnum.news",13],["regnum.ru",13],["tproger.ru",13],["softonic.ru",14],["smotrim.ru",15],["kp.kg",[17,30]],["kp.kz",[17,30]],["kp.md",[17,30]],["kp.ru",[17,30]],["rbc.ru",17],["sportrbc.ru",17],["carservic.ru",18],["iptv.org.ua",18],["tva.org.ua",18],["ufchgu.ru",18],["romakatya.ru",20],["blackwot.ru",21],["overclockers.ru",22],["bonus-tv.ru",23],["kinoblin.ru",24],["serialai.ru",24],["m.lenta.ru",25],["www.vesti.ru",26],["lenta.ru",27],["otvet.mail.ru",28],["e.mail.ru",29],["octavius.mail.ru",29],["cdn.viqeo.tv",30],["kinonews.ru",30],["mk.ru",30],["ohotniki.ru",30],["portalvirtualreality.ru",30],["radiokp.ru",30],["sportkp.ru",30],["wday.ru",30],["woman.ru",30],["www.fontanka.ru",30]]);
+const exceptionsMap = new Map([["new.fastpic.org",[1,19]],["id.rambler.ru",[5,16]],["vp.rambler.ru",[5,16]],["player.smotrim.ru",[15]],["mail.rambler.ru",[16]]]);
+const hasEntities = false;
+const hasAncestors = false;
 
-const todoIndices = new Set();
-const tonotdoIndices = [];
-
-// Exceptions
-if ( exceptionsMap.size !== 0 ) {
-    for ( let i = 0; i < hnpartslen; i++ ) {
-        const hn = hnParts.slice(i).join('.');
-        const excepted = exceptionsMap.get(hn);
-        if ( excepted ) { tonotdoIndices.push(...excepted); }
-    }
-    exceptionsMap.clear();
-}
-
-// Hostname-based
-if ( hostnamesMap.size !== 0 ) {
-    const collectArgIndices = hn => {
-        let argsIndices = hostnamesMap.get(hn);
-        if ( argsIndices === undefined ) { return; }
-        if ( typeof argsIndices === 'number' ) { argsIndices = [ argsIndices ]; }
+const collectArgIndices = (hn, map, out) => {
+    let argsIndices = map.get(hn);
+    if ( argsIndices === undefined ) { return; }
+    if ( typeof argsIndices !== 'number' ) {
         for ( const argsIndex of argsIndices ) {
-            if ( tonotdoIndices.includes(argsIndex) ) { continue; }
-            todoIndices.add(argsIndex);
+            out.add(argsIndex);
         }
-    };
-    for ( let i = 0; i < hnpartslen; i++ ) {
-        const hn = hnParts.slice(i).join('.');
-        collectArgIndices(hn);
+    } else {
+        out.add(argsIndices);
     }
-    collectArgIndices('*');
-    hostnamesMap.clear();
-}
+};
 
-// Entity-based
-if ( entitiesMap.size !== 0 ) {
-    const n = hnpartslen - 1;
-    for ( let i = 0; i < n; i++ ) {
-        for ( let j = n; j > i; j-- ) {
-            const en = hnParts.slice(i,j).join('.');
-            let argsIndices = entitiesMap.get(en);
-            if ( argsIndices === undefined ) { continue; }
-            if ( typeof argsIndices === 'number' ) { argsIndices = [ argsIndices ]; }
-            for ( const argsIndex of argsIndices ) {
-                if ( tonotdoIndices.includes(argsIndex) ) { continue; }
-                todoIndices.add(argsIndex);
+const indicesFromHostname = (hostname, suffix = '') => {
+    const hnParts = hostname.split('.');
+    const hnpartslen = hnParts.length;
+    if ( hnpartslen === 0 ) { return; }
+    for ( let i = 0; i < hnpartslen; i++ ) {
+        const hn = `${hnParts.slice(i).join('.')}${suffix}`;
+        collectArgIndices(hn, hostnamesMap, todoIndices);
+        collectArgIndices(hn, exceptionsMap, tonotdoIndices);
+    }
+    if ( hasEntities ) {
+        const n = hnpartslen - 1;
+        for ( let i = 0; i < n; i++ ) {
+            for ( let j = n; j > i; j-- ) {
+                const en = `${hnParts.slice(i,j).join('.')}.*${suffix}`;
+                collectArgIndices(en, hostnamesMap, todoIndices);
+                collectArgIndices(en, exceptionsMap, tonotdoIndices);
             }
         }
     }
-    entitiesMap.clear();
+};
+
+const entries = (( ) => {
+    const docloc = document.location;
+    const origins = [ docloc.origin ];
+    if ( docloc.ancestorOrigins ) {
+        origins.push(...docloc.ancestorOrigins);
+    }
+    return origins.map((origin, i) => {
+        const beg = origin.lastIndexOf('://');
+        if ( beg === -1 ) { return; }
+        const hn = origin.slice(beg+3)
+        const end = hn.indexOf(':');
+        return { hn: end === -1 ? hn : hn.slice(0, end), i };
+    }).filter(a => a !== undefined);
+})();
+if ( entries.length === 0 ) { return; }
+
+const todoIndices = new Set();
+const tonotdoIndices = new Set();
+
+indicesFromHostname(entries[0].hn);
+if ( hasAncestors ) {
+    for ( const entry of entries ) {
+        if ( entry.i === 0 ) { continue; }
+        indicesFromHostname(entry.hn, '>>');
+    }
 }
 
 // Apply scriplets
 for ( const i of todoIndices ) {
+    if ( tonotdoIndices.has(i) ) { continue; }
     try { addEventListenerDefuser(...argsList[i]); }
     catch { }
 }
-argsList.length = 0;
-
-/******************************************************************************/
-
-};
-// End of code to inject
-
-/******************************************************************************/
-
-uBOL_addEventListenerDefuser();
 
 /******************************************************************************/
 
 // End of local scope
 })();
-
-/******************************************************************************/
 
 void 0;

@@ -1,5 +1,12 @@
 [
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?freex2line\\.online/loadfree(?:[^%.0-9a-z_-]|$)",
+  "steps": [
+   "?redirect",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?click\\.redditmail\\.com/cl0/",
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",

@@ -20,30 +20,13 @@
 
 */
 
-/* eslint-disable indent */
-
 // ruleset: rus-0
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(( ) => {
-
-/******************************************************************************/
-
-// Start of code to inject
-const uBOL_removeNodeText = function() {
-
-const scriptletGlobals = {}; // eslint-disable-line
-
-const argsList = [["#text","РЕКЛАМНЫЙ БЛОК:"],["#text","Реклама"],["#text","Реклама:"],["script","/gtag\\('event'/"],["script","/s_script|tick/"],["script","AdBlocker"],["script","addPlaceholder"],["script","message_ads"],["script","violatedDirective"],["script","\"Shadow"]];
-
-const hostnamesMap = new Map([["online-fix.me",0],["farposst.ru",1],["filmitorrent.net",2],["utorr.cc",2],["inforesist.org",[3,9]],["game4you.top",4],["innal.top",4],["naylo.top",4],["rustorka.com",4],["rustorka.net",4],["rustorka.top",4],["rustorkacom.lib",4],["sports.ru",5],["pikabu.ru",6],["gsm.in.ua",7],["mail.ru",8],["24boxing.com.ua",9],["avtovod.com.ua",9],["bigmir.net",9],["bilshe.com",9],["buhgalter.com.ua",9],["buhgalter911.com",9],["businessua.com",9],["censor.net",9],["dengi.ua",9],["ditey.com",9],["epravda.com.ua",9],["f1analytic.com",9],["facenews.ua",9],["factor.ua",9],["football-ukraine.com",9],["footballgazeta.com",9],["footballtransfer.com.ua",9],["gazeta.ua",9],["glianec.com",9],["gorod.dp.ua",9],["hvylya.net",9],["i.ua",9],["isport.ua",9],["ivona.ua",9],["kolobok.ua",9],["kriminal.tv",9],["liga.net",9],["meteo.ua",9],["meteofor.com.ua",9],["nnovosti.info",9],["nv.ua",9],["panno4ka.net",9],["pogodaua.com",9],["pravda.com.ua",9],["real-vin.com",9],["smak.ua",9],["sportanalytic.com",9],["stravy.net",9],["tochka.net",9],["tv.ua",9],["viva.ua",9],["vsetv.com",9],["www.ukr.net",9],["zdorovia.com.ua",9]]);
-
-const entitiesMap = new Map([]);
-
-const exceptionsMap = new Map([["3igames.mail.ru",[8]],["account.mail.ru",[8]],["auto.mail.ru",[8]],["biz.mail.ru",[8]],["blog.mail.ru",[8]],["bonus.mail.ru",[8]],["calendar.mail.ru",[8]],["calls.mail.ru",[8]],["cloud.mail.ru",[8]],["connect.mail.ru",[8]],["deti.mail.ru",[8]],["dobro.mail.ru",[8]],["e.mail.ru",[8]],["finance.mail.ru",[8]],["gibdd.mail.ru",[8]],["health.mail.ru",[8]],["help.mail.ru",[8]],["hi-tech.mail.ru",[8]],["horo.mail.ru",[8]],["kino.mail.ru",[8]],["lady.mail.ru",[8]],["love.mail.ru",[8]],["mcs.mail.ru",[8]],["minigames.mail.ru",[8]],["my.mail.ru",[8]],["news.mail.ru",[8]],["o2.mail.ru",[8]],["octavius.mail.ru",[8]],["okminigames.mail.ru",[8]],["otvet.mail.ru",[8]],["pets.mail.ru",[8]],["player-smotri.mail.ru",[8]],["pogoda.mail.ru",[8]],["top.mail.ru",[8]],["touch.mail.ru",[8]],["tv.mail.ru",[8]],["vfokuse.mail.ru",[8]],["widgets.mail.ru",[8]]]);
+(function uBOL_removeNodeText() {
 
 /******************************************************************************/
 
@@ -382,95 +365,83 @@ function safeSelf() {
 
 /******************************************************************************/
 
-const hnParts = [];
-try {
-    let origin = document.location.origin;
-    if ( origin === 'null' ) {
-        const origins = document.location.ancestorOrigins;
-        for ( let i = 0; i < origins.length; i++ ) {
-            origin = origins[i];
-            if ( origin !== 'null' ) { break; }
-        }
-    }
-    const pos = origin.lastIndexOf('://');
-    if ( pos === -1 ) { return; }
-    hnParts.push(...origin.slice(pos+3).split('.'));
-} catch {
-}
-const hnpartslen = hnParts.length;
-if ( hnpartslen === 0 ) { return; }
+const scriptletGlobals = {}; // eslint-disable-line
+const argsList = [["#text","РЕКЛАМНЫЙ БЛОК:"],["#text","Реклама"],["#text","Реклама:"],["script","/gtag\\('event'/"],["script","/s_script|tick/"],["script","AdBlocker"],["script","addPlaceholder"],["script","clickedOnContent"],["script","message_ads"],["script","setRequestHeader"],["script","violatedDirective"],["script","\"Shadow"]];
+const hostnamesMap = new Map([["online-fix.me",0],["farposst.ru",1],["filmitorrent.net",2],["utorr.cc",2],["inforesist.org",[3,11]],["game4you.top",4],["innal.top",4],["naylo.top",4],["rustorka.com",4],["rustorka.net",4],["rustorka.top",4],["rustorkacom.lib",4],["sports.ru",5],["pikabu.ru",6],["agronews.ua",7],["agroreview.com",7],["gsm.in.ua",8],["tapochek.net",9],["mail.ru",10],["24boxing.com.ua",11],["avtovod.com.ua",11],["bigmir.net",11],["bilshe.com",11],["buhgalter.com.ua",11],["buhgalter911.com",11],["businessua.com",11],["censor.net",11],["dengi.ua",11],["ditey.com",11],["epravda.com.ua",11],["f1analytic.com",11],["facenews.ua",11],["factor.ua",11],["football-ukraine.com",11],["footballgazeta.com",11],["footballtransfer.com.ua",11],["gazeta.ua",11],["glianec.com",11],["gorod.dp.ua",11],["hvylya.net",11],["i.ua",11],["isport.ua",11],["ivona.ua",11],["kolobok.ua",11],["kriminal.tv",11],["liga.net",11],["meteo.ua",11],["meteofor.com.ua",11],["nnovosti.info",11],["nv.ua",11],["panno4ka.net",11],["pogodaua.com",11],["pravda.com.ua",11],["real-vin.com",11],["smak.ua",11],["sportanalytic.com",11],["stravy.net",11],["tochka.net",11],["tv.ua",11],["viva.ua",11],["vsetv.com",11],["www.ukr.net",11],["zdorovia.com.ua",11]]);
+const exceptionsMap = new Map([["3igames.mail.ru",[10]],["account.mail.ru",[10]],["auto.mail.ru",[10]],["biz.mail.ru",[10]],["blog.mail.ru",[10]],["bonus.mail.ru",[10]],["calendar.mail.ru",[10]],["calls.mail.ru",[10]],["cloud.mail.ru",[10]],["connect.mail.ru",[10]],["deti.mail.ru",[10]],["dobro.mail.ru",[10]],["e.mail.ru",[10]],["finance.mail.ru",[10]],["gibdd.mail.ru",[10]],["health.mail.ru",[10]],["help.mail.ru",[10]],["hi-tech.mail.ru",[10]],["horo.mail.ru",[10]],["kino.mail.ru",[10]],["lady.mail.ru",[10]],["love.mail.ru",[10]],["mcs.mail.ru",[10]],["minigames.mail.ru",[10]],["my.mail.ru",[10]],["news.mail.ru",[10]],["o2.mail.ru",[10]],["octavius.mail.ru",[10]],["okminigames.mail.ru",[10]],["otvet.mail.ru",[10]],["pets.mail.ru",[10]],["player-smotri.mail.ru",[10]],["pogoda.mail.ru",[10]],["top.mail.ru",[10]],["touch.mail.ru",[10]],["tv.mail.ru",[10]],["vfokuse.mail.ru",[10]],["widgets.mail.ru",[10]]]);
+const hasEntities = false;
+const hasAncestors = false;
 
-const todoIndices = new Set();
-const tonotdoIndices = [];
-
-// Exceptions
-if ( exceptionsMap.size !== 0 ) {
-    for ( let i = 0; i < hnpartslen; i++ ) {
-        const hn = hnParts.slice(i).join('.');
-        const excepted = exceptionsMap.get(hn);
-        if ( excepted ) { tonotdoIndices.push(...excepted); }
-    }
-    exceptionsMap.clear();
-}
-
-// Hostname-based
-if ( hostnamesMap.size !== 0 ) {
-    const collectArgIndices = hn => {
-        let argsIndices = hostnamesMap.get(hn);
-        if ( argsIndices === undefined ) { return; }
-        if ( typeof argsIndices === 'number' ) { argsIndices = [ argsIndices ]; }
+const collectArgIndices = (hn, map, out) => {
+    let argsIndices = map.get(hn);
+    if ( argsIndices === undefined ) { return; }
+    if ( typeof argsIndices !== 'number' ) {
         for ( const argsIndex of argsIndices ) {
-            if ( tonotdoIndices.includes(argsIndex) ) { continue; }
-            todoIndices.add(argsIndex);
+            out.add(argsIndex);
         }
-    };
-    for ( let i = 0; i < hnpartslen; i++ ) {
-        const hn = hnParts.slice(i).join('.');
-        collectArgIndices(hn);
+    } else {
+        out.add(argsIndices);
     }
-    collectArgIndices('*');
-    hostnamesMap.clear();
-}
+};
 
-// Entity-based
-if ( entitiesMap.size !== 0 ) {
-    const n = hnpartslen - 1;
-    for ( let i = 0; i < n; i++ ) {
-        for ( let j = n; j > i; j-- ) {
-            const en = hnParts.slice(i,j).join('.');
-            let argsIndices = entitiesMap.get(en);
-            if ( argsIndices === undefined ) { continue; }
-            if ( typeof argsIndices === 'number' ) { argsIndices = [ argsIndices ]; }
-            for ( const argsIndex of argsIndices ) {
-                if ( tonotdoIndices.includes(argsIndex) ) { continue; }
-                todoIndices.add(argsIndex);
+const indicesFromHostname = (hostname, suffix = '') => {
+    const hnParts = hostname.split('.');
+    const hnpartslen = hnParts.length;
+    if ( hnpartslen === 0 ) { return; }
+    for ( let i = 0; i < hnpartslen; i++ ) {
+        const hn = `${hnParts.slice(i).join('.')}${suffix}`;
+        collectArgIndices(hn, hostnamesMap, todoIndices);
+        collectArgIndices(hn, exceptionsMap, tonotdoIndices);
+    }
+    if ( hasEntities ) {
+        const n = hnpartslen - 1;
+        for ( let i = 0; i < n; i++ ) {
+            for ( let j = n; j > i; j-- ) {
+                const en = `${hnParts.slice(i,j).join('.')}.*${suffix}`;
+                collectArgIndices(en, hostnamesMap, todoIndices);
+                collectArgIndices(en, exceptionsMap, tonotdoIndices);
             }
         }
     }
-    entitiesMap.clear();
+};
+
+const entries = (( ) => {
+    const docloc = document.location;
+    const origins = [ docloc.origin ];
+    if ( docloc.ancestorOrigins ) {
+        origins.push(...docloc.ancestorOrigins);
+    }
+    return origins.map((origin, i) => {
+        const beg = origin.lastIndexOf('://');
+        if ( beg === -1 ) { return; }
+        const hn = origin.slice(beg+3)
+        const end = hn.indexOf(':');
+        return { hn: end === -1 ? hn : hn.slice(0, end), i };
+    }).filter(a => a !== undefined);
+})();
+if ( entries.length === 0 ) { return; }
+
+const todoIndices = new Set();
+const tonotdoIndices = new Set();
+
+indicesFromHostname(entries[0].hn);
+if ( hasAncestors ) {
+    for ( const entry of entries ) {
+        if ( entry.i === 0 ) { continue; }
+        indicesFromHostname(entry.hn, '>>');
+    }
 }
 
 // Apply scriplets
 for ( const i of todoIndices ) {
+    if ( tonotdoIndices.has(i) ) { continue; }
     try { removeNodeText(...argsList[i]); }
     catch { }
 }
-argsList.length = 0;
-
-/******************************************************************************/
-
-};
-// End of code to inject
-
-/******************************************************************************/
-
-uBOL_removeNodeText();
 
 /******************************************************************************/
 
 // End of local scope
 })();
-
-/******************************************************************************/
 
 void 0;

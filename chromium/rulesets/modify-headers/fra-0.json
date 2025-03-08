@@ -5,7 +5,7 @@
    {
     "header": "content-security-policy",
     "operation": "append",
-    "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudatacdn.com *.cloudflare.com *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com *.jwpcdn.com *.plyr.io *.recaptcha.net *.tapecontent.net *.video-delivery.net *.youtube.com *.veev.to *.zencdn.net i.doodcdn.co i.doodcdn.com img.doodcdn.co static.doodcdn.co static.veevcdn.co"
+    "value": "default-src 'self' 'unsafe-inline' data: *.bootstrapcdn.com *.cloudatacdn.com *.cloudflare.com *.doodcdn.co *.doodcdn.com *.doodcdn.io *.google.com *.googleapis.com *.gstatic.com *.hcaptcha.com *.jquery.com *.jwpcdn.com *.plyr.io *.recaptcha.net *.tapecontent.net *.veev.to *.veevcdn.co *.video-delivery.net *.youtube.com *.zencdn.net"
    }
   ],
   "type": "modifyHeaders"
@@ -64,6 +64,7 @@
    "tapenoads.com",
    "tapewithadblock.org",
    "veev.to",
+   "vidply.com",
    "watchadsontape.com"
   ],
   "resourceTypes": [
@@ -127,10 +128,8 @@
    "genashowalter.com",
    "hdvid.tv",
    "highstream.tv",
-   "ianimes.org",
    "lewd.ninja",
    "nahnoji.cz",
-   "neurozinzin.com",
    "novator.az",
    "onion.ly",
    "onion.pet",

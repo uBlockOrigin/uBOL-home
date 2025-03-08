@@ -10,5 +10,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/empty"},"type":"redirect"},"condition":{"initiatorDomains":["kyrkanstidning.se"],"resourceTypes":["xmlhttprequest"],"urlFilter":"?t="},"id":9,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/click2load.html"},"type":"redirect"},"condition":{"initiatorDomains":["nordiskradio.se"],"requestDomains":["peertube.se"],"resourceTypes":["sub_frame"]},"id":10,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/click2load.html"},"type":"redirect"},"condition":{"initiatorDomains":["breakit.se"],"requestDomains":["player.vimeo.com"],"resourceTypes":["sub_frame"]},"id":11,"priority":11},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/click2load.html"},"type":"redirect"},"condition":{"initiatorDomains":["ordfrontmagasin.se"],"resourceTypes":["sub_frame"],"urlFilter":"||youtube.com/embed"},"id":12,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/click2load.html"},"type":"redirect"},"condition":{"initiatorDomains":["ordfrontmagasin.se"],"resourceTypes":["sub_frame"],"urlFilter":"||youtube.com/embed"},"id":12,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.json"},"type":"redirect"},"condition":{"initiatorDomains":["dagen.se"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||cdn.segment.com/v1/projects/"},"id":13,"priority":11}
 ]

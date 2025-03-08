@@ -20,30 +20,13 @@
 
 */
 
-/* eslint-disable indent */
-
 // ruleset: rus-0
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(( ) => {
-
-/******************************************************************************/
-
-// Start of code to inject
-const uBOL_abortOnPropertyRead = function() {
-
-const scriptletGlobals = {}; // eslint-disable-line
-
-const argsList = [["ABNS"],["AdbBanner"],["CTRManager.host3"],["ClickUndercookie"],["Date.prototype.toUTCString"],["Groups.showDisclaimer"],["Light.Popup"],["Object.prototype.AdfoxXhrRequestPrepared"],["Object.prototype.Metrika"],["Object.prototype.YA_TURBO_PAGES"],["Object.prototype._getBanner"],["Object.prototype._isAutostartQueueSet"],["Object.prototype.bannerOptions"],["Object.prototype.direct"],["Object.prototype.fakeDetect"],["Object.prototype.getAdUsageStorage"],["Object.prototype.initOnPlay"],["Object.prototype.isApplySticky"],["Object.prototype.loadBanner"],["Object.prototype.render"],["Object.prototype.scriptsViaXhr"],["Object.prototype.yaContextCb"],["PUM.getPopup"],["Radish"],["SIN.AdsLoader"],["TotemToolsObject"],["WebSocket"],["XMLHttpRequest"],["Ya"],["_0x1ece"],["__vasActiveTestIds"],["a_urls"],["aab"],["abl"],["adblock_availability_check"],["adcashMacros"],["addLink"],["adjustBackground"],["admiral"],["ads"],["ads_block_check"],["advFirstClickOpenNewTab"],["advanced_ads_ready"],["anOptions"],["antiadblockCallback"],["app_vars.force_disable_adblock"],["as_retry"],["atob"],["bannersBillboard"],["bdy"],["blocked_action"],["clickNS4"],["console.clear"],["disable_copy"],["disable_hot_keys"],["document.addEventListener"],["document.body.oncopy"],["document.getElementById","mdl_adb"],["document.oncontextmenu"],["document.oncopy"],["document.ondragend"],["document.ondragstart"],["document.ondrop"],["document.onkeydown"],["document.onpaste"],["document.onselectstart"],["eaglePlayerPlugins.autoplay_position"],["echelon"],["forTheFreeVideo.css"],["fpm_attr"],["getSelection"],["get_ya_browser"],["goTolink"],["helpUsImproveSite"],["initsnow"],["kav_cn"],["lftrght"],["localStorage"],["m205"],["mdpDeBlocker"],["move_string"],["myatu_bgm"],["nocontext"],["noselect"],["onload"],["open"],["preventSelection"],["scrollw"],["setsnow"],["sparkle"],["stopPrntScr"],["t364_initPopup"],["target_script"],["td_ad_background_click_target"],["tingle"],["tnAdditionalParams"],["unSelect"],["updateDownloadLinks"],["utarget_script"],["video.preroll"],["vpb"],["web_script"],["weekCallbacks"],["window.alert"],["window.block"],["wpsite_clickable_data"],["wrapper.addEventListener"],["yaContextCb"],["zfgformats"],["bc_blocks"],["globalAuthLoginPopupCounter"],["u_global_data"]];
-
-const hostnamesMap = new Map([["liveball.cc",0],["liveball.uno",0],["htmlweb.ru",1],["fapreactor.com",2],["pornreactor.cc",2],["reactor.cc",2],["anifap.com",3],["anipoisk.org",3],["anitokyo.org",3],["anitokyo.tv",3],["hcdn.online",3],["kinofilm.co",3],["comedy-radio.ru",[4,30]],["radioromantika.ru",[4,30]],["relax-fm.ru",[4,30]],["rg.ru",[4,107]],["sm.news",[4,28,32,86]],["ura.news",[4,107]],["veseloeradio.ru",[4,30]],["www.e1.ru",4],["vk.com",5],["vk.ru",5],["rutor.org",6],["drive2.ru",[7,21]],["liveinternet.ru",[8,9]],["yap.ru",8],["yaplakal.com",8],["lena-miro.ru",10],["levik.blog",10],["livejournal.com",10],["olegmakarenko.ru",10],["periskop.su",10],["shakko.ru",10],["shiro-kino.ru",10],["vadimrazumov.ru",10],["rbc.ru",[11,17]],["www.kinopoisk.ru",12],["gorodrabot.by",13],["gorodrabot.ru",13],["fishki.net",14],["reshu.by",15],["reshuent.kz",15],["sdamgia.ru",15],["gdespaces.com",16],["gdespaces.net",16],["google-cloud.services",16],["spac.me",16],["spac.run",16],["spac.wtf",16],["spac1.com",16],["spac1.net",16],["spac1.org",16],["spaces-blogs.com",16],["spaces.im",16],["spcs-files.xyz",16],["spcs.bio",16],["spcs.me",16],["spcs.network",16],["spcs.pro",16],["spcs.reviews",16],["spcs.social",16],["strip2.club",16],["strip2.in",16],["strip2.xxx",16],["usersporn.com",16],["e1.ru",18],["nova.rambler.ru",18],["pikabu.ru",[18,28]],["24smi.org",19],["gismeteo.by",20],["gismeteo.kz",20],["gismeteo.ru",20],["razlozhi.ru",21],["f1comp.ru",22],["tagaev.com",22],["times.zt.ua",22],["gencit.info",23],["sinoptik.ua",[24,100]],["porngames.su",25],["rintor.info",25],["rintor.net",25],["castle-tv.com",26],["100popugaev.ru",27],["coderlessons.com",27],["fixx.one",27],["its-kids.ru",27],["molitvy.guru",27],["nizhny.ru",27],["pro100hobbi.ru",27],["publy.ru",27],["samelectric.ru",27],["svadba.expert",27],["tehnobzor.ru",[27,79]],["vibir.ru",27],["3dnews.kz",28],["3dnews.ru",28],["avtovzglyad.ru",28],["baby.ru",28],["cont.ws",28],["dni.ru",28],["mamba.ru",28],["pogoda.onliner.by",28],["selflib.me",28],["sports.ru",[28,44]],["tech.onliner.by",28],["www.goha.ru",28],["nnmclub.ro",29],["nnmclub.to",29],["forum.overclockers.ua",31],["kufar.by",32],["bstudy.net",33],["ozlib.com",33],["studbooks.net",33],["studme.org",33],["studref.com",33],["studwood.net",33],["vuzlit.com",33],["xstud.org",33],["vgtimes.ru",34],["upload.ee",35],["versia.ru",36],["bb.lv",37],["footboom.com",[38,67]],["footboom.kz",[38,67]],["electric-house.ru",39],["fearmp4.ru",40],["freehat.cc",[41,85]],["agroreview.com",42],["amazinghis.ru",43],["moj-pes.ru",43],["shrlink.top",45],["eurointegration.com.ua",46],["pravda.com.ua",46],["friends.in.ua",[47,55]],["gidonline.eu",[47,92]],["vprognoze.ru",48],["terrikon.com",49],["medicina.ua",50],["zaruba.fun",51],["fm-app.ru",52],["ritsatv.ru",52],["tvapp.su",52],["yootv.ru",52],["kolizhanka.com.ua",[53,54,82]],["gra-prestoliv.in.ua",55],["simpsonsua.tv",55],["pravvest.ru",56],["dclans.ru",57],["animevost.org",58],["animevost.site",58],["animevost.top",58],["doefiratv.info",58],["payeer-gift.ru",58],["smotret-anime-365.ru",58],["turkish-tv-series.ru",[58,63,70]],["ufchgu.ru",58],["vost.pw",58],["xn--b1aew.xn--p1ai",[58,59,60,61,62,64,65]],["my-expert.ru",61],["gazeta.ru",[66,72]],["kinozapas.co",68],["livesx.online",68],["xn--80aikhbrhr.xn--j1amh",68],["7ogorod.ru",69],["autonevod.ru",69],["shtrafsud.ru",69],["tophallclub.ru",69],["zazloo.ru",69],["buhplatforma.com.ua",70],["championat.com",70],["doramy.club",70],["dzplatforma.com.ua",70],["medplatforma.com.ua",70],["oblikbudget.com.ua",70],["oplatforma.com.ua",70],["pro-op.com.ua",70],["prokadry.com.ua",70],["musify.club",71],["dota2.ru",73],["elitesnooker.com",74],["astrakhan.ru",75],["myjane.ru",75],["omskpress.ru",75],["tambovnet.org",75],["daz3d.ru",76],["dorama.land",77],["doramaland.me",77],["players.com.ua",77],["studizba.com",78],["asteriatm.ru",79],["sudya-dredd.ru",[79,90]],["anime-chan.me",[80,89]],["city.ogo.ua",81],["stoigr.org",83],["it-actual.ru",84],["hlamer.ru",85],["lostpix.com",85],["potokcdn.com",85],["prostoporno.help",85],["saltday.ru",85],["uploadimagex.com",85],["wowskill.ru",85],["xittv.net",85],["zab.ru",87],["tapochek.net",[88,101]],["bryansknovosti.ru",90],["novozybkov.su",90],["moremania.info",91],["kinogo.eu",92],["1informer.com",93],["fainaidea.com",93],["itech.co.ua",93],["mediasat.info",93],["moika78.ru",93],["root-nation.com",93],["fssp.gov.ru",94],["liveforums.ru",95],["onlineclass.space",96],["nsportal.ru",97],["animekun.ru",98],["doramakun.ru",98],["vestivrn.ru",99],["www.ukr.net",100],["4studio.com.ua",102],["cikavosti.com",102],["dialogs.org.ua",102],["fakty.ua",102],["gorodkiev.com.ua",102],["informator.ua",102],["kriminal.tv",102],["pingvin.pro",102],["technoportal.com.ua",102],["u-news.com.ua",102],["uanews.org.ua",102],["volynpost.com",102],["bombardir.ru",103],["comp-service.kiev.ua",103],["inforesist.org",103],["www.xcom-shop.ru",103],["softportal.com",104],["growhow.in.ua",105],["tornado.3dn.ru",106],["80-e.ru",107],["doramatv.live",107],["examenpdd.com",107],["animedia.tv",108],["animedub.ru",108],["vsetut.su",108],["ok.ru",110],["3dn.ru",111],["a-point.info",111],["addfiles.ru",111],["akkordam.ru",111],["all-for-kompa.ru",111],["asia-tv.su",111],["at.ua",111],["autosimgames.ru",111],["clan.su",111],["db-energo.ru",111],["devdrivers.ru",111],["do.am",111],["elegos.ru",111],["elektronika56.ru",111],["elektrosat.ru",111],["fon-ki.com",111],["for-gsm.ru",111],["free-dream.ru",111],["ftechedu.ru",111],["fukushima-news.ru",111],["gals.md",111],["gloria-cedric.ru",111],["goldformat.ru",111],["greenflash.su",111],["igrul-ka.ru",111],["krasnickij.ru",111],["krolmen.ru",111],["megaclips.net",111],["mow-portal.ru",111],["moy.su",111],["my1.ru",111],["narod.ru",111],["newgames.com.ua",111],["novospasskoe-city.ru",111],["omsimclub.ru",111],["online-supernatural.ru",111],["only-paper.ru",111],["others.name",111],["pidru4nik.com",111],["pkrc.ru",111],["play-force.ru",111],["pohoronnoe-byuro.com",111],["pokatushki-pmr.ru",111],["pro-zakupki.ru",111],["project-ss.ru",111],["psxworld.ru",111],["radiodom.org",111],["rocketdockfree.ru",111],["sdr-deluxe.com",111],["soft-game.net",111],["stalker-gsc.ru",111],["stalker-zone.info",111],["stalkermods.ru",111],["svadbatomsk.ru",111],["techmusic.ru",111],["tes-game.ru",111],["torfiles.ru",111],["ucoz.club",111],["ucoz.com",111],["ucoz.net",111],["ucoz.org",111],["ucoz.ru",111],["ucoz.ua",111],["usite.pro",111],["vodopads.ru",111],["vsthouse.ru",111],["xakevsoft.ru",111],["xn--80aeshkkbdj.xn--p1ai",111],["yaminecraft.ru",111],["zona-stalkera.ru",111]]);
-
-const entitiesMap = new Map([["porno365",109]]);
-
-const exceptionsMap = new Map([]);
+(function uBOL_abortOnPropertyRead() {
 
 /******************************************************************************/
 
@@ -302,95 +285,83 @@ function getRandomToken() {
 
 /******************************************************************************/
 
-const hnParts = [];
-try {
-    let origin = document.location.origin;
-    if ( origin === 'null' ) {
-        const origins = document.location.ancestorOrigins;
-        for ( let i = 0; i < origins.length; i++ ) {
-            origin = origins[i];
-            if ( origin !== 'null' ) { break; }
-        }
-    }
-    const pos = origin.lastIndexOf('://');
-    if ( pos === -1 ) { return; }
-    hnParts.push(...origin.slice(pos+3).split('.'));
-} catch {
-}
-const hnpartslen = hnParts.length;
-if ( hnpartslen === 0 ) { return; }
+const scriptletGlobals = {}; // eslint-disable-line
+const argsList = [["ABNS"],["AdbBanner"],["CTRManager.host3"],["ClickUndercookie"],["Date.prototype.toUTCString"],["Groups.showDisclaimer"],["Light.Popup"],["Object.prototype.AdfoxXhrRequestPrepared"],["Object.prototype.Metrika"],["Object.prototype.YA_TURBO_PAGES"],["Object.prototype._getBanner"],["Object.prototype._isAutostartQueueSet"],["Object.prototype.bannerOptions"],["Object.prototype.direct"],["Object.prototype.fakeDetect"],["Object.prototype.getAdUsageStorage"],["Object.prototype.initOnPlay"],["Object.prototype.isApplySticky"],["Object.prototype.loadBanner"],["Object.prototype.render"],["Object.prototype.scriptsViaXhr"],["Object.prototype.yaContextCb"],["PUM.getPopup"],["Radish"],["SIN.AdsLoader"],["TotemToolsObject"],["WebSocket"],["XMLHttpRequest"],["Ya"],["_0x1ece"],["__vasActiveTestIds"],["a_urls"],["aab"],["abl"],["adblock_availability_check"],["adcashMacros"],["addLink"],["adjustBackground"],["admiral"],["ads"],["ads_block_check"],["advFirstClickOpenNewTab"],["anOptions"],["antiadblockCallback"],["app_vars.force_disable_adblock"],["as_retry"],["atob"],["bannersBillboard"],["bdy"],["blocked_action"],["clickNS4"],["console.clear"],["disable_copy"],["disable_hot_keys"],["document.addEventListener"],["document.body.oncopy"],["document.getElementById","mdl_adb"],["document.oncontextmenu"],["document.oncopy"],["document.ondragend"],["document.ondragstart"],["document.ondrop"],["document.onkeydown"],["document.onpaste"],["document.onselectstart"],["eaglePlayerPlugins.autoplay_position"],["echelon"],["forTheFreeVideo.css"],["fpm_attr"],["getSelection"],["get_ya_browser"],["goTolink"],["helpUsImproveSite"],["initsnow"],["kav_cn"],["lftrght"],["localStorage"],["m205"],["mdpDeBlocker"],["move_string"],["myatu_bgm"],["nocontext"],["noselect"],["onload"],["open"],["preventSelection"],["scrollw"],["setsnow"],["sparkle"],["stopPrntScr"],["t364_initPopup"],["target_script"],["td_ad_background_click_target"],["tingle"],["tnAdditionalParams"],["unSelect"],["updateDownloadLinks"],["utarget_script"],["video.preroll"],["vpb"],["weekCallbacks"],["window.alert"],["window.block"],["wpsite_clickable_data"],["wrapper.addEventListener"],["yaContextCb"],["zfgformats"],["bc_blocks"],["globalAuthLoginPopupCounter"],["u_global_data"]];
+const hostnamesMap = new Map([["liveball.cc",0],["liveball.uno",0],["htmlweb.ru",1],["fapreactor.com",2],["pornreactor.cc",2],["reactor.cc",2],["anifap.com",3],["anipoisk.org",3],["anitokyo.org",3],["anitokyo.tv",3],["hcdn.online",3],["kinofilm.co",3],["comedy-radio.ru",[4,30]],["radioromantika.ru",[4,30]],["relax-fm.ru",[4,30]],["rg.ru",[4,105]],["sm.news",[4,28,32,85]],["ura.news",[4,105]],["veseloeradio.ru",[4,30]],["www.e1.ru",4],["vk.com",5],["vk.ru",5],["rutor.org",6],["drive2.ru",[7,21]],["liveinternet.ru",[8,9]],["yap.ru",8],["yaplakal.com",8],["lena-miro.ru",10],["levik.blog",10],["livejournal.com",10],["olegmakarenko.ru",10],["periskop.su",10],["shakko.ru",10],["shiro-kino.ru",10],["vadimrazumov.ru",10],["rbc.ru",[11,17]],["www.kinopoisk.ru",12],["gorodrabot.by",13],["gorodrabot.ru",13],["fishki.net",14],["reshu.by",15],["reshuent.kz",15],["sdamgia.ru",15],["gdespaces.com",16],["gdespaces.net",16],["google-cloud.services",16],["spac.me",16],["spac.run",16],["spac.wtf",16],["spac1.com",16],["spac1.net",16],["spac1.org",16],["spaces-blogs.com",16],["spaces.im",16],["spcs-files.xyz",16],["spcs.bio",16],["spcs.me",16],["spcs.network",16],["spcs.pro",16],["spcs.reviews",16],["spcs.social",16],["strip2.club",16],["strip2.in",16],["strip2.xxx",16],["usersporn.com",16],["e1.ru",18],["nova.rambler.ru",18],["pikabu.ru",[18,28]],["24smi.org",19],["gismeteo.by",20],["gismeteo.kz",20],["gismeteo.ru",20],["razlozhi.ru",21],["f1comp.ru",22],["tagaev.com",22],["times.zt.ua",22],["gencit.info",23],["sinoptik.ua",[24,99]],["porngames.su",25],["rintor.info",25],["rintor.net",25],["castle-tv.com",26],["100popugaev.ru",27],["coderlessons.com",27],["fixx.one",27],["its-kids.ru",27],["molitvy.guru",27],["nizhny.ru",27],["pro100hobbi.ru",27],["publy.ru",27],["samelectric.ru",27],["svadba.expert",27],["tehnobzor.ru",[27,78]],["vibir.ru",27],["3dnews.kz",28],["3dnews.ru",28],["avtovzglyad.ru",28],["baby.ru",28],["cont.ws",28],["dni.ru",28],["mamba.ru",28],["pogoda.onliner.by",28],["selflib.me",28],["sports.ru",[28,43]],["tech.onliner.by",28],["www.goha.ru",28],["nnmclub.ro",29],["nnmclub.to",29],["forum.overclockers.ua",31],["kufar.by",32],["bstudy.net",33],["ozlib.com",33],["studbooks.net",33],["studme.org",33],["studref.com",33],["studwood.net",33],["vuzlit.com",33],["xstud.org",33],["vgtimes.ru",34],["upload.ee",35],["versia.ru",36],["bb.lv",37],["footboom.com",[38,66]],["footboom.kz",[38,66]],["electric-house.ru",39],["fearmp4.ru",40],["freehat.cc",[41,84]],["amazinghis.ru",42],["moj-pes.ru",42],["shrlink.top",44],["eurointegration.com.ua",45],["pravda.com.ua",45],["sportanalytic.com",45],["friends.in.ua",[46,54]],["gidonline.eu",[46,91]],["vprognoze.ru",47],["terrikon.com",48],["medicina.ua",49],["zaruba.fun",50],["fm-app.ru",51],["ritsatv.ru",51],["tvapp.su",51],["yootv.ru",51],["kolizhanka.com.ua",[52,53,81]],["gra-prestoliv.in.ua",54],["simpsonsua.tv",54],["pravvest.ru",55],["dclans.ru",56],["animevost.org",57],["animevost.site",57],["animevost.top",57],["doefiratv.info",57],["payeer-gift.ru",57],["smotret-anime-365.ru",57],["turkish-tv-series.ru",[57,62,69]],["ufchgu.ru",57],["vost.pw",57],["xn--b1aew.xn--p1ai",[57,58,59,60,61,63,64]],["my-expert.ru",60],["gazeta.ru",[65,71]],["kinozapas.co",67],["livesx.online",67],["xn--80aikhbrhr.xn--j1amh",67],["7ogorod.ru",68],["autonevod.ru",68],["shtrafsud.ru",68],["tophallclub.ru",68],["zazloo.ru",68],["buhplatforma.com.ua",69],["championat.com",69],["doramy.club",69],["dzplatforma.com.ua",69],["medplatforma.com.ua",69],["oblikbudget.com.ua",69],["oplatforma.com.ua",69],["pro-op.com.ua",69],["prokadry.com.ua",69],["musify.club",70],["dota2.ru",72],["elitesnooker.com",73],["astrakhan.ru",74],["myjane.ru",74],["omskpress.ru",74],["tambovnet.org",74],["daz3d.ru",75],["dorama.land",76],["doramaland.me",76],["players.com.ua",76],["studizba.com",77],["asteriatm.ru",78],["sudya-dredd.ru",[78,89]],["anime-chan.me",[79,88]],["city.ogo.ua",80],["stoigr.org",82],["it-actual.ru",83],["hlamer.ru",84],["lostpix.com",84],["potokcdn.com",84],["prostoporno.help",84],["saltday.ru",84],["uploadimagex.com",84],["wowskill.ru",84],["xittv.net",84],["zab.ru",86],["tapochek.net",87],["bryansknovosti.ru",89],["novozybkov.su",89],["moremania.info",90],["kinogo.eu",91],["1informer.com",92],["fainaidea.com",92],["itech.co.ua",92],["mediasat.info",92],["moika78.ru",92],["root-nation.com",92],["fssp.gov.ru",93],["liveforums.ru",94],["onlineclass.space",95],["nsportal.ru",96],["animekun.ru",97],["doramakun.ru",97],["vestivrn.ru",98],["www.ukr.net",99],["4studio.com.ua",100],["cikavosti.com",100],["dialogs.org.ua",100],["fakty.ua",100],["gorodkiev.com.ua",100],["informator.ua",100],["kriminal.tv",100],["pingvin.pro",100],["technoportal.com.ua",100],["u-news.com.ua",100],["uanews.org.ua",100],["volynpost.com",100],["bombardir.ru",101],["comp-service.kiev.ua",101],["inforesist.org",101],["www.xcom-shop.ru",101],["softportal.com",102],["growhow.in.ua",103],["tornado.3dn.ru",104],["80-e.ru",105],["doramatv.live",105],["examenpdd.com",105],["animedia.tv",106],["animedub.ru",106],["vsetut.su",106],["porno365.*",107],["ok.ru",108],["3dn.ru",109],["a-point.info",109],["addfiles.ru",109],["akkordam.ru",109],["all-for-kompa.ru",109],["asia-tv.su",109],["at.ua",109],["autosimgames.ru",109],["clan.su",109],["db-energo.ru",109],["devdrivers.ru",109],["do.am",109],["elegos.ru",109],["elektronika56.ru",109],["elektrosat.ru",109],["fon-ki.com",109],["for-gsm.ru",109],["free-dream.ru",109],["ftechedu.ru",109],["fukushima-news.ru",109],["gals.md",109],["gloria-cedric.ru",109],["goldformat.ru",109],["greenflash.su",109],["igrul-ka.ru",109],["krasnickij.ru",109],["krolmen.ru",109],["megaclips.net",109],["mow-portal.ru",109],["moy.su",109],["my1.ru",109],["narod.ru",109],["newgames.com.ua",109],["novospasskoe-city.ru",109],["omsimclub.ru",109],["online-supernatural.ru",109],["only-paper.ru",109],["others.name",109],["pidru4nik.com",109],["pkrc.ru",109],["play-force.ru",109],["pohoronnoe-byuro.com",109],["pokatushki-pmr.ru",109],["pro-zakupki.ru",109],["project-ss.ru",109],["psxworld.ru",109],["radiodom.org",109],["rocketdockfree.ru",109],["sdr-deluxe.com",109],["soft-game.net",109],["stalker-gsc.ru",109],["stalker-zone.info",109],["stalkermods.ru",109],["svadbatomsk.ru",109],["techmusic.ru",109],["tes-game.ru",109],["torfiles.ru",109],["ucoz.club",109],["ucoz.com",109],["ucoz.net",109],["ucoz.org",109],["ucoz.ru",109],["ucoz.ua",109],["usite.pro",109],["vodopads.ru",109],["vsthouse.ru",109],["xakevsoft.ru",109],["xn--80aeshkkbdj.xn--p1ai",109],["yaminecraft.ru",109],["zona-stalkera.ru",109]]);
+const exceptionsMap = new Map([]);
+const hasEntities = true;
+const hasAncestors = false;
 
-const todoIndices = new Set();
-const tonotdoIndices = [];
-
-// Exceptions
-if ( exceptionsMap.size !== 0 ) {
-    for ( let i = 0; i < hnpartslen; i++ ) {
-        const hn = hnParts.slice(i).join('.');
-        const excepted = exceptionsMap.get(hn);
-        if ( excepted ) { tonotdoIndices.push(...excepted); }
-    }
-    exceptionsMap.clear();
-}
-
-// Hostname-based
-if ( hostnamesMap.size !== 0 ) {
-    const collectArgIndices = hn => {
-        let argsIndices = hostnamesMap.get(hn);
-        if ( argsIndices === undefined ) { return; }
-        if ( typeof argsIndices === 'number' ) { argsIndices = [ argsIndices ]; }
+const collectArgIndices = (hn, map, out) => {
+    let argsIndices = map.get(hn);
+    if ( argsIndices === undefined ) { return; }
+    if ( typeof argsIndices !== 'number' ) {
         for ( const argsIndex of argsIndices ) {
-            if ( tonotdoIndices.includes(argsIndex) ) { continue; }
-            todoIndices.add(argsIndex);
+            out.add(argsIndex);
         }
-    };
-    for ( let i = 0; i < hnpartslen; i++ ) {
-        const hn = hnParts.slice(i).join('.');
-        collectArgIndices(hn);
+    } else {
+        out.add(argsIndices);
     }
-    collectArgIndices('*');
-    hostnamesMap.clear();
-}
+};
 
-// Entity-based
-if ( entitiesMap.size !== 0 ) {
-    const n = hnpartslen - 1;
-    for ( let i = 0; i < n; i++ ) {
-        for ( let j = n; j > i; j-- ) {
-            const en = hnParts.slice(i,j).join('.');
-            let argsIndices = entitiesMap.get(en);
-            if ( argsIndices === undefined ) { continue; }
-            if ( typeof argsIndices === 'number' ) { argsIndices = [ argsIndices ]; }
-            for ( const argsIndex of argsIndices ) {
-                if ( tonotdoIndices.includes(argsIndex) ) { continue; }
-                todoIndices.add(argsIndex);
+const indicesFromHostname = (hostname, suffix = '') => {
+    const hnParts = hostname.split('.');
+    const hnpartslen = hnParts.length;
+    if ( hnpartslen === 0 ) { return; }
+    for ( let i = 0; i < hnpartslen; i++ ) {
+        const hn = `${hnParts.slice(i).join('.')}${suffix}`;
+        collectArgIndices(hn, hostnamesMap, todoIndices);
+        collectArgIndices(hn, exceptionsMap, tonotdoIndices);
+    }
+    if ( hasEntities ) {
+        const n = hnpartslen - 1;
+        for ( let i = 0; i < n; i++ ) {
+            for ( let j = n; j > i; j-- ) {
+                const en = `${hnParts.slice(i,j).join('.')}.*${suffix}`;
+                collectArgIndices(en, hostnamesMap, todoIndices);
+                collectArgIndices(en, exceptionsMap, tonotdoIndices);
             }
         }
     }
-    entitiesMap.clear();
+};
+
+const entries = (( ) => {
+    const docloc = document.location;
+    const origins = [ docloc.origin ];
+    if ( docloc.ancestorOrigins ) {
+        origins.push(...docloc.ancestorOrigins);
+    }
+    return origins.map((origin, i) => {
+        const beg = origin.lastIndexOf('://');
+        if ( beg === -1 ) { return; }
+        const hn = origin.slice(beg+3)
+        const end = hn.indexOf(':');
+        return { hn: end === -1 ? hn : hn.slice(0, end), i };
+    }).filter(a => a !== undefined);
+})();
+if ( entries.length === 0 ) { return; }
+
+const todoIndices = new Set();
+const tonotdoIndices = new Set();
+
+indicesFromHostname(entries[0].hn);
+if ( hasAncestors ) {
+    for ( const entry of entries ) {
+        if ( entry.i === 0 ) { continue; }
+        indicesFromHostname(entry.hn, '>>');
+    }
 }
 
 // Apply scriplets
 for ( const i of todoIndices ) {
+    if ( tonotdoIndices.has(i) ) { continue; }
     try { abortOnPropertyRead(...argsList[i]); }
     catch { }
 }
-argsList.length = 0;
-
-/******************************************************************************/
-
-};
-// End of code to inject
-
-/******************************************************************************/
-
-uBOL_abortOnPropertyRead();
 
 /******************************************************************************/
 
 // End of local scope
 })();
-
-/******************************************************************************/
 
 void 0;

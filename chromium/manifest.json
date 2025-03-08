@@ -80,6 +80,11 @@
         "path": "/rulesets/main/stevenblack-hosts.json"
       },
       {
+        "id": "ubol-tests",
+        "enabled": false,
+        "path": "/rulesets/main/ubol-tests.json"
+      },
+      {
         "id": "alb-0",
         "enabled": false,
         "path": "/rulesets/main/alb-0.json"
@@ -286,7 +291,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2025.3.2.1298",
+  "version": "2025.3.8.1350",
   "web_accessible_resources": [
     {
       "resources": [
