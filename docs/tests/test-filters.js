@@ -33,13 +33,24 @@ jobs.push(function bnf1() {
 
 jobs.push(function bnf2() {
     const img = qs$('#bnf2 img');
-    if ( img.naturalWidth === 1 ) { return; }
-    hide('#bnf2 .fail');
+    img.decode().then(( ) => {
+        if ( img.naturalWidth === 1 ) { return; }
+        hide('#bnf2 .fail');
+    }).catch(( ) => {
+        hide('#bnf2 .fail');
+    });
 });
 
 jobs.push(function bnf3() {
     if ( window.bnf3Sentinel !== true ) { return; }
     hide('#bnf3 .fail');
+});
+
+jobs.push(function pcf18() {
+    self.setTimeout(( ) => {
+        qs$('.watchattr1 .pass > .pass').className = 'fail';
+        qs$('.watchattr1 .pass > .fail b.ok').className = 'notok';
+    }, 100);
 });
 
 jobs.push(function sf1() {
@@ -53,6 +64,14 @@ jobs.push(function sf2() {
         hide('#sf2 .fail');
     };
     setTimeout(( ) => { check(); }, 100);
+});
+
+jobs.push(function anf1() {
+    const img = qs$('#anf1 img');
+    img.decode().then(( ) => {
+        if ( img.naturalWidth !== 32 ) { return; }
+        hide('#anf1 .fail');
+    });
 });
 
 jobs.push(function sf3() {

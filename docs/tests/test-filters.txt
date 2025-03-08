@@ -8,6 +8,9 @@
 /bnf3.$to=ublockorigin.github.io|localhost
 @@/bnf3\.js$/$from=ublockorigin.github.io|localhost
 
+! Advanced network filtering
+/anf1.$image,redirect=32x32.png,from=ublockorigin.github.io|localhost
+
 ! Cosmetic filtering
 ublockorigin.github.io,localhost###ccf1 .fail
 ublockorigin.github.io,localhost###ccf2 .fail:not(.a4)

@@ -26,8 +26,9 @@
     top: 0;
     width: 100%;
 }
-.tile > code {
+.tile > code.filter {
     align-self: center;
+    display: none;
 }
 .tile iframe {
     display: none;
@@ -67,7 +68,4 @@
     position: absolute;
     top: 0;
     width: 100%;
-}
-code {
-    display: none;
 }
