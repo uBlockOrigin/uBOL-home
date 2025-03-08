@@ -32,11 +32,14 @@
 .tile iframe {
     display: none;
 }
-.pass {
+.tile .pass {
     background-color: green;
 }
-.pass::before {
+.tile .pass::before {
     content: 'pass';
+}
+.tile.exception .pass::before {
+    content: '@ pass';
 }
 .fail {
     background-color: red;

@@ -10,7 +10,7 @@
 
 <body>
 <h1>uBO Lite Test Page</h1>
-<p>Test filtering capabilities according to selected filtering mode: <em>basic</em>, <em>optimal</em>, or <em>complete</em>. All tests should fail when <em>no filtering</em> is selected.</p>
+<p>Test filtering capabilities according to selected filtering mode: <em>basic</em>, <em>optimal</em>, or <em>complete</em>. Except when tagged with &lsquo;@&rsquo;, all tests should fail when <em>no filtering</em> is selected.</p>
 <p>Requirements:
     <ul>
     <li>Version of uBO Lite <em>above</em> 2025.3.2.1298</li>
@@ -31,7 +31,7 @@
         <div class="pass"><div class="fail"><img src="bnf2.gif"></div></div>
         <code>/bnf2.$image,to=…</code>
     </div>
-    <div id="bnf3" class="tile">
+    <div id="bnf3" class="tile exception">
         <div class="pass"><div class="fail"></div></div>
         <code>@@/bnf3\.js$/$from=…</code>
         <script src="bnf3.js" async></script>
