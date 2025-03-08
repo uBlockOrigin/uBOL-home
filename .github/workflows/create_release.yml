@@ -38,7 +38,7 @@ jobs:
           echo "TAGNAME=$TAGNAME" >> $GITHUB_ENV
           echo "Version: $TAGNAME"
       # Chromium
-      - name: Build Chromium uBOLite MV3 packages
+      - name: Build Chromium uBOLite MV3 package
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
@@ -48,13 +48,13 @@ jobs:
           rm -rf chromium
           mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
       # Edge
-      - name: Build Edge uBOLite MV3 packages
+      - name: Build Edge uBOLite MV3 package
         run: |
-          make edge
-          pushd build/uBOLite.edge/ > /dev/null
-          zip ../${{ env.TAGNAME }}.edge.mv3.zip -qr ./*
-          popd > /dev/null
+          UBOL_REPO_DIR=$(pwd)
+          cd $UBLOCK_REPO_DIR
+          tools/make-mv3.sh edge ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
           echo "EDGE_PACKAGE=${{ env.TAGNAME }}.edge.mv3.zip" >> $GITHUB_ENV
+          cd - > /dev/null
       - name: Commit uBOLite MV3 package files
         # https://github.com/marketplace/actions/github-action-for-committing-changes-to-a-repository
         uses: devops-infra/action-commit-push@master
@@ -94,17 +94,12 @@ jobs:
             - Chromium: Download the [${{ env.TAGNAME }}.chromium.mv3.zip](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.chromium.mv3.zip) package below, unzip, navigate to `chrome://extensions/` in your browser, then [tell the browser to load the extension](https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outside-the-chrome-web-store/24577660#24577660). You will have to update the extension manually.
             
             </details>
-      - name: Upload Chromium uBOLite MV3 package
+      - name: Upload uBOLite MV3 packages
         uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.TAGNAME }}
-          files: ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
-      - name: Upload Edge uBOLite MV3 package
-        uses: softprops/action-gh-release@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ env.TAGNAME }}
-          files: build/${{ env.EDGE_PACKAGE }}
+          files: |
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.EDGE_PACKAGE }}
