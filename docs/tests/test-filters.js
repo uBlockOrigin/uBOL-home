@@ -52,7 +52,7 @@ jobs.push(function sf2() {
 
 jobs.push(function sf2() {
     if ( self.sf3Sentinel === undefined ) { return; }
-    if ( qs$('#sf3 iframe').sf3Sentinel !== undefined ) { return; }
+    if ( qs$('#sf3 iframe').contentWindow.sf3Sentinel !== undefined ) { return; }
     hide('#sf3 .fail');
 });
 
