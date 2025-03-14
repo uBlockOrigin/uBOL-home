@@ -11,7 +11,7 @@
 ! Advanced network filtering
 /anf1.$image,redirect=32x32.png,from=ublockorigin.github.io|localhost
 
-! Cosmetic filtering
+! Specific cosmetic filtering
 ublockorigin.github.io,localhost###ccf1 .fail
 ublockorigin.github.io,localhost###ccf2 .fail:not(.a4)
 ublockorigin.github.io,localhost###ccf3 .fail:style(visibility: hidden)
@@ -47,3 +47,8 @@ ublockorigin.github.io,localhost#?##pcf24 b:upward(.fail):style(visibility: hidd
 ublockorigin.github.io,localhost##+js(set, sf1Sentinel, undefined)
 ublockorigin.github.io,localhost##+js(nostif, sf2Sentinel)
 ublockorigin.github.io>>,localhost>>##+js(set, sf3Sentinel, undefined)
+
+! Generic cosmetic filters
+###gcf #gcf1 .fail
+###gcf #gcf2 .fail
+ublockorigin.github.io,localhost#@##gcf #gcf2 .fail
