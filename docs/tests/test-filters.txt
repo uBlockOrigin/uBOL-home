@@ -10,6 +10,7 @@
 
 ! Advanced network filtering
 /anf1.$image,redirect=32x32.png,from=ublockorigin.github.io|localhost
+/anf2.html$frame,csp=script-src 'none',to=ublockorigin.github.io|localhost
 
 ! Specific cosmetic filtering
 ublockorigin.github.io,localhost###ccf1 .fail
