@@ -1,0 +1,23 @@
+.steps {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto 1fr 1fr 320px;
+}
+.steps >.step-header {
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+.steps >.step-no {
+    text-align: end;
+}
+.steps >.step-no,
+.steps >.step-header {
+    background-color: #eee;
+}
+.steps > div {
+    border: 0.5px solid gray;
+    padding: 0.25em;
+}
+.steps p:first-child {
+    margin-top: 0;
+}

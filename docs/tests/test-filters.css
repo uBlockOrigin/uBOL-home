@@ -124,7 +124,7 @@ body:not(.showFilters) .tile > code.filter {
 .fail-pseudo::before {
     align-items: center;
     background-color: red;
-    content: 'fail';
+    content: 'unfiltered';
     display: flex;
     height: 100%;
     justify-content: center;

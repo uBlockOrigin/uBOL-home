@@ -4,15 +4,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="test-filters.css">
 <title>uBO Lite Test Page</title>
+<link rel="stylesheet" href="test-filters.css">
 </head>
 
 <body>
 <h1>uBO Lite Test Page</h1>
 <p>Test filtering capabilities according to selected filtering mode, <em class="filtering-mode">basic</em>, <em class="filtering-mode">optimal</em>, or <em class="filtering-mode">complete</em>. Regardless of how the page is navigated to &mdash; including at browser launch &mdash; results should not be different. <b>Requirements</b>:</p>
 <ul>
-<li>Version of uBO Lite <em>above</em> 2025.3.8.1350</li>
+<li>Stable version of uBO Lite <em>above</em> 2025.3.8.1350</li>
 <li><a href="test-filters.txt" target="_blank">"uBO Lite Test Filters"</a> enabled in the <em>Filter lists</em> pane in uBO Lite’s dashboard</li>
 </ul>
 
@@ -21,8 +21,8 @@
 <section>
     <h3>Basic network filters (DNR)</h3>
     <ul>
-        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">basic</em>, <em class="filtering-mode">optimal</em>, or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
         <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em>: <b class="fail-label"></b></li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">basic</em>, <em class="filtering-mode">optimal</em>, or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
     </ul>
     <div id="bnf" class="tests">
         <div id="bnf1" class="tile">
@@ -39,9 +39,9 @@
 <section>
     <h3>Advanced network filters (DNR)</h3>
     <ul>
-        <li><b>default filtering mode</b> in <b>dashboard</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
-        <li><b>default filtering mode</b> in <b>dashboard</b> is <em class="filtering-mode">basic</em>: <b class="fail-label"></b></li>
         <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em>: <b class="fail-label"></b></li>
+        <li><b>default filtering mode</b> in <b>dashboard</b> is <em class="filtering-mode">basic</em>: <b class="fail-label"></b></li>
+        <li><b>default filtering mode</b> in <b>dashboard</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
     </ul>
     <div id="anf" class="tests">
         <div id="anf1" class="tile">
@@ -59,8 +59,8 @@
 <section>
     <h3>Specific cosmetic filters</h3>
     <ul>
-        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
         <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em> or <em class="filtering-mode">basic</em>: <b class="fail-label"></b></li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
     </ul>
     <div id="ccf" class="tests">
         <div id="ccf1" class="tile">
@@ -88,8 +88,8 @@
 <section>
     <h3>Procedural cosmetic filters</h3>
     <ul>
-        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
         <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em> or <em class="filtering-mode">basic</em>: <b class="fail-label"></b></li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
     </ul>
     <div id="pcf" class="tests">
         <div id="pcf1" class="tile">
@@ -189,8 +189,8 @@
 <section>
     <h3>Scriptlet filters</h3>
     <ul>
-        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
         <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em> or <em class="filtering-mode">basic</em>: <b class="fail-label"></b></li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
     </ul>
     <div id="sf" class="tests">
         <div id="sf1" class="tile">
@@ -212,8 +212,8 @@
 <section>
     <h3>Lowly generic cosmetic filters</h3>
     <ul>
-        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
         <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em>, <em class="filtering-mode">basic</em>, or <em class="filtering-mode">optimal</em>: <b class="fail-label"></b></li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
     </ul>
     <div id="gcf" class="tests">
         <div id="gcf1" class="tile">
