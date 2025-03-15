@@ -1,3 +1,61 @@
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+}
+.sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+section {
+    border: 1px solid gray;
+    box-sizing: border-box;
+    padding: 0.5em 0.5em 0 0.5em;
+}
+@media (min-width: 800px) {
+    section {
+        max-width: 600px;
+        min-width: 300px;
+        width: calc(50vw - 1em - 1px);
+    }
+}
+@media (max-width: 799px) {
+    section {
+        width: calc(100vw);
+    }
+}
+section h3 {
+    margin: 0 0 0.5em 0;
+}
+section ul {
+    font-size: smaller;
+    list-style-position: inside;
+    padding-inline-start: 0;
+}
+.pass-label {
+    color: green;
+}
+.pass-label::before {
+    content: 'filtered';
+}
+.exceptions .pass-label::before {
+    content: 'unfiltered';
+}
+.fail-label {
+    color: red;
+}
+.fail-label::before {
+    content: 'unfiltered';
+}
+.exceptions .fail-label::before {
+    content: 'filtered';
+}
+em.filtering-mode {
+    font-style: normal;
+    background-color: rgba(34 93 176/8%);
+    padding: 0 4px;
+}
 .tests {
     align-items: flex-start;
     display: flex;
@@ -6,8 +64,8 @@
 .tile {
     display: inline-flex;
     flex-direction: column;
-    margin: 0 20px 10px 0;
-    min-width: 100px;
+    margin: 0 0.5em 0.5em 0;
+    min-width: 120px;
 }
 .tile div {
     align-items: center;
@@ -33,21 +91,27 @@ body:not(.showFilters) .tile > code.filter {
 .tile iframe {
     display: none;
 }
-.tile .pass {
+.tile .pass,
+.tile.exception .fail {
     background-color: green;
 }
 .tile .pass::before {
-    content: 'pass';
+    content: 'filtered';
 }
-.tile.exception .pass::before {
-    content: '@ pass';
+.tile.exception .fail::before {
+    content: '@ unfiltered';
 }
-.fail {
+.tile .fail,
+.tile.exception .pass {
     background-color: red;
 }
-.fail::before {
-    content: 'fail';
+.tile .fail::before {
+    content: 'unfiltered';
 }
+.tile.exception .pass::before {
+    content: '@ filtered';
+}
+
 .tests a, .tests b {
     display: none;
 }
@@ -68,4 +132,7 @@ body:not(.showFilters) .tile > code.filter {
     position: absolute;
     top: 0;
     width: 100%;
+}
+hr {
+    margin: 1em 0;
 }

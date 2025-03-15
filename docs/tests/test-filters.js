@@ -42,7 +42,7 @@ jobs.push(function bnf2() {
 });
 
 jobs.push(function bnf3() {
-    if ( window.bnf3Sentinel !== true ) { return; }
+    if ( window.bnf3Sentinel === true ) { return; }
     hide('#bnf3 .fail');
 });
 
@@ -72,6 +72,11 @@ jobs.push(function anf1() {
         if ( img.naturalWidth !== 32 ) { return; }
         hide('#anf1 .fail');
     });
+});
+
+jobs.push(function anf2() {
+    if ( qs$('#anf2 iframe').contentWindow.anf2Sentinel === true ) { return; }
+    hide('#anf2 .fail');
 });
 
 jobs.push(function sf3() {

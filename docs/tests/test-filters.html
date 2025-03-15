@@ -10,200 +10,239 @@
 
 <body>
 <h1>uBO Lite Test Page</h1>
-<p>Test filtering capabilities according to selected filtering mode, <em>basic</em>, <em>optimal</em>, or <em>complete</em>:
-<ul><li>Except when tagged with <code>@</code>, all tests should fail when <em>no filtering</em> is selected</li>
-<li>Results are meant to be the same regardless of how the page is navigated to, including at browser launch</li>
+<p>Test filtering capabilities according to selected filtering mode, <em class="filtering-mode">basic</em>, <em class="filtering-mode">optimal</em>, or <em class="filtering-mode">complete</em>. Regardless of how the page is navigated to &mdash; including at browser launch &mdash; results should not be different. <b>Requirements</b>:</p>
+<ul>
+<li>Version of uBO Lite <em>above</em> 2025.3.8.1350</li>
+<li><a href="test-filters.txt" target="_blank">"uBO Lite Test Filters"</a> enabled in the <em>Filter lists</em> pane in uBO Lite’s dashboard</li>
 </ul>
-</p>
-<p>Requirements:
+
+
+<div class="sections">
+<section>
+    <h3>Basic network filters (DNR)</h3>
     <ul>
-    <li>Version of uBO Lite <em>above</em> 2025.3.2.1298</li>
-    <li><a href="test-filters.txt" target="_blank">"uBO Lite Test Filters"</a> enabled in the <em>Filter lists</em> pane in uBO Lite’s dashboard</li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">basic</em>, <em class="filtering-mode">optimal</em>, or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em>: <b class="fail-label"></b></li>
     </ul>
-</p>
+    <div id="bnf" class="tests">
+        <div id="bnf1" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">/bnf1.$script,to=…</code>
+            <script src="bnf1.js" async></script>
+        </div>
+        <div id="bnf2" class="tile">
+            <div class="pass"><div class="fail"><img src="bnf2.gif" alt=""></div></div>
+            <code class="filter">/bnf2.$image,to=…</code>
+        </div>
+    </div>
+</section>
+<section>
+    <h3>Advanced network filters (DNR)</h3>
+    <ul>
+        <li><b>default filtering mode</b> in <b>dashboard</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
+        <li><b>default filtering mode</b> in <b>dashboard</b> is <em class="filtering-mode">basic</em>: <b class="fail-label"></b></li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em>: <b class="fail-label"></b></li>
+    </ul>
+    <div id="anf" class="tests">
+        <div id="anf1" class="tile">
+            <div class="pass"><div class="fail"><img src="anf1.gif" alt=""></div></div>
+            <code class="filter">/anf1.$image,redirect=32x32.png,from=…</code>
+        </div>
+        <div id="anf2" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <iframe src="anf2.html"></iframe>
+            <code class="filter">/anf2.html$frame,csp=script-src 'none'</code>
+        </div>
+        <script src="anf.js" async></script>
+    </div>
+</section>
+<section>
+    <h3>Specific cosmetic filters</h3>
+    <ul>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em> or <em class="filtering-mode">basic</em>: <b class="fail-label"></b></li>
+    </ul>
+    <div id="ccf" class="tests">
+        <div id="ccf1" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">###ccf #ccf1 .fail</code>
+        </div>
+        <div id="ccf2" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">###ccf #ccf2 .fail:not(.a4)</code>
+        </div>
+        <div id="ccf3" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">###ccf #ccf3 .fail:style(visibility: hidden)</code>
+        </div>
+        <div id="ccf4" class="tile">
+            <div class="pass"><div class="fail-pseudo"><a><b></b></a></div></div>
+            <code class="filter">###ccf #ccf4 .fail-pseudo::before</code>
+        </div>
+        <div id="ccf5" class="tile">
+            <div class="pass"><div class="fail-pseudo"><a><b></b></a></div></div>
+            <code class="filter">###ccf #ccf5 .fail-pseudo::before:style(visibility: hidden)</code>
+        </div>
+    </div>
+</section>
+<section>
+    <h3>Procedural cosmetic filters</h3>
+    <ul>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em> or <em class="filtering-mode">basic</em>: <b class="fail-label"></b></li>
+    </ul>
+    <div id="pcf" class="tests">
+        <div id="pcf1" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##.fail:has(b)</code>
+        </div>
+        <div id="pcf2" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##.fail:has(> a > b)</code>
+        </div>
+        <div id="pcf3" class="tile">
+            <div class="pass"><div class="fail"></div><a><b></b></a></div>
+            <code class="filter">##.fail:has(+ a > b)</code>
+        </div>
+        <div id="pcf5" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##.fail:has(:is(.pass a > b))</code>
+        </div>
+        <div id="pcf6" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##.fail:not(:has(c))</code>
+        </div>
+        <div id="pcf7" class="tile">
+            <div class="pass"><div class="fail"><a><b>I am a needle!!!</b></a></div></div>
+            <code class="filter">##.fail:has-text(needle)</code>
+        </div>
+        <div id="pcf8" class="tile">
+            <div class="pass"><div class="fail"><a><b>I am a needle!!!</b></a></div></div>
+            <code class="filter">##.fail:has-text(/NEEDLE/i)</code>
+        </div>
+        <div id="pcf9" class="tile">
+            <div class="pass"><div class="fail"><a><b>I am a needle!!!</b></a></div></div>
+            <code class="filter">##.fail:not(:has-text(haystack))</code>
+        </div>
+        <div id="pcf10" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##.fail:matches-css(position: absolute)</code>
+        </div>
+        <div id="pcf11" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##.fail:has(a:matches-css-before(opacity: 0))</code>
+        </div>
+        <div id="pcf12" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##.fail:has(b:matches-css-after(opacity: 0))</code>
+        </div>
+        <div id="pcf13" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##.fail > a > b:nth-ancestor(2)</code>
+        </div>
+        <div id="pcf14" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##:xpath(.//b/../..)</code>
+        </div>
+        <div id="pcf15" class="tile">
+            <div class="pass"><div class="fail"><a>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna<b>aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</b>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</a></div></div>
+            <code class="filter">##.fail:min-text-length(300)</code>
+        </div>
+        <div id="pcf16" class="tile">
+            <div class="pass"><a><b></b></a><div class="fail"></div></div>
+            <code class="filter">##.pass > a:has(b) + .fail</code>
+        </div>
+        <div id="pcf17" class="tile">
+            <div class="pass"><a><b></b></a><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##.pass > a:has(b) + .fail:has(b)</code>
+        </div>
+        <div id="pcf18" class="tile watchattr1">
+            <div class="pass"><div class="pass"><a><b class="ok"></b></a></div></div>
+            <code class="filter">##.pass:watch-attr(class) > .fail:has(b.notok)</code>
+        </div>
+        <div id="pcf19" class="tile">
+            <div class="pass"><div class="fail"></div><a></a><b></b></div>
+            <code class="filter">##.fail:has(+ a)</code>
+        </div>
+        <div id="pcf20" class="tile">
+            <div class="pass"><div class="fail"></div><a><b></b></a></div>
+            <code class="filter">##.fail:has(~ a:has(b))</code>
+        </div>
+        <div id="pcf21" class="tile">
+            <div class="pass"><div class="fail"></div><a><b></b></a></div>
+            <code class="filter">##.fail:remove()</code>
+        </div>
+        <div id="pcf22" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##b:upward(2)</code>
+        </div>
+        <div id="pcf23" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##b:upward(.fail)</code>
+        </div>
+        <div id="pcf24" class="tile">
+            <div class="pass"><div class="fail"><a><b></b></a></div></div>
+            <code class="filter">##b:upward(.fail):style(visibility: hidden !important)</code>
+        </div>
+    </div>
+</section>
+<section>
+    <h3>Scriptlet filters</h3>
+    <ul>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">optimal</em> or <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em> or <em class="filtering-mode">basic</em>: <b class="fail-label"></b></li>
+    </ul>
+    <div id="sf" class="tests">
+        <div id="sf1" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">##+js(set, sf1Sentinel, undefined)</code>
+        </div>
+        <div id="sf2" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">##+js(nostif, sf2Sentinel)</code>
+        </div>
+        <div id="sf3" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <iframe src="sf3.html"></iframe>
+            <code class="filter">&gt;&gt;##+js(set, sf3Sentinel, undefined)</code>
+        </div>
+        <script src="sf.js" async></script>
+    </div>
+</section>
+<section>
+    <h3>Lowly generic cosmetic filters</h3>
+    <ul>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">complete</em>: <b class="pass-label"></b></li>
+        <li><b>filtering mode</b> in <b>popup panel</b> is <em class="filtering-mode">no filtering</em>, <em class="filtering-mode">basic</em>, or <em class="filtering-mode">optimal</em>: <b class="fail-label"></b></li>
+    </ul>
+    <div id="gcf" class="tests">
+        <div id="gcf1" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">###gcf #gcf1 .fail</code>
+        </div>
+    </div>
+</section>
+<section class="exceptions">
+    <h3>Exception filters</h3>
+    <ul>
+        <li>All filtering modes: <b class="pass-label"></b></li>
+    </ul>
+    <div id="ef" class="tests">
+        <div id="gcf2" class="tile exception">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">#@##ef #gcf2 .fail</code>
+        </div>
+        <div id="bnf3" class="tile exception">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">@@/bnf3\.js$/$from=…</code>
+            <script src="bnf3.js" async></script>
+        </div>
+    </div>
+</section>
+</div>
+
+<hr>
 <p><button id="toggleFilters">Show / hide individual filters</button></p>
-<h2>Basic network filters (DNR)</h2>
-<ul>
-    <li>Should pass in <em>basic</em>, <em>optimal</em>, or <em>complete</em> mode</li>
-</ul>
-<div id="bnf" class="tests">
-    <div id="bnf1" class="tile">
-        <div class="pass"><div class="fail"></div></div>
-        <code class="filter">/bnf1.$script,to=…</code>
-        <script src="bnf1.js" async></script>
-    </div>
-    <div id="bnf2" class="tile">
-        <div class="pass"><div class="fail"><img src="bnf2.gif"></div></div>
-        <code class="filter">/bnf2.$image,to=…</code>
-    </div>
-    <div id="bnf3" class="tile exception">
-        <div class="pass"><div class="fail"></div></div>
-        <code class="filter">@@/bnf3\.js$/$from=…</code>
-        <script src="bnf3.js" async></script>
-    </div>
-</div>
-
-<h2>Advanced network filters (DNR)</h2>
-<ul>
-    <li>Should fail when <b>default mode</b> is set to <em>basic</em></li>
-    <li>Should pass when <b>default mode</b> is set to <em>optimal</em> or <em>complete</em></li>
-</ul>
-<div id="anf" class="tests">
-    <div id="anf1" class="tile">
-        <div class="pass"><div class="fail"><img src="anf1.gif"></div></div>
-        <code class="filter">/anf1.$image,redirect=32x32.png,from=…</code>
-    </div>
-</div>
-
-<h2>Specific cosmetic filters</h2>
-<ul>
-    <li>Should fail in <em>basic</em> mode</li>
-    <li>Should pass in <em>optimal</em> or <em>complete</em> mode</li>
-</ul>
-<div id="ccf" class="tests">
-    <div id="ccf1" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">###ccf #ccf1 .fail</code>
-    </div>
-    <div id="ccf2" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">###ccf #ccf2 .fail:not(.a4)</code>
-    </div>
-    <div id="ccf3" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">###ccf #ccf3 .fail:style(visibility: hidden)</code>
-    </div>
-    <div id="ccf4" class="tile">
-        <div class="pass"><div class="fail-pseudo"><a><b></b></a></div></div>
-        <code class="filter">###ccf #ccf4 .fail-pseudo::before</code>
-    </div>
-    <div id="ccf5" class="tile">
-        <div class="pass"><div class="fail-pseudo"><a><b></b></a></div></div>
-        <code class="filter">###ccf #ccf5 .fail-pseudo::before:style(visibility: hidden)</code>
-    </div>
-</div>
-
-<h2>Procedural cosmetic filters</h2>
-<ul>
-    <li>Should fail in <em>basic</em> mode</li>
-    <li>Should pass in <em>optimal</em> or <em>complete</em> mode</li>
-</ul>
-<div id="pcf" class="tests">
-    <div id="pcf1" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##.fail:has(b)</code>
-    </div>
-    <div id="pcf2" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##.fail:has(> a > b)</code>
-    </div>
-    <div id="pcf3" class="tile">
-        <div class="pass"><div class="fail"></div><a><b></b></a></div>
-        <code class="filter">##.fail:has(+ a > b)</code>
-    </div>
-    <div id="pcf5" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##.fail:has(:is(.pass a > b))</code>
-    </div>
-    <div id="pcf6" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##.fail:not(:has(c))</code>
-    </div>
-    <div id="pcf7" class="tile">
-        <div class="pass"><div class="fail"><a><b>I am a needle!!!</b></a></div></div>
-        <code class="filter">##.fail:has-text(needle)</code>
-    </div>
-    <div id="pcf8" class="tile">
-        <div class="pass"><div class="fail"><a><b>I am a needle!!!</b></a></div></div>
-        <code class="filter">##.fail:has-text(/NEEDLE/i)</code>
-    </div>
-    <div id="pcf9" class="tile">
-        <div class="pass"><div class="fail"><a><b>I am a needle!!!</b></a></div></div>
-        <code class="filter">##.fail:not(:has-text(haystack))</code>
-    </div>
-    <div id="pcf10" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##.fail:matches-css(position: absolute)</code>
-    </div>
-    <div id="pcf11" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##.fail:has(a:matches-css-before(opacity: 0))</code>
-    </div>
-    <div id="pcf12" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##.fail:has(b:matches-css-after(opacity: 0))</code>
-    </div>
-    <div id="pcf13" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##.fail > a > b:nth-ancestor(2)</code>
-    </div>
-    <div id="pcf14" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##:xpath(.//b/../..)</code>
-    </div>
-    <div id="pcf15" class="tile">
-        <div class="pass"><div class="fail"><a>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna<b>aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</b>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</a></div></div>
-        <code class="filter">##.fail:min-text-length(300)</code>
-    </div>
-    <div id="pcf16" class="tile">
-        <div class="pass"><a><b></b></a><div class="fail"></div></div>
-        <code class="filter">##.pass > a:has(b) + .fail</code>
-    </div>
-    <div id="pcf17" class="tile">
-        <div class="pass"><a><b></b></a><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##.pass > a:has(b) + .fail:has(b)</code>
-    </div>
-    <div id="pcf18" class="tile watchattr1">
-        <div class="pass"><div class="pass"><a><b class="ok"></b></a></div></div>
-        <code class="filter">##.pass:watch-attr(class) > .fail:has(b.notok)</code>
-    </div>
-    <div id="pcf19" class="tile">
-        <div class="pass"><div class="fail"></div><a></a><b></b></div>
-        <code class="filter">##.fail:has(+ a)</code>
-    </div>
-    <div id="pcf20" class="tile">
-        <div class="pass"><div class="fail"></div><a><b></b></a></div>
-        <code class="filter">##.fail:has(~ a:has(b))</code>
-    </div>
-    <div id="pcf21" class="tile">
-        <div class="pass"><div class="fail"></div><a><b></b></a></div>
-        <code class="filter">##.fail:remove()</code>
-    </div>
-    <div id="pcf22" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##b:upward(2)</code>
-    </div>
-    <div id="pcf23" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##b:upward(.fail)</code>
-    </div>
-    <div id="pcf24" class="tile">
-        <div class="pass"><div class="fail"><a><b></b></a></div></div>
-        <code class="filter">##b:upward(.fail):style(visibility: hidden !important)</code>
-    </div>
-</div>
-
-<h2>Scriptlet filters</h2>
-<ul>
-    <li>Should fail in <em>basic</em> mode</li>
-    <li>Should pass in <em>optimal</em> or <em>complete</em> mode</li>
-</ul>
-<div id="sf" class="tests">
-    <div id="sf1" class="tile">
-        <div class="pass"><div class="fail"></div></div>
-        <code class="filter">##+js(set, sf1Sentinel, undefined)</code>
-    </div>
-    <div id="sf2" class="tile">
-        <div class="pass"><div class="fail"></div></div>
-        <code class="filter">##+js(nostif, sf2Sentinel)</code>
-    </div>
-    <div id="sf3" class="tile">
-        <div class="pass"><div class="fail"></div></div>
-        <iframe src="sf3.html"></iframe>
-        <code class="filter">&gt;&gt;##+js(set, sf3Sentinel, undefined)</code>
-    </div>
-    <script src="sf.js" async></script>
-</div>
 
 <script src="test-filters.js"></script>
 
