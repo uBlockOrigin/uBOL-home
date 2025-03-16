@@ -1,12 +1,5 @@
 [
  {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?freex2line\\.online/loadfree(?:[^%.0-9a-z_-]|$)",
-  "steps": [
-   "?redirect",
-   "-base64"
-  ]
- },
- {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?click\\.redditmail\\.com/cl0/",
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",
@@ -98,9 +91,22 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?go\\.bsky\\.app/redirect\\S*?(?:[^%.0-9a-z_-]|$)u=http",
+  "steps": [
+   "?u"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?anylinks\\.in/full\\S*?(?:[^%.0-9a-z_-]|$)url=ahr0c",
   "steps": [
    "?url",
+   "-base64"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?freex2line\\.online/\\S*?/\\?redirect",
+  "steps": [
+   "?redirect",
    "-base64"
   ]
  },
@@ -138,12 +144,22 @@
   "re": "^https?:\\/\\/(?:[^.]+\\.){2}(?:com|io|net)\\/[a-zA-Z0-9]{6}\\?subId1=[^&]+&u=http",
   "steps": [
    "?u"
+  ],
+  "hostnames": [
+   "com",
+   "io",
+   "net"
   ]
  },
  {
   "re": "^https?:\\/\\/(?:[^.]+\\.){2}(?:com|io|net)\\/c(?:\\/\\d+){3}\\/?\\?.*?&?u=http",
   "steps": [
    "?u"
+  ],
+  "hostnames": [
+   "com",
+   "io",
+   "net"
   ]
  },
  {
@@ -151,6 +167,11 @@
   "c": true,
   "steps": [
    "?url"
+  ],
+  "hostnames": [
+   "com",
+   "io",
+   "net"
   ]
  },
  {
@@ -158,6 +179,11 @@
   "c": true,
   "steps": [
    "?URL"
+  ],
+  "hostnames": [
+   "com",
+   "io",
+   "net"
   ]
  },
  {
@@ -165,6 +191,10 @@
   "c": true,
   "steps": [
    "?url"
+  ],
+  "hostnames": [
+   "com",
+   "net"
   ]
  },
  {
@@ -172,6 +202,10 @@
   "c": true,
   "steps": [
    "?URL"
+  ],
+  "hostnames": [
+   "com",
+   "net"
   ]
  },
  {
@@ -672,6 +706,10 @@
   "re": "^https?:\\/\\/(?:www\\.anrdoezrs\\.net|cj\\.dotomi\\.com)\\/links(?:-t)?\\/\\d+\\/sid\\/[^\\/]+\\/http",
   "steps": [
    "/\\/sid\\/[^\\/]+\\/(http[^?]+)/"
+  ],
+  "hostnames": [
+   "cj.dotomi.com",
+   "www.anrdoezrs.net"
   ]
  },
  {
@@ -813,66 +851,6 @@
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",
    "-uricomponent"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?gopjn\\.com/t/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
-  "steps": [
-   "?url"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pjatr\\.com/t/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
-  "steps": [
-   "?url"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pjtra\\.com/t/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
-  "steps": [
-   "?url"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pntra\\.com/t/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
-  "steps": [
-   "?url"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pntrac\\.com/t/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
-  "steps": [
-   "?url"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pntrs\\.com/t/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
-  "steps": [
-   "?url"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?awin1\\.com/\\S*?\\.php\\?\\S*?&p=http",
-  "steps": [
-   "?p"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?awin1\\.com/\\S*?\\.php\\?\\S*?&ued=http",
-  "steps": [
-   "?ued"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pvn\\.mediamarkt\\.de/trck/eclick/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
-  "steps": [
-   "?url"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pvn\\.saturn\\.de/trck/eclick/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
-  "steps": [
-   "?url"
   ]
  }
 ]

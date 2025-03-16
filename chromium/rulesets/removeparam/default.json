@@ -56,5 +56,6 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["_rt","device_id","ftag","ko_exchange","network_id","site_id"]}}},"type":"redirect"},"condition":{"requestDomains":["control.kochava.com"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":55,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["eid0","eit0","media","prnd","rnd","sid","usi","widgetId"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||api.cxense.com/public/widget/data^"},"id":56,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cid","pid"]}}},"type":"redirect"},"condition":{"domainType":"thirdParty","requestDomains":["connatix.com"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":57,"priority":2},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["s_cid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"]},"id":58}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["s_cid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"]},"id":58},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["url"]}}},"type":"redirect"},"condition":{"requestDomains":["adsninja.ca"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":59,"priority":2}
 ]

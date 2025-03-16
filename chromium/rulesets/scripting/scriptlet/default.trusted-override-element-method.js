@@ -38,6 +38,7 @@ function trustedOverrideElementMethod(
     if ( methodPath === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('trusted-override-element-method', methodPath, selector, disposition);
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
     proxyApplyFn(methodPath, function(context) {
         let override = selector === '';
         if ( override === false ) {
@@ -58,7 +59,7 @@ function trustedOverrideElementMethod(
         if ( disposition === 'throw' ) {
             throw new ReferenceError();
         }
-        return validateConstantFn(false, disposition);
+        return validateConstantFn(true, disposition, extraArgs);
     });
 }
 

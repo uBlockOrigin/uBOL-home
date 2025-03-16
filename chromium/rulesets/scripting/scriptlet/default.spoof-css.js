@@ -339,8 +339,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["#btx1, #btx2, #wg-genx > .mediafire","visibility","visible"],["[id^=\"div-gpt-ad\"]","display","block"],["a img:not([src=\"images/main_logo_inverted.png\"])","visibility","visible"],["div[class=\"nav tabTop\"] + div > div:first-child > div:first-child > a:has(> img[src*=\"/\"][src*=\"_\"][alt]), #head + div[id] > div:last-child > div > a:has(> img[src*=\"/\"][src*=\"_\"][alt])","display","block"]];
-const hostnamesMap = new Map([["techcyan.com",0],["kiktu.com",0],["upshrink.com",0],["trangchu.news",0],["banaraswap.in",0],["jytechs.in",1],["dev.miuiflash.com",1],["djxmaza.in",1],["thecubexguide.com",1],["download.megaup.net",2],["1001tracklists.com",3]]);
+const argsList = [["[id^=\"div-gpt-ad\"]","display","block"],["a img:not([src=\"images/main_logo_inverted.png\"])","visibility","visible"],["div[class=\"nav tabTop\"] + div > div:first-child > div:first-child > a:has(> img[src*=\"/\"][src*=\"_\"][alt]), #head + div[id] > div:last-child > div > a:has(> img[src*=\"/\"][src*=\"_\"][alt])","display","block"]];
+const hostnamesMap = new Map([["jytechs.in",0],["dev.miuiflash.com",0],["djxmaza.in",0],["thecubexguide.com",0],["download.megaup.net",1],["1001tracklists.com",2]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

@@ -747,5 +747,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||037hdmovie.com/ads^"},"id":746,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["037hdmovie.com"],"resourceTypes":["image"],"urlFilter":".gif"},"id":747,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["leoplayer7.com"],"resourceTypes":["media"],"urlFilter":"||rsc.cdn77.org/videos/ads-"},"id":748,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["leoplayer7.com"],"resourceTypes":["media"],"urlFilter":"||upfastfile.com/upload/"},"id":749,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["leoplayer7.com"],"resourceTypes":["media"],"urlFilter":"||upfastfile.com/upload/"},"id":749,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||reborntrans.com/banner/"},"id":750,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["leoplayer7.com"],"requestDomains":["cdend.com","googles.video"],"resourceTypes":["media"]},"id":751,"priority":10}
 ]

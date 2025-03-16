@@ -1305,7 +1305,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["mangarawmanga"],"resourceTypes":["script"]},"id":1304,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["nijigen-erogazou.com"],"resourceTypes":["script"]},"id":1305,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["free911263.net","gallerieshub.com"],"resourceTypes":["sub_frame"]},"id":1306,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||fujoho.jp/index.php"},"id":1307,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||oita-press.co.jp/css2024/z_kyujinboxad.css"},"id":1307,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||xn--tckxa5c423yemxd.shop/dt/"},"id":1308,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||book.dmm.*/book/blog-parts/?"},"id":1309,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||seesaa.net/image/loopad*"},"id":1310,"priority":10},
@@ -1516,8 +1516,10 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["passnavi.obunsha.co.jp"],"urlFilter":"||passnaviad.durasite.net/a-affiliate2/multimobile?keywords=netapply_"},"id":1515,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["sp.seiga.nicovideo.jp"],"urlFilter":"||res.ads.nicovideo.jp/assets/js/ads2.js"},"id":1516,"priority":30},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".top/aple/"},"id":1517,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["asia","bar","beauty","best","biz","bond","buzz","cam","cfd","click","cloud","club","cyou","fit","fun","gay","homes","icu","ink","life","live","ltd","me","monster","my","one","online","pics","quest","rest","ru.com","sa.com","sbs","shop","site","space","store","tokyo","top","website","wiki","work","xyz","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info*&cpath="},"id":1518,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["asia","bar","beauty","best","biz","bond","buzz","cam","cfd","click","cloud","club","cyou","fit","fun","gay","homes","icu","ink","life","live","ltd","me","monster","my","one","online","pics","quest","rest","ru.com","sa.com","sbs","shop","site","space","store","tokyo","top","website","wiki","work","xyz","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info&products_id="},"id":1519,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||oita-press.co.jp/gateapi/kyujinboxad"},"id":1518,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||assets.weekend-kanazawa.com/html/google-admanager-tag-in-body.html"},"id":1519,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||talk.jp/api/ads?"},"id":1520,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||tsumanne.net/inoue.html"},"id":1521,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||tsumanne.net/inoue.html"},"id":1521,"priority":10},
+{"action":{"type":"block"},"condition":{"requestDomains":["asia","bar","beauty","best","biz","bond","buzz","cam","cfd","click","cloud","club","cyou","fit","fun","gay","homes","icu","ink","life","live","ltd","me","monster","my","one","online","pics","pro","qpon","quest","rest","ru.com","sa.com","sbs","shop","site","skin","space","store","tokyo","top","website","wiki","work","xyz","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info*&cpath="},"id":1522,"priority":10},
+{"action":{"type":"block"},"condition":{"requestDomains":["asia","bar","beauty","best","biz","bond","buzz","cam","cfd","click","cloud","club","cyou","fit","fun","gay","homes","icu","ink","life","live","ltd","me","monster","my","one","online","pics","pro","qpon","quest","rest","ru.com","sa.com","sbs","shop","site","skin","space","store","tokyo","top","website","wiki","work","xyz","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info&products_id="},"id":1523,"priority":10}
 ]

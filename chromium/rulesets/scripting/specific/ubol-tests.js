@@ -27,16 +27,13 @@
 
 /******************************************************************************/
 
-const argsList = ["#ccf1 .fail,\n#ccf2 .fail:not(.a4),\n#ccf4 .fail-pseudo::before,\n#pcf1 .fail:has(b),\n#pcf16 .pass > a:has(b) + .fail,\n#pcf17 .pass > a:has(b) + .fail:has(b),\n#pcf19 .fail:has(+ a),\n#pcf2 .fail:has(> a > b),\n#pcf3 .fail:has(+ a > b),\n#pcf5 .fail:has(:is(.pass a > b)),\n#pcf6 .fail:not(:has(c))"];
-
-const hostnamesMap = new Map([["ublockorigin.github.io",0],["localhost",0]]);
-
-const entitiesMap = new Map(undefined);
-
-const exceptionsMap = new Map(undefined);
+const argsList = ["","#ccf1 .fail","#ccf2 .fail:not(.a4)","#ccf4 .fail-pseudo::before","#pcf1 .fail:has(b)","#pcf2 .fail:has(> a > b)","#pcf3 .fail:has(+ a > b)","#pcf5 .fail:has(:is(.pass a > b))","#pcf6 .fail:not(:has(c))","#pcf16 .pass > a:has(b) + .fail","#pcf17 .pass > a:has(b) + .fail:has(b)","#pcf19 .fail:has(+ a)","#ef #gcf2 .fail"];
+const argsSeqs = [0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,11,12];
+const hostnamesMap = new Map([["ublockorigin.github.io",1],["localhost",1],["~ublockorigin.github.io",12],["~localhost",12]]);
+const hasEntities = false;
 
 self.specificImports = self.specificImports || [];
-self.specificImports.push({ argsList, hostnamesMap, entitiesMap, exceptionsMap });
+self.specificImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
 
 /******************************************************************************/
 

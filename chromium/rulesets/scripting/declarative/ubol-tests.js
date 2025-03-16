@@ -27,16 +27,13 @@
 
 /******************************************************************************/
 
-const argsList = [["{\"selector\":\"#ccf3 .fail\",\"action\":[\"style\",\"visibility: hidden\"]}","{\"selector\":\"#ccf5 .fail-pseudo::before\",\"action\":[\"style\",\"visibility: hidden\"]}"]];
-
-const hostnamesMap = new Map([["ublockorigin.github.io",0],["localhost",0]]);
-
-const entitiesMap = new Map(undefined);
-
-const exceptionsMap = new Map(undefined);
+const argsList = ["","{\"selector\":\"#ccf3 .fail\",\"action\":[\"style\",\"visibility: hidden\"]}\n{\"selector\":\"#ccf5 .fail-pseudo::before\",\"action\":[\"style\",\"visibility: hidden\"]}"];
+const argsSeqs = [0,1];
+const hostnamesMap = new Map([["ublockorigin.github.io",1],["localhost",1]]);
+const hasEntities = false;
 
 self.declarativeImports = self.declarativeImports || [];
-self.declarativeImports.push({ argsList, hostnamesMap, entitiesMap, exceptionsMap });
+self.declarativeImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
 
 /******************************************************************************/
 

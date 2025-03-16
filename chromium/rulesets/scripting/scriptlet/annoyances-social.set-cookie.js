@@ -351,7 +351,7 @@ function getCookieFn(
 
 const scriptletGlobals = {}; // eslint-disable-line
 const argsList = [["show_share","true"]];
-const hostnamesMap = new Map([["fmovies.*",0],["yesmovies.*",0],["gomovies.sx",0],["himovies.*",0],["actvid.rs",0],["moviesjoy.*",0],["swatchseries.*",0],["sflix.to",0],["hurawatchz.to",0],["yuppow.com",0]]);
+const hostnamesMap = new Map([["fmovies.*",0],["yesmovies.*",0],["gomovies.sx",0],["himovies.*",0],["actvid.rs",0],["moviesjoy.*",0],["swatchseries.*",0],["sflix.to",0],["hurawatchz.to",0],["yuppow.com",0],["myflixerz.to",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = true;
 const hasAncestors = false;

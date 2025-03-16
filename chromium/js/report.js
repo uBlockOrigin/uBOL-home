@@ -112,8 +112,12 @@ async function reportSpecificFilterIssue() {
     const defaultMode = await sendMessage({ what: 'getDefaultFilteringMode' });
     const modes = [ 'no filtering', 'basic', 'optimal', 'complete' ];
     const config = {
-        version: `uBOL ${manifest.version}`,
-        mode: `${modes[reportedPage.mode]} / ${modes[defaultMode]}`,
+        name: manifest.name,
+        version: manifest.version,
+        filtering: {
+            'site': `${modes[reportedPage.mode]}`,
+            'default': `${modes[defaultMode]}`,
+        },
         rulesets,
     };
     const configBody = [

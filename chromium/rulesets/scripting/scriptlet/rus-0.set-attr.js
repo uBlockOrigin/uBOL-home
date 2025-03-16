@@ -342,8 +342,8 @@ function runAt(fn, when) {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [[".media > .andropov-video > video","controls","true"],[".owl-item > a > img","src","[data-src]"],["[class^=\"articleBlockVideo_\"] video","controls","true"],["img[src=\"https://overclockers.ru/assets/logo_gray_stub.gif\"]","src","[data-src]"],["video","controls","true"],["video[controls=\"controls\"]","controls","true"],["#progress-value","data-timer","25"]];
-const hostnamesMap = new Map([["dtf.ru",0],["vc.ru",0],["eneyida.tv",1],["fontanka.ru",2],["overclockers.ru",3],["joyreactor.cc",4],["reactor.cc",4],["3dnews.kz",5],["3dnews.ru",5],["howdyho.*",6]]);
+const argsList = [[".comment-media > .andropov-video > video","controls","true"],[".media > .andropov-video > video","controls","true"],[".owl-item > a > img","src","[data-src]"],["[class^=\"articleBlockVideo_\"] video","controls","true"],["img[src=\"https://overclockers.ru/assets/logo_gray_stub.gif\"]","src","[data-src]"],["video","controls","true"],["video[controls=\"controls\"]","controls","true"],["#progress-value","data-timer","25"]];
+const hostnamesMap = new Map([["dtf.ru",[0,1]],["vc.ru",[0,1]],["eneyida.tv",2],["fontanka.ru",3],["overclockers.ru",4],["joyreactor.cc",5],["reactor.cc",5],["3dnews.kz",6],["3dnews.ru",6],["howdyho.*",7]]);
 const exceptionsMap = new Map([]);
 const hasEntities = true;
 const hasAncestors = false;

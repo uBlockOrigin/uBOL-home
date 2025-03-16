@@ -1,0 +1,25 @@
+[
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'none'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "/anf2.html"
+ },
+ "id": 6
+}
+]

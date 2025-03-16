@@ -3,7 +3,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["podelki-doma.ru","psysovet24.ru"],"regexFilter":"wp-content\\/plugins\\/socialer"},"id":2,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ogorodnik-sadovod.ru"],"regexFilter":"wp-content\\/plugins\\/my-popup"},"id":3,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["docfilms.info","green-teatv.com","vesjoloevideo.ru"],"regexFilter":"a-detector"},"id":4,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["animevost.org","animevost.top","vost.pw"],"regexFilter":"^https?:\\/\\/(animevost.org|[^\\s]+\\.animevost.top|[^\\s]+\\.vost.pw)\\/[0-9]{2}.png$","resourceTypes":["image"]},"id":5,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["stratege.ru"],"regexFilter":"^https?:\\/\\/www\\.stratege\\.ru\\/misc\\/[a-z0-9]{25,}","resourceTypes":["image"]},"id":6,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["nb.by"],"regexFilter":"nb.by\\/img\\/ban\\d\\/","resourceTypes":["image"]},"id":7,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["yandex.by","yandex.kz","yandex.ru","yandex.uz"],"regexFilter":"^https?:\\/\\/yastatic\\.net\\/www\\/_\\/[^\\s]{150,}","resourceTypes":["image"]},"id":8,"priority":10},
