@@ -49,6 +49,8 @@ ublockorigin.github.io>>,localhost>>##+js(set, sf3Sentinel, undefined)
 
 ! Generic cosmetic filters
 ###gcf #gcf1 .fail
+! Override EasyList's generichide exception
+||ublockorigin.github.io^$generichide,important
 
 ! Exception filters
 /bnf3.
