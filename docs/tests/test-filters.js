@@ -42,6 +42,13 @@ jobs.push(function bnf2() {
 });
 
 jobs.push(function bnf3() {
+    const img = qs$('#bnf3 img');
+    img.decode().finally(( ) => {
+        hide('#bnf3 .fail');
+    });
+});
+
+jobs.push(function bnf3() {
     if ( window.bnf3Sentinel === true ) { return; }
     hide('#bnf3 .fail');
 });

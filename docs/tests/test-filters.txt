@@ -5,6 +5,9 @@
 ! Basic network filtering
 /bnf1.$script,to=ublockorigin.github.io|localhost
 /bnf2.$image,to=ublockorigin.github.io|localhost
+
+! Very long URL
+! https://github.com/uBlockOrigin/uBlock-issues/issues/3582
 a-a-a-a-a-a-a-a-$image,from=ublockorigin.github.io|localhost
 
 ! Advanced network filtering
