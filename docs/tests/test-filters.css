@@ -84,8 +84,13 @@ em.filtering-mode {
     top: 0;
     width: 100%;
 }
+.tile code.filter {
+    text-align: center;
+    background-color: #e4e4e4;
+    font-size: smaller;
+    width: 100%
+}
 body:not(.showFilters) .tile > code.filter {
-    align-self: center;
     display: none;
 }
 .tile iframe {
