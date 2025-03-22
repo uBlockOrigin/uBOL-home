@@ -46,6 +46,8 @@ ublockorigin.github.io,localhost#?##pcf24 b:upward(.fail):style(visibility: hidd
 ublockorigin.github.io,localhost##+js(set, sf1Sentinel, undefined)
 ublockorigin.github.io,localhost##+js(nostif, sf2Sentinel)
 ublockorigin.github.io>>,localhost>>##+js(set, sf3Sentinel, undefined)
+ublockorigin.github.io,localhost##+js(jsonl-prune-xhr-response, b)
+ublockorigin.github.io,localhost##+js(jsonl-prune-fetch-response, b)
 
 ! Generic cosmetic filters
 ###gcf #gcf1 .fail
