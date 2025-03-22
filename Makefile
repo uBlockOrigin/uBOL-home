@@ -1,12 +1,13 @@
 .PHONY: clean edge
 
-chromium-sources := $(wildcard chromium/* chromium/*/* chromium/*/*/* chromium/*/*/*/*)
-firefox-sources := $(wildcard firefox/* firefox/*/* firefox/*/*/* firefox/*/*/*/*)
+# Dev tools
+node_modules:
+	npm install
 
-build/uBlock0.edge: tools/make-edge.sh tools/make-edge.mjs $(chromium-sources)
-	tools/make-edge.sh
+init: node_modules
 
-edge: build/uBlock0.edge
+lint: init
+	npm run lint
 
 clean:
-	rm -rf build
+	rm -rf build node_modules

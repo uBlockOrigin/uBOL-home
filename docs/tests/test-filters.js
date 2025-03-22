@@ -85,6 +85,28 @@ jobs.push(function sf3() {
     hide('#sf3 .fail');
 });
 
+jobs.push(function sf4() {
+    self.sf4Sentinel.then(result => {
+        if ( Array.isArray(result) === false ) { return; }
+        if ( result.length !== 3 ) { return; }
+        if ( result[0].a !== 1 ) { return; }
+        if ( result[1].b !== undefined ) { return; }
+        if ( result[2].c !== 'foo' ) { return; }
+        hide('#sf4 .fail');
+    });
+});
+
+jobs.push(function sf5() {
+    self.sf5Sentinel.then(result => {
+        if ( Array.isArray(result) === false ) { return; }
+        if ( result.length !== 3 ) { return; }
+        if ( result[0].a !== 1 ) { return; }
+        if ( result[1].b !== undefined ) { return; }
+        if ( result[2].c !== 'foo' ) { return; }
+        hide('#sf5 .fail');
+    });
+});
+
 jobs.push(( ) => {
     qs$('#toggleFilters').onclick = ( ) => {
         document.body.classList.toggle('showFilters');
@@ -93,7 +115,7 @@ jobs.push(( ) => {
 
 /******************************************************************************/
 
-self.addEventListener('load', ev => {
+self.addEventListener('load', ( ) => {
     while ( jobs.length !== 0 ) {
         const job = jobs.shift();
         job();

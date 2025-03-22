@@ -36,6 +36,7 @@
         </div>
     </div>
 </section>
+
 <section>
     <h3>Advanced network filters (DNR)</h3>
     <ul>
@@ -56,6 +57,7 @@
         <script src="anf.js" async></script>
     </div>
 </section>
+
 <section>
     <h3>Specific cosmetic filters</h3>
     <ul>
@@ -85,6 +87,7 @@
         </div>
     </div>
 </section>
+
 <section>
     <h3>Procedural cosmetic filters</h3>
     <ul>
@@ -186,6 +189,7 @@
         </div>
     </div>
 </section>
+
 <section>
     <h3>Scriptlet filters</h3>
     <ul>
@@ -209,6 +213,7 @@
         <script src="sf.js" async></script>
     </div>
 </section>
+
 <section>
     <h3>Lowly generic cosmetic filters</h3>
     <ul>
@@ -222,6 +227,7 @@
         </div>
     </div>
 </section>
+
 <section class="exceptions">
     <h3>Exception filters</h3>
     <ul>
@@ -243,6 +249,24 @@
         </div>
     </div>
 </section>
+
+<section>
+    <h3>Staged tests</h3>
+    <ul>
+        <li>These tests are not yet official and are only valid with uBO Lite <em>above</em> 2025.3.16.1281</li>
+    </ul>
+    <div class="tests">
+        <div id="sf4" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">##+js(jsonl-prune-xhr-response, b)</code>
+        </div>
+        <div id="sf5" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">##+js(jsonl-prune-fetch-response, b)</code>
+        </div>
+    </div>
+</section>
+
 </div>
 
 <hr>
