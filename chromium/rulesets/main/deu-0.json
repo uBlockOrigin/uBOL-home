@@ -1516,6 +1516,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["autobild.de"],"urlFilter":"||static.criteo.net/js/ld/publishertag.prebid.js"},"id":1515,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["transfermarkt.de"],"urlFilter":"||tmssl.akamaized.net//ads/ads.js"},"id":1516,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedResourceTypes":["main_frame","media"],"initiatorDomains":["toggo.de"],"requestDomains":["flashtalking.com","smartclip.net"]},"id":1517,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||boerse.cx/img/panda_german.gif"},"id":1518,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["adfarm1.adition.com"],"urlFilter":"|http://"},"id":1519,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["adfarm1.adition.com"],"urlFilter":"|https://"},"id":1520,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||allround-pc.com/com"},"id":1521,"priority":10},

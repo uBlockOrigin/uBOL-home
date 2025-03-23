@@ -847,6 +847,12 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?go\\.isclix\\.com/deep_link/\\S*?\\?url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?email\\.stripe\\.com/cl0/",
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",

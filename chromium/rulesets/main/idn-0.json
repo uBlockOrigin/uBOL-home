@@ -3095,5 +3095,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kompas.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pubads.g.doubleclick.net/gampad/ads?"},"id":3094,"priority":30},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/spot-bet.webp|"},"id":3095,"priority":10},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["ads.id","advertising-indonesia.id"]},"id":3096,"priority":30},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/dewacuan.gif|"},"id":3097,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/janji-gacor.gif"},"id":3102,"priority":10}
 ]

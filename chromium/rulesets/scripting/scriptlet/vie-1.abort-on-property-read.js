@@ -37,7 +37,7 @@ function abortOnPropertyRead(
     if ( chain === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('abort-on-property-read', chain);
-    const exceptionToken = getExceptionToken();
+    const exceptionToken = getExceptionTokenFn();
     const abort = function() {
         safe.uboLog(logPrefix, 'Aborted');
         throw new ReferenceError(exceptionToken);
@@ -77,8 +77,8 @@ function abortOnPropertyRead(
     makeProxy(owner, chain);
 }
 
-function getExceptionToken() {
-    const token = getRandomToken();
+function getExceptionTokenFn() {
+    const token = getRandomTokenFn();
     const oe = self.onerror;
     self.onerror = function(msg, ...args) {
         if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
@@ -108,10 +108,12 @@ function safeSelf() {
         'Object_defineProperties': Object.defineProperties.bind(Object),
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
+        'Object_hasOwn': Object.hasOwn.bind(Object),
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
+        'String': self.String,
         'String_fromCharCode': String.fromCharCode,
         'String_split': String.prototype.split,
         'XMLHttpRequest': self.XMLHttpRequest,
@@ -277,7 +279,7 @@ function safeSelf() {
     return safe;
 }
 
-function getRandomToken() {
+function getRandomTokenFn() {
     const safe = safeSelf();
     return safe.String_fromCharCode(Date.now() % 26 + 97) +
         safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
@@ -286,8 +288,8 @@ function getRandomToken() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["_0x3f9b"],["parseInt"],["adpiaListUrl"],["Math.round"],["pushOnPage"],["ads"],["adsPlayer"],["adsPopupPlayer"],["adsTvc"],["keyPlayer"],["affUrls"],["sessionStorage"],["document.cookie"],["nFNcksmwU"],["open"],["oneClick"],["Cookies"],["sp"],["localStorage"],["adsRedirectPopups"],["window.aclib"],["adtimaConfig"]];
-const hostnamesMap = new Map([["animevietsubs.net",0],["aoe.vn",1],["audiotruyenfull.com",2],["javnong.cc",3],["linkneverdie.net",4],["linkneverdie.top",4],["linkneverdie2.com",4],["plcdn.xyz",[5,6,7,8,9]],["thichxemphim1.net",10],["tinsoikeo.live",11],["motchiill.sh",11],["ohaytv.id",11],["truyensieuhay.com",12],["hayhaytv.site",12],["quangcaoyenbai.com",12],["phimchill.life",12],["thuvienhd.biz",12],["tv.tvhayhd.org",12],["www.khophim88s.com",12],["thefaplive.com",12],["mv.dailyphimz.com",12],["mv.phimbathu.one",12],["sexhihiz.org",12],["anime47.help",12],["teamlanhlung3.shop",[12,18]],["veryfiles.com",13],["viettoons.tv",14],["mv.phimmoiaz.cc",14],["ytstv.me",14],["anime3.site",14],["anh.moe",14],["maclife.io",14],["xemphimjav.com",14],["hoctot.hocmai.vn",14],["bluphim2.com",14],["cdn2.blueskychilling.online",14],["ohaha79xxx.site",14],["herotruyen.com",14],["truyenfull.vision",14],["player.phimapi.com",14],["noitu.pro",14],["vinaurl.net",15],["vlgaimup.pro",16],["www.nettruyenupp.com",17],["www.phimdinhcao.online",18],["motchill77.com",18],["xnhau.fun",18],["xoilacxj.cc",19],["yts.do",20],["yts.mx",20],["yts.rs",20],["znews.vn",21]]);
+const argsList = [["_0x3f9b"],["parseInt"],["adpiaListUrl"],["Math.round"],["pushOnPage"],["Cookies"],["ads"],["adsPlayer"],["adsPopupPlayer"],["adsTvc"],["keyPlayer"],["affUrls"],["sessionStorage"],["document.cookie"],["nFNcksmwU"],["open"],["oneClick"],["sp"],["localStorage"],["adsRedirectPopups"],["window.aclib"],["adtimaConfig"]];
+const hostnamesMap = new Map([["animevietsubs.net",0],["aoe.vn",1],["audiotruyenfull.com",2],["javnong.cc",3],["linkneverdie.net",4],["linkneverdie.top",4],["linkneverdie2.com",4],["phim.gaisexvl.pro",5],["plcdn.xyz",[6,7,8,9,10]],["thichxemphim1.net",11],["tinsoikeo.live",12],["motchiill.la",12],["ohaytv.id",12],["truyensieuhay.com",13],["hayhaytv.site",13],["quangcaoyenbai.com",13],["phimchill.life",13],["thuvienhd.biz",13],["tv.tvhayhd.org",13],["thefaplive.com",13],["mv.dailyphimz.com",13],["mv.phimbathu.one",13],["sexhihiz.org",13],["anime47.one",13],["teamlanhlung3.shop",[13,18]],["veryfiles.com",14],["viettoons.tv",15],["mv.phimmoiaz.cc",15],["ytstv.me",15],["anime4.site",15],["anh.moe",15],["maclife.io",15],["xemphimjav.com",15],["hoctot.hocmai.vn",15],["bluphim3.com",15],["cdn2.blueskychilling.online",15],["ohaha79xxx.site",15],["herotruyen.com",15],["truyenfull.vision",15],["player.phimapi.com",15],["noitu.pro",15],["vinaurl.net",16],["www.nettruyenupp.com",17],["www.phimdinhcao.online",18],["motchill66.com",18],["xnhau.fm",18],["xoilacxj.cc",19],["yts.do",20],["yts.mx",20],["yts.rs",20],["znews.vn",21]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

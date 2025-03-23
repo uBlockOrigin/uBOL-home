@@ -12,6 +12,11 @@
     "service_worker": "/js/background.js",
     "type": "module"
   },
+  "commands": {
+    "enter-zapper-mode": {
+      "description": "__MSG_zapperTipEnter__"
+    }
+  },
   "declarative_net_request": {
     "rule_resources": [
       {
@@ -291,7 +296,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2025.3.16.1281",
+  "version": "2025.3.23.1241",
   "web_accessible_resources": [
     {
       "resources": [
@@ -301,6 +306,14 @@
         "<all_urls>"
       ],
       "use_dynamic_url": true
+    },
+    {
+      "resources": [
+        "/zapper-ui.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
     },
     {
       "resources": [

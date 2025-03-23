@@ -293,5 +293,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["allcryptoz.net","crewbase.net","crewus.net","shinbhu.net","shinchu.net","thumb8.net","thumb9.net","topcryptoz.net","ultraten.net","uniqueten.net"],"resourceTypes":["script"],"urlFilter":"/block-keys.js"},"id":292,"priority":40},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||redditstatic.com/shreddit/en-us/xpromo-nsfw-bypassable-modal-desktop-"},"id":293,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||n2olabs.pro/devtool.js"},"id":294,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["weloma.art","welovemanga.one"],"resourceTypes":["script"],"urlFilter":"||cdn.jsdelivr.net/npm/disable-devtool"},"id":295,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"},"id":295,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||404le.com/js/disable-devtool.min.js"},"id":296,"priority":10}
 ]
