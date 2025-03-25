@@ -107,6 +107,12 @@ jobs.push(function sf5() {
     });
 });
 
+jobs.push(function sf6() {
+    if ( self.sf6Sentinel === undefined ) { return; }
+    if ( self.sf6Sentinel.getElementsByTagName !== document.body.getElementsByTagName ) { return; }
+    hide('#sf6 .fail');
+});
+
 jobs.push(( ) => {
     qs$('#toggleFilters').onclick = ( ) => {
         document.body.classList.toggle('showFilters');

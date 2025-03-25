@@ -33,3 +33,15 @@ self.sf5Sentinel = new Promise(resolve => {
         resolve(result);
     });
 });
+
+{
+    const sentinel = {};
+    const frame = document.createElement('iframe');
+    sentinel.frame = frame;
+    frame.style.display = 'none';
+    document.body.appendChild(frame);
+    sentinel.getElementsByTagName = frame?.contentWindow?.document
+        ? frame.contentWindow.document.body.getElementsByTagName
+        : null;
+    self.sf6Sentinel = sentinel;
+}

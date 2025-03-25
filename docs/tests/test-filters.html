@@ -264,6 +264,10 @@
             <div class="pass"><div class="fail"></div></div>
             <code class="filter">##+js(jsonl-prune-fetch-response, b)</code>
         </div>
+        <div id="sf6" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, Element.prototype.getElementsByTagName)</code>
+        </div>
     </div>
 </section>
 
