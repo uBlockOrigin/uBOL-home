@@ -42,6 +42,6 @@ self.sf5Sentinel = new Promise(resolve => {
     document.body.appendChild(frame);
     sentinel.getElementsByTagName = frame?.contentWindow?.document
         ? frame.contentWindow.document.body.getElementsByTagName
-        : null;
+        : document.body.getElementsByTagName;
     self.sf6Sentinel = sentinel;
 }
