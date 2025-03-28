@@ -17,21 +17,19 @@ self.sf4Sentinel = new Promise(resolve => {
         xhr.onload = null;
         resolve(result);
     };
-    xhr.open('GET', './abc.jsonl');
+    xhr.open('GET', './sample.jsonl');
     xhr.send();
 });
 
-self.sf5Sentinel = new Promise(resolve => {
-    return fetch('./abc.jsonl').then(response =>
-        response.text()
-    ).then(text => {
-        const result = [];
-        for ( const json of text.split(/\n+/) ) {
-            if ( json === '' ) { continue; }
-            result.push(JSON.parse(json));
-        }
-        resolve(result);
-    });
+self.sf5Sentinel = fetch('./sample.jsonl').then(response =>
+    response.text()
+).then(text => {
+    const result = [];
+    for ( const json of text.split(/\n+/) ) {
+        if ( json === '' ) { continue; }
+        result.push(JSON.parse(json));
+    }
+    return result;
 });
 
 {

@@ -46,6 +46,12 @@ jobs.push(function bnf3() {
     hide('#bnf3 .fail');
 });
 
+// This just tests whether the filtering engine can deal with a very long URL
+jobs.push(function bnf4() {
+    const looongURL = `/${'a-'.repeat(16384)}bnf4.gif`;
+    fetch(looongURL).then(response => response.text()).catch(( ) => { });
+});
+
 jobs.push(function pcf18() {
     self.setTimeout(( ) => {
         qs$('.watchattr1 .pass > .pass').className = 'fail';
@@ -113,6 +119,17 @@ jobs.push(function sf6() {
     hide('#sf6 .fail');
 });
 
+jobs.push(async function x() {
+    const obj = await self.ffubo1Sentinel;
+    if ( obj instanceof Object === false ) { return; }
+    if ( obj.store.book[0].price !== 0 ) { return; }
+    if ( obj.store.book[1].price !== 0 ) { return; }
+    if ( obj.store.book[2].price !== 0 ) { return; }
+    if ( obj.store.book[3].price !== 0 ) { return; }
+    if ( obj.store.bicycle.price !== 0 ) { return; }
+    hide('#ffubo1 .fail');
+});
+
 jobs.push(( ) => {
     qs$('#toggleFilters').onclick = ( ) => {
         document.body.classList.toggle('showFilters');
@@ -124,6 +141,6 @@ jobs.push(( ) => {
 self.addEventListener('load', ( ) => {
     while ( jobs.length !== 0 ) {
         const job = jobs.shift();
-        job();
+        try { job(); } catch { }
     }
 }, { once: true });
