@@ -409,7 +409,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["avtorambler.com","rambler.ru"],"requestDomains":["rcmjs.rambler.ru"]},"id":408,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||strm.yandex.ru/get/*?sid=*&vsid="},"id":409,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ya.ru/portal/proxy?blocks=feed_banner"},"id":410,"priority":10},
-{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["bspb.ru","tgc-2.ru"],"urlFilter":"/counter^"},"id":411,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["bspb.ru","foxford.ru","goodgame.ru","tgc-2.ru"],"urlFilter":"/counter^"},"id":411,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/_res/script/image.php?type="},"id":412,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/button.php?id="},"id":413,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/button.php?u="},"id":414,"priority":10},
@@ -598,5 +598,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||myfin.by/ajaxnew/set-referrer?referrer="},"id":597,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ukr.net/_events/"},"id":598,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ukr.net/click/"},"id":599,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||ukr.net/track/"},"id":600,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||ukr.net/track/"},"id":600,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["ping"],"urlFilter":"||jitsu.foxford.ru/api/s/s2s/batch|"},"id":601,"priority":10}
 ]

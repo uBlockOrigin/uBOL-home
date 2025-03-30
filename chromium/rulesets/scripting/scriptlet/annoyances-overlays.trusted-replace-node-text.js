@@ -157,7 +157,7 @@ function runAt(fn, when) {
         const tokens = Array.isArray(state) ? state : [ state ];
         for ( const token of tokens ) {
             const prop = `${token}`;
-            if ( targets.hasOwnProperty(prop) === false ) { continue; }
+            if ( Object.hasOwn(targets, prop) === false ) { continue; }
             return targets[prop];
         }
         return 0;
@@ -369,8 +369,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["script","if(floovy()) {","if(false) {"],["script","window.location.reload"],["style","@media print"],["style","/\\.novel-box \\*:not\\(a\\)|@media print/g"]];
-const hostnamesMap = new Map([["heidisql.com",0],["baumbet.ro",1],["karsaz-law.com",2],["mskmangaz.blogspot.com",3]]);
+const argsList = [["script","if(floovy()) {","if(false) {"],["style",".np{",".dummy{","condition","@media print"],["script","window.location.reload"],["style","@media print"],["style","/\\.novel-box \\*:not\\(a\\)|@media print/g"]];
+const hostnamesMap = new Map([["heidisql.com",0],["novelpia.com",1],["baumbet.ro",2],["karsaz-law.com",3],["mskmangaz.blogspot.com",4]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

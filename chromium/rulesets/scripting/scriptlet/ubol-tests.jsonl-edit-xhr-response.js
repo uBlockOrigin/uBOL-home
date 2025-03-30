@@ -26,21 +26,25 @@
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_jsonlPruneXhrResponse() {
+(function uBOL_jsonlEditXhrResponse() {
 
 /******************************************************************************/
 
-function jsonlPruneXhrResponse(...args) {
-    jsonlPruneXhrResponseFn(...args);
+function jsonlEditXhrResponse(jsonq = '', ...args) {
+    jsonlEditXhrResponseFn(false, jsonq, ...args);
 }
 
-function jsonlPruneXhrResponseFn(
-    rawPrunePaths = '',
-    rawNeedlePaths = ''
-) {
+function jsonlEditXhrResponseFn(trusted, jsonq = '') {
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('jsonl-prune-xhr-response', rawPrunePaths, rawNeedlePaths);
+    const logPrefix = safe.makeLogPrefix(
+        `${trusted ? 'trusted-' : ''}jsonl-edit-xhr-response`,
+        jsonq
+    );
     const xhrInstances = new WeakMap();
+    const jsonp = JSONPath.create(jsonq);
+    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
+        return safe.uboLog(logPrefix, 'Bad JSONPath query');
+    }
     const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
     const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
     self.XMLHttpRequest = class extends self.XMLHttpRequest {
@@ -75,7 +79,7 @@ function jsonlPruneXhrResponseFn(
             if ( typeof innerResponse !== 'string' ) {
                 return (xhrDetails.response = innerResponse);
             }
-            const outerResponse = jsonlPruneFn(innerResponse, rawPrunePaths, rawNeedlePaths);
+            const outerResponse = jsonlEditFn(jsonp, innerResponse);
             if ( outerResponse !== innerResponse ) {
                 safe.uboLog(logPrefix, 'Pruned');
             }
@@ -90,30 +94,400 @@ function jsonlPruneXhrResponseFn(
     };
 }
 
-function jsonlPruneFn(
-    text = '',
-    rawPrunePaths = '',
-    rawNeedlePaths = ''
-) {
+class JSONPath {
+    static create(query) {
+        const jsonp = new JSONPath();
+        jsonp.compile(query);
+        return jsonp;
+    }
+    static toJSON(obj, stringifier, ...args) {
+        return (stringifier || JSON.stringify)(obj, ...args)
+            .replace(/\//g, '\\/');
+    }
+    get value() {
+        return this.#compiled && this.#compiled.rval;
+    }
+    set value(v) {
+        if ( this.#compiled === undefined ) { return; }
+        this.#compiled.rval = v;
+    }
+    get valid() {
+        return this.#compiled !== undefined;
+    }
+    compile(query) {
+        this.#compiled = undefined;
+        const r = this.#compile(query, 0);
+        if ( r === undefined ) { return; }
+        if ( r.i !== query.length ) {
+            if ( query.startsWith('=', r.i) === false ) { return; }
+            try { r.rval = JSON.parse(query.slice(r.i+1)); }
+            catch { return; }
+        }
+        this.#compiled = r;
+    }
+    evaluate(root) {
+        if ( this.valid === false ) { return []; }
+        this.#root = root;
+        const paths = this.#evaluate(this.#compiled.steps, []);
+        this.#root = null;
+        return paths;
+    }
+    apply(root) {
+        if ( this.valid === false ) { return 0; }
+        const { rval } = this.#compiled;
+        this.#root = root;
+        const paths = this.#evaluate(this.#compiled.steps, []);
+        const n = paths.length;
+        let i = n;
+        while ( i-- ) {
+            const { obj, key } = this.#resolvePath(paths[i]);
+            if ( rval !== undefined ) {
+                obj[key] = rval;
+            } else if ( Array.isArray(obj) && typeof key === 'number' ) {
+                obj.splice(key, 1);
+            } else {
+                delete obj[key];
+            }
+        }
+        this.#root = null;
+        return n;
+    }
+    dump() {
+        return JSON.stringify(this.#compiled);
+    }
+    toJSON(obj, ...args) {
+        return JSONPath.toJSON(obj, null, ...args)
+    }
+    get [Symbol.toStringTag]() {
+        return 'JSONPath';
+    }
+    #UNDEFINED = 0;
+    #ROOT = 1;
+    #CURRENT = 2;
+    #CHILDREN = 3;
+    #DESCENDANTS = 4;
+    #reUnquotedIdentifier = /^[A-Za-z_][\w]*|^\*/;
+    #reExpr = /^([!=^$*]=|[<>]=?)(.+?)\]/;
+    #reIndice = /^-?\d+/;
+    #root;
+    #compiled;
+    #compile(query, i) {
+        if ( query.length === 0 ) { return; }
+        const steps = [];
+        let c = query.charCodeAt(i);
+        steps.push({ mv: c === 0x24 /* $ */ ? this.#ROOT : this.#CURRENT });
+        if ( c === 0x24 /* $ */ || c === 0x40 /* @ */ ) { i += 1; }
+        let mv = this.#UNDEFINED;
+        for (;;) {
+            if ( i === query.length ) { break; }
+            c = query.charCodeAt(i);
+            if ( c === 0x20 /* whitespace */ ) {
+                i += 1;
+                continue;
+            }
+            // Dot accessor syntax
+            if ( c === 0x2E /* . */ ) {
+                if ( mv !== this.#UNDEFINED ) { return; }
+                if ( query.startsWith('..', i) ) {
+                    mv = this.#DESCENDANTS;
+                    i += 2;
+                } else {
+                    mv = this.#CHILDREN;
+                    i += 1;
+                }
+                continue;
+            }
+            if ( c !== 0x5B /* [ */ ) {
+                if ( mv === this.#UNDEFINED ) {
+                    const step = steps.at(-1);
+                    if ( step === undefined ) { return; }
+                    i = this.#compileExpr(query, step, i);
+                    break;
+                }
+                const s = this.#consumeUnquotedIdentifier(query, i);
+                if  ( s === undefined ) { return; }
+                steps.push({ mv, k: s });
+                i += s.length;
+                mv = this.#UNDEFINED;
+                continue;
+            }
+            // Bracket accessor syntax
+            if ( query.startsWith('[?', i) ) {
+                const not = query.charCodeAt(i+2) === 0x21 /* ! */;
+                const j = i + 2 + (not ? 1 : 0);
+                const r = this.#compile(query, j);
+                if ( r === undefined ) { return; }
+                if ( query.startsWith(']', r.i) === false ) { return; }
+                if ( not ) { r.steps.at(-1).not = true; }
+                steps.push({ mv: mv || this.#CHILDREN, steps: r.steps });
+                i = r.i + 1;
+                mv = this.#UNDEFINED;
+                continue;
+            }
+            if ( query.startsWith('[*]', i) ) {
+                mv ||= this.#CHILDREN;
+                steps.push({ mv, k: '*' });
+                i += 3;
+                mv = this.#UNDEFINED;
+                continue;
+            }
+            const r = this.#consumeIdentifier(query, i+1);
+            if ( r === undefined ) { return; }
+            mv ||= this.#CHILDREN;
+            steps.push({ mv, k: r.s });
+            i = r.i + 1;
+            mv = this.#UNDEFINED;
+        }
+        if ( steps.length <= 1 ) { return; }
+        return { steps, i };
+    }
+    #evaluate(steps, pathin) {
+        let resultset = [];
+        if ( Array.isArray(steps) === false ) { return resultset; }
+        for ( const step of steps ) {
+            switch ( step.mv ) {
+            case this.#ROOT:
+                resultset = [ [] ];
+                break;
+            case this.#CURRENT:
+                resultset = [ pathin ];
+                break;
+            case this.#CHILDREN:
+            case this.#DESCENDANTS:
+                resultset = this.#getMatches(resultset, step);
+                break;
+            default:
+                break;
+            }
+        }
+        return resultset;
+    }
+    #getMatches(listin, step) {
+        const listout = [];
+        for ( const pathin of listin ) {
+            const { value: owner } = this.#resolvePath(pathin);
+            if ( step.k === '*' ) {
+                this.#getMatchesFromAll(pathin, step, owner, listout);
+            } else if ( step.k !== undefined ) {
+                this.#getMatchesFromKeys(pathin, step, owner, listout);
+            } else if ( step.steps ) {
+                this.#getMatchesFromExpr(pathin, step, owner, listout);
+            }
+        }
+        return listout;
+    }
+    #getMatchesFromAll(pathin, step, owner, out) {
+        const recursive = step.mv === this.#DESCENDANTS;
+        for ( const { path } of this.#getDescendants(owner, recursive) ) {
+            out.push([ ...pathin, ...path ]);
+        }
+    }
+    #getMatchesFromKeys(pathin, step, owner, out) {
+        const kk = Array.isArray(step.k) ? step.k : [ step.k ];
+        for ( const k of kk ) {
+            const normalized = this.#evaluateExpr(step, owner, k);
+            if ( normalized === undefined ) { continue; }
+            out.push([ ...pathin, normalized ]);
+        }
+        if ( step.mv !== this.#DESCENDANTS ) { return; }
+        for ( const { obj, key, path } of this.#getDescendants(owner, true) ) {
+            for ( const k of kk ) {
+                const normalized = this.#evaluateExpr(step, obj[key], k);
+                if ( normalized === undefined ) { continue; }
+                out.push([ ...pathin, ...path, normalized ]);
+            }
+        }
+    }
+    #getMatchesFromExpr(pathin, step, owner, out) {
+        const recursive = step.mv === this.#DESCENDANTS;
+        if ( Array.isArray(owner) === false ) {
+            const r = this.#evaluate(step.steps, pathin);
+            if ( r.length !== 0 ) { out.push(pathin); }
+            if ( recursive !== true ) { return; }
+        }
+        for ( const { obj, key, path } of this.#getDescendants(owner, recursive) ) {
+            if ( Array.isArray(obj[key]) ) { continue; }
+            const q = [ ...pathin, ...path ];
+            const r = this.#evaluate(step.steps, q);
+            if ( r.length === 0 ) { continue; }
+            out.push(q);
+        }
+    }
+    #normalizeKey(owner, key) {
+        if ( typeof key === 'number' ) {
+            if ( Array.isArray(owner) ) {
+                return key >= 0 ? key : owner.length + key;
+            }
+        }
+        return key;
+    }
+    #getDescendants(v, recursive) {
+        const iterator = {
+            next() {
+                const n = this.stack.length;
+                if ( n === 0 ) {
+                    this.value = undefined;
+                    this.done = true;
+                    return this;
+                }
+                const details = this.stack[n-1];
+                const entry = details.keys.next();
+                if ( entry.done ) {
+                    this.stack.pop();
+                    this.path.pop();
+                    return this.next();
+                }
+                this.path[n-1] = entry.value;
+                this.value = {
+                    obj: details.obj,
+                    key: entry.value,
+                    path: this.path.slice(),
+                };
+                const v = this.value.obj[this.value.key];
+                if ( recursive ) {
+                    if ( Array.isArray(v) ) {
+                        this.stack.push({ obj: v, keys: v.keys() });
+                    } else if ( typeof v === 'object' && v !== null ) {
+                        this.stack.push({ obj: v, keys: Object.keys(v).values() });
+                    }
+                }
+                return this;
+            },
+            path: [],
+            value: undefined,
+            done: false,
+            stack: [],
+            [Symbol.iterator]() { return this; },
+        };
+        if ( Array.isArray(v) ) {
+            iterator.stack.push({ obj: v, keys: v.keys() });
+        } else if ( typeof v === 'object' && v !== null ) {
+            iterator.stack.push({ obj: v, keys: Object.keys(v).values() });
+        }
+        return iterator;
+    }
+    #consumeIdentifier(query, i) {
+        const keys = [];
+        for (;;) {
+            const c0 = query.charCodeAt(i);
+            if ( c0 === 0x5D /* ] */ ) { break; }
+            if ( c0 === 0x2C /* , */ ) {
+                i += 1;
+                continue;
+            }
+            if ( c0 === 0x27 /* ' */ ) {
+                const r = this.#consumeQuotedIdentifier(query, i+1);
+                if ( r === undefined ) { return; }
+                keys.push(r.s);
+                i = r.i;
+                continue;
+            }
+            if ( c0 === 0x2D /* - */ || c0 >= 0x30 && c0 <= 0x39 ) {
+                const match = this.#reIndice.exec(query.slice(i));
+                if ( match === null ) { return; }
+                const indice = parseInt(query.slice(i), 10);
+                keys.push(indice);
+                i += match[0].length;
+                continue;
+            }
+            const s = this.#consumeUnquotedIdentifier(query, i);
+            if ( s === undefined ) { return; }
+            keys.push(s);
+            i += s.length;
+        }
+        return { s: keys.length === 1 ? keys[0] : keys, i };
+    }
+    #consumeQuotedIdentifier(query, i) {
+        const len = query.length;
+        const parts = [];
+        let beg = i, end = i;
+        for (;;) {
+            if ( end === len ) { return; }
+            const c = query.charCodeAt(end);
+            if ( c === 0x27 /* ' */ ) {
+                parts.push(query.slice(beg, end));
+                end += 1;
+                break;
+            }
+            if ( c === 0x5C /* \ */ && (end+1) < len ) {
+                parts.push(query.slice(beg, end));
+                const d = query.chatCodeAt(end+1);
+                if ( d === 0x27 || d === 0x5C ) {
+                    end += 1;
+                    beg = end;
+                }
+            }
+            end += 1;
+        }
+        return { s: parts.join(''), i: end };
+    }
+    #consumeUnquotedIdentifier(query, i) {
+        const match = this.#reUnquotedIdentifier.exec(query.slice(i));
+        if ( match === null ) { return; }
+        return match[0];
+    }
+    #compileExpr(query, step, i) {
+        const match = this.#reExpr.exec(query.slice(i));
+        if ( match === null ) { return i; }
+        try {
+            step.rval = JSON.parse(match[2]);
+            step.op = match[1];
+        } catch {
+        }
+        return i + match[1].length + match[2].length;
+    }
+    #resolvePath(path) {
+        if ( path.length === 0 ) { return { value: this.#root }; }
+        const key = path.at(-1);
+        let obj = this.#root
+        for ( let i = 0, n = path.length-1; i < n; i++ ) {
+            obj = obj[path[i]];
+        }
+        return { obj, key, value: obj[key] };
+    }
+    #evaluateExpr(step, owner, key) {
+        if ( owner === undefined || owner === null ) { return; }
+        if ( typeof key === 'number' ) {
+            if ( Array.isArray(owner) === false ) { return; }
+        }
+        const k = this.#normalizeKey(owner, key);
+        const hasOwn = Object.hasOwn(owner, k);
+        if ( step.op !== undefined && hasOwn === false ) { return; }
+        const target = step.not !== true;
+        const v = owner[k];
+        let outcome = false;
+        switch ( step.op ) {
+        case '==': outcome = (v === step.rval) === target; break;
+        case '!=': outcome = (v !== step.rval) === target; break;
+        case  '<': outcome = (v < step.rval) === target; break;
+        case '<=': outcome = (v <= step.rval) === target; break;
+        case  '>': outcome = (v > step.rval) === target; break;
+        case '>=': outcome = (v >= step.rval) === target; break;
+        case '^=': outcome = `${v}`.startsWith(step.rval) === target; break;
+        case '$=': outcome = `${v}`.endsWith(step.rval) === target; break;
+        case '*=': outcome = `${v}`.includes(step.rval) === target; break;
+        default: outcome = hasOwn === target; break;
+        }
+        if ( outcome ) { return k; }
+    }
+}
+
+function jsonlEditFn(jsonp, text = '') {
     const safe = safeSelf();
     const linesBefore = text.split(/\n+/);
     const linesAfter = [];
     for ( const lineBefore of linesBefore ) {
-        let objBefore;
-        try {
-            objBefore = safe.JSON_parse(lineBefore);
-        } catch {
-        }
-        if ( typeof objBefore !== 'object' ) {
+        let obj;
+        try { obj = safe.JSON_parse(lineBefore); } catch { }
+        if ( typeof obj !== 'object' || obj === null ) {
             linesAfter.push(lineBefore);
             continue;
         }
-        const objAfter = objectPruneFn(objBefore, rawPrunePaths, rawNeedlePaths);
-        if ( typeof objAfter !== 'object' ) {
+        if ( jsonp.apply(obj) === 0 ) {
             linesAfter.push(lineBefore);
             continue;
         }
-        linesAfter.push(safe.JSON_stringifyFn(objAfter));
+        linesAfter.push(JSONPath.toJSON(obj, safe.JSON_stringify));
     }
     return linesAfter.join('\n');
 }
@@ -349,180 +723,10 @@ function safeSelf() {
     return safe;
 }
 
-function objectPruneFn(
-    obj,
-    rawPrunePaths,
-    rawNeedlePaths,
-    stackNeedleDetails = { matchAll: true },
-    extraArgs = {}
-) {
-    if ( typeof rawPrunePaths !== 'string' ) { return; }
-    const safe = safeSelf();
-    const prunePaths = rawPrunePaths !== ''
-        ? safe.String_split.call(rawPrunePaths, / +/)
-        : [];
-    const needlePaths = prunePaths.length !== 0 && rawNeedlePaths !== ''
-        ? safe.String_split.call(rawNeedlePaths, / +/)
-        : [];
-    if ( stackNeedleDetails.matchAll !== true ) {
-        if ( matchesStackTraceFn(stackNeedleDetails, extraArgs.logstack) === false ) {
-            return;
-        }
-    }
-    if ( objectPruneFn.mustProcess === undefined ) {
-        objectPruneFn.mustProcess = (root, needlePaths) => {
-            for ( const needlePath of needlePaths ) {
-                if ( objectFindOwnerFn(root, needlePath) === false ) {
-                    return false;
-                }
-            }
-            return true;
-        };
-    }
-    if ( prunePaths.length === 0 ) { return; }
-    let outcome = 'nomatch';
-    if ( objectPruneFn.mustProcess(obj, needlePaths) ) {
-        for ( const path of prunePaths ) {
-            if ( objectFindOwnerFn(obj, path, true) ) {
-                outcome = 'match';
-            }
-        }
-    }
-    if ( outcome === 'match' ) { return obj; }
-}
-
-function matchesStackTraceFn(
-    needleDetails,
-    logLevel = ''
-) {
-    const safe = safeSelf();
-    const exceptionToken = getExceptionTokenFn();
-    const error = new safe.Error(exceptionToken);
-    const docURL = new URL(self.location.href);
-    docURL.hash = '';
-    // Normalize stack trace
-    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
-    const lines = [];
-    for ( let line of safe.String_split.call(error.stack, /[\n\r]+/) ) {
-        if ( line.includes(exceptionToken) ) { continue; }
-        line = line.trim();
-        const match = safe.RegExp_exec.call(reLine, line);
-        if ( match === null ) { continue; }
-        let url = match[2];
-        if ( url.startsWith('(') ) { url = url.slice(1); }
-        if ( url === docURL.href ) {
-            url = 'inlineScript';
-        } else if ( url.startsWith('<anonymous>') ) {
-            url = 'injectedScript';
-        }
-        let fn = match[1] !== undefined
-            ? match[1].slice(0, -1)
-            : line.slice(0, match.index).trim();
-        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
-        let rowcol = match[3];
-        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
-    }
-    lines[0] = `stackDepth:${lines.length-1}`;
-    const stack = lines.join('\t');
-    const r = needleDetails.matchAll !== true &&
-        safe.testPattern(needleDetails, stack);
-    if (
-        logLevel === 'all' ||
-        logLevel === 'match' && r ||
-        logLevel === 'nomatch' && !r
-    ) {
-        safe.uboLog(stack.replace(/\t/g, '\n'));
-    }
-    return r;
-}
-
-function objectFindOwnerFn(
-    root,
-    path,
-    prune = false
-) {
-    const safe = safeSelf();
-    let owner = root;
-    let chain = path;
-    for (;;) {
-        if ( typeof owner !== 'object' || owner === null  ) { return false; }
-        const pos = chain.indexOf('.');
-        if ( pos === -1 ) {
-            if ( prune === false ) {
-                return safe.Object_hasOwn(owner, chain);
-            }
-            let modified = false;
-            if ( chain === '*' ) {
-                for ( const key in owner ) {
-                    if ( safe.Object_hasOwn(owner, key) === false ) { continue; }
-                    delete owner[key];
-                    modified = true;
-                }
-            } else if ( safe.Object_hasOwn(owner, chain) ) {
-                delete owner[chain];
-                modified = true;
-            }
-            return modified;
-        }
-        const prop = chain.slice(0, pos);
-        const next = chain.slice(pos + 1);
-        let found = false;
-        if ( prop === '[-]' && Array.isArray(owner) ) {
-            let i = owner.length;
-            while ( i-- ) {
-                if ( objectFindOwnerFn(owner[i], next) === false ) { continue; }
-                owner.splice(i, 1);
-                found = true;
-            }
-            return found;
-        }
-        if ( prop === '{-}' && owner instanceof Object ) {
-            for ( const key of Object.keys(owner) ) {
-                if ( objectFindOwnerFn(owner[key], next) === false ) { continue; }
-                delete owner[key];
-                found = true;
-            }
-            return found;
-        }
-        if (
-            prop === '[]' && Array.isArray(owner) ||
-            prop === '{}' && owner instanceof Object ||
-            prop === '*' && owner instanceof Object
-        ) {
-            for ( const key of Object.keys(owner) ) {
-                if (objectFindOwnerFn(owner[key], next, prune) === false ) { continue; }
-                found = true;
-            }
-            return found;
-        }
-        if ( safe.Object_hasOwn(owner, prop) === false ) { return false; }
-        owner = owner[prop];
-        chain = chain.slice(pos + 1);
-    }
-}
-
-function getExceptionTokenFn() {
-    const token = getRandomTokenFn();
-    const oe = self.onerror;
-    self.onerror = function(msg, ...args) {
-        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
-        if ( oe instanceof Function ) {
-            return oe.call(this, msg, ...args);
-        }
-    }.bind();
-    return token;
-}
-
-function getRandomTokenFn() {
-    const safe = safeSelf();
-    return safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
-}
-
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["b"]];
+const argsList = [[".b","propsToMatch","/sample.jsonl"]];
 const hostnamesMap = new Map([["ublockorigin.github.io",0],["localhost",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
@@ -591,7 +795,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { jsonlPruneXhrResponse(...argsList[i]); }
+    try { jsonlEditXhrResponse(...argsList[i]); }
     catch { }
 }
 

@@ -103,7 +103,7 @@ function runAt(fn, when) {
         const tokens = Array.isArray(state) ? state : [ state ];
         for ( const token of tokens ) {
             const prop = `${token}`;
-            if ( targets.hasOwnProperty(prop) === false ) { continue; }
+            if ( Object.hasOwn(targets, prop) === false ) { continue; }
             return targets[prop];
         }
         return 0;
@@ -315,8 +315,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["hidden","button"],["twig-body"],["get-link",".ybtn.get-link[target=\"_blank\"]","stay"],["get-link",".btn-success.get-link[target=\"_blank\"]","stay"],["has-sidebar-adz|DashboardPage-inner","div[class^=\"DashboardPage-inner\"]","stay"],["hasStickyAd","div.hasStickyAd[class^=\"SetPage\"]","stay"],["cnx-ad-container|cnx-ad-bid-slot"],["vjs-hidden",".vjs-control-bar","stay"],["hidden",".panel-body > .text-center > button"],["disabled","a#redirect-btn"],["td-ad-background-link"],["download-font-button2",".download-font-button"],["unclickable","","stay"],["ad-controls",".bitmovinplayer-container.ad-controls"],["froc-blur","","stay"],["rodo","body.rodo"]];
-const hostnamesMap = new Map([["apps2app.com",0],["appsmodz.com",0],["xda-developers.com",1],["paid4.link",2],["go.gets4link.com",3],["quizlet.com",[4,5]],["funker530.com",6],["av01.tv",7],["so1.asia",8],["top1iq.com",9],["artribune.com",10],["bestfonts.pro",11],["falatron.com",12],["sbs.com.au",13],["kwejk.pl",14],["filmweb.pl",15]]);
+const argsList = [["twig-body"],["get-link",".ybtn.get-link[target=\"_blank\"]","stay"],["get-link",".btn-success.get-link[target=\"_blank\"]","stay"],["has-sidebar-adz|DashboardPage-inner","div[class^=\"DashboardPage-inner\"]","stay"],["hasStickyAd","div.hasStickyAd[class^=\"SetPage\"]","stay"],["cnx-ad-container|cnx-ad-bid-slot"],["vjs-hidden",".vjs-control-bar","stay"],["hidden","button"],["hidden",".panel-body > .text-center > button"],["disabled","a#redirect-btn"],["td-ad-background-link"],["download-font-button2",".download-font-button"],["unclickable","","stay"],["ad-controls",".bitmovinplayer-container.ad-controls"],["froc-blur","","stay"],["rodo","body.rodo"]];
+const hostnamesMap = new Map([["xda-developers.com",0],["paid4.link",1],["go.gets4link.com",2],["quizlet.com",[3,4]],["funker530.com",5],["av01.tv",6],["appsmodz.com",7],["so1.asia",8],["top1iq.com",9],["artribune.com",10],["bestfonts.pro",11],["falatron.com",12],["sbs.com.au",13],["kwejk.pl",14],["filmweb.pl",15]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

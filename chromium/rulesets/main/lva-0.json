@@ -135,7 +135,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||novonews.lv/ticker/flash/"},"id":134,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||tvnet.lv/export_news/"},"id":135,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||zizu.lv/campaigns/"},"id":136,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["1188.lv","adbox.lv","adhands.ru","adsplius.lt","agk.lv","anymedia.lv","auto24.lv","banneri.lv","doaffiliate.net","evolution.lv","goaff.com","knc.lv","maxtraffic.com","media.city24.lv","nagi.ee","nerealitate.lv","next.lv","olybet.lv","optibet.lv","otrapuse.lv","partneriem.smscredit.lv","pay4results.ee","perkamkopa.lv","saites.eon.lv","sludini.lv","smartad.lv","styleweb.lv","sure.lv","videoavatars.com"]},"id":137,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["salidzini.lv"],"requestDomains":["salidzini.lv"],"resourceTypes":["script"]},"id":137,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["skaties.lv"],"urlFilter":"||mssl.fwmrm.net/libs/adm/*/linktag2.js"},"id":138,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["skaties.lv"],"urlFilter":"||tv3play.skaties.lv/static/scripts/trackdb/events.gif"},"id":139,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||viastream.viasat.tv^*?affiliate="},"id":140,"priority":30},
@@ -151,5 +151,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["skaties.lv"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||fwmrm.net/ad/l/"},"id":150,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||lsm.lv/public/scripts/ads.js"},"id":151,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||varianti.lv/ads/load_ad_images/"},"id":152,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||visidarbi.lv/advertisements"},"id":153,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||visidarbi.lv/advertisements"},"id":153,"priority":30},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["1188.lv","adbox.lv","adhands.ru","adsplius.lt","agk.lv","auto24.lv","banneri.lv","doaffiliate.net","evolution.lv","goaff.com","knc.lv","maxtraffic.com","media.city24.lv","nagi.ee","nerealitate.lv","next.lv","olybet.lv","optibet.lv","otrapuse.lv","partneriem.smscredit.lv","pay4results.ee","perkamkopa.lv","saites.eon.lv","sludini.lv","smartad.lv","styleweb.lv","sure.lv","twistoo.co","videoavatars.com"]},"id":154,"priority":10}
 ]

@@ -30,11 +30,7 @@
 
 /******************************************************************************/
 
-function jsonPruneXhrResponse(...args) {
-    jsonPruneXhrResponseFn(...args);
-}
-
-function jsonPruneXhrResponseFn(
+function jsonPruneXhrResponse(
     rawPrunePaths = '',
     rawNeedlePaths = ''
 ) {
@@ -520,8 +516,8 @@ function getRandomTokenFn() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["data.viewer.instream_video_ads data.scrubber","","propsToMatch","/api/graphql"],["data.home.home_timeline_urt.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/Home"],["data.search_by_raw_query.search_timeline.timeline.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/SearchTimeline"],["data.threaded_conversation_with_injections_v2.instructions.[].entries.[-].content.items.[].item.itemContent.promotedMetadata","","propsToMatch","url:/TweetDetail"],["data.user.result.timeline_v2.timeline.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/UserTweets"],["data.immersiveMedia.timeline.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/ImmersiveMedia"],["playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots [].playerResponse.no_ads","","propsToMatch","/\\/player(?:\\?.+)?$/"],["data.viewer.sideFeed.nodes.0.{-}.nodes.0.rhc_ad","","propsToMatch","/api/graphql"]];
-const hostnamesMap = new Map([["web.facebook.com",[0,7]],["www.facebook.com",[0,7]],["twitter.com",[1,2,3,4,5]],["x.com",[1,2,3,4,5]],["www.youtube.com",6]]);
+const argsList = [["data.viewer.instream_video_ads data.scrubber","","propsToMatch","/api/graphql"],["data.home.home_timeline_urt.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/Home"],["data.search_by_raw_query.search_timeline.timeline.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/SearchTimeline"],["data.threaded_conversation_with_injections_v2.instructions.[].entries.[-].content.items.[].item.itemContent.promotedMetadata","","propsToMatch","url:/TweetDetail"],["data.user.result.timeline_v2.timeline.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/UserTweets"],["data.immersiveMedia.timeline.instructions.[].entries.[-].content.itemContent.promotedMetadata","","propsToMatch","url:/ImmersiveMedia"],["playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots [].playerResponse.no_ads","","propsToMatch","/\\/player(?:\\?.+)?$/"]];
+const hostnamesMap = new Map([["web.facebook.com",0],["www.facebook.com",0],["twitter.com",[1,2,3,4,5]],["x.com",[1,2,3,4,5]],["www.youtube.com",6]]);
 const exceptionsMap = new Map([["platform.twitter.com",[1,2,3,4,5]]]);
 const hasEntities = false;
 const hasAncestors = false;

@@ -288,8 +288,8 @@ function getRandomTokenFn() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["pum_popups"],["adBlockDetected"],["ad_blk"],["$.prototype.fadeIn"]];
-const hostnamesMap = new Map([["hashnews.cafe24.com",0],["x86.co.kr",1],["1004lucifer.blogspot.com",1],["te31.com",1],["tistory.com",1],["avdbs.com",2],["detegice.github.io",3]]);
+const argsList = [["pum_popups"],["adBlockDetected"],["$.prototype.fadeIn"]];
+const hostnamesMap = new Map([["hashnews.cafe24.com",0],["x86.co.kr",1],["1004lucifer.blogspot.com",1],["te31.com",1],["tistory.com",1],["detegice.github.io",2]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

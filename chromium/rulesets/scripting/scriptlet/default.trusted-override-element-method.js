@@ -390,7 +390,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 const argsList = [["HTMLAnchorElement.prototype.click","a[target=\"_blank\"][style]"],["HTMLAnchorElement.prototype.click","a[target=\"_blank\"]"]];
-const hostnamesMap = new Map([["cety.app",0],["cuty.me",0],["360news4u.net",1],["upns.*",1],["upn.one",1]]);
+const hostnamesMap = new Map([["cety.app",0],["cuty.me",0],["exnion.com",0],["360news4u.net",1],["upns.*",1],["upn.one",1]]);
 const exceptionsMap = new Map([]);
 const hasEntities = true;
 const hasAncestors = false;

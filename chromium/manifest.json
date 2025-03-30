@@ -296,7 +296,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2025.3.23.1241",
+  "version": "2025.3.30.1290",
   "web_accessible_resources": [
     {
       "resources": [
@@ -322,9 +322,9 @@
         "/web_accessible_resources/noop.txt",
         "/web_accessible_resources/noop-1s.mp4",
         "/web_accessible_resources/noop.css",
-        "/web_accessible_resources/1x1.gif",
         "/web_accessible_resources/2x2.png",
         "/web_accessible_resources/32x32.png",
+        "/web_accessible_resources/1x1.gif",
         "/web_accessible_resources/empty",
         "/web_accessible_resources/noop.html",
         "/web_accessible_resources/nofab.js",
@@ -341,6 +341,7 @@
         "/web_accessible_resources/google-analytics_ga.js",
         "/web_accessible_resources/outbrain-widget.js",
         "/web_accessible_resources/fingerprint2.js",
+        "/web_accessible_resources/fingerprint3.js",
         "/web_accessible_resources/amazon_ads.js",
         "/web_accessible_resources/chartbeat.js",
         "/web_accessible_resources/noop-vmap1.xml",

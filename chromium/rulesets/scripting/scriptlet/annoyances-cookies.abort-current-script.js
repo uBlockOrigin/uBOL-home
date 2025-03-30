@@ -370,8 +370,8 @@ function getRandomTokenFn() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["$","#modal-consent"],["spanLinkClick","#cookiebanner"],["alertCookie"],["doOnce"],["$","#kuk"],["$","#contentwrap"],["jQuery","synchronizeCookieNoteCookie"],["document.createElement","consent.cookiebot.com"],["document.createElement","delivery/cmp"],["$j","acceptTOS"],["document.createElement","admiral"]];
-const hostnamesMap = new Map([["vorteilshop.com",0],["hagengrote.de",0],["sanha-shop.com",1],["wizardshop.su",2],["aphorisma.de",3],["aphorisma-verlag.eu",3],["aphorisma.org",3],["romshub.com",4],["stadtundgruen.de",5],["tredy-fashion.de",6],["hildegardis-krankenhaus.de",7],["st-agatha-krankenhaus.de",7],["connect.de",8],["archiveofourown.org",9],["titantv.com",10],["musicfeeds.com.au",10],["minecraftalpha.net",10],["worldpopulationreview.com",10],["boston.com",10],["britannica.com",10],["download.mokeedev.com",10],["freep.com",10],["ijr.com",10],["inquirer.net",10],["legacy.com",10],["nationalreview.com",10],["nofilmschool.com",10],["order-order.com",10],["savvytime.com",10],["techlicious.com",10],["technicpack.net",10],["thedraftnetwork.com",10],["wrestlezone.com",10]]);
+const argsList = [["document.createElement","admiral"]];
+const hostnamesMap = new Map([["titantv.com",0],["musicfeeds.com.au",0],["minecraftalpha.net",0],["worldpopulationreview.com",0],["boston.com",0],["britannica.com",0],["download.mokeedev.com",0],["freep.com",0],["ijr.com",0],["inquirer.net",0],["legacy.com",0],["nationalreview.com",0],["nofilmschool.com",0],["order-order.com",0],["savvytime.com",0],["techlicious.com",0],["technicpack.net",0],["thedraftnetwork.com",0],["wrestlezone.com",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

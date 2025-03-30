@@ -30,11 +30,7 @@
 
 /******************************************************************************/
 
-function jsonPruneFetchResponse(...args) {
-    jsonPruneFetchResponseFn(...args);
-}
-
-function jsonPruneFetchResponseFn(
+function jsonPruneFetchResponse(
     rawPrunePaths = '',
     rawNeedlePaths = ''
 ) {

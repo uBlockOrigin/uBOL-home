@@ -861,5 +861,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||conist-cdn.com/*/iv/bo/"},"id":860,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||conist-cdn.com/*/9j/4a/"},"id":861,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||conist-cdn.com/dd/ad/"},"id":862,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["itrulli.com"],"resourceTypes":["image"],"urlFilter":".gif^"},"id":863,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["itrulli.com"],"resourceTypes":["image"],"urlFilter":".gif^"},"id":863,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||c.011st.com/img/common/sprites/sp_ad_2x.png"},"id":864,"priority":10}
 ]

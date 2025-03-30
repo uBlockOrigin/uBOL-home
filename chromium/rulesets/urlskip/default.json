@@ -104,6 +104,13 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?migmig\\.affilio\\.ir/api/v1/click(?:[^%.0-9a-z_-]|$)",
+  "steps": [
+   "?b64",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?freex2line\\.online/\\S*?/\\?redirect",
   "steps": [
    "?redirect",

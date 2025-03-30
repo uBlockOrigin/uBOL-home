@@ -903,7 +903,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/itudomino99."},"id":902,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"/hokidewa2."},"id":903,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"/macaudewa."},"id":904,"priority":10},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["3gpterbaru.com","duniaseksi.com","jurnalistekno.id","kontenterabox.com","tutwuri.id"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":905,"priority":30},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["jurnalistekno.id"],"requestDomains":["blogger.googleusercontent.com"],"resourceTypes":["image"]},"id":905,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||lytogame.com/images/partner/"},"id":906,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||lytogame.com/partner/"},"id":907,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||modifikasi.com/images/banner/"},"id":908,"priority":10},

@@ -18,15 +18,15 @@
 {
  "action": {
   "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
   },
   "type": "redirect"
  },
  "condition": {
   "initiatorDomains": [
-   "thichxemphim1.net"
+   "motchill69.com"
   ],
-  "urlFilter": "||thichxemphim1.net/fb88-28012023.mp4"
+  "urlFilter": "||motchill69.com/3s.m3u8"
  },
  "id": 2,
  "priority": 11
@@ -40,28 +40,12 @@
  },
  "condition": {
   "initiatorDomains": [
-   "motchill66.com"
-  ],
-  "urlFilter": "||motchill66.com/3s.m3u8"
- },
- "id": 3,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
    "phevkl.vin",
-   "viet69.soy"
+   "viet69.digital"
   ],
   "urlFilter": "||i2.vlstorage.com/da88_1080p.mp4"
  },
- "id": 4,
+ "id": 3,
  "priority": 11
 },
 {

@@ -105,6 +105,29 @@
    {
     "header": "content-security-policy",
     "operation": "append",
+    "value": "script-src 'self' * 'unsafe-inline'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "biquluo.info",
+   "zk01.net"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 6
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
     "value": "script-src 'self' * 'unsafe-eval'"
    }
   ],
