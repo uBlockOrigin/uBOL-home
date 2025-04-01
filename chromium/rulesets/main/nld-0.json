@@ -420,7 +420,7 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||te-les-koop.nl/advertenties.php"},"id":419,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||zilverengoudkopen.nl/banners/header.jpg"},"id":420,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||zilverengoudkopen.nl/banners/onder.jpg"},"id":421,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["hartvannederland.nl"],"urlFilter":"||assets.prod.webx.talpa.digital/ad/view/"},"id":422,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["538.nl","hartvannederland.nl"],"urlFilter":"||assets.prod.webx.talpa.digital/ad/view/"},"id":422,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["hardware.info"],"urlFilter":"||content.hwigroup.net/images^"},"id":423,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["tweakers.net"],"urlFilter":"||aa.tweakers.nl/json"},"id":424,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kijk.nl"],"urlFilter":"/prebid/ad.gif?user=*&adid="},"id":425,"priority":30},

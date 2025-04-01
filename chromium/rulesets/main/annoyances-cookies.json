@@ -49,7 +49,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/am2-gdpr-public.js"},"id":48,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/amasty/amgdpr/cookie.js"},"id":49,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/amasty/amgdpr/main.js"},"id":50,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["pedialyte.com","twilio.com"],"requestDomains":["consent.trustarc.com"]},"id":51,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["authy.com","pedialyte.com","twilio.com"],"requestDomains":["consent.trustarc.com"]},"id":51,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/amcookieapproval.min.js"},"id":52,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/amds-cookies.js"},"id":53,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/amp-consent-"},"id":54,"priority":10},

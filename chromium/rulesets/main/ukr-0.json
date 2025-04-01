@@ -341,5 +341,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["proagro.com.ua"],"resourceTypes":["script","stylesheet"],"urlFilter":"/advanced-ads-"},"id":340,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["diia.app","diiacityunited.org","fedoriv.com","gov.ua","spivdiia.com","spivdiia.org.ua"],"resourceTypes":["main_frame"],"urlFilter":"diia*.*/"},"id":341,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["book-ye.com.ua"],"requestDomains":["criteo.com"]},"id":342,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["gwaramedia.com"],"requestDomains":["js.hs-scripts.com"]},"id":343,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["gwaramedia.com"],"requestDomains":["js.hs-scripts.com"]},"id":343,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/assets/analytics/analytics.js"},"id":344,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["interfax.com.ua"],"resourceTypes":["image"],"urlFilter":"/media/ads"},"id":345,"priority":10}
 ]

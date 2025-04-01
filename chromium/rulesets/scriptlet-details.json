@@ -442,15 +442,6 @@
     }
    ],
    [
-    "trusted-click-element",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
     "spoof-css",
     {
      "hostnames": [
@@ -596,6 +587,15 @@
       "m1.nivod.tv"
      ],
      "world": "MAIN"
+    }
+   ],
+   [
+    "trusted-click-element",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "ISOLATED"
     }
    ],
    [
@@ -2264,6 +2264,7 @@
     "set-session-storage-item",
     {
      "hostnames": [
+      "chatgpt.com",
       "fantasyfootballhub.co.uk",
       "perplexity.ai",
       "semrush.com"
@@ -3646,8 +3647,7 @@
       "5.253.86.213",
       "ainzscans.net",
       "igobokep.cam",
-      "jenismac.com",
-      "siimanga.cyou"
+      "jenismac.com"
      ],
      "world": "MAIN"
     }
@@ -3656,6 +3656,7 @@
     "prevent-setTimeout",
     {
      "hostnames": [
+      "moviekhhd.biz",
       "netq.me"
      ],
      "world": "MAIN"
@@ -3783,6 +3784,54 @@
     }
    ],
    [
+    "abort-on-property-read",
+    {
+     "hostnames": [
+      "anesthesianotes.ir",
+      "coffeeapps.ir",
+      "nab-music.com",
+      "oila.tj",
+      "p30konkor.com",
+      "saednews.com",
+      "sclinic.ir",
+      "shahanmusic.ir",
+      "tak3da.com",
+      "tinroid.ir",
+      "yeknet.ir"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "abort-current-script",
+    {
+     "hostnames": [
+      "alaatv.com",
+      "androidparsi.ir",
+      "anesthesianotes.ir",
+      "bandmoviez.one",
+      "coffeeapps.ir",
+      "dailymobile.ir",
+      "farnet.io",
+      "fileboro.com",
+      "hamisheonline.com",
+      "iranstar.com",
+      "itarfand.com",
+      "jafekri.com",
+      "jeyran.net",
+      "mybia4music.com",
+      "p30konkor.com",
+      "sclinic.ir",
+      "searchline.ir",
+      "tabnak.ir",
+      "takmili.com",
+      "tarfandha.org",
+      "vakil.net"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "addEventListener-defuser",
     {
      "hostnames": [
@@ -3822,34 +3871,6 @@
     }
    ],
    [
-    "abort-current-script",
-    {
-     "hostnames": [
-      "alaatv.com",
-      "androidparsi.ir",
-      "bandmoviez.one",
-      "coffeeapps.ir",
-      "dailymobile.ir",
-      "farnet.io",
-      "fileboro.com",
-      "hamisheonline.com",
-      "iranstar.com",
-      "itarfand.com",
-      "jafekri.com",
-      "jeyran.net",
-      "mybia4music.com",
-      "p30konkor.com",
-      "sclinic.ir",
-      "searchline.ir",
-      "tabnak.ir",
-      "takmili.com",
-      "tarfandha.org",
-      "vakil.net"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "set-session-storage-item",
     {
      "hostnames": [
@@ -3870,24 +3891,6 @@
       "tabanmusic.com",
       "takmili.com",
       "texahang.org"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "abort-on-property-read",
-    {
-     "hostnames": [
-      "coffeeapps.ir",
-      "nab-music.com",
-      "oila.tj",
-      "p30konkor.com",
-      "saednews.com",
-      "sclinic.ir",
-      "shahanmusic.ir",
-      "tak3da.com",
-      "tinroid.ir",
-      "yeknet.ir"
      ],
      "world": "MAIN"
     }
@@ -5554,7 +5557,6 @@
       "e.mail.ru",
       "fastpic.org",
       "fm-app.ru",
-      "freesoft.ru",
       "in-poland.com",
       "iptv.org.ua",
       "kinoblin.ru",
@@ -5692,7 +5694,6 @@
       "aniqit.com",
       "anivod.com",
       "ashdi.vip",
-      "e.mail.ru",
       "igromania.ru",
       "ivanovonews.ru",
       "kanobu.ru",
@@ -5700,6 +5701,7 @@
       "kodik.info",
       "kodikdb.com",
       "kufar.by",
+      "mail.ru",
       "ok.ru",
       "pikabu.ru",
       "tortuga.wtf",
@@ -6157,6 +6159,15 @@
   "spa-1",
   [
    [
+    "addEventListener-defuser",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "abort-on-property-read",
     {
      "hostnames": [
@@ -6304,6 +6315,7 @@
       "infoinvest.org",
       "investimentosfacil.online",
       "megacurioso.online",
+      "meufinanceiro.org",
       "nossoprato.online",
       "receitasdafazenda.com",
       "receitasdocheff.online",
@@ -6339,35 +6351,6 @@
       "daemon-hentai.com"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "addEventListener-defuser",
-    {
-     "hostnames": [
-      "allcalidad.pro",
-      "canal12.com.sv",
-      "comandotorrents.org",
-      "depor.com",
-      "descargarhentaimf.xyz",
-      "desenhosanimados.site",
-      "elquintobeatle.com",
-      "empregoestagios.com",
-      "firepaste.com",
-      "g37.com.br",
-      "guideautoweb.com",
-      "irmaosdotados.net",
-      "lapumia.org",
-      "megafire.net",
-      "mundohentaioficial.com",
-      "peliculas8k.com",
-      "satcesc.com",
-      "seriesperu.com",
-      "softwareany.net",
-      "superflix.net",
-      "xerifetech.com"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -7621,7 +7604,6 @@
       "nettruyenrr.com",
       "nettruyenvie.com",
       "p.thoctv.com",
-      "phim.gaisexvl.pro",
       "phim18hd.cam",
       "phimmoi.sale",
       "phimmoinay.top",
@@ -7636,6 +7618,7 @@
       "sexdiary.club",
       "sexhd88.club",
       "sextop1.show",
+      "sextv18.pro",
       "sieutamphim.com",
       "soha.vn",
       "thanhnien.vn",
@@ -7646,7 +7629,7 @@
       "tram3d.me",
       "truyen247.pro",
       "truyen35.shop",
-      "truyengg.com",
+      "truyengg.net",
       "truyenqqtet.com",
       "truyenqqto.com",
       "truyensextv.com",
@@ -7655,8 +7638,8 @@
       "umetruyenhay.com",
       "ungtycomicsvip.org",
       "vailonxx.co",
-      "viet69.digital",
       "viet69.gl",
+      "viet69.meme",
       "viet69.tr",
       "vlxx.xxx",
       "vn2.xvideos69.xxx",
@@ -7691,7 +7674,7 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchiill.li",
+      "motchiill.vc",
       "motchill69.com",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
@@ -7699,12 +7682,12 @@
       "noitu.site",
       "ohaha79xxx.site",
       "ohaytv.id",
-      "phim.gaisexvl.pro",
       "phimchill.life",
       "player.phimapi.com",
       "plcdn.xyz",
       "quangcaoyenbai.com",
-      "sexhihizz.com",
+      "sexhihizz.net",
+      "sextv18.pro",
       "teamlanhlung3.shop",
       "thefaplive.com",
       "thichxemphim.top",
