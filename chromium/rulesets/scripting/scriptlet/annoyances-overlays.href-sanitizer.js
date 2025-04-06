@@ -26,80 +26,124 @@
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_removeAttr() {
+(function uBOL_hrefSanitizer() {
 
 /******************************************************************************/
 
-function removeAttr(
-    rawToken = '',
-    rawSelector = '',
-    behavior = ''
+function hrefSanitizer(
+    selector = '',
+    source = ''
 ) {
-    if ( typeof rawToken !== 'string' ) { return; }
-    if ( rawToken === '' ) { return; }
+    if ( typeof selector !== 'string' ) { return; }
+    if ( selector === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('remove-attr', rawToken, rawSelector, behavior);
-    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
-    const selector = tokens
-        .map(a => `${rawSelector}[${CSS.escape(a)}]`)
-        .join(',');
-    if ( safe.logLevel > 1 ) {
-        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
-    }
-    const asap = /\basap\b/.test(behavior);
-    let timerId;
-    const rmattrAsync = ( ) => {
-        if ( timerId !== undefined ) { return; }
-        timerId = safe.onIdle(( ) => {
-            timerId = undefined;
-            rmattr();
-        }, { timeout: 17 });
-    };
-    const rmattr = ( ) => {
-        if ( timerId !== undefined ) {
-            safe.offIdle(timerId);
-            timerId = undefined;
-        }
+    const logPrefix = safe.makeLogPrefix('href-sanitizer', selector, source);
+    if ( source === '' ) { source = 'text'; }
+    const sanitizeCopycats = (href, text) => {
+        let elems = [];
         try {
-            const nodes = document.querySelectorAll(selector);
-            for ( const node of nodes ) {
-                for ( const attr of tokens ) {
-                    if ( node.hasAttribute(attr) === false ) { continue; }
-                    node.removeAttribute(attr);
-                    safe.uboLog(logPrefix, `Removed attribute '${attr}'`);
-                }
-            }
+            elems = document.querySelectorAll(`a[href="${href}"`);
+        }
+        catch {
+        }
+        for ( const elem of elems ) {
+            elem.setAttribute('href', text);
+        }
+        return elems.length;
+    };
+    const validateURL = text => {
+        if ( typeof text !== 'string' ) { return ''; }
+        if ( text === '' ) { return ''; }
+        if ( /[\x00-\x20\x7f]/.test(text) ) { return ''; }
+        try {
+            const url = new URL(text, document.location);
+            return url.href;
         } catch {
         }
+        return '';
     };
-    const mutationHandler = mutations => {
-        if ( timerId !== undefined ) { return; }
-        let skip = true;
-        for ( let i = 0; i < mutations.length && skip; i++ ) {
-            const { type, addedNodes, removedNodes } = mutations[i];
-            if ( type === 'attributes' ) { skip = false; }
-            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
-                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
-                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
+    const extractParam = (href, source) => {
+        if ( Boolean(source) === false ) { return href; }
+        const recursive = source.includes('?', 1);
+        const end = recursive ? source.indexOf('?', 1) : source.length;
+        try {
+            const url = new URL(href, document.location);
+            let value = url.searchParams.get(source.slice(1, end));
+            if ( value === null ) { return href }
+            if ( recursive ) { return extractParam(value, source.slice(end)); }
+            return value;
+        } catch {
         }
-        if ( skip ) { return; }
-        asap ? rmattr() : rmattrAsync();
+        return href;
     };
-    const start = ( ) => {
-        rmattr();
-        if ( /\bstay\b/.test(behavior) === false ) { return; }
-        const observer = new MutationObserver(mutationHandler);
-        observer.observe(document, {
-            attributes: true,
-            attributeFilter: tokens,
-            childList: true,
-            subtree: true,
+    const extractURL = (elem, source) => {
+        if ( /^\[.*\]$/.test(source) ) {
+            return elem.getAttribute(source.slice(1,-1).trim()) || '';
+        }
+        if ( source === 'text' ) {
+            return elem.textContent
+                .replace(/^[^\x21-\x7e]+/, '') // remove leading invalid characters
+                .replace(/[^\x21-\x7e]+$/, '') // remove trailing invalid characters
+            ;
+        }
+        if ( source.startsWith('?') === false ) { return ''; }
+        const steps = source.replace(/(\S)\?/g, '\\1?').split(/\s+/);
+        const url = steps.length === 1
+            ? extractParam(elem.href, source)
+            : urlSkip(elem.href, false, steps);
+        if ( url === undefined ) { return; }
+        return url.replace(/ /g, '%20');
+    };
+    const sanitize = ( ) => {
+        let elems = [];
+        try {
+            elems = document.querySelectorAll(selector);
+        }
+        catch {
+            return false;
+        }
+        for ( const elem of elems ) {
+            if ( elem.localName !== 'a' ) { continue; }
+            if ( elem.hasAttribute('href') === false ) { continue; }
+            const href = elem.getAttribute('href');
+            const text = extractURL(elem, source);
+            const hrefAfter = validateURL(text);
+            if ( hrefAfter === '' ) { continue; }
+            if ( hrefAfter === href ) { continue; }
+            elem.setAttribute('href', hrefAfter);
+            const count = sanitizeCopycats(href, hrefAfter);
+            safe.uboLog(logPrefix, `Sanitized ${count+1} links to\n${hrefAfter}`);
+        }
+        return true;
+    };
+    let observer, timer;
+    const onDomChanged = mutations => {
+        if ( timer !== undefined ) { return; }
+        let shouldSanitize = false;
+        for ( const mutation of mutations ) {
+            if ( mutation.addedNodes.length === 0 ) { continue; }
+            for ( const node of mutation.addedNodes ) {
+                if ( node.nodeType !== 1 ) { continue; }
+                shouldSanitize = true;
+                break;
+            }
+            if ( shouldSanitize ) { break; }
+        }
+        if ( shouldSanitize === false ) { return; }
+        timer = safe.onIdle(( ) => {
+            timer = undefined;
+            sanitize();
         });
     };
-    runAt(( ) => { start(); }, safe.String_split.call(behavior, /\s+/));
+    const start = ( ) => {
+        if ( sanitize() === false ) { return; }
+        observer = new MutationObserver(onDomChanged);
+        observer.observe(document.body, {
+            subtree: true,
+            childList: true,
+        });
+    };
+    runAt(( ) => { start(); }, 'interactive');
 }
 
 function runAt(fn, when) {
@@ -321,13 +365,105 @@ function safeSelf() {
     return safe;
 }
 
+function urlSkip(url, blocked, steps, directive = {}) {
+    try {
+        let redirectBlocked = false;
+        let urlout = url;
+        for ( const step of steps ) {
+            const urlin = urlout;
+            const c0 = step.charCodeAt(0);
+            // Extract from hash
+            if ( c0 === 0x23 && step === '#' ) { // #
+                const pos = urlin.indexOf('#');
+                urlout = pos !== -1 ? urlin.slice(pos+1) : '';
+                continue;
+            }
+            // Extract from URL parameter name at position i
+            if ( c0 === 0x26 ) { // &
+                const i = (parseInt(step.slice(1)) || 0) - 1;
+                if ( i < 0 ) { return; }
+                const url = new URL(urlin);
+                if ( i >= url.searchParams.size ) { return; }
+                const params = Array.from(url.searchParams.keys());
+                urlout = decodeURIComponent(params[i]);
+                continue;
+            }
+            // Enforce https
+            if ( c0 === 0x2B && step === '+https' ) { // +
+                const s = urlin.replace(/^https?:\/\//, '');
+                if ( /^[\w-]:\/\//.test(s) ) { return; }
+                urlout = `https://${s}`;
+                continue;
+            }
+            // Decode
+            if ( c0 === 0x2D ) { // -
+                // Base64
+                if ( step === '-base64' ) {
+                    urlout = self.atob(urlin);
+                    continue;
+                }
+                // Safe Base64
+                if ( step === '-safebase64' ) {
+                    if ( urlSkip.safeBase64Replacer === undefined ) {
+                        urlSkip.safeBase64Map = { '-': '+', '_': '/' };
+                        urlSkip.safeBase64Replacer = s => urlSkip.safeBase64Map[s];
+                    }
+                    urlout = urlin.replace(/[-_]/g, urlSkip.safeBase64Replacer);
+                    urlout = self.atob(urlout);
+                    continue;
+                }
+                // URI component
+                if ( step === '-uricomponent' ) {
+                    urlout = decodeURIComponent(urlin);
+                    continue;
+                }
+                // Enable skip of blocked requests
+                if ( step === '-blocked' ) {
+                    redirectBlocked = true;
+                    continue;
+                }
+            }
+            // Regex extraction from first capture group
+            if ( c0 === 0x2F ) { // /
+                const re = directive.cache ?? new RegExp(step.slice(1, -1));
+                if ( directive.cache === null ) {
+                    directive.cache = re;
+                }
+                const match = re.exec(urlin);
+                if ( match === null ) { return; }
+                if ( match.length <= 1 ) { return; }
+                urlout = match[1];
+                continue;
+            }
+            // Extract from URL parameter
+            if ( c0 === 0x3F ) { // ?
+                urlout = (new URL(urlin)).searchParams.get(step.slice(1));
+                if ( urlout === null ) { return; }
+                if ( urlout.includes(' ') ) {
+                    urlout = urlout.replace(/ /g, '%20');
+                }
+                continue;
+            }
+            // Unknown directive
+            return;
+        }
+        const urlfinal = new URL(urlout);
+        if ( urlfinal.protocol !== 'https:' ) {
+            if ( urlfinal.protocol !== 'http:' ) { return; }
+        }
+        if ( blocked && redirectBlocked !== true ) { return; }
+        return urlout;
+    } catch {
+    }
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["oncontextmenu"],["onmousedown|onselectstart","#kol_content","complete"],["oncontextmenu","body","complete"],["oncopy"],["onselectstart"],["oncontextmenu|oncopy|ondragstart|onselect|onselectstart","body","complete"],["oncontextmenu|ondragstart|onselectstart"],["oncontextmenu|ondragstart|onselectstart|onkeydown"],["oncontextmenu|onselectstart"],["oncontextmenu|onselectstart|ondragstart"],["oncontextmenu|ondragstart|onkeydown|onmousedown|onselectstart"],["oncontextmenu|onselectstart|onselect|oncopy"],["oncontextmenu|onkeydown|onmousedown"],["oncontextmenu|onselectstart|ondragstart|oncopy|oncut|onpaste|onbeforecopy"],["onselectstart|ondragstart"],["oncontextmenu|onCopy"],["oncontextmenu|onmousedown|onselectstart"],["oncontextmenu|ondragstart|onselectstart|onkeydown|onmousedown"],["oncontextmenu|onkeydown"],["onkeydown"],["ondragstart|onselectstart"],["ondrop|ondragstart"],["onselectstart|ondragstart|oncontextmenu","div.story_text","complete"],["oncontextmenu|ondragstart"],["onmousemove|ondragstart|onselectstart|oncontextmenu","body"],["oncontextmenu","body"],["onselectstart|ondragstart|onmousedown|onkeydown|oncontextmenu","body"],["oncontextmenu|onselectstart|ondragstart|onclick"],["style","div#novelBoby","stay"],["oncontextmenu|onMouseDown|style"],["ondragstart|oncontextmenu"],["onContextMenu","body"],["onkeydown|oncontextmenu","body"],["oncontextmenu|oncopy"],["oncontextmenu|onselectstart|style","#body_game"],["oncontextmenu|onselectstart|onselect|ondragstart|ondrag","body"],["oncontextmenu|ondragstart|onselectstart","body"],["oncontextmenu|onselectstart|onmousedown","body"],["oncopy|oncontextmenu|onselectstart|onselect|ondragstart|ondrag|onbeforeprint|onafterprint","body"],["oncontextmenu|onselectstart","body"],["oncontextmenu|onDragStart|onSelectStart"],["oncontextmenu|ondragstart|onselectstart|onkeydown|oncopy|oncut"],["oncopy|oncontextmenu","body"],["oncontextmenu|ondragstart|oncopy|oncut",".select-none","stay"],["oncontextmenu|ondragstart|onselectstart|onselect|oncopy|onbeforecopy|onkeydown|onunload"],["oncontextmenu|onDragStart|onselectstart"],["onselectstart|oncontextmenu","body"],["oncontextmenu|onkeydown|onselectstart","body"],["oncopy|oncontextmenu|oncut|onpaste","input"],["oncontextmenu|oncopy|onselectstart"],["onbeforecopy|oncontextmenu|oncopy|ondragstart|onmouseup|onselect|onselectstart"],["oncontextmenu|ondragstart|onkeydown|onmousedown|onselectstart|style","body"],["style","body[style=\"user-select: none;\"]","stay"],["oncopy|oncut|onselectstart|style|unselectable","body","stay"],["oncontextmenu|onselectstart|oncut|oncopy"],["oncontextmenu|ondragstart|onselect"],["onpaste","#tr_mesaj > td > .text-input.validate\\[required\\]"],["oncontextmenu|onkeydown|onselectstart"],["oncontextmenu|ondragstart|ondrop|onselectstart","[oncontextmenu]","complete"],["oncontextmenu","#VdoPlayerDiv"],["oncontextmenu","a#download_link","stay"],["oncontextmenu","html"],["oncontextmenu|ondragstart|onkeydown|onmousedown|onselectstart|onselect|oncopy|onbeforecopy|onmouseup"],["onContextmenu|onMouseDown|onSelectStart"],["oncontextmenu|onmousedown|onselectstart",".all-lyrics"],["oncontextmenu|ondragstart|onselectstart","body","complete"],["oncontextmenu","img[oncontextmenu=\"return false;\"]","stay"],["onselectstart","body"],["onclick","[onclick=\"myFunction()\"]"],["oncontextmenu","[oncontextmenu=\"return false;\"]"],["oncontextmenu|ondragstart","","complete"],["oncontextmenu|ondragstart|onselectstart|onload|onblur"],["oncopy|oncut"],["onselectstart","html[onselectstart]"],["oncontextmenu|oncopy|oncut","[id^=\"chapter\"]","complete"],["oncontextmenu|oncopy|onselectstart","body","complete"],["onselectstart|oncopy","body","complete"]];
-const hostnamesMap = new Map([["pelispedia.*",0],["nulled.life",0],["liveonsat.com",0],["ligowiec.net",0],["radio5.com.pl",0],["romet.pl",0],["sat-charts.eu",0],["trentino.pl",0],["pcpobierz.pl",0],["animeunity.it",0],["megawypas.com",0],["meteo.org.pl",0],["banglainsider.com",0],["listatv.pl",0],["megatube.xxx",0],["elektro-plast.com.pl",0],["adnan-tech.com",0],["nzbstars.com",0],["nogizaka46.com",0],["suedkurier.de",0],["utamap.com",0],["hienzo.com",0],["debeste.de",0],["courseware.cemc.uwaterloo.ca",0],["sekai-kabuka.com",0],["daum.net",0],["fraudnavi.com",0],["zdravenportal.eu",0],["wasza-farma.pl",0],["goalup.live",0],["promotor-poz.kylos.pl",0],["img999.com",0],["wattpad.com",0],["articlesmania.me",0],["aksensei.com",0],["aepos.ap.gov.in",0],["mocah.org",0],["matzoo.pl",0],["warning.or.kr",0],["terramirabilis.ro",0],["smartkhabrinews.com",0],["sportsupa.com",0],["hoca4u.com",0],["4kwebplay.xyz",0],["qqwebplay.xyz",0],["lewblivehdplay.ru",0],["claplivehdplay.ru",0],["tutlehd4.com",0],["viwlivehdplay.ru",0],["kolnovel.org",1],["wasserstoff-leitprojekte.de",2],["musixmatch.com",2],["wouterplanet.com",2],["hansa-online.de",2],["ebc.com.br",3],["pandurul.ro",3],["livetennis.it",4],["djelfa.info",4],["virpe.com",4],["seoul.cs.land.to",4],["utorrentgamesps2.blogspot.com",4],["book.zongheng.com",4],["shumilou.com",4],["virpe.cc",4],["skionline.*",5],["singingdalong.blogspot.com",6],["neobux.com",6],["dba-oracle.com",6],["giromarilia.com.br",6],["northumberland-walks.co.uk",6],["foodviva.com",6],["shushan.zhangyue.net",6],["elahmad.com",6],["epitesti.ro",6],["uwayapply.com",6],["apornstories.com",7],["filmesonlinex.co",7],["j-lyric.net",8],["utaten.com",8],["as-selection.net",8],["tohkaishimpo.com",8],["iwanichi.co.jp",8],["runningnews.gr",9],["mainframegurukul.com",9],["clasicotas.org",9],["nostracasa.com.br",9],["enjoytaiwan.co.kr",9],["tercihiniyap.net",9],["gukjenews.com",9],["ohli365.vip",9],["insurance-corporate.blogspot.com",10],["gezimanya.com",11],["cepuluh.com",12],["tekloggers.com",12],["theitaliantimes.it",13],["hebrew4christians.com",14],["ryuryuko.blog90.fc2.com",15],["mdpr.jp",16],["japan-academy-prize.jp",16],["citpekalongan.com",17],["atribuna.com.br",18],["vinaurl.*",19],["newsforbolly.org",19],["coinurl.net",19],["diariodoiguacu.com.br",20],["metropoliaztm.pl",21],["quotev.com",22],["nekopoi.web.id",23],["sopot.net",24],["tv-asahi.co.jp",25],["erovideoseek.com",25],["kyonyuquest.com",25],["katosatoshi.jp",25],["kuroko-analyze.com",25],["gats.io",25],["promotor.pl",25],["bikesell.co.kr",25],["news.dwango.jp",25],["urbharat.xyz",25],["animatedshows.to",25],["miraculous.to",25],["cdn.gamemonetize.com",25],["aztravels.net",25],["downfile.site",25],["memangbau.com",25],["trangchu.news",25],["umk.co.jp",25],["streamservicehd.click",25],["eplayer.click",25],["olacast.live",25],["kamerabudaya.com",26],["visaonoticias.com",27],["alphapolis.co.jp",28],["money-sense.club",29],["kanjukulive.com",30],["radichubu.jp",31],["texte.work",32],["railf.jp",33],["spectank.jp",33],["mhwg.org",34],["anauk.net",35],["bonobono.com",36],["rdsong.com",36],["poplinks.idolmaster-official.jp",37],["bdb.com.pl",38],["kijyomatome-ch.com",39],["globaledu.jp",39],["loveplay123.com",40],["th-world.com",41],["korona.co.jp",42],["novelism.jp",43],["myhtebooks.com",44],["pixnet.net",45],["apk1s.com",46],["foxaholic.com",47],["auth.alipay.com",48],["30edu.com.cn",49],["doc.mbalib.com",50],["perangkatguruku.com",51],["naaree.com",52],["gardenia.net",53],["c315.cn",54],["uemeds.cn",55],["pttws.ptt.gov.tr",56],["leeyiding.com",57],["novelpia.com",58],["veblr.com",59],["thememypc.net",60],["ask4movie.*",61],["gakki.me",62],["tunegate.me",63],["oricon.co.jp",64],["lover93.net",65],["fantasytagtree.com",66],["selfstudys.com",67],["myfreemp3juices.cc",68],["welovemanga.one",69],["animefire.plus",70],["mrbenne.com",71],["xossipy.com",72],["esscctv.com",73],["foxteller.com",74],["blindhelp.net",75],["smalley.com",76]]);
+const argsList = [["a[href^=\"https://steamcommunity.com/linkfilter/?u=http\"]","?u"]];
+const hostnamesMap = new Map([["store.steampowered.com",0]]);
 const exceptionsMap = new Map([]);
-const hasEntities = true;
+const hasEntities = false;
 const hasAncestors = false;
 
 const collectArgIndices = (hn, map, out) => {
@@ -393,7 +529,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { removeAttr(...argsList[i]); }
+    try { hrefSanitizer(...argsList[i]); }
     catch { }
 }
 

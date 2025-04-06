@@ -599,5 +599,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||ukr.net/_events/"},"id":598,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ukr.net/click/"},"id":599,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ukr.net/track/"},"id":600,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["ping"],"urlFilter":"||jitsu.foxford.ru/api/s/s2s/batch|"},"id":601,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["ping"],"urlFilter":"||jitsu.foxford.ru/api/s/s2s/batch|"},"id":601,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["dzen.ru"],"resourceTypes":["script"],"urlFilter":"||yandex.ru/ads/system/context.js?|"},"id":602,"priority":30}
 ]

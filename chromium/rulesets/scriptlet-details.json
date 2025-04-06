@@ -322,6 +322,7 @@
       "emturbovid.com",
       "findjav.com",
       "globo.com",
+      "grtjobs.in",
       "javggvideo.xyz",
       "jetpunk.com",
       "kajernews.com",
@@ -409,6 +410,7 @@
       "godstoryinfo.com",
       "hihihaha1.xyz",
       "hostingdetailer.com",
+      "hydraxcdn.biz",
       "imagelovers.com",
       "infinityscans.net",
       "infinityscans.org",
@@ -1729,6 +1731,7 @@
     "trusted-set-cookie-reload",
     {
      "hostnames": [
+      "cockta.eu",
       "filen.io"
      ],
      "world": "ISOLATED"
@@ -2240,6 +2243,15 @@
      ],
      "world": "ISOLATED"
     }
+   ],
+   [
+    "href-sanitizer",
+    {
+     "hostnames": [
+      "store.steampowered.com"
+     ],
+     "world": "ISOLATED"
+    }
    ]
   ]
  ],
@@ -2301,6 +2313,7 @@
       "gamerant.com",
       "hartfordbusiness.com",
       "howtogeek.com",
+      "investing.com",
       "lawinsider.com",
       "makeuseof.com",
       "movieweb.com",
@@ -3929,24 +3942,25 @@
     }
    ],
    [
-    "abort-on-property-write",
-    {
-     "hostnames": [
-      "fileboro.com"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "json-prune",
     {
      "hostnames": [
       "app.snapp.taxi",
+      "fam.ir",
       "filmnet.ir",
       "play.namava.ir",
       "player.telewebion.com",
       "skyroom.online",
       "tmk.ir"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "abort-on-property-write",
+    {
+     "hostnames": [
+      "fileboro.com"
      ],
      "world": "MAIN"
     }
@@ -5541,73 +5555,7 @@
     "addEventListener-defuser",
     {
      "hostnames": [
-      "1progs.me",
-      "7days.ru",
-      "autonews.co.ua",
-      "biqle.org",
-      "biqle.ru",
-      "blackwot.ru",
-      "bonus-tv.ru",
-      "braz-rus.pro",
-      "buhplatforma.com.ua",
-      "carservic.ru",
-      "cdn.viqeo.tv",
-      "cq.ru",
-      "dzplatforma.com.ua",
-      "e.mail.ru",
-      "fastpic.org",
-      "fm-app.ru",
-      "in-poland.com",
-      "iptv.org.ua",
-      "kinoblin.ru",
-      "kinonews.ru",
-      "kp.kg",
-      "kp.kz",
-      "kp.md",
-      "kp.ru",
-      "lenta.ru",
-      "litnet.com",
-      "liveball.cc",
-      "liveball.uno",
-      "m.lenta.ru",
-      "medplatforma.com.ua",
-      "mk.ru",
-      "oblikbudget.com.ua",
-      "octavius.mail.ru",
-      "ohotniki.ru",
-      "oplatforma.com.ua",
-      "otvet.mail.ru",
-      "overclockers.ru",
-      "portalvirtualreality.ru",
-      "pro-op.com.ua",
-      "prokadry.com.ua",
-      "radiokp.ru",
-      "rambler.ru",
-      "rbc.ru",
-      "regnum.news",
-      "regnum.ru",
-      "romakatya.ru",
-      "rutube.ru",
-      "serialai.ru",
-      "shedevrum.ai",
-      "sibnet.ru",
-      "smotrim.ru",
-      "softonic.ru",
-      "sportkp.ru",
-      "sportrbc.ru",
-      "sports.ru",
-      "tproger.ru",
-      "trychatgpt.ru",
-      "tva.org.ua",
-      "tvapp.su",
-      "ufchgu.ru",
-      "ukrainianwall.com",
-      "wday.ru",
-      "woman.ru",
-      "www.fontanka.ru",
-      "www.vesti.ru",
-      "xv-ru.com",
-      "yootv.ru"
+      "*"
      ],
      "world": "MAIN"
     }
@@ -5770,11 +5718,7 @@
     "prevent-setInterval",
     {
      "hostnames": [
-      "anime-chan.me",
-      "aniu.ru",
-      "fatcatslim.ru",
-      "liveball.uno",
-      "volyninfo.com"
+      "*"
      ],
      "world": "MAIN"
     }
@@ -6085,6 +6029,7 @@
     "addEventListener-defuser",
     {
      "hostnames": [
+      "dzen.ru",
       "otvet.mail.ru"
      ],
      "world": "MAIN"
@@ -6159,6 +6104,15 @@
   "spa-1",
   [
    [
+    "set-constant",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "addEventListener-defuser",
     {
      "hostnames": [
@@ -6204,15 +6158,6 @@
    ],
    [
     "prevent-fetch",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "set-constant",
     {
      "hostnames": [
       "*"
@@ -6627,6 +6572,7 @@
      "hostnames": [
       "destination.se",
       "inet.se",
+      "inredningsvis.se",
       "sistaminuten.se"
      ],
      "world": "ISOLATED"
@@ -7356,15 +7302,6 @@
     }
    ],
    [
-    "adjust-setInterval",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "prevent-window-open",
     {
      "hostnames": [
@@ -7387,6 +7324,15 @@
       "kgrt.net"
      ],
      "world": "ISOLATED"
+    }
+   ],
+   [
+    "adjust-setInterval",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
     }
    ],
    [
@@ -7600,7 +7546,6 @@
       "lxmanga.sbs",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill69.com",
       "nettruyenrr.com",
       "nettruyenvie.com",
       "p.thoctv.com",
@@ -7616,7 +7561,7 @@
       "saigon24.net",
       "sayhentai.ink",
       "sexdiary.club",
-      "sexhd88.club",
+      "sexhd88.online",
       "sextop1.show",
       "sextv18.pro",
       "sieutamphim.com",
@@ -7633,7 +7578,7 @@
       "truyenqqtet.com",
       "truyenqqto.com",
       "truyensextv.com",
-      "truyenvn.nl",
+      "truyenvn.ac",
       "tuoitre.vn",
       "umetruyenhay.com",
       "ungtycomicsvip.org",
@@ -7645,8 +7590,9 @@
       "vn2.xvideos69.xxx",
       "vungoctuan.vn",
       "www.buomtv.xyz",
+      "www.motchill72.com",
       "www.toptruyentv3.pro",
-      "xemsex.co",
+      "xemsex.tube",
       "xnxx-sex-videos.com",
       "yurineko.my"
      ],
@@ -7674,8 +7620,7 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchiill.vc",
-      "motchill69.com",
+      "motchill.fit",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
@@ -7700,6 +7645,7 @@
       "viettoons.tv",
       "vinaurl.net",
       "www.diendancauduong.com",
+      "www.motchill72.com",
       "www.nettruyenupp.com",
       "www.phimdinhcao.online",
       "xemphimjav.com",

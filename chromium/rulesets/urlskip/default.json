@@ -842,6 +842,18 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?af\\.moshimo\\.com/af/c/click\\S*?(?:[^%.0-9a-z_-]|$)url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pub\\.a8\\.net/cgi-bin/redirect\\?ar=http",
+  "steps": [
+   "?ar"
+  ]
+ },
+ {
   "re": "/vp/player/to/\\?u=http",
   "steps": [
    "?u"
@@ -864,6 +876,12 @@
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",
    "-uricomponent"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?support\\.theguardian\\.com/\\S*?/guardian-ad-lite\\?returnaddress=http",
+  "steps": [
+   "?returnAddress"
   ]
  }
 ]

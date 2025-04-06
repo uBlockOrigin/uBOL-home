@@ -1661,6 +1661,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||venus-community.com/banner/"},"id":1660,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||verleihshop.de/gfx/partner/"},"id":1661,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||versandtarif.de^*?partnerid="},"id":1662,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["onvista.de"],"urlFilter":"||atf-tagmanager.de/config/*.js|"},"id":1663,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||visit-x.net/001/"},"id":1664,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||viversum.de/partnerprogramm/"},"id":1665,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||wazazu.com/iframe/"},"id":1666,"priority":10},

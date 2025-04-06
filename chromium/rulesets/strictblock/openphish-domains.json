@@ -1,9 +1,13 @@
 [
 {
  "action": {
-  "type": "block"
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
  },
  "condition": {
+  "regexFilter": "^https?://.*",
   "requestDomains": [
    "0.feixue316p.cloudns.biz",
    "0000-1t8.pages.dev",
@@ -37834,81 +37838,90 @@
    "zzzzzsdsjg.weebly.com"
   ],
   "resourceTypes": [
-   "main_frame",
-   "sub_frame"
+   "main_frame"
   ]
  },
  "id": 1,
- "priority": 10
+ "priority": 29
 },
 {
  "action": {
-  "type": "block"
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
  },
  "condition": {
+  "regexFilter": "^.*_gemini_usa-login\\.godaddysites\\.com(?:[^%.0-9a-z_-]|$).*",
   "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ],
-  "urlFilter": "_gemini_usa-login.godaddysites.com^"
+   "main_frame"
+  ]
  },
  "id": 2,
- "priority": 10
+ "priority": 29
 },
 {
  "action": {
-  "type": "block"
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
  },
  "condition": {
+  "regexFilter": "^.*_koucion_loguin\\.godaddysites\\.com(?:[^%.0-9a-z_-]|$).*",
   "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ],
-  "urlFilter": "_koucion_loguin.godaddysites.com^"
+   "main_frame"
+  ]
  },
  "id": 3,
- "priority": 10
+ "priority": 29
 },
 {
  "action": {
-  "type": "block"
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
  },
  "condition": {
+  "regexFilter": "^.*_upholdlogin_\\.godaddysites\\.com(?:[^%.0-9a-z_-]|$).*",
   "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ],
-  "urlFilter": "_upholdlogin_.godaddysites.com^"
+   "main_frame"
+  ]
  },
  "id": 4,
- "priority": 10
+ "priority": 29
 },
 {
  "action": {
-  "type": "block"
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
  },
  "condition": {
+  "regexFilter": "^.*_gemini_loginhh\\.godaddysites\\.com(?:[^%.0-9a-z_-]|$).*",
   "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ],
-  "urlFilter": "_gemini_loginhh.godaddysites.com^"
+   "main_frame"
+  ]
  },
  "id": 5,
- "priority": 10
+ "priority": 29
 },
 {
  "action": {
-  "type": "block"
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
  },
  "condition": {
+  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?google\\.com%e2%88%95admin@ajiei\\.zpoermkfasaf\\.cc(?:[^%.0-9a-z_-]|$).*",
   "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ],
-  "urlFilter": "||google.com%e2%88%95admin@ajiei.zpoermkfasaf.cc^"
+   "main_frame"
+  ]
  },
  "id": 6,
- "priority": 10
+ "priority": 29
 }
 ]

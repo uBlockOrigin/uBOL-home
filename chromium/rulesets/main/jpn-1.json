@@ -1535,5 +1535,9 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||three-pc.co.jp/column/wp-content/uploads/2023/10/popup2-"},"id":1534,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"?ph0nq=010"},"id":1535,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"?ph0ne=(050)-"},"id":1536,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["cfd","fun","shop","space","top","xyz"],"resourceTypes":["main_frame"],"urlFilter":"/mall/*.html?zenid="},"id":1537,"priority":10}
+{"action":{"type":"block"},"condition":{"requestDomains":["cfd","fun","shop","space","top","xyz"],"resourceTypes":["main_frame"],"urlFilter":"/mall/*.html?zenid="},"id":1537,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||image.nana-press.com/ad/"},"id":1538,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||nana-press.com/component/img/reminder_banner/"},"id":1539,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/rms/client/lo0101001.php"},"id":1540,"priority":10},
+{"action":{"type":"block"},"condition":{"requestDomains":["monster","online","space"],"resourceTypes":["main_frame"],"urlFilter":"|http://t-*/cz/"},"id":1541,"priority":10}
 ]

@@ -10,5 +10,11 @@
   "steps": [
    "?u"
   ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?steamcommunity\\.com/linkfilter/\\?u=http",
+  "steps": [
+   "?u"
+  ]
  }
 ]
