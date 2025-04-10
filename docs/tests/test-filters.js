@@ -130,6 +130,12 @@ jobs.push(async function x() {
     hide('#ffubo1 .fail');
 });
 
+jobs.push(function ffubo2() {
+    if ( self.ffubo2Sentinel !== undefined ) { return; }
+    if ( qs$('#ffubo2 iframe').contentWindow.ffubo2Sentinel === undefined ) { return; }
+    hide('#ffubo2 .fail');
+});
+
 jobs.push(( ) => {
     qs$('#toggleFilters').onclick = ( ) => {
         document.body.classList.toggle('showFilters');
