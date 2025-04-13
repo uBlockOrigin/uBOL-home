@@ -190,6 +190,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||thstats.com"},"id":189,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||thtrackingap.com"},"id":190,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tityx.com"},"id":191,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["fairyanime.net"],"resourceTypes":["image"],"urlFilter":"||cdend.com/wp-content/uploads/*.gif"},"id":192,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||truehits.in.th"},"id":193,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||truehits.net"},"id":194,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tynt.com"},"id":195,"priority":10},
@@ -748,5 +749,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["leoplayer7.com"],"resourceTypes":["media"],"urlFilter":"||rsc.cdn77.org/videos/ads-"},"id":748,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["leoplayer7.com"],"resourceTypes":["media"],"urlFilter":"||upfastfile.com/upload/"},"id":749,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||reborntrans.com/banner/"},"id":750,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["leoplayer7.com"],"requestDomains":["cdend.com","googles.video"],"resourceTypes":["media"]},"id":751,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["leoplayer7.com"],"requestDomains":["cdend.com","googles.video"],"resourceTypes":["media"]},"id":751,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||tonytonychopper.com/ads/"},"id":752,"priority":10}
 ]

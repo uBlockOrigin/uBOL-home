@@ -5,7 +5,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["brwinow.com","cenyrolnicze.pl","chwaszczyno.pl","darkplanet.pl","eoborniki.pl","fakty-wwl.pl","fishing-test.pl","glucholazyonline.com.pl","goniec.com","gostynin24.pl","informacjelokalne.pl","janosik.info","krakowski24.pl","livingroom24.pl","magazyngitarzysta.pl","msfera.pl","muzyczneradio.com.pl","muzyczneradio.pl","nowawrzesnia.pl","ogloszenia.gazeta.ie","orawa24.info","packaging-polska.pl","pogoda.info","portalrolniczy.info","przegladkoninski.pl","radiopoznan.fm","skawina24.com","skijumping.pl","tsk24.pl","tvrep.pl","tygodnik-krapkowicki.info","wkonin.pl","wroclawskiejedzenie.pl","wschodnik.pl","www.informacje.kolobrzeg.pl","www.konstrukcjeinzynierskie.pl","zywiecinfo.pl"],"regexFilter":"\\/(images|img|data|uploads|upload|assets)\\/banners\\/","resourceTypes":["image","object"]},"id":4,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["chip.pl"],"regexFilter":"^(http|https):\\/\\/www\\.chip\\.pl\\/wp-content\\/themes\\/_chip\\/[a-z]{4,6}\\/[a-z]{4,5}-[0-9]{4,5}","resourceTypes":["image"]},"id":5,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["abcvideo.cc","www.flashx.net"],"regexFilter":"^https?:\\/\\/[a-z]{3,15}\\.[a-z]{3,4}\\/[\\w\\W]{120,}","resourceTypes":["image","sub_frame","xmlhttprequest"]},"id":6,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"^(http|https):\\/\\/eurogamer-pl\\.eurogamer\\.pl\\/[\\w\\W]{250,400}","resourceTypes":["image","script","xmlhttprequest"]},"id":7,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/(g|www)\\.cda\\.pl\\/[\\w]{1,50}\\.php\\?[\\w\\W]{60,150}=[0-9]{10,20}","resourceTypes":["object","xmlhttprequest"]},"id":8,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":":\\/\\/[a-zA-Z0-9]{3,9}\\.quartic\\.pl\\/Ad\\/","resourceTypes":["script"]},"id":9,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["profil.wp.pl"],"regexFilter":"^https:\\/\\/[a-z]{2,14}\\.wp\\.pl\\/[a-zA-Z0-9_-]{200,}","resourceTypes":["script"]},"id":10,"priority":10},
@@ -23,7 +22,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["veecast.net"],"regexFilter":"^https?:\\/\\/[a-zA-Z0-9]{5,15}\\.(com|net)\\/[a-z]{4,10}\\/[0-9a-z.?=%A-Z-&]{60,100}","resourceTypes":["script"]},"id":22,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["waaw.to"],"regexFilter":"^https?:\\/\\/[a-zA-Z0-9.]{7,}\\.(xyz)\\/","resourceTypes":["script","sub_frame"]},"id":23,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["fileone.tv","vidoza.net"],"regexFilter":"^(http|https):\\/\\/[a-z\\W]{6,15}\\.[a-z]{2,5}\\/[a-z.]{4,10}\\.js","resourceTypes":["script"]},"id":24,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["crazynauka.pl","fandroid.com.pl","legiobiznes.pl"],"regexFilter":"\\/wp-content\\/uploads\\/[a-zA-Z]{8,}\\/[a-zA-Z]{8,}\\.js","resourceTypes":["script"]},"id":25,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["cda-hd.cc","cdahd.co","clipwatching.com","freedisc.pl","onlystream.tv"],"regexFilter":"^https?:\\/\\/[a-z]{3,10}\\.[a-z]{3,4}\\/[a-z]{3,10}\\.json","resourceTypes":["xmlhttprequest"]},"id":26,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["filman.cc","flashx.net"],"regexFilter":"^https?:\\/\\/[a-z]{3,15}\\.pro\\/[a-zA-Z0-9?=&]{10,}","resourceTypes":["xmlhttprequest"]},"id":27,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["streamtape.com"],"regexFilter":"^https?:\\/\\/[a-z]{3,10}\\.[a-z]{3,4}\\/[a-z]{1,10}\\.(json|html)","resourceTypes":["xmlhttprequest"]},"id":28,"priority":10},
@@ -39,7 +37,5 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["webcamera.pl"],"regexFilter":"^(https|http):\\/\\/static\\.webcamera\\.pl\\/[a-z-0-9]{3,15}\\.(png|jpg)","resourceTypes":["image"]},"id":38,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["rexona.com"],"regexFilter":"online_ads","resourceTypes":["image"]},"id":39,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.olx.pl"],"regexFilter":"js\\/tracking","resourceTypes":["script"]},"id":40,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["account.ubisoft.com"],"regexFilter":"tagcommander","resourceTypes":["script"]},"id":41,"priority":30},
-{"action":{"type":"allow"},"condition":{"regexFilter":"^(https|http):\\/\\/a-o\\.ninja\\/[0-9a-zA-z-]{10,200}\\.js","resourceTypes":["script"]},"id":42,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["exdb.net"],"regexFilter":"wp-content\\/plugins\\/deblocker","resourceTypes":["script"]},"id":43,"priority":30}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["account.ubisoft.com"],"regexFilter":"tagcommander","resourceTypes":["script"]},"id":41,"priority":30}
 ]

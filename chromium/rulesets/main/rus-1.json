@@ -55,7 +55,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/readcounter."},"id":54,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/sbtracking/pageview2?"},"id":55,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/services/counter.gif"},"id":56,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"/sourcebuster.min.js"},"id":57,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["smclinic-sol.ru"],"urlFilter":"/sourcebuster.min.js"},"id":57,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/stat/dspixel.js?"},"id":58,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/static/js/px.js?ch="},"id":59,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/statistic/pixel?"},"id":60,"priority":10},

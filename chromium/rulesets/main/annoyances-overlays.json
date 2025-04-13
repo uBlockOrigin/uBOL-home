@@ -244,7 +244,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||manoramaonline.com/acd/api/3.0/authorize/json?"},"id":243,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","requestDomains":["prod.theintercept.com"],"resourceTypes":["sub_frame"]},"id":244,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["sub_frame"],"urlFilter":"||dl.gmx.*/uim/connector/live/v2/nonfriendlyiframe.html"},"id":245,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||abstream.to/js/devtools-detector.js"},"id":246,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||abstream.to/js/devtools-detector*.js"},"id":246,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["wetransfer.com"],"urlFilter":"||wetransfer.net/*/adblocker"},"id":247,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js"},"id":248,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||lightboxcdn.com/vendor/"},"id":249,"priority":10},
@@ -283,8 +283,9 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||kunststoffe.de/ads_tracking.js"},"id":282,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||luckydesigner.space/adview_"},"id":283,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["asumanaksoy.com","blsplayer.com","comedyshow.to","daftmovie.xyz","freshlifecircle.com","superembeds.com"],"resourceTypes":["script"],"urlFilter":"||cdn.jsdelivr.net/npm/devtools-detector"},"id":284,"priority":10},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["cheatnetwork.eu","hbstack.dev","pokemonsleep.club"],"resourceTypes":["script"]},"id":285,"priority":30},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||thedarkblues.co.uk/applications/adsense/interface/js/adbd.js^"},"id":285,"priority":10},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["bigten.org","cheatnetwork.eu","hbstack.dev","sheffieldforum.co.uk"],"resourceTypes":["xmlhttprequest"]},"id":286,"priority":30},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||ads.twitcasting.tv/js/env_test/ads.js"},"id":287,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||media.cm/dev.js"},"id":288,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||assets.t3n.de/t3n-de/assets/t3n/2018/scripts/abdtn-"},"id":289,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["nintendolife.com","purexbox.com","pushsquare.com","timeextension.com"],"resourceTypes":["sub_frame"],"urlFilter":"||images."},"id":290,"priority":10},
@@ -293,5 +294,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||redditstatic.com/shreddit/en-us/xpromo-nsfw-bypassable-modal-desktop-"},"id":293,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||n2olabs.pro/devtool.js"},"id":294,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"},"id":295,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||404le.com/js/disable-devtool.min.js"},"id":296,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||404le.com/js/disable-devtool.min.js"},"id":296,"priority":10},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["autoweek.nl","cheatnetwork.eu","hbstack.dev","pokemonsleep.club","time.is"],"resourceTypes":["script"]},"id":297,"priority":30}
 ]

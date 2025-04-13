@@ -104,6 +104,12 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pelistop\\.xyz/\\S*?&url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?migmig\\.affilio\\.ir/api/v1/click(?:[^%.0-9a-z_-]|$)",
   "steps": [
    "?b64",
@@ -854,6 +860,26 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?royalroad\\.com/a/r\\?campaign=\\S*?&url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?duckduckgo\\.com/l/\\?uddg=http",
+  "steps": [
+   "?uddg"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?link\\.email\\.boyfriendtv\\.com/link/\\S*?/ahr0c",
+  "steps": [
+   "/link\\.email\\.boyfriendtv\\.com\\/link\\/[^\\/]+\\/(aHR0c[^\\/?#]+)/",
+   "-base64",
+   "+https"
+  ]
+ },
+ {
   "re": "/vp/player/to/\\?u=http",
   "steps": [
    "?u"
@@ -882,6 +908,13 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?support\\.theguardian\\.com/\\S*?/guardian-ad-lite\\?returnaddress=http",
   "steps": [
    "?returnAddress"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?px\\.a8\\.net/svt/ejp\\?\\S*?&a8ejpredirect=",
+  "steps": [
+   "?a8ejpredirect",
+   "-uricomponent"
   ]
  }
 ]

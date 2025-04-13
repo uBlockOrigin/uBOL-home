@@ -170,7 +170,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||img.ichigocandy.com/banners/"},"id":169,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||webcartop.jp/wp-content/themes/cartop/media/weds"},"id":170,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||webcartop.jp/wp-content/themes/cartop/images/banners/"},"id":171,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["allabout.co.jp"],"urlFilter":"||smt.docomo.ne.jp/portal/rec1/js/"},"id":172,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||smart-enta.com/wp-content/uploads/2024/02/sh_650x200_02.png.webp"},"id":172,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||media.misskeyusercontent.com/*.png?ad="},"id":173,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ufret.jp/img/sococo640200.jpg"},"id":174,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||poginfo.ddo.jp/pogs/images/pr/"},"id":175,"priority":10},
@@ -1539,5 +1539,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||image.nana-press.com/ad/"},"id":1538,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||nana-press.com/component/img/reminder_banner/"},"id":1539,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/rms/client/lo0101001.php"},"id":1540,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["monster","online","space"],"resourceTypes":["main_frame"],"urlFilter":"|http://t-*/cz/"},"id":1541,"priority":10}
+{"action":{"type":"block"},"condition":{"requestDomains":["monster","online","space"],"resourceTypes":["main_frame"],"urlFilter":"|http://t-*/cz/"},"id":1541,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["allabout.co.jp"],"requestDomains":["smt.docomo.ne.jp"],"resourceTypes":["script"]},"id":1542,"priority":10}
 ]

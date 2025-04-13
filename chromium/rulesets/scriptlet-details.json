@@ -232,7 +232,8 @@
       "japscan.lol",
       "needrom.com",
       "pussyspace.com",
-      "pussyspace.net"
+      "pussyspace.net",
+      "pvpoke-re.com"
      ],
      "world": "MAIN"
     }
@@ -359,6 +360,7 @@
       "gecmisi.com.tr",
       "genialne.pl",
       "globo.com",
+      "goflix.sbs",
       "governing.com",
       "govtech.com",
       "hoyolab.com",
@@ -1126,6 +1128,7 @@
       "klangmassage-moser.de",
       "klicks-kaufen.de",
       "klsys.com",
+      "kmsw.de",
       "knauer-galabau.de",
       "knoblauch.de",
       "kohlkg.de",
@@ -1935,75 +1938,12 @@
     }
    ],
    [
-    "prevent-setInterval",
+    "trusted-replace-argument",
     {
      "hostnames": [
       "*"
      ],
      "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-xhr",
-    {
-     "hostnames": [
-      "maxedtech.com",
-      "neilpatel.com",
-      "nsmb.com",
-      "nusantararom.org",
-      "solarmagazine.nl",
-      "unidivers.fr"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "abort-on-stack-trace",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "noeval-if",
-    {
-     "hostnames": [
-      "alexsportz.online",
-      "freetvsports.xyz",
-      "isekaipalace.com",
-      "magesy.blog",
-      "magesypro.pro",
-      "movie-web.app",
-      "romviet.com",
-      "runmods.com",
-      "seriesperu.com",
-      "sportea.online"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "adjust-setInterval",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "trusted-replace-node-text",
-    {
-     "hostnames": [
-      "baumbet.ro",
-      "heidisql.com",
-      "karsaz-law.com",
-      "mskmangaz.blogspot.com",
-      "novelpia.com"
-     ],
-     "world": "ISOLATED"
     }
    ],
    [
@@ -2022,15 +1962,6 @@
       "wrtn.jp"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "trusted-replace-argument",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -2183,6 +2114,69 @@
     }
    ],
    [
+    "prevent-setInterval",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "prevent-xhr",
+    {
+     "hostnames": [
+      "maxedtech.com",
+      "neilpatel.com",
+      "nsmb.com",
+      "nusantararom.org",
+      "solarmagazine.nl",
+      "unidivers.fr"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "noeval-if",
+    {
+     "hostnames": [
+      "alexsportz.online",
+      "freetvsports.xyz",
+      "isekaipalace.com",
+      "magesy.blog",
+      "magesypro.pro",
+      "movie-web.app",
+      "romviet.com",
+      "runmods.com",
+      "seriesperu.com",
+      "sportea.online"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "abort-on-stack-trace",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "trusted-replace-node-text",
+    {
+     "hostnames": [
+      "baumbet.ro",
+      "heidisql.com",
+      "karsaz-law.com",
+      "mskmangaz.blogspot.com",
+      "novelpia.com"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
     "trusted-set-cookie",
     {
      "hostnames": [
@@ -2191,6 +2185,15 @@
       "substack.com"
      ],
      "world": "ISOLATED"
+    }
+   ],
+   [
+    "adjust-setInterval",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
     }
    ],
    [
@@ -3686,6 +3689,7 @@
       "kimcilonly.site",
       "kiryuu.id",
       "kiryuu.org",
+      "kiryuu01.com",
       "komikcast02.com",
       "njavtv.com",
       "subindojav.cc"
@@ -4472,6 +4476,15 @@
     }
    ],
    [
+    "href-sanitizer",
+    {
+     "hostnames": [
+      "figure-times.com"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
     "json-prune",
     {
      "hostnames": [
@@ -4865,6 +4878,18 @@
   "nld-0",
   [
    [
+    "abort-on-property-read",
+    {
+     "hostnames": [
+      "autotrader.nl",
+      "hardware.info",
+      "indeleiderstrui.nl",
+      "tweakers.net"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "prevent-setTimeout",
     {
      "hostnames": [
@@ -4909,17 +4934,6 @@
     {
      "hostnames": [
       "goplay.be"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "abort-on-property-read",
-    {
-     "hostnames": [
-      "hardware.info",
-      "indeleiderstrui.nl",
-      "tweakers.net"
      ],
      "world": "MAIN"
     }
@@ -5100,12 +5114,9 @@
      "hostnames": [
       "autocentrum.pl",
       "bankier.pl",
-      "cvninja.pl",
-      "darmowa-tv.ws",
       "demotywatory.pl",
       "dziennik.pl",
       "eurogamer.pl",
-      "exdb.net",
       "facet.wp.pl",
       "facetemjestem.pl",
       "filiser.tv",
@@ -5117,15 +5128,10 @@
       "joemonster.org",
       "kobieta.pl",
       "komixxy.pl",
-      "naszemiasto.pl",
       "playpuls.pl",
-      "roweroweporady.pl",
-      "shinden.pl",
       "teleshow.wp.pl",
       "transfery.info",
-      "tvn24.pl",
-      "v10.pl",
-      "warezdark.pl"
+      "v10.pl"
      ],
      "world": "MAIN"
     }
@@ -5134,52 +5140,16 @@
     "prevent-setTimeout",
     {
      "hostnames": [
-      "abczdrowie.pl",
-      "aternos.org",
-      "autokult.pl",
       "calcoolator.pl",
-      "dom.wp.pl",
-      "elektroda.pl",
-      "facet.wp.pl",
-      "film.wp.pl",
-      "filmweb.pl",
-      "finanse.wp.pl",
-      "fotoblogia.pl",
-      "gadzetomania.pl",
-      "gry.wp.pl",
-      "gwiazdy.wp.pl",
       "kafeteria.pl",
-      "karmopedia.pl",
-      "kobieta.wp.pl",
-      "komorkomania.pl",
-      "ksiazki.wp.pl",
-      "kuchnia.wp.pl",
-      "money.pl",
-      "moto.wp.pl",
       "naekranie.pl",
       "open.fm",
-      "opinie.wp.pl",
-      "parenting.pl",
       "pl.vpnmentor.com",
-      "playpuls.pl",
-      "pogoda.wp.pl",
       "polygamia.pl",
       "pudelek.pl",
       "purepc.pl",
-      "start.me",
-      "tech.wp.pl",
-      "techsetter.pl",
-      "teleshow.wp.pl",
-      "temi.pl",
-      "turystyka.wp.pl",
-      "uroda.abczdrowie.pl",
-      "wawalove.wp.pl",
-      "webinsider.pl",
-      "wiadomosci.wp.pl",
-      "wideo.wp.pl",
       "wp.pl",
-      "www.dobreprogramy.pl",
-      "www.o2.pl"
+      "www.dobreprogramy.pl"
      ],
      "world": "MAIN"
     }
@@ -5188,27 +5158,14 @@
     "abort-current-script",
     {
      "hostnames": [
-      "cdahd.co",
       "czasdzieci.pl",
-      "dziennik.pl",
       "filmweb.pl",
       "filmy69.pl",
       "hdtvpolska.com",
-      "karmopedia.pl",
-      "kresy.pl",
-      "mambiznes.pl",
       "naekranie.pl",
-      "natemat.pl",
       "otube.pl",
-      "prnews.pl",
-      "sadeczanin.info",
-      "skript.pl",
-      "smartage.pl",
       "tubagliwic.pl",
-      "tubawyszkowa.pl",
-      "twojetv.ws",
-      "weszlo.com",
-      "zambrow.org"
+      "tubawyszkowa.pl"
      ],
      "world": "MAIN"
     }
@@ -5219,13 +5176,8 @@
      "hostnames": [
       "animezone.pl",
       "anyfiles.pl",
-      "astroweb.pl",
-      "epidemia-koronawirus.pl",
-      "exdb.net",
-      "kurnik.pl",
       "pcworld.pl",
       "sportowefakty.wp.pl",
-      "trojmiasto.pl",
       "wp.pl",
       "www.wp.pl"
      ],
@@ -5236,20 +5188,11 @@
     "set-constant",
     {
      "hostnames": [
-      "acmilan.com.pl",
-      "cdahd.co",
-      "dniwolne.eu",
-      "interia.pl",
-      "kitsune-subs.anime-odcinki.pl",
-      "miastakobiet.pl",
       "money.pl",
       "open.fm",
       "opensubtitles.org",
-      "pomponik.pl",
       "profil.wp.pl",
       "sportowefakty.wp.pl",
-      "stronazdrowia.pl",
-      "synonimy.pl",
       "www.elektroda.pl",
       "www.wp.pl"
      ],
@@ -5293,45 +5236,10 @@
     "addEventListener-defuser",
     {
      "hostnames": [
-      "darmowa-telewizja.online",
-      "dziennikbaltycki.pl",
-      "dzienniklodzki.pl",
-      "dziennikpolski24.pl",
-      "dziennikzachodni.pl",
-      "echodnia.eu",
-      "eska.pl",
-      "exdb.net",
-      "expressbydgoski.pl",
-      "expressilustrowany.pl",
-      "gazetakrakowska.pl",
-      "gazetalubuska.pl",
-      "gazetawroclawska.pl",
-      "gk24.pl",
-      "gloswielkopolski.pl",
-      "gol24.pl",
-      "gp24.pl",
-      "gra.pl",
-      "gs24.pl",
       "kafeteria.pl",
-      "kurierlubelski.pl",
-      "motofakty.pl",
-      "naszemiasto.pl",
-      "nowiny24.pl",
-      "nowosci.com.pl",
-      "nto.pl",
       "open.fm",
-      "polskatimes.pl",
       "polygamia.pl",
-      "pomorska.pl",
-      "poranny.pl",
-      "pudelek.pl",
-      "sportowy24.pl",
-      "strefaagro.pl",
-      "strefabiznesu.pl",
-      "stronakobiet.pl",
-      "telemagazyn.pl",
-      "to.com.pl",
-      "wspolczesna.pl"
+      "pudelek.pl"
      ],
      "world": "MAIN"
     }
@@ -5340,9 +5248,7 @@
     "prevent-setInterval",
     {
      "hostnames": [
-      "naekranie.pl",
-      "playpuls.pl",
-      "zspnr1.lowicz.pl"
+      "naekranie.pl"
      ],
      "world": "MAIN"
     }
@@ -5351,7 +5257,6 @@
     "noeval-if",
     {
      "hostnames": [
-      "shinden.pl",
       "streamin.to"
      ],
      "world": "MAIN"
@@ -5616,6 +5521,7 @@
       "opennet.me",
       "opennet.ru",
       "pikabu.ru",
+      "portalvirtualreality.ru",
       "rustorka.com",
       "rustorka.net",
       "rustorka.top",
@@ -6113,16 +6019,7 @@
     }
    ],
    [
-    "addEventListener-defuser",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "abort-on-property-read",
+    "prevent-fetch",
     {
      "hostnames": [
       "*"
@@ -6152,15 +6049,6 @@
       "raulprietofernandez.net",
       "superhq.net",
       "tunovelaligera.com"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-fetch",
-    {
-     "hostnames": [
-      "*"
      ],
      "world": "MAIN"
     }
@@ -6296,6 +6184,44 @@
       "daemon-hentai.com"
      ],
      "world": "ISOLATED"
+    }
+   ],
+   [
+    "abort-on-property-read",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "addEventListener-defuser",
+    {
+     "hostnames": [
+      "allcalidad.pro",
+      "canal12.com.sv",
+      "comandotorrents.org",
+      "depor.com",
+      "descargarhentaimf.xyz",
+      "desenhosanimados.site",
+      "elquintobeatle.com",
+      "empregoestagios.com",
+      "firepaste.com",
+      "g37.com.br",
+      "guideautoweb.com",
+      "irmaosdotados.net",
+      "lapumia.org",
+      "megafire.net",
+      "mundohentaioficial.com",
+      "peliculas8k.com",
+      "satcesc.com",
+      "seriesperu.com",
+      "softwareany.net",
+      "superflix.net",
+      "xerifetech.com"
+     ],
+     "world": "MAIN"
     }
    ],
    [
@@ -7482,6 +7408,7 @@
       "ivona.ua",
       "liga.net",
       "meteofor.com.ua",
+      "newsyou.info",
       "pravda.com.ua",
       "proagro.com.ua",
       "real-vin.com",
@@ -7512,13 +7439,13 @@
       "animevietsub.lol",
       "cafef.vn",
       "cdn2.insure885.fun",
-      "cliphot69.homes",
+      "cliphot69.onl",
       "cliphot69.pics",
       "cunghocvui.com",
-      "damconuong.love",
+      "damconuong.live",
       "demo.14412882.com",
-      "doctruyen3qui5.pro",
-      "dualeotruyenbotx.com",
+      "doctruyen3qui6.pro",
+      "dualeotruyeny.com",
       "economic45882.shop",
       "freeplayervideo.com",
       "game8.vn",
@@ -7535,7 +7462,6 @@
       "ihentai.men",
       "imail.edu.vn",
       "ios.codevn.net",
-      "jav.sexviet88.link",
       "javhd.shop",
       "javtiful.com",
       "kenh14.vn",
@@ -7543,10 +7469,10 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "lrepacks.net",
-      "lxmanga.sbs",
+      "lxmanga.link",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "nettruyenrr.com",
+      "nettruyenr.com",
       "nettruyenvie.com",
       "p.thoctv.com",
       "phim18hd.cam",
@@ -7567,7 +7493,7 @@
       "sieutamphim.com",
       "soha.vn",
       "thanhnien.vn",
-      "thiendia.vin",
+      "thiendia.pro",
       "tinsoikeo.live",
       "top1phimsex.com",
       "tram3d.com",
@@ -7583,16 +7509,17 @@
       "umetruyenhay.com",
       "ungtycomicsvip.org",
       "vailonxx.co",
-      "viet69.gl",
-      "viet69.meme",
-      "viet69.tr",
-      "vlxx.xxx",
+      "viet69.lc",
+      "viet69.tools",
+      "viet69moi.net",
+      "vip.sexviet88.xyz",
+      "vlxx.my",
       "vn2.xvideos69.xxx",
       "vungoctuan.vn",
-      "www.buomtv.xyz",
-      "www.motchill72.com",
-      "www.toptruyentv3.pro",
-      "xemsex.tube",
+      "www.buomtv.org",
+      "www.motchill75.com",
+      "www.toptruyentv5.pro",
+      "xemsex.sex",
       "xnxx-sex-videos.com",
       "yurineko.my"
      ],
@@ -7605,13 +7532,12 @@
      "hostnames": [
       "aluminiuminsider.com",
       "anh.moe",
-      "anime4.site",
-      "anime47.one",
+      "anime47.ink",
+      "anime5.site",
       "animevietsubs.net",
       "aoe.vn",
       "audiotruyenfull.com",
       "bluphim3.com",
-      "cdn2.blueskychilling.online",
       "hayhaytv.site",
       "herotruyen.com",
       "hoctot.hocmai.vn",
@@ -7626,12 +7552,12 @@
       "mv.phimmoiaz.cc",
       "noitu.site",
       "ohaha79xxx.site",
-      "ohaytv.id",
+      "ohaytv.org",
       "phimchill.life",
       "player.phimapi.com",
       "plcdn.xyz",
       "quangcaoyenbai.com",
-      "sexhihizz.net",
+      "sexhihiz.ac",
       "sextv18.pro",
       "teamlanhlung3.shop",
       "thefaplive.com",
@@ -7645,11 +7571,11 @@
       "viettoons.tv",
       "vinaurl.net",
       "www.diendancauduong.com",
-      "www.motchill72.com",
+      "www.motchill75.com",
       "www.nettruyenupp.com",
       "www.phimdinhcao.online",
       "xemphimjav.com",
-      "xnhau.fm",
+      "xnhau.run",
       "ytstv.me",
       "znews.vn"
      ],
@@ -7698,11 +7624,11 @@
       "tailieumoi.vn",
       "thanhnien.vn",
       "tuoitre.vn",
-      "vaoroi14.live",
       "vndoc.com",
       "ww1.ditnhau.cc",
       "www.gvnvh.net",
-      "www.iosviet.com"
+      "www.iosviet.com",
+      "xoilaczzza.tv"
      ],
      "world": "MAIN"
     }

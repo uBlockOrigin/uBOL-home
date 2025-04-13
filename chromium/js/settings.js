@@ -69,7 +69,7 @@ function renderWidgets() {
 
     {
         const input = qs$('#strictBlockMode input[type="checkbox"]');
-        const canStrictBlock = cachedRulesetData.defaultFilteringMode > 1;
+        const canStrictBlock = cachedRulesetData.hasOmnipotence;
         input.checked = canStrictBlock && cachedRulesetData.strictBlockMode;
         dom.attr(input, 'disabled', canStrictBlock ? null : '');
     }
@@ -102,17 +102,18 @@ async function onFilteringModeChange(ev) {
     const newLevel = parseInt(input.value, 10);
 
     switch ( newLevel ) {
-    case 1: { // Revoke broad permissions
-        await browser.permissions.remove({
-            origins: [ '<all_urls>' ]
+    case 1: {
+        const actualLevel = await sendMessage({
+            what: 'setDefaultFilteringMode',
+            level: newLevel,
         });
-        cachedRulesetData.defaultFilteringMode = 1;
+        cachedRulesetData.defaultFilteringMode = actualLevel;
         break;
     }
     case 2:
-    case 3: { // Request broad permissions
+    case 3: {
         const granted = await browser.permissions.request({
-            origins: [ '<all_urls>' ]
+            origins: [ '<all_urls>' ],
         });
         if ( granted ) {
             const actualLevel = await sendMessage({
@@ -120,6 +121,7 @@ async function onFilteringModeChange(ev) {
                 level: newLevel,
             });
             cachedRulesetData.defaultFilteringMode = actualLevel;
+            cachedRulesetData.hasOmnipotence = true;
         }
         break;
     }
@@ -229,6 +231,13 @@ listen.onmessage = ev => {
             }
             const combined = Array.from(new Set([ ...message.trustedSites, ...staged ]));
             local.trustedSites = combined;
+            render = true;
+        }
+    }
+
+    if ( message.hasOmnipotence !== undefined ) {
+        if ( message.hasOmnipotence !== local.hasOmnipotence ) {
+            local.hasOmnipotence = message.hasOmnipotence;
             render = true;
         }
     }
