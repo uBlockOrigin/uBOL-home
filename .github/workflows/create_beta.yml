@@ -61,6 +61,15 @@ jobs:
           cd - > /dev/null
           mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.firefox.mv3.xpi \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.firefox.xpi
+      # Safari
+      - name: Build Safari uBOLite beta
+        run: |
+          UBOL_REPO_DIR=$(pwd)
+          cd $UBLOCK_REPO_DIR
+          tools/make-mv3.sh safari ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
+          cd - > /dev/null
+          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.safari.mv3.zip \
+             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.safari.zip
       - name: Create GitHub beta release
         id: create_beta_release
         uses: softprops/action-gh-release@v2
@@ -79,7 +88,7 @@ jobs:
             **This is a beta version.**
             
             Based on <https://github.com/gorhill/uBlock/tree/${{ env.UBO_VERSION }}>
-      - name: Upload Chromium uBOLite beta
+      - name: Upload uBOLite beta packages
         uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -89,3 +98,4 @@ jobs:
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.edge.zip
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.firefox.xpi
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.safari.zip
