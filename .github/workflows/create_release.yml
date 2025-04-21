@@ -94,12 +94,6 @@ jobs:
             - Chromium: Download the [${{ env.TAGNAME }}.chromium.mv3.zip](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.chromium.mv3.zip) package below, unzip, navigate to `chrome://extensions/` in your browser, then [tell the browser to load the extension](https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outside-the-chrome-web-store/24577660#24577660). You will have to update the extension manually.
             
             </details>
-      - name: Upload uBOLite MV3 packages
-        uses: softprops/action-gh-release@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ env.TAGNAME }}
           files: |
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.EDGE_PACKAGE }}
