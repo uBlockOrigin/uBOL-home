@@ -66,6 +66,25 @@
 {
  "action": {
   "redirect": {
+   "extensionPath": "/web_accessible_resources/click2load.html"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "nordiskradio.se"
+  ],
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "||peertube.se^"
+ },
+ "id": 5,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
    "extensionPath": "/web_accessible_resources/noop.js"
   },
   "type": "redirect"
@@ -96,27 +115,6 @@
   "urlFilter": "?t="
  },
  "id": 9,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/click2load.html"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "nordiskradio.se"
-  ],
-  "requestDomains": [
-   "peertube.se"
-  ],
-  "resourceTypes": [
-   "sub_frame"
-  ]
- },
- "id": 10,
  "priority": 11
 },
 {

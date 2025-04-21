@@ -115,28 +115,6 @@
 },
 {
  "action": {
-  "type": "block"
- },
- "condition": {
-  "domainType": "thirdParty",
-  "excludedInitiatorDomains": [
-   "0.0.0.0",
-   "127.0.0.1",
-   "[::1]",
-   "[::]",
-   "app.plex.tv",
-   "local",
-   "localhost"
-  ],
-  "requestDomains": [
-   "plex.direct"
-  ]
- },
- "id": 4,
- "priority": 10
-},
-{
- "action": {
   "type": "allow"
  },
  "condition": {
@@ -164,11 +142,9 @@
    "organspende-register.de",
    "pcsupport.lenovo.com"
   ],
-  "requestDomains": [
-   "127.0.0.1"
-  ]
+  "urlFilter": "||127.0.0.1^"
  },
- "id": 5,
+ "id": 4,
  "priority": 30
 },
 {
@@ -180,11 +156,9 @@
    "apollographql.com",
    "deutsche-rentenversicherung.de"
   ],
-  "requestDomains": [
-   "localhost"
-  ]
+  "urlFilter": "||localhost^"
  },
- "id": 6,
+ "id": 5,
  "priority": 30
 },
 {
@@ -196,14 +170,12 @@
    "battlelog.battlefield.com",
    "figma.com"
   ],
-  "requestDomains": [
-   "127.0.0.1"
-  ],
   "resourceTypes": [
    "xmlhttprequest"
-  ]
+  ],
+  "urlFilter": "||127.0.0.1^"
  },
- "id": 7,
+ "id": 6,
  "priority": 30
 },
 {
@@ -214,14 +186,12 @@
   "initiatorDomains": [
    "www.faceit.com"
   ],
-  "requestDomains": [
-   "localhost"
-  ],
   "resourceTypes": [
    "websocket"
-  ]
+  ],
+  "urlFilter": "||localhost^"
  },
- "id": 8,
+ "id": 7,
  "priority": 30
 },
 {
@@ -233,11 +203,29 @@
   "initiatorDomains": [
    "musicbrainz.org"
   ],
-  "requestDomains": [
-   "127.0.0.1"
-  ]
+  "urlFilter": "||127.0.0.1^"
+ },
+ "id": 8,
+ "priority": 30
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "excludedInitiatorDomains": [
+   "0.0.0.0",
+   "127.0.0.1",
+   "[::1]",
+   "[::]",
+   "app.plex.tv",
+   "local",
+   "localhost"
+  ],
+  "urlFilter": "||plex.direct^"
  },
  "id": 9,
- "priority": 30
+ "priority": 10
 }
 ]

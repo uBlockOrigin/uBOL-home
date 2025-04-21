@@ -15,6 +15,7 @@
    "ad.terra.com",
    "ad.terra.com.mx",
    "adclient-uol.lp.uol.com.br",
+   "ads-redis.ecn.cl",
    "ads.elpais.com.uy",
    "ads.enrt.eu",
    "ads.eorezo.com",
@@ -102,6 +103,22 @@
   ]
  },
  "id": 1,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?ads\\.impulsosocial\\.online(?:[^%.0-9a-z_-]|$).*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 2,
  "priority": 29
 }
 ]

@@ -36,7 +36,6 @@
    "creativcdn.net",
    "crwdcntrl.net",
    "cumult.com",
-   "femeisingure.net",
    "flx1.com",
    "gazeta-romaneasca.ro",
    "get-in-shape.beauty",
@@ -100,7 +99,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?easyaff\\.net/\\?ref.*",
+  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?femeisingure\\.net(?:[^%.0-9a-z_-]|$).*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -116,7 +115,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^.*/click\\?impid=.*",
+  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?easyaff\\.net/\\?ref.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -132,12 +131,28 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^.*&ad_campaign_id.*",
+  "regexFilter": "^.*/click\\?impid=.*",
   "resourceTypes": [
    "main_frame"
   ]
  },
  "id": 4,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^.*&ad_campaign_id.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 5,
  "priority": 29
 }
 ]

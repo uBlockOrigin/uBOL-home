@@ -6,7 +6,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||bisko.gjirafa.tech"},"id":5,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||bisko.gjirafa.net"},"id":6,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||https://bisko.gjirafa.net/web/gjirafatest-sdk.js"},"id":7,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["gjc.gjirafa.com"]},"id":8,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||gjc.gjirafa.com^"},"id":8,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||kohajone.com/wp-content/uploads/2018/04/facile.png"},"id":9,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||kohajone.com/wp-content/uploads/2018/10/psikologu-1.jpeg"},"id":10,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||kohajone.com/wp-content/uploads/2018/12/300x25012345.gif"},"id":11,"priority":10},
@@ -25,7 +25,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["kohajone.com","vizionplus.tv"],"resourceTypes":["sub_frame"],"urlFilter":"html"},"id":24,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||classlifestyle.com/rek/megabanner.php^"},"id":25,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||classlifestyle.com/rek/reklama-poshte-dok.php^"},"id":26,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["gjc.gjirafa.com"]},"id":27,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||gjc.gjirafa.com^"},"id":27,"priority":10},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||videotekaime.net/uni/popunder.js|"},"id":28,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||videotekaime.com/uni/popunder.js"},"id":29,"priority":30}
 ]

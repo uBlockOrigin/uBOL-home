@@ -13,16 +13,14 @@
   "type": "redirect"
  },
  "condition": {
-  "requestDomains": [
-   "delfi.ee"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame",
    "xmlhttprequest"
-  ]
+  ],
+  "urlFilter": "||delfi.ee^"
  },
- "id": 72,
+ "id": 1,
  "priority": 2
 }
 ]

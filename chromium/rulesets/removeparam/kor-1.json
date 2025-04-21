@@ -13,14 +13,12 @@
   "type": "redirect"
  },
  "condition": {
-  "requestDomains": [
-   "newspic.kr"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame",
    "xmlhttprequest"
-  ]
+  ],
+  "urlFilter": "||newspic.kr^"
  },
  "id": 1,
  "priority": 2

@@ -5,6 +5,30 @@
    "transform": {
     "queryTransform": {
      "removeParams": [
+      "prov"
+     ]
+    }
+   }
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame",
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||magnolia-tv.com^"
+ },
+ "id": 1,
+ "priority": 2
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
       "xtor"
      ]
     }
@@ -21,32 +45,6 @@
   "urlFilter": "||bbc.com/ukrainian/"
  },
  "id": 331,
- "priority": 2
-},
-{
- "action": {
-  "redirect": {
-   "transform": {
-    "queryTransform": {
-     "removeParams": [
-      "prov"
-     ]
-    }
-   }
-  },
-  "type": "redirect"
- },
- "condition": {
-  "requestDomains": [
-   "magnolia-tv.com"
-  ],
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame",
-   "xmlhttprequest"
-  ]
- },
- "id": 332,
  "priority": 2
 }
 ]

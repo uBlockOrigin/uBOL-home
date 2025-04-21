@@ -136,6 +136,26 @@
    {
     "header": "content-security-policy",
     "operation": "append",
+    "value": "script-src"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ],
+  "urlFilter": "||57577.live^"
+ },
+ "id": 7
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
     "value": "script-src 'self' * 'unsafe-eval'"
    }
   ],
@@ -175,27 +195,5 @@
   ]
  },
  "id": 6369
-},
-{
- "action": {
-  "responseHeaders": [
-   {
-    "header": "content-security-policy",
-    "operation": "append",
-    "value": "script-src"
-   }
-  ],
-  "type": "modifyHeaders"
- },
- "condition": {
-  "requestDomains": [
-   "57577.live"
-  ],
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ]
- },
- "id": 6370
 }
 ]

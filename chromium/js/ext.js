@@ -19,16 +19,13 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-export const browser =
-    self.browser instanceof Object &&
-    self.browser instanceof Element === false
-        ? self.browser
-        : self.chrome;
+import { webext } from './ext-compat.js';
 
-export const dnr = browser.declarativeNetRequest;
+/******************************************************************************/
+
+export const browser = webext;
 export const i18n = browser.i18n;
 export const runtime = browser.runtime;
-export const TAB_ID_NONE = browser.tabs.TAB_ID_NONE;
 export const windows = browser.windows;
 
 /******************************************************************************/
@@ -37,21 +34,8 @@ export const windows = browser.windows;
 // send a message, we try a few more times when the message fails to be sent.
 
 export function sendMessage(msg) {
-    return new Promise((resolve, reject) => {
-        let i = 5;
-        const send = ( ) => {
-            runtime.sendMessage(msg).then(response => {
-                resolve(response);
-            }).catch(reason => {
-                i -= 1;
-                if ( i <= 0 ) {
-                    reject(reason);
-                } else {
-                    setTimeout(send, 200);
-                }
-            });
-        };
-        send();
+    return runtime.sendMessage(msg).catch(reason => {
+        console.log(reason);
     });
 }
 

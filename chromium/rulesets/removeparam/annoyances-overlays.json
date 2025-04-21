@@ -14,16 +14,14 @@
   "type": "redirect"
  },
  "condition": {
-  "requestDomains": [
-   "tiktok.com"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame",
    "xmlhttprequest"
-  ]
+  ],
+  "urlFilter": "||tiktok.com^"
  },
- "id": 311,
+ "id": 1,
  "priority": 2
 }
 ]

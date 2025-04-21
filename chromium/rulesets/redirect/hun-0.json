@@ -48,12 +48,10 @@
   "initiatorDomains": [
    "cinemo.hu"
   ],
-  "requestDomains": [
-   "sovrn.com"
-  ],
   "resourceTypes": [
    "xmlhttprequest"
-  ]
+  ],
+  "urlFilter": "||sovrn.com^"
  },
  "id": 3,
  "priority": 11

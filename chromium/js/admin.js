@@ -31,12 +31,13 @@ import {
 } from './ruleset-manager.js';
 
 import {
+    getDefaultFilteringMode,
     getTrustedSites,
     readFilteringModeDetails,
 } from './mode-manager.js';
 
 import { broadcastMessage } from './utils.js';
-import { dnr } from './ext.js';
+import { dnr } from './ext-compat.js';
 import { registerInjectables } from './scripting-manager.js';
 import { rulesetConfig } from './config.js';
 import { ubolLog } from './debug.js';
@@ -65,6 +66,13 @@ const adminSettings = {
             ]);
             const [ adminRulesets, enabledRulesets ] = results;
             broadcastMessage({ adminRulesets, enabledRulesets });
+        }
+        if ( this.keys.has('defaultFiltering') ) {
+            ubolLog('admin setting "defaultFiltering" changed');
+            await readFilteringModeDetails(true);
+            await registerInjectables();
+            const defaultFilteringMode = await getDefaultFilteringMode();
+            broadcastMessage({ defaultFilteringMode });
         }
         if ( this.keys.has('noFiltering') ) {
             ubolLog('admin setting "noFiltering" changed');

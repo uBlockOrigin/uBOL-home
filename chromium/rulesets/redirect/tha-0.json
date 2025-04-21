@@ -29,12 +29,10 @@
   "initiatorDomains": [
    "shopee.co.th"
   ],
-  "requestDomains": [
-   "tracking.shopee.co.th"
-  ],
   "resourceTypes": [
    "xmlhttprequest"
-  ]
+  ],
+  "urlFilter": "||tracking.shopee.co.th^"
  },
  "id": 2,
  "priority": 11

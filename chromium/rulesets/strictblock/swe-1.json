@@ -136,5 +136,21 @@
  },
  "id": 3,
  "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?look\\.utndln\\.com(?:[^%.0-9a-z_-]|$).*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 4,
+ "priority": 29
 }
 ]

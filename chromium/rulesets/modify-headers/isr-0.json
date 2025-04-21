@@ -39,14 +39,12 @@
    "weather.walla.co.il",
    "www.walla.co.il"
   ],
-  "requestDomains": [
-   "walla.co.il"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||walla.co.il^"
  },
- "id": 253
+ "id": 1
 }
 ]

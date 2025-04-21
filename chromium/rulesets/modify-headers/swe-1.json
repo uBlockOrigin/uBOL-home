@@ -36,14 +36,12 @@
   "type": "modifyHeaders"
  },
  "condition": {
-  "requestDomains": [
-   "matorama.se"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||matorama.se^"
  },
- "id": 1234
+ "id": 2
 }
 ]

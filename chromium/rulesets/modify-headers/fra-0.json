@@ -87,13 +87,11 @@
   "type": "modifyHeaders"
  },
  "condition": {
-  "requestDomains": [
-   "japscan.lol"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||japscan.lol^"
  },
  "id": 2
 },
@@ -167,15 +165,13 @@
   "type": "modifyHeaders"
  },
  "condition": {
-  "requestDomains": [
-   "pblv-plusbellelavie.fr"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||pblv-plusbellelavie.fr^"
  },
- "id": 6456
+ "id": 4
 },
 {
  "action": {
@@ -194,15 +190,13 @@
   "type": "modifyHeaders"
  },
  "condition": {
-  "requestDomains": [
-   "porndoe.com"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||porndoe.com^"
  },
- "id": 6457
+ "id": 5
 },
 {
  "action": {
@@ -216,14 +210,12 @@
   "type": "modifyHeaders"
  },
  "condition": {
-  "requestDomains": [
-   "streamingqc.com"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||streamingqc.com^"
  },
- "id": 6458
+ "id": 6
 }
 ]

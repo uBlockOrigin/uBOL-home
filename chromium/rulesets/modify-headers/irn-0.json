@@ -11,15 +11,13 @@
   "type": "modifyHeaders"
  },
  "condition": {
-  "requestDomains": [
-   "najiremix.ir"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||najiremix.ir^"
  },
- "id": 616
+ "id": 1
 },
 {
  "action": {

@@ -65,12 +65,10 @@
  },
  "condition": {
   "domainType": "thirdParty",
-  "requestDomains": [
-   "r.i0.cz"
-  ],
   "resourceTypes": [
    "image"
-  ]
+  ],
+  "urlFilter": "||r.i0.cz^"
  },
  "id": 4,
  "priority": 11

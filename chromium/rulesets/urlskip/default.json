@@ -67,13 +67,10 @@
   ]
  },
  {
-  "re": "^",
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pdrl\\.fm(?:[^%.0-9a-z_-]|$)",
   "steps": [
    "/pdrl\\.fm\\/\\w+\\/([^?]+)/",
    "+https"
-  ],
-  "hostnames": [
-   "pdrl.fm"
   ]
  },
  {
@@ -106,7 +103,15 @@
  {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?pelistop\\.xyz/\\S*?&url=http",
   "steps": [
-   "?url"
+   "?url",
+   "+https"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?colganteminimalista\\.com/\\S*?&url=http",
+  "steps": [
+   "?url",
+   "+https"
   ]
  },
  {
@@ -875,8 +880,15 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?link\\.email\\.boyfriendtv\\.com/link/\\S*?/ahr0c",
   "steps": [
    "/link\\.email\\.boyfriendtv\\.com\\/link\\/[^\\/]+\\/(aHR0c[^\\/?#]+)/",
-   "-base64",
+   "-safebase64",
    "+https"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?mjt\\.lu/lnk/\\S*?/ahr0c",
+  "steps": [
+   "/\\/lnk\\/.+?\\/(aHR0c[^\\/?#]+)/",
+   "-safebase64"
   ]
  },
  {

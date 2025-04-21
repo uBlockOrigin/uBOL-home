@@ -44,7 +44,6 @@ import {
 
 import {
     browser,
-    dnr,
     localRead, localRemove, localWrite,
     runtime,
     windows,
@@ -75,11 +74,12 @@ import {
     saveRulesetConfig,
 } from './config.js';
 
+import { dnr } from './ext-compat.js';
 import { registerInjectables } from './scripting-manager.js';
 
 /******************************************************************************/
 
-const UBOL_ORIGIN = runtime.getURL('').replace(/\/$/, '');
+const UBOL_ORIGIN = runtime.getURL('').replace(/\/$/, '').toLowerCase();
 
 const canShowBlockedCount = typeof dnr.setExtensionActionOptions === 'function';
 
@@ -205,7 +205,9 @@ function onMessage(request, sender, callback) {
 
     // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/MessageSender
     //   Firefox API does not set `sender.origin`
-    if ( sender.origin !== undefined && sender.origin !== UBOL_ORIGIN ) { return; }
+    if ( sender.origin !== undefined ) {
+        if ( sender.origin.toLowerCase() !== UBOL_ORIGIN ) { return; }
+    }
 
     switch ( request.what ) {
 
@@ -434,9 +436,7 @@ function onCommand(command, tab) {
 
 /******************************************************************************/
 
-async function start() {
-    await loadRulesetConfig();
-
+async function launch() {
     const currentVersion = getCurrentVersion();
     const isNewVersion = currentVersion !== rulesetConfig.version;
 
@@ -449,38 +449,28 @@ async function start() {
         saveRulesetConfig();
     }
 
-    const rulesetsUpdated = process.wakeupRun === false &&
-        await enableRulesets(rulesetConfig.enabledRulesets);
+    const rulesetsUpdated = await enableRulesets(rulesetConfig.enabledRulesets);
 
     // We need to update the regex rules only when ruleset version changes.
     if ( rulesetsUpdated === false ) {
         if ( isNewVersion ) {
             updateDynamicRules();
-        } else if ( process.wakeupRun === false ) {
+        } else {
             updateSessionRules();
         }
     }
 
     // Permissions may have been removed while the extension was disabled
-    const permissionsChanged = await onPermissionsRemoved();
+    await syncWithBrowserPermissions();
 
     // Unsure whether the browser remembers correctly registered css/scripts
     // after we quit the browser. For now uBOL will check unconditionally at
     // launch time whether content css/scripts are properly registered.
-    if ( process.wakeupRun === false || permissionsChanged ) {
-        registerInjectables();
-
-        const enabledRulesets = await dnr.getEnabledRulesets();
-        ubolLog(`Enabled rulesets: ${enabledRulesets}`);
-
-        dnr.getAvailableStaticRuleCount().then(count => {
-            ubolLog(`Available static rule count: ${count}`);
-        });
-    }
+    registerInjectables();
 
     // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest
     //   Firefox API does not support `dnr.setExtensionActionOptions`
-    if ( process.wakeupRun === false && canShowBlockedCount ) {
+    if ( canShowBlockedCount ) {
         dnr.setExtensionActionOptions({
             displayActionCountAsBadgeText: rulesetConfig.showBlockedCount,
         });
@@ -499,12 +489,20 @@ async function start() {
         }
     }
 
-    toggleDeveloperMode(rulesetConfig.developerMode);
-
     // Required to ensure the up to date property is available when needed
+    adminReadEx('disabledFeatures');
+}
+
+/******************************************************************************/
+
+async function start() {
+    await loadRulesetConfig();
+
     if ( process.wakeupRun === false ) {
-        adminReadEx('disabledFeatures');
+        await launch();
     }
+
+    toggleDeveloperMode(rulesetConfig.developerMode);
 }
 
 /******************************************************************************/

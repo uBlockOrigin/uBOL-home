@@ -8,9 +8,7 @@
  },
  "condition": {
   "domainType": "firstParty",
-  "requestDomains": [
-   "khabarchin.basalam.com"
-  ]
+  "urlFilter": "||khabarchin.basalam.com^"
  },
  "id": 1,
  "priority": 11

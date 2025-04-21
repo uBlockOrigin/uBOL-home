@@ -28,11 +28,13 @@ const zapper = self.uBOLZapper = self.uBOLZapper || {};
 if ( zapper.injected ) { return; }
 zapper.injected = true;
 
+const webext = typeof browser === 'object' ? browser : chrome;
+
 /******************************************************************************/
 
 const sendMessage = msg => {
     try {
-        chrome.runtime.sendMessage(msg).catch(( ) => { });
+        webext.runtime.sendMessage(msg).catch(( ) => { });
     } catch {
     }
 };
@@ -365,12 +367,11 @@ const onFrameMessage = function(msg) {
 // can remove the iframe.
 
 const bootstrap = async ( ) => {
-    const dynamicURL = new URL(chrome.runtime.getURL('/zapper-ui.html'));
+    const dynamicURL = new URL(webext.runtime.getURL('/zapper-ui.html'));
     return new Promise(resolve => {
         const frame = document.createElement('iframe');
         frame.setAttribute(zapperSecret, '');
-        document.documentElement.append(frame);
-        frame.onload = ( ) => {
+        const onZapperLoad = ( ) => {
             frame.onload = null;
             frame.setAttribute(`${zapperSecret}-loaded`, '');
             const channel = new MessageChannel();
@@ -382,7 +383,7 @@ const bootstrap = async ( ) => {
                 quitZapper();
             };
             const realURL = new URL(dynamicURL);
-            realURL.hostname = chrome.i18n.getMessage('@@extension_id');
+            realURL.hostname = webext.i18n.getMessage('@@extension_id');
             frame.contentWindow.postMessage(
                 { what: 'zapperStart' },
                 realURL.origin,
@@ -394,7 +395,11 @@ const bootstrap = async ( ) => {
                 zapperFramePort: port,
             });
         };
-        frame.contentWindow.location = dynamicURL.href;
+        frame.onload = ( ) => {
+            frame.onload = onZapperLoad;
+            frame.contentWindow.location = dynamicURL.href;
+        };
+        document.documentElement.append(frame);
     });
 };
 

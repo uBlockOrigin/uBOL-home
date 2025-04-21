@@ -75,20 +75,18 @@
 {
  "action": {
   "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+   "extensionPath": "/web_accessible_resources/google-ima.js"
   },
   "type": "redirect"
  },
  "condition": {
   "initiatorDomains": [
-   "embed.viaplay.com"
-  ],
-  "requestDomains": [
-   "freewheel-mtgx-tv.akamaized.net"
+   "feltet.dk"
   ],
   "resourceTypes": [
-   "media"
-  ]
+   "script"
+  ],
+  "urlFilter": "||imasdk.googleapis.com/js/sdkloader/ima3.js"
  },
  "id": 5,
  "priority": 11
@@ -110,6 +108,25 @@
   "urlFilter": "||freewheel-mtgx-tv.akamaized.net/*.mp4"
  },
  "id": 6,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "embed.viaplay.com"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||freewheel-mtgx-tv.akamaized.net^"
+ },
+ "id": 7,
  "priority": 11
 }
 ]

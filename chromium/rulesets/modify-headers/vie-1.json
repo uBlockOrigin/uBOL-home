@@ -28,87 +28,19 @@
    {
     "header": "content-security-policy",
     "operation": "append",
-    "value": "script-src 'self' 'unsafe-inline' http: https:"
-   }
-  ],
-  "type": "modifyHeaders"
- },
- "condition": {
-  "requestDomains": [
-   "www.iosviet.com"
-  ],
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ]
- },
- "id": 2
-},
-{
- "action": {
-  "responseHeaders": [
-   {
-    "header": "content-security-policy",
-    "operation": "append",
-    "value": "script-src self * data:* 'unsafe-inline'"
-   }
-  ],
-  "type": "modifyHeaders"
- },
- "condition": {
-  "requestDomains": [
-   "ungtycomicsnay.com"
-  ],
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ]
- },
- "id": 3
-},
-{
- "action": {
-  "responseHeaders": [
-   {
-    "header": "content-security-policy",
-    "operation": "append",
-    "value": "script-src 'self' 'unsafe-eval'"
-   }
-  ],
-  "type": "modifyHeaders"
- },
- "condition": {
-  "requestDomains": [
-   "sexdiaryx.live"
-  ],
-  "resourceTypes": [
-   "main_frame",
-   "sub_frame"
-  ]
- },
- "id": 4
-},
-{
- "action": {
-  "responseHeaders": [
-   {
-    "header": "content-security-policy",
-    "operation": "append",
     "value": "script-src data: blob: * 'self' 'unsafe-inline'"
    }
   ],
   "type": "modifyHeaders"
  },
  "condition": {
-  "requestDomains": [
-   "baomoi.com"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||baomoi.com^"
  },
- "id": 343
+ "id": 2
 },
 {
  "action": {
@@ -122,15 +54,13 @@
   "type": "modifyHeaders"
  },
  "condition": {
-  "requestDomains": [
-   "huongdanjava.com"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||huongdanjava.com^"
  },
- "id": 344
+ "id": 3
 },
 {
  "action": {
@@ -144,15 +74,53 @@
   "type": "modifyHeaders"
  },
  "condition": {
-  "requestDomains": [
-   "taoanhdep.com"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||taoanhdep.com^"
  },
- "id": 345
+ "id": 4
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src self * data:* 'unsafe-inline'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ],
+  "urlFilter": "||ungtycomicsnay.com^"
+ },
+ "id": 5
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' 'unsafe-inline' http: https:"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ],
+  "urlFilter": "||www.iosviet.com^"
+ },
+ "id": 6
 },
 {
  "action": {
@@ -166,14 +134,32 @@
   "type": "modifyHeaders"
  },
  "condition": {
-  "requestDomains": [
-   "mangadm.cc"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||mangadm.cc^"
  },
- "id": 346
+ "id": 7
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' 'unsafe-eval'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ],
+  "urlFilter": "||sexdiaryx.live^"
+ },
+ "id": 8
 }
 ]

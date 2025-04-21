@@ -29,12 +29,10 @@
   "initiatorDomains": [
    "puhekupla.com"
   ],
-  "requestDomains": [
-   "doubleclick.net"
-  ],
   "resourceTypes": [
    "xmlhttprequest"
-  ]
+  ],
+  "urlFilter": "||doubleclick.net^"
  },
  "id": 2,
  "priority": 11

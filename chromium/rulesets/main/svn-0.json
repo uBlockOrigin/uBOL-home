@@ -33,7 +33,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||mojblink.si/pic/banners/*.jpg"},"id":32,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||nepremicnine.click/ad-files/"},"id":33,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||novice.si/*/oglasuj.jpg"},"id":34,"priority":10},
-{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["oglasi.slo-tech.com"],"requestDomains":["oglasi.slo-tech.com"]},"id":35,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["24ur.com","bibaleze.si","cekin.si","dominvrt.si","moskisvet.com","okusno.je","vizita.si","zadovoljna.si"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||ads.api.24ur.si^"},"id":35,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||over.net/feedo.min.js"},"id":36,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||partis.si/ads"},"id":37,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||pcplus.si/media/wysiwyg/infortis/fortis/_backgrounds/default/*.jpg"},"id":38,"priority":10},
@@ -76,9 +76,9 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["dnevnik.si"],"urlFilter":"||mp.piano-media.com/bucket/novosense.swf"},"id":75,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["dnevnik.si"],"urlFilter":"||mp.piano-media.com/js/bp.html"},"id":76,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["dnevnik.si"],"urlFilter":"||mp.piano-media.com/uid"},"id":77,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["nepremicnine.net"],"requestDomains":["sparky.internetmedia.si"]},"id":78,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["nepremicnine.net"],"urlFilter":"||sparky.internetmedia.si^"},"id":78,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["igre123.com"],"urlFilter":"||static.igre123.com/ads/*.gif"},"id":79,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["dnevnik.si"],"resourceTypes":["script"],"urlFilter":"||bar.piano-media.com/auth"},"id":80,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["24ur.com","bibaleze.si","cekin.si","dominvrt.si","moskisvet.com","okusno.je","vizita.si","zadovoljna.si"],"requestDomains":["ads.api.24ur.si"],"resourceTypes":["xmlhttprequest"]},"id":81,"priority":30},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["oglasi.slo-tech.com"],"urlFilter":"||oglasi.slo-tech.com^"},"id":81,"priority":10},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||sibautomation.com/cm.html"},"id":82,"priority":30}
 ]
