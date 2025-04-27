@@ -21,6 +21,7 @@
 
 import {
     MODE_BASIC,
+    MODE_NONE,
     MODE_OPTIMAL,
     getDefaultFilteringMode,
     getFilteringMode,
@@ -34,10 +35,12 @@ import {
 import {
     adminReadEx,
     getAdminRulesets,
+    loadAdminConfig,
 } from './admin.js';
 
 import {
     broadcastMessage,
+    gotoURL,
     hasBroadHostPermissions,
     hostnamesFromMatches,
 } from './utils.js';
@@ -46,7 +49,6 @@ import {
     browser,
     localRead, localRemove, localWrite,
     runtime,
-    windows,
 } from './ext.js';
 
 import {
@@ -76,6 +78,7 @@ import {
 
 import { dnr } from './ext-compat.js';
 import { registerInjectables } from './scripting-manager.js';
+import { syncToolbarIcon } from './action.js';
 
 /******************************************************************************/
 
@@ -129,36 +132,6 @@ async function onPermissionsAdded(permissions) {
             });
         }, 437);
     }
-}
-
-/******************************************************************************/
-
-async function gotoURL(url, type) {
-    const pageURL = new URL(url, runtime.getURL('/'));
-    const tabs = await browser.tabs.query({
-        url: pageURL.href,
-        windowType: type !== 'popup' ? 'normal' : 'popup'
-    });
-
-    if ( Array.isArray(tabs) && tabs.length !== 0 ) {
-        const { windowId, id } = tabs[0];
-        return Promise.all([
-            browser.windows.update(windowId, { focused: true }),
-            browser.tabs.update(id, { active: true }),
-        ]);
-    }
-
-    if ( type === 'popup' ) {
-        return windows.create({
-            type: 'popup',
-            url: pageURL.href,
-        });
-    }
-
-    return browser.tabs.create({
-        active: true,
-        url: pageURL.href,
-    });
 }
 
 /******************************************************************************/
@@ -340,12 +313,18 @@ function onMessage(request, sender, callback) {
         break;
 
     case 'setFilteringMode': {
-        getFilteringMode(request.hostname).then(actualLevel => {
-            if ( request.level === actualLevel ) { return actualLevel; }
+        let trustedSitesChanged = false;
+        getFilteringMode(request.hostname).then(beforeLevel => {
+            if ( request.level === beforeLevel ) { return beforeLevel; }
+            trustedSitesChanged = beforeLevel === MODE_NONE;
             return setFilteringMode(request.hostname, request.level);
-        }).then(actualLevel => {
+        }).then(afterLevel => {
             registerInjectables();
-            callback(actualLevel);
+            trustedSitesChanged ||= afterLevel === MODE_NONE;
+            if ( trustedSitesChanged ) {
+                syncToolbarIcon();
+            }
+            callback(afterLevel);
         });
         return true;
     }
@@ -378,6 +357,7 @@ function onMessage(request, sender, callback) {
     case 'setTrustedSites':
         setTrustedSites(request.hostnames).then(( ) => {
             registerInjectables();
+            syncToolbarIcon(true);
             return Promise.all([
                 getDefaultFilteringMode(),
                 getTrustedSites(),
@@ -404,7 +384,7 @@ function onMessage(request, sender, callback) {
         return true;
 
     case 'showMatchedRules':
-        windows.create({
+        browser.windows.create({
             type: 'popup',
             url: `/matched-rules.html?tab=${request.tabId}`,
         });
@@ -436,9 +416,12 @@ function onCommand(command, tab) {
 
 /******************************************************************************/
 
-async function launch() {
+async function startSession() {
     const currentVersion = getCurrentVersion();
     const isNewVersion = currentVersion !== rulesetConfig.version;
+
+    // Admin settings override user settings
+    await loadAdminConfig();
 
     // The default rulesets may have changed, find out new ruleset to enable,
     // obsolete ruleset to remove.
@@ -499,9 +482,10 @@ async function start() {
     await loadRulesetConfig();
 
     if ( process.wakeupRun === false ) {
-        await launch();
+        await startSession();
     }
 
+    syncToolbarIcon(process.wakeupRun);
     toggleDeveloperMode(rulesetConfig.developerMode);
 }
 

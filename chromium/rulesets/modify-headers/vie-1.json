@@ -11,14 +11,11 @@
   "type": "modifyHeaders"
  },
  "condition": {
-  "requestDomains": [
-   "cliphot69.onl",
-   "truyen4u.pro"
-  ],
   "resourceTypes": [
    "main_frame",
    "sub_frame"
-  ]
+  ],
+  "urlFilter": "||cliphot69.cool^"
  },
  "id": 1
 },

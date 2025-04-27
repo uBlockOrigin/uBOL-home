@@ -20,14 +20,29 @@
   "declarative_net_request": {
     "rule_resources": [
       {
-        "id": "default",
+        "id": "ublock-filters",
         "enabled": true,
-        "path": "/rulesets/main/default.json"
+        "path": "/rulesets/main/ublock-filters.json"
       },
       {
-        "id": "badware",
+        "id": "easylist",
         "enabled": true,
-        "path": "/rulesets/main/badware.json"
+        "path": "/rulesets/main/easylist.json"
+      },
+      {
+        "id": "easyprivacy",
+        "enabled": true,
+        "path": "/rulesets/main/easyprivacy.json"
+      },
+      {
+        "id": "pgl",
+        "enabled": true,
+        "path": "/rulesets/main/pgl.json"
+      },
+      {
+        "id": "ublock-badware",
+        "enabled": true,
+        "path": "/rulesets/main/ublock-badware.json"
       },
       {
         "id": "urlhaus-full",
@@ -295,13 +310,15 @@
     "activeTab",
     "declarativeNetRequest",
     "scripting",
-    "storage"
+    "storage",
+    "tabs",
+    "webNavigation"
   ],
   "short_name": "uBO Lite",
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2025.4.21.839",
+  "version": "2025.4.27.1394",
   "web_accessible_resources": [
     {
       "resources": [
@@ -324,36 +341,36 @@
     {
       "resources": [
         "web_accessible_resources/noop.js",
+        "web_accessible_resources/amazon_apstag.js",
         "web_accessible_resources/google-ima.js",
         "web_accessible_resources/noop.txt",
-        "web_accessible_resources/amazon_apstag.js",
-        "web_accessible_resources/noop-1s.mp4",
         "web_accessible_resources/noop.css",
-        "web_accessible_resources/2x2.png",
-        "web_accessible_resources/32x32.png",
         "web_accessible_resources/1x1.gif",
+        "web_accessible_resources/32x32.png",
+        "web_accessible_resources/2x2.png",
         "web_accessible_resources/empty",
         "web_accessible_resources/noop.html",
+        "web_accessible_resources/amazon_ads.js",
+        "web_accessible_resources/googletagservices_gpt.js",
+        "web_accessible_resources/google-analytics_analytics.js",
+        "web_accessible_resources/fingerprint2.js",
         "web_accessible_resources/nofab.js",
         "web_accessible_resources/hd-main.js",
         "web_accessible_resources/popads.js",
         "web_accessible_resources/googlesyndication_adsbygoogle.js",
-        "web_accessible_resources/google-analytics_analytics.js",
         "web_accessible_resources/prebid-ads.js",
         "web_accessible_resources/doubleclick_instream_ad_status.js",
         "web_accessible_resources/google-analytics_cx_api.js",
-        "web_accessible_resources/googletagservices_gpt.js",
         "web_accessible_resources/scorecardresearch_beacon.js",
         "web_accessible_resources/google-analytics_ga.js",
         "web_accessible_resources/outbrain-widget.js",
-        "web_accessible_resources/fingerprint2.js",
         "web_accessible_resources/fingerprint3.js",
-        "web_accessible_resources/amazon_ads.js",
-        "web_accessible_resources/chartbeat.js",
         "web_accessible_resources/noop-vmap1.xml",
         "web_accessible_resources/noop-vast3.xml",
         "web_accessible_resources/noop-0.1s.mp3",
+        "web_accessible_resources/noop-1s.mp4",
         "web_accessible_resources/nobab2.js",
+        "web_accessible_resources/chartbeat.js",
         "web_accessible_resources/noop.json",
         "web_accessible_resources/click2load.html",
         "web_accessible_resources/noeval-silent.js"

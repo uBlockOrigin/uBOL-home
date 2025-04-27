@@ -71,38 +71,6 @@
   "initiatorDomains": [
    "toggo.de"
   ],
-  "urlFilter": "||ccstatic.toggo.de/cc-static-files/bumper-video/"
- },
- "id": 2,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "toggo.de"
-  ],
-  "urlFilter": "||flashtalking.com^*.mp4"
- },
- "id": 3,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "toggo.de"
-  ],
   "urlFilter": "||smartclip.net/creatives/uploads/*.mp4"
  },
  "id": 4,

@@ -1,0 +1,116 @@
+[
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "mbna.ca",
+   "td.com",
+   "tdbank.com"
+  ],
+  "regexFilter": "^https?:\\/\\/tmx\\.(td|tdbank)\\.com\\/[a-z0-9]{14,18}\\.js.*",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 1,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "kleinanzeigen.de"
+  ],
+  "regexFilter": "^https?:\\/\\/fdts\\.ebay-kleinanzeigen\\.de\\/[a-z0-9]{13,18}\\.js\\?",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 2,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "spectrum.net"
+  ],
+  "regexFilter": "^https?:\\/\\/pov\\.spectrum\\.net\\/[a-zA-Z0-9]{14,}\\.js",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 3,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "tjx.com"
+  ],
+  "regexFilter": "^https?:\\/\\/tjmaxx\\.tjx\\.com\\/libraries\\/[a-z0-9]{20,}",
+  "resourceTypes": [
+   "script",
+   "xmlhttprequest"
+  ]
+ },
+ "id": 4,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "kleinanzeigen.de"
+  ],
+  "regexFilter": "^https?:\\/\\/www\\.ebay-kleinanzeigen\\.de\\/[a-z0-9]{8}\\-[0-9a-f]{4}\\-",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 5,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "kroger.com"
+  ],
+  "regexFilter": "^https?:\\/\\/www\\.kroger\\.com\\/content\\/{20,}",
+  "resourceTypes": [
+   "script",
+   "xmlhttprequest"
+  ]
+ },
+ "id": 6,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "regexFilter": "^https:\\/\\/cdn\\.jsdelivr\\.net\\/npm\\/[-a-z_]{4,22}@latest\\/dist\\/script\\.min\\.js$",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 7,
+ "priority": 10
+}
+]

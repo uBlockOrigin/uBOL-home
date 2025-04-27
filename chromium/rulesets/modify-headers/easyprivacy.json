@@ -1,0 +1,48 @@
+[
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "child-src 'none'; frame-src 'self' *; worker-src 'none'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "fileone.tv",
+   "theappguruz.com"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 1
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "child-src 'none'; frame-src *; worker-src 'none'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "thepiratebay.org",
+   "vidoza.net"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 2
+}
+]

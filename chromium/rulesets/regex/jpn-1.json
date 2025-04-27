@@ -19,5 +19,6 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["logistics.jp"],"isUrlFilterCaseSensitive":true,"regexFilter":"dcms_media\\/image\\/(?:bownow|[%_0-9A-Z]{30,})\\.(?:png|jpg)$","resourceTypes":["image"]},"id":18,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["anime365.net"],"regexFilter":"\\/js\\/(?:anime|comic|doujin|game)Ranking","resourceTypes":["xmlhttprequest"]},"id":19,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["2jigiri.net","pig109.net"],"regexFilter":"\\.net\\/[-a-z]{2,6}0\\d{2}\\.html$","resourceTypes":["sub_frame"]},"id":20,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/[a-z]{5,8}\\.[a-z]{4,10}\\.[a-z]{2,6}\\/item\\/m\\d{10,11}$","requestDomains":["shop"],"resourceTypes":["main_frame"]},"id":21,"priority":10}
+{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/[a-z]{5,8}\\.[a-z]{4,10}\\.[a-z]{2,6}\\/item\\/m\\d{10,11}$","requestDomains":["shop"],"resourceTypes":["main_frame"]},"id":21,"priority":10},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https?:\\/\\/(?:jp|qq)\\d{7,8}\\.[a-z]{7,8}\\.[a-z]{2,8}\\/","requestDomains":["art","asia","auction","bar","cam","click","coupons","digital","diy","food","forum","gay","guru","life","live","living","my","property","pw","rocks","run","shop","tattoo","tech","today","uno","work"],"resourceTypes":["main_frame"]},"id":22,"priority":10}
 ]

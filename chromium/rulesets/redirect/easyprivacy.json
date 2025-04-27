@@ -1,0 +1,102 @@
+[
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "voici.fr"
+  ],
+  "urlFilter": "||d1z2jf7jlzjs58.cloudfront.net^"
+ },
+ "id": 1,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/google-analytics_analytics.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "redstoneonline.jp"
+  ],
+  "resourceTypes": [
+   "script",
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||googletagmanager.com/gtag/js"
+ },
+ "id": 2,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||pcoptimizedsettings.com/wp-content/plugins/koko-analytics/"
+ },
+ "id": 3,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||pcoptimizedsettings.com/wp-content/uploads/breeze/google/gtag.js"
+ },
+ "id": 4,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/chartbeat.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||static.chartbeat.com/js/chartbeat_mab.js"
+ },
+ "id": 5,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/chartbeat.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||static.chartbeat.com/js/chartbeat.js"
+ },
+ "id": 6,
+ "priority": 11
+}
+]

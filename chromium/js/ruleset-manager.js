@@ -359,6 +359,7 @@ async function updateStrictBlockRules(currentRules, addRules, removeRuleIds) {
     if ( validRules.length === 0 ) { return; }
     ubolLog(`Add ${validRules.length} DNR strictblock rules`);
     for ( const rule of validRules ) {
+        rule.priority = STRICTBLOCK_PRIORITY;
         addRules.push(rule);
     }
 
@@ -385,9 +386,11 @@ async function excludeFromStrictBlock(hostname, permanent) {
     return updateSessionRules();
 }
 
-async function setStrictBlockMode(state) {
+async function setStrictBlockMode(state, force = false) {
     const newState = Boolean(state);
-    if ( newState === rulesetConfig.strictBlockMode ) { return; }
+    if ( force === false ) {
+        if ( newState === rulesetConfig.strictBlockMode ) { return; }
+    }
     rulesetConfig.strictBlockMode = newState;
     const promises = [ saveRulesetConfig() ];
     if ( newState === false ) {
@@ -483,19 +486,16 @@ async function defaultRulesetsFromLanguage() {
         `\\b(${Array.from(langSet).join('|')})\\b`
     );
 
-    const manifest = runtime.getManifest();
-    const rulesets = manifest.declarative_net_request.rule_resources;
     const rulesetDetails = await getRulesetDetails();
     const out = [];
-    for ( const ruleset of rulesets ) {
+    for ( const ruleset of rulesetDetails.values() ) {
         const { id, enabled } = ruleset;
         if ( enabled ) {
             out.push(id);
             continue;
         }
-        const details = rulesetDetails.get(id);
-        if ( typeof details.lang !== 'string' ) { continue; }
-        if ( reTargetLang.test(details.lang) === false ) { continue; }
+        if ( typeof ruleset.lang !== 'string' ) { continue; }
+        if ( reTargetLang.test(ruleset.lang) === false ) { continue; }
         out.push(id);
     }
     return out;
@@ -507,15 +507,12 @@ async function patchDefaultRulesets() {
     const [
         oldDefaultIds = [],
         newDefaultIds,
+        staticRulesetIds,
     ] = await Promise.all([
         localRead('defaultRulesetIds'),
         defaultRulesetsFromLanguage(),
+        getStaticRulesets().then(r => r.map(a => a.id)),
     ]);
-
-    const manifest = runtime.getManifest();
-    const validIds = new Set(
-        manifest.declarative_net_request.rule_resources.map(r => r.id)
-    );
     const toAdd = [];
     const toRemove = [];
     for ( const id of newDefaultIds ) {
@@ -527,7 +524,7 @@ async function patchDefaultRulesets() {
         toRemove.push(id);
     }
     for ( const id of rulesetConfig.enabledRulesets ) {
-        if ( validIds.has(id) ) { continue; }
+        if ( staticRulesetIds.includes(id) ) { continue; }
         toRemove.push(id);
     }
     localWrite('defaultRulesetIds', newDefaultIds);
@@ -544,7 +541,11 @@ async function patchDefaultRulesets() {
 
 async function enableRulesets(ids) {
     const afterIds = new Set(ids);
-    const [ beforeIds, adminIds, rulesetDetails ] = await Promise.all([
+    const [
+        beforeIds,
+        adminIds,
+        rulesetDetails,
+    ] = await Promise.all([
         dnr.getEnabledRulesets().then(ids => new Set(ids)),
         getAdminRulesets(),
         getRulesetDetails(),
@@ -613,6 +614,13 @@ async function enableRulesets(ids) {
 
 /******************************************************************************/
 
+async function getStaticRulesets() {
+    const manifest = runtime.getManifest();
+    return manifest.declarative_net_request.rule_resources;
+}
+
+/******************************************************************************/
+
 async function getEnabledRulesetsDetails() {
     const [
         ids,
@@ -637,8 +645,8 @@ export {
     enableRulesets,
     excludeFromStrictBlock,
     filteringModesToDNR,
-    getRulesetDetails,
     getEnabledRulesetsDetails,
+    getRulesetDetails,
     patchDefaultRulesets,
     setStrictBlockMode,
     updateDynamicRules,

@@ -180,11 +180,6 @@
     "header": "content-security-policy",
     "operation": "append",
     "value": "img-src 'none' http: https:"
-   },
-   {
-    "header": "content-security-policy",
-    "operation": "append",
-    "value": "media-src 'none' http: https:"
    }
   ],
   "type": "modifyHeaders"

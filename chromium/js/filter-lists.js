@@ -22,6 +22,7 @@
 import { dom, qs$, qsa$ } from './dom.js';
 import { i18n, i18n$ } from './i18n.js';
 import { localRead, localWrite, sendMessage } from './ext.js';
+import { hashFromIterable } from './dashboard.js';
 
 /******************************************************************************/
 
@@ -135,7 +136,7 @@ export function renderFilterLists(rulesetData) {
         if ( ruleset.homeURL ) {
             dom.attr(qs$(listEntry, 'a.support'), 'href', ruleset.homeURL);
         }
-        dom.cl.toggle(listEntry, 'isDefault', ruleset.id === 'default');
+        dom.cl.toggle(listEntry, 'isDefault', ruleset.enabled === true);
         const stats = rulesetStats(ruleset.id);
         if ( stats === undefined ) { return; }
         listEntry.title = listStatsTemplate
@@ -215,8 +216,12 @@ export function renderFilterLists(rulesetData) {
         [
             'default',
             rulesetDetails.filter(ruleset =>
-                ruleset.id === 'default' ||
                 ruleset.group === 'default'
+            ),
+        ], [
+            'privacy',
+            rulesetDetails.filter(ruleset =>
+                ruleset.group === 'privacy'
             ),
         ], [
             'malware',
@@ -231,7 +236,6 @@ export function renderFilterLists(rulesetData) {
         ], [
             'misc',
             rulesetDetails.filter(ruleset =>
-                ruleset.id !== 'default' &&
                 ruleset.group === undefined &&
                 typeof ruleset.lang !== 'string' 
             ),
@@ -400,7 +404,9 @@ const applyEnabledRulesets = (( ) => {
 
         dom.cl.remove('#lists .listEntry.toggled', 'toggled');
 
-        if ( enabledRulesets.length === 0 ) { return; }
+        const unmodified = hashFromIterable(enabledRulesets) ===
+            hashFromIterable(cachedRulesetData.enabledRulesets);
+        if ( unmodified ) { return; }
 
         await sendMessage({
             what: 'applyRulesets',

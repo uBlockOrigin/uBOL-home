@@ -152,6 +152,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||graficadivina.it/grafica-divina.jpg"},"id":151,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["sisal.it"],"resourceTypes":["sub_frame"],"urlFilter":"||stats.betradar.com^"},"id":152,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||annunci.modellismo.it/banner/"},"id":153,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||webandmagazine.media/wp-content/uploads/*/skin-"},"id":154,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ilgiardinodeilibri.it/data/banner_partner/"},"id":157,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||kataweb.it/zbanner_consorzio.js"},"id":166,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||lacittasrl.it^*/bannerframe.php?"},"id":169,"priority":10},
