@@ -398,6 +398,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["bluecinema.ch"],"urlFilter":"||loader.wisepops.com/get-loader.js"},"id":397,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["bluecinema.ch"],"urlFilter":"||popup.wisepops.com/my-wisepop"},"id":398,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["inc-aus.com"],"urlFilter":"||rest.contextly.com/pagewidgets/"},"id":399,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||russia-insider.com/wp-content/uploads/pum/"},"id":400,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["hindawi.com"],"resourceTypes":["script"],"urlFilter":"||bibblio.org^*/bib-related-content.min.js"},"id":402,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["bluecinema.ch"],"resourceTypes":["script"],"urlFilter":"||cdn.wisepops.com/shared/wisepops/"},"id":403,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["concoursultimesousmaringourmiam.ca"],"resourceTypes":["script"],"urlFilter":"||mikesca.activehosted.com/f/embed.php"},"id":406,"priority":30},

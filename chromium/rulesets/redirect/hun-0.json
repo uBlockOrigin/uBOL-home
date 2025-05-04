@@ -17,5 +17,22 @@
  },
  "id": 1,
  "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.css"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "online-filmek.ac",
+   "online-filmek.me"
+  ],
+  "urlFilter": "||galaxypush.com/css/styles.min.css^"
+ },
+ "id": 2,
+ "priority": 41
 }
 ]

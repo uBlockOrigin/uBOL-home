@@ -85,6 +85,25 @@
 {
  "action": {
   "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.json"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "dagen.se"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||cdn.segment.com/v1/projects/"
+ },
+ "id": 6,
+ "priority": 41
+},
+{
+ "action": {
+  "redirect": {
    "extensionPath": "/web_accessible_resources/noop.js"
   },
   "type": "redirect"
@@ -134,25 +153,6 @@
   "urlFilter": "||youtube.com/embed"
  },
  "id": 12,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop.json"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "dagen.se"
-  ],
-  "resourceTypes": [
-   "xmlhttprequest"
-  ],
-  "urlFilter": "||cdn.segment.com/v1/projects/"
- },
- "id": 13,
  "priority": 11
 }
 ]

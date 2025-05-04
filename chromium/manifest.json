@@ -50,11 +50,6 @@
         "path": "/rulesets/main/urlhaus-full.json"
       },
       {
-        "id": "openphish-domains",
-        "enabled": true,
-        "path": "/rulesets/main/openphish-domains.json"
-      },
-      {
         "id": "block-lan",
         "enabled": false,
         "path": "/rulesets/main/block-lan.json"
@@ -318,7 +313,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2025.4.27.1394",
+  "version": "2025.5.4.1310",
   "web_accessible_resources": [
     {
       "resources": [

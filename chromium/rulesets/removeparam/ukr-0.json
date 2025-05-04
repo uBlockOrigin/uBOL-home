@@ -5,7 +5,7 @@
    "transform": {
     "queryTransform": {
      "removeParams": [
-      "prov"
+      "testadv"
      ]
     }
    }
@@ -18,7 +18,7 @@
    "sub_frame",
    "xmlhttprequest"
   ],
-  "urlFilter": "||magnolia-tv.com^"
+  "urlFilter": "||vcms-api*.starlight.digital/hls/*?file=*&testadv="
  },
  "id": 1,
  "priority": 2
@@ -29,7 +29,8 @@
    "transform": {
     "queryTransform": {
      "removeParams": [
-      "xtor"
+      "placement_id",
+      "site_id"
      ]
     }
    }
@@ -38,13 +39,11 @@
  },
  "condition": {
   "resourceTypes": [
-   "main_frame",
-   "sub_frame",
    "xmlhttprequest"
   ],
-  "urlFilter": "||bbc.com/ukrainian/"
+  "urlFilter": "||starlight.digital/get-playlist-ad/hls-vod/files/*.mp4/*_adblock"
  },
- "id": 331,
+ "id": 2,
  "priority": 2
 }
 ]
