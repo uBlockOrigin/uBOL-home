@@ -253,6 +253,17 @@
     }
    ],
    [
+    "spoof-css",
+    {
+     "hostnames": [
+      "1001tracklists.com",
+      "download.megaup.net",
+      "pvpoke-re.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "trusted-replace-argument",
     {
      "hostnames": [
@@ -606,16 +617,6 @@
     }
    ],
    [
-    "spoof-css",
-    {
-     "hostnames": [
-      "1001tracklists.com",
-      "download.megaup.net"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "overlay-buster",
     {
      "hostnames": [
@@ -829,6 +830,7 @@
       "pwinsider.com",
       "savvytime.com",
       "screenrant.com",
+      "sidereel.com",
       "siliconera.com",
       "simpleflying.com",
       "sporcle.com",
@@ -849,6 +851,15 @@
       "wrestlezone.com",
       "wrestlinginc.com",
       "xda-developers.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "abort-on-stack-trace",
+    {
+     "hostnames": [
+      "ranker.com"
      ],
      "world": "MAIN"
     }
@@ -4670,6 +4681,7 @@
       "resizer.myct.jp",
       "rxlife.net",
       "seikeidouga.blog.jp",
+      "sinsimmd.com",
       "tcg-bloglife.com",
       "tyoieronews.blog.jp"
      ],
@@ -8124,7 +8136,6 @@
       "linkneverdie.net",
       "linkneverdie.top",
       "linkneverdie2.com",
-      "live.sexviet88.wiki",
       "lrepacks.net",
       "lxmanga.help",
       "m.blogtruyenmoi.com",
@@ -8167,12 +8178,13 @@
       "viet69.adult",
       "viet69.sb",
       "vlxx.my",
+      "vn1.sexviet88.xyz",
       "vn2.xvideos69.xxx",
       "vungoctuan.vn",
       "www.motchill79.com",
       "www.sieutamphim.org",
       "www.toptruyentv6.pro",
-      "xemsex.tube",
+      "xemsex.cam",
       "xemviet69.com",
       "xnxx-sex-videos.com",
       "yurineko.my"
@@ -8234,15 +8246,6 @@
       "znews.vn"
      ],
      "world": "MAIN"
-    }
-   ],
-   [
-    "set-cookie",
-    {
-     "hostnames": [
-      "apkmoddone.phongroblox.com"
-     ],
-     "world": "ISOLATED"
     }
    ],
    [
