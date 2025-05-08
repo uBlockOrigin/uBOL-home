@@ -19,22 +19,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-      # Set uBO version to use
-      - name: uBO version to use
+          submodules: true
+      - name: Locate uBO repo
         run: |
-          UBO_VERSION_URL=$(cat ubo-version)
-          UBO_VERSION=${UBO_VERSION_URL: -40}
-          echo "UBO_VERSION=$UBO_VERSION" >> $GITHUB_ENV
-      # https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
-      - name: Clone uBO repo
-        run: |
-          UBLOCK_REPO_DIR=$(mktemp -d)
+          UBOL_REPO_DIR=$(pwd)
+          UBLOCK_REPO_DIR="$UBOL_REPO_DIR/uBlock"
           echo "UBLOCK_REPO_DIR=$UBLOCK_REPO_DIR" >> $GITHUB_ENV
-          git clone --depth 1 https://github.com/gorhill/uBlock.git $UBLOCK_REPO_DIR
       # Version, time-based
       - name: Create unique time-based version
         run: |
-          TAGNAME=uBOLite_$(date -u "+%Y.%-m.%-d.")$(date -u "+%H*60+%M" | bc)
+          TAGNAME=uBOLite_$(date -u "+%Y").$(date -u "+%-m*100+%-d" | bc).$(date -u "+%H*100+%M" | bc)
           echo "TAGNAME=$TAGNAME" >> $GITHUB_ENV
           echo "Version: $TAGNAME"
       # Chromium
@@ -80,7 +74,6 @@ jobs:
             
             - Updated filter lists
             - [Commit history](https://github.com/uBlockOrigin/uBOL-home/commits/${{ env.TAGNAME }})
-            - Based on <https://github.com/gorhill/uBlock/tree/${{ env.UBO_VERSION }}>
             
             ---
             
