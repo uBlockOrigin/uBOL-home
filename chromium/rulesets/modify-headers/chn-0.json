@@ -114,11 +114,13 @@
   "initiatorDomains": [
    "1ingatlan.net",
    "1kans.net",
+   "4hrz.net",
+   "56xiaoshuo.net",
    "666biquge.com",
    "aidu123.com",
+   "biqudd.com",
    "biquge2345.com",
    "biquge345.com",
-   "biqugezw.us",
    "biquluo.info",
    "biquwx.cc",
    "bqgh.com",
@@ -129,23 +131,33 @@
    "diyibanzhu44444.com",
    "gaofuwu.org",
    "haduzw.com",
+   "haitangsoshu.org",
    "hanziwen.com",
    "jmshuwu.net",
    "kaixindu.net",
    "kunnu.com",
+   "m.6666xsw.com",
+   "m.chenkuan.com",
+   "m.jmshuwu.net",
    "maxshuku.com",
    "modaoshu.com",
    "nipubook.com",
+   "novelser.com",
    "nuoshuge.com",
    "puquz.com",
    "shukuge.com",
+   "smsonline.cloud",
    "sthuojia.net",
+   "tetservices.net",
    "tvyun07.com",
+   "wodexiaoshuoh.com",
+   "wuwusk.com",
+   "x33yq.org",
    "xianguke.net",
+   "ykxs.cc",
    "yourbiquge.com",
    "yswxs.com",
-   "yushuwu.cloud",
-   "zk01.net"
+   "yushuwu.cloud"
   ],
   "resourceTypes": [
    "main_frame",
@@ -173,6 +185,29 @@
   "urlFilter": "||57577.live^"
  },
  "id": 7
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'self' *"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "biqugezw.us",
+   "zk01.net"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 8
 },
 {
  "action": {

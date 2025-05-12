@@ -340,7 +340,7 @@ function getRandomTokenFn() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["HTMLHeadElement.prototype.insertBefore","/[A-Z] .+chunks\\/\\d{4}\\./"]];
+const argsList = [["HTMLElement.prototype.insertBefore","/[A-Z] .+chunks\\/\\d{4}\\./"]];
 const hostnamesMap = new Map([["ranker.com",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;

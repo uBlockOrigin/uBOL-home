@@ -20,174 +20,130 @@
 
 */
 
-// ruleset: rus-0
+// ruleset: kor-1
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_addEventListenerDefuser() {
+(function uBOL_removeNodeText() {
 
 /******************************************************************************/
 
-function addEventListenerDefuser(
-    type = '',
-    pattern = ''
+function removeNodeText(
+    nodeName,
+    includes,
+    ...extraArgs
 ) {
-    const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
-    const reType = safe.patternToRegex(type, undefined, true);
-    const rePattern = safe.patternToRegex(pattern);
-    const debug = shouldDebug(extraArgs);
-    const targetSelector = extraArgs.elements || undefined;
-    const elementMatches = elem => {
-        if ( targetSelector === 'window' ) { return elem === window; }
-        if ( targetSelector === 'document' ) { return elem === document; }
-        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
-        const elems = Array.from(document.querySelectorAll(targetSelector));
-        return elems.includes(elem);
-    };
-    const elementDetails = elem => {
-        if ( elem instanceof Window ) { return 'window'; }
-        if ( elem instanceof Document ) { return 'document'; }
-        if ( elem instanceof Element === false ) { return '?'; }
-        const parts = [];
-        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
-        const id = String(elem.id);
-        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
-        for ( let i = 0; i < elem.classList.length; i++ ) {
-            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
-        }
-        for ( let i = 0; i < elem.attributes.length; i++ ) {
-            const attr = elem.attributes.item(i);
-            if ( attr.name === 'id' ) { continue; }
-            if ( attr.name === 'class' ) { continue; }
-            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
-        }
-        return parts.join('');
-    };
-    const shouldPrevent = (thisArg, type, handler) => {
-        const matchesType = safe.RegExp_test.call(reType, type);
-        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
-        const matchesEither = matchesType || matchesHandler;
-        const matchesBoth = matchesType && matchesHandler;
-        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
-            debugger; // eslint-disable-line no-debugger
-        }
-        if ( matchesBoth && targetSelector !== undefined ) {
-            if ( elementMatches(thisArg) === false ) { return false; }
-        }
-        return matchesBoth;
-    };
-    const proxyFn = function(context) {
-        const { callArgs, thisArg } = context;
-        let t, h;
-        try {
-            t = String(callArgs[0]);
-            if ( typeof callArgs[1] === 'function' ) {
-                h = String(safe.Function_toString(callArgs[1]));
-            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
-                if ( typeof callArgs[1].handleEvent === 'function' ) {
-                    h = String(safe.Function_toString(callArgs[1].handleEvent));
-                }
-            } else {
-                h = String(callArgs[1]);
-            }
-        } catch {
-        }
-        if ( type === '' && pattern === '' ) {
-            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        } else if ( shouldPrevent(thisArg, t, h) ) {
-            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        }
-        return context.reflect();
-    };
-    runAt(( ) => {
-        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
-        proxyApplyFn('document.addEventListener', proxyFn);
-    }, extraArgs.runAt);
+    replaceNodeTextFn(nodeName, '', '', 'includes', includes || '', ...extraArgs);
 }
 
-function proxyApplyFn(
-    target = '',
-    handler = ''
+function replaceNodeTextFn(
+    nodeName = '',
+    pattern = '',
+    replacement = ''
 ) {
-    let context = globalThis;
-    let prop = target;
-    for (;;) {
-        const pos = prop.indexOf('.');
-        if ( pos === -1 ) { break; }
-        context = context[prop.slice(0, pos)];
-        if ( context instanceof Object === false ) { return; }
-        prop = prop.slice(pos+1);
-    }
-    const fn = context[prop];
-    if ( typeof fn !== 'function' ) { return; }
-    if ( proxyApplyFn.CtorContext === undefined ) {
-        proxyApplyFn.ctorContexts = [];
-        proxyApplyFn.CtorContext = class {
-            constructor(...args) {
-                this.init(...args);
-            }
-            init(callFn, callArgs) {
-                this.callFn = callFn;
-                this.callArgs = callArgs;
-                return this;
-            }
-            reflect() {
-                const r = Reflect.construct(this.callFn, this.callArgs);
-                this.callFn = this.callArgs = this.private = undefined;
-                proxyApplyFn.ctorContexts.push(this);
-                return r;
-            }
-            static factory(...args) {
-                return proxyApplyFn.ctorContexts.length !== 0
-                    ? proxyApplyFn.ctorContexts.pop().init(...args)
-                    : new proxyApplyFn.CtorContext(...args);
-            }
-        };
-        proxyApplyFn.applyContexts = [];
-        proxyApplyFn.ApplyContext = class {
-            constructor(...args) {
-                this.init(...args);
-            }
-            init(callFn, thisArg, callArgs) {
-                this.callFn = callFn;
-                this.thisArg = thisArg;
-                this.callArgs = callArgs;
-                return this;
-            }
-            reflect() {
-                const r = Reflect.apply(this.callFn, this.thisArg, this.callArgs);
-                this.callFn = this.thisArg = this.callArgs = this.private = undefined;
-                proxyApplyFn.applyContexts.push(this);
-                return r;
-            }
-            static factory(...args) {
-                return proxyApplyFn.applyContexts.length !== 0
-                    ? proxyApplyFn.applyContexts.pop().init(...args)
-                    : new proxyApplyFn.ApplyContext(...args);
-            }
-        };
-    }
-    const fnStr = fn.toString();
-    const toString = (function toString() { return fnStr; }).bind(null);
-    const proxyDetails = {
-        apply(target, thisArg, args) {
-            return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) { return toString; }
-            return Reflect.get(target, prop);
-        },
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('replace-node-text.fn', ...Array.from(arguments));
+    const reNodeName = safe.patternToRegex(nodeName, 'i', true);
+    const rePattern = safe.patternToRegex(pattern, 'gms');
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const reIncludes = extraArgs.includes || extraArgs.condition
+        ? safe.patternToRegex(extraArgs.includes || extraArgs.condition, 'ms')
+        : null;
+    const reExcludes = extraArgs.excludes
+        ? safe.patternToRegex(extraArgs.excludes, 'ms')
+        : null;
+    const stop = (takeRecord = true) => {
+        if ( takeRecord ) {
+            handleMutations(observer.takeRecords());
+        }
+        observer.disconnect();
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, 'Quitting');
+        }
     };
-    if ( fn.prototype?.constructor === fn ) {
-        proxyDetails.construct = function(target, args) {
-            return handler(proxyApplyFn.CtorContext.factory(target, args));
-        };
+    const textContentFactory = (( ) => {
+        const out = { createScript: s => s };
+        const { trustedTypes: tt } = self;
+        if ( tt instanceof Object ) {
+            if ( typeof tt.getPropertyType === 'function' ) {
+                if ( tt.getPropertyType('script', 'textContent') === 'TrustedScript' ) {
+                    return tt.createPolicy(getRandomTokenFn(), out);
+                }
+            }
+        }
+        return out;
+    })();
+    let sedCount = extraArgs.sedCount || 0;
+    const handleNode = node => {
+        const before = node.textContent;
+        if ( reIncludes ) {
+            reIncludes.lastIndex = 0;
+            if ( safe.RegExp_test.call(reIncludes, before) === false ) { return true; }
+        }
+        if ( reExcludes ) {
+            reExcludes.lastIndex = 0;
+            if ( safe.RegExp_test.call(reExcludes, before) ) { return true; }
+        }
+        rePattern.lastIndex = 0;
+        if ( safe.RegExp_test.call(rePattern, before) === false ) { return true; }
+        rePattern.lastIndex = 0;
+        const after = pattern !== ''
+            ? before.replace(rePattern, replacement)
+            : replacement;
+        node.textContent = node.nodeName === 'SCRIPT'
+            ? textContentFactory.createScript(after)
+            : after;
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `Text before:\n${before.trim()}`);
+        }
+        safe.uboLog(logPrefix, `Text after:\n${after.trim()}`);
+        return sedCount === 0 || (sedCount -= 1) !== 0;
+    };
+    const handleMutations = mutations => {
+        for ( const mutation of mutations ) {
+            for ( const node of mutation.addedNodes ) {
+                if ( reNodeName.test(node.nodeName) === false ) { continue; }
+                if ( handleNode(node) ) { continue; }
+                stop(false); return;
+            }
+        }
+    };
+    const observer = new MutationObserver(handleMutations);
+    observer.observe(document, { childList: true, subtree: true });
+    if ( document.documentElement ) {
+        const treeWalker = document.createTreeWalker(
+            document.documentElement,
+            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT
+        );
+        let count = 0;
+        for (;;) {
+            const node = treeWalker.nextNode();
+            count += 1;
+            if ( node === null ) { break; }
+            if ( reNodeName.test(node.nodeName) === false ) { continue; }
+            if ( node === document.currentScript ) { continue; }
+            if ( handleNode(node) ) { continue; }
+            stop(); break;
+        }
+        safe.uboLog(logPrefix, `${count} nodes present before installing mutation observer`);
     }
-    context[prop] = new Proxy(fn, proxyDetails);
+    if ( extraArgs.stay ) { return; }
+    runAt(( ) => {
+        const quitAfter = extraArgs.quitAfter || 0;
+        if ( quitAfter !== 0 ) {
+            setTimeout(( ) => { stop(); }, quitAfter);
+        } else {
+            stop();
+        }
+    }, 'interactive');
+}
+
+function getRandomTokenFn() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
 }
 
 function runAt(fn, when) {
@@ -409,18 +365,13 @@ function safeSelf() {
     return safe;
 }
 
-function shouldDebug(details) {
-    if ( details instanceof Object === false ) { return false; }
-    return scriptletGlobals.canDebug && details.debug;
-}
-
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["/^(?:contextmenu|keydown)$/"],["/beforeunload|pagehide/","0x"],["/click|load/","popMagic"],["/click|mousedown/","popunder"],["/mouse/","cursorVisible"],["DOMContentLoaded",".j-mini-player__video"],["DOMContentLoaded","/EventTracker|utm_campaign/"],["DOMContentLoaded","0x"],["DOMContentLoaded","StrategyHandler"],["DOMContentLoaded","_Modal"],["DOMContentLoaded","banners"],["DOMContentLoaded","encodedUrl"],["DOMContentLoaded","exo_tracker"],["DOMContentLoaded","feedback"],["click","","elements","a[href*=\"utm_campaign\"]"],["click","[native code]"],["click","matches"],["copy","extra"],["copy","getSelection"],["copy","pagelink"],["error","","elements","[data-status=\"loading\"]"],["getexoloader"],["load","AdBlock"],["load","detect-modal"],["load","mamydirect"],["loadstart","isImmediatePropagationStopped"],["mousedown","pop.doEvent"],["new","window.location"],["scroll","getBoundingClientRect"],["scroll","players"],["scroll","window.history.pushState"],["userpause","Math.random"],["visibilitychange","document.hidden"],["/contextmenu|copy|keydown|selectstart/"],["DOMContentLoaded","click_time"],["load","checkAdblockExistence"],["/click|destroy|mousedown/","","elements",".html-fishing"],["visibilitychange","captureContext"]];
-const hostnamesMap = new Map([["7days.ru",[0,37]],["shedevrum.ai",1],["fastpic.org",[2,21]],["biqle.org",3],["biqle.ru",3],["fm-app.ru",4],["tvapp.su",4],["yootv.ru",4],["rambler.ru",[5,17]],["sibnet.ru",6],["sports.ru",7],["buhplatforma.com.ua",8],["dzplatforma.com.ua",8],["medplatforma.com.ua",8],["oblikbudget.com.ua",8],["oplatforma.com.ua",8],["pro-op.com.ua",8],["prokadry.com.ua",8],["doramaland.plus",9],["cq.ru",10],["1progs.me",11],["xv-ru.com",12],["litnet.com",13],["regnum.news",14],["regnum.ru",14],["tproger.ru",14],["softonic.ru",15],["smotrim.ru",16],["kp.kg",[18,37]],["kp.kz",[18,37]],["kp.md",[18,37]],["kp.ru",[18,37]],["rbc.ru",18],["sportrbc.ru",18],["carservic.ru",19],["iptv.org.ua",19],["tva.org.ua",19],["ufchgu.ru",19],["trychatgpt.ru",20],["romakatya.ru",22],["blackwot.ru",23],["overclockers.ru",24],["bonus-tv.ru",25],["kinoblin.ru",26],["pornoakt.info",26],["serialai.ru",26],["bzrus.pro",[27,31]],["m.lenta.ru",28],["www.vesti.ru",29],["lenta.ru",30],["rutube.ru",32],["autonews.co.ua",33],["in-poland.com",33],["liveball.*",33],["ukrainianwall.com",33],["seks-studentki.*",34],["sex-studentki.*",34],["otvet.mail.ru",35],["e.mail.ru",36],["octavius.mail.ru",36],["cdn.viqeo.tv",37],["kinonews.ru",37],["mk.ru",37],["ohotniki.ru",37],["portalvirtualreality.ru",37],["radiokp.ru",37],["sportkp.ru",37],["theday.ru",37],["woman.ru",37],["www.fontanka.ru",37]]);
-const exceptionsMap = new Map([["new.fastpic.org",[2,21]],["id.rambler.ru",[5,17]],["vp.rambler.ru",[5,17]],["player.smotrim.ru",[16]],["mail.rambler.ru",[17]]]);
-const hasEntities = true;
+const argsList = [["script","/run[\\s\\S]*?data[\\s\\S]*?OnClick[\\s\\S]*?ad\\d_/"]];
+const hostnamesMap = new Map([["m.humoruniv.com",0]]);
+const exceptionsMap = new Map([]);
+const hasEntities = false;
 const hasAncestors = false;
 
 const collectArgIndices = (hn, map, out) => {
@@ -486,7 +437,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { addEventListenerDefuser(...argsList[i]); }
+    try { removeNodeText(...argsList[i]); }
     catch { }
 }
 

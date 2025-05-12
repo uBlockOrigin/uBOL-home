@@ -326,8 +326,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["/^/"],["exoframe"],["style.opacity"],[".innerHTML"]];
-const hostnamesMap = new Map([["japscan.lol",0],["pussyspace.com",1],["pussyspace.net",1],["dudestream.com",2],["needrom.com",3]]);
+const argsList = [["/^/"],["exoframe"],["style.opacity"],[".innerHTML"],["catch"]];
+const hostnamesMap = new Map([["japscan.lol",0],["pussyspace.com",1],["pussyspace.net",1],["dudestream.com",2],["needrom.com",3],["news.bg",4]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

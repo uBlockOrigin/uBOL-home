@@ -35,5 +35,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["huya.com"],"resourceTypes":["media"],"urlFilter":"||huya.com/leaf/*=vodadv&"},"id":34,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||manwa.me/static/custom/files/300x250."},"id":35,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"domainType":"thirdParty","initiatorDomains":["rmdown.com"],"resourceTypes":["image"],"urlFilter":"."},"id":36,"priority":11},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["v.youku.com"],"resourceTypes":["media"],"urlFilter":"||cibntv.net/youku/*.mp4?"},"id":37,"priority":41}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["v.youku.com"],"resourceTypes":["media"],"urlFilter":"||cibntv.net/youku/*.mp4?"},"id":37,"priority":41},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["nodejs.cn"],"resourceTypes":["script"],"urlFilter":"||cdn.wwads.cn/js/makemoney.js"},"id":38,"priority":41}
 ]

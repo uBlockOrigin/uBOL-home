@@ -129,6 +129,12 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?physicsandmathstutor\\.com/pdf-pages/\\?pdf=http",
+  "steps": [
+   "?pdf"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?rd\\.remove\\.bg/cl0/http",
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",
