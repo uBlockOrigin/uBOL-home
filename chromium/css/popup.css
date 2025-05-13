@@ -69,6 +69,9 @@ body[data-forbid~="filteringMode"] .filteringModeSlider {
 body[data-forbid~="dashboard"] #gotoDashboard {
     display: none;
     }
+body[data-forbid~="zapper"] #gotoZapper {
+    display: none;
+    }
 
 .lrspacer {
     padding-left: var(--default-gap-small);
