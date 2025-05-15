@@ -81,6 +81,10 @@ jobs:
             
             **This is a beta version.**
             
+            Installation:
+            - Firefox: Click [${{ env.TAGNAME }}-beta](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}-beta/uBOLite.beta.firefox.signed.xpi)
+            - Safari: Visit <https://testflight.apple.com/join/JjTcThrV>
+            
           files: |
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.edge.zip
