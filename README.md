@@ -1,8 +1,9 @@
 # uBO Lite
 
-| Chrome | Edge | Firefox | Safari |
-| :------: | :----: | :-------: | :----: |
-| <a href="https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh"><img src="https://user-images.githubusercontent.com/585534/107280622-91a8ea80-6a26-11eb-8d07-77c548b28665.png" alt="Get uBO Lite for Chromium"></a><br>&nbsp; | <a href="https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn"><img src="https://user-images.githubusercontent.com/585534/107280673-a5ece780-6a26-11eb-9cc7-9fa9f9f81180.png" alt="Get uBlock Origin Lite for Microsoft Edge"></a><br>&nbsp; | <a href="https://github.com/uBlockOrigin/uBOL-home/releases/download/uBOLite_2025.5.7.895-beta/uBOLite.beta.firefox.signed.xpi"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="Get uBlock Origin for Firefox"></a><br><sup>Beta</sup> | [Install through TestFlight](https://testflight.apple.com/join/JjTcThrV)<br><sup><br>Beta</sup> |
+| Browser | Install from ... | Browser | Install from ... |
+| --- | --- | --- | --- |
+| <img src="https://github.com/user-attachments/assets/d5033882-0c94-424f-9e8b-e00ed832acf7" alt="Get uBO Lite for Chromium"> | <a href="https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh">Chrome Web Store</a> | <img src="https://github.com/user-attachments/assets/8a33b8ba-57ee-4a54-a83c-7d21f9b2dafb" alt="Get uBlock Origin Lite for Firefox"> | <a href="https://github.com/uBlockOrigin/uBOL-home/releases/download/uBOLite_2025.5.7.895-beta/uBOLite.beta.firefox.signed.xpi">Beta: Self-distributed</a> |
+| <img src="https://github.com/user-attachments/assets/acff1f85-d3f0-49eb-928e-7c43c5ef8f6c" alt="Get uBlock Origin Lite for Microsoft Edge"> | <a href="https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn">Edge Add-ons</a> | <img src="https://github.com/user-attachments/assets/d267b13e-b403-4040-93ea-fff38fea8c1b" alt="Get uBlock Origin Lite for Safari"> | <a href="https://testflight.apple.com/join/JjTcThrV">Beta: TestFlight</a> |
 
 ## Description
 
