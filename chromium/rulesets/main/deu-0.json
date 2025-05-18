@@ -1819,5 +1819,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de","gamepro.de","gamestar.de","manager-magazin.de","motorradonline.de","teltarif.de"],"resourceTypes":["script"],"urlFilter":"||g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js"},"id":1818,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de","gala.de","gamepro.de","gamestar.de","geo.de","manager-magazin.de","motorradonline.de","moviepilot.de","spiegel.de"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||g.doubleclick.net/gampad/ads?"},"id":1819,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||foerde.news/files/news-bilder/anzeigen/"},"id":1820,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||scout69.com/?wms="},"id":1821,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||scout69.com/?wms="},"id":1821,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||finews.ch/images/banners/"},"id":1822,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||preispirat.ch^*/partner-promo/"},"id":1823,"priority":10}
 ]

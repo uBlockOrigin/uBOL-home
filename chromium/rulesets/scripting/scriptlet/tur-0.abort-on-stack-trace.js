@@ -20,153 +20,125 @@
 
 */
 
-// ruleset: fin-0
+// ruleset: tur-0
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_preventSetTimeout() {
+(function uBOL_abortOnStackTrace() {
 
 /******************************************************************************/
 
-function preventSetTimeout(
-    needleRaw = '',
-    delayRaw = ''
+function abortOnStackTrace(
+    chain = '',
+    needle = ''
+) {
+    if ( typeof chain !== 'string' ) { return; }
+    const safe = safeSelf();
+    const needleDetails = safe.initPattern(needle, { canNegate: true });
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    if ( needle === '' ) { extraArgs.log = 'all'; }
+    const makeProxy = function(owner, chain) {
+        const pos = chain.indexOf('.');
+        if ( pos === -1 ) {
+            let v = owner[chain];
+            Object.defineProperty(owner, chain, {
+                get: function() {
+                    const log = safe.logLevel > 1 ? 'all' : 'match';
+                    if ( matchesStackTraceFn(needleDetails, log) ) {
+                        throw new ReferenceError(getExceptionTokenFn());
+                    }
+                    return v;
+                },
+                set: function(a) {
+                    const log = safe.logLevel > 1 ? 'all' : 'match';
+                    if ( matchesStackTraceFn(needleDetails, log) ) {
+                        throw new ReferenceError(getExceptionTokenFn());
+                    }
+                    v = a;
+                },
+            });
+            return;
+        }
+        const prop = chain.slice(0, pos);
+        let v = owner[prop];
+        chain = chain.slice(pos + 1);
+        if ( v ) {
+            makeProxy(v, chain);
+            return;
+        }
+        const desc = Object.getOwnPropertyDescriptor(owner, prop);
+        if ( desc && desc.set !== undefined ) { return; }
+        Object.defineProperty(owner, prop, {
+            get: function() { return v; },
+            set: function(a) {
+                v = a;
+                if ( a instanceof Object ) {
+                    makeProxy(a, chain);
+                }
+            }
+        });
+    };
+    const owner = window;
+    makeProxy(owner, chain);
+}
+
+function getExceptionTokenFn() {
+    const token = getRandomTokenFn();
+    const oe = self.onerror;
+    self.onerror = function(msg, ...args) {
+        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
+        if ( oe instanceof Function ) {
+            return oe.call(this, msg, ...args);
+        }
+    }.bind();
+    return token;
+}
+
+function matchesStackTraceFn(
+    needleDetails,
+    logLevel = ''
 ) {
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('prevent-setTimeout', needleRaw, delayRaw);
-    const needleNot = needleRaw.charAt(0) === '!';
-    const reNeedle = safe.patternToRegex(needleNot ? needleRaw.slice(1) : needleRaw);
-    const range = new RangeParser(delayRaw);
-    proxyApplyFn('setTimeout', function(context) {
-        const { callArgs } = context;
-        const a = callArgs[0] instanceof Function
-            ? safe.String(safe.Function_toString(callArgs[0]))
-            : safe.String(callArgs[0]);
-        const b = callArgs[1];
-        if ( needleRaw === '' && range.unbound() ) {
-            safe.uboLog(logPrefix, `Called:\n${a}\n${b}`);
-            return context.reflect();
+    const exceptionToken = getExceptionTokenFn();
+    const error = new safe.Error(exceptionToken);
+    const docURL = new URL(self.location.href);
+    docURL.hash = '';
+    // Normalize stack trace
+    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
+    const lines = [];
+    for ( let line of safe.String_split.call(error.stack, /[\n\r]+/) ) {
+        if ( line.includes(exceptionToken) ) { continue; }
+        line = line.trim();
+        const match = safe.RegExp_exec.call(reLine, line);
+        if ( match === null ) { continue; }
+        let url = match[2];
+        if ( url.startsWith('(') ) { url = url.slice(1); }
+        if ( url === docURL.href ) {
+            url = 'inlineScript';
+        } else if ( url.startsWith('<anonymous>') ) {
+            url = 'injectedScript';
         }
-        if ( reNeedle.test(a) !== needleNot && range.test(b) ) {
-            callArgs[0] = function(){};
-            safe.uboLog(logPrefix, `Prevented:\n${a}\n${b}`);
-        }
-        return context.reflect();
-    });
-}
-
-function proxyApplyFn(
-    target = '',
-    handler = ''
-) {
-    let context = globalThis;
-    let prop = target;
-    for (;;) {
-        const pos = prop.indexOf('.');
-        if ( pos === -1 ) { break; }
-        context = context[prop.slice(0, pos)];
-        if ( context instanceof Object === false ) { return; }
-        prop = prop.slice(pos+1);
+        let fn = match[1] !== undefined
+            ? match[1].slice(0, -1)
+            : line.slice(0, match.index).trim();
+        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
+        let rowcol = match[3];
+        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
     }
-    const fn = context[prop];
-    if ( typeof fn !== 'function' ) { return; }
-    if ( proxyApplyFn.CtorContext === undefined ) {
-        proxyApplyFn.ctorContexts = [];
-        proxyApplyFn.CtorContext = class {
-            constructor(...args) {
-                this.init(...args);
-            }
-            init(callFn, callArgs) {
-                this.callFn = callFn;
-                this.callArgs = callArgs;
-                return this;
-            }
-            reflect() {
-                const r = Reflect.construct(this.callFn, this.callArgs);
-                this.callFn = this.callArgs = this.private = undefined;
-                proxyApplyFn.ctorContexts.push(this);
-                return r;
-            }
-            static factory(...args) {
-                return proxyApplyFn.ctorContexts.length !== 0
-                    ? proxyApplyFn.ctorContexts.pop().init(...args)
-                    : new proxyApplyFn.CtorContext(...args);
-            }
-        };
-        proxyApplyFn.applyContexts = [];
-        proxyApplyFn.ApplyContext = class {
-            constructor(...args) {
-                this.init(...args);
-            }
-            init(callFn, thisArg, callArgs) {
-                this.callFn = callFn;
-                this.thisArg = thisArg;
-                this.callArgs = callArgs;
-                return this;
-            }
-            reflect() {
-                const r = Reflect.apply(this.callFn, this.thisArg, this.callArgs);
-                this.callFn = this.thisArg = this.callArgs = this.private = undefined;
-                proxyApplyFn.applyContexts.push(this);
-                return r;
-            }
-            static factory(...args) {
-                return proxyApplyFn.applyContexts.length !== 0
-                    ? proxyApplyFn.applyContexts.pop().init(...args)
-                    : new proxyApplyFn.ApplyContext(...args);
-            }
-        };
+    lines[0] = `stackDepth:${lines.length-1}`;
+    const stack = lines.join('\t');
+    const r = needleDetails.matchAll !== true &&
+        safe.testPattern(needleDetails, stack);
+    if (
+        logLevel === 'all' ||
+        logLevel === 'match' && r ||
+        logLevel === 'nomatch' && !r
+    ) {
+        safe.uboLog(stack.replace(/\t/g, '\n'));
     }
-    const fnStr = fn.toString();
-    const toString = (function toString() { return fnStr; }).bind(null);
-    const proxyDetails = {
-        apply(target, thisArg, args) {
-            return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) { return toString; }
-            return Reflect.get(target, prop);
-        },
-    };
-    if ( fn.prototype?.constructor === fn ) {
-        proxyDetails.construct = function(target, args) {
-            return handler(proxyApplyFn.CtorContext.factory(target, args));
-        };
-    }
-    context[prop] = new Proxy(fn, proxyDetails);
-}
-
-class RangeParser {
-    constructor(s) {
-        this.not = s.charAt(0) === '!';
-        if ( this.not ) { s = s.slice(1); }
-        if ( s === '' ) { return; }
-        const pos = s.indexOf('-');
-        if ( pos !== 0 ) {
-            this.min = this.max = parseInt(s, 10) || 0;
-        }
-        if ( pos !== -1 ) {
-            this.max = parseInt(s.slice(pos + 1), 10) || Number.MAX_SAFE_INTEGER;
-        }
-    }
-    unbound() {
-        return this.min === undefined && this.max === undefined;
-    }
-    test(v) {
-        const n = Math.min(Math.max(Number(v) || 0, 0), Number.MAX_SAFE_INTEGER);
-        if ( this.min === this.max ) {
-            return (this.min === undefined || n === this.min) !== this.not;
-        }
-        if ( this.min === undefined ) {
-            return (n <= this.max) !== this.not;
-        }
-        if ( this.max === undefined ) {
-            return (n >= this.min) !== this.not;
-        }
-        return (n >= this.min && n <= this.max) !== this.not;
-    }
+    return r;
 }
 
 function safeSelf() {
@@ -359,11 +331,17 @@ function safeSelf() {
     return safe;
 }
 
+function getRandomTokenFn() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["f.parentNode.removeChild(f)","100"]];
-const hostnamesMap = new Map([["afterdawn.com",0],["dawn.fi",0],["download.fi",0],["high.fi",0],["muropaketti.com",0]]);
+const argsList = [["document.querySelector","window.onload"]];
+const hostnamesMap = new Map([["tekniknot.com",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -431,7 +409,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { preventSetTimeout(...argsList[i]); }
+    try { abortOnStackTrace(...argsList[i]); }
     catch { }
 }
 

@@ -20,88 +20,115 @@
 
 */
 
-// ruleset: fin-0
+// ruleset: adguard-mobile
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_jsonPrune() {
+(function uBOL_removeAttr() {
 
 /******************************************************************************/
 
-function jsonPrune(
-    rawPrunePaths = '',
-    rawNeedlePaths = '',
-    stackNeedle = ''
+function removeAttr(
+    rawToken = '',
+    rawSelector = '',
+    behavior = ''
 ) {
+    if ( typeof rawToken !== 'string' ) { return; }
+    if ( rawToken === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
-    const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    JSON.parse = new Proxy(JSON.parse, {
-        apply: function(target, thisArg, args) {
-            const objBefore = Reflect.apply(target, thisArg, args);
-            if ( rawPrunePaths === '' ) {
-                safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
-            }
-            const objAfter = objectPruneFn(
-                objBefore,
-                rawPrunePaths,
-                rawNeedlePaths,
-                stackNeedleDetails,
-                extraArgs
-            );
-            if ( objAfter === undefined ) { return objBefore; }
-            safe.uboLog(logPrefix, 'Pruned');
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
-            }
-            return objAfter;
-        },
-    });
-}
-
-function objectPruneFn(
-    obj,
-    rawPrunePaths,
-    rawNeedlePaths,
-    stackNeedleDetails = { matchAll: true },
-    extraArgs = {}
-) {
-    if ( typeof rawPrunePaths !== 'string' ) { return; }
-    const safe = safeSelf();
-    const prunePaths = rawPrunePaths !== ''
-        ? safe.String_split.call(rawPrunePaths, / +/)
-        : [];
-    const needlePaths = prunePaths.length !== 0 && rawNeedlePaths !== ''
-        ? safe.String_split.call(rawNeedlePaths, / +/)
-        : [];
-    if ( stackNeedleDetails.matchAll !== true ) {
-        if ( matchesStackTraceFn(stackNeedleDetails, extraArgs.logstack) === false ) {
-            return;
-        }
+    const logPrefix = safe.makeLogPrefix('remove-attr', rawToken, rawSelector, behavior);
+    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
+    const selector = tokens
+        .map(a => `${rawSelector}[${CSS.escape(a)}]`)
+        .join(',');
+    if ( safe.logLevel > 1 ) {
+        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
     }
-    if ( objectPruneFn.mustProcess === undefined ) {
-        objectPruneFn.mustProcess = (root, needlePaths) => {
-            for ( const needlePath of needlePaths ) {
-                if ( objectFindOwnerFn(root, needlePath) === false ) {
-                    return false;
+    const asap = /\basap\b/.test(behavior);
+    let timerId;
+    const rmattrAsync = ( ) => {
+        if ( timerId !== undefined ) { return; }
+        timerId = safe.onIdle(( ) => {
+            timerId = undefined;
+            rmattr();
+        }, { timeout: 17 });
+    };
+    const rmattr = ( ) => {
+        if ( timerId !== undefined ) {
+            safe.offIdle(timerId);
+            timerId = undefined;
+        }
+        try {
+            const nodes = document.querySelectorAll(selector);
+            for ( const node of nodes ) {
+                for ( const attr of tokens ) {
+                    if ( node.hasAttribute(attr) === false ) { continue; }
+                    node.removeAttribute(attr);
+                    safe.uboLog(logPrefix, `Removed attribute '${attr}'`);
                 }
             }
-            return true;
-        };
-    }
-    if ( prunePaths.length === 0 ) { return; }
-    let outcome = 'nomatch';
-    if ( objectPruneFn.mustProcess(obj, needlePaths) ) {
-        for ( const path of prunePaths ) {
-            if ( objectFindOwnerFn(obj, path, true) ) {
-                outcome = 'match';
+        } catch {
+        }
+    };
+    const mutationHandler = mutations => {
+        if ( timerId !== undefined ) { return; }
+        let skip = true;
+        for ( let i = 0; i < mutations.length && skip; i++ ) {
+            const { type, addedNodes, removedNodes } = mutations[i];
+            if ( type === 'attributes' ) { skip = false; }
+            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
+                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
+            }
+            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
+                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
             }
         }
+        if ( skip ) { return; }
+        asap ? rmattr() : rmattrAsync();
+    };
+    const start = ( ) => {
+        rmattr();
+        if ( /\bstay\b/.test(behavior) === false ) { return; }
+        const observer = new MutationObserver(mutationHandler);
+        observer.observe(document, {
+            attributes: true,
+            attributeFilter: tokens,
+            childList: true,
+            subtree: true,
+        });
+    };
+    runAt(( ) => { start(); }, safe.String_split.call(behavior, /\s+/));
+}
+
+function runAt(fn, when) {
+    const intFromReadyState = state => {
+        const targets = {
+            'loading': 1, 'asap': 1,
+            'interactive': 2, 'end': 2, '2': 2,
+            'complete': 3, 'idle': 3, '3': 3,
+        };
+        const tokens = Array.isArray(state) ? state : [ state ];
+        for ( const token of tokens ) {
+            const prop = `${token}`;
+            if ( Object.hasOwn(targets, prop) === false ) { continue; }
+            return targets[prop];
+        }
+        return 0;
+    };
+    const runAt = intFromReadyState(when);
+    if ( intFromReadyState(document.readyState) >= runAt ) {
+        fn(); return;
     }
-    if ( outcome === 'match' ) { return obj; }
+    const onStateChange = ( ) => {
+        if ( intFromReadyState(document.readyState) < runAt ) { return; }
+        fn();
+        safe.removeEventListener.apply(document, args);
+    };
+    const safe = safeSelf();
+    const args = [ 'readystatechange', onStateChange, { capture: true } ];
+    safe.addEventListener.apply(document, args);
 }
 
 function safeSelf() {
@@ -294,139 +321,11 @@ function safeSelf() {
     return safe;
 }
 
-function matchesStackTraceFn(
-    needleDetails,
-    logLevel = ''
-) {
-    const safe = safeSelf();
-    const exceptionToken = getExceptionTokenFn();
-    const error = new safe.Error(exceptionToken);
-    const docURL = new URL(self.location.href);
-    docURL.hash = '';
-    // Normalize stack trace
-    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
-    const lines = [];
-    for ( let line of safe.String_split.call(error.stack, /[\n\r]+/) ) {
-        if ( line.includes(exceptionToken) ) { continue; }
-        line = line.trim();
-        const match = safe.RegExp_exec.call(reLine, line);
-        if ( match === null ) { continue; }
-        let url = match[2];
-        if ( url.startsWith('(') ) { url = url.slice(1); }
-        if ( url === docURL.href ) {
-            url = 'inlineScript';
-        } else if ( url.startsWith('<anonymous>') ) {
-            url = 'injectedScript';
-        }
-        let fn = match[1] !== undefined
-            ? match[1].slice(0, -1)
-            : line.slice(0, match.index).trim();
-        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
-        let rowcol = match[3];
-        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
-    }
-    lines[0] = `stackDepth:${lines.length-1}`;
-    const stack = lines.join('\t');
-    const r = needleDetails.matchAll !== true &&
-        safe.testPattern(needleDetails, stack);
-    if (
-        logLevel === 'all' ||
-        logLevel === 'match' && r ||
-        logLevel === 'nomatch' && !r
-    ) {
-        safe.uboLog(stack.replace(/\t/g, '\n'));
-    }
-    return r;
-}
-
-function objectFindOwnerFn(
-    root,
-    path,
-    prune = false
-) {
-    const safe = safeSelf();
-    let owner = root;
-    let chain = path;
-    for (;;) {
-        if ( typeof owner !== 'object' || owner === null  ) { return false; }
-        const pos = chain.indexOf('.');
-        if ( pos === -1 ) {
-            if ( prune === false ) {
-                return safe.Object_hasOwn(owner, chain);
-            }
-            let modified = false;
-            if ( chain === '*' ) {
-                for ( const key in owner ) {
-                    if ( safe.Object_hasOwn(owner, key) === false ) { continue; }
-                    delete owner[key];
-                    modified = true;
-                }
-            } else if ( safe.Object_hasOwn(owner, chain) ) {
-                delete owner[chain];
-                modified = true;
-            }
-            return modified;
-        }
-        const prop = chain.slice(0, pos);
-        const next = chain.slice(pos + 1);
-        let found = false;
-        if ( prop === '[-]' && Array.isArray(owner) ) {
-            let i = owner.length;
-            while ( i-- ) {
-                if ( objectFindOwnerFn(owner[i], next) === false ) { continue; }
-                owner.splice(i, 1);
-                found = true;
-            }
-            return found;
-        }
-        if ( prop === '{-}' && owner instanceof Object ) {
-            for ( const key of Object.keys(owner) ) {
-                if ( objectFindOwnerFn(owner[key], next) === false ) { continue; }
-                delete owner[key];
-                found = true;
-            }
-            return found;
-        }
-        if (
-            prop === '[]' && Array.isArray(owner) ||
-            prop === '{}' && owner instanceof Object ||
-            prop === '*' && owner instanceof Object
-        ) {
-            for ( const key of Object.keys(owner) ) {
-                if (objectFindOwnerFn(owner[key], next, prune) === false ) { continue; }
-                found = true;
-            }
-            return found;
-        }
-        if ( safe.Object_hasOwn(owner, prop) === false ) { return false; }
-        owner = owner[prop];
-        chain = chain.slice(pos + 1);
-    }
-}
-
-function getExceptionTokenFn() {
-    const token = getRandomTokenFn();
-    const oe = self.onerror;
-    self.onerror = function(msg, ...args) {
-        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
-        if ( oe instanceof Function ) {
-            return oe.call(this, msg, ...args);
-        }
-    }.bind();
-    return token;
-}
-
-function getRandomTokenFn() {
-    const safe = safeSelf();
-    return safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
-}
-
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["props.pageProps.contentfulState.frontPage.sections.[].fields.hasCitrusAdSlot props.pageProps.contentfulState.frontPage.sections.[].fields.isCitrusAdGrid"]];
-const hostnamesMap = new Map([["s-kaupat.fi",0]]);
+const argsList = [["id","#div-gpt-ad-header"],["style",".tadm_ad_unit"],["data-universal-link","body"],["style","div[class*=\"site-header__with-mobile-leaderboard\"]"]];
+const hostnamesMap = new Map([["rocketnews24.com",0],["youpouch.com",0],["soranews24.com",0],["saveur.com",1],["idaprikol.ru",2],["reuters.com",3]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -494,7 +393,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { jsonPrune(...argsList[i]); }
+    try { removeAttr(...argsList[i]); }
     catch { }
 }
 

@@ -20,106 +20,150 @@
 
 */
 
-// ruleset: fin-0
+// ruleset: adguard-mobile
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_removeClass() {
+(function uBOL_abortCurrentScript() {
 
 /******************************************************************************/
 
-function removeClass(
-    rawToken = '',
-    rawSelector = '',
-    behavior = ''
+function abortCurrentScript(...args) {
+    runAtHtmlElementFn(( ) => {
+        abortCurrentScriptCore(...args);
+    });
+}
+
+function abortCurrentScriptCore(
+    target = '',
+    needle = '',
+    context = ''
 ) {
-    if ( typeof rawToken !== 'string' ) { return; }
-    if ( rawToken === '' ) { return; }
+    if ( typeof target !== 'string' ) { return; }
+    if ( target === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('remove-class', rawToken, rawSelector, behavior);
-    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
-    const selector = tokens
-        .map(a => `${rawSelector}.${CSS.escape(a)}`)
-        .join(',');
-    if ( safe.logLevel > 1 ) {
-        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
+    const logPrefix = safe.makeLogPrefix('abort-current-script', target, needle, context);
+    const reNeedle = safe.patternToRegex(needle);
+    const reContext = safe.patternToRegex(context);
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const thisScript = document.currentScript;
+    const chain = safe.String_split.call(target, '.');
+    let owner = window;
+    let prop;
+    for (;;) {
+        prop = chain.shift();
+        if ( chain.length === 0 ) { break; }
+        if ( prop in owner === false ) { break; }
+        owner = owner[prop];
+        if ( owner instanceof Object === false ) { return; }
     }
-    const mustStay = /\bstay\b/.test(behavior);
-    let timer;
-    const rmclass = ( ) => {
-        timer = undefined;
+    let value;
+    let desc = Object.getOwnPropertyDescriptor(owner, prop);
+    if (
+        desc instanceof Object === false ||
+        desc.get instanceof Function === false
+    ) {
+        value = owner[prop];
+        desc = undefined;
+    }
+    const debug = shouldDebug(extraArgs);
+    const exceptionToken = getExceptionTokenFn();
+    const scriptTexts = new WeakMap();
+    const getScriptText = elem => {
+        let text = elem.textContent;
+        if ( text.trim() !== '' ) { return text; }
+        if ( scriptTexts.has(elem) ) { return scriptTexts.get(elem); }
+        const [ , mime, content ] =
+            /^data:([^,]*),(.+)$/.exec(elem.src.trim()) ||
+            [ '', '', '' ];
         try {
-            const nodes = document.querySelectorAll(selector);
-            for ( const node of nodes ) {
-                node.classList.remove(...tokens);
-                safe.uboLog(logPrefix, 'Removed class(es)');
+            switch ( true ) {
+            case mime.endsWith(';base64'):
+                text = self.atob(content);
+                break;
+            default:
+                text = self.decodeURIComponent(content);
+                break;
             }
         } catch {
         }
-        if ( mustStay ) { return; }
-        if ( document.readyState !== 'complete' ) { return; }
-        observer.disconnect();
+        scriptTexts.set(elem, text);
+        return text;
     };
-    const mutationHandler = mutations => {
-        if ( timer !== undefined ) { return; }
-        let skip = true;
-        for ( let i = 0; i < mutations.length && skip; i++ ) {
-            const { type, addedNodes, removedNodes } = mutations[i];
-            if ( type === 'attributes' ) { skip = false; }
-            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
-                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
-                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
+    const validate = ( ) => {
+        const e = document.currentScript;
+        if ( e instanceof HTMLScriptElement === false ) { return; }
+        if ( e === thisScript ) { return; }
+        if ( context !== '' && reContext.test(e.src) === false ) {
+            // eslint-disable-next-line no-debugger
+            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }
+            return;
         }
-        if ( skip ) { return; }
-        timer = safe.onIdle(rmclass, { timeout: 67 });
+        if ( safe.logLevel > 1 && context !== '' ) {
+            safe.uboLog(logPrefix, `Matched src\n${e.src}`);
+        }
+        const scriptText = getScriptText(e);
+        if ( reNeedle.test(scriptText) === false ) {
+            // eslint-disable-next-line no-debugger
+            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }
+            return;
+        }
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `Matched text\n${scriptText}`);
+        }
+        // eslint-disable-next-line no-debugger
+        if ( debug === 'match' || debug === 'all' ) { debugger; }
+        safe.uboLog(logPrefix, 'Aborted');
+        throw new ReferenceError(exceptionToken);
     };
-    const observer = new MutationObserver(mutationHandler);
-    const start = ( ) => {
-        rmclass();
-        observer.observe(document, {
-            attributes: true,
-            attributeFilter: [ 'class' ],
-            childList: true,
-            subtree: true,
+    // eslint-disable-next-line no-debugger
+    if ( debug === 'install' ) { debugger; }
+    try {
+        Object.defineProperty(owner, prop, {
+            get: function() {
+                validate();
+                return desc instanceof Object
+                    ? desc.get.call(owner)
+                    : value;
+            },
+            set: function(a) {
+                validate();
+                if ( desc instanceof Object ) {
+                    desc.set.call(owner, a);
+                } else {
+                    value = a;
+                }
+            }
         });
-    };
-    runAt(( ) => {
-        start();
-    }, /\bcomplete\b/.test(behavior) ? 'idle' : 'loading');
+    } catch(ex) {
+        safe.uboErr(logPrefix, `Error: ${ex}`);
+    }
 }
 
-function runAt(fn, when) {
-    const intFromReadyState = state => {
-        const targets = {
-            'loading': 1, 'asap': 1,
-            'interactive': 2, 'end': 2, '2': 2,
-            'complete': 3, 'idle': 3, '3': 3,
-        };
-        const tokens = Array.isArray(state) ? state : [ state ];
-        for ( const token of tokens ) {
-            const prop = `${token}`;
-            if ( Object.hasOwn(targets, prop) === false ) { continue; }
-            return targets[prop];
-        }
-        return 0;
-    };
-    const runAt = intFromReadyState(when);
-    if ( intFromReadyState(document.readyState) >= runAt ) {
-        fn(); return;
-    }
-    const onStateChange = ( ) => {
-        if ( intFromReadyState(document.readyState) < runAt ) { return; }
+function runAtHtmlElementFn(fn) {
+    if ( document.documentElement ) {
         fn();
-        safe.removeEventListener.apply(document, args);
-    };
-    const safe = safeSelf();
-    const args = [ 'readystatechange', onStateChange, { capture: true } ];
-    safe.addEventListener.apply(document, args);
+        return;
+    }
+    const observer = new MutationObserver(( ) => {
+        observer.disconnect();
+        fn();
+    });
+    observer.observe(document, { childList: true });
+}
+
+function getExceptionTokenFn() {
+    const token = getRandomTokenFn();
+    const oe = self.onerror;
+    self.onerror = function(msg, ...args) {
+        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
+        if ( oe instanceof Function ) {
+            return oe.call(this, msg, ...args);
+        }
+    }.bind();
+    return token;
 }
 
 function safeSelf() {
@@ -312,11 +356,22 @@ function safeSelf() {
     return safe;
 }
 
+function shouldDebug(details) {
+    if ( details instanceof Object === false ) { return false; }
+    return scriptletGlobals.canDebug && details.debug;
+}
+
+function getRandomTokenFn() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["st__hidden","#gamewrapper"],["Profile__TopCard--advertisement","","stay"],["SearchResultList--advertisement","","stay"],["SearchResultList__Row--advertisement","","stay"]];
-const hostnamesMap = new Map([["ap-cdn.sanomagames.com",0],["finder.fi",[1,2,3]]]);
+const argsList = [["navigator.userAgent","/document\\.write[\\s\\S]*?BANNER_/"],["$","exoMobilePop"],["bindPostitial"],["document.getElementsByClassName","adBlocked"],["jmp","Math"],["navigator.userAgent","_rand"]];
+const hostnamesMap = new Map([["gameinn.jp",0],["m.sunporno.com",1],["straitstimes.com",2],["supleks.jp",3],["komaki2.jp",4],["seikeidouga.blog.jp",5]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -384,7 +439,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { removeClass(...argsList[i]); }
+    try { abortCurrentScript(...argsList[i]); }
     catch { }
 }
 

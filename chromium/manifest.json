@@ -50,6 +50,11 @@
         "path": "/rulesets/main/urlhaus-full.json"
       },
       {
+        "id": "adguard-mobile",
+        "enabled": false,
+        "path": "/rulesets/main/adguard-mobile.json"
+      },
+      {
         "id": "block-lan",
         "enabled": false,
         "path": "/rulesets/main/block-lan.json"
@@ -311,7 +316,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2025.512.1008",
+  "version": "2025.518.1611",
   "web_accessible_resources": [
     {
       "resources": [

@@ -1,0 +1,101 @@
+[
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "biqiugexx.com"
+  ],
+  "regexFilter": "\\/js\\/[djpf]{2}(ad)?.*a\\d{2}\\.js"
+ },
+ "id": 1,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "zxzj.me"
+  ],
+  "regexFilter": "\\/slade[0-9]?\\.js"
+ },
+ "id": 2,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "3aym.cn"
+  ],
+  "regexFilter": "jx.3aym.cn\\/[0-9]{1,6}.gif"
+ },
+ "id": 3,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "music-radio.ru"
+  ],
+  "regexFilter": ":\\/\\/[A-Za-z0-9]+.ru\\/[A-Za-z0-9]{20,25}.js"
+ },
+ "id": 4,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "m.anysex.com"
+  ],
+  "regexFilter": "^https?:\\/\\/m\\.anysex\\.com\\/[a-zA-Z]{1,4}\\/[a-zA-Z]+\\.php$",
+  "resourceTypes": [
+   "image",
+   "script"
+  ]
+ },
+ "id": 5,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "regexFilter": "^https:\\/\\/(a|c)\\.[0-9a-f]{56}\\.com$"
+ },
+ "id": 6,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "regexFilter": "^(a|c)\\.[0-9a-f]{56}\\.com$"
+ },
+ "id": 7,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "regexFilter": "m.realgfporn.com\\/[a-z]{1,13}[0-9]{1,13}[a-z]{1,13}.js"
+ },
+ "id": 8,
+ "priority": 10
+}
+]

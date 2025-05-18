@@ -9,7 +9,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-gambarpromosi|"},"id":8,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-iklan-art-|"},"id":9,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":".biz/iklan/"},"id":10,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":".com/iklan/"},"id":11,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["persis.or.id"],"resourceTypes":["image"],"urlFilter":".com/iklan/"},"id":11,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":".id/ads/"},"id":12,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":".id/adv/"},"id":13,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":".id/iklan/"},"id":14,"priority":10},

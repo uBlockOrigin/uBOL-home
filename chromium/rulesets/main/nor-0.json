@@ -192,6 +192,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"://52.216.146.90^"},"id":191,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||storage.googleapis.com/absales^"},"id":192,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"://92.42.104.146^"},"id":193,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||sportsidioten.no/wp-content/uploads/*-oslo-sportslager-pc."},"id":194,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||appleid.*.no^"},"id":195,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||itunesconnect-*.no^"},"id":196,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||bankid-sperret."},"id":197,"priority":10},

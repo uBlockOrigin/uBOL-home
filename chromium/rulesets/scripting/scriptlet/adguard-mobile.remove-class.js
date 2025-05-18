@@ -20,153 +20,106 @@
 
 */
 
-// ruleset: fin-0
+// ruleset: adguard-mobile
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_xmlPrune() {
+(function uBOL_removeClass() {
 
 /******************************************************************************/
 
-function xmlPrune(
-    selector = '',
-    selectorCheck = '',
-    urlPattern = ''
+function removeClass(
+    rawToken = '',
+    rawSelector = '',
+    behavior = ''
 ) {
-    if ( typeof selector !== 'string' ) { return; }
-    if ( selector === '' ) { return; }
+    if ( typeof rawToken !== 'string' ) { return; }
+    if ( rawToken === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('xml-prune', selector, selectorCheck, urlPattern);
-    const reUrl = safe.patternToRegex(urlPattern);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    const queryAll = (xmlDoc, selector) => {
-        const isXpath = /^xpath\(.+\)$/.test(selector);
-        if ( isXpath === false ) {
-            return Array.from(xmlDoc.querySelectorAll(selector));
-        }
-        const xpr = xmlDoc.evaluate(
-            selector.slice(6, -1),
-            xmlDoc,
-            null,
-            XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-            null
-        );
-        const out = [];
-        for ( let i = 0; i < xpr.snapshotLength; i++ ) {
-            const node = xpr.snapshotItem(i);
-            out.push(node);
-        }
-        return out;
-    };
-    const pruneFromDoc = xmlDoc => {
+    const logPrefix = safe.makeLogPrefix('remove-class', rawToken, rawSelector, behavior);
+    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
+    const selector = tokens
+        .map(a => `${rawSelector}.${CSS.escape(a)}`)
+        .join(',');
+    if ( safe.logLevel > 1 ) {
+        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
+    }
+    const mustStay = /\bstay\b/.test(behavior);
+    let timer;
+    const rmclass = ( ) => {
+        timer = undefined;
         try {
-            if ( selectorCheck !== '' && xmlDoc.querySelector(selectorCheck) === null ) {
-                return xmlDoc;
+            const nodes = document.querySelectorAll(selector);
+            for ( const node of nodes ) {
+                node.classList.remove(...tokens);
+                safe.uboLog(logPrefix, 'Removed class(es)');
             }
-            if ( extraArgs.logdoc ) {
-                const serializer = new XMLSerializer();
-                safe.uboLog(logPrefix, `Document is\n\t${serializer.serializeToString(xmlDoc)}`);
-            }
-            const items = queryAll(xmlDoc, selector);
-            if ( items.length === 0 ) { return xmlDoc; }
-            safe.uboLog(logPrefix, `Removing ${items.length} items`);
-            for ( const item of items ) {
-                if ( item.nodeType === 1 ) {
-                    item.remove();
-                } else if ( item.nodeType === 2 ) {
-                    item.ownerElement.removeAttribute(item.nodeName);
-                }
-                safe.uboLog(logPrefix, `${item.constructor.name}.${item.nodeName} removed`);
-            }
-        } catch(ex) {
-            safe.uboErr(logPrefix, `Error: ${ex}`);
-        }
-        return xmlDoc;
-    };
-    const pruneFromText = text => {
-        if ( (/^\s*</.test(text) && />\s*$/.test(text)) === false ) {
-            return text;
-        }
-        try {
-            const xmlParser = new DOMParser();
-            const xmlDoc = xmlParser.parseFromString(text, 'text/xml');
-            pruneFromDoc(xmlDoc);
-            const serializer = new XMLSerializer();
-            text = serializer.serializeToString(xmlDoc);
         } catch {
         }
-        return text;
+        if ( mustStay ) { return; }
+        if ( document.readyState !== 'complete' ) { return; }
+        observer.disconnect();
     };
-    const urlFromArg = arg => {
-        if ( typeof arg === 'string' ) { return arg; }
-        if ( arg instanceof Request ) { return arg.url; }
-        return String(arg);
+    const mutationHandler = mutations => {
+        if ( timer !== undefined ) { return; }
+        let skip = true;
+        for ( let i = 0; i < mutations.length && skip; i++ ) {
+            const { type, addedNodes, removedNodes } = mutations[i];
+            if ( type === 'attributes' ) { skip = false; }
+            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
+                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
+            }
+            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
+                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
+            }
+        }
+        if ( skip ) { return; }
+        timer = safe.onIdle(rmclass, { timeout: 67 });
     };
-    self.fetch = new Proxy(self.fetch, {
-        apply: function(target, thisArg, args) {
-            const fetchPromise = Reflect.apply(target, thisArg, args);
-            if ( reUrl.test(urlFromArg(args[0])) === false ) {
-                return fetchPromise;
-            }
-            return fetchPromise.then(responseBefore => {
-                const response = responseBefore.clone();
-                return response.text().then(text => {
-                    const responseAfter = new Response(pruneFromText(text), {
-                        status: responseBefore.status,
-                        statusText: responseBefore.statusText,
-                        headers: responseBefore.headers,
-                    });
-                    Object.defineProperties(responseAfter, {
-                        ok: { value: responseBefore.ok },
-                        redirected: { value: responseBefore.redirected },
-                        type: { value: responseBefore.type },
-                        url: { value: responseBefore.url },
-                    });
-                    return responseAfter;
-                }).catch(( ) =>
-                    responseBefore
-                );
-            });
+    const observer = new MutationObserver(mutationHandler);
+    const start = ( ) => {
+        rmclass();
+        observer.observe(document, {
+            attributes: true,
+            attributeFilter: [ 'class' ],
+            childList: true,
+            subtree: true,
+        });
+    };
+    runAt(( ) => {
+        start();
+    }, /\bcomplete\b/.test(behavior) ? 'idle' : 'loading');
+}
+
+function runAt(fn, when) {
+    const intFromReadyState = state => {
+        const targets = {
+            'loading': 1, 'asap': 1,
+            'interactive': 2, 'end': 2, '2': 2,
+            'complete': 3, 'idle': 3, '3': 3,
+        };
+        const tokens = Array.isArray(state) ? state : [ state ];
+        for ( const token of tokens ) {
+            const prop = `${token}`;
+            if ( Object.hasOwn(targets, prop) === false ) { continue; }
+            return targets[prop];
         }
-    });
-    self.XMLHttpRequest.prototype.open = new Proxy(self.XMLHttpRequest.prototype.open, {
-        apply: async (target, thisArg, args) => {
-            if ( reUrl.test(urlFromArg(args[1])) === false ) {
-                return Reflect.apply(target, thisArg, args);
-            }
-            thisArg.addEventListener('readystatechange', function() {
-                if ( thisArg.readyState !== 4 ) { return; }
-                const type = thisArg.responseType;
-                if (
-                    type === 'document' ||
-                    type === '' && thisArg.responseXML instanceof XMLDocument
-                ) {
-                    pruneFromDoc(thisArg.responseXML);
-                    const serializer = new XMLSerializer();
-                    const textout = serializer.serializeToString(thisArg.responseXML);
-                    Object.defineProperty(thisArg, 'responseText', { value: textout });
-                    if ( typeof thisArg.response === 'string' ) {
-                        Object.defineProperty(thisArg, 'response', { value: textout });
-                    }
-                    return;
-                }
-                if (
-                    type === 'text' ||
-                    type === '' && typeof thisArg.responseText === 'string'
-                ) {
-                    const textin = thisArg.responseText;
-                    const textout = pruneFromText(textin);
-                    if ( textout === textin ) { return; }
-                    Object.defineProperty(thisArg, 'response', { value: textout });
-                    Object.defineProperty(thisArg, 'responseText', { value: textout });
-                    return;
-                }
-            });
-            return Reflect.apply(target, thisArg, args);
-        }
-    });
+        return 0;
+    };
+    const runAt = intFromReadyState(when);
+    if ( intFromReadyState(document.readyState) >= runAt ) {
+        fn(); return;
+    }
+    const onStateChange = ( ) => {
+        if ( intFromReadyState(document.readyState) < runAt ) { return; }
+        fn();
+        safe.removeEventListener.apply(document, args);
+    };
+    const safe = safeSelf();
+    const args = [ 'readystatechange', onStateChange, { capture: true } ];
+    safe.addEventListener.apply(document, args);
 }
 
 function safeSelf() {
@@ -362,8 +315,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["MediaFile","","fi-mtv3.videoplaza.tv/proxy/distributor"]];
-const hostnamesMap = new Map([["mtv.fi",0],["mtvuutiset.fi",0]]);
+const argsList = [["banners-brand","#page_content"],["fixed_ad","#header.fixed_ad"],["hasStickyHead","body.hasStickyHead"],["pt-[100px]","#main-container"],["mobile-sticky-ad-is-active","body"],["branding","body[id=\"pagebody\"]"],["branding","body"],["has-adhesion",".header-placeholder.has-adhesion"]];
+const hostnamesMap = new Map([["m.7days.ru",0],["thestudentroom.co.uk",1],["lepoint.fr",2],["mumsnet.com",3],["liquipedia.net",4],["www.ixbt.com",5],["slovoidilo.ua",6],["accuweather.com",7]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -431,7 +384,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { xmlPrune(...argsList[i]); }
+    try { removeClass(...argsList[i]); }
     catch { }
 }
 

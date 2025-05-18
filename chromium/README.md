@@ -7,13 +7,15 @@ The following assumes a linux environment.
 1. Open Bash console
 2. `git clone  https://github.com/gorhill/uBlock.git`
 3. `cd uBlock`
-4. `make mv3-[platform]`, where `[platform]` is either `chromium` or `firefox`
+4. `make mv3-[platform]`, where `[platform]` is either `chromium`, `edge`, `firefox`, or `safari`
 5. This will fully build uBO Lite, and during the process filter lists will be downloaded from their respective remote servers
 
 Upon completion of the script, the resulting extension package will become present in:
 
 - Chromium: `dist/build/uBOLite.chromium`
--  Firefox: `dist/build/uBOLite.firefox`
+- Edge: `dist/build/uBOLite.edge`
+- Firefox: `dist/build/uBOLite.firefox`
+- Safari: `dist/build/uBOLite.safari`
 
 The folder `dist/build/mv3-data` will cache data fetched from remote servers, so as to avoid fetching repeatedly from remote servers with repeated build commands. Use `make cleanassets` to remove all locally cached filter lists if you want to build with latest versions of filter lists.
 
@@ -27,5 +29,4 @@ All the final rulesets are present in the `dist/build/uBOLite.[platform]/ruleset
 
 ---
 
-[1] https://github.com/gorhill/uBlock/blob/c4d324362fdb95ff8ef20f0b18f42f0eec955433/tools/make-mv3.sh
-[2] https://github.com/gorhill/uBlock/blob/c4d324362fdb95ff8ef20f0b18f42f0eec955433/tools/make-mv3.sh#L103
+[1] https://github.com/gorhill/uBlock/blob/c4d324362fdb95ff8ef20f0b18f42f0eec955433/tools/make-mv3.sh<br>

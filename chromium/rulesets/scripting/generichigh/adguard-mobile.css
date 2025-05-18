@@ -19,21 +19,21 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-/* fin-0 */
+/* adguard-mobile */
 
-[href="https://pikakasinoja.com"],
-[href^="/artikkeli/kaupallinen-yhteistyo/"],
-[href^="https://media.suomikasino.com/"],
-[href^="https://www.nettikasinot.org"],
-a[href*="/clickthrgh.asp?"],
-a[href="https://kasinoseta.com/"],
-a[href^="https://app.readpeak.com/ads"],
-a[href^="https://www.kumiukko.fi/ostos?tt="],
-div[class*="element--nativead"],
-div[class*="newsFrontAd"],
-div[class="AgAdCarousel_Container"],
-div[class="AgAdCarousel_LightBox"],
-div[class="ad container-right"],
-div[id^="ads-content-bottom"] {
+amp-ad,
+amp-auto-ads,
+amp-embed[type="24smi"],
+amp-embed[type="engageya"],
+amp-embed[type="outbrain"],
+amp-embed[type="smi2"],
+amp-iframe[src^="https://ad.mediawayss.com/"],
+amp-iframe[src^="https://ad.vidverto.io/"],
+amp-iframe[src^="https://html.redtram.com/"],
+amp-iframe[src^="https://widgets.outbrain.com"],
+amp-sticky-ad,
+body > style + div[id="ics"],
+iframe[width="320"][height="50"],
+img[width="320"][height="50"] {
     display: none !important;
 }

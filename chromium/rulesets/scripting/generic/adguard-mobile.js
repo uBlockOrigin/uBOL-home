@@ -19,7 +19,7 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// fin-0
+// adguard-mobile
 
 // Important!
 // Isolate from global scope
@@ -27,9 +27,9 @@
 
 /******************************************************************************/
 
-const genericSelectorMap = [[6474532,"#atwAdFrame"],[15062341,"#keskimainos"],[4838054,"#mainokset"],[6414565,"#mainokset_oikea"],[6423979,"#mainokset_vasen"],[13572634,"#mainokset_yla"],[5406194,"#mainos"],[12991397,"#mainosbanneri"],[13909958,"#mainosbannerit"],[15174472,"#mainoskaruselli"],[13982409,"#mainoslaatikko"],[522998,"#mainospaikka"],[1079866,"#mainostila"],[7243995,"#natiivit"],[2123407,"#parade-container"],[6512302,"#sponsori"],[4308675,"#sponsorit"],[6410891,"#yhteistyokaruselli"],[6410796,"#yhteistyokumppanit"],[4313955,"#yhteistyossa"],[2326646,"#ylamainokset"],[2023566,"#ylamainos"],[15963300,".adbox_content"],[14395122,".card--native"],[1051296,".dfpBoxBottom"],[191564,".dfpListNativeBanner"],[4961138,".diks-display-ad"],[14118062,".diks-native-ad"],[1072424,".keskimainos"],[6039851,".mainokset"],[12639368,".mainokset_oikea"],[12663750,".mainokset_vasen"],[4529623,".mainokset_yla"],[2872095,".mainos"],[3990312,".mainosbanneri"],[12078987,".mainosbannerit"],[1884709,".mainoskaruselli"],[11867140,".mainoslaatikko"],[13170588,".mainosnosto"],[15331355,".mainospaikka"],[4260023,".mainostila"],[1951427,".sponsori"],[6329486,".sponsorit"],[8266418,".tdt-desktop-ad"],[6517907,".tdt-manager-element"],[4923280,".tdt-minilanding-button"],[6619657,".tdt-mobile-ad"],[13658598,".yhteistyokaruselli"],[13658689,".yhteistyokumppanit"],[8899214,".yhteistyossa"],[7665307,".ylamainokset"],[13252419,".ylamainos"],[5409129,"div#commercial-carousel"]];
-const genericExceptionSieve = [2026265,16153475,7954035,6039851,2872095,5406194,1647817,2616067,7105871];
-const genericExceptionMap = [["hardware.fi",".top-ad-space"],["murha.info",".adsbygoogle"],["classic.nettiauto.com","#adv"],["www.nettiauto.com","#adv"],["hs.fi",".mainokset\n.mainos"],["sokos.fi",".mainokset"],["tilannehuone.fi",".mainos"],["pienimatkaopas.com","#mainos"],["netticaravan.fi","article.ad"],["www.seurakuntalainen.fi","#CookieBanner"],["srk.fi","#CookielawBanner"]];
+const genericSelectorMap = [[16149444,"#mobile-adhesion:not(#style_important)"],[13818134,".gnt_xmst"],[15230241,"#ad-300x250_mid_mobile"],[9733365,".sp_ad_box_top"],[6699747,".happy-header-mobile"],[9919156,".standard-article-vertical-ad"],[1263256,".header-ad-mobile"],[15212710,".under-player-ad-mobile"],[6860324,".california-sticky-footer-ad-container"],[923325,".happy-under-player-mobile"],[6431528,".b-mobile-spots"],[14987463,"#ad_inview_area"],[16768534,"#mgid_iframe1"],[16602129,"#mgid_iframe"],[13732212,".amp-ad-container"],[3940540,".amp-ad container"],[4027662,".amp_ad"],[6547851,"#ad-300x250_mobile"]];
+const genericExceptionSieve = [2429090,4586609,15857306,288122,7086916,4299026,15469774,6896394,6276799,8701575,2427802,4075832,10769345,2819123,6200301,10374072,6409741];
+const genericExceptionMap = [["moroccoworldnews.com",".header-ad\n.custom-ad"],["gizchina.com",".header-ad"],["gizmobolt.com",".header-ad\n.custom-ad"],["blogdoiphone.com",".header-ad\n.custom-ad"],["westseattleblog.com",".header-ad\n.custom-ad"],["reviews.mtbr.com",".header-ad"],["stevengoh.com",".header-ad"],["idownloadblog.com",".header-ad"],["arseblog.com",".header-ad"],["mrmoneymustache.com",".custom-ad"],["milk-key.com",".header-ads-area"],["huffpost.com",".ad-leaderboard-flex"],["huffingtonpost.jp",".ad-leaderboard-flex"],["news.infoseek.co.jp",".ad_area"],["ign.com",".zad.billboard"],["matomedane.jp","#AdvHeader"],["itest.5ch.net",".js-cardview_ad-320x180"],["milesplit.com",".sticky-ad"],["niji-gazo.com",".ad-block"],["cancam.jp",".overlay-ad"],["seattletimes.com",".ad-fixed"],["vip.de",".centered-ad"],["m.tubewolf.com",".block-ads"],["m.veporn.net",".advertisment\n#topAds"],["deviantart.com",".mobile-ad"]];
 
 if ( genericSelectorMap ) {
     const map = self.genericSelectorMap =

@@ -297,5 +297,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||404le.com/js/disable-devtool.min.js"},"id":296,"priority":10},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["autoweek.nl","cheatnetwork.eu","hbstack.dev","pokemonsleep.club","time.is"],"resourceTypes":["script"]},"id":297,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["image"],"urlFilter":"||justtrucks.com.au^"},"id":298,"priority":30},
-{"action":{"type":"block"},"condition":{"urlFilter":"||freereadnovel.online/*?wccp_ver_num="},"id":299,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||freereadnovel.online/*?wccp_ver_num="},"id":299,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||onepiecepower.com/spoiler.js"},"id":300,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||2game.info/ad/failed_ad_view.js"},"id":301,"priority":10}
 ]

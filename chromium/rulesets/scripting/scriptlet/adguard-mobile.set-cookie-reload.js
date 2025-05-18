@@ -20,150 +20,77 @@
 
 */
 
-// ruleset: fin-0
+// ruleset: adguard-mobile
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_abortCurrentScript() {
+(function uBOL_setCookieReload() {
 
 /******************************************************************************/
 
-function abortCurrentScript(...args) {
-    runAtHtmlElementFn(( ) => {
-        abortCurrentScriptCore(...args);
-    });
+function setCookieReload(name, value, path, ...args) {
+    setCookie(name, value, path, 'reload', '1', ...args);
 }
 
-function abortCurrentScriptCore(
-    target = '',
-    needle = '',
-    context = ''
+function setCookie(
+    name = '',
+    value = '',
+    path = ''
 ) {
-    if ( typeof target !== 'string' ) { return; }
-    if ( target === '' ) { return; }
+    if ( name === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('abort-current-script', target, needle, context);
-    const reNeedle = safe.patternToRegex(needle);
-    const reContext = safe.patternToRegex(context);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    const thisScript = document.currentScript;
-    const chain = safe.String_split.call(target, '.');
-    let owner = window;
-    let prop;
-    for (;;) {
-        prop = chain.shift();
-        if ( chain.length === 0 ) { break; }
-        if ( prop in owner === false ) { break; }
-        owner = owner[prop];
-        if ( owner instanceof Object === false ) { return; }
+    const logPrefix = safe.makeLogPrefix('set-cookie', name, value, path);
+    const normalized = value.toLowerCase();
+    const match = /^("?)(.+)\1$/.exec(normalized);
+    const unquoted = match && match[2] || normalized;
+    const validValues = getSafeCookieValuesFn();
+    if ( validValues.includes(unquoted) === false ) {
+        if ( /^-?\d+$/.test(unquoted) === false ) { return; }
+        const n = parseInt(value, 10) || 0;
+        if ( n < -32767 || n > 32767 ) { return; }
     }
-    let value;
-    let desc = Object.getOwnPropertyDescriptor(owner, prop);
-    if (
-        desc instanceof Object === false ||
-        desc.get instanceof Function === false
-    ) {
-        value = owner[prop];
-        desc = undefined;
-    }
-    const debug = shouldDebug(extraArgs);
-    const exceptionToken = getExceptionTokenFn();
-    const scriptTexts = new WeakMap();
-    const getScriptText = elem => {
-        let text = elem.textContent;
-        if ( text.trim() !== '' ) { return text; }
-        if ( scriptTexts.has(elem) ) { return scriptTexts.get(elem); }
-        const [ , mime, content ] =
-            /^data:([^,]*),(.+)$/.exec(elem.src.trim()) ||
-            [ '', '', '' ];
-        try {
-            switch ( true ) {
-            case mime.endsWith(';base64'):
-                text = self.atob(content);
-                break;
-            default:
-                text = self.decodeURIComponent(content);
-                break;
-            }
-        } catch {
-        }
-        scriptTexts.set(elem, text);
-        return text;
-    };
-    const validate = ( ) => {
-        const e = document.currentScript;
-        if ( e instanceof HTMLScriptElement === false ) { return; }
-        if ( e === thisScript ) { return; }
-        if ( context !== '' && reContext.test(e.src) === false ) {
-            // eslint-disable-next-line no-debugger
-            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }
-            return;
-        }
-        if ( safe.logLevel > 1 && context !== '' ) {
-            safe.uboLog(logPrefix, `Matched src\n${e.src}`);
-        }
-        const scriptText = getScriptText(e);
-        if ( reNeedle.test(scriptText) === false ) {
-            // eslint-disable-next-line no-debugger
-            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }
-            return;
-        }
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, `Matched text\n${scriptText}`);
-        }
-        // eslint-disable-next-line no-debugger
-        if ( debug === 'match' || debug === 'all' ) { debugger; }
-        safe.uboLog(logPrefix, 'Aborted');
-        throw new ReferenceError(exceptionToken);
-    };
-    // eslint-disable-next-line no-debugger
-    if ( debug === 'install' ) { debugger; }
-    try {
-        Object.defineProperty(owner, prop, {
-            get: function() {
-                validate();
-                return desc instanceof Object
-                    ? desc.get.call(owner)
-                    : value;
-            },
-            set: function(a) {
-                validate();
-                if ( desc instanceof Object ) {
-                    desc.set.call(owner, a);
-                } else {
-                    value = a;
-                }
-            }
-        });
-    } catch(ex) {
-        safe.uboErr(logPrefix, `Error: ${ex}`);
+
+    const done = setCookieFn(
+        false,
+        name,
+        value,
+        '',
+        path,
+        safe.getExtraArgs(Array.from(arguments), 3)
+    );
+
+    if ( done ) {
+        safe.uboLog(logPrefix, 'Done');
     }
 }
 
-function runAtHtmlElementFn(fn) {
-    if ( document.documentElement ) {
-        fn();
-        return;
-    }
-    const observer = new MutationObserver(( ) => {
-        observer.disconnect();
-        fn();
-    });
-    observer.observe(document, { childList: true });
-}
-
-function getExceptionTokenFn() {
-    const token = getRandomTokenFn();
-    const oe = self.onerror;
-    self.onerror = function(msg, ...args) {
-        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
-        if ( oe instanceof Function ) {
-            return oe.call(this, msg, ...args);
-        }
-    }.bind();
-    return token;
+function getSafeCookieValuesFn() {
+    return [
+        'accept', 'reject',
+        'accepted', 'rejected', 'notaccepted',
+        'allow', 'disallow', 'deny',
+        'allowed', 'denied',
+        'approved', 'disapproved',
+        'checked', 'unchecked',
+        'dismiss', 'dismissed',
+        'enable', 'disable',
+        'enabled', 'disabled',
+        'essential', 'nonessential',
+        'forbidden', 'forever',
+        'hide', 'hidden',
+        'necessary', 'required',
+        'ok',
+        'on', 'off',
+        'true', 't', 'false', 'f',
+        'yes', 'y', 'no', 'n',
+        'all', 'none', 'functional',
+        'granted', 'done',
+        'decline', 'declined',
+        'closed', 'next', 'mandatory',
+        'disagree', 'agree',
+    ];
 }
 
 function safeSelf() {
@@ -356,24 +283,83 @@ function safeSelf() {
     return safe;
 }
 
-function shouldDebug(details) {
-    if ( details instanceof Object === false ) { return false; }
-    return scriptletGlobals.canDebug && details.debug;
+function setCookieFn(
+    trusted = false,
+    name = '',
+    value = '',
+    expires = '',
+    path = '',
+    options = {},
+) {
+    // https://datatracker.ietf.org/doc/html/rfc2616#section-2.2
+    // https://github.com/uBlockOrigin/uBlock-issues/issues/2777
+    if ( trusted === false && /[^!#$%&'*+\-.0-9A-Z[\]^_`a-z|~]/.test(name) ) {
+        name = encodeURIComponent(name);
+    }
+    // https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.1
+    // The characters [",] are given a pass from the RFC requirements because
+    // apparently browsers do not follow the RFC to the letter.
+    if ( /[^ -:<-[\]-~]/.test(value) ) {
+        value = encodeURIComponent(value);
+    }
+
+    const cookieBefore = getCookieFn(name);
+    if ( cookieBefore !== undefined && options.dontOverwrite ) { return; }
+    if ( cookieBefore === value && options.reload ) { return; }
+
+    const cookieParts = [ name, '=', value ];
+    if ( expires !== '' ) {
+        cookieParts.push('; expires=', expires);
+    }
+
+    if ( path === '' ) { path = '/'; }
+    else if ( path === 'none' ) { path = ''; }
+    if ( path !== '' && path !== '/' ) { return; }
+    if ( path === '/' ) {
+        cookieParts.push('; path=/');
+    }
+
+    if ( trusted ) {
+        if ( options.domain ) {
+            cookieParts.push(`; domain=${options.domain}`);
+        }
+        cookieParts.push('; Secure');
+    } else if ( /^__(Host|Secure)-/.test(name) ) {
+        cookieParts.push('; Secure');
+    }
+
+    try {
+        document.cookie = cookieParts.join('');
+    } catch {
+    }
+
+    const done = getCookieFn(name) === value;
+    if ( done && options.reload ) {
+        window.location.reload();
+    }
+
+    return done;
 }
 
-function getRandomTokenFn() {
+function getCookieFn(
+    name = ''
+) {
     const safe = safeSelf();
-    return safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+    for ( const s of safe.String_split.call(document.cookie, /\s*;\s*/) ) {
+        const pos = s.indexOf('=');
+        if ( pos === -1 ) { continue; }
+        if ( s.slice(0, pos) !== name ) { continue; }
+        return s.slice(pos+1).trim();
+    }
 }
 
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["testPrebid"]];
-const hostnamesMap = new Map([["findit.fi",0]]);
+const argsList = [["pShowMob","true"]];
+const hostnamesMap = new Map([["interxh.site",0],["xhspot.com",0],["xhwide5.com",0],["xhchannel.com",0],["xhtotal.com",0],["xhtree.com",0],["xhwide2.com",0],["xhlease.world",0],["xhamsterporno.mx",0],["valuexh.life",0],["xhdate.world",0],["xhbranch5.com",0],["galleryxh.site",0],["xhbig.com",0],["xhaccess.com",0],["xhofficial.com",0],["seexh.com",0],["xhamster42.desi",0],["xhvid.com",0],["xhamster20.desi",0],["xhamster19.desi",0],["xhwebsite2.com",0],["xhamster18.desi",0],["xhadult3.com",0],["xhadult2.com",0],["xhmoon5.com",0],["xhwide1.com",0],["xhamster3.com",0],["xhplanet2.com",0],["megaxh.com",0],["xhamster16.*",0],["xhamster.com",0],["xhamster2.com",0],["xhamster7.com",0],["xhamster8.com",0],["xhamster9.com",0],["xhamster10.com",0],["xhamster12.com",0],["xhamster13.*",0],["xhamster14.com",0],["xhamster15.com",0],["xhamster17.*",0],["xhamster18.*",0],["xhamster19.com",0],["xhamster1.desi",0],["xhamster2.desi",0],["xhamster3.*",0],["xhamster4.desi",0],["xhamster20.com",0],["xhamster22.com",0],["xhamster23.com",0],["xhamster25.com",0],["xhamster26.com",0],["xhamster27.com",0],["openxh.com",0],["xhamster31.com",0],["xhamster32.com",0],["xhamster34.com",0],["xhamster36.com",0],["xhamster37.com",0],["xhamster38.com",0],["xhamster5.desi",0],["xhopen.com",0],["openxh1.com",0],["xhamster39.com",0],["xhamster40.com",0],["xhamster.one",0],["xhamster.desi",0],["stripchat.com",0]]);
 const exceptionsMap = new Map([]);
-const hasEntities = false;
+const hasEntities = true;
 const hasAncestors = false;
 
 const collectArgIndices = (hn, map, out) => {
@@ -439,7 +425,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { abortCurrentScript(...argsList[i]); }
+    try { setCookieReload(...argsList[i]); }
     catch { }
 }
 
