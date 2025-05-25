@@ -318,8 +318,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["pageCount","$remove$"]];
-const hostnamesMap = new Map([["forum.donanimhaber.com",0]]);
+const argsList = [["gnrwdfreq","1"],["pageCount","$remove$"]];
+const hostnamesMap = new Map([["mdpr.jp",0],["forum.donanimhaber.com",1]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

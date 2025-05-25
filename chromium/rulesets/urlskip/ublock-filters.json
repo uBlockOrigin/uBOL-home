@@ -142,6 +142,20 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?nmac\\.to/dl(?:[^%.0-9a-z_-]|$)",
+  "steps": [
+   "/\\/dl\\/(.+)/",
+   "-base64"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?yasir252\\.com/file(?:[^%.0-9a-z_-]|$)",
+  "steps": [
+   "?link",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?rd\\.remove\\.bg/cl0/http",
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",
@@ -308,7 +322,7 @@
   ]
  },
  {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?cc\\.\\S*?\\.com/v1/otc/\\S*?\\?merchant=\\S*?&url=http",
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?cc\\.\\S*?\\.com/v1/otc/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
   "steps": [
    "?url"
   ],
@@ -921,6 +935,24 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?onelink\\.me/\\S*?&af_web_dp=http",
   "steps": [
    "?af_web_dp"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?exactag\\.com/cl\\.aspx\\?\\S*?url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?deeplink\\.musescore\\.com/redirect\\?to=http",
+  "steps": [
+   "?to"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?laylo\\.co/e/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
+  "steps": [
+   "?url"
   ]
  },
  {

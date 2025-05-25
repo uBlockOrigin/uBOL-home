@@ -7,6 +7,39 @@
   "type": "redirect"
  },
  "condition": {
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||yastatic.net/naydex/yandex-mail/"
+ },
+ "id": 1,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/empty"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||mail.yandex.*/u2709/"
+ },
+ "id": 2,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/empty"
+  },
+  "type": "redirect"
+ },
+ "condition": {
   "urlFilter": "||yastatic.net/yandex-video-player-iframe-api-bundles-stable/*?adsdk-try="
  },
  "id": 594,
@@ -80,23 +113,6 @@
   "urlFilter": "||storage.mds.yandex.net/get-canvas-html5/*.html?link1="
  },
  "id": 598,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/empty"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "domainType": "firstParty",
-  "regexFilter": "^https?:\\/\\/mail\\.yandex\\.[^\\s]{125,}",
-  "resourceTypes": [
-   "script"
-  ]
- },
- "id": 599,
  "priority": 11
 }
 ]

@@ -263,7 +263,7 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||el-vidas.nl^*/phpcuong_newsletter/"},"id":262,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["rydercup.com"],"resourceTypes":["script"],"urlFilter":"||lightboxcdn.com/vendor/"},"id":263,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["escapistmagazine.com"],"resourceTypes":["script"],"urlFilter":"||pico.tools/load/build.js"},"id":264,"priority":30},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["api.pico.tools","app.avada.io","confirmsubscription.com","copypoison.com","faves.grow.me","holyclock.com","maillist-manage.com","optinly.net","popupsmart.com","sendlane.com","shomershabes.co.il","shomershabes.com","smarthint.co","spinasale.com","targetbay.com","yourmarketingemail.com"]},"id":265,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["api.pico.tools","app.avada.io","confirmsubscription.com","copypoison.com","faves.grow.me","holyclock.com","maillist-manage.com","optinly.net","popupsmart.com","sender.net","sendlane.com","shomershabes.co.il","shomershabes.com","smarthint.co","spinasale.com","targetbay.com","yourmarketingemail.com"]},"id":265,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["starblast.io"],"resourceTypes":["script"],"urlFilter":"||cdnjs.cloudflare.com/ajax/libs/blockadblock/*/blockadblock.min.js"},"id":266,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["sub_frame"],"urlFilter":"||prod.theintercept.com^"},"id":267,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["curvefever.pro"],"resourceTypes":["script"],"urlFilter":"||api.adinplay.com/libs/aiptag/pub/crf/curvefever.pro/tag.min.js"},"id":268,"priority":30},
@@ -299,5 +299,7 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["image"],"urlFilter":"||justtrucks.com.au^"},"id":298,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||freereadnovel.online/*?wccp_ver_num="},"id":299,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||onepiecepower.com/spoiler.js"},"id":300,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||2game.info/ad/failed_ad_view.js"},"id":301,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||2game.info/ad/failed_ad_view.js"},"id":301,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/std_newsletter_2017.js"},"id":302,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||bnamic.com/newsletter-subscription.js"},"id":303,"priority":10}
 ]

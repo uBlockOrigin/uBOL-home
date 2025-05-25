@@ -1,0 +1,46 @@
+[
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "io-tech.fi"
+  ],
+  "regexFilter": "io-tech\\.fi\\/.*\\/[0-9a-f]{32}\\.",
+  "resourceTypes": [
+   "image"
+  ]
+ },
+ "id": 1,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "regexFilter": "https:\\/\\/[www]{3}\\.v{0}t{1}f{0}e{1}f{0}l{1}f{0}s{1}f{0}g{0}u{1}\\.fi\\/[\\w]{3}\\?[\\d]{8}\\+[\\d]",
+  "resourceTypes": [
+   "xmlhttprequest"
+  ]
+ },
+ "id": 2,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "regexFilter": "https:\\/\\/[www]{3}\\.v{0}t{1}f{0}e{1}f{0}l{1}f{0}s{1}f{0}g{0}u{1}\\.fi\\/[\\w]{9}-[\\w]{7}\\?[\\w]{4}\\+[\\w]{6}\\+[\\w]{9}\\+[\\w]{4}\\+[\\w]{5}\\+[\\w%\\d]{19}",
+  "resourceTypes": [
+   "xmlhttprequest"
+  ]
+ },
+ "id": 3,
+ "priority": 10
+}
+]

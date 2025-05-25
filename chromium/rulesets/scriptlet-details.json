@@ -150,7 +150,39 @@
     }
    ],
    [
-    "prevent-xhr",
+    "trusted-set-constant",
+    {
+     "hostnames": [
+      "app.blubank.com",
+      "cinelatino.net",
+      "cinemitas.org",
+      "cineplus123.org",
+      "comdotgame.com",
+      "emturbovid.com",
+      "findjav.com",
+      "globo.com",
+      "japscan.lol",
+      "javggvideo.xyz",
+      "jetpunk.com",
+      "littlebigsnake.com",
+      "mmtv01.xyz",
+      "mobileweb.bankmellat.ir",
+      "paraveronline.org",
+      "pobreflix.vc",
+      "rooter.gg",
+      "savefrom.net",
+      "seclore.com",
+      "stbturbo.xyz",
+      "streamelements.com",
+      "streamsilk.com",
+      "upshrink.com",
+      "verpelis.gratis"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "trusted-suppress-native-method",
     {
      "hostnames": [
       "*"
@@ -160,6 +192,15 @@
    ],
    [
     "prevent-setTimeout",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "prevent-xhr",
     {
      "hostnames": [
       "*"
@@ -225,15 +266,6 @@
       "*"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "trusted-suppress-native-method",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -351,37 +383,6 @@
       "*"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "trusted-set-constant",
-    {
-     "hostnames": [
-      "app.blubank.com",
-      "cinelatino.net",
-      "cinemitas.org",
-      "cineplus123.org",
-      "comdotgame.com",
-      "emturbovid.com",
-      "findjav.com",
-      "globo.com",
-      "javggvideo.xyz",
-      "jetpunk.com",
-      "littlebigsnake.com",
-      "mmtv01.xyz",
-      "mobileweb.bankmellat.ir",
-      "paraveronline.org",
-      "pobreflix.vc",
-      "rooter.gg",
-      "savefrom.net",
-      "seclore.com",
-      "stbturbo.xyz",
-      "streamelements.com",
-      "streamsilk.com",
-      "upshrink.com",
-      "verpelis.gratis"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -1099,6 +1100,16 @@
   "adguard-mobile",
   [
    [
+    "set-session-storage-item",
+    {
+     "hostnames": [
+      "forum.donanimhaber.com",
+      "mdpr.jp"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
     "remove-node-text",
     {
      "hostnames": [
@@ -1191,15 +1202,6 @@
     {
      "hostnames": [
       "*"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
-    "set-session-storage-item",
-    {
-     "hostnames": [
-      "forum.donanimhaber.com"
      ],
      "world": "ISOLATED"
     }
@@ -1331,6 +1333,7 @@
       "actrento.com",
       "adzurro.de",
       "aeotec.com",
+      "afi-ipl.org",
       "airportwebcams.net",
       "akademie-management.de",
       "akzent-magazin.com",
@@ -1454,6 +1457,7 @@
       "elisazunder.de",
       "ellasblog.de",
       "energiemetropole-leipzig.de",
+      "engl.it",
       "englishradar.com",
       "epages.com",
       "erbsenprinzessin.com",
@@ -1521,6 +1525,7 @@
       "goeltzschtal-reisen.de",
       "goerlach-gmbh.com",
       "goessential.com",
+      "goesser.at",
       "goldpreis24.de",
       "gooloo.de",
       "gosch.de",
@@ -1619,6 +1624,7 @@
       "lichttraeumer.de",
       "lightcon.com",
       "linternaute.com",
+      "linzerbier.at",
       "lobetalarbeit.de",
       "locafrique-sf.com",
       "locandazita.com",
@@ -1661,6 +1667,7 @@
       "narrwalla.de",
       "naturseifen-moosmed.de",
       "nebenwerte-magazin.com",
+      "neumarkt-egna.it",
       "neuneinhalb.org",
       "nmmn.com",
       "noaf.de",
@@ -1687,6 +1694,7 @@
       "philosophia-perennis.com",
       "photofloh.de",
       "phpconference.com",
+      "pi3g.com",
       "piazzadeimestieri.it",
       "picockpit.com",
       "pinel-medizin.de",
@@ -1706,6 +1714,7 @@
       "profiel.de",
       "proofing.de",
       "pulpe.eu",
+      "puntigamer.at",
       "pureselfmade.com",
       "qastack.fr",
       "railwebcams.net",
@@ -1738,6 +1747,7 @@
       "schreiners-it.de",
       "schuetzendepot.de",
       "schulebruetten.ch",
+      "schwechater.at",
       "seifriz-preis.de",
       "senckenberg.de",
       "signisalc.org",
@@ -1835,6 +1845,7 @@
       "von-zinsen-leben.de",
       "vzm.de",
       "wallygusto.de",
+      "weber-senf.at",
       "webfactory-i4.de",
       "webtapete.de",
       "webtimiser.de",
@@ -1872,6 +1883,7 @@
       "zaunbau-koch.de",
       "zertificon.com",
       "zimmerwetter.de",
+      "zipfer.at",
       "zouboulis.com",
       "zumkutscher.de",
       "zur-glocke.com"
@@ -1935,6 +1947,7 @@
       "fitzmuseum.cam.ac.uk",
       "flota.es",
       "foleys.ie",
+      "freenet.de",
       "fryerndental.co.uk",
       "funnelcockpit.com",
       "futspo.de",
@@ -2210,6 +2223,7 @@
     {
      "hostnames": [
       "cockta.eu",
+      "customuse.com",
       "filen.io"
      ],
      "world": "ISOLATED"
@@ -2237,6 +2251,7 @@
       "artribune.com",
       "assos.com",
       "babiesrus.ca",
+      "bangbros.com",
       "breachmedia.ca",
       "clevercreations.org",
       "columbiasportswear.at",
@@ -2304,24 +2319,6 @@
     }
    ],
    [
-    "abort-on-property-read",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-setTimeout",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "remove-cookie",
     {
      "hostnames": [
@@ -2339,9 +2336,28 @@
       "technologyreview.jp",
       "thegamer.com",
       "thethings.com",
+      "theverge.com",
       "xda-developers.com"
      ],
      "world": "ISOLATED"
+    }
+   ],
+   [
+    "abort-on-property-read",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "prevent-setTimeout",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
     }
    ],
    [
@@ -3078,6 +3094,15 @@
   "chn-0",
   [
    [
+    "abort-current-script",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "abort-on-stack-trace",
     {
      "hostnames": [
@@ -3196,15 +3221,6 @@
       "mpyit.com",
       "taiwanlibrarysearch.herokuapp.com",
       "wandhi.com"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "abort-current-script",
-    {
-     "hostnames": [
-      "*"
      ],
      "world": "MAIN"
     }
@@ -3622,6 +3638,92 @@
   ]
  ],
  [
+  "fin-0",
+  [
+   [
+    "prevent-setTimeout",
+    {
+     "hostnames": [
+      "afterdawn.com",
+      "dawn.fi",
+      "download.fi",
+      "high.fi",
+      "muropaketti.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "remove-class",
+    {
+     "hostnames": [
+      "ap-cdn.sanomagames.com",
+      "finder.fi"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
+    "abort-current-script",
+    {
+     "hostnames": [
+      "findit.fi"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "abort-on-property-read",
+    {
+     "hostnames": [
+      "happypancake.fi"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "json-prune",
+    {
+     "hostnames": [
+      "s-kaupat.fi"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "set-cookie",
+    {
+     "hostnames": [
+      "aalto.fi",
+      "srk.fi",
+      "www.tek.fi"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
+    "json-prune-fetch-response",
+    {
+     "hostnames": [
+      "mtv.fi",
+      "mtvuutiset.fi"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "xml-prune",
+    {
+     "hostnames": [
+      "mtv.fi",
+      "mtvuutiset.fi"
+     ],
+     "world": "MAIN"
+    }
+   ]
+  ]
+ ],
+ [
   "fra-0",
   [
    [
@@ -4003,7 +4105,8 @@
     {
      "hostnames": [
       "info.mapsaddress.com",
-      "info.vebma.com"
+      "info.vebma.com",
+      "kompas.com"
      ],
      "world": "MAIN"
     }
@@ -6465,6 +6568,15 @@
     }
    ],
    [
+    "set-session-storage-item",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
     "set-local-storage-item",
     {
      "hostnames": [
@@ -6743,6 +6855,7 @@
       "femina.se",
       "galamagasin.se",
       "godare.se",
+      "golflivet.se",
       "hant.se",
       "m3.se",
       "mabra.com",
@@ -7318,9 +7431,7 @@
     "remove-node-text",
     {
      "hostnames": [
-      "birsenaltuntas.com",
-      "efullizle.com",
-      "m.4khd.com"
+      "*"
      ],
      "world": "ISOLATED"
     }
@@ -7547,10 +7658,12 @@
     "abort-current-script",
     {
      "hostnames": [
+      "animeler.me",
       "asyaanimeleri.com",
       "azsekerlik.blogspot.com",
       "birasyadizi.com",
       "bizimyaka.com",
+      "cizgivedizi.com",
       "dizifon.com",
       "dizigom1.tv",
       "duzcetv.com",
@@ -7682,6 +7795,7 @@
     "set-local-storage-item",
     {
      "hostnames": [
+      "cizgivedizi.com",
       "turkanime.co"
      ],
      "world": "ISOLATED"
@@ -8116,7 +8230,6 @@
       "gocmod.com",
       "goctruyentranhvui17.com",
       "gotphim.com",
-      "haysexvietnam.com",
       "hentaivc.net",
       "hh3dhay.life",
       "hhtq5.vip",
@@ -8128,6 +8241,7 @@
       "javhd.shop",
       "javtiful.com",
       "kenh14.vn",
+      "laophatgia.net",
       "linkneverdie.net",
       "linkneverdie.top",
       "linkneverdie2.com",
@@ -8135,6 +8249,7 @@
       "lxmanga.help",
       "m.blogtruyenmoi.com",
       "misskon.com",
+      "motchill86.com",
       "motchilltvphim.com",
       "nettruyener.com",
       "nettruyenvio.com",
@@ -8147,11 +8262,10 @@
       "quatvn.love",
       "rphang.online",
       "saigon24.net",
-      "sayhentai.blog",
       "sayhentaii.me",
       "sexdiary.club",
       "sexhd88.online",
-      "sexpro.pro",
+      "sexpro.day",
       "sextop1.show",
       "soha.vn",
       "thanhnien.vn",
@@ -8171,15 +8285,15 @@
       "ungtycomicsvip.org",
       "vailonxx.vip",
       "vanphatelectric.com",
-      "viet69.channel",
       "viet69.fi",
+      "viet69.hot",
       "vlsexsuong.pro",
-      "vlxx.my",
-      "vn16phimsexhay.com",
-      "vn2.sexviet88.xyz",
+      "vlxx.now",
       "vn2.xvideos69.xxx",
+      "vn20phimsexhay.com",
+      "vn3.sexviet88.xyz",
+      "vnhaysexvn.com",
       "vungoctuan.vn",
-      "www.motchill84.com",
       "www.sieutamphim.org",
       "www.toptruyentv7.pro",
       "www.truyen35zz.com",
@@ -8207,10 +8321,12 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchill.fish",
+      "motchill.hot",
+      "motchill86.com",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
+      "navidadessorprendentes.com",
       "noitu.site",
       "ohaha79xxx.site",
       "ohaytv.fit",
@@ -8219,22 +8335,20 @@
       "plcdn.xyz",
       "quangcaoyenbai.com",
       "samtruyentranh.com",
-      "sexhihiz.nl",
+      "sexhihivl.pro",
       "teamlanhlung8.shop",
       "thefaplive.com",
-      "thichxemphim.live",
+      "thichxemphim1.site",
       "thuvienhd.biz",
       "tinsoikeo.live",
       "truyenfull.vision",
       "truyensieuhay.com",
       "tv.tvhayhd.org",
-      "uscoles.com",
       "veryfiles.com",
       "viettoons.tv",
       "vinaurl.net",
       "vlsexsuong.pro",
       "www.diendancauduong.com",
-      "www.motchill84.com",
       "www.nettruyenupp.com",
       "www.phimdinhcao.online",
       "xemphimjav.us",
@@ -8266,7 +8380,6 @@
       "freeplayervideo.com",
       "gamek.vn",
       "genk.vn",
-      "gm.phimsexnhanh.tv",
       "hayhaytv.site",
       "kenh14.vn",
       "phimvuihd.org",

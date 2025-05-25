@@ -1,0 +1,52 @@
+[
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "browser"
+     ]
+    }
+   }
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "mtv.fi",
+   "mtvuutiset.fi"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "&browser=mozillafirefox"
+ },
+ "id": 1,
+ "priority": 3
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "caid"
+     ]
+    }
+   }
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame",
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||v.fwmrm.net/ad/g/1"
+ },
+ "id": 2,
+ "priority": 2
+}
+]
