@@ -44,9 +44,9 @@ jobs:
           rm -rf chromium
           mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
       # Edge
+      - name: Build Edge uBOLite MV3 package
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build Edge uBOLite MV3 package
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
