@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-          submodules: true
+          submodules: recursive
       - name: Locate uBO repo
         run: |
           UBOL_REPO_DIR=$(pwd)
@@ -30,6 +30,8 @@ jobs:
           echo "Version: $TAGNAME"
       # Chromium
       - name: Build Chromium uBOLite beta
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
@@ -39,6 +41,8 @@ jobs:
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
       # Edge
       - name: Build Edge uBOLite beta
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
@@ -48,6 +52,8 @@ jobs:
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.edge.zip
       # Firefox
       - name: Build Firefox uBOLite beta
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
@@ -57,6 +63,8 @@ jobs:
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.firefox.xpi
       # Safari
       - name: Build Safari uBOLite beta
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
