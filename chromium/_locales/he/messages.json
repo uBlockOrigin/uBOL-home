@@ -19,6 +19,10 @@
     "message": "הגדרות",
     "description": "appears as tab name in dashboard"
   },
+  "developPageName": {
+    "message": "פיתוח",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
+  },
   "aboutPageName": {
     "message": "על אודות",
     "description": "appears as tab name in dashboard"
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "ניווט אפשרי לאתרים לא רצויים יחסם ותהיה אפשרות להחליט להמשיך.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "מצב מפתחים",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "מאפשר גישה ליכולות עבור משתמשים טכניים.",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "חיפוש רשימות",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Exit element zapper mode",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "שמירה",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "ביטול שינויים",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "ייבא וצרף…",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "ייצוא…",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "הכניסו את חוקי ה DNR שלכם למטה.  <b>אל תכניסו תוכן ממקורות לא בטוחים.</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "מספר החוקים שנרשמו: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

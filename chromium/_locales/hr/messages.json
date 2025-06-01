@@ -4,7 +4,7 @@
     "description": "extension name."
   },
   "extShortDesc": {
-    "message": "Bloker sadržaja bez dopuštenja. Blokira oglase, oglasne pratitelje, kripto \"rudare\" i ostalo odmah nakon instalacije.",
+    "message": "Učinkovit blokator sadržaja. Blokira oglase, oglasne pratitelje, kripto \"rudare\" i ostalo odmah nakon instalacije.",
     "description": "this will be in the Chrome web store: must be 132 characters or less"
   },
   "perRulesetStats": {
@@ -18,6 +18,10 @@
   "settingsPageName": {
     "message": "Postavke",
     "description": "appears as tab name in dashboard"
+  },
+  "developPageName": {
+    "message": "Razvoj",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
   },
   "aboutPageName": {
     "message": "O aplikaciji",
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "Navigacija do potencijalno nepoželjnih stranica bit će blokirana i bit će vam ponuđena opcija za nastavak.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "Način rada za programere",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "Omogućuje pristup značajkama prikladnim za tehničke korisnike.",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "Pronađi liste",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Zatvori način rada uklanjanja elementa",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "Spremi",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "Poništi",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "Uvesti i dodati...",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "Izvoz...",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "Unesite svoja DNR pravila u nastavku. <b>Nemojte dodavati sadržaj iz nepouzdanih izvora.</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "Broj registriranih pravila: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

@@ -19,6 +19,10 @@
     "message": "Configuració",
     "description": "appears as tab name in dashboard"
   },
+  "developPageName": {
+    "message": "Desenvolupament",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
+  },
   "aboutPageName": {
     "message": "Quant a",
     "description": "appears as tab name in dashboard"
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "Es blocarà la navegació en webs potencialment no desitjables, oferint-vos la possibilitat de continuar.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "Mode de desenvolupador",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "Habilita l'accés a funcions adequades per a usuaris tècnics.",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "Cerca llistes",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Surt del mode d'eliminació d'elements",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "Desa",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "Restaura",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "Importa i annexa…",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "Exporta…",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "Introduïu les vostres pròpies regles de DNR a continuació. <b>No afegiu contingut de fonts no fiables</b>.",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "Nombre de regles registrades: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

@@ -80,5 +80,24 @@
  },
  "id": 5,
  "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-1s.mp4"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "txnhh.com",
+   "xnxx.com",
+   "xvideos.com",
+   "xvv1deos.com"
+  ],
+  "urlFilter": "||aucdn.net/library/*.mp4"
+ },
+ "id": 6,
+ "priority": 11
 }
 ]

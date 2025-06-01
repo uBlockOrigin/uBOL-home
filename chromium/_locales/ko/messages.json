@@ -19,6 +19,10 @@
     "message": "설정",
     "description": "appears as tab name in dashboard"
   },
+  "developPageName": {
+    "message": "개발자용",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
+  },
   "aboutPageName": {
     "message": "정보",
     "description": "appears as tab name in dashboard"
@@ -112,7 +116,7 @@
     "description": "First paragraph of 'Filter issues' section in Support pane"
   },
   "supportS5H": {
-    "message": "Troubleshooting information",
+    "message": "문제 해결 정보",
     "description": "Label of 'Troubleshooting information' section in 'Report a filter issue' page"
   },
   "supportS6P1S1": {
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "잠재적으로 좋지 않은 사이트로의 접속을 차단하고, 사용자가 진행할지 선택하도록 합니다.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "개발자 모드",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "기술적 사용자를 위한 기능에 접근할 수 있도록 합니다.",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "목록 찾기",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "구성 요소 제거 모드 종료",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "저장",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "되돌리기",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "가져오기 및 추가하기…",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "내보내기…",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "아래에 직접 DNR 규칙을 입력하세요. <b>신뢰할 수 없는 출처의 콘텐츠를 추가하지 마세요.</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "등록된 규칙 수: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

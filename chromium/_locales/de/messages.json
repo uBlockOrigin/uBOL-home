@@ -19,6 +19,10 @@
     "message": "Einstellungen",
     "description": "appears as tab name in dashboard"
   },
+  "developPageName": {
+    "message": "Entwickeln",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
+  },
   "aboutPageName": {
     "message": "Über",
     "description": "appears as tab name in dashboard"
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "Die Navigation zu potenziell unerwünschten Websites wird verhindert, jedoch wird eine Möglichkeit zum Fortfahren angeboten.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "Entwicklermodus",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "Ermöglicht den Zugriff auf Funktionen, die für technisch Versierte bestimmt sind.",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "Listen suchen",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Temporären Modus beenden",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "Speichern",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "Rückgängig machen",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "Importieren und ergänzen …",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "Exportieren …",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "Eigene DNR-Regeln können unten eingetragen werden. <b>Verwenden Sie keine Regeln aus unseriösen Quellen.</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "Anzahl erfasster Regeln: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

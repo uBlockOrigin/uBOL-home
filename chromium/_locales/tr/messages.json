@@ -4,7 +4,7 @@
     "description": "extension name."
   },
   "extShortDesc": {
-    "message": "A permission-less content blocker. Blocks ads, trackers, miners, and more immediately upon installation.",
+    "message": "Etkili bir içerik engelleyici. Reklamları, izleyicileri, madencileri ve daha fazlasını kurulumdan hemen sonra engeller.",
     "description": "this will be in the Chrome web store: must be 132 characters or less"
   },
   "perRulesetStats": {
@@ -18,6 +18,10 @@
   "settingsPageName": {
     "message": "Ayarlar",
     "description": "appears as tab name in dashboard"
+  },
+  "developPageName": {
+    "message": "Geliştir",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
   },
   "aboutPageName": {
     "message": "Hakkında",
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "İstenmeyebilecek sitelere erişim engellenecek ve devam etme seçeneği sunulacaktır.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "Geliştirici modu",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "Teknik kullanıcılara uygun özelliklere erişime izin ver",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "Liste bul",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Öge silme modundan çık",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "Kaydet",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "Geri al",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "İçe aktar ve ekle…",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "Dışa aktar…",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "Aşağıya kendi DNR kurallarınızı girin. <b>Güvenilmeyen kaynaklardan içerik eklemeyin.</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "Kayıtlı kural sayısı: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

@@ -19,6 +19,10 @@
     "message": "Iestatījumi",
     "description": "appears as tab name in dashboard"
   },
+  "developPageName": {
+    "message": "Izstrādāt",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
+  },
   "aboutPageName": {
     "message": "Par",
     "description": "appears as tab name in dashboard"
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "Iespējami nevēlamu vietņu apmeklēšana tiks aizturēta, un tiks piedāvāta iespēja turpināt.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "Izstrādātāja režīms",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "Iespējot piekļuvi iespējām, kas piemērotas tehniskiem lietotājiem.",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "Atrast sarakstus",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Iziet no elementu iznīcināšanas",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "Saglabāt",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "Atjaunot",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "Ievietot un pievienot…",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "Izgūt…",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "Zemāk ir ievadi savas DNR kārtulas! <b>Nepievieno saturu no neuzticamiem avotiem!</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "Reģistrēto kārtulu skaits: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

@@ -4,7 +4,7 @@
     "description": "extension name."
   },
   "extShortDesc": {
-    "message": "Um bloqueador de conteúdo sem permissões. Bloqueia anúncios, rastreadores e muito mais, imediatamente após a instalação.",
+    "message": "Um bloqueador de conteúdo eficiente. Bloqueia anúncios, rastreadores, mineradores e muito mais imediatamente após a instalação.",
     "description": "this will be in the Chrome web store: must be 132 characters or less"
   },
   "perRulesetStats": {
@@ -18,6 +18,10 @@
   "settingsPageName": {
     "message": "Definições",
     "description": "appears as tab name in dashboard"
+  },
+  "developPageName": {
+    "message": "Desenvolver",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
   },
   "aboutPageName": {
     "message": "Acerca",
@@ -112,7 +116,7 @@
     "description": "First paragraph of 'Filter issues' section in Support pane"
   },
   "supportS5H": {
-    "message": "Informações sobre a resolução de problemas",
+    "message": "Informação sobre resolução de problemas",
     "description": "Label of 'Troubleshooting information' section in 'Report a filter issue' page"
   },
   "supportS6P1S1": {
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "A navegação para sites potencialmente indesejáveis será bloqueada e ser-lhe-á dada a opção de proceder.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "Modo de programador",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "Permite acesso a funcionalidades adequadas a utilizadores técnicos",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "Encontrar listas",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Sair do modo \"element zapper\"",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "Guardar",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "Reverter",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "Importar e anexar…",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "Exportar…",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "Insira as suas próprias regras de DNR  abaixo. <b>Não adicione conteúdo de fontes não confiáveis.</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "Número de regras registadas: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

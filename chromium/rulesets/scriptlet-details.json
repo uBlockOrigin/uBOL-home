@@ -90,6 +90,26 @@
     }
    ],
    [
+    "json-edit",
+    {
+     "hostnames": [
+      "web.facebook.com",
+      "www.facebook.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "jsonl-edit-xhr-response",
+    {
+     "hostnames": [
+      "web.facebook.com",
+      "www.facebook.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "prevent-window-open",
     {
      "hostnames": [
@@ -1437,6 +1457,7 @@
       "die-werbeschmiede.de",
       "do.de",
       "dollenberg-isolierung.de",
+      "domaintools.com",
       "donostiroller.com",
       "draisinenbahn.de",
       "drhorvath.de",
@@ -2282,6 +2303,7 @@
       "oled-info.com",
       "pbs.org",
       "plantpowercouple.com",
+      "press.princeton.edu",
       "railsnotes.xyz",
       "readergrev.com",
       "saucerco.com",
@@ -3351,7 +3373,8 @@
      "hostnames": [
       "91porna.com",
       "huya.com",
-      "manwa.fun"
+      "manwa.fun",
+      "mfulbvu.xyz"
      ],
      "world": "MAIN"
     }
@@ -4745,10 +4768,53 @@
       "pictab.art",
       "pochitto2.jp",
       "ponta.abstractpainting.work",
+      "rkd3.dev",
       "silhouette-ac.com",
       "sonae.sankei.co.jp",
       "sukima.me",
       "xth.jp"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "prevent-fetch",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "addEventListener-defuser",
+    {
+     "hostnames": [
+      "addchannel.net",
+      "anacap.doorblog.jp",
+      "anianierosuki.work",
+      "beasoku.com",
+      "best-hit.tv",
+      "blog-and-destroy.com",
+      "blog.housinkai.com",
+      "bm.best-hit.tv",
+      "coolpan.net",
+      "ero-video.net",
+      "gigafile.nu",
+      "h178.com",
+      "iwb.jp",
+      "j-baseball.club",
+      "j-basketball.club",
+      "jukenbbs.com",
+      "kakenhi.net",
+      "memo.wiki",
+      "negisoku.com",
+      "seesaa.net",
+      "seesaawiki.jp",
+      "tokyomotion.net",
+      "twidouga.net",
+      "twivideo.net",
+      "uraaka-joshi.com"
      ],
      "world": "MAIN"
     }
@@ -4761,15 +4827,6 @@
       "ov53i9il.blog.fc2.com",
       "pokegonews.net",
       "qaacacthlive.omaww.net"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-fetch",
-    {
-     "hostnames": [
-      "*"
      ],
      "world": "MAIN"
     }
@@ -4821,37 +4878,6 @@
       "tyoieronews.blog.jp"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "addEventListener-defuser",
-    {
-     "hostnames": [
-      "addchannel.net",
-      "anacap.doorblog.jp",
-      "anianierosuki.work",
-      "beasoku.com",
-      "best-hit.tv",
-      "blog-and-destroy.com",
-      "blog.housinkai.com",
-      "bm.best-hit.tv",
-      "coolpan.net",
-      "ero-video.net",
-      "h178.com",
-      "iwb.jp",
-      "j-baseball.club",
-      "j-basketball.club",
-      "jukenbbs.com",
-      "kakenhi.net",
-      "memo.wiki",
-      "negisoku.com",
-      "seesaa.net",
-      "tokyomotion.net",
-      "twidouga.net",
-      "twivideo.net",
-      "uraaka-joshi.com"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -6550,6 +6576,16 @@
   "spa-1",
   [
    [
+    "noeval-if",
+    {
+     "hostnames": [
+      "comicspornohentai.com",
+      "lectorhub.j5z.xyz"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "set-constant",
     {
      "hostnames": [
@@ -6827,15 +6863,6 @@
      ],
      "world": "ISOLATED"
     }
-   ],
-   [
-    "noeval-if",
-    {
-     "hostnames": [
-      "comicspornohentai.com"
-     ],
-     "world": "MAIN"
-    }
    ]
   ]
  ],
@@ -6860,7 +6887,6 @@
       "m3.se",
       "mabra.com",
       "macworld.se",
-      "metromode.se",
       "motherhood.se",
       "pcforalla.se",
       "residencemagazine.se",
@@ -7319,17 +7345,8 @@
     "prevent-xhr",
     {
      "hostnames": [
-      "canlitribun237.live",
-      "canlitribun238.live",
-      "canlitribun239.live",
-      "canlitribun240.live",
-      "canlitribun241.live",
-      "canlitribun242.live",
-      "canlitribun243.live",
-      "canlitribun244.live",
-      "canlitribun245.live",
-      "canlitribun246.live",
       "forumchess.com.tr",
+      "hlktrpl.cfd",
       "kuponuna170.top",
       "kuponuna171.top",
       "kuponuna172.top",
@@ -8211,16 +8228,16 @@
       "abysscdn.com",
       "afamily.vn",
       "animevietsub.lol",
-      "buomtv.art",
+      "buomtv.club",
       "cafef.vn",
       "cdn2.insure885.fun",
       "cdn4.tiptoe34x1.fun",
-      "cliphot69.autos",
+      "cliphot69.beer",
       "cliphot69.pics",
       "cunghocvui.com",
-      "damconuong.site",
+      "damconuong.cam",
       "demo.14412882.com",
-      "doctruyen3qui9.pro",
+      "doctruyen3qui10.pro",
       "dualeotruyeno.com",
       "economic45882.shop",
       "freeplayervideo.com",
@@ -8235,7 +8252,7 @@
       "hhtq5.vip",
       "hhvsub1.com",
       "holyfilm.org",
-      "ihentai.city",
+      "ihentai.cloud",
       "imail.edu.vn",
       "ios.codevn.net",
       "javhd.shop",
@@ -8246,12 +8263,12 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "lrepacks.net",
-      "lxmanga.help",
+      "lxmanga.blog",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill86.com",
+      "motchill87.com",
       "motchilltvphim.com",
-      "nettruyener.com",
+      "nettruyenrr.com",
       "nettruyenvio.com",
       "p.thoctv.com",
       "phim18hdxx.com",
@@ -8265,11 +8282,11 @@
       "sayhentaii.me",
       "sexdiary.club",
       "sexhd88.online",
+      "sexmup3x.net",
       "sexpro.day",
       "sextop1.show",
       "soha.vn",
       "thanhnien.vn",
-      "thiendia.pro",
       "tinsoikeo.live",
       "tram3d.com",
       "tram3d.me",
@@ -8279,18 +8296,17 @@
       "truyenqqgo.com",
       "truyenqqtto.com",
       "truyensextv.com",
-      "truyenvn.ad",
+      "truyenvn.shop",
       "tuoitre.vn",
       "umetruyenhay.com",
       "ungtycomicsvip.org",
       "vailonxx.vip",
       "vanphatelectric.com",
-      "viet69.fi",
+      "viet69.fo",
       "viet69.hot",
-      "vlsexsuong.pro",
-      "vlxx.now",
+      "vlxx.bz",
       "vn2.xvideos69.xxx",
-      "vn20phimsexhay.com",
+      "vn25phimsexhay.com",
       "vn3.sexviet88.xyz",
       "vnhaysexvn.com",
       "vungoctuan.vn",
@@ -8308,8 +8324,8 @@
     {
      "hostnames": [
       "anh.moe",
-      "anime47.fun",
-      "anime7.site",
+      "anime47.shop",
+      "anime9.site",
       "animevietsubs.net",
       "aoe.vn",
       "audiotruyenfull.com",
@@ -8321,21 +8337,22 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchill.hot",
-      "motchill86.com",
+      "motchill.free",
+      "motchill87.com",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
-      "navidadessorprendentes.com",
       "noitu.site",
       "ohaha79xxx.site",
-      "ohaytv.fit",
+      "ohaytv.pro",
+      "ovimagazine.com",
       "phimchill.life",
       "player.phimapi.com",
       "plcdn.xyz",
       "quangcaoyenbai.com",
       "samtruyentranh.com",
-      "sexhihivl.pro",
+      "sexhihizz.net",
+      "sexmup3x.net",
       "teamlanhlung8.shop",
       "thefaplive.com",
       "thichxemphim1.site",
@@ -8347,12 +8364,11 @@
       "veryfiles.com",
       "viettoons.tv",
       "vinaurl.net",
-      "vlsexsuong.pro",
       "www.diendancauduong.com",
       "www.nettruyenupp.com",
       "www.phimdinhcao.online",
       "xemphimjav.us",
-      "xnhau.pe",
+      "xnhau.dog",
       "ytstv.me",
       "znews.vn"
      ],
@@ -8377,6 +8393,7 @@
       "cafef.vn",
       "cliphot69.pics",
       "clipsex.cam",
+      "euro2024volunteers.com",
       "freeplayervideo.com",
       "gamek.vn",
       "genk.vn",
@@ -8389,7 +8406,6 @@
       "subnhanh1.org",
       "tailieumoi.vn",
       "thanhnien.vn",
-      "thelookoutedinburgh.co",
       "tuoitre.vn",
       "vndoc.com",
       "ww1.ditnhau.cc",

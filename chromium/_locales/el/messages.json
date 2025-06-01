@@ -19,6 +19,10 @@
     "message": "Ρυθμίσεις",
     "description": "appears as tab name in dashboard"
   },
+  "developPageName": {
+    "message": "Ανάπτυξη",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
+  },
   "aboutPageName": {
     "message": "Σχετικά",
     "description": "appears as tab name in dashboard"
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "Θα απετραπεί η πρόσβαση σε πιθανά ανεπιθύμητους ιστοτόπους. Θα σας προσφερθεί η επιλογή να συνεχίσετε.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "Λειτουργία προγραμματιστή",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "Ενεργοποίηση πρόσβασης σε δυνατότητες κατάλληλες για τεχνικούς χρήστες.",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "Εύρεση λιστών",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Έξοδος από λειτουργία αφαίρεσης στοιχείων",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "Αποθήκευση",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "Επαναφορά",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "Εισαγωγή και προσθήκη…",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "Εξαγωγή…",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "Εισάγετε παρακάτω τους δικούς σας κανόνες DNR. <b>Μην προσθέσετε περιεχόμενο από πηγές που δεν είναι αξιόπιστες.</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "Number of registered rules: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

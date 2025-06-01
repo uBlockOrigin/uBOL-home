@@ -81,6 +81,7 @@
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["lazada.vn"],"regexFilter":"^https:\\/\\/da\\d{4}\\.com\\/","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":80,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["tiki.vn"],"regexFilter":"^https:\\/\\/tdk[det]0[0-9]\\.com\\/","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":81,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["shopee.vn"],"regexFilter":"^https:\\/\\/(www\\.)?sp\\d{4,5}p\\.com\\/","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":82,"priority":10},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https?:\\/\\/[a-z0-9]{6,7}\\.lat\\/[A-Z0-9]{5}$","requestDomains":["lat"],"resourceTypes":["main_frame"]},"id":83,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/amazon[a-z]\\d\\.com\\/","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":84,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["giaohangtietkiem.vn"],"regexFilter":"^https:\\/\\/giaohangtietkiem\\w+\\.com\\/","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":85,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["amazon.com"],"regexFilter":"^https?:\\/\\/amazo[a-z]{2}\\d\\.com\\/","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":86,"priority":10},
@@ -123,5 +124,6 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedRequestDomains":["edu","gov"],"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]+\\.[-a-z0-9]+\\.[a-z]{3,7}\\/17\\d{8}\\/em\\.js\\?(?:revision|sr?c?|ve?r?)=6[a-f0-9]{7}$","resourceTypes":["script"]},"id":123,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedRequestDomains":["edu","gov"],"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]{7,}\\.[a-z]{3,}\\/get\\/\\?s=[a-zA-Z0-9]+=*$","resourceTypes":["script"]},"id":124,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedRequestDomains":["edu","gov"],"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]{7,}\\.[a-z]{3,}\\/img\\/$","resourceTypes":["script"]},"id":125,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedRequestDomains":["edu","gov"],"isUrlFilterCaseSensitive":true,"regexFilter":"^wss:\\/\\/[^\\/]+\\.[a-z]{2,}\\/(?:common|ws)\\?source=http[^&]+$","resourceTypes":["websocket"]},"id":126,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedRequestDomains":["edu","gov"],"isUrlFilterCaseSensitive":true,"regexFilter":"^wss:\\/\\/[^\\/]+\\.[a-z]{2,}\\/(?:common|ws)\\?source=http[^&]+$","resourceTypes":["websocket"]},"id":126,"priority":10},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]{12,15}\\.com\\/\\?p=[0-9a-f]{32}&u=[0-9a-f]{138}\\b","resourceTypes":["main_frame"]},"id":127,"priority":10}
 ]

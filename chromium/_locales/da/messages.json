@@ -4,7 +4,7 @@
     "description": "extension name."
   },
   "extShortDesc": {
-    "message": "En effektiv indholdsblokering. Blokerer annoncer, trackere, minere og mere lige efter installation.",
+    "message": "En effektiv indholdsblocker. Blokerer annoncer, trackere, minere mm. umiddelbart efter installation.",
     "description": "this will be in the Chrome web store: must be 132 characters or less"
   },
   "perRulesetStats": {
@@ -18,6 +18,10 @@
   "settingsPageName": {
     "message": "Indstillinger",
     "description": "appears as tab name in dashboard"
+  },
+  "developPageName": {
+    "message": "Udvikl",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
   },
   "aboutPageName": {
     "message": "Om",
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "Navigering til potentielt uønskede websteder blokeres, men man tilbydes muligheden for at fortsætte.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "Udviklertilstand",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "Aktiverer adgang til funktioner egnede for tekniske brugere.",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "Find lister",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Forlad elementdræber­tilstand",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "Gem",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "Tilbagefør",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "Importér og tilføj…",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "Eksportér…",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "Angiv egne DNR-regler nedenfor. <b>Tilføj ikke indhold fra ikke-betroede kilder.</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "Antal registrerede regler : {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

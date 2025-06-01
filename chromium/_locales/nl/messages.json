@@ -4,7 +4,7 @@
     "description": "extension name."
   },
   "extShortDesc": {
-    "message": "Een toestemmingsloze inhoudsblokkeerder. Blokkeert direct na installatie advertenties, trackers, miners en meer.",
+    "message": "Een efficiënte inhoudsblokkeerder. Blokkeert direct na installatie advertenties, trackers, miners en meer.",
     "description": "this will be in the Chrome web store: must be 132 characters or less"
   },
   "perRulesetStats": {
@@ -18,6 +18,10 @@
   "settingsPageName": {
     "message": "Instellingen",
     "description": "appears as tab name in dashboard"
+  },
+  "developPageName": {
+    "message": "Ontwikkelen",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
   },
   "aboutPageName": {
     "message": "Over",
@@ -116,11 +120,11 @@
     "description": "Label of 'Troubleshooting information' section in 'Report a filter issue' page"
   },
   "supportS6P1S1": {
-    "message": "Controleer of het probleem niet eerder is gemeld om te voorkomen dat vrijwilligers met dubbele meldingen worden belast.",
+    "message": "Controleer of het probleem niet eerder is gemeld om te voorkomen dat vrijwilligers met dubbele meldingen worden belast. <b>Noot:</b> op de knop klikken zorgt ervoor dat de oorsprong van de pagina naar GitHub wordt verzonden.",
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportFindSpecificButton": {
-    "message": "Soortgelijke meldingen zoeken",
+    "message": "Soortgelijke meldingen op GitHub zoeken",
     "description": "A clickable link in the filter issue reporter section"
   },
   "supportS6URL": {
@@ -168,7 +172,7 @@
     "description": "A checkbox to use for NSFW sites"
   },
   "supportReportSpecificButton": {
-    "message": "Nieuwe melding maken",
+    "message": "Nieuwe melding op GitHub maken",
     "description": "Text for button which open an external webpage in Support pane"
   },
   "defaultFilteringModeSectionLabel": {
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "Navigatie naar mogelijk ongewenste websites wordt geblokkeerd, en u krijgt de mogelijkheid om door te gaan.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "Ontwikkelaarsmodus",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "Schakelt toegang tot voor technische gebruikers geschikte functies in.",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "Lijsten zoeken",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Element­wisser­modus sluiten",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "Opslaan",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "Ongedaan maken",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "Importeren en toevoegen…",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "Exporteren…",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "Voer hieronder uw eigen DNR-regels in. <b>Voeg geen inhoud van niet-vertrouwde bronnen toe.</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "Aantal geregistreerde regels: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

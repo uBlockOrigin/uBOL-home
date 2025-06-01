@@ -19,6 +19,10 @@
     "message": "設定",
     "description": "appears as tab name in dashboard"
   },
+  "developPageName": {
+    "message": "開發",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
+  },
   "aboutPageName": {
     "message": "關於",
     "description": "appears as tab name in dashboard"
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "前往潛在不良網站的導航將被阻止，您可以選擇是否繼續前往。",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "開發人員模式",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "啟用適合技術使用者使用的功能。",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "尋找清單",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "離開元素臨時移除模式",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "儲存",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "還原",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "匯入並加入…",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "匯出…",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "請在下方輸入您的 DNR 規則。<b>請勿新增來自不受信任來源的內容。</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "已登錄規則數：{count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

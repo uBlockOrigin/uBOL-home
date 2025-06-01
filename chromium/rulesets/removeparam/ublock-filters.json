@@ -50,6 +50,7 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["include_sponsored"]}}},"type":"redirect"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||redsky.target.com^"},"id":49,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["view"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","other"],"urlFilter":"||hentai-party.com/*?view="},"id":50,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["code"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","other"],"urlFilter":"||hentaicomics.pro/*?code="},"id":51,"priority":2},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["si"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://youtube.com/@*?si="},"id":52,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_campaign","utm_content","utm_source"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||cxchief.com^"},"id":53,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["correlation_id","ref","ref_campaign","ref_source","utm_content"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||reddit.com^"},"id":54,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["s_cid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"]},"id":55},

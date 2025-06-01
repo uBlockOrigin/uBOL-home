@@ -19,6 +19,10 @@
     "message": "Inställningar",
     "description": "appears as tab name in dashboard"
   },
+  "developPageName": {
+    "message": "Utveckla",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
+  },
   "aboutPageName": {
     "message": "Om",
     "description": "appears as tab name in dashboard"
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "Navigering till potentiellt oönskade webbplatser kommer att blockeras och du kommer att erbjudas alternativet att fortsätta.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "Utvecklarläge",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "Aktivera åtkomst till funktioner som är lämpliga för tekniska användare.",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "Hitta listor",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Lämna elementzapperläge",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "Spara",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "Ångra",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "Importera och lägg till…",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "Exportera…",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "Ange dina egna DNR-regler nedan. <b>Lägg inte till innehåll från opålitliga källor.</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "Antal registrerade regler: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

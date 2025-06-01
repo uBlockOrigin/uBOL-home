@@ -94,6 +94,14 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?prod\\.outgoing\\.prod\\.webservices\\.mozgcp\\.net/v1/",
+  "steps": [
+   "/\\/v1\\/\\w+\\/(http.+)$/",
+   "-uricomponent",
+   "+https"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?anylinks\\.in/full\\S*?(?:[^%.0-9a-z_-]|$)url=ahr0c",
   "steps": [
    "?url",

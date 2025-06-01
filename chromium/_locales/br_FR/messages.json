@@ -19,12 +19,16 @@
     "message": "Arventennoù",
     "description": "appears as tab name in dashboard"
   },
+  "developPageName": {
+    "message": "Diorren",
+    "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
+  },
   "aboutPageName": {
     "message": "Diwar-benn",
     "description": "appears as tab name in dashboard"
   },
   "aboutPrivacyPolicy": {
-    "message": "Politikerezh prevezded",
+    "message": "Politikerezh ar vuhez prevez",
     "description": "Link to privacy policy on GitHub (English)"
   },
   "popupFilteringModeLabel": {
@@ -56,7 +60,7 @@
     "description": "Header for a ruleset section in 'Filter lists pane'"
   },
   "3pGroupPrivacy": {
-    "message": "Prevezded",
+    "message": "Buhez prevez",
     "description": "Header for a ruleset section in 'Filter lists pane'"
   },
   "3pGroupMalware": {
@@ -148,7 +152,7 @@
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Select1Option4": {
-    "message": "Kudennoù a-fed prevezded he deus",
+    "message": "Kudennoù a-fed ar vuhez prevez he deus",
     "description": "An entry in the widget used to select the type of issue"
   },
   "supportS6Select1Option5": {
@@ -233,7 +237,15 @@
   },
   "enableStrictBlockLegend": {
     "message": "Stanket e vo ar merdeiñ etrezek lec'hiennoù a c'hallfe bezañ dañjerus, ha moaien a vo deoc'h dibab da genderc'hel pe get.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "developerModeLabel": {
+    "message": "Mod diorroer",
     "description": "Label for a checkbox in the options page"
+  },
+  "developerModeLegend": {
+    "message": "Gweredekaat a ra ar fonksionelezhioù azasaet d'an implijerien deknikel.",
+    "description": "Short description for a checkbox in the options page"
   },
   "findListsPlaceholder": {
     "message": "Kavout rolloù",
@@ -282,5 +294,29 @@
   "zapperTipQuit": {
     "message": "Kuitaat ar mod \"dilemel elfennoù\"",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "saveButton": {
+    "message": "Enrollañ",
+    "description": "Text for buttons used to save changes"
+  },
+  "revertButton": {
+    "message": "Nullañ",
+    "description": "Text for buttons used to revert changes"
+  },
+  "importAndAppendButton": {
+    "message": "Enporzhiañ hag ouzhpennañ",
+    "description": "Text for buttons used to import and append content"
+  },
+  "exportButton": {
+    "message": "Ezporzhiañ",
+    "description": "Text for buttons used to export content"
+  },
+  "dnrRulesSummary": {
+    "message": "Lakait ho reolennoù DNR deoc'h-c'hwi amañ-dindan. <b>Arabat ouzhpennañ danvez a zeu diouzh mammennoù douetus.</b>",
+    "description": "Short description of the DNR rules editor pane"
+  },
+  "dnrRulesCountInfo": {
+    "message": "Niver a reolennoù marilhet: {count}",
+    "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }
