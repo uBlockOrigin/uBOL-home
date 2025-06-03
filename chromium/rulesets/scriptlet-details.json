@@ -33,6 +33,7 @@
     "json-prune-xhr-response",
     {
      "hostnames": [
+      "espn.com",
       "twitter.com",
       "web.facebook.com",
       "www.facebook.com",
@@ -5543,6 +5544,7 @@
     "adjust-setTimeout",
     {
      "hostnames": [
+      "geenstijl.nl",
       "omroepbrabant.nl"
      ],
      "world": "MAIN"
@@ -6576,6 +6578,15 @@
   "spa-1",
   [
    [
+    "abort-on-property-read",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "noeval-if",
     {
      "hostnames": [
@@ -6729,15 +6740,6 @@
       "daemon-hentai.com"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "abort-on-property-read",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -7230,7 +7232,11 @@
     "remove-cookie",
     {
      "hostnames": [
-      "synonymer.se"
+      "fempers.se",
+      "landetsfria.nu",
+      "synonymer.se",
+      "tidningenglobal.se",
+      "tidningensyre.se"
      ],
      "world": "ISOLATED"
     }
@@ -8230,15 +8236,16 @@
       "animevietsub.lol",
       "buomtv.club",
       "cafef.vn",
-      "cdn2.insure885.fun",
       "cdn4.tiptoe34x1.fun",
+      "childish2x2.fun",
       "cliphot69.beer",
       "cliphot69.pics",
+      "clipsexsub3x.net",
       "cunghocvui.com",
       "damconuong.cam",
       "demo.14412882.com",
       "doctruyen3qui10.pro",
-      "dualeotruyeno.com",
+      "dualeotruyenl.com",
       "economic45882.shop",
       "freeplayervideo.com",
       "game8.vn",
@@ -8306,9 +8313,10 @@
       "viet69.hot",
       "vlxx.bz",
       "vn2.xvideos69.xxx",
-      "vn25phimsexhay.com",
+      "vn28phimsexhay.com",
       "vn3.sexviet88.xyz",
       "vnhaysexvn.com",
+      "vnsex.phimsexthailan.pro",
       "vungoctuan.vn",
       "www.sieutamphim.org",
       "www.toptruyentv7.pro",
@@ -8343,19 +8351,18 @@
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
       "noitu.site",
-      "ohaha79xxx.site",
       "ohaytv.pro",
-      "ovimagazine.com",
       "phimchill.life",
       "player.phimapi.com",
       "plcdn.xyz",
+      "practicalservicedesign.com",
       "quangcaoyenbai.com",
       "samtruyentranh.com",
       "sexhihizz.net",
       "sexmup3x.net",
       "teamlanhlung8.shop",
       "thefaplive.com",
-      "thichxemphim1.site",
+      "thichxemphim.live",
       "thuvienhd.biz",
       "tinsoikeo.live",
       "truyenfull.vision",

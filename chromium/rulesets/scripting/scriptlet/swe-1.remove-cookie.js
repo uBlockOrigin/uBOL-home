@@ -285,8 +285,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["/^ev_did|ev_sid/"]];
-const hostnamesMap = new Map([["synonymer.se",0]]);
+const argsList = [["/^ev_did|ev_sid/"],["article_count"],["read_articles"],["wordpress_sezz_id"]];
+const hostnamesMap = new Map([["synonymer.se",0],["tidningensyre.se",[1,2,3]],["landetsfria.nu",[1,2,3]],["fempers.se",[1,2,3]],["tidningenglobal.se",[1,2,3]]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

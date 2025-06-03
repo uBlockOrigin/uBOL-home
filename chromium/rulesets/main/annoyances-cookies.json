@@ -1246,7 +1246,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["fluentify.com","notdiamond.ai","webtic.it"],"urlFilter":"||cdn.jsdelivr.net^*/cookie-consent.js"},"id":1245,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"/wp-content/plugins/webtoffee-cookie-consent/"},"id":1246,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/privacy-consent-"},"id":1247,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/s4s-privacy-module/"},"id":1248,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||app.prive.eu/consent"},"id":1249,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||c.evidon.com/dg/dg.js"},"id":1250,"priority":10},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js"},"id":1251,"priority":30},

@@ -102,6 +102,12 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?www\\.google\\.com/url\\?q=",
+  "steps": [
+   "?q"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?anylinks\\.in/full\\S*?(?:[^%.0-9a-z_-]|$)url=ahr0c",
   "steps": [
    "?url",
@@ -961,6 +967,13 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?laylo\\.co/e/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
   "steps": [
    "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?comohoy\\.com/view/out\\.html\\?url1=ahr0c",
+  "steps": [
+   "?url1",
+   "-base64"
   ]
  },
  {

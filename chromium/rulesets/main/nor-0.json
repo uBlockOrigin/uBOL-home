@@ -624,5 +624,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"://haslundalsted.dk^"},"id":623,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"://mettelindberg.dk^"},"id":624,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"://nhn.dk^"},"id":625,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["discoveryplus.com"],"urlFilter":"||mparticle.com^*/login"},"id":626,"priority":30}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["discoveryplus.com"],"urlFilter":"||mparticle.com^*/login"},"id":626,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["berlingske.dk"],"urlFilter":"||cookiebot.com^"},"id":627,"priority":30}
 ]
