@@ -55,19 +55,5 @@
  },
  "id": 4,
  "priority": 30
-},
-{
- "action": {
-  "type": "allow"
- },
- "condition": {
-  "domainType": "firstParty",
-  "regexFilter": "^https:\\/\\/www.gamer.no\\/[0-9a-f]{32,40}$",
-  "resourceTypes": [
-   "script"
-  ]
- },
- "id": 5,
- "priority": 30
 }
 ]

@@ -561,7 +561,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||fotballen.eu/20*casino."},"id":560,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||eu/annonse/"},"id":561,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["ekstrabladet.dk"],"resourceTypes":["sub_frame"],"urlFilter":"||notice.sp-prod.net^"},"id":562,"priority":30},
-{"action":{"type":"allow"},"condition":{"urlFilter":"||stillingledig.*.no^"},"id":563,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["vg.no"],"urlFilter":"||schibsted.com/autotracker"},"id":564,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||medlemskap.*.no^"},"id":565,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["sparebank1.no"],"urlFilter":"/pm-blikunde/1x1.png^"},"id":566,"priority":30},
@@ -569,9 +568,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","initiatorDomains":["itavisen.no"],"urlFilter":"||sixscissors.com^"},"id":568,"priority":30},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||cloudfront.net/mediaxpress/ad^"},"id":569,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["lampegiganten.dk","lampegiganten.no"],"urlFilter":"/newsletter/newsletter_popup.gif^"},"id":570,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["seher.no"],"urlFilter":"_prebid_"},"id":571,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["canariajournalen.no"],"urlFilter":"/images/ads-db/right-tower/vipps-sponsor-"},"id":572,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["fla.de"],"urlFilter":"/adnetwork/"},"id":573,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"://billink*.blob.core.windows.net/*/annonser^"},"id":574,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||bluesnews.no/files/images/annonser^"},"id":575,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||lnk.no/wp-content/uploads/*/ads"},"id":576,"priority":30},
@@ -623,7 +619,5 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"://vinkelvej12.dk^"},"id":622,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"://haslundalsted.dk^"},"id":623,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"://mettelindberg.dk^"},"id":624,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"://nhn.dk^"},"id":625,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["discoveryplus.com"],"urlFilter":"||mparticle.com^*/login"},"id":626,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["berlingske.dk"],"urlFilter":"||cookiebot.com^"},"id":627,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"://nhn.dk^"},"id":625,"priority":30}
 ]

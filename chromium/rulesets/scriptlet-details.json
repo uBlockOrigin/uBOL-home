@@ -171,38 +171,6 @@
     }
    ],
    [
-    "trusted-set-constant",
-    {
-     "hostnames": [
-      "app.blubank.com",
-      "cinelatino.net",
-      "cinemitas.org",
-      "cineplus123.org",
-      "comdotgame.com",
-      "emturbovid.com",
-      "findjav.com",
-      "globo.com",
-      "japscan.lol",
-      "javggvideo.xyz",
-      "jetpunk.com",
-      "littlebigsnake.com",
-      "mmtv01.xyz",
-      "mobileweb.bankmellat.ir",
-      "paraveronline.org",
-      "pobreflix.vc",
-      "rooter.gg",
-      "savefrom.net",
-      "seclore.com",
-      "stbturbo.xyz",
-      "streamelements.com",
-      "streamsilk.com",
-      "upshrink.com",
-      "verpelis.gratis"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "trusted-suppress-native-method",
     {
      "hostnames": [
@@ -404,6 +372,37 @@
       "*"
      ],
      "world": "ISOLATED"
+    }
+   ],
+   [
+    "trusted-set-constant",
+    {
+     "hostnames": [
+      "app.blubank.com",
+      "cinelatino.net",
+      "cinemitas.org",
+      "cineplus123.org",
+      "comdotgame.com",
+      "emturbovid.com",
+      "findjav.com",
+      "globo.com",
+      "javggvideo.xyz",
+      "jetpunk.com",
+      "littlebigsnake.com",
+      "mmtv01.xyz",
+      "mobileweb.bankmellat.ir",
+      "paraveronline.org",
+      "pobreflix.vc",
+      "rooter.gg",
+      "savefrom.net",
+      "seclore.com",
+      "stbturbo.xyz",
+      "streamelements.com",
+      "streamsilk.com",
+      "upshrink.com",
+      "verpelis.gratis"
+     ],
+     "world": "MAIN"
     }
    ],
    [
@@ -3765,6 +3764,15 @@
     }
    ],
    [
+    "set-constant",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "abort-current-script",
     {
      "hostnames": [
@@ -3781,15 +3789,6 @@
       "recreatisse.com",
       "super-ethanol.com",
       "ultimate-catch.eu"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "set-constant",
-    {
-     "hostnames": [
-      "*"
      ],
      "world": "MAIN"
     }
@@ -5163,6 +5162,7 @@
     {
      "hostnames": [
       "10000recipe.com",
+      "checkwhoiam.tistory.com",
       "digitstar77.com",
       "enjoyplan.tistory.com",
       "filetender.com",
@@ -6181,7 +6181,8 @@
       "mail.ru",
       "trychatgpt.ru",
       "volley.ru",
-      "www.ukr.net"
+      "www.ukr.net",
+      "ya.ru"
      ],
      "world": "MAIN"
     }
@@ -6578,6 +6579,15 @@
   "spa-1",
   [
    [
+    "prevent-fetch",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "abort-on-property-read",
     {
      "hostnames": [
@@ -6634,15 +6644,6 @@
    ],
    [
     "prevent-setTimeout",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-fetch",
     {
      "hostnames": [
       "*"
@@ -7021,7 +7022,6 @@
       "aktieskolan.se",
       "alekuriren.se",
       "boktugg.se",
-      "branschkoll.se",
       "classicmotor.se",
       "datormagazin.se",
       "densistavilan.se",
@@ -8258,7 +8258,6 @@
       "hh3dhay.life",
       "hhtq5.vip",
       "hhvsub1.com",
-      "holyfilm.org",
       "ihentai.cloud",
       "imail.edu.vn",
       "ios.codevn.net",
@@ -8313,7 +8312,7 @@
       "viet69.hot",
       "vlxx.bz",
       "vn2.xvideos69.xxx",
-      "vn28phimsexhay.com",
+      "vn29phimsexhay.com",
       "vn3.sexviet88.xyz",
       "vnhaysexvn.com",
       "vnsex.phimsexthailan.pro",
@@ -8345,7 +8344,7 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchill.free",
+      "motchill.spot",
       "motchill87.com",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
@@ -8358,7 +8357,7 @@
       "practicalservicedesign.com",
       "quangcaoyenbai.com",
       "samtruyentranh.com",
-      "sexhihizz.net",
+      "sexhihi.bar",
       "sexmup3x.net",
       "teamlanhlung8.shop",
       "thefaplive.com",
