@@ -20,109 +20,179 @@
 
 */
 
-// ruleset: annoyances-overlays
+// ruleset: cze-0
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_trustedSetLocalStorageItem() {
+(function uBOL_jsonPruneXhrResponse() {
 
 /******************************************************************************/
 
-function trustedSetLocalStorageItem(key = '', value = '') {
-    setLocalStorageItemFn('local', true, key, value);
-}
-
-function setLocalStorageItemFn(
-    which = 'local',
-    trusted = false,
-    key = '',
-    value = '',
+function jsonPruneXhrResponse(
+    rawPrunePaths = '',
+    rawNeedlePaths = ''
 ) {
-    if ( key === '' ) { return; }
-
-    // For increased compatibility with AdGuard
-    if ( value === 'emptyArr' ) {
-        value = '[]';
-    } else if ( value === 'emptyObj' ) {
-        value = '{}';
-    }
-
-    const trustedValues = [
-        '',
-        'undefined', 'null',
-        '{}', '[]', '""',
-        '$remove$',
-        ...getSafeCookieValuesFn(),
-    ];
-
-    if ( trusted ) {
-        if ( value.includes('$now$') ) {
-            value = value.replaceAll('$now$', Date.now());
-        }
-        if ( value.includes('$currentDate$') ) {
-            value = value.replaceAll('$currentDate$', `${Date()}`);
-        }
-        if ( value.includes('$currentISODate$') ) {
-            value = value.replaceAll('$currentISODate$', (new Date()).toISOString());
-        }
-    } else {
-        const normalized = value.toLowerCase();
-        const match = /^("?)(.+)\1$/.exec(normalized);
-        const unquoted = match && match[2] || normalized;
-        if ( trustedValues.includes(unquoted) === false ) {
-            if ( /^-?\d+$/.test(unquoted) === false ) { return; }
-            const n = parseInt(unquoted, 10) || 0;
-            if ( n < -32767 || n > 32767 ) { return; }
-        }
-    }
-
-    try {
-        const storage = self[`${which}Storage`];
-        if ( value === '$remove$' ) {
-            const safe = safeSelf();
-            const pattern = safe.patternToRegex(key, undefined, true );
-            const toRemove = [];
-            for ( let i = 0, n = storage.length; i < n; i++ ) {
-                const key = storage.key(i);
-                if ( pattern.test(key) ) { toRemove.push(key); }
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('json-prune-xhr-response', rawPrunePaths, rawNeedlePaths);
+    const xhrInstances = new WeakMap();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
+    const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
+    self.XMLHttpRequest = class extends self.XMLHttpRequest {
+        open(method, url, ...args) {
+            const xhrDetails = { method, url };
+            let outcome = 'match';
+            if ( propNeedles.size !== 0 ) {
+                if ( matchObjectPropertiesFn(propNeedles, xhrDetails) === undefined ) {
+                    outcome = 'nomatch';
+                }
             }
-            for ( const key of toRemove ) {
-                storage.removeItem(key);
+            if ( outcome === 'match' ) {
+                if ( safe.logLevel > 1 ) {
+                    safe.uboLog(logPrefix, `Matched optional "propsToMatch", "${extraArgs.propsToMatch}"`);
+                }
+                xhrInstances.set(this, xhrDetails);
             }
-        } else {
-            storage.setItem(key, `${value}`);
+            return super.open(method, url, ...args);
         }
-    } catch {
-    }
+        get response() {
+            const innerResponse = super.response;
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined ) {
+                return innerResponse;
+            }
+            const responseLength = typeof innerResponse === 'string'
+                ? innerResponse.length
+                : undefined;
+            if ( xhrDetails.lastResponseLength !== responseLength ) {
+                xhrDetails.response = undefined;
+                xhrDetails.lastResponseLength = responseLength;
+            }
+            if ( xhrDetails.response !== undefined ) {
+                return xhrDetails.response;
+            }
+            let objBefore;
+            if ( typeof innerResponse === 'object' ) {
+                objBefore = innerResponse;
+            } else if ( typeof innerResponse === 'string' ) {
+                try {
+                    objBefore = safe.JSON_parse(innerResponse);
+                } catch {
+                }
+            }
+            if ( typeof objBefore !== 'object' ) {
+                return (xhrDetails.response = innerResponse);
+            }
+            const objAfter = objectPruneFn(
+                objBefore,
+                rawPrunePaths,
+                rawNeedlePaths,
+                stackNeedle,
+                extraArgs
+            );
+            let outerResponse;
+            if ( typeof objAfter === 'object' ) {
+                outerResponse = typeof innerResponse === 'string'
+                    ? safe.JSON_stringify(objAfter)
+                    : objAfter;
+                safe.uboLog(logPrefix, 'Pruned');
+            } else {
+                outerResponse = innerResponse;
+            }
+            return (xhrDetails.response = outerResponse);
+        }
+        get responseText() {
+            const response = this.response;
+            return typeof response !== 'string'
+                ? super.responseText
+                : response;
+        }
+    };
 }
 
-function getSafeCookieValuesFn() {
-    return [
-        'accept', 'reject',
-        'accepted', 'rejected', 'notaccepted',
-        'allow', 'disallow', 'deny',
-        'allowed', 'denied',
-        'approved', 'disapproved',
-        'checked', 'unchecked',
-        'dismiss', 'dismissed',
-        'enable', 'disable',
-        'enabled', 'disabled',
-        'essential', 'nonessential',
-        'forbidden', 'forever',
-        'hide', 'hidden',
-        'necessary', 'required',
-        'ok',
-        'on', 'off',
-        'true', 't', 'false', 'f',
-        'yes', 'y', 'no', 'n',
-        'all', 'none', 'functional',
-        'granted', 'done',
-        'decline', 'declined',
-        'closed', 'next', 'mandatory',
-        'disagree', 'agree',
-    ];
+function matchObjectPropertiesFn(propNeedles, ...objs) {
+    const safe = safeSelf();
+    const matched = [];
+    for ( const obj of objs ) {
+        if ( obj instanceof Object === false ) { continue; }
+        for ( const [ prop, details ] of propNeedles ) {
+            let value = obj[prop];
+            if ( value === undefined ) { continue; }
+            if ( typeof value !== 'string' ) {
+                try { value = safe.JSON_stringify(value); }
+                catch { }
+                if ( typeof value !== 'string' ) { continue; }
+            }
+            if ( safe.testPattern(details, value) === false ) { return; }
+            matched.push(`${prop}: ${value}`);
+        }
+    }
+    return matched;
+}
+
+function objectPruneFn(
+    obj,
+    rawPrunePaths,
+    rawNeedlePaths,
+    stackNeedleDetails = { matchAll: true },
+    extraArgs = {}
+) {
+    if ( typeof rawPrunePaths !== 'string' ) { return; }
+    const safe = safeSelf();
+    const prunePaths = rawPrunePaths !== ''
+        ? safe.String_split.call(rawPrunePaths, / +/)
+        : [];
+    const needlePaths = prunePaths.length !== 0 && rawNeedlePaths !== ''
+        ? safe.String_split.call(rawNeedlePaths, / +/)
+        : [];
+    if ( stackNeedleDetails.matchAll !== true ) {
+        if ( matchesStackTraceFn(stackNeedleDetails, extraArgs.logstack) === false ) {
+            return;
+        }
+    }
+    if ( objectPruneFn.mustProcess === undefined ) {
+        objectPruneFn.mustProcess = (root, needlePaths) => {
+            for ( const needlePath of needlePaths ) {
+                if ( objectFindOwnerFn(root, needlePath) === false ) {
+                    return false;
+                }
+            }
+            return true;
+        };
+    }
+    if ( prunePaths.length === 0 ) { return; }
+    let outcome = 'nomatch';
+    if ( objectPruneFn.mustProcess(obj, needlePaths) ) {
+        for ( const path of prunePaths ) {
+            if ( objectFindOwnerFn(obj, path, true) ) {
+                outcome = 'match';
+            }
+        }
+    }
+    if ( outcome === 'match' ) { return obj; }
+}
+
+function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
+    const safe = safeSelf();
+    const needles = new Map();
+    if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
+    const options = { canNegate: true };
+    for ( const needle of safe.String_split.call(propsToMatch, /\s+/) ) {
+        let [ prop, pattern ] = safe.String_split.call(needle, ':');
+        if ( prop === '' ) { continue; }
+        if ( pattern !== undefined && /[^$\w -]/.test(prop) ) {
+            prop = `${prop}:${pattern}`;
+            pattern = undefined;
+        }
+        if ( pattern !== undefined ) {
+            needles.set(prop, safe.initPattern(pattern, options));
+        } else if ( implicit !== '' ) {
+            needles.set(implicit, safe.initPattern(prop, options));
+        }
+    }
+    return needles;
 }
 
 function safeSelf() {
@@ -315,11 +385,139 @@ function safeSelf() {
     return safe;
 }
 
+function matchesStackTraceFn(
+    needleDetails,
+    logLevel = ''
+) {
+    const safe = safeSelf();
+    const exceptionToken = getExceptionTokenFn();
+    const error = new safe.Error(exceptionToken);
+    const docURL = new URL(self.location.href);
+    docURL.hash = '';
+    // Normalize stack trace
+    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
+    const lines = [];
+    for ( let line of safe.String_split.call(error.stack, /[\n\r]+/) ) {
+        if ( line.includes(exceptionToken) ) { continue; }
+        line = line.trim();
+        const match = safe.RegExp_exec.call(reLine, line);
+        if ( match === null ) { continue; }
+        let url = match[2];
+        if ( url.startsWith('(') ) { url = url.slice(1); }
+        if ( url === docURL.href ) {
+            url = 'inlineScript';
+        } else if ( url.startsWith('<anonymous>') ) {
+            url = 'injectedScript';
+        }
+        let fn = match[1] !== undefined
+            ? match[1].slice(0, -1)
+            : line.slice(0, match.index).trim();
+        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
+        let rowcol = match[3];
+        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
+    }
+    lines[0] = `stackDepth:${lines.length-1}`;
+    const stack = lines.join('\t');
+    const r = needleDetails.matchAll !== true &&
+        safe.testPattern(needleDetails, stack);
+    if (
+        logLevel === 'all' ||
+        logLevel === 'match' && r ||
+        logLevel === 'nomatch' && !r
+    ) {
+        safe.uboLog(stack.replace(/\t/g, '\n'));
+    }
+    return r;
+}
+
+function objectFindOwnerFn(
+    root,
+    path,
+    prune = false
+) {
+    const safe = safeSelf();
+    let owner = root;
+    let chain = path;
+    for (;;) {
+        if ( typeof owner !== 'object' || owner === null  ) { return false; }
+        const pos = chain.indexOf('.');
+        if ( pos === -1 ) {
+            if ( prune === false ) {
+                return safe.Object_hasOwn(owner, chain);
+            }
+            let modified = false;
+            if ( chain === '*' ) {
+                for ( const key in owner ) {
+                    if ( safe.Object_hasOwn(owner, key) === false ) { continue; }
+                    delete owner[key];
+                    modified = true;
+                }
+            } else if ( safe.Object_hasOwn(owner, chain) ) {
+                delete owner[chain];
+                modified = true;
+            }
+            return modified;
+        }
+        const prop = chain.slice(0, pos);
+        const next = chain.slice(pos + 1);
+        let found = false;
+        if ( prop === '[-]' && Array.isArray(owner) ) {
+            let i = owner.length;
+            while ( i-- ) {
+                if ( objectFindOwnerFn(owner[i], next) === false ) { continue; }
+                owner.splice(i, 1);
+                found = true;
+            }
+            return found;
+        }
+        if ( prop === '{-}' && owner instanceof Object ) {
+            for ( const key of Object.keys(owner) ) {
+                if ( objectFindOwnerFn(owner[key], next) === false ) { continue; }
+                delete owner[key];
+                found = true;
+            }
+            return found;
+        }
+        if (
+            prop === '[]' && Array.isArray(owner) ||
+            prop === '{}' && owner instanceof Object ||
+            prop === '*' && owner instanceof Object
+        ) {
+            for ( const key of Object.keys(owner) ) {
+                if (objectFindOwnerFn(owner[key], next, prune) === false ) { continue; }
+                found = true;
+            }
+            return found;
+        }
+        if ( safe.Object_hasOwn(owner, prop) === false ) { return false; }
+        owner = owner[prop];
+        chain = chain.slice(pos + 1);
+    }
+}
+
+function getExceptionTokenFn() {
+    const token = getRandomTokenFn();
+    const oe = self.onerror;
+    self.onerror = function(msg, ...args) {
+        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
+        if ( oe instanceof Function ) {
+            return oe.call(this, msg, ...args);
+        }
+    }.bind();
+    return token;
+}
+
+function getRandomTokenFn() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["contextual-sign-in-modal-cool-off-hidden","$now$"],["lo-non-moc-membership-upsell|dismissed-at","$now$"],["201805-policy|accepted","1"],["halfSheetAppBannerDismissed","{\"halfSheetAppBannerDismissed\":{\"expiration\":2000000000000,\"data\":true}}"],["lastViewTime","$currentDate$"],["reference_offer","__q_objt|{\"offer_type\":\"PROMOTION\"}"],["show_offer","__q_bool|0"],["show_offer_timestamp","__q_numb|9999999999999"],["adblockNotice","{\"dismissed\":true,\"impressionCount\":1}"]];
-const hostnamesMap = new Map([["linkedin.com",0],["500ish.com",1],["artplusmarketing.com",1],["atrium.co",1],["backchannel.com",1],["backstage.1blocker.com",1],["badootech.badoo.com",1],["baharudinyusuf.com",1],["bitcointechtalk.com",1],["blog.bitsrc.io",1],["blog.inkdrop.app",[1,2]],["bitwarden.com",1],["blog.coinbase.com",1],["blog.confiant.com",1],["blog.devcolor.org",1],["blog.growthhackers.com",1],["blog.hiri.com",1],["blog.ltse.com",1],["blog.statebox.org",1],["blog.twitch.tv",1],["blog.waffle.io",1],["bluerockpublicradio.com",1],["bolt.io",1],["boomsupersonic.com",1],["bradfieldcs.com",1],["brightthemag.com",1],["broadcast.listennotes.com",1],["checkio.org",1],["citizen428.net",1],["coach.me",1],["codeburst.io",1],["dave-bailey.com",1],["discordapp.com",1],["doist.com",1],["doit-intl.com",1],["dotandline.net",1],["doublepulsar.com",1],["economist.com",1],["electricliterature.com",1],["elidourado.com",1],["esciencecenter.nl",1],["faun.pub",1],["fossa.io",1],["freecodecamp.org",1],["fritz.ai",1],["getadblock.com",1],["levelup.gitconnected.com",1],["greylock.com",1],["headmelted.com",1],["helium.com",1],["howwegettonext.com",1],["iheart.com",1],["injusticetoday.com",1],["insightdatascience.com",1],["iota.org",1],["itnext.io",1],["itsyourturnblog.com",1],["jupyter.org",1],["keepingstock.net",1],["kiwi.com",1],["learngoprogramming.com",1],["learningbyshipping.com",1],["ledwards.com",1],["legalist.com",1],["logrocket.com",1],["mapbox.com",1],["medium.com",1],["melmagazine.com",1],["mondaynote.com",1],["newco.co",1],["news.smugmug.com",1],["nyulocal.com",1],["ofdollarsanddata.com",1],["okmeter.io",1],["open.nytimes.com",1],["osintteam.blog",1],["javascript.plainenglish.io",1],["postlight.com",1],["proandroiddev.com",1],["prototypr.io",1],["rainway.io",1],["sagefy.org",1],["signalvnoise.com",1],["slack.engineering",1],["slackhq.com",1],["springboard.com",1],["standardnotes.org",1],["startupsventurecapital.com",1],["stoplight.io",1],["tech.buzzfeed.com",1],["theabacus.io",1],["theawl.com",1],["thebigroundtable.com",1],["thebillfold.com",1],["thebolditalic.com",1],["thecontrol.co",1],["theringer.com",1],["thinkprogress.org",1],["thriveglobal.com",1],["timeline.com",1],["towardsdatascience.com",1],["udacity.com",1],["unpatent.co",1],["usejournal.com",1],["uxdesign.cc",1],["uxplanet.org",1],["warisboring.com",1],["wearemel.com",1],["whatahowler.com",1],["x.company",1],["blog.canopas.com",1],["blog.dp6.com.br",1],["blog.angular.io",1],["thetaoist.online",1],["writingcooperative.com",1],["tech.ahrefs.com",1],["patreon.com",3],["cu.tbs.co.jp",4],["bitchute.com",[5,6,7]],["duckduckgo.com",8]]);
+const argsList = [["adBlocks.[-].id","","propsToMatch","/schedules/ads"]];
+const hostnamesMap = new Map([["magio.tv",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -387,7 +585,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { trustedSetLocalStorageItem(...argsList[i]); }
+    try { jsonPruneXhrResponse(...argsList[i]); }
     catch { }
 }
 

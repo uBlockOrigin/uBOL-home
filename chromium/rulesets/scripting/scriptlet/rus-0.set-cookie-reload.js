@@ -357,7 +357,7 @@ function getCookieFn(
 
 const scriptletGlobals = {}; // eslint-disable-line
 const argsList = [["is_age_verified","1"]];
-const hostnamesMap = new Map([["cosplay-porn.*",0],["mult-porno.*",0],["sex-studentki.*",0]]);
+const hostnamesMap = new Map([["cosplay-porn.*",0],["fap-guru.*",0],["mult-porno.*",0],["sex-studentki.*",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = true;
 const hasAncestors = false;
