@@ -295,6 +295,30 @@
     "message": "Surt del mode d'eliminació d'elements",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "Vista:",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "Detalls del mode de filtratge",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "Regles DNR personalitzades",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "Regles DNR de…",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "Conjunt de regles dinàmiques",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "Conjunt de regles de sessió",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "Desa",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "Exporta…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "Introduïu les vostres pròpies regles de DNR a continuació. <b>No afegiu contingut de fonts no fiables</b>.",
+  "dnrRulesWarning": {
+    "message": "No afegiu contingut de fonts no fiables",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

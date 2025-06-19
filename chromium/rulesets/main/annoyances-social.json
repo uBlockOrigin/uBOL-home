@@ -436,6 +436,8 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||radio-canada.ca/mp/modules.socialbar.executer."},"id":435,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||fark.com^"},"id":436,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||friends2follow.com^"},"id":437,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedResourceTypes":["main_frame","stylesheet"],"urlFilter":"/plugins/ultimate-social-media-plus/"},"id":438,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hotpot.ai/components/shareoverlay"},"id":439,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/gallery/social/"},"id":440,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/plugins/share-and-follow/"},"id":441,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/plugins/share-social/icons/"},"id":442,"priority":10},

@@ -295,6 +295,30 @@
     "message": "ნაწილების ამოჭრის რეჟიმიდან გასვლა",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "ხედი:",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "ფილტრის რეჟიმი ვრცლად",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "მორგებული DNR-წესები",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "DNR-წესები…",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "ცვალებადი წესების კრებული",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "სეანსის წესების კრებული",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "შენახვა",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "გატანა…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "შეიყვანეთ საკუთარი DNR-წესები ქვემოთ. <b>ნუ დაამატებთ შიგთავსს არასანდო წყაროებიდან.</b>",
+  "dnrRulesWarning": {
+    "message": "ნუ დაამატებთ შიგთავსს არასანდო წყაროებიდან.",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

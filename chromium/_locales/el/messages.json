@@ -124,11 +124,11 @@
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportFindSpecificButton": {
-    "message": "Βρείτε παρόμοιες αναφορές",
+    "message": "Βρείτε παρόμοιες αναφορές στο GitHub",
     "description": "A clickable link in the filter issue reporter section"
   },
   "supportS6URL": {
-    "message": "Διεύθυνση ιστοσελίδας:",
+    "message": "Διεύθυνση της ιστοσελίδας:",
     "description": "Label for the URL of the page"
   },
   "supportS6Select1": {
@@ -295,6 +295,30 @@
     "message": "Έξοδος από λειτουργία αφαίρεσης στοιχείων",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "Προβολή:",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "Λεπτομέρειες λειτουργίας φιλτραρίσματος",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "Προσαρμοσμένοι κανόνες DNR",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "Κανόνες DNR του …",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "Σετ κανόνων που είναι δυναμικοί",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "Σετ κανόνων για τη συνέδρεια",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "Αποθήκευση",
     "description": "Text for buttons used to save changes"
@@ -311,12 +335,12 @@
     "message": "Εξαγωγή…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "Εισάγετε παρακάτω τους δικούς σας κανόνες DNR. <b>Μην προσθέσετε περιεχόμενο από πηγές που δεν είναι αξιόπιστες.</b>",
+  "dnrRulesWarning": {
+    "message": "Να μην προστίθενται περιεχόμενο από μη αξιόπιστες πηγές.",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {
-    "message": "Number of registered rules: {count}",
+    "message": "Σύνολο εγγεγραμμένων κανόνων: {count}",
     "description": "Short sentence to report the number of currently registered DNR rules"
   }
 }

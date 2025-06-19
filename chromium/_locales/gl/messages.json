@@ -295,6 +295,30 @@
     "message": "Sair do modo eliminador de elementos",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "Ver:",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "Detalles do modo de filtrado",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "Regras DNR persoais",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "Regras DNR de…",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "Conxunto de regras dinámicas",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "Conxunto de regras de sesión",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "Gardar",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "Exportar…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "Escribe as regras DNR embaixo. <b>Non engadas contido desde orixes non confiables.</b>",
+  "dnrRulesWarning": {
+    "message": "Non engadir contido desde orixes non fiables",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

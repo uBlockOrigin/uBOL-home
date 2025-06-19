@@ -295,6 +295,30 @@
     "message": "Öge silme modundan çık",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "Görünüm:",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "Filtreleme modu ayrıntıları",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "Özel DNR kuralları",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "DNR kuralları …",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "Dinamik kural seti",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "Oturum kural seti",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "Kaydet",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "Dışa aktar…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "Aşağıya kendi DNR kurallarınızı girin. <b>Güvenilmeyen kaynaklardan içerik eklemeyin.</b>",
+  "dnrRulesWarning": {
+    "message": "Güvenilmeyen kaynaklardan içerik eklemeyin",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

@@ -295,6 +295,30 @@
     "message": "Излизане от режима на временно скриване на елемента",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "Преглед:",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "Подробности за режима на филтриране",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "Потребителски правила на DNR",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "Правила на DNR за ...",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "Динамичен набор от правила",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "Набор от правила на сесията",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "Запазване",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "Експортиране…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "Въведете вашите собствени правила за DNR по-долу.  <b>Не добавяйте съдържание от ненадеждни източници.</b>",
+  "dnrRulesWarning": {
+    "message": "Не добавяйте съдържание от ненадеждни източници",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

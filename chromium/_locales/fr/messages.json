@@ -295,6 +295,30 @@
     "message": "Quitter le mode Zappeur d'élément",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "Vue :",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "Détails du mode de filtrage",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "Règles DNR personnalisées",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "Règles DNR de ",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "Règles dynamiques",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "Règles de session",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "Enregistrer",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "Exporter",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "Entrez vos propres règles DNR (Declarative Net Request, ou requête réseau déclarative) ci-dessous. <b>N'ajoutez pas de contenu provenant de sources non-fiables.</b>",
+  "dnrRulesWarning": {
+    "message": "Ne pas ajouter de contenu provenant de sources non fiables",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

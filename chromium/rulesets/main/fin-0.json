@@ -18,7 +18,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["mtv.fi","mtvuutiset.fi"],"urlFilter":"||fi-mtv3.videoplaza.tv/proxy/distributor"},"id":17,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["oma.posti.fi","service.force.com"],"urlFilter":"||salesforceliveagent.com^"},"id":18,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["etuovi.com","iltalehti.fi"],"urlFilter":"||leiki.com^"},"id":19,"priority":30},
-{"action":{"type":"allow"},"condition":{"requestDomains":["netstat.ayy.fi","teliafi-chat.lekane.net"]},"id":20,"priority":30},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["mtv.fi","mtvuutiset.fi"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||fi-mtv3.videoplaza.tv/proxy/distributor/*&xpb=1"},"id":20,"priority":40},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["mtv.fi","mtvuutiset.fi"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||fwmrm.net/ad/g/*mtv"},"id":21,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["elisa.fi"],"urlFilter":"||elisa.digital.nuance.com/tagserver/js/ads-blocking-detector.min.js"},"id":22,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["gamereactor.fi"],"urlFilter":"/prerolls/*.mp4"},"id":23,"priority":10},
@@ -166,5 +166,14 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||tags.tiqcdn.com/utag/sanoma-fi/*/utag.js"},"id":165,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||srk.fi/*/cookielaw.js"},"id":166,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||sf.nm-ovp.nelonenmedia.fi/logger/logger-ini.json"},"id":167,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||click.redditmail.com^"},"id":168,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||click.redditmail.com^"},"id":168,"priority":30},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["stadissa.fi"],"urlFilter":"||stadissa.fi/ads/slider-scripts/"},"id":169,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["stadissa.fi"],"resourceTypes":["image"],"urlFilter":"||stadissa.fi/images/stadissa/ads/*-980-200.jpg"},"id":170,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["stadissa.fi"],"resourceTypes":["image"],"urlFilter":"||stadissa.fi/images/stadissa/ads/*-desktop.jpg"},"id":171,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["stadissa.fi"],"resourceTypes":["image"],"urlFilter":"||stadissa.fi/images/stadissa/ads/*.gif"},"id":172,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["stadissa.fi"],"resourceTypes":["image"],"urlFilter":"||stadissa.fi/images/stadissa/ads/*_900.jpg"},"id":173,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["stadissa.fi"],"resourceTypes":["image"],"urlFilter":"||stadissa.fi/images/stadissa/ads/*_980x200.jpg"},"id":174,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["stadissa.fi"],"resourceTypes":["image"],"urlFilter":"||stadissa.fi/images/stadissa/ads/*_desk.jpg"},"id":175,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["koeajolle.com"],"resourceTypes":["script"],"urlFilter":"||aff.carvertical.com/sdk.js"},"id":176,"priority":10},
+{"action":{"type":"allow"},"condition":{"urlFilter":"||teliafi-chat.lekane.net^"},"id":177,"priority":30}
 ]

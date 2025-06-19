@@ -295,6 +295,30 @@
     "message": "Lämna elementzapperläge",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "Visa:",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "Filtrera lägesdetaljer",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "Anpassade DNR-regler",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "DNR-regler av …",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "Dynamisk regeluppsättning",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "Sessionsregeluppsättning",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "Spara",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "Exportera…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "Ange dina egna DNR-regler nedan. <b>Lägg inte till innehåll från opålitliga källor.</b>",
+  "dnrRulesWarning": {
+    "message": "Lägg inte till filter från obetrodda källor.",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

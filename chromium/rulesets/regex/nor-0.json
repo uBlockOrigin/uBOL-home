@@ -55,5 +55,15 @@
  },
  "id": 4,
  "priority": 30
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "regexFilter": "^(https?:\\/\\/)?hokaoneone[a-z0-9].*$"
+ },
+ "id": 5,
+ "priority": 10
 }
 ]

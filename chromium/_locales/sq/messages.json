@@ -295,6 +295,30 @@
     "message": "Mbyll asgjësuesin e elementeve",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "Pamja:",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "Detalet e mënyrës së filtërimit",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "Rregullat DNR të personalizuara",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "Rregullat DNR të ...",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "Rregullat dinamike",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "Rregullat e sesionit",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "Ruaj",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "Eksportoj…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "Shkruani rregullat tuaja DNR më poshtë. <b>Mos shtoni përmbajtje nga burime të paverifikuara.</b>",
+  "dnrRulesWarning": {
+    "message": "Mos shtoni filtra nga burime të pabesueshme.",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

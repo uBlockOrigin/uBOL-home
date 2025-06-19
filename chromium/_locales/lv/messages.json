@@ -295,6 +295,30 @@
     "message": "Iziet no elementu iznīcināšanas",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "Apskatīt",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "Aizturēšanas režīma informācija",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "Pielāgotas DNR kārtulas",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "DNR kārtulas …",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "Dinamiska kārtulu kopa",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "Sesijas kārtulu kopa",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "Saglabāt",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "Izgūt…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "Zemāk ir ievadi savas DNR kārtulas! <b>Nepievieno saturu no neuzticamiem avotiem!</b>",
+  "dnrRulesWarning": {
+    "message": "Nevajag pievienot saturu no neuzticamiem avotiem.",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

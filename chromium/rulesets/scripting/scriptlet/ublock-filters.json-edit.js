@@ -31,22 +31,28 @@
 /******************************************************************************/
 
 function jsonEdit(jsonq = '') {
-    jsonEditFn(false, jsonq);
+    editOutboundObjectFn(false, 'JSON.parse', jsonq);
 }
 
-function jsonEditFn(trusted, jsonq = '') {
+function editOutboundObjectFn(
+    trusted = false,
+    propChain = '',
+    jsonq = '',
+) {
+    if ( propChain === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix(
-        `${trusted ? 'trusted-' : ''}json-edit`,
+        `${trusted ? 'trusted-' : ''}edit-outbound-object`,
+        propChain,
         jsonq
     );
     const jsonp = JSONPath.create(jsonq);
     if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
         return safe.uboLog(logPrefix, 'Bad JSONPath query');
     }
-    proxyApplyFn('JSON.parse', function(context) {
+    proxyApplyFn(propChain, function(context) {
         const obj = context.reflect();
-        if ( jsonp.apply(obj) !== 0 ) { return obj; }
+        if ( jsonp.apply(obj) === 0 ) { return obj; }
         safe.uboLog(logPrefix, 'Edited');
         if ( safe.logLevel > 1 ) {
             safe.uboLog(logPrefix, `After edit:\n${safe.JSON_stringify(obj, null, 2)}`);
@@ -80,6 +86,10 @@ class JSONPath {
         const r = this.#compile(query, 0);
         if ( r === undefined ) { return; }
         if ( r.i !== query.length ) {
+            if ( query.startsWith('+=', r.i) ) {
+                r.modify = '+';
+                r.i += 1;
+            }
             if ( query.startsWith('=', r.i) === false ) { return; }
             try { r.rval = JSON.parse(query.slice(r.i+1)); }
             catch { return; }
@@ -95,7 +105,7 @@ class JSONPath {
     }
     apply(root) {
         if ( this.valid === false ) { return 0; }
-        const { rval } = this.#compiled;
+        const { modify, rval } = this.#compiled;
         this.#root = root;
         const paths = this.#evaluate(this.#compiled.steps, []);
         const n = paths.length;
@@ -103,7 +113,11 @@ class JSONPath {
         while ( i-- ) {
             const { obj, key } = this.#resolvePath(paths[i]);
             if ( rval !== undefined ) {
-                obj[key] = rval;
+                if ( modify === '+' ) {
+                    this.#modifyVal(obj, key, rval);
+                } else {
+                    obj[key] = rval;
+                }
             } else if ( Array.isArray(obj) && typeof key === 'number' ) {
                 obj.splice(key, 1);
             } else {
@@ -430,6 +444,15 @@ class JSONPath {
         default: outcome = hasOwn === target; break;
         }
         if ( outcome ) { return k; }
+    }
+    #modifyVal(obj, key, rval) {
+        const lval = obj[key];
+        if ( rval instanceof Object === false ) { return; }
+        if ( lval instanceof Object === false ) { return; }
+        if ( Array.isArray(lval) ) { return; }
+        for ( const [ k, v ] of Object.entries(rval) ) {
+            lval[k] = v;
+        }
     }
 }
 

@@ -18,19 +18,6 @@
  },
  "condition": {
   "initiatorDomains": [
-   "tvcanales.cf"
-  ],
-  "regexFilter": "qvncc.tvcanales.cf\\/js\\/[_-a-zA-Z0-9]{5,}.js"
- },
- "id": 2,
- "priority": 10
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "initiatorDomains": [
    "zubby.com"
   ],
   "regexFilter": "zubby.com\\/[a-z-]+-\\d+\\/\\?_=",

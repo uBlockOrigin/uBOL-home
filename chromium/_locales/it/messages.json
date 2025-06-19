@@ -295,6 +295,30 @@
     "message": "Esci dalla modalità blocco rapido",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "Vista:",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "Dettagli modalità filtraggio",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "Regole DNR personali",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "Regole DNR per …",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "Gruppo regole dinamiche",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "Gruppo regole di sessione",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "Salva",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "Esporta…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "Inserisci le tue regole DNR qui sotto. <b>Non aggiungere contenuti da fonti non attendibili.</b>",
+  "dnrRulesWarning": {
+    "message": "Non aggiungere contenuti da fonti non affidabili",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

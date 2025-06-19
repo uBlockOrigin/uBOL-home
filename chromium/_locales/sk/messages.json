@@ -295,6 +295,30 @@
     "message": "Ukončiť režim dočasného skrytia prvkov",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "Zobraziť:",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "Podrobnosti režimu filtrovania",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "Vlastné pravidlá DNR",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "Pravidlá DNR…",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "Dynamický súbor pravidiel",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "Súbor pravidiel relácie",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "Uložiť",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "Exportovať…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "Zadajte svoje vlastné pravidlá DNR. <b>Nepridávajte obsah z nedôveryhodných zdrojov.</b>",
+  "dnrRulesWarning": {
+    "message": "Nepridávajte obsah z nedôveryhodných zdrojov",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

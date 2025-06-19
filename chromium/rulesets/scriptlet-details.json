@@ -262,6 +262,7 @@
     "trusted-set-local-storage-item",
     {
      "hostnames": [
+      "fapeza.com",
       "pvpoke-re.com"
      ],
      "world": "ISOLATED"
@@ -389,6 +390,7 @@
     {
      "hostnames": [
       "app.blubank.com",
+      "catcare.store",
       "cinelatino.net",
       "cinemitas.org",
       "cineplus123.org",
@@ -2326,6 +2328,7 @@
       "sweetwater.com",
       "thefederalist.com",
       "theinformation.com",
+      "tmnascommunity.eu",
       "toysrus.ca",
       "vokey.com",
       "yvonnebennetti.com"
@@ -3766,6 +3769,15 @@
   "fra-0",
   [
    [
+    "prevent-fetch",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "json-prune",
     {
      "hostnames": [
@@ -3844,15 +3856,6 @@
     }
    ],
    [
-    "prevent-fetch",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "abort-on-property-read",
     {
      "hostnames": [
@@ -3862,7 +3865,6 @@
       "benjaminellisbernard.fr",
       "bleachmx.fr",
       "ebookdz.com",
-      "filmstreamy.com",
       "iphonesoft.fr",
       "iphonetweak.fr",
       "lindependant.fr",
@@ -4053,10 +4055,14 @@
       "angol-magyar-szotar.hu",
       "embed.indavideo.hu",
       "femina.hu",
+      "foodker.hu",
       "huaweiblog.hu",
       "laptophardware.hu",
+      "milestone66.hu",
       "myonlineradio.hu",
-      "player.rtl.hu"
+      "paplanvilag.hu",
+      "player.rtl.hu",
+      "reformsziget.hu"
      ],
      "world": "MAIN"
     }
@@ -4810,7 +4816,6 @@
       "beasoku.com",
       "best-hit.tv",
       "blog-and-destroy.com",
-      "blog.housinkai.com",
       "bm.best-hit.tv",
       "coolpan.net",
       "ero-video.net",
@@ -4882,6 +4887,7 @@
       "kabegami.jpn.org",
       "kasegeru.blog.jp",
       "lifematome.blog",
+      "negisoku.com",
       "rank1-media.com",
       "ranky-ranking.net",
       "resizer.myct.jp",
@@ -6058,6 +6064,7 @@
      "hostnames": [
       "24smi.org",
       "comedy-radio.ru",
+      "drive2.ru",
       "kakprosto.ru",
       "kufar.by",
       "radioromantika.ru",
@@ -6765,7 +6772,6 @@
       "depor.com",
       "descargarhentaimf.xyz",
       "desenhosanimados.site",
-      "elquintobeatle.com",
       "empregoestagios.com",
       "firepaste.com",
       "g37.com.br",
@@ -7701,7 +7707,6 @@
       "dizifon.com",
       "dizigom1.tv",
       "duzcetv.com",
-      "hacoos.com",
       "kampanyatakip.blogspot.com",
       "kenttv.net",
       "mordefter.com",
@@ -8244,7 +8249,7 @@
       "damconuong.cam",
       "demo.14412882.com",
       "doctruyen3qui10.pro",
-      "dualeotruyenl.com",
+      "dualeotruyenc.com",
       "economic45882.shop",
       "freeplayervideo.com",
       "game8.vn",
@@ -8253,7 +8258,7 @@
       "gocmod.com",
       "goctruyentranhvui17.com",
       "gotphim.com",
-      "hentaivc.net",
+      "hentaivc.com",
       "hh3dhay.life",
       "hhtq5.vip",
       "hhvsub1.com",
@@ -8271,7 +8276,7 @@
       "lxmanga.blog",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill91.com",
+      "motchill92.com",
       "motchilltvphim.com",
       "nettruyenrr.com",
       "nettruyenvio.com",
@@ -8288,7 +8293,7 @@
       "sexdiary.club",
       "sexhd88.online",
       "sexmup3x.net",
-      "sexpro.bz",
+      "sexpro.sex",
       "sextop1.show",
       "soha.vn",
       "thanhnien.vn",
@@ -8311,13 +8316,13 @@
       "viet69.hot",
       "vlxx.bz",
       "vn2.xvideos69.xxx",
-      "vn32phimsexhay.com",
+      "vn36phimsexhay.com",
       "vn4.sexviet88.xyz",
       "vnhaysexvn.com",
       "vnsex.phimsexthailan.pro",
       "vungoctuan.vn",
       "www.sieutamphim.org",
-      "www.toptruyentv7.pro",
+      "www.toptruyentv8.com",
       "www.truyen35zz.com",
       "xnxx-sex-videos.com",
       "yurineko.my"
@@ -8330,12 +8335,13 @@
     {
      "hostnames": [
       "anh.moe",
+      "anime10.site",
       "anime47.shop",
-      "anime9.site",
       "animevietsubs.net",
       "aoe.vn",
       "audiotruyenfull.com",
       "bluphim3.com",
+      "geriallen.com",
       "hayhaytv.site",
       "hoctot.hocmai.vn",
       "javnong.cc",
@@ -8344,7 +8350,7 @@
       "linkneverdie2.com",
       "maclife.io",
       "motchill.rocks",
-      "motchill91.com",
+      "motchill92.com",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
@@ -8373,7 +8379,6 @@
       "www.phimdinhcao.online",
       "xemphimjav.us",
       "xnhau.sh",
-      "ycmc.com",
       "ytstv.me",
       "znews.vn"
      ],
@@ -8398,12 +8403,12 @@
       "cafef.vn",
       "cliphot69.pics",
       "clipsex.cam",
-      "eu-fusions.org",
       "freeplayervideo.com",
       "gamek.vn",
       "genk.vn",
       "hayhaytv.site",
       "kenh14.vn",
+      "mapsandatlases.org",
       "phimvuihd.org",
       "player-cdn.com",
       "sexdiaryx.live",

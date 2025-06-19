@@ -303,5 +303,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/std_newsletter_2017.js"},"id":302,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||bnamic.com/newsletter-subscription.js"},"id":303,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hellointerior.jp/note/wp-content/plugins/wordpress-popup/assets/hustle-ui/js/hustle-ui.min.js"},"id":304,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||smartbrief.com/theforecast?"},"id":305,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||smartbrief.com/theforecast?"},"id":305,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["allcryptoz.net","crewbase.net","crewus.net","shinbhu.net","shinchu.net","thumb8.net","thumb9.net","topcryptoz.net","ultraten.net","uniqueten.net"],"resourceTypes":["script"],"urlFilter":"/block-keys.js"},"id":306,"priority":40}
 ]

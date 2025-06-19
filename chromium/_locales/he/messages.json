@@ -295,6 +295,30 @@
     "message": "Exit element zapper mode",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "developDropdownLabel": {
+    "message": "הצג",
+    "description": "A label of a dropdown list"
+  },
+  "developOptionFilteringModeDetails": {
+    "message": "פרטי מצב סינון",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionCustomDnrRules": {
+    "message": "חוקי DNR אישיים",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionDnrRulesOf": {
+    "message": "חוקי DNR של...",
+    "description": "A section header in a dropdown list"
+  },
+  "developOptionDynamicRuleset": {
+    "message": "קבוצת חוקים דינמיים",
+    "description": "An option in a dropdown list"
+  },
+  "developOptionSessionRuleset": {
+    "message": "קבוצת חוקי מפגש (session)",
+    "description": "An option in a dropdown list"
+  },
   "saveButton": {
     "message": "שמירה",
     "description": "Text for buttons used to save changes"
@@ -311,8 +335,8 @@
     "message": "ייצוא…",
     "description": "Text for buttons used to export content"
   },
-  "dnrRulesSummary": {
-    "message": "הכניסו את חוקי ה DNR שלכם למטה.  <b>אל תכניסו תוכן ממקורות לא בטוחים.</b>",
+  "dnrRulesWarning": {
+    "message": "אל תוסיפו תוכן ממקורות לא מהיימנים",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {

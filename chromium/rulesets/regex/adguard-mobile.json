@@ -97,5 +97,18 @@
  },
  "id": 8,
  "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "3wwd.com"
+  ],
+  "regexFilter": "m\\.3wwd\\.com\\/(public|static)\\/\\d+\\.js"
+ },
+ "id": 9,
+ "priority": 10
 }
 ]
