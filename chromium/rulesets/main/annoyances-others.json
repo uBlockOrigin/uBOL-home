@@ -409,5 +409,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["smartcharts.net"],"resourceTypes":["script"],"urlFilter":"||wurfl.io/wurfl.js"},"id":408,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||nutrija.com/js/*_backtotop.js"},"id":409,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||tv-asahi.co.jp/ch/js/scrolltopcontrol.js"},"id":410,"priority":30},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||api.producthunt.com/widgets/"},"id":411,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||api.producthunt.com/widgets/"},"id":411,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/v2/for-page?body=%"},"id":412,"priority":10}
 ]

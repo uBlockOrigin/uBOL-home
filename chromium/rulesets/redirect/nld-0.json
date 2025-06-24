@@ -56,5 +56,24 @@
  },
  "id": 3,
  "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "goplay.be"
+  ],
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||pagead2.googlesyndication.com/omsdk/releases/live/omweb-v1.js"
+ },
+ "id": 4,
+ "priority": 11
 }
 ]

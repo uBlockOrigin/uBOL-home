@@ -250,6 +250,39 @@
     }
    ],
    [
+    "trusted-set-constant",
+    {
+     "hostnames": [
+      "app.blubank.com",
+      "catcare.store",
+      "cinelatino.net",
+      "cinemitas.org",
+      "cineplus123.org",
+      "comdotgame.com",
+      "emturbovid.com",
+      "findjav.com",
+      "globo.com",
+      "japscan.lol",
+      "javggvideo.xyz",
+      "jetpunk.com",
+      "littlebigsnake.com",
+      "mmtv01.xyz",
+      "mobileweb.bankmellat.ir",
+      "paraveronline.org",
+      "pobreflix.vc",
+      "rooter.gg",
+      "savefrom.net",
+      "seclore.com",
+      "stbturbo.xyz",
+      "streamelements.com",
+      "streamsilk.com",
+      "upshrink.com",
+      "verpelis.gratis"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "prevent-xhr",
     {
      "hostnames": [
@@ -383,38 +416,6 @@
       "*"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "trusted-set-constant",
-    {
-     "hostnames": [
-      "app.blubank.com",
-      "catcare.store",
-      "cinelatino.net",
-      "cinemitas.org",
-      "cineplus123.org",
-      "comdotgame.com",
-      "emturbovid.com",
-      "findjav.com",
-      "globo.com",
-      "javggvideo.xyz",
-      "jetpunk.com",
-      "littlebigsnake.com",
-      "mmtv01.xyz",
-      "mobileweb.bankmellat.ir",
-      "paraveronline.org",
-      "pobreflix.vc",
-      "rooter.gg",
-      "savefrom.net",
-      "seclore.com",
-      "stbturbo.xyz",
-      "streamelements.com",
-      "streamsilk.com",
-      "upshrink.com",
-      "verpelis.gratis"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -601,16 +602,6 @@
     }
    ],
    [
-    "alert-buster",
-    {
-     "hostnames": [
-      "66ccff.work",
-      "onlineatlas.us"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "multiup",
     {
      "hostnames": [
@@ -661,6 +652,15 @@
     }
    ],
    [
+    "alert-buster",
+    {
+     "hostnames": [
+      "onlineatlas.us"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "set-session-storage-item",
     {
      "hostnames": [
@@ -689,6 +689,7 @@
       "dailynews.com",
       "dailypress.com",
       "dailytribune.com",
+      "darntough.com",
       "delcotimes.com",
       "denverpost.com",
       "eastbaytimes.com",
@@ -2324,6 +2325,7 @@
       "sharperimage.com",
       "shojiwax.com",
       "skepticalraptor.com",
+      "snopes.com",
       "streamily.com",
       "sweetwater.com",
       "thefederalist.com",
@@ -2864,6 +2866,7 @@
       "startribune.com",
       "stcatharinesstandard.ca",
       "talkingpointsmemo.com",
+      "techinasia.com",
       "thegamer.com",
       "themonthly.com.au",
       "theolivepress.es",
@@ -3769,15 +3772,6 @@
   "fra-0",
   [
    [
-    "prevent-fetch",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "json-prune",
     {
      "hostnames": [
@@ -3848,6 +3842,15 @@
    ],
    [
     "prevent-xhr",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "prevent-fetch",
     {
      "hostnames": [
       "*"
@@ -4817,8 +4820,10 @@
       "best-hit.tv",
       "blog-and-destroy.com",
       "bm.best-hit.tv",
+      "chronicle.wiki",
       "coolpan.net",
       "ero-video.net",
+      "game-info.wiki",
       "gigafile.nu",
       "h178.com",
       "iwb.jp",
@@ -4828,8 +4833,10 @@
       "kakenhi.net",
       "memo.wiki",
       "negisoku.com",
+      "playing.wiki",
       "seesaa.net",
       "seesaawiki.jp",
+      "sokuhou.wiki",
       "tokyomotion.net",
       "twidouga.net",
       "twivideo.net",
@@ -6396,13 +6403,15 @@
       "avito.ru",
       "direct.farm",
       "forum.ixbt.com",
+      "hd.kinopoisk.ru",
       "ixbt.com",
       "kinotv.ru",
       "kufar.by",
       "liga.net",
       "mp3party.net",
       "myshows.me",
-      "playground.ru"
+      "playground.ru",
+      "www.kinopoisk.ru"
      ],
      "world": "ISOLATED"
     }
@@ -6525,7 +6534,8 @@
     {
      "hostnames": [
       "dzen.ru",
-      "otvet.mail.ru"
+      "otvet.mail.ru",
+      "ya.ru"
      ],
      "world": "MAIN"
     }
@@ -6949,6 +6959,7 @@
       "residencemagazine.se",
       "sexpacket.se",
       "spelhubben.se",
+      "stadshem.se",
       "streamio.com",
       "svenskdam.se",
       "varldenshistoria.se"
@@ -8238,7 +8249,7 @@
       "abysscdn.com",
       "afamily.vn",
       "animevietsub.lol",
-      "buomtv.club",
+      "buomtv.live",
       "cafef.vn",
       "cdn4.tiptoe34x1.fun",
       "childish2x2.fun",
@@ -8276,7 +8287,7 @@
       "lxmanga.blog",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill92.com",
+      "motchill93.com",
       "motchilltvphim.com",
       "nettruyenrr.com",
       "nettruyenvio.com",
@@ -8293,7 +8304,7 @@
       "sexdiary.club",
       "sexhd88.online",
       "sexmup3x.net",
-      "sexpro.sex",
+      "sexpro.pro",
       "sextop1.show",
       "soha.vn",
       "thanhnien.vn",
@@ -8308,6 +8319,7 @@
       "truyensextv.com",
       "truyenvn.shop",
       "tuoitre.vn",
+      "tusachmanga.com",
       "umetruyenhay.com",
       "ungtycomicsvip.org",
       "vailonxx.vip",
@@ -8316,7 +8328,7 @@
       "viet69.hot",
       "vlxx.bz",
       "vn2.xvideos69.xxx",
-      "vn36phimsexhay.com",
+      "vn39phimsexhay.com",
       "vn4.sexviet88.xyz",
       "vnhaysexvn.com",
       "vnsex.phimsexthailan.pro",
@@ -8341,7 +8353,7 @@
       "aoe.vn",
       "audiotruyenfull.com",
       "bluphim3.com",
-      "geriallen.com",
+      "dphotojournal.com",
       "hayhaytv.site",
       "hoctot.hocmai.vn",
       "javnong.cc",
@@ -8349,8 +8361,8 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchill.rocks",
-      "motchill92.com",
+      "motchill.fail",
+      "motchill93.com",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
@@ -8386,20 +8398,12 @@
     }
    ],
    [
-    "abort-on-property-write",
-    {
-     "hostnames": [
-      "baomoi.com"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "set-constant",
     {
      "hostnames": [
       "abysscdn.com",
       "afamily.vn",
+      "asafavidanmusic.com",
       "cafef.vn",
       "cliphot69.pics",
       "clipsex.cam",
@@ -8408,7 +8412,6 @@
       "genk.vn",
       "hayhaytv.site",
       "kenh14.vn",
-      "mapsandatlases.org",
       "phimvuihd.org",
       "player-cdn.com",
       "sexdiaryx.live",
@@ -8421,6 +8424,15 @@
       "ww1.ditnhau.cc",
       "www.gvnvh.net",
       "www.iosviet.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "abort-on-property-write",
+    {
+     "hostnames": [
+      "baomoi.com"
      ],
      "world": "MAIN"
     }

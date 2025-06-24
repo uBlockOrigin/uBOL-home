@@ -210,7 +210,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/cookie-popup-"},"id":209,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/cookie-popup.js"},"id":210,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/cookie-popup.min.js"},"id":211,"priority":10},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["account.bhvr.com","everand.com","guidepoint.com","lucidchart.com","scribd.com","sonesta.com"],"resourceTypes":["script"],"urlFilter":"||cmp.osano.com^"},"id":212,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["account.bhvr.com","everand.com","guidepoint.com","lucidchart.com","midnight.gd","scribd.com","sonesta.com"],"resourceTypes":["script"],"urlFilter":"||cmp.osano.com^"},"id":212,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"/cookie-privacy-"},"id":213,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/cookie-prompt.js"},"id":214,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/cookie-richtlinie.js"},"id":215,"priority":10},
@@ -1094,8 +1094,8 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["allestoringen.be","allestoringen.nl","downdetector.ae","downdetector.ca","downdetector.cl","downdetector.co.nz","downdetector.co.uk","downdetector.co.za","downdetector.com","downdetector.com.ar","downdetector.com.au","downdetector.com.br","downdetector.com.co","downdetector.cz","downdetector.dk","downdetector.ec","downdetector.es","downdetector.fi","downdetector.fr","downdetector.gr","downdetector.hk","downdetector.hr","downdetector.hu","downdetector.id","downdetector.ie","downdetector.in","downdetector.it","downdetector.jp","downdetector.mx","downdetector.my","downdetector.no","downdetector.pe","downdetector.ph","downdetector.pk","downdetector.pl","downdetector.pt","downdetector.ro","downdetector.ru","downdetector.se","downdetector.sg","downdetector.sk","downdetector.tw","downdetector.web.tr","humblebundle.com","ign.com","nintendolife.com","purexbox.com","pushsquare.com","speedtest.net","timeextension.com","xn--allestrungen-9ib.at","xn--allestrungen-9ib.ch","xn--allestrungen-9ib.de"],"urlFilter":"||ziffstatic.com^*/zdconsent.js"},"id":1093,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||reseau.ovation.ca/_scripts/cookie-banner.js"},"id":1094,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||wefashion.com/on/demandware.static/*/cookiebanner.js"},"id":1095,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["e24.no","minmote.no","vg.no"],"urlFilter":"||cmp.*.no^"},"id":1096,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["e24.no","minmote.no","vg.no"],"urlFilter":"||privacy-mgmt.com/mms^"},"id":1097,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["e24.no","minmote.no","tek.no","vg.no"],"urlFilter":"||cmp.*.no^"},"id":1096,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["e24.no","minmote.no","tek.no","vg.no"],"urlFilter":"||privacy-mgmt.com/mms^"},"id":1097,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["cosmosdirekt.de"],"urlFilter":"||amazonaws.com/website/js/tagcommander/"},"id":1098,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||baustellenabsicherung24.de^*/koekje."},"id":1099,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||boxspring-welt.ch/public/app.js"},"id":1100,"priority":10},
@@ -1481,7 +1481,7 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||consent-api.onetrust.com/v1/preferences^"},"id":1480,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||eurosportplayer.com/cms/articles/cookie-banner?"},"id":1481,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["laola1.at"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||truendo.com^"},"id":1482,"priority":30},
-{"action":{"type":"block"},"condition":{"urlFilter":"/wp-content/plugins/wpconsent-premium/"},"id":1483,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["thebarn.de"],"urlFilter":"||cdn.shopify.com/extensions/*/complianz-gdpr-cookie-consent-33/"},"id":1483,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["docs.microsoft.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||microsoft.com/api/privacy/cookieconsent?"},"id":1484,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||onetrust.com/request/"},"id":1485,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["flash.gr","protothema.gr"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||cmp.inmobi.com^*.json"},"id":1486,"priority":30},
@@ -1713,5 +1713,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["mediaite.com"],"resourceTypes":["script"],"urlFilter":"||consentmanager.net^"},"id":1712,"priority":40},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["huffingtonpost.es"],"resourceTypes":["script"],"urlFilter":"||sdk.privacy-center.org/*/loader.js"},"id":1713,"priority":40},
 {"action":{"type":"block"},"condition":{"urlFilter":"/wp-content/plugins/gdpr-cookie-compliance/"},"id":1714,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||isybank.com/etc.clientlibs/intesa-common/clientlibs/clientlib-cookie.js"},"id":1715,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||isybank.com/etc.clientlibs/intesa-common/clientlibs/clientlib-cookie.js"},"id":1715,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/silktide-consent-manager.js"},"id":1716,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/wp-content/plugins/wpconsent-premium/build/frontend-pro.js"},"id":1717,"priority":10}
 ]

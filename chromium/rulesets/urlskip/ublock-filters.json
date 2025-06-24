@@ -7,6 +7,12 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?www\\.google\\.\\S*?/url\\?sa=t&rct=j&source=webhp&url=",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?events\\.laylo\\.com/r/redirect\\S*?(?:[^%.0-9a-z_-]|$)link=http",
   "steps": [
    "?link"
