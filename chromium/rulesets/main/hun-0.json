@@ -231,5 +231,8 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["tesco.hu"],"resourceTypes":["script"],"urlFilter":"/otsdkstub.js"},"id":230,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tesco.hu/*/update-fingerprint"},"id":231,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["gabo.hu"],"resourceTypes":["script"],"urlFilter":"/megacookiesworker.js"},"id":232,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["gabo.hu"],"resourceTypes":["script"],"urlFilter":"/megacookies.js"},"id":233,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["gabo.hu"],"resourceTypes":["script"],"urlFilter":"/megacookies.js"},"id":233,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["hu.iqos.com"],"urlFilter":"||cdn.cookielaw.org/scripttemplates/otsdkstub.js"},"id":234,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["kollegium-neriszentfulop.chemin-neuf.hu"],"urlFilter":"||kollegium-neriszentfulop.chemin-neuf.hu/wp-content/plugins/complianz-gdpr/cookiebanner/js/complianz.min.js"},"id":235,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["kollegium-neriszentfulop.chemin-neuf.hu"],"urlFilter":"||kollegium-neriszentfulop.chemin-neuf.hu/wp-content/plugins/complianz-gdpr/assets/css/cookieblocker.min.css"},"id":236,"priority":30}
 ]

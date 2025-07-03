@@ -126,7 +126,7 @@
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/namedtoon[0-9]+\\.com\\/Uploads\\/images\\/\\d{4}-\\d{2}-\\d{2}\\/[a-z0-9]{13}"},"id":125,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/(www\\.)?race[0-9]+\\.xyz\\/images\\/spon\\/"},"id":126,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/torrentwiz[0-9]+\\.com\\/data\\/editor\\/\\d{4}\\/"},"id":127,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/torrentbot[0-9]+\\.com\\/uploadfile\\/up[a-z0-9]+\\.gif$"},"id":128,"priority":10},
+{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/torrentbot[0-9]+\\.[a-z]+\\/uploadfile\\/up[a-z0-9]+\\.gif$"},"id":128,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/booktoki[0-9]+\\.com\\/tokinbtoki\\/[0-9]+"},"id":129,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/(www\\.)?filetender\\.com\\/images\\/\\d{3,}(X|x)\\d{3,}-\\d{4}"},"id":130,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/frtoon[0-9]+\\.com\\/data\\/by_banner\\/"},"id":131,"priority":10},

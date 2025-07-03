@@ -162,6 +162,13 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?jpopsingles\\.eu/to/ahr0c",
+  "steps": [
+   "/\\/to\\/(aHR0c[^?#]+)/",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?meong\\.club/go(?:[^%.0-9a-z_-]|$)\\?",
   "steps": [
    "&1",
@@ -203,6 +210,13 @@
  },
  {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?track\\.adtraction\\.com/\\S*?(?:[^%.0-9a-z_-]|$)url=https://www\\.gog\\.com/",
+  "steps": [
+   "?url",
+   "-blocked"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?track\\.adtraction\\.com/\\S*?(?:[^%.0-9a-z_-]|$)url=http://www\\.gog\\.com/",
   "steps": [
    "?url",
    "-blocked"

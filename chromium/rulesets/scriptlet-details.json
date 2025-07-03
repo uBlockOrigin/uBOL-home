@@ -129,13 +129,7 @@
       "player-cdn.com",
       "playermeow.com",
       "playhydrax.com",
-      "rsadnetworkinfo.com",
-      "rseducationinfo.com",
-      "rsfinanceinfo.com",
       "rsgamer.app",
-      "rshostinginfo.com",
-      "rsinsuranceinfo.com",
-      "rssoftwareinfo.com",
       "rufiiguta.com",
       "savemoneyinfo.com",
       "skmedix.pl",
@@ -544,6 +538,7 @@
     "m3u-prune",
     {
      "hostnames": [
+      "10.com.au",
       "10play.com.au",
       "fox.com",
       "foxsports.com",
@@ -2322,6 +2317,7 @@
       "readergrev.com",
       "saucerco.com",
       "scitechdaily.com",
+      "seattletimes.com",
       "sharperimage.com",
       "shojiwax.com",
       "skepticalraptor.com",
@@ -2459,6 +2455,15 @@
     }
    ],
    [
+    "prevent-setInterval",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "prevent-fetch",
     {
      "hostnames": [
@@ -2521,137 +2526,13 @@
     "trusted-set-local-storage-item",
     {
      "hostnames": [
-      "500ish.com",
-      "artplusmarketing.com",
-      "atrium.co",
-      "backchannel.com",
-      "backstage.1blocker.com",
-      "badootech.badoo.com",
-      "baharudinyusuf.com",
       "bitchute.com",
-      "bitcointechtalk.com",
-      "bitwarden.com",
-      "blog.angular.io",
-      "blog.bitsrc.io",
-      "blog.canopas.com",
-      "blog.coinbase.com",
-      "blog.confiant.com",
-      "blog.devcolor.org",
-      "blog.dp6.com.br",
-      "blog.growthhackers.com",
-      "blog.hiri.com",
-      "blog.inkdrop.app",
-      "blog.ltse.com",
-      "blog.statebox.org",
-      "blog.twitch.tv",
-      "blog.waffle.io",
-      "bluerockpublicradio.com",
-      "bolt.io",
-      "boomsupersonic.com",
-      "bradfieldcs.com",
-      "brightthemag.com",
-      "broadcast.listennotes.com",
-      "checkio.org",
-      "citizen428.net",
-      "coach.me",
-      "codeburst.io",
       "cu.tbs.co.jp",
-      "dave-bailey.com",
-      "discordapp.com",
-      "doist.com",
-      "doit-intl.com",
-      "dotandline.net",
-      "doublepulsar.com",
       "duckduckgo.com",
-      "economist.com",
-      "electricliterature.com",
-      "elidourado.com",
-      "esciencecenter.nl",
-      "faun.pub",
-      "fossa.io",
-      "freecodecamp.org",
-      "fritz.ai",
-      "getadblock.com",
-      "greylock.com",
-      "headmelted.com",
-      "helium.com",
-      "howwegettonext.com",
-      "iheart.com",
-      "injusticetoday.com",
-      "insightdatascience.com",
-      "iota.org",
-      "itnext.io",
-      "itsyourturnblog.com",
-      "javascript.plainenglish.io",
-      "jupyter.org",
-      "keepingstock.net",
-      "kiwi.com",
-      "learngoprogramming.com",
-      "learningbyshipping.com",
-      "ledwards.com",
-      "legalist.com",
-      "levelup.gitconnected.com",
       "linkedin.com",
-      "logrocket.com",
-      "mapbox.com",
-      "medium.com",
-      "melmagazine.com",
-      "mondaynote.com",
-      "newco.co",
-      "news.smugmug.com",
-      "nyulocal.com",
-      "ofdollarsanddata.com",
-      "okmeter.io",
-      "open.nytimes.com",
-      "osintteam.blog",
-      "patreon.com",
-      "postlight.com",
-      "proandroiddev.com",
-      "prototypr.io",
-      "rainway.io",
-      "sagefy.org",
-      "signalvnoise.com",
-      "slack.engineering",
-      "slackhq.com",
-      "springboard.com",
-      "standardnotes.org",
-      "startupsventurecapital.com",
-      "stoplight.io",
-      "tech.ahrefs.com",
-      "tech.buzzfeed.com",
-      "theabacus.io",
-      "theawl.com",
-      "thebigroundtable.com",
-      "thebillfold.com",
-      "thebolditalic.com",
-      "thecontrol.co",
-      "theringer.com",
-      "thetaoist.online",
-      "thinkprogress.org",
-      "thriveglobal.com",
-      "timeline.com",
-      "towardsdatascience.com",
-      "udacity.com",
-      "unpatent.co",
-      "usejournal.com",
-      "uxdesign.cc",
-      "uxplanet.org",
-      "warisboring.com",
-      "wearemel.com",
-      "whatahowler.com",
-      "writingcooperative.com",
-      "x.company"
+      "patreon.com"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "prevent-setInterval",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -2672,11 +2553,9 @@
     "noeval-if",
     {
      "hostnames": [
-      "alexsportz.online",
       "freetvsports.xyz",
       "isekaipalace.com",
       "magesy.blog",
-      "magesypro.pro",
       "movie-web.app",
       "romviet.com",
       "runmods.com",
@@ -2775,15 +2654,6 @@
     {
      "hostnames": [
       "wear.jp"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
-    "href-sanitizer",
-    {
-     "hostnames": [
-      "store.steampowered.com"
      ],
      "world": "ISOLATED"
     }
@@ -2927,6 +2797,7 @@
       "firstthings.com",
       "gmap-pedometer.com",
       "nzherald.co.nz",
+      "oceana.org",
       "rumble.com",
       "thebump.com"
      ],
@@ -3189,7 +3060,6 @@
       "itdog.cn",
       "league-funny.com",
       "logi.im",
-      "manwa.fun",
       "moeci.com",
       "ohmanhua.com",
       "onemanhua.com",
@@ -3315,7 +3185,8 @@
       "embedrise.com",
       "freejavbt.com",
       "iwatchme2u.com",
-      "qciss.net"
+      "qciss.net",
+      "vikacg.com"
      ],
      "world": "MAIN"
     }
@@ -3389,7 +3260,7 @@
      "hostnames": [
       "91porna.com",
       "huya.com",
-      "manwa.fun",
+      "jkptgbf.xyz",
       "mfulbvu.xyz"
      ],
      "world": "MAIN"
@@ -3403,7 +3274,6 @@
       "m.nivod2.tv",
       "m.nivod4.com",
       "m.nivod4.tv",
-      "m.nivod5.com",
       "m.nivod5.tv",
       "m.nivod7.tv",
       "m.nivod8.tv",
@@ -3427,6 +3297,58 @@
       "parlamentnilisty.cz",
       "svetandroida.cz",
       "zdopravy.cz"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "json-prune-xhr-response",
+    {
+     "hostnames": [
+      "chip.4net.tv",
+      "doubrava.4net.tv",
+      "gemnet.4net.tvhtn.4net.tv",
+      "itv.satt.cz",
+      "jon.4net.tv",
+      "libli.tv",
+      "live-new.4net.tv",
+      "live-rete.4net.tv",
+      "live.4net.tv",
+      "live.artos.4net.tv",
+      "live.chiptv.cz",
+      "live.kabelko.sk",
+      "live.martico.sk",
+      "live.metrotv.sk",
+      "live.rapidnet.tv",
+      "live.rete.cz",
+      "live.swan.4net.tv",
+      "magio.tv",
+      "martico.4net.tv",
+      "muj.internethned.cz",
+      "online.pecka.tv",
+      "pamico.4net.tv",
+      "pegas.4net.tv",
+      "prestonet.4net.tv",
+      "prime.4net.tv",
+      "profinet.4net.tv",
+      "rapidnet.4net.tv",
+      "sleduj.interaktivni.tv",
+      "sprintel.tv",
+      "tv.e-max.sk",
+      "tv.giganet.sk",
+      "tv.htn.cz",
+      "tv.itcity.sk",
+      "tv.maxicom.cz",
+      "tv.nejpripojeni.cz",
+      "tv.nuo.sk",
+      "tv.rainside.sk",
+      "tv.sauron.cz",
+      "tv.selfnet.cz",
+      "tv.tes-media.sk",
+      "tv.tv2go.eu",
+      "tvadmin.pamico-czech.cz",
+      "winet.4net.tv",
+      "zona.telly.cz"
      ],
      "world": "MAIN"
     }
@@ -3558,15 +3480,6 @@
     {
      "hostnames": [
       "kurzy.cz"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "json-prune-xhr-response",
-    {
-     "hostnames": [
-      "magio.tv"
      ],
      "world": "MAIN"
     }
@@ -3772,6 +3685,19 @@
   "fra-0",
   [
    [
+    "prevent-setTimeout",
+    {
+     "hostnames": [
+      "cookomix.com",
+      "gamekult.com",
+      "japscan.lol",
+      "jeune-gay.fr",
+      "voyageforum.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "json-prune",
     {
      "hostnames": [
@@ -3824,18 +3750,6 @@
       "macg.co",
       "nicematin.com",
       "player.melaniezettofrais.online"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-setTimeout",
-    {
-     "hostnames": [
-      "cookomix.com",
-      "japscan.lol",
-      "jeune-gay.fr",
-      "voyageforum.com"
      ],
      "world": "MAIN"
     }
@@ -3906,7 +3820,6 @@
     {
      "hostnames": [
       "chat.babel.com",
-      "dl-protect.info",
       "lecourrier-du-soir.com"
      ],
      "world": "MAIN"
@@ -3940,16 +3853,6 @@
     {
      "hostnames": [
       "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "abort-on-stack-trace",
-    {
-     "hostnames": [
-      "annuaire-telechargement.tel",
-      "dl-protect.net"
      ],
      "world": "MAIN"
     }
@@ -4173,7 +4076,6 @@
     {
      "hostnames": [
       "cloud.majalahhewan.com",
-      "info.gambar.pro",
       "info.mapsaddress.com",
       "info.vebma.com",
       "jenismac.com"
@@ -4186,7 +4088,6 @@
     {
      "hostnames": [
       "cloud.majalahhewan.com",
-      "info.gambar.pro",
       "info.mapsaddress.com",
       "info.vebma.com",
       "mudah.my",
@@ -5111,6 +5012,7 @@
       "mememedia.co.kr",
       "minipol.tistory.com",
       "naver.com",
+      "platformgreat.kr",
       "sajuplus.net",
       "sbs.co.kr",
       "shopping.interpark.com",
@@ -6450,7 +6352,6 @@
       "assiatv.com",
       "barsportbar.com",
       "boom365hd.com",
-      "cdnneedtv.ru",
       "cdnpotok.com",
       "cdntvpotok.com",
       "channels247.net",
@@ -6477,7 +6378,6 @@
       "sport365hd.net",
       "sport7.biz",
       "sportabar01.com",
-      "sportbar.biz",
       "sportbar.pm",
       "sportbarchik88.com",
       "sportbox.ws",
@@ -6609,6 +6509,62 @@
   "spa-1",
   [
    [
+    "addEventListener-defuser",
+    {
+     "hostnames": [
+      "allcalidad.pro",
+      "animeonline.lat",
+      "canal12.com.sv",
+      "comandotorrents.org",
+      "depor.com",
+      "descargarhentaimf.xyz",
+      "desenhosanimados.site",
+      "empregoestagios.com",
+      "firepaste.com",
+      "g37.com.br",
+      "guiavidaesaude.com",
+      "guideautoweb.com",
+      "irmaosdotados.net",
+      "megafire.net",
+      "mundohentaioficial.com",
+      "peliculas8k.com",
+      "satcesc.com",
+      "seriesperu.com",
+      "softwareany.net",
+      "superflix.net",
+      "xerifetech.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "set-cookie",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
+    "adjust-setTimeout",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "adjust-setInterval",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "prevent-fetch",
     {
      "hostnames": [
@@ -6643,15 +6599,6 @@
       "*"
      ],
      "world": "MAIN"
-    }
-   ],
-   [
-    "set-cookie",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "ISOLATED"
     }
    ],
    [
@@ -6744,15 +6691,6 @@
     }
    ],
    [
-    "adjust-setTimeout",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "abort-current-script",
     {
      "hostnames": [
@@ -6769,35 +6707,6 @@
       "daemon-hentai.com"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "addEventListener-defuser",
-    {
-     "hostnames": [
-      "allcalidad.pro",
-      "animeonline.lat",
-      "canal12.com.sv",
-      "comandotorrents.org",
-      "depor.com",
-      "descargarhentaimf.xyz",
-      "desenhosanimados.site",
-      "empregoestagios.com",
-      "firepaste.com",
-      "g37.com.br",
-      "guideautoweb.com",
-      "irmaosdotados.net",
-      "lapumia.org",
-      "megafire.net",
-      "mundohentaioficial.com",
-      "peliculas8k.com",
-      "satcesc.com",
-      "seriesperu.com",
-      "softwareany.net",
-      "superflix.net",
-      "xerifetech.com"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -6832,15 +6741,6 @@
     {
      "hostnames": [
       "vix.com"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "adjust-setInterval",
-    {
-     "hostnames": [
-      "*"
      ],
      "world": "MAIN"
     }
@@ -7381,87 +7281,100 @@
      "hostnames": [
       "forumchess.com.tr",
       "hlktrpl.cfd",
-      "kuponuna170.top",
-      "kuponuna171.top",
-      "kuponuna172.top",
-      "kuponuna173.top",
-      "kuponuna174.top",
-      "kuponuna175.top",
-      "kuponuna176.top",
-      "kuponuna177.top",
-      "kuponuna178.top",
-      "kuponuna179.top",
-      "kuponuna180.top",
-      "kuponuna181.top",
-      "kuponuna182.top",
-      "kuponuna183.top",
-      "kuponuna184.top",
-      "kuponuna185.top",
-      "kuponuna186.top",
-      "kuponuna187.top",
-      "kuponuna188.top",
-      "kuponuna189.top",
-      "kuponuna190.top",
-      "kuponuna191.top",
-      "kuponuna192.top",
-      "kuponuna193.top",
-      "kuponuna194.top",
-      "kuponuna195.top",
-      "kuponuna196.top",
-      "kuponuna197.top",
-      "kuponuna198.top",
-      "kuponuna199.top",
-      "kuponuna200.top",
-      "kuponuna201.top",
-      "kuponuna202.top",
-      "kuponuna203.top",
-      "kuponuna204.top",
-      "kuponuna205.top",
-      "kuponuna206.top",
-      "kuponuna207.top",
-      "kuponuna208.top",
-      "kuponuna209.top",
-      "kuponuna210.top",
-      "kuponuna211.top",
-      "kuponuna212.top",
-      "kuponuna213.top",
-      "kuponuna214.top",
-      "kuponuna215.top",
-      "kuponuna216.top",
-      "kuponuna217.top",
-      "kuponuna218.top",
-      "kuponuna219.top",
-      "kuponuna220.top",
-      "kuponuna221.top",
-      "kuponuna222.top",
-      "kuponuna223.top",
-      "kuponuna224.top",
-      "kuponuna225.top",
-      "kuponuna226.top",
-      "kuponuna227.top",
-      "kuponuna228.top",
-      "kuponuna229.top",
-      "kuponuna230.top",
-      "kuponuna231.top",
-      "kuponuna232.top",
-      "kuponuna233.top",
-      "kuponuna234.top",
-      "kuponuna235.top",
-      "kuponuna236.top",
-      "kuponuna237.top",
-      "kuponuna238.top",
-      "kuponuna239.top",
-      "kuponuna240.top",
-      "kuponuna241.top",
-      "kuponuna242.top",
-      "kuponuna243.top",
-      "kuponuna244.top",
-      "kuponuna245.top",
-      "kuponuna246.top",
-      "kuponuna247.top",
-      "kuponuna248.top",
-      "kuponuna249.top",
-      "kuponuna250.top",
+      "kuponuna476.top",
+      "kuponuna477.top",
+      "kuponuna478.top",
+      "kuponuna479.top",
+      "kuponuna480.top",
+      "kuponuna481.top",
+      "kuponuna482.top",
+      "kuponuna483.top",
+      "kuponuna484.top",
+      "kuponuna485.top",
+      "kuponuna486.top",
+      "kuponuna487.top",
+      "kuponuna488.top",
+      "kuponuna489.top",
+      "kuponuna490.top",
+      "kuponuna491.top",
+      "kuponuna492.top",
+      "kuponuna493.top",
+      "kuponuna494.top",
+      "kuponuna495.top",
+      "kuponuna496.top",
+      "kuponuna497.top",
+      "kuponuna498.top",
+      "kuponuna499.top",
+      "kuponuna500.top",
+      "kuponuna501.top",
+      "kuponuna502.top",
+      "kuponuna503.top",
+      "kuponuna504.top",
+      "kuponuna505.top",
+      "kuponuna506.top",
+      "kuponuna507.top",
+      "kuponuna508.top",
+      "kuponuna509.top",
+      "kuponuna510.top",
+      "kuponuna511.top",
+      "kuponuna512.top",
+      "kuponuna513.top",
+      "kuponuna514.top",
+      "kuponuna515.top",
+      "kuponuna516.top",
+      "kuponuna517.top",
+      "kuponuna518.top",
+      "kuponuna519.top",
+      "kuponuna520.top",
+      "kuponuna521.top",
+      "kuponuna522.top",
+      "kuponuna523.top",
+      "kuponuna524.top",
+      "kuponuna525.top",
+      "kuponuna526.top",
+      "kuponuna527.top",
+      "kuponuna528.top",
+      "kuponuna529.top",
+      "kuponuna530.top",
+      "kuponuna531.top",
+      "kuponuna532.top",
+      "kuponuna533.top",
+      "kuponuna534.top",
+      "kuponuna535.top",
+      "kuponuna536.top",
+      "kuponuna537.top",
+      "kuponuna538.top",
+      "kuponuna539.top",
+      "kuponuna540.top",
+      "kuponuna541.top",
+      "kuponuna542.top",
+      "kuponuna543.top",
+      "kuponuna544.top",
+      "kuponuna545.top",
+      "kuponuna546.top",
+      "kuponuna547.top",
+      "kuponuna548.top",
+      "kuponuna549.top",
+      "kuponuna550.top",
+      "kuponuna551.top",
+      "kuponuna552.top",
+      "kuponuna553.top",
+      "kuponuna554.top",
+      "kuponuna555.top",
+      "kuponuna556.top",
+      "kuponuna557.top",
+      "kuponuna558.top",
+      "kuponuna559.top",
+      "kuponuna560.top",
+      "kuponuna561.top",
+      "kuponuna562.top",
+      "kuponuna563.top",
+      "kuponuna564.top",
+      "kuponuna565.top",
+      "kuponuna566.top",
+      "kuponuna567.top",
+      "kuponuna568.top",
+      "kuponuna569.top",
       "mangawt.com",
       "tv8.com.tr",
       "uzaymanga.com"
@@ -7496,206 +7409,6 @@
       "boxofficeturkiye.com",
       "dentalilan.com",
       "discordsunucu.com",
-      "dizipal1.cloud",
-      "dizipal10.cloud",
-      "dizipal100.cloud",
-      "dizipal101.cloud",
-      "dizipal102.cloud",
-      "dizipal103.cloud",
-      "dizipal104.cloud",
-      "dizipal105.cloud",
-      "dizipal106.cloud",
-      "dizipal107.cloud",
-      "dizipal108.cloud",
-      "dizipal109.cloud",
-      "dizipal11.cloud",
-      "dizipal110.cloud",
-      "dizipal111.cloud",
-      "dizipal112.cloud",
-      "dizipal113.cloud",
-      "dizipal114.cloud",
-      "dizipal115.cloud",
-      "dizipal116.cloud",
-      "dizipal117.cloud",
-      "dizipal118.cloud",
-      "dizipal119.cloud",
-      "dizipal12.cloud",
-      "dizipal120.cloud",
-      "dizipal121.cloud",
-      "dizipal122.cloud",
-      "dizipal123.cloud",
-      "dizipal124.cloud",
-      "dizipal125.cloud",
-      "dizipal126.cloud",
-      "dizipal127.cloud",
-      "dizipal128.cloud",
-      "dizipal129.cloud",
-      "dizipal13.cloud",
-      "dizipal130.cloud",
-      "dizipal131.cloud",
-      "dizipal132.cloud",
-      "dizipal133.cloud",
-      "dizipal134.cloud",
-      "dizipal135.cloud",
-      "dizipal136.cloud",
-      "dizipal137.cloud",
-      "dizipal138.cloud",
-      "dizipal139.cloud",
-      "dizipal14.cloud",
-      "dizipal140.cloud",
-      "dizipal141.cloud",
-      "dizipal142.cloud",
-      "dizipal143.cloud",
-      "dizipal144.cloud",
-      "dizipal145.cloud",
-      "dizipal146.cloud",
-      "dizipal147.cloud",
-      "dizipal148.cloud",
-      "dizipal149.cloud",
-      "dizipal15.cloud",
-      "dizipal150.cloud",
-      "dizipal151.cloud",
-      "dizipal152.cloud",
-      "dizipal153.cloud",
-      "dizipal154.cloud",
-      "dizipal155.cloud",
-      "dizipal156.cloud",
-      "dizipal157.cloud",
-      "dizipal158.cloud",
-      "dizipal159.cloud",
-      "dizipal16.cloud",
-      "dizipal160.cloud",
-      "dizipal161.cloud",
-      "dizipal162.cloud",
-      "dizipal163.cloud",
-      "dizipal164.cloud",
-      "dizipal165.cloud",
-      "dizipal166.cloud",
-      "dizipal167.cloud",
-      "dizipal168.cloud",
-      "dizipal169.cloud",
-      "dizipal17.cloud",
-      "dizipal170.cloud",
-      "dizipal171.cloud",
-      "dizipal172.cloud",
-      "dizipal173.cloud",
-      "dizipal174.cloud",
-      "dizipal175.cloud",
-      "dizipal176.cloud",
-      "dizipal177.cloud",
-      "dizipal178.cloud",
-      "dizipal179.cloud",
-      "dizipal18.cloud",
-      "dizipal180.cloud",
-      "dizipal181.cloud",
-      "dizipal182.cloud",
-      "dizipal183.cloud",
-      "dizipal184.cloud",
-      "dizipal185.cloud",
-      "dizipal186.cloud",
-      "dizipal187.cloud",
-      "dizipal188.cloud",
-      "dizipal189.cloud",
-      "dizipal19.cloud",
-      "dizipal190.cloud",
-      "dizipal191.cloud",
-      "dizipal192.cloud",
-      "dizipal193.cloud",
-      "dizipal194.cloud",
-      "dizipal195.cloud",
-      "dizipal196.cloud",
-      "dizipal197.cloud",
-      "dizipal198.cloud",
-      "dizipal199.cloud",
-      "dizipal2.cloud",
-      "dizipal20.cloud",
-      "dizipal200.cloud",
-      "dizipal21.cloud",
-      "dizipal22.cloud",
-      "dizipal23.cloud",
-      "dizipal24.cloud",
-      "dizipal25.cloud",
-      "dizipal26.cloud",
-      "dizipal27.cloud",
-      "dizipal28.cloud",
-      "dizipal29.cloud",
-      "dizipal3.cloud",
-      "dizipal30.cloud",
-      "dizipal31.cloud",
-      "dizipal32.cloud",
-      "dizipal33.cloud",
-      "dizipal34.cloud",
-      "dizipal35.cloud",
-      "dizipal36.cloud",
-      "dizipal37.cloud",
-      "dizipal38.cloud",
-      "dizipal39.cloud",
-      "dizipal4.cloud",
-      "dizipal40.cloud",
-      "dizipal41.cloud",
-      "dizipal42.cloud",
-      "dizipal43.cloud",
-      "dizipal44.cloud",
-      "dizipal45.cloud",
-      "dizipal46.cloud",
-      "dizipal47.cloud",
-      "dizipal48.cloud",
-      "dizipal49.cloud",
-      "dizipal5.cloud",
-      "dizipal50.cloud",
-      "dizipal51.cloud",
-      "dizipal52.cloud",
-      "dizipal53.cloud",
-      "dizipal54.cloud",
-      "dizipal55.cloud",
-      "dizipal56.cloud",
-      "dizipal57.cloud",
-      "dizipal58.cloud",
-      "dizipal59.cloud",
-      "dizipal6.cloud",
-      "dizipal60.cloud",
-      "dizipal61.cloud",
-      "dizipal62.cloud",
-      "dizipal63.cloud",
-      "dizipal64.cloud",
-      "dizipal65.cloud",
-      "dizipal66.cloud",
-      "dizipal67.cloud",
-      "dizipal68.cloud",
-      "dizipal69.cloud",
-      "dizipal7.cloud",
-      "dizipal70.cloud",
-      "dizipal71.cloud",
-      "dizipal72.cloud",
-      "dizipal73.cloud",
-      "dizipal74.cloud",
-      "dizipal75.cloud",
-      "dizipal76.cloud",
-      "dizipal77.cloud",
-      "dizipal78.cloud",
-      "dizipal79.cloud",
-      "dizipal8.cloud",
-      "dizipal80.cloud",
-      "dizipal81.cloud",
-      "dizipal82.cloud",
-      "dizipal83.cloud",
-      "dizipal84.cloud",
-      "dizipal85.cloud",
-      "dizipal86.cloud",
-      "dizipal87.cloud",
-      "dizipal88.cloud",
-      "dizipal89.cloud",
-      "dizipal9.cloud",
-      "dizipal90.cloud",
-      "dizipal91.cloud",
-      "dizipal92.cloud",
-      "dizipal93.cloud",
-      "dizipal94.cloud",
-      "dizipal95.cloud",
-      "dizipal96.cloud",
-      "dizipal97.cloud",
-      "dizipal98.cloud",
-      "dizipal99.cloud",
       "nedir.org",
       "ogznet.com",
       "puhutv.com",
@@ -8162,7 +7875,6 @@
       "sprintotvet.ru",
       "subsidii.net",
       "svoimi-rykami.ru",
-      "taker.im",
       "tehnika.expert",
       "telefongid.ru",
       "toysew.ru",
@@ -8181,8 +7893,8 @@
      "hostnames": [
       "3ivi.com",
       "bestofkinopoisk.com",
+      "drezka.pl",
       "flymaterez.net",
-      "hdrezka-ag.com",
       "hdrezka-sex-city.net",
       "hdrezka.ag",
       "hdrezka.club",
@@ -8192,6 +7904,7 @@
       "hdrezka.kim",
       "hdrezka.me",
       "hdrezka.name",
+      "hdrezka.pl",
       "hdrezka.rest",
       "hdrezka.sh",
       "hdrezka.site",
@@ -8199,29 +7912,21 @@
       "hdrezka.tv",
       "hdrezka.vip",
       "hdrezka.website",
-      "hdrezka180map.org",
       "hdrezka19139.org",
-      "hdrezka1dhpkk.org",
-      "hdrezka1tqbbd.org",
       "hdrezka1twwpb.org",
       "hdrezka2tepnm.org",
       "hdrezka2vmmty.org",
-      "hdrezka320fkk.org",
-      "hdrezka320hjh.org",
-      "hdrezka320rtq.org",
-      "hdrezka320ypq.org",
       "hdrezka720dhh.org",
       "hdrezka8bdhtq.org",
       "hdrezka9bsbhq.org",
       "hdrezka9fmskj.org",
-      "hdrezkabmmshq.org",
       "hdrezkaonline.com",
       "hdrezkayou.com",
-      "hdrezkayyh5pq.org",
       "hello-rezka.tv",
       "kinopub.me",
       "kvk.pub",
       "omnirezka.tv",
+      "punisher-hdrezka.net",
       "rezka-ua.in",
       "rezka-ua.org",
       "rezka-ua.tv",
@@ -8287,7 +7992,7 @@
       "lxmanga.blog",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill93.com",
+      "motchill94.com",
       "motchilltvphim.com",
       "nettruyenrr.com",
       "nettruyenvio.com",
@@ -8300,11 +8005,11 @@
       "quatvn.love",
       "rphang.online",
       "saigon24.net",
-      "sayhentaii.me",
+      "sayhentaii.art",
       "sexdiary.club",
       "sexhd88.online",
       "sexmup3x.net",
-      "sexpro.pro",
+      "sexpro.cv",
       "sextop1.show",
       "soha.vn",
       "thanhnien.vn",
@@ -8313,7 +8018,6 @@
       "tram3d.me",
       "trumtruyen.live",
       "truyen247.pro",
-      "truyengg.net",
       "truyenqqgo.com",
       "truyenqqtto.com",
       "truyensextv.com",
@@ -8328,8 +8032,8 @@
       "viet69.hot",
       "vlxx.bz",
       "vn2.xvideos69.xxx",
-      "vn39phimsexhay.com",
       "vn4.sexviet88.xyz",
+      "vn44phimsexhay.com",
       "vnhaysexvn.com",
       "vnsex.phimsexthailan.pro",
       "vungoctuan.vn",
@@ -8352,8 +8056,7 @@
       "animevietsubs.net",
       "aoe.vn",
       "audiotruyenfull.com",
-      "bluphim3.com",
-      "dphotojournal.com",
+      "bluphim.uk.com",
       "hayhaytv.site",
       "hoctot.hocmai.vn",
       "javnong.cc",
@@ -8361,8 +8064,8 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchill.fail",
-      "motchill93.com",
+      "motchill94.com",
+      "motchilli.id",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
@@ -8391,8 +8094,18 @@
       "www.phimdinhcao.online",
       "xemphimjav.us",
       "xnhau.sh",
+      "xoilacvvc.cc",
       "ytstv.me",
       "znews.vn"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "abort-on-property-write",
+    {
+     "hostnames": [
+      "baomoi.com"
      ],
      "world": "MAIN"
     }
@@ -8403,7 +8116,6 @@
      "hostnames": [
       "abysscdn.com",
       "afamily.vn",
-      "asafavidanmusic.com",
       "cafef.vn",
       "cliphot69.pics",
       "clipsex.cam",
@@ -8411,6 +8123,7 @@
       "gamek.vn",
       "genk.vn",
       "hayhaytv.site",
+      "jinjuu.com",
       "kenh14.vn",
       "phimvuihd.org",
       "player-cdn.com",
@@ -8424,15 +8137,6 @@
       "ww1.ditnhau.cc",
       "www.gvnvh.net",
       "www.iosviet.com"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "abort-on-property-write",
-    {
-     "hostnames": [
-      "baomoi.com"
      ],
      "world": "MAIN"
     }
@@ -8471,6 +8175,15 @@
     {
      "hostnames": [
       "vungoctuan.vn"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "json-prune",
+    {
+     "hostnames": [
+      "xem15.net"
      ],
      "world": "MAIN"
     }
