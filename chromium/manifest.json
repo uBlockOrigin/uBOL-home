@@ -15,6 +15,9 @@
   "commands": {
     "enter-zapper-mode": {
       "description": "__MSG_zapperTipEnter__"
+    },
+    "enter-picker-mode": {
+      "description": "__MSG_pickerTipEnter__"
     }
   },
   "declarative_net_request": {
@@ -311,7 +314,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2025.703.1440",
+  "version": "2025.709.1622",
   "web_accessible_resources": [
     {
       "resources": [
@@ -325,6 +328,24 @@
     {
       "resources": [
         "/zapper-ui.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "use_dynamic_url": true
+    },
+    {
+      "resources": [
+        "/picker-ui.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "use_dynamic_url": true
+    },
+    {
+      "resources": [
+        "/unpicker-ui.html"
       ],
       "matches": [
         "<all_urls>"

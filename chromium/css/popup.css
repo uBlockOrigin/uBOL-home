@@ -13,15 +13,13 @@
 
 :root body,
 :root.mobile body {
-    --font-size: 15px;
     --popup-gap: var(--font-size);
     --popup-gap-thin: calc(0.5 * var(--popup-gap));
     --popup-gap-extra-thin: calc(0.25 * var(--popup-gap));
-    font-size: var(--font-size);
     min-width: var(--popup-min-width);
     }
 :root body.loading {
-    opacity: 0;
+    visibility: hidden;
     }
 a {
     color: var(--ink-1);
@@ -36,16 +34,12 @@ a {
     align-self: flex-start;
     display: flex;
     flex-direction: column;
-    max-width: 340px;
     }
 :root.portrait #main {
     align-self: inherit;
     }
 hr {
-    border: 0;
-    border-top: 1px solid var(--hr-ink);
-    margin: 0;
-    padding: 0;
+    margin: 0.5em 0;
     }
 
 #hostname {
@@ -68,15 +62,20 @@ hr {
 body[data-forbid~="filteringMode"] .filteringModeSlider {
     pointer-events: none;
     }
-body[data-forbid~="dashboard"] #gotoDashboard,
-body[data-forbid~="zapper"] #gotoZapper {
-    visibility: hidden;
+body[data-forbid~="zapper"] #gotoZapper,
+body[data-forbid~="picker"] #gotoPicker,
+body[data-forbid~="picker"] #gotoUnpicker,
+body[data-forbid~="report"] #gotoReport,
+body[data-forbid~="zapper"][data-forbid~="picker"][data-forbid~="report"] .localTools {
+    display: none;
+    }
+body[data-forbid~="dashboard"] .globalTools {
+    display: none;
     }
 
 #filteringModeText {
     color: var(--ink-3);
-    margin-bottom: var(--default-gap-small);
-    margin-top: 0;
+    margin-bottom: var(--popup-gap-thin);
     text-align: center;
     text-transform: lowercase;
     }
@@ -98,159 +97,50 @@ body[data-forbid~="zapper"] #gotoZapper {
 
 .filteringModeSlider {
     align-self: center;
-    margin-bottom: var(--popup-gap);
-    margin-top: var(--popup-gap);
+    margin: var(--popup-gap) 0;
     }
 
-.rulesetTools {
-    background-color: transparent;
-    border: 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 25%;
-    }
-.rulesetTools [id] {
-    background-color: var(--popup-ruleset-tool-surface);
-    border-radius: 4px;
-    cursor: pointer;
-    fill: var(--popup-ruleset-tool-ink);
-    flex-grow: 1;
-    font-size: 2.2em;
-    padding: 0;
-    visibility: hidden;
-    }
-.rulesetTools [id]:not(:first-of-type) {
-    margin-block-start: 1px;
-    }
-.rulesetTools [id] > svg {
-    fill: var(--ink-4);
-    }
 body.needReload #refresh {
     visibility: visible;
     }
 
-#rulesetStats {
-    padding: 0 var(--popup-gap-thin);
-    }
-#rulesetStats .rulesetDetails h1 {
-    font-size: 1em;
-    font-weight: normal;
-    margin: 0.5em 0 0.25em 0;
-    }
-#rulesetStats .rulesetDetails p {
-    color: var(--ink-2);
-    font-size: var(--font-size-smaller);
-    margin: 0.25em 0 0.5em 0.5em;
-    }
-
-.itemRibbon {
-    column-gap: var(--popup-gap);
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-auto-flow: column;
-    grid-template: auto / 1fr 1fr;
-    margin: var(--popup-gap);
-    }
-.itemRibbon > span + span {
-    text-align: end;
-    }
-
 .toolRibbon {
-    align-items: start;
-    background-color: var(--popup-toolbar-surface);
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-auto-flow: column;
-    grid-template: auto / repeat(4, 1fr);
-    justify-items: stretch;
-    white-space: normal;
-    }
-.toolRibbon .tool {
-    cursor: pointer;
     display: flex;
     flex-direction: column;
-    font-size: 1.4em;
-    min-width: 32px;
-    padding: var(--popup-gap)
-             var(--popup-gap-extra-thin);
-    unicode-bidi: embed;
-    visibility: hidden;
+    line-height: normal;
     }
-.toolRibbon .tool:hover {
+:root:not(.isHTTP) .needHTTP {
+    display: none;
+    }
+
+.toolRibbon > label {
+    font-size: 90%;
+    color: var(--ink-2);
+    line-height: calc(var(--font-size) * 1.8);
+    }
+.toolRibbon > .tool {
+    cursor: pointer;
+    display: flex;
+    padding: 0.5em 0.5em 0.5em 0;
+    unicode-bidi: embed;
+    }
+.toolRibbon > .tool:hover {
     color: var(--ink-1);
         fill: var(--ink-1);
     }
-.toolRibbon .tool.enabled {
-    visibility: visible;
-    }
-.toolRibbon .tool .caption {
-    color: var(--ink-2);
-    font: 10px/12px sans-serif;
-    margin-top: 6px;
-    text-align: center;
-    }
-body.mobile.no-tooltips .toolRibbon .tool {
-    font-size: 1.6em;
-    }
-.toolRibbon.genericTools {
-    margin-bottom: 0;
-    }
-
-#moreOrLess {
-    column-gap: 0;
-    display: grid;
-    grid-template: auto / 1fr 1fr;
-    justify-items: stretch;
-    margin: 1px 0 0 0;
-    }
-#moreOrLess > span {
-    cursor: pointer;
-    margin: 0;
-    padding: var(--popup-gap-thin) var(--popup-gap);
-    user-select: none;
-    white-space: nowrap;
-    }
-#moreButton .fa-icon {
-    transform: rotate(180deg);
-    }
-#lessButton {
-    border-inline-start: 1px solid var(--surface-1);
-    text-align: end;
-    }
-body[data-section="a b"] #moreButton {
-    pointer-events: none;
-    visibility: hidden;
-    }
-body[data-section=""] #lessButton {
-    pointer-events: none;
-    visibility: hidden;
-    }
-body:not([data-section~="a"]) [data-section="a"] {
+.toolRibbon > .tool:not(.enabled) {
     display: none;
     }
-body:not([data-section~="b"]) [data-section="b"] {
-    display: none;
+.toolRibbon > .tool .fa-icon {
+    flex-shrink: 0;
+    font-size: 1.4em;
+    min-width: 1.4em;
     }
-
-/* configurable UI elements */
-:root:not(.mobile) .toolRibbon .caption,
-:root.mobile body.no-tooltips .toolRibbon .caption,
-:root.mobile body[data-ui~="-captions"] .toolRibbon .caption {
-    display: none;
+.toolRibbon > .tool [data-i18n] {
+    flex-grow: 1;
     }
-:root.mobile .toolRibbon .caption,
-:root:not(.mobile) body[data-ui~="+captions"] .toolRibbon .caption {
-    display: inherit;
-    }
-:root:not(.mobile) .toolRibbon .tool,
-:root.mobile body.no-tooltips .toolRibbon .tool,
-:root.mobile body[data-ui~="-captions"] .toolRibbon .tool {
-    padding: var(--popup-gap) var(--popup-gap-thin);
-    }
-:root.mobile #moreOrLess > span {
-    padding: var(--popup-gap);
+.toolRibbon.localTools > * {
+    padding-left: 0.5em;
     }
 
 /* horizontally-constrained viewport */
@@ -265,23 +155,6 @@ body:not([data-section~="b"]) [data-section="b"] {
 :root.desktop {
     display: flex;
     }
-:root.desktop body {
-    --popup-gap: calc(var(--font-size) * 0.875);
-    }
-:root.desktop .rulesetTools [id]:hover {
-    background-color: var(--popup-ruleset-tool-surface-hover);
-    }
-:root.desktop .rulesetTools [id]:hover > svg {
-    fill: var(--ink-2);
-    }
 :root.desktop .tool:hover {
     background-color: var(--popup-toolbar-surface-hover);
-    }
-:root.desktop #moreOrLess > span:hover {
-    background-color: var(--surface-2);
-    /* background-color: var(--popup-toolbar-surface-hover); */
-    }
-
-#templates {
-    display: none;
     }

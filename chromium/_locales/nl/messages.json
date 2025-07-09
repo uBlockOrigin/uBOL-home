@@ -35,8 +35,12 @@
     "message": "filtermodus",
     "description": "Label in the popup panel for the current filtering mode"
   },
+  "popupLocalToolsLabel": {
+    "message": "Op deze website",
+    "description": "Label in the popup panel for the local tools section"
+  },
   "popupTipReport": {
-    "message": "Een probleem op deze website melden",
+    "message": "Een probleem melden",
     "description": "Tooltip used for the 'chat' icon in the panel"
   },
   "popupTipDashboard": {
@@ -288,12 +292,20 @@
     "description": "A button to navigate to the blocked page"
   },
   "zapperTipEnter": {
-    "message": "Element­wisser­modus openen",
+    "message": "Een element­ verwijderen",
     "description": "Tooltip for the button used to enter zapper mode"
   },
   "zapperTipQuit": {
     "message": "Element­wisser­modus sluiten",
     "description": "Tooltip for the button used to exit zapper mode"
+  },
+  "pickerTipEnter": {
+    "message": "Een aangepast filter maken",
+    "description": "Label for the menu entry to create cosmetic filters"
+  },
+  "unpickerTipEnter": {
+    "message": "Een aangepast filter verwijderen",
+    "description": "Label for the menu entry to delete cosmetic filters"
   },
   "developDropdownLabel": {
     "message": "Weergeven:",
@@ -342,5 +354,25 @@
   "dnrRulesCountInfo": {
     "message": "Aantal geregistreerde regels: {count}",
     "description": "Short sentence to report the number of currently registered DNR rules"
+  },
+  "pickerSliderLabel": {
+    "message": "Verplaats de schuifregelaar voor de beste overeenkomst",
+    "description": "Label to describe the purpose of the slider"
+  },
+  "pickerPick": {
+    "message": "Kiezen",
+    "description": "Text for the button to re-enter element-picking mode"
+  },
+  "pickerPreview": {
+    "message": "Voorbeeld",
+    "description": "Text for the button to activate preview mode"
+  },
+  "pickerCreate": {
+    "message": "Aanmaken",
+    "description": "Text for the button to create the filter"
+  },
+  "unpickerUsage": {
+    "message": "Selecteer hieronder een filter om overeenkomende elementen in de webpagina te markeren. Klik op de prullenbak om een filter te verwijderen.",
+    "description": "Summary description on how to use the tool to remove custom filters"
   }
 }

@@ -48,6 +48,7 @@
    "classic-bonus.com",
    "clicks.abril.com.br",
    "compras.periodistadigital.com",
+   "crummydevioussucculent.com",
    "eru5tdmbuwxm.com",
    "estadisticas.lanacion.com.ar",
    "estaticos.soitu.es",
@@ -66,6 +67,7 @@
    "publi.elliberal.com.ar",
    "publicidad.net",
    "publipagos.com",
+   "publyads.jstag.space",
    "pubs.xl.pt",
    "softclick.com.br",
    "solution911.com",
@@ -92,22 +94,6 @@
   ]
  },
  "id": 1,
- "priority": 29
-},
-{
- "action": {
-  "redirect": {
-   "regexSubstitution": "/strictblock.html#\\0"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?ads\\.impulsosocial\\.online(?:[^%.0-9a-z_-]|$).*",
-  "resourceTypes": [
-   "main_frame"
-  ]
- },
- "id": 2,
  "priority": 29
 }
 ]

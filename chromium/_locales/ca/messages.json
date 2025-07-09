@@ -35,6 +35,10 @@
     "message": "mode de filtre",
     "description": "Label in the popup panel for the current filtering mode"
   },
+  "popupLocalToolsLabel": {
+    "message": "En aquest lloc web",
+    "description": "Label in the popup panel for the local tools section"
+  },
   "popupTipReport": {
     "message": "Informa d'un problema en aquest lloc web",
     "description": "Tooltip used for the 'chat' icon in the panel"
@@ -295,6 +299,14 @@
     "message": "Surt del mode d'eliminació d'elements",
     "description": "Tooltip for the button used to exit zapper mode"
   },
+  "pickerTipEnter": {
+    "message": "Crea un filtre personalitzat",
+    "description": "Label for the menu entry to create cosmetic filters"
+  },
+  "unpickerTipEnter": {
+    "message": "Elimina un filtre personalitzat",
+    "description": "Label for the menu entry to delete cosmetic filters"
+  },
   "developDropdownLabel": {
     "message": "Vista:",
     "description": "A label of a dropdown list"
@@ -342,5 +354,25 @@
   "dnrRulesCountInfo": {
     "message": "Nombre de regles registrades: {count}",
     "description": "Short sentence to report the number of currently registered DNR rules"
+  },
+  "pickerSliderLabel": {
+    "message": "Moveu el control lliscant per seleccionar la millor coincidència",
+    "description": "Label to describe the purpose of the slider"
+  },
+  "pickerPick": {
+    "message": "Escull",
+    "description": "Text for the button to re-enter element-picking mode"
+  },
+  "pickerPreview": {
+    "message": "Previsualitza",
+    "description": "Text for the button to activate preview mode"
+  },
+  "pickerCreate": {
+    "message": "Crea",
+    "description": "Text for the button to create the filter"
+  },
+  "unpickerUsage": {
+    "message": "Seleccioneu un filtre a continuació per ressaltar els elements coincidents de la pàgina web. Feu clic a la paperera per eliminar un filtre.",
+    "description": "Summary description on how to use the tool to remove custom filters"
   }
 }

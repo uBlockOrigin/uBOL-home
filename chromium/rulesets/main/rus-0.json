@@ -4037,6 +4037,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["serial.wiki"],"resourceTypes":["script"],"urlFilter":".serial.wiki^"},"id":4036,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["serialrussian.ru"],"resourceTypes":["script"],"urlFilter":".serialrussian.ru^"},"id":4037,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["serialszoom.net"],"resourceTypes":["script"],"urlFilter":".serialszoom.net^"},"id":4038,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||partnerkin.com/uploads/stbr/"},"id":4039,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["shiny2.ru"],"resourceTypes":["script"],"urlFilter":".shiny2.ru^"},"id":4040,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["slavaangel.net","slavaangel.ru"],"resourceTypes":["script"],"urlFilter":".slavaangel."},"id":4041,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["sovets.net"],"resourceTypes":["script"],"urlFilter":".sovets.net^"},"id":4042,"priority":10},

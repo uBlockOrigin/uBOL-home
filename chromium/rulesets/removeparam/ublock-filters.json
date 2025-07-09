@@ -57,5 +57,6 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cvid","ei","ocid","pc","vid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||msn.com^"},"id":56,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["http_referer"]}}},"type":"redirect"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||biletomat.pl/en/api/process_order_lite^"},"id":57,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["include[PRODUCT_AD]"]}}},"type":"redirect"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||sainsburys.co.uk/groceries-api/"},"id":58,"priority":2},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cid","pid"]}}},"type":"redirect"},"condition":{"domainType":"thirdParty","resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||connatix.com^"},"id":59,"priority":2}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cid","pid"]}}},"type":"redirect"},"condition":{"domainType":"thirdParty","resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||connatix.com^"},"id":59,"priority":2},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["experienceActionId","experienceId","sid","trackingId","tzo","widgetId"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||api.cxense.com/public/widget/data?"},"id":60,"priority":2}
 ]

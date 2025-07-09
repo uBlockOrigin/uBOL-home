@@ -197,7 +197,9 @@
     {
      "hostnames": [
       "dudestream.com",
+      "elconfidencial.com",
       "japscan.lol",
+      "journaldemontreal.com",
       "needrom.com",
       "news.bg",
       "pussyspace.com",
@@ -269,7 +271,6 @@
       "seclore.com",
       "stbturbo.xyz",
       "streamelements.com",
-      "streamsilk.com",
       "upshrink.com",
       "verpelis.gratis"
      ],
@@ -422,6 +423,7 @@
       "benchmark.pl",
       "disqus.com",
       "dobreprogramy.pl",
+      "fastpic.org",
       "fotoblogia.pl",
       "gadzetomania.pl",
       "gecmisi.com.tr",
@@ -535,6 +537,15 @@
     }
    ],
    [
+    "prevent-innerHTML",
+    {
+     "hostnames": [
+      "movielair.cc"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "m3u-prune",
     {
      "hostnames": [
@@ -611,8 +622,6 @@
     "evaldata-prune",
     {
      "hostnames": [
-      "m.nivod4.tv",
-      "m.nivod5.tv",
       "m1.nivod.tv"
      ],
      "world": "MAIN"
@@ -688,12 +697,14 @@
       "delcotimes.com",
       "denverpost.com",
       "eastbaytimes.com",
+      "elconfidencial.com",
       "eptrail.com",
       "excelsiorcalifornia.com",
       "expressnews.com",
       "fortmorgantimes.com",
       "greeleytribune.com",
       "journal-advocate.com",
+      "journaldemontreal.com",
       "julesburgadvocate.com",
       "lamarledger.com",
       "laurelberninteriors.com",
@@ -768,6 +779,15 @@
       "rustorka.net",
       "rustorka.top",
       "rustorkacom.lib"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
+    "trusted-create-html",
+    {
+     "hostnames": [
+      "klouderr.com"
      ],
      "world": "ISOLATED"
     }
@@ -2126,6 +2146,7 @@
       "gedik.com",
       "griffin.com",
       "html5games.com",
+      "iscc-system.org",
       "prosciutteriasandaniele.it",
       "redcare.it",
       "remington-europe.com",
@@ -2133,6 +2154,7 @@
       "shop-apotheke.com",
       "smartwielen.lu",
       "ssga.com",
+      "threads.com",
       "workwide.de"
      ],
      "world": "ISOLATED"
@@ -2172,6 +2194,15 @@
       "farmer.pl"
      ],
      "world": "MAIN"
+    }
+   ],
+   [
+    "remove-node-text",
+    {
+     "hostnames": [
+      "minaprotocol.com"
+     ],
+     "world": "ISOLATED"
     }
    ],
    [
@@ -2366,6 +2397,7 @@
       "movieweb.com",
       "newgrounds.com",
       "screenrant.com",
+      "similarweb.com",
       "simpleflying.com",
       "technologyreview.jp",
       "thegamer.com",
@@ -2401,6 +2433,7 @@
       "270towin.com",
       "afterclass.io",
       "bcliquorstores.com",
+      "campaignlive.co.uk",
       "getemoji.com",
       "sears.com",
       "semafor.com",
@@ -2559,8 +2592,7 @@
       "movie-web.app",
       "romviet.com",
       "runmods.com",
-      "seriesperu.com",
-      "sportea.online"
+      "seriesperu.com"
      ],
      "world": "MAIN"
     }
@@ -3090,6 +3122,7 @@
     {
      "hostnames": [
       "85tube.com",
+      "biquge321.com",
       "linovelib.com",
       "rjno1.com",
       "wap.yushuwu.cloud",
@@ -3706,6 +3739,7 @@
       "journaldesfemmes.fr",
       "journaldunet.com",
       "linternaute.com",
+      "qwant.com",
       "rtlplay.be"
      ],
      "world": "MAIN"
@@ -5015,6 +5049,7 @@
       "platformgreat.kr",
       "sajuplus.net",
       "sbs.co.kr",
+      "shana.pe.kr",
       "shopping.interpark.com",
       "sogirl.so",
       "start.klauncher.kr",
@@ -7276,6 +7311,15 @@
     }
    ],
    [
+    "addEventListener-defuser",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "prevent-xhr",
     {
      "hostnames": [
@@ -7457,15 +7501,6 @@
    ],
    [
     "abort-on-property-write",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "addEventListener-defuser",
     {
      "hostnames": [
       "*"
@@ -7965,7 +8000,7 @@
       "damconuong.cam",
       "demo.14412882.com",
       "doctruyen3qui10.pro",
-      "dualeotruyenc.com",
+      "dualeotruyenp.com",
       "economic45882.shop",
       "freeplayervideo.com",
       "game8.vn",
@@ -7992,12 +8027,13 @@
       "lxmanga.blog",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill94.com",
+      "motchill95.com",
       "motchilltvphim.com",
       "nettruyenrr.com",
       "nettruyenvio.com",
       "p.thoctv.com",
       "phim18hdxx.com",
+      "phimheo3x.com",
       "phimmoi.sale",
       "phimtho.net",
       "player-cdn.com",
@@ -8009,7 +8045,6 @@
       "sexdiary.club",
       "sexhd88.online",
       "sexmup3x.net",
-      "sexpro.cv",
       "sextop1.show",
       "soha.vn",
       "thanhnien.vn",
@@ -8032,8 +8067,8 @@
       "viet69.hot",
       "vlxx.bz",
       "vn2.xvideos69.xxx",
-      "vn4.sexviet88.xyz",
-      "vn44phimsexhay.com",
+      "vn47phimsexhay.com",
+      "vn5.sexviet88.xyz",
       "vnhaysexvn.com",
       "vnsex.phimsexthailan.pro",
       "vungoctuan.vn",
@@ -8058,19 +8093,19 @@
       "audiotruyenfull.com",
       "bluphim.uk.com",
       "hayhaytv.site",
+      "hdcphim.com",
       "hoctot.hocmai.vn",
       "javnong.cc",
       "linkneverdie.net",
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchill94.com",
-      "motchilli.id",
+      "motchill95.com",
+      "motchilli.cx",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
       "noitu.site",
-      "ohaytv.pro",
       "phimchill.life",
       "player.phimapi.com",
       "plcdn.xyz",
@@ -8094,7 +8129,7 @@
       "www.phimdinhcao.online",
       "xemphimjav.us",
       "xnhau.sh",
-      "xoilacvvc.cc",
+      "xoilacvvt.cc",
       "ytstv.me",
       "znews.vn"
      ],
@@ -8123,7 +8158,6 @@
       "gamek.vn",
       "genk.vn",
       "hayhaytv.site",
-      "jinjuu.com",
       "kenh14.vn",
       "phimvuihd.org",
       "player-cdn.com",
@@ -8133,6 +8167,7 @@
       "tailieumoi.vn",
       "thanhnien.vn",
       "tuoitre.vn",
+      "verminsupreme.com",
       "vndoc.com",
       "ww1.ditnhau.cc",
       "www.gvnvh.net",
