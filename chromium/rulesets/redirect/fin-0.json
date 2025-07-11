@@ -98,5 +98,24 @@
  },
  "id": 5,
  "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "totalvene.fi"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "/adverts/*.mp4"
+ },
+ "id": 6,
+ "priority": 11
 }
 ]
