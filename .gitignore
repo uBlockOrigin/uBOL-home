@@ -1,6 +1,10 @@
+/build/
+/tmp/
+
 *.bak
 *.pem
-/**/__pycache__/
-/build/
+__pycache__/
 node_modules/
-/tmp/
+
+.DS_Store
+xcuserdata/
