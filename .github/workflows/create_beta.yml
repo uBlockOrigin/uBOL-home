@@ -87,10 +87,12 @@ jobs:
             - [Synopsis](https://github.com/uBlockOrigin/uBOL-issues#readme)
             - [Documentation](https://github.com/uBlockOrigin/uBOL-home/wiki)
             
-            Release notes:
+            ## Release notes
+            
             - Updated filter lists
             
-            Installation:
+            # Installation
+            
             - Firefox: Click [${{ env.TAGNAME }}-beta](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}-beta/uBOLite.beta.firefox.signed.xpi)
             - Safari: Visit <https://testflight.apple.com/join/JjTcThrV>
             
