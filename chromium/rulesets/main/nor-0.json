@@ -647,5 +647,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||postnordexpress."},"id":646,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||postnordexpressdelivery-"},"id":647,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||postnordspara."},"id":648,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||postnorg-dk*"},"id":649,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||postnorg-dk*"},"id":649,"priority":10},
+{"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||tv2.no/*/snowplow/"},"id":650,"priority":30}
 ]

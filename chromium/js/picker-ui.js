@@ -27,6 +27,7 @@ import { toolOverlay } from './tool-overlay-ui.js';
 
 let selectorPartsDB = new Map();
 let sliderParts = [];
+let sliderPartsPos = -1;
 let previewCSS = '';
 
 /******************************************************************************/
@@ -172,11 +173,12 @@ function selectorFromCandidates() {
 /******************************************************************************/
 
 function onSliderChanged(ev) {
-    updateSlider(ev.target.valueAsNumber);
+    updateSlider(Math.round(ev.target.valueAsNumber));
 }
 
 function updateSlider(i) {
-    qs$('#slider').value = i;
+    if ( i === sliderPartsPos ) { return; }
+    sliderPartsPos = i;
     dom.cl.remove('#candidateFilters [data-part]', 'on');
     const parts = sliderParts[i];
     for ( const address of parts ) {
@@ -314,11 +316,13 @@ function showDialog(msg) {
     }
 
     /* global */sliderParts = msg.sliderParts;
+    /* global */sliderPartsPos = -1;
     const slider = qs$('#slider');
     const last = sliderParts.length - 1;
     dom.attr(slider, 'max', last);
     dom.attr(slider, 'value', last);
     dom.attr(slider, 'disabled', last !== 0 ? null : '');
+    slider.value = last;
     updateSlider(last);
 }
 

@@ -870,5 +870,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["witchform.com"],"urlFilter":"||d2i2w6ttft7yxi.cloudfront.net/ad_banner/"},"id":869,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||api.eyejokerdb.com/api/banners/"},"id":870,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||nooo*.tv/theme/basic_player/img/banner/"},"id":871,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.lol.ps/static/prod/*/_app/immutable/assets/banner-"},"id":872,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.lol.ps/static/prod/*/_app/immutable/assets/banner-"},"id":872,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||t1.daumcdn.net/top/daum/op/chanel/"},"id":873,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||t1.daumcdn.net/top/daum/op/smartfarm/"},"id":874,"priority":10}
 ]

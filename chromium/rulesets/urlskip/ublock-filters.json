@@ -13,6 +13,13 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?jdoqocy\\.com/click-\\S*?&url=",
+  "steps": [
+   "?url",
+   "-uricomponent"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?events\\.laylo\\.com/r/redirect\\S*?(?:[^%.0-9a-z_-]|$)link=http",
   "steps": [
    "?link"
@@ -279,7 +286,7 @@
   ]
  },
  {
-  "re": "^https?:\\/\\/www\\.[a-z]+\\.(?:com|net)\\/click-\\d{6,7}-\\d{8}\\b.*?[?&]url=http",
+  "re": "^https?:\\/\\/www\\.[a-z]+\\.(?:com|net)\\/click-\\d{6,9}-\\d{8}\\b.*?[?&]url=http",
   "c": true,
   "steps": [
    "?url"
@@ -290,7 +297,7 @@
   ]
  },
  {
-  "re": "^https?:\\/\\/www\\.[a-z]+\\.(?:com|net)\\/click-\\d{6,7}-\\d{8}\\b.*?[?&]URL=http",
+  "re": "^https?:\\/\\/www\\.[a-z]+\\.(?:com|net)\\/click-\\d{6,9}-\\d{8}\\b.*?[?&]URL=http",
   "c": true,
   "steps": [
    "?URL"

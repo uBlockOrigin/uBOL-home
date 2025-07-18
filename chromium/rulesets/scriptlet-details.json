@@ -249,30 +249,7 @@
     "trusted-set-constant",
     {
      "hostnames": [
-      "app.blubank.com",
-      "catcare.store",
-      "cinelatino.net",
-      "cinemitas.org",
-      "cineplus123.org",
-      "comdotgame.com",
-      "emturbovid.com",
-      "findjav.com",
-      "globo.com",
-      "japscan.lol",
-      "javggvideo.xyz",
-      "jetpunk.com",
-      "littlebigsnake.com",
-      "mmtv01.xyz",
-      "mobileweb.bankmellat.ir",
-      "paraveronline.org",
-      "pobreflix.vc",
-      "rooter.gg",
-      "savefrom.net",
-      "seclore.com",
-      "stbturbo.xyz",
-      "streamelements.com",
-      "upshrink.com",
-      "verpelis.gratis"
+      "*"
      ],
      "world": "MAIN"
     }
@@ -781,6 +758,24 @@
       "klouderr.com"
      ],
      "world": "ISOLATED"
+    }
+   ],
+   [
+    "prevent-canvas",
+    {
+     "hostnames": [
+      "aram.zone"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "trusted-json-edit-fetch-response",
+    {
+     "hostnames": [
+      "open.spotify.com"
+     ],
+     "world": "MAIN"
     }
    ]
   ]
@@ -2112,6 +2107,15 @@
     }
    ],
    [
+    "set-cookie-reload",
+    {
+     "hostnames": [
+      "travelfranceonline.com"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
     "set-local-storage-item",
     {
      "hostnames": [
@@ -2307,6 +2311,7 @@
       "bangbros.com",
       "breachmedia.ca",
       "clevercreations.org",
+      "coinbase.com",
       "columbiasportswear.at",
       "columbiasportswear.co.uk",
       "columbiasportswear.de",
@@ -3947,6 +3952,15 @@
     }
    ],
    [
+    "set-local-storage-item",
+    {
+     "hostnames": [
+      "onlinepenztarca.hu"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
     "set-cookie",
     {
      "hostnames": [
@@ -4756,13 +4770,17 @@
       "iwb.jp",
       "j-baseball.club",
       "j-basketball.club",
+      "j-rugby.club",
+      "j-volleyball.club",
       "jukenbbs.com",
       "kakenhi.net",
+      "localch.net",
       "memo.wiki",
       "negisoku.com",
       "playing.wiki",
       "seesaa.net",
       "seesaawiki.jp",
+      "shukatsubbs.com",
       "sokuhou.wiki",
       "tokyomotion.net",
       "twidouga.net",
@@ -4879,6 +4897,7 @@
       "coron.tech",
       "exploader.net",
       "jprime.jp",
+      "kojodan.jp",
       "lifematome.blog",
       "rocketnews24.com",
       "wav.tv",
@@ -4958,6 +4977,7 @@
     {
      "hostnames": [
       "game.hiroba.dpoint.docomo.ne.jp",
+      "game.pointmall.rakuten.net",
       "kantangame.com",
       "minigame.aeriagames.jp",
       "ponta.abstractpainting.work",
@@ -4971,7 +4991,8 @@
     "href-sanitizer",
     {
      "hostnames": [
-      "figure-times.com"
+      "figure-times.com",
+      "safeframe.googlesyndication.com"
      ],
      "world": "ISOLATED"
     }
@@ -5398,6 +5419,7 @@
     {
      "hostnames": [
       "forum.fok.nl",
+      "radio10.nl",
       "topkleurplaat.nl"
      ],
      "world": "MAIN"
@@ -5411,6 +5433,18 @@
       "hardware.info",
       "indeleiderstrui.nl",
       "tweakers.net"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "prevent-xhr",
+    {
+     "hostnames": [
+      "538.nl",
+      "hartvannederland.nl",
+      "kijk.nl",
+      "vandaaginside.nl"
      ],
      "world": "MAIN"
     }
@@ -5828,6 +5862,7 @@
      "hostnames": [
       "bloground.ro",
       "boardingpass.ro",
+      "canale-tv.com",
       "turdanews.net",
       "vwforum.ro"
      ],
@@ -5880,6 +5915,7 @@
     "prevent-setInterval",
     {
      "hostnames": [
+      "canale-tv.com",
       "posturi.live"
      ],
      "world": "MAIN"
@@ -6670,6 +6706,7 @@
     {
      "hostnames": [
       "animesbr.cc",
+      "cursomecanet.com",
       "dragonball.sullca.com",
       "firepaste.com",
       "hentaikai.com",
@@ -7992,7 +8029,7 @@
       "cunghocvui.com",
       "damconuong.cam",
       "demo.14412882.com",
-      "doctruyen3qui10.pro",
+      "doctruyen3qui12.pro",
       "dualeotruyenp.com",
       "economic45882.shop",
       "freeplayervideo.com",
@@ -8002,7 +8039,8 @@
       "gocmod.com",
       "goctruyentranhvui17.com",
       "gotphim.com",
-      "hentaivc.com",
+      "haysex.tube",
+      "hentaivl.top",
       "hh3dhay.life",
       "hhtq5.vip",
       "hhvsub1.com",
@@ -8020,13 +8058,12 @@
       "lxmanga.blog",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill95.com",
+      "motchill96.com",
       "motchilltvphim.com",
       "nettruyenrr.com",
       "nettruyenvio.com",
       "p.thoctv.com",
       "phim18hdxx.com",
-      "phimheo3x.com",
       "phimmoi.sale",
       "phimtho.net",
       "player-cdn.com",
@@ -8053,17 +8090,14 @@
       "tuoitre.vn",
       "tusachmanga.com",
       "umetruyenhay.com",
-      "ungtycomicsvip.org",
       "vailonxx.vip",
       "vanphatelectric.com",
-      "viet69.fo",
       "viet69.hot",
       "vlxx.bz",
       "vn2.xvideos69.xxx",
-      "vn48phimsexhay.com",
       "vn5.sexviet88.xyz",
+      "vn52phimsexhay.com",
       "vnhaysexvn.com",
-      "vnsex.phimsexthailan.pro",
       "vungoctuan.vn",
       "www.sieutamphim.org",
       "www.toptruyentv8.com",
@@ -8093,8 +8127,9 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchill95.com",
-      "motchilli.cx",
+      "momofilmfest.com",
+      "motchill96.com",
+      "motchilll.id",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
@@ -8121,7 +8156,6 @@
       "www.phimdinhcao.online",
       "xemphimjav.us",
       "xnhau.sh",
-      "xoilacvvd.cc",
       "ytstv.me",
       "znews.vn"
      ],
@@ -8158,8 +8192,8 @@
       "subnhanh1.org",
       "tailieumoi.vn",
       "thanhnien.vn",
+      "tipplingclub.com",
       "tuoitre.vn",
-      "verminsupreme.com",
       "vndoc.com",
       "ww1.ditnhau.cc",
       "www.gvnvh.net",
