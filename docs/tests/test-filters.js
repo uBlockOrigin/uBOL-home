@@ -136,12 +136,6 @@ jobs.push(function ffubo2() {
     hide('#ffubo2 .fail');
 });
 
-jobs.push(( ) => {
-    qs$('#toggleFilters').onclick = ( ) => {
-        document.body.classList.toggle('showFilters');
-    };
-});
-
 /******************************************************************************/
 
 self.addEventListener('load', ( ) => {

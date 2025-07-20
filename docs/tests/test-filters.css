@@ -5,25 +5,13 @@ body {
 }
 .sections {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 1em;
 }
 section {
     border: 1px solid gray;
     box-sizing: border-box;
-    padding: 0.5em 0.5em 0 0.5em;
-}
-@media (min-width: 800px) {
-    section {
-        max-width: 600px;
-        min-width: 300px;
-        width: calc(50vw - 1em - 1px);
-    }
-}
-@media (max-width: 799px) {
-    section {
-        width: calc(100vw);
-    }
+    padding: 0.5em;
 }
 section h3 {
     margin: 0 0 0.5em 0;
@@ -59,13 +47,11 @@ em.filtering-mode {
 .tests {
     align-items: flex-start;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    row-gap: 2px;
 }
 .tile {
-    display: inline-flex;
-    flex-direction: column;
-    margin: 0 0.5em 0.5em 0;
-    min-width: 120px;
+    display: flex;
 }
 .tile div {
     align-items: center;
@@ -74,7 +60,7 @@ em.filtering-mode {
     justify-content: center;
 }
 .tile > div {
-    height: 40px;
+    min-width: 200px;
     position: relative;
 }
 .tile > div > div {
@@ -85,13 +71,12 @@ em.filtering-mode {
     width: 100%;
 }
 .tile code.filter {
-    text-align: center;
+    align-items: center;
     background-color: #e4e4e4;
+    display: inline-flex;
     font-size: smaller;
-    width: 100%
-}
-body:not(.showFilters) .tile > code.filter {
-    display: none;
+    padding-inline-start: 0.5em;
+    word-break: break-all;
 }
 .tile iframe {
     display: none;
