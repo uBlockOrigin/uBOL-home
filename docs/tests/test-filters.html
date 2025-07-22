@@ -210,6 +210,18 @@
             <code class="filter">&gt;&gt;##+js(set, sf3Sentinel, undefined)</code>
         </div>
         <script src="sf.js" async></script>
+        <div id="sf4" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">##+js(jsonl-edit-xhr-response, b)</code>
+        </div>
+        <div id="sf5" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">##+js(jsonl-edit-fetch-response, b)</code>
+        </div>
+        <div id="sf6" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, Element.prototype.getElementsByTagName)</code>
+        </div>
     </div>
 </section>
 
@@ -249,26 +261,16 @@
     </div>
 </section>
 
+<!--
 <section>
     <h3>Staged tests</h3>
     <ul>
         <li>These tests are not yet official and are only valid for an upcoming update of uBO Lite</li>
     </ul>
     <div class="tests">
-        <div id="sf4" class="tile">
-            <div class="pass"><div class="fail"></div></div>
-            <code class="filter">##+js(jsonl-edit-xhr-response, b)</code>
-        </div>
-        <div id="sf5" class="tile">
-            <div class="pass"><div class="fail"></div></div>
-            <code class="filter">##+js(jsonl-edit-fetch-response, b)</code>
-        </div>
-        <div id="sf6" class="tile">
-            <div class="pass"><div class="fail"></div></div>
-            <code class="filter">##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, Element.prototype.getElementsByTagName)</code>
-        </div>
     </div>
 </section>
+-->
 
 <section>
     <h3>Firefox MV2 uBO-only tests</h3>
