@@ -98,5 +98,21 @@
  },
  "id": 6,
  "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.txt"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||sstats.bitdefender.com^"
+ },
+ "id": 7,
+ "priority": 41
 }
 ]

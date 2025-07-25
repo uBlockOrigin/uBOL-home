@@ -10,6 +10,8 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["avrupaturkgazetesi.com"],"regexFilter":"\\/(orka-hotels-sentido|Werken-Bij-300x250|corendon-banner-reclame)\\.(gif|jpg)"},"id":9,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["egeyonhaber.com"],"regexFilter":"\\/(ikiler-gif|karpol-poliuretan)\\.gif"},"id":10,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["afsinhabermerkezi.com"],"regexFilter":"afsinhabermerkezi.com\\/wp-content\\/uploads\\/.*(-emlak|aad.jpg|ak-suY|PAM%C4%B0RA)"},"id":11,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["basarisiralamalari.com"],"regexFilter":"^https:\\/\\/[a-z]+\\.basarisiralamalari\\.com\\/wp-content\\/uploads\\/[0-9]+\\/[0-9]+\\/kto-[0-9]+-[0-9]+-[0-9]+-[0-9]+(X|x)[0-9]+(\\.|-)"},"id":12,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["giynikgazetesi.com"],"regexFilter":"\\d+x\\d+","resourceTypes":["image"]},"id":13,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["itemci.com"],"regexFilter":"cdn.itemci.com\\/storage\\/images\\/content\\/[-a-z0-9]{10,}\\.(jpg|gif)","resourceTypes":["image"]},"id":14,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["itemci.com"],"regexFilter":"cdn.itemci.com\\/storage\\/images\\/content\\/[-a-z0-9]{10,}\\.(jpg|gif)","resourceTypes":["image"]},"id":14,"priority":10},
+{"action":{"type":"block"},"condition":{"regexFilter":".com\\/belge\\/[\\w\\d]+\\.(gif|png)","resourceTypes":["image"]},"id":15,"priority":10}
 ]

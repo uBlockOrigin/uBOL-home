@@ -22,7 +22,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||mahimeta.com/networks/ad_code.php"},"id":22,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["funzen.net"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":23,"priority":41},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["impactoespananoticias.com"],"resourceTypes":["media"],"urlFilter":"||impactoespananoticias.com/download/publicidades.video.*.mp4"},"id":24,"priority":11},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["pobre.wtf"],"resourceTypes":["media"],"urlFilter":"||cloud.mail.ru/weblink/view/*?advideo"},"id":25,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["player.hentaistube.com"],"resourceTypes":["media"],"urlFilter":"||baixarhentais.com/*/*-pre-roll-*.mp4"},"id":26,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||hentaiporno.xxx/wp-content/uploads/*/*_video.mp4.mp4"},"id":27,"priority":11}
 ]

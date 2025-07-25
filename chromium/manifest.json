@@ -98,6 +98,11 @@
         "path": "/rulesets/main/annoyances-others.json"
       },
       {
+        "id": "ublock-experimental",
+        "enabled": false,
+        "path": "/rulesets/main/ublock-experimental.json"
+      },
+      {
         "id": "stevenblack-hosts",
         "enabled": false,
         "path": "/rulesets/main/stevenblack-hosts.json"
@@ -314,7 +319,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2025.718.1921",
+  "version": "2025.725.1450",
   "web_accessible_resources": [
     {
       "resources": [

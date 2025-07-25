@@ -176,6 +176,19 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?jpopsingles\\.eu/generate-link/ahr0c",
+  "steps": [
+   "/\\/generate-link\\/(aHR0c[^?#]+)/",
+   "-base64"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?adslink\\.pw/webroot/link/api\\?url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?meong\\.club/go(?:[^%.0-9a-z_-]|$)\\?",
   "steps": [
    "&1",

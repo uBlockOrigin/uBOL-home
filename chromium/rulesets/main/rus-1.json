@@ -567,6 +567,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["zebratelecom.ru"],"resourceTypes":["script"],"urlFilter":"||mc.yandex.ru/metrika/watch_visor.js"},"id":566,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["oblenergo.odessa.ua"],"resourceTypes":["script"],"urlFilter":"||oblenergo.odessa.ua/wp-content/plugins/oblenergo/assets/js/plugins/counter/"},"id":567,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["imgur.com"],"resourceTypes":["script"],"urlFilter":"||s.imgur.com/min/px.js?ch="},"id":568,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||yastatic.net/s3/games-static/_/build/game/desktop/yandex/promo."},"id":569,"priority":40},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["life.ru"],"resourceTypes":["script"],"urlFilter":"||static.criteo.net/js/ld/publishertag.js|"},"id":570,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["motor.ru"],"resourceTypes":["script"],"urlFilter":"||tns-counter.ru/tcounter.js|"},"id":571,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["only-paper.ru"],"resourceTypes":["script"],"urlFilter":"||only-paper.ru/*/"},"id":572,"priority":30},

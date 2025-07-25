@@ -10,10 +10,6 @@
   "regexFilter": "^https?://.*",
   "requestDomains": [
    "172.104.145.13",
-   "1terms.com",
-   "accesslnk.com",
-   "alkemi.com.se",
-   "alphalete.com.se",
    "analytics-smhise.smhi.se",
    "analytics.ahrefs.com",
    "analytics.alandpost.com",
@@ -28,27 +24,20 @@
    "brandy.bonniernewslifestyle.se",
    "bvads.bovision.se",
    "cdn.stroeerdigitalgroup.de",
-   "championsverige.com.se",
    "cmp.radioplay.se",
    "collect.breakit.se",
    "consent.podplay.com",
    "creativeconsortiuminspired.com",
    "didomi.nwtmedia.se",
-   "digitaliseringsinitiativet.se",
-   "dinbilgaranti.se",
    "es.loppi.se",
-   "footjoygolfskorrea.com.se",
-   "fraagesport.com",
    "gtm.findroommate.dk",
-   "gymshark-sweden.com.se",
    "images-ads.aland.com",
    "imp.laget.se",
    "ingest.analytics.nation.dev",
    "insights.tv4.a2d.tv",
    "js.evtr.nordiskemedier.dk",
-   "kyrkavgift.se",
    "lanapengar.expressen.se",
-   "longchampstockholm.com.se",
+   "logger.tv.nu",
    "look.ufinkln.com",
    "look.utndln.com",
    "m1.analytics.sitevision-cloud.se",
@@ -64,8 +53,6 @@
    "prylguiden.expressen.se",
    "pushnice.com",
    "pushwhy.com",
-   "rpofsweden.com",
-   "rpofsweden.se",
    "runtnc.net",
    "se-affiliate-gallery.aws.aller.com",
    "smartstats.kla.tv",
@@ -82,7 +69,6 @@
    "t.atmng.io",
    "t.fastcmp.com",
    "telemetry.bambuser.io",
-   "toppmarkensverige.com",
    "tracing.yelp.com",
    "track.intersport.se",
    "track.yetric.net",
@@ -90,7 +76,6 @@
    "tvm-tv4-freewheel.akamaized.net",
    "ues.vk.se",
    "umami.nordiskehandel.cloud",
-   "valentinosverige.com",
    "viagogo.se",
    "views.sociablekit.com",
    "wb-analytics.onecruiter.com"
@@ -116,38 +101,6 @@
   ]
  },
  "id": 2,
- "priority": 29
-},
-{
- "action": {
-  "redirect": {
-   "regexSubstitution": "/strictblock.html#\\0"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?online\\.swedbank\\.se\\.swedd\\..*",
-  "resourceTypes": [
-   "main_frame"
-  ]
- },
- "id": 3,
- "priority": 29
-},
-{
- "action": {
-  "redirect": {
-   "regexSubstitution": "/strictblock.html#\\0"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?look\\.utndln\\.com(?:[^%.0-9a-z_-]|$).*",
-  "resourceTypes": [
-   "main_frame"
-  ]
- },
- "id": 4,
  "priority": 29
 }
 ]

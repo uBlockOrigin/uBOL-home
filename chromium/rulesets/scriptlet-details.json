@@ -103,44 +103,7 @@
     "trusted-replace-outbound-text",
     {
      "hostnames": [
-      "abysscdn.com",
-      "armypowerinfo.com",
-      "artoffocas.com",
-      "bhugolinfo.com",
-      "cryptofactss.com",
-      "cxissuegk.com",
-      "dopomininfo.com",
-      "fitnesssguide.com",
-      "fullfreeimage.com",
-      "gknutshell.com",
-      "godstoryinfo.com",
-      "hihihaha1.xyz",
-      "hostingdetailer.com",
-      "hydraxcdn.biz",
-      "imagelovers.com",
-      "infinityscans.net",
-      "infinityscans.org",
-      "infinityscans.xyz",
-      "insurancesfact.com",
-      "laweducationinfo.com",
-      "learnmarketinfo.com",
-      "makeincomeinfo.com",
-      "phonereviewinfo.com",
-      "player-cdn.com",
-      "playermeow.com",
-      "playhydrax.com",
-      "rsgamer.app",
-      "rufiiguta.com",
-      "savemoneyinfo.com",
-      "skmedix.pl",
-      "softwaredetail.com",
-      "successstoryinfo.com",
-      "tradingfact4u.com",
-      "travellingdetail.com",
-      "vichitrainfo.com",
-      "workproductivityinfo.com",
-      "worldaffairinfo.com",
-      "www.youtube.com"
+      "*"
      ],
      "world": "MAIN"
     }
@@ -196,14 +159,7 @@
     "prevent-requestAnimationFrame",
     {
      "hostnames": [
-      "dudestream.com",
-      "elconfidencial.com",
-      "japscan.lol",
-      "journaldemontreal.com",
-      "needrom.com",
-      "news.bg",
-      "pussyspace.com",
-      "pussyspace.net"
+      "*"
      ],
      "world": "MAIN"
     }
@@ -212,8 +168,7 @@
     "trusted-set-attr",
     {
      "hostnames": [
-      "japscan.lol",
-      "mt-soft.sakura.ne.jp"
+      "*"
      ],
      "world": "ISOLATED"
     }
@@ -558,6 +513,15 @@
       "otakuanimess.net",
       "sbs.com.au",
       "superanimes.in"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "trusted-prevent-fetch",
+    {
+     "hostnames": [
+      "crunchyscan.fr"
      ],
      "world": "MAIN"
     }
@@ -2977,6 +2941,29 @@
   ]
  ],
  [
+  "ublock-experimental",
+  [
+   [
+    "trusted-replace-node-text",
+    {
+     "hostnames": [
+      "www.youtube.com"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
+    "trusted-json-edit-xhr-request",
+    {
+     "hostnames": [
+      "www.youtube.com"
+     ],
+     "world": "MAIN"
+    }
+   ]
+  ]
+ ],
+ [
   "ubol-tests",
   [
    [
@@ -3033,6 +3020,21 @@
  [
   "chn-0",
   [
+   [
+    "prevent-fetch",
+    {
+     "hostnames": [
+      "fsbot.xyz",
+      "hmanga.world",
+      "linetv.tw",
+      "mpyit.com",
+      "slashview.com",
+      "taiwanlibrarysearch.herokuapp.com",
+      "wandhi.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
    [
     "abort-current-script",
     {
@@ -3097,7 +3099,7 @@
       "tingfm.com",
       "tsubasa.im",
       "xbeibeix.com",
-      "zhenbuka.com"
+      "youziks.com"
      ],
      "world": "MAIN"
     }
@@ -3145,21 +3147,6 @@
       "papalah.com",
       "yfsp.tv",
       "youneed.win"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-fetch",
-    {
-     "hostnames": [
-      "04647.club",
-      "fsbot.xyz",
-      "hmanga.world",
-      "linetv.tw",
-      "mpyit.com",
-      "taiwanlibrarysearch.herokuapp.com",
-      "wandhi.com"
      ],
      "world": "MAIN"
     }
@@ -3241,7 +3228,6 @@
       "bukaivip.com",
       "iwatchme2u.com",
       "youku.com",
-      "zhenbuka2.com",
       "zhenbuka3.com"
      ],
      "world": "MAIN"
@@ -3718,11 +3704,7 @@
     "prevent-setTimeout",
     {
      "hostnames": [
-      "cookomix.com",
-      "gamekult.com",
-      "japscan.lol",
-      "jeune-gay.fr",
-      "voyageforum.com"
+      "*"
      ],
      "world": "MAIN"
     }
@@ -3781,6 +3763,15 @@
       "macg.co",
       "nicematin.com",
       "player.melaniezettofrais.online"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "prevent-requestAnimationFrame",
+    {
+     "hostnames": [
+      "cookomix.com"
      ],
      "world": "MAIN"
     }
@@ -3893,6 +3884,15 @@
     {
      "hostnames": [
       "mapcustomizer.com"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
+    "remove-node-text",
+    {
+     "hostnames": [
+      "hentaivost.fr"
      ],
      "world": "ISOLATED"
     }
@@ -4726,6 +4726,7 @@
       "in-jpn.com",
       "intaa.net",
       "jav380.com",
+      "mapion.co.jp",
       "onagazou.info",
       "oninet.ne.jp",
       "photo-ac.com",
@@ -6127,6 +6128,7 @@
     "json-prune-fetch-response",
     {
      "hostnames": [
+      "lumex.space",
       "ohmywishes.com",
       "player.smotrim.ru"
      ],
@@ -6581,7 +6583,6 @@
       "comandotorrents.org",
       "depor.com",
       "descargarhentaimf.xyz",
-      "desenhosanimados.site",
       "empregoestagios.com",
       "firepaste.com",
       "g37.com.br",
@@ -6595,7 +6596,6 @@
       "satcesc.com",
       "seriesperu.com",
       "softwareany.net",
-      "superflix.net",
       "xerifetech.com"
      ],
      "world": "MAIN"
@@ -6706,13 +6706,11 @@
     {
      "hostnames": [
       "animesbr.cc",
-      "cursomecanet.com",
       "dragonball.sullca.com",
       "firepaste.com",
       "hentaikai.com",
       "manga-mx.com",
       "meuwindows.com",
-      "mrpiracy.top",
       "raulprietofernandez.net",
       "superhq.net",
       "tunovelaligera.com"
@@ -7030,6 +7028,7 @@
       "lakartidningen.se",
       "livsmedelsnyheter.se",
       "matsafari.nu",
+      "modernpsykologi.se",
       "nyadagbladet.se",
       "passioneffect.se",
       "polistidningen.se",
@@ -7727,11 +7726,9 @@
       "doramakun.ru",
       "elektronika56.ru",
       "fanofnfs.3dn.ru",
-      "friends-online.me",
       "greenflash.su",
       "igrul-ka.ru",
       "jetvis.ru",
-      "kino-live2.org",
       "kino-torrent.net",
       "kinogo.eu",
       "kubik3.ru",
@@ -8018,16 +8015,16 @@
       "10gb.vn",
       "abysscdn.com",
       "afamily.vn",
-      "animevietsub.lol",
+      "animevietsub.cam",
       "buomtv.live",
       "cafef.vn",
       "cdn4.tiptoe34x1.fun",
       "childish2x2.fun",
-      "cliphot69.beer",
       "cliphot69.pics",
+      "cliphot69.shop",
       "clipsexsub3x.net",
       "cunghocvui.com",
-      "damconuong.cam",
+      "damconuong.run",
       "demo.14412882.com",
       "doctruyen3qui12.pro",
       "dualeotruyenp.com",
@@ -8039,7 +8036,8 @@
       "gocmod.com",
       "goctruyentranhvui17.com",
       "gotphim.com",
-      "haysex.tube",
+      "haysex.ai",
+      "haysex.site",
       "hentaivl.top",
       "hh3dhay.life",
       "hhtq5.vip",
@@ -8055,13 +8053,13 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "lrepacks.net",
-      "lxmanga.blog",
+      "lxmanga.my",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill96.com",
+      "motchill97.com",
       "motchilltvphim.com",
-      "nettruyenrr.com",
-      "nettruyenvio.com",
+      "nettruyenar.com",
+      "nettruyenvia.com",
       "p.thoctv.com",
       "phim18hdxx.com",
       "phimmoi.sale",
@@ -8096,8 +8094,7 @@
       "vlxx.bz",
       "vn2.xvideos69.xxx",
       "vn5.sexviet88.xyz",
-      "vn52phimsexhay.com",
-      "vnhaysexvn.com",
+      "vn56phimsexhay.com",
       "vungoctuan.vn",
       "www.sieutamphim.org",
       "www.toptruyentv8.com",
@@ -8113,8 +8110,8 @@
     {
      "hostnames": [
       "anh.moe",
-      "anime10.site",
-      "anime47.shop",
+      "anime11.site",
+      "anime47.live",
       "animevietsubs.net",
       "aoe.vn",
       "audiotruyenfull.com",
@@ -8127,8 +8124,7 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "momofilmfest.com",
-      "motchill96.com",
+      "motchill97.com",
       "motchilll.id",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
@@ -8146,6 +8142,7 @@
       "thichxemphim1.site",
       "thuvienhd.biz",
       "tinsoikeo.live",
+      "tourist-information-uk.com",
       "truyenfull.vision",
       "truyensieuhay.com",
       "tv.tvhayhd.org",
@@ -8156,7 +8153,6 @@
       "www.phimdinhcao.online",
       "xemphimjav.us",
       "xnhau.sh",
-      "ytstv.me",
       "znews.vn"
      ],
      "world": "MAIN"
@@ -8180,6 +8176,7 @@
       "cafef.vn",
       "cliphot69.pics",
       "clipsex.cam",
+      "consocollaborative.com",
       "freeplayervideo.com",
       "gamek.vn",
       "genk.vn",
@@ -8192,10 +8189,8 @@
       "subnhanh1.org",
       "tailieumoi.vn",
       "thanhnien.vn",
-      "tipplingclub.com",
       "tuoitre.vn",
       "vndoc.com",
-      "ww1.ditnhau.cc",
       "www.gvnvh.net",
       "www.iosviet.com"
      ],

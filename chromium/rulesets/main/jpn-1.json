@@ -558,7 +558,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||movie-rush.com/files/js/ad/"},"id":557,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mangalifewin.takeshobo.co.jp/usr-data/units/bjava/disp.php"},"id":558,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||milk-key.com/ad/"},"id":559,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||kotobank.jp/dist/kyujinbox/"},"id":560,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/dist/kyujinbox/jobs.json"},"id":560,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||caramel-sp.com/ad/"},"id":561,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["h1g.jp"],"resourceTypes":["script"],"urlFilter":"||edayo.ad-drop.jp/yie/ld/jsk"},"id":562,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||game8.jp/assets/*/ads/"},"id":563,"priority":10},
@@ -1522,7 +1522,10 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".icu/verify|"},"id":1521,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["dmm.com"],"urlFilter":"||cdn.dap.dmm.co.jp^"},"id":1522,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["kakaku.com"],"urlFilter":"||afl.rakuten.co.jp^"},"id":1523,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||sotolover.com/wp-content/uploads/2024/11/afbanner_sidetop.jpg"},"id":1524,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||mapion.co.jp/f/adoverture/"},"id":1525,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["video-ac.com"],"urlFilter":"||safeframe.googlesyndication.com/safeframe/"},"id":1526,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||mapion.co.jp/partials/ad.html"},"id":1527,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://dhl-*/portal_login_exp/getquotetab/"},"id":1528,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".com/etgate/accountdata?redirecttoken="},"id":1529,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","excludedInitiatorDomains":["jp"],"resourceTypes":["image"],"urlFilter":"/images/caribian.jpg|"},"id":1530,"priority":10},
@@ -1541,8 +1544,10 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image","xmlhttprequest"],"urlFilter":"||wiki.yjsnpi.nu^"},"id":1543,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["nwknews.jp"],"urlFilter":"||richlink.blogsys.jp/embed/f5c8e32e-0d80-3de4-9874-bb994a143d82"},"id":1544,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||gamewith.jp/*_jack_ad/images/"},"id":1545,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||mangapedia.com/js/kyujinbox.js"},"id":1546,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://www-dmm.*.com/rajklnc/"},"id":1547,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://mastercard-*.cn/features-benefits/"},"id":1548,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://icloud-*.cn/"},"id":1549,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://sb1-*.com/etgate/accountdata^"},"id":1550,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://visa-*.com/pay-with-featured/"},"id":1551,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"|http://3.34.69.214/rel/p/"},"id":1552,"priority":10},
@@ -1566,5 +1571,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/ba3056b7cb.php"},"id":1570,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||kamikouryaku.*/files/hybrid-adsense-loader.js"},"id":1571,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://etc-*.cn/rfuncc1"},"id":1572,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||gallerieshub.com^"},"id":1573,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||gallerieshub.com^"},"id":1573,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":".com/yz.php|"},"id":1574,"priority":10}
 ]

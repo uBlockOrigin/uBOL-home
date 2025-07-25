@@ -19,21 +19,21 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// ruleset: easylist
+// ruleset: easyprivacy
 
 // Important!
 // Isolate from global scope
-(function uBOL_cssDeclarativeImport() {
+(function uBOL_cssProceduralImport() {
 
 /******************************************************************************/
 
-const argsList = ["","{\"selector\":\"#readerChromeOverlayBottom.readerChromeOverlayBottom-banner-desktop\",\"action\":[\"style\",\"bottom:0 !important;\"]}","{\"selector\":\".cUDaEv\",\"action\":[\"style\",\"margin-top:162px !important;\"]}\n{\"selector\":\".gZyLpV .mobile-header\",\"action\":[\"style\",\"margin-top:0 !important;\"]}\n{\"selector\":\".iOxiqE .mobile-header\",\"action\":[\"style\",\"margin-top:0 !important;\"]}","{\"selector\":\".video-player--stream-display-ad_lower-third\",\"action\":[\"style\",\"height:100% !important;\"]}"];
+const argsList = ["[]","[{\"selector\":\"html[class^=\\\"loading\\\"]\",\"action\":[\"style\",\"visibility: visible !important;\"],\"cssable\":true}]","[{\"selector\":\".inviewSection:not(.is-show)\",\"action\":[\"style\",\"transform: translateY(0) !important; opacity: 1 !important;\"],\"cssable\":true}]","[{\"selector\":\"body[style=\\\"opacity: 0;\\\"]\",\"action\":[\"style\",\"opacity: 1 !important;\"],\"cssable\":true}]"];
 const argsSeqs = [0,1,2,3];
-const hostnamesMap = new Map([["read.amazon.*",1],["benzinga.com",2],["twitch.tv",3]]);
-const hasEntities = true;
+const hostnamesMap = new Map([["anikore.jp",1],["e-begin.jp",2],["mustar.meitetsu.co.jp",3],["bitdefender.com",3]]);
+const hasEntities = false;
 
-self.declarativeImports = self.declarativeImports || [];
-self.declarativeImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
+self.proceduralImports = self.proceduralImports || [];
+self.proceduralImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
 
 /******************************************************************************/
 

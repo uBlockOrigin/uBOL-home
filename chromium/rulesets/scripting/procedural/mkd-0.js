@@ -19,21 +19,21 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// ruleset: easyprivacy
+// ruleset: mkd-0
 
 // Important!
 // Isolate from global scope
-(function uBOL_cssDeclarativeImport() {
+(function uBOL_cssProceduralImport() {
 
 /******************************************************************************/
 
-const argsList = ["","{\"selector\":\"html[class^=\\\"loading\\\"]\",\"action\":[\"style\",\"visibility: visible !important;\"]}","{\"selector\":\".inviewSection:not(.is-show)\",\"action\":[\"style\",\"transform: translateY(0) !important; opacity: 1 !important;\"]}","{\"selector\":\"body[style=\\\"opacity: 0;\\\"]\",\"action\":[\"style\",\"opacity: 1 !important;\"]}"];
-const argsSeqs = [0,1,2,3];
-const hostnamesMap = new Map([["anikore.jp",1],["e-begin.jp",2],["mustar.meitetsu.co.jp",3]]);
+const argsList = ["[]","[{\"selector\":\"#ablockercheck\",\"action\":[\"style\",\"display: block !important;\"],\"cssable\":true}]","[{\"selector\":\"body\",\"action\":[\"style\",\"background-image: none !important;\"],\"cssable\":true}]"];
+const argsSeqs = [0,1,2];
+const hostnamesMap = new Map([["stream.mk",1],["sportski.mk",2]]);
 const hasEntities = false;
 
-self.declarativeImports = self.declarativeImports || [];
-self.declarativeImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
+self.proceduralImports = self.proceduralImports || [];
+self.proceduralImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
 
 /******************************************************************************/
 

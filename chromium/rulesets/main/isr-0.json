@@ -111,6 +111,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["13news.co.il"],"resourceTypes":["websocket"],"urlFilter":"||13news.co.il^"},"id":110,"priority":40},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["13tv.co.il"],"resourceTypes":["websocket"],"urlFilter":"||13tv.co.il^"},"id":111,"priority":40},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||ban.d-group.co.il/banners/"},"id":112,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["sheee.co.il","walla.co.il"],"resourceTypes":["sub_frame"],"urlFilter":"||stari.world/neviotplus"},"id":113,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["fxp.co.il"],"resourceTypes":["sub_frame"],"urlFilter":"||widget.walla.co.il/wallaplayer"},"id":115,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kikar.co.il"],"urlFilter":"||akamai.advsnx.net/cdn/"},"id":116,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||akamai.advsnx.net/cdn/walla/"},"id":117,"priority":30},

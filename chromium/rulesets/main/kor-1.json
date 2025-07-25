@@ -757,7 +757,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||toonimg.com/data/files/banner/"},"id":756,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||toonkor*.com/images/*.gif"},"id":757,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||wwwimageup.angle777899.com/other/atoona/"},"id":758,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["m-sooriya.tistory.com"],"urlFilter":"||ifh.cc^"},"id":759,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["m-sooriya.tistory.com"],"requestDomains":["i.postimg.cc","ifh.cc"]},"id":759,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["devjit.tistory.com"],"urlFilter":"||tistory1.daumcdn.net/tistory/3827361/skin/images/script3.js"},"id":760,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ssulwar.com/dev/modules/board/skins/*/js/adblockblock.js"},"id":761,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.kollhong.com/wp-content/custom-js/fuckadblock.min.js"},"id":762,"priority":10},

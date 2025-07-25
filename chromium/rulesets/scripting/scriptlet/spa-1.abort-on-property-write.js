@@ -266,8 +266,8 @@ function getRandomTokenFn() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["checkAdsStatus"],["queTeDen"],["adregain_wall"],["adblock"],["ai_front"],["redirectpage"],["exopop"],["protData"],["pUrlArray"],["pfcu1"],["anuncioConfig"],["setRandomBanner"]];
-const hostnamesMap = new Map([["firepaste.com",0],["cursomecanet.com",1],["tunovelaligera.com",2],["manga-mx.com",3],["meuwindows.com",4],["animesbr.cc",5],["superhq.net",[6,7]],["hentaikai.com",7],["raulprietofernandez.net",8],["mrpiracy.top",9],["dragonball.sullca.com",[10,11]]]);
+const argsList = [["checkAdsStatus"],["adregain_wall"],["adblock"],["ai_front"],["redirectpage"],["exopop"],["protData"],["pUrlArray"],["anuncioConfig"],["setRandomBanner"]];
+const hostnamesMap = new Map([["firepaste.com",0],["tunovelaligera.com",1],["manga-mx.com",2],["meuwindows.com",3],["animesbr.cc",4],["superhq.net",[5,6]],["hentaikai.com",6],["raulprietofernandez.net",7],["dragonball.sullca.com",[8,9]]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
