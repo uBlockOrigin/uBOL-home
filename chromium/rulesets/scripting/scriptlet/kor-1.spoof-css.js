@@ -20,181 +20,132 @@
 
 */
 
-// ruleset: irn-0
+// ruleset: kor-1
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_noWindowOpenIf() {
+(function uBOL_spoofCSS() {
 
 /******************************************************************************/
 
-function noWindowOpenIf(
-    pattern = '',
-    delay = '',
-    decoy = ''
+function spoofCSS(
+    selector,
+    ...args
 ) {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('no-window-open-if', pattern, delay, decoy);
-    const targetMatchResult = pattern.startsWith('!') === false;
-    if ( targetMatchResult === false ) {
-        pattern = pattern.slice(1);
-    }
-    const rePattern = safe.patternToRegex(pattern);
-    const autoRemoveAfter = (parseFloat(delay) || 0) * 1000;
-    const setTimeout = self.setTimeout;
-    const createDecoy = function(tag, urlProp, url) {
-        const decoyElem = document.createElement(tag);
-        decoyElem[urlProp] = url;
-        decoyElem.style.setProperty('height','1px', 'important');
-        decoyElem.style.setProperty('position','fixed', 'important');
-        decoyElem.style.setProperty('top','-1px', 'important');
-        decoyElem.style.setProperty('width','1px', 'important');
-        document.body.appendChild(decoyElem);
-        setTimeout(( ) => { decoyElem.remove(); }, autoRemoveAfter);
-        return decoyElem;
-    };
-    const noopFunc = function(){};
-    proxyApplyFn('open', function open(context) {
-        if ( pattern === 'debug' && safe.logLevel !== 0 ) {
-            debugger; // eslint-disable-line no-debugger
-            return context.reflect();
-        }
-        const { callArgs } = context;
-        const haystack = callArgs.join(' ');
-        if ( rePattern.test(haystack) !== targetMatchResult ) {
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `Allowed (${callArgs.join(', ')})`);
-            }
-            return context.reflect();
-        }
-        safe.uboLog(logPrefix, `Prevented (${callArgs.join(', ')})`);
-        if ( delay === '' ) { return null; }
-        if ( decoy === 'blank' ) {
-            callArgs[0] = 'about:blank';
-            const r = context.reflect();
-            setTimeout(( ) => { r.close(); }, autoRemoveAfter);
-            return r;
-        }
-        const decoyElem = decoy === 'obj'
-            ? createDecoy('object', 'data', ...callArgs)
-            : createDecoy('iframe', 'src', ...callArgs);
-        let popup = decoyElem.contentWindow;
-        if ( typeof popup === 'object' && popup !== null ) {
-            Object.defineProperty(popup, 'closed', { value: false });
+    if ( typeof selector !== 'string' ) { return; }
+    if ( selector === '' ) { return; }
+    const toCamelCase = s => s.replace(/-[a-z]/g, s => s.charAt(1).toUpperCase());
+    const propToValueMap = new Map();
+    const privatePropToValueMap = new Map();
+    for ( let i = 0; i < args.length; i += 2 ) {
+        const prop = toCamelCase(args[i+0]);
+        if ( prop === '' ) { break; }
+        const value = args[i+1];
+        if ( typeof value !== 'string' ) { break; }
+        if ( prop.charCodeAt(0) === 0x5F /* _ */ ) {
+            privatePropToValueMap.set(prop, value);
         } else {
-            popup = new Proxy(self, {
-                get: function(target, prop, ...args) {
-                    if ( prop === 'closed' ) { return false; }
-                    const r = Reflect.get(target, prop, ...args);
-                    if ( typeof r === 'function' ) { return noopFunc; }
-                    return r;
-                },
-                set: function(...args) {
-                    return Reflect.set(...args);
-                },
-            });
+            propToValueMap.set(prop, value);
         }
-        if ( safe.logLevel !== 0 ) {
-            popup = new Proxy(popup, {
-                get: function(target, prop, ...args) {
-                    const r = Reflect.get(target, prop, ...args);
-                    safe.uboLog(logPrefix, `popup / get ${prop} === ${r}`);
-                    if ( typeof r === 'function' ) {
-                        return (...args) => { return r.call(target, ...args); };
+    }
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('spoof-css', selector, ...args);
+    const instanceProperties = [ 'cssText', 'length', 'parentRule' ];
+    const spoofStyle = (prop, real) => {
+        const normalProp = toCamelCase(prop);
+        const shouldSpoof = propToValueMap.has(normalProp);
+        const value = shouldSpoof ? propToValueMap.get(normalProp) : real;
+        if ( shouldSpoof ) {
+            safe.uboLog(logPrefix, `Spoofing ${prop} to ${value}`);
+        }
+        return value;
+    };
+    const cloackFunc = (fn, thisArg, name) => {
+        const trap = fn.bind(thisArg);
+        Object.defineProperty(trap, 'name', { value: name });
+        Object.defineProperty(trap, 'toString', {
+            value: ( ) => `function ${name}() { [native code] }`
+        });
+        return trap;
+    };
+    self.getComputedStyle = new Proxy(self.getComputedStyle, {
+        apply: function(target, thisArg, args) {
+            // eslint-disable-next-line no-debugger
+            if ( privatePropToValueMap.has('_debug') ) { debugger; }
+            const style = Reflect.apply(target, thisArg, args);
+            const targetElements = new WeakSet(document.querySelectorAll(selector));
+            if ( targetElements.has(args[0]) === false ) { return style; }
+            const proxiedStyle = new Proxy(style, {
+                get(target, prop) {
+                    if ( typeof target[prop] === 'function' ) {
+                        if ( prop === 'getPropertyValue' ) {
+                            return cloackFunc(function getPropertyValue(prop) {
+                                return spoofStyle(prop, target[prop]);
+                            }, target, 'getPropertyValue');
+                        }
+                        return cloackFunc(target[prop], target, prop);
                     }
-                    return r;
+                    if ( instanceProperties.includes(prop) ) {
+                        return Reflect.get(target, prop);
+                    }
+                    return spoofStyle(prop, Reflect.get(target, prop));
                 },
-                set: function(target, prop, value, ...args) {
-                    safe.uboLog(logPrefix, `popup / set ${prop} = ${value}`);
-                    return Reflect.set(target, prop, value, ...args);
+                getOwnPropertyDescriptor(target, prop) {
+                    if ( propToValueMap.has(prop) ) {
+                        return {
+                            configurable: true,
+                            enumerable: true,
+                            value: propToValueMap.get(prop),
+                            writable: true,
+                        };
+                    }
+                    return Reflect.getOwnPropertyDescriptor(target, prop);
                 },
             });
-        }
-        return popup;
-    });
-}
-
-function proxyApplyFn(
-    target = '',
-    handler = ''
-) {
-    let context = globalThis;
-    let prop = target;
-    for (;;) {
-        const pos = prop.indexOf('.');
-        if ( pos === -1 ) { break; }
-        context = context[prop.slice(0, pos)];
-        if ( context instanceof Object === false ) { return; }
-        prop = prop.slice(pos+1);
-    }
-    const fn = context[prop];
-    if ( typeof fn !== 'function' ) { return; }
-    if ( proxyApplyFn.CtorContext === undefined ) {
-        proxyApplyFn.ctorContexts = [];
-        proxyApplyFn.CtorContext = class {
-            constructor(...args) {
-                this.init(...args);
-            }
-            init(callFn, callArgs) {
-                this.callFn = callFn;
-                this.callArgs = callArgs;
-                return this;
-            }
-            reflect() {
-                const r = Reflect.construct(this.callFn, this.callArgs);
-                this.callFn = this.callArgs = this.private = undefined;
-                proxyApplyFn.ctorContexts.push(this);
-                return r;
-            }
-            static factory(...args) {
-                return proxyApplyFn.ctorContexts.length !== 0
-                    ? proxyApplyFn.ctorContexts.pop().init(...args)
-                    : new proxyApplyFn.CtorContext(...args);
-            }
-        };
-        proxyApplyFn.applyContexts = [];
-        proxyApplyFn.ApplyContext = class {
-            constructor(...args) {
-                this.init(...args);
-            }
-            init(callFn, thisArg, callArgs) {
-                this.callFn = callFn;
-                this.thisArg = thisArg;
-                this.callArgs = callArgs;
-                return this;
-            }
-            reflect() {
-                const r = Reflect.apply(this.callFn, this.thisArg, this.callArgs);
-                this.callFn = this.thisArg = this.callArgs = this.private = undefined;
-                proxyApplyFn.applyContexts.push(this);
-                return r;
-            }
-            static factory(...args) {
-                return proxyApplyFn.applyContexts.length !== 0
-                    ? proxyApplyFn.applyContexts.pop().init(...args)
-                    : new proxyApplyFn.ApplyContext(...args);
-            }
-        };
-    }
-    const fnStr = fn.toString();
-    const toString = (function toString() { return fnStr; }).bind(null);
-    const proxyDetails = {
-        apply(target, thisArg, args) {
-            return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
+            return proxiedStyle;
         },
         get(target, prop) {
-            if ( prop === 'toString' ) { return toString; }
+            if ( prop === 'toString' ) {
+                return target.toString.bind(target);
+            }
             return Reflect.get(target, prop);
         },
-    };
-    if ( fn.prototype?.constructor === fn ) {
-        proxyDetails.construct = function(target, args) {
-            return handler(proxyApplyFn.CtorContext.factory(target, args));
-        };
-    }
-    context[prop] = new Proxy(fn, proxyDetails);
+    });
+    Element.prototype.getBoundingClientRect = new Proxy(Element.prototype.getBoundingClientRect, {
+        apply: function(target, thisArg, args) {
+            // eslint-disable-next-line no-debugger
+            if ( privatePropToValueMap.has('_debug') ) { debugger; }
+            const rect = Reflect.apply(target, thisArg, args);
+            const targetElements = new WeakSet(document.querySelectorAll(selector));
+            if ( targetElements.has(thisArg) === false ) { return rect; }
+            let { x, y, height, width } = rect;
+            if ( privatePropToValueMap.has('_rectx') ) {
+                x = parseFloat(privatePropToValueMap.get('_rectx'));
+            }
+            if ( privatePropToValueMap.has('_recty') ) {
+                y = parseFloat(privatePropToValueMap.get('_recty'));
+            }
+            if ( privatePropToValueMap.has('_rectw') ) {
+                width = parseFloat(privatePropToValueMap.get('_rectw'));
+            } else if ( propToValueMap.has('width') ) {
+                width = parseFloat(propToValueMap.get('width'));
+            }
+            if ( privatePropToValueMap.has('_recth') ) {
+                height = parseFloat(privatePropToValueMap.get('_recth'));
+            } else if ( propToValueMap.has('height') ) {
+                height = parseFloat(propToValueMap.get('height'));
+            }
+            return new self.DOMRect(x, y, width, height);
+        },
+        get(target, prop) {
+            if ( prop === 'toString' ) {
+                return target.toString.bind(target);
+            }
+            return Reflect.get(target, prop);
+        },
+    });
 }
 
 function safeSelf() {
@@ -390,8 +341,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [[]];
-const hostnamesMap = new Map([["artmusics.top",0],["musicpars3.ir",0],["musicguitars.ir",0],["subf2m.ir",0],["zeemusic.ir",0],["najiremix.ir",0],["musichi.ir",0],["likeemusic.ir",0],["appiroid.ir",0],["androidtime.com",0],["farsroid.com",0],["getandroid.ir",0],["musictag.ir",0],["musickhone.com",0],["naslmusic.ir",0],["power-music.ir",0],["uploadgoogle.ir",0],["uptrack.ir",0]]);
+const argsList = [[".adsbygoogle","display","block"]];
+const hostnamesMap = new Map([["remiz.co.kr",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -459,7 +410,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { noWindowOpenIf(...argsList[i]); }
+    try { spoofCSS(...argsList[i]); }
     catch { }
 }
 

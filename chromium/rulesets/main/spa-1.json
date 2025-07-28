@@ -43,6 +43,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||folha.uol.com.br/folha/furniture/paywall/loader.js"},"id":42,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||folha.uol.com.br/folha/furniture/paywall/"},"id":43,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||static.folha.com.br/paywall/"},"id":44,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["netcine.lat"],"urlFilter":"||cdn.jsdelivr.net/npm/sweetalert"},"id":45,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/vast_1win.xml"},"id":46,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/imagenes_publicidad/"},"id":47,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"-publicidad-"},"id":48,"priority":10},

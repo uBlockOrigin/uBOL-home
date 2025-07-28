@@ -371,10 +371,10 @@ function getRandomTokenFn() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["document.addEventListener","popup"],["getComputedStyle","","cpm"]];
-const hostnamesMap = new Map([["onnano.tv",0],["doroni.me",1]]);
+const argsList = [["document.addEventListener","popup"],["getComputedStyle","","cpm"],["chp_ads_blocker_detector"]];
+const hostnamesMap = new Map([["onnano.tv",0],["doroni.me",1],["lk21semi.*",2]]);
 const exceptionsMap = new Map([]);
-const hasEntities = false;
+const hasEntities = true;
 const hasAncestors = false;
 
 const collectArgIndices = (hn, map, out) => {

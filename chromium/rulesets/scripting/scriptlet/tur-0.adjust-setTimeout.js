@@ -20,51 +20,42 @@
 
 */
 
-// ruleset: irn-0
+// ruleset: tur-0
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_abortOnPropertyWrite() {
+(function uBOL_adjustSetTimeout() {
 
 /******************************************************************************/
 
-function abortOnPropertyWrite(
-    prop = ''
+function adjustSetTimeout(
+    needleArg = '',
+    delayArg = '',
+    boostArg = ''
 ) {
-    if ( typeof prop !== 'string' ) { return; }
-    if ( prop === '' ) { return; }
+    if ( typeof needleArg !== 'string' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('abort-on-property-write', prop);
-    const exceptionToken = getExceptionTokenFn();
-    let owner = window;
-    for (;;) {
-        const pos = prop.indexOf('.');
-        if ( pos === -1 ) { break; }
-        owner = owner[prop.slice(0, pos)];
-        if ( owner instanceof Object === false ) { return; }
-        prop = prop.slice(pos + 1);
-    }
-    delete owner[prop];
-    Object.defineProperty(owner, prop, {
-        set: function() {
-            safe.uboLog(logPrefix, 'Aborted');
-            throw new ReferenceError(exceptionToken);
+    const reNeedle = safe.patternToRegex(needleArg);
+    let delay = delayArg !== '*' ? parseInt(delayArg, 10) : -1;
+    if ( isNaN(delay) || isFinite(delay) === false ) { delay = 1000; }
+    let boost = parseFloat(boostArg);
+    boost = isNaN(boost) === false && isFinite(boost)
+        ? Math.min(Math.max(boost, 0.001), 50)
+        : 0.05;
+    self.setTimeout = new Proxy(self.setTimeout, {
+        apply: function(target, thisArg, args) {
+            const [ a, b ] = args;
+            if (
+                (delay === -1 || b === delay) &&
+                reNeedle.test(a.toString())
+            ) {
+                args[1] = b * boost;
+            }
+            return target.apply(thisArg, args);
         }
     });
-}
-
-function getExceptionTokenFn() {
-    const token = getRandomTokenFn();
-    const oe = self.onerror;
-    self.onerror = function(msg, ...args) {
-        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
-        if ( oe instanceof Function ) {
-            return oe.call(this, msg, ...args);
-        }
-    }.bind();
-    return token;
 }
 
 function safeSelf() {
@@ -257,19 +248,13 @@ function safeSelf() {
     return safe;
 }
 
-function getRandomTokenFn() {
-    const safe = safeSelf();
-    return safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
-}
-
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["document.oncopy"]];
-const hostnamesMap = new Map([["fileboro.com",0]]);
+const argsList = [["ifrld","*","0.001"]];
+const hostnamesMap = new Map([["hdfilmsitesi.*",0]]);
 const exceptionsMap = new Map([]);
-const hasEntities = false;
+const hasEntities = true;
 const hasAncestors = false;
 
 const collectArgIndices = (hn, map, out) => {
@@ -335,7 +320,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { abortOnPropertyWrite(...argsList[i]); }
+    try { adjustSetTimeout(...argsList[i]); }
     catch { }
 }
 

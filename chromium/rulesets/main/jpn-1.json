@@ -115,7 +115,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["finance.yahoo.co.jp"],"urlFilter":"||s.yimg.jp/images/finance/nisa/image/banner/sbi/"},"id":114,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||stat.ameba.jp/user_images/20210415/17/kotaro-izawa/69/4f/j/o1080108014926818586.jpg"},"id":115,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["hobbylabon.com"],"urlFilter":"||suruga-ya.jp/images/idol_bn.jpg"},"id":116,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["asia","bar","beauty","best","biz","bond","buzz","cam","casa","cfd","click","cloud","club","cyou","fashion","fit","forum","fun","gay","homes","icu","ink","lat","life","live","ltd","makeup","me","mom","monster","my","one","online","pics","pro","qpon","quest","rest","ru.com","sa.com","sbs","shop","site","skin","space","store","tokyo","top","website","wiki","work","xyz","yachts","yoga","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info*&cpath="},"id":117,"priority":10},
+{"action":{"type":"block"},"condition":{"requestDomains":["asia","bar","beauty","best","biz","bond","buzz","cam","casa","cfd","click","cloud","club","cyou","fashion","fit","forum","fun","gay","homes","icu","ink","lat","life","live","ltd","makeup","me","mom","monster","my","one","online","pics","pro","qpon","quest","rest","ru.com","run","sa.com","sbs","shop","site","skin","space","store","tokyo","top","website","wiki","work","xyz","yachts","yoga","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info*&cpath="},"id":117,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["fashion-news.net"],"urlFilter":"||wp.com/aun-company.com/auhikari/bnr/300_250.png"},"id":118,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["fashion-news.net"],"urlFilter":"||wp.com/images-fe.ssl-images-amazon.com/images/g/"},"id":119,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["fashion-news.net"],"urlFilter":"||wp.com/m.media-amazon.com/images/i/"},"id":120,"priority":10},
@@ -187,7 +187,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||city.higashimurayama.tokyo.jp/js/banner_random.js"},"id":186,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||blog.livedoor.jp/itsoku/scroll2.js"},"id":187,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||excite.co.jp/jp/transfer/iframe/ad/"},"id":188,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["asia","bar","beauty","best","biz","bond","buzz","cam","casa","cfd","click","cloud","club","cyou","fashion","fit","forum","fun","gay","homes","icu","ink","lat","life","live","ltd","makeup","me","mom","monster","my","one","online","pics","pro","qpon","quest","rest","ru.com","sa.com","sbs","shop","site","skin","space","store","tokyo","top","website","wiki","work","xyz","yachts","yoga","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info&products_id="},"id":189,"priority":10},
+{"action":{"type":"block"},"condition":{"requestDomains":["asia","bar","beauty","best","biz","bond","buzz","cam","casa","cfd","click","cloud","club","cyou","fashion","fit","forum","fun","gay","homes","icu","ink","lat","life","live","ltd","makeup","me","mom","monster","my","one","online","pics","pro","qpon","quest","rest","ru.com","run","sa.com","sbs","shop","site","skin","space","store","tokyo","top","website","wiki","work","xyz","yachts","yoga","za.com"],"resourceTypes":["main_frame"],"urlFilter":"/index.php?main_page=product_info&products_id="},"id":189,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||benricho.org/2017js/sidebar-amazon.js"},"id":190,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||twoucan.com/ad?"},"id":191,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["biz-journal.jp","g-journal.jp"],"urlFilter":"/adframes.js"},"id":192,"priority":10},
@@ -1572,5 +1572,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||kamikouryaku.*/files/hybrid-adsense-loader.js"},"id":1571,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://etc-*.cn/rfuncc1"},"id":1572,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||gallerieshub.com^"},"id":1573,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":".com/yz.php|"},"id":1574,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":".com/yz.php|"},"id":1574,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||storage.googleapis.com/*/media/jp.mp4"},"id":1575,"priority":10}
 ]

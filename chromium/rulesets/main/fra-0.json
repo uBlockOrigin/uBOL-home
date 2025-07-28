@@ -273,6 +273,7 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||ecodent.shop/userfiles/"},"id":272,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image","script","xmlhttprequest"],"urlFilter":"||japscan."},"id":273,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":".com.sa/ads/"},"id":274,"priority":10},
+{"action":{"type":"allow"},"condition":{"urlFilter":"||127.0.0.1*/jdcheck.js"},"id":275,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":".com/adj/"},"id":276,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":".com/bnr/"},"id":281,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["sponsored.qz.com"],"urlFilter":".com/sponsors/"},"id":284,"priority":10},

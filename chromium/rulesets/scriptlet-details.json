@@ -109,6 +109,15 @@
     }
    ],
    [
+    "trusted-json-edit-fetch-request",
+    {
+     "hostnames": [
+      "www.youtube.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "json-edit",
     {
      "hostnames": [
@@ -347,6 +356,7 @@
       "disqus.com",
       "dobreprogramy.pl",
       "fastpic.org",
+      "fitdynamos.com",
       "fotoblogia.pl",
       "gadzetomania.pl",
       "gecmisi.com.tr",
@@ -359,6 +369,7 @@
       "hoyolab.com",
       "hoyoverse.com",
       "jastrzabpost.pl",
+      "jobzhub.store",
       "kafeteria.pl",
       "komorkomania.pl",
       "labgame.io",
@@ -530,11 +541,7 @@
     "close-window",
     {
      "hostnames": [
-      "coffeete.ir",
-      "norton.com",
-      "smostafa.ir",
-      "soft98.ir",
-      "sysban.ir"
+      "norton.com"
      ],
      "world": "ISOLATED"
     }
@@ -635,6 +642,7 @@
       "expressnews.com",
       "fortmorgantimes.com",
       "greeleytribune.com",
+      "healf.com",
       "journal-advocate.com",
       "journaldemontreal.com",
       "julesburgadvocate.com",
@@ -4084,8 +4092,7 @@
     "abort-current-script",
     {
      "hostnames": [
-      "doroni.me",
-      "onnano.tv"
+      "*"
      ],
      "world": "MAIN"
     }
@@ -4096,7 +4103,8 @@
      "hostnames": [
       "info.mapsaddress.com",
       "info.vebma.com",
-      "kompas.com"
+      "kompas.com",
+      "moutogami.com"
      ],
      "world": "MAIN"
     }
@@ -4105,8 +4113,7 @@
     "abort-on-property-read",
     {
      "hostnames": [
-      "3gpterbaru.com",
-      "juraganfilm.ink"
+      "*"
      ],
      "world": "MAIN"
     }
@@ -4231,260 +4238,10 @@
   "irn-0",
   [
    [
-    "prevent-window-open",
+    "abort-on-stack-trace",
     {
      "hostnames": [
-      "androidtime.com",
-      "appiroid.ir",
-      "artmusics.top",
-      "farsroid.com",
-      "getandroid.ir",
-      "likeemusic.ir",
-      "musicguitars.ir",
-      "musichi.ir",
-      "musickhone.com",
-      "musicpars3.ir",
-      "musictag.ir",
-      "najiremix.ir",
-      "naslmusic.ir",
-      "power-music.ir",
-      "subf2m.ir",
-      "uploadgoogle.ir",
-      "uptrack.ir",
-      "zeemusic.ir"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "set-constant",
-    {
-     "hostnames": [
-      "1da.ir",
-      "1ea.ir",
-      "2ad.ir",
-      "ac.ir",
-      "anaj.ir",
-      "androidgozar.com",
-      "barcanews.org",
-      "binanews.ir",
-      "blog.ir",
-      "fidibo.com",
-      "fontyab.com",
-      "ketabesabz.com",
-      "lahzeakhar.com",
-      "msbmusic.ir",
-      "musicdel.ir",
-      "my.mci.ir",
-      "myhastidl.cam",
-      "netgasht.com",
-      "opizo.me",
-      "play.radiojavan.com",
-      "pwa.mci.ir",
-      "s-moshaver.com",
-      "salamatnews.com",
-      "takhfifan.com",
-      "takmili.com",
-      "tamasha.com",
-      "themez.top",
-      "xip.li"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "abort-on-property-read",
-    {
-     "hostnames": [
-      "anesthesianotes.ir",
-      "coffeeapps.ir",
-      "nab-music.com",
-      "oila.tj",
-      "p30konkor.com",
-      "saednews.com",
-      "sclinic.ir",
-      "shahanmusic.ir",
-      "tak3da.com",
-      "tinroid.ir",
-      "yeknet.ir"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "abort-current-script",
-    {
-     "hostnames": [
-      "alaatv.com",
-      "androidparsi.ir",
-      "anesthesianotes.ir",
-      "bandmoviez.one",
-      "coffeeapps.ir",
-      "dailymobile.ir",
-      "farnet.io",
-      "fileboro.com",
-      "hamisheonline.com",
-      "iranstar.com",
-      "itarfand.com",
-      "jafekri.com",
-      "jeyran.net",
-      "mybia4music.com",
-      "p30konkor.com",
-      "sclinic.ir",
-      "searchline.ir",
-      "tabnak.ir",
-      "takmili.com",
-      "tarfandha.org",
-      "vakil.net"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "addEventListener-defuser",
-    {
-     "hostnames": [
-      "app.blubank.com",
-      "autosafkar.com",
-      "behtaraneh.ir",
-      "bizma.ir",
-      "downloadha.com",
-      "elmefarda.com",
-      "ganjipakhsh.com",
-      "iran-music.com",
-      "javan-musics.com",
-      "lenz.ir",
-      "mopon.ir",
-      "noorlib.ir",
-      "rebec.ir",
-      "s-moshaver.com",
-      "saednews.com",
-      "tabanmusic.com",
-      "texahang.org"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "adjust-setInterval",
-    {
-     "hostnames": [
-      "animelist.tv",
-      "gold-team.org",
-      "iwo.ir",
-      "subkade.ir",
-      "up44.ir",
-      "uupload.ir"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "set-session-storage-item",
-    {
-     "hostnames": [
-      "alaatv.com"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
-    "remove-attr",
-    {
-     "hostnames": [
-      "behtaraneh.ir",
-      "iran-music.com",
-      "iranstar.com",
-      "javan-musics.com",
-      "musiceman.net",
-      "tabanmusic.com",
-      "takmili.com",
-      "texahang.org"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "remove-node-text",
-    {
-     "hostnames": [
-      "delta3da.cam",
-      "farsroid.com",
-      "iran-music.com",
-      "kihanb.ir",
-      "musiceman.net",
-      "najiremix.ir",
-      "persian-fa.ir",
-      "public-psychology.ir",
-      "sclinic.ir",
-      "tarafdari.com",
-      "tgju.org",
-      "vaamfaa.ir"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
-    "href-sanitizer",
-    {
-     "hostnames": [
-      "fontchi.com",
-      "hamtamovie.nl",
-      "virgool.io",
-      "zarebin.ir",
-      "zoomit.ir"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
-    "json-prune",
-    {
-     "hostnames": [
-      "app.snapp.taxi",
-      "fam.ir",
-      "filmnet.ir",
-      "play.namava.ir",
-      "player.telewebion.com",
-      "skyroom.online",
-      "tmk.ir"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "abort-on-property-write",
-    {
-     "hostnames": [
-      "fileboro.com"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-xhr",
-    {
-     "hostnames": [
-      "jobvision.ir",
-      "play.namava.ir"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-fetch",
-    {
-     "hostnames": [
-      "karbord.io"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "adjust-setTimeout",
-    {
-     "hostnames": [
-      "khabarpu.com"
+      "soft98.ir"
      ],
      "world": "MAIN"
     }
@@ -4493,55 +4250,18 @@
     "set-local-storage-item",
     {
      "hostnames": [
-      "rasm.io"
+      "aparat.com"
      ],
      "world": "ISOLATED"
     }
    ],
    [
-    "set-attr",
+    "set-session-storage-item",
     {
      "hostnames": [
-      "shahanmusic.ir"
+      "aparat.com"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "close-window",
-    {
-     "hostnames": [
-      "instagram.com"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
-    "prevent-setTimeout",
-    {
-     "hostnames": [
-      "targoman.ir"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "remove-cookie",
-    {
-     "hostnames": [
-      "tamasha.com",
-      "uploadboy.com"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
-    "abort-on-stack-trace",
-    {
-     "hostnames": [
-      "tigatravel.com"
-     ],
-     "world": "MAIN"
     }
    ]
   ]
@@ -5318,6 +5038,15 @@
       "spotvnow.co.kr",
       "srank.kr",
       "tv.kakao.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "spoof-css",
+    {
+     "hostnames": [
+      "remiz.co.kr"
      ],
      "world": "MAIN"
     }
@@ -7697,6 +7426,15 @@
      ],
      "world": "ISOLATED"
     }
+   ],
+   [
+    "adjust-setTimeout",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
    ]
   ]
  ],
@@ -8056,7 +7794,7 @@
       "lxmanga.my",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill97.com",
+      "motchill98.com",
       "motchilltvphim.com",
       "nettruyenar.com",
       "nettruyenvia.com",
@@ -8094,7 +7832,7 @@
       "vlxx.bz",
       "vn2.xvideos69.xxx",
       "vn5.sexviet88.xyz",
-      "vn56phimsexhay.com",
+      "vn57phimsexhay.com",
       "vungoctuan.vn",
       "www.sieutamphim.org",
       "www.toptruyentv8.com",
@@ -8124,7 +7862,7 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchill97.com",
+      "motchill98.com",
       "motchilll.id",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",

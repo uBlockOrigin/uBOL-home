@@ -1,5 +1,5 @@
-Secret: c48c4aa224d117ac
-Version: 2025.725.1450
+Secret: b4fa71d29142eb19
+Version: 2025.728.1406
 ============================
 Listset for 'ublock-filters':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/quick-fixes.min.txt
@@ -7,11 +7,11 @@ Listset for 'ublock-filters':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/filters.min.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/privacy.min.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/ubol-filters.txt
-Input filter count: 9191
-	Accepted filter count: 9161
+Input filter count: 9208
+	Accepted filter count: 9178
 	Rejected filter count: 1
-Output rule count: 5495
-	Plain good: 3735
+Output rule count: 5508
+	Plain good: 3753
 		Salvaged rule by ignoring 1 unsupported domain= option: erotic-beauties.com|hardsex.cc|rule34.top|sex-movies.biz|tube18.sexy|xvideos.name|booru.*
 		Salvaged rule by ignoring 1 unsupported domain= option: 8boobs.com|angelgals.com|babesexy.com|babesinporn.com|fooxybabes.com|hotbabeswanted.com|hotstunners.com|mainbabes.com|nakedbabes.club|nakedgirlsroom.com|nudebabes.sexy|pleasuregirl.net|rabbitsfun.com|sexybabes.club|sexybabesart.com|wantedbabes.com|silkengirl.*
 		Salvaged rule by ignoring 1 unsupported domain= option: web.de|gmx.*
@@ -60,16 +60,15 @@ Output rule count: 5495
 		Salvaged rule by ignoring 2 unsupported domain= option: gentside.*|ohmymag.*|maxisciences.com
 		Salvaged rule by ignoring 1 unsupported domain= option: asiaontop.com|asiaon.*
 		Salvaged rule by ignoring 4 unsupported domain= option: mylink.*|my1ink.*|myl1nk.*|myli3k.*|starkroboticsfrc.com|sinonimos.de|antonimos.de|quesignifi.ca|tiktokrealtime.com|tiktokcounter.net|tpayr.xyz|poqzn.xyz|ashrfd.xyz|rezsx.xyz|tryzt.xyz|ashrff.xyz|rezst.xyz|dawenet.com|erzar.xyz|waezm.xyz|waezg.xyz|blackwoodacademy.org|cryptednews.space|vivuq.com|swgop.com|vbnmll.com|telcoinfo.online|dshytb.com|promo-visits.site|satoshi-win.xyz|allcryptoz.net|batmanfactor.com|crewbase.net|crewus.net|documentaryplanet.xyz|gametechreviewer.com|midebalonu.net|misterio.ro|seory.xyz|shinbhu.net|shinchu.net|substitutefor.com|talkforfitness.com|thefitbrit.co.uk|thumb8.net|thumb9.net|topcryptoz.net|uniqueten.net|ultraten.net|maxstream.video|mobitaak.com|digikey.co.za|digikey.cn|digikey.ee|digikey.at|digikey.be|digikey.bg|digikey.cz|digikey.dk|digikey.fi|digikey.fr|digikey.de|digikey.gr|digikey.hu|digikey.ie|digikey.it|digikey.lv|digikey.lt|digikey.lu|digikey.nl|digikey.no|digikey.pl|digikey.pt|digikey.ro|digikey.sk|digikey.si|digikey.es|digikey.se|digikey.ch|digikey.co.uk|digikey.co.il|digikey.com.mx|digikey.ca|digikey.com.br|digikey.co.nz|digikey.com.au|digikey.co.th|digikey.tw|digikey.kr|digikey.sg|digikey.ph|digikey.my|digikey.jp|digikey.in|digikey.hk|digikey.com|ytlarge.com|btv.bg|btvsport.bg|btvnovinite.bg|cool-web.de|gps-cache.de|web-spiele.de|fun-seiten.de|photo-alben.de|wetter-vorhersage.de|coolsoftware.de|kryptografie.de|cool-domains.de|net-tours.de|such-maschine.de|qul.de|mailtool.de|c-ix.de|softwareengineer.de|net-tools.de|hilfen.de|45er.de|cooldns.de|hardware-entwicklung.de
-	Maybe good (regexes): 136
+	Maybe good (regexes): 137
 	redirect=: 554
-	removeparams= (accepted/discarded): 60/0
-	modifyHeaders=: 56
-	urlskip=: 157
-	Unsupported: 796
+	removeparams= (accepted/discarded): 58/0
+	modifyHeaders=: 51
+	urlskip=: 159
+	Unsupported: 795
 		Can't salvage rule with unsupported domain= option: vidmoly.*
 		Can't salvage rule with unsupported domain= option: megalink.*
 		Can't salvage rule with unsupported domain= option: gplinks.*
-		Can't salvage rule with unsupported domain= option: fc-lc.*
 		Can't salvage rule with unsupported domain= option: bg-gledai.*
 		strict3p not supported
 		Can't salvage rule with unsupported domain= option: nishankhatri.*
@@ -564,6 +563,7 @@ Output rule count: 5495
 		Incompatible with DNR: *$image,redirect-rule=1x1.gif,domain=starkroboticsfrc.com|sinonimos.de|antonimos.de|quesignifi.ca|tiktokrealtime.com|tiktokcounter.net|tpayr.xyz|poqzn.xyz|ashrfd.xyz|rezsx.xyz|tryzt.xyz|ashrff.xyz|rezst.xyz|dawenet.com|erzar.xyz|waezm.xyz|waezg.xyz|blackwoodacademy.org|cryptednews.space|vivuq.com|swgop.com|vbnmll.com|telcoinfo.online|dshytb.com
 		Incompatible with DNR: *$xhr,redirect-rule=noopjs,method=get|post,from=starkroboticsfrc.com|sinonimos.de|antonimos.de|quesignifi.ca|tiktokrealtime.com|tiktokcounter.net|tpayr.xyz|poqzn.xyz|ashrfd.xyz|rezsx.xyz|tryzt.xyz|ashrff.xyz|rezst.xyz|dawenet.com|erzar.xyz|waezm.xyz|waezg.xyz|blackwoodacademy.org|cryptednews.space|vivuq.com|swgop.com|vbnmll.com|telcoinfo.online|dshytb.com
 		Incompatible with DNR: @@*$xhr,redirect-rule,method=head,domain=starkroboticsfrc.com|sinonimos.de|antonimos.de|quesignifi.ca|tiktokrealtime.com|tiktokcounter.net|tpayr.xyz|poqzn.xyz|ashrfd.xyz|rezsx.xyz|tryzt.xyz|ashrff.xyz|rezst.xyz|dawenet.com|erzar.xyz|waezm.xyz|waezg.xyz|blackwoodacademy.org|cryptednews.space|vivuq.com|swgop.com|vbnmll.com|telcoinfo.online|dshytb.com
+		Incompatible with DNR: /nt.js$domain=fc-lc.*,redirect-rule=noopjs
 		Incompatible with DNR: *$script,domain=gainbtc.*,redirect-rule=noopjs
 		Incompatible with DNR: /invoke.js$script,redirect-rule=noop.js,domain=btcbitco.in|btcsatoshi.net|crypto4yu.com|readbitcoin.org|wiour.com
 		Incompatible with DNR: ||acceptable.a-ads.com^$frame,redirect-rule=noop.html,domain=btcbitco.in|btcsatoshi.net|crypto4yu.com|readbitcoin.org|wiour.com
@@ -752,7 +752,6 @@ Output rule count: 5495
 		Incompatible with DNR: ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js:5,domain=novelgames.com
 		Incompatible with DNR: ||googlesyndication.com/favicon.ico$image,redirect-rule=1x1.gif
 		Incompatible with DNR: ||thothd.com^$image,1p,redirect-rule=1x1.gif
-		Incompatible with DNR: ||img.soft98.ir^$image,1p,redirect-rule=1x1.gif
 		Incompatible with DNR: ||thisiswaldo.com/static/js$script,redirect-rule=noop.js
 		Incompatible with DNR: ||cloudfront.net/prebid_$script,redirect-rule=noop.js
 		Incompatible with DNR: *$script,redirect-rule=noopjs,domain=haxina.com
@@ -862,22 +861,22 @@ Output rule count: 5495
 		Incompatible with DNR: *$script,redirect-rule=prebid-ads.js,domain=read.amazon.*
 		Incompatible with DNR: *$script,3p,redirect-rule=noopjs,domain=kio.ac
 		Incompatible with DNR: @@||googletagmanager.com/gtm.js$script,redirect-rule,domain=rocketnews24.com
-CSS-generic: 164 specific CSS exceptions
+CSS-generic: 165 specific CSS exceptions
 CSS-generic: 131 plain CSS selectors
 CSS-generic-high: 62 plain CSS selectors
-CSS-specific: 4553 distinct filters
-	Combined into 4447 distinct hostnames
-Procedural-related distinct filters: 1186 distinct combined selectors
-	Combined into 1611 distinct hostnames
+CSS-specific: 4558 distinct filters
+	Combined into 4456 distinct hostnames
+Procedural-related distinct filters: 1177 distinct combined selectors
+	Combined into 1605 distinct hostnames
 ============================
 Listset for 'easylist':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist.txt
-Input filter count: 42515
-	Accepted filter count: 42481
-	Rejected filter count: 25
-Output rule count: 3646
-	Pruning requestDomains: from 31847 to 31840
-	Plain good: 3591
+Input filter count: 43603
+	Accepted filter count: 43568
+	Rejected filter count: 26
+Output rule count: 3648
+	Pruning requestDomains: from 32919 to 32912
+	Plain good: 3593
 
 	Maybe good (regexes): 26
 	redirect=: 6
@@ -908,18 +907,18 @@ CSS-generic: 12876 plain CSS selectors
 	Removing excepted highly generic filter ##[data-advadstrackid]
 	Removing excepted highly generic filter ##[data-ad-manager-id]
 CSS-generic-high: 458 plain CSS selectors
-CSS-specific: 9305 distinct filters
-	Combined into 7888 distinct hostnames
-Procedural-related distinct filters: 191 distinct combined selectors
+CSS-specific: 9323 distinct filters
+	Combined into 7894 distinct hostnames
+Procedural-related distinct filters: 192 distinct combined selectors
 	Combined into 198 distinct hostnames
 ============================
 Listset for 'easyprivacy':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easyprivacy.txt
-Input filter count: 53985
-	Accepted filter count: 53952
+Input filter count: 53994
+	Accepted filter count: 53961
 	Rejected filter count: 31
-Output rule count: 8092
-	Plain good: 8076
+Output rule count: 8094
+	Plain good: 8078
 
 	Maybe good (regexes): 7
 	redirect=: 7
@@ -935,11 +934,11 @@ Procedural-related distinct filters: 3 distinct combined selectors
 ============================
 Listset for 'pgl':
 	Fetching remote https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext
-Input filter count: 3420
-	Accepted filter count: 3340
+Input filter count: 3422
+	Accepted filter count: 3342
 	Rejected filter count: 80
 Output rule count: 1
-	Pruning requestDomains: from 3340 to 3339
+	Pruning requestDomains: from 3342 to 3341
 	Plain good: 1
 
 	Maybe good (regexes): 0
@@ -952,15 +951,15 @@ Output rule count: 1
 ============================
 Listset for 'ublock-badware':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/badware.min.txt
-Input filter count: 11033
-	Accepted filter count: 11015
+Input filter count: 10812
+	Accepted filter count: 10794
 	Rejected filter count: 0
-Output rule count: 1214
-	Pruning requestDomains: from 1435 to 1434
-	Pruning requestDomains: from 2991 to 2989
-	Plain good: 1051
+Output rule count: 1219
+	Pruning requestDomains: from 1395 to 1394
+	Pruning requestDomains: from 2938 to 2936
+	Plain good: 1059
 
-	Maybe good (regexes): 126
+	Maybe good (regexes): 123
 	redirect=: 0
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 0
@@ -1012,11 +1011,11 @@ Procedural-related distinct filters: 11 distinct combined selectors
 ============================
 Listset for 'urlhaus-full':
 	Fetching remote https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-hosts.txt
-Input filter count: 2338
-	Accepted filter count: 2338
+Input filter count: 2309
+	Accepted filter count: 2309
 	Rejected filter count: 0
 Output rule count: 1
-	Pruning requestDomains: from 2338 to 2265
+	Pruning requestDomains: from 2309 to 2239
 	Plain good: 1
 
 	Maybe good (regexes): 0
@@ -1047,10 +1046,10 @@ Output rule count: 546
 CSS-generic: 17 specific CSS exceptions
 CSS-generic: 18 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
-CSS-specific: 4949 distinct filters
-	Combined into 3970 distinct hostnames
-Procedural-related distinct filters: 450 distinct combined selectors
-	Combined into 410 distinct hostnames
+CSS-specific: 4954 distinct filters
+	Combined into 3972 distinct hostnames
+Procedural-related distinct filters: 452 distinct combined selectors
+	Combined into 411 distinct hostnames
 ============================
 Listset for 'block-lan':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/lan-block.txt
@@ -1088,15 +1087,15 @@ Output rule count: 1
 ============================
 Listset for 'adguard-spyware-url':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/17.txt
-Input filter count: 2157
-	Accepted filter count: 2141
+Input filter count: 2163
+	Accepted filter count: 2147
 	Rejected filter count: 0
-Output rule count: 717
+Output rule count: 718
 	Plain good: 0
 
 	Maybe good (regexes): 0
 	redirect=: 0
-	removeparams= (accepted/discarded): 599/0
+	removeparams= (accepted/discarded): 600/0
 	modifyHeaders=: 0
 	urlskip=: 0
 	Unsupported: 118
@@ -1230,7 +1229,7 @@ Input filter count: 2072
 Output rule count: 1728
 	Pruning requestDomains: from 130 to 129
 	Plain good: 1726
-		Salvaged rule by ignoring 1 unsupported domain= option: 1001games.com|1001hry.cz|1001jeux.fr|1001jocuri.ro|1001jogos.com.br|1001jogos.pt|1001pelit.com|1001spiele.de|10play.com.au|20min.ch|24kitchen.pt|3sat.de|a1.ro|aachener-zeitung.de|abc.com|abola.pt|account.t-mobile.com|acmemarkets.com|albertsons.com|aljazeera.com|all.accor.com|antena3.ro|avon.uk.com|beko.com|beobachter.ch|bergfreunde.de|bet.com|bigbearmountainresort.com|bk.com|blaklader.be|blaklader.ca|blaklader.ch|blaklader.com|blaklader.cz|blaklader.de|blaklader.dk|blaklader.ee|blaklader.es|blaklader.fi|blaklader.fr|blaklader.ie|blaklader.nl|blaklader.pl|blaklader.se|blaklader.uk|blick.ch|bongo.be|booking.com|boomerang-tv.pl|breitbart.com|canadiantire.ca|cbs.com|cbslocal.com|cbsnews.com|cbssports.com|cc.com|channel5.com|chvnoticias.cl|ci.ford.com|cmore.fi|cnet.com|comicbook.com|computerbase.de|cookielaw.org|costco.ca|costco.com|costcobusinessdelivery.com|costcopharmacy.ca|crunchyroll.com|cwtv.com|darkreading.com|de.hgtv.com|developer.confluent.io|dhl.de|digi24.ro|digitaltrends.com|disney.co.uk|disney.de|disney.dk|disney.es|disney.fi|disney.fr|disney.it|disney.nl|disney.no|disney.pl|disney.pt|disney.se|dmax.de|docs.vmware.com|drafthouse.com|e-ladestation.aldi-sued.de|elisa.fi|elkspel.nl|elle.se|embed.sportsline.com|epicgames.com|eu.usatoday.com|eurogamer.cz|eurogamer.de|eurogamer.es|eurogamer.it|eurogamer.net|eurogamer.nl|eurogamer.pl|eurogamer.pt|eurosport.de|financemagnates.com|foodandwine.com|fordblueadvantage.com|foxchannels.com.tr|ga.de|games.miamiherald.com|gamescom.global|gamespot.com|geappliances.com|geizhals.at|giantbomb.com|giochixl.it|glamour.de|glovoapp.com|gmx.co.uk|gmx.com|gmx.fr|gq-magazine.co.uk|gqmagazine.fr|grajteraz.pl|heute.at|homedepot.ca|id.trimble.com|ikea.com|ikonpass.com|indiewire.com|informationweek.com|insideevs.com|isladejuegos.com|itau.com.br|jatekokxl.hu|jetztspielen.ws|juegosjuegos.ws|kanald.ro|karriere.mcdonalds.de|kawasaki.com|khanacademy.org|kijk.nl|kizi.com|kralmuzik.com.tr|larousse.fr|lippu.fi|listen.tidal.com|louvrehotels.com|mail.com|mcdelivery.de|mensjournal.com|mesta.net|metabomb.net|metacritic.com|metrobyt-mobile.com|midomi.com|milwaukeetool.eu|motorsport-total.com|movistar.es|mtv.com|mtvuutiset.fi|muscleandfitness.com|nachrichten.at|nascar.com|natgeotv.com|nationalgeographic.de|nbcolympics.com|nbcsports.com|netzwelt.de|new.cappex.com|newegg.com|newyorkcityfc.com|newyorker.com|next.co.uk|nhl.com|nintendo.at|nintendo.be|nintendo.ch|nintendo.co.uk|nintendo.co.za|nintendo.com|nintendo.de|nintendo.es|nintendo.fr|nintendo.it|nintendo.pt|nintendo.ru|npr.org|ns.nl|ntv.com.tr|nutmeg.com|observatornews.ro|oe24.at|olx.pl|olympics.com|omnipod.com|onlinebanking.natwest.com|paixnidiaxl.gr|palisadestahoe.com|papajohns.com|paramountplus.com|parkside-diy.com|patagonia.com|payback.at|peacocktv.com|pearson.com|peta.de|pitchfork.com|player.pl|pluto.tv|popculture.com|popeyes.com|popeyeschicken.ca|popsugar.co.uk|porn300.com|pricerunner.com|pricerunner.dk|pricerunner.se|proximus.be|proximus.com|pumpkin.care|questdiagnostics.com|quora.com|rackroomshoes.com|randalls.com|rd.com|redbull.com|redbullracing.com|reuters.com|roastmarket.de|rockpapershotgun.com|rp-online.de|rte.ie|rtl.nl|rtlplay.be|rtlxl.nl|rts.ch|ryobitools.eu|saal-digital.at|saal-digital.bg|saal-digital.ch|saal-digital.com|saal-digital.cz|saal-digital.de|saal-digital.dk|saal-digital.ee|saal-digital.es|saal-digital.eu|saal-digital.fi|saal-digital.fr|saal-digital.gr|saal-digital.hu|saal-digital.lt|saal-digital.lv|saal-digital.nl|saal-digital.pl|saal-digital.pt|saal-digital.ro|saal-digital.se|saal-digital.si|saal-digital.sk|saarbruecker-zeitung.de|safeway.com|salesforce.com|sebrae.com.br|shop.mango.com|skateboarding.transworld.net|sony.pl|soundcloud.com|southpark.de|southpark.lat|southparkstudios.co.uk|southparkstudios.com|southparkstudios.com.br|southparkstudios.nu|spel.nl|spelletjes.nl|spelo.se|spiele.bild.de|spiele.stern.de|spillespill.no|spilxl.dk|sportiva.shueisha.co.jp|squareup.com|start.gg|starwarscelebration.com|steamboat.com|subway.com|superporn.com|surfer.com|syfy.com|ted.com|teenvogue.com|telenet.be|thejournal.ie|thetrainline.com|ticketmaster.com|tio.ch|tips.at|tntsports.co.uk|tokfm.pl|toteraz.pl|travelandleisure.com|tredz.co.uk|tripadvisor.at|tripadvisor.be|tripadvisor.ca|tripadvisor.ch|tripadvisor.cl|tripadvisor.cn|tripadvisor.co|tripadvisor.co.id|tripadvisor.co.il|tripadvisor.co.kr|tripadvisor.co.nz|tripadvisor.co.uk|tripadvisor.co.za|tripadvisor.com|tripadvisor.com.ar|tripadvisor.com.au|tripadvisor.com.br|tripadvisor.com.eg|tripadvisor.com.gr|tripadvisor.com.hk|tripadvisor.com.mx|tripadvisor.com.my|tripadvisor.com.pe|tripadvisor.com.ph|tripadvisor.com.sg|tripadvisor.com.tr|tripadvisor.com.tw|tripadvisor.com.ve|tripadvisor.com.vn|tripadvisor.de|tripadvisor.dk|tripadvisor.es|tripadvisor.fr|tripadvisor.ie|tripadvisor.in|tripadvisor.it|tripadvisor.jp|tripadvisor.nl|tripadvisor.pt|tripadvisor.ru|tripadvisor.se|trustpilot.com|trustradius.com|tt.com|tunein.com|tvguide.com|tvn.pl|tvn24.pl|uber-platz.de|udemy.com|uefa.com|upc.pl|uphold.com|usanetwork.com|usmagazine.com|uw.co.uk|vanityfair.com|vg247.com|victorinox.com|videoland.com|vimeo.com|vizio.com|vkmag.com|vogue.co.jp|vogue.co.uk|vogue.com|vogue.com.tw|vogue.de|vogue.es|vogue.fr|vogue.in|vogue.it|vogue.mx|vogue.ph|vol.at|volksfreund.de|wallapop.com|wargaming.net|webuyanycar.com|westernunion.com|wetter.at|wired.com|wizzair.com|worldmarathonmajors.com|worldoftanks.ru|worldsurfleague.com|wpb.shueisha.co.jp|wrangler.com|wrc.com|yvesrocher.com.tr|zdf.de|zdnet.com|zoom.us|vinted.*
+		Salvaged rule by ignoring 1 unsupported domain= option: 1001games.com|1001hry.cz|1001jeux.fr|1001jocuri.ro|1001jogos.com.br|1001jogos.pt|1001pelit.com|1001spiele.de|10play.com.au|20min.ch|24kitchen.pt|3sat.de|a1.ro|aachener-zeitung.de|abc.com|abola.pt|account.t-mobile.com|acmemarkets.com|albertsons.com|aljazeera.com|all.accor.com|antena3.ro|avon.uk.com|beko.com|beobachter.ch|bergfreunde.de|bet.com|bigbearmountainresort.com|bk.com|blaklader.be|blaklader.ca|blaklader.ch|blaklader.com|blaklader.cz|blaklader.de|blaklader.dk|blaklader.ee|blaklader.es|blaklader.fi|blaklader.fr|blaklader.ie|blaklader.nl|blaklader.pl|blaklader.se|blaklader.uk|blick.ch|bongo.be|booking.com|boomerang-tv.pl|breitbart.com|canadiantire.ca|cbs.com|cbslocal.com|cbsnews.com|cbssports.com|cc.com|channel5.com|chvnoticias.cl|ci.ford.com|cmore.fi|cnet.com|comicbook.com|computerbase.de|cookielaw.org|costco.ca|costco.com|costcobusinessdelivery.com|costcopharmacy.ca|crunchyroll.com|cwtv.com|darkreading.com|de.hgtv.com|developer.confluent.io|dhl.de|digi24.ro|digitaltrends.com|disney.co.uk|disney.de|disney.dk|disney.es|disney.fi|disney.fr|disney.it|disney.nl|disney.no|disney.pl|disney.pt|disney.se|dmax.de|docs.vmware.com|drafthouse.com|e-ladestation.aldi-sued.de|elisa.fi|elkspel.nl|elle.se|embed.sportsline.com|epicgames.com|eu.usatoday.com|eurogamer.cz|eurogamer.de|eurogamer.es|eurogamer.it|eurogamer.net|eurogamer.nl|eurogamer.pl|eurogamer.pt|eurosport.de|filiale.kaufland.de|financemagnates.com|foodandwine.com|fordblueadvantage.com|foxchannels.com.tr|ga.de|games.miamiherald.com|gamescom.global|gamespot.com|geappliances.com|geizhals.at|giantbomb.com|giochixl.it|glamour.de|glovoapp.com|gmx.co.uk|gmx.com|gmx.fr|gq-magazine.co.uk|gqmagazine.fr|grajteraz.pl|heute.at|homedepot.ca|id.trimble.com|ikea.com|ikonpass.com|indiewire.com|informationweek.com|insideevs.com|isladejuegos.com|itau.com.br|jatekokxl.hu|jetztspielen.ws|juegosjuegos.ws|kanald.ro|karriere.mcdonalds.de|kawasaki.com|khanacademy.org|kijk.nl|kizi.com|kralmuzik.com.tr|larousse.fr|lippu.fi|listen.tidal.com|louvrehotels.com|mail.com|mcdelivery.de|mensjournal.com|mesta.net|metabomb.net|metacritic.com|metrobyt-mobile.com|midomi.com|milwaukeetool.eu|motorsport-total.com|movistar.es|mtv.com|mtvuutiset.fi|muscleandfitness.com|nachrichten.at|nascar.com|natgeotv.com|nationalgeographic.de|nbcolympics.com|nbcsports.com|netzwelt.de|new.cappex.com|newegg.com|newyorkcityfc.com|newyorker.com|next.co.uk|nhl.com|nintendo.at|nintendo.be|nintendo.ch|nintendo.co.uk|nintendo.co.za|nintendo.com|nintendo.de|nintendo.es|nintendo.fr|nintendo.it|nintendo.pt|nintendo.ru|npr.org|ns.nl|ntv.com.tr|nutmeg.com|observatornews.ro|oe24.at|olx.pl|olympics.com|omnipod.com|onlinebanking.natwest.com|paixnidiaxl.gr|palisadestahoe.com|papajohns.com|paramountplus.com|parkside-diy.com|patagonia.com|payback.at|peacocktv.com|pearson.com|peta.de|pitchfork.com|player.pl|pluto.tv|popculture.com|popeyes.com|popeyeschicken.ca|popsugar.co.uk|porn300.com|pricerunner.com|pricerunner.dk|pricerunner.se|proximus.be|proximus.com|pumpkin.care|questdiagnostics.com|quora.com|rackroomshoes.com|randalls.com|rd.com|redbull.com|redbullracing.com|reuters.com|roastmarket.de|rockpapershotgun.com|rp-online.de|rte.ie|rtl.nl|rtlplay.be|rtlxl.nl|rts.ch|ryobitools.eu|saal-digital.at|saal-digital.bg|saal-digital.ch|saal-digital.com|saal-digital.cz|saal-digital.de|saal-digital.dk|saal-digital.ee|saal-digital.es|saal-digital.eu|saal-digital.fi|saal-digital.fr|saal-digital.gr|saal-digital.hu|saal-digital.lt|saal-digital.lv|saal-digital.nl|saal-digital.pl|saal-digital.pt|saal-digital.ro|saal-digital.se|saal-digital.si|saal-digital.sk|saarbruecker-zeitung.de|safeway.com|salesforce.com|sebrae.com.br|shop.mango.com|skateboarding.transworld.net|sony.pl|soundcloud.com|southpark.de|southpark.lat|southparkstudios.co.uk|southparkstudios.com|southparkstudios.com.br|southparkstudios.nu|spel.nl|spelletjes.nl|spelo.se|spiele.bild.de|spiele.stern.de|spillespill.no|spilxl.dk|sportiva.shueisha.co.jp|squareup.com|start.gg|starwarscelebration.com|steamboat.com|subway.com|superporn.com|surfer.com|syfy.com|ted.com|teenvogue.com|telenet.be|thejournal.ie|thetrainline.com|ticketmaster.com|tio.ch|tips.at|tntsports.co.uk|tokfm.pl|toteraz.pl|travelandleisure.com|tredz.co.uk|tripadvisor.at|tripadvisor.be|tripadvisor.ca|tripadvisor.ch|tripadvisor.cl|tripadvisor.cn|tripadvisor.co|tripadvisor.co.id|tripadvisor.co.il|tripadvisor.co.kr|tripadvisor.co.nz|tripadvisor.co.uk|tripadvisor.co.za|tripadvisor.com|tripadvisor.com.ar|tripadvisor.com.au|tripadvisor.com.br|tripadvisor.com.eg|tripadvisor.com.gr|tripadvisor.com.hk|tripadvisor.com.mx|tripadvisor.com.my|tripadvisor.com.pe|tripadvisor.com.ph|tripadvisor.com.sg|tripadvisor.com.tr|tripadvisor.com.tw|tripadvisor.com.ve|tripadvisor.com.vn|tripadvisor.de|tripadvisor.dk|tripadvisor.es|tripadvisor.fr|tripadvisor.ie|tripadvisor.in|tripadvisor.it|tripadvisor.jp|tripadvisor.nl|tripadvisor.pt|tripadvisor.ru|tripadvisor.se|trustpilot.com|trustradius.com|tt.com|tunein.com|tvguide.com|tvn.pl|tvn24.pl|uber-platz.de|udemy.com|uefa.com|upc.pl|uphold.com|usanetwork.com|usmagazine.com|uw.co.uk|vanityfair.com|vg247.com|victorinox.com|videoland.com|vimeo.com|vizio.com|vkmag.com|vogue.co.jp|vogue.co.uk|vogue.com|vogue.com.tw|vogue.de|vogue.es|vogue.fr|vogue.in|vogue.it|vogue.mx|vogue.ph|vol.at|volksfreund.de|wallapop.com|wargaming.net|webuyanycar.com|westernunion.com|wetter.at|wired.com|wizzair.com|worldmarathonmajors.com|worldoftanks.ru|worldsurfleague.com|wpb.shueisha.co.jp|wrangler.com|wrc.com|yvesrocher.com.tr|zdf.de|zdnet.com|zoom.us|vinted.*
 		Salvaged rule by ignoring 1 unsupported domain= option: alternate.de|andrewgriffith.cpa|atv.at|bayer04.de|bsr.de|cambio-carsharing.de|dfbplay.tv|douglas.de|dr-beckmann.com|falke.com|festool.at|festool.be|festool.bg|festool.ch|festool.cn|festool.co.kr|festool.co.uk|festool.co.za|festool.com|festool.cz|festool.de|festool.dk|festool.es|festool.fi|festool.fr|festool.hu|festool.ie|festool.it|festool.lt|festool.nl|festool.no|festool.pl|festool.pt|festool.ro|festool.ru|festool.se|festool.sk|festool.ua|festoolcanada.com|festoolusa.com|flaschenpost.de|hamburg-business.com|highsnobiety.com|hornbach.nl|hypofriend.de|immowelt.de|joyn.at|joyn.de|kicker.de|mbusa.com|meubelo.nl|meubles.fr|moebel.de|moebel24.ch|morenutrition.de|paketshop.myhermes.de|poco.de|post.ch|postbank.de|prosieben.at|puls4.com|radiobob.de|ran.de|rts.ch|s-pankki.fi|salzburg.info|sat1.at|schlager.radio|sportdeutschland.tv|srf.ch|verivox.de|wetter.com|zalando.*
 	Maybe good (regexes): 1
 	redirect=: 0
@@ -1242,22 +1241,22 @@ Output rule count: 1728
 CSS-generic: 198 specific CSS exceptions
 CSS-generic: 14197 plain CSS selectors
 CSS-generic-high: 167 plain CSS selectors
-CSS-specific: 6556 distinct filters
-	Combined into 18315 distinct hostnames
+CSS-specific: 6558 distinct filters
+	Combined into 18322 distinct hostnames
 Procedural-related distinct filters: 83 distinct combined selectors
 	Combined into 2866 distinct hostnames
 ============================
 Listset for 'annoyances-overlays':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-newsletters.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/annoyances-others.txt
-Input filter count: 461
-	Accepted filter count: 461
+Input filter count: 462
+	Accepted filter count: 462
 	Rejected filter count: 0
-Output rule count: 345
+Output rule count: 346
 	Plain good: 296
 
 	Maybe good (regexes): 0
-	redirect=: 13
+	redirect=: 14
 	removeparams= (accepted/discarded): 1/0
 	modifyHeaders=: 5
 	urlskip=: 2
@@ -1293,10 +1292,10 @@ Output rule count: 345
 CSS-generic: 9 specific CSS exceptions
 CSS-generic: 1160 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
-CSS-specific: 3775 distinct filters
-	Combined into 5248 distinct hostnames
-Procedural-related distinct filters: 463 distinct combined selectors
-	Combined into 1190 distinct hostnames
+CSS-specific: 3781 distinct filters
+	Combined into 5257 distinct hostnames
+Procedural-related distinct filters: 465 distinct combined selectors
+	Combined into 1192 distinct hostnames
 Rejecting +js(trusted-set-cookie.js,"pum-9137","true"): annoyances-overlays is not trusted
 ============================
 Listset for 'annoyances-social':
@@ -1317,8 +1316,8 @@ Output rule count: 598
 CSS-generic: 93 specific CSS exceptions
 CSS-generic: 9272 plain CSS selectors
 CSS-generic-high: 111 plain CSS selectors
-CSS-specific: 2862 distinct filters
-	Combined into 4820 distinct hostnames
+CSS-specific: 2866 distinct filters
+	Combined into 4825 distinct hostnames
 Procedural-related distinct filters: 27 distinct combined selectors
 	Combined into 27 distinct hostnames
 ============================
@@ -1363,8 +1362,8 @@ Output rule count: 414
 CSS-generic: 13 specific CSS exceptions
 CSS-generic: 760 plain CSS selectors
 CSS-generic-high: 19 plain CSS selectors
-CSS-specific: 1998 distinct filters
-	Combined into 2556 distinct hostnames
+CSS-specific: 2002 distinct filters
+	Combined into 2560 distinct hostnames
 Procedural-related distinct filters: 62 distinct combined selectors
 	Combined into 82 distinct hostnames
 ============================
@@ -1386,11 +1385,11 @@ Output rule count: 0
 ============================
 Listset for 'stevenblack-hosts':
 	Fetching remote https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-Input filter count: 221484
-	Accepted filter count: 221399
+Input filter count: 224927
+	Accepted filter count: 224842
 	Rejected filter count: 85
 Output rule count: 2
-	Pruning requestDomains: from 221399 to 114367
+	Pruning requestDomains: from 224842 to 116075
 	Plain good: 1
 
 	Maybe good (regexes): 0
@@ -1469,13 +1468,13 @@ CSS-specific: 393 distinct filters
 ============================
 Listset for 'chn-0':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/224.txt
-Input filter count: 13838
-	Accepted filter count: 13826
+Input filter count: 13868
+	Accepted filter count: 13856
 	Rejected filter count: 4
-Output rule count: 6545
-	Pruning requestDomains: from 4883 to 4882
+Output rule count: 6546
+	Pruning requestDomains: from 4912 to 4911
 	Pruning requestDomains: from 275 to 273
-	Plain good: 6457
+	Plain good: 6458
 
 	Maybe good (regexes): 30
 	redirect=: 38
@@ -1494,7 +1493,7 @@ Output rule count: 6545
 CSS-generic: 205 specific CSS exceptions
 CSS-generic: 739 plain CSS selectors
 CSS-generic-high: 189 plain CSS selectors
-CSS-specific: 7040 distinct filters
+CSS-specific: 7041 distinct filters
 	Combined into 3237 distinct hostnames
 Procedural-related distinct filters: 177 distinct combined selectors
 	Combined into 187 distinct hostnames
@@ -1597,18 +1596,18 @@ Output rule count: 176
 CSS-generic: 7 specific CSS exceptions
 CSS-generic: 54 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
-CSS-specific: 989 distinct filters
-	Combined into 537 distinct hostnames
+CSS-specific: 991 distinct filters
+	Combined into 538 distinct hostnames
 Procedural-related distinct filters: 159 distinct combined selectors
 	Combined into 115 distinct hostnames
 ============================
 Listset for 'fra-0':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/16.txt
-Input filter count: 12708
-	Accepted filter count: 12287
+Input filter count: 12709
+	Accepted filter count: 12288
 	Rejected filter count: 414
-Output rule count: 4203
-	Plain good: 4152
+Output rule count: 4204
+	Plain good: 4153
 		Salvaged rule by ignoring 1 unsupported domain= option: dl-protect.link|fsmirror93.lol|zone-telechargement.*
 		Salvaged rule by ignoring 1 unsupported domain= option: allestoringen.be|allestoringen.nl|xn--allestrungen-9ib.at|xn--allestrungen-9ib.ch|xn--allestrungen-9ib.de|downdetector.*
 		Salvaged rule by ignoring 2 unsupported domain= option: gentside.*|ohmymag.*|maxisciences.com
@@ -1676,7 +1675,7 @@ Output rule count: 79
 	Unsupported: 0
 
 CSS-generic: 1 specific CSS exceptions
-CSS-generic: 17 plain CSS selectors
+CSS-generic: 18 plain CSS selectors
 CSS-generic-high: 1 plain CSS selectors
 CSS-specific: 309 distinct filters
 	Combined into 177 distinct hostnames
@@ -1708,12 +1707,12 @@ Procedural-related distinct filters: 58 distinct combined selectors
 ============================
 Listset for 'idn-0':
 	Fetching remote https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt
-Input filter count: 4095
-	Accepted filter count: 4094
+Input filter count: 4100
+	Accepted filter count: 4099
 	Rejected filter count: 0
-Output rule count: 3123
-	Plain good: 3123
-		Salvaged rule by ignoring 4 unsupported domain= option: 149.56.24.226|15.235.11.45|baladfilm.*|baladfilm.guru|bgibola.com|bioskopkerenin.org|hrv.okestream365.xyz|kiryuu.org|komikcast.*|lk21official.biz|lk21official.live|lk21official.org|mangakita.id|movieajip.online|nomat.top|nontondrama.*|nontonfilmgratis.club|oploverz.*|oploverz.best|oploverz.love|shinigami09.com
+Output rule count: 3127
+	Plain good: 3127
+		Salvaged rule by ignoring 4 unsupported domain= option: 149.56.24.226|15.235.11.45|baladfilm.*|baladfilm.guru|bgibola.com|bioskopkerenin.org|hrv.okestream365.xyz|kiryuu.org|komikcast.*|lk21official.biz|lk21official.live|lk21official.org|mangakita.id|movieajip.online|movieku.fit|nomat.top|nontondrama.*|nontonfilmgratis.club|okestream.us|okestreamtv.com|oploverz.*|oploverz.best|oploverz.love|shinigami09.com
 	Maybe good (regexes): 0
 	redirect=: 0
 	removeparams= (accepted/discarded): 0/0
@@ -1722,20 +1721,20 @@ Output rule count: 3123
 	Unsupported: 0
 
 CSS-generic: 8 specific CSS exceptions
-CSS-generic: 367 plain CSS selectors
-CSS-generic-high: 3772 plain CSS selectors
-CSS-specific: 1133 distinct filters
-	Combined into 705 distinct hostnames
+CSS-generic: 371 plain CSS selectors
+CSS-generic-high: 3794 plain CSS selectors
+CSS-specific: 1141 distinct filters
+	Combined into 713 distinct hostnames
 Procedural-related distinct filters: 16 distinct combined selectors
 	Combined into 14 distinct hostnames
 ============================
 Listset for 'ind-0':
 	Fetching remote https://easylist-downloads.adblockplus.org/indianlist.txt
-Input filter count: 4749
-	Accepted filter count: 4749
+Input filter count: 4750
+	Accepted filter count: 4750
 	Rejected filter count: 0
-Output rule count: 4710
-	Plain good: 4708
+Output rule count: 4711
+	Plain good: 4709
 
 	Maybe good (regexes): 0
 	redirect=: 0
@@ -1748,53 +1747,35 @@ Output rule count: 4710
 CSS-generic: 6 specific CSS exceptions
 CSS-generic: 0 plain CSS selectors
 CSS-specific: 4476 distinct filters
-	Combined into 5208 distinct hostnames
+	Combined into 5209 distinct hostnames
 Procedural-related distinct filters: 133 distinct combined selectors
 	Combined into 133 distinct hostnames
 ============================
 Listset for 'irn-0':
 	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlocker.txt
-Input filter count: 1279
-	Accepted filter count: 1278
-	Rejected filter count: 1
-Output rule count: 679
-	Pruning requestDomains: from 248 to 245
-	Plain good: 635
+	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerAds.txt
+	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerTrackers.txt
+	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerCensor.txt
+	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerHalfPrice.txt
+	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerMalware.txt
+	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerPhishing.txt
+Input filter count: 69
+	Accepted filter count: 69
+	Rejected filter count: 0
+Output rule count: 38
+	Plain good: 37
 
-	Maybe good (regexes): 1
-	redirect=: 4
-	removeparams= (accepted/discarded): 15/0
-	modifyHeaders=: 2
+	Maybe good (regexes): 0
+	redirect=: 0
+	removeparams= (accepted/discarded): 1/0
+	modifyHeaders=: 0
 	urlskip=: 0
-	Unsupported: 22
-		strict3p not supported
-		strict3p not supported
-		Can't salvage rule with unsupported domain= option: /\x62\x69\x61\x75\x70\x6C\x6F\x61\x64\x2E\x63\x6F\x6D/
-		strict3p not supported
-		Unsupported regex-based removeParam: /promo/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /promo/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^itm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_/
-		Unsupported regex-based removeParam: /^utm_|tatoken/
-CSS-generic: 31 specific CSS exceptions
-CSS-generic: 17 plain CSS selectors
-CSS-specific: 815 distinct filters
-	Combined into 503 distinct hostnames
-Procedural-related distinct filters: 953 distinct combined selectors
-	Combined into 185 distinct hostnames
+	Unsupported: 0
+
+CSS-specific: 35 distinct filters
+	Combined into 20 distinct hostnames
+Procedural-related distinct filters: 14 distinct combined selectors
+	Combined into 7 distinct hostnames
 ============================
 Listset for 'isl-0':
 	Fetching remote https://raw.githubusercontent.com/brave/adblock-lists/master/custom/is.txt
@@ -1873,12 +1854,12 @@ Procedural-related distinct filters: 23 distinct combined selectors
 ============================
 Listset for 'jpn-1':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/7.txt
-Input filter count: 2232
-	Accepted filter count: 2232
+Input filter count: 2233
+	Accepted filter count: 2233
 	Rejected filter count: 0
-Output rule count: 1640
+Output rule count: 1641
 	Pruning requestDomains: from 178 to 177
-	Plain good: 1574
+	Plain good: 1575
 
 	Maybe good (regexes): 20
 	redirect=: 28
@@ -1907,8 +1888,8 @@ Output rule count: 1640
 CSS-generic: 83 specific CSS exceptions
 CSS-generic: 107 plain CSS selectors
 CSS-generic-high: 11 plain CSS selectors
-CSS-specific: 7763 distinct filters
-	Combined into 5141 distinct hostnames
+CSS-specific: 7766 distinct filters
+	Combined into 5142 distinct hostnames
 Procedural-related distinct filters: 979 distinct combined selectors
 	Combined into 734 distinct hostnames
 ============================
@@ -1937,10 +1918,10 @@ Listset for 'kor-1':
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_URL.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-share/specific_CSS.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filters-uBO/specific_CSS.txt
-Input filter count: 1498
-	Accepted filter count: 1490
+Input filter count: 1499
+	Accepted filter count: 1491
 	Rejected filter count: 1
-Output rule count: 1115
+Output rule count: 1116
 	Pruning requestDomains: from 326 to 322
 	Plain good: 874
 
@@ -1949,7 +1930,7 @@ Output rule count: 1115
 	removeparams= (accepted/discarded): 1/0
 	modifyHeaders=: 0
 	urlskip=: 0
-	Unsupported: 70
+	Unsupported: 71
 		regexFilter is not RE2-compatible: ^https?:\/\/www\.tinnews\.co\.kr\/data\/tinnews_co_kr\/banner\/(?!(favicon\.ico|2020040642392902))
 		regexFilter is not RE2-compatible: ^https:\/\/api-gw\.sports\.naver\.com\/cms\/contents\/adContents\/(?!(GENERAL|BRAND_STORY))
 		regexFilter is not RE2-compatible: ^https:\/\/nstatic\.dcinside\.com\/dc\/event\/nft_gaejugi\/(?!nftcon)
@@ -2019,16 +2000,17 @@ Output rule count: 1115
 		Can't salvage rule with unsupported domain= option: /^hdhd[0-9]+\.net/
 		Can't salvage rule with unsupported domain= option: /^hdhd[0-9]+\.net/
 		Can't salvage rule with unsupported domain= option: /wfwf[0-9]+\.net/
+		Can't salvage rule with unsupported domain= option: /tvwiki[0-9]+\.[a-z]+/
 		Rejected filter: m.tvdaily.co.kr#?##news_content:has(> #news_padding:is(:not(:has(> *)), *:has(> iframe:matches-css(display: none)), *:has(img:matches-css(display: none)), *:has(> script[src]), *:has(> #_popIn_recommend)))
-CSS-generic: 28 specific CSS exceptions
+CSS-generic: 29 specific CSS exceptions
 CSS-generic: 10 plain CSS selectors
 	Removing excepted highly generic filter ##[id^="div-gpt-ad"]
 	Removing excepted highly generic filter ##div[id^="div-gpt-"]
 CSS-generic-high: 69 plain CSS selectors
-CSS-specific: 1536 distinct filters
-	Combined into 934 distinct hostnames
-Procedural-related distinct filters: 311 distinct combined selectors
-	Combined into 245 distinct hostnames
+CSS-specific: 1539 distinct filters
+	Combined into 935 distinct hostnames
+Procedural-related distinct filters: 310 distinct combined selectors
+	Combined into 244 distinct hostnames
 ============================
 Listset for 'ltu-0':
 	Fetching remote https://raw.githubusercontent.com/EasyList-Lithuania/easylist_lithuania/master/easylistlithuania.txt
@@ -2128,11 +2110,11 @@ Listset for 'nor-0':
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotFirefox.txt
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotBrave.txt
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/AdditionalGenericEntriesForUBO.txt
-Input filter count: 3170
-	Accepted filter count: 3170
+Input filter count: 3166
+	Accepted filter count: 3166
 	Rejected filter count: 0
-Output rule count: 757
-	Plain good: 650
+Output rule count: 756
+	Plain good: 651
 		Salvaged rule by ignoring 2 unsupported domain= option: eurosport.*|gamereactor.*|vg.no
 		Salvaged rule by ignoring 2 unsupported domain= option: eurosport.*|gamereactor.*|vg.no
 	Maybe good (regexes): 5
@@ -2140,7 +2122,7 @@ Output rule count: 757
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 0
 	urlskip=: 0
-	Unsupported: 95
+	Unsupported: 93
 		"ipaddress=3.248.18.175" not supported
 		"ipaddress=35.227.231.163" not supported
 		"ipaddress=45.58.146.154" not supported
@@ -2173,7 +2155,6 @@ Output rule count: 757
 		"ipaddress=193.143.1.214" not supported
 		"ipaddress=193.143.1.217" not supported
 		"ipaddress=85.159.213.158" not supported
-		"ipaddress=185.53.177.52" not supported
 		"ipaddress=195.242.152.122" not supported
 		"ipaddress=5.39.217.206" not supported
 		"ipaddress=5.39.221.180" not supported
@@ -2221,7 +2202,6 @@ Output rule count: 757
 		"ipaddress=193.143.1.214" not supported
 		"ipaddress=193.143.1.217" not supported
 		"ipaddress=85.159.213.158" not supported
-		"ipaddress=185.53.177.52" not supported
 		"ipaddress=195.242.152.122" not supported
 		"ipaddress=5.39.217.206" not supported
 		"ipaddress=5.39.221.180" not supported
@@ -2237,10 +2217,10 @@ Output rule count: 757
 		Can't salvage rule with unsupported domain= option: eurosport.*
 		Can't salvage rule with unsupported domain= option: eurosport.*|gamereactor.*
 CSS-generic: 17 specific CSS exceptions
-CSS-generic: 221 plain CSS selectors
+CSS-generic: 222 plain CSS selectors
 CSS-generic-high: 34 plain CSS selectors
-CSS-specific: 1395 distinct filters
-	Combined into 728 distinct hostnames
+CSS-specific: 1397 distinct filters
+	Combined into 730 distinct hostnames
 Procedural-related distinct filters: 124 distinct combined selectors
 	Combined into 194 distinct hostnames
 ============================
@@ -2321,8 +2301,8 @@ Listset for 'rus-0':
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/css-fixes-experimental.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/js-fixes-experimental.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/AWRL-non-sync.txt
-Input filter count: 18730
-	Accepted filter count: 18720
+Input filter count: 18731
+	Accepted filter count: 18721
 	Rejected filter count: 7
 Output rule count: 5918
 	Plain good: 5821
@@ -2341,11 +2321,11 @@ Output rule count: 5918
 		Unsupported removeparam exception: 
 CSS-generic: 162 specific CSS exceptions
 CSS-generic: 304 plain CSS selectors
-CSS-generic-high: 489 plain CSS selectors
-CSS-specific: 10240 distinct filters
+CSS-generic-high: 490 plain CSS selectors
+CSS-specific: 10244 distinct filters
 	Combined into 7530 distinct hostnames
 Procedural-related distinct filters: 1217 distinct combined selectors
-	Combined into 1185 distinct hostnames
+	Combined into 1184 distinct hostnames
 ============================
 Listset for 'rus-1':
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/cntblock.txt
@@ -2430,11 +2410,11 @@ Procedural-related distinct filters: 25 distinct combined selectors
 ============================
 Listset for 'spa-1':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/9.txt
-Input filter count: 1181
-	Accepted filter count: 1174
+Input filter count: 1182
+	Accepted filter count: 1175
 	Rejected filter count: 3
-Output rule count: 858
-	Plain good: 816
+Output rule count: 859
+	Plain good: 817
 		Salvaged rule by ignoring 4 unsupported domain= option: cuevana.*|cuevana2espanol.*|cuevana3.*|gnula.*|pelispedia.life|poseidonhd2.co
 		Salvaged rule by ignoring 1 unsupported domain= option: pelisplushd.net|cuevana3.*
 	Maybe good (regexes): 5
@@ -2458,10 +2438,10 @@ Output rule count: 858
 CSS-generic: 44 specific CSS exceptions
 CSS-generic: 86 plain CSS selectors
 CSS-generic-high: 4 plain CSS selectors
-CSS-specific: 3015 distinct filters
+CSS-specific: 3017 distinct filters
 	Combined into 1733 distinct hostnames
 Procedural-related distinct filters: 186 distinct combined selectors
-	Combined into 250 distinct hostnames
+	Combined into 251 distinct hostnames
 ============================
 Listset for 'svn-0':
 	Fetching remote https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt
@@ -2487,11 +2467,11 @@ Procedural-related distinct filters: 2 distinct combined selectors
 ============================
 Listset for 'swe-1':
 	Fetching remote https://raw.githubusercontent.com/lassekongo83/Frellwits-filter-lists/master/Frellwits-Swedish-Filter.txt
-Input filter count: 1712
-	Accepted filter count: 1712
+Input filter count: 1710
+	Accepted filter count: 1710
 	Rejected filter count: 0
-Output rule count: 1340
-	Plain good: 1315
+Output rule count: 1341
+	Plain good: 1316
 
 	Maybe good (regexes): 1
 	redirect=: 12
@@ -2505,12 +2485,12 @@ Output rule count: 1340
 		Incompatible with DNR: ||maxetise.net^$script,redirect-rule=noop.js,domain=feber.se|tjock.se
 		Incompatible with DNR: ||plausible.io^$script,redirect-rule=noop.js,domain=feber.se|tjock.se
 CSS-generic: 3 specific CSS exceptions
-CSS-generic: 235 plain CSS selectors
+CSS-generic: 236 plain CSS selectors
 CSS-generic-high: 51 plain CSS selectors
-CSS-specific: 1119 distinct filters
-	Combined into 1414 distinct hostnames
+CSS-specific: 1125 distinct filters
+	Combined into 1422 distinct hostnames
 Procedural-related distinct filters: 324 distinct combined selectors
-	Combined into 447 distinct hostnames
+	Combined into 448 distinct hostnames
 ============================
 Listset for 'tha-0':
 	Fetching remote https://raw.githubusercontent.com/easylist-thailand/easylist-thailand/master/subscription/easylist-thailand.txt
@@ -2538,11 +2518,11 @@ Procedural-related distinct filters: 14 distinct combined selectors
 ============================
 Listset for 'tur-0':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/13.txt
-Input filter count: 1417
-	Accepted filter count: 1416
+Input filter count: 1418
+	Accepted filter count: 1417
 	Rejected filter count: 0
-Output rule count: 1169
-	Plain good: 1116
+Output rule count: 1170
+	Plain good: 1117
 		Salvaged rule by ignoring 3 unsupported domain= option: ajans32.com|asyadiziizle.com|birasyadizi.com|dizicaps.*|diziplus.*|duzcetv.com|erotikfilmtube.com|ertehaber.com|filmgo1.com|filmzevkim.com|haber32.com.tr|haberant.com|hdfilmizleamk.*|malatyamegahaber.com|medya32.com|mnfilmizle.com|muglayenigun.com|sexfilmleriizle.com|sinefilmgo.org|sinemangoo.org|sinetiktok.com|technopat.net|unyenethaber.com
 		Salvaged rule by ignoring 3 unsupported domain= option: buenosairesideal.com|herpet.net|hudsonlegalblog.com|inattvgiris.pro|selcuk-sports.com|selcuksports.*|selcuksportss.*|taraftarium.*|taraftariumlive.com
 		Salvaged rule by ignoring 1 unsupported domain= option: turkcealtyazi.org|filmmakinesi.*
@@ -2574,10 +2554,10 @@ Output rule count: 1169
 CSS-generic: 24 specific CSS exceptions
 CSS-generic: 155 plain CSS selectors
 CSS-generic-high: 60 plain CSS selectors
-CSS-specific: 3031 distinct filters
+CSS-specific: 3032 distinct filters
 	Combined into 2339 distinct hostnames
-Procedural-related distinct filters: 235 distinct combined selectors
-	Combined into 324 distinct hostnames
+Procedural-related distinct filters: 234 distinct combined selectors
+	Combined into 323 distinct hostnames
 ============================
 Listset for 'ukr-0':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/23.txt

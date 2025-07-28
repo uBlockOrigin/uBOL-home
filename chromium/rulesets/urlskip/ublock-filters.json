@@ -1030,6 +1030,18 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?shopee\\.\\S*?/universal-link\\?redir=http",
+  "steps": [
+   "?redir"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?shp\\.ee/open/noti_email\\?redir=http",
+  "steps": [
+   "?redir"
+  ]
+ },
+ {
   "re": "/vp/player/to/\\?u=http",
   "steps": [
    "?u"
