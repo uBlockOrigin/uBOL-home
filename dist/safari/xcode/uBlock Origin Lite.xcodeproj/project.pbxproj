@@ -177,7 +177,7 @@
 		E431C1262DD2A48D00D163B8 /* settings.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = settings.css; sourceTree = "<group>"; };
 		E431C1272DD2A48D00D163B8 /* strictblock.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = strictblock.css; sourceTree = "<group>"; };
 		E431C1282DD2A48D00D163B8 /* zapper-ui.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = "zapper-ui.css"; sourceTree = "<group>"; };
-		E431C12A2DD2A48D00D163B8 /* dashboard.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = dashboard.html; path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/dashboard.html"; sourceTree = "<absolute>"; };
+		E431C12A2DD2A48D00D163B8 /* dashboard.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = dashboard.html; path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/dashboard.html; sourceTree = "<absolute>"; };
 		E431C12B2DD2A48D00D163B8 /* ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad.png; sourceTree = "<group>"; };
 		E431C12C2DD2A48D00D163B8 /* ae.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ae.png; sourceTree = "<group>"; };
 		E431C12D2DD2A48D00D163B8 /* af.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = af.png; sourceTree = "<group>"; };
@@ -475,14 +475,14 @@
 		E431C2542DD2A48D00D163B8 /* urlskip.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = urlskip.js; sourceTree = "<group>"; };
 		E431C2552DD2A48D00D163B8 /* utils.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = utils.js; sourceTree = "<group>"; };
 		E431C2562DD2A48D00D163B8 /* zapper-ui.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "zapper-ui.js"; sourceTree = "<group>"; };
-		E431C2582DD2A48D00D163B8 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.txt; path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/LICENSE.txt"; sourceTree = "<absolute>"; };
-		E431C2592DD2A48D00D163B8 /* log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = log.txt; path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/log.txt"; sourceTree = "<absolute>"; };
-		E431C25A2DD2A48D00D163B8 /* managed_storage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = managed_storage.json; path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/managed_storage.json"; sourceTree = "<absolute>"; };
-		E431C25B2DD2A48D00D163B8 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/manifest.json"; sourceTree = "<absolute>"; };
+		E431C2582DD2A48D00D163B8 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.txt; path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/LICENSE.txt; sourceTree = "<absolute>"; };
+		E431C2592DD2A48D00D163B8 /* log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = log.txt; path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/log.txt; sourceTree = "<absolute>"; };
+		E431C25A2DD2A48D00D163B8 /* managed_storage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = managed_storage.json; path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/managed_storage.json; sourceTree = "<absolute>"; };
+		E431C25B2DD2A48D00D163B8 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/manifest.json; sourceTree = "<absolute>"; };
 		E431C25C2DD2A48D00D163B8 /* matched-rules.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "matched-rules.html"; path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/matched-rules.html"; sourceTree = "<absolute>"; };
-		E431C25D2DD2A48D00D163B8 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/popup.html"; sourceTree = "<absolute>"; };
-		E431C25E2DD2A48D00D163B8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/README.md"; sourceTree = "<absolute>"; };
-		E431C25F2DD2A48D00D163B8 /* report.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = report.html; path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/report.html"; sourceTree = "<absolute>"; };
+		E431C25D2DD2A48D00D163B8 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/popup.html; sourceTree = "<absolute>"; };
+		E431C25E2DD2A48D00D163B8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/README.md; sourceTree = "<absolute>"; };
+		E431C25F2DD2A48D00D163B8 /* report.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = report.html; path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/report.html; sourceTree = "<absolute>"; };
 		E431C2602DD2A48D00D163B8 /* adguard-spyware-url.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "adguard-spyware-url.json"; sourceTree = "<group>"; };
 		E431C2612DD2A48D00D163B8 /* alb-0.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "alb-0.json"; sourceTree = "<group>"; };
 		E431C2622DD2A48D00D163B8 /* annoyances-cookies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "annoyances-cookies.json"; sourceTree = "<group>"; };
@@ -1318,7 +1318,7 @@
 		E431C5AD2DD2A48D00D163B8 /* generic-details.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "generic-details.json"; sourceTree = "<group>"; };
 		E431C5AE2DD2A48D00D163B8 /* ruleset-details.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "ruleset-details.json"; sourceTree = "<group>"; };
 		E431C5AF2DD2A48D00D163B8 /* scriptlet-details.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "scriptlet-details.json"; sourceTree = "<group>"; };
-		E431C5B12DD2A48D00D163B8 /* strictblock.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = strictblock.html; path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/strictblock.html"; sourceTree = "<absolute>"; };
+		E431C5B12DD2A48D00D163B8 /* strictblock.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = strictblock.html; path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/strictblock.html; sourceTree = "<absolute>"; };
 		E431C5B22DD2A48D00D163B8 /* 1x1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1x1.gif; sourceTree = "<group>"; };
 		E431C5B32DD2A48D00D163B8 /* 2x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2x2.png; sourceTree = "<group>"; };
 		E431C5B42DD2A48D00D163B8 /* 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32x32.png; sourceTree = "<group>"; };
@@ -2185,7 +2185,7 @@
 				E431C1122DD2A48D00D163B8 /* zh_TW */,
 			);
 			name = _locales;
-			path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/_locales";
+			path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/_locales;
 			sourceTree = "<absolute>";
 		};
 		E431C1172DD2A48D00D163B8 /* Inter */ = {
@@ -2235,7 +2235,7 @@
 				E431C1282DD2A48D00D163B8 /* zapper-ui.css */,
 			);
 			name = css;
-			path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/css";
+			path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/css;
 			sourceTree = "<absolute>";
 		};
 		E431C22A2DD2A48D00D163B8 /* flags-of-the-world */ = {
@@ -2515,7 +2515,7 @@
 				E431C2332DD2A48D00D163B8 /* ublock.svg */,
 			);
 			name = img;
-			path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/img";
+			path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/img;
 			sourceTree = "<absolute>";
 		};
 		E431C23C2DD2A48D00D163B8 /* scripting */ = {
@@ -2564,7 +2564,7 @@
 				E431C2562DD2A48D00D163B8 /* zapper-ui.js */,
 			);
 			name = js;
-			path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/js";
+			path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/js;
 			sourceTree = "<absolute>";
 		};
 		E431C2952DD2A48D00D163B8 /* main */ = {
@@ -3511,7 +3511,7 @@
 				E431C5AF2DD2A48D00D163B8 /* scriptlet-details.json */,
 			);
 			name = rulesets;
-			path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/rulesets";
+			path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/rulesets;
 			sourceTree = "<absolute>";
 		};
 		E431C5D42DD2A48D00D163B8 /* web_accessible_resources */ = {
@@ -3553,7 +3553,7 @@
 				E431C5D32DD2A48D00D163B8 /* scorecardresearch_beacon.js */,
 			);
 			name = web_accessible_resources;
-			path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/web_accessible_resources";
+			path = $PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/web_accessible_resources;
 			sourceTree = "<absolute>";
 		};
 		E435D4462DD7AB9A009DD3C6 /* Extension Files */ = {
@@ -3919,7 +3919,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3960,7 +3960,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4070,7 +4070,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -4108,7 +4108,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -4159,7 +4159,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1045.1452;
+				CURRENT_PROJECT_VERSION = 1063.1516;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = WY4R6PNRF6;
@@ -4181,7 +4181,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 2025.717.1452;
+				MARKETING_VERSION = 2025.804.1516;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -4224,7 +4224,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1045.1452;
+				CURRENT_PROJECT_VERSION = 1063.1516;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = WY4R6PNRF6;
@@ -4240,7 +4240,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 2025.717.1452;
+				MARKETING_VERSION = 2025.804.1516;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
