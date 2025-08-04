@@ -602,5 +602,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["ping"],"urlFilter":"||jitsu.foxford.ru/api/s/s2s/batch|"},"id":601,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["muse.mu"],"urlFilter":"||visualwebsiteoptimizer.com^"},"id":602,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||fortrader.ru^"},"id":603,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||xv-ru.com/picserror/"},"id":604,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||xv-ru.com/picserror/"},"id":604,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||sportsdzen.ru/api/*/stats/"},"id":605,"priority":10}
 ]

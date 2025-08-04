@@ -137,7 +137,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||google.com/uds/?file=orkut&"},"id":136,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||jsdelivr.net/npm/devtools-detector"},"id":137,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||jsdelivr.net/npm/disable-devtool"},"id":138,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||news.google.com/swg/_/api/v1/publication/"},"id":139,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||news.google.com/swg/"},"id":139,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||radioonlinehd.net/ads/"},"id":140,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tapcdn.com/mosaic/tap_button.js"},"id":141,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||teamautofollow.com/modules/mod_jtwitter/"},"id":142,"priority":10},

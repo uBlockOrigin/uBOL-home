@@ -1,5 +1,5 @@
 [
-{"action":{"type":"block"},"condition":{"requestDomains":["adengine.telewebion.com","adexo.ir","adexofiles.ir","ads.karzar.net","adsc.beytoote.com","adtrace.io","adverge.ir","analytics.zoomit.ir","chavosh.org","dsp.aparat.com","hadeseh.telewebion.com","intrack.ir","kaprila.com","mediaad.org","metrix.ir","pelikan-network.ir","popupdl.ir","sabavision.com","sentry.alaatv.com","sentry.divar.cloud","sentry.mci.dev","sentry.sabaidea.cloud","sentry.theforge.ir","tavoos.net","tracker.digikala.com","yektanet.com"]},"id":1,"priority":10},
+{"action":{"type":"block"},"condition":{"requestDomains":["adengine.telewebion.com","adexo.ir","adexofiles.ir","ads.karzar.net","adsc.beytoote.com","adtrace.io","adverge.ir","affilio.ir","analyt.ir","analytics.zoomit.ir","binoads.ir","bl9.ir","chavosh.org","dsp.aparat.com","hadeseh.telewebion.com","intrack.ir","kaprila.com","mediaad.org","metrix.ir","new-sentry.digikala.com","pelikan-network.ir","popupdl.ir","pushe.co","sabavision.com","sanjagh.com","sentry.alaatv.com","sentry.divar.cloud","sentry.mci.dev","sentry.sabaidea.cloud","sentry.theforge.ir","tavoos.net","tracker.digikala.com","yektabanner.com","yektanet.com"]},"id":1,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["dlfox.com"],"requestDomains":["cdkeyshare.ir","isarclinic.com"],"resourceTypes":["image"]},"id":2,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["footballitarin.com"],"urlFilter":"||blogger.googleusercontent.com/img^"},"id":3,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedResourceTypes":["main_frame","script"],"initiatorDomains":["ir"],"urlFilter":"||accounts.google.com/gsi^"},"id":4,"priority":10},
@@ -15,7 +15,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||static.tgju.org/advertisement^"},"id":14,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.tabnak.ir/files/fa/adv^"},"id":15,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||footballitarin.com/agahi^"},"id":16,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.sharghdaily.com/servev2^"},"id":17,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["donya-e-eqtesad.com","sharghdaily.com"],"resourceTypes":["image"],"urlFilter":"||cdn.*/servev2^"},"id":17,"priority":10},
 {"action":{"type":"block"},"condition":{"requestMethods":["post"],"urlFilter":"||trustseal.e-rasaneh.ir/trustseal^"},"id":18,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||aparat.com/external/romeo^"},"id":19,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||aparat.com/gogol^"},"id":20,"priority":10},
@@ -35,5 +35,12 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||cdn.tavoos.net/services/smoothie/loader-mobile.js^"},"id":34,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||cdn.tavoos.net/services/sticky/loader.min.js^"},"id":35,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||player.tavoos.net/jwplayer.core.controls.js^"},"id":36,"priority":30},
-{"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||player.tavoos.net/provider.hlsjs.js^"},"id":37,"priority":30}
+{"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||player.tavoos.net/provider.hlsjs.js^"},"id":37,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||par30games.net/wp-content/uploads/*.gif^"},"id":38,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||static.shahrekhabar.com/banner/*.gif^"},"id":39,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||mobile.ir/static/b^"},"id":40,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||yasdl.com/wp-content/uploads/*.gif^"},"id":41,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.hostdl.com/assets/downloadha.gif^"},"id":42,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||zoomg.ir/editorial/api/articles/*/visit^"},"id":43,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||accounts.pod.ir/js/fingerprint2.min.js^"},"id":44,"priority":10}
 ]

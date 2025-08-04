@@ -247,6 +247,15 @@
     }
    ],
    [
+    "prevent-setInterval",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "abort-on-property-read",
     {
      "hostnames": [
@@ -266,15 +275,6 @@
    ],
    [
     "adjust-setInterval",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-setInterval",
     {
      "hostnames": [
       "*"
@@ -368,6 +368,7 @@
       "hanime.tv",
       "hoyolab.com",
       "hoyoverse.com",
+      "hpplus.jp",
       "jastrzabpost.pl",
       "jobzhub.store",
       "kafeteria.pl",
@@ -480,6 +481,15 @@
     }
    ],
    [
+    "trusted-click-element",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
     "m3u-prune",
     {
      "hostnames": [
@@ -564,15 +574,6 @@
       "m1.nivod.tv"
      ],
      "world": "MAIN"
-    }
-   ],
-   [
-    "trusted-click-element",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "ISOLATED"
     }
    ],
    [
@@ -688,6 +689,7 @@
       "siliconvalley.com",
       "southplattesentinel.com",
       "sun-sentinel.com",
+      "th.gl",
       "themorningsun.com",
       "thenewsherald.com",
       "theoaklandpress.com",
@@ -768,9 +770,9 @@
     "set-local-storage-item",
     {
      "hostnames": [
-      "coomer.su",
+      "coomer.st",
       "fedex.com",
-      "kemono.su",
+      "kemono.cr",
       "visible.com"
      ],
      "world": "ISOLATED"
@@ -791,6 +793,7 @@
      "hostnames": [
       "247sports.com",
       "androidpolice.com",
+      "apnews.com",
       "arstechnica.com",
       "audizine.com",
       "blackenterprise.com",
@@ -3078,6 +3081,7 @@
     "prevent-setTimeout",
     {
      "hostnames": [
+      "18comic.org",
       "18comic.vip",
       "233tw.com",
       "445nan.com",
@@ -3097,6 +3101,7 @@
       "haoweichi.com",
       "hboav.com",
       "itdog.cn",
+      "jmcomic-zzz.org",
       "league-funny.com",
       "logi.im",
       "moeci.com",
@@ -4031,6 +4036,8 @@
       "hazipatika.com",
       "magyarhang.org",
       "napiszar.com",
+      "online-filmek.ac",
+      "online-filmek.me",
       "totalbike.hu",
       "totalcar.hu"
      ],
@@ -4063,15 +4070,6 @@
       "myonlineradio.hu"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "prevent-fetch",
-    {
-     "hostnames": [
-      "online-filmek.ac"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -4237,15 +4235,6 @@
  [
   "irn-0",
   [
-   [
-    "abort-on-stack-trace",
-    {
-     "hostnames": [
-      "soft98.ir"
-     ],
-     "world": "MAIN"
-    }
-   ],
    [
     "set-local-storage-item",
     {
@@ -4425,6 +4414,37 @@
   "jpn-1",
   [
    [
+    "remove-node-text",
+    {
+     "hostnames": [
+      "aidoly.net",
+      "aikru.com",
+      "arty-matome.com",
+      "betweenjpandkr.blog",
+      "blog.livedoor.jp",
+      "ch-review.net",
+      "dvdrev.com",
+      "fm.sekkaku.net",
+      "gametohkenranbu.sakuraweb.com",
+      "ideal2ch.livedoor.biz",
+      "kabegami.jpn.org",
+      "kasegeru.blog.jp",
+      "lifematome.blog",
+      "negisoku.com",
+      "pretravel.kawasaki-create.com",
+      "rank1-media.com",
+      "ranky-ranking.net",
+      "resizer.myct.jp",
+      "rxlife.net",
+      "seikeidouga.blog.jp",
+      "sinsimmd.com",
+      "tcg-bloglife.com",
+      "tyoieronews.blog.jp"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
     "set-constant",
     {
      "hostnames": [
@@ -4540,37 +4560,6 @@
       "weddinghall.work"
      ],
      "world": "MAIN"
-    }
-   ],
-   [
-    "remove-node-text",
-    {
-     "hostnames": [
-      "aidoly.net",
-      "aikru.com",
-      "arty-matome.com",
-      "betweenjpandkr.blog",
-      "blog.livedoor.jp",
-      "ch-review.net",
-      "dvdrev.com",
-      "fm.sekkaku.net",
-      "gametohkenranbu.sakuraweb.com",
-      "ideal2ch.livedoor.biz",
-      "jisakuhibi.jp",
-      "kabegami.jpn.org",
-      "kasegeru.blog.jp",
-      "lifematome.blog",
-      "negisoku.com",
-      "rank1-media.com",
-      "ranky-ranking.net",
-      "resizer.myct.jp",
-      "rxlife.net",
-      "seikeidouga.blog.jp",
-      "sinsimmd.com",
-      "tcg-bloglife.com",
-      "tyoieronews.blog.jp"
-     ],
-     "world": "ISOLATED"
     }
    ],
    [
@@ -4783,7 +4772,6 @@
       "platformgreat.kr",
       "sajuplus.net",
       "sbs.co.kr",
-      "shana.pe.kr",
       "shopping.interpark.com",
       "sogirl.so",
       "start.klauncher.kr",
@@ -5901,7 +5889,9 @@
     {
      "hostnames": [
       "animix.lol",
+      "dzen.ru",
       "mail.ru",
+      "sportsdzen.ru",
       "trychatgpt.ru",
       "volley.ru",
       "www.ukr.net",
@@ -6303,6 +6293,24 @@
   "spa-1",
   [
    [
+    "prevent-fetch",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "abort-current-script",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "addEventListener-defuser",
     {
      "hostnames": [
@@ -6323,6 +6331,7 @@
       "mundohentaioficial.com",
       "peliculas8k.com",
       "satcesc.com",
+      "seriesmaxhd.com",
       "seriesperu.com",
       "softwareany.net",
       "xerifetech.com"
@@ -6350,15 +6359,6 @@
    ],
    [
     "adjust-setInterval",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-fetch",
     {
      "hostnames": [
       "*"
@@ -6478,15 +6478,6 @@
       "minhaconexao.com.br",
       "raulprietofernandez.net",
       "receitasdaora.online"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "abort-current-script",
-    {
-     "hostnames": [
-      "*"
      ],
      "world": "MAIN"
     }
@@ -6690,7 +6681,6 @@
       "feber.se",
       "findit.se",
       "folkbladet.nu",
-      "forexgruppen.se",
       "fssweden.se",
       "fz.se",
       "gamereactor.se",
@@ -6748,7 +6738,6 @@
       "discoveringtheplanet.com",
       "enkelteknik.se",
       "fastighetsvarlden.se",
-      "forexgruppen.se",
       "guiden.se",
       "hejaolika.se",
       "husbilsplats.se",
@@ -6883,20 +6872,19 @@
     }
    ],
    [
-    "noeval-if",
+    "abort-on-property-read",
     {
      "hostnames": [
-      "forexgruppen.se",
-      "kattannonser.se"
+      "happypancake.se"
      ],
      "world": "MAIN"
     }
    ],
    [
-    "abort-on-property-read",
+    "noeval-if",
     {
      "hostnames": [
-      "happypancake.se"
+      "kattannonser.se"
      ],
      "world": "MAIN"
     }
@@ -7315,6 +7303,7 @@
     "m3u-prune",
     {
      "hostnames": [
+      "ahaber.com.tr",
       "aspor.com.tr",
       "atv.com.tr",
       "beyaztv.com.tr",
@@ -7381,48 +7370,6 @@
     {
      "hostnames": [
       "burdurweb.com"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
-    "set-attr",
-    {
-     "hostnames": [
-      "inattvhd188.xyz",
-      "inattvhd189.xyz",
-      "inattvhd190.xyz",
-      "inattvhd191.xyz",
-      "inattvhd192.xyz",
-      "inattvhd193.xyz",
-      "inattvhd194.xyz",
-      "inattvhd195.xyz",
-      "inattvhd196.xyz",
-      "inattvhd197.xyz",
-      "inattvhd198.xyz",
-      "inattvhd199.xyz",
-      "inattvhd200.xyz",
-      "inattvhd201.xyz",
-      "inattvhd202.xyz",
-      "inattvhd203.xyz",
-      "inattvhd204.xyz",
-      "inattvhd205.xyz",
-      "inattvhd206.xyz",
-      "inattvhd207.xyz",
-      "inattvhd208.xyz",
-      "inattvhd209.xyz",
-      "inattvhd210.xyz",
-      "inattvhd211.xyz",
-      "inattvhd212.xyz",
-      "inattvhd213.xyz",
-      "inattvhd214.xyz",
-      "inattvhd215.xyz",
-      "inattvhd216.xyz",
-      "inattvhd217.xyz",
-      "inattvhd218.xyz",
-      "inattvhd219.xyz",
-      "inattvhd220.xyz",
-      "inattvhd221.xyz"
      ],
      "world": "ISOLATED"
     }
@@ -7765,7 +7712,7 @@
       "damconuong.run",
       "demo.14412882.com",
       "doctruyen3qui12.pro",
-      "dualeotruyenp.com",
+      "dualeotruyenpm.com",
       "economic45882.shop",
       "freeplayervideo.com",
       "game8.vn",
@@ -7776,7 +7723,7 @@
       "gotphim.com",
       "haysex.ai",
       "haysex.site",
-      "hentaivl.top",
+      "hentaivc.net",
       "hh3dhay.life",
       "hhtq5.vip",
       "hhvsub1.com",
@@ -7794,7 +7741,7 @@
       "lxmanga.my",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill98.com",
+      "motchill18.com",
       "motchilltvphim.com",
       "nettruyenar.com",
       "nettruyenvia.com",
@@ -7814,7 +7761,6 @@
       "sextop1.show",
       "soha.vn",
       "thanhnien.vn",
-      "tinsoikeo.live",
       "tram3d.com",
       "tram3d.me",
       "trumtruyen.live",
@@ -7832,7 +7778,7 @@
       "vlxx.bz",
       "vn2.xvideos69.xxx",
       "vn5.sexviet88.xyz",
-      "vn57phimsexhay.com",
+      "vn61phimsexhay.com",
       "vungoctuan.vn",
       "www.sieutamphim.org",
       "www.toptruyentv8.com",
@@ -7855,15 +7801,15 @@
       "audiotruyenfull.com",
       "bluphim.uk.com",
       "hayhaytv.site",
-      "hdcphim.com",
+      "hdcphim.us",
       "hoctot.hocmai.vn",
       "javnong.cc",
       "linkneverdie.net",
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchill98.com",
-      "motchilll.id",
+      "motchill18.com",
+      "motchilll.fit",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
@@ -7879,18 +7825,17 @@
       "thefaplive.com",
       "thichxemphim1.site",
       "thuvienhd.biz",
-      "tinsoikeo.live",
-      "tourist-information-uk.com",
       "truyenfull.vision",
       "truyensieuhay.com",
       "tv.tvhayhd.org",
       "veryfiles.com",
       "viettoons.tv",
       "vinaurl.net",
+      "www.motchill18.com",
       "www.nettruyenupp.com",
-      "www.phimdinhcao.online",
       "xemphimjav.us",
       "xnhau.sh",
+      "xoilaciik.cc",
       "znews.vn"
      ],
      "world": "MAIN"
@@ -7914,7 +7859,6 @@
       "cafef.vn",
       "cliphot69.pics",
       "clipsex.cam",
-      "consocollaborative.com",
       "freeplayervideo.com",
       "gamek.vn",
       "genk.vn",
@@ -7928,6 +7872,7 @@
       "tailieumoi.vn",
       "thanhnien.vn",
       "tuoitre.vn",
+      "visitfrenchwine.com",
       "vndoc.com",
       "www.gvnvh.net",
       "www.iosviet.com"

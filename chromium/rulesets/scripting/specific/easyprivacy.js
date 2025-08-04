@@ -19,30 +19,24 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-(async function uBOL_cssUser() {
+// ruleset: easyprivacy
+
+// Important!
+// Isolate from global scope
+(function uBOL_cssSpecificImports() {
 
 /******************************************************************************/
 
-const docURL = new URL(document.baseURI);
-const details = await chrome.runtime.sendMessage({
-    what: 'injectCustomFilters',
-    hostname: docURL.hostname,
-}).catch(( ) => {
-});
+const argsList = ["","#right-aside-wrapper"];
+const argsSeqs = [0,1];
+const hostnamesMap = new Map([["birminghammail.co.uk",1],["bristolpost.co.uk",1],["dailyrecord.co.uk",1],["irishstar.com",1],["liverpoolecho.co.uk",1],["manchestereveningnews.co.uk",1],["stokesentinel.co.uk",1],["walesonline.co.uk",1]]);
+const hasEntities = false;
 
-if ( details?.proceduralSelectors?.length ) {
-    if ( self.ProceduralFiltererAPI ) {
-        self.customProceduralFiltererAPI = new self.ProceduralFiltererAPI();
-        self.customProceduralFiltererAPI.addSelectors(
-            details.proceduralSelectors.map(a => JSON.parse(a))
-        );
-    }
-}
-
-self.customFilters = details;
+self.specificImports = self.specificImports || [];
+self.specificImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
 
 /******************************************************************************/
 
 })();
 
-void 0;
+/******************************************************************************/

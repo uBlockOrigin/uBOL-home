@@ -127,6 +127,12 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?redir\\.me/\\?",
+  "steps": [
+   "/\\?(https?:\\/\\/[^&]+)/"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?anylinks\\.in/full\\S*?(?:[^%.0-9a-z_-]|$)url=ahr0c",
   "steps": [
    "?url",
@@ -1039,6 +1045,26 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?shp\\.ee/open/noti_email\\?redir=http",
   "steps": [
    "?redir"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?forums\\.socialmediagirls\\.com/goto/link-confirmation\\?url=ahr0",
+  "steps": [
+   "?url",
+   "-base64"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?dogdrip\\.net/link\\.php\\?url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?s\\.ppomppu\\.co\\.kr/\\S*?(?:[^%.0-9a-z_-]|$)target=ahr0c",
+  "steps": [
+   "?target",
+   "-base64"
   ]
  },
  {
