@@ -32,7 +32,7 @@ jobs:
           echo "TAGNAME=$TAGNAME" >> $GITHUB_ENV
           echo "Version: $TAGNAME"
       # Chromium
-      - name: Build Chromium uBOLite MV3 package
+      - name: Build Chromium uBOLite
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -44,14 +44,24 @@ jobs:
           rm -rf chromium
           mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
       # Edge
-      - name: Build Edge uBOLite MV3 package
+      - name: Build Edge uBOLite
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh edge ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
+          tools/make-mv3.sh edge ${{ env.TAGNAME }}
           echo "EDGE_PACKAGE=${{ env.TAGNAME }}.edge.mv3.zip" >> $GITHUB_ENV
+          cd - > /dev/null
+      # Safari
+      - name: Build Safari uBOLite
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          UBOL_REPO_DIR=$(pwd)
+          cd $UBLOCK_REPO_DIR
+          tools/make-mv3.sh safari ${{ env.TAGNAME }}
+          echo "SAFARI_PACKAGE=${{ env.TAGNAME }}.safari.mv3.zip" >> $GITHUB_ENV
           cd - > /dev/null
       - name: Commit uBOLite MV3 package files
         # https://github.com/marketplace/actions/github-action-for-committing-changes-to-a-repository
@@ -83,14 +93,10 @@ jobs:
             
             ## Installation
             
-            - Chromium-based browsers: Install [from the Chrome Web Store](https://chrome.google.com/webstore/detail/ddkjiahejlhfcafbddmgiahcphecmpfh)
-            - Microsoft Edge: Install [from the Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn)
-            
-            <details><summary>Manual installation</summary>
-            
-            - Chromium: Download the [${{ env.TAGNAME }}.chromium.mv3.zip](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}/${{ env.TAGNAME }}.chromium.mv3.zip) package below, unzip, navigate to `chrome://extensions/` in your browser, then [tell the browser to load the extension](https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outside-the-chrome-web-store/24577660#24577660). You will have to update the extension manually.
-            
-            </details>
+            - Chromium-based browsers: Install from the [Chrome Web Store](https://chrome.google.com/webstore/detail/ddkjiahejlhfcafbddmgiahcphecmpfh)
+            - Microsoft Edge: Install from the [Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn)
+            - Safari: Install from the [Safari App Store](https://apps.apple.com/us/app/ublock-origin-lite/id6745342698)
           files: |
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.EDGE_PACKAGE }}
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.SAFARI_PACKAGE }}
