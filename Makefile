@@ -31,3 +31,9 @@ safari-app: safari-extension
 		-destination 'generic/platform=macOS' \
 		-project "dist/safari/xcode/uBlock Origin Lite.xcodeproj" \
 		-scheme "uBlock Origin Lite (macOS)"
+
+# Publishable releases are downloaded from GitHub.
+# To create publishable release, fill in with release tag:
+# 
+# node dist/safari/publish-extension.js ghtag=[release tag] ios
+# node dist/safari/publish-extension.js ghtag=[release tag] macos

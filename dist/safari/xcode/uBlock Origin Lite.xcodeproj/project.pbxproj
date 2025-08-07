@@ -7,46 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E45DDDCB2E296F9E00B9FF3F /* css in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDB72E296F9D00B9FF3F /* css */; };
-		E45DDDCC2E296F9E00B9FF3F /* img in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDB82E296F9D00B9FF3F /* img */; };
-		E45DDDCD2E296F9E00B9FF3F /* js in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDB92E296F9D00B9FF3F /* js */; };
-		E45DDDCE2E296F9E00B9FF3F /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBA2E296F9D00B9FF3F /* manifest.json */; };
-		E45DDDCF2E296F9E00B9FF3F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBB2E296F9D00B9FF3F /* README.md */; };
-		E45DDDD02E296F9E00B9FF3F /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBC2E296F9D00B9FF3F /* _locales */; };
-		E45DDDD12E296F9E00B9FF3F /* report.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBD2E296F9D00B9FF3F /* report.html */; };
-		E45DDDD22E296F9E00B9FF3F /* strictblock.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBE2E296F9D00B9FF3F /* strictblock.html */; };
-		E45DDDD32E296F9E00B9FF3F /* zapper-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBF2E296F9D00B9FF3F /* zapper-ui.html */; };
-		E45DDDD42E296F9E00B9FF3F /* matched-rules.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC02E296F9D00B9FF3F /* matched-rules.html */; };
-		E45DDDD52E296F9E00B9FF3F /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC12E296F9D00B9FF3F /* popup.html */; };
-		E45DDDD62E296F9E00B9FF3F /* unpicker-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC22E296F9D00B9FF3F /* unpicker-ui.html */; };
-		E45DDDD72E296F9E00B9FF3F /* picker-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC32E296F9D00B9FF3F /* picker-ui.html */; };
-		E45DDDD92E296F9E00B9FF3F /* rulesets in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC52E296F9D00B9FF3F /* rulesets */; };
-		E45DDDDA2E296F9E00B9FF3F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC62E296F9E00B9FF3F /* LICENSE.txt */; };
-		E45DDDDB2E296F9E00B9FF3F /* lib in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC72E296F9E00B9FF3F /* lib */; };
-		E45DDDDC2E296F9E00B9FF3F /* web_accessible_resources in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC82E296F9E00B9FF3F /* web_accessible_resources */; };
-		E45DDDDD2E296F9E00B9FF3F /* managed_storage.json in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC92E296F9E00B9FF3F /* managed_storage.json */; };
-		E45DDDDE2E296F9E00B9FF3F /* dashboard.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDCA2E296F9E00B9FF3F /* dashboard.html */; };
-		E45DDDDF2E2970D100B9FF3F /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBC2E296F9D00B9FF3F /* _locales */; };
-		E45DDDE02E2970D100B9FF3F /* css in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDB72E296F9D00B9FF3F /* css */; };
-		E45DDDE12E2970D100B9FF3F /* dashboard.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDCA2E296F9E00B9FF3F /* dashboard.html */; };
-		E45DDDE22E2970D100B9FF3F /* img in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDB82E296F9D00B9FF3F /* img */; };
-		E45DDDE32E2970D100B9FF3F /* js in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDB92E296F9D00B9FF3F /* js */; };
-		E45DDDE42E2970D100B9FF3F /* lib in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC72E296F9E00B9FF3F /* lib */; };
-		E45DDDE52E2970D100B9FF3F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC62E296F9E00B9FF3F /* LICENSE.txt */; };
-		E45DDDE62E2970D100B9FF3F /* managed_storage.json in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC92E296F9E00B9FF3F /* managed_storage.json */; };
-		E45DDDE72E2970D100B9FF3F /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBA2E296F9D00B9FF3F /* manifest.json */; };
-		E45DDDE82E2970D100B9FF3F /* matched-rules.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC02E296F9D00B9FF3F /* matched-rules.html */; };
-		E45DDDE92E2970D100B9FF3F /* picker-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC32E296F9D00B9FF3F /* picker-ui.html */; };
-		E45DDDEA2E2970D100B9FF3F /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC12E296F9D00B9FF3F /* popup.html */; };
-		E45DDDEB2E2970D100B9FF3F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBB2E296F9D00B9FF3F /* README.md */; };
-		E45DDDEC2E2970D100B9FF3F /* report.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBD2E296F9D00B9FF3F /* report.html */; };
-		E45DDDED2E2970D100B9FF3F /* rulesets in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC52E296F9D00B9FF3F /* rulesets */; };
-		E45DDDEE2E2970D100B9FF3F /* strictblock.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBE2E296F9D00B9FF3F /* strictblock.html */; };
-		E45DDDEF2E2970D100B9FF3F /* unpicker-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC22E296F9D00B9FF3F /* unpicker-ui.html */; };
-		E45DDDF02E2970D100B9FF3F /* web_accessible_resources in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDC82E296F9E00B9FF3F /* web_accessible_resources */; };
-		E45DDDF12E2970D100B9FF3F /* zapper-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E45DDDBF2E296F9D00B9FF3F /* zapper-ui.html */; };
 		E460318B2DC126470088109E /* uBlock Origin Lite Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E460318A2DC126470088109E /* uBlock Origin Lite Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E46031952DC126470088109E /* uBlock Origin Lite Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E46031942DC126470088109E /* uBlock Origin Lite Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E487CC0A2E45687E00B151E0 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CBF72E45687D00B151E0 /* popup.html */; };
+		E487CC0B2E45687E00B151E0 /* strictblock.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CBF82E45687D00B151E0 /* strictblock.html */; };
+		E487CC0C2E45687E00B151E0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E487CBF92E45687D00B151E0 /* README.md */; };
+		E487CC0D2E45687E00B151E0 /* managed_storage.json in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFA2E45687D00B151E0 /* managed_storage.json */; };
+		E487CC0E2E45687E00B151E0 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFB2E45687E00B151E0 /* LICENSE.txt */; };
+		E487CC0F2E45687E00B151E0 /* dashboard.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFC2E45687E00B151E0 /* dashboard.html */; };
+		E487CC102E45687E00B151E0 /* img in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFD2E45687E00B151E0 /* img */; };
+		E487CC112E45687E00B151E0 /* js in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFE2E45687E00B151E0 /* js */; };
+		E487CC122E45687E00B151E0 /* zapper-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFF2E45687E00B151E0 /* zapper-ui.html */; };
+		E487CC132E45687E00B151E0 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = E487CC002E45687E00B151E0 /* lib */; };
+		E487CC142E45687E00B151E0 /* css in Resources */ = {isa = PBXBuildFile; fileRef = E487CC012E45687E00B151E0 /* css */; };
+		E487CC152E45687E00B151E0 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = E487CC022E45687E00B151E0 /* _locales */; };
+		E487CC162E45687E00B151E0 /* rulesets in Resources */ = {isa = PBXBuildFile; fileRef = E487CC032E45687E00B151E0 /* rulesets */; };
+		E487CC172E45687E00B151E0 /* matched-rules.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CC042E45687E00B151E0 /* matched-rules.html */; };
+		E487CC182E45687E00B151E0 /* report.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CC052E45687E00B151E0 /* report.html */; };
+		E487CC192E45687E00B151E0 /* unpicker-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CC062E45687E00B151E0 /* unpicker-ui.html */; };
+		E487CC1A2E45687E00B151E0 /* picker-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CC072E45687E00B151E0 /* picker-ui.html */; };
+		E487CC1B2E45687E00B151E0 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = E487CC082E45687E00B151E0 /* manifest.json */; };
+		E487CC1C2E45687E00B151E0 /* web_accessible_resources in Resources */ = {isa = PBXBuildFile; fileRef = E487CC092E45687E00B151E0 /* web_accessible_resources */; };
+		E487CC1D2E45689900B151E0 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = E487CC022E45687E00B151E0 /* _locales */; };
+		E487CC1E2E45689900B151E0 /* css in Resources */ = {isa = PBXBuildFile; fileRef = E487CC012E45687E00B151E0 /* css */; };
+		E487CC1F2E45689900B151E0 /* dashboard.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFC2E45687E00B151E0 /* dashboard.html */; };
+		E487CC202E45689900B151E0 /* img in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFD2E45687E00B151E0 /* img */; };
+		E487CC212E45689900B151E0 /* js in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFE2E45687E00B151E0 /* js */; };
+		E487CC222E45689900B151E0 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = E487CC002E45687E00B151E0 /* lib */; };
+		E487CC232E45689900B151E0 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFB2E45687E00B151E0 /* LICENSE.txt */; };
+		E487CC242E45689900B151E0 /* managed_storage.json in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFA2E45687D00B151E0 /* managed_storage.json */; };
+		E487CC252E45689900B151E0 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = E487CC082E45687E00B151E0 /* manifest.json */; };
+		E487CC262E45689900B151E0 /* matched-rules.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CC042E45687E00B151E0 /* matched-rules.html */; };
+		E487CC272E45689900B151E0 /* picker-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CC072E45687E00B151E0 /* picker-ui.html */; };
+		E487CC282E45689900B151E0 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CBF72E45687D00B151E0 /* popup.html */; };
+		E487CC292E45689900B151E0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E487CBF92E45687D00B151E0 /* README.md */; };
+		E487CC2A2E45689900B151E0 /* report.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CC052E45687E00B151E0 /* report.html */; };
+		E487CC2B2E45689900B151E0 /* rulesets in Resources */ = {isa = PBXBuildFile; fileRef = E487CC032E45687E00B151E0 /* rulesets */; };
+		E487CC2C2E45689900B151E0 /* strictblock.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CBF82E45687D00B151E0 /* strictblock.html */; };
+		E487CC2D2E45689900B151E0 /* unpicker-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CC062E45687E00B151E0 /* unpicker-ui.html */; };
+		E487CC2E2E45689900B151E0 /* web_accessible_resources in Resources */ = {isa = PBXBuildFile; fileRef = E487CC092E45687E00B151E0 /* web_accessible_resources */; };
+		E487CC2F2E45689900B151E0 /* zapper-ui.html in Resources */ = {isa = PBXBuildFile; fileRef = E487CBFF2E45687E00B151E0 /* zapper-ui.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1354,29 +1354,29 @@
 		E431C5D22DD2A48D00D163B8 /* prebid-ads.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "prebid-ads.js"; sourceTree = "<group>"; };
 		E431C5D32DD2A48D00D163B8 /* scorecardresearch_beacon.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = scorecardresearch_beacon.js; sourceTree = "<group>"; };
 		E431C5D52DD2A48D00D163B8 /* zapper-ui.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zapper-ui.html"; path = "$PROJECT_HOME/../../uBlock/dist/build/uBOLite.safari/zapper-ui.html"; sourceTree = "<absolute>"; };
-		E45DDDB72E296F9D00B9FF3F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = ../../../../uBlock/dist/build/uBOLite.safari/css; sourceTree = "<group>"; };
-		E45DDDB82E296F9D00B9FF3F /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; name = img; path = ../../../../uBlock/dist/build/uBOLite.safari/img; sourceTree = "<group>"; };
-		E45DDDB92E296F9D00B9FF3F /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js; path = ../../../../uBlock/dist/build/uBOLite.safari/js; sourceTree = "<group>"; };
-		E45DDDBA2E296F9D00B9FF3F /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../../uBlock/dist/build/uBOLite.safari/manifest.json; sourceTree = "<group>"; };
-		E45DDDBB2E296F9D00B9FF3F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../../uBlock/dist/build/uBOLite.safari/README.md; sourceTree = "<group>"; };
-		E45DDDBC2E296F9D00B9FF3F /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = ../../../../uBlock/dist/build/uBOLite.safari/_locales; sourceTree = "<group>"; };
-		E45DDDBD2E296F9D00B9FF3F /* report.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = report.html; path = ../../../../uBlock/dist/build/uBOLite.safari/report.html; sourceTree = "<group>"; };
-		E45DDDBE2E296F9D00B9FF3F /* strictblock.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = strictblock.html; path = ../../../../uBlock/dist/build/uBOLite.safari/strictblock.html; sourceTree = "<group>"; };
-		E45DDDBF2E296F9D00B9FF3F /* zapper-ui.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zapper-ui.html"; path = "../../../../uBlock/dist/build/uBOLite.safari/zapper-ui.html"; sourceTree = "<group>"; };
-		E45DDDC02E296F9D00B9FF3F /* matched-rules.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "matched-rules.html"; path = "../../../../uBlock/dist/build/uBOLite.safari/matched-rules.html"; sourceTree = "<group>"; };
-		E45DDDC12E296F9D00B9FF3F /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = ../../../../uBlock/dist/build/uBOLite.safari/popup.html; sourceTree = "<group>"; };
-		E45DDDC22E296F9D00B9FF3F /* unpicker-ui.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "unpicker-ui.html"; path = "../../../../uBlock/dist/build/uBOLite.safari/unpicker-ui.html"; sourceTree = "<group>"; };
-		E45DDDC32E296F9D00B9FF3F /* picker-ui.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "picker-ui.html"; path = "../../../../uBlock/dist/build/uBOLite.safari/picker-ui.html"; sourceTree = "<group>"; };
-		E45DDDC52E296F9D00B9FF3F /* rulesets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = rulesets; path = ../../../../uBlock/dist/build/uBOLite.safari/rulesets; sourceTree = "<group>"; };
-		E45DDDC62E296F9E00B9FF3F /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.txt; path = ../../../../uBlock/dist/build/uBOLite.safari/LICENSE.txt; sourceTree = "<group>"; };
-		E45DDDC72E296F9E00B9FF3F /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lib; path = ../../../../uBlock/dist/build/uBOLite.safari/lib; sourceTree = "<group>"; };
-		E45DDDC82E296F9E00B9FF3F /* web_accessible_resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web_accessible_resources; path = ../../../../uBlock/dist/build/uBOLite.safari/web_accessible_resources; sourceTree = "<group>"; };
-		E45DDDC92E296F9E00B9FF3F /* managed_storage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = managed_storage.json; path = ../../../../uBlock/dist/build/uBOLite.safari/managed_storage.json; sourceTree = "<group>"; };
-		E45DDDCA2E296F9E00B9FF3F /* dashboard.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = dashboard.html; path = ../../../../uBlock/dist/build/uBOLite.safari/dashboard.html; sourceTree = "<group>"; };
 		E460316C2DC126470088109E /* uBlock Origin Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uBlock Origin Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E460317E2DC126470088109E /* uBlock Origin Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uBlock Origin Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E460318A2DC126470088109E /* uBlock Origin Lite Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "uBlock Origin Lite Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46031942DC126470088109E /* uBlock Origin Lite Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "uBlock Origin Lite Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E487CBF72E45687D00B151E0 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = ../../../../build/uBOLite.safari/popup.html; sourceTree = "<group>"; };
+		E487CBF82E45687D00B151E0 /* strictblock.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = strictblock.html; path = ../../../../build/uBOLite.safari/strictblock.html; sourceTree = "<group>"; };
+		E487CBF92E45687D00B151E0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../../build/uBOLite.safari/README.md; sourceTree = "<group>"; };
+		E487CBFA2E45687D00B151E0 /* managed_storage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = managed_storage.json; path = ../../../../build/uBOLite.safari/managed_storage.json; sourceTree = "<group>"; };
+		E487CBFB2E45687E00B151E0 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.txt; path = ../../../../build/uBOLite.safari/LICENSE.txt; sourceTree = "<group>"; };
+		E487CBFC2E45687E00B151E0 /* dashboard.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = dashboard.html; path = ../../../../build/uBOLite.safari/dashboard.html; sourceTree = "<group>"; };
+		E487CBFD2E45687E00B151E0 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; name = img; path = ../../../../build/uBOLite.safari/img; sourceTree = "<group>"; };
+		E487CBFE2E45687E00B151E0 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js; path = ../../../../build/uBOLite.safari/js; sourceTree = "<group>"; };
+		E487CBFF2E45687E00B151E0 /* zapper-ui.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zapper-ui.html"; path = "../../../../build/uBOLite.safari/zapper-ui.html"; sourceTree = "<group>"; };
+		E487CC002E45687E00B151E0 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lib; path = ../../../../build/uBOLite.safari/lib; sourceTree = "<group>"; };
+		E487CC012E45687E00B151E0 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = ../../../../build/uBOLite.safari/css; sourceTree = "<group>"; };
+		E487CC022E45687E00B151E0 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = ../../../../build/uBOLite.safari/_locales; sourceTree = "<group>"; };
+		E487CC032E45687E00B151E0 /* rulesets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = rulesets; path = ../../../../build/uBOLite.safari/rulesets; sourceTree = "<group>"; };
+		E487CC042E45687E00B151E0 /* matched-rules.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "matched-rules.html"; path = "../../../../build/uBOLite.safari/matched-rules.html"; sourceTree = "<group>"; };
+		E487CC052E45687E00B151E0 /* report.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = report.html; path = ../../../../build/uBOLite.safari/report.html; sourceTree = "<group>"; };
+		E487CC062E45687E00B151E0 /* unpicker-ui.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "unpicker-ui.html"; path = "../../../../build/uBOLite.safari/unpicker-ui.html"; sourceTree = "<group>"; };
+		E487CC072E45687E00B151E0 /* picker-ui.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "picker-ui.html"; path = "../../../../build/uBOLite.safari/picker-ui.html"; sourceTree = "<group>"; };
+		E487CC082E45687E00B151E0 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../../build/uBOLite.safari/manifest.json; sourceTree = "<group>"; };
+		E487CC092E45687E00B151E0 /* web_accessible_resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web_accessible_resources; path = ../../../../build/uBOLite.safari/web_accessible_resources; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -3559,25 +3559,25 @@
 		E435D4462DD7AB9A009DD3C6 /* Extension Files */ = {
 			isa = PBXGroup;
 			children = (
-				E45DDDBC2E296F9D00B9FF3F /* _locales */,
-				E45DDDB72E296F9D00B9FF3F /* css */,
-				E45DDDCA2E296F9E00B9FF3F /* dashboard.html */,
-				E45DDDB82E296F9D00B9FF3F /* img */,
-				E45DDDB92E296F9D00B9FF3F /* js */,
-				E45DDDC72E296F9E00B9FF3F /* lib */,
-				E45DDDC62E296F9E00B9FF3F /* LICENSE.txt */,
-				E45DDDC92E296F9E00B9FF3F /* managed_storage.json */,
-				E45DDDBA2E296F9D00B9FF3F /* manifest.json */,
-				E45DDDC02E296F9D00B9FF3F /* matched-rules.html */,
-				E45DDDC32E296F9D00B9FF3F /* picker-ui.html */,
-				E45DDDC12E296F9D00B9FF3F /* popup.html */,
-				E45DDDBB2E296F9D00B9FF3F /* README.md */,
-				E45DDDBD2E296F9D00B9FF3F /* report.html */,
-				E45DDDC52E296F9D00B9FF3F /* rulesets */,
-				E45DDDBE2E296F9D00B9FF3F /* strictblock.html */,
-				E45DDDC22E296F9D00B9FF3F /* unpicker-ui.html */,
-				E45DDDC82E296F9E00B9FF3F /* web_accessible_resources */,
-				E45DDDBF2E296F9D00B9FF3F /* zapper-ui.html */,
+				E487CC022E45687E00B151E0 /* _locales */,
+				E487CC012E45687E00B151E0 /* css */,
+				E487CBFC2E45687E00B151E0 /* dashboard.html */,
+				E487CBFD2E45687E00B151E0 /* img */,
+				E487CBFE2E45687E00B151E0 /* js */,
+				E487CC002E45687E00B151E0 /* lib */,
+				E487CBFB2E45687E00B151E0 /* LICENSE.txt */,
+				E487CBFA2E45687D00B151E0 /* managed_storage.json */,
+				E487CC082E45687E00B151E0 /* manifest.json */,
+				E487CC042E45687E00B151E0 /* matched-rules.html */,
+				E487CC072E45687E00B151E0 /* picker-ui.html */,
+				E487CBF72E45687D00B151E0 /* popup.html */,
+				E487CBF92E45687D00B151E0 /* README.md */,
+				E487CC052E45687E00B151E0 /* report.html */,
+				E487CC032E45687E00B151E0 /* rulesets */,
+				E487CBF82E45687D00B151E0 /* strictblock.html */,
+				E487CC062E45687E00B151E0 /* unpicker-ui.html */,
+				E487CC092E45687E00B151E0 /* web_accessible_resources */,
+				E487CBFF2E45687E00B151E0 /* zapper-ui.html */,
 			);
 			path = "Extension Files";
 			sourceTree = "<group>";
@@ -3755,49 +3755,49 @@
 		E4CD2F362DD7A1B0006165C4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				E45DDDDF2E2970D100B9FF3F /* _locales in Resources */,
-				E45DDDE02E2970D100B9FF3F /* css in Resources */,
-				E45DDDE12E2970D100B9FF3F /* dashboard.html in Resources */,
-				E45DDDE22E2970D100B9FF3F /* img in Resources */,
-				E45DDDE32E2970D100B9FF3F /* js in Resources */,
-				E45DDDE42E2970D100B9FF3F /* lib in Resources */,
-				E45DDDE52E2970D100B9FF3F /* LICENSE.txt in Resources */,
-				E45DDDE62E2970D100B9FF3F /* managed_storage.json in Resources */,
-				E45DDDE72E2970D100B9FF3F /* manifest.json in Resources */,
-				E45DDDE82E2970D100B9FF3F /* matched-rules.html in Resources */,
-				E45DDDE92E2970D100B9FF3F /* picker-ui.html in Resources */,
-				E45DDDEA2E2970D100B9FF3F /* popup.html in Resources */,
-				E45DDDEB2E2970D100B9FF3F /* README.md in Resources */,
-				E45DDDEC2E2970D100B9FF3F /* report.html in Resources */,
-				E45DDDED2E2970D100B9FF3F /* rulesets in Resources */,
-				E45DDDEE2E2970D100B9FF3F /* strictblock.html in Resources */,
-				E45DDDEF2E2970D100B9FF3F /* unpicker-ui.html in Resources */,
-				E45DDDF02E2970D100B9FF3F /* web_accessible_resources in Resources */,
-				E45DDDF12E2970D100B9FF3F /* zapper-ui.html in Resources */,
+				E487CC1D2E45689900B151E0 /* _locales in Resources */,
+				E487CC1E2E45689900B151E0 /* css in Resources */,
+				E487CC1F2E45689900B151E0 /* dashboard.html in Resources */,
+				E487CC202E45689900B151E0 /* img in Resources */,
+				E487CC212E45689900B151E0 /* js in Resources */,
+				E487CC222E45689900B151E0 /* lib in Resources */,
+				E487CC232E45689900B151E0 /* LICENSE.txt in Resources */,
+				E487CC242E45689900B151E0 /* managed_storage.json in Resources */,
+				E487CC252E45689900B151E0 /* manifest.json in Resources */,
+				E487CC262E45689900B151E0 /* matched-rules.html in Resources */,
+				E487CC272E45689900B151E0 /* picker-ui.html in Resources */,
+				E487CC282E45689900B151E0 /* popup.html in Resources */,
+				E487CC292E45689900B151E0 /* README.md in Resources */,
+				E487CC2A2E45689900B151E0 /* report.html in Resources */,
+				E487CC2B2E45689900B151E0 /* rulesets in Resources */,
+				E487CC2C2E45689900B151E0 /* strictblock.html in Resources */,
+				E487CC2D2E45689900B151E0 /* unpicker-ui.html in Resources */,
+				E487CC2E2E45689900B151E0 /* web_accessible_resources in Resources */,
+				E487CC2F2E45689900B151E0 /* zapper-ui.html in Resources */,
 			);
 		};
 		E4CD2F5A2DD7A1DC006165C4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				E45DDDCB2E296F9E00B9FF3F /* css in Resources */,
-				E45DDDCC2E296F9E00B9FF3F /* img in Resources */,
-				E45DDDCD2E296F9E00B9FF3F /* js in Resources */,
-				E45DDDCE2E296F9E00B9FF3F /* manifest.json in Resources */,
-				E45DDDCF2E296F9E00B9FF3F /* README.md in Resources */,
-				E45DDDD02E296F9E00B9FF3F /* _locales in Resources */,
-				E45DDDD12E296F9E00B9FF3F /* report.html in Resources */,
-				E45DDDD22E296F9E00B9FF3F /* strictblock.html in Resources */,
-				E45DDDD32E296F9E00B9FF3F /* zapper-ui.html in Resources */,
-				E45DDDD42E296F9E00B9FF3F /* matched-rules.html in Resources */,
-				E45DDDD52E296F9E00B9FF3F /* popup.html in Resources */,
-				E45DDDD62E296F9E00B9FF3F /* unpicker-ui.html in Resources */,
-				E45DDDD72E296F9E00B9FF3F /* picker-ui.html in Resources */,
-				E45DDDD92E296F9E00B9FF3F /* rulesets in Resources */,
-				E45DDDDA2E296F9E00B9FF3F /* LICENSE.txt in Resources */,
-				E45DDDDB2E296F9E00B9FF3F /* lib in Resources */,
-				E45DDDDC2E296F9E00B9FF3F /* web_accessible_resources in Resources */,
-				E45DDDDD2E296F9E00B9FF3F /* managed_storage.json in Resources */,
-				E45DDDDE2E296F9E00B9FF3F /* dashboard.html in Resources */,
+				E487CC0A2E45687E00B151E0 /* popup.html in Resources */,
+				E487CC0B2E45687E00B151E0 /* strictblock.html in Resources */,
+				E487CC0C2E45687E00B151E0 /* README.md in Resources */,
+				E487CC0D2E45687E00B151E0 /* managed_storage.json in Resources */,
+				E487CC0E2E45687E00B151E0 /* LICENSE.txt in Resources */,
+				E487CC0F2E45687E00B151E0 /* dashboard.html in Resources */,
+				E487CC102E45687E00B151E0 /* img in Resources */,
+				E487CC112E45687E00B151E0 /* js in Resources */,
+				E487CC122E45687E00B151E0 /* zapper-ui.html in Resources */,
+				E487CC132E45687E00B151E0 /* lib in Resources */,
+				E487CC142E45687E00B151E0 /* css in Resources */,
+				E487CC152E45687E00B151E0 /* _locales in Resources */,
+				E487CC162E45687E00B151E0 /* rulesets in Resources */,
+				E487CC172E45687E00B151E0 /* matched-rules.html in Resources */,
+				E487CC182E45687E00B151E0 /* report.html in Resources */,
+				E487CC192E45687E00B151E0 /* unpicker-ui.html in Resources */,
+				E487CC1A2E45687E00B151E0 /* picker-ui.html in Resources */,
+				E487CC1B2E45687E00B151E0 /* manifest.json in Resources */,
+				E487CC1C2E45687E00B151E0 /* web_accessible_resources in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
