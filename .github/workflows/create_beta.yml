@@ -35,7 +35,7 @@ jobs:
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
+          tools/make-mv3.sh chromium ${{ env.TAGNAME }}
           cd - > /dev/null
           mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.chromium.mv3.zip \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
@@ -46,7 +46,7 @@ jobs:
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh edge ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
+          tools/make-mv3.sh edge ${{ env.TAGNAME }}
           cd - > /dev/null
           mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.edge.mv3.zip \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.edge.zip
@@ -57,7 +57,7 @@ jobs:
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh firefox ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
+          tools/make-mv3.sh firefox ${{ env.TAGNAME }}
           cd - > /dev/null
           mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.firefox.mv3.xpi \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.firefox.xpi
@@ -68,7 +68,7 @@ jobs:
         run: |
           UBOL_REPO_DIR=$(pwd)
           cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh safari ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
+          tools/make-mv3.sh safari ${{ env.TAGNAME }}
           cd - > /dev/null
           mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.safari.mv3.zip \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.safari.zip
