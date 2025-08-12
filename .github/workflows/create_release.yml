@@ -71,7 +71,7 @@ jobs:
           commit_message: "[workflow] Update uBOLite MV3 package files for ${{ env.TAGNAME }}"
       - name: Assemble release text
         run: |
-          sed -e 's/%version%/${{ env.VERSION }}/g' ./github/workflows/RELEASE_BODY.md > release_body0.txt
+          sed -e 's/%version%/${{ env.VERSION }}/g' .github/workflows/RELEASE_BODY.md > release_body0.txt
           grep -m1 -B10000 -- "----------" CHANGELOG.md > release_notes.txt
           sed -e 's/%changelog%/r release_notes.txt/' -e '/%changelog%/d' release_body0.txt > release_body.txt
       - name: Create GitHub release
