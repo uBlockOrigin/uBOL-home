@@ -1,0 +1,18 @@
+[
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.txt"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "/?jsc=*&f=*&t="
+ },
+ "id": 1,
+ "priority": 11
+}
+]

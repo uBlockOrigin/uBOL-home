@@ -114,5 +114,24 @@
  },
  "id": 7,
  "priority": 41
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/1x1.gif"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "24.rakuten.co.jp"
+  ],
+  "resourceTypes": [
+   "image"
+  ],
+  "urlFilter": "||r10s.jp/com/img/home/t.gif?"
+ },
+ "id": 8,
+ "priority": 41
 }
 ]

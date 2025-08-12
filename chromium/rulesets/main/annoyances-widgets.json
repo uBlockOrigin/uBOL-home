@@ -52,5 +52,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||leadster.com.br/api/chatbot/"},"id":51,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||zapier.app/_z/embed/chatbot/"},"id":52,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||guuru.com^*/chat.min.js"},"id":53,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||allegro.concerto.ai/chatbot_v2/"},"id":54,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||allegro.concerto.ai/chatbot_v2/"},"id":54,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||live-mt-server.wati.io/*/whatsappchatscript?shopifydomain="},"id":55,"priority":10}
 ]

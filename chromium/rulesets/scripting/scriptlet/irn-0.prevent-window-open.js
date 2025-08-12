@@ -20,160 +20,181 @@
 
 */
 
-// ruleset: ublock-experimental
+// ruleset: irn-0
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_replaceNodeText() {
+(function uBOL_noWindowOpenIf() {
 
 /******************************************************************************/
 
-function replaceNodeText(
-    nodeName,
-    pattern,
-    replacement,
-    ...extraArgs
-) {
-    replaceNodeTextFn(nodeName, pattern, replacement, ...extraArgs);
-}
-
-function replaceNodeTextFn(
-    nodeName = '',
+function noWindowOpenIf(
     pattern = '',
-    replacement = ''
+    delay = '',
+    decoy = ''
 ) {
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('replace-node-text.fn', ...Array.from(arguments));
-    const reNodeName = safe.patternToRegex(nodeName, 'i', true);
-    const rePattern = safe.patternToRegex(pattern, 'gms');
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    const reIncludes = extraArgs.includes || extraArgs.condition
-        ? safe.patternToRegex(extraArgs.includes || extraArgs.condition, 'ms')
-        : null;
-    const reExcludes = extraArgs.excludes
-        ? safe.patternToRegex(extraArgs.excludes, 'ms')
-        : null;
-    const stop = (takeRecord = true) => {
-        if ( takeRecord ) {
-            handleMutations(observer.takeRecords());
-        }
-        observer.disconnect();
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, 'Quitting');
-        }
-    };
-    const textContentFactory = (( ) => {
-        const out = { createScript: s => s };
-        const { trustedTypes: tt } = self;
-        if ( tt instanceof Object ) {
-            if ( typeof tt.getPropertyType === 'function' ) {
-                if ( tt.getPropertyType('script', 'textContent') === 'TrustedScript' ) {
-                    return tt.createPolicy(getRandomTokenFn(), out);
-                }
-            }
-        }
-        return out;
-    })();
-    let sedCount = extraArgs.sedCount || 0;
-    const handleNode = node => {
-        const before = node.textContent;
-        if ( reIncludes ) {
-            reIncludes.lastIndex = 0;
-            if ( safe.RegExp_test.call(reIncludes, before) === false ) { return true; }
-        }
-        if ( reExcludes ) {
-            reExcludes.lastIndex = 0;
-            if ( safe.RegExp_test.call(reExcludes, before) ) { return true; }
-        }
-        rePattern.lastIndex = 0;
-        if ( safe.RegExp_test.call(rePattern, before) === false ) { return true; }
-        rePattern.lastIndex = 0;
-        const after = pattern !== ''
-            ? before.replace(rePattern, replacement)
-            : replacement;
-        node.textContent = node.nodeName === 'SCRIPT'
-            ? textContentFactory.createScript(after)
-            : after;
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, `Text before:\n${before.trim()}`);
-        }
-        safe.uboLog(logPrefix, `Text after:\n${after.trim()}`);
-        return sedCount === 0 || (sedCount -= 1) !== 0;
-    };
-    const handleMutations = mutations => {
-        for ( const mutation of mutations ) {
-            for ( const node of mutation.addedNodes ) {
-                if ( reNodeName.test(node.nodeName) === false ) { continue; }
-                if ( handleNode(node) ) { continue; }
-                stop(false); return;
-            }
-        }
-    };
-    const observer = new MutationObserver(handleMutations);
-    observer.observe(document, { childList: true, subtree: true });
-    if ( document.documentElement ) {
-        const treeWalker = document.createTreeWalker(
-            document.documentElement,
-            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT
-        );
-        let count = 0;
-        for (;;) {
-            const node = treeWalker.nextNode();
-            count += 1;
-            if ( node === null ) { break; }
-            if ( reNodeName.test(node.nodeName) === false ) { continue; }
-            if ( node === document.currentScript ) { continue; }
-            if ( handleNode(node) ) { continue; }
-            stop(); break;
-        }
-        safe.uboLog(logPrefix, `${count} nodes present before installing mutation observer`);
+    const logPrefix = safe.makeLogPrefix('no-window-open-if', pattern, delay, decoy);
+    const targetMatchResult = pattern.startsWith('!') === false;
+    if ( targetMatchResult === false ) {
+        pattern = pattern.slice(1);
     }
-    if ( extraArgs.stay ) { return; }
-    runAt(( ) => {
-        const quitAfter = extraArgs.quitAfter || 0;
-        if ( quitAfter !== 0 ) {
-            setTimeout(( ) => { stop(); }, quitAfter);
+    const rePattern = safe.patternToRegex(pattern);
+    const autoRemoveAfter = (parseFloat(delay) || 0) * 1000;
+    const setTimeout = self.setTimeout;
+    const createDecoy = function(tag, urlProp, url) {
+        const decoyElem = document.createElement(tag);
+        decoyElem[urlProp] = url;
+        decoyElem.style.setProperty('height','1px', 'important');
+        decoyElem.style.setProperty('position','fixed', 'important');
+        decoyElem.style.setProperty('top','-1px', 'important');
+        decoyElem.style.setProperty('width','1px', 'important');
+        document.body.appendChild(decoyElem);
+        setTimeout(( ) => { decoyElem.remove(); }, autoRemoveAfter);
+        return decoyElem;
+    };
+    const noopFunc = function(){};
+    proxyApplyFn('open', function open(context) {
+        if ( pattern === 'debug' && safe.logLevel !== 0 ) {
+            debugger; // eslint-disable-line no-debugger
+            return context.reflect();
+        }
+        const { callArgs } = context;
+        const haystack = callArgs.join(' ');
+        if ( rePattern.test(haystack) !== targetMatchResult ) {
+            if ( safe.logLevel > 1 ) {
+                safe.uboLog(logPrefix, `Allowed (${callArgs.join(', ')})`);
+            }
+            return context.reflect();
+        }
+        safe.uboLog(logPrefix, `Prevented (${callArgs.join(', ')})`);
+        if ( delay === '' ) { return null; }
+        if ( decoy === 'blank' ) {
+            callArgs[0] = 'about:blank';
+            const r = context.reflect();
+            setTimeout(( ) => { r.close(); }, autoRemoveAfter);
+            return r;
+        }
+        const decoyElem = decoy === 'obj'
+            ? createDecoy('object', 'data', ...callArgs)
+            : createDecoy('iframe', 'src', ...callArgs);
+        let popup = decoyElem.contentWindow;
+        if ( typeof popup === 'object' && popup !== null ) {
+            Object.defineProperty(popup, 'closed', { value: false });
         } else {
-            stop();
+            popup = new Proxy(self, {
+                get: function(target, prop, ...args) {
+                    if ( prop === 'closed' ) { return false; }
+                    const r = Reflect.get(target, prop, ...args);
+                    if ( typeof r === 'function' ) { return noopFunc; }
+                    return r;
+                },
+                set: function(...args) {
+                    return Reflect.set(...args);
+                },
+            });
         }
-    }, 'interactive');
+        if ( safe.logLevel !== 0 ) {
+            popup = new Proxy(popup, {
+                get: function(target, prop, ...args) {
+                    const r = Reflect.get(target, prop, ...args);
+                    safe.uboLog(logPrefix, `popup / get ${prop} === ${r}`);
+                    if ( typeof r === 'function' ) {
+                        return (...args) => { return r.call(target, ...args); };
+                    }
+                    return r;
+                },
+                set: function(target, prop, value, ...args) {
+                    safe.uboLog(logPrefix, `popup / set ${prop} = ${value}`);
+                    return Reflect.set(target, prop, value, ...args);
+                },
+            });
+        }
+        return popup;
+    });
 }
 
-function getRandomTokenFn() {
-    const safe = safeSelf();
-    return safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
-}
-
-function runAt(fn, when) {
-    const intFromReadyState = state => {
-        const targets = {
-            'loading': 1, 'asap': 1,
-            'interactive': 2, 'end': 2, '2': 2,
-            'complete': 3, 'idle': 3, '3': 3,
-        };
-        const tokens = Array.isArray(state) ? state : [ state ];
-        for ( const token of tokens ) {
-            const prop = `${token}`;
-            if ( Object.hasOwn(targets, prop) === false ) { continue; }
-            return targets[prop];
-        }
-        return 0;
-    };
-    const runAt = intFromReadyState(when);
-    if ( intFromReadyState(document.readyState) >= runAt ) {
-        fn(); return;
+function proxyApplyFn(
+    target = '',
+    handler = ''
+) {
+    let context = globalThis;
+    let prop = target;
+    for (;;) {
+        const pos = prop.indexOf('.');
+        if ( pos === -1 ) { break; }
+        context = context[prop.slice(0, pos)];
+        if ( context instanceof Object === false ) { return; }
+        prop = prop.slice(pos+1);
     }
-    const onStateChange = ( ) => {
-        if ( intFromReadyState(document.readyState) < runAt ) { return; }
-        fn();
-        safe.removeEventListener.apply(document, args);
+    const fn = context[prop];
+    if ( typeof fn !== 'function' ) { return; }
+    if ( proxyApplyFn.CtorContext === undefined ) {
+        proxyApplyFn.ctorContexts = [];
+        proxyApplyFn.CtorContext = class {
+            constructor(...args) {
+                this.init(...args);
+            }
+            init(callFn, callArgs) {
+                this.callFn = callFn;
+                this.callArgs = callArgs;
+                return this;
+            }
+            reflect() {
+                const r = Reflect.construct(this.callFn, this.callArgs);
+                this.callFn = this.callArgs = this.private = undefined;
+                proxyApplyFn.ctorContexts.push(this);
+                return r;
+            }
+            static factory(...args) {
+                return proxyApplyFn.ctorContexts.length !== 0
+                    ? proxyApplyFn.ctorContexts.pop().init(...args)
+                    : new proxyApplyFn.CtorContext(...args);
+            }
+        };
+        proxyApplyFn.applyContexts = [];
+        proxyApplyFn.ApplyContext = class {
+            constructor(...args) {
+                this.init(...args);
+            }
+            init(callFn, thisArg, callArgs) {
+                this.callFn = callFn;
+                this.thisArg = thisArg;
+                this.callArgs = callArgs;
+                return this;
+            }
+            reflect() {
+                const r = Reflect.apply(this.callFn, this.thisArg, this.callArgs);
+                this.callFn = this.thisArg = this.callArgs = this.private = undefined;
+                proxyApplyFn.applyContexts.push(this);
+                return r;
+            }
+            static factory(...args) {
+                return proxyApplyFn.applyContexts.length !== 0
+                    ? proxyApplyFn.applyContexts.pop().init(...args)
+                    : new proxyApplyFn.ApplyContext(...args);
+            }
+        };
+    }
+    const fnStr = fn.toString();
+    const toString = (function toString() { return fnStr; }).bind(null);
+    const proxyDetails = {
+        apply(target, thisArg, args) {
+            return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
+        },
+        get(target, prop) {
+            if ( prop === 'toString' ) { return toString; }
+            return Reflect.get(target, prop);
+        },
     };
-    const safe = safeSelf();
-    const args = [ 'readystatechange', onStateChange, { capture: true } ];
-    safe.addEventListener.apply(document, args);
+    if ( fn.prototype?.constructor === fn ) {
+        proxyDetails.construct = function(target, args) {
+            return handler(proxyApplyFn.CtorContext.factory(target, args));
+        };
+    }
+    context[prop] = new Proxy(fn, proxyDetails);
 }
 
 function safeSelf() {
@@ -369,8 +390,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["script","(function serverContract()","(()=>{if(\"YOUTUBE_PREMIUM_LOGO\"===ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType||location.href.startsWith(\"https://www.youtube.com/tv#/\")||location.href.startsWith(\"https://www.youtube.com/embed/\"))return;document.addEventListener(\"DOMContentLoaded\",(function(){const e=()=>{const e=document.getElementById(\"movie_player\");if(!e)return;if(!e.getStatsForNerds?.()?.debug_info?.startsWith?.(\"SSAP, AD\"))return;const t=e.getProgressState?.();t&&t.duration>0&&(t.loaded<t.duration||t.duration-t.current>1)&&e.seekTo?.(t.duration)};e(),new MutationObserver((()=>{e()})).observe(document,{childList:!0,subtree:!0})})),window.addEventListener(\"load\",(()=>{const e=document.querySelector(\".html5-video-player\"),t=window.location.search,o=new URLSearchParams(t).get(\"v\"),n=new URLSearchParams(t).get(\"t\")??0;if(!e||!o)return;const r=parseInt(n,10);e.loadVideoById(o,r)}));const e={apply:(e,t,o)=>{const n=o[0];return\"function\"==typeof n&&n.toString().includes(\"onAbnormalityDetected\")&&(o[0]=function(){}),Reflect.apply(e,t,o)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then,e);const t={construct:(e,t,o)=>{const n=t[0],r=t[1]?.body;return n?.includes(\"youtubei\")&&r?.includes('\"clientScreen\":\"WATCH\"')&&(t[1].body=r.replace('\"clientScreen\":\"WATCH\"','\"clientScreen\":\"ADUNIT\"')),Reflect.construct(e,t,o)}};window.Request=new Proxy(window.Request,t)})();(function serverContract()","sedCount","1"]];
-const hostnamesMap = new Map([["www.youtube.com",0]]);
+const argsList = [[]];
+const hostnamesMap = new Map([["artmusics.top",0],["musicpars3.ir",0],["musicguitars.ir",0],["subf2m.ir",0],["zeemusic.ir",0],["najiremix.ir",0],["musichi.ir",0],["likeemusic.ir",0],["appiroid.ir",0],["androidtime.com",0],["farsroid.com",0],["getandroid.ir",0],["musictag.ir",0],["musickhone.com",0],["naslmusic.ir",0],["power-music.ir",0],["uploadgoogle.ir",0],["uptrack.ir",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -438,7 +459,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { replaceNodeText(...argsList[i]); }
+    try { noWindowOpenIf(...argsList[i]); }
     catch { }
 }
 

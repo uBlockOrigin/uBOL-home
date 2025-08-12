@@ -1,0 +1,45 @@
+[
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "set-cookie",
+    "operation": "remove"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "logo.samandehi.ir",
+   "trustseal.e-rasaneh.ir",
+   "trustseal.enamad.ir"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ]
+ },
+ "id": 1
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "frame-src 'none'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame"
+  ],
+  "urlFilter": "||najiremix.ir^"
+ },
+ "id": 2
+}
+]

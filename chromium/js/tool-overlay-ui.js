@@ -48,9 +48,8 @@ export const toolOverlay = {
             };
             this.moveable = qs$('aside:has(#move)');
             if ( this.moveable !== null ) {
-                dom.on('aside #move', 'pointerdown', ev => {
-                    this.mover(ev);
-                });
+                dom.on('aside #move', 'pointerdown', ev => { this.mover(ev); });
+                dom.on('aside #move', 'touchstart', this.eatTouchEvent);
             }
             this.onMessage({ what: 'startTool',
                 url: msg.url,
@@ -167,20 +166,16 @@ export const toolOverlay = {
         if ( target.matches('#move') === false ) { return; }
         if ( dom.cl.has(this.moveable, 'moving') ) { return; }
         target.setPointerCapture(ev.pointerId);
-        this.moverIsTouch = ev.type.startsWith('touch');
-        if ( this.moverIsTouch ) {
-            const touch = ev.touches[0];
-            this.moverX0 = touch.pageX;
-            this.moverY0 = touch.pageY;
-        } else {
-            this.moverX0 = ev.pageX;
-            this.moverY0 = ev.pageY;
-        }
+        this.moverX0 = ev.pageX;
+        this.moverY0 = ev.pageY;
         const rect = this.moveable.getBoundingClientRect();
         this.moverCX0 = rect.x + rect.width / 2;
         this.moverCY0 = rect.y + rect.height / 2;
         dom.cl.add(this.moveable, 'moving');
-        self.addEventListener('pointermove', this.moverMoveAsync, { capture: true });
+        self.addEventListener('pointermove', this.moverMoveAsync, {
+            passive: true,
+            capture: true,
+        });
         self.addEventListener('pointerup', this.moverStop, { capture: true, once: true });
         ev.stopPropagation();
         ev.preventDefault();
@@ -209,15 +204,9 @@ export const toolOverlay = {
         }
     },
     moverMoveAsync(ev) {
+        toolOverlay.moverX1 = ev.pageX;
+        toolOverlay.moverY1 = ev.pageY;
         if ( toolOverlay.moverTimer !== undefined ) { return; }
-        if ( toolOverlay.moverIsTouch ) {
-            const touch = ev.touches[0];
-            toolOverlay.moverX1 = touch.pageX;
-            toolOverlay.moverY1 = touch.pageY;
-        } else {
-            toolOverlay.moverX1 = ev.pageX;
-            toolOverlay.moverY1 = ev.pageY;
-        }
         toolOverlay.moverTimer = self.requestAnimationFrame(( ) => {
             toolOverlay.moverMove();
         });
@@ -225,13 +214,20 @@ export const toolOverlay = {
     moverStop(ev) {
         if ( dom.cl.has(toolOverlay.moveable, 'moving') === false ) { return; }
         dom.cl.remove(toolOverlay.moveable, 'moving');
-        self.removeEventListener('pointermove', toolOverlay.moverMoveAsync, { capture: true });
+        self.removeEventListener('pointermove', toolOverlay.moverMoveAsync, {
+            passive: true,
+            capture: true,
+        });
         ev.target.releasePointerCapture(ev.pointerId);
         ev.stopPropagation();
         ev.preventDefault();
     },
+    eatTouchEvent(ev) {
+        if ( ev.target !== qs$('aside #move') ) { return; }
+        ev.stopPropagation();
+        ev.preventDefault();
+    },
     moveable: null,
-    moverIsTouch: false,
     moverX0: 0, moverY0: 0,
     moverX1: 0, moverY1: 0,
     moverCX0: 0, moverCY0: 0,

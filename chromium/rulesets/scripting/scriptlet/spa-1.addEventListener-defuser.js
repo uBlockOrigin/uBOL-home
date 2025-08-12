@@ -417,10 +417,10 @@ function shouldDebug(details) {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["DOMContentLoaded","/window\\.getComputedStyle|adblock-/"],["adBlockerOn"],["load","banner-ads"],["load","detect-modal"],["","_0x"],["detectAdBlock"],["load","daadb_get_data"],["DOMContentLoaded","document.write"],["click","loadXMLDoc"],["load","/_0x[\\s\\S]*?parentNode[\\s\\S]*?appendChild/"],["DOMContentLoaded","videoTag"],["DOMContentLoaded","sourceAd"],["click","Popunder"],["","popunder"],["","/abrirVentanasEmergentes|abrirNuevaVentana|Popunder/"],["click","manejar"],["click","window.open"]];
-const hostnamesMap = new Map([["guiavidaesaude.com",0],["canal12.com.sv",1],["depor.com",2],["softwareany.net",3],["xerifetech.com",4],["guideautoweb.com",5],["empregoestagios.com",6],["satcesc.com",6],["g37.com.br",7],["descargarhentaimf.xyz",8],["irmaosdotados.net",9],["comandotorrents.org",10],["hentaitokyo.net",11],["animeonline.lat",12],["mundohentaioficial.com",13],["megafire.net",14],["firepaste.com",14],["seriesperu.com",15],["peliculas8k.com",15],["seriesmaxhd.com",16],["allcalidad.pro",16]]);
+const argsList = [["DOMContentLoaded","/window\\.getComputedStyle|adblock-/"],["adBlockerOn"],["load","banner-ads"],["load","detect-modal"],["","_0x"],["detectAdBlock"],["load","daadb_get_data"],["DOMContentLoaded","document.write"],["load","_0x"],["click","loadXMLDoc"],["load","/_0x[\\s\\S]*?parentNode[\\s\\S]*?appendChild/"],["DOMContentLoaded","videoTag"],["DOMContentLoaded","sourceAd"],["click","Popunder"],["","popunder"],["","/abrirVentanasEmergentes|abrirNuevaVentana|Popunder/"],["click","manejar"],["click","window.open"]];
+const hostnamesMap = new Map([["guiavidaesaude.com",0],["canal12.com.sv",1],["depor.com",2],["softwareany.net",3],["xerifetech.com",4],["guideautoweb.com",5],["empregoestagios.com",6],["satcesc.com",6],["g37.com.br",7],["cuevana.*",8],["descargarhentaimf.xyz",9],["irmaosdotados.net",10],["comandotorrents.org",11],["hentaitokyo.net",12],["animeonline.lat",13],["mundohentaioficial.com",14],["megafire.net",15],["firepaste.com",15],["seriesperu.com",16],["peliculas8k.com",16],["seriesmaxhd.com",17],["allcalidad.pro",17]]);
 const exceptionsMap = new Map([]);
-const hasEntities = false;
+const hasEntities = true;
 const hasAncestors = false;
 
 const collectArgIndices = (hn, map, out) => {

@@ -98,6 +98,11 @@
         "path": "/rulesets/main/annoyances-others.json"
       },
       {
+        "id": "annoyances-notifications",
+        "enabled": false,
+        "path": "/rulesets/main/annoyances-notifications.json"
+      },
+      {
         "id": "ublock-experimental",
         "enabled": false,
         "path": "/rulesets/main/ublock-experimental.json"
@@ -319,7 +324,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2025.804.1547",
+  "version": "2025.812.1339",
   "web_accessible_resources": [
     {
       "resources": [

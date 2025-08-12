@@ -19,24 +19,83 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-import { dnr, normalizeDNRRules } from './ext-compat.js';
-import { browser } from './ext.js';
+import {
+    dnr,
+    normalizeDNRRules,
+    webext,
+} from './ext-compat.js';
+
+import {
+    sessionRead,
+    sessionWrite,
+} from './ext.js';
 
 /******************************************************************************/
 
 const isModern = dnr.onRuleMatchedDebug instanceof Object;
 
 export const isSideloaded = (( ) => {
-    const { permissions } = browser.runtime.getManifest();
+    const { permissions } = webext.runtime.getManifest();
     return permissions?.includes('declarativeNetRequestFeedback') ?? false;
 })();
 
 /******************************************************************************/
 
+const CONSOLE_MAX_LINES = 32;
+const consoleOutput = [];
+
+sessionRead('console').then(before => {
+    if ( Array.isArray(before) === false ) { return; }
+    for ( const s of before.reverse() ) {
+        consoleOutput.unshift(s);
+    }
+    consoleTruncate();
+});
+
+const consoleTruncate = ( ) => {
+    if ( consoleOutput.length <= CONSOLE_MAX_LINES ) { return; }
+    consoleOutput.copyWithin(0, -CONSOLE_MAX_LINES);
+    consoleOutput.length = CONSOLE_MAX_LINES;
+};
+
+const consoleAdd = (...args) => {
+    if ( args.length === 0 ) { return; }
+    const now = new Date();
+    const time = [
+        `${now.getUTCMonth()+1}`.padStart(2, '0'),
+        `${now.getUTCDate()}`.padStart(2, '0'),
+        '.',
+        `${now.getUTCHours()}`.padStart(2, '0'),
+        `${now.getUTCMinutes()}`.padStart(2, '0'),
+    ].join('');
+    for ( let i = 0; i < args.length; i++ ) {
+        const s = `[${time}]${args[i]}`;
+        if ( Boolean(s) === false ) { continue; }
+        if ( s === consoleOutput.at(-1) ) { continue; }
+        consoleOutput.push(s);
+    }
+    consoleTruncate();
+    sessionWrite('console', getConsoleOutput());
+}
+
 export const ubolLog = (...args) => {
     // Do not pollute dev console in stable releases.
     if ( isSideloaded !== true ) { return; }
     console.info('[uBOL]', ...args);
+};
+
+export const ubolErr = (...args) => {
+    if ( Array.isArray(args) === false ) { return; }
+    if ( globalThis.ServiceWorkerGlobalScope ) {
+        consoleAdd(...args);
+    }
+    // Do not pollute dev console in stable releases.
+    if ( isSideloaded !== true ) { return; }
+    console.error('[uBOL]', ...args);
+};
+
+export const getConsoleOutput = ( ) => {
+    return consoleOutput.slice();
 };
 
 /******************************************************************************/

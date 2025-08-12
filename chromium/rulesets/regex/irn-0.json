@@ -1,0 +1,22 @@
+[
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "initiatorDomains": [
+   "virgool.io"
+  ],
+  "regexFilter": "^https?:\\/\\/virgool\\.io\\/api\\/v1\\.4\\/post\\/[0-9a-z]+$",
+  "requestMethods": [
+   "post"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ]
+ },
+ "id": 1,
+ "priority": 10
+}
+]

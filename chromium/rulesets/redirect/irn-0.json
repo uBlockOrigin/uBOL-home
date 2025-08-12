@@ -1,0 +1,73 @@
+[
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "initiatorDomains": [
+   "melodify.app"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||melodify.pw/serve/v1/limitation/*.mp3^"
+ },
+ "id": 1,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "domainType": "thirdParty",
+  "initiatorDomains": [
+   "tmk.ir"
+  ],
+  "resourceTypes": [
+   "media"
+  ],
+  "urlFilter": "||tamashakhoneh.ir/src/video/intro.mp4^"
+ },
+ "id": 2,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.txt"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "urlFilter": "||khabarchin.basalam.com^"
+ },
+ "id": 3,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.txt"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||safarmarket.com/api/v1/trace/traceflight^"
+ },
+ "id": 4,
+ "priority": 11
+}
+]

@@ -279,8 +279,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["body","<div id=\"rpjMdOwCJNxQ\" style=\"display: none;\"></div>"]];
-const hostnamesMap = new Map([["klouderr.com",0]]);
+const argsList = [["head","<img src='/invalid.jpg' onerror='if (localStorage.length === 0 || typeof JSON.parse(localStorage._ppp)[\"0_uid\"] === \"undefined\") {Object.defineProperty(window, \"innerWidth\", {get() { return document.documentElement.offsetWidth + 320 }});}'></img>"],["body","<div id=\"rpjMdOwCJNxQ\" style=\"display: none;\"></div>"]];
+const hostnamesMap = new Map([["photopea.com",0],["klouderr.com",1]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
