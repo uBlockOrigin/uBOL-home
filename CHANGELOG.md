@@ -1,3 +1,7 @@
+----------
+
+## uBOLite_2025.812.1339
+
 - [Fix target URL when reporting from a strict-blocked page](https://github.com/gorhill/uBlock/commit/18f9acd844)
 - [Share console error in troubleshooting information](https://github.com/gorhill/uBlock/commit/28ea00fd11)
 - [Fix potentially unremovable custom filters](https://github.com/gorhill/uBlock/commit/a1a5f3690f)
