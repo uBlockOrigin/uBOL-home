@@ -72,8 +72,8 @@ jobs:
       - name: Assemble release text
         run: |
           sed -e 's/%version%/${{ env.VERSION }}/g' .github/workflows/RELEASE_BODY.md > release_body0.txt
-          grep -m1 -B10000 -- "----------" CHANGELOG.md > release_notes.txt
-          sed -e 's/%changelog%/r release_notes.txt/' -e '/%changelog%/d' release_body0.txt > release_body.txt
+          grep -m1 -B10000 -- "----------" CHANGELOG.md | head -n -2 > release_notes.txt
+          sed -e '/%changelog%/{r release_notes.txt' -e 'd}' release_body0.txt > release_body.txt
       - name: Create GitHub release
         id: create_release
         uses: softprops/action-gh-release@v2
