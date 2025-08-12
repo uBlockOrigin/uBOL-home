@@ -18,12 +18,11 @@
     <div class="step-no">0.1</div>
     <div>
         <p>Install &ldquo;uBlock Origin Lite&rdquo; (&ldquo;uBOL&rdquo;)</p>
-        <p>Version must be above 2025.3.8.1350</p>
+        <p>Version must be 2025.812.1339 or above</p>
         <p>Edge Extension ID:<br><code>cimighlppcgcoapaliogpjjdehbnofhn</code></p>
         <p>Chrome Extension ID:<br><code>ddkjiahejlhfcafbddmgiahcphecmpfh</code></p>
     </div>
-    <div>After installation the dashboard opens automatically</div>
-    <div><img src="dashboard-settings-firstrun.png"></div>
+    <div>After installation uBOL is immediately ready to filter content.</div>
 
     <div class="step-no">1</div>
     <div class="step-header">Verify test page without filtering</div>
@@ -47,69 +46,49 @@
     <div><img src="dashboard-filterlists.png"></div>
 
     <div class="step-no">3</div>
-    <div class="step-header">Verify test page with &ldquo;basic&rdquo; filtering mode</div>
-
-    <div class="step-no">3.1</div>
-    <div>Navigate to <a href="https://ublockorigin.github.io/uBOL-home/tests/test-filters.html">uBO Lite Test Page</a>, or force a reload of already open test page</div>
-    <div>The result should match the screenshot: Tiles in &ldquo;Basic network filters&rdquo; section are &ldquo;filtered&rdquo;</div>
-    <div><img src="basic-basic-filtering.png"></div>
-
-    <div class="step-no">4</div>
     <div class="step-header">Verify test page with &ldquo;optimal&rdquo; filtering mode</div>
-
-    <div class="step-no">4.1</div>
+    <div class="step-no">3.1</div>
     <div>Click uBOL's toolbar icon, then move the slider to &ldquo;optimal&rdquo; position.<br>There may be a warning that uBOL is requesting additional permissions for all <code>ublockorigin.github.io</code> sites, click &ldquo;Allow&rdquo;.</div>
     <div>Filtering mode for the site is set to &ldquo;optimal&rdquo; and the page is reloaded</div>
     <div><img src="panel-optimal.png"></div>
-
-    <div class="step-no">4.2</div>
+    <div class="step-no">3.3</div>
     <div>Wait for the page to finish reloading and verify the page content</div>
     <div>The result should match the screenshot: Tiles in &ldquo;Basic network filters&rdquo;, &ldquo;Specific cosmetic filters&rdquo;, &ldquo;Procedural cosmetic filters&rdquo;, and &ldquo;Scriptlet filters&rdquo; sections are all &ldquo;filtered&rdquo;</div>
     <div><img src="optimal-basic-filtering.png"></div>
 
     <div class="step-no">5</div>
     <div class="step-header">Verify test page with &ldquo;complete&rdquo; filtering mode</div>
-
     <div class="step-no">5.1</div>
     <div>Click uBOL's toolbar icon, then move the slider to &ldquo;complete&rdquo; position</div>
     <div>Filtering mode for the site is set to &ldquo;complete&rdquo; and the page is reloaded</div>
     <div><img src="panel-complete.png"></div>
-
     <div class="step-no">5.2</div>
     <div>Wait for the page to finish reloading and verify the page content</div>
     <div>The result should match the screenshot: Tiles in &ldquo;Basic network filters&rdquo;, &ldquo;Specific cosmetic filters&rdquo;, &ldquo;Procedural cosmetic filters&rdquo;, &ldquo;Scriptlet filters&rdquo;, and &ldquo;Lowly generic cosmetic filters&rdquo; sections are all &ldquo;filtered&rdquo;</div>
     <div><img src="complete-basic-filtering.png"></div>
 
+    <div class="step-no">5</div>
+    <div class="step-header">Verify test page with &ldquo;basic&rdquo; filtering mode</div>
+    <div class="step-no">5.1</div>
+    <div>Click uBOL's toolbar icon, then move the slider to &ldquo;complete&rdquo; position</div>
+    <div>Filtering mode for the site is set to &ldquo;complete&rdquo; and the page is reloaded</div>
+    <div><img src="panel-basic.png"></div>
+    <div class="step-no">5.2</div>
+    <div>Wait for the page to finish reloading and verify the page content</div>
+    <div>The result should match the screenshot: Tiles in &ldquo;Basic network filters&rdquo;, &ldquo;Specific cosmetic filters&rdquo;, &ldquo;Procedural cosmetic filters&rdquo;, &ldquo;Scriptlet filters&rdquo;, and &ldquo;Lowly generic cosmetic filters&rdquo; sections are all &ldquo;filtered&rdquo;</div>
+    <div><img src="basic-basic-filtering.png"></div>
+
     <div class="step-no">6</div>
-    <div class="step-header">Verify test page with &ldquo;optimal&rdquo; as default filtering mode</div>
-
-    <div class="step-no">6.1</div>
-    <div>Click uBOL's toolbar icon, then click the <em>cogs</em> icon in the popup panel to access uBOL's dashboard</div>
-    <div>uBOL's dashboard opens</div>
-    <div><img src="panel-complete-cogs.png"></div>
-
-    <div class="step-no">6.2</div>
-    <div>Click the &ldquo;Settings&rdquo; pane, then select &ldquo;Optimal&rdquo; under the &ldquo;Default filtering mode&rdquo; section.<br>There may be a warning that uBOL is requesting additional permissions for all websites: click &ldquo;Allow&rdquo;.</div>
-    <div>The default filtering mode is now &ldquo;optimal&rdquo; on all websites</div>
-    <div><img src="dashboard-settings-optimal.png"></div>
-
-    <div class="step-no">6.3</div>
-    <div>Navigate to <a href="https://ublockorigin.github.io/uBOL-home/tests/test-filters.html">uBO Lite Test Page</a>, or force a reload of already open test page</div>
-    <div>The result should match the screenshot: Tiles in &ldquo;Basic network filters&rdquo;, &ldquo;Advanced network filters&rdquo;, &ldquo;Specific cosmetic filters&rdquo;, &ldquo;Procedural cosmetic filters&rdquo;, &ldquo;Scriptlet filters&rdquo;, and &ldquo;Lowly generic cosmetic filters&rdquo; sections are all &ldquo;filtered&rdquo;</div>
-    <div><img src="complete-optimal-filtering.png"></div>
-
-    <div class="step-no">7</div>
     <div class="step-header">Verify test page with &ldquo;no filtering&rdquo; mode</div>
-
-    <div class="step-no">7.1</div>
+    <div class="step-no">6.1</div>
     <div>Click uBOL's toolbar icon, then move the slider to &ldquo;no filtering&rdquo; position</div>
     <div>Filtering mode for the site is set to &ldquo;no filtering&rdquo; and the page is reloaded</div>
     <div><img src="panel-nofiltering.png"></div>
 
-    <div class="step-no">7.2</div>
+    <div class="step-no">6.2</div>
     <div>Wait for the page to finish reloading and verify the page content</div>
     <div>The result should match the screenshot: All tiles in all sections are &ldquo;unfiltered&rdquo;</div>
-    <div><img src="nofiltering-optimal-filtering.png"></div>
+    <div><img src="nofiltering.png"></div>
 
 </div>
 <body>
