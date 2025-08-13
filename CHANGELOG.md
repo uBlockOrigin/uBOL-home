@@ -1,3 +1,5 @@
+- [Change Safari toolbar icon to an outlined version](https://github.com/gorhill/uBlock/commit/e6a8c87e0e) by @uncw
+
 ----------
 
 ## uBOLite_2025.812.1339
