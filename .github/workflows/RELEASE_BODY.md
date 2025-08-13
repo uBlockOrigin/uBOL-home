@@ -11,7 +11,7 @@
 
 ## Installation
 
-When a new release is created, there is a delay before it becomes available in the various platform stores due to their respective review process. This is normal, please do not open issues or discussions about these delays.
+When a new release is created, there is a delay before it becomes available in the various platform stores due to their respective review process. This is normal, please do not open issues about these delays.
 
 - Chromium-based browsers: Install [from the Chrome Web Store](https://chrome.google.com/webstore/detail/ddkjiahejlhfcafbddmgiahcphecmpfh)
 - Microsoft Edge: Install [from the Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn)
