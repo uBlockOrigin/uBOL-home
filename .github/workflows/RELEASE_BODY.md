@@ -7,7 +7,7 @@
 
 %changelog%
 - Updated filter lists
-- [Commit history](https://github.com/uBlockOrigin/uBOL-home/commits/uBOLite_%version%)
+- [Commit history](https://github.com/uBlockOrigin/uBOL-home/commits/%tag%)
 
 ## Installation
 
