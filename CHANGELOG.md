@@ -1,3 +1,5 @@
+- [Fix unremovable custom filters created using older versions](https://github.com/gorhill/uBlock/commit/d54c4a7052)
+- [Fix custom filter list being unscrollable](https://github.com/gorhill/uBlock/commit/718b3cdb97)
 - [Change Safari toolbar icon to an outlined version](https://github.com/gorhill/uBlock/commit/e6a8c87e0e) by @uncw
 
 ----------
