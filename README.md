@@ -2,7 +2,7 @@
 
 | Browser | Install from ... | Browser | Install from ... |
 | --- | --- | --- | --- |
-| <img src="https://github.com/user-attachments/assets/d5033882-0c94-424f-9e8b-e00ed832acf7" alt="Get uBO Lite for Chromium"> | <a href="https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh">Chrome Web Store</a> | <img src="https://github.com/user-attachments/assets/8a33b8ba-57ee-4a54-a83c-7d21f9b2dafb" alt="Get uBlock Origin Lite for Firefox"> | <a href="https://github.com/uBlockOrigin/uBOL-home/releases/download/uBOLite_2025.709.1525-beta/uBOLite.beta.firefox.signed.xpi">Self-distributed</a> (Beta) |
+| <img src="https://github.com/user-attachments/assets/d5033882-0c94-424f-9e8b-e00ed832acf7" alt="Get uBO Lite for Chromium"> | <a href="https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh">Chrome Web Store</a> | <img src="https://github.com/user-attachments/assets/8a33b8ba-57ee-4a54-a83c-7d21f9b2dafb" alt="Get uBlock Origin Lite for Firefox"> | <a href="https://github.com/uBlockOrigin/uBOL-home/releases?q=beta">Self-distributed</a> (Beta) |
 | <img src="https://github.com/user-attachments/assets/acff1f85-d3f0-49eb-928e-7c43c5ef8f6c" alt="Get uBlock Origin Lite for Microsoft Edge"> | <a href="https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn">Edge Add-ons</a> | <img src="https://github.com/user-attachments/assets/d267b13e-b403-4040-93ea-fff38fea8c1b" alt="Get uBlock Origin Lite for Safari"> | <a href="https://apps.apple.com/us/app/ublock-origin-lite/id6745342698">Safari App Store</a> |
 
 ## Description
@@ -24,13 +24,17 @@ You can enable additional rulesets by visiting the options page — click the _C
 
 ## Changelog
 
-See the [_Releases_ section](https://github.com/uBlockOrigin/uBOL-home/releases).
+See the [_Releases_](https://github.com/uBlockOrigin/uBOL-home/releases) section.
 
-Previous releases can be found in the [_Releases_ section of the uBlock repo](https://github.com/gorhill/uBlock/releases?q=uBOL).
+Older releases: [Wiki/Release notes (salvaged)](https://github.com/uBlockOrigin/uBOL-home/wiki/Release-notes-(salvaged)).
 
 ## Issues
 
-All uBO Lite-related issues (including filter-related ones) can be reported [here](https://github.com/uBlockOrigin/uBOL-home/issues).
+uBO Lite _extension_ issues can be reported [here](https://github.com/uBlockOrigin/uBOL-home/issues).
+
+Filter/website issues (ads, detection, trackers, breakage, etc.) need to be reported via the 💬 _Chat_ icon in uBOL while on the affected site.
+
+Support questions can be asked [here](https://github.com/uBlockOrigin/uBOL-home/discussions).
 
 ## Admin Policies
 
