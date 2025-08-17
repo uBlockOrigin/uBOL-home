@@ -4,7 +4,7 @@
 - [Improve internal error reporting in troubleshooting info](https://github.com/gorhill/uBlock/commit/25d9964b1e)
 - [Fix unremovable custom filters created using older versions](https://github.com/gorhill/uBlock/commit/d54c4a7052)
 - [Fix custom filter list being unscrollable](https://github.com/gorhill/uBlock/commit/718b3cdb97)
-- [[safari] Change Safari toolbar icon to an outlined version](https://github.com/gorhill/uBlock/commit/e6a8c87e0e) by @uncw
+- [[safari] Change Safari toolbar icon to an outlined version](https://github.com/gorhill/uBlock/commit/e6a8c87e0e) by [@uncw](https://github.com/uncw)
 
 ----------
 
