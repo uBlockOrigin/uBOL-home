@@ -186,12 +186,14 @@ function onMessage(request, sender, callback) {
 
     case 'insertCSS': {
         if ( frameId === false ) { return false; }
+        // https://bugs.webkit.org/show_bug.cgi?id=262491
+        if ( frameId !== 0 && webextFlavor === 'safari' ) { return false; }
         browser.scripting.insertCSS({
             css: request.css,
             origin: 'USER',
             target: { tabId, frameIds: [ frameId ] },
         }).catch(reason => {
-            ubolErr(reason);
+            ubolErr(`insertCSS/${reason}`);
         });
         return false;
     }
@@ -203,7 +205,7 @@ function onMessage(request, sender, callback) {
             origin: 'USER',
             target: { tabId, frameIds: [ frameId ] },
         }).catch(reason => {
-            ubolErr(reason);
+            ubolErr(`removeCSS/${reason}`);
         });
         return false;
     }
@@ -242,7 +244,7 @@ function onMessage(request, sender, callback) {
             target: { tabId, frameIds: [ frameId ] },
             injectImmediately: true,
         }).catch(reason => {
-            ubolErr(reason);
+            ubolErr(`executeScript/${reason}`);
         }).then(( ) => {
             callback();
         });

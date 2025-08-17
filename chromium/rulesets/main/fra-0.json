@@ -277,6 +277,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":".com/adj/"},"id":276,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["truthsocial.com"],"urlFilter":"||truthsocial.com/api/v5/truth/ads?device="},"id":277,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["xmlhttprequest"],"urlFilter":"-ads-sg."},"id":278,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||20minutes.fr/js/ads-*.min.js"},"id":279,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":".com/bnr/"},"id":281,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["sponsored.qz.com"],"urlFilter":".com/sponsors/"},"id":284,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":".dz/ads/"},"id":287,"priority":10},

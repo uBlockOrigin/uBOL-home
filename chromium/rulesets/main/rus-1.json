@@ -605,5 +605,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||xv-ru.com/picserror/"},"id":604,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||sportsdzen.ru/api/*/stats/"},"id":605,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hencdn.top/video/*/stats?"},"id":606,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||li.ru/click?"},"id":607,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||li.ru/click?"},"id":607,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||vkplay.ru/tracker?_"},"id":608,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||vkplay.ru/tsmg_gen.js"},"id":609,"priority":10}
 ]

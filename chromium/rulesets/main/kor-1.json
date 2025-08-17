@@ -875,5 +875,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||t1.daumcdn.net/top/daum/op/smartfarm/"},"id":874,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["smartstore.naver.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||nam.veta.naver.com/nac/"},"id":875,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ddal.xyz/project/mc/js/nuevo.min.js"},"id":876,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||shana.pe.kr/shana_check/csb3.js"},"id":877,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||shana.pe.kr/shana_check/csb3.js"},"id":877,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||wdwd*.com/data/banner/"},"id":878,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||static.tzstatic.top/z/*.gif"},"id":879,"priority":10}
 ]

@@ -59,5 +59,6 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["include[PRODUCT_AD]"]}}},"type":"redirect"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||sainsburys.co.uk/groceries-api/"},"id":58,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cid","pid"]}}},"type":"redirect"},"condition":{"domainType":"thirdParty","resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||connatix.com^"},"id":59,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["experienceActionId","experienceId","sid","trackingId","tzo","widgetId"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||api.cxense.com/public/widget/data?"},"id":60,"priority":2},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["c","r"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||sonar.viously.com^"},"id":61,"priority":2}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["c","r"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||sonar.viously.com^"},"id":61,"priority":2},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["id"]}}},"type":"redirect"},"condition":{"initiatorDomains":["jumbo.cl"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||googletagmanager.com/gtm.js"},"id":62,"priority":32}
 ]

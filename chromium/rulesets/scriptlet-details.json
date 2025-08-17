@@ -100,15 +100,6 @@
     }
    ],
    [
-    "trusted-replace-outbound-text",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "json-edit",
     {
      "hostnames": [
@@ -210,7 +201,25 @@
     }
    ],
    [
+    "trusted-replace-outbound-text",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "trusted-replace-argument",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "addEventListener-defuser",
     {
      "hostnames": [
       "*"
@@ -298,15 +307,6 @@
       "*"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "addEventListener-defuser",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -2272,6 +2272,7 @@
       "bangbros.com",
       "breachmedia.ca",
       "clevercreations.org",
+      "cnn.co.jp",
       "coinbase.com",
       "columbiasportswear.at",
       "columbiasportswear.co.uk",
@@ -2646,6 +2647,15 @@
       "wear.jp"
      ],
      "world": "ISOLATED"
+    }
+   ],
+   [
+    "trusted-replace-outbound-text",
+    {
+     "hostnames": [
+      "shein.com"
+     ],
+     "world": "MAIN"
     }
    ]
   ]
@@ -4332,7 +4342,6 @@
       "androidtime.com",
       "appiroid.ir",
       "artmusics.top",
-      "farsroid.com",
       "getandroid.ir",
       "likeemusic.ir",
       "musicguitars.ir",
@@ -4505,7 +4514,6 @@
     {
      "hostnames": [
       "delta3da.cam",
-      "farsroid.com",
       "iran-music.com",
       "kihanb.ir",
       "musiceman.net",
@@ -6672,7 +6680,7 @@
   "spa-1",
   [
    [
-    "noeval-if",
+    "addEventListener-defuser",
     {
      "hostnames": [
       "*"
@@ -6690,7 +6698,7 @@
     }
    ],
    [
-    "abort-current-script",
+    "noeval-if",
     {
      "hostnames": [
       "*"
@@ -6699,7 +6707,7 @@
     }
    ],
    [
-    "addEventListener-defuser",
+    "abort-current-script",
     {
      "hostnames": [
       "*"
@@ -8079,6 +8087,7 @@
       "haysex.site",
       "hentaivc.net",
       "heohay.net",
+      "hh2d.tv",
       "hh3dhay.life",
       "hhtq5.vip",
       "hhvsub1.com",
@@ -8096,7 +8105,7 @@
       "lxmanga.my",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill19.com",
+      "motchill20.com",
       "motchilltvphim.com",
       "nettruyenar.com",
       "nettruyenvia.com",
@@ -8112,9 +8121,9 @@
       "sayhentaii.art",
       "sexdiary.club",
       "sexhd88.online",
-      "sexmup3x.net",
       "sextop1.show",
       "soha.vn",
+      "teamlanhlungday.store",
       "thanhnien.vn",
       "tram3d.com",
       "tram3d.me",
@@ -8133,12 +8142,14 @@
       "vlxx.bz",
       "vn2.xvideos69.xxx",
       "vn5.sexviet88.xyz",
-      "vn65phimsexhay.com",
+      "vn68phimsexhay.com",
       "vungoctuan.vn",
+      "www.motchill20.com",
       "www.sieutamphim.org",
       "www.toptruyentv8.com",
       "www.truyen35zz.com",
       "xnxx-sex-videos.com",
+      "xxmupsex.com",
       "yurineko.my"
      ],
      "world": "MAIN"
@@ -8157,29 +8168,28 @@
       "bluphim.uk.com",
       "forum.timfshare.com",
       "hayhaytv.site",
-      "hdcphim.us",
       "hoctot.hocmai.vn",
       "javnong.cc",
       "linkneverdie.net",
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchill19.com",
+      "motchill20.com",
       "motchillk.to",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
       "noitu.site",
       "phimchill.life",
+      "phimhdctv.net",
       "player.phimapi.com",
       "plcdn.xyz",
       "quangcaoyenbai.com",
       "samtruyentranh.com",
       "sexhihi.bar",
-      "sexmup3x.net",
       "teamlanhlung8.shop",
       "thefaplive.com",
-      "thichxemphim.live",
+      "thichxemphim1.site",
       "thuvienhd.biz",
       "truyenfull.vision",
       "truyensieuhay.com",
@@ -8187,10 +8197,12 @@
       "veryfiles.com",
       "viettoons.tv",
       "vinaurl.net",
+      "www.motchill20.com",
       "www.nettruyenupp.com",
       "xemphimjav.us",
       "xnhau.sh",
-      "xoilacvvy.cc",
+      "xoilaciia.cc",
+      "xxmupsex.com",
       "znews.vn"
      ],
      "world": "MAIN"

@@ -391,7 +391,7 @@ function safeSelf() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 const argsList = [[],["bit.ly"]];
-const hostnamesMap = new Map([["erosfilmizle.*",0],["breakingbadizle.*",0],["elzemfilm.org",0],["jetfilmizle.*",0],["movietube32.xyz",0],["turkerotikfilm.com",0],["izleorg3.org",0],["youtubemp3.us",0],["videojs.online",0],["epikplayer.xyz",0],["animeler.me",0],["player.filmizle.in",0],["tranimaci.com",0],["izlekolik.org",0],["4kfilmizlesene.*",0],["canlikolik.my",0],["canlikolik1.my",0],["canlikolik2.my",0],["canlikolik3.my",0],["canlikolik4.my",0],["canlikolik5.my",0],["canlikolik6.my",0],["canlikolik7.my",0],["canlikolik8.my",0],["canlikolik9.my",0],["canlikolik10.my",0],["canlikolik11.my",0],["canlikolik12.my",0],["canlikolik13.my",0],["canlikolik14.my",0],["canlikolik15.my",0],["canlikolik16.my",0],["canlikolik17.my",0],["canlikolik18.my",0],["canlikolik19.my",0],["canlikolik20.my",0],["pchocasi.com.tr",1]]);
+const hostnamesMap = new Map([["erosfilmizle.*",0],["breakingbadizle.*",0],["elzemfilm.org",0],["jetfilmizle.*",0],["movietube32.xyz",0],["turkerotikfilm.com",0],["izleorg3.org",0],["youtubemp3.us",0],["uzaymanga.com",0],["videojs.online",0],["epikplayer.xyz",0],["animeler.me",0],["player.filmizle.in",0],["tranimaci.com",0],["izlekolik.org",0],["4kfilmizlesene.*",0],["pchocasi.com.tr",1]]);
 const exceptionsMap = new Map([]);
 const hasEntities = true;
 const hasAncestors = false;

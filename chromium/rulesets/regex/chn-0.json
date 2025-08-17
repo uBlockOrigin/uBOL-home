@@ -28,5 +28,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["18comic.org","18comic.vip"],"regexFilter":"https?:\\/\\/[^\\/]*18comic\\.(org|vip)\\/static\\/.*?\\d{3}[-xX_]\\d{3}.*?\\.gif"},"id":27,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["zxzjhd.com"],"regexFilter":"^https:\\/\\/(www\\.)?zxzjhd\\.com\\/[0-9]+\\.gif"},"id":28,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["ad-expo.com","hbhmzt.com","lancaizhu.com"],"regexFilter":"\\/\\w{17}\\/","resourceTypes":["script"]},"id":29,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"pa.dajiahao*.top"},"id":30,"priority":10}
+{"action":{"type":"block"},"condition":{"regexFilter":"pa.dajiahao*.top"},"id":30,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["m.2shuqu.net"],"regexFilter":"^https:\\/\\/m\\.2shuqu\\.net\\/static\\/[a-z0-9]+\\/[a-z0-9]+\\.js","resourceTypes":["script"]},"id":31,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["youziks.com"],"regexFilter":"youziks\\.com\\/[0-9]+\\.js","resourceTypes":["script"]},"id":32,"priority":10}
 ]

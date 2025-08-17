@@ -20,99 +20,55 @@
 
 */
 
-// ruleset: spa-1
+// ruleset: annoyances-overlays
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_noWindowOpenIf() {
+(function uBOL_trustedReplaceOutboundText() {
 
 /******************************************************************************/
 
-function noWindowOpenIf(
-    pattern = '',
-    delay = '',
-    decoy = ''
+function trustedReplaceOutboundText(
+    propChain = '',
+    rawPattern = '',
+    rawReplacement = '',
+    ...args
 ) {
+    if ( propChain === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('no-window-open-if', pattern, delay, decoy);
-    const targetMatchResult = pattern.startsWith('!') === false;
-    if ( targetMatchResult === false ) {
-        pattern = pattern.slice(1);
-    }
-    const rePattern = safe.patternToRegex(pattern);
-    const autoRemoveAfter = (parseFloat(delay) || 0) * 1000;
-    const setTimeout = self.setTimeout;
-    const createDecoy = function(tag, urlProp, url) {
-        const decoyElem = document.createElement(tag);
-        decoyElem[urlProp] = url;
-        decoyElem.style.setProperty('height','1px', 'important');
-        decoyElem.style.setProperty('position','fixed', 'important');
-        decoyElem.style.setProperty('top','-1px', 'important');
-        decoyElem.style.setProperty('width','1px', 'important');
-        document.body.appendChild(decoyElem);
-        setTimeout(( ) => { decoyElem.remove(); }, autoRemoveAfter);
-        return decoyElem;
-    };
-    const noopFunc = function(){};
-    proxyApplyFn('open', function open(context) {
-        if ( pattern === 'debug' && safe.logLevel !== 0 ) {
-            debugger; // eslint-disable-line no-debugger
-            return context.reflect();
+    const logPrefix = safe.makeLogPrefix('trusted-replace-outbound-text', propChain, rawPattern, rawReplacement, ...args);
+    const rePattern = safe.patternToRegex(rawPattern);
+    const replacement = rawReplacement.startsWith('json:')
+        ? safe.JSON_parse(rawReplacement.slice(5))
+        : rawReplacement;
+    const extraArgs = safe.getExtraArgs(args);
+    const reCondition = safe.patternToRegex(extraArgs.condition || '');
+    proxyApplyFn(propChain, function(context) {
+        const encodedTextBefore = context.reflect();
+        let textBefore = encodedTextBefore;
+        if ( extraArgs.encoding === 'base64' ) {
+            try { textBefore = self.atob(encodedTextBefore); }
+            catch { return encodedTextBefore; }
         }
-        const { callArgs } = context;
-        const haystack = callArgs.join(' ');
-        if ( rePattern.test(haystack) !== targetMatchResult ) {
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `Allowed (${callArgs.join(', ')})`);
-            }
-            return context.reflect();
+        if ( rawPattern === '' ) {
+            safe.uboLog(logPrefix, 'Decoded outbound text:\n', textBefore);
+            return encodedTextBefore;
         }
-        safe.uboLog(logPrefix, `Prevented (${callArgs.join(', ')})`);
-        if ( delay === '' ) { return null; }
-        if ( decoy === 'blank' ) {
-            callArgs[0] = 'about:blank';
-            const r = context.reflect();
-            setTimeout(( ) => { r.close(); }, autoRemoveAfter);
-            return r;
+        reCondition.lastIndex = 0;
+        if ( reCondition.test(textBefore) === false ) { return encodedTextBefore; }
+        const textAfter = textBefore.replace(rePattern, replacement);
+        if ( textAfter === textBefore ) { return encodedTextBefore; }
+        safe.uboLog(logPrefix, 'Matched and replaced');
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, 'Modified decoded outbound text:\n', textAfter);
         }
-        const decoyElem = decoy === 'obj'
-            ? createDecoy('object', 'data', ...callArgs)
-            : createDecoy('iframe', 'src', ...callArgs);
-        let popup = decoyElem.contentWindow;
-        if ( typeof popup === 'object' && popup !== null ) {
-            Object.defineProperty(popup, 'closed', { value: false });
-        } else {
-            popup = new Proxy(self, {
-                get: function(target, prop, ...args) {
-                    if ( prop === 'closed' ) { return false; }
-                    const r = Reflect.get(target, prop, ...args);
-                    if ( typeof r === 'function' ) { return noopFunc; }
-                    return r;
-                },
-                set: function(...args) {
-                    return Reflect.set(...args);
-                },
-            });
+        let encodedTextAfter = textAfter;
+        if ( extraArgs.encoding === 'base64' ) {
+            encodedTextAfter = self.btoa(textAfter);
         }
-        if ( safe.logLevel !== 0 ) {
-            popup = new Proxy(popup, {
-                get: function(target, prop, ...args) {
-                    const r = Reflect.get(target, prop, ...args);
-                    safe.uboLog(logPrefix, `popup / get ${prop} === ${r}`);
-                    if ( typeof r === 'function' ) {
-                        return (...args) => { return r.call(target, ...args); };
-                    }
-                    return r;
-                },
-                set: function(target, prop, value, ...args) {
-                    safe.uboLog(logPrefix, `popup / set ${prop} = ${value}`);
-                    return Reflect.set(target, prop, value, ...args);
-                },
-            });
-        }
-        return popup;
+        return encodedTextAfter;
     });
 }
 
@@ -390,10 +346,10 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [[],["!/download\\/|link|atomtt\\.com\\//"],["?key="],["passeura"],["redirdx.in/go/"]];
-const hostnamesMap = new Map([["darkmahou.org",0],["warezstream.net",0],["embedder.net",0],["pelispedia.life",0],["cuevana3.*",0],["gnula.*",0],["poseidonhd2.co",0],["cuevana2espanol.*",0],["cuevana.*",0],["geeknetic.es",0],["animeblix.com",[0,3]],["servertwo.xyz",0],["megaseriesonline.pro",0],["chinesetubex.com.es",0],["netcine.*",0],["playnewserie.xyz",0],["pelismart.com",0],["pelismarthd.com",0],["cuevana-3.wtf",0],["muyzorras.com",0],["vernaruto.tv",0],["otakustv.com",0],["repelisgt.net",0],["playpaste.com",0],["hentai-ia.com",0],["videos.mrvideospornogratis.xxx",0],["pelisxporno.net",0],["colegialasdeverdad.*",0],["eshentai.tv",0],["animeocs.com",0],["hentaijl.com",0],["megafire.net",0],["url.firepaste.com",0],["seriesflix.onl",0],["okpeliz.com",0],["player.malfollado.com",0],["anime-jl.net",0],["latinohentai.vip",0],["latinohentai.com",0],["player.seriesgod.com",0],["player.pelisgod.com",0],["atomohd.com",1],["atomtt.com",1],["atomixhq.*",1],["verdragonball.online",2],["torrentjogos.com.br",2],["redirdx.in",4]]);
+const argsList = [["String.prototype.trim","iframe","nonframe"]];
+const hostnamesMap = new Map([["shein.com",0]]);
 const exceptionsMap = new Map([]);
-const hasEntities = true;
+const hasEntities = false;
 const hasAncestors = false;
 
 const collectArgIndices = (hn, map, out) => {
@@ -459,7 +415,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { noWindowOpenIf(...argsList[i]); }
+    try { trustedReplaceOutboundText(...argsList[i]); }
     catch { }
 }
 
