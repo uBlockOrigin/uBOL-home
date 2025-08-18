@@ -46,15 +46,15 @@ jobs.push(function bnf3() {
     hide('#bnf3 .fail');
 });
 
-jobs.push(function bnf4() {
-    if ( window.bnf4Sentinel === true ) { return; }
-    hide('#bnf4 .fail');
-});
-
 // This just tests whether the filtering engine can deal with a very long URL
 jobs.push(function bnf4() {
     const looongURL = `/${'a-'.repeat(16384)}bnf4.gif`;
     fetch(looongURL).then(response => response.text()).catch(( ) => { });
+});
+
+jobs.push(function bnf5() {
+    if ( window.bnf5Sentinel === true ) { return; }
+    hide('#bnf5 .fail');
 });
 
 jobs.push(function pcf18() {

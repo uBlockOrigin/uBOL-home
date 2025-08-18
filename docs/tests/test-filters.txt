@@ -5,7 +5,7 @@
 ! Basic network filtering
 /bnf1.$script,to=ublockorigin.github.io|localhost
 /bnf2.$image,to=ublockorigin.github.io|localhost
-/bnf4.js^$script,to=ublockorigin.github.io|localhost
+/bnf5.js^$script,to=ublockorigin.github.io|localhost
 
 ! Advanced network filtering
 /anf1.$image,redirect=32x32.png,from=ublockorigin.github.io|localhost
