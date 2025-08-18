@@ -46,6 +46,11 @@ jobs.push(function bnf3() {
     hide('#bnf3 .fail');
 });
 
+jobs.push(function bnf4() {
+    if ( window.bnf4Sentinel === true ) { return; }
+    hide('#bnf4 .fail');
+});
+
 // This just tests whether the filtering engine can deal with a very long URL
 jobs.push(function bnf4() {
     const looongURL = `/${'a-'.repeat(16384)}bnf4.gif`;
