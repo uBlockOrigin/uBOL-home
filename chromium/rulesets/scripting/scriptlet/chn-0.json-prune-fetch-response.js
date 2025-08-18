@@ -20,151 +20,170 @@
 
 */
 
-// ruleset: vie-1
+// ruleset: chn-0
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_abortCurrentScript() {
+(function uBOL_jsonPruneFetchResponse() {
 
 /******************************************************************************/
 
-function abortCurrentScript(...args) {
-    runAtHtmlElementFn(( ) => {
-        abortCurrentScriptFn(...args);
-    });
-}
-
-function abortCurrentScriptFn(
-    target = '',
-    needle = '',
-    context = ''
+function jsonPruneFetchResponse(
+    rawPrunePaths = '',
+    rawNeedlePaths = ''
 ) {
-    if ( typeof target !== 'string' ) { return; }
-    if ( target === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('abort-current-script', target, needle, context);
-    const reNeedle = safe.patternToRegex(needle);
-    const reContext = safe.patternToRegex(context);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    const thisScript = document.currentScript;
-    const chain = safe.String_split.call(target, '.');
-    let owner = window;
-    let prop;
-    for (;;) {
-        prop = chain.shift();
-        if ( chain.length === 0 ) { break; }
-        if ( prop in owner === false ) { break; }
-        owner = owner[prop];
-        if ( owner instanceof Object === false ) { return; }
-    }
-    let value;
-    let desc = Object.getOwnPropertyDescriptor(owner, prop);
-    if (
-        desc instanceof Object === false ||
-        desc.get instanceof Function === false
-    ) {
-        value = owner[prop];
-        desc = undefined;
-    }
-    const debug = shouldDebug(extraArgs);
-    const exceptionToken = getExceptionTokenFn();
-    const scriptTexts = new WeakMap();
-    const textContentGetter = Object.getOwnPropertyDescriptor(Node.prototype, 'textContent').get;
-    const getScriptText = elem => {
-        let text = textContentGetter.call(elem);
-        if ( text.trim() !== '' ) { return text; }
-        if ( scriptTexts.has(elem) ) { return scriptTexts.get(elem); }
-        const [ , mime, content ] =
-            /^data:([^,]*),(.+)$/.exec(elem.src.trim()) ||
-            [ '', '', '' ];
-        try {
-            switch ( true ) {
-            case mime.endsWith(';base64'):
-                text = self.atob(content);
-                break;
-            default:
-                text = self.decodeURIComponent(content);
-                break;
-            }
-        } catch {
-        }
-        scriptTexts.set(elem, text);
-        return text;
-    };
-    const validate = ( ) => {
-        const e = document.currentScript;
-        if ( e instanceof HTMLScriptElement === false ) { return; }
-        if ( e === thisScript ) { return; }
-        if ( context !== '' && reContext.test(e.src) === false ) {
-            // eslint-disable-next-line no-debugger
-            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }
-            return;
-        }
-        if ( safe.logLevel > 1 && context !== '' ) {
-            safe.uboLog(logPrefix, `Matched src\n${e.src}`);
-        }
-        const scriptText = getScriptText(e);
-        if ( reNeedle.test(scriptText) === false ) {
-            // eslint-disable-next-line no-debugger
-            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }
-            return;
-        }
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, `Matched text\n${scriptText}`);
-        }
-        // eslint-disable-next-line no-debugger
-        if ( debug === 'match' || debug === 'all' ) { debugger; }
-        safe.uboLog(logPrefix, 'Aborted');
-        throw new ReferenceError(exceptionToken);
-    };
-    // eslint-disable-next-line no-debugger
-    if ( debug === 'install' ) { debugger; }
-    try {
-        Object.defineProperty(owner, prop, {
-            get: function() {
-                validate();
-                return desc instanceof Object
-                    ? desc.get.call(owner)
-                    : value;
-            },
-            set: function(a) {
-                validate();
-                if ( desc instanceof Object ) {
-                    desc.set.call(owner, a);
-                } else {
-                    value = a;
+    const logPrefix = safe.makeLogPrefix('json-prune-fetch-response', rawPrunePaths, rawNeedlePaths);
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
+    const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
+    const logall = rawPrunePaths === '';
+    const applyHandler = function(target, thisArg, args) {
+        const fetchPromise = Reflect.apply(target, thisArg, args);
+        if ( propNeedles.size !== 0 ) {
+            const objs = [ args[0] instanceof Object ? args[0] : { url: args[0] } ];
+            if ( objs[0] instanceof Request ) {
+                try {
+                    objs[0] = safe.Request_clone.call(objs[0]);
+                } catch(ex) {
+                    safe.uboErr(logPrefix, 'Error:', ex);
                 }
             }
-        });
-    } catch(ex) {
-        safe.uboErr(logPrefix, `Error: ${ex}`);
-    }
-}
-
-function runAtHtmlElementFn(fn) {
-    if ( document.documentElement ) {
-        fn();
-        return;
-    }
-    const observer = new MutationObserver(( ) => {
-        observer.disconnect();
-        fn();
-    });
-    observer.observe(document, { childList: true });
-}
-
-function getExceptionTokenFn() {
-    const token = getRandomTokenFn();
-    const oe = self.onerror;
-    self.onerror = function(msg, ...args) {
-        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
-        if ( oe instanceof Function ) {
-            return oe.call(this, msg, ...args);
+            if ( args[1] instanceof Object ) {
+                objs.push(args[1]);
+            }
+            const matched = matchObjectPropertiesFn(propNeedles, ...objs);
+            if ( matched === undefined ) { return fetchPromise; }
+            if ( safe.logLevel > 1 ) {
+                safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
+            }
         }
-    }.bind();
-    return token;
+        return fetchPromise.then(responseBefore => {
+            const response = responseBefore.clone();
+            return response.json().then(objBefore => {
+                if ( typeof objBefore !== 'object' ) { return responseBefore; }
+                if ( logall ) {
+                    safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
+                    return responseBefore;
+                }
+                const objAfter = objectPruneFn(
+                    objBefore,
+                    rawPrunePaths,
+                    rawNeedlePaths,
+                    stackNeedle,
+                    extraArgs
+                );
+                if ( typeof objAfter !== 'object' ) { return responseBefore; }
+                safe.uboLog(logPrefix, 'Pruned');
+                const responseAfter = Response.json(objAfter, {
+                    status: responseBefore.status,
+                    statusText: responseBefore.statusText,
+                    headers: responseBefore.headers,
+                });
+                Object.defineProperties(responseAfter, {
+                    ok: { value: responseBefore.ok },
+                    redirected: { value: responseBefore.redirected },
+                    type: { value: responseBefore.type },
+                    url: { value: responseBefore.url },
+                });
+                return responseAfter;
+            }).catch(reason => {
+                safe.uboErr(logPrefix, 'Error:', reason);
+                return responseBefore;
+            });
+        }).catch(reason => {
+            safe.uboErr(logPrefix, 'Error:', reason);
+            return fetchPromise;
+        });
+    };
+    self.fetch = new Proxy(self.fetch, {
+        apply: applyHandler
+    });
+}
+
+function matchObjectPropertiesFn(propNeedles, ...objs) {
+    const safe = safeSelf();
+    const matched = [];
+    for ( const obj of objs ) {
+        if ( obj instanceof Object === false ) { continue; }
+        for ( const [ prop, details ] of propNeedles ) {
+            let value = obj[prop];
+            if ( value === undefined ) { continue; }
+            if ( typeof value !== 'string' ) {
+                try { value = safe.JSON_stringify(value); }
+                catch { }
+                if ( typeof value !== 'string' ) { continue; }
+            }
+            if ( safe.testPattern(details, value) === false ) { return; }
+            matched.push(`${prop}: ${value}`);
+        }
+    }
+    return matched;
+}
+
+function objectPruneFn(
+    obj,
+    rawPrunePaths,
+    rawNeedlePaths,
+    stackNeedleDetails = { matchAll: true },
+    extraArgs = {}
+) {
+    if ( typeof rawPrunePaths !== 'string' ) { return; }
+    const safe = safeSelf();
+    const prunePaths = rawPrunePaths !== ''
+        ? safe.String_split.call(rawPrunePaths, / +/)
+        : [];
+    const needlePaths = prunePaths.length !== 0 && rawNeedlePaths !== ''
+        ? safe.String_split.call(rawNeedlePaths, / +/)
+        : [];
+    if ( stackNeedleDetails.matchAll !== true ) {
+        if ( matchesStackTraceFn(stackNeedleDetails, extraArgs.logstack) === false ) {
+            return;
+        }
+    }
+    if ( objectPruneFn.mustProcess === undefined ) {
+        objectPruneFn.mustProcess = (root, needlePaths) => {
+            for ( const needlePath of needlePaths ) {
+                if ( objectFindOwnerFn(root, needlePath) === false ) {
+                    return false;
+                }
+            }
+            return true;
+        };
+    }
+    if ( prunePaths.length === 0 ) { return; }
+    let outcome = 'nomatch';
+    if ( objectPruneFn.mustProcess(obj, needlePaths) ) {
+        for ( const path of prunePaths ) {
+            if ( objectFindOwnerFn(obj, path, true) ) {
+                outcome = 'match';
+            }
+        }
+    }
+    if ( outcome === 'match' ) { return obj; }
+}
+
+function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
+    const safe = safeSelf();
+    const needles = new Map();
+    if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
+    const options = { canNegate: true };
+    for ( const needle of safe.String_split.call(propsToMatch, /\s+/) ) {
+        let [ prop, pattern ] = safe.String_split.call(needle, ':');
+        if ( prop === '' ) { continue; }
+        if ( pattern !== undefined && /[^$\w -]/.test(prop) ) {
+            prop = `${prop}:${pattern}`;
+            pattern = undefined;
+        }
+        if ( pattern !== undefined ) {
+            needles.set(prop, safe.initPattern(pattern, options));
+        } else if ( implicit !== '' ) {
+            needles.set(implicit, safe.initPattern(prop, options));
+        }
+    }
+    return needles;
 }
 
 function safeSelf() {
@@ -357,9 +376,126 @@ function safeSelf() {
     return safe;
 }
 
-function shouldDebug(details) {
-    if ( details instanceof Object === false ) { return false; }
-    return scriptletGlobals.canDebug && details.debug;
+function matchesStackTraceFn(
+    needleDetails,
+    logLevel = ''
+) {
+    const safe = safeSelf();
+    const exceptionToken = getExceptionTokenFn();
+    const error = new safe.Error(exceptionToken);
+    const docURL = new URL(self.location.href);
+    docURL.hash = '';
+    // Normalize stack trace
+    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
+    const lines = [];
+    for ( let line of safe.String_split.call(error.stack, /[\n\r]+/) ) {
+        if ( line.includes(exceptionToken) ) { continue; }
+        line = line.trim();
+        const match = safe.RegExp_exec.call(reLine, line);
+        if ( match === null ) { continue; }
+        let url = match[2];
+        if ( url.startsWith('(') ) { url = url.slice(1); }
+        if ( url === docURL.href ) {
+            url = 'inlineScript';
+        } else if ( url.startsWith('<anonymous>') ) {
+            url = 'injectedScript';
+        }
+        let fn = match[1] !== undefined
+            ? match[1].slice(0, -1)
+            : line.slice(0, match.index).trim();
+        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
+        let rowcol = match[3];
+        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
+    }
+    lines[0] = `stackDepth:${lines.length-1}`;
+    const stack = lines.join('\t');
+    const r = needleDetails.matchAll !== true &&
+        safe.testPattern(needleDetails, stack);
+    if (
+        logLevel === 'all' ||
+        logLevel === 'match' && r ||
+        logLevel === 'nomatch' && !r
+    ) {
+        safe.uboLog(stack.replace(/\t/g, '\n'));
+    }
+    return r;
+}
+
+function objectFindOwnerFn(
+    root,
+    path,
+    prune = false
+) {
+    const safe = safeSelf();
+    let owner = root;
+    let chain = path;
+    for (;;) {
+        if ( typeof owner !== 'object' || owner === null  ) { return false; }
+        const pos = chain.indexOf('.');
+        if ( pos === -1 ) {
+            if ( prune === false ) {
+                return safe.Object_hasOwn(owner, chain);
+            }
+            let modified = false;
+            if ( chain === '*' ) {
+                for ( const key in owner ) {
+                    if ( safe.Object_hasOwn(owner, key) === false ) { continue; }
+                    delete owner[key];
+                    modified = true;
+                }
+            } else if ( safe.Object_hasOwn(owner, chain) ) {
+                delete owner[chain];
+                modified = true;
+            }
+            return modified;
+        }
+        const prop = chain.slice(0, pos);
+        const next = chain.slice(pos + 1);
+        let found = false;
+        if ( prop === '[-]' && Array.isArray(owner) ) {
+            let i = owner.length;
+            while ( i-- ) {
+                if ( objectFindOwnerFn(owner[i], next) === false ) { continue; }
+                owner.splice(i, 1);
+                found = true;
+            }
+            return found;
+        }
+        if ( prop === '{-}' && owner instanceof Object ) {
+            for ( const key of Object.keys(owner) ) {
+                if ( objectFindOwnerFn(owner[key], next) === false ) { continue; }
+                delete owner[key];
+                found = true;
+            }
+            return found;
+        }
+        if (
+            prop === '[]' && Array.isArray(owner) ||
+            prop === '{}' && owner instanceof Object ||
+            prop === '*' && owner instanceof Object
+        ) {
+            for ( const key of Object.keys(owner) ) {
+                if (objectFindOwnerFn(owner[key], next, prune) === false ) { continue; }
+                found = true;
+            }
+            return found;
+        }
+        if ( safe.Object_hasOwn(owner, prop) === false ) { return false; }
+        owner = owner[prop];
+        chain = chain.slice(pos + 1);
+    }
+}
+
+function getExceptionTokenFn() {
+    const token = getRandomTokenFn();
+    const oe = self.onerror;
+    self.onerror = function(msg, ...args) {
+        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
+        if ( oe instanceof Function ) {
+            return oe.call(this, msg, ...args);
+        }
+    }.bind();
+    return token;
 }
 
 function getRandomTokenFn() {
@@ -371,8 +507,8 @@ function getRandomTokenFn() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["Promise","detectedAdblock"],["Object.defineProperty","ADMStorageFileCDN"],["$","aff"],["document.addEventListener","popunder"],["$","arrDirectLink"],["document.getElementById","openPop"],["document.addEventListener","open"],["jQuery","popup"],["WebAssembly","globalThis"],["navigator","devtoolsDetector"],["$","adblock"],["Symbol","break;case $"],["document.createElement",";break;case"],["eval","$._Eu"],["setTimeout","ad_block"],["setTimeout","Aff"],["jQuery","Popup"],["setInterval","offsetHeight"],["document.addEventListener","Click"],["document.getElementsByClassName","reading-content"],["document.createElement","optad"],["JSON.parse","break;case $."],["$","PopUnder"],["jQuery","click_time"],["JSON","fromCharCode"],["document.createElement","script"],["addEvent","popu"],["$","p0pUpRandom"],["document.querySelectorAll","popMagic"],["document.getElementById","myModal"],["$","window.open"],["eval"],["Promise","break;case"],["document.addEventListener","popup"],["jQuery","window.open"],["document.addEventListener","runAllDetections"],["jQuery","open"],["WebAssembly","instantiate"],["document.write","snow"],["setTimeout","open"],["jQuery","click_ads"],["setTimeout","window.location"]];
-const hostnamesMap = new Map([["10gb.vn",0],["cafef.vn",1],["gamek.vn",1],["genk.vn",1],["kenh14.vn",1],["soha.vn",1],["tuoitre.vn",1],["afamily.vn",1],["thanhnien.vn",1],["childish2x2.fun",2],["dualeotruyenpm.com",[3,37]],["m.blogtruyenmoi.com",3],["economic45882.shop",4],["cdn4.tiptoe34x1.fun",4],["freeplayervideo.com",5],["abysscdn.com",5],["player-cdn.com",5],["playhydrax.com",5],["game8.vn",6],["cunghocvui.com",6],["sexhd88.online",6],["gocmod.com",7],["goctruyentranhvui17.com",8],["nettruyenar.com",8],["sextop1.show",8],["hhvsub1.com",8],["vn5.sexviet88.xyz",[8,37]],["gotphim.com",9],["hh2d.tv",10],["hh3dhay.life",[11,12,13]],["tram3d.com",12],["tram3d.me",13],["animevietsub.cam",13],["imail.edu.vn",[14,15]],["www.motchill20.com",15],["motchill20.com",15],["trumtruyen.live",15],["teamlanhlungday.store",[15,30]],["ios.codevn.net",[16,17]],["javhd.shop",18],["laophatgia.net",19],["linkneverdie.net",20],["linkneverdie.top",20],["linkneverdie2.com",20],["lrepacks.net",21],["lxmanga.my",22],["motchilltvphim.com",23],["nettruyenvia.com",24],["p.thoctv.com",25],["phimmoi.sale",26],["phimtho.net",27],["rphang.online",28],["misskon.com",28],["saigon24.net",29],["tusachmanga.com",30],["truyen247.pro",31],["truyenqqtto.com",32],["haysex.site",32],["truyensextv.com",33],["vailonxx.vip",34],["vanphatelectric.com",35],["viet69.free",36],["vlxx.bz",37],["yurineko.my",37],["heohay.net",37],["cliphot69.shop",37],["doctruyen3qui12.pro",37],["ihentai.cloud",37],["hentaivc.net",37],["buomtv.live",37],["truyenvn.shop",37],["javtiful.com",37],["quatvn.love",37],["vn68phimsexhay.com",37],["phim18hdxx.com",37],["vlsexdam.net",37],["demo.14412882.com",37],["cliphot69.pics",37],["hhtq5.vip",37],["sexdiary.club",37],["vn2.xvideos69.xxx",37],["umetruyenhay.com",37],["damconuong.run",37],["truyenqqgo.com",37],["clipsexsub3x.net",37],["sayhentaii.art",37],["vungoctuan.vn",38],["www.toptruyentv8.com",39],["www.truyen35zz.com",40],["xnxx-sex-videos.com",41]]);
+const argsList = [["data.item.[-].business_info.ad_desc","","/feed/rcmd"]];
+const hostnamesMap = new Map([["bilibili.com",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -440,7 +576,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { abortCurrentScript(...argsList[i]); }
+    try { jsonPruneFetchResponse(...argsList[i]); }
     catch { }
 }
 

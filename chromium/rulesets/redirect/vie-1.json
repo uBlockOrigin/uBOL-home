@@ -97,5 +97,21 @@
  },
  "id": 6,
  "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "xem14.net"
+  ],
+  "urlFilter": "||xem14.net/taptap.mp4"
+ },
+ "id": 7,
+ "priority": 11
 }
 ]

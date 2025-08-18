@@ -42,5 +42,22 @@
  },
  "id": 3,
  "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "requestDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "/bnf5.js^"
+ },
+ "id": 4,
+ "priority": 10
 }
 ]

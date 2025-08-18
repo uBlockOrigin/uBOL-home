@@ -1,5 +1,5 @@
-Secret: 1ffa72ee338ca1b2
-Version: 2025.817.1539
+Secret: 6014d30698e3fecd
+Version: 2025.818.1918
 ============================
 Listset for 'ublock-filters':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/quick-fixes.min.txt
@@ -7,11 +7,11 @@ Listset for 'ublock-filters':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/filters.min.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/privacy.min.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/ubol-filters.txt
-Input filter count: 9257
-	Accepted filter count: 9227
+Input filter count: 9265
+	Accepted filter count: 9237
 	Rejected filter count: 1
-Output rule count: 5542
-	Plain good: 3781
+Output rule count: 5546
+	Plain good: 3786
 		Salvaged rule by ignoring 1 unsupported domain= option: erotic-beauties.com|hardsex.cc|rule34.top|sex-movies.biz|tube18.sexy|xvideos.name|booru.*
 		Salvaged rule by ignoring 1 unsupported domain= option: 8boobs.com|angelgals.com|babesexy.com|babesinporn.com|fooxybabes.com|hotbabeswanted.com|hotstunners.com|mainbabes.com|nakedbabes.club|nakedgirlsroom.com|nudebabes.sexy|pleasuregirl.net|rabbitsfun.com|sexybabes.club|sexybabesart.com|wantedbabes.com|silkengirl.*
 		Salvaged rule by ignoring 1 unsupported domain= option: web.de|gmx.*
@@ -61,7 +61,7 @@ Output rule count: 5542
 		Salvaged rule by ignoring 1 unsupported domain= option: asiaontop.com|asiaon.*
 		Salvaged rule by ignoring 4 unsupported domain= option: mylink.*|my1ink.*|myl1nk.*|myli3k.*|starkroboticsfrc.com|sinonimos.de|antonimos.de|quesignifi.ca|tiktokrealtime.com|tiktokcounter.net|tpayr.xyz|poqzn.xyz|ashrfd.xyz|rezsx.xyz|tryzt.xyz|ashrff.xyz|rezst.xyz|dawenet.com|erzar.xyz|waezm.xyz|waezg.xyz|blackwoodacademy.org|cryptednews.space|vivuq.com|swgop.com|vbnmll.com|telcoinfo.online|dshytb.com|promo-visits.site|satoshi-win.xyz|allcryptoz.net|batmanfactor.com|crewbase.net|crewus.net|documentaryplanet.xyz|gametechreviewer.com|midebalonu.net|misterio.ro|seory.xyz|shinbhu.net|shinchu.net|substitutefor.com|talkforfitness.com|thefitbrit.co.uk|thumb8.net|thumb9.net|topcryptoz.net|uniqueten.net|ultraten.net|maxstream.video|mobitaak.com|digikey.co.za|digikey.cn|digikey.ee|digikey.at|digikey.be|digikey.bg|digikey.cz|digikey.dk|digikey.fi|digikey.fr|digikey.de|digikey.gr|digikey.hu|digikey.ie|digikey.it|digikey.lv|digikey.lt|digikey.lu|digikey.nl|digikey.no|digikey.pl|digikey.pt|digikey.ro|digikey.sk|digikey.si|digikey.es|digikey.se|digikey.ch|digikey.co.uk|digikey.co.il|digikey.com.mx|digikey.ca|digikey.com.br|digikey.co.nz|digikey.com.au|digikey.co.th|digikey.tw|digikey.kr|digikey.sg|digikey.ph|digikey.my|digikey.jp|digikey.in|digikey.hk|digikey.com|ytlarge.com|btv.bg|btvsport.bg|btvnovinite.bg|cool-web.de|gps-cache.de|web-spiele.de|fun-seiten.de|photo-alben.de|wetter-vorhersage.de|coolsoftware.de|kryptografie.de|cool-domains.de|net-tours.de|such-maschine.de|qul.de|mailtool.de|c-ix.de|softwareengineer.de|net-tools.de|hilfen.de|45er.de|cooldns.de|hardware-entwicklung.de
 	Maybe good (regexes): 138
-	redirect=: 547
+	redirect=: 546
 	removeparams= (accepted/discarded): 62/0
 	modifyHeaders=: 52
 	urlskip=: 167
@@ -863,19 +863,19 @@ Output rule count: 5542
 CSS-generic: 166 specific CSS exceptions
 CSS-generic: 133 plain CSS selectors
 CSS-generic-high: 68 plain CSS selectors
-CSS-specific: 4614 distinct filters
-	Combined into 4579 distinct hostnames
+CSS-specific: 4617 distinct filters
+	Combined into 4583 distinct hostnames
 Procedural-related distinct filters: 1197 distinct combined selectors
 	Combined into 1643 distinct hostnames
 ============================
 Listset for 'easylist':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist.txt
-Input filter count: 43484
-	Accepted filter count: 43451
+Input filter count: 43899
+	Accepted filter count: 43866
 	Rejected filter count: 24
-Output rule count: 3599
-	Pruning requestDomains: from 32869 to 32862
-	Plain good: 3546
+Output rule count: 3601
+	Pruning requestDomains: from 33282 to 33274
+	Plain good: 3548
 
 	Maybe good (regexes): 24
 	redirect=: 6
@@ -905,19 +905,19 @@ CSS-generic: 12869 plain CSS selectors
 	Removing excepted highly generic filter ##[data-adblockkey]
 	Removing excepted highly generic filter ##[data-advadstrackid]
 	Removing excepted highly generic filter ##[data-ad-manager-id]
-CSS-generic-high: 449 plain CSS selectors
-CSS-specific: 9415 distinct filters
-	Combined into 7935 distinct hostnames
+CSS-generic-high: 448 plain CSS selectors
+CSS-specific: 9416 distinct filters
+	Combined into 7939 distinct hostnames
 Procedural-related distinct filters: 200 distinct combined selectors
 	Combined into 204 distinct hostnames
 ============================
 Listset for 'easyprivacy':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easyprivacy.txt
-Input filter count: 54007
-	Accepted filter count: 53974
+Input filter count: 54020
+	Accepted filter count: 53987
 	Rejected filter count: 31
-Output rule count: 8137
-	Plain good: 8120
+Output rule count: 8144
+	Plain good: 8127
 
 	Maybe good (regexes): 7
 	redirect=: 8
@@ -1008,11 +1008,11 @@ Procedural-related distinct filters: 11 distinct combined selectors
 ============================
 Listset for 'urlhaus-full':
 	Fetching remote https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-hosts.txt
-Input filter count: 2294
-	Accepted filter count: 2294
+Input filter count: 2229
+	Accepted filter count: 2229
 	Rejected filter count: 0
 Output rule count: 1
-	Pruning requestDomains: from 2294 to 2229
+	Pruning requestDomains: from 2229 to 2167
 	Plain good: 1
 
 	Maybe good (regexes): 0
@@ -1043,9 +1043,9 @@ Output rule count: 549
 CSS-generic: 17 specific CSS exceptions
 CSS-generic: 18 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
-CSS-specific: 4989 distinct filters
+CSS-specific: 4985 distinct filters
 	Combined into 3999 distinct hostnames
-Procedural-related distinct filters: 454 distinct combined selectors
+Procedural-related distinct filters: 453 distinct combined selectors
 	Combined into 414 distinct hostnames
 ============================
 Listset for 'block-lan':
@@ -1084,10 +1084,10 @@ Output rule count: 1
 ============================
 Listset for 'adguard-spyware-url':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/17.txt
-Input filter count: 2211
-	Accepted filter count: 2195
+Input filter count: 2212
+	Accepted filter count: 2196
 	Rejected filter count: 0
-Output rule count: 728
+Output rule count: 729
 	Plain good: 0
 
 	Maybe good (regexes): 0
@@ -1095,7 +1095,7 @@ Output rule count: 728
 	removeparams= (accepted/discarded): 610/0
 	modifyHeaders=: 0
 	urlskip=: 0
-	Unsupported: 118
+	Unsupported: 119
 		Unsupported regex-based removeParam: /^at_custom/
 		Unsupported regex-based removeParam: /^cm_mmc/
 		Unsupported regex-based removeParam: /^__s=[A-Za-z0-9]{6,}/
@@ -1133,6 +1133,7 @@ Output rule count: 728
 		Unsupported regex-based removeParam: /^affExtParam/
 		Unsupported regex-based removeParam: /^otracker/
 		Unsupported regex-based removeParam: /spm=|scm=|from=|keyori=|sugg=|search=|mp=|c=|^abtest|^abbucket|pos=|themeID=|algArgs=|clickTrackInfo=|acm=|item_id=|version=|up_id=|pvid=/
+		Unsupported removeparam exception: adj_t
 		Unsupported removeparam exception: cuid
 		Unsupported removeparam exception: a8
 		Unsupported removeparam exception: irclickid
@@ -1239,7 +1240,7 @@ CSS-generic: 202 specific CSS exceptions
 CSS-generic: 14195 plain CSS selectors
 CSS-generic-high: 167 plain CSS selectors
 CSS-specific: 6593 distinct filters
-	Combined into 18448 distinct hostnames
+	Combined into 18452 distinct hostnames
 Procedural-related distinct filters: 82 distinct combined selectors
 	Combined into 2850 distinct hostnames
 ============================
@@ -1289,8 +1290,8 @@ Output rule count: 346
 CSS-generic: 9 specific CSS exceptions
 CSS-generic: 1160 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
-CSS-specific: 3803 distinct filters
-	Combined into 5277 distinct hostnames
+CSS-specific: 3804 distinct filters
+	Combined into 5278 distinct hostnames
 Procedural-related distinct filters: 469 distinct combined selectors
 	Combined into 1197 distinct hostnames
 Rejecting +js(trusted-set-cookie.js,"pum-9137","true"): annoyances-overlays is not trusted
@@ -1422,11 +1423,11 @@ Output rule count: 2
 ============================
 Listset for 'ubol-tests':
 	Fetching remote https://ublockorigin.github.io/uBOL-home/tests/test-filters.txt
-Input filter count: 8
-	Accepted filter count: 8
+Input filter count: 9
+	Accepted filter count: 9
 	Rejected filter count: 0
-Output rule count: 6
-	Plain good: 3
+Output rule count: 7
+	Plain good: 4
 
 	Maybe good (regexes): 1
 	redirect=: 1
@@ -1488,11 +1489,11 @@ CSS-specific: 404 distinct filters
 ============================
 Listset for 'chn-0':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/224.txt
-Input filter count: 14066
-	Accepted filter count: 14054
+Input filter count: 14087
+	Accepted filter count: 14075
 	Rejected filter count: 4
 Output rule count: 6560
-	Pruning requestDomains: from 5084 to 5083
+	Pruning requestDomains: from 5100 to 5099
 	Pruning requestDomains: from 275 to 273
 	Plain good: 6470
 
@@ -1623,11 +1624,11 @@ Procedural-related distinct filters: 159 distinct combined selectors
 ============================
 Listset for 'fra-0':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/16.txt
-Input filter count: 13105
-	Accepted filter count: 12683
+Input filter count: 13106
+	Accepted filter count: 12684
 	Rejected filter count: 415
-Output rule count: 4204
-	Plain good: 4153
+Output rule count: 4205
+	Plain good: 4154
 		Salvaged rule by ignoring 1 unsupported domain= option: dl-protect.link|fsmirror93.lol|zone-telechargement.*
 		Salvaged rule by ignoring 1 unsupported domain= option: allestoringen.be|allestoringen.nl|xn--allestrungen-9ib.at|xn--allestrungen-9ib.ch|xn--allestrungen-9ib.de|downdetector.*
 		Salvaged rule by ignoring 2 unsupported domain= option: gentside.*|ohmymag.*|maxisciences.com
@@ -1721,7 +1722,7 @@ CSS-generic: 2 specific CSS exceptions
 CSS-generic: 56 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
 CSS-specific: 1119 distinct filters
-	Combined into 511 distinct hostnames
+	Combined into 513 distinct hostnames
 Procedural-related distinct filters: 58 distinct combined selectors
 	Combined into 55 distinct hostnames
 ============================
@@ -1766,8 +1767,8 @@ Output rule count: 4722
 		Rejected filter: bcsuddi.com#?#.e-con[data-settings]:-abp-properties(min-height: 267px)
 CSS-generic: 6 specific CSS exceptions
 CSS-generic: 0 plain CSS selectors
-CSS-specific: 4489 distinct filters
-	Combined into 5228 distinct hostnames
+CSS-specific: 4490 distinct filters
+	Combined into 5231 distinct hostnames
 Procedural-related distinct filters: 136 distinct combined selectors
 	Combined into 134 distinct hostnames
 ============================
@@ -1900,15 +1901,15 @@ Procedural-related distinct filters: 24 distinct combined selectors
 ============================
 Listset for 'jpn-1':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/7.txt
-Input filter count: 2240
-	Accepted filter count: 2240
+Input filter count: 2238
+	Accepted filter count: 2238
 	Rejected filter count: 0
-Output rule count: 1653
+Output rule count: 1650
 	Pruning requestDomains: from 175 to 174
-	Plain good: 1587
+	Plain good: 1585
 
 	Maybe good (regexes): 20
-	redirect=: 28
+	redirect=: 27
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 0
 	urlskip=: 0
@@ -1931,13 +1932,13 @@ Output rule count: 1653
 		Incompatible with DNR: ||criteo.net/js/ld/publishertag.js$script,redirect-rule=noop.js
 		Incompatible with DNR: ||microad.net/js/compass.js$script,redirect-rule=noop.js
 		Incompatible with DNR: ||fundingchoicesmessages.google.com^$script,redirect-rule=noop.js,domain=rocketnews24.com|youpouch.com
-CSS-generic: 84 specific CSS exceptions
+CSS-generic: 83 specific CSS exceptions
 CSS-generic: 107 plain CSS selectors
 CSS-generic-high: 11 plain CSS selectors
-CSS-specific: 7862 distinct filters
-	Combined into 5177 distinct hostnames
-Procedural-related distinct filters: 953 distinct combined selectors
-	Combined into 724 distinct hostnames
+CSS-specific: 7848 distinct filters
+	Combined into 5171 distinct hostnames
+Procedural-related distinct filters: 954 distinct combined selectors
+	Combined into 725 distinct hostnames
 ============================
 Listset for 'kor-1':
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filter-uBlockOrigin.txt
@@ -2145,7 +2146,7 @@ Output rule count: 480
 CSS-generic: 21 specific CSS exceptions
 CSS-generic: 46 plain CSS selectors
 CSS-generic-high: 5 plain CSS selectors
-CSS-specific: 1132 distinct filters
+CSS-specific: 1134 distinct filters
 	Combined into 987 distinct hostnames
 Procedural-related distinct filters: 53 distinct combined selectors
 	Combined into 79 distinct hostnames
@@ -2265,7 +2266,7 @@ Output rule count: 776
 CSS-generic: 17 specific CSS exceptions
 CSS-generic: 228 plain CSS selectors
 CSS-generic-high: 51 plain CSS selectors
-CSS-specific: 1399 distinct filters
+CSS-specific: 1400 distinct filters
 	Combined into 730 distinct hostnames
 Procedural-related distinct filters: 124 distinct combined selectors
 	Combined into 194 distinct hostnames
@@ -2347,11 +2348,11 @@ Listset for 'rus-0':
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/css-fixes-experimental.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/js-fixes-experimental.txt
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/AWRL-non-sync.txt
-Input filter count: 18739
-	Accepted filter count: 18729
+Input filter count: 18741
+	Accepted filter count: 18731
 	Rejected filter count: 7
-Output rule count: 5923
-	Plain good: 5827
+Output rule count: 5924
+	Plain good: 5828
 
 	Maybe good (regexes): 16
 	redirect=: 19
@@ -2368,9 +2369,9 @@ Output rule count: 5923
 CSS-generic: 162 specific CSS exceptions
 CSS-generic: 306 plain CSS selectors
 CSS-generic-high: 597 plain CSS selectors
-CSS-specific: 10271 distinct filters
+CSS-specific: 10273 distinct filters
 	Combined into 7537 distinct hostnames
-Procedural-related distinct filters: 1215 distinct combined selectors
+Procedural-related distinct filters: 1216 distinct combined selectors
 	Combined into 1181 distinct hostnames
 ============================
 Listset for 'rus-1':
@@ -2456,11 +2457,11 @@ Procedural-related distinct filters: 25 distinct combined selectors
 ============================
 Listset for 'spa-1':
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/9.txt
-Input filter count: 1197
-	Accepted filter count: 1190
+Input filter count: 1198
+	Accepted filter count: 1191
 	Rejected filter count: 3
-Output rule count: 869
-	Plain good: 827
+Output rule count: 870
+	Plain good: 828
 		Salvaged rule by ignoring 4 unsupported domain= option: cuevana.*|cuevana2espanol.*|cuevana3.*|gnula.*|pelispedia.life|poseidonhd2.co
 		Salvaged rule by ignoring 1 unsupported domain= option: pelisplushd.net|cuevana3.*
 	Maybe good (regexes): 5
@@ -2484,8 +2485,8 @@ Output rule count: 869
 CSS-generic: 44 specific CSS exceptions
 CSS-generic: 86 plain CSS selectors
 CSS-generic-high: 4 plain CSS selectors
-CSS-specific: 3070 distinct filters
-	Combined into 1758 distinct hostnames
+CSS-specific: 3071 distinct filters
+	Combined into 1760 distinct hostnames
 Procedural-related distinct filters: 188 distinct combined selectors
 	Combined into 243 distinct hostnames
 ============================
@@ -2533,8 +2534,8 @@ Output rule count: 1350
 CSS-generic: 3 specific CSS exceptions
 CSS-generic: 239 plain CSS selectors
 CSS-generic-high: 52 plain CSS selectors
-CSS-specific: 1137 distinct filters
-	Combined into 1445 distinct hostnames
+CSS-specific: 1140 distinct filters
+	Combined into 1446 distinct hostnames
 Procedural-related distinct filters: 325 distinct combined selectors
 	Combined into 454 distinct hostnames
 ============================
@@ -2603,7 +2604,7 @@ CSS-generic: 24 specific CSS exceptions
 CSS-generic: 158 plain CSS selectors
 CSS-generic-high: 60 plain CSS selectors
 CSS-specific: 3060 distinct filters
-	Combined into 2272 distinct hostnames
+	Combined into 2274 distinct hostnames
 Procedural-related distinct filters: 235 distinct combined selectors
 	Combined into 329 distinct hostnames
 ============================
@@ -2628,21 +2629,21 @@ Output rule count: 1437
 CSS-generic: 89 specific CSS exceptions
 CSS-generic: 518 plain CSS selectors
 CSS-generic-high: 25 plain CSS selectors
-CSS-specific: 1299 distinct filters
+CSS-specific: 1301 distinct filters
 	Combined into 1193 distinct hostnames
 Procedural-related distinct filters: 105 distinct combined selectors
 	Combined into 187 distinct hostnames
 ============================
 Listset for 'vie-1':
 	Fetching remote https://raw.githubusercontent.com/abpvn/abpvn/master/filter/abpvn_ublock.txt
-Input filter count: 449
-	Accepted filter count: 449
+Input filter count: 451
+	Accepted filter count: 451
 	Rejected filter count: 0
-Output rule count: 324
-	Plain good: 308
+Output rule count: 326
+	Plain good: 309
 
 	Maybe good (regexes): 2
-	redirect=: 6
+	redirect=: 7
 	removeparams= (accepted/discarded): 0/0
 	modifyHeaders=: 8
 	urlskip=: 0
@@ -2651,7 +2652,7 @@ Output rule count: 324
 CSS-generic: 16 specific CSS exceptions
 CSS-generic: 20 plain CSS selectors
 CSS-generic-high: 6 plain CSS selectors
-CSS-specific: 662 distinct filters
-	Combined into 402 distinct hostnames
+CSS-specific: 663 distinct filters
+	Combined into 403 distinct hostnames
 Procedural-related distinct filters: 7 distinct combined selectors
 	Combined into 9 distinct hostnames
