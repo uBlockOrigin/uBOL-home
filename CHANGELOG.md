@@ -5,7 +5,6 @@
 - Safari-specific:
   - [Workaround for `urlFilter` with path part ending with `^`](https://github.com/gorhill/uBlock/commit/5957656a5b)
   - [Do not inject CSS in embedded contexts](https://github.com/gorhill/uBlock/commit/4d2cfd1487)
-  - [Change Safari toolbar icon to an outlined version](https://github.com/gorhill/uBlock/commit/e6a8c87e0e) by [@uncw](https://github.com/uncw)
 
 ----------
 
