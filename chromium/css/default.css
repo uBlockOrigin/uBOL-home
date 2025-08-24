@@ -408,8 +408,11 @@
     --fieldset-header-surface: transparent;
     --fieldset-header-ink: var(--ink-2);
 
+    --native-control-opacity: 0;
+
     --button-ink: var(--ink-1);
     --button-surface: rgb(var(--button-surface-rgb));
+    --button-border-size: 0;
     --button-border-radius: 5px;
     --button-preferred-ink: var(--accent-ink-1);
     --button-preferred-surface: var(--accent-surface-1);
@@ -458,6 +461,13 @@
     --popup-ruleset-tool-surface: rgb(var(--primary-80) / 15%);
     --popup-ruleset-tool-surface-hover: rgb(var(--primary-80) / 20%);
     --popup-ruleset-tool-shadow: transparent;
+}
+
+@media (prefers-contrast: more) {
+    :root {
+        --native-control-opacity: 1;
+        --button-border-size: 1px;
+    }
 }
 
 /*

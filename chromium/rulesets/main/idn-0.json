@@ -131,7 +131,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/banners/nitroplay_"},"id":130,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/ggslot777-"},"id":131,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["80.209.252.146"],"urlFilter":"||googleusercontent.com^"},"id":132,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/oppabet-"},"id":133,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"/oppabet-"},"id":133,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["stylesheet"],"urlFilter":"||detik.com/live/css/desktop/dads.css"},"id":134,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["stylesheet"],"urlFilter":"||detik.com/live/css/desktop/dads_preview.css"},"id":135,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["stylesheet"],"urlFilter":"||detik.com/live/css/msite/mads.css"},"id":136,"priority":10},
