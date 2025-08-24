@@ -1,3 +1,8 @@
+- [Improve built-in parser to convert filters to DNR rules](https://github.com/gorhill/uBlock/commit/cb62e38f50)
+- [Support custom filters using CSS pseudo-elements](https://github.com/gorhill/uBlock/commit/bc4e829427)
+
+----------
+
 - [Add support for `regexSubstitution` from `uritransform`](https://github.com/gorhill/uBlock/commit/fad0af591f)
 - [Improve internal error reporting in troubleshooting info](https://github.com/gorhill/uBlock/commit/25d9964b1e)
 - [Fix unremovable custom filters created using older versions](https://github.com/gorhill/uBlock/commit/d54c4a7052)
