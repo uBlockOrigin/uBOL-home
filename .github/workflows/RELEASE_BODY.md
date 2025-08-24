@@ -1,4 +1,4 @@
-*uBO Lite** (uBOL), an [MV3 API-based](https://developer.chrome.com/docs/extensions/mv3/intro/) content blocker.
+**uBO Lite** (uBOL), an [MV3 API-based](https://developer.chrome.com/docs/extensions/mv3/intro/) content blocker.
 
 - [Synopsis](https://github.com/uBlockOrigin/uBOL-issues#readme)
 - [Documentation](https://github.com/uBlockOrigin/uBOL-home/wiki)
