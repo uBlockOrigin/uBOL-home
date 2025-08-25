@@ -607,5 +607,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||hencdn.top/video/*/stats?"},"id":606,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||li.ru/click?"},"id":607,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||vkplay.ru/tracker?_"},"id":608,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||vkplay.ru/tsmg_gen.js"},"id":609,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||vkplay.ru/tsmg_gen.js"},"id":609,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||yandex.ru/games/_*/*/*/*/promo."},"id":610,"priority":40},
+{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||yandex.ru/games/_crpd/*/*_*_*_*_*_"},"id":611,"priority":40}
 ]

@@ -534,7 +534,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/eu-cookielaw.min.js"},"id":533,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/eu-notice.js"},"id":534,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/eu_cookie.js"},"id":535,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["1password.com","anaconda.com","chubbiesshorts.com","classy.org","costco.ca","costco.com","costcobusinessdelivery.com","digicert.com","etsy.com","eyeconic.com","fanexpohq.com","fashionnova.com","gamechoiceawards.com","gamedeveloper.com","gdconf.com","gdcvault.com","gofundme.com","igf.com","indiegogo.com","informa.com","informaconnect.com","kickstarter.com","lifetouch.com","mountaineast.org","netapp.com","patreon.com","shutterfly.com","vimeo.com","visible.com","vsp.com","vspdirect.com"],"urlFilter":"||transcend-cdn.com^"},"id":536,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["1password.com","anaconda.com","chubbiesshorts.com","classy.org","costco.ca","costco.com","costcobusinessdelivery.com","digicert.com","etsy.com","eyeconic.com","fanexpohq.com","fashionnova.com","gamechoiceawards.com","gamedeveloper.com","gdconf.com","gdcvault.com","gofundme.com","igf.com","indiegogo.com","informa.com","informaconnect.com","kfc.com","kickstarter.com","lifetouch.com","mountaineast.org","netapp.com","patreon.com","shutterfly.com","vimeo.com","visible.com","vsp.com","vspdirect.com"],"urlFilter":"||transcend-cdn.com^"},"id":536,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["fortune.com","hsl.fi","philips-hue.com","proximus.be","tmz.com","weather.com"],"urlFilter":"||consent.truste.com/notice$domain="},"id":537,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"/eu_cookies.js"},"id":538,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/eu_privacy.js"},"id":539,"priority":10},
@@ -1731,5 +1731,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["dimensione.com"],"resourceTypes":["script"],"urlFilter":"||consent.cookiebot.com^"},"id":1730,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||cormarcarpets.co.uk/scripts/cookieconsent.min.js"},"id":1731,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["zalando.be","zalando.com","zalando.es","zalando.fr","zalando.it","zalando.nl","zalando.pl","zalando.se"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||usercentrics.eu^"},"id":1732,"priority":30},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["my-personaltrainer.it"],"urlFilter":"||iubenda.com^"},"id":1733,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["my-personaltrainer.it"],"urlFilter":"||iubenda.com^"},"id":1733,"priority":10},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||kleinanzeigen.de/gdpr/"},"id":1734,"priority":30}
 ]

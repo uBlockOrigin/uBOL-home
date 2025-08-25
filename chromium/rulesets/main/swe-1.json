@@ -744,7 +744,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||getanewsletter.com/js-forms-assets/popups.js"},"id":743,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ninjateknik.com","temadagar.se","wernamaten.se"],"urlFilter":"/detroitchicago"},"id":744,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["aftonbladet.se","blocket.se","godare.se"],"resourceTypes":["script"],"urlFilter":"/glimr"},"id":745,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||grillbloggen.nu/media/com_rstbox/js/engagebox.js"},"id":746,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["grillbloggen.nu"],"urlFilter":"/engagebox.js"},"id":746,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["computersweden.se","m3.se","macworld.se","pcforalla.se"],"urlFilter":"||ccpa.sp-prod.net^"},"id":747,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["temadagar.se"],"urlFilter":"||g.ezodn.com/cmp/"},"id":748,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||harmonious-station-to-station.podplay.com/script.js"},"id":749,"priority":10},
@@ -1333,5 +1333,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/plugins/setupad/"},"id":1332,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/plugins/thirstyaffiliates-pro"},"id":1333,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/t.hellofresh.se"},"id":1334,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||travnet.se/till/"},"id":1335,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||travnet.se/till/"},"id":1335,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||admin.bloggplatsen.se/status/"},"id":1336,"priority":10}
 ]

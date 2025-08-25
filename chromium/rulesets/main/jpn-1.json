@@ -1592,5 +1592,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"-mufg-jp.*.com/"},"id":1591,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://www.jabank.org.*.com/"},"id":1592,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||i-pclub.com/m/appollo"},"id":1593,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||pixelarchivenow.com/image/"},"id":1594,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||pixelarchivenow.com/image/"},"id":1594,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||avdb-app.com/_next/image?url=%2faffi%2f"},"id":1595,"priority":10}
 ]
