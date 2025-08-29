@@ -166,18 +166,12 @@ async function getManifest(path) {
 
 function patchProjectVersion(manifest, text) {
     const originDate = new Date('2022-09-06T17:47:52.000Z');
-    const match = /^(\d+)\.(\d+)\.(\d+)$/.exec(manifest.version);
-    const monthday = parseInt(match[2]);
-    const month = `${Math.floor(monthday / 100)}`.padStart(2, '0');
-    const day = `${monthday % 100}`.padStart(2, '0');
-    const dayminutes = parseInt(match[3]);
-    const hours = `${Math.floor(dayminutes / 100)}`.padStart(2, '0');
-    const minutes = `${dayminutes % 100}`.padStart(2, '0');
-    const manifestDate = new Date(`${match[1]}-${month}-${day}T${hours}:${minutes}`)
-    const unitsPerDay = 24 * 60 * 60 * 1000;
-    const daysSinceOrigin = (manifestDate.getTime() - originDate.getTime()) / unitsPerDay;
-    const major = Math.floor(daysSinceOrigin);
-    const minor = match[3];
+    const buildDate = Date.now();
+    const elapsedMinutes = Math.floor(
+        (buildDate - originDate.getTime()) / (60 * 1000)
+    );
+    const major = Math.floor(elapsedMinutes / (24 * 60));
+    const minor = elapsedMinutes % (24 * 60);
     return text.replaceAll(/\bCURRENT_PROJECT_VERSION = [^;]*;/g,
         `CURRENT_PROJECT_VERSION = ${major}.${minor};`
     );
