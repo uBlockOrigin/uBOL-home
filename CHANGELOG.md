@@ -1,7 +1,22 @@
+- [Ensure ui is visible even after failure](https://github.com/gorhill/uBlock/commit/d1a29d9899)
+- [Merge AdGuard mobile filters with uBO's own mobile filters](https://github.com/gorhill/uBlock/commit/bc05f31cc2)
+
+----------
+
+##  uBOLite_2025.825.1605 
+
+- [Fix regression in managing redirect rules](https://github.com/gorhill/uBlock/commit/69fa0c2e09)
+
+----------
+
+##  uBOLite_2025.824.1755 
+
 - [Improve built-in parser to convert filters to DNR rules](https://github.com/gorhill/uBlock/commit/cb62e38f50)
 - [Support custom filters using CSS pseudo-elements](https://github.com/gorhill/uBlock/commit/bc4e829427)
 
 ----------
+
+##  uBOLite_2025.818.1918
 
 - [Add support for `regexSubstitution` from `uritransform`](https://github.com/gorhill/uBlock/commit/fad0af591f)
 - [Improve internal error reporting in troubleshooting info](https://github.com/gorhill/uBlock/commit/25d9964b1e)
