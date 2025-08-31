@@ -20,171 +20,160 @@
 
 */
 
-// ruleset: vie-1
+// ruleset: adguard-mobile
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_m3uPrune() {
+(function uBOL_replaceNodeText() {
 
 /******************************************************************************/
 
-function m3uPrune(
-    m3uPattern = '',
-    urlPattern = ''
+function replaceNodeText(
+    nodeName,
+    pattern,
+    replacement,
+    ...extraArgs
 ) {
-    if ( typeof m3uPattern !== 'string' ) { return; }
+    replaceNodeTextFn(nodeName, pattern, replacement, ...extraArgs);
+}
+
+function replaceNodeTextFn(
+    nodeName = '',
+    pattern = '',
+    replacement = ''
+) {
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('m3u-prune', m3uPattern, urlPattern);
-    const toLog = [];
-    const regexFromArg = arg => {
-        if ( arg === '' ) { return /^/; }
-        const match = /^\/(.+)\/([gms]*)$/.exec(arg);
-        if ( match !== null ) {
-            let flags = match[2] || '';
-            if ( flags.includes('m') ) { flags += 's'; }
-            return new RegExp(match[1], flags);
+    const logPrefix = safe.makeLogPrefix('replace-node-text.fn', ...Array.from(arguments));
+    const reNodeName = safe.patternToRegex(nodeName, 'i', true);
+    const rePattern = safe.patternToRegex(pattern, 'gms');
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const reIncludes = extraArgs.includes || extraArgs.condition
+        ? safe.patternToRegex(extraArgs.includes || extraArgs.condition, 'ms')
+        : null;
+    const reExcludes = extraArgs.excludes
+        ? safe.patternToRegex(extraArgs.excludes, 'ms')
+        : null;
+    const stop = (takeRecord = true) => {
+        if ( takeRecord ) {
+            handleMutations(observer.takeRecords());
         }
-        return new RegExp(
-            arg.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*+/g, '.*?')
+        observer.disconnect();
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, 'Quitting');
+        }
+    };
+    const textContentFactory = (( ) => {
+        const out = { createScript: s => s };
+        const { trustedTypes: tt } = self;
+        if ( tt instanceof Object ) {
+            if ( typeof tt.getPropertyType === 'function' ) {
+                if ( tt.getPropertyType('script', 'textContent') === 'TrustedScript' ) {
+                    return tt.createPolicy(getRandomTokenFn(), out);
+                }
+            }
+        }
+        return out;
+    })();
+    let sedCount = extraArgs.sedCount || 0;
+    const handleNode = node => {
+        const before = node.textContent;
+        if ( reIncludes ) {
+            reIncludes.lastIndex = 0;
+            if ( safe.RegExp_test.call(reIncludes, before) === false ) { return true; }
+        }
+        if ( reExcludes ) {
+            reExcludes.lastIndex = 0;
+            if ( safe.RegExp_test.call(reExcludes, before) ) { return true; }
+        }
+        rePattern.lastIndex = 0;
+        if ( safe.RegExp_test.call(rePattern, before) === false ) { return true; }
+        rePattern.lastIndex = 0;
+        const after = pattern !== ''
+            ? before.replace(rePattern, replacement)
+            : replacement;
+        node.textContent = node.nodeName === 'SCRIPT'
+            ? textContentFactory.createScript(after)
+            : after;
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `Text before:\n${before.trim()}`);
+        }
+        safe.uboLog(logPrefix, `Text after:\n${after.trim()}`);
+        return sedCount === 0 || (sedCount -= 1) !== 0;
+    };
+    const handleMutations = mutations => {
+        for ( const mutation of mutations ) {
+            for ( const node of mutation.addedNodes ) {
+                if ( reNodeName.test(node.nodeName) === false ) { continue; }
+                if ( handleNode(node) ) { continue; }
+                stop(false); return;
+            }
+        }
+    };
+    const observer = new MutationObserver(handleMutations);
+    observer.observe(document, { childList: true, subtree: true });
+    if ( document.documentElement ) {
+        const treeWalker = document.createTreeWalker(
+            document.documentElement,
+            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT
         );
+        let count = 0;
+        for (;;) {
+            const node = treeWalker.nextNode();
+            count += 1;
+            if ( node === null ) { break; }
+            if ( reNodeName.test(node.nodeName) === false ) { continue; }
+            if ( node === document.currentScript ) { continue; }
+            if ( handleNode(node) ) { continue; }
+            stop(); break;
+        }
+        safe.uboLog(logPrefix, `${count} nodes present before installing mutation observer`);
+    }
+    if ( extraArgs.stay ) { return; }
+    runAt(( ) => {
+        const quitAfter = extraArgs.quitAfter || 0;
+        if ( quitAfter !== 0 ) {
+            setTimeout(( ) => { stop(); }, quitAfter);
+        } else {
+            stop();
+        }
+    }, 'interactive');
+}
+
+function getRandomTokenFn() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+}
+
+function runAt(fn, when) {
+    const intFromReadyState = state => {
+        const targets = {
+            'loading': 1, 'asap': 1,
+            'interactive': 2, 'end': 2, '2': 2,
+            'complete': 3, 'idle': 3, '3': 3,
+        };
+        const tokens = Array.isArray(state) ? state : [ state ];
+        for ( const token of tokens ) {
+            const prop = `${token}`;
+            if ( Object.hasOwn(targets, prop) === false ) { continue; }
+            return targets[prop];
+        }
+        return 0;
     };
-    const reM3u = regexFromArg(m3uPattern);
-    const reUrl = regexFromArg(urlPattern);
-    const pruneSpliceoutBlock = (lines, i) => {
-        if ( lines[i].startsWith('#EXT-X-CUE:TYPE="SpliceOut"') === false ) {
-            return false;
-        }
-        toLog.push(`\t${lines[i]}`);
-        lines[i] = undefined; i += 1;
-        if ( lines[i].startsWith('#EXT-X-ASSET:CAID') ) {
-            toLog.push(`\t${lines[i]}`);
-            lines[i] = undefined; i += 1;
-        }
-        if ( lines[i].startsWith('#EXT-X-SCTE35:') ) {
-            toLog.push(`\t${lines[i]}`);
-            lines[i] = undefined; i += 1;
-        }
-        if ( lines[i].startsWith('#EXT-X-CUE-IN') ) {
-            toLog.push(`\t${lines[i]}`);
-            lines[i] = undefined; i += 1;
-        }
-        if ( lines[i].startsWith('#EXT-X-SCTE35:') ) {
-            toLog.push(`\t${lines[i]}`);
-            lines[i] = undefined; i += 1;
-        }
-        return true;
+    const runAt = intFromReadyState(when);
+    if ( intFromReadyState(document.readyState) >= runAt ) {
+        fn(); return;
+    }
+    const onStateChange = ( ) => {
+        if ( intFromReadyState(document.readyState) < runAt ) { return; }
+        fn();
+        safe.removeEventListener.apply(document, args);
     };
-    const pruneInfBlock = (lines, i) => {
-        if ( lines[i].startsWith('#EXTINF') === false ) { return false; }
-        if ( reM3u.test(lines[i+1]) === false ) { return false; }
-        toLog.push('Discarding', `\t${lines[i]}, \t${lines[i+1]}`);
-        lines[i] = lines[i+1] = undefined; i += 2;
-        if ( lines[i].startsWith('#EXT-X-DISCONTINUITY') ) {
-            toLog.push(`\t${lines[i]}`);
-            lines[i] = undefined; i += 1;
-        }
-        return true;
-    };
-    const pruner = text => {
-        if ( (/^\s*#EXTM3U/.test(text)) === false ) { return text; }
-        if ( m3uPattern === '' ) {
-            safe.uboLog(` Content:\n${text}`);
-            return text;
-        }
-        if ( reM3u.multiline ) {
-            reM3u.lastIndex = 0;
-            for (;;) {
-                const match = reM3u.exec(text);
-                if ( match === null ) { break; }
-                let discard = match[0];
-                let before = text.slice(0, match.index);
-                if (
-                    /^[\n\r]+/.test(discard) === false &&
-                    /[\n\r]+$/.test(before) === false
-                ) {
-                    const startOfLine = /[^\n\r]+$/.exec(before);
-                    if ( startOfLine !== null ) {
-                        before = before.slice(0, startOfLine.index);
-                        discard = startOfLine[0] + discard;
-                    }
-                }
-                let after = text.slice(match.index + match[0].length);
-                if (
-                    /[\n\r]+$/.test(discard) === false &&
-                    /^[\n\r]+/.test(after) === false
-                ) {
-                    const endOfLine = /^[^\n\r]+/.exec(after);
-                    if ( endOfLine !== null ) {
-                        after = after.slice(endOfLine.index);
-                        discard += discard + endOfLine[0];
-                    }
-                }
-                text = before.trim() + '\n' + after.trim();
-                reM3u.lastIndex = before.length + 1;
-                toLog.push('Discarding', ...safe.String_split.call(discard, /\n+/).map(s => `\t${s}`));
-                if ( reM3u.global === false ) { break; }
-            }
-            return text;
-        }
-        const lines = safe.String_split.call(text, /\n\r|\n|\r/);
-        for ( let i = 0; i < lines.length; i++ ) {
-            if ( lines[i] === undefined ) { continue; }
-            if ( pruneSpliceoutBlock(lines, i) ) { continue; }
-            if ( pruneInfBlock(lines, i) ) { continue; }
-        }
-        return lines.filter(l => l !== undefined).join('\n');
-    };
-    const urlFromArg = arg => {
-        if ( typeof arg === 'string' ) { return arg; }
-        if ( arg instanceof Request ) { return arg.url; }
-        return String(arg);
-    };
-    const realFetch = self.fetch;
-    self.fetch = new Proxy(self.fetch, {
-        apply: function(target, thisArg, args) {
-            if ( reUrl.test(urlFromArg(args[0])) === false ) {
-                return Reflect.apply(target, thisArg, args);
-            }
-            return realFetch(...args).then(realResponse =>
-                realResponse.text().then(text => {
-                    const response = new Response(pruner(text), {
-                        status: realResponse.status,
-                        statusText: realResponse.statusText,
-                        headers: realResponse.headers,
-                    });
-                    if ( toLog.length !== 0 ) {
-                        toLog.unshift(logPrefix);
-                        safe.uboLog(toLog.join('\n'));
-                    }
-                    return response;
-                })
-            );
-        }
-    });
-    self.XMLHttpRequest.prototype.open = new Proxy(self.XMLHttpRequest.prototype.open, {
-        apply: async (target, thisArg, args) => {
-            if ( reUrl.test(urlFromArg(args[1])) === false ) {
-                return Reflect.apply(target, thisArg, args);
-            }
-            thisArg.addEventListener('readystatechange', function() {
-                if ( thisArg.readyState !== 4 ) { return; }
-                const type = thisArg.responseType;
-                if ( type !== '' && type !== 'text' ) { return; }
-                const textin = thisArg.responseText;
-                const textout = pruner(textin);
-                if ( textout === textin ) { return; }
-                Object.defineProperty(thisArg, 'response', { value: textout });
-                Object.defineProperty(thisArg, 'responseText', { value: textout });
-                if ( toLog.length !== 0 ) {
-                    toLog.unshift(logPrefix);
-                    safe.uboLog(toLog.join('\n'));
-                }
-            });
-            return Reflect.apply(target, thisArg, args);
-        }
-    });
+    const safe = safeSelf();
+    const args = [ 'readystatechange', onStateChange, { capture: true } ];
+    safe.addEventListener.apply(document, args);
 }
 
 function safeSelf() {
@@ -380,8 +369,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["/#EXT-X-DISCONTINUITY(.|\\n){1,1000}#EXT-X-DISCONTINUITY/gm","index.m3u8"]];
-const hostnamesMap = new Map([["yeuphim.fit",0]]);
+const argsList = [["script","/^ipc\\.loader\\.queue\\.jquery(\\.push\\(function\\(\\)\\{\\s*ipc\\.loader\\.script\\(.+\\/ipc\\.watch\\.js.+)/","ipc.loader.queue.ready$1"]];
+const hostnamesMap = new Map([["watch.impress.co.jp",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -449,7 +438,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { m3uPrune(...argsList[i]); }
+    try { replaceNodeText(...argsList[i]); }
     catch { }
 }
 

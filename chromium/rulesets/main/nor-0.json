@@ -610,7 +610,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||glow.posten.no/api/tracking/"},"id":609,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||tv2.no/*/config/analytics.json"},"id":610,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||cmp.ekstrabladet.dk/get_site_data"},"id":611,"priority":30},
-{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||isweb.no^"},"id":612,"priority":10},
+{"action":{"type":"block"},"condition":{"requestDomains":["import.roninmedia.io","isweb.no"],"resourceTypes":["sub_frame"]},"id":612,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tvsporten.dk/media/tvchannels/100x60_logo.png^"},"id":613,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||www.hvidovreavis.dk/media/*/hvidover-*-1080x1080."},"id":614,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ukenr.no/bobs/iframe.php^"},"id":615,"priority":10},

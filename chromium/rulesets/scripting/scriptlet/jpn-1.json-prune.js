@@ -425,8 +425,8 @@ function getRandomTokenFn() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["ads"],["data.adData"],["props.initialProps.pageProps.pageData.brandingAds"]];
-const hostnamesMap = new Map([["tver.jp",[0,1]],["search.yahoo.co.jp",2]]);
+const argsList = [["ads"],["result.ad_info"],["result.paths.[].ad_info"],["data.adData"],["props.initialProps.pageProps.pageData.brandingAds"]];
+const hostnamesMap = new Map([["sports.tv.rakuten.co.jp",[0,1,2]],["tver.jp",[0,3]],["search.yahoo.co.jp",4]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

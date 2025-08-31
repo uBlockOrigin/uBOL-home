@@ -751,5 +751,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||reborntrans.com/banner/"},"id":750,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["leoplayer7.com"],"requestDomains":["cdend.com","googles.video"],"resourceTypes":["media"]},"id":751,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||tonytonychopper.com/ads/"},"id":752,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||anime-yuzu.com/up/img/webp/"},"id":753,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||anime-yuzu.com/up/img/webp/"},"id":753,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["nung2-hdd.com"],"resourceTypes":["image"],"urlFilter":"/wp-content/uploads/*.gif"},"id":754,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/ufathai24-1.mp4"},"id":755,"priority":10}
 ]

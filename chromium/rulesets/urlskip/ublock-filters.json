@@ -1081,6 +1081,12 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?f\\.gdeslon\\.ru/cf/\\S*?(?:[^%.0-9a-z_-]|$)goto=http",
+  "steps": [
+   "?goto"
+  ]
+ },
+ {
   "re": "/vp/player/to/\\?u=http",
   "steps": [
    "?u"
@@ -1094,6 +1100,12 @@
  },
  {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?go\\.isclix\\.com/deep_link/\\S*?\\?url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?donanimhaber\\.com/externallinkredirect\\?\\S*?(?:[^%.0-9a-z_-]|$)url=http",
   "steps": [
    "?url"
   ]

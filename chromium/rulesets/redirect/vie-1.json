@@ -34,22 +34,6 @@
 {
  "action": {
   "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "www.motchill21.com"
-  ],
-  "urlFilter": "||www.motchill21.com/3s.m3u8"
- },
- "id": 3,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
    "extensionPath": "/web_accessible_resources/noop-1s.mp4"
   },
   "type": "redirect"
@@ -61,22 +45,6 @@
   "urlFilter": "||henho24h.net/*.mp4"
  },
  "id": 4,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "xem15.net"
-  ],
-  "urlFilter": "||xem15.net/*.mp4"
- },
- "id": 5,
  "priority": 11
 },
 {
@@ -96,22 +64,6 @@
   "urlFilter": "||on-web-cdn.gviet.vn/public/js/player/ads/ima3.js"
  },
  "id": 6,
- "priority": 11
-},
-{
- "action": {
-  "redirect": {
-   "extensionPath": "/web_accessible_resources/noop-0.1s.mp3"
-  },
-  "type": "redirect"
- },
- "condition": {
-  "initiatorDomains": [
-   "xem14.net"
-  ],
-  "urlFilter": "||xem14.net/*.mp4"
- },
- "id": 7,
  "priority": 11
 }
 ]
