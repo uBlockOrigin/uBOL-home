@@ -53,6 +53,16 @@ jobs:
           tools/make-mv3.sh edge ${{ env.TAGNAME }}
           echo "EDGE_PACKAGE=${{ env.TAGNAME }}.edge.mv3.zip" >> $GITHUB_ENV
           cd - > /dev/null
+      # Firefox
+      - name: Build Firefox uBOLite
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          UBOL_REPO_DIR=$(pwd)
+          cd $UBLOCK_REPO_DIR
+          tools/make-mv3.sh firefox ${{ env.TAGNAME }}
+          cd - > /dev/null
+          echo "FIREFOX_PACKAGE=${{ env.TAGNAME }}.firefox.mv3.xpi" >> $GITHUB_ENV
       # Safari
       - name: Build Safari uBOLite
         env:
@@ -87,4 +97,5 @@ jobs:
           files: |
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.EDGE_PACKAGE }}
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.FIREFOX_PACKAGE }}
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.SAFARI_PACKAGE }}
