@@ -1,6 +1,7 @@
 .PHONY: clean cleanassets \
-	safari safari-extension safari-app safari-release \
-	publish-chromium publish-edge
+	safari safari-extension safari-app \
+	publish-chromium publish-edge publish-firefox \
+	publish-safari-macos publish-safari-ios
 
 # Dev tools
 node_modules:
@@ -34,6 +35,9 @@ safari-app: safari-extension
 		-project "dist/safari/xcode/uBlock Origin Lite.xcodeproj" \
 		-scheme "uBlock Origin Lite (macOS)"
 
+# Publishable releases are downloaded from GitHub.
+# To create publishable release, fill in with release tag:
+
 publish-chromium:
 	node publish-extension/publish-chromium.js \
 		ghowner=uBlockOrigin \
@@ -51,7 +55,7 @@ publish-edge:
 		storeid=cimighlppcgcoapaliogpjjdehbnofhn \
 		productid=$(UBOL_EDGE_ID)
 
-publish-dev-firefox:
+publish-firefox:
 	node publish-extension/publish-firefox.js \
 		ghowner=uBlockOrigin \
 		ghrepo=uBOL-home \
@@ -61,8 +65,9 @@ publish-dev-firefox:
 		channel=unlisted \
 		updatepath=./dist/firefox.updates.json
 
-# Publishable releases are downloaded from GitHub.
-# To create publishable release, fill in with release tag:
-# 
-# node dist/safari/publish-extension.js ghtag=[release tag] ios
-# node dist/safari/publish-extension.js ghtag=[release tag] macos
+publish-safari-macos:
+	node dist/safari/publish-extension.js ghtag=$(version) macos
+
+publish-safari-ios:
+	node dist/safari/publish-extension.js ghtag=$(version) ios
+
