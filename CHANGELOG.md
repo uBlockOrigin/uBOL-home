@@ -4,12 +4,14 @@
 
 - [Ensure ui is visible even after failure](https://github.com/gorhill/uBlock/commit/d1a29d9899)
 - [Merge AdGuard mobile filters with uBO's own mobile filters](https://github.com/gorhill/uBlock/commit/bc05f31cc2)
+- Updated filter lists
 
 ----------
 
 ###  2025.825.1605 
 
 - [Fix regression in managing redirect rules](https://github.com/gorhill/uBlock/commit/69fa0c2e09)
+- Updated filter lists
 
 ----------
 
@@ -17,6 +19,7 @@
 
 - [Improve built-in parser to convert filters to DNR rules](https://github.com/gorhill/uBlock/commit/cb62e38f50)
 - [Support custom filters using CSS pseudo-elements](https://github.com/gorhill/uBlock/commit/bc4e829427)
+- Updated filter lists
 
 ----------
 
@@ -29,6 +32,7 @@
 - Safari-specific:
   - [Workaround for `urlFilter` with path part ending with `^`](https://github.com/gorhill/uBlock/commit/5957656a5b)
   - [Do not inject CSS in embedded contexts](https://github.com/gorhill/uBlock/commit/4d2cfd1487)
+- Updated filter lists
 
 ----------
 
@@ -45,5 +49,179 @@
 - [Fix browser permissions scanning at launch](https://github.com/gorhill/uBlock/commit/e645fe7468)
 - [Add spinner as visual feedback when rulesets are being registered](https://github.com/gorhill/uBlock/commit/b6829698cc)
 - [Prevent scrolling taking over moving dialog in picker](https://github.com/gorhill/uBlock/commit/2d2de3a53b)
+- Updated filter lists
 
 ----------
+
+### 2025.804.1547
+
+- [Add support for custom procedural cosmetic filters](https://github.com/gorhill/uBlock/commit/32bf5ebde3)
+- Updated filter lists
+
+----------
+
+### 2025.728.1406
+
+- Updated filter lists
+
+----------
+
+### 2025.725.1450
+
+- [Merge all `:style()` filters with procedural filters](https://github.com/gorhill/uBlock/commit/fed7f4a0b8)
+- [Remove hostname normalization regarding filtering mode](https://github.com/gorhill/uBlock/commit/d7686a815e)
+- [Fix potential exception in procedural operator `:matches-attr`](https://github.com/gorhill/uBlock/commit/e07e7bbd09)
+- Updated filter lists
+
+----------
+
+### 2025.718.1921
+
+- [Make the slider continuous rather than granular](https://github.com/gorhill/uBlock/commit/2c91bfc872)
+- [Fix compatibility layer code](https://github.com/gorhill/uBlock/commit/cc7e7894c7)
+- [Load procedural CSS code on demand](https://github.com/gorhill/uBlock/commit/e75e128a34)
+- [Normalize rulesets read from package](https://github.com/gorhill/uBlock/commit/6bfa7245f3)
+- [Adjust CSS for small display](https://github.com/gorhill/uBlock/commit/1a8238e03e)
+- Updated filter lists
+
+----------
+
+### 2025.711.1256
+
+- [Slightly rework popup panel layout](https://github.com/gorhill/uBlock/commit/f88ffcea04)
+- Updated translations
+- Updated filter lists
+
+----------
+
+### 2025.709.1622
+
+- [Fix spurious filter conversion when pasting in editor](https://github.com/gorhill/uBlock/commit/6b7f929ec5)
+- [Add support for custom CSS-based cosmetic filters](https://github.com/gorhill/uBlock/commit/0b0294af4f)
+    - This is a first release of the feature, and as such only plain CSS-based filters are supported
+- Updated filter lists
+
+----------
+
+### 2025.703.1440
+
+- [Fix calculation of priority value when converting redirect filters](https://github.com/gorhill/uBlock/commit/eec2045645)
+- [Fix regression in syntax highlighting of dark theme](https://github.com/gorhill/uBlock/commit/9c08e902bd)
+- [Add access to troubleshooting info in About pane](https://github.com/gorhill/uBlock/commit/9bcfc8ff1c)
+- [Fix newline assistant in mode editor](https://github.com/gorhill/uBlock/commit/27936f476e)
+- Updated filter lists
+
+----------
+
+### 2025.624.1503
+
+- [Add support to exclude lists from specific platforms](https://github.com/gorhill/uBlock/commit/e33bfc1f01)
+- [Add ability to convert pasted filters to DNR rules](https://github.com/gorhill/uBlock/commit/e8fb0e1cc9)
+- Updated filter lists
+
+----------
+
+### 2025.619.2143
+
+- [Expand "Develop" pane](https://github.com/gorhill/uBlock/commit/b50341089d)
+- Updated filter lists
+
+----------
+
+### 2025.612.1428
+
+- [Collect/apply highly generic cosmetic exceptions across lists](https://github.com/gorhill/uBlock/commit/76d8b97869)
+- [Properly refresh "Developer mode" checkbox on changes](https://github.com/gorhill/uBlock/commit/508138764d)
+- Updated filter lists
+
+----------
+
+### 2025.605.2042
+
+- Updated filter lists
+
+----------
+
+### 2025.603.859
+
+- Updated filter lists
+
+----------
+
+### 2025.601.2131
+
+- [Add support for custom DNR rules](https://github.com/gorhill/uBlock/commit/9339a75952)
+    - Documentation: [Dashboard/Develop](https://github.com/uBlockOrigin/uBOL-home/wiki/Dashboard:-Develop)
+- Updated filter lists
+
+----------
+
+### 2025.525.2314
+
+- [Remove CERT.PL's Warning List](https://github.com/gorhill/uBlock/commit/686eefd6b0)
+- [Add to troubleshooting info whether webext API calls failed](https://github.com/gorhill/uBlock/commit/2076d42239)
+- [Give admins ability to prevent usage of zapper](https://github.com/gorhill/uBlock/commit/ecc64ae1)
+- [Allow body element to vertically scroll](https://github.com/gorhill/uBlock/commit/4eae23065e)
+- [Add support to convert header= option to DNR rules](https://github.com/gorhill/uBlock/commit/408b538e75)
+- [Add browser info in troubleshooting data](https://github.com/gorhill/uBlock/commit/be8b6238d3)
+- Updated filter lists
+
+----------
+
+### 2025.518.1611
+
+- [Add "AdGuard -- Mobile Ads"](https://github.com/gorhill/uBlock/commit/ed10973717)
+- [Use CodeMirror editor for list of no-filtering websites](https://github.com/gorhill/uBlock/commit/fd5da3fcd2)
+- [Add ability to reset zapper selection on mobile devices](https://github.com/gorhill/uBlock/commit/d12e7817d2)
+- Fine-tuning of various CSS properties
+- Updated filter lists
+
+----------
+
+### 2025.512.1008
+
+- [Mind discarded regex- or path-based entries when determining genericity](https://github.com/gorhill/uBlock/commit/3292f128d2)
+- [Just force a reload when URL doesn't change](https://github.com/gorhill/uBlock/commit/3ff54b7f2a)
+- [New approach to toggle toolbar icon not requiring extra permissions](https://github.com/gorhill/uBlock/commit/cc2760f4d6)
+- Updated filter lists
+
+----------
+
+### 2025.5.5.1364
+
+- [Fix strict-block exceptions causing duplicate rule ids](https://github.com/gorhill/uBlock/commit/58f5c53fbbf3e8173a84bd49ff38846f739f9346)
+- Updated filter lists
+
+----------
+
+### 2025.5.4.1310
+
+- Updated filter lists
+
+----------
+
+### 2025.4.27.1394
+
+- [Add more managed policies](https://github.com/gorhill/uBlock/commit/a56e13156f)
+- [Reflect no-filtering mode on the toolbar icon](https://github.com/gorhill/uBlock/commit/203b2235aa)
+- [Separate EasyList, EasyPrivacy, PGL lists from uBlock filters](https://github.com/gorhill/uBlock/commit/0e5dec7fbb)
+- Updated filter lists
+
+----------
+
+### 2025.4.21.839
+
+- [Add admin setting `defaultFiltering`](https://github.com/gorhill/uBlock/commit/b8adf5b027)
+- [Mitigate issues when hitting regex-based rules limit](https://github.com/gorhill/uBlock/commit/ec19e352b1)
+- [Mind excluded `to=` hostnames in strict-block rules](https://github.com/gorhill/uBlock/commit/e20e6addf0)
+- Updated filter lists
+
+----------
+
+### 2025.4.13.1188
+
+
+- [Remove "permission-less" status at install time](https://github.com/gorhill/uBlock/commit/01e36db23a)
+- Updated filter lists
+
+
