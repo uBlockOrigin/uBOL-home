@@ -224,4 +224,260 @@
 - [Remove "permission-less" status at install time](https://github.com/gorhill/uBlock/commit/01e36db23a)
 - Updated filter lists
 
+----------
 
+### 2025.4.6.1238
+
+- Updated filter lists
+
+----------
+
+### 2025.4.1.700
+
+- Emergency release due to bad filter potentially causing breakage
+- Updated filter lists
+
+----------
+
+### 2025.3.30.1290
+
+- Updated filter lists
+
+----------
+
+### 2025.3.23.1241
+
+- [Bring back element zapper](https://github.com/gorhill/uBlock/commit/ab458b492a)
+- [Add support for explicit `generichide` filter option](https://github.com/gorhill/uBlock/commit/98b011f64c)
+- Updated filter lists
+
+----------
+
+### 2025.3.16.1281
+
+- [Avoid re-entrance when registering content scripts](https://github.com/gorhill/uBlock/commit/c3187d85e8)
+- [Improve generic cosmetic filtering](https://github.com/gorhill/uBlock/commit/a009623d97)
+- [Minor changes to account for Edge build](https://github.com/gorhill/uBlock/commit/94db43c4ad)
+- Updated filter lists
+
+----------
+
+### 2025.3.8.1350
+
+- [Add support for ancestor context syntax in scriptlets](https://github.com/gorhill/uBlock/commit/d006fd06e7)
+- [Add test suite list to available rulesets](https://github.com/gorhill/uBlock/commit/536f0fba25)
+- [Convert `domain=` to `to=` for `csp=`/`permissions=` options](https://github.com/gorhill/uBlock/commit/1dbd280ba3)
+- [Inject surveyor in frames](https://github.com/gorhill/uBlock/commit/b29ac98094)
+- Updated filter lists
+
+----------
+
+### 2025.3.2.1298
+
+- [Inject scriptlets in their intended target world](https://github.com/gorhill/uBlock/commit/8a6b12a319)
+- Updated filter lists
+
+----------
+
+### 2025.2.23.1382
+
+- [Remove obsolete Firefox workaround code](https://github.com/gorhill/uBlock/commit/02b78fb717)
+- [Workaround for permissions dialog preventing proper mode change](https://github.com/gorhill/uBlock/commit/1d2378e74e)
+- [Comply with Mozilla's "User Consent and Control"](https://github.com/gorhill/uBlock/commit/344539d793)
+- [Fix incorrect hostname matching in urlskip-related code](https://github.com/gorhill/uBlock/commit/17c66030fe)
+- Updated filter lists
+
+----------
+
+### 2025.2.19.775
+
+- Updated filter lists
+
+----------
+
+### 2025.1.14.952
+
+- Updated filter lists
+
+----------
+
+### 2025.1.7.268
+
+- Updated filter lists
+
+----------
+
+### 2024.12.30.1320
+
+- [Extend strict-blocking coverage; improve URL-skip behavior](https://github.com/gorhill/uBlock/commit/61922da24b)
+- Updated filter lists
+
+----------
+
+### 2024.12.23.23
+
+- [Enable OpenPhish ruleset by default](https://github.com/gorhill/uBlock/commit/89e44131a0)
+- [Fix undue blocking of network requests for unfiltered sites](https://github.com/gorhill/uBlock/commit/c311315daa)
+- Updated filter lists
+
+----------
+
+### 2024.12.15.1269
+
+- Updated filter lists
+
+----------
+
+### 2024.12.10.932
+
+- Updated filter lists
+
+----------
+
+### 2024.12.9.805
+
+- [Fix regression in `set-constant` scriptlet](https://github.com/gorhill/uBlock/commit/2ccb01973e)
+- Updated filter lists
+
+----------
+
+### 2024.12.8.1320
+
+- [Ensure no generic cosmetic filters end up in specific realm](https://github.com/gorhill/uBlock/commit/56ba93700c)
+- [Add `urlskip` support for strict-blocked page](https://github.com/gorhill/uBlock/commit/38390bab9c)
+- [Implement strict blocking](https://github.com/gorhill/uBlock/commit/aa05cb32c6)
+- Updated filter lists
+
+----------
+
+### 2024.12.2.22
+
+- Updated filter lists
+
+----------
+
+### 2024.11.25.1376
+
+- [Add ability for admins to disable features](https://github.com/gorhill/uBlock/commit/346b5ded7c)
+- Updated filter lists
+
+----------
+
+### 2024.11.20.858
+
+- [Fix flaw breaking scriptlets injection in optimal/basic mode](https://github.com/gorhill/uBlock/commit/6355a17187)
+- Updated filter lists
+
+----------
+
+### 2024.11.19.1126
+
+- [Fix force-reloading repeatedly when erroring at load time](https://github.com/gorhill/uBlock/commit/f3486275e9)
+- [Batch changes thru dashboard UI to reduce worker's workload](https://github.com/gorhill/uBlock/commit/114acacd2e)
+- [Fix `removeparam` potentially causing invalid DNR rules](https://github.com/gorhill/uBlock/commit/f9ce06977d)
+- [Re-work dashboard: move list of rulesets in its own pane](https://github.com/gorhill/uBlock/commit/ae4754415c)
+- [Add "RU AdList: Counters" to stock lists](https://github.com/gorhill/uBlock/commit/b4a5b411b5)
+- [Slightly mitigate DNR flaw re. `removeparam` filters](https://github.com/gorhill/uBlock/commit/947602d4fe)
+- Updated filter lists
+
+----------
+
+### 2024.11.15.813
+
+- Updated filter lists
+
+----------
+
+### 2024.11.13.865
+
+- [Remove obsolete Firefox-only workaround in scriptlet template](https://github.com/gorhill/uBlock/commit/2e745f9bfb)
+- Updated filter lists
+
+----------
+
+### 2024.11.11.1298
+
+- [Add support to add/remove rulesets through policies](https://github.com/gorhill/uBlock/commit/15dae359f7e9e75c49a86bad8a05ec3f7add3c35) (see [Managed settings / `rulesets`](https://github.com/uBlockOrigin/uBOL-home/wiki/Managed-settings#rulesets))
+- Updated filter lists
+
+----------
+
+### 2024.11.3.1351
+
+- Updated filter lists
+
+----------
+
+### 2024.10.28.929
+
+- Updated filter lists
+
+----------
+
+### 2024.10.20.869
+
+- [Fixed _Optimal_ or _Complete_ filtering potentially broken everywhere when enabling _AdGuard Chinese_ or _AdGuard Turskish_](https://github.com/gorhill/uBlock/commit/d4f15ca635)
+- Updated filter lists
+
+----------
+
+### 2024.10.14.189
+
+- Updated filter lists
+
+----------
+
+### 2024.10.6.1334
+
+- Updated filter lists
+
+----------
+
+### 2024.9.29.1273
+
+- [Add a _chat_ icon in popup panel to report filter issues](https://github.com/gorhill/uBlock/commit/560def639f)
+- Updated filter lists
+
+----------
+
+### 2024.9.22.986
+
+- Updated filter lists
+
+----------
+
+### 2024.9.12.1004
+
+- Updated filter lists
+
+----------
+
+### 2024.9.1.1266
+
+- Updated filter lists
+
+----------
+
+### 2024.8.21.996
+
+- Updated filter lists
+
+----------
+
+### 2024.8.19.905
+
+- Updated filter lists
+
+----------
+
+### 2024.8.12.902
+
+- Updated filter lists
+
+----------
+
+### 2024.8.5.925
+
+- Updated filter lists
+
+----------
