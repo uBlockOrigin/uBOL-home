@@ -25,7 +25,7 @@ jobs:
       # Version, time-based
       - name: Create unique time-based version
         run: |
-          TAGNAME=uBOLite_$(date -u "+%Y").$(date -u "+%-m*100+%-d" | bc).$(date -u "+%H*100+%M" | bc)
+          TAGNAME=$(date -u "+%Y").$(date -u "+%-m*100+%-d" | bc).$(date -u "+%H*100+%M" | bc)
           echo "TAGNAME=$TAGNAME" >> $GITHUB_ENV
           echo "Version: $TAGNAME"
       # Chromium
@@ -37,7 +37,7 @@ jobs:
           cd $UBLOCK_REPO_DIR
           tools/make-mv3.sh chromium ${{ env.TAGNAME }}
           cd - > /dev/null
-          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.chromium.mv3.zip \
+          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite_${{ env.TAGNAME }}.chromium.zip \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
       # Edge
       - name: Build Edge uBOLite beta
@@ -48,7 +48,7 @@ jobs:
           cd $UBLOCK_REPO_DIR
           tools/make-mv3.sh edge ${{ env.TAGNAME }}
           cd - > /dev/null
-          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.edge.mv3.zip \
+          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite_${{ env.TAGNAME }}.edge.zip \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.edge.zip
       # Firefox
       - name: Build Firefox uBOLite beta
@@ -59,7 +59,7 @@ jobs:
           cd $UBLOCK_REPO_DIR
           tools/make-mv3.sh firefox ${{ env.TAGNAME }}
           cd - > /dev/null
-          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.firefox.mv3.xpi \
+          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite_${{ env.TAGNAME }}.firefox.xpi \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.firefox.xpi
       # Safari
       - name: Build Safari uBOLite beta
@@ -70,7 +70,7 @@ jobs:
           cd $UBLOCK_REPO_DIR
           tools/make-mv3.sh safari ${{ env.TAGNAME }}
           cd - > /dev/null
-          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.TAGNAME }}.safari.mv3.zip \
+          mv ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite_${{ env.TAGNAME }}.safari.zip \
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.safari.zip
       - name: Create GitHub beta release
         id: create_beta_release
@@ -93,8 +93,7 @@ jobs:
             
             # Installation
             
-            - Firefox: Click [${{ env.TAGNAME }}-beta](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}-beta/uBOLite.beta.firefox.signed.xpi)
-            - Safari: Visit <https://testflight.apple.com/join/JjTcThrV>
+            - Firefox: Click [uBOLite ${{ env.TAGNAME }}-beta](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}-beta/uBOLite.beta.firefox.signed.xpi)
             
           files: |
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
