@@ -237,5 +237,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kollegium-neriszentfulop.chemin-neuf.hu"],"urlFilter":"||kollegium-neriszentfulop.chemin-neuf.hu/wp-content/plugins/complianz-gdpr/assets/css/cookieblocker.min.css"},"id":236,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["erettsegi.com"],"requestDomains":["cmp.setupcmp.com","gvl-dev.setupcmp.com"]},"id":237,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["eduline.hu"],"urlFilter":"||abo-widget.xyz^"},"id":238,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["mavcsoport.hu"],"resourceTypes":["script"],"urlFilter":"/yett.min.js"},"id":239,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["mavcsoport.hu"],"resourceTypes":["script"],"urlFilter":"/yett.min.js"},"id":239,"priority":10},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.css"},"type":"redirect"},"condition":{"initiatorDomains":["online-filmek.ac","online-filmek.me"],"urlFilter":"||galaxypush.com/css/styles.min.css^"},"id":240,"priority":41},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["myonlineradio.hu"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js^"},"id":241,"priority":11}
 ]

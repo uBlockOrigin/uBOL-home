@@ -59,5 +59,48 @@
  },
  "id": 4,
  "priority": 10
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/32x32.png"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "resourceTypes": [
+   "image"
+  ],
+  "urlFilter": "/anf1."
+ },
+ "id": 5,
+ "priority": 11
+},
+{
+ "action": {
+  "responseHeaders": [
+   {
+    "header": "content-security-policy",
+    "operation": "append",
+    "value": "script-src 'none'"
+   }
+  ],
+  "type": "modifyHeaders"
+ },
+ "condition": {
+  "requestDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "resourceTypes": [
+   "sub_frame"
+  ],
+  "urlFilter": "/anf2.html"
+ },
+ "id": 6
 }
 ]

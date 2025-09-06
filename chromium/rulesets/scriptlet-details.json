@@ -33,9 +33,11 @@
     "json-prune-xhr-response",
     {
      "hostnames": [
+      "cnn.com",
       "espn.com",
       "twitter.com",
       "web.facebook.com",
+      "www.cc.com",
       "www.facebook.com",
       "www.youtube.com",
       "x.com"
@@ -350,6 +352,8 @@
     "trusted-set-cookie",
     {
      "hostnames": [
+      "4game.com",
+      "4game.ru",
       "abczdrowie.pl",
       "autocentrum.pl",
       "autokult.pl",
@@ -377,6 +381,7 @@
       "kafeteria.pl",
       "komorkomania.pl",
       "labgame.io",
+      "microsoft.com",
       "mirror.co.uk",
       "money.pl",
       "naszemiasto.pl",
@@ -481,6 +486,15 @@
       "*"
      ],
      "world": "ISOLATED"
+    }
+   ],
+   [
+    "json-edit-xhr-response",
+    {
+     "hostnames": [
+      "map.naver.com"
+     ],
+     "world": "MAIN"
     }
    ],
    [
@@ -2179,6 +2193,15 @@
     }
    ],
    [
+    "prevent-requestAnimationFrame",
+    {
+     "hostnames": [
+      "mhmscreenprinting.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "remove-node-text",
     {
      "hostnames": [
@@ -2474,7 +2497,7 @@
     }
    ],
    [
-    "prevent-setInterval",
+    "prevent-fetch",
     {
      "hostnames": [
       "*"
@@ -2483,10 +2506,16 @@
     }
    ],
    [
-    "prevent-fetch",
+    "prevent-xhr",
     {
      "hostnames": [
-      "*"
+      "granfondo-cycling.com",
+      "maxedtech.com",
+      "neilpatel.com",
+      "nsmb.com",
+      "nusantararom.org",
+      "solarmagazine.nl",
+      "unidivers.fr"
      ],
      "world": "MAIN"
     }
@@ -2555,15 +2584,10 @@
     }
    ],
    [
-    "prevent-xhr",
+    "prevent-setInterval",
     {
      "hostnames": [
-      "maxedtech.com",
-      "neilpatel.com",
-      "nsmb.com",
-      "nusantararom.org",
-      "solarmagazine.nl",
-      "unidivers.fr"
+      "*"
      ],
      "world": "MAIN"
     }
@@ -3101,6 +3125,20 @@
   ]
  ],
  [
+  "ublock-experimental",
+  [
+   [
+    "trusted-replace-node-text",
+    {
+     "hostnames": [
+      "www.youtube.com"
+     ],
+     "world": "ISOLATED"
+    }
+   ]
+  ]
+ ],
+ [
   "ubol-tests",
   [
    [
@@ -3220,6 +3258,7 @@
       "axutongxue.onrender.com",
       "axutongxue.space",
       "axutongxue.vip",
+      "cidetxt.cc",
       "cocomanga.com",
       "colamanga.com",
       "ekamus.info",
@@ -4102,7 +4141,8 @@
     "set-local-storage-item",
     {
      "hostnames": [
-      "onlinepenztarca.hu"
+      "onlinepenztarca.hu",
+      "skanzen.hu"
      ],
      "world": "ISOLATED"
     }
@@ -5199,7 +5239,6 @@
       "timecoffee.co.kr",
       "tistory.com",
       "tvchosun.com",
-      "uwayapply.com",
       "zum.com"
      ],
      "world": "MAIN"
@@ -5269,6 +5308,7 @@
     {
      "hostnames": [
       "10000recipe.com",
+      "chzzkban.xyz",
       "digitstar77.com",
       "enjoyplan.tistory.com",
       "filetender.com",
@@ -5287,6 +5327,7 @@
       "lover941.net",
       "m.humoruniv.com",
       "moneytoring.co.kr",
+      "mylocation.co.kr",
       "postincome.co.kr",
       "stockinfo7.com",
       "sysnet.pe.kr",
@@ -5320,6 +5361,15 @@
       "search.11st.co.kr",
       "search.shopping.naver.com",
       "shoppinghow.kakao.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "json-prune-xhr-response",
+    {
+     "hostnames": [
+      "map.naver.com"
      ],
      "world": "MAIN"
     }
@@ -6363,7 +6413,6 @@
       "56.ru",
       "59.ru",
       "60.ru",
-      "62.ru",
       "63.ru",
       "68.ru",
       "71.ru",
@@ -6407,6 +6456,7 @@
       "widgets.kinopoisk.ru",
       "www.fontanka.ru",
       "www.kinopoisk.ru",
+      "ya62.ru",
       "yastatic.net"
      ],
      "world": "MAIN"
@@ -6527,8 +6577,10 @@
     "set-local-storage-item",
     {
      "hostnames": [
+      "dtf.ru",
       "iz.ru",
-      "playground.ru"
+      "playground.ru",
+      "vc.ru"
      ],
      "world": "ISOLATED"
     }
@@ -6715,15 +6767,6 @@
   "spa-1",
   [
    [
-    "addEventListener-defuser",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "prevent-fetch",
     {
      "hostnames": [
@@ -6733,7 +6776,17 @@
     }
    ],
    [
-    "noeval-if",
+    "prevent-requestAnimationFrame",
+    {
+     "hostnames": [
+      "manhastro.net",
+      "seriesemcena.com.br"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "abort-current-script",
     {
      "hostnames": [
       "*"
@@ -6742,7 +6795,16 @@
     }
    ],
    [
-    "abort-current-script",
+    "addEventListener-defuser",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "noeval-if",
     {
      "hostnames": [
       "*"
@@ -6900,15 +6962,6 @@
       "daemon-hentai.com"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "prevent-requestAnimationFrame",
-    {
-     "hostnames": [
-      "seriesemcena.com.br"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -7170,7 +7223,6 @@
     {
      "hostnames": [
       "etunawebben.se",
-      "flashback.org",
       "tidningencurie.se",
       "www.aftonbladet.se"
      ],
@@ -7685,7 +7737,27 @@
       "haberlisin.com",
       "halk54.com",
       "kgrt.net",
-      "klasikfilmler.net"
+      "klasikfilmler.net",
+      "mactanmaca322.shop",
+      "mactanmaca323.shop",
+      "mactanmaca324.shop",
+      "mactanmaca325.shop",
+      "mactanmaca326.shop",
+      "mactanmaca327.shop",
+      "mactanmaca328.shop",
+      "mactanmaca329.shop",
+      "mactanmaca330.shop",
+      "mactanmaca331.shop",
+      "mactanmaca332.shop",
+      "mactanmaca333.shop",
+      "mactanmaca334.shop",
+      "mactanmaca335.shop",
+      "mactanmaca336.shop",
+      "mactanmaca337.shop",
+      "mactanmaca338.shop",
+      "mactanmaca339.shop",
+      "mactanmaca340.shop",
+      "mactanmaca341.shop"
      ],
      "world": "ISOLATED"
     }
@@ -8097,6 +8169,7 @@
     {
      "hostnames": [
       "10gb.vn",
+      "9sexnhathd.com",
       "abysscdn.com",
       "afamily.vn",
       "animevietsub.cam",
@@ -8142,11 +8215,10 @@
       "lxmanga.my",
       "m.blogtruyenmoi.com",
       "misskon.com",
-      "motchill21.com",
+      "motchill22.com",
       "motchilltvphim.com",
       "nettruyenar.com",
       "nettruyenvia.com",
-      "nmshsa.com",
       "p.thoctv.com",
       "phim18hdxx.com",
       "phimmoi.sale",
@@ -8183,7 +8255,7 @@
       "vlxx.bz",
       "vn2.xvideos69.xxx",
       "vn5.sexviet88.xyz",
-      "vn86phimsexhay.com",
+      "vn80phimsexhay.com",
       "vungoctuan.vn",
       "www.toptruyentv9.com",
       "www.truyen35zz.com",
@@ -8209,13 +8281,12 @@
       "hayhaytv.site",
       "hoctot.hocmai.vn",
       "javnong.cc",
-      "kajoog.org",
       "linkneverdie.net",
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchill21.com",
-      "motchillk.id",
+      "motchill22.com",
+      "motchillk.biz",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
@@ -8225,7 +8296,9 @@
       "player.phimapi.com",
       "plcdn.xyz",
       "quangcaoyenbai.com",
+      "sachmoi.net",
       "samtruyentranh.com",
+      "samuelwalker.net",
       "sexhihiz.mx",
       "teamlanhlung8.shop",
       "thefaplive.com",

@@ -473,5 +473,9 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["goplay.be"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3_dai.js"},"id":472,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||flexwebhosting.nl/banners/"},"id":473,"priority":10},
 {"action":{"type":"allow"},"condition":{"domainType":"thirdParty","urlFilter":"||kpn.com^"},"id":474,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["puna.bbvms.com","puna.nl"],"urlFilter":"||2mdn.net/instream/html5/ima3.js"},"id":475,"priority":30}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["puna.bbvms.com","puna.nl"],"urlFilter":"||2mdn.net/instream/html5/ima3.js"},"id":475,"priority":30},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/googletagservices_gpt.js"},"type":"redirect"},"condition":{"initiatorDomains":["goplay.be","nieuwsblad.be"],"resourceTypes":["script"],"urlFilter":"||securepubads.g.doubleclick.net/tag/js/gpt.js"},"id":476,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["goplay.be"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/omsdk/releases/live/omweb-v1.js"},"id":477,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["goplay.be"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":478,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["nos.nl"],"resourceTypes":["media"],"urlFilter":"||cdn-ster-nl.akamaized.net/sterad_p_*.mp4^"},"id":479,"priority":11}
 ]

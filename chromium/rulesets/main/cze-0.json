@@ -130,5 +130,10 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||api.youradio.cz/v2/ads/preroll"},"id":129,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["firmy.cz","garaz.cz","novinky.cz","sbazar.cz","seznam.cz","seznamzpravy.cz","sport.cz","stream.cz","super.cz"],"resourceTypes":["xmlhttprequest"],"urlFilter":".png"},"id":130,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["sport.aktuality.sk"],"resourceTypes":["sub_frame"],"urlFilter":"||admedia.joj.sk/outstream/embed?iframe"},"id":131,"priority":30},
-{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||eduself.sk/public/js/prebid-ads.js"},"id":132,"priority":40}
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||eduself.sk/public/js/prebid-ads.js"},"id":132,"priority":40},
+{"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"child-src *"}],"type":"modifyHeaders"},"condition":{"requestDomains":["echo24.cz","idos.idnes.cz"],"resourceTypes":["main_frame","sub_frame"]},"id":133},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["nova.cz"],"resourceTypes":["script"],"urlFilter":"||trackad.cz/adtrack.php"},"id":134,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["youradio.cz"],"resourceTypes":["media"],"urlFilter":"||media.actve.net/sads/"},"id":135,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["youradio.cz"],"resourceTypes":["media"],"urlFilter":"||redirector.gvt1.com/videoplayback/id/"},"id":136,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||r.i0.cz^"},"id":137,"priority":11}
 ]

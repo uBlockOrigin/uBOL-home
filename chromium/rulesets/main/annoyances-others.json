@@ -413,5 +413,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/v2/for-page?body=%"},"id":412,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||assets.poool.fr/engage.min.js"},"id":413,"priority":10},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||powerequipment.honda.com/assets/js/components/hs.go-to.js"},"id":414,"priority":30},
-{"action":{"type":"block"},"condition":{"urlFilter":"||gstatic.com/shopping/merchant/merchantwidget.js"},"id":415,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||gstatic.com/shopping/merchant/merchantwidget.js"},"id":415,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/plugins/boost/public/js/boost-public-ajax.js"},"id":416,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/plugins/boost/public/js/boost-public.js"},"id":417,"priority":10}
 ]

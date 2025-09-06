@@ -1,0 +1,24 @@
+[
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/empty"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "yandex.by",
+   "yandex.kz",
+   "yandex.ru",
+   "yandex.uz"
+  ],
+  "regexFilter": "^https?:\\/\\/yastatic\\.net\\/www\\/_\\/[^\\s]{150,}",
+  "resourceTypes": [
+   "image"
+  ]
+ },
+ "id": 1,
+ "priority": 11
+}
+]

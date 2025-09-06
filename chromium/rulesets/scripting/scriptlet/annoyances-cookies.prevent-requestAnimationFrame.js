@@ -20,93 +20,36 @@
 
 */
 
-// ruleset: rus-0
+// ruleset: annoyances-cookies
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_addEventListenerDefuser() {
+(function uBOL_preventRequestAnimationFrame() {
 
 /******************************************************************************/
 
-function addEventListenerDefuser(
-    type = '',
-    pattern = ''
+function preventRequestAnimationFrame(
+    needleRaw = ''
 ) {
     const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
-    const reType = safe.patternToRegex(type, undefined, true);
-    const rePattern = safe.patternToRegex(pattern);
-    const debug = shouldDebug(extraArgs);
-    const targetSelector = extraArgs.elements || undefined;
-    const elementMatches = elem => {
-        if ( targetSelector === 'window' ) { return elem === window; }
-        if ( targetSelector === 'document' ) { return elem === document; }
-        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
-        const elems = Array.from(document.querySelectorAll(targetSelector));
-        return elems.includes(elem);
-    };
-    const elementDetails = elem => {
-        if ( elem instanceof Window ) { return 'window'; }
-        if ( elem instanceof Document ) { return 'document'; }
-        if ( elem instanceof Element === false ) { return '?'; }
-        const parts = [];
-        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
-        const id = String(elem.id);
-        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
-        for ( let i = 0; i < elem.classList.length; i++ ) {
-            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
-        }
-        for ( let i = 0; i < elem.attributes.length; i++ ) {
-            const attr = elem.attributes.item(i);
-            if ( attr.name === 'id' ) { continue; }
-            if ( attr.name === 'class' ) { continue; }
-            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
-        }
-        return parts.join('');
-    };
-    const shouldPrevent = (thisArg, type, handler) => {
-        const matchesType = safe.RegExp_test.call(reType, type);
-        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
-        const matchesEither = matchesType || matchesHandler;
-        const matchesBoth = matchesType && matchesHandler;
-        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
-            debugger; // eslint-disable-line no-debugger
-        }
-        if ( matchesBoth && targetSelector !== undefined ) {
-            if ( elementMatches(thisArg) === false ) { return false; }
-        }
-        return matchesBoth;
-    };
-    const proxyFn = function(context) {
-        const { callArgs, thisArg } = context;
-        let t, h;
-        try {
-            t = String(callArgs[0]);
-            if ( typeof callArgs[1] === 'function' ) {
-                h = String(safe.Function_toString(callArgs[1]));
-            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
-                if ( typeof callArgs[1].handleEvent === 'function' ) {
-                    h = String(safe.Function_toString(callArgs[1].handleEvent));
-                }
-            } else {
-                h = String(callArgs[1]);
-            }
-        } catch {
-        }
-        if ( type === '' && pattern === '' ) {
-            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        } else if ( shouldPrevent(thisArg, t, h) ) {
-            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
+    const logPrefix = safe.makeLogPrefix('prevent-requestAnimationFrame', needleRaw);
+    const needleNot = needleRaw.charAt(0) === '!';
+    const reNeedle = safe.patternToRegex(needleNot ? needleRaw.slice(1) : needleRaw);
+    proxyApplyFn('requestAnimationFrame', function(context) {
+        const { callArgs } = context;
+        const a = callArgs[0] instanceof Function
+            ? safe.String(safe.Function_toString(callArgs[0]))
+            : safe.String(callArgs[0]);
+        if ( needleRaw === '' ) {
+            safe.uboLog(logPrefix, `Called:\n${a}`);
+        } else if ( reNeedle.test(a) !== needleNot ) {
+            callArgs[0] = function(){};
+            safe.uboLog(logPrefix, `Prevented:\n${a}`);
         }
         return context.reflect();
-    };
-    runAt(( ) => {
-        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
-        proxyApplyFn('document.addEventListener', proxyFn);
-    }, extraArgs.runAt);
+    });
 }
 
 function proxyApplyFn(
@@ -188,35 +131,6 @@ function proxyApplyFn(
         };
     }
     context[prop] = new Proxy(fn, proxyDetails);
-}
-
-function runAt(fn, when) {
-    const intFromReadyState = state => {
-        const targets = {
-            'loading': 1, 'asap': 1,
-            'interactive': 2, 'end': 2, '2': 2,
-            'complete': 3, 'idle': 3, '3': 3,
-        };
-        const tokens = Array.isArray(state) ? state : [ state ];
-        for ( const token of tokens ) {
-            const prop = `${token}`;
-            if ( Object.hasOwn(targets, prop) === false ) { continue; }
-            return targets[prop];
-        }
-        return 0;
-    };
-    const runAt = intFromReadyState(when);
-    if ( intFromReadyState(document.readyState) >= runAt ) {
-        fn(); return;
-    }
-    const onStateChange = ( ) => {
-        if ( intFromReadyState(document.readyState) < runAt ) { return; }
-        fn();
-        safe.removeEventListener.apply(document, args);
-    };
-    const safe = safeSelf();
-    const args = [ 'readystatechange', onStateChange, { capture: true } ];
-    safe.addEventListener.apply(document, args);
 }
 
 function safeSelf() {
@@ -409,18 +323,13 @@ function safeSelf() {
     return safe;
 }
 
-function shouldDebug(details) {
-    if ( details instanceof Object === false ) { return false; }
-    return scriptletGlobals.canDebug && details.debug;
-}
-
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["/^(?:contextmenu|keydown)$/"],["/beforeunload|pagehide/","0x"],["/click|load/","popMagic"],["/click|mousedown/","popunder"],["/mouse/","cursorVisible"],["DOMContentLoaded","fullscreen-ad"],["DOMContentLoaded",".j-mini-player__video"],["DOMContentLoaded","/EventTracker|utm_campaign/"],["DOMContentLoaded","0x"],["DOMContentLoaded","StrategyHandler"],["DOMContentLoaded","_Modal"],["DOMContentLoaded","encodedUrl"],["DOMContentLoaded","exo_tracker"],["DOMContentLoaded","feedback"],["click","","elements","a[href*=\"?from=\"]"],["click","","elements","a[href*=\"utm_campaign\"]"],["click","","elements","[class^=\"plotsLine_\"] > div"],["click","[native code]"],["click","current","elements","[data-testid=\"embed-wrapper\"]"],["click","matches"],["click","pop"],["copy","extra"],["copy","getSelection"],["copy","pagelink"],["error","","elements","[data-status=\"loading\"]"],["getexoloader"],["load","AdBlock"],["load","detect-modal"],["load","mamydirect"],["loadstart","isImmediatePropagationStopped"],["mousedown","pop.doEvent"],["scroll","getBoundingClientRect"],["scroll","players"],["scroll","window.history.pushState"],["visibilitychange","document.hidden"],["/contextmenu|copy|keydown|selectstart/"],["DOMContentLoaded","click_time"],["/click|destroy|mousedown/","","elements",".html-fishing"],["visibilitychange","captureContext"]];
-const hostnamesMap = new Map([["7days.ru",[0,38]],["drive2.ru",1],["shedevrum.ai",1],["fastpic.org",[2,25]],["biqle.org",3],["biqle.ru",3],["fm-app.ru",4],["tvapp.su",4],["yootv.ru",4],["cq.ru",5],["rambler.ru",[6,21]],["sibnet.ru",7],["sports.ru",8],["buhplatforma.com.ua",9],["dzplatforma.com.ua",9],["medplatforma.com.ua",9],["oblikbudget.com.ua",9],["oplatforma.com.ua",9],["pro-op.com.ua",9],["prokadry.com.ua",9],["doramaland.plus",10],["1progs.me",11],["xv-ru.com",12],["litnet.com",13],["vedomosti.ru",14],["regnum.news",15],["regnum.ru",15],["tproger.ru",15],["116.ru",16],["14.ru",16],["161.ru",16],["164.ru",16],["173.ru",16],["178.ru",16],["26.ru",16],["29.ru",16],["35.ru",16],["43.ru",16],["45.ru",16],["48.ru",16],["51.ru",16],["53.ru",16],["56.ru",16],["59.ru",16],["60.ru",16],["63.ru",16],["68.ru",16],["71.ru",16],["72.ru",16],["74.ru",16],["76.ru",16],["86.ru",16],["89.ru",16],["93.ru",16],["chita.ru",16],["e1.ru",16],["ircity.ru",16],["izh1.ru",16],["mgorsk.ru",16],["msk1.ru",16],["ngs.ru",16],["ngs22.ru",16],["ngs24.ru",16],["ngs42.ru",16],["ngs55.ru",16],["ngs70.ru",16],["nn.ru",16],["sochi1.ru",16],["sterlitamak1.ru",16],["tolyatty.ru",16],["ufa1.ru",16],["v1.ru",16],["vladivostok1.ru",16],["voronezh1.ru",16],["www.fontanka.ru",[16,38]],["ya62.ru",16],["softonic.ru",17],["rutube.ru",[18,34]],["smotrim.ru",19],["lrepacks.net",20],["kp.kg",[22,38]],["kp.kz",[22,38]],["kp.md",[22,38]],["kp.ru",[22,38]],["rbc.ru",22],["sportrbc.ru",22],["carservic.ru",23],["iptv.org.ua",23],["tva.org.ua",23],["ufchgu.ru",23],["trychatgpt.ru",24],["romakatya.ru",26],["blackwot.ru",27],["overclockers.ru",28],["bonus-tv.ru",29],["kinoblin.ru",30],["pornoakt.info",30],["serialai.ru",30],["m.lenta.ru",31],["www.vesti.ru",32],["lenta.ru",33],["autonews.co.ua",35],["in-poland.com",35],["liveball.*",35],["ukrainianwall.com",35],["fap-guru.*",36],["seks-studentki.*",36],["sex-studentki.*",36],["e.mail.ru",37],["octavius.mail.ru",37],["cdn.viqeo.tv",38],["kinonews.ru",38],["mk.ru",38],["ohotniki.ru",38],["portalvirtualreality.ru",38],["radiokp.ru",38],["sportkp.ru",38],["the-day.ru",38],["woman.ru",38]]);
-const exceptionsMap = new Map([["new.fastpic.org",[2,25]],["id.rambler.ru",[6,21]],["vp.rambler.ru",[6,21]],["player.smotrim.ru",[19]],["mail.rambler.ru",[21]]]);
-const hasEntities = true;
+const argsList = [["catch"]];
+const hostnamesMap = new Map([["mhmscreenprinting.com",0]]);
+const exceptionsMap = new Map([]);
+const hasEntities = false;
 const hasAncestors = false;
 
 const collectArgIndices = (hn, map, out) => {
@@ -486,7 +395,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { addEventListenerDefuser(...argsList[i]); }
+    try { preventRequestAnimationFrame(...argsList[i]); }
     catch { }
 }
 

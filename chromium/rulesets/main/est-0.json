@@ -1,4 +1,5 @@
 [
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["dsrc"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||delfi.ee^"},"id":1,"priority":2},
 {"action":{"type":"block"},"condition":{"urlFilter":"/js/ads_"},"id":2,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"://ads."},"id":3,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"://ads2."},"id":4,"priority":10},
