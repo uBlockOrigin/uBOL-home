@@ -13,6 +13,7 @@
 
 When a new release is created, there is a delay before it becomes available in the various platform stores due to their respective review process. This is normal, please do not open issues about these delays.
 
-- Chromium-based browsers: Install [from the Chrome Web Store](https://chrome.google.com/webstore/detail/ddkjiahejlhfcafbddmgiahcphecmpfh)
-- Microsoft Edge: Install [from the Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn)
+- Chromium-based browsers: Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/ddkjiahejlhfcafbddmgiahcphecmpfh)
+- Firefox: Click [uBOLite_%tag%.firefox.signed.xpi](https://github.com/uBlockOrigin/uBOL-home/releases/download/%tag%/uBOLite_%tag%.firefox.signed.xpi)
+- Microsoft Edge: Install from [Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn)
 - Safari: Install from [App Store](https://apps.apple.com/us/app/ublock-origin-lite/id6745342698)
