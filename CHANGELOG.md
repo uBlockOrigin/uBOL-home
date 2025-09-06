@@ -1,5 +1,11 @@
 ----------
 
+### 2025.906.1308
+
+- [Move redirect/removeParams/modifyHeaders rules to static rulesets](https://github.com/gorhill/uBlock/commit/4fbcabbc66)
+
+----------
+
 ###  2025.831.1814 
 
 - [Ensure ui is visible even after failure](https://github.com/gorhill/uBlock/commit/d1a29d9899)
