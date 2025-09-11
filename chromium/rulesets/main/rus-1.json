@@ -714,5 +714,6 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["fbclid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"fbclid="},"id":713,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["source"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||disk.yandex."},"id":714,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["r"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||rutube.ru/video/"},"id":715,"priority":2},
-{"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"script-src 'unsafe-inline'"}],"type":"modifyHeaders"},"condition":{"resourceTypes":["main_frame","sub_frame"],"urlFilter":"||browserleaks.com/proxy"},"id":716}
+{"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"script-src 'unsafe-inline'"}],"type":"modifyHeaders"},"condition":{"resourceTypes":["main_frame","sub_frame"],"urlFilter":"||browserleaks.com/proxy"},"id":716},
+{"action":{"type":"block"},"condition":{"urlFilter":"||analytics.fkltt.com/script.js"},"id":717,"priority":10}
 ]

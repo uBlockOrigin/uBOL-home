@@ -26,45 +26,67 @@
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_abortOnPropertyWrite() {
+(function uBOL_setCookie() {
 
 /******************************************************************************/
 
-function abortOnPropertyWrite(
-    prop = ''
+function setCookie(
+    name = '',
+    value = '',
+    path = ''
 ) {
-    if ( typeof prop !== 'string' ) { return; }
-    if ( prop === '' ) { return; }
+    if ( name === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('abort-on-property-write', prop);
-    const exceptionToken = getExceptionTokenFn();
-    let owner = window;
-    for (;;) {
-        const pos = prop.indexOf('.');
-        if ( pos === -1 ) { break; }
-        owner = owner[prop.slice(0, pos)];
-        if ( owner instanceof Object === false ) { return; }
-        prop = prop.slice(pos + 1);
+    const logPrefix = safe.makeLogPrefix('set-cookie', name, value, path);
+    const normalized = value.toLowerCase();
+    const match = /^("?)(.+)\1$/.exec(normalized);
+    const unquoted = match && match[2] || normalized;
+    const validValues = getSafeCookieValuesFn();
+    if ( validValues.includes(unquoted) === false ) {
+        if ( /^-?\d+$/.test(unquoted) === false ) { return; }
+        const n = parseInt(value, 10) || 0;
+        if ( n < -32767 || n > 32767 ) { return; }
     }
-    delete owner[prop];
-    Object.defineProperty(owner, prop, {
-        set: function() {
-            safe.uboLog(logPrefix, 'Aborted');
-            throw new ReferenceError(exceptionToken);
-        }
-    });
+
+    const done = setCookieFn(
+        false,
+        name,
+        value,
+        '',
+        path,
+        safe.getExtraArgs(Array.from(arguments), 3)
+    );
+
+    if ( done ) {
+        safe.uboLog(logPrefix, 'Done');
+    }
 }
 
-function getExceptionTokenFn() {
-    const token = getRandomTokenFn();
-    const oe = self.onerror;
-    self.onerror = function(msg, ...args) {
-        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
-        if ( oe instanceof Function ) {
-            return oe.call(this, msg, ...args);
-        }
-    }.bind();
-    return token;
+function getSafeCookieValuesFn() {
+    return [
+        'accept', 'reject',
+        'accepted', 'rejected', 'notaccepted',
+        'allow', 'disallow', 'deny',
+        'allowed', 'denied',
+        'approved', 'disapproved',
+        'checked', 'unchecked',
+        'dismiss', 'dismissed',
+        'enable', 'disable',
+        'enabled', 'disabled',
+        'essential', 'nonessential',
+        'forbidden', 'forever',
+        'hide', 'hidden',
+        'necessary', 'required',
+        'ok',
+        'on', 'off',
+        'true', 't', 'false', 'f',
+        'yes', 'y', 'no', 'n',
+        'all', 'none', 'functional',
+        'granted', 'done',
+        'decline', 'declined',
+        'closed', 'next', 'mandatory',
+        'disagree', 'agree',
+    ];
 }
 
 function safeSelf() {
@@ -257,17 +279,90 @@ function safeSelf() {
     return safe;
 }
 
-function getRandomTokenFn() {
+function setCookieFn(
+    trusted = false,
+    name = '',
+    value = '',
+    expires = '',
+    path = '',
+    options = {},
+) {
+    // https://datatracker.ietf.org/doc/html/rfc2616#section-2.2
+    // https://github.com/uBlockOrigin/uBlock-issues/issues/2777
+    if ( trusted === false && /[^!#$%&'*+\-.0-9A-Z[\]^_`a-z|~]/.test(name) ) {
+        name = encodeURIComponent(name);
+    }
+    // https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.1
+    // The characters [",] are given a pass from the RFC requirements because
+    // apparently browsers do not follow the RFC to the letter.
+    if ( /[^ -:<-[\]-~]/.test(value) ) {
+        value = encodeURIComponent(value);
+    }
+
+    const cookieBefore = getCookieFn(name);
+    if ( cookieBefore !== undefined && options.dontOverwrite ) { return; }
+    if ( cookieBefore === value && options.reload ) { return; }
+
+    const cookieParts = [ name, '=', value ];
+    if ( expires !== '' ) {
+        cookieParts.push('; expires=', expires);
+    }
+
+    if ( path === '' ) { path = '/'; }
+    else if ( path === 'none' ) { path = ''; }
+    if ( path !== '' && path !== '/' ) { return; }
+    if ( path === '/' ) {
+        cookieParts.push('; path=/');
+    }
+
+    if ( trusted ) {
+        if ( options.domain ) {
+            let domain = options.domain;
+            if ( /^\/.+\//.test(domain) ) {
+                const baseURL = new URL(document.baseURI);
+                const reDomain = new RegExp(domain.slice(1, -1));
+                const match = reDomain.exec(baseURL.hostname);
+                domain = match ? match[0] : undefined;
+            }
+            if ( domain ) {
+                cookieParts.push(`; domain=${domain}`);
+            }
+        }
+        cookieParts.push('; Secure');
+    } else if ( /^__(Host|Secure)-/.test(name) ) {
+        cookieParts.push('; Secure');
+    }
+
+    try {
+        document.cookie = cookieParts.join('');
+    } catch {
+    }
+
+    const done = getCookieFn(name) === value;
+    if ( done && options.reload ) {
+        window.location.reload();
+    }
+
+    return done;
+}
+
+function getCookieFn(
+    name = ''
+) {
     const safe = safeSelf();
-    return safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+    for ( const s of safe.String_split.call(document.cookie, /\s*;\s*/) ) {
+        const pos = s.indexOf('=');
+        if ( pos === -1 ) { continue; }
+        if ( s.slice(0, pos) !== name ) { continue; }
+        return s.slice(pos+1).trim();
+    }
 }
 
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["blockId"]];
-const hostnamesMap = new Map([["inkbrushpainting.work",0],["bridalgown.work",0],["contents-group.work",0],["heisei-housewarming.work",0],["liquidfoundation.work",0],["nailcolor.work",0],["studioglass.work",0],["tapestry.work",0],["teaceremony.work",0],["weddinghall.work",0]]);
+const argsList = [["adset","off"],["adset2","off"]];
+const hostnamesMap = new Map([["inkbrushpainting.work",[0,1]],["bridalgown.work",[0,1]],["contents-group.work",[0,1]],["heisei-housewarming.work",[0,1]],["liquidfoundation.work",[0,1]],["nailcolor.work",[0,1]],["studioglass.work",[0,1]],["tapestry.work",[0,1]],["teaceremony.work",[0,1]],["weddinghall.work",[0,1]]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -335,7 +430,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { abortOnPropertyWrite(...argsList[i]); }
+    try { setCookie(...argsList[i]); }
     catch { }
 }
 

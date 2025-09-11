@@ -279,8 +279,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [[".adsbygoogle:has(> #aswift_1)","<div id=\"aswift_1_host\" style=\"height: 280px; width: 800px; position: absolute; left:-4001px\"><iframe src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3497863494706299\" style=\"width:800px;height:280px;\" width=\"800\" height=\"280\"></iframe></div>"],[".adsbygoogle:has(> #aswift_2)","<div id=\"aswift_2_host\" style=\"height: 280px; width: 367px; position: absolute; right:4000px\"><iframe src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3497863494706299\" style=\"width:367px;height:280px;\" width=\"367\" height=\"280\"></iframe></div>"],["body","<div id=\"rpjMdOwCJNxQ\" style=\"display: none;\"></div>"]];
-const hostnamesMap = new Map([["pvpoke-re.com",[0,1]],["klouderr.com",2]]);
+const argsList = [[".adsbygoogle:has(> #aswift_1)","<div id=\"aswift_1_host\" style=\"height: 280px; width: 800px; position: absolute; left:-4001px\"><iframe src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3497863494706299\" style=\"width:800px;height:280px;\" width=\"800\" height=\"280\"></iframe></div>"],[".adsbygoogle:has(> #aswift_2)","<div id=\"aswift_2_host\" style=\"height: 280px; width: 367px; position: absolute; right:4000px\"><iframe src=\"https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3497863494706299\" style=\"width:367px;height:280px;\" width=\"367\" height=\"280\"></iframe></div>"],["head","<img src='/ad-choices.png' onerror='if (localStorage.length !== 0 || typeof JSON.parse(localStorage._ppp)[\"0_uid\"] !== \"undefined\") {Object.defineProperty(window, \"innerWidth\", {get() { return document.documentElement.offsetWidth + 320 }});}'></img>"],["body","<div id=\"rpjMdOwCJNxQ\" style=\"display: none;\"></div>"]];
+const hostnamesMap = new Map([["pvpoke-re.com",[0,1]],["www.photopea.com",2],["klouderr.com",3]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

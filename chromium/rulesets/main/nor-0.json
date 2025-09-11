@@ -677,5 +677,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["embed.viaplay.com"],"resourceTypes":["media"],"urlFilter":"||freewheel-mtgx-tv.akamaized.net^"},"id":676,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["bold.dk"],"resourceTypes":["media"],"urlFilter":"||freewheel-mtgx-tv.akamaized.net/*.mp4"},"id":677,"priority":11},
 {"action":{"type":"allow"},"condition":{"urlFilter":"/ad-banner-sponsor-advertisement/"},"id":678,"priority":30},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.json"},"type":"redirect"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||vgc.no/cdn/js/libs/homad-config.json"},"id":679,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.json"},"type":"redirect"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||vgc.no/cdn/js/libs/homad-config.json"},"id":679,"priority":11},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["abcnyheter.no"],"urlFilter":"||cl.k5a.io^"},"id":680,"priority":30}
 ]

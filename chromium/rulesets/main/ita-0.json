@@ -161,6 +161,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||tuttoscuola.com/content//uploads/sam-pro-images/"},"id":160,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/~vda/___/u.php/?"},"id":161,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"/~vda/extra/vast/?id="},"id":162,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||tag24.it/storage/wp-content/uploads//banner/"},"id":163,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||kataweb.it/zbanner_consorzio.js"},"id":166,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||lacittasrl.it^*/bannerframe.php?"},"id":169,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||macrolibrarsi.it/banners/"},"id":172,"priority":10},

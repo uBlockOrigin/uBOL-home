@@ -610,5 +610,8 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["pbss"]}}},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||podbean.com/pb/"},"id":609,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["DeviceTypeId","InteractionSessionId","PCAT_vNextTracking_LocalWidget","PCAT_vNextTracking_OnlineItrack","PCAT_vNextTracking_OnlinePlrss","PCAT_vNextTracking_RetailerScoring","UniqueUserId","profileId"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||productcatalog.channeladvisor.com^"},"id":610,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["id","xcust"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||go.skimresources.com^"},"id":611,"priority":2},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["clid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||dzen.ru^"},"id":612,"priority":2}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["clid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||dzen.ru^"},"id":612,"priority":2},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["login-new","login-source"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||perplexity.ai^"},"id":613,"priority":2},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["dtp","ref","tbl"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||techbook.de^"},"id":614,"priority":2},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["c","tid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||blu-ray.com/link/click.php"},"id":615,"priority":2}
 ]

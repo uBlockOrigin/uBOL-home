@@ -1626,5 +1626,9 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||kasegeru.blog.jp/blogframe/contents/content_fx.html"},"id":1625,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"-co-jp.*.com/etgate/"},"id":1626,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/32x32.png"},"type":"redirect"},"condition":{"resourceTypes":["image"],"urlFilter":"||affiliate.dtiserv.com/image/dti/default128.jpg"},"id":1627,"priority":11},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"resourceTypes":["script"],"urlFilter":"||k-img.com/script/libs/kkkns.des/jack.js"},"id":1628,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"resourceTypes":["script"],"urlFilter":"||k-img.com/script/libs/kkkns.des/jack.js"},"id":1628,"priority":11},
+{"action":{"type":"block"},"condition":{"urlFilter":"||tsumanne.net/dmm.html"},"id":1629,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||tsumanne.net/mfro.php"},"id":1630,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||relay-api.ekitan.com/relay-api/relay/kyujin-box"},"id":1631,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"-co-jp.*.com/login/"},"id":1632,"priority":10}
 ]

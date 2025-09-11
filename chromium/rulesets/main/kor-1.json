@@ -907,5 +907,7 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/googletagservices_gpt.js"},"type":"redirect"},"condition":{"resourceTypes":["script"],"urlFilter":"||googletagservices.com/tag/js/gpt.js"},"id":906,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/googletagservices_gpt.js"},"type":"redirect"},"condition":{"resourceTypes":["script"],"urlFilter":"||securepubads.g.doubleclick.net/tag/js/gpt.js"},"id":907,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||advod.sbs.co.kr/sbsad/"},"id":908,"priority":11},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cp"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||newspic.kr^"},"id":909,"priority":2}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cp"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||newspic.kr^"},"id":909,"priority":2},
+{"action":{"type":"block"},"condition":{"urlFilter":"||news.sbs.co.kr/js/news-player/player.adinfourllist.js"},"id":910,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||11st.co.kr/js/ver/*/powerlink.js"},"id":911,"priority":10}
 ]
