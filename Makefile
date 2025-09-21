@@ -54,7 +54,7 @@ publish-edge:
 		ghtag=$(version) \
 		ghasset=edge \
 		storeid=cimighlppcgcoapaliogpjjdehbnofhn \
-		productid=$(UBOL_EDGE_ID)
+		productid=$(shell secret-tool lookup token ubol_edge_id)
 
 # make publish-firefox version=[github tag]
 publish-firefox:
