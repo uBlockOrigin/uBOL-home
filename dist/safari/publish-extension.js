@@ -300,7 +300,7 @@ async function main() {
         }
     }
 
-    // Build for MacOX
+    // Build for MacOS
     if ( commandLineArgs.macos ) {
         console.log(`Building archive ${buildNamePrefix}.macos`);
         shellExec(`xcodebuild clean archive \\

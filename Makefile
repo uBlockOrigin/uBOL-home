@@ -78,9 +78,11 @@ upload-firefox:
 		channel=unlisted \
 		updatepath=./dist/firefox/updates.json
 
+# Usage: make publish-safari-macos version=?
 publish-safari-macos:
 	node dist/safari/publish-extension.js ghtag=$(version) macos
 
+# Usage: make publish-safari-ios version=?
 publish-safari-ios:
 	node dist/safari/publish-extension.js ghtag=$(version) ios
 
