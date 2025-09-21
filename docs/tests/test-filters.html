@@ -59,6 +59,11 @@
             <code class="filter">/anf2.html$frame,csp=script-src 'none'</code>
         </div>
         <script src="anf.js" async></script>
+        <div id="anf3" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <iframe src="anf3.html?a=1&b=2&c=3&c=4"></iframe>
+            <code class="filter">/anf3.html$removeparam=b,to=…</code>
+        </div>
     </div>
 </section>
 
