@@ -244,8 +244,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["/dispatch"],["/p/?q="],["utm"]];
-const hostnamesMap = new Map([["silvercube12.xyz",0],["tv.acestream.org",1],["infox.sg",2]]);
+const argsList = [[],["/dispatch"],["/p/?q="],["adtag"],["utm"]];
+const hostnamesMap = new Map([["aj2738.top",0],["silvercube12.xyz",1],["tv.acestream.org",2],["24parik.com",3],["parik24.biz",3],["infox.sg",4]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

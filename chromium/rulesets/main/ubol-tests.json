@@ -102,5 +102,33 @@
   "urlFilter": "/anf2.html"
  },
  "id": 6
+},
+{
+ "action": {
+  "redirect": {
+   "transform": {
+    "queryTransform": {
+     "removeParams": [
+      "b"
+     ]
+    }
+   }
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "requestDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "resourceTypes": [
+   "main_frame",
+   "sub_frame",
+   "xmlhttprequest"
+  ],
+  "urlFilter": "/anf3.html"
+ },
+ "id": 7,
+ "priority": 3
 }
 ]

@@ -896,7 +896,7 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["maxmovie.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||mtag.mman.kr/get_ad.mezzo/"},"id":895,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ssl.pstatic.net/t.static.blog/mylog/versioning//js/post/ssp/sspadcontentcallerfor"},"id":896,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||uwayapply.com/js/adscript_"},"id":897,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||shana.pe.kr/shana_check/csb*.js"},"id":898,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["login.11st.co.kr"],"urlFilter":"||cdn.011st.com/browsing/space/banner/"},"id":898,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"urlFilter":"||video.veilduck.app^"},"id":899,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"urlFilter":"||smrmembers-smr.smartmediarep.com/smc/smrmembers/"},"id":900,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"urlFilter":"||news.mobfeed.co.kr/front/personal/coupang"},"id":901,"priority":11},
@@ -909,5 +909,7 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||advod.sbs.co.kr/sbsad/"},"id":908,"priority":11},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cp"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||newspic.kr^"},"id":909,"priority":2},
 {"action":{"type":"block"},"condition":{"urlFilter":"||news.sbs.co.kr/js/news-player/player.adinfourllist.js"},"id":910,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||11st.co.kr/js/ver/*/powerlink.js"},"id":911,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||11st.co.kr/js/ver/*/powerlink.js"},"id":911,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["aniplustv.com"],"urlFilter":"||api.aniplustv.com:3100/geoip"},"id":912,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||shana.pe.kr/shana_check/scp*.js"},"id":913,"priority":10}
 ]

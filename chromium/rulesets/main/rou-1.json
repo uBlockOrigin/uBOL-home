@@ -389,5 +389,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||graiul.ro/banners/"},"id":388,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||graiul.ro/*banner"},"id":389,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||graiul.ro/*.gif"},"id":390,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||graiul.ro/wp-content/uploads/2025/09/clinica*.jpg"},"id":391,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||graiul.ro/wp-content/uploads/2025/09/clinica*.jpg"},"id":391,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||stiripesurse.ro/images/ads-images/"},"id":392,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||ziarobiectiv.ro/*.gif"},"id":393,"priority":10}
 ]

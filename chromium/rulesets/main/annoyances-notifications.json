@@ -272,5 +272,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||inevent.com/js/wizard/pushnotification.js"},"id":271,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||ledevoir.com/js/web-push.js"},"id":272,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||mafia.ua/js/jquery.smartbanner.js"},"id":273,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||mirage.ru/js/jquery.smartbanner.js"},"id":274,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||mirage.ru/js/jquery.smartbanner.js"},"id":274,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"/webpush-client/webpush-client.min.js"},"id":275,"priority":10}
 ]

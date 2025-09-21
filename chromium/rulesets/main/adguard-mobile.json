@@ -539,5 +539,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"resourceTypes":["script"],"urlFilter":"||api.ambelbet.com/assets/js/in.ads.js"},"id":538,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||anyporn.com/xml^"},"id":539,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||wi-fi.ru/ad_video/"},"id":540,"priority":41},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":".libaishuo.com^"},"id":541,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":".libaishuo.com^"},"id":541,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||userapi.qiekj.com/slot/get"},"id":542,"priority":10}
 ]

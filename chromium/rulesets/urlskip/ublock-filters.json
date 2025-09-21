@@ -417,11 +417,15 @@
   ]
  },
  {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?click\\.pstmrk\\.it/\\S*?/",
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pstmrk\\.it/\\S*?/",
   "steps": [
    "/\\.pstmrk\\.it\\/[23][mst]{0,2}\\/([^\\/?#]+)/",
    "-uricomponent",
    "+https"
+  ],
+  "hostnames": [
+   "click.pstmrk.it",
+   "track.pstmrk.it"
   ]
  },
  {
@@ -1090,6 +1094,13 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?f\\.gdeslon\\.ru/cf/\\S*?(?:[^%.0-9a-z_-]|$)goto=http",
   "steps": [
    "?goto"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?sourceforge\\.net/software/link\\?\\S*?__oadest=http",
+  "steps": [
+   "/__oadest=(http[^#&]+)/",
+   "-uricomponent"
   ]
  },
  {

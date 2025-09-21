@@ -148,15 +148,6 @@
     }
    ],
    [
-    "prevent-requestAnimationFrame",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "trusted-set-attr",
     {
      "hostnames": [
@@ -229,6 +220,15 @@
     }
    ],
    [
+    "prevent-innerHTML",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "trusted-create-html",
     {
      "hostnames": [
@@ -237,17 +237,6 @@
       "www.photopea.com"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "spoof-css",
-    {
-     "hostnames": [
-      "1001tracklists.com",
-      "download.megaup.net",
-      "pvpoke-re.com"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -414,6 +403,20 @@
     {
      "hostnames": [
       "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "prevent-requestAnimationFrame",
+    {
+     "hostnames": [
+      "elconfidencial.com",
+      "journaldemontreal.com",
+      "needrom.com",
+      "news.bg",
+      "pussyspace.com",
+      "pussyspace.net"
      ],
      "world": "MAIN"
     }
@@ -590,6 +593,25 @@
       "multiup.org"
      ],
      "world": "ISOLATED"
+    }
+   ],
+   [
+    "spoof-css",
+    {
+     "hostnames": [
+      "1001tracklists.com",
+      "download.megaup.net"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "trusted-json-edit",
+    {
+     "hostnames": [
+      "x.com"
+     ],
+     "world": "MAIN"
     }
    ],
    [
@@ -1152,6 +1174,33 @@
     }
    ],
    [
+    "xml-prune",
+    {
+     "hostnames": [
+      "dailymotion.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "json-prune-fetch-response",
+    {
+     "hostnames": [
+      "dailymotion.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "json-prune-xhr-response",
+    {
+     "hostnames": [
+      "dailymotion.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "set-session-storage-item",
     {
      "hostnames": [
@@ -1251,10 +1300,19 @@
     }
    ],
    [
-    "abort-on-property-write",
+    "remove-cookie",
     {
      "hostnames": [
-      "erobanach.com"
+      "pornhub.com"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
+    "adjust-setTimeout",
+    {
+     "hostnames": [
+      "pornhub.com"
      ],
      "world": "MAIN"
     }
@@ -1265,10 +1323,20 @@
      "hostnames": [
       "komaki2.jp",
       "m.sunporno.com",
+      "pornhub.com",
       "seikeidouga.blog.jp",
       "straitstimes.com",
       "supleks.jp",
       "tu93.org"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "abort-on-property-write",
+    {
+     "hostnames": [
+      "erobanach.com"
      ],
      "world": "MAIN"
     }
@@ -2110,6 +2178,7 @@
     "set-cookie-reload",
     {
      "hostnames": [
+      "baur.eu",
       "travelfranceonline.com"
      ],
      "world": "ISOLATED"
@@ -2197,7 +2266,8 @@
     "prevent-requestAnimationFrame",
     {
      "hostnames": [
-      "mhmscreenprinting.com"
+      "mhmscreenprinting.com",
+      "stadtreporter.de"
      ],
      "world": "MAIN"
     }
@@ -2293,7 +2363,8 @@
      "hostnames": [
       "cockta.eu",
       "customuse.com",
-      "filen.io"
+      "filen.io",
+      "lmarena.ai"
      ],
      "world": "ISOLATED"
     }
@@ -2736,6 +2807,7 @@
      "hostnames": [
       "chatgpt.com",
       "fantasyfootballhub.co.uk",
+      "infowars.com",
       "perplexity.ai",
       "semrush.com"
      ],
@@ -2836,6 +2908,7 @@
       "theguardian.com",
       "thejournal.ie",
       "theweek.com",
+      "uploadvr.com",
       "vox.com",
       "zippia.com"
      ],
@@ -3319,6 +3392,7 @@
       "iplark.com",
       "linovelib.com",
       "m.13xsw.com",
+      "m.biquge12345.com",
       "rjno1.com",
       "wap.yushuwu.cloud",
       "xchina.co",
@@ -3874,6 +3948,15 @@
     }
    ],
    [
+    "spoof-css",
+    {
+     "hostnames": [
+      "telsu.fi"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "json-prune-fetch-response",
     {
      "hostnames": [
@@ -4364,25 +4447,6 @@
     }
    ],
    [
-    "prevent-window-open",
-    {
-     "hostnames": [
-      "anichin.top",
-      "animekompi.vip",
-      "indobo.com",
-      "jurnalistekno.id",
-      "kimcilonly.site",
-      "kiryuu.id",
-      "kiryuu.org",
-      "kiryuu01.com",
-      "komikcast02.com",
-      "njavtv.com",
-      "subindojav.cc"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "remove-class",
     {
      "hostnames": [
@@ -4415,6 +4479,15 @@
       "wisatalova.com"
      ],
      "world": "ISOLATED"
+    }
+   ],
+   [
+    "prevent-window-open",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
     }
    ]
   ]
@@ -4611,6 +4684,7 @@
      "hostnames": [
       "fontchi.com",
       "hamtamovie.nl",
+      "offerdaily.ir",
       "virgool.io",
       "zarebin.ir",
       "zoomit.ir"
@@ -4990,6 +5064,7 @@
       "kakenhi.net",
       "localch.net",
       "memo.wiki",
+      "mindhack2ch.com",
       "negisoku.com",
       "playing.wiki",
       "seesaa.net",
@@ -5082,6 +5157,18 @@
     }
    ],
    [
+    "json-prune",
+    {
+     "hostnames": [
+      "lemino.docomo.ne.jp",
+      "search.yahoo.co.jp",
+      "sports.tv.rakuten.co.jp",
+      "tver.jp"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "prevent-xhr",
     {
      "hostnames": [
@@ -5118,17 +5205,6 @@
       "video.laxd.com"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "json-prune",
-    {
-     "hostnames": [
-      "search.yahoo.co.jp",
-      "sports.tv.rakuten.co.jp",
-      "tver.jp"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -5186,7 +5262,8 @@
      "hostnames": [
       "figsoku.net",
       "figure-times.com",
-      "safeframe.googlesyndication.com"
+      "safeframe.googlesyndication.com",
+      "www.yahoo.co.jp"
      ],
      "world": "ISOLATED"
     }
@@ -6601,7 +6678,10 @@
     "close-window",
     {
      "hostnames": [
+      "24parik.com",
+      "aj2738.top",
       "infox.sg",
+      "parik24.biz",
       "silvercube12.xyz",
       "tv.acestream.org"
      ],
@@ -6779,6 +6859,15 @@
   "spa-1",
   [
    [
+    "set-constant",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "prevent-fetch",
     {
      "hostnames": [
@@ -6853,15 +6942,6 @@
    ],
    [
     "abort-on-property-read",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "set-constant",
     {
      "hostnames": [
       "*"
@@ -7001,6 +7081,7 @@
       "animeblix.com",
       "app.prende.tv",
       "play.mercadolibre.com.ar",
+      "play.mercadolivre.com.br",
       "sub100.com.br"
      ],
      "world": "MAIN"
@@ -7064,6 +7145,7 @@
       "godare.se",
       "golflivet.se",
       "hant.se",
+      "inredningsvis.se",
       "leta.se",
       "m3.se",
       "mabra.com",
@@ -7235,6 +7317,7 @@
     {
      "hostnames": [
       "etunawebben.se",
+      "naringsliv.ax",
       "tidningencurie.se",
       "www.aftonbladet.se"
      ],
@@ -8185,7 +8268,7 @@
       "abysscdn.com",
       "afamily.vn",
       "animevietsub.cam",
-      "buomtv.live",
+      "buomtv.media",
       "cafef.vn",
       "cdn4.tiptoe34x1.fun",
       "childish2x2.fun",
@@ -8225,7 +8308,6 @@
       "linkneverdie2.com",
       "lrepacks.net",
       "lxmanga.my",
-      "m.blogtruyenmoi.com",
       "misskon.com",
       "motchilltvphim.com",
       "nettruyenar.com",
@@ -8241,7 +8323,6 @@
       "saigon24.net",
       "sayhentaii.art",
       "sexdiary.club",
-      "sexhd88.online",
       "sextop1.show",
       "soha.vn",
       "teamlanhlungday.store",
@@ -8267,7 +8348,7 @@
       "vn5.sexviet88.xyz",
       "vn82phimsexhay.com",
       "vungoctuan.vn",
-      "www.motchill23.com",
+      "www.motchill25.com",
       "www.toptruyentv9.com",
       "www.truyen35zz.com",
       "xnxx-sex-videos.com",
@@ -8296,7 +8377,7 @@
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchillk.biz",
+      "motchillk.me",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
@@ -8318,11 +8399,9 @@
       "truyensieuhay.com",
       "tv.tvhayhd.org",
       "ungtycomicshay.com",
-      "veryfiles.com",
-      "viettoons.tv",
       "vinaurl.net",
       "vlsexdam.net",
-      "www.motchill23.com",
+      "www.motchill25.com",
       "www.nettruyenupp.com",
       "www.sieutamphim.me",
       "xemphimjav.us",
