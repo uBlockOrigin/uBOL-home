@@ -20,50 +20,86 @@
 
 */
 
-// ruleset: ublock-filters
+// ruleset: kor-1
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_preventInnerHTML() {
+(function uBOL_removeCookie() {
 
 /******************************************************************************/
 
-function preventInnerHTML(
-    selector = '',
-    pattern = ''
+function removeCookie(
+    needle = ''
 ) {
+    if ( typeof needle !== 'string' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('prevent-innerHTML', selector, pattern);
-    const matcher = safe.initPattern(pattern, { canNegate: true });
-    const current = safe.Object_getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
-    if ( current === undefined ) { return; }
-    const shouldPreventSet = (elem, a) => {
-        if ( selector !== '' ) {
-            if ( typeof elem.matches !== 'function' ) { return false; }
-            if ( elem.matches(selector) === false ) { return false; }
-        }
-        return safe.testPattern(matcher, `${a}`);
+    const reName = safe.patternToRegex(needle);
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 1);
+    const throttle = (fn, ms = 500) => {
+        if ( throttle.timer !== undefined ) { return; }
+        throttle.timer = setTimeout(( ) => {
+            throttle.timer = undefined;
+            fn();
+        }, ms);
     };
-    Object.defineProperty(Element.prototype, 'innerHTML', {
-        get: function() {
-            return current.get
-                ? current.get.call(this)
-                : current.value;
-        },
-        set: function(a) {
-            if ( shouldPreventSet(this, a) ) {
-                safe.uboLog(logPrefix, 'Prevented');
-            } else if ( current.set ) {
-                current.set.call(this, a);
+    const baseURL = new URL(document.baseURI);
+    let targetDomain = extraArgs.domain;
+    if ( targetDomain && /^\/.+\//.test(targetDomain) ) {
+        const reDomain = new RegExp(targetDomain.slice(1, -1));
+        const match = reDomain.exec(baseURL.hostname);
+        targetDomain = match ? match[0] : undefined;
+    }
+    const remove = ( ) => {
+        safe.String_split.call(document.cookie, ';').forEach(cookieStr => {
+            const pos = cookieStr.indexOf('=');
+            if ( pos === -1 ) { return; }
+            const cookieName = cookieStr.slice(0, pos).trim();
+            if ( reName.test(cookieName) === false ) { return; }
+            const part1 = cookieName + '=';
+            const part2a = `; domain=${baseURL.hostname}`;
+            const part2b = `; domain=.${baseURL.hostname}`;
+            let part2c, part2d;
+            if ( targetDomain ) {
+                part2c = `; domain=${targetDomain}`;
+                part2d = `; domain=.${targetDomain}`;
+            } else if ( document.domain ) {
+                const domain = document.domain;
+                if ( domain !== baseURL.hostname ) {
+                    part2c = `; domain=.${domain}`;
+                }
+                if ( domain.startsWith('www.') ) {
+                    part2d = `; domain=${domain.replace('www', '')}`;
+                }
             }
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `Assigned:\n${a}`);
+            const part3 = '; path=/';
+            const part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+            document.cookie = part1 + part4;
+            document.cookie = part1 + part2a + part4;
+            document.cookie = part1 + part2b + part4;
+            document.cookie = part1 + part3 + part4;
+            document.cookie = part1 + part2a + part3 + part4;
+            document.cookie = part1 + part2b + part3 + part4;
+            if ( part2c !== undefined ) {
+                document.cookie = part1 + part2c + part3 + part4;
             }
-            current.value = a;
-        },
-    });
+            if ( part2d !== undefined ) {
+                document.cookie = part1 + part2d + part3 + part4;
+            }
+        });
+    };
+    remove();
+    window.addEventListener('beforeunload', remove);
+    if ( typeof extraArgs.when !== 'string' ) { return; }
+    const supportedEventTypes = [ 'scroll', 'keydown' ];
+    const eventTypes = safe.String_split.call(extraArgs.when, /\s/);
+    for ( const type of eventTypes ) {
+        if ( supportedEventTypes.includes(type) === false ) { continue; }
+        document.addEventListener(type, ( ) => {
+            throttle(remove);
+        }, { passive: true });
+    }
 }
 
 function safeSelf() {
@@ -259,10 +295,10 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["","/test.{1000,}onerror.{1000,}/s"]];
-const hostnamesMap = new Map([["cdn.gledaitv.*",0]]);
+const argsList = [["gaejuki_ad"]];
+const hostnamesMap = new Map([["dcinside.com",0]]);
 const exceptionsMap = new Map([]);
-const hasEntities = true;
+const hasEntities = false;
 const hasAncestors = false;
 
 const collectArgIndices = (hn, map, out) => {
@@ -328,7 +364,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { preventInnerHTML(...argsList[i]); }
+    try { removeCookie(...argsList[i]); }
     catch { }
 }
 

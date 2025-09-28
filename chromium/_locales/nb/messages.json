@@ -19,8 +19,12 @@
     "message": "Innstillinger",
     "description": "appears as tab name in dashboard"
   },
+  "customFiltersPageName": {
+    "message": "Egendefinerte filtre",
+    "description": "appears as tab name in dashboard"
+  },
   "developPageName": {
-    "message": "Develop",
+    "message": "Utvikle",
     "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
   },
   "aboutPageName": {
@@ -36,7 +40,7 @@
     "description": "Label in the popup panel for the current filtering mode"
   },
   "popupLocalToolsLabel": {
-    "message": "On this website",
+    "message": "På denne nettsiden",
     "description": "Label in the popup panel for the local tools section"
   },
   "popupTipReport": {
@@ -82,6 +86,14 @@
   "3pGroupRegions": {
     "message": "Regioner, språk",
     "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "customFiltersImportExportLabel": {
+    "message": "Importér/Eksportér",
+    "description": "Text label heading the import/export area of custom filters"
+  },
+  "customFiltersImportTextareaPlaceholder": {
+    "message": "Lim inn her spesifikke kosmetiske filtre som skal legges til",
+    "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
     "message": "Endringslogg",
@@ -251,6 +263,18 @@
     "message": "Aktiver tilgang til funksjoner som er egnet for tekniske brukere.",
     "description": "Short description for a checkbox in the options page"
   },
+  "settingsBackupRestoreLabel": {
+    "message": "Backup",
+    "description": "The header text for the back up/restore section"
+  },
+  "settingsBackupRestoreSummary": {
+    "message": "Back up your custom settings to a file, or restore your custom settings from a file.",
+    "description": "A summary description of the back up/restore section."
+  },
+  "settingsBackupRestoreLegend": {
+    "message": "Restoring will overwrite all your current custom settings.",
+    "description": "Important information about the back up/restore section."
+  },
   "findListsPlaceholder": {
     "message": "Finn lister",
     "description": "Placeholder for the input field used to find lists"
@@ -300,35 +324,35 @@
     "description": "Tooltip for the button used to exit zapper mode"
   },
   "pickerTipEnter": {
-    "message": "Create a custom filter",
+    "message": "Lag et egendefinert filter",
     "description": "Label for the menu entry to create cosmetic filters"
   },
   "unpickerTipEnter": {
-    "message": "Remove a custom filter",
+    "message": "Fjern et egendefinert filter",
     "description": "Label for the menu entry to delete cosmetic filters"
   },
   "developDropdownLabel": {
-    "message": "View:",
+    "message": "Vis:",
     "description": "A label of a dropdown list"
   },
   "developOptionFilteringModeDetails": {
-    "message": "Filtering mode details",
+    "message": "Filtreringsmodusdetaljer",
     "description": "An option in a dropdown list"
   },
   "developOptionCustomDnrRules": {
-    "message": "Custom DNR rules",
+    "message": "Egendefinerte DNR-regler",
     "description": "An option in a dropdown list"
   },
   "developOptionDnrRulesOf": {
-    "message": "DNR rules of …",
+    "message": "DNR-regler for …",
     "description": "A section header in a dropdown list"
   },
   "developOptionDynamicRuleset": {
-    "message": "Dynamic ruleset",
+    "message": "Dynamisk regelsett",
     "description": "An option in a dropdown list"
   },
   "developOptionSessionRuleset": {
-    "message": "Session ruleset",
+    "message": "Regelsett for økter",
     "description": "An option in a dropdown list"
   },
   "saveButton": {
@@ -339,6 +363,10 @@
     "message": "Tilbakestill",
     "description": "Text for buttons used to revert changes"
   },
+  "addButton": {
+    "message": "Legg til",
+    "description": "Text for buttons used to add content"
+  },
   "importAndAppendButton": {
     "message": "Importer og legg til...",
     "description": "Text for buttons used to import and append content"
@@ -347,32 +375,40 @@
     "message": "Eksporter...",
     "description": "Text for buttons used to export content"
   },
+  "backupButton": {
+    "message": "Back up…",
+    "description": "Text for buttons used to back up content"
+  },
+  "restoreButton": {
+    "message": "Restore…",
+    "description": "Text for buttons used to restore content"
+  },
   "dnrRulesWarning": {
-    "message": "Do not add content from untrusted sources",
+    "message": "Ikke legg til innhold fra upålitelige kilder",
     "description": "Short description of the DNR rules editor pane"
   },
   "dnrRulesCountInfo": {
-    "message": "Number of registered rules: {count}",
+    "message": "Antall registrerte regler: {count}",
     "description": "Short sentence to report the number of currently registered DNR rules"
   },
   "pickerSliderLabel": {
-    "message": "Move the slider to select the best match",
+    "message": "Flytt glidebryteren for å velge den beste matchen",
     "description": "Label to describe the purpose of the slider"
   },
   "pickerPick": {
-    "message": "Pick",
+    "message": "Velg",
     "description": "Text for the button to re-enter element-picking mode"
   },
   "pickerPreview": {
-    "message": "Preview",
+    "message": "Forhåndsvis",
     "description": "Text for the button to activate preview mode"
   },
   "pickerCreate": {
-    "message": "Create",
+    "message": "Opprett",
     "description": "Text for the button to create the filter"
   },
   "unpickerUsage": {
-    "message": "Select a filter below to highlight matching elements in the webpage. Click the trash can to remove a filter.",
+    "message": "Velg et filter nedenfor for å fremheve samsvarende elementer på nettsiden. Klikk på papirkurven for å fjerne et filter.",
     "description": "Summary description on how to use the tool to remove custom filters"
   }
 }

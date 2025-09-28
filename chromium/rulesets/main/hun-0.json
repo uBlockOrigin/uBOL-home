@@ -232,12 +232,13 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||tesco.hu/*/update-fingerprint"},"id":231,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["gabo.hu"],"resourceTypes":["script"],"urlFilter":"/megacookiesworker.js"},"id":232,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["gabo.hu"],"resourceTypes":["script"],"urlFilter":"/megacookies.js"},"id":233,"priority":10},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["hu.iqos.com"],"urlFilter":"||cdn.cookielaw.org/scripttemplates/otsdkstub.js"},"id":234,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["homedepot.ca","hu.iqos.com"],"urlFilter":"||cdn.cookielaw.org/scripttemplates/otsdkstub.js"},"id":234,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kollegium-neriszentfulop.chemin-neuf.hu"],"urlFilter":"||kollegium-neriszentfulop.chemin-neuf.hu/wp-content/plugins/complianz-gdpr/cookiebanner/js/complianz.min.js"},"id":235,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kollegium-neriszentfulop.chemin-neuf.hu"],"urlFilter":"||kollegium-neriszentfulop.chemin-neuf.hu/wp-content/plugins/complianz-gdpr/assets/css/cookieblocker.min.css"},"id":236,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["erettsegi.com"],"requestDomains":["cmp.setupcmp.com","gvl-dev.setupcmp.com"]},"id":237,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["eduline.hu"],"urlFilter":"||abo-widget.xyz^"},"id":238,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["mavcsoport.hu"],"resourceTypes":["script"],"urlFilter":"/yett.min.js"},"id":239,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.css"},"type":"redirect"},"condition":{"initiatorDomains":["online-filmek.ac","online-filmek.me"],"urlFilter":"||galaxypush.com/css/styles.min.css^"},"id":240,"priority":41},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["myonlineradio.hu"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js^"},"id":241,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["myonlineradio.hu"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js^"},"id":241,"priority":11},
+{"action":{"type":"block"},"condition":{"urlFilter":"||telekom.hu/static-tr-frame/json/cookie-consent/cookie-consent-hu.json"},"id":242,"priority":10}
 ]

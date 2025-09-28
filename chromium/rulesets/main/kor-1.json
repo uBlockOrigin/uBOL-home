@@ -830,7 +830,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["typing.works"],"resourceTypes":["script"],"urlFilter":"||cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"},"id":829,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["ff14angler.com"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":830,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["tistory.com"],"resourceTypes":["object"],"urlFilter":"||link.coupang.com^"},"id":831,"priority":10},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["srank.kr"],"resourceTypes":["xmlhttprequest"],"urlFilter":"://www3.doubleclick.net^|"},"id":832,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["srank.kr"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||doubleclick.net^"},"id":832,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["klauncher.kr"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||adservice.google.com^|"},"id":833,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["tsuvod.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":834,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["hasha.in"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||js.wpadmngr.com/static/admanager.js"},"id":835,"priority":30},
@@ -911,5 +911,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||news.sbs.co.kr/js/news-player/player.adinfourllist.js"},"id":910,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||11st.co.kr/js/ver/*/powerlink.js"},"id":911,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["aniplustv.com"],"urlFilter":"||api.aniplustv.com:3100/geoip"},"id":912,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||shana.pe.kr/shana_check/scp*.js"},"id":913,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||shana.pe.kr/shana_check/scp*.js"},"id":913,"priority":10},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["srank.kr"],"resourceTypes":["script"],"urlFilter":"||www3.doubleclick.net^"},"id":914,"priority":11}
 ]

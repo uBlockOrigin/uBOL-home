@@ -324,7 +324,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2025.921.2008",
+  "version": "2025.928.1920",
   "web_accessible_resources": [
     {
       "resources": [
@@ -367,6 +367,7 @@
         "web_accessible_resources/noop.js",
         "web_accessible_resources/amazon_apstag.js",
         "web_accessible_resources/google-ima.js",
+        "web_accessible_resources/fingerprint2.js",
         "web_accessible_resources/noop.txt",
         "web_accessible_resources/noop.css",
         "web_accessible_resources/1x1.gif",
@@ -377,7 +378,6 @@
         "web_accessible_resources/amazon_ads.js",
         "web_accessible_resources/googletagservices_gpt.js",
         "web_accessible_resources/google-analytics_analytics.js",
-        "web_accessible_resources/fingerprint2.js",
         "web_accessible_resources/nofab.js",
         "web_accessible_resources/hd-main.js",
         "web_accessible_resources/popads.js",

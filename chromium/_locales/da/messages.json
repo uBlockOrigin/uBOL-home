@@ -19,6 +19,10 @@
     "message": "Indstillinger",
     "description": "appears as tab name in dashboard"
   },
+  "customFiltersPageName": {
+    "message": "Tilpassede filtre",
+    "description": "appears as tab name in dashboard"
+  },
   "developPageName": {
     "message": "Udvikl",
     "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
@@ -40,7 +44,7 @@
     "description": "Label in the popup panel for the local tools section"
   },
   "popupTipReport": {
-    "message": "Anmeld et problem på dette websted",
+    "message": "Anmeld et problem",
     "description": "Tooltip used for the 'chat' icon in the panel"
   },
   "popupTipDashboard": {
@@ -68,7 +72,7 @@
     "description": "Header for a ruleset section in 'Filter lists pane'"
   },
   "3pGroupMalware": {
-    "message": "Malware-domæner",
+    "message": "Malware-beskyttelse, sikkerhed",
     "description": "Header for a ruleset section in 'Filter lists pane'"
   },
   "3pGroupAnnoyances": {
@@ -82,6 +86,14 @@
   "3pGroupRegions": {
     "message": "Regioner, sprog",
     "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "customFiltersImportExportLabel": {
+    "message": "Import/ Eksport",
+    "description": "Text label heading the import/export area of custom filters"
+  },
+  "customFiltersImportTextareaPlaceholder": {
+    "message": "Indsæt bestemte kosmetiske filtre hér for at tilføje",
+    "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
     "message": "Ændringslog",
@@ -251,6 +263,18 @@
     "message": "Aktiverer adgang til funktioner egnede for tekniske brugere.",
     "description": "Short description for a checkbox in the options page"
   },
+  "settingsBackupRestoreLabel": {
+    "message": "Backup",
+    "description": "The header text for the back up/restore section"
+  },
+  "settingsBackupRestoreSummary": {
+    "message": "Back up your custom settings to a file, or restore your custom settings from a file.",
+    "description": "A summary description of the back up/restore section."
+  },
+  "settingsBackupRestoreLegend": {
+    "message": "Restoring will overwrite all your current custom settings.",
+    "description": "Important information about the back up/restore section."
+  },
   "findListsPlaceholder": {
     "message": "Find lister",
     "description": "Placeholder for the input field used to find lists"
@@ -292,7 +316,7 @@
     "description": "A button to navigate to the blocked page"
   },
   "zapperTipEnter": {
-    "message": "Gå til elementdræber­tilstand",
+    "message": "Fjern et element",
     "description": "Tooltip for the button used to enter zapper mode"
   },
   "zapperTipQuit": {
@@ -339,6 +363,10 @@
     "message": "Tilbagefør",
     "description": "Text for buttons used to revert changes"
   },
+  "addButton": {
+    "message": "Tilføj",
+    "description": "Text for buttons used to add content"
+  },
   "importAndAppendButton": {
     "message": "Importér og tilføj…",
     "description": "Text for buttons used to import and append content"
@@ -346,6 +374,14 @@
   "exportButton": {
     "message": "Eksportér…",
     "description": "Text for buttons used to export content"
+  },
+  "backupButton": {
+    "message": "Back up…",
+    "description": "Text for buttons used to back up content"
+  },
+  "restoreButton": {
+    "message": "Restore…",
+    "description": "Text for buttons used to restore content"
   },
   "dnrRulesWarning": {
     "message": "Tilføj ikke indhold fra ikke-betroede kilder.",

@@ -19,6 +19,10 @@
     "message": "Настройки",
     "description": "appears as tab name in dashboard"
   },
+  "customFiltersPageName": {
+    "message": "Пользовательские фильтры",
+    "description": "appears as tab name in dashboard"
+  },
   "developPageName": {
     "message": "Разработка",
     "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
@@ -82,6 +86,14 @@
   "3pGroupRegions": {
     "message": "Регионы, языки",
     "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "customFiltersImportExportLabel": {
+    "message": "Импорт / Экспорт",
+    "description": "Text label heading the import/export area of custom filters"
+  },
+  "customFiltersImportTextareaPlaceholder": {
+    "message": "Вставьте сюда отдельные косметические фильтры для добавления",
+    "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
     "message": "Список изменений",
@@ -251,6 +263,18 @@
     "message": "Включает доступ к функциям, предназначенным для технических пользователей.",
     "description": "Short description for a checkbox in the options page"
   },
+  "settingsBackupRestoreLabel": {
+    "message": "Резервные копии / восстановление",
+    "description": "The header text for the back up/restore section"
+  },
+  "settingsBackupRestoreSummary": {
+    "message": "Создайте резервную копию ваших пользовательских настроек в файле или восстановите их из файла.",
+    "description": "A summary description of the back up/restore section."
+  },
+  "settingsBackupRestoreLegend": {
+    "message": "Восстановление перезапишет все ваши текущие пользовательские настройки.",
+    "description": "Important information about the back up/restore section."
+  },
   "findListsPlaceholder": {
     "message": "Найти списки",
     "description": "Placeholder for the input field used to find lists"
@@ -339,6 +363,10 @@
     "message": "Вернуть",
     "description": "Text for buttons used to revert changes"
   },
+  "addButton": {
+    "message": "Добавить",
+    "description": "Text for buttons used to add content"
+  },
   "importAndAppendButton": {
     "message": "Импортировать и добавить…",
     "description": "Text for buttons used to import and append content"
@@ -346,6 +374,14 @@
   "exportButton": {
     "message": "Экспортировать…",
     "description": "Text for buttons used to export content"
+  },
+  "backupButton": {
+    "message": "Создать резервную копию…",
+    "description": "Text for buttons used to back up content"
+  },
+  "restoreButton": {
+    "message": "Восстановить…",
+    "description": "Text for buttons used to restore content"
   },
   "dnrRulesWarning": {
     "message": "Не добавлять содержимое из ненадёжных источников",

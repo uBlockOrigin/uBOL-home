@@ -1104,6 +1104,25 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?5ch\\.net/jump/to\\?url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?adj\\.st/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?lit\\.link/redirects/link-ad\\?redirecturl=ahr0c",
+  "steps": [
+   "?redirectUrl",
+   "-base64"
+  ]
+ },
+ {
   "re": "/vp/player/to/\\?u=http",
   "steps": [
    "?u"

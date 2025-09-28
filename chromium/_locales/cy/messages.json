@@ -19,6 +19,10 @@
     "message": "Gosodiadau",
     "description": "appears as tab name in dashboard"
   },
+  "customFiltersPageName": {
+    "message": "Custom filters",
+    "description": "appears as tab name in dashboard"
+  },
   "developPageName": {
     "message": "Datblygu",
     "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
@@ -36,7 +40,7 @@
     "description": "Label in the popup panel for the current filtering mode"
   },
   "popupLocalToolsLabel": {
-    "message": "On this website",
+    "message": "Ar y wefan hon",
     "description": "Label in the popup panel for the local tools section"
   },
   "popupTipReport": {
@@ -82,6 +86,14 @@
   "3pGroupRegions": {
     "message": "Rhanbarthau, ieithoedd",
     "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "customFiltersImportExportLabel": {
+    "message": "Import / Export",
+    "description": "Text label heading the import/export area of custom filters"
+  },
+  "customFiltersImportTextareaPlaceholder": {
+    "message": "Paste here specific cosmetic filters to add",
+    "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
     "message": "Cofnod newidiadau",
@@ -244,12 +256,24 @@
     "description": "Short description for a checkbox in the options page"
   },
   "developerModeLabel": {
-    "message": "Developer mode",
+    "message": "Modd datblygwr",
     "description": "Label for a checkbox in the options page"
   },
   "developerModeLegend": {
     "message": "Enables access to features suitable for technical users.",
     "description": "Short description for a checkbox in the options page"
+  },
+  "settingsBackupRestoreLabel": {
+    "message": "Backup",
+    "description": "The header text for the back up/restore section"
+  },
+  "settingsBackupRestoreSummary": {
+    "message": "Back up your custom settings to a file, or restore your custom settings from a file.",
+    "description": "A summary description of the back up/restore section."
+  },
+  "settingsBackupRestoreLegend": {
+    "message": "Restoring will overwrite all your current custom settings.",
+    "description": "Important information about the back up/restore section."
   },
   "findListsPlaceholder": {
     "message": "Find lists",
@@ -336,16 +360,28 @@
     "description": "Text for buttons used to save changes"
   },
   "revertButton": {
-    "message": "Revert",
+    "message": "Dychwelwch",
     "description": "Text for buttons used to revert changes"
+  },
+  "addButton": {
+    "message": "Ychwanegwch",
+    "description": "Text for buttons used to add content"
   },
   "importAndAppendButton": {
     "message": "Import and append…",
     "description": "Text for buttons used to import and append content"
   },
   "exportButton": {
-    "message": "Export…",
+    "message": "Allforio",
     "description": "Text for buttons used to export content"
+  },
+  "backupButton": {
+    "message": "Back up…",
+    "description": "Text for buttons used to back up content"
+  },
+  "restoreButton": {
+    "message": "Restore…",
+    "description": "Text for buttons used to restore content"
   },
   "dnrRulesWarning": {
     "message": "Do not add content from untrusted sources",

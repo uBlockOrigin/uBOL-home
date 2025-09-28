@@ -54,5 +54,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||guuru.com^*/chat.min.js"},"id":53,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||allegro.concerto.ai/chatbot_v2/"},"id":54,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||live-mt-server.wati.io/*/whatsappchatscript?shopifydomain="},"id":55,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||socialintents.com/api/chat/socialintents."},"id":56,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||socialintents.com/api/chat/socialintents."},"id":56,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.shopify.com/extensions/*/manifest-ai-chatbot-548/assets/common-script.js"},"id":57,"priority":10}
 ]

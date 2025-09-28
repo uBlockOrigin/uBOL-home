@@ -19,6 +19,10 @@
     "message": "Iestatījumi",
     "description": "appears as tab name in dashboard"
   },
+  "customFiltersPageName": {
+    "message": "Pielāgoti atsijātāji",
+    "description": "appears as tab name in dashboard"
+  },
   "developPageName": {
     "message": "Izstrādāt",
     "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
@@ -82,6 +86,14 @@
   "3pGroupRegions": {
     "message": "Apgabali, valodas",
     "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "customFiltersImportExportLabel": {
+    "message": "Ievietot/izgūt",
+    "description": "Text label heading the import/export area of custom filters"
+  },
+  "customFiltersImportTextareaPlaceholder": {
+    "message": "Šeit ir ielīmējami noteikti kosmētiskie aizturētāji, kurus pievienot",
+    "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
     "message": "Izmaiņu žurnāls",
@@ -251,6 +263,18 @@
     "message": "Iespējot piekļuvi iespējām, kas piemērotas tehniskiem lietotājiem.",
     "description": "Short description for a checkbox in the options page"
   },
+  "settingsBackupRestoreLabel": {
+    "message": "Rezerves kopija",
+    "description": "The header text for the back up/restore section"
+  },
+  "settingsBackupRestoreSummary": {
+    "message": "Pielāgoto iestatījumu rezerves kopēšana datnē vai to atjaunošana no datnes.",
+    "description": "A summary description of the back up/restore section."
+  },
+  "settingsBackupRestoreLegend": {
+    "message": "Atjaunošana pārrakstīs visus pašreizējos pielāgotos iestatījumus.",
+    "description": "Important information about the back up/restore section."
+  },
   "findListsPlaceholder": {
     "message": "Atrast sarakstus",
     "description": "Placeholder for the input field used to find lists"
@@ -339,6 +363,10 @@
     "message": "Atjaunot",
     "description": "Text for buttons used to revert changes"
   },
+  "addButton": {
+    "message": "Pievienot",
+    "description": "Text for buttons used to add content"
+  },
   "importAndAppendButton": {
     "message": "Ievietot un pievienot…",
     "description": "Text for buttons used to import and append content"
@@ -346,6 +374,14 @@
   "exportButton": {
     "message": "Izgūt…",
     "description": "Text for buttons used to export content"
+  },
+  "backupButton": {
+    "message": "Veikt rezerves kopēšanu…",
+    "description": "Text for buttons used to back up content"
+  },
+  "restoreButton": {
+    "message": "Atjaunot…",
+    "description": "Text for buttons used to restore content"
   },
   "dnrRulesWarning": {
     "message": "Nevajag pievienot saturu no neuzticamiem avotiem.",

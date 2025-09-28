@@ -19,6 +19,10 @@
     "message": "הגדרות",
     "description": "appears as tab name in dashboard"
   },
+  "customFiltersPageName": {
+    "message": "מסננים בהתאמה אישית",
+    "description": "appears as tab name in dashboard"
+  },
   "developPageName": {
     "message": "פיתוח",
     "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
@@ -82,6 +86,14 @@
   "3pGroupRegions": {
     "message": "אזורים, שפות",
     "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "customFiltersImportExportLabel": {
+    "message": "יבוא / יצוא",
+    "description": "Text label heading the import/export area of custom filters"
+  },
+  "customFiltersImportTextareaPlaceholder": {
+    "message": "העתיקו לכאן מסננים קוסמטים ספציפים לשם הוספה",
+    "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
     "message": "יומן שינויים",
@@ -251,6 +263,18 @@
     "message": "מאפשר גישה ליכולות עבור משתמשים טכניים.",
     "description": "Short description for a checkbox in the options page"
   },
+  "settingsBackupRestoreLabel": {
+    "message": "גיבוי / שחזור",
+    "description": "The header text for the back up/restore section"
+  },
+  "settingsBackupRestoreSummary": {
+    "message": "גיבוי של ההגדרות האישיות לקובץ, או שחזור של ההגדרות האישיות מקובץ.",
+    "description": "A summary description of the back up/restore section."
+  },
+  "settingsBackupRestoreLegend": {
+    "message": "השחזור יחליף את כל ההגדרות האישיות הנוכחיות.",
+    "description": "Important information about the back up/restore section."
+  },
   "findListsPlaceholder": {
     "message": "חיפוש רשימות",
     "description": "Placeholder for the input field used to find lists"
@@ -339,6 +363,10 @@
     "message": "ביטול שינויים",
     "description": "Text for buttons used to revert changes"
   },
+  "addButton": {
+    "message": "הוספה",
+    "description": "Text for buttons used to add content"
+  },
   "importAndAppendButton": {
     "message": "ייבא וצרף…",
     "description": "Text for buttons used to import and append content"
@@ -346,6 +374,14 @@
   "exportButton": {
     "message": "ייצוא…",
     "description": "Text for buttons used to export content"
+  },
+  "backupButton": {
+    "message": "גיבוי…",
+    "description": "Text for buttons used to back up content"
+  },
+  "restoreButton": {
+    "message": "שחזור…",
+    "description": "Text for buttons used to restore content"
   },
   "dnrRulesWarning": {
     "message": "אל תוסיפו תוכן ממקורות לא מהיימנים",

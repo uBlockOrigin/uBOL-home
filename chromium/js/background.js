@@ -22,6 +22,7 @@
 import {
     MODE_BASIC,
     MODE_OPTIMAL,
+    defaultFilteringModes,
     getDefaultFilteringMode,
     getFilteringMode,
     getFilteringModeDetails,
@@ -32,11 +33,13 @@ import {
 } from './mode-manager.js';
 
 import {
-    addCustomFilter,
+    addCustomFilters,
+    customFiltersFromHostname,
+    getAllCustomFilters,
     hasCustomFilters,
     injectCustomFilters,
-    removeCustomFilter,
-    selectorsFromCustomFilters,
+    removeAllCustomFilters,
+    removeCustomFilters,
     startCustomFilters,
     terminateCustomFilters,
 } from './filter-manager.js';
@@ -62,8 +65,17 @@ import {
 } from './ext.js';
 
 import {
+    defaultConfig,
+    loadRulesetConfig,
+    process,
+    rulesetConfig,
+    saveRulesetConfig,
+} from './config.js';
+
+import {
     enableRulesets,
     excludeFromStrictBlock,
+    getDefaultRulesetsFromEnv,
     getEffectiveDynamicRules,
     getEffectiveSessionRules,
     getEffectiveUserRules,
@@ -82,13 +94,6 @@ import {
     ubolErr,
     ubolLog,
 } from './debug.js';
-
-import {
-    loadRulesetConfig,
-    process,
-    rulesetConfig,
-    saveRulesetConfig,
-} from './config.js';
 
 import { dnr } from './ext-compat.js';
 import { getTroubleshootingInfo } from './troubleshooting.js';
@@ -269,6 +274,19 @@ function onMessage(request, sender, callback) {
         });
         return true;
     }
+
+    case 'getDefaultConfig':
+        getDefaultRulesetsFromEnv().then(rulesets => {
+            callback({
+                autoReload: defaultConfig.autoReload,
+                developerMode: defaultConfig.developerMode,
+                showBlockedCount: defaultConfig.showBlockedCount,
+                strictBlockMode: defaultConfig.strictBlockMode,
+                rulesets,
+                filteringModes: Object.assign(defaultFilteringModes),
+            });
+        });
+        return true;
 
     case 'getOptionsPageData':
         Promise.all([
@@ -475,8 +493,8 @@ function onMessage(request, sender, callback) {
         });
         return true;
 
-    case 'addCustomFilter':
-        addCustomFilter(request.hostname, request.selector).then(modified => {
+    case 'addCustomFilters':
+        addCustomFilters(request.hostname, request.selectors).then(modified => {
             if ( modified !== true ) { return; }
             return registerInjectables();
         }).then(( ) => {
@@ -484,8 +502,8 @@ function onMessage(request, sender, callback) {
         })
         return true;
 
-    case 'removeCustomFilter':
-        removeCustomFilter(request.hostname, request.selector).then(modified => {
+    case 'removeCustomFilters':
+        removeCustomFilters(request.hostname, request.selectors).then(modified => {
             if ( modified !== true ) { return; }
             return registerInjectables();
         }).then(( ) => {
@@ -493,9 +511,24 @@ function onMessage(request, sender, callback) {
         });
         return true;
 
-    case 'selectorsFromCustomFilters':
-        selectorsFromCustomFilters(request.hostname).then(selectors => {
+    case 'removeAllCustomFilters':
+        removeAllCustomFilters(request.hostname).then(modified => {
+            if ( modified !== true ) { return; }
+            return registerInjectables();
+        }).then(( ) => {
+            callback();
+        });
+        return true;
+
+    case 'customFiltersFromHostname':
+        customFiltersFromHostname(request.hostname).then(selectors => {
             callback(selectors);
+        });
+        return true;
+
+    case 'getAllCustomFilters':
+        getAllCustomFilters().then(data => {
+            callback(data);
         });
         return true;
 

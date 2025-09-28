@@ -19,6 +19,10 @@
     "message": "Configurações",
     "description": "appears as tab name in dashboard"
   },
+  "customFiltersPageName": {
+    "message": "Filtros personalizados",
+    "description": "appears as tab name in dashboard"
+  },
   "developPageName": {
     "message": "Desenvolver",
     "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
@@ -82,6 +86,14 @@
   "3pGroupRegions": {
     "message": "Regiões, idiomas",
     "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "customFiltersImportExportLabel": {
+    "message": "Importação e exportação",
+    "description": "Text label heading the import/export area of custom filters"
+  },
+  "customFiltersImportTextareaPlaceholder": {
+    "message": "Cole filtros cosméticos específicos aqui para adicioná-los",
+    "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
     "message": "Notas de lançamento",
@@ -251,6 +263,18 @@
     "message": "Ativa o acesso à funcionalidade destinada a usuários técnicos.",
     "description": "Short description for a checkbox in the options page"
   },
+  "settingsBackupRestoreLabel": {
+    "message": "Backup",
+    "description": "The header text for the back up/restore section"
+  },
+  "settingsBackupRestoreSummary": {
+    "message": "Faça backup das suas configurações personalizadas em um arquivo ou restaure suas configurações personalizadas de um arquivo.",
+    "description": "A summary description of the back up/restore section."
+  },
+  "settingsBackupRestoreLegend": {
+    "message": "A restauração sobrescreverá todas as suas configurações personalizadas atuais.",
+    "description": "Important information about the back up/restore section."
+  },
   "findListsPlaceholder": {
     "message": "Procurar listas",
     "description": "Placeholder for the input field used to find lists"
@@ -339,6 +363,10 @@
     "message": "Reverter",
     "description": "Text for buttons used to revert changes"
   },
+  "addButton": {
+    "message": "Adicionar",
+    "description": "Text for buttons used to add content"
+  },
   "importAndAppendButton": {
     "message": "Importar e anexar…",
     "description": "Text for buttons used to import and append content"
@@ -346,6 +374,14 @@
   "exportButton": {
     "message": "Exportar…",
     "description": "Text for buttons used to export content"
+  },
+  "backupButton": {
+    "message": "Fazer backup…",
+    "description": "Text for buttons used to back up content"
+  },
+  "restoreButton": {
+    "message": "Restaurar…",
+    "description": "Text for buttons used to restore content"
   },
   "dnrRulesWarning": {
     "message": "Não adicione conteúdo de fontes não confiáveis.",

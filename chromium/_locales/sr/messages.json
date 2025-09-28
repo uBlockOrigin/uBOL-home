@@ -19,6 +19,10 @@
     "message": "Подешавања",
     "description": "appears as tab name in dashboard"
   },
+  "customFiltersPageName": {
+    "message": "Прилагођени филтери",
+    "description": "appears as tab name in dashboard"
+  },
   "developPageName": {
     "message": "Развити",
     "description": "appears as tab name in dashboard. Inspired from 'Develop' menu in Safari, see https://developer.apple.com/documentation/safari-developer-tools/develop-menu"
@@ -82,6 +86,14 @@
   "3pGroupRegions": {
     "message": "Регионални, језички",
     "description": "Header for a ruleset section in 'Filter lists pane'"
+  },
+  "customFiltersImportExportLabel": {
+    "message": "Увоз / извоз",
+    "description": "Text label heading the import/export area of custom filters"
+  },
+  "customFiltersImportTextareaPlaceholder": {
+    "message": "Овде налепите одређене козметичке филтере које желите додати",
+    "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
     "message": "Списак измена",
@@ -251,6 +263,18 @@
     "message": "Омогућава приступ функцијама погодним за техничке кориснике.",
     "description": "Short description for a checkbox in the options page"
   },
+  "settingsBackupRestoreLabel": {
+    "message": "Backup",
+    "description": "The header text for the back up/restore section"
+  },
+  "settingsBackupRestoreSummary": {
+    "message": "Back up your custom settings to a file, or restore your custom settings from a file.",
+    "description": "A summary description of the back up/restore section."
+  },
+  "settingsBackupRestoreLegend": {
+    "message": "Restoring will overwrite all your current custom settings.",
+    "description": "Important information about the back up/restore section."
+  },
   "findListsPlaceholder": {
     "message": "Пронађи листе",
     "description": "Placeholder for the input field used to find lists"
@@ -339,6 +363,10 @@
     "message": "Врати",
     "description": "Text for buttons used to revert changes"
   },
+  "addButton": {
+    "message": "Додај",
+    "description": "Text for buttons used to add content"
+  },
   "importAndAppendButton": {
     "message": "Увези и додај…",
     "description": "Text for buttons used to import and append content"
@@ -346,6 +374,14 @@
   "exportButton": {
     "message": "Извоз…",
     "description": "Text for buttons used to export content"
+  },
+  "backupButton": {
+    "message": "Back up…",
+    "description": "Text for buttons used to back up content"
+  },
+  "restoreButton": {
+    "message": "Restore…",
+    "description": "Text for buttons used to restore content"
   },
   "dnrRulesWarning": {
     "message": "Не додајте садржај из непоузданих извора",
