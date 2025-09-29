@@ -1,8 +1,31 @@
 ----------
 
+### 2025.928.1920
+
+- [Avoid mouseenter/mouseleave on mobile devices](https://github.com/gorhill/uBlock/commit/be1502feb3)
+- [Use manifest's path value to access static rulesets](https://github.com/gorhill/uBlock/commit/80cf4d9286)
+- [Add ability to backup/restore settings](https://github.com/gorhill/uBlock/commit/2581004e8f)
+- [Add dashboard pane to manage custom filters](https://github.com/gorhill/uBlock/commit/8af80be5b2)
+- Updated filter lists
+
+----------
+
+### 2025.921.2008
+
+- Updated filter lists
+
+----------
+
+### 2025.911.1335
+
+- Updated filter lists
+
+----------
+
 ### 2025.906.1308
 
 - [Move redirect/removeParams/modifyHeaders rules to static rulesets](https://github.com/gorhill/uBlock/commit/4fbcabbc66)
+- Updated filter lists
 
 ----------
 
