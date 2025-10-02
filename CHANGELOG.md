@@ -1,4 +1,4 @@
-- [Improve details of troublshooting info](https://github.com/gorhill/uBlock/commit/6623889920)
+- [Improve details of troubleshooting info](https://github.com/gorhill/uBlock/commit/6623889920)
 - Updated filter lists
 
 ----------
