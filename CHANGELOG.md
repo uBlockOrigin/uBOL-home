@@ -1,3 +1,6 @@
+- [Improve details of troublshooting info](https://github.com/gorhill/uBlock/commit/6623889920)
+- Updated filter lists
+
 ----------
 
 ### 2025.928.1920
