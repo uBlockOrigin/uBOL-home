@@ -26,40 +26,71 @@
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_trustedJsonEdit() {
+(function uBOL_trustedJsonEditFetchRequest() {
 
 /******************************************************************************/
 
-function trustedJsonEdit(jsonq = '') {
-    editOutboundObjectFn(true, 'JSON.parse', jsonq);
+function trustedJsonEditFetchRequest(jsonq = '', ...args) {
+    jsonEditFetchRequestFn(true, jsonq, ...args);
 }
 
-function editOutboundObjectFn(
-    trusted = false,
-    propChain = '',
-    jsonq = '',
-) {
-    if ( propChain === '' ) { return; }
+function jsonEditFetchRequestFn(trusted, jsonq = '') {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix(
-        `${trusted ? 'trusted-' : ''}edit-outbound-object`,
-        propChain,
+        `${trusted ? 'trusted-' : ''}json-edit-fetch-request`,
         jsonq
     );
     const jsonp = JSONPath.create(jsonq);
     if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
         return safe.uboLog(logPrefix, 'Bad JSONPath query');
     }
-    proxyApplyFn(propChain, function(context) {
-        const obj = context.reflect();
-        const objAfter = jsonp.apply(obj);
-        if ( objAfter === undefined ) { return obj; }
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
+    const filterBody = body => {
+        if ( typeof body !== 'string' ) { return; }
+        let data;
+        try { data = safe.JSON_parse(body); }
+        catch { }
+        if ( data instanceof Object === false ) { return; }
+        const objAfter = jsonp.apply(data);
+        if ( objAfter === undefined ) { return; }
+        return safe.JSON_stringify(objAfter);
+    }
+    const proxyHandler = context => {
+        const args = context.callArgs;
+        const [ resource, options ] = args;
+        const bodyBefore = options?.body;
+        if ( Boolean(bodyBefore) === false ) { return context.reflect(); }
+        const bodyAfter = filterBody(bodyBefore);
+        if ( bodyAfter === undefined || bodyAfter === bodyBefore ) {
+            return context.reflect();
+        }
+        if ( propNeedles.size !== 0 ) {
+            const objs = [
+                resource instanceof Object ? resource : { url: `${resource}` }
+            ];
+            if ( objs[0] instanceof Request ) {
+                try {
+                    objs[0] = safe.Request_clone.call(objs[0]);
+                } catch(ex) {
+                    safe.uboErr(logPrefix, 'Error:', ex);
+                }
+            }
+            const matched = matchObjectPropertiesFn(propNeedles, ...objs);
+            if ( matched === undefined ) { return context.reflect(); }
+            if ( safe.logLevel > 1 ) {
+                safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
+            }
+        }
         safe.uboLog(logPrefix, 'Edited');
         if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, `After edit:\n${safe.JSON_stringify(objAfter, null, 2)}`);
+            safe.uboLog(logPrefix, `After edit:\n${bodyAfter}`);
         }
-        return objAfter;
-    });
+        options.body = bodyAfter;
+        return context.reflect();
+    };
+    proxyApplyFn('fetch', proxyHandler);
+    proxyApplyFn('Request', proxyHandler);
 }
 
 class JSONPath {
@@ -510,6 +541,47 @@ class JSONPath {
     }
 }
 
+function matchObjectPropertiesFn(propNeedles, ...objs) {
+    const safe = safeSelf();
+    const matched = [];
+    for ( const obj of objs ) {
+        if ( obj instanceof Object === false ) { continue; }
+        for ( const [ prop, details ] of propNeedles ) {
+            let value = obj[prop];
+            if ( value === undefined ) { continue; }
+            if ( typeof value !== 'string' ) {
+                try { value = safe.JSON_stringify(value); }
+                catch { }
+                if ( typeof value !== 'string' ) { continue; }
+            }
+            if ( safe.testPattern(details, value) === false ) { return; }
+            matched.push(`${prop}: ${value}`);
+        }
+    }
+    return matched;
+}
+
+function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
+    const safe = safeSelf();
+    const needles = new Map();
+    if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
+    const options = { canNegate: true };
+    for ( const needle of safe.String_split.call(propsToMatch, /\s+/) ) {
+        let [ prop, pattern ] = safe.String_split.call(needle, ':');
+        if ( prop === '' ) { continue; }
+        if ( pattern !== undefined && /[^$\w -]/.test(prop) ) {
+            prop = `${prop}:${pattern}`;
+            pattern = undefined;
+        }
+        if ( pattern !== undefined ) {
+            needles.set(prop, safe.initPattern(pattern, options));
+        } else if ( implicit !== '' ) {
+            needles.set(implicit, safe.initPattern(prop, options));
+        }
+    }
+    return needles;
+}
+
 function proxyApplyFn(
     target = '',
     handler = ''
@@ -788,8 +860,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [[".[?.media_entities.*.video_info.variants]..url_data.url=\"https://twitter.undefined\""]];
-const hostnamesMap = new Map([["x.com",0]]);
+const argsList = [["..playbackContext[?.contentPlaybackContext]+={\"adPlaybackContext\":{\"pyv\":true}}","propsToMatch","/\\/(player|get_watch)/"]];
+const hostnamesMap = new Map([["www.youtube.com",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -857,7 +929,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { trustedJsonEdit(...argsList[i]); }
+    try { trustedJsonEditFetchRequest(...argsList[i]); }
     catch { }
 }
 

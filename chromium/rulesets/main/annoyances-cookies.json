@@ -534,7 +534,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/eu-cookielaw.min.js"},"id":533,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/eu-notice.js"},"id":534,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/eu_cookie.js"},"id":535,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["1password.com","anaconda.com","apollo.io","chubbiesshorts.com","classy.org","costco.ca","costco.com","costcobusinessdelivery.com","darkreading.com","digicert.com","etsy.com","eyeconic.com","fanexpohq.com","fashionnova.com","gamechoiceawards.com","gamedeveloper.com","gdconf.com","gdcvault.com","gofundme.com","igf.com","indiegogo.com","informa.com","informaconnect.com","kfc.com","kickstarter.com","lifetouch.com","mountaineast.org","netapp.com","patreon.com","shutterfly.com","vimeo.com","visible.com","vsp.com","vspdirect.com"],"urlFilter":"||transcend-cdn.com^"},"id":536,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["1password.com","aibusiness.com","anaconda.com","apollo.io","chubbiesshorts.com","classy.org","costco.ca","costco.com","costcobusinessdelivery.com","darkreading.com","digicert.com","etsy.com","eyeconic.com","fanexpohq.com","fashionnova.com","gamechoiceawards.com","gamedeveloper.com","gdconf.com","gdcvault.com","gofundme.com","igf.com","indiegogo.com","informa.com","informaconnect.com","kfc.com","kickstarter.com","lifetouch.com","mountaineast.org","netapp.com","patreon.com","shutterfly.com","vimeo.com","visible.com","vsp.com","vspdirect.com"],"urlFilter":"||transcend-cdn.com^"},"id":536,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["fortune.com","hsl.fi","philips-hue.com","proximus.be","tmz.com","weather.com"],"urlFilter":"||consent.truste.com/notice$domain="},"id":537,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"/eu_cookies.js"},"id":538,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/eu_privacy.js"},"id":539,"priority":10},
@@ -1309,7 +1309,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["frandroid.com","numerama.com"],"urlFilter":"||choices.consentframework.com^"},"id":1308,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["ilovefreegle.org","tribexr.com"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||cdn-cookieyes.com/client_data/"},"id":1309,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["lr-shop-direkt.de","swiss-sport.tv"],"urlFilter":"||cookie-script.com^"},"id":1310,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["cbs.com","cbsnews.com","chipotle.com","realtruck.com"],"resourceTypes":["script"],"urlFilter":"||cdn.ketchjs.com/lanyard/"},"id":1311,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["cbs.com","cbsnews.com","chipotle.com","realtruck.com","southparkstudios.com"],"resourceTypes":["script"],"urlFilter":"||cdn.ketchjs.com/lanyard/"},"id":1311,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["orteil.dashnet.org"],"urlFilter":"||cookiemonsterteam.github.io/cookiemonster/dist/cookiemonster.js"},"id":1312,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||demarches.interieur.gouv.fr/js/tarteaucitron/"},"id":1313,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["anwbvignetten.nl","playseatstore.com"],"urlFilter":"||ecookie.nl/build/"},"id":1314,"priority":30},
@@ -1661,7 +1661,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||nederlandseloterij.nl/statics/nlportal-cookie-consent."},"id":1660,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["axeptio.eu"],"urlFilter":"||axept.io^"},"id":1661,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedResourceTypes":["main_frame","stylesheet"],"urlFilter":"||cookiehub.net^"},"id":1662,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["chipotle.com","forbes.com"],"urlFilter":"||ketchcdn.com^"},"id":1663,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["computrabajo.com"],"urlFilter":"||ct-stc.com^*/cookie-consent.bundle.min.js"},"id":1663,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["vejdirektoratet.dk"],"urlFilter":"||monsido-consent.com^"},"id":1664,"priority":10},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||omniplex.ie/script/modules/cookiecuttr.js"},"id":1665,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||sloways.eu/*/cookie-consent"},"id":1666,"priority":30},
@@ -1749,5 +1749,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/wp-content/plugins/consent-magic-pro/assets/scripts/cs-public.min.js"},"id":1748,"priority":10},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||joska.com/typo3conf/ext/dsgvo_manager/resources/public/javascript/cookie-consent.js"},"id":1749,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.ing.es"],"resourceTypes":["script"],"urlFilter":"||ing.es/wc/ing-cms-component-library/es6/packages/core/utils/cookiesmanager.js"},"id":1750,"priority":30},
-{"action":{"type":"block"},"condition":{"urlFilter":"||belgee.by/js/vendor/js.cookie.min.js"},"id":1751,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||belgee.by/js/vendor/js.cookie.min.js"},"id":1751,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||catho.com.br/consent-widget/"},"id":1752,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["chipotle.com","forbes.com","southparkstudios.com"],"urlFilter":"||ketchcdn.com^"},"id":1753,"priority":10}
 ]

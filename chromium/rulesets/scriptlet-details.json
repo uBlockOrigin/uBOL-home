@@ -12,6 +12,24 @@
     }
    ],
    [
+    "trusted-json-edit-fetch-request",
+    {
+     "hostnames": [
+      "www.youtube.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "trusted-replace-outbound-text",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "adjust-setTimeout",
     {
      "hostnames": [
@@ -186,15 +204,6 @@
    ],
    [
     "trusted-set-constant",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "trusted-replace-outbound-text",
     {
      "hostnames": [
       "*"
@@ -562,7 +571,8 @@
     "trusted-prevent-fetch",
     {
      "hostnames": [
-      "crunchyscan.fr"
+      "crunchyscan.fr",
+      "seelen.io"
      ],
      "world": "MAIN"
     }
@@ -1236,8 +1246,7 @@
       "news.mynavi.jp",
       "openloadpro.com",
       "quiz-facts.com",
-      "rakukan.net",
-      "uraaka.com"
+      "rakukan.net"
      ],
      "world": "MAIN"
     }
@@ -2450,21 +2459,21 @@
     }
    ],
    [
-    "abort-current-script",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "remove-class",
     {
      "hostnames": [
       "*"
      ],
      "world": "ISOLATED"
+    }
+   ],
+   [
+    "abort-current-script",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
     }
    ],
    [
@@ -2969,7 +2978,22 @@
     "json-prune",
     {
      "hostnames": [
-      "m.youtube.com"
+      "buttersc.one",
+      "gp.tsukimi.club",
+      "invillage-outvillage.com",
+      "m.youtube.com",
+      "misskey.gamelore.fun",
+      "misskey.neos.love",
+      "misskey.systems",
+      "mivatter.com",
+      "mk.yopo.work",
+      "msk.kitazawa.me",
+      "nijimiss.moe",
+      "novelskey.tarbin.net",
+      "oekakiskey.com",
+      "side.misskey.productions",
+      "sushi.ski",
+      "voskey.icalo.net"
      ],
      "world": "MAIN"
     }
@@ -3204,6 +3228,15 @@
      ],
      "world": "ISOLATED"
     }
+   ],
+   [
+    "trusted-json-edit-xhr-request",
+    {
+     "hostnames": [
+      "www.youtube.com"
+     ],
+     "world": "MAIN"
+    }
    ]
   ]
  ],
@@ -3268,6 +3301,7 @@
     "prevent-fetch",
     {
      "hostnames": [
+      "4gtv.tv",
       "fsbot.xyz",
       "helper-employer.com",
       "hmanga.world",
@@ -3948,6 +3982,15 @@
       "telsu.fi"
      ],
      "world": "MAIN"
+    }
+   ],
+   [
+    "remove-node-text",
+    {
+     "hostnames": [
+      "vauva.fi"
+     ],
+     "world": "ISOLATED"
     }
    ],
    [
@@ -5154,10 +5197,24 @@
     "json-prune",
     {
      "hostnames": [
+      "ikaskey.bktsk.com",
       "lemino.docomo.ne.jp",
+      "live-theater.net",
+      "misskey.art",
+      "misskey.io",
+      "misskey.resonite.love",
+      "misskeytsf.love",
+      "misskirara.net",
+      "mk.yopo.work",
+      "p1.a9z.dev",
       "search.yahoo.co.jp",
       "sports.tv.rakuten.co.jp",
-      "tver.jp"
+      "sushi.ski",
+      "takusuki.com",
+      "trpger.us",
+      "tver.jp",
+      "warpday.net",
+      "zadankai.club"
      ],
      "world": "MAIN"
     }
@@ -7086,15 +7143,6 @@
     }
    ],
    [
-    "m3u-prune",
-    {
-     "hostnames": [
-      "vix.com"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "json-prune",
     {
      "hostnames": [
@@ -7103,7 +7151,17 @@
       "play.mercadolibre.cl",
       "play.mercadolibre.com.ar",
       "play.mercadolivre.com.br",
-      "sub100.com.br"
+      "sub100.com.br",
+      "vix.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "m3u-prune",
+    {
+     "hostnames": [
+      "vix.com"
      ],
      "world": "MAIN"
     }
@@ -8310,7 +8368,7 @@
       "goctruyentranhvui17.com",
       "gotphim.com",
       "haysexvl.net",
-      "haysexvn.life",
+      "haysexvnn.com",
       "hentaivc.net",
       "hh2d.tv",
       "hh3dhay.life",
@@ -8337,7 +8395,7 @@
       "phim.sexnungvl.pro",
       "phim18hdxx.com",
       "phimmoi.sale",
-      "phimtho.net",
+      "phimtho.cc",
       "player-cdn.com",
       "playhydrax.com",
       "quatvn.love",
@@ -8361,16 +8419,16 @@
       "tuoitre.vn",
       "tusachmanga99.com",
       "umetruyenz.net",
+      "unitedweconquer.co.uk",
       "vailonxx.vip",
       "vanphatelectric.com",
       "viet69.my",
-      "visitwestberkshire.org.uk",
       "vlxx.bz",
       "vn2.xvideos69.xxx",
       "vn5.sexviet88.xyz",
       "vn82phimsexhay.com",
       "vungoctuan.vn",
-      "www.motchill25.com",
+      "www.motchill26.com",
       "www.toptruyentv10.com",
       "www.truyen35zz.com",
       "xnxx-sex-videos.com",
@@ -8386,7 +8444,7 @@
      "hostnames": [
       "anh.moe",
       "anime12.site",
-      "anime47.live",
+      "anime47.best",
       "animevietsub9.com",
       "aoe.vn",
       "audiotruyenfull.com",
@@ -8423,7 +8481,7 @@
       "tv.tvhayhd.org",
       "ungtycomicshot.com",
       "vinaurl.net",
-      "www.motchill25.com",
+      "www.motchill26.com",
       "www.nettruyenupp.com",
       "www.sieutamphim.me",
       "xemphimjav.us",
