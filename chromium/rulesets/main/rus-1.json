@@ -617,7 +617,7 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["|ruid"]}}},"type":"redirect"},"condition":{"initiatorDomains":["autodaily.ru","autonews.ru","rbc.ru","sportrbc.ru"],"resourceTypes":["main_frame"],"urlFilter":"?ruid="},"id":616,"priority":3},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_partner_id"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mail.ru","sportmail.ru","vkplay.ru"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":617,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mail.ru","sportmail.ru","vkplay.ru"],"resourceTypes":["main_frame"],"urlFilter":"/?from="},"id":618,"priority":3},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["exp_article","fm","frommail","fromnews","fromprefix","fromwidget","rf"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mail.ru","sportmail.ru"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":619,"priority":2},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["exp_article","fm","frommail","fromnews","fromprefix","fromwidget","md","rf"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mail.ru","sportmail.ru"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":619,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["persistent_id"]}}},"type":"redirect"},"condition":{"initiatorDomains":["dzen.ru","sportsdzen.ru"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":620,"priority":2},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cr"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mail.ru","sportmail.ru"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"/?cr="},"id":621,"priority":3},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mail.ru","sportmail.ru"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"/?from=mail_tab"},"id":622,"priority":3},
@@ -716,5 +716,6 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["r"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||rutube.ru/video/"},"id":715,"priority":2},
 {"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"script-src 'unsafe-inline'"}],"type":"modifyHeaders"},"condition":{"resourceTypes":["main_frame","sub_frame"],"urlFilter":"||browserleaks.com/proxy"},"id":716},
 {"action":{"type":"block"},"condition":{"urlFilter":"||analytics.fkltt.com/script.js"},"id":717,"priority":10},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["ai"]}}},"type":"redirect"},"condition":{"initiatorDomains":["ggsel.net"],"resourceTypes":["main_frame"]},"id":718,"priority":2}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["ai"]}}},"type":"redirect"},"condition":{"initiatorDomains":["ggsel.net"],"resourceTypes":["main_frame"]},"id":718,"priority":2},
+{"action":{"type":"block"},"condition":{"urlFilter":"||metrix.az/*/track.js?"},"id":719,"priority":10}
 ]

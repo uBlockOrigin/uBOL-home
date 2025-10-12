@@ -15,8 +15,8 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/ad-space-right.html^"},"id":14,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/bannerright/"},"id":15,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/microbanner^"},"id":16,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||ba/images/banners^"},"id":17,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||rs/images/banners^"},"id":18,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["uns.org.rs"],"resourceTypes":["image"],"urlFilter":"&code=banner468x60|"},"id":17,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["uns.org.rs"],"resourceTypes":["image"],"urlFilter":"&code=banner360x1080|"},"id":18,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hr/content/banner^"},"id":19,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hr/portal/banner?"},"id":20,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||aviatica.rs/static/uploads/*/*/*-banner-*x*.gif^"},"id":21,"priority":10},
@@ -77,5 +77,8 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||hr/wp-content/uploads/202*/banner-*.gif^"},"id":76,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||global.divhunt.com/bd0d40310d194e9625e9ee6bf8ae2a7c_49534.jpeg^"},"id":77,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||rooar.eu/oglas.php^"},"id":78,"priority":10},
-{"action":{"type":"allow"},"condition":{"urlFilter":"||vidverto.io/*/invocation."},"id":79,"priority":30}
+{"action":{"type":"allow"},"condition":{"urlFilter":"||vidverto.io/*/invocation."},"id":79,"priority":30},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["edu.ba"],"urlFilter":"||ba/images/banners^"},"id":80,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["edu.rs"],"urlFilter":"||rs/images/banners^"},"id":81,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||015.xn--90a3ac/*/oglas-"},"id":82,"priority":10}
 ]

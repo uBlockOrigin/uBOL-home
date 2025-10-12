@@ -240,5 +240,8 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["mavcsoport.hu"],"resourceTypes":["script"],"urlFilter":"/yett.min.js"},"id":239,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.css"},"type":"redirect"},"condition":{"initiatorDomains":["online-filmek.ac","online-filmek.me"],"urlFilter":"||galaxypush.com/css/styles.min.css^"},"id":240,"priority":41},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["myonlineradio.hu"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js^"},"id":241,"priority":11},
-{"action":{"type":"block"},"condition":{"urlFilter":"||telekom.hu/static-tr-frame/json/cookie-consent/cookie-consent-hu.json"},"id":242,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||telekom.hu/static-tr-frame/json/cookie-consent/cookie-consent-hu.json"},"id":242,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["ittjartam.hu"],"resourceTypes":["script"],"urlFilter":"/cookiesettings.min.js"},"id":243,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||ittjartam.hu/ajax.php?action=offerblogcikk"},"id":244,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||ittjartam.hu/ajax.php?action=logsearchhistory"},"id":245,"priority":10}
 ]

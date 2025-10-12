@@ -87,7 +87,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||mackeyfi*.sbs/wp-content/uploads/*.gif"},"id":86,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||fullfilmizlesene.net/dizi.js"},"id":87,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||fullfilmizlesene.net/dizimag.js"},"id":88,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["cehennemstream.xyz","ddizi.pro","filmizle.in","hlktrpl.cfd","sinema.cx","ucdortbes.com","videoseyred.in","vidload.one"],"urlFilter":"/vast.js"},"id":89,"priority":40},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["cehennemstream.xyz","ddizi.pro","filmizle.in","hlktrpl.cfd","hotstream.club","sinema.cx","ucdortbes.com","videoseyred.in","vidload.one"],"urlFilter":"/vast.js"},"id":89,"priority":40},
 {"action":{"type":"block"},"condition":{"urlFilter":"||dizipal.vip/celta.js"},"id":90,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||sporx.com/_iframe/mac-merkezi/scoreboard_bilyoner"},"id":91,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||images.macellan.online/allads/"},"id":92,"priority":10},
@@ -1183,7 +1183,14 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||canlikolik.my/wp-content/uploads/*/celticbet-adsense.mp4"},"id":1182,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||webteizle*.*/i/vid-onu-*.mp4"},"id":1183,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"||turkcealtyazi.org/_popceh.js"},"id":1184,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||720pizleme.cc/rek/"},"id":1185,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||filmsaati1.com/babavast*.php"},"id":1185,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hdfullfilmcibaba.com/reklapops.js"},"id":1186,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||loanpaydayok.com/izin/"},"id":1187,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||loanpaydayok.com/izin/"},"id":1187,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hdfullfilmcibaba.com/banner.js"},"id":1188,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||haberler.com/mstatic/assets/js/prebid*"},"id":1189,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||afyonturkeligazetesi.com/images/money/wi3hplws4ald.jpg"},"id":1190,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||diziyiizle.com/wp-content/uploads/*.gif"},"id":1191,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||cdn1-vidlax.xyz/*.mp4"},"id":1192,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||720pizleme.*/rek/"},"id":1193,"priority":10},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||buski.gov.tr/files/adverts/"},"id":1194,"priority":30}
 ]

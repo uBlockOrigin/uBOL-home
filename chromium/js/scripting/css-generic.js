@@ -61,7 +61,7 @@ const hashFromStr = (type, s) => {
     for ( let i = 0; i < len; i += step ) {
         hash = (hash << 5) + hash ^ s.charCodeAt(i);
     }
-    return hash & 0xFFFFFF;
+    return hash & 0xFFF;
 };
 
 /******************************************************************************/
@@ -188,7 +188,7 @@ const uBOL_processNodes = ( ) => {
     if ( styleSheetTimer !== undefined ) { return; }
     styleSheetTimer = self.requestAnimationFrame(( ) => {
         styleSheetTimer = undefined;
-        uBOL_injectCSS(`${styleSheetSelectors.join(',')}{display:none!important;}`);
+        self.cssAPI.insert(`${styleSheetSelectors.join(',')}{display:none!important;}`);
         styleSheetSelectors.length = 0;
     });
 };
@@ -214,17 +214,7 @@ const uBOL_processChanges = mutations => {
 
 /******************************************************************************/
 
-const uBOL_injectCSS = css => {
-    chrome.runtime.sendMessage({
-        what: 'insertCSS',
-        css,
-    }).catch(( ) => {
-    });
-};
-
-/******************************************************************************/
-
-const stopAll = reason => {
+const stopAll = ( ) => {
     if ( domChangeTimer !== undefined ) {
         self.clearTimeout(domChangeTimer);
         domChangeTimer = undefined;

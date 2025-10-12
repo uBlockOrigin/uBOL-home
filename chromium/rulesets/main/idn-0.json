@@ -2100,7 +2100,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||itubd."},"id":2099,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||itucasino."},"id":2100,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||itudewa."},"id":2101,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||api.streamapi.info/uploads/adsbaru"},"id":2102,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["api.streamapi.info"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||api.streamapi.info/uploads/ad*.xml"},"id":2102,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||itugol."},"id":2103,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||itupk."},"id":2104,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||itupoker."},"id":2105,"priority":10},

@@ -194,7 +194,7 @@ function registerGeneric(context, genericDetails) {
 
     if ( js.length === 0 ) { return; }
 
-    js.unshift('/js/scripting/isolated-api.js');
+    js.unshift('/js/scripting/css-api.js', '/js/scripting/isolated-api.js');
     js.push('/js/scripting/css-generic.js');
 
     const { none, basic, optimal, complete } = filteringModeDetails;
@@ -306,15 +306,18 @@ function registerProcedural(context) {
 
     normalizeMatches(matches);
 
-    js.unshift('/js/scripting/isolated-api.js');
+    js.unshift('/js/scripting/css-api.js', '/js/scripting/isolated-api.js');
     js.push('/js/scripting/css-procedural.js');
 
     const excludeMatches = [];
-    if ( none.has('all-urls') === false ) {
-        excludeMatches.push(...ut.matchesFromHostnames(none));
-    }
-    if ( basic.has('all-urls') === false ) {
-        excludeMatches.push(...ut.matchesFromHostnames(basic));
+    if ( none.has('all-urls') === false && basic.has('all-urls') === false ) {
+        const toExclude = [
+            ...ut.matchesFromHostnames(none),
+            ...ut.matchesFromHostnames(basic),
+        ];
+        for ( const hn of toExclude ) {
+            excludeMatches.push(hn);
+        }
     }
 
     const registered = before.get('css-procedural');
@@ -370,7 +373,7 @@ function registerSpecific(context) {
 
     normalizeMatches(matches);
 
-    js.unshift('/js/scripting/isolated-api.js');
+    js.unshift('/js/scripting/css-api.js', '/js/scripting/isolated-api.js');
     js.push('/js/scripting/css-specific.js');
 
     const excludeMatches = [];
