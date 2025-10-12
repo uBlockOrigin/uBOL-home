@@ -1,3 +1,5 @@
+- [[safari] Force-reload rulesets when new browsing realm is seen](https://github.com/gorhill/uBlock/commit/8cc18c1089)
+- [[safari] Workaround for user styles issue with bfcache](https://github.com/gorhill/uBlock/commit/22d2ecc472)
 - [Improve details of troubleshooting info](https://github.com/gorhill/uBlock/commit/6623889920)
 - Updated filter lists
 
