@@ -483,8 +483,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["/^https.\\/\\/videoads\\.kakao\\.com\\/adserver\\/api\\/v[0-9]{1","2}\\/vmap$/"],["imasdk.googleapis.com/js/sdkloader/ima3.js"],["pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"],["www3.doubleclick.net"],["adblockanalytics.com"],["adsbygoogle.js"],["adManager.js"]];
-const hostnamesMap = new Map([["tv.kakao.com",0],["play-tv.kakao.com",0],["kakaotv.daum.net",0],["spotvnow.co.kr",[1,2]],["namechart.kr",3],["eftlibrary.com",3],["blackkiwi.net",3],["hub.weirdhost.xyz",[4,5]],["hasha.in",6]]);
+const argsList = [["/^https.\\/\\/videoads\\.kakao\\.com\\/adserver\\/api\\/v[0-9]{1","2}\\/vmap$/"],["imasdk.googleapis.com/js/sdkloader/ima3.js"],["pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"],["pagead2.googlesyndication.com method:HEAD"],["www3.doubleclick.net"],["adblockanalytics.com"],["adsbygoogle.js"],["adManager.js"]];
+const hostnamesMap = new Map([["tv.kakao.com",0],["play-tv.kakao.com",0],["kakaotv.daum.net",0],["spotvnow.co.kr",[1,2]],["chzzkban.xyz",3],["namechart.kr",4],["eftlibrary.com",4],["blackkiwi.net",4],["hub.weirdhost.xyz",[5,6]],["hasha.in",7]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

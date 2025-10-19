@@ -131,5 +131,21 @@
  },
  "id": 7,
  "priority": 10
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "support.huawei.com"
+  ],
+  "regexFilter": "^ws:\\/\\/(127\\.0\\.0\\.1|localhost):\\d{4,5}\\/icslite\\/websocket\\/",
+  "resourceTypes": [
+   "websocket"
+  ]
+ },
+ "id": 8,
+ "priority": 30
 }
 ]

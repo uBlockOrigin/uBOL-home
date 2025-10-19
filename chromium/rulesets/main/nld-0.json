@@ -481,5 +481,7 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["npo.nl"],"resourceTypes":["media"],"urlFilter":"||cdn-ster-nl.akamaized.net/*.mp4"},"id":480,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"||boodschappen.nl/wp-json/boodschappen/v1/banners/get_banners"},"id":481,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||boodschappen.nl/wp-json/boodschappen/v1/banners/get_advertorial"},"id":482,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||boodschappen.nl/wp-json/boodschappen/v1/banners/get_native_banner"},"id":483,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||boodschappen.nl/wp-json/boodschappen/v1/banners/get_native_banner"},"id":483,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||h3v9p8x2q1r7-agckaeh6g2ehcaes.*.azurewebsites.net^"},"id":484,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||azurewebsites.net/*?player_*[max_ad_dur]=*[adslot]=*&vpaid="},"id":485,"priority":10}
 ]

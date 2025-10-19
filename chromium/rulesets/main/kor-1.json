@@ -12,7 +12,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/gnetwork/adforus."},"id":11,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/studio_backend/adforus."},"id":12,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/data/banner.json?"},"id":13,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"/ad-manager.min.js"},"id":14,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["33across.com","360yield.com","acrosspf.com","adguru.kr","adhooah.com","adnxs.com","adop.cc","adskeeper.com","aedi.ai","authanalysis.com","casalemedia.com","criteo.com","digitalcamp.co.kr","impactify.io","keywordsconnect.com","kiesta.net","lijit.com","marketingking.co.kr","middlepoint.co.kr","mobon.net","mrep.kr","nhnace.com","onepx.kr","openx.net","planmix.co.kr","pubmatic.com","quantserve.com","rubiconproject.com","smartadserver.com","stax.kr","tadapi.info","tenping.kr","thetopic.co.kr","widerplanet.com"]},"id":14,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.lol.ps/assets/img/bg-skins/"},"id":15,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||firebasestorage.googleapis.com/v0/b/kimchi-premium.appspot.com/o/banner-imgs"},"id":16,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.theddari.com/banner/"},"id":17,"priority":10},
@@ -325,7 +325,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||isplus.com/data/json/main/banner.json"},"id":324,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||dt.co.kr/ad.html"},"id":325,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||knnews.co.kr/edb/banner/"},"id":326,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["33across.com","360yield.com","acrosspf.com","adguru.kr","adhooah.com","adnxs.com","adop.cc","adskeeper.com","aedi.ai","authanalysis.com","casalemedia.com","criteo.com","impactify.io","keywordsconnect.com","kiesta.net","lijit.com","marketingking.co.kr","middlepoint.co.kr","mobon.net","mrep.kr","nhnace.com","onepx.kr","openx.net","planmix.co.kr","pubmatic.com","quantserve.com","rubiconproject.com","smartadserver.com","stax.kr","tadapi.info","tenping.kr","thetopic.co.kr","widerplanet.com"]},"id":327,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["2798731938.zigcou.com"],"urlFilter":"||cdn.zigcou.com/static/*.webp"},"id":327,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||m.segye.com/static/*_segyemobile/resources/js/commonad.js"},"id":328,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||segye.com/static/*_segye/resources/js/common_ad_"},"id":329,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||img.segye.com/static/*_segye/resources/js/banner.js"},"id":330,"priority":10},
@@ -912,5 +912,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||11st.co.kr/js/ver/*/powerlink.js"},"id":911,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["aniplustv.com"],"urlFilter":"||api.aniplustv.com:3100/geoip"},"id":912,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||shana.pe.kr/shana_check/scp*.js"},"id":913,"priority":10},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["srank.kr"],"resourceTypes":["script"],"urlFilter":"||www3.doubleclick.net^"},"id":914,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["srank.kr"],"resourceTypes":["script"],"urlFilter":"||www3.doubleclick.net^"},"id":914,"priority":11},
+{"action":{"type":"block"},"condition":{"urlFilter":"/ad-manager.min.js^"},"id":915,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||aproxy-vast.wavve.com/*/v/*_ad_*/req/"},"id":916,"priority":10}
 ]

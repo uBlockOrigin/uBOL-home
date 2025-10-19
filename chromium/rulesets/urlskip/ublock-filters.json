@@ -102,6 +102,27 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?arttrk\\.com/p/",
+  "steps": [
+   "/\\/p\\/[^\\/]+\\/([^?]+)/",
+   "+https"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pscrb\\.fm/rss/p/",
+  "steps": [
+   "/\\/rss\\/p\\/([^?]+)/",
+   "+https"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?pscrb\\.fm/shadow/ipv4/",
+  "steps": [
+   "/\\/ipv4\\/([^?]+)/",
+   "+https"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?tonordersitye\\.com/s\\S*?&r",
   "steps": [
    "?r",
@@ -804,9 +825,13 @@
   ]
  },
  {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?l\\.threads\\.net/\\?u=http",
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?l\\.threads\\.\\S*?/\\?u=http",
   "steps": [
    "?u"
+  ],
+  "hostnames": [
+   "threads.com",
+   "threads.net"
   ]
  },
  {
@@ -1141,6 +1166,12 @@
   "steps": [
    "?redirectUrl",
    "-base64"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?link\\.fmkorea\\.org/link\\.php\\?url=http",
+  "steps": [
+   "?url"
   ]
  },
  {
