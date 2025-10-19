@@ -6,7 +6,6 @@
 ## Release notes
 
 %changelog%
-- Updated filter lists
 - [Commit history](https://github.com/uBlockOrigin/uBOL-home/commits/%tag%)
 
 ## Installation
