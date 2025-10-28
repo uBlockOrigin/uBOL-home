@@ -307,7 +307,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||navitime.co.jp/*/diagram/japantravel/btn_japantravel.jpg"},"id":306,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||navitime.jp/data/cms/advertisement/"},"id":307,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||navitime.jp/scripts/media/web/widget/"},"id":308,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["cn","cyou","icu"],"resourceTypes":["main_frame"],"urlFilter":".co.jp.*.*/"},"id":309,"priority":10},
+{"action":{"type":"block"},"condition":{"requestDomains":["cn","cyou","help","icu","link","sbs"],"resourceTypes":["main_frame"],"urlFilter":".co.jp.*.*/"},"id":309,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hamlife.jp/wp-content/uploads/2021/10/jarl-radio-banner.png"},"id":310,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["idol-blog.com"],"urlFilter":"||i-like-movie.com/lovega/"},"id":311,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||kurashiru.com/production/assets/banner/banner_amazon_"},"id":312,"priority":10},
@@ -362,7 +362,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||seesaa.net/add/loop-ad.html"},"id":361,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||takarazuka-comipa.com/bannar/"},"id":362,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||nieru.net/view/data/ad/"},"id":363,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||hochi.news/assets/subcontents/img/fishing/sessya.jpg"},"id":364,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||marine-net.com/marine-site/user_image/*_fil_banner"},"id":364,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||wp.com/pics.dmm.com/af/*/300_250.jpg"},"id":365,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||2nt.com/m/a/t/matomate/widget2min.js"},"id":366,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||fesoku.net/sozai/amazon.html"},"id":367,"priority":10},
@@ -1654,6 +1654,11 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"://www.*.com/article/login|"},"id":1653,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".com/article/line-20151012"},"id":1654,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".cfd/*.co.jp/"},"id":1655,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".com/*.co.jp|"},"id":1656,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".verify.co.jp.*.com/ja"},"id":1657,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||tekoki-fuzoku-joho.com/images/special/columnbanner"},"id":1656,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".verify.co.jp.*.com/ja"},"id":1657,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kin-katsu.net/upload_ads/"},"id":1658,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kin-katsu.net/thread/app/ads*_json_get.php"},"id":1659,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hochi.news/apps/js/ad_kb/"},"id":1660,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".info/v2/check|"},"id":1661,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/pop/jp-*/index.php?"},"id":1662,"priority":10}
 ]

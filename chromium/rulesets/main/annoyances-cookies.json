@@ -1755,5 +1755,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||upromania.ro/html/gdpr/gdpr.min.js"},"id":1754,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||xfolio.jp/lu_assets/cookie-popup."},"id":1755,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["chipotle.com","forbes.com","southpark.cc.com","southpark.de","southparkstudios.com"],"urlFilter":"||ketchcdn.com^"},"id":1756,"priority":10},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||premierchristian.news/libs/klaro/klaro-no-translations-no-css.js"},"id":1757,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||premierchristian.news/libs/klaro/klaro-no-translations-no-css.js"},"id":1757,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||pikadil.ru/build/assets/modalcookies-"},"id":1758,"priority":10}
 ]

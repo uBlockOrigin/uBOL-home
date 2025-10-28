@@ -20,78 +20,77 @@
 
 */
 
-// ruleset: ubol-tests
+// ruleset: ublock-experimental
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_jsonlEditXhrResponse() {
+(function uBOL_trustedJsonEditFetchRequest() {
 
 /******************************************************************************/
 
-function jsonlEditXhrResponse(jsonq = '', ...args) {
-    jsonlEditXhrResponseFn(false, jsonq, ...args);
+function trustedJsonEditFetchRequest(jsonq = '', ...args) {
+    jsonEditFetchRequestFn(true, jsonq, ...args);
 }
 
-function jsonlEditXhrResponseFn(trusted, jsonq = '') {
+function jsonEditFetchRequestFn(trusted, jsonq = '') {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix(
-        `${trusted ? 'trusted-' : ''}jsonl-edit-xhr-response`,
+        `${trusted ? 'trusted-' : ''}json-edit-fetch-request`,
         jsonq
     );
-    const xhrInstances = new WeakMap();
     const jsonp = JSONPath.create(jsonq);
     if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
         return safe.uboLog(logPrefix, 'Bad JSONPath query');
     }
     const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
     const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
-    self.XMLHttpRequest = class extends self.XMLHttpRequest {
-        open(method, url, ...args) {
-            const xhrDetails = { method, url };
-            const matched = propNeedles.size === 0 ||
-                matchObjectPropertiesFn(propNeedles, xhrDetails);
-            if ( matched ) {
-                if ( safe.logLevel > 1 && Array.isArray(matched) ) {
-                    safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
+    const filterBody = body => {
+        if ( typeof body !== 'string' ) { return; }
+        let data;
+        try { data = safe.JSON_parse(body); }
+        catch { }
+        if ( data instanceof Object === false ) { return; }
+        const objAfter = jsonp.apply(data);
+        if ( objAfter === undefined ) { return; }
+        return safe.JSON_stringify(objAfter);
+    }
+    const proxyHandler = context => {
+        const args = context.callArgs;
+        const [ resource, options ] = args;
+        const bodyBefore = options?.body;
+        if ( Boolean(bodyBefore) === false ) { return context.reflect(); }
+        const bodyAfter = filterBody(bodyBefore);
+        if ( bodyAfter === undefined || bodyAfter === bodyBefore ) {
+            return context.reflect();
+        }
+        if ( propNeedles.size !== 0 ) {
+            const objs = [
+                resource instanceof Object ? resource : { url: `${resource}` }
+            ];
+            if ( objs[0] instanceof Request ) {
+                try {
+                    objs[0] = safe.Request_clone.call(objs[0]);
+                } catch(ex) {
+                    safe.uboErr(logPrefix, 'Error:', ex);
                 }
-                xhrInstances.set(this, xhrDetails);
             }
-            return super.open(method, url, ...args);
+            const matched = matchObjectPropertiesFn(propNeedles, ...objs);
+            if ( matched === undefined ) { return context.reflect(); }
+            if ( safe.logLevel > 1 ) {
+                safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
+            }
         }
-        get response() {
-            const innerResponse = super.response;
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined ) {
-                return innerResponse;
-            }
-            const responseLength = typeof innerResponse === 'string'
-                ? innerResponse.length
-                : undefined;
-            if ( xhrDetails.lastResponseLength !== responseLength ) {
-                xhrDetails.response = undefined;
-                xhrDetails.lastResponseLength = responseLength;
-            }
-            if ( xhrDetails.response !== undefined ) {
-                return xhrDetails.response;
-            }
-            if ( typeof innerResponse !== 'string' ) {
-                return (xhrDetails.response = innerResponse);
-            }
-            const outerResponse = jsonlEditFn(jsonp, innerResponse);
-            if ( outerResponse !== innerResponse ) {
-                safe.uboLog(logPrefix, 'Pruned');
-            }
-            return (xhrDetails.response = outerResponse);
+        safe.uboLog(logPrefix, 'Edited');
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `After edit:\n${bodyAfter}`);
         }
-        get responseText() {
-            const response = this.response;
-            return typeof response !== 'string'
-                ? super.responseText
-                : response;
-        }
+        options.body = bodyAfter;
+        return context.reflect();
     };
+    proxyApplyFn('fetch', proxyHandler);
+    proxyApplyFn('Request', proxyHandler);
 }
 
 class JSONPath {
@@ -542,29 +541,6 @@ class JSONPath {
     }
 }
 
-function jsonlEditFn(jsonp, text = '') {
-    const safe = safeSelf();
-    const lineSeparator = /\r?\n/.exec(text)?.[0] || '\n';
-    const linesBefore = text.split('\n');
-    const linesAfter = [];
-    for ( const lineBefore of linesBefore ) {
-        let obj;
-        try { obj = safe.JSON_parse(lineBefore); } catch { }
-        if ( typeof obj !== 'object' || obj === null ) {
-            linesAfter.push(lineBefore);
-            continue;
-        }
-        const objAfter = jsonp.apply(obj);
-        if ( objAfter === undefined ) {
-            linesAfter.push(lineBefore);
-            continue;
-        }
-        const lineAfter = safe.JSON_stringify(objAfter);
-        linesAfter.push(lineAfter);
-    }
-    return linesAfter.join(lineSeparator);
-}
-
 function matchObjectPropertiesFn(propNeedles, ...objs) {
     const safe = safeSelf();
     const matched = [];
@@ -604,6 +580,91 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
         }
     }
     return needles;
+}
+
+function proxyApplyFn(
+    target = '',
+    handler = ''
+) {
+    let context = globalThis;
+    let prop = target;
+    for (;;) {
+        const pos = prop.indexOf('.');
+        if ( pos === -1 ) { break; }
+        context = context[prop.slice(0, pos)];
+        if ( context instanceof Object === false ) { return; }
+        prop = prop.slice(pos+1);
+    }
+    const fn = context[prop];
+    if ( typeof fn !== 'function' ) { return; }
+    if ( proxyApplyFn.CtorContext === undefined ) {
+        proxyApplyFn.ctorContexts = [];
+        proxyApplyFn.CtorContext = class {
+            constructor(...args) {
+                this.init(...args);
+            }
+            init(callFn, callArgs) {
+                this.callFn = callFn;
+                this.callArgs = callArgs;
+                return this;
+            }
+            reflect() {
+                const r = Reflect.construct(this.callFn, this.callArgs);
+                this.callFn = this.callArgs = this.private = undefined;
+                proxyApplyFn.ctorContexts.push(this);
+                return r;
+            }
+            static factory(...args) {
+                return proxyApplyFn.ctorContexts.length !== 0
+                    ? proxyApplyFn.ctorContexts.pop().init(...args)
+                    : new proxyApplyFn.CtorContext(...args);
+            }
+        };
+        proxyApplyFn.applyContexts = [];
+        proxyApplyFn.ApplyContext = class {
+            constructor(...args) {
+                this.init(...args);
+            }
+            init(callFn, thisArg, callArgs) {
+                this.callFn = callFn;
+                this.thisArg = thisArg;
+                this.callArgs = callArgs;
+                return this;
+            }
+            reflect() {
+                const r = Reflect.apply(this.callFn, this.thisArg, this.callArgs);
+                this.callFn = this.thisArg = this.callArgs = this.private = undefined;
+                proxyApplyFn.applyContexts.push(this);
+                return r;
+            }
+            static factory(...args) {
+                return proxyApplyFn.applyContexts.length !== 0
+                    ? proxyApplyFn.applyContexts.pop().init(...args)
+                    : new proxyApplyFn.ApplyContext(...args);
+            }
+        };
+        proxyApplyFn.isCtor = new Map();
+    }
+    if ( proxyApplyFn.isCtor.has(target) === false ) {
+        proxyApplyFn.isCtor.set(target, fn.prototype?.constructor === fn);
+    }
+    const fnStr = fn.toString();
+    const toString = (function toString() { return fnStr; }).bind(null);
+    const proxyDetails = {
+        apply(target, thisArg, args) {
+            return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
+        },
+        get(target, prop) {
+            if ( prop === 'toString' ) { return toString; }
+            return Reflect.get(target, prop);
+        },
+    };
+    if ( proxyApplyFn.isCtor.get(target) ) {
+        proxyDetails.construct = function(target, args) {
+            return handler(proxyApplyFn.CtorContext.factory(target, args));
+        };
+    }
+    context[prop] = new Proxy(fn, proxyDetails);
 }
 
 function safeSelf() {
@@ -799,8 +860,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [[".b","propsToMatch","/sample.jsonl"]];
-const hostnamesMap = new Map([["ublockorigin.github.io",0],["localhost",0]]);
+const argsList = [["..client[?.clientScreen==\"WATCH\"].clientScreen=\"CHANNEL\"","propsToMatch","/\\/(player|get_watch)/"]];
+const hostnamesMap = new Map([["www.youtube.com",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -868,7 +929,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { jsonlEditXhrResponse(...argsList[i]); }
+    try { trustedJsonEditFetchRequest(...argsList[i]); }
     catch { }
 }
 

@@ -913,6 +913,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["aniplustv.com"],"urlFilter":"||api.aniplustv.com:3100/geoip"},"id":912,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||shana.pe.kr/shana_check/scp*.js"},"id":913,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["srank.kr"],"resourceTypes":["script"],"urlFilter":"||www3.doubleclick.net^"},"id":914,"priority":11},
-{"action":{"type":"block"},"condition":{"urlFilter":"/ad-manager.min.js^"},"id":915,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||aproxy-vast.wavve.com/*/v/*_ad_*/req/"},"id":916,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.wishket.com/yozmit_ad/ad_image/"},"id":915,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||aproxy-vast.wavve.com/*/v/*_ad_*/req/"},"id":916,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||cokcok.stream/public/vast.php"},"id":917,"priority":10}
 ]

@@ -26,126 +26,193 @@
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_spoofCSS() {
+(function uBOL_setConstant() {
 
 /******************************************************************************/
 
-function spoofCSS(
-    selector,
+function setConstant(
     ...args
 ) {
-    if ( typeof selector !== 'string' ) { return; }
-    if ( selector === '' ) { return; }
-    const toCamelCase = s => s.replace(/-[a-z]/g, s => s.charAt(1).toUpperCase());
-    const propToValueMap = new Map();
-    const privatePropToValueMap = new Map();
-    for ( let i = 0; i < args.length; i += 2 ) {
-        const prop = toCamelCase(args[i+0]);
-        if ( prop === '' ) { break; }
-        const value = args[i+1];
-        if ( typeof value !== 'string' ) { break; }
-        if ( prop.charCodeAt(0) === 0x5F /* _ */ ) {
-            privatePropToValueMap.set(prop, value);
-        } else {
-            propToValueMap.set(prop, value);
-        }
-    }
+    setConstantFn(false, ...args);
+}
+
+function setConstantFn(
+    trusted = false,
+    chain = '',
+    rawValue = ''
+) {
+    if ( chain === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('spoof-css', selector, ...args);
-    const instanceProperties = [ 'cssText', 'length', 'parentRule' ];
-    const spoofStyle = (prop, real) => {
-        const normalProp = toCamelCase(prop);
-        const shouldSpoof = propToValueMap.has(normalProp);
-        const value = shouldSpoof ? propToValueMap.get(normalProp) : real;
-        if ( shouldSpoof ) {
-            safe.uboLog(logPrefix, `Spoofing ${prop} to ${value}`);
-        }
-        return value;
-    };
-    const cloackFunc = (fn, thisArg, name) => {
-        const trap = fn.bind(thisArg);
-        Object.defineProperty(trap, 'name', { value: name });
-        Object.defineProperty(trap, 'toString', {
-            value: ( ) => `function ${name}() { [native code] }`
-        });
-        return trap;
-    };
-    self.getComputedStyle = new Proxy(self.getComputedStyle, {
-        apply: function(target, thisArg, args) {
-            // eslint-disable-next-line no-debugger
-            if ( privatePropToValueMap.has('_debug') ) { debugger; }
-            const style = Reflect.apply(target, thisArg, args);
-            const targetElements = new WeakSet(document.querySelectorAll(selector));
-            if ( targetElements.has(args[0]) === false ) { return style; }
-            const proxiedStyle = new Proxy(style, {
-                get(target, prop) {
-                    if ( typeof target[prop] === 'function' ) {
-                        if ( prop === 'getPropertyValue' ) {
-                            return cloackFunc(function getPropertyValue(prop) {
-                                return spoofStyle(prop, target[prop]);
-                            }, target, 'getPropertyValue');
-                        }
-                        return cloackFunc(target[prop], target, prop);
+    const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    function setConstant(chain, rawValue) {
+        const trappedProp = (( ) => {
+            const pos = chain.lastIndexOf('.');
+            if ( pos === -1 ) { return chain; }
+            return chain.slice(pos+1);
+        })();
+        const cloakFunc = fn => {
+            safe.Object_defineProperty(fn, 'name', { value: trappedProp });
+            return new Proxy(fn, {
+                defineProperty(target, prop) {
+                    if ( prop !== 'toString' ) {
+                        return Reflect.defineProperty(...arguments);
                     }
-                    if ( instanceProperties.includes(prop) ) {
-                        return Reflect.get(target, prop);
-                    }
-                    return spoofStyle(prop, Reflect.get(target, prop));
+                    return true;
                 },
-                getOwnPropertyDescriptor(target, prop) {
-                    if ( propToValueMap.has(prop) ) {
-                        return {
-                            configurable: true,
-                            enumerable: true,
-                            value: propToValueMap.get(prop),
-                            writable: true,
-                        };
+                deleteProperty(target, prop) {
+                    if ( prop !== 'toString' ) {
+                        return Reflect.deleteProperty(...arguments);
                     }
-                    return Reflect.getOwnPropertyDescriptor(target, prop);
+                    return true;
+                },
+                get(target, prop) {
+                    if ( prop === 'toString' ) {
+                        return function() {
+                            return `function ${trappedProp}() { [native code] }`;
+                        }.bind(null);
+                    }
+                    return Reflect.get(...arguments);
                 },
             });
-            return proxiedStyle;
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) {
-                return target.toString.bind(target);
+        };
+        if ( trappedProp === '' ) { return; }
+        const thisScript = document.currentScript;
+        let normalValue = validateConstantFn(trusted, rawValue, extraArgs);
+        if ( rawValue === 'noopFunc' || rawValue === 'trueFunc' || rawValue === 'falseFunc' ) {
+            normalValue = cloakFunc(normalValue);
+        }
+        let aborted = false;
+        const mustAbort = function(v) {
+            if ( trusted ) { return false; }
+            if ( aborted ) { return true; }
+            aborted =
+                (v !== undefined && v !== null) &&
+                (normalValue !== undefined && normalValue !== null) &&
+                (typeof v !== typeof normalValue);
+            if ( aborted ) {
+                safe.uboLog(logPrefix, `Aborted because value set to ${v}`);
             }
-            return Reflect.get(target, prop);
-        },
-    });
-    Element.prototype.getBoundingClientRect = new Proxy(Element.prototype.getBoundingClientRect, {
-        apply: function(target, thisArg, args) {
-            // eslint-disable-next-line no-debugger
-            if ( privatePropToValueMap.has('_debug') ) { debugger; }
-            const rect = Reflect.apply(target, thisArg, args);
-            const targetElements = new WeakSet(document.querySelectorAll(selector));
-            if ( targetElements.has(thisArg) === false ) { return rect; }
-            let { x, y, height, width } = rect;
-            if ( privatePropToValueMap.has('_rectx') ) {
-                x = parseFloat(privatePropToValueMap.get('_rectx'));
+            return aborted;
+        };
+        // https://github.com/uBlockOrigin/uBlock-issues/issues/156
+        //   Support multiple trappers for the same property.
+        const trapProp = function(owner, prop, configurable, handler) {
+            if ( handler.init(configurable ? owner[prop] : normalValue) === false ) { return; }
+            const odesc = safe.Object_getOwnPropertyDescriptor(owner, prop);
+            let prevGetter, prevSetter;
+            if ( odesc instanceof safe.Object ) {
+                owner[prop] = normalValue;
+                if ( odesc.get instanceof Function ) {
+                    prevGetter = odesc.get;
+                }
+                if ( odesc.set instanceof Function ) {
+                    prevSetter = odesc.set;
+                }
             }
-            if ( privatePropToValueMap.has('_recty') ) {
-                y = parseFloat(privatePropToValueMap.get('_recty'));
+            try {
+                safe.Object_defineProperty(owner, prop, {
+                    configurable,
+                    get() {
+                        if ( prevGetter !== undefined ) {
+                            prevGetter();
+                        }
+                        return handler.getter();
+                    },
+                    set(a) {
+                        if ( prevSetter !== undefined ) {
+                            prevSetter(a);
+                        }
+                        handler.setter(a);
+                    }
+                });
+                safe.uboLog(logPrefix, 'Trap installed');
+            } catch(ex) {
+                safe.uboErr(logPrefix, ex);
             }
-            if ( privatePropToValueMap.has('_rectw') ) {
-                width = parseFloat(privatePropToValueMap.get('_rectw'));
-            } else if ( propToValueMap.has('width') ) {
-                width = parseFloat(propToValueMap.get('width'));
+        };
+        const trapChain = function(owner, chain) {
+            const pos = chain.indexOf('.');
+            if ( pos === -1 ) {
+                trapProp(owner, chain, false, {
+                    v: undefined,
+                    init: function(v) {
+                        if ( mustAbort(v) ) { return false; }
+                        this.v = v;
+                        return true;
+                    },
+                    getter: function() {
+                        if ( document.currentScript === thisScript ) {
+                            return this.v;
+                        }
+                        safe.uboLog(logPrefix, 'Property read');
+                        return normalValue;
+                    },
+                    setter: function(a) {
+                        if ( mustAbort(a) === false ) { return; }
+                        normalValue = a;
+                    }
+                });
+                return;
             }
-            if ( privatePropToValueMap.has('_recth') ) {
-                height = parseFloat(privatePropToValueMap.get('_recth'));
-            } else if ( propToValueMap.has('height') ) {
-                height = parseFloat(propToValueMap.get('height'));
+            const prop = chain.slice(0, pos);
+            const v = owner[prop];
+            chain = chain.slice(pos + 1);
+            if ( v instanceof safe.Object || typeof v === 'object' && v !== null ) {
+                trapChain(v, chain);
+                return;
             }
-            return new self.DOMRect(x, y, width, height);
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) {
-                return target.toString.bind(target);
-            }
-            return Reflect.get(target, prop);
-        },
-    });
+            trapProp(owner, prop, true, {
+                v: undefined,
+                init: function(v) {
+                    this.v = v;
+                    return true;
+                },
+                getter: function() {
+                    return this.v;
+                },
+                setter: function(a) {
+                    this.v = a;
+                    if ( a instanceof safe.Object ) {
+                        trapChain(a, chain);
+                    }
+                }
+            });
+        };
+        trapChain(window, chain);
+    }
+    runAt(( ) => {
+        setConstant(chain, rawValue);
+    }, extraArgs.runAt);
+}
+
+function runAt(fn, when) {
+    const intFromReadyState = state => {
+        const targets = {
+            'loading': 1, 'asap': 1,
+            'interactive': 2, 'end': 2, '2': 2,
+            'complete': 3, 'idle': 3, '3': 3,
+        };
+        const tokens = Array.isArray(state) ? state : [ state ];
+        for ( const token of tokens ) {
+            const prop = `${token}`;
+            if ( Object.hasOwn(targets, prop) === false ) { continue; }
+            return targets[prop];
+        }
+        return 0;
+    };
+    const runAt = intFromReadyState(when);
+    if ( intFromReadyState(document.readyState) >= runAt ) {
+        fn(); return;
+    }
+    const onStateChange = ( ) => {
+        if ( intFromReadyState(document.readyState) < runAt ) { return; }
+        fn();
+        safe.removeEventListener.apply(document, args);
+    };
+    const safe = safeSelf();
+    const args = [ 'readystatechange', onStateChange, { capture: true } ];
+    safe.addEventListener.apply(document, args);
 }
 
 function safeSelf() {
@@ -338,10 +405,62 @@ function safeSelf() {
     return safe;
 }
 
+function validateConstantFn(trusted, raw, extraArgs = {}) {
+    const safe = safeSelf();
+    let value;
+    if ( raw === 'undefined' ) {
+        value = undefined;
+    } else if ( raw === 'false' ) {
+        value = false;
+    } else if ( raw === 'true' ) {
+        value = true;
+    } else if ( raw === 'null' ) {
+        value = null;
+    } else if ( raw === "''" || raw === '' ) {
+        value = '';
+    } else if ( raw === '[]' || raw === 'emptyArr' ) {
+        value = [];
+    } else if ( raw === '{}' || raw === 'emptyObj' ) {
+        value = {};
+    } else if ( raw === 'noopFunc' ) {
+        value = function(){};
+    } else if ( raw === 'trueFunc' ) {
+        value = function(){ return true; };
+    } else if ( raw === 'falseFunc' ) {
+        value = function(){ return false; };
+    } else if ( raw === 'throwFunc' ) {
+        value = function(){ throw ''; };
+    } else if ( /^-?\d+$/.test(raw) ) {
+        value = parseInt(raw);
+        if ( isNaN(raw) ) { return; }
+        if ( Math.abs(raw) > 0x7FFF ) { return; }
+    } else if ( trusted ) {
+        if ( raw.startsWith('json:') ) {
+            try { value = safe.JSON_parse(raw.slice(5)); } catch { return; }
+        } else if ( raw.startsWith('{') && raw.endsWith('}') ) {
+            try { value = safe.JSON_parse(raw).value; } catch { return; }
+        }
+    } else {
+        return;
+    }
+    if ( extraArgs.as !== undefined ) {
+        if ( extraArgs.as === 'function' ) {
+            return ( ) => value;
+        } else if ( extraArgs.as === 'callback' ) {
+            return ( ) => (( ) => value);
+        } else if ( extraArgs.as === 'resolved' ) {
+            return Promise.resolve(value);
+        } else if ( extraArgs.as === 'rejected' ) {
+            return Promise.reject(value);
+        }
+    }
+    return value;
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["#prg","x","x","_recty","300"]];
+const argsList = [["setnp","0"]];
 const hostnamesMap = new Map([["telsu.fi",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
@@ -410,7 +529,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { spoofCSS(...argsList[i]); }
+    try { setConstant(...argsList[i]); }
     catch { }
 }
 

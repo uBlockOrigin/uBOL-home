@@ -37,7 +37,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/usahaberhasil.gif|"},"id":36,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||angel.exabytes.com.my/banners/"},"id":37,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["139.99.33.192","anoboy.org","anoboy.watch","cinema81.net","drakorindo.asia","drakorindo.com","drakorindo.pro","drakorindo.tv","drakorindofilms.net","duniasex.ws","filmku.net","idkomik.com","kazefuri.me","kazefuri.web.id","kombatch.com","komikcast.com","layarkeren.com","lk21id.com","mangaindo.net","movie303.com","nekopoi.care","neonime.com","neonime.net","nonton33.com","nonton33.net","nontonfilm21.club","nontonin.co","oploverz.in","otakudesu.info","smallencode.com","zonabola.com"],"resourceTypes":["image"],"urlFilter":"||bp.blogspot.com/*.gif"},"id":38,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["149.56.24.226","15.235.11.45","anichin.watch","bgibola.com","bioskopkerenin.org","hrv.okestream365.xyz","kiryuu.org","lk21official.biz","lk21official.live","lk21official.org","mangakita.id","movieajip.online","movieku.fit","nomat.top","nontonfilmgratis.club","okestream.us","okestreamtv.com","oploverz.best","oploverz.love","shinigami09.com"],"resourceTypes":["image"],"urlFilter":".gif"},"id":39,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["149.56.24.226","15.235.11.45","198.105.112.57","45.11.57.243","anichin.watch","bgibola.com","bioskopkerenin.org","hrv.okestream365.xyz","kiryuu.org","lk21official.biz","lk21official.live","lk21official.org","mangakita.id","movieajip.online","movieku.fit","nomat.top","nontonfilmgratis.club","okestream.us","okestreamtv.com","oploverz.best","oploverz.love","shinigami09.com"],"resourceTypes":["image"],"urlFilter":".gif"},"id":39,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||anoboy.media/img/*.gif"},"id":40,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||api.winnetnews.com/api/*/banner/"},"id":41,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||armylookfashion.com/728.swf"},"id":42,"priority":10},
@@ -3144,5 +3144,9 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/toto-togel-"},"id":3143,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"/bandarxl."},"id":3144,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"/mansion77ku."},"id":3145,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["sokuja.uk"],"resourceTypes":["image"],"urlFilter":"||rumahdealer.com/wp-content/uploads/2025/09/*.gif"},"id":3146,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["sokuja.uk"],"resourceTypes":["image"],"urlFilter":"||rumahdealer.com/wp-content/uploads/2025/09/*.gif"},"id":3146,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["atlantaelectronics.co.id"],"resourceTypes":["script"],"urlFilter":"||pages.dev^"},"id":3147,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/klikfifa-"},"id":3148,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/pakarwin-"},"id":3149,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/saldobet-"},"id":3150,"priority":10}
 ]
