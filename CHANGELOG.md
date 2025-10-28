@@ -1,3 +1,9 @@
+- Updated filter lists
+
+----------
+
+### 2025.1019.1656
+
 - [Automatically select optimal for newly allowed hosts](https://github.com/gorhill/uBlock/commit/511255f7c7)
 - Updated filter lists
 
