@@ -1,3 +1,4 @@
+- [Remove "Custom filters" pane when `picker` is forbidden](https://github.com/gorhill/uBlock/commit/9849b5f0b1)
 - Updated filter lists
 
 ----------
