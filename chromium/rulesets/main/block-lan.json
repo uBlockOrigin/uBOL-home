@@ -237,5 +237,21 @@
  },
  "id": 9,
  "priority": 10
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "entra.microsoft.com"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "||login.microsoftonline.com/*/oauth2/"
+ },
+ "id": 10,
+ "priority": 30
 }
 ]
