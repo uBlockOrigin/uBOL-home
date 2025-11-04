@@ -32,22 +32,19 @@ function voidFunc() {
 
 /******************************************************************************/
 
-async function getSecrets() {
-    const homeDir = os.homedir();
-    let currentDir = process.cwd();
-    let fileName = '';
-    for (;;) {
-        fileName = `${currentDir}/ubo_secrets`;
-        const stat = await fs.stat(fileName).catch(voidFunc);
-        if ( stat !== undefined ) { break; }
-        currentDir = path.resolve(currentDir, '..');
-        if ( currentDir.startsWith(homeDir) === false ) { return; }
+async function getSecret(name) {
+    if ( secrets[name] === undefined ) {
+        const platform = await shellExec(`uname -o`);
+        if ( platform === 'Linux' ) {
+            secrets[name] = await shellExec(`secret-tool lookup token ${name}`);
+        } else if ( platform === 'Darwin' ) {
+            secrets[name] = await shellExec(`security find-generic-password -w -s "${name}" -a "publish-extension"`);
+        }
     }
-    console.log(`Found secrets in ${fileName}`);
-    const text = await fs.readFile(fileName, { encoding: 'utf8' }).catch(voidFunc);
-    const secrets = JSON.parse(text);
-    return secrets;
+    return secrets[name];
 }
+
+const secrets = {};
 
 /******************************************************************************/
 
@@ -99,7 +96,7 @@ async function downloadAssetFromRelease(assetInfo) {
     console.log(`Fetching ${assetURL}`);
     const request = new Request(assetURL, {
         headers: {
-            Authorization: secrets.githubAuth,
+            Authorization: githubAuth,
             Accept: 'application/octet-stream',
         },
     });
@@ -194,6 +191,7 @@ async function patchXcodeVersion(manifest, xcprojPath) {
 
 async function shellExec(text) {
     let command = '';
+    let r;
     for ( const line of text.split(/[\n\r]+/) ) {
         command += line.trimEnd();
         if ( command.endsWith('\\') ) {
@@ -202,9 +200,10 @@ async function shellExec(text) {
         }
         command = command.trim();
         if ( command === '' ) { continue; }
-        execSync(command);
+        r = execSync(command, { encoding: 'utf8' });
         command = '';
     }
+    return r?.trim();
 }
 
 /******************************************************************************/
@@ -228,16 +227,15 @@ const commandLineArgs = (( ) => {
 
 /******************************************************************************/
 
-const secrets = await getSecrets();
 const githubOwner = commandLineArgs.ghowner || 'uBlockOrigin';
 const githubRepo = commandLineArgs.ghrepo || 'uBOL-home';
-const githubAuth = `Bearer ${secrets.github_token}`;
+const githubToken = await getSecret('github_token');
+const githubAuth = `Bearer ${githubToken}`;
 const githubTag = commandLineArgs.ghtag;
 const localRepoRoot = await getRepoRoot() || '';
 const githubAsset = commandLineArgs.asset || 'safari';
 
 async function main() {
-    if ( secrets === undefined ) { return 'Need secrets'; }
     if ( githubOwner === '' ) { return 'Need GitHub owner'; }
     if ( githubRepo === '' ) { return 'Need GitHub repo'; }
     if ( localRepoRoot === '' ) { return 'Need local repo root'; }
