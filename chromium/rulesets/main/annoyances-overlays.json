@@ -316,5 +316,6 @@
 {"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"style-src 'self' *"}],"type":"modifyHeaders"},"condition":{"resourceTypes":["main_frame","sub_frame"],"urlFilter":"||oggiscuola.com^"},"id":315},
 {"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"style-src *;script-src *"}],"type":"modifyHeaders"},"condition":{"resourceTypes":["main_frame","sub_frame"],"urlFilter":"||digitalsynopsis.com^"},"id":316},
 {"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"script-src * 'unsafe-eval' 'unsafe-inline'"}],"type":"modifyHeaders"},"condition":{"resourceTypes":["main_frame","sub_frame"],"urlFilter":"||articlesmania.me^"},"id":317},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["player.real.gr"],"resourceTypes":["script"],"urlFilter":"||assets.mailerlite.com/js/universal.js"},"id":318,"priority":30}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["player.real.gr"],"resourceTypes":["script"],"urlFilter":"||assets.mailerlite.com/js/universal.js"},"id":318,"priority":30},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||nichepcgamer.com/wp-content/themes/luxeritas/js/dragscroll.min.js"},"id":319,"priority":10}
 ]

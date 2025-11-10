@@ -244,7 +244,9 @@
  },
  "condition": {
   "initiatorDomains": [
-   "entra.microsoft.com"
+   "azure.com",
+   "entra.microsoft.com",
+   "m365.cloud.microsoft"
   ],
   "resourceTypes": [
    "xmlhttprequest"

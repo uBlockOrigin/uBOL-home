@@ -920,5 +920,8 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||json*.dcinside.com/json*/notify_ad.php"},"id":919,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||gall.dcinside.com/_js/ad.js"},"id":920,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||gall.dcinside.com/_js/ad_context_powlink.js"},"id":921,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||filetad.tygem.com/updata/banner/"},"id":922,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||filetad.tygem.com/updata/banner/"},"id":922,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||asked.kr/pclickframe/"},"id":923,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||myrealtrip.com/ad/"},"id":924,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||trip.com/restapi/soa2/*/bjjson/queryadsdisplaydata"},"id":925,"priority":10}
 ]

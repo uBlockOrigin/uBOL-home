@@ -1195,5 +1195,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||buski.gov.tr/files/adverts/"},"id":1194,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"exitlinktr.com/img/*x*.gif"},"id":1195,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||img7.mynet.com.tr/banners/*/*.gif"},"id":1196,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||diziwatch.tv/assets/js/pop.js"},"id":1197,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||diziwatch.tv/assets/js/pop.js"},"id":1197,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||blogger.googleusercontent.com/img/*/reklambanner.png"},"id":1198,"priority":10}
 ]

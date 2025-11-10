@@ -43,7 +43,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["defensetimes.kr"],"regexFilter":"^https?:\\/\\/(www\\.)?defensetimes\\.kr\\/imgs\\/[A-z_]+[0-9]+x[0-9]+\\."},"id":42,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["thesingle.co.kr"],"regexFilter":"^https:\\/\\/tbc\\.imgdl\\.xcache\\.kinxcdn\\.com\\/cdn[0-9]{3}\\/[0-9]{8}\\/[0-9%A-z_]+\\([0-9]{3,4}x[0-9]{3,4}\\)"},"id":43,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["tf.co.kr"],"regexFilter":"^https?:\\/\\/img\\.tf\\.co\\.kr\\/ss\\/[0-9]{4}\\/fns\\/ads_"},"id":44,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["coolenjoy.net"],"regexFilter":"^https:\\/\\/coolenjoy\\.net\\/data\\/editor\\/[0-9]{4}\\/[0-9]{14}_[a-z]{8}\\."},"id":45,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["coolenjoy.net"],"regexFilter":"^https:\\/\\/photo\\.coolenjoy\\.(net|co\\.kr)\\/data\\/editor\\/[0-9]{4}\\/[0-9]{14}_[a-z0-9]{32}_[a-z0-9]{4}\\."},"id":45,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ombudsmannews.com"],"regexFilter":"^https?:\\/\\/www\\.ombudsmannews\\.com\\/default\\/image\\/[a-z]+\\.gif"},"id":46,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["0db.co.kr"],"regexFilter":"^https:\\/\\/(www\\.)?0db\\.co\\.kr\\/files\\/attach\\/images\\/[0-9]{5}\\/[a-z0-9]{32}\\.jpg$"},"id":47,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["e-himart.co.kr"],"regexFilter":"^https:\\/\\/static[0-9]\\.e-himart\\.co\\.kr\\/contents\\/content\\/display\\/cornerContents\\/imageBanner\\/[0-9]{3}\\/imageBanner_"},"id":48,"priority":10},

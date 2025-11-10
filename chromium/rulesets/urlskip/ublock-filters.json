@@ -175,6 +175,12 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?ad2\\.trafficgate\\.net/t/r/\\S*?/-/https:",
+  "steps": [
+   "/(https.*?)//"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?anylinks\\.in/full\\S*?(?:[^%.0-9a-z_-]|$)url=ahr0c",
   "steps": [
    "?url",

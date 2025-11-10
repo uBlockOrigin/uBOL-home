@@ -1509,6 +1509,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["gofeminin.de"],"urlFilter":"||googletagservices.com/tag/js/gpt.js"},"id":1508,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["autobild.de"],"urlFilter":"||plista.com/pictureads/"},"id":1509,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ww3.cad.de"],"urlFilter":"||149.13.77.20^"},"id":1510,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["jetzt.de","sueddeutsche.de"],"urlFilter":"||adspirit.de/adasync.min.js"},"id":1511,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["zentrum-der-gesundheit.de"],"urlFilter":"||a2.zdg.de^"},"id":1512,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||cdn.daydeal.ch/xml/daydeal/"},"id":1513,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["imasdk.googleapis.com"],"requestDomains":["smartstream.tv","spotxchange.com"]},"id":1514,"priority":10},
@@ -1754,6 +1755,8 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["rewe.de"],"resourceTypes":["script"],"urlFilter":"||adform.net/stoat/*/s1.adform.net/load/"},"id":1754,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["gentside.de","ohmymag.de"],"resourceTypes":["script"],"urlFilter":"||adsafeprotected.com/iaspet."},"id":1755,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["gamestar.de","moviepilot.de"],"resourceTypes":["script"],"urlFilter":"||amazon-adsystem.com/aax2/apstag.js"},"id":1756,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["jetzt.de","sueddeutsche.de"],"urlFilter":"||adspirit.de/banner/"},"id":1757,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["sueddeutsche.de"],"resourceTypes":["script"],"urlFilter":"||adspirit.de/adscript.php"},"id":1758,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["11freunde.de","brigitte.de","eltern.de","n-tv.de","stern.de"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||g.doubleclick.net/gampad/ads?"},"id":1763,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["teltarif.de"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||g.doubleclick.net/gampad/ads?*&iu_parts=21917048853%2ctargetlink%2cbill-%2cleaderboard%2cmedium-rectangle%2cskyscraper%2chalfpage%2cshop%2chalfpagelo%2caffiplatzierung&"},"id":1764,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["teltarif.de"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||g.doubleclick.net/gampad/ads?*&iu_parts=27763518%3a21917048853%2cteltarif-de_onlineverlag_gmbh%2cteltarif.de%2cparallax%2chalfpagelu%2chalfpageru%2cnavisky&"},"id":1765,"priority":30},
@@ -1807,7 +1810,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["onvista.de"],"urlFilter":"||bf-ad.net/bcn-id/bcnid.min.js"},"id":1813,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["fitbook.de","petbook.de","welt.de"],"urlFilter":"||g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js"},"id":1814,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["brigitte.de","eltern.de","fitbook.de","geo.de","petbook.de","welt.de"],"urlFilter":"||g.doubleclick.net/tag/js/gpt.js"},"id":1815,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["jetzt.de"],"urlFilter":"||cdn.adspirit.de/adasync.min.js"},"id":1816,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["manager-magazin.de"],"resourceTypes":["script"],"urlFilter":"/iqadcontroller."},"id":1817,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de","gamepro.de","gamestar.de","manager-magazin.de","motorradonline.de","teltarif.de"],"resourceTypes":["script"],"urlFilter":"||g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js"},"id":1818,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["auto-motor-und-sport.de","gala.de","gamepro.de","gamestar.de","geo.de","manager-magazin.de","motorradonline.de","moviepilot.de","spiegel.de"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||g.doubleclick.net/gampad/ads?"},"id":1819,"priority":30},
@@ -1822,6 +1824,5 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||mein-klagenfurt.at/fileadmin/banner/"},"id":1828,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||holidaycheck.*/campaigns/"},"id":1829,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||preispirat.ch^*/today-offer/"},"id":1830,"priority":10},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["jetzt.de"],"urlFilter":"||cdn.adspirit.de/banner/szdm/"},"id":1831,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["jetzt.de"],"urlFilter":"||szdm.adspirit.de/adscript.php?"},"id":1832,"priority":30}
 ]

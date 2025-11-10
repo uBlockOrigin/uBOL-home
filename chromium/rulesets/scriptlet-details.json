@@ -252,15 +252,6 @@
     }
    ],
    [
-    "abort-on-stack-trace",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
     "trusted-create-html",
     {
      "hostnames": [
@@ -291,6 +282,23 @@
     }
    ],
    [
+    "prevent-requestAnimationFrame",
+    {
+     "hostnames": [
+      "cimanow.cc",
+      "elconfidencial.com",
+      "freex2line.online",
+      "journaldemontreal.com",
+      "needrom.com",
+      "news.bg",
+      "pussyspace.com",
+      "pussyspace.net",
+      "th.gl"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "abort-on-property-read",
     {
      "hostnames": [
@@ -301,6 +309,15 @@
    ],
    [
     "adjust-setInterval",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "abort-on-stack-trace",
     {
      "hostnames": [
       "*"
@@ -427,20 +444,6 @@
     {
      "hostnames": [
       "*"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "prevent-requestAnimationFrame",
-    {
-     "hostnames": [
-      "elconfidencial.com",
-      "journaldemontreal.com",
-      "needrom.com",
-      "news.bg",
-      "pussyspace.com",
-      "pussyspace.net"
      ],
      "world": "MAIN"
     }
@@ -858,7 +861,6 @@
       "informazionefiscale.it",
       "inquirer.net",
       "insider-gaming.com",
-      "iwb.jp",
       "knowyourmeme.com",
       "magesypro.pro",
       "makeuseof.com",
@@ -888,6 +890,7 @@
       "thedraftnetwork.com",
       "thefashionspot.com",
       "thegamer.com",
+      "thelayoff.com",
       "thenerdstash.com",
       "titantv.com",
       "topspeed.com",
@@ -2213,6 +2216,15 @@
     }
    ],
    [
+    "set-local-storage-item",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
     "set-session-storage-item",
     {
      "hostnames": [
@@ -2242,15 +2254,6 @@
       "teknokutu.com",
       "threads.com",
       "workwide.de"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
-    "set-local-storage-item",
-    {
-     "hostnames": [
-      "*"
      ],
      "world": "ISOLATED"
     }
@@ -3267,6 +3270,15 @@
    ],
    [
     "trusted-json-edit-xhr-request",
+    {
+     "hostnames": [
+      "www.youtube.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "trusted-json-edit-xhr-response",
     {
      "hostnames": [
       "www.youtube.com"
@@ -4982,6 +4994,7 @@
       "haaretz.co.il",
       "hwzone.co.il",
       "inn.co.il",
+      "isramedia.net",
       "mako.co.il",
       "n12.co.il",
       "one.co.il",
@@ -5156,7 +5169,6 @@
       "game-info.wiki",
       "gigafile.nu",
       "h178.com",
-      "iwb.jp",
       "j-baseball.club",
       "j-basketball.club",
       "j-rugby.club",
@@ -6474,9 +6486,11 @@
     {
      "hostnames": [
       "appleinsider.ru",
+      "booksreed.ru",
       "dtf.ru",
       "dzen.ru",
       "e.mail.ru",
+      "electrobooks.ru",
       "freehat.cc",
       "game4you.top",
       "hot.game",
@@ -6485,11 +6499,15 @@
       "lalapaluza.ru",
       "lifehacker.ru",
       "light.mail.ru",
+      "lit-web.net",
+      "litruso.ru",
       "mail.rambler.ru",
       "mail.yandex.ru",
       "mp3party.net",
+      "my-lib.ru",
       "my.mail.ru",
       "naylo.top",
+      "novkniga.ru",
       "nsportal.ru",
       "octavius.mail.ru",
       "opennet.me",
@@ -6501,6 +6519,7 @@
       "rustorka.net",
       "rustorka.top",
       "rustorkacom.lib",
+      "skanbooks.ru",
       "softoroom.org",
       "stalkermods.ru",
       "vc.ru",
@@ -6510,6 +6529,7 @@
       "vz.ru",
       "wotspeak.org",
       "www.ixbt.com",
+      "x-libri.ru",
       "youtube.com"
      ],
      "world": "ISOLATED"
@@ -6999,6 +7019,15 @@
     }
    ],
    [
+    "remove-class",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
     "set-local-storage-item",
     {
      "hostnames": [
@@ -7012,6 +7041,15 @@
  [
   "spa-1",
   [
+   [
+    "addEventListener-defuser",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
    [
     "set-local-storage-item",
     {
@@ -7072,15 +7110,6 @@
      "hostnames": [
       "manhastro.net",
       "seriesemcena.com.br"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "addEventListener-defuser",
-    {
-     "hostnames": [
-      "*"
      ],
      "world": "MAIN"
     }
@@ -8100,6 +8129,7 @@
     {
      "hostnames": [
       "dizilla40.com",
+      "flatscher.net",
       "yabancidiziio.com"
      ],
      "world": "ISOLATED"
@@ -8193,83 +8223,7 @@
     "abort-current-script",
     {
      "hostnames": [
-      "24tv.ua",
-      "4mama.ua",
-      "4studio.com.ua",
-      "ain.ua",
-      "allboxing.ru",
-      "altyn-orda.kz",
-      "at.ua",
-      "bagnet.org",
-      "cbn.com.ua",
-      "cheline.com.ua",
-      "cikavosti.com",
-      "comments.ua",
-      "dengi.ua",
-      "dv-gazeta.info",
-      "elle.ua",
-      "enovosty.com",
-      "ex-fs.net",
-      "fainaidea.com",
-      "fakty.ua",
-      "freerutor.me",
-      "glavnoe.ua",
-      "glavpost.com",
-      "golos.te.ua",
-      "gorodkiev.com.ua",
-      "grad.ua",
-      "hvylya.net",
-      "isport.ua",
-      "kapital-rus.ru",
-      "kino-fs.ucoz.net",
-      "kino-hd720.net",
-      "kurs.com.ru",
-      "kurs.com.ua",
-      "kursiv.kz",
-      "livekavkaz.ru",
-      "marieclaire.ua",
-      "mignews.com.ua",
-      "mirknig.su",
-      "molbuk.ua",
-      "narod.ru",
-      "news.dks.com.ua",
-      "newsoneua.tv",
-      "newsua.one",
-      "nr2.com.ua",
-      "ogo.ua",
-      "otvetnavse.com",
-      "pingvin.pro",
-      "plitkar.com.ua",
-      "politnavigator.net",
-      "portal.lviv.ua",
-      "prichernomorie.com.ua",
-      "procherk.info",
-      "provce.ck.ua",
-      "redpost.com.ua",
-      "ria-m.tv",
-      "rivnenews.com.ua",
-      "rivnepost.rv.ua",
-      "rusjev.net",
-      "sibkray.ru",
-      "sud.ua",
-      "tele.ru",
-      "telegraf.in.ua",
-      "tenews.org.ua",
-      "teren.in.ua",
-      "times.km.ua",
-      "tverigrad.ru",
-      "unn.com.ua",
-      "versii.if.ua",
-      "viva.ua",
-      "vlast.kz",
-      "volyninfa.com.ua",
-      "vsviti.com.ua",
-      "womanel.com",
-      "womo.ua",
-      "www.i.ua",
-      "zaxid.net",
-      "zik.ua",
-      "zikua.news"
+      "*"
      ],
      "world": "MAIN"
     }
@@ -8438,6 +8392,7 @@
     {
      "hostnames": [
       "10gb.vn",
+      "aacommission.org",
       "abysscdn.com",
       "afamily.vn",
       "animevietsub.show",
@@ -8446,10 +8401,8 @@
       "cafef.vn",
       "cdn4.tiptoe34x1.fun",
       "checkscam.vn",
-      "chelis.co.uk",
       "childish2x1.fun",
       "childish2x2.fun",
-      "cliphot69.pics",
       "cliphot69.shop",
       "cliphubs.com",
       "clipphot.org",
@@ -8486,19 +8439,20 @@
       "lrepacks.net",
       "lxmanga.my",
       "misskon.com",
+      "mochamocha.co.uk",
       "motchilltvphim.com",
       "motphim.pokemonviet.com",
       "nettruyenar.com",
       "nettruyenviet1.com",
+      "newtruyenhot.pro",
       "officelinx.co.uk",
-      "p.thoctv.com",
       "pheclip.vet",
       "phim.haysex.asia",
       "phim18hdxx.com",
       "phim18vip.one",
       "phimlongtieng.net",
       "phimmoi.sale",
-      "phimsexhayvn48.com",
+      "phimsexhayvn55.com",
       "phimtho.cc",
       "player-cdn.com",
       "playhydrax.com",
@@ -8534,14 +8488,43 @@
       "vn5.sexviet88.xyz",
       "vozer.io",
       "vungoctuan.vn",
-      "www.motchill30.com",
+      "www.motchill32.com",
       "www.toptruyentv11.com",
       "www.truyen35zz.com",
       "xem.sexnung3x.com",
       "xnxx-sex-videos.com",
-      "xoilaczzqq.cc",
       "yanhh3d.vip",
       "yurineko.my"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "set-constant",
+    {
+     "hostnames": [
+      "aacommission.org",
+      "abysscdn.com",
+      "afamily.vn",
+      "cafef.vn",
+      "clipsex.cam",
+      "freeplayervideo.com",
+      "gamek.vn",
+      "genk.vn",
+      "hayhaytv.site",
+      "kenh14.vn",
+      "motchillzz.site",
+      "phimvuihd.org",
+      "player-cdn.com",
+      "sexdiaryx.to",
+      "soha.vn",
+      "tailieumoi.vn",
+      "thanhnien.vn",
+      "tuoitre.vn",
+      "vndoc.com",
+      "www.bachnguyetquang.online",
+      "www.gvnvh.net",
+      "www.iosviet.com"
      ],
      "world": "MAIN"
     }
@@ -8587,7 +8570,7 @@
       "tv.tvhayhd.org",
       "ungtycomicsay.com",
       "vinaurl.net",
-      "www.motchill30.com",
+      "www.motchill32.com",
       "www.nettruyenupp.com",
       "www.sieutamphim.pro",
       "xem.sexnung3x.com",
@@ -8604,36 +8587,6 @@
     {
      "hostnames": [
       "baomoi.com"
-     ],
-     "world": "MAIN"
-    }
-   ],
-   [
-    "set-constant",
-    {
-     "hostnames": [
-      "abysscdn.com",
-      "afamily.vn",
-      "cafef.vn",
-      "cliphot69.pics",
-      "clipsex.cam",
-      "freeplayervideo.com",
-      "gamek.vn",
-      "genk.vn",
-      "hayhaytv.site",
-      "kenh14.vn",
-      "motchillzz.site",
-      "phimvuihd.org",
-      "player-cdn.com",
-      "sexdiaryx.to",
-      "soha.vn",
-      "tailieumoi.vn",
-      "thanhnien.vn",
-      "tuoitre.vn",
-      "vndoc.com",
-      "www.gvnvh.net",
-      "www.iosviet.com",
-      "xoilaczzqq.cc"
      ],
      "world": "MAIN"
     }
