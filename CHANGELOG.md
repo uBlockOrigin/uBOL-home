@@ -1,3 +1,10 @@
+- [safari] [Rewrite certain `main_frame` + `regexFilter` rules](https://github.com/gorhill/uBlock/commit/16c0f69853)
+- Updated filter lists
+
+----------
+
+### 2025.1104.1637
+
 - [Remove "Custom filters" pane when `picker` is forbidden](https://github.com/gorhill/uBlock/commit/9849b5f0b1)
 - Updated filter lists
 
