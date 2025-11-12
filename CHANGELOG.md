@@ -1,3 +1,9 @@
+- [Auto reload current tab when permissions granted thru browser](https://github.com/gorhill/uBlock/commit/801b4679e9)
+
+----------
+
+### 2025.1110.1551
+
 - [safari] [Rewrite certain `main_frame` + `regexFilter` rules](https://github.com/gorhill/uBlock/commit/16c0f69853)
 - Updated filter lists
 
