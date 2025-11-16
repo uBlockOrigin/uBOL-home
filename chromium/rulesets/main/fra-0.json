@@ -337,6 +337,7 @@
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["letterboxd.com"],"urlFilter":"/mads/"},"id":336,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["slate.fr"],"urlFilter":"||pmur.org/scripts/slate_abchoice.js"},"id":337,"priority":10},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||fiches-auto.fr/popup2.js"},"id":338,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["euazurebge.b2clogin.com"],"urlFilter":"||xzeepb2clookuppsta001.blob.core.windows.net/bge/src/js/google-analytics.js"},"id":339,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":".php?aid=pause_"},"id":349,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":".productads."},"id":360,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":".tn/ads/"},"id":368,"priority":10},
