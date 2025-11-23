@@ -18,7 +18,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/cnt.php?"},"id":17,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/count.php"},"id":18,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedResourceTypes":["main_frame","object"],"urlFilter":"/counter.php?"},"id":19,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"/atlas/metrics/"},"id":20,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["5-tv.ru","censor.net","citilink.ru","dtf.ru","gazeta.press","gazeta.ru","ixbt.com","ixbt.games","ixbt.market","ixbt.video","kp.kg","kp.kz","kp.md","kp.ru","kufar.by","lifehacker.ru","livejournal.com","motor.ru","nur.kz","point.md","rambler.ru","rbkgames.com","rutube.ru","sbermegamarket.ru","sports.ru","tsn.ua","tut.by","vc.ru"],"urlFilter":"||googletagmanager.com/gtm.js"},"id":20,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["stopgame.ru"],"urlFilter":"/counter_"},"id":21,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["au.ru","av.by","filmweb.pl","glavagronom.ru","itpc.ru","letu.ru","pay.tns-e.ru","pikabu.ru","poro.gg","traktorist.ua","work.ua"],"urlFilter":"/counters^"},"id":22,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/csi?v=*&action="},"id":23,"priority":10},
@@ -275,7 +275,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||r3.mail.ru/k?"},"id":274,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||rambler.ru/clicks/"},"id":275,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||rambler.ru/metrics/"},"id":276,"priority":10},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["ferra.ru","gazeta.ru","letidor.ru","moslenta.ru","motor.ru","passion.ru","quto.ru","wmj.ru"],"resourceTypes":["script"],"urlFilter":"||st.top100.ru/top100/top100.js|"},"id":277,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["ferra.ru","gazeta.press","gazeta.ru","indicator.ru","letidor.ru","moslenta.ru","motor.ru","passion.ru","quto.ru","secretmag.ru","wmj.ru"],"resourceTypes":["script"],"urlFilter":"||st.top100.ru/top100/top100.js|"},"id":277,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||rankw.ru/pinger.php?"},"id":278,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||rbc.ru/click?"},"id":279,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||rbc.ru^*/geoinfo/by-ip/"},"id":280,"priority":10},
@@ -404,7 +404,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["eapteka.ru"],"urlFilter":"/manifest.json"},"id":403,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||footboom.com/dist/app/js/antiadblock-"},"id":404,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["mediator.mail.ru"],"urlFilter":"||mediator.mail.ru^"},"id":405,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["5-tv.ru","censor.net","citilink.ru","dtf.ru","gazeta.ru","ixbt.com","ixbt.games","ixbt.market","ixbt.video","kp.kg","kp.kz","kp.md","kp.ru","kufar.by","lifehacker.ru","livejournal.com","motor.ru","nur.kz","point.md","rambler.ru","rbkgames.com","rutube.ru","sbermegamarket.ru","sports.ru","tsn.ua","tut.by","vc.ru"],"urlFilter":"||googletagmanager.com/gtm.js"},"id":406,"priority":10},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_auth"]}}},"type":"redirect"},"condition":{"initiatorDomains":["gazeta.press","gazeta.ru"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":406,"priority":2},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mrgcdn.ru/uploads/mstatic/js/utm_"},"id":407,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["rang.com.ua"],"urlFilter":"||rang.com.ua^"},"id":408,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||strm.yandex.ru/get/*?sid=*&vsid="},"id":409,"priority":10},
@@ -721,5 +721,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ficbook.net"],"urlFilter":"||assets.teinon.net/assets/dist/5112."},"id":720,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/analytics/targetpixel?campaignid="},"id":721,"priority":10},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["?utm_source","_ga","_gl","_openstat","admitad_uid","afclid","amp;utm_campaign","amp;utm_content","amp;utm_erid","amp;utm_medium","amp;utm_source","amp;utm_term","at_gd","cuid","fref","gclid","gtm","ila_camaign","ila_context","ila_location","irclickid","irgwc","maca","mt_adset","mt_campaign","mt_click_id","mt_link_id","mt_network","mt_sub","mt_sub1","mt_sub2","mt_sub3","mt_sub4","mt_sub5","pclid","pulse_traffic","ref_src","ref_url","referrer_clid","rtclick","traffic_source","utm-source","utm_campaign","utm_campaing","utm_cmpaign","utm_content","utm_erid","utm_event","utm_id","utm_medium","utm_name","utm_referer","utm_referrer","utm_sourece","utm_space","utm_term","utm_test","utmterm","xtor","yaclid","yclid","yredirect","ysclid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":722},
-{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||ntv.ru/api/player/related/"},"id":723,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||ntv.ru/api/player/related/"},"id":723,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/atlas/metrics"},"id":724,"priority":10}
 ]

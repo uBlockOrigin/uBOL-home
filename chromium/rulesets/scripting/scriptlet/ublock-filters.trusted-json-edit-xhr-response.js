@@ -784,8 +784,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [[".mandatoryAdvertising=false","/player/configuration"]];
-const hostnamesMap = new Map([["player.pl",0]]);
+const argsList = [[".mandatoryAdvertising=false","/player/configuration"],[".smartAdsForAccessNoAds=true","propsToMatch","/doc-page/afa"]];
+const hostnamesMap = new Map([["player.pl",0],["scribd.com",1]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

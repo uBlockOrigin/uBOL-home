@@ -266,8 +266,8 @@ function getRandomTokenFn() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["AdtimaRender"]];
-const hostnamesMap = new Map([["baomoi.com",0]]);
+const argsList = [["AdtimaRender"],["_$_d52e"]];
+const hostnamesMap = new Map([["baomoi.com",0],["www.sieutamphim.pro",1]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

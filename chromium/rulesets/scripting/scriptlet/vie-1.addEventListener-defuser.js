@@ -20,36 +20,93 @@
 
 */
 
-// ruleset: kor-1
+// ruleset: vie-1
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_preventRequestAnimationFrame() {
+(function uBOL_addEventListenerDefuser() {
 
 /******************************************************************************/
 
-function preventRequestAnimationFrame(
-    needleRaw = ''
+function addEventListenerDefuser(
+    type = '',
+    pattern = ''
 ) {
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('prevent-requestAnimationFrame', needleRaw);
-    const needleNot = needleRaw.charAt(0) === '!';
-    const reNeedle = safe.patternToRegex(needleNot ? needleRaw.slice(1) : needleRaw);
-    proxyApplyFn('requestAnimationFrame', function(context) {
-        const { callArgs } = context;
-        const a = callArgs[0] instanceof Function
-            ? safe.String(safe.Function_toString(callArgs[0]))
-            : safe.String(callArgs[0]);
-        if ( needleRaw === '' ) {
-            safe.uboLog(logPrefix, `Called:\n${a}`);
-        } else if ( reNeedle.test(a) !== needleNot ) {
-            callArgs[0] = function(){};
-            safe.uboLog(logPrefix, `Prevented:\n${a}`);
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
+    const reType = safe.patternToRegex(type, undefined, true);
+    const rePattern = safe.patternToRegex(pattern);
+    const debug = shouldDebug(extraArgs);
+    const targetSelector = extraArgs.elements || undefined;
+    const elementMatches = elem => {
+        if ( targetSelector === 'window' ) { return elem === window; }
+        if ( targetSelector === 'document' ) { return elem === document; }
+        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
+        const elems = Array.from(document.querySelectorAll(targetSelector));
+        return elems.includes(elem);
+    };
+    const elementDetails = elem => {
+        if ( elem instanceof Window ) { return 'window'; }
+        if ( elem instanceof Document ) { return 'document'; }
+        if ( elem instanceof Element === false ) { return '?'; }
+        const parts = [];
+        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
+        const id = String(elem.id);
+        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
+        for ( let i = 0; i < elem.classList.length; i++ ) {
+            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
+        }
+        for ( let i = 0; i < elem.attributes.length; i++ ) {
+            const attr = elem.attributes.item(i);
+            if ( attr.name === 'id' ) { continue; }
+            if ( attr.name === 'class' ) { continue; }
+            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
+        }
+        return parts.join('');
+    };
+    const shouldPrevent = (thisArg, type, handler) => {
+        const matchesType = safe.RegExp_test.call(reType, type);
+        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesEither = matchesType || matchesHandler;
+        const matchesBoth = matchesType && matchesHandler;
+        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
+            debugger; // eslint-disable-line no-debugger
+        }
+        if ( matchesBoth && targetSelector !== undefined ) {
+            if ( elementMatches(thisArg) === false ) { return false; }
+        }
+        return matchesBoth;
+    };
+    const proxyFn = function(context) {
+        const { callArgs, thisArg } = context;
+        let t, h;
+        try {
+            t = String(callArgs[0]);
+            if ( typeof callArgs[1] === 'function' ) {
+                h = String(safe.Function_toString(callArgs[1]));
+            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
+                if ( typeof callArgs[1].handleEvent === 'function' ) {
+                    h = String(safe.Function_toString(callArgs[1].handleEvent));
+                }
+            } else {
+                h = String(callArgs[1]);
+            }
+        } catch {
+        }
+        if ( type === '' && pattern === '' ) {
+            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        } else if ( shouldPrevent(thisArg, t, h) ) {
+            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
         }
         return context.reflect();
-    });
+    };
+    runAt(( ) => {
+        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
+        proxyApplyFn('document.addEventListener', proxyFn);
+    }, extraArgs.runAt);
 }
 
 function proxyApplyFn(
@@ -135,6 +192,35 @@ function proxyApplyFn(
         };
     }
     context[prop] = new Proxy(fn, proxyDetails);
+}
+
+function runAt(fn, when) {
+    const intFromReadyState = state => {
+        const targets = {
+            'loading': 1, 'asap': 1,
+            'interactive': 2, 'end': 2, '2': 2,
+            'complete': 3, 'idle': 3, '3': 3,
+        };
+        const tokens = Array.isArray(state) ? state : [ state ];
+        for ( const token of tokens ) {
+            const prop = `${token}`;
+            if ( Object.hasOwn(targets, prop) === false ) { continue; }
+            return targets[prop];
+        }
+        return 0;
+    };
+    const runAt = intFromReadyState(when);
+    if ( intFromReadyState(document.readyState) >= runAt ) {
+        fn(); return;
+    }
+    const onStateChange = ( ) => {
+        if ( intFromReadyState(document.readyState) < runAt ) { return; }
+        fn();
+        safe.removeEventListener.apply(document, args);
+    };
+    const safe = safeSelf();
+    const args = [ 'readystatechange', onStateChange, { capture: true } ];
+    safe.addEventListener.apply(document, args);
 }
 
 function safeSelf() {
@@ -327,11 +413,16 @@ function safeSelf() {
     return safe;
 }
 
+function shouldDebug(details) {
+    if ( details instanceof Object === false ) { return false; }
+    return scriptletGlobals.canDebug && details.debug;
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["window.__adsToken"]];
-const hostnamesMap = new Map([["chzzkban.xyz",0]]);
+const argsList = [["click","ads"]];
+const hostnamesMap = new Map([["phimmoii.io",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -399,7 +490,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { preventRequestAnimationFrame(...argsList[i]); }
+    try { addEventListenerDefuser(...argsList[i]); }
     catch { }
 }
 

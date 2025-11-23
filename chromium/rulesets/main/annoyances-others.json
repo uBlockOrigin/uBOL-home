@@ -251,7 +251,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||corriereobjects.it/rcs_cor_exit-page/"},"id":250,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||corriereobjects.it^*/box_notifiche_"},"id":251,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cure-naturali.it/banner/"},"id":252,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||dirittierisposte.it/images/corriere_sera.png"},"id":253,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||minorasu.basf.co.jp/shared/scripts/microconversion.js"},"id":253,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||fastweb.it^*/newsletter."},"id":254,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hikoki-powertools.it/image/top-"},"id":255,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||it.hisamitsu/common/img/pagetop.jpg"},"id":256,"priority":10},
@@ -417,5 +417,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/plugins/boost/public/js/boost-public-ajax.js"},"id":416,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/plugins/boost/public/js/boost-public.js"},"id":417,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/snowfall.js"},"id":418,"priority":10},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["smeal.psu.edu"],"resourceTypes":["sub_frame"],"urlFilter":"||feed.mikle.com/widget/"},"id":419,"priority":30}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["smeal.psu.edu"],"resourceTypes":["sub_frame"],"urlFilter":"||feed.mikle.com/widget/"},"id":419,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||minorasu.basf.co.jp/shared/scripts/questionnaire.js"},"id":420,"priority":10}
 ]

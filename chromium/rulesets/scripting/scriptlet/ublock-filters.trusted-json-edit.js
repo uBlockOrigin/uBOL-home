@@ -788,8 +788,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [[".[?.media_entities.*.video_info.variants]..url_data.url=\"https://twitter.undefined\""]];
-const hostnamesMap = new Map([["x.com",0]]);
+const argsList = [[".[?.media_entities.*.video_info.variants]..url_data.url=\"https://twitter.undefined\""],[".features.*[?.slug==\"adblock-detection\"].enabled=false"]];
+const hostnamesMap = new Map([["x.com",0],["538.nl",1],["hartvannederland.nl",1],["kijk.nl",1],["shownieuws.nl",1],["vandaaginside.nl",1]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

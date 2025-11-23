@@ -318,8 +318,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["superberb_disable_date","$now$"]];
-const hostnamesMap = new Map([["fapeza.com",0]]);
+const argsList = [["account-storage","{\"state\":{\"_hasHydrated\":true","\"userId\":null","\"decryptedUserId\":null","\"email\":null","\"perks\":{\"adRemoval\":true","\"comments\":false","\"premiumFeatures\":true","\"previewReleaseAccess\":true}","\"showUserDialog\":false}","\"version\":2}"],["WPtcs2","CQbVxEAQbVxEABIACDPLCGFgAAAAAAAAAB5YAAAXgABMNCogjLAgQCBQMIIEACgrCACgQBAAAkDBAQAmDApyBgAusJkAIAUAAwQAgABBgACAAACABCIAKACAQAgQCBQABgAQBAQAEDAACACxEAgABAdAxTAggECwASMyqDTAlAASCAlsqEEgGBBXCEIs8AggREwUAAAAABQAAADwWAhJICVCQQBcQTQAAEAAAEQIkCCQkwABUGaLQFgScRkaYBg-YJEFOgyAJgjISDQhN6Eg8UhRCggyA0KWYA6eAAAA.YAAAAAAAAAAA"],["WPdp","mrdFlAjOiJGVwlGDhlGV0BITxEXCxsAT0hGNi9GQVAHHgINCVBeTylVMFBITxQUT0hVQVADAVBeXF5GAABGV0NITx8QT0hXQVAQHlBeXEVSXktVXUBWWUZcXA9ITyY0T0gfTxEPT0hVQVAHHhQNCVBeTyk5T15GDgEUBBZGV1A/MFBITxQUT0hVQVADAVBeXF5GAABGV0NITx8QT0hXQVAQHlBeXEVSXktVXUBWWUZcXA9ITyU0IFBeFlAHBlBeX15GDgECBBZGV1A/MFBITxEXHRsAT0hGNkM5T15GCwJGV0NITxUIT0hVQVAJH1BeXF5GAAZGV0FITwYXT0hVWkRXVENUX0BQWUpVQVARDFBeXA8Z"],["superberb_disable_date","$now$"]];
+const hostnamesMap = new Map([["th.gl",0],["dobreprogramy.pl",[1,2]],["fapeza.com",3]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

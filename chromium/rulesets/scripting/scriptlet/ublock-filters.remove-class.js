@@ -316,9 +316,9 @@ function safeSelf() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 const argsList = [["no_display"],["twig-body"],["get-link",".ybtn.get-link[target=\"_blank\"]","stay"],["get-link",".btn-success.get-link[target=\"_blank\"]","stay"],["has-sidebar-adz|DashboardPage-inner","div[class^=\"DashboardPage-inner\"]","stay"],["hasStickyAd","div.hasStickyAd[class^=\"SetPage\"]","stay"],["cnx-ad-container|cnx-ad-bid-slot"],["vjs-hidden",".vjs-control-bar","stay"],["hidden","button"],["hidden",".panel-body > .text-center > button"],["disabled","a#redirect-btn"],["td-ad-background-link"],["download-font-button2",".download-font-button"],["unclickable","","stay"],["rodo","body.rodo"],["ad-controls",".bitmovinplayer-container.ad-controls"],["froc-blur","","stay"]];
-const hostnamesMap = new Map([["financenova.online",0],["utkarshonlinetest.com",0],["financewada.com",0],["xda-developers.com",1],["paid4.link",2],["go.gets4link.com",3],["quizlet.com",[4,5]],["funker530.com",6],["av01.tv",7],["appsmodz.com",8],["so1.asia",9],["top1iq.com",10],["artribune.com",11],["bestfonts.pro",12],["falatron.com",13],["filmweb.pl",14],["sbs.com.au",15],["kwejk.pl",16]]);
+const hostnamesMap = new Map([["financenova.online",0],["utkarshonlinetest.com",0],["financewada.com",0],["xda-developers.com",1],["paid4.link",2],["go.gets4link.com",3],["quizlet.com",[4,5]],["funker530.com",6],["av01.*",7],["appsmodz.com",8],["so1.asia",9],["top1iq.com",10],["artribune.com",11],["bestfonts.pro",12],["falatron.com",13],["filmweb.pl",14],["sbs.com.au",15],["kwejk.pl",16]]);
 const exceptionsMap = new Map([]);
-const hasEntities = false;
+const hasEntities = true;
 const hasAncestors = false;
 
 const collectArgIndices = (hn, map, out) => {

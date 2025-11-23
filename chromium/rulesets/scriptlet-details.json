@@ -55,6 +55,7 @@
       "espn.com",
       "player.pl",
       "rushuploads.com",
+      "scribd.com",
       "twitter.com",
       "web.facebook.com",
       "www.cc.com",
@@ -293,10 +294,29 @@
       "needrom.com",
       "news.bg",
       "pussyspace.com",
-      "pussyspace.net",
-      "th.gl"
+      "pussyspace.net"
      ],
      "world": "MAIN"
+    }
+   ],
+   [
+    "trusted-set-local-storage-item",
+    {
+     "hostnames": [
+      "dobreprogramy.pl",
+      "fapeza.com",
+      "th.gl"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
+    "set-cookie",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "ISOLATED"
     }
    ],
    [
@@ -351,15 +371,6 @@
       "*"
      ],
      "world": "MAIN"
-    }
-   ],
-   [
-    "set-cookie",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "ISOLATED"
     }
    ],
    [
@@ -480,24 +491,7 @@
     "remove-class",
     {
      "hostnames": [
-      "appsmodz.com",
-      "artribune.com",
-      "av01.tv",
-      "bestfonts.pro",
-      "falatron.com",
-      "filmweb.pl",
-      "financenova.online",
-      "financewada.com",
-      "funker530.com",
-      "go.gets4link.com",
-      "kwejk.pl",
-      "paid4.link",
-      "quizlet.com",
-      "sbs.com.au",
-      "so1.asia",
-      "top1iq.com",
-      "utkarshonlinetest.com",
-      "xda-developers.com"
+      "*"
      ],
      "world": "ISOLATED"
     }
@@ -628,6 +622,11 @@
     "trusted-json-edit",
     {
      "hostnames": [
+      "538.nl",
+      "hartvannederland.nl",
+      "kijk.nl",
+      "shownieuws.nl",
+      "vandaaginside.nl",
       "x.com"
      ],
      "world": "MAIN"
@@ -752,7 +751,8 @@
     "trusted-json-edit-xhr-response",
     {
      "hostnames": [
-      "player.pl"
+      "player.pl",
+      "scribd.com"
      ],
      "world": "MAIN"
     }
@@ -768,15 +768,6 @@
       "rustorka.net",
       "rustorka.top",
       "rustorkacom.lib"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
-    "trusted-set-local-storage-item",
-    {
-     "hostnames": [
-      "fapeza.com"
      ],
      "world": "ISOLATED"
     }
@@ -2308,8 +2299,10 @@
     "prevent-requestAnimationFrame",
     {
      "hostnames": [
+      "getaawp.com",
       "mhmscreenprinting.com",
-      "stadtreporter.de"
+      "stadtreporter.de",
+      "tuhlteim.de"
      ],
      "world": "MAIN"
     }
@@ -2319,6 +2312,7 @@
     {
      "hostnames": [
       "4kfilme.de",
+      "agilox.net",
       "frixtender.de",
       "minaprotocol.com",
       "rittmeisterdestille.de"
@@ -2640,19 +2634,26 @@
     }
    ],
    [
-    "adjust-setTimeout",
+    "trusted-replace-node-text",
     {
      "hostnames": [
-      "appimagehub.com",
-      "bbc.com",
+      "baumbet.ro",
       "duneawakening.th.gl",
-      "gnome-look.org",
-      "linux-apps.com",
-      "opendesktop.org",
+      "heidisql.com",
+      "karsaz-law.com",
+      "mskmangaz.blogspot.com",
+      "novelpia.com",
       "paxdei.th.gl",
-      "pling.com",
-      "store.kde.org",
-      "xfce-look.org"
+      "starresonance.th.gl"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
+    "trusted-replace-argument",
+    {
+     "hostnames": [
+      "*"
      ],
      "world": "MAIN"
     }
@@ -2666,23 +2667,12 @@
       "crunchyroll.com",
       "deezer.com",
       "dropbox.com",
-      "duneawakening.th.gl",
       "lemon8-app.com",
       "moovitapp.com",
-      "paxdei.th.gl",
       "teller.jp",
       "wrtn.jp"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "trusted-replace-argument",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -2759,19 +2749,6 @@
     }
    ],
    [
-    "trusted-replace-node-text",
-    {
-     "hostnames": [
-      "baumbet.ro",
-      "heidisql.com",
-      "karsaz-law.com",
-      "mskmangaz.blogspot.com",
-      "novelpia.com"
-     ],
-     "world": "ISOLATED"
-    }
-   ],
-   [
     "trusted-set-cookie",
     {
      "hostnames": [
@@ -2798,6 +2775,22 @@
       "adbypass.org",
       "bypass.city",
       "weibo.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "adjust-setTimeout",
+    {
+     "hostnames": [
+      "appimagehub.com",
+      "bbc.com",
+      "gnome-look.org",
+      "linux-apps.com",
+      "opendesktop.org",
+      "pling.com",
+      "store.kde.org",
+      "xfce-look.org"
      ],
      "world": "MAIN"
     }
@@ -2995,7 +2988,6 @@
       "inquinte.ca",
       "kbtx.com",
       "kptv.com",
-      "msnbc.com",
       "nbcnews.com",
       "neilpatel.com",
       "on.orf.at",
@@ -4241,6 +4233,15 @@
     }
    ],
    [
+    "adjust-setInterval",
+    {
+     "hostnames": [
+      "tf1info.fr"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "adjust-setTimeout",
     {
      "hostnames": [
@@ -4532,6 +4533,7 @@
       "cloud.majalahhewan.com",
       "info.mapsaddress.com",
       "info.vebma.com",
+      "moenime.com",
       "mudah.my",
       "netq.me",
       "thejakartapost.com",
@@ -5548,7 +5550,6 @@
     {
      "hostnames": [
       "10000recipe.com",
-      "chzzkban.xyz",
       "digitstar77.com",
       "enjoyplan.tistory.com",
       "filetender.com",
@@ -5756,15 +5757,6 @@
       "m.dcinside.com"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "prevent-requestAnimationFrame",
-    {
-     "hostnames": [
-      "chzzkban.xyz"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -6542,6 +6534,7 @@
       "opennet.ru",
       "pikabu.ru",
       "portalvirtualreality.ru",
+      "rambler.ru",
       "rsload.net",
       "rustorka.com",
       "rustorka.net",
@@ -6837,16 +6830,34 @@
      "hostnames": [
       "avito.ru",
       "direct.farm",
+      "ferra.ru",
       "forum.ixbt.com",
+      "indicator.ru",
       "ixbt.com",
       "kinotv.ru",
       "kufar.by",
       "lenta.ru",
+      "letidor.ru",
       "liga.net",
       "lk.emias.mos.ru",
+      "moslenta.ru",
+      "motor.ru",
       "mp3party.net",
       "myshows.me",
-      "playground.ru"
+      "passion.ru",
+      "playground.ru",
+      "quto.ru",
+      "secretmag.ru",
+      "wmj.ru"
+     ],
+     "world": "ISOLATED"
+    }
+   ],
+   [
+    "set-cookie-reload",
+    {
+     "hostnames": [
+      "*"
      ],
      "world": "ISOLATED"
     }
@@ -6929,15 +6940,6 @@
       "whd365.pro"
      ],
      "world": "MAIN"
-    }
-   ],
-   [
-    "set-cookie-reload",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "ISOLATED"
     }
    ]
   ]
@@ -7071,6 +7073,15 @@
   "spa-1",
   [
    [
+    "abort-current-script",
+    {
+     "hostnames": [
+      "*"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
     "addEventListener-defuser",
     {
      "hostnames": [
@@ -7086,15 +7097,6 @@
       "*"
      ],
      "world": "ISOLATED"
-    }
-   ],
-   [
-    "abort-current-script",
-    {
-     "hostnames": [
-      "*"
-     ],
-     "world": "MAIN"
     }
    ],
    [
@@ -8508,6 +8510,7 @@
     {
      "hostnames": [
       "10gb.vn",
+      "3xnungsex.com",
       "abysscdn.com",
       "afamily.vn",
       "animevietsub.show",
@@ -8525,10 +8528,10 @@
       "clipsexsub3x.net",
       "cocorugby.co.uk",
       "cunghocvui.com",
-      "damconuong.co",
+      "damconuong.onl",
       "demo.14412882.com",
       "doctruyen3qui17.com",
-      "dualeotruyenks.com",
+      "dualeotruyencg.com",
       "economic45882.shop",
       "freeplayervideo.com",
       "game8.vn",
@@ -8537,7 +8540,6 @@
       "gocmod.com",
       "goctruyentranhvui17.com",
       "gotphim.com",
-      "haysexvl.net",
       "hentaivc.com",
       "hh2d.tv",
       "hh3dhay.life",
@@ -8546,6 +8548,7 @@
       "ihentai.cloud",
       "imail.edu.vn",
       "ios.codevn.net",
+      "japanthis.com",
       "javhd.shop",
       "javtiful.com",
       "kenh14.vn",
@@ -8558,17 +8561,17 @@
       "misskon.com",
       "motchilltvphim.com",
       "motphim.pokemonviet.com",
-      "mxgpvideogame.com",
       "nettruyenar.com",
       "nettruyenviet1.com",
       "newtruyenhot.pro",
+      "olasex.net",
       "pheclip.vet",
       "phim.haysex.asia",
       "phim18hdxx.com",
       "phim18vip.one",
       "phimlongtieng.net",
       "phimmoi.sale",
-      "phimsexhayvn59.com",
+      "phimsexhayvn63.com",
       "phimtho.cc",
       "player-cdn.com",
       "playhydrax.com",
@@ -8598,17 +8601,18 @@
       "umetruyenz.org",
       "vailonxx.co",
       "vanphatelectric.com",
-      "viet69.my",
+      "vevocloud.com",
+      "viet69.fast",
       "viet69hay.com",
       "vlxx.bz",
       "vn2.xvideos69.xxx",
       "vn5.sexviet88.xyz",
       "vozer.io",
       "vungoctuan.vn",
-      "www.motchill32.com",
+      "www.motchill33.com",
+      "www.sieutamphim.pro",
       "www.toptruyentv11.com",
       "www.truyen35zz.com",
-      "xem.sexnung3x.com",
       "xnxx-sex-videos.com",
       "yanhh3d.vip",
       "yurineko.my"
@@ -8620,6 +8624,7 @@
     "abort-on-property-read",
     {
      "hostnames": [
+      "3xnungsex.com",
       "anh.moe",
       "anime12.site",
       "anime47.best",
@@ -8631,11 +8636,12 @@
       "hayhaytv.site",
       "hoctot.hocmai.vn",
       "honghotduongpho.vn",
+      "ineer.org",
       "linkneverdie.net",
       "linkneverdie.top",
       "linkneverdie2.com",
       "maclife.io",
-      "motchillk.ph",
+      "motchillk.cx",
       "mv.dailyphimz.com",
       "mv.phimbathu.one",
       "mv.phimmoiaz.cc",
@@ -8649,19 +8655,16 @@
       "sachmoi.net",
       "samtruyentranh.com",
       "sex.javnong.cc",
-      "sexhihiz.mx",
+      "sexhihi.fit",
       "teamlanhlung8.shop",
       "thefaplive.com",
-      "theicec.com",
       "truyenfull.vision",
       "truyensieuhay.com",
       "tv.tvhayhd.org",
       "ungtycomicsa.com",
       "vinaurl.net",
-      "www.motchill32.com",
+      "www.motchill33.com",
       "www.nettruyenupp.com",
-      "www.sieutamphim.pro",
-      "xem.sexnung3x.com",
       "xemphimjav.us",
       "xfast.sbs",
       "xnhau.sh",
@@ -8674,7 +8677,8 @@
     "abort-on-property-write",
     {
      "hostnames": [
-      "baomoi.com"
+      "baomoi.com",
+      "www.sieutamphim.pro"
      ],
      "world": "MAIN"
     }
@@ -8686,14 +8690,13 @@
       "abysscdn.com",
       "afamily.vn",
       "cafef.vn",
-      "clipsex.cam",
       "freeplayervideo.com",
       "gamek.vn",
       "genk.vn",
       "hayhaytv.site",
+      "japanthis.com",
       "kenh14.vn",
       "motchillzz.site",
-      "mxgpvideogame.com",
       "player-cdn.com",
       "sexdiaryx.to",
       "soha.vn",
@@ -8725,6 +8728,15 @@
       "linkneverdie.net",
       "linkneverdie.top",
       "linkneverdie2.com"
+     ],
+     "world": "MAIN"
+    }
+   ],
+   [
+    "addEventListener-defuser",
+    {
+     "hostnames": [
+      "phimmoii.io"
      ],
      "world": "MAIN"
     }

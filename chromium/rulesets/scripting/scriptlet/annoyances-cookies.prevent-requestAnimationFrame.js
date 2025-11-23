@@ -331,7 +331,7 @@ function safeSelf() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 const argsList = [["catch"]];
-const hostnamesMap = new Map([["mhmscreenprinting.com",0],["stadtreporter.de",0]]);
+const hostnamesMap = new Map([["getaawp.com",0],["mhmscreenprinting.com",0],["stadtreporter.de",0],["tuhlteim.de",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

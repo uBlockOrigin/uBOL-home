@@ -316,7 +316,7 @@ function safeSelf() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 const argsList = [["oon-scroll-lock","body","stay"],["js-no-scroll","html","stay"],["blocked","body","stay"],["mfp-popup-exit-quiz-v2","","stay"],["stickyBanner","","stay"],["styles_stuck__gtILi","","stay"],["sticky","","stay"],["jw-flag-floating","","stay"],["powa-sticky","","stay"],["video__docker_state_docked","","stay"],["floating","","stay"]];
-const hostnamesMap = new Map([["on.orf.at",0],["opensecrets.org",1],["inquinte.ca",2],["neilpatel.com",3],["redfin.com",4],["msnbc.com",5],["today.com",5],["nbcnews.com",5],["independent.co.uk",[6,7]],["allrecipes.com",7],["kbtx.com",8],["kptv.com",8],["wfaa.com",9],["wkyc.com",9],["cbsnews.com",10]]);
+const hostnamesMap = new Map([["on.orf.at",0],["opensecrets.org",1],["inquinte.ca",2],["neilpatel.com",3],["redfin.com",4],["today.com",5],["nbcnews.com",5],["independent.co.uk",[6,7]],["allrecipes.com",7],["kbtx.com",8],["kptv.com",8],["wfaa.com",9],["wkyc.com",9],["cbsnews.com",10]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
