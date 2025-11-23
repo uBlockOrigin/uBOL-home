@@ -1,5 +1,12 @@
+- Updated filter lists
+
+----------
+
+### 2025.1116.1841
+
 - [[firefox] Fix instanceof quirk; fine tune picker CSS](https://github.com/gorhill/uBlock/commit/d8fb800f30)
 - [Auto reload current tab when permissions granted thru browser](https://github.com/gorhill/uBlock/commit/801b4679e9)
+- Updated filter lists
 
 ----------
 
