@@ -1,3 +1,10 @@
+- [Improve management of regex-based rules](https://github.com/gorhill/uBlock/commit/474723d9ca)
+- Updated filter lists
+
+----------
+
+### 2025.1123.1640
+
 - Updated filter lists
 
 ----------
