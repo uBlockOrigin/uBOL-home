@@ -1,3 +1,4 @@
+- [Improve automatically changing filtering mode](https://github.com/gorhill/uBlock/commit/cd814ee818)
 - [Improve management of regex-based rules](https://github.com/gorhill/uBlock/commit/474723d9ca)
 - Updated filter lists
 
