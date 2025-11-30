@@ -450,7 +450,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/cs/ads/"},"id":449,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["citigroup.com"],"urlFilter":"/css/branding_*.css"},"id":450,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/ctxtlink/"},"id":451,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"/dc_ads."},"id":452,"priority":10},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-vast3.xml"},"type":"redirect"},"condition":{"initiatorDomains":["imasdk.googleapis.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pubads.g.doubleclick.net/gampad/ads?*1plus1.video"},"id":452,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"/delivery/ag.php"},"id":453,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/delivery/avw.php"},"id":454,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/din_new6.php?code=*&bid=*&linkdest="},"id":455,"priority":10},

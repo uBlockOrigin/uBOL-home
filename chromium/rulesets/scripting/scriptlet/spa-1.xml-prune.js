@@ -20,141 +20,153 @@
 
 */
 
-// ruleset: rus-0
+// ruleset: spa-1
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_hrefSanitizer() {
+(function uBOL_xmlPrune() {
 
 /******************************************************************************/
 
-function hrefSanitizer(
+function xmlPrune(
     selector = '',
-    source = ''
+    selectorCheck = '',
+    urlPattern = ''
 ) {
     if ( typeof selector !== 'string' ) { return; }
     if ( selector === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('href-sanitizer', selector, source);
-    if ( source === '' ) { source = 'text'; }
-    const sanitizeCopycats = (href, text) => {
-        let elems = [];
-        try {
-            elems = document.querySelectorAll(`a[href="${href}"`);
+    const logPrefix = safe.makeLogPrefix('xml-prune', selector, selectorCheck, urlPattern);
+    const reUrl = safe.patternToRegex(urlPattern);
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const queryAll = (xmlDoc, selector) => {
+        const isXpath = /^xpath\(.+\)$/.test(selector);
+        if ( isXpath === false ) {
+            return Array.from(xmlDoc.querySelectorAll(selector));
         }
-        catch {
+        const xpr = xmlDoc.evaluate(
+            selector.slice(6, -1),
+            xmlDoc,
+            null,
+            XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+            null
+        );
+        const out = [];
+        for ( let i = 0; i < xpr.snapshotLength; i++ ) {
+            const node = xpr.snapshotItem(i);
+            out.push(node);
         }
-        for ( const elem of elems ) {
-            elem.setAttribute('href', text);
-        }
-        return elems.length;
+        return out;
     };
-    const validateURL = text => {
-        if ( typeof text !== 'string' ) { return ''; }
-        if ( text === '' ) { return ''; }
-        if ( /[\x00-\x20\x7f]/.test(text) ) { return ''; }
+    const pruneFromDoc = xmlDoc => {
         try {
-            const url = new URL(text, document.location);
-            return url.href;
+            if ( selectorCheck !== '' && xmlDoc.querySelector(selectorCheck) === null ) {
+                return xmlDoc;
+            }
+            if ( extraArgs.logdoc ) {
+                const serializer = new XMLSerializer();
+                safe.uboLog(logPrefix, `Document is\n\t${serializer.serializeToString(xmlDoc)}`);
+            }
+            const items = queryAll(xmlDoc, selector);
+            if ( items.length === 0 ) { return xmlDoc; }
+            safe.uboLog(logPrefix, `Removing ${items.length} items`);
+            for ( const item of items ) {
+                if ( item.nodeType === 1 ) {
+                    item.remove();
+                } else if ( item.nodeType === 2 ) {
+                    item.ownerElement.removeAttribute(item.nodeName);
+                }
+                safe.uboLog(logPrefix, `${item.constructor.name}.${item.nodeName} removed`);
+            }
+        } catch(ex) {
+            safe.uboErr(logPrefix, `Error: ${ex}`);
+        }
+        return xmlDoc;
+    };
+    const pruneFromText = text => {
+        if ( (/^\s*</.test(text) && />\s*$/.test(text)) === false ) {
+            return text;
+        }
+        try {
+            const xmlParser = new DOMParser();
+            const xmlDoc = xmlParser.parseFromString(text, 'text/xml');
+            pruneFromDoc(xmlDoc);
+            const serializer = new XMLSerializer();
+            text = serializer.serializeToString(xmlDoc);
         } catch {
         }
-        return '';
+        return text;
     };
-    const extractURL = (elem, source) => {
-        if ( /^\[.*\]$/.test(source) ) {
-            return elem.getAttribute(source.slice(1,-1).trim()) || '';
-        }
-        if ( source === 'text' ) {
-            return elem.textContent
-                .replace(/^[^\x21-\x7e]+/, '')  // remove leading invalid characters
-                .replace(/[^\x21-\x7e]+$/, ''); // remove trailing invalid characters
-        }
-        const steps = source.replace(/(\S)\?/g, '\\1 ?').split(/\s+/);
-        const url = urlSkip(elem.href, false, steps);
-        if ( url === undefined ) { return; }
-        return url.replace(/ /g, '%20');
+    const urlFromArg = arg => {
+        if ( typeof arg === 'string' ) { return arg; }
+        if ( arg instanceof Request ) { return arg.url; }
+        return String(arg);
     };
-    const sanitize = ( ) => {
-        let elems = [];
-        try {
-            elems = document.querySelectorAll(selector);
-        }
-        catch {
-            return false;
-        }
-        for ( const elem of elems ) {
-            if ( elem.localName !== 'a' ) { continue; }
-            if ( elem.hasAttribute('href') === false ) { continue; }
-            const href = elem.getAttribute('href');
-            const text = extractURL(elem, source);
-            const hrefAfter = validateURL(text);
-            if ( hrefAfter === '' ) { continue; }
-            if ( hrefAfter === href ) { continue; }
-            elem.setAttribute('href', hrefAfter);
-            const count = sanitizeCopycats(href, hrefAfter);
-            safe.uboLog(logPrefix, `Sanitized ${count+1} links to\n${hrefAfter}`);
-        }
-        return true;
-    };
-    let observer, timer;
-    const onDomChanged = mutations => {
-        if ( timer !== undefined ) { return; }
-        let shouldSanitize = false;
-        for ( const mutation of mutations ) {
-            if ( mutation.addedNodes.length === 0 ) { continue; }
-            for ( const node of mutation.addedNodes ) {
-                if ( node.nodeType !== 1 ) { continue; }
-                shouldSanitize = true;
-                break;
+    self.fetch = new Proxy(self.fetch, {
+        apply: function(target, thisArg, args) {
+            const fetchPromise = Reflect.apply(target, thisArg, args);
+            if ( reUrl.test(urlFromArg(args[0])) === false ) {
+                return fetchPromise;
             }
-            if ( shouldSanitize ) { break; }
+            return fetchPromise.then(responseBefore => {
+                const response = responseBefore.clone();
+                return response.text().then(text => {
+                    const responseAfter = new Response(pruneFromText(text), {
+                        status: responseBefore.status,
+                        statusText: responseBefore.statusText,
+                        headers: responseBefore.headers,
+                    });
+                    Object.defineProperties(responseAfter, {
+                        ok: { value: responseBefore.ok },
+                        redirected: { value: responseBefore.redirected },
+                        type: { value: responseBefore.type },
+                        url: { value: responseBefore.url },
+                    });
+                    return responseAfter;
+                }).catch(( ) =>
+                    responseBefore
+                );
+            });
         }
-        if ( shouldSanitize === false ) { return; }
-        timer = safe.onIdle(( ) => {
-            timer = undefined;
-            sanitize();
-        });
-    };
-    const start = ( ) => {
-        if ( sanitize() === false ) { return; }
-        observer = new MutationObserver(onDomChanged);
-        observer.observe(document.body, {
-            subtree: true,
-            childList: true,
-        });
-    };
-    runAt(( ) => { start(); }, 'interactive');
-}
-
-function runAt(fn, when) {
-    const intFromReadyState = state => {
-        const targets = {
-            'loading': 1, 'asap': 1,
-            'interactive': 2, 'end': 2, '2': 2,
-            'complete': 3, 'idle': 3, '3': 3,
-        };
-        const tokens = Array.isArray(state) ? state : [ state ];
-        for ( const token of tokens ) {
-            const prop = `${token}`;
-            if ( Object.hasOwn(targets, prop) === false ) { continue; }
-            return targets[prop];
+    });
+    self.XMLHttpRequest.prototype.open = new Proxy(self.XMLHttpRequest.prototype.open, {
+        apply: async (target, thisArg, args) => {
+            if ( reUrl.test(urlFromArg(args[1])) === false ) {
+                return Reflect.apply(target, thisArg, args);
+            }
+            thisArg.addEventListener('readystatechange', function() {
+                if ( thisArg.readyState !== 4 ) { return; }
+                const type = thisArg.responseType;
+                if (
+                    type === 'document' ||
+                    type === '' && thisArg.responseXML instanceof XMLDocument
+                ) {
+                    pruneFromDoc(thisArg.responseXML);
+                    const serializer = new XMLSerializer();
+                    const textout = serializer.serializeToString(thisArg.responseXML);
+                    Object.defineProperty(thisArg, 'responseText', { value: textout });
+                    if ( typeof thisArg.response === 'string' ) {
+                        Object.defineProperty(thisArg, 'response', { value: textout });
+                    }
+                    return;
+                }
+                if (
+                    type === 'text' ||
+                    type === '' && typeof thisArg.responseText === 'string'
+                ) {
+                    const textin = thisArg.responseText;
+                    const textout = pruneFromText(textin);
+                    if ( textout === textin ) { return; }
+                    Object.defineProperty(thisArg, 'response', { value: textout });
+                    Object.defineProperty(thisArg, 'responseText', { value: textout });
+                    return;
+                }
+            });
+            return Reflect.apply(target, thisArg, args);
         }
-        return 0;
-    };
-    const runAt = intFromReadyState(when);
-    if ( intFromReadyState(document.readyState) >= runAt ) {
-        fn(); return;
-    }
-    const onStateChange = ( ) => {
-        if ( intFromReadyState(document.readyState) < runAt ) { return; }
-        fn();
-        safe.removeEventListener.apply(document, args);
-    };
-    const safe = safeSelf();
-    const args = [ 'readystatechange', onStateChange, { capture: true } ];
-    safe.addEventListener.apply(document, args);
+    });
 }
 
 function safeSelf() {
@@ -347,103 +359,11 @@ function safeSelf() {
     return safe;
 }
 
-function urlSkip(url, blocked, steps, directive = {}) {
-    try {
-        let redirectBlocked = false;
-        let urlout = url;
-        for ( const step of steps ) {
-            const urlin = urlout;
-            const c0 = step.charCodeAt(0);
-            // Extract from hash
-            if ( c0 === 0x23 && step === '#' ) { // #
-                const pos = urlin.indexOf('#');
-                urlout = pos !== -1 ? urlin.slice(pos+1) : '';
-                continue;
-            }
-            // Extract from URL parameter name at position i
-            if ( c0 === 0x26 ) { // &
-                const i = (parseInt(step.slice(1)) || 0) - 1;
-                if ( i < 0 ) { return; }
-                const url = new URL(urlin);
-                if ( i >= url.searchParams.size ) { return; }
-                const params = Array.from(url.searchParams.keys());
-                urlout = decodeURIComponent(params[i]);
-                continue;
-            }
-            // Enforce https
-            if ( c0 === 0x2B && step === '+https' ) { // +
-                const s = urlin.replace(/^https?:\/\//, '');
-                if ( /^[\w-]:\/\//.test(s) ) { return; }
-                urlout = `https://${s}`;
-                continue;
-            }
-            // Decode
-            if ( c0 === 0x2D ) { // -
-                // Base64
-                if ( step === '-base64' ) {
-                    urlout = self.atob(urlin);
-                    continue;
-                }
-                // Safe Base64
-                if ( step === '-safebase64' ) {
-                    if ( urlSkip.safeBase64Replacer === undefined ) {
-                        urlSkip.safeBase64Map = { '-': '+', '_': '/' };
-                        urlSkip.safeBase64Replacer = s => urlSkip.safeBase64Map[s];
-                    }
-                    urlout = urlin.replace(/[-_]/g, urlSkip.safeBase64Replacer);
-                    urlout = self.atob(urlout);
-                    continue;
-                }
-                // URI component
-                if ( step === '-uricomponent' ) {
-                    urlout = decodeURIComponent(urlin);
-                    continue;
-                }
-                // Enable skip of blocked requests
-                if ( step === '-blocked' ) {
-                    redirectBlocked = true;
-                    continue;
-                }
-            }
-            // Regex extraction from first capture group
-            if ( c0 === 0x2F ) { // /
-                const re = directive.cache ?? new RegExp(step.slice(1, -1));
-                if ( directive.cache === null ) {
-                    directive.cache = re;
-                }
-                const match = re.exec(urlin);
-                if ( match === null ) { return; }
-                if ( match.length <= 1 ) { return; }
-                urlout = match[1];
-                continue;
-            }
-            // Extract from URL parameter
-            if ( c0 === 0x3F ) { // ?
-                urlout = (new URL(urlin)).searchParams.get(step.slice(1));
-                if ( urlout === null ) { return; }
-                if ( urlout.includes(' ') ) {
-                    urlout = urlout.replace(/ /g, '%20');
-                }
-                continue;
-            }
-            // Unknown directive
-            return;
-        }
-        const urlfinal = new URL(urlout);
-        if ( urlfinal.protocol !== 'https:' ) {
-            if ( urlfinal.protocol !== 'http:' ) { return; }
-        }
-        if ( blocked && redirectBlocked !== true ) { return; }
-        return urlout;
-    } catch {
-    }
-}
-
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["[href*=\"?url=https\"]","?url"],["a[href*=\"&link=https://\"]","?link"],["a[href*=\".mck\"][href*=\".ru/c/\"]","?u"],["a[href*=\".php?go=\"]","?go"],["a[href*=\"/away.php?\"]","?to"],["a[href*=\"/away?\"]","?to"],["a[href*=\"/bitrix/rk.php?goto=https\"]","?goto"],["a[href*=\"/go.php\"]","?url"],["a[href*=\"/redir.php?r=\"]","?r"],["a[href*=\"/redir/\"]","?exturl"],["a[href*=\"/redir/\"]","?vzurl"],["a[href*=\"/redirect?to=\"]","?to"],["a[href*=\"://click.opennet.ru/cgi-bin/\"]","?to"],["a[href*=\"?goto=https\"]","?goto"],["a[href*=\"deeplink=\"]","?deeplink"],["a[href][rel*=\"sponsored\"][target=\"_blank\"]","?goto"],["a[href][target=\"_blank\"]","?ulp"],["a[href^=\"//www.ixbt.com/click/?c=\"]","[title]"],["a[href^=\"/engine/dwn\"]","?xf"],["a[href^=\"/go/?url=https\"]","?url"],["a[href^=\"http:\"][aria-label^=\"Перейти на страницу источника\"]","+https"],["a[href^=\"https://click.email4customers.com/Link?\"]","?args"],["a[href^=\"https://fixti.ru/download.php?files=\"]","?files"],["a[href^=\"https://go.2038.pro/\"][href*=\"?dl=\"]","?dl"],["a[href^=\"https://pikabu.ru/\"][href*=\"?u=http\"]","?u"],["a[href^=\"https://robot.mos.ru/\"]","?url"],["a[href^=\"https://www.google.com/url?q=\"]"],["a[href^=\"https://www.gosuslugi.ru/ref?t=\"]","?to"],["a[href^=\"https://www.youtube.com/redirect?event=\"][href*=\"&q=http\"]","?q"],["[href^=\"https://checklink.mail.ru/proxy?\"]","?url"],["[href^=\"https://click.mail.ru/redir?u=\"]","?u"],["[href^=\"https://clicker.mail.ru/redir?u=\"]","?u"],["[data-cke-saved-href^=\"https://checklink.mail.ru/proxy?\"]"],[".specialcontdown > a[href^=\"/download?downloadlink=\"]","?downloadlink"]];
-const hostnamesMap = new Map([["mp3party.net",0],["portalvirtualreality.ru",1],["e.mail.ru",[2,21,25,27,32]],["mail.rambler.ru",[2,21,25,27]],["mail.yandex.ru",[2,21,25,27]],["octavius.mail.ru",[2,21,25,27,32]],["softoroom.org",3],["vk.com",4],["vk.ru",4],["vkvideo.ru",4],["dzen.ru",5],["freehat.cc",6],["lalapaluza.ru",6],["game4you.top",7],["innal.top",7],["naylo.top",7],["rustorka.com",7],["rustorka.net",7],["rustorka.top",7],["rustorkacom.lib",7],["stalkermods.ru",8],["vz.ru",[9,10]],["dtf.ru",11],["vc.ru",[11,23]],["opennet.me",12],["opennet.ru",12],["appleinsider.ru",13],["kluchikipro.ru",14],["lifehacker.ru",[15,16]],["hot.game",16],["www.ixbt.com",17],["wotspeak.org",18],["fishki.net",19],["rambler.ru",20],["rsload.net",22],["pikabu.ru",24],["nsportal.ru",26],["youtube.com",28],["light.mail.ru",[29,30]],["my.mail.ru",31],["bookdream.ru",33],["booksreed.ru",33],["electrobooks.ru",33],["lit-web.net",33],["litruso.ru",33],["my-lib.ru",33],["novkniga.ru",33],["skanbooks.ru",33],["x-libri.ru",33]]);
+const argsList = [["xpath(//*[name()=\"Period\"][.//*[name()=\"AdaptationSet\"][@contentType=\"video\"]])","",".m3u8"]];
+const hostnamesMap = new Map([["vix.com",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -511,7 +431,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { hrefSanitizer(...argsList[i]); }
+    try { xmlPrune(...argsList[i]); }
     catch { }
 }
 

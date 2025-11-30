@@ -366,9 +366,9 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["/ d[0-9]{1}/"],["Ya.Rum.getSetting","15"],["removeAttr","setTimeout"]];
-const hostnamesMap = new Map([["online-fix.me",0],["yandex.*",1],["4pda.*",2]]);
-const exceptionsMap = new Map([["mail.yandex.*",[1]],["vh.yandex.ru",[1]],["yandex.net",[1]]]);
+const argsList = [["/ d[0-9]{1}/"],["document"],["Ya.Rum.getSetting","15"],["removeAttr","setTimeout"]];
+const hostnamesMap = new Map([["online-fix.me",0],["game4you.top",1],["innal.top",1],["naylo.top",1],["rustorka.com",1],["rustorka.net",1],["rustorka.top",1],["rustorkacom.lib",1],["yandex.*",2],["4pda.*",3]]);
+const exceptionsMap = new Map([["mail.yandex.*",[2]],["vh.yandex.ru",[2]],["yandex.net",[2]]]);
 const hasEntities = true;
 const hasAncestors = false;
 

@@ -181,6 +181,18 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?ouo\\.io/qs/4uwmuczg\\?s=",
+  "steps": [
+   "?s"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?cts\\.businesswire\\.com/ct/ct\\?id=smartlink&url=",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?anylinks\\.in/full\\S*?(?:[^%.0-9a-z_-]|$)url=ahr0c",
   "steps": [
    "?url",
@@ -1252,12 +1264,6 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?hb\\.afl\\.rakuten\\.co\\.jp/hgc/\\S*?/\\?pc=",
   "steps": [
    "?pc"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?ouo\\.io/qs/4uwmuczg\\?s=",
-  "steps": [
-   "?s"
   ]
  }
 ]

@@ -487,6 +487,7 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||api.branch.io/v1/open"},"id":486,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||mingle.kijiji.ca/api/ads/"},"id":487,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||googleads.g.doubleclick.net/mads/gma?*&_package_name=com.nextradiotv.bfmbusiness"},"id":488,"priority":30},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-vast2.xml"},"type":"redirect"},"condition":{"initiatorDomains":["mydaddy.cc"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||a.adtng.com/get/"},"id":489,"priority":41},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||api.bufferapp.com/*/profiles.json"},"id":490,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||api.bufferapp.com/*/service/"},"id":491,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||api.bufferapp.com/*/user"},"id":492,"priority":30},

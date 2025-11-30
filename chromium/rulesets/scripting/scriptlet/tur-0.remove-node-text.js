@@ -368,8 +368,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["script","ad_block"],["script","/lastAdTime|openPopup/"],["#text","reklam_linki"],["script","pbrk"],["script","openRandomSite"]];
-const hostnamesMap = new Map([["birsenaltuntas.com",0],["cizgivedizi.com",1],["bugunkibris.com",2],["sinema.*",3],["efullizle.com",4]]);
+const argsList = [["script","ad_block"],["script","/lastAdTime|openPopup/"],["#text","reklam_linki"],["script","pbrk"],["script","openRandomSite"],["script","window.open"]];
+const hostnamesMap = new Map([["birsenaltuntas.com",0],["cizgivedizi.com",1],["bugunkibris.com",2],["sinema.*",3],["efullizle.com",4],["askimyavas54.com",5],["askimyavas55.com",5],["askimyavas56.com",5],["askimyavas57.com",5],["askimyavas58.com",5],["askimyavas59.com",5],["askimyavas60.com",5],["askimyavas61.com",5],["askimyavas62.com",5],["askimyavas63.com",5],["askimyavas64.com",5],["askimyavas65.com",5],["askimyavas66.com",5],["askimyavas67.com",5],["askimyavas68.com",5],["askimyavas69.com",5],["askimyavas70.com",5],["askimyavas71.com",5],["askimyavas72.com",5],["askimyavas73.com",5]]);
 const exceptionsMap = new Map([]);
 const hasEntities = true;
 const hasAncestors = false;

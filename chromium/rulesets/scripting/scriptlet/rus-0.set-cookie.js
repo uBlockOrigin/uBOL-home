@@ -361,8 +361,8 @@ function getCookieFn(
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["KUF_SUGGESTER_SHOW_2_ITERATION","1"],["adBlockModal","true"],["callToRegisterClosed","true"],["cookieAccepted","true"],["cookie_accept","1"],["cookie_consent_shown","1"],["ha","1"],["kuf_agr","true"],["lk-hasConsent","True"],["pg_SuggestGameFollow","true"],["telegram_popup","Y"],["unity_pause_sso","1"],["yandexFull","true"]];
-const hostnamesMap = new Map([["kufar.by",[0,7]],["myshows.me",1],["direct.farm",2],["liga.net",3],["ixbt.com",4],["avito.ru",5],["forum.ixbt.com",6],["lk.emias.mos.ru",8],["playground.ru",9],["kinotv.ru",10],["ferra.ru",11],["indicator.ru",11],["lenta.ru",11],["letidor.ru",11],["moslenta.ru",11],["motor.ru",11],["passion.ru",11],["quto.ru",11],["secretmag.ru",11],["wmj.ru",11],["mp3party.net",12]]);
+const argsList = [["KUF_SUGGESTER_SHOW_2_ITERATION","1"],["adBlockModal","true"],["age_confirmed","1"],["callToRegisterClosed","true"],["cookieAccepted","true"],["cookie_accept","1"],["cookie_consent_shown","1"],["ha","1"],["kuf_agr","true"],["lk-hasConsent","True"],["pg_SuggestGameFollow","true"],["telegram_popup","Y"],["unity_pause_sso","1"],["yandexFull","true"]];
+const hostnamesMap = new Map([["kufar.by",[0,8]],["myshows.me",1],["champion.com.ua",2],["direct.farm",3],["liga.net",4],["ixbt.com",5],["avito.ru",6],["forum.ixbt.com",7],["lk.emias.mos.ru",9],["playground.ru",10],["kinotv.ru",11],["ferra.ru",12],["indicator.ru",12],["lenta.ru",12],["letidor.ru",12],["moslenta.ru",12],["motor.ru",12],["passion.ru",12],["quto.ru",12],["secretmag.ru",12],["wmj.ru",12],["mp3party.net",13]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

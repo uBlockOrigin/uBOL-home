@@ -340,9 +340,9 @@ function getRandomTokenFn() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["document.head.appendChild","inlineScript"],["Object.prototype.getBaseFingerprint","inlineScript"]];
-const hostnamesMap = new Map([["game4you.top",0],["innal.top",0],["naylo.top",0],["rustorka.com",0],["rustorka.net",0],["rustorka.top",0],["rustorkacom.lib",0],["avtorambler.*",1],["championat.*",1],["eda.*",1],["gazeta.press",1],["gazeta.ru",1],["lenta.*",1],["letidor.*",1],["moslenta.*",1],["motor.*",1],["passion.*",1],["quto.*",1],["rambler.*",1],["wmj.*",1],["www.afisha.*",1]]);
-const exceptionsMap = new Map([["id.rambler.ru",[1]],["mail.rambler.*",[1]],["quiz.rambler.ru",[1]],["vp.rambler.ru",[1]]]);
+const argsList = [["Object.prototype.getBaseFingerprint","inlineScript"]];
+const hostnamesMap = new Map([["avtorambler.*",0],["championat.*",0],["eda.*",0],["gazeta.press",0],["gazeta.ru",0],["lenta.*",0],["letidor.*",0],["moslenta.*",0],["motor.*",0],["passion.*",0],["quto.*",0],["rambler.*",0],["wmj.*",0],["www.afisha.*",0]]);
+const exceptionsMap = new Map([["id.rambler.ru",[0]],["mail.rambler.*",[0]],["quiz.rambler.ru",[0]],["vp.rambler.ru",[0]]]);
 const hasEntities = true;
 const hasAncestors = false;
 

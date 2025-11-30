@@ -395,7 +395,7 @@ function safeSelf() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 const argsList = [[]];
-const hostnamesMap = new Map([["anichin.top",0],["animekompi.vip",0],["indobo.com",0],["jurnalistekno.id",0],["kimcilonly.site",0],["kiryuu.id",0],["kiryuu.org",0],["kiryuu01.com",0],["komikcast02.com",0],["njavtv.com",0],["subindojav.cc",0],["westmanga.*",0]]);
+const hostnamesMap = new Map([["kisahterlarang.site",0],["sukasex.net",0],["sukasex.tv",0],["anichin.top",0],["animekompi.vip",0],["indobo.com",0],["jurnalistekno.id",0],["kimcilonly.site",0],["kiryuu.id",0],["kiryuu.org",0],["kiryuu01.com",0],["komikcast02.com",0],["njavtv.com",0],["subindojav.cc",0],["westmanga.*",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = true;
 const hasAncestors = false;

@@ -485,5 +485,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||h3v9p8x2q1r7-agckaeh6g2ehcaes.*.azurewebsites.net^"},"id":484,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||azurewebsites.net/*?player_*[max_ad_dur]=*[adslot]=*&vpaid="},"id":485,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["goplay.be","play.tv"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/omsdk/releases/live/omweb-v1.js"},"id":486,"priority":11},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["goplay.be","play.tv"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":487,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["goplay.be","play.tv"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":487,"priority":11},
+{"action":{"type":"block"},"condition":{"urlFilter":"||service-api.nl/api/v2/ad?"},"id":488,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||gp33.nl/assets/common/ads-helper.js"},"id":489,"priority":10}
 ]

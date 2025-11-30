@@ -372,7 +372,7 @@ function getRandomTokenFn() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 const argsList = [["document.createElement","admiral"]];
-const hostnamesMap = new Map([["titantv.com",0],["musicfeeds.com.au",0],["minecraftalpha.net",0],["worldpopulationreview.com",0],["boston.com",0],["britannica.com",0],["download.mokeedev.com",0],["freep.com",0],["ijr.com",0],["inquirer.net",0],["legacy.com",0],["nationalreview.com",0],["nofilmschool.com",0],["order-order.com",0],["savvytime.com",0],["techlicious.com",0],["technicpack.net",0],["thedraftnetwork.com",0],["wrestlezone.com",0]]);
+const hostnamesMap = new Map([["titantv.com",0],["musicfeeds.com.au",0],["worldpopulationreview.com",0],["boston.com",0],["britannica.com",0],["download.mokeedev.com",0],["freep.com",0],["ijr.com",0],["inquirer.net",0],["legacy.com",0],["nationalreview.com",0],["nofilmschool.com",0],["order-order.com",0],["savvytime.com",0],["techlicious.com",0],["technicpack.net",0],["thedraftnetwork.com",0],["wrestlezone.com",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

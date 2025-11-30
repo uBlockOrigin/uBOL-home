@@ -815,8 +815,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["JSON.stringify","0","..client[?.clientName==\"WEB\"]+={\"clientScreen\":\"CHANNEL\"}"]];
-const hostnamesMap = new Map([["www.youtube.com",0]]);
+const argsList = [["JSON.stringify","0","..client[?.clientName==\"WEB\"]+={\"clientScreen\":\"CHANNEL\"}"],["Object.keys","0","[?.context.bidRequestId].*"]];
+const hostnamesMap = new Map([["www.youtube.com",0],["www.dobreprogramy.pl",1]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;

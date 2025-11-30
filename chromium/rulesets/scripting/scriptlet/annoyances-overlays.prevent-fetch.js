@@ -78,33 +78,34 @@ function preventFetchFn(
             responseProps.type = { value: responseType };
         }
     }
+    const fetchProps = (src, out) => {
+        if ( typeof src !== 'object' || src === null ) { return; }
+        const props = [
+            'body', 'cache', 'credentials', 'duplex', 'headers',
+            'integrity', 'keepalive', 'method', 'mode', 'priority',
+            'redirect', 'referrer', 'referrerPolicy', 'signal',
+        ];
+        for ( const prop of props ) {
+            if ( src[prop] === undefined ) { continue; }
+            out[prop] = src[prop];
+        }
+    };
+    const fetchDetails = args => {
+        const out = {};
+        if ( args[0] instanceof self.Request ) {
+            out.url = `${args[0].url}`;
+            fetchProps(args[0], out);
+        } else {
+            out.url = `${args[0]}`;
+        }
+        fetchProps(args[1], out);
+        return out;
+    };
     proxyApplyFn('fetch', function fetch(context) {
         const { callArgs } = context;
-        const details = (( ) => {
-            const fetchProps = (src, out) => {
-                if ( typeof src !== 'object' || src === null ) { return; }
-                const props = [
-                    'body', 'cache', 'credentials', 'duplex', 'headers',
-                    'integrity', 'keepalive', 'method', 'mode', 'priority',
-                    'redirect', 'referrer', 'referrerPolicy', 'signal',
-                ];
-                for ( const prop of props ) {
-                    if ( src[prop] === undefined ) { continue; }
-                    out[prop] = src[prop];
-                }
-            };
-            const out = {};
-            if ( callArgs[0] instanceof self.Request ) {
-                out.url = `${callArgs[0].url}`;
-                fetchProps(callArgs[0], out);
-            } else {
-                out.url = `${callArgs[0]}`;
-            }
-            fetchProps(callArgs[1], out);
-            return out;
-        })();
+        const details = fetchDetails(callArgs);
         if ( safe.logLevel > 1 || propsToMatch === '' && responseBody === '' ) {
-            const out = Array.from(details).map(a => `${a[0]}:${a[1]}`);
+            const out = Array.from(Object.entries(details)).map(a => `${a[0]}:${a[1]}`);
             safe.uboLog(logPrefix, `Called: ${out.join('\n')}`);
         }
         if ( propsToMatch === '' && responseBody === '' ) {
@@ -514,7 +515,7 @@ function safeSelf() {
 
 const scriptletGlobals = {}; // eslint-disable-line
 const argsList = [["www3.doubleclick.net"],["doubleclick"],["googlesyndication"],["analytics"],["ads"],["/googlesyndication|googletag/"],["cloudflareinsights.com"],["/adsbygoogle|ad-manager/"],["adsbygoogle"],["method:HEAD"]];
-const hostnamesMap = new Map([["tools.jabrek.net",0],["pokeos.com",1],["sporttotal.tv",1],["maxedtech.com",2],["textcleaner.net",2],["socialcounts.org",2],["viewing.nyc",2],["autopareri.com",2],["curseforge.com",2],["ddys.*",3],["theonegenerator.com",4],["mcskinhistory.com",4],["bypass.city",5],["adbypass.org",5],["amtraker.com",6],["ark-unity.com",7],["wiibackupmanager.co.uk",8],["globalairportconcierge.com",9]]);
+const hostnamesMap = new Map([["tools.jabrek.net",0],["pokeos.com",1],["sporttotal.tv",1],["maxedtech.com",2],["textcleaner.net",2],["socialcounts.org",2],["viewing.nyc",2],["autopareri.com",2],["curseforge.com",2],["ddys.*",3],["theonegenerator.com",4],["mcskinhistory.com",4],["bypass.city",5],["adbypass.org",5],["amtraker.com",6],["ark-unity.com",7],["wiibackupmanager.co.uk",8],["omnisets.com",8],["globalairportconcierge.com",9]]);
 const exceptionsMap = new Map([]);
 const hasEntities = true;
 const hasAncestors = false;

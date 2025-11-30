@@ -78,33 +78,34 @@ function preventFetchFn(
             responseProps.type = { value: responseType };
         }
     }
+    const fetchProps = (src, out) => {
+        if ( typeof src !== 'object' || src === null ) { return; }
+        const props = [
+            'body', 'cache', 'credentials', 'duplex', 'headers',
+            'integrity', 'keepalive', 'method', 'mode', 'priority',
+            'redirect', 'referrer', 'referrerPolicy', 'signal',
+        ];
+        for ( const prop of props ) {
+            if ( src[prop] === undefined ) { continue; }
+            out[prop] = src[prop];
+        }
+    };
+    const fetchDetails = args => {
+        const out = {};
+        if ( args[0] instanceof self.Request ) {
+            out.url = `${args[0].url}`;
+            fetchProps(args[0], out);
+        } else {
+            out.url = `${args[0]}`;
+        }
+        fetchProps(args[1], out);
+        return out;
+    };
     proxyApplyFn('fetch', function fetch(context) {
         const { callArgs } = context;
-        const details = (( ) => {
-            const fetchProps = (src, out) => {
-                if ( typeof src !== 'object' || src === null ) { return; }
-                const props = [
-                    'body', 'cache', 'credentials', 'duplex', 'headers',
-                    'integrity', 'keepalive', 'method', 'mode', 'priority',
-                    'redirect', 'referrer', 'referrerPolicy', 'signal',
-                ];
-                for ( const prop of props ) {
-                    if ( src[prop] === undefined ) { continue; }
-                    out[prop] = src[prop];
-                }
-            };
-            const out = {};
-            if ( callArgs[0] instanceof self.Request ) {
-                out.url = `${callArgs[0].url}`;
-                fetchProps(callArgs[0], out);
-            } else {
-                out.url = `${callArgs[0]}`;
-            }
-            fetchProps(callArgs[1], out);
-            return out;
-        })();
+        const details = fetchDetails(callArgs);
         if ( safe.logLevel > 1 || propsToMatch === '' && responseBody === '' ) {
-            const out = Array.from(details).map(a => `${a[0]}:${a[1]}`);
+            const out = Array.from(Object.entries(details)).map(a => `${a[0]}:${a[1]}`);
             safe.uboLog(logPrefix, `Called: ${out.join('\n')}`);
         }
         if ( propsToMatch === '' && responseBody === '' ) {
@@ -513,8 +514,8 @@ function safeSelf() {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["/www3\\.doubleclick\\.net|tagger\\.opecloud\\.com|fwmrm\\.net/","emptyArr"],["tag.min.js"],["fwmrm"],["pagead2.googlesyndication.com"],["js.sddan.com"],["adskeeper.co.uk"],["static.adsafeprotected.com/favicon.ico"],["/^https:\\/\\/ads\\.stickyadstv\\.com\\/$/ method:HEAD"]];
-const hostnamesMap = new Map([["rmcbfmplay.com",0],["darkino.*",1],["france.tv",2],["lameteoagricole.net",3],["meteo-grenoble.com",3],["signal-arnaques.com",3],["techno-science.net",3],["animationdigitalnetwork.com",3],["animationdigitalnetwork.fr",3],["animedigitalnetwork.fr",3],["malekal.com",4],["crunchyscan.fr",5],["tf1.fr",[6,7]],["tf1info.fr",[6,7]]]);
+const argsList = [["pagead2.googlesyndication.com"],["/www3\\.doubleclick\\.net|tagger\\.opecloud\\.com|fwmrm\\.net/","emptyArr"],["tag.min.js"],["fwmrm"],["js.sddan.com"],["adskeeper.co.uk"],["static.adsafeprotected.com/favicon.ico"],["/^https:\\/\\/ads\\.stickyadstv\\.com\\/$/ method:HEAD"]];
+const hostnamesMap = new Map([["planhub.ca",0],["lameteoagricole.net",0],["meteo-grenoble.com",0],["signal-arnaques.com",0],["techno-science.net",0],["animationdigitalnetwork.com",0],["animationdigitalnetwork.fr",0],["animedigitalnetwork.fr",0],["rmcbfmplay.com",1],["darkino.*",2],["france.tv",3],["malekal.com",4],["crunchyscan.fr",5],["tf1.fr",[6,7]],["tf1info.fr",[6,7]]]);
 const exceptionsMap = new Map([]);
 const hasEntities = true;
 const hasAncestors = false;

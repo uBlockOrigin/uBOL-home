@@ -20,141 +20,109 @@
 
 */
 
-// ruleset: rus-0
+// ruleset: hun-0
 
 // Important!
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_hrefSanitizer() {
+(function uBOL_setSessionStorageItem() {
 
 /******************************************************************************/
 
-function hrefSanitizer(
-    selector = '',
-    source = ''
-) {
-    if ( typeof selector !== 'string' ) { return; }
-    if ( selector === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('href-sanitizer', selector, source);
-    if ( source === '' ) { source = 'text'; }
-    const sanitizeCopycats = (href, text) => {
-        let elems = [];
-        try {
-            elems = document.querySelectorAll(`a[href="${href}"`);
-        }
-        catch {
-        }
-        for ( const elem of elems ) {
-            elem.setAttribute('href', text);
-        }
-        return elems.length;
-    };
-    const validateURL = text => {
-        if ( typeof text !== 'string' ) { return ''; }
-        if ( text === '' ) { return ''; }
-        if ( /[\x00-\x20\x7f]/.test(text) ) { return ''; }
-        try {
-            const url = new URL(text, document.location);
-            return url.href;
-        } catch {
-        }
-        return '';
-    };
-    const extractURL = (elem, source) => {
-        if ( /^\[.*\]$/.test(source) ) {
-            return elem.getAttribute(source.slice(1,-1).trim()) || '';
-        }
-        if ( source === 'text' ) {
-            return elem.textContent
-                .replace(/^[^\x21-\x7e]+/, '')  // remove leading invalid characters
-                .replace(/[^\x21-\x7e]+$/, ''); // remove trailing invalid characters
-        }
-        const steps = source.replace(/(\S)\?/g, '\\1 ?').split(/\s+/);
-        const url = urlSkip(elem.href, false, steps);
-        if ( url === undefined ) { return; }
-        return url.replace(/ /g, '%20');
-    };
-    const sanitize = ( ) => {
-        let elems = [];
-        try {
-            elems = document.querySelectorAll(selector);
-        }
-        catch {
-            return false;
-        }
-        for ( const elem of elems ) {
-            if ( elem.localName !== 'a' ) { continue; }
-            if ( elem.hasAttribute('href') === false ) { continue; }
-            const href = elem.getAttribute('href');
-            const text = extractURL(elem, source);
-            const hrefAfter = validateURL(text);
-            if ( hrefAfter === '' ) { continue; }
-            if ( hrefAfter === href ) { continue; }
-            elem.setAttribute('href', hrefAfter);
-            const count = sanitizeCopycats(href, hrefAfter);
-            safe.uboLog(logPrefix, `Sanitized ${count+1} links to\n${hrefAfter}`);
-        }
-        return true;
-    };
-    let observer, timer;
-    const onDomChanged = mutations => {
-        if ( timer !== undefined ) { return; }
-        let shouldSanitize = false;
-        for ( const mutation of mutations ) {
-            if ( mutation.addedNodes.length === 0 ) { continue; }
-            for ( const node of mutation.addedNodes ) {
-                if ( node.nodeType !== 1 ) { continue; }
-                shouldSanitize = true;
-                break;
-            }
-            if ( shouldSanitize ) { break; }
-        }
-        if ( shouldSanitize === false ) { return; }
-        timer = safe.onIdle(( ) => {
-            timer = undefined;
-            sanitize();
-        });
-    };
-    const start = ( ) => {
-        if ( sanitize() === false ) { return; }
-        observer = new MutationObserver(onDomChanged);
-        observer.observe(document.body, {
-            subtree: true,
-            childList: true,
-        });
-    };
-    runAt(( ) => { start(); }, 'interactive');
+function setSessionStorageItem(key = '', value = '') {
+    setLocalStorageItemFn('session', false, key, value);
 }
 
-function runAt(fn, when) {
-    const intFromReadyState = state => {
-        const targets = {
-            'loading': 1, 'asap': 1,
-            'interactive': 2, 'end': 2, '2': 2,
-            'complete': 3, 'idle': 3, '3': 3,
-        };
-        const tokens = Array.isArray(state) ? state : [ state ];
-        for ( const token of tokens ) {
-            const prop = `${token}`;
-            if ( Object.hasOwn(targets, prop) === false ) { continue; }
-            return targets[prop];
-        }
-        return 0;
-    };
-    const runAt = intFromReadyState(when);
-    if ( intFromReadyState(document.readyState) >= runAt ) {
-        fn(); return;
+function setLocalStorageItemFn(
+    which = 'local',
+    trusted = false,
+    key = '',
+    value = '',
+) {
+    if ( key === '' ) { return; }
+
+    // For increased compatibility with AdGuard
+    if ( value === 'emptyArr' ) {
+        value = '[]';
+    } else if ( value === 'emptyObj' ) {
+        value = '{}';
     }
-    const onStateChange = ( ) => {
-        if ( intFromReadyState(document.readyState) < runAt ) { return; }
-        fn();
-        safe.removeEventListener.apply(document, args);
-    };
-    const safe = safeSelf();
-    const args = [ 'readystatechange', onStateChange, { capture: true } ];
-    safe.addEventListener.apply(document, args);
+
+    const trustedValues = [
+        '',
+        'undefined', 'null',
+        '{}', '[]', '""',
+        '$remove$',
+        ...getSafeCookieValuesFn(),
+    ];
+
+    if ( trusted ) {
+        if ( value.includes('$now$') ) {
+            value = value.replaceAll('$now$', Date.now());
+        }
+        if ( value.includes('$currentDate$') ) {
+            value = value.replaceAll('$currentDate$', `${Date()}`);
+        }
+        if ( value.includes('$currentISODate$') ) {
+            value = value.replaceAll('$currentISODate$', (new Date()).toISOString());
+        }
+    } else {
+        const normalized = value.toLowerCase();
+        const match = /^("?)(.+)\1$/.exec(normalized);
+        const unquoted = match && match[2] || normalized;
+        if ( trustedValues.includes(unquoted) === false ) {
+            if ( /^-?\d+$/.test(unquoted) === false ) { return; }
+            const n = parseInt(unquoted, 10) || 0;
+            if ( n < -32767 || n > 32767 ) { return; }
+        }
+    }
+
+    try {
+        const storage = self[`${which}Storage`];
+        if ( value === '$remove$' ) {
+            const safe = safeSelf();
+            const pattern = safe.patternToRegex(key, undefined, true );
+            const toRemove = [];
+            for ( let i = 0, n = storage.length; i < n; i++ ) {
+                const key = storage.key(i);
+                if ( pattern.test(key) ) { toRemove.push(key); }
+            }
+            for ( const key of toRemove ) {
+                storage.removeItem(key);
+            }
+        } else {
+            storage.setItem(key, `${value}`);
+        }
+    } catch {
+    }
+}
+
+function getSafeCookieValuesFn() {
+    return [
+        'accept', 'reject',
+        'accepted', 'rejected', 'notaccepted',
+        'allow', 'disallow', 'deny',
+        'allowed', 'denied',
+        'approved', 'disapproved',
+        'checked', 'unchecked',
+        'dismiss', 'dismissed',
+        'enable', 'disable',
+        'enabled', 'disabled',
+        'essential', 'nonessential',
+        'forbidden', 'forever',
+        'hide', 'hidden',
+        'necessary', 'required',
+        'ok',
+        'on', 'off',
+        'true', 't', 'false', 'f',
+        'yes', 'y', 'no', 'n',
+        'all', 'none', 'functional',
+        'granted', 'done',
+        'decline', 'declined',
+        'closed', 'next', 'mandatory',
+        'disagree', 'agree',
+    ];
 }
 
 function safeSelf() {
@@ -347,103 +315,11 @@ function safeSelf() {
     return safe;
 }
 
-function urlSkip(url, blocked, steps, directive = {}) {
-    try {
-        let redirectBlocked = false;
-        let urlout = url;
-        for ( const step of steps ) {
-            const urlin = urlout;
-            const c0 = step.charCodeAt(0);
-            // Extract from hash
-            if ( c0 === 0x23 && step === '#' ) { // #
-                const pos = urlin.indexOf('#');
-                urlout = pos !== -1 ? urlin.slice(pos+1) : '';
-                continue;
-            }
-            // Extract from URL parameter name at position i
-            if ( c0 === 0x26 ) { // &
-                const i = (parseInt(step.slice(1)) || 0) - 1;
-                if ( i < 0 ) { return; }
-                const url = new URL(urlin);
-                if ( i >= url.searchParams.size ) { return; }
-                const params = Array.from(url.searchParams.keys());
-                urlout = decodeURIComponent(params[i]);
-                continue;
-            }
-            // Enforce https
-            if ( c0 === 0x2B && step === '+https' ) { // +
-                const s = urlin.replace(/^https?:\/\//, '');
-                if ( /^[\w-]:\/\//.test(s) ) { return; }
-                urlout = `https://${s}`;
-                continue;
-            }
-            // Decode
-            if ( c0 === 0x2D ) { // -
-                // Base64
-                if ( step === '-base64' ) {
-                    urlout = self.atob(urlin);
-                    continue;
-                }
-                // Safe Base64
-                if ( step === '-safebase64' ) {
-                    if ( urlSkip.safeBase64Replacer === undefined ) {
-                        urlSkip.safeBase64Map = { '-': '+', '_': '/' };
-                        urlSkip.safeBase64Replacer = s => urlSkip.safeBase64Map[s];
-                    }
-                    urlout = urlin.replace(/[-_]/g, urlSkip.safeBase64Replacer);
-                    urlout = self.atob(urlout);
-                    continue;
-                }
-                // URI component
-                if ( step === '-uricomponent' ) {
-                    urlout = decodeURIComponent(urlin);
-                    continue;
-                }
-                // Enable skip of blocked requests
-                if ( step === '-blocked' ) {
-                    redirectBlocked = true;
-                    continue;
-                }
-            }
-            // Regex extraction from first capture group
-            if ( c0 === 0x2F ) { // /
-                const re = directive.cache ?? new RegExp(step.slice(1, -1));
-                if ( directive.cache === null ) {
-                    directive.cache = re;
-                }
-                const match = re.exec(urlin);
-                if ( match === null ) { return; }
-                if ( match.length <= 1 ) { return; }
-                urlout = match[1];
-                continue;
-            }
-            // Extract from URL parameter
-            if ( c0 === 0x3F ) { // ?
-                urlout = (new URL(urlin)).searchParams.get(step.slice(1));
-                if ( urlout === null ) { return; }
-                if ( urlout.includes(' ') ) {
-                    urlout = urlout.replace(/ /g, '%20');
-                }
-                continue;
-            }
-            // Unknown directive
-            return;
-        }
-        const urlfinal = new URL(urlout);
-        if ( urlfinal.protocol !== 'https:' ) {
-            if ( urlfinal.protocol !== 'http:' ) { return; }
-        }
-        if ( blocked && redirectBlocked !== true ) { return; }
-        return urlout;
-    } catch {
-    }
-}
-
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["[href*=\"?url=https\"]","?url"],["a[href*=\"&link=https://\"]","?link"],["a[href*=\".mck\"][href*=\".ru/c/\"]","?u"],["a[href*=\".php?go=\"]","?go"],["a[href*=\"/away.php?\"]","?to"],["a[href*=\"/away?\"]","?to"],["a[href*=\"/bitrix/rk.php?goto=https\"]","?goto"],["a[href*=\"/go.php\"]","?url"],["a[href*=\"/redir.php?r=\"]","?r"],["a[href*=\"/redir/\"]","?exturl"],["a[href*=\"/redir/\"]","?vzurl"],["a[href*=\"/redirect?to=\"]","?to"],["a[href*=\"://click.opennet.ru/cgi-bin/\"]","?to"],["a[href*=\"?goto=https\"]","?goto"],["a[href*=\"deeplink=\"]","?deeplink"],["a[href][rel*=\"sponsored\"][target=\"_blank\"]","?goto"],["a[href][target=\"_blank\"]","?ulp"],["a[href^=\"//www.ixbt.com/click/?c=\"]","[title]"],["a[href^=\"/engine/dwn\"]","?xf"],["a[href^=\"/go/?url=https\"]","?url"],["a[href^=\"http:\"][aria-label^=\"Перейти на страницу источника\"]","+https"],["a[href^=\"https://click.email4customers.com/Link?\"]","?args"],["a[href^=\"https://fixti.ru/download.php?files=\"]","?files"],["a[href^=\"https://go.2038.pro/\"][href*=\"?dl=\"]","?dl"],["a[href^=\"https://pikabu.ru/\"][href*=\"?u=http\"]","?u"],["a[href^=\"https://robot.mos.ru/\"]","?url"],["a[href^=\"https://www.google.com/url?q=\"]"],["a[href^=\"https://www.gosuslugi.ru/ref?t=\"]","?to"],["a[href^=\"https://www.youtube.com/redirect?event=\"][href*=\"&q=http\"]","?q"],["[href^=\"https://checklink.mail.ru/proxy?\"]","?url"],["[href^=\"https://click.mail.ru/redir?u=\"]","?u"],["[href^=\"https://clicker.mail.ru/redir?u=\"]","?u"],["[data-cke-saved-href^=\"https://checklink.mail.ru/proxy?\"]"],[".specialcontdown > a[href^=\"/download?downloadlink=\"]","?downloadlink"]];
-const hostnamesMap = new Map([["mp3party.net",0],["portalvirtualreality.ru",1],["e.mail.ru",[2,21,25,27,32]],["mail.rambler.ru",[2,21,25,27]],["mail.yandex.ru",[2,21,25,27]],["octavius.mail.ru",[2,21,25,27,32]],["softoroom.org",3],["vk.com",4],["vk.ru",4],["vkvideo.ru",4],["dzen.ru",5],["freehat.cc",6],["lalapaluza.ru",6],["game4you.top",7],["innal.top",7],["naylo.top",7],["rustorka.com",7],["rustorka.net",7],["rustorka.top",7],["rustorkacom.lib",7],["stalkermods.ru",8],["vz.ru",[9,10]],["dtf.ru",11],["vc.ru",[11,23]],["opennet.me",12],["opennet.ru",12],["appleinsider.ru",13],["kluchikipro.ru",14],["lifehacker.ru",[15,16]],["hot.game",16],["www.ixbt.com",17],["wotspeak.org",18],["fishki.net",19],["rambler.ru",20],["rsload.net",22],["pikabu.ru",24],["nsportal.ru",26],["youtube.com",28],["light.mail.ru",[29,30]],["my.mail.ru",31],["bookdream.ru",33],["booksreed.ru",33],["electrobooks.ru",33],["lit-web.net",33],["litruso.ru",33],["my-lib.ru",33],["novkniga.ru",33],["skanbooks.ru",33],["x-libri.ru",33]]);
+const argsList = [["popupClosed","true"]];
+const hostnamesMap = new Map([["erzsebetvaros.hu",0]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
@@ -511,7 +387,7 @@ if ( hasAncestors ) {
 // Apply scriplets
 for ( const i of todoIndices ) {
     if ( tonotdoIndices.has(i) ) { continue; }
-    try { hrefSanitizer(...argsList[i]); }
+    try { setSessionStorageItem(...argsList[i]); }
     catch { }
 }
 

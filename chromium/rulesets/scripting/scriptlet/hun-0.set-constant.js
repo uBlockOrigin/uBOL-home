@@ -460,8 +460,8 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
-const argsList = [["show_modal","noopFunc"],["cookie_alert_overlay","noopFunc"],["adblock","false"],["AdHandler.adblocked","0"],["AdHandler.adBlockEnabled","0"],["AdHandler.checkAdblock","noopFunc"],["tie.ad_blocker_detector","undefined"],["ENABLE_PAGE_LEVEL_ADS","true"],["gemiusStream","{}"],["gemiusStream.event","noopFunc"],["gemiusStream.init","noopFunc"],["window.ado","null"]];
-const hostnamesMap = new Map([["arcanum.com",0],["laptophardware.hu",1],["milestone66.hu",1],["reformsziget.hu",1],["paplanvilag.hu",1],["foodker.hu",1],["angol-magyar-szotar.hu",2],["embed.indavideo.hu",[3,4,5]],["huaweiblog.hu",6],["myonlineradio.hu",7],["player.rtl.hu",[8,9,10]],["femina.hu",11]]);
+const argsList = [["show_modal","noopFunc"],["cookie_alert_overlay","noopFunc"],["adblock","false"],["AdHandler.adblocked","0"],["AdHandler.adBlockEnabled","0"],["AdHandler.checkAdblock","noopFunc"],["tie.ad_blocker_detector","undefined"],["ENABLE_PAGE_LEVEL_ADS","true"],["detect_adblock","falseFunc"],["gemiusStream","{}"],["gemiusStream.event","noopFunc"],["gemiusStream.init","noopFunc"],["window.ado","null"]];
+const hostnamesMap = new Map([["arcanum.com",0],["laptophardware.hu",1],["milestone66.hu",1],["reformsziget.hu",1],["paplanvilag.hu",1],["foodker.hu",1],["angol-magyar-szotar.hu",2],["embed.indavideo.hu",[3,4,5]],["huaweiblog.hu",6],["myonlineradio.hu",7],["rimkereso.hu",8],["player.rtl.hu",[9,10,11]],["femina.hu",12]]);
 const exceptionsMap = new Map([]);
 const hasEntities = false;
 const hasAncestors = false;
