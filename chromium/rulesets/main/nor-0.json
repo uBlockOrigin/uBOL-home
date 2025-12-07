@@ -320,6 +320,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"/in/p/?spot_id="},"id":319,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"/watchnew?shu="},"id":320,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||pixel.tv/wp-content/uploads/202*-300x300-"},"id":321,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["seiska.fi"],"urlFilter":"/aller-ads"},"id":322,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script","stylesheet"],"urlFilter":"||gfx.no^*/refererpromo"},"id":328,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["austurfrett.is","fcbarcelona.dk","norsk-rally.com","samler.no"],"resourceTypes":["image"],"urlFilter":"/images/banners"},"id":329,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/annonse_"},"id":330,"priority":10},

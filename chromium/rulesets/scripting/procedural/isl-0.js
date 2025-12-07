@@ -27,13 +27,15 @@
 
 /******************************************************************************/
 
-const argsList = ["[]","[{\"selector\":\".d-flex.flex-column.mx-auto\",\"tasks\":[[\"has-text\",\"AUGLÝSING\"]]}]"];
-const argsSeqs = [0,1];
-const hostnamesMap = new Map([["1819.is",1]]);
+
+const selectors = /* 1 */ ["{\"selector\":\".d-flex.flex-column.mx-auto\",\"tasks\":[[\"has-text\",\"AUGLÝSING\"]]}"];
+const selectorLists = /* 1 */ "0";
+const selectorListRefs = /* 1 */ "0";
+const hostnames = /* 1 */ ["1819.is"];
 const hasEntities = false;
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
+self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
 
 /******************************************************************************/
 

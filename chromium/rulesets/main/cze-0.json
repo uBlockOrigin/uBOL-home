@@ -137,6 +137,8 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["youradio.cz"],"resourceTypes":["media"],"urlFilter":"||redirector.gvt1.com/videoplayback/id/"},"id":136,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"||r.i0.cz^"},"id":137,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/2x2.png"},"type":"redirect"},"condition":{"initiatorDomains":["renault-club.cz"],"resourceTypes":["image"],"urlFilter":"||doubleclick.net^"},"id":138,"priority":11},
-{"action":{"type":"block"},"condition":{"urlFilter":"||sauto.cz/*/static/js/ssp.js"},"id":139,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||warforum.xyz/ads.js"},"id":140,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||sauto.cz/*ssp*.js"},"id":139,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||warforum.xyz/ads.js"},"id":140,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||sauto.cz/*w9ub*pkp*gre*.js"},"id":141,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||sauto.cz/*bkeaw9ubgf*."},"id":142,"priority":10}
 ]

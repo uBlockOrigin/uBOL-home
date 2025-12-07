@@ -27,13 +27,15 @@
 
 /******************************************************************************/
 
-const argsList = ["[]","[{\"selector\":\"#ablockercheck\",\"action\":[\"style\",\"display: block !important;\"],\"cssable\":true}]","[{\"selector\":\"body\",\"action\":[\"style\",\"background-image: none !important;\"],\"cssable\":true}]"];
-const argsSeqs = [0,1,2];
-const hostnamesMap = new Map([["stream.mk",1],["sportski.mk",2]]);
+
+const selectors = /* 2 */ ["{\"selector\":\"#ablockercheck\",\"action\":[\"style\",\"display: block !important;\"],\"cssable\":true}","{\"selector\":\"body\",\"action\":[\"style\",\"background-image: none !important;\"],\"cssable\":true}"];
+const selectorLists = /* 2 */ "0;1";
+const selectorListRefs = /* 2 */ "0,1";
+const hostnames = /* 2 */ ["stream.mk","sportski.mk"];
 const hasEntities = false;
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
+self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
 
 /******************************************************************************/
 

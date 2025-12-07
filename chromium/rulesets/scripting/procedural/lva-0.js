@@ -27,13 +27,15 @@
 
 /******************************************************************************/
 
-const argsList = ["[]","[{\"selector\":\"div\",\"tasks\":[[\"has\",{\"selector\":\"div\",\"tasks\":[[\"has-text\",\"Reklāma\"]]}],[\"upward\",\"div.item_box_main\"]]}]","[{\"selector\":\".widget_execphp\",\"tasks\":[[\"has-text\",\"Reklāmraksti\"]]}]"];
-const argsSeqs = [0,1,2];
-const hostnamesMap = new Map([["salidzini.lv",1],["zz.lv",2],["staburags.lv",2],["aluksniesiem.lv",2],["bauskasdzive.lv",2],["dzirkstele.lv",2],["ziemellatvija.lv",2],["rekurzeme.lv",2]]);
+
+const selectors = /* 2 */ ["{\"selector\":\"div\",\"tasks\":[[\"has\",{\"selector\":\"div\",\"tasks\":[[\"has-text\",\"Reklāma\"]]}],[\"upward\",\"div.item_box_main\"]]}","{\"selector\":\".widget_execphp\",\"tasks\":[[\"has-text\",\"Reklāmraksti\"]]}"];
+const selectorLists = /* 2 */ "0;1";
+const selectorListRefs = /* 8 */ "1,1,0,1,1,1,1,1";
+const hostnames = /* 8 */ ["zz.lv","rekurzeme.lv","salidzini.lv","staburags.lv","dzirkstele.lv","aluksniesiem.lv","bauskasdzive.lv","ziemellatvija.lv"];
 const hasEntities = false;
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
+self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
 
 /******************************************************************************/
 

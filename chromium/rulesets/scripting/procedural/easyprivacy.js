@@ -27,13 +27,15 @@
 
 /******************************************************************************/
 
-const argsList = ["[]","[{\"selector\":\"html[class^=\\\"loading\\\"]\",\"action\":[\"style\",\"visibility: visible !important;\"],\"cssable\":true}]","[{\"selector\":\".inviewSection:not(.is-show)\",\"action\":[\"style\",\"transform: translateY(0) !important; opacity: 1 !important;\"],\"cssable\":true}]","[{\"selector\":\"body[style=\\\"opacity: 0;\\\"]\",\"action\":[\"style\",\"opacity: 1 !important;\"],\"cssable\":true}]"];
-const argsSeqs = [0,1,2,3];
-const hostnamesMap = new Map([["anikore.jp",1],["e-begin.jp",2],["mustar.meitetsu.co.jp",3],["bitdefender.com",3]]);
+
+const selectors = /* 3 */ ["{\"selector\":\"html[class^=\\\"loading\\\"]\",\"action\":[\"style\",\"visibility: visible !important;\"],\"cssable\":true}","{\"selector\":\".inviewSection:not(.is-show)\",\"action\":[\"style\",\"transform: translateY(0) !important; opacity: 1 !important;\"],\"cssable\":true}","{\"selector\":\"body[style=\\\"opacity: 0;\\\"]\",\"action\":[\"style\",\"opacity: 1 !important;\"],\"cssable\":true}"];
+const selectorLists = /* 3 */ "0;1;2";
+const selectorListRefs = /* 4 */ "0,1,2,2";
+const hostnames = /* 4 */ ["anikore.jp","e-begin.jp","bitdefender.com","mustar.meitetsu.co.jp"];
 const hasEntities = false;
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
+self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
 
 /******************************************************************************/
 

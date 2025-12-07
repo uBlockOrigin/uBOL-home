@@ -177,7 +177,7 @@
  {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?ad2\\.trafficgate\\.net/t/r/\\S*?/-/https:",
   "steps": [
-   "/(https.*?)//"
+   "/\\/-\\/(https:\\/\\/.+)/"
   ]
  },
  {
@@ -190,6 +190,26 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?cts\\.businesswire\\.com/ct/ct\\?id=smartlink&url=",
   "steps": [
    "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?lb\\.j-a-net\\.jp/\\S*?//https%",
+  "steps": [
+   "/\\/\\/(https%.+)/",
+   "-uricomponent"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?lb\\.j-a-net\\.jp/\\S*?//https:",
+  "steps": [
+   "/\\/\\/(https:.+)/"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?click\\.linksynergy\\.com/fs-bin/click\\?id=\\S*?&rd_parm1=http%",
+  "steps": [
+   "?RD_PARM1",
+   "-uricomponent"
   ]
  },
  {

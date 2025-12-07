@@ -27,13 +27,14 @@
 
 /******************************************************************************/
 
-const argsList = ["","#ccf1 .fail","#ccf2 .fail:not(.a4)","#ccf4 .fail-pseudo::before","#pcf1 .fail:has(b)","#pcf2 .fail:has(> a > b)","#pcf3 .fail:has(+ a > b)","#pcf5 .fail:has(:is(.pass a > b))","#pcf6 .fail:not(:has(c))","#pcf16 .pass > a:has(b) + .fail","#pcf17 .pass > a:has(b) + .fail:has(b)","#pcf19 .fail:has(+ a)","#ef #gcf2 .fail"];
-const argsSeqs = [0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,11,12];
-const hostnamesMap = new Map([["ublockorigin.github.io",1],["localhost",1],["~ublockorigin.github.io",12],["~localhost",12]]);
+const selectors = /* 12 */ ["#ccf1 .fail","#ccf2 .fail:not(.a4)","#ccf4 .fail-pseudo::before","#pcf1 .fail:has(b)","#pcf2 .fail:has(> a > b)","#pcf3 .fail:has(+ a > b)","#pcf5 .fail:has(:is(.pass a > b))","#pcf6 .fail:not(:has(c))","#pcf16 .pass > a:has(b) + .fail","#pcf17 .pass > a:has(b) + .fail:has(b)","#pcf19 .fail:has(+ a)","#ef #gcf2 .fail"];
+const selectorLists = /* 1 */ "-12,0,1,10,2,3,4,5,6,7,8,9";
+const selectorListRefs = /* 2 */ "0,0";
+const hostnames = /* 2 */ ["localhost","ublockorigin.github.io"];
 const hasEntities = false;
 
 self.specificImports = self.specificImports || [];
-self.specificImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
+self.specificImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
 
 /******************************************************************************/
 

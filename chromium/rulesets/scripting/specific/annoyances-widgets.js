@@ -27,13 +27,14 @@
 
 /******************************************************************************/
 
-const argsList = ["","#chatbotToronto","#floating-experience-feature-tour-popover","#view-__module-context__-_amzn_conversational-experience-module__tandalone-0",".chat-button",".chat-container",".chatWindow",".chatbotSection",".chatbotSlider",".chatbotentrybtn",".healthshotsChannels",".rufus-panel-container",".secBannerWidget",".woot-widget-bubble"];
-const argsSeqs = [0,1,-2,3,-4,5,-6,-7,-8,-9,-10,12,11,13];
-const hostnamesMap = new Map([["hp.com",1],["docs.aws.amazon.com",2],["casbin.org",4],["healthshots.com",6],["amazon.com",12],["therealdeal.com",13]]);
+const selectors = /* 13 */ ["#chatbotToronto","#floating-experience-feature-tour-popover","#view-__module-context__-_amzn_conversational-experience-module__tandalone-0",".chat-button",".chat-container",".chatWindow",".chatbotSection",".chatbotSlider",".chatbotentrybtn",".healthshotsChannels",".rufus-panel-container",".secBannerWidget",".woot-widget-bubble"];
+const selectorLists = /* 6 */ "0;1,2;3,4;11,5,6,7,8,9;10;12";
+const selectorListRefs = /* 6 */ "0,4,2,3,5,1";
+const hostnames = /* 6 */ ["hp.com","amazon.com","casbin.org","healthshots.com","therealdeal.com","docs.aws.amazon.com"];
 const hasEntities = false;
 
 self.specificImports = self.specificImports || [];
-self.specificImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
+self.specificImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
 
 /******************************************************************************/
 

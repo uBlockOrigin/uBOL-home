@@ -27,13 +27,15 @@
 
 /******************************************************************************/
 
-const argsList = ["[]","[{\"selector\":\"#mvp-site-main\",\"action\":[\"style\",\"margin-top: 0px !important;\"],\"cssable\":true}]","[{\"selector\":\"body\",\"action\":[\"style\",\"background-image: none !important;\"],\"cssable\":true}]","[{\"selector\":\"#LRGR\",\"action\":[\"style\",\"background: none !important;\"],\"cssable\":true}]","[{\"selector\":\".article-fullcontent > div\",\"tasks\":[[\"has-text\",\"ADVERTISEMENT\"]]}]","[{\"selector\":\".elementor-widget\",\"tasks\":[[\"has-text\",\"Διαφήμιση\"]]}]","[{\"selector\":\"#sp-component\",\"action\":[\"style\",\"width: 100% !important;\"],\"cssable\":true}]","[{\"selector\":\".left-col\",\"tasks\":[[\"has\",{\"selector\":\"h3\",\"tasks\":[[\"has-text\",\"Advertise\"]]}]]}]","[{\"selector\":\"#hp-readmore-cross-article .article\",\"tasks\":[[\"has\",{\"selector\":\".byline_date\",\"tasks\":[[\"has-text\",\"ADVERTORIAL\"]]}]]}]","[{\"selector\":\"#primary\",\"action\":[\"style\",\"margin: 0 auto !important;\"],\"cssable\":true}]"];
-const argsSeqs = [0,1,2,3,4,5,6,7,8,9];
-const hostnamesMap = new Map([["kalamatatimes.gr",1],["kozanilife.gr",2],["lamiareport.gr",3],["moneyonline.gr",4],["parentsgo.kidsgo.com.cy",5],["serraikanea.gr",6],["sexgr.net",7],["sport24.gr",8],["start2click.com",9]]);
+
+const selectors = /* 9 */ ["{\"selector\":\"#mvp-site-main\",\"action\":[\"style\",\"margin-top: 0px !important;\"],\"cssable\":true}","{\"selector\":\"body\",\"action\":[\"style\",\"background-image: none !important;\"],\"cssable\":true}","{\"selector\":\"#LRGR\",\"action\":[\"style\",\"background: none !important;\"],\"cssable\":true}","{\"selector\":\".article-fullcontent > div\",\"tasks\":[[\"has-text\",\"ADVERTISEMENT\"]]}","{\"selector\":\".elementor-widget\",\"tasks\":[[\"has-text\",\"Διαφήμιση\"]]}","{\"selector\":\"#sp-component\",\"action\":[\"style\",\"width: 100% !important;\"],\"cssable\":true}","{\"selector\":\".left-col\",\"tasks\":[[\"has\",{\"selector\":\"h3\",\"tasks\":[[\"has-text\",\"Advertise\"]]}]]}","{\"selector\":\"#hp-readmore-cross-article .article\",\"tasks\":[[\"has\",{\"selector\":\".byline_date\",\"tasks\":[[\"has-text\",\"ADVERTORIAL\"]]}]]}","{\"selector\":\"#primary\",\"action\":[\"style\",\"margin: 0 auto !important;\"],\"cssable\":true}"];
+const selectorLists = /* 9 */ "0;1;2;3;4;5;6;7;8";
+const selectorListRefs = /* 9 */ "6,7,1,2,3,5,8,0,4";
+const hostnames = /* 9 */ ["sexgr.net","sport24.gr","kozanilife.gr","lamiareport.gr","moneyonline.gr","serraikanea.gr","start2click.com","kalamatatimes.gr","parentsgo.kidsgo.com.cy"];
 const hasEntities = false;
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
+self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
 
 /******************************************************************************/
 

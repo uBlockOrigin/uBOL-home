@@ -27,13 +27,15 @@
 
 /******************************************************************************/
 
-const argsList = ["[]","[{\"selector\":\"li.article\",\"tasks\":[[\"has-text\",\"Oglasno sporočilo\"]]}]","[{\"selector\":\"a.card\",\"tasks\":[[\"has-text\",\"Oglas\"]]}]"];
-const argsSeqs = [0,1,2];
-const hostnamesMap = new Map([["monitor.si",1],["partis.si",2]]);
+
+const selectors = /* 2 */ ["{\"selector\":\"li.article\",\"tasks\":[[\"has-text\",\"Oglasno sporočilo\"]]}","{\"selector\":\"a.card\",\"tasks\":[[\"has-text\",\"Oglas\"]]}"];
+const selectorLists = /* 2 */ "0;1";
+const selectorListRefs = /* 2 */ "1,0";
+const hostnames = /* 2 */ ["partis.si","monitor.si"];
 const hasEntities = false;
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
+self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
 
 /******************************************************************************/
 

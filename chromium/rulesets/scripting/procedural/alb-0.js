@@ -27,13 +27,15 @@
 
 /******************************************************************************/
 
-const argsList = ["[]","[{\"selector\":\".vc_raw_html\",\"tasks\":[[\"has-text\",\"Html code\"]]}]","[{\"selector\":\".modal-open\",\"action\":[\"style\",\"overflow: visible\"],\"cssable\":true}]","[{\"selector\":\".td-block-title-wrap > h4 > span\",\"tasks\":[[\"has-text\",\"REKLAMA\"]]}]","[{\"selector\":\".location-choose.open > wrapper\",\"action\":[\"style\",\"visibility:hidden;\"],\"cssable\":true}]","[{\"selector\":\".td_block_template_1\",\"tasks\":[[\"has-text\",\"- Advertisement -\"]]}]","[{\"selector\":\".widget\",\"tasks\":[[\"has-text\",\"REKLAMA\"]]}]","[{\"selector\":\"div.col-8\",\"action\":[\"style\",\"width: 100% !important\"],\"cssable\":true}]"];
-const argsSeqs = [0,1,2,3,4,5,6,7];
-const hostnamesMap = new Map([["kohajone.com",1],["bankofalbania.org",2],["shkoder.net",3],["cineplexx.al",4],["mediaworld.al",5],["konica.al",6],["www.filma24.*",7]]);
+
+const selectors = /* 7 */ ["{\"selector\":\".vc_raw_html\",\"tasks\":[[\"has-text\",\"Html code\"]]}","{\"selector\":\".modal-open\",\"action\":[\"style\",\"overflow: visible\"],\"cssable\":true}","{\"selector\":\".td-block-title-wrap > h4 > span\",\"tasks\":[[\"has-text\",\"REKLAMA\"]]}","{\"selector\":\".location-choose.open > wrapper\",\"action\":[\"style\",\"visibility:hidden;\"],\"cssable\":true}","{\"selector\":\".td_block_template_1\",\"tasks\":[[\"has-text\",\"- Advertisement -\"]]}","{\"selector\":\".widget\",\"tasks\":[[\"has-text\",\"REKLAMA\"]]}","{\"selector\":\"div.col-8\",\"action\":[\"style\",\"width: 100% !important\"],\"cssable\":true}"];
+const selectorLists = /* 7 */ "0;1;2;3;4;5;6";
+const selectorListRefs = /* 7 */ "5,2,3,0,4,6,1";
+const hostnames = /* 7 */ ["konica.al","shkoder.net","cineplexx.al","kohajone.com","mediaworld.al","www.filma24.*","bankofalbania.org"];
 const hasEntities = true;
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ argsList, argsSeqs, hostnamesMap, hasEntities });
+self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
 
 /******************************************************************************/
 
