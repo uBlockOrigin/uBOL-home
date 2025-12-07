@@ -2,8 +2,8 @@
 
 ### 2025.1207.2142
 
-- Re-work specific cosmetic filtering-related content scripts
-- Generate at most two scriptlet-related files per rulesets
+- [Re-work specific cosmetic filtering-related content scripts](https://github.com/gorhill/uBlock/commit/0aa0d81caf)
+- [Generate at most two scriptlet-related files per rulesets](https://github.com/gorhill/uBlock/commit/6039ef2b6d)
 - Updated filter lists
 
 ----------
