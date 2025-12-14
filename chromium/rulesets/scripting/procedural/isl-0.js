@@ -19,23 +19,16 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// ruleset: isl-0
-
 // Important!
 // Isolate from global scope
 (function uBOL_cssProceduralImport() {
 
 /******************************************************************************/
 
-
-const selectors = /* 1 */ ["{\"selector\":\".d-flex.flex-column.mx-auto\",\"tasks\":[[\"has-text\",\"AUGLÝSING\"]]}"];
-const selectorLists = /* 1 */ "0";
-const selectorListRefs = /* 1 */ "0";
-const hostnames = /* 1 */ ["1819.is"];
-const hasEntities = false;
+const rulesetId = "isl-0";
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
+self.proceduralImports.push(rulesetId);
 
 /******************************************************************************/
 

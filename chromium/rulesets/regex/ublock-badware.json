@@ -128,6 +128,6 @@
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]{12,15}\\.com\\/\\?p=[0-9a-f]{32}&u=[0-9a-f]{138}\\b","resourceTypes":["main_frame"]},"id":127,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/s[cfntz]y?[ace][acemnu][a-z]{1,4}or?[mn][a-z]{4,8}[iy][a-z]?\\.ru\\/","requestDomains":["ru"],"resourceTypes":["main_frame"]},"id":128,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https?:\\/\\/qqh[0-9]\\.mom\\/","requestDomains":["mom"],"resourceTypes":["main_frame"]},"id":129,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/d[0-9a-z]{19}\\.[a-z]{3}-[a-z]{7,8}\\.pro\\/xm\\/xm\\d\\/\\?","requestDomains":["pro"],"resourceTypes":["main_frame"]},"id":130,"priority":10},
+{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/d[0-9a-z]{19}\\.[a-z]{3,4}-[a-z]{7,8}\\.pro\\/xm\\/xm\\d\\/\\?","requestDomains":["pro"],"resourceTypes":["main_frame"]},"id":130,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/blockchecker[0-9]\\.pages\\.dev\\/","requestDomains":["pages.dev"],"resourceTypes":["main_frame"]},"id":131,"priority":10}
 ]

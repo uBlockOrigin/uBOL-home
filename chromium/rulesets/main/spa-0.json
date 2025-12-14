@@ -147,6 +147,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||eltiempo.com/get-ads/"},"id":146,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||libertaddigital.com/pub/"},"id":147,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||metrolatam.com^/banners/"},"id":148,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["envivo.adnradio.cl"],"resourceTypes":["script"],"urlFilter":"||2mdn.net/instream/html5/ima3.js"},"id":149,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||acortalo.net/js/clasicotas.js"},"id":157,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||agar.live/300banner.gif"},"id":158,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||agenciafe.com/data/img_cont/img_banners/"},"id":159,"priority":10},

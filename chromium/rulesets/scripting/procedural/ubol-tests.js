@@ -19,23 +19,16 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// ruleset: ubol-tests
-
 // Important!
 // Isolate from global scope
 (function uBOL_cssProceduralImport() {
 
 /******************************************************************************/
 
-
-const selectors = /* 17 */ ["{\"selector\":\"#ccf3 .fail\",\"action\":[\"style\",\"visibility: hidden\"],\"cssable\":true}","{\"selector\":\"#ccf5 .fail-pseudo::before\",\"action\":[\"style\",\"visibility: hidden\"],\"cssable\":true}","{\"selector\":\"#pcf7 .fail\",\"tasks\":[[\"has-text\",\"needle\"]]}","{\"selector\":\"#pcf8 .fail\",\"tasks\":[[\"has-text\",\"/NEEDLE/i\"]]}","{\"selector\":\"#pcf9 .fail\",\"tasks\":[[\"not\",{\"selector\":\"\",\"tasks\":[[\"has-text\",\"haystack\"]]}]]}","{\"selector\":\"#pcf10 .fail\",\"tasks\":[[\"matches-css\",{\"name\":\"position\",\"value\":\"^absolute$\"}]]}","{\"selector\":\"#pcf11 .fail\",\"tasks\":[[\"has\",{\"selector\":\"a\",\"tasks\":[[\"matches-css-before\",{\"name\":\"opacity\",\"pseudo\":\"before\",\"value\":\"^0$\"}]]}]]}","{\"selector\":\"#pcf12 .fail\",\"tasks\":[[\"has\",{\"selector\":\"b\",\"tasks\":[[\"matches-css-after\",{\"name\":\"opacity\",\"pseudo\":\"after\",\"value\":\"^0$\"}]]}]]}","{\"selector\":\"#pcf13 .fail > a > b\",\"tasks\":[[\"upward\",2]]}","{\"selector\":\"#pcf14\",\"tasks\":[[\"xpath\",\".//b/../..\"]]}","{\"selector\":\"#pcf15 .fail\",\"tasks\":[[\"min-text-length\",300]]}","{\"selector\":\"#pcf18 .pass\",\"tasks\":[[\"watch-attr\",[\"class\"]],[\"spath\",\" > .fail:has(b.notok)\"]]}","{\"selector\":\"#pcf20 .fail\",\"tasks\":[[\"has\",{\"selector\":\"~ a:has(b)\"}]]}","{\"selector\":\"#pcf21 .fail\",\"action\":[\"remove\",\"\"]}","{\"selector\":\"#pcf22 b\",\"tasks\":[[\"upward\",2]]}","{\"selector\":\"#pcf23 b\",\"tasks\":[[\"upward\",\".fail\"]]}","{\"selector\":\"#pcf24 b\",\"action\":[\"style\",\"visibility: hidden !important\"],\"tasks\":[[\"upward\",\".fail\"]]}"];
-const selectorLists = /* 1 */ "0,1,10,11,12,13,14,15,16,2,3,4,5,6,7,8,9";
-const selectorListRefs = /* 2 */ "0,0";
-const hostnames = /* 2 */ ["localhost","ublockorigin.github.io"];
-const hasEntities = false;
+const rulesetId = "ubol-tests";
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
+self.proceduralImports.push(rulesetId);
 
 /******************************************************************************/
 

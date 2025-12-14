@@ -19,23 +19,16 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// ruleset: est-0
-
 // Important!
 // Isolate from global scope
 (function uBOL_cssProceduralImport() {
 
 /******************************************************************************/
 
-
-const selectors = /* 13 */ ["{\"selector\":\"body\",\"action\":[\"style\",\"overflow:visible !important\"],\"cssable\":true}","{\"selector\":\".trim > .container\",\"action\":[\"style\",\"margin-top:0px !important\"],\"cssable\":true}","{\"selector\":\".digipakett-branding-root-container\",\"action\":[\"style\",\"display: none\"],\"cssable\":true}","{\"selector\":\".digipakett-branding-visible .site-header\",\"action\":[\"style\",\"top: 0px !important\"],\"cssable\":true}","{\"selector\":\".site-header\",\"action\":[\"style\",\"top: 0 !important\"],\"cssable\":true}","{\"selector\":\"article.article\",\"action\":[\"remove-class\",\"cookie-paywall-visible\"]}","{\"selector\":\"aside\",\"tasks\":[[\"has-text\",\"Sisuturundus\"]]}","{\"selector\":\"html, body\",\"action\":[\"style\",\"overflow:auto !important\"],\"cssable\":true}","{\"selector\":\".article .article-body\",\"action\":[\"style\",\"padding: 0 !important;\"],\"cssable\":true}","{\"selector\":\".article\",\"action\":[\"style\",\"padding: 0 15px 0 !important;\"],\"cssable\":true}","{\"selector\":\".dfp-ad--horizontal.dfp-ad + *\",\"action\":[\"style\",\"padding-top: 0 !important;\"],\"cssable\":true}","{\"selector\":\".structured-content__group--left\",\"action\":[\"style\",\"max-width:unset !important\"],\"cssable\":true}","{\"selector\":\"[itemprop=\\\"articleBody\\\"]\",\"action\":[\"style\",\"max-width:unset !important\"],\"cssable\":true}"];
-const selectorLists = /* 3 */ "0;1;10,11,12,2,3,4,5,6,7,8,9";
-const selectorListRefs = /* 3 */ "1,0,2";
-const hostnames = /* 3 */ ["ilm.ee","delfi.ee","postimees.ee"];
-const hasEntities = false;
+const rulesetId = "est-0";
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
+self.proceduralImports.push(rulesetId);
 
 /******************************************************************************/
 

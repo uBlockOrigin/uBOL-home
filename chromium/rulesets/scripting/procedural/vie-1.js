@@ -19,23 +19,16 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// ruleset: vie-1
-
 // Important!
 // Isolate from global scope
 (function uBOL_cssProceduralImport() {
 
 /******************************************************************************/
 
-
-const selectors = /* 7 */ ["{\"selector\":\".text-center\",\"tasks\":[[\"has\",{\"selector\":\"small\",\"tasks\":[[\"has-text\",\"QUẢNG CÁO\"]]}]]}","{\"selector\":\"#header\",\"action\":[\"style\",\"margin-top: 0 !important\"],\"cssable\":true}","{\"selector\":\"html\",\"action\":[\"style\",\"overflow: auto !important\"],\"cssable\":true}","{\"selector\":\".story-info\",\"action\":[\"style\",\"bottom: 90px! important;\"],\"cssable\":true}","{\"selector\":\"div.layout.pt-mobi-top\",\"action\":[\"style\",\"padding-top: 0 !important\"],\"cssable\":true}","{\"selector\":\"header.bg-white\",\"action\":[\"style\",\"margin-top: 0px !important\"],\"cssable\":true}","{\"selector\":\"body\",\"action\":[\"style\",\"overflow: auto!important\"],\"cssable\":true}"];
-const selectorLists = /* 6 */ "0;1;2;3;4,5;6";
-const selectorListRefs = /* 10 */ "2,1,3,0,0,2,4,5,2,5";
-const hostnames = /* 10 */ ["hhtq.io","chotlo3s.com","thiendia1.vip","metruyencv.com","metruyencv.net","themphotv5.com","www.saostar.vn","xem1.gv03.live","phimchautinhtri.net","www.bachnguyetquang.online"];
-const hasEntities = false;
+const rulesetId = "vie-1";
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
+self.proceduralImports.push(rulesetId);
 
 /******************************************************************************/
 

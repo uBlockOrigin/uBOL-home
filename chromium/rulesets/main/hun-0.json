@@ -245,5 +245,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||ittjartam.hu/ajax.php?action=offerblogcikk"},"id":244,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ittjartam.hu/ajax.php?action=logsearchhistory"},"id":245,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["erettsegi.com"],"urlFilter":"||gvl-dev.setupcmp.com^"},"id":246,"priority":10},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["pcforum.hu"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":247,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["pcforum.hu"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":247,"priority":11},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["gyakorikerdesek.hu"],"urlFilter":"||cdn.taboola.com^"},"id":248,"priority":10}
 ]

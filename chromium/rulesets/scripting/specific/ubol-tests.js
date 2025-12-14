@@ -19,22 +19,16 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// ruleset: ubol-tests
-
 // Important!
 // Isolate from global scope
 (function uBOL_cssSpecificImports() {
 
 /******************************************************************************/
 
-const selectors = /* 12 */ ["#ccf1 .fail","#ccf2 .fail:not(.a4)","#ccf4 .fail-pseudo::before","#pcf1 .fail:has(b)","#pcf2 .fail:has(> a > b)","#pcf3 .fail:has(+ a > b)","#pcf5 .fail:has(:is(.pass a > b))","#pcf6 .fail:not(:has(c))","#pcf16 .pass > a:has(b) + .fail","#pcf17 .pass > a:has(b) + .fail:has(b)","#pcf19 .fail:has(+ a)","#ef #gcf2 .fail"];
-const selectorLists = /* 1 */ "-12,0,1,10,2,3,4,5,6,7,8,9";
-const selectorListRefs = /* 2 */ "0,0";
-const hostnames = /* 2 */ ["localhost","ublockorigin.github.io"];
-const hasEntities = false;
+const rulesetId = "ubol-tests";
 
 self.specificImports = self.specificImports || [];
-self.specificImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
+self.specificImports.push(rulesetId);
 
 /******************************************************************************/
 

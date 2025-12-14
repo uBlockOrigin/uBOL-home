@@ -19,23 +19,16 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// ruleset: svn-0
-
 // Important!
 // Isolate from global scope
 (function uBOL_cssProceduralImport() {
 
 /******************************************************************************/
 
-
-const selectors = /* 2 */ ["{\"selector\":\"li.article\",\"tasks\":[[\"has-text\",\"Oglasno sporočilo\"]]}","{\"selector\":\"a.card\",\"tasks\":[[\"has-text\",\"Oglas\"]]}"];
-const selectorLists = /* 2 */ "0;1";
-const selectorListRefs = /* 2 */ "1,0";
-const hostnames = /* 2 */ ["partis.si","monitor.si"];
-const hasEntities = false;
+const rulesetId = "svn-0";
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
+self.proceduralImports.push(rulesetId);
 
 /******************************************************************************/
 

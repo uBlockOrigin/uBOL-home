@@ -19,23 +19,16 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// ruleset: mkd-0
-
 // Important!
 // Isolate from global scope
 (function uBOL_cssProceduralImport() {
 
 /******************************************************************************/
 
-
-const selectors = /* 2 */ ["{\"selector\":\"#ablockercheck\",\"action\":[\"style\",\"display: block !important;\"],\"cssable\":true}","{\"selector\":\"body\",\"action\":[\"style\",\"background-image: none !important;\"],\"cssable\":true}"];
-const selectorLists = /* 2 */ "0;1";
-const selectorListRefs = /* 2 */ "0,1";
-const hostnames = /* 2 */ ["stream.mk","sportski.mk"];
-const hasEntities = false;
+const rulesetId = "mkd-0";
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
+self.proceduralImports.push(rulesetId);
 
 /******************************************************************************/
 

@@ -395,7 +395,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||t1.daumcdn.net/kas/static/ba.min.js"},"id":394,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tv.nate.com/adv/"},"id":395,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||pervsi.com/info/skin_board/m/img/coupang.jpeg"},"id":396,"priority":10},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/google-ima.js"},"type":"redirect"},"condition":{"initiatorDomains":["laftel.net","news.jtbc.co.kr","sbs.co.kr","vod.jtbc.co.kr"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":397,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/google-ima.js"},"type":"redirect"},"condition":{"initiatorDomains":["laftel.net","mvod.jtbc.co.kr","news.jtbc.co.kr","sbs.co.kr","tv.jtbc.co.kr","vod.jtbc.co.kr"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":397,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"||image.laftel.net/guango/"},"id":398,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hairshop.kakao.com/proxy/app/*/search/around/hair-shops/ad|"},"id":399,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||community.rememberapp.co.kr/_next/image?url=*%2fuploads%2fbanner%2f"},"id":400,"priority":10},
@@ -930,5 +930,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||search.danawa.com/js/powershopping.min.js"},"id":929,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||search.danawa.com/js/powerclick.min.js"},"id":930,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||search.danawa.com/js/powerlink.min.js"},"id":931,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||search.danawa.com/js/temuad.min.js"},"id":932,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||search.danawa.com/js/temuad.min.js"},"id":932,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||p-api.vortexgaming.io/api/banner?"},"id":933,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||resources.vortexgaming.io/default/abadsimages/"},"id":934,"priority":10}
 ]

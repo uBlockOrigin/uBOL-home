@@ -176,5 +176,8 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["stadissa.fi"],"resourceTypes":["image"],"urlFilter":"||stadissa.fi/images/stadissa/ads/*_desk.jpg"},"id":175,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["koeajolle.com"],"resourceTypes":["script"],"urlFilter":"||aff.carvertical.com/sdk.js"},"id":176,"priority":10},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||teliafi-chat.lekane.net^"},"id":177,"priority":30},
-{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||etn.fi//images/banners/"},"id":178,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||etn.fi//images/banners/"},"id":178,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["superpesis.fi"],"resourceTypes":["image"],"urlFilter":"||datocms-assets.com/*banneri"},"id":179,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["superpesis.fi"],"resourceTypes":["image"],"urlFilter":"||datocms-assets.com/*980x400"},"id":180,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["superpesis.fi"],"resourceTypes":["image"],"urlFilter":"||datocms-assets.com/*600x600"},"id":181,"priority":10}
 ]

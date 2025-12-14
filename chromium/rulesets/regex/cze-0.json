@@ -1,0 +1,18 @@
+[
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "sauto.cz"
+  ],
+  "regexFilter": "s[-_]*s[-_]*p[-_]*\\.[-_]*j[-_]*s",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 1,
+ "priority": 10
+}
+]

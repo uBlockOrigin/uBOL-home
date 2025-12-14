@@ -19,23 +19,16 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// ruleset: lva-0
-
 // Important!
 // Isolate from global scope
 (function uBOL_cssProceduralImport() {
 
 /******************************************************************************/
 
-
-const selectors = /* 2 */ ["{\"selector\":\"div\",\"tasks\":[[\"has\",{\"selector\":\"div\",\"tasks\":[[\"has-text\",\"Reklāma\"]]}],[\"upward\",\"div.item_box_main\"]]}","{\"selector\":\".widget_execphp\",\"tasks\":[[\"has-text\",\"Reklāmraksti\"]]}"];
-const selectorLists = /* 2 */ "0;1";
-const selectorListRefs = /* 8 */ "1,1,0,1,1,1,1,1";
-const hostnames = /* 8 */ ["zz.lv","rekurzeme.lv","salidzini.lv","staburags.lv","dzirkstele.lv","aluksniesiem.lv","bauskasdzive.lv","ziemellatvija.lv"];
-const hasEntities = false;
+const rulesetId = "lva-0";
 
 self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push({ selectors, selectorLists, selectorListRefs, hostnames, hasEntities });
+self.proceduralImports.push(rulesetId);
 
 /******************************************************************************/
 

@@ -30,61 +30,6 @@
 
 /******************************************************************************/
 
-function trustedJsonEditXhrRequest(jsonq = '', ...args) {
-    jsonEditXhrRequestFn(true, jsonq, ...args);
-}
-
-function jsonEditXhrRequestFn(trusted, jsonq = '') {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix(
-        `${trusted ? 'trusted-' : ''}json-edit-xhr-request`,
-        jsonq
-    );
-    const xhrInstances = new WeakMap();
-    const jsonp = JSONPath.create(jsonq);
-    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
-        return safe.uboLog(logPrefix, 'Bad JSONPath query');
-    }
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
-    self.XMLHttpRequest = class extends self.XMLHttpRequest {
-        open(method, url, ...args) {
-            const xhrDetails = { method, url };
-            const matched = propNeedles.size === 0 ||
-                matchObjectPropertiesFn(propNeedles, xhrDetails);
-            if ( matched ) {
-                if ( safe.logLevel > 1 && Array.isArray(matched) ) {
-                    safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
-                }
-                xhrInstances.set(this, xhrDetails);
-            }
-            return super.open(method, url, ...args);
-        }
-        send(body) {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails ) {
-                body = this.#filterBody(body) || body;
-            }
-            super.send(body);
-        }
-        #filterBody(body) {
-            if ( typeof body !== 'string' ) { return; }
-            let data;
-            try { data = safe.JSON_parse(body); }
-            catch { }
-            if ( data instanceof Object === false ) { return; }
-            const objAfter = jsonp.apply(data);
-            if ( objAfter === undefined ) { return; }
-            body = safe.JSON_stringify(objAfter);
-            safe.uboLog(logPrefix, 'Edited');
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `After edit:\n${body}`);
-            }
-            return body;
-        }
-    };
-}
-
 class JSONPath {
     static create(query) {
         const jsonp = new JSONPath();
@@ -533,6 +478,125 @@ class JSONPath {
     }
 }
 
+function jsonEditXhrRequestFn(trusted, jsonq = '') {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix(
+        `${trusted ? 'trusted-' : ''}json-edit-xhr-request`,
+        jsonq
+    );
+    const xhrInstances = new WeakMap();
+    const jsonp = JSONPath.create(jsonq);
+    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
+        return safe.uboLog(logPrefix, 'Bad JSONPath query');
+    }
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
+    self.XMLHttpRequest = class extends self.XMLHttpRequest {
+        open(method, url, ...args) {
+            const xhrDetails = { method, url };
+            const matched = propNeedles.size === 0 ||
+                matchObjectPropertiesFn(propNeedles, xhrDetails);
+            if ( matched ) {
+                if ( safe.logLevel > 1 && Array.isArray(matched) ) {
+                    safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
+                }
+                xhrInstances.set(this, xhrDetails);
+            }
+            return super.open(method, url, ...args);
+        }
+        send(body) {
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails ) {
+                body = this.#filterBody(body) || body;
+            }
+            super.send(body);
+        }
+        #filterBody(body) {
+            if ( typeof body !== 'string' ) { return; }
+            let data;
+            try { data = safe.JSON_parse(body); }
+            catch { }
+            if ( data instanceof Object === false ) { return; }
+            const objAfter = jsonp.apply(data);
+            if ( objAfter === undefined ) { return; }
+            body = safe.JSON_stringify(objAfter);
+            safe.uboLog(logPrefix, 'Edited');
+            if ( safe.logLevel > 1 ) {
+                safe.uboLog(logPrefix, `After edit:\n${body}`);
+            }
+            return body;
+        }
+    };
+}
+
+function jsonEditXhrResponseFn(trusted, jsonq = '') {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix(
+        `${trusted ? 'trusted-' : ''}json-edit-xhr-response`,
+        jsonq
+    );
+    const xhrInstances = new WeakMap();
+    const jsonp = JSONPath.create(jsonq);
+    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
+        return safe.uboLog(logPrefix, 'Bad JSONPath query');
+    }
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
+    self.XMLHttpRequest = class extends self.XMLHttpRequest {
+        open(method, url, ...args) {
+            const xhrDetails = { method, url };
+            const matched = propNeedles.size === 0 ||
+                matchObjectPropertiesFn(propNeedles, xhrDetails);
+            if ( matched ) {
+                if ( safe.logLevel > 1 && Array.isArray(matched) ) {
+                    safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
+                }
+                xhrInstances.set(this, xhrDetails);
+            }
+            return super.open(method, url, ...args);
+        }
+        get response() {
+            const innerResponse = super.response;
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined ) { return innerResponse; }
+            const responseLength = typeof innerResponse === 'string'
+                ? innerResponse.length
+                : undefined;
+            if ( xhrDetails.lastResponseLength !== responseLength ) {
+                xhrDetails.response = undefined;
+                xhrDetails.lastResponseLength = responseLength;
+            }
+            if ( xhrDetails.response !== undefined ) {
+                return xhrDetails.response;
+            }
+            let obj;
+            if ( typeof innerResponse === 'object' ) {
+                obj = innerResponse;
+            } else if ( typeof innerResponse === 'string' ) {
+                try { obj = safe.JSON_parse(innerResponse); } catch { }
+            }
+            if ( typeof obj !== 'object' || obj === null ) {
+                return (xhrDetails.response = innerResponse);
+            }
+            const objAfter = jsonp.apply(obj);
+            if ( objAfter === undefined ) {
+                return (xhrDetails.response = innerResponse);
+            }
+            safe.uboLog(logPrefix, 'Edited');
+            const outerResponse = typeof innerResponse === 'string'
+                ? JSONPath.toJSON(objAfter, safe.JSON_stringify)
+                : objAfter;
+            return (xhrDetails.response = outerResponse);
+        }
+        get responseText() {
+            const response = this.response;
+            return typeof response !== 'string'
+                ? super.responseText
+                : response;
+        }
+    };
+}
+
 function matchObjectPropertiesFn(propNeedles, ...objs) {
     const safe = safeSelf();
     const matched = [];
@@ -594,6 +658,7 @@ function safeSelf() {
         'Object_fromEntries': Object.fromEntries.bind(Object),
         'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
         'Object_hasOwn': Object.hasOwn.bind(Object),
+        'Object_toString': Object.prototype.toString,
         'RegExp': self.RegExp,
         'RegExp_test': self.RegExp.prototype.test,
         'RegExp_exec': self.RegExp.prototype.exec,
@@ -764,76 +829,12 @@ function safeSelf() {
     return safe;
 }
 
-function trustedJsonEditXhrResponse(jsonq = '', ...args) {
-    jsonEditXhrResponseFn(true, jsonq, ...args);
+function trustedJsonEditXhrRequest(jsonq = '', ...args) {
+    jsonEditXhrRequestFn(true, jsonq, ...args);
 }
 
-function jsonEditXhrResponseFn(trusted, jsonq = '') {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix(
-        `${trusted ? 'trusted-' : ''}json-edit-xhr-response`,
-        jsonq
-    );
-    const xhrInstances = new WeakMap();
-    const jsonp = JSONPath.create(jsonq);
-    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
-        return safe.uboLog(logPrefix, 'Bad JSONPath query');
-    }
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
-    self.XMLHttpRequest = class extends self.XMLHttpRequest {
-        open(method, url, ...args) {
-            const xhrDetails = { method, url };
-            const matched = propNeedles.size === 0 ||
-                matchObjectPropertiesFn(propNeedles, xhrDetails);
-            if ( matched ) {
-                if ( safe.logLevel > 1 && Array.isArray(matched) ) {
-                    safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
-                }
-                xhrInstances.set(this, xhrDetails);
-            }
-            return super.open(method, url, ...args);
-        }
-        get response() {
-            const innerResponse = super.response;
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined ) { return innerResponse; }
-            const responseLength = typeof innerResponse === 'string'
-                ? innerResponse.length
-                : undefined;
-            if ( xhrDetails.lastResponseLength !== responseLength ) {
-                xhrDetails.response = undefined;
-                xhrDetails.lastResponseLength = responseLength;
-            }
-            if ( xhrDetails.response !== undefined ) {
-                return xhrDetails.response;
-            }
-            let obj;
-            if ( typeof innerResponse === 'object' ) {
-                obj = innerResponse;
-            } else if ( typeof innerResponse === 'string' ) {
-                try { obj = safe.JSON_parse(innerResponse); } catch { }
-            }
-            if ( typeof obj !== 'object' || obj === null ) {
-                return (xhrDetails.response = innerResponse);
-            }
-            const objAfter = jsonp.apply(obj);
-            if ( objAfter === undefined ) {
-                return (xhrDetails.response = innerResponse);
-            }
-            safe.uboLog(logPrefix, 'Edited');
-            const outerResponse = typeof innerResponse === 'string'
-                ? JSONPath.toJSON(objAfter, safe.JSON_stringify)
-                : objAfter;
-            return (xhrDetails.response = outerResponse);
-        }
-        get responseText() {
-            const response = this.response;
-            return typeof response !== 'string'
-                ? super.responseText
-                : response;
-        }
-    };
+function trustedJsonEditXhrResponse(jsonq = '', ...args) {
+    jsonEditXhrResponseFn(true, jsonq, ...args);
 }
 
 /******************************************************************************/
@@ -843,7 +844,7 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 2 */
 [trustedJsonEditXhrRequest,trustedJsonEditXhrResponse];
 
-const $scriptletArgs$ = /* 4 */ ["..playbackContext[?.contentPlaybackContext]+={\"adPlaybackContext\":{\"adType\":\"AD_TYPE_INSTREAM\"}}","propsToMatch","/\\/(player|get_watch)/","..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200}"];
+const $scriptletArgs$ = /* 4 */ ["[?..context.client.originalUrl^=\"https://www.youtube.com/watch\"]..playbackContext[?.contentPlaybackContext]+={\"adPlaybackContext\":{\"adType\":\"AD_TYPE_INSTREAM\"}}","propsToMatch","/\\/(player|get_watch)/","..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200}"];
 
 const $scriptletArglists$ = /* 2 */ "0,0,1,2;1,3,1,2";
 

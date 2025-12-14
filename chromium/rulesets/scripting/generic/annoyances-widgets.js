@@ -27,7 +27,7 @@
 
 /******************************************************************************/
 
-const genericSelectorMap = [[2917,"#WACLauncher__Button"],[2256,"#popin-salescontact"],[1167,".b24-widget-button-wrapper"],[2498,".chat_hammerbot-iframe-wrapper__outer"],[218,".drift-facade"],[827,".intercom-launcher"],[2941,".intercom-lightweight-app"],[2105,".joinchat--chatbox"],[559,".m-chat-toggler"],[1005,".sticky-button--whatsapp"],[3784,".wix-blog-hide-in-print.SITE_FOOTER_WRAPPER"]];
+const genericSelectorMap = [[2917,"#WACLauncher__Button"],[2256,"#popin-salescontact"],[3159,"#rasaWebchatPro"],[1167,".b24-widget-button-wrapper"],[2498,".chat_hammerbot-iframe-wrapper__outer"],[218,".drift-facade"],[827,".intercom-launcher"],[2941,".intercom-lightweight-app"],[2105,".joinchat--chatbox"],[559,".m-chat-toggler"],[1005,".sticky-button--whatsapp"],[3784,".wix-blog-hide-in-print.SITE_FOOTER_WRAPPER"]];
 const genericExceptionSieve = undefined;
 const genericExceptionMap = undefined;
 
