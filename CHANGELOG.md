@@ -1,3 +1,9 @@
+- [Fix regression in `prevent-fetch` scriptlet](https://github.com/gorhill/uBlock/commits/2234d8aad2)
+
+----------
+
+### 2025.1214.2112
+
 - [Better validate hostnames in "Filtering mode details" editor](https://github.com/gorhill/uBlock/commit/621ad89c64)
 - [Load specific cosmetic filtering data on-demand only](https://github.com/gorhill/uBlock/commit/0fb845d1ac)
 - Updated filter lists
