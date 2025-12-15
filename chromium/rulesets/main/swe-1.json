@@ -665,7 +665,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||breakit.se/js/hotjar"},"id":664,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||bytbil.com/bundles/js/tracking"},"id":665,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||carneoam.com/advert/"},"id":666,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["aftonbladet.se","bytbil.com","godare.se","omni.se","omniekonomi.se","prisjakt.nu","svd.se"],"resourceTypes":["script"],"urlFilter":"||sdk.pulse.schibsted.com^"},"id":667,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["tv.aftonbladet.se"],"initiatorDomains":["aftonbladet.se","bytbil.com","godare.se","omni.se","omniekonomi.se","prisjakt.nu","svd.se"],"resourceTypes":["script"],"urlFilter":"||sdk.pulse.schibsted.com^"},"id":667,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["naringsliv.ax"],"urlFilter":"/cookiesjsr"},"id":668,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.advisible.com/accl"},"id":669,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.advisible.com/adk"},"id":670,"priority":10},

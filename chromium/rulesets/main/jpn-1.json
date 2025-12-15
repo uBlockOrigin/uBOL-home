@@ -1680,5 +1680,8 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","urlFilter":"||iframe.cubki.jp/sim_searches/image_urls/"},"id":1679,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mainichikirei.jp/assets/css/*_ad.css"},"id":1680,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||jorudan.co.jp/*/bnr_no_ads_300_50_a.png"},"id":1681,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||kasegeru.blog.jp/blogframe/contents/"},"id":1682,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||kasegeru.blog.jp/blogframe/contents/"},"id":1682,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/wp-content/plugins/kyujin-box/"},"id":1683,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||deview.co.jp/pc/ajax/ad_provider.php"},"id":1684,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||deview.co.jp/pub/app/api/recruitment_box/"},"id":1685,"priority":10}
 ]
