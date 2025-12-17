@@ -5924,5 +5924,10 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["zernotorg.ua"],"urlFilter":"/advert/placements/"},"id":5923,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||infox.ru/rb/"},"id":5924,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||mukachevo.net/bundle/assets/place-block-"},"id":5925,"priority":10},
-{"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"connect-src 'self'; img-src 'self';"}],"type":"modifyHeaders"},"condition":{"resourceTypes":["main_frame","sub_frame"],"urlFilter":"||obfusgated.com/*/tools/ad-block-test"},"id":5926}
+{"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"connect-src 'self'; img-src 'self';"}],"type":"modifyHeaders"},"condition":{"resourceTypes":["main_frame","sub_frame"],"urlFilter":"||obfusgated.com/*/tools/ad-block-test"},"id":5926},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["play.tavr.media"],"resourceTypes":["script"],"urlFilter":"||files.bidmatic.io/microplayer/configs/*.jsonp|"},"id":5927,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["play.tavr.media"],"resourceTypes":["script"],"urlFilter":"||player.bidmatic.io/microplayer/*/stream.es.js|"},"id":5928,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||advisor.api.2gis."},"id":5929,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||neva.today/hamster/"},"id":5930,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||animix.lol/static/media/pre."},"id":5931,"priority":10}
 ]

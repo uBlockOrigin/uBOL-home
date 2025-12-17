@@ -246,7 +246,7 @@ function collateFetchArgumentsFn(resource, options) {
     const props = [
         'body', 'cache', 'credentials', 'duplex', 'headers',
         'integrity', 'keepalive', 'method', 'mode', 'priority',
-        'redirect', 'referrer', 'referrerPolicy', 'signal', 'url'
+        'redirect', 'referrer', 'referrerPolicy', 'url'
     ];
     const out = {};
     if ( collateFetchArgumentsFn.collateKnownProps === undefined ) {
@@ -263,7 +263,12 @@ function collateFetchArgumentsFn(resource, options) {
     ) {
         out.url = `${resource}`;
     } else {
-        collateFetchArgumentsFn.collateKnownProps(resource, out);
+        let clone;
+        try {
+            clone = safe.Request_clone.call(resource);
+        } catch {
+        }
+        collateFetchArgumentsFn.collateKnownProps(clone || resource, out);
     }
     if ( typeof options === 'object' && options !== null ) {
         collateFetchArgumentsFn.collateKnownProps(options, out);
@@ -1543,11 +1548,11 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 10 */
 [removeAttr,abortOnStackTrace,addEventListenerDefuser,preventSetTimeout,setConstant,jsonPruneXhrResponse,jsonPrune,preventFetch,abortOnPropertyRead,preventXhr];
 
-const $scriptletArgs$ = /* 52 */ ["jsaction","#islsp c-wiz a[href^=\"http\"][data-ved][target]","stay","document.head.appendChild","inlineScript","click","externalLink","/ d[0-9]{1}/","data-cturl",".searchresults a","data-safe-proxy-url","a","BB.disableRefLinks","true","Object.prototype.canShowMoreAds","noopFunc","Object.prototype.hasAdv","meta.country","","propsToMatch","/api/anime","Blocks","Object.prototype.getBaseFingerprint","Object.prototype.hasPreroll","null","Object.prototype.needShowAlicePopup","Object.prototype.Begun","undefined","Object.prototype.antiadblock","false","/generate_204","Object.prototype.AdvManager","Object.prototype.isNonEmptyString","Object.prototype.initAsyncRtb","direct rtb seatbid data.*.attributes.blockId","*.disable-adv","data-link-id","Object.prototype.DirectLine","Object.prototype.disable-adv","Object.prototype.renderDirect","data-counter","#search-result > .serp-item a","yabs.yandex.ru/count/","Object.prototype.initPcode","__pcodeAllActiveTestIds","Object.prototype.Rtb","/beforeunload|pagehide/","0x","Object.prototype.AdblockCookieMatchingType","removeAttr","setTimeout","document.referrer"];
+const $scriptletArgs$ = /* 50 */ ["jsaction","#islsp c-wiz a[href^=\"http\"][data-ved][target]","stay","document.head.appendChild","inlineScript","click","externalLink","/ d[0-9]{1}/","data-cturl",".searchresults a","data-safe-proxy-url","a","BB.disableRefLinks","true","Object.prototype.canShowMoreAds","noopFunc","Object.prototype.hasAdv","meta.country","","propsToMatch","/api/anime","Blocks","Object.prototype.getBaseFingerprint","Object.prototype.hasPreroll","null","Object.prototype.needShowAlicePopup","Object.prototype.Begun","undefined","Object.prototype.antiadblock","false","/generate_204","Object.prototype.AdvManager","Object.prototype.isNonEmptyString","Object.prototype.initAsyncRtb","direct rtb seatbid data.*.attributes.blockId","data-link-id","Object.prototype.DirectLine","Object.prototype.renderDirect","data-counter","#search-result > .serp-item a","yabs.yandex.ru/count/","Object.prototype.initPcode","__activeTestIds","Object.prototype.Rtb","/beforeunload|pagehide/","0x","Object.prototype.AdblockCookieMatchingType","removeAttr","setTimeout","document.referrer"];
 
-const $scriptletArglists$ = /* 36 */ "0,0,1,2;1,3,4;2,5,6;3,7;0,8,9,2;0,10,11,2;4,12,13;4,14,15;4,16,15;5,17,18,19,20;6,21;1,22,4;4,23,24;4,25,24;4,26,27;4,28,29;7,30;8,31;4,32,27;4,33,27;6,34;6,35;0,36,11,2;4,37,27;4,38,13;4,39,15;0,40,41;9,42;4,43,27;8,44;4,39,27;4,45,27;2,46,47;4,48,27;3,49,50;8,51";
+const $scriptletArglists$ = /* 34 */ "0,0,1,2;1,3,4;2,5,6;3,7;0,8,9,2;0,10,11,2;4,12,13;4,14,15;4,16,15;5,17,18,19,20;6,21;1,22,4;4,23,24;4,25,24;4,26,27;4,28,29;7,30;8,31;4,32,27;4,33,27;6,34;0,35,11,2;4,36,27;4,37,15;0,38,39;9,40;4,41,27;8,42;4,37,27;4,43,27;2,44,45;4,46,27;3,47,48;8,49";
 
-const $scriptletArglistRefs$ = /* 64 */ "20,26,27,28,29,30,31;10,11;10,11;32,33;34,35;28;12,19,20;7,8;10,11;32,33;10,11;10,11;9;20,26,27,28,29,30,31;10,11;1;10,11;1;10,11;10,11;6;14,15;9;14,15;10,11;12;-21,-27,-29,-30,-31,-32;14,15;18;10,11;1;10,11;14,15;5;1;1;1;6;10,11;0;12;10,11;-11,-12;14,15;21,22,23,24,25,-29,-30,-31;3;2;6;6;6;14,15;-11,-12;-12;17;4;16;-11,-12;1;14,15;14,15;-28;13;12;12";
+const $scriptletArglistRefs$ = /* 64 */ "20,24,25,26,27,28,29;10,11;10,11;30,31;32,33;26;12,19,20;7,8;10,11;30,31;10,11;10,11;9;20,24,25,26,27,28,29;10,11;1;10,11;1;10,11;10,11;6;14,15;9;14,15;10,11;12;-21,-25,-27,-28,-29,-30;14,15;18;10,11;1;10,11;14,15;5;1;1;1;6;10,11;0;12;10,11;-11,-12;14,15;21,22,23,-27,-28,-29;3;2;6;6;6;14,15;-11,-12;-12;17;4;16;-11,-12;1;14,15;14,15;-26;13;12;12";
 
 const $scriptletHostnames$ = /* 64 */ ["ya.*","eda.*","wmj.*","ya.ru","4pda.*","auto.*","dzen.*","ivi.ru","quto.*","dzen.ru","lenta.*","motor.*","anilib.*","yandex.*","gazeta.ru","innal.top","letidor.*","naylo.top","passion.*","rambler.*","rutr.life","shakko.ru","animelib.*","levik.blog","moslenta.*","naydex.net","yandex.net","periskop.su","shedevrum.*","championat.*","game4you.top","gazeta.press","lena-miro.ru","mail.ukr.net","rustorka.com","rustorka.net","rustorka.top","rutracker.nl","www.afisha.*","www.google.*","yastatic.net","avtorambler.*","id.rambler.ru","livejournal.*","mail.yandex.*","online-fix.me","otvet.mail.ru","rutracker.lib","rutracker.net","rutracker.org","shiro-kino.ru","vp.rambler.ru","mail.rambler.*","nova.rambler.*","search.ukr.net","music.youtube.*","quiz.rambler.ru","rustorkacom.lib","vadimrazumov.ru","olegmakarenko.ru","games.s3.yandex.net","horoscopes.rambler.*","widgets.kinopoisk.ru","frontend.vh.yandex.ru"];
 

@@ -90,7 +90,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["cehennemstream.xyz","ddizi.pro","filmizle.in","hlktrpl.cfd","hotstream.club","sinema.cx","ucdortbes.com","videoseyred.in","vidload.one"],"urlFilter":"/vast.js"},"id":89,"priority":40},
 {"action":{"type":"block"},"condition":{"urlFilter":"||dizipal.vip/celta.js"},"id":90,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||sporx.com/_iframe/mac-merkezi/scoreboard_bilyoner"},"id":91,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||images.macellan.online/allads/"},"id":92,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||diziyou.io/wp-content/*.gif"},"id":92,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["dizirella.com"],"urlFilter":"||1win-cdn.com/promo-files-uploads/"},"id":93,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||sinemakolik.org/sinemakolik-pop.js"},"id":94,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||fullfilmizlebaba.com/s-m1.js"},"id":95,"priority":10},
@@ -1239,5 +1239,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-vmap1.xml"},"type":"redirect"},"condition":{"resourceTypes":["media","xmlhttprequest"],"urlFilter":"||nowtv.com.tr/vmap?*&player_skin=getir"},"id":1238,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"||grupbul.com/assets/images/ads/"},"id":1239,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||zeusdizi*.com/*.gif"},"id":1240,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||imagestoo.com/imgstggxock.xml"},"id":1241,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||imagestoo.com/imgstggxock.xml"},"id":1241,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||macellan.online/allads/"},"id":1242,"priority":10}
 ]

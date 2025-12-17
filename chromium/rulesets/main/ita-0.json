@@ -182,6 +182,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["corrierearetino.it","corriereempolese.it","corrieregrossetano.it","corrierelivornese.it","corrierelucchese.it","corrieremassacarrarese.it","corrierepisano.it","corrierepistoiese.it","corrierepratese.it","corrieresenese.it","corrieretoscano.it"],"urlFilter":"/oimmei-digital-consulting-skin.jpg"},"id":181,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["telenuovo.it"],"urlFilter":"||ced.sascdn.com/tag/3052/smart.js"},"id":182,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["laviola.it"],"urlFilter":"||wasabisys.com/ad-group-images/"},"id":183,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["milanofinanza.it"],"urlFilter":"||public.bnbstatic.com/unpkg/growth-widget/"},"id":184,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||plug.it/banners/"},"id":188,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["nonchiamatemiturista.it"],"urlFilter":"||sherpa.agoda.com/sherparender/simplesearchwidget?"},"id":200,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tccstatic.com^*/banner/"},"id":212,"priority":10},
