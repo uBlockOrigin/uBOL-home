@@ -1,11 +1,21 @@
+- [Mind id/class attribute changes in generic cosmetic filterer](https://github.com/gorhill/uBlock/commit/c975fbb9d7)
+- [Mind anscestor hostnames when evaluating host permissions](https://github.com/gorhill/uBlock/commit/4e0f47f11a)
+- Updated filter lists
+
+----------
+
+### 2025.1217.1755
+
 - [Fix behavior regression in scriptlets proxying `fetch()`](https://github.com/gorhill/uBlock/commit/cbf24a40b6)
 - [Bypass cosmetic filtering when top context is set to no-filtering](https://github.com/gorhill/uBlock/commit/a23561d79e)
+- Updated filter lists
 
 ----------
 
 ### 2025.1215.1455
 
 - [Fix regression in `prevent-fetch` scriptlet](https://github.com/gorhill/uBlock/commits/2234d8aad2)
+- Updated filter lists
 
 ----------
 
