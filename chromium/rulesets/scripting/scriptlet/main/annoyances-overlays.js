@@ -394,85 +394,6 @@ function abortOnStackTrace(
     makeProxy(owner, chain);
 }
 
-function addEventListenerDefuser(
-    type = '',
-    pattern = ''
-) {
-    const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
-    const reType = safe.patternToRegex(type, undefined, true);
-    const rePattern = safe.patternToRegex(pattern);
-    const debug = shouldDebug(extraArgs);
-    const targetSelector = extraArgs.elements || undefined;
-    const elementMatches = elem => {
-        if ( targetSelector === 'window' ) { return elem === window; }
-        if ( targetSelector === 'document' ) { return elem === document; }
-        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
-        const elems = Array.from(document.querySelectorAll(targetSelector));
-        return elems.includes(elem);
-    };
-    const elementDetails = elem => {
-        if ( elem instanceof Window ) { return 'window'; }
-        if ( elem instanceof Document ) { return 'document'; }
-        if ( elem instanceof Element === false ) { return '?'; }
-        const parts = [];
-        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
-        const id = String(elem.id);
-        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
-        for ( let i = 0; i < elem.classList.length; i++ ) {
-            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
-        }
-        for ( let i = 0; i < elem.attributes.length; i++ ) {
-            const attr = elem.attributes.item(i);
-            if ( attr.name === 'id' ) { continue; }
-            if ( attr.name === 'class' ) { continue; }
-            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
-        }
-        return parts.join('');
-    };
-    const shouldPrevent = (thisArg, type, handler) => {
-        const matchesType = safe.RegExp_test.call(reType, type);
-        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
-        const matchesEither = matchesType || matchesHandler;
-        const matchesBoth = matchesType && matchesHandler;
-        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
-            debugger; // eslint-disable-line no-debugger
-        }
-        if ( matchesBoth && targetSelector !== undefined ) {
-            if ( elementMatches(thisArg) === false ) { return false; }
-        }
-        return matchesBoth;
-    };
-    const proxyFn = function(context) {
-        const { callArgs, thisArg } = context;
-        let t, h;
-        try {
-            t = String(callArgs[0]);
-            if ( typeof callArgs[1] === 'function' ) {
-                h = String(safe.Function_toString(callArgs[1]));
-            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
-                if ( typeof callArgs[1].handleEvent === 'function' ) {
-                    h = String(safe.Function_toString(callArgs[1].handleEvent));
-                }
-            } else {
-                h = String(callArgs[1]);
-            }
-        } catch {
-        }
-        if ( type === '' && pattern === '' ) {
-            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        } else if ( shouldPrevent(thisArg, t, h) ) {
-            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        }
-        return context.reflect();
-    };
-    runAt(( ) => {
-        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
-        proxyApplyFn('document.addEventListener', proxyFn);
-    }, extraArgs.runAt);
-}
-
 function adjustSetInterval(
     needleArg = '',
     delayArg = '',
@@ -992,6 +913,98 @@ function parseReplaceFn(s) {
         return { re: new RegExp(pattern, flags), replacement };
     } catch {
     }
+}
+
+function preventAddEventListener(
+    type = '',
+    pattern = ''
+) {
+    const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
+    const reType = safe.patternToRegex(type, undefined, true);
+    const rePattern = safe.patternToRegex(pattern);
+    const targetSelector = extraArgs.elements || undefined;
+    const elementMatches = elem => {
+        if ( targetSelector === 'window' ) { return elem === window; }
+        if ( targetSelector === 'document' ) { return elem === document; }
+        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
+        const elems = Array.from(document.querySelectorAll(targetSelector));
+        return elems.includes(elem);
+    };
+    const elementDetails = elem => {
+        if ( elem instanceof Window ) { return 'window'; }
+        if ( elem instanceof Document ) { return 'document'; }
+        if ( elem instanceof Element === false ) { return '?'; }
+        const parts = [];
+        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
+        const id = String(elem.id);
+        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
+        for ( let i = 0; i < elem.classList.length; i++ ) {
+            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
+        }
+        for ( let i = 0; i < elem.attributes.length; i++ ) {
+            const attr = elem.attributes.item(i);
+            if ( attr.name === 'id' ) { continue; }
+            if ( attr.name === 'class' ) { continue; }
+            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
+        }
+        return parts.join('');
+    };
+    const shouldPrevent = (thisArg, type, handler) => {
+        const matchesType = safe.RegExp_test.call(reType, type);
+        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesEither = matchesType || matchesHandler;
+        const matchesBoth = matchesType && matchesHandler;
+        if ( safe.logLevel > 1 && matchesEither ) {
+            debugger; // eslint-disable-line no-debugger
+        }
+        if ( matchesBoth && targetSelector !== undefined ) {
+            if ( elementMatches(thisArg) === false ) { return false; }
+        }
+        return matchesBoth;
+    };
+    const proxyFn = function(context) {
+        const { callArgs, thisArg } = context;
+        let t, h;
+        try {
+            t = String(callArgs[0]);
+            if ( typeof callArgs[1] === 'function' ) {
+                h = String(safe.Function_toString(callArgs[1]));
+            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
+                if ( typeof callArgs[1].handleEvent === 'function' ) {
+                    h = String(safe.Function_toString(callArgs[1].handleEvent));
+                }
+            } else {
+                h = String(callArgs[1]);
+            }
+        } catch {
+        }
+        if ( type === '' && pattern === '' ) {
+            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        } else if ( shouldPrevent(thisArg, t, h) ) {
+            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        }
+        return context.reflect();
+    };
+    runAt(( ) => {
+        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = EventTarget.prototype;
+            Object.defineProperty(EventTarget.prototype, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+        proxyApplyFn('document.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = document;
+            Object.defineProperty(document, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+    }, extraArgs.runAt);
 }
 
 function preventFetch(...args) {
@@ -2164,7 +2177,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 20 */
-[addEventListenerDefuser,abortCurrentScript,abortOnPropertyRead,preventSetTimeout,abortOnPropertyWrite,removeAttr,setConstant,preventFetch,preventXhr,trustedReplaceArgument,trustedReplaceXhrResponse,jsonPrune,preventSetInterval,noEvalIf,abortOnStackTrace,adjustSetInterval,noWindowOpenIf,adjustSetTimeout,trustedSuppressNativeMethod,trustedReplaceOutboundText];
+[preventAddEventListener,abortCurrentScript,abortOnPropertyRead,preventSetTimeout,abortOnPropertyWrite,removeAttr,setConstant,preventFetch,preventXhr,trustedReplaceArgument,trustedReplaceXhrResponse,jsonPrune,preventSetInterval,noEvalIf,abortOnStackTrace,adjustSetInterval,noWindowOpenIf,adjustSetTimeout,trustedSuppressNativeMethod,trustedReplaceOutboundText];
 
 const $scriptletArgs$ = /* 657 */ ["scroll","$","modal_newsletter","/^(mouseout|mouseleave)$/","pum_popups","show-login-layer-article","document.oncontextmenu","document.onselectstart","oncontextmenu","/^(contextmenu|copy)$/","getSelection","disableSelection","nocontext","contextmenu","disableselect","reEnable","clickIE4","ConsoleBan.init","noopFunc","document.onkeydown","devtoolsDetector","{}","document.addEventListener","||!!","/contextmenu|copy|cut|key/","","elements","document","keydown","123","console.clear","trueFunc","console.table","console.log","key","/copy|selectstart/","return","/preventDefault|pointerType/","uxGuid","killads","true","www3.doubleclick.net","PASSER_videoPAS_apres","0","ads_enabled","adsbygoogle","AdBlocker","load","adblock","pro-modal","doubleclick","googlesyndication","length:10",".getState();","4500","Storage.prototype.setItem","json:\"DWEB\"","condition","DWEB_PIN_IMAGE_CLICK_COUNT","json:\"\"","unauthDownloadCount","blur","ThriveGlobal","blazemedia_adBlock","copy","addLink","_sp_","check","100","document.getElementById","advert-tester","nebula.session.flags.adblock","undefined","document.oncopy","_adBlockCheck","navigator.storage.estimate","abde","ads","2000","/^(?:contextmenu|copy|selectstart)$/","/^(?:contextmenu|copy)$/","preventDefault","/^(?:contextmenu|keydown)$/","onbeforeunload","valid_user","Drupal.behaviors.detectAdblockers","scan","500","oncopy","jQuery","AdBlock","#sign-up-popup","/,\"category_sensitive\"[^\\n]+?\"follow_button\":\\{\"__typename\":\"CometFeedStoryFollowButtonStrategy\"[^\\n]+\"cursor\":\"[^\"]+\"\\}/g","}","/api/graphql","require.0.3.0.__bbox.define.[].2.is_linkshim_supported require.0.3.0.__bbox.define.[].2.click_ids","overlay","adBlockDetected","ADBdetected","onload_popup","8000","_sp_._networkListenerData","onselectstart","stay","ad-blocker",".ab_detected","document.ondragstart","disableEnterKey","adMessage","tweaker","adBlockEnabled","$adframe","false","BIA.ADBLOCKER","Adblocker","10000","()","samDetected","4000","ABDSettings","adBlockFunction","block","hidekeep","checkAds","google_jobrunner","#advert-tracker","3000","disable_copy","disable_hot_keys","alert","oncontextmenu|oncopy|ondragstart|onselect|onselectstart","body","complete","isAdblockDisabled","1000","clickIE","checkPrivacyWall","loadOutbrain","intsFequencyCap","w3ad","oncontextmenu|ondragstart|onselectstart","killCopy","oncontextmenu|ondragstart|onselectstart|onkeydown","restriction","adsAreShown","1500","bioEp.showPopup","/^(?:contextmenu|copy|keydown)$/","Date.prototype.toUTCString","document.onmousedown","abd","innerHTML","intializemarquee","oncontextmenu|onselectstart","oSpPOptions","oncontextmenu|onselectstart|ondragstart","detector_active","aoezone_adchecker","oncontextmenu|ondragstart|onkeydown|onmousedown|onselectstart","message","preventSelection","fuckAdBlock","pageService.initDownloadProtection","mouseout","pop","oncontextmenu|onselectstart|onselect|oncopy","Drupal","a1lck","adsBlocked","/^(?:keyup|keydown)$/","detectPrivateMode","webkitRequestFileSystem","null","addLinkToCopy","_sharedData.is_whitelisted_crawl_bot","showOverlay","NoAd","killcopy","loginModal","stopPrntScr","700","document.documentElement.oncopy","oncontextmenu|onkeydown|onmousedown","ads_not_blocked","disable_in_input","disable_keystrokes","can_i_run_ads","__cmpGdprAppliesGlobally","/contextmenu|keydown|keyup|copy/","stopSelect","warning","ytInitialPlayerResponse.auxiliaryUi.messageRenderers.upsellDialogRenderer","auxiliaryUi.messageRenderers.upsellDialogRenderer","visibilitychange","/bgmobile|\\{\\w\\.\\w+\\(\\)\\}/","hideBannerBlockedMessage","__ext_loaded","slideout","faq/whitelist","_sp_.mms.startMsg","blurred","height","document.getElementsByTagName","RL.licenseman.init","abStyle","modal","eval","offsetHeight","ga_ExitPopup3339","t.preventDefault","ai_adb","none","replaceCopiedText","oncontextmenu|onselectstart|ondragstart|oncopy|oncut|onpaste|onbeforecopy","ABD","ondragstart","better_ads_adblock","onselectstart|ondragstart","console.debug","addEventListener","which","window.addEventListener","ctrlKey","/^(contextmenu|copy|dragstart|selectstart)$/","alerte_declanchee","initimg","oncontextmenu|onCopy","adBlock","oncontextmenu|onmousedown|onselectstart","appendMessage","document.body.setAttribute","5000","vSiteRefresher","popup","banner","/contextmenu|selectstart|copy/","oncontextmenu|ondragstart|onselectstart|onkeydown|onmousedown","oncontextmenu|onkeydown","onkeydown","adtoniq","ondragstart|onselectstart","/contextmenu|copy|keydown/","/contextmenu|select|copy/","/^(contextmenu|keydown)$/","a","adblocker","exit_popup","adsEnabled","locdau","show","ondrop|ondragstart","onload","onselectstart|ondragstart|oncontextmenu","div.story_text","document.body.oncopy","test.remove","oncontextmenu|ondragstart","mouseleave","noscroll","onmousemove|ondragstart|onselectstart|oncontextmenu","/contextmenu|selectstart/","ai_check","bait","onselectstart|ondragstart|onmousedown|onkeydown|oncontextmenu","window.SteadyWidgetSettings.adblockActive","adblockerdetected","juicyads","gdpr_popin_path","showEmailNewsletterModal","generatePopup","dragstart|keydown/","/contextmenu|keydown|dragstart/","oncontextmenu|onselectstart|ondragstart|onclick","btoa","_0x","f12lock","debugger","checkFeed","visibility","style","div#novelBoby","HTMLIFrameElement","FuckAdBlock","samOverlay","adStillHere","tjQuery","oncontextmenu|onMouseDown|style","/^(?:contextmenu|copy|keydown|mousedown)$/","document.onkeyup","commonUtil.openToast","adb","/contextmenu|keydown/","NS_TVER_EQ.checkEndEQ","nd_shtml","canRunAds","Adblock","isNaN","mps._queue.abdetect","contribute","devtoolschange","/contextmenu|copy/","ondragstart|oncontextmenu","clickNS","mdp","setTimeout","newsletterPopup","onContextMenu","premium","onkeydown|oncontextmenu","oncontextmenu|oncopy","abp","/contextmenu|cut|copy|paste/","oncontextmenu|onselectstart|style","#body_game","blocked","blocker","SignUPPopup_load","oncontextmenu|onselectstart|onselect|ondragstart|ondrag","removeChild","_0xfff1","event","stopPropagation","/contextmenu|mousedown/",".modal","soclInit","Zord.analytics.registerBeforeLeaveEvent","myModal","an_message",".height","oncontextmenu|onselectstart|onmousedown","admrlWpJsonP","oncopy|oncontextmenu|onselectstart|onselect|ondragstart|ondrag|onbeforeprint|onafterprint","document.onclick","document.onkeypress","disable_ext_code","/contextmenu|copy|selectstart/","adsbygoogle.length","oncontextmenu|onDragStart|onSelectStart","x5engine.utils.imCodeProtection","pipaId","oncontextmenu|ondragstart|onselectstart|onkeydown|oncopy|oncut","0x","matchMedia","shortcut","append_link","/^(?:contextmenu|dragstart|selectstart)$/","ai_front","ansFrontendGlobals.settings.signupWallType","journeyCompilerGateway","pgblck","/dragstart|keyup|keydown/","/keyup|keydown/","wpcc","oncopy|oncontextmenu","document.documentElement.AdBlockDetection","oncontextmenu|ondragstart|oncopy|oncut",".select-none","carbonLoaded","/contextmenu|cut|copy|keydown/","initAdBlockerPanel","/contextmenu|selectstart|copy|dragstart/","cpp_loc","String.prototype.charCodeAt","ai_","forceRefresh","head","/copy|dragstart/","/copy|contextmenu/","/getScript|error:/","error","dragstart","nocontextmenu","AdB","oncontextmenu|ondragstart|onselectstart|onselect|oncopy|onbeforecopy|onkeydown|onunload","selectionchange","quill.emitter","oncontextmenu|onDragStart|onselectstart","/contextmenu|selectstart|select|copy|dragstart/","adLazy","_0x1a4c","jQuery!==\"undefined\"","clearInterval(loginReady)","document.body.onmouseup","addCopyright","selectstart","&adslot","copy_div_id","oncontextmenu|onkeydown|onselectstart","LBF.define","oncopy|oncontextmenu|oncut|onpaste","input","oncontextmenu|oncopy|onselectstart","onbeforecopy|oncontextmenu|oncopy|ondragstart|onmouseup|onselect|onselectstart","oncontextmenu|ondragstart|onkeydown|onmousedown|onselectstart|style","SD_BLOCKTHROUGH","body[style=\"user-select: none;\"]","cookie","/^(?:copy|paste)$/","b2a","/copy|keydown/","ab","oncopy|oncut|onselectstart|style|unselectable","document.body.oncut","/copy|cut|selectstart/","oncontextmenu|onselectstart|oncut|oncopy","oncontextmenu|ondragstart|onselect","encodeURIComponent","inlineScript","debugchange","donation-modal","isMoz","onpaste","#tr_mesaj > td > .text-input.validate\\[required\\]","Delay","/keydown|keyup/","keyCode","disabledEvent","/copy|cut|paste|selectstart/","/contextmenu|dragstart|keydown/","event.dispatch.apply","document.querySelector","beforepaste","gif","DOMContentLoaded","rprw","\"input\"","contentprotector","mb.advertisingShouldBeEnabled","update_visit_count","replace","test","Promise","onscroll","5500","login","showAdblockerModal","dfgh-adsbygoogle","oncontextmenu|ondragstart|ondrop|onselectstart","[oncontextmenu]","jsData.hasVideoMeteringUnlogEnabled","lepopup_abd_enabled","広告","devtoolIsOpening","document.referer","pagelink","Object.prototype.preroll","[]","/keydown|mousedown/","Drupal.CTools.Modal.show","/(^(?!.*(injectedScript|makeProxy).*))/","#VdoPlayerDiv","a#download_link","Object.prototype.bgOverlay","Object.prototype.fixedContentPos","html","console.dir","navigator.userAgent","quoty-public","oncontextmenu|ondragstart|onkeydown|onmousedown|onselectstart|onselect|oncopy|onbeforecopy|onmouseup","onContextmenu|onMouseDown|onSelectStart","kan_vars.adblock","securityTool.disableRightClick","securityTool.disableF12","securityTool.disableCtrlP","securityTool.disableCtrlS","securityTool.disablePrintScreen","securityTool.disablePrintThisPage","securityTool.disableElementForPrintThisPage","wccp_pro_iscontenteditable",".all-lyrics","document.body.oncontextmenu","attachToDom","ad-fallback","document.createElement","createAdblockFallbackSubscribeToProtopageAdDiv","gnt_mol_oy","adsok","runPageBugger","Source","length","nouplaod","img[oncontextmenu=\"return false;\"]","Object","/(?=^(?!.*(jquery|inlineScript)))/","ab_tests","scribd_ad","admiral","/contextmenu|copy|drag|dragstart/","userAgent","analytics","mousedown",".entry-content","wccp_pro","clear_body_at_all_for_extentions","RegExp","googlebot","document.querySelectorAll","/contextmenu|keydown|keypress|copy/","blockFuckingEverything","build.js","openLayer","sneakerGoogleTag","devtools","/_0x|devtools/","flashvars.autoplay","popupScreen","checkAdblockBait","dispatch","onclick","[onclick=\"myFunction()\"]","navigator","setInterval","stateObject","devtool","return\"undefined\"","ready","3","document.body.onselectstart","debug","disabledKeys","Time_Start","i--","0.02","/hotjar|googletagmanager/","Clipboard","0.001","ad","detect","DD","Object.prototype._detectLoop","_detectLoop","AudiosL10n","forbiddenList","concertAds","whetherdo","devtoolsDetector.addListener","String.fromCharCode","Premium","SteadyWidgetSettings.adblockActive","devtoolsOpen","phimv","||null","DisDevTool","preventDeleteDialog","/googlesyndication|googletag/","googletag","[native code]","openOverlaySignup","count","/contextmenu|keyup|keydown/","initials.layout.layoutPromoProps.promoMessagesWrapperProps.shouldDisplayAdblockMessage","mtGlobal.disabledAds","devtoolsDetector.launch","/DevTools|_0x/","throwFunc","ANN.ads.adblocked","cloudflareinsights.com","pleaseSupportUs","nn_mpu1","maxUnauthenicatedArticleViews","googletag.cmd","rocket-DOMContentLoaded","bind(document)","innerHeight","[oncontextmenu=\"return false;\"]","/^(contextmenu|mousedown|keydown)$/","placeAdsHandler","hmwp_is_devtool","mensagem","ramp.addUnits","pqdxwidthqt","browser-plugin","nitroAds.loaded","checkDevTools","DevToolsOpen","ABB_config","jh_disabled_options_data","/select|copy|contextmenu/","topMessage","/cut|copy|paste|contextmenu/","forbidDebug","2","RegExp.prototype.toString",".join(\"\")","DisableDevtool","Function.prototype.constructor","\"debugger\"","abort","/isEnable|isOpen/","oncontextmenu|ondragstart|onselectstart|onload|onblur","nitroAds","afterKeydown","void","getComputedStyle","viewClickAttributeId","ad-wrap","oncopy|oncut","__NEXT_DATA__.props.pageProps.adPlacements","/contextmenu|selectstart|dragstart/","loadexternal","login_completed","disableclick","disableRightClick","layerid","1","/,\"expanded_url\":\"([^\"]+)\",\"url\":\"[^\"]+\"/g",",\"expanded_url\":\"$1\",\"url\":\"$1\"","/graphql","/,\"expanded_url\":\"([^\"]+)\",\"indices\":([^\"]+)\"url\":\"[^\"]+\"/g",",\"expanded_url\":\"$1\",\"indices\":$2\"url\":\"$1\"","/tweet-result","#__next","style.display","clipboardData","console","/Timeout\":\\d+/","Timeout\":0","/api/v","html[onselectstart]","linkPrefixMessage","adb-enabled","/mainseto.js:286:1","Array.prototype.includes","visitor-gate",".LoginSection","document.getSelection","detect_modal","ays_tooltip","disableCTRL","/adsbygoogle|ad-manager/","/devtool|console\\.clear/","Object.prototype.disableMenu","confirm","counter","oncontextmenu|oncopy|oncut","[id^=\"chapter\"]",".html","RegExp.prototype.test","\"contact@foxteller.com\"","onselectstart|oncopy","json:\"freeVideoFriendly\"","freeVideoFriendlySlug","/^function\\(.*\\|\\|.*}$/","(!0)","HTMLImageElement.prototype.onerror","player.pause","/stackDepth:(9|10).+https:[./0-9a-z]+\\/video\\.[0-9a-f]+\\.js:1\\d{2}:1.+\\.emit/","PieScriptConfig","method:HEAD","location.href","function(t)","ad_blocker_detector_modal","clientHeight","String.prototype.trim","iframe","nonframe","Object.prototype.dbskrat"];
 

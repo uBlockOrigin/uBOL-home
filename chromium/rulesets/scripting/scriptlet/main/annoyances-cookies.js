@@ -246,7 +246,25 @@ function abortOnPropertyWrite(
     });
 }
 
-function addEventListenerDefuser(
+function getExceptionTokenFn() {
+    const token = getRandomTokenFn();
+    const oe = self.onerror;
+    self.onerror = function(msg, ...args) {
+        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
+        if ( oe instanceof Function ) {
+            return oe.call(this, msg, ...args);
+        }
+    }.bind();
+    return token;
+}
+
+function getRandomTokenFn() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+}
+
+function preventAddEventListener(
     type = '',
     pattern = ''
 ) {
@@ -255,7 +273,6 @@ function addEventListenerDefuser(
     const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
     const reType = safe.patternToRegex(type, undefined, true);
     const rePattern = safe.patternToRegex(pattern);
-    const debug = shouldDebug(extraArgs);
     const targetSelector = extraArgs.elements || undefined;
     const elementMatches = elem => {
         if ( targetSelector === 'window' ) { return elem === window; }
@@ -288,7 +305,7 @@ function addEventListenerDefuser(
         const matchesHandler = safe.RegExp_test.call(rePattern, handler);
         const matchesEither = matchesType || matchesHandler;
         const matchesBoth = matchesType && matchesHandler;
-        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
+        if ( safe.logLevel > 1 && matchesEither ) {
             debugger; // eslint-disable-line no-debugger
         }
         if ( matchesBoth && targetSelector !== undefined ) {
@@ -321,26 +338,22 @@ function addEventListenerDefuser(
     };
     runAt(( ) => {
         proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
-        proxyApplyFn('document.addEventListener', proxyFn);
-    }, extraArgs.runAt);
-}
-
-function getExceptionTokenFn() {
-    const token = getRandomTokenFn();
-    const oe = self.onerror;
-    self.onerror = function(msg, ...args) {
-        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
-        if ( oe instanceof Function ) {
-            return oe.call(this, msg, ...args);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = EventTarget.prototype;
+            Object.defineProperty(EventTarget.prototype, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
         }
-    }.bind();
-    return token;
-}
-
-function getRandomTokenFn() {
-    const safe = safeSelf();
-    return safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+        proxyApplyFn('document.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = document;
+            Object.defineProperty(document, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+    }, extraArgs.runAt);
 }
 
 function preventRequestAnimationFrame(
@@ -933,7 +946,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 8 */
-[abortOnPropertyRead,addEventListenerDefuser,setConstant,abortCurrentScript,abortOnPropertyWrite,preventRequestAnimationFrame,trustedSetConstant,preventSetTimeout];
+[abortOnPropertyRead,preventAddEventListener,setConstant,abortCurrentScript,abortOnPropertyWrite,preventRequestAnimationFrame,trustedSetConstant,preventSetTimeout];
 
 const $scriptletArgs$ = /* 54 */ ["__cmpGdprAppliesGlobally","cookieconsent.Popup","load","function(){if(s.readyState==XMLHttpRequest.DONE","cicc.cookie_cat_statistic","true","config.requireCookieConsent","false","document.createElement","admiral","BrockmanAllowedCookies.targeting","BrockmanAllowedCookies.functional","FrodoPV","settings.consent","HB.CookieSettings.init","noopFunc","WHT.ShowConsentForm","trueFunc","CookiePolicy","{}","CookiePolicy.init","useGDPR","xv.disclaimer.displayCookiePopup","Didomi","catch","realCookieBanner","undefined","window.cmpmngr.setConsentViaBtn","tcfAllowUseCookies","cicc.cookie_cat_functional","cicc.cookie_cat_marketing","tweakersConfig.userConfiguredConsent.youtube.approved","tweakersConfig.userConfiguredConsent.omny.approved","tweakersConfig.userConfiguredConsent.pcnltelecom.approved","tweakersConfig.userConfiguredConsent.googlemaps.approved","tweakersConfig.userConfiguredConsent.streamable.approved","tweakersConfig.userConfiguredConsent.soundcloud.approved","tweakersConfig.userConfiguredConsent.knightlab.approved","yleConsentSdk._consentSdk._embedded_social_media","yleConsentSdk.show","cockieConsentManagement","window.scrollTo","flagTcfLoaded","dataLayer","{\"value\":[{\"signals\":[\"remixd\"]},{\"event\":\"remixd_gtm_fire\"}]}","_iub.cs.options.callback.onConsentRejected","_iub.cs.options.callback.onConsentFirstRejected","__tcfapi_user_acctepted","cmp_importvendors","{\"value\": [\"s23\",\"s2564\"]}","_gtm.consent.cm.strategy.options.cmpay.enabled","Object.prototype.hasConsent","cmp_autoreject","checkPURLayerMustBeShown"];
 

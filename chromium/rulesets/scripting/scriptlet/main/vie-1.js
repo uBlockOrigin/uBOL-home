@@ -246,85 +246,6 @@ function abortOnPropertyWrite(
     });
 }
 
-function addEventListenerDefuser(
-    type = '',
-    pattern = ''
-) {
-    const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
-    const reType = safe.patternToRegex(type, undefined, true);
-    const rePattern = safe.patternToRegex(pattern);
-    const debug = shouldDebug(extraArgs);
-    const targetSelector = extraArgs.elements || undefined;
-    const elementMatches = elem => {
-        if ( targetSelector === 'window' ) { return elem === window; }
-        if ( targetSelector === 'document' ) { return elem === document; }
-        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
-        const elems = Array.from(document.querySelectorAll(targetSelector));
-        return elems.includes(elem);
-    };
-    const elementDetails = elem => {
-        if ( elem instanceof Window ) { return 'window'; }
-        if ( elem instanceof Document ) { return 'document'; }
-        if ( elem instanceof Element === false ) { return '?'; }
-        const parts = [];
-        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
-        const id = String(elem.id);
-        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
-        for ( let i = 0; i < elem.classList.length; i++ ) {
-            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
-        }
-        for ( let i = 0; i < elem.attributes.length; i++ ) {
-            const attr = elem.attributes.item(i);
-            if ( attr.name === 'id' ) { continue; }
-            if ( attr.name === 'class' ) { continue; }
-            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
-        }
-        return parts.join('');
-    };
-    const shouldPrevent = (thisArg, type, handler) => {
-        const matchesType = safe.RegExp_test.call(reType, type);
-        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
-        const matchesEither = matchesType || matchesHandler;
-        const matchesBoth = matchesType && matchesHandler;
-        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
-            debugger; // eslint-disable-line no-debugger
-        }
-        if ( matchesBoth && targetSelector !== undefined ) {
-            if ( elementMatches(thisArg) === false ) { return false; }
-        }
-        return matchesBoth;
-    };
-    const proxyFn = function(context) {
-        const { callArgs, thisArg } = context;
-        let t, h;
-        try {
-            t = String(callArgs[0]);
-            if ( typeof callArgs[1] === 'function' ) {
-                h = String(safe.Function_toString(callArgs[1]));
-            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
-                if ( typeof callArgs[1].handleEvent === 'function' ) {
-                    h = String(safe.Function_toString(callArgs[1].handleEvent));
-                }
-            } else {
-                h = String(callArgs[1]);
-            }
-        } catch {
-        }
-        if ( type === '' && pattern === '' ) {
-            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        } else if ( shouldPrevent(thisArg, t, h) ) {
-            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        }
-        return context.reflect();
-    };
-    runAt(( ) => {
-        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
-        proxyApplyFn('document.addEventListener', proxyFn);
-    }, extraArgs.runAt);
-}
-
 function collateFetchArgumentsFn(resource, options) {
     const safe = safeSelf();
     const props = [
@@ -661,6 +582,98 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
     return needles;
 }
 
+function preventAddEventListener(
+    type = '',
+    pattern = ''
+) {
+    const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
+    const reType = safe.patternToRegex(type, undefined, true);
+    const rePattern = safe.patternToRegex(pattern);
+    const targetSelector = extraArgs.elements || undefined;
+    const elementMatches = elem => {
+        if ( targetSelector === 'window' ) { return elem === window; }
+        if ( targetSelector === 'document' ) { return elem === document; }
+        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
+        const elems = Array.from(document.querySelectorAll(targetSelector));
+        return elems.includes(elem);
+    };
+    const elementDetails = elem => {
+        if ( elem instanceof Window ) { return 'window'; }
+        if ( elem instanceof Document ) { return 'document'; }
+        if ( elem instanceof Element === false ) { return '?'; }
+        const parts = [];
+        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
+        const id = String(elem.id);
+        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
+        for ( let i = 0; i < elem.classList.length; i++ ) {
+            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
+        }
+        for ( let i = 0; i < elem.attributes.length; i++ ) {
+            const attr = elem.attributes.item(i);
+            if ( attr.name === 'id' ) { continue; }
+            if ( attr.name === 'class' ) { continue; }
+            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
+        }
+        return parts.join('');
+    };
+    const shouldPrevent = (thisArg, type, handler) => {
+        const matchesType = safe.RegExp_test.call(reType, type);
+        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesEither = matchesType || matchesHandler;
+        const matchesBoth = matchesType && matchesHandler;
+        if ( safe.logLevel > 1 && matchesEither ) {
+            debugger; // eslint-disable-line no-debugger
+        }
+        if ( matchesBoth && targetSelector !== undefined ) {
+            if ( elementMatches(thisArg) === false ) { return false; }
+        }
+        return matchesBoth;
+    };
+    const proxyFn = function(context) {
+        const { callArgs, thisArg } = context;
+        let t, h;
+        try {
+            t = String(callArgs[0]);
+            if ( typeof callArgs[1] === 'function' ) {
+                h = String(safe.Function_toString(callArgs[1]));
+            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
+                if ( typeof callArgs[1].handleEvent === 'function' ) {
+                    h = String(safe.Function_toString(callArgs[1].handleEvent));
+                }
+            } else {
+                h = String(callArgs[1]);
+            }
+        } catch {
+        }
+        if ( type === '' && pattern === '' ) {
+            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        } else if ( shouldPrevent(thisArg, t, h) ) {
+            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        }
+        return context.reflect();
+    };
+    runAt(( ) => {
+        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = EventTarget.prototype;
+            Object.defineProperty(EventTarget.prototype, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+        proxyApplyFn('document.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = document;
+            Object.defineProperty(document, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+    }, extraArgs.runAt);
+}
+
 function preventFetch(...args) {
     preventFetchFn(false, ...args);
 }
@@ -770,187 +783,6 @@ function preventSetTimeout(
         }
         return context.reflect();
     });
-}
-
-function preventXhr(...args) {
-    return preventXhrFn(false, ...args);
-}
-
-function preventXhrFn(
-    trusted = false,
-    propsToMatch = '',
-    directive = ''
-) {
-    if ( typeof propsToMatch !== 'string' ) { return; }
-    const safe = safeSelf();
-    const scriptletName = trusted ? 'trusted-prevent-xhr' : 'prevent-xhr';
-    const logPrefix = safe.makeLogPrefix(scriptletName, propsToMatch, directive);
-    const xhrInstances = new WeakMap();
-    const propNeedles = parsePropertiesToMatchFn(propsToMatch, 'url');
-    const warOrigin = scriptletGlobals.warOrigin;
-    const safeDispatchEvent = (xhr, type) => {
-        try {
-            xhr.dispatchEvent(new Event(type));
-        } catch {
-        }
-    };
-    const XHRBefore = XMLHttpRequest.prototype;
-    self.XMLHttpRequest = class extends self.XMLHttpRequest {
-        open(method, url, ...args) {
-            xhrInstances.delete(this);
-            if ( warOrigin !== undefined && url.startsWith(warOrigin) ) {
-                return super.open(method, url, ...args);
-            }
-            const haystack = { method, url };
-            if ( propsToMatch === '' && directive === '' ) {
-                safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(haystack, null, 2)}`);
-                return super.open(method, url, ...args);
-            }
-            if ( matchObjectPropertiesFn(propNeedles, haystack) ) {
-                const xhrDetails = Object.assign(haystack, {
-                    xhr: this,
-                    defer: args.length === 0 || !!args[0],
-                    directive,
-                    headers: {
-                        'date': '',
-                        'content-type': '',
-                        'content-length': '',
-                    },
-                    url: haystack.url,
-                    props: {
-                        response: { value: '' },
-                        responseText: { value: '' },
-                        responseXML: { value: null },
-                    },
-                });
-                xhrInstances.set(this, xhrDetails);
-            }
-            return super.open(method, url, ...args);
-        }
-        send(...args) {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined ) {
-                return super.send(...args);
-            }
-            xhrDetails.headers['date'] = (new Date()).toUTCString();
-            let xhrText = '';
-            switch ( this.responseType ) {
-            case 'arraybuffer':
-                xhrDetails.props.response.value = new ArrayBuffer(0);
-                xhrDetails.headers['content-type'] = 'application/octet-stream';
-                break;
-            case 'blob':
-                xhrDetails.props.response.value = new Blob([]);
-                xhrDetails.headers['content-type'] = 'application/octet-stream';
-                break;
-            case 'document': {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString('', 'text/html');
-                xhrDetails.props.response.value = doc;
-                xhrDetails.props.responseXML.value = doc;
-                xhrDetails.headers['content-type'] = 'text/html';
-                break;
-            }
-            case 'json':
-                xhrDetails.props.response.value = {};
-                xhrDetails.props.responseText.value = '{}';
-                xhrDetails.headers['content-type'] = 'application/json';
-                break;
-            default: {
-                if ( directive === '' ) { break; }
-                xhrText = generateContentFn(trusted, xhrDetails.directive);
-                if ( xhrText instanceof Promise ) {
-                    xhrText = xhrText.then(text => {
-                        xhrDetails.props.response.value = text;
-                        xhrDetails.props.responseText.value = text;
-                    });
-                } else {
-                    xhrDetails.props.response.value = xhrText;
-                    xhrDetails.props.responseText.value = xhrText;
-                }
-                xhrDetails.headers['content-type'] = 'text/plain';
-                break;
-            }
-            }
-            if ( xhrDetails.defer === false ) {
-                xhrDetails.headers['content-length'] = `${xhrDetails.props.response.value}`.length;
-                Object.defineProperties(xhrDetails.xhr, {
-                    readyState: { value: 4 },
-                    responseURL: { value: xhrDetails.url },
-                    status: { value: 200 },
-                    statusText: { value: 'OK' },
-                });
-                Object.defineProperties(xhrDetails.xhr, xhrDetails.props);
-                return;
-            }
-            Promise.resolve(xhrText).then(( ) => xhrDetails).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 1, configurable: true },
-                    responseURL: { value: xhrDetails.url },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                xhrDetails.headers['content-length'] = `${details.props.response.value}`.length;
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 2, configurable: true },
-                    status: { value: 200 },
-                    statusText: { value: 'OK' },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 3, configurable: true },
-                });
-                Object.defineProperties(details.xhr, details.props);
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 4 },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                safeDispatchEvent(details.xhr, 'load');
-                safeDispatchEvent(details.xhr, 'loadend');
-                safe.uboLog(logPrefix, `Prevented with response:\n${details.xhr.response}`);
-            });
-        }
-        getResponseHeader(headerName) {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
-                return super.getResponseHeader(headerName);
-            }
-            const value = xhrDetails.headers[headerName.toLowerCase()];
-            if ( value !== undefined && value !== '' ) { return value; }
-            return null;
-        }
-        getAllResponseHeaders() {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
-                return super.getAllResponseHeaders();
-            }
-            const out = [];
-            for ( const [ name, value ] of Object.entries(xhrDetails.headers) ) {
-                if ( !value ) { continue; }
-                out.push(`${name}: ${value}`);
-            }
-            if ( out.length !== 0 ) { out.push(''); }
-            return out.join('\r\n');
-        }
-    };
-    self.XMLHttpRequest.prototype.open.toString = function() {
-        return XHRBefore.open.toString();
-    };
-    self.XMLHttpRequest.prototype.send.toString = function() {
-        return XHRBefore.send.toString();
-    };
-    self.XMLHttpRequest.prototype.getResponseHeader.toString = function() {
-        return XHRBefore.getResponseHeader.toString();
-    };
-    self.XMLHttpRequest.prototype.getAllResponseHeaders.toString = function() {
-        return XHRBefore.getAllResponseHeaders.toString();
-    };
 }
 
 function proxyApplyFn(
@@ -1559,16 +1391,16 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 10 */
-[abortCurrentScript,abortOnPropertyRead,abortOnPropertyWrite,setConstant,preventFetch,preventSetTimeout,addEventListenerDefuser,preventXhr,jsonPrune,removeAttr];
+const $scriptletFunctions$ = /* 9 */
+[abortOnPropertyRead,abortCurrentScript,abortOnPropertyWrite,setConstant,preventFetch,preventSetTimeout,preventAddEventListener,jsonPrune,removeAttr];
 
-const $scriptletArgs$ = /* 107 */ ["Promise","detectedAdblock","Cookies","_0x3f9b","parseInt","document.addEventListener","ai_run","setTimeout","Aff","AdtimaRender","Object.defineProperty","ADMStorageFileCDN","noopFunc","open","$","aff","pop","POP","popunder","arrDirectLink","document.getElementById","openPop","method:HEAD","jQuery","popup","WebAssembly","globalThis","navigator","devtoolsDetector","maxAds","0","adx","adblock","Symbol","break;case $","document.createElement",";break;case","eval","$._Eu","ad_block","Popup","setInterval","offsetHeight","Click","document.getElementsByClassName","reading-content","optad","pushOnPage","DisplayAHTML","5001","callback","6004","JSON.parse","break;case $.","PopUnder","sessionStorage","click_time","JSON","fromCharCode","script","addEvent","popu","click","ads","p0pUpRandom","adsPlayer","adsPopupPlayer","adsTvc","keyPlayer","window.addEventListener","localStorage","document.querySelectorAll","popMagic","myModal","Ads","Math.round","linkAff","null","3","window.open","adState","appendChild","break;case","opup","document.cookie","runAllDetections","oneClick","instantiate","seconds","atob","document.write","snow","adsRedirectPopups","initialAdURLs","D4zz","timer","sp","_$_d52e","click_ads","props.children.[].props.tvc","urlAds","","window.location","target|onclick","a[href^=\"/video/\"]","adsTvcs","adtimaConfig"];
+const $scriptletArgs$ = /* 104 */ ["_0x3f9b","parseInt","adsRedirectPopups","document.addEventListener","ai_run","setTimeout","Aff","AdtimaRender","Object.defineProperty","ADMStorageFileCDN","noopFunc","open","$","aff","pop","POP","popunder","arrDirectLink","document.getElementById","openPop","method:HEAD","jQuery","popup","WebAssembly","globalThis","navigator","devtoolsDetector","maxAds","0","adx","adblock","Symbol","break;case $","document.createElement",";break;case","eval","$._Eu","ad_block","Popup","setInterval","offsetHeight","Click","document.getElementsByClassName","reading-content","optad","pushOnPage","DisplayAHTML","5001","callback","6004","JSON.parse","break;case $.","PopUnder","sessionStorage","click_time","JSON","fromCharCode","script","addEvent","popu","click","ads","p0pUpRandom","adsPlayer","adsPopupPlayer","adsTvc","keyPlayer","window.addEventListener","localStorage","document.querySelectorAll","popMagic","myModal","Ads","Math.round","Cookies","linkAff","null","3","window.open","adState","appendChild","Promise","break;case","opup","document.cookie","runAllDetections","oneClick","instantiate","seconds","atob","initialAdURLs","D4zz","timer","sp","_$_d52e","click_ads","props.children.[].props.tvc","urlAds","","window.location","target|onclick","a[href^=\"/video/\"]","adsTvcs","adtimaConfig"];
 
-const $scriptletArglists$ = /* 90 */ "0,0,1;1,2;1,3;1,4;0,5,6;0,7,8;2,9;0,10,11;3,11,12;0,5,13;0,14,15;0,5,16;0,5,17;0,5,18;0,14,19;3,13,12;0,20,21;4,22;0,23,24;0,25,26;0,27,28;3,29,30;0,5,31;0,14,32;0,33,34;0,35,36;0,37,38;0,7,39;0,23,40;0,41,42;0,5,43;0,44,45;0,35,46;1,47;5,48,49;5,50,51;0,52,53;0,14,54;1,55;0,23,56;1,13;0,57,58;0,14,16;0,35,59;0,60,61;6,62,63;0,14,64;1,63;1,65;1,66;1,67;1,68;0,69,70;0,71,72;0,20,73;0,69,74;1,75;3,76,77,78;0,14,79;0,5,80;0,7,81;0,37;0,0,82;0,5,83;1,84;0,23,79;0,5,85;1,86;0,25,87;3,88,30;0,5,89;0,90,91;7,63;1,92;1,93;3,94,12;3,95,30;1,70;1,96;2,97;0,7,13;0,23,98;8,99;3,100,101;0,7,102;9,103,104;0,23,13;3,65,101;3,105,101;1,106";
+const $scriptletArglists$ = /* 87 */ "0,0;0,1;0,2;1,3,4;1,5,6;2,7;1,8,9;3,9,10;1,3,11;1,12,13;1,3,14;1,3,15;1,3,16;1,12,17;3,11,10;1,18,19;4,20;1,21,22;1,23,24;1,25,26;3,27,28;1,3,29;1,12,30;1,31,32;1,33,34;1,35,36;1,5,37;1,21,38;1,39,40;1,3,41;1,42,43;1,33,44;0,45;5,46,47;5,48,49;1,50,51;1,12,52;0,53;1,21,54;0,11;1,55,56;1,12,14;1,33,57;1,58,59;6,60,61;1,12,62;0,61;0,63;0,64;0,65;0,66;1,67,68;1,69,70;1,18,71;1,67,72;0,73;0,74;3,75,76,77;1,12,78;1,3,79;1,5,80;1,35;1,81,82;1,3,83;0,84;1,21,78;1,3,85;0,86;1,23,87;3,88,28;1,3,89;0,90;3,91,10;3,92,28;0,68;0,93;2,94;1,5,11;1,21,95;7,96;3,97,98;1,5,99;8,100,101;1,21,11;3,63,98;3,102,98;0,103";
 
-const $scriptletArglistRefs$ = /* 164 */ "3;0;40;7,8;23;7,8;68;7,8;9;7,8;70;89;68;7,8;47,48,49,50,51;52,68;26;69;82;40;77;7,8;6;18;30;37,68;40;46;42;10;25;60;7,8;64;17;20;19;53;64;45;40;65;67;73;63;68;15,16;40;40,64;40;68;9;64;11;12;68;24,25,26;5,27;68;36;38;42;44;54;75;19;10;7,8;74;63;1,68;21,64;22;42;53;68;68;68;57;59;61;68;68;11;71,72;83;40,77;86,87,88;68;9;68;28,29;31;68;64;15,16;16;68;56;64;5;68;64;68;10;10;68;10;21;40;19;40;62;63;76;68;40;32,33,34,35;32,33,34,35;64;64;68;62;64;75;68;26;2;68;32,33,34,35;64;43,68;40;64;58;68;68;13,68;14;64;39;41;68;40;64;40;64,77;5,77;81;4,5;14;68;64;15,16;66;68,79;84,85;55;78;5,58;80;19;68;15";
+const $scriptletArglistRefs$ = /* 163 */ "1;39;6,7;22;6,7;68;6,7;8;6,7;70;86;68;6,7;46,47,48,49,50;51,68;25;69;79;39;74;6,7;5;17;29;36,68;39;45;41;9;24;60;6,7;64;16;19;68;18;52;64;39;18;65;67;63;68;14,15;39;39,64;39;68;8;64;10;11;68;23,24,25;4,26;68;35;37;41;43;44;53;72;9;6,7;71;63;20,64;21;41;52;68;68;68;57;59;61;68;68;80;39,74;83,84,85;68;8;68;27,28;30;44;68;64;14,15;15;68;55;64;4;68;64;68;10;9;9;68;9;20;39;18;39;62;63;73;68;39;31,32,33,34;31,32,33,34;64;64;68;62;64;72;25;0;68;31,32,33,34;64;42,68;56,68;39;64;58;68;68;12,68;13;64;38;40;68;39;64;39;64,74;4,74;78;2;3,4;13;68;64;14,15;66;68,76;81,82;54;75;4,58;77;18;68;14";
 
-const $scriptletHostnames$ = /* 164 */ ["aoe.vn","10gb.vn","anh.moe","genk.vn","hh2d.tv","soha.vn","vlxx.bz","cafef.vn","game8.vn","gamek.vn","vozer.io","znews.vn","hhtq5.vip","kenh14.vn","plcdn.xyz","quatvn.my","tram3d.me","vndoc.com","xem16.net","xfast.sbs","xnhau.hot","afamily.vn","baomoi.com","gocmod.com","javhd.shop","lxmanga.my","noitu.site","phimtho.cc","sieudam.sh","tekora.fun","tram3d.com","tram3d.xyz","tuoitre.vn","comong.info","giavang.net","gotphim.com","hhvsub1.com","misskon.com","phimhdc.com","phimmoii.fm","sachmoi.net","vailonxx.co","vinaurl.net","workpop.com","yanhh3d.vip","yurineko.my","abysscdn.com","anime12.site","anime47.best","bluphim5.com","buomtv.media","checkscam.vn","chich69.club","cliphubs.com","clipphot.org","hentaivc.pro","hh3dhay.life","imail.edu.vn","javtiful.com","lrepacks.net","motchillk.gg","pheclip.love","phimmoi.club","saigon24.net","sexdiaryx.to","sextop1.sale","tekora.space","thanhnien.vn","www.asu.baby","z.chinav.sex","3xnungsex.com","hayhaytv.site","haysexvnn.com","phim18vip.one","rphang.online","sex.xinh3x.me","sexdiary.club","sexviet88.xyz","tailieumoi.vn","thiendia1.vip","truyen247.pro","truyenvn.shop","vevocloud.com","viet69hay.com","vungoctuan.vn","xemphimhd.top","xemphimjav.us","xoilaczzss.cc","cliphot69.shop","cunghocvui.com","damconuong.onl","ios.codevn.net","laophatgia.net","phim18hdxx.com","phimchill.life","player-cdn.com","playhydrax.com","sayhentai.live","sex.javnong.cc","thefaplive.com","trumtruyen.xyz","truyenqqno.com","tv.tvhayhd.org","umetruyenz.org","childish2x1.fun","childish2x2.fun","ihentai.network","lottedira.store","motchillzz.site","mv.phimmoiaz.cc","nettruyenar.com","phimsexvn1.blog","truyenqqtto.com","truyensextv.com","www.iosviet.com","clipsexsub3x.net","hoctot.hocmai.vn","linkneverdie.net","linkneverdie.top","mv.phimbathu.one","newshound.org.uk","newtruyenhot.pro","phim.haysex.asia","ungtycomicsa.com","www.gvnvh18z.com","www.xemlaphe.com","animevietsub.show","animevietsub9.com","demo.14412882.com","linkneverdie2.com","mv.dailyphimz.com","phimlongtieng.net","truyenfull.vision","truyensieuhay.com","tusachmanga99.com","vn2.xvideos69.xxx","vn5.sexviet88.xyz","dualeotruyenjd.com","economic45882.shop","honghotduongpho.vn","motchilltvphim.com","nettruyenviet1.com","phimsexhayvn78.com","player.phimapi.com","quangcaoyenbai.com","samtruyentranh.com","teamlanhlung8.shop","www.motchill36.com","www.truyen35zz.com","audiotruyenfull.com","cdn4.tiptoe34x1.fun","doctruyen3qui19.com","forum.timfshare.com","freeplayervideo.com","vanphatelectric.com","www.sieutamphim.pro","xnxx-sex-videos.com","sedirkettering.co.uk","www.nettruyenupp.com","teamlanhlungday.store","www.toptruyentv11.com","goctruyentranhvui17.com","motphim.pokemonviet.com","www.bachnguyetquang.online"];
+const $scriptletHostnames$ = /* 163 */ ["aoe.vn","anh.moe","genk.vn","hh2d.tv","soha.vn","vlxx.bz","cafef.vn","game8.vn","gamek.vn","vozer.io","znews.vn","hhtq5.vip","kenh14.vn","plcdn.xyz","quatvn.my","tram3d.me","vndoc.com","xem16.net","xfast.sbs","xnhau.hot","afamily.vn","baomoi.com","gocmod.com","javhd.shop","lxmanga.my","noitu.site","phimtho.cc","sieudam.sh","tekora.fun","tram3d.com","tram3d.xyz","tuoitre.vn","comong.info","giavang.net","gotphim.com","haysex.mobi","hhvsub1.com","misskon.com","phimhdc.com","sachmoi.net","sextop1.ing","vailonxx.co","vinaurl.net","yanhh3d.vip","yurineko.my","abysscdn.com","anime12.site","anime47.best","bluphim5.com","buomtv.media","checkscam.vn","chich69.club","cliphubs.com","clipphot.biz","hentaivc.pro","hh3dhay.life","imail.edu.vn","javtiful.com","lrepacks.net","motchillk.gg","pheclip.love","phimmoi.club","phimmoier.io","saigon24.net","sexdiaryx.to","tekora.space","thanhnien.vn","www.asu.baby","z.chinav.sex","hayhaytv.site","haysexvn.baby","phim18vip.one","rphang.online","sex.xinh3x.me","sexdiary.club","sexviet88.xyz","tailieumoi.vn","thiendia1.vip","truyen247.pro","truyenvn.shop","vevocloud.com","xemphimhd.top","xemphimjav.us","xoilaczzyy.cc","cliphot69.shop","cunghocvui.com","damconuong.onl","ios.codevn.net","laophatgia.net","motchillbr.com","phim18hdxx.com","phimchill.life","player-cdn.com","playhydrax.com","sayhentai.live","sex.javnong.cc","thefaplive.com","trumtruyen.xyz","truyenqqno.com","tv.tvhayhd.org","umetruyenz.org","viet69hay.life","childish2x1.fun","childish2x2.fun","ihentai.network","lottedira.store","motchillzz.site","mv.phimmoiaz.cc","nettruyenar.com","phimsexvn1.blog","truyenqqtto.com","truyensextv.com","www.iosviet.com","clipsexsub3x.net","hoctot.hocmai.vn","linkneverdie.net","linkneverdie.top","mv.phimbathu.one","newshound.org.uk","newtruyenhot.pro","phim.haysex.asia","ungtycomicso.com","www.gvnvh18z.com","animevietsub.show","animevietsub9.com","demo.14412882.com","linkneverdie2.com","mv.dailyphimz.com","phimlongtieng.net","sex.xinhmupvn.net","truyenfull.vision","truyensieuhay.com","tusachmanga99.com","vn2.xvideos69.xxx","vn5.sexviet88.xyz","dualeotruyenvx.com","economic45882.shop","honghotduongpho.vn","motchilltvphim.com","nettruyenviet1.com","phimsexhayvn81.com","player.phimapi.com","quangcaoyenbai.com","samtruyentranh.com","teamlanhlung8.shop","www.motchill36.com","www.truyen35zz.com","archphotoawards.com","audiotruyenfull.com","cdn4.tiptoe34x1.fun","doctruyen3qui19.com","forum.timfshare.com","freeplayervideo.com","vanphatelectric.com","www.sieutamphim.pro","xnxx-sex-videos.com","sedirkettering.co.uk","www.nettruyenupp.com","teamlanhlungday.store","www.toptruyentv14.com","goctruyentranhvui17.com","motphim.pokemonviet.com","www.bachnguyetquang.online"];
 
 const $hasEntities$ = true;
 const $hasAncestors$ = true;

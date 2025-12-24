@@ -168,7 +168,25 @@ function abortOnPropertyWrite(
     });
 }
 
-function addEventListenerDefuser(
+function getExceptionTokenFn() {
+    const token = getRandomTokenFn();
+    const oe = self.onerror;
+    self.onerror = function(msg, ...args) {
+        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
+        if ( oe instanceof Function ) {
+            return oe.call(this, msg, ...args);
+        }
+    }.bind();
+    return token;
+}
+
+function getRandomTokenFn() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+}
+
+function preventAddEventListener(
     type = '',
     pattern = ''
 ) {
@@ -177,7 +195,6 @@ function addEventListenerDefuser(
     const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
     const reType = safe.patternToRegex(type, undefined, true);
     const rePattern = safe.patternToRegex(pattern);
-    const debug = shouldDebug(extraArgs);
     const targetSelector = extraArgs.elements || undefined;
     const elementMatches = elem => {
         if ( targetSelector === 'window' ) { return elem === window; }
@@ -210,7 +227,7 @@ function addEventListenerDefuser(
         const matchesHandler = safe.RegExp_test.call(rePattern, handler);
         const matchesEither = matchesType || matchesHandler;
         const matchesBoth = matchesType && matchesHandler;
-        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
+        if ( safe.logLevel > 1 && matchesEither ) {
             debugger; // eslint-disable-line no-debugger
         }
         if ( matchesBoth && targetSelector !== undefined ) {
@@ -243,26 +260,22 @@ function addEventListenerDefuser(
     };
     runAt(( ) => {
         proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
-        proxyApplyFn('document.addEventListener', proxyFn);
-    }, extraArgs.runAt);
-}
-
-function getExceptionTokenFn() {
-    const token = getRandomTokenFn();
-    const oe = self.onerror;
-    self.onerror = function(msg, ...args) {
-        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
-        if ( oe instanceof Function ) {
-            return oe.call(this, msg, ...args);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = EventTarget.prototype;
+            Object.defineProperty(EventTarget.prototype, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
         }
-    }.bind();
-    return token;
-}
-
-function getRandomTokenFn() {
-    const safe = safeSelf();
-    return safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+        proxyApplyFn('document.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = document;
+            Object.defineProperty(document, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+    }, extraArgs.runAt);
 }
 
 function proxyApplyFn(
@@ -872,7 +885,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 5 */
-[abortCurrentScript,setConstant,addEventListenerDefuser,removeAttr,abortOnPropertyWrite];
+[abortCurrentScript,setConstant,preventAddEventListener,removeAttr,abortOnPropertyWrite];
 
 const $scriptletArgs$ = /* 12 */ ["requestPermission","serviceworker.register","Object.prototype.disablePaginationLimitForLoggedOut","true","block-body-scrolling","/^(mouseout|mouseleave)$/","oncontextmenu|ondragstart|onselectstart|onkeydown|oncopy|oncut|onclick","LaraPush","history.state","undefined","touchmove","preventDefault"];
 

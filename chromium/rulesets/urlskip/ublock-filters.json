@@ -181,6 +181,12 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?onelink\\.me/\\S*?&af_web_dp=",
+  "steps": [
+   "?af_web_dp"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?ouo\\.io/qs/4uwmuczg\\?s=",
   "steps": [
    "?s"
@@ -1208,6 +1214,12 @@
  },
  {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?link\\.fmkorea\\.org/link\\.php\\?url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?xg4ken\\.com/trk/\\S*?(?:[^%.0-9a-z_-]|$)url=http",
   "steps": [
    "?url"
   ]

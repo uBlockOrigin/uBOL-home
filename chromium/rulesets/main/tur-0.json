@@ -1205,7 +1205,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||kralsportshd*.com/player.jpg"},"id":1204,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||otobettv*.com/banner.gif"},"id":1205,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||belestepe*.sbs//wp-content/uploads/*.gif"},"id":1206,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||mactanmaca*.sbs/wp-content/*.gif"},"id":1207,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||filmizlefullhd.pw/*.mp4"},"id":1207,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||cdn.ezark.org/ramada.mp4"},"id":1208,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"||720pizleplus.cc/rek/"},"id":1209,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||filmseyretizlet.net/filmseyretizlet-pop-1.js"},"id":1210,"priority":10},
@@ -1239,6 +1239,7 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-vmap1.xml"},"type":"redirect"},"condition":{"resourceTypes":["media","xmlhttprequest"],"urlFilter":"||nowtv.com.tr/vmap?*&player_skin=getir"},"id":1238,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"||grupbul.com/assets/images/ads/"},"id":1239,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||zeusdizi*.com/*.gif"},"id":1240,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||imagestoo.com/imgstggxock.xml"},"id":1241,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||macellan.online/allads/"},"id":1242,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||imagestoo.com/*.xml"},"id":1241,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||macellan.online/allads/"},"id":1242,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||mactanmaca*.sbs/wp-content/*.gif|"},"id":1243,"priority":10}
 ]

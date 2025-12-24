@@ -820,15 +820,15 @@ function setLocalStorageItemFn(
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 6 */
-[removeNodeText,removeClass,setCookie,setAttr,removeCookie,setLocalStorageItem];
+[removeNodeText,setCookie,removeClass,setAttr,removeCookie,setLocalStorageItem];
 
-const $scriptletArgs$ = /* 17 */ ["script","/run[\\s\\S]*?data[\\s\\S]*?OnClick[\\s\\S]*?ad\\d_/","type_ad","#shortcutArea","ld_ac_timeout","Y","adv","1","#cmtFormTable textarea","cols","50","gaejuki_ad","find_ab","/adblock_detected/","$remove$","/background:[\\s\\S]+setTimeout\\( *\\( *\\) *=> *[A-Za-z0-9]+\\.remove\\( *\\)[\\s\\S]+Math\\.random\\( *\\) *< *percent *\\/ *100/","/finally *{\\n* *document.documentElement.removeChild\\( *[A-Za-z0-9]+ *\\) *;\\n* *}([ \\n]|.)+_ad\"]\\);/"];
+const $scriptletArgs$ = /* 19 */ ["script","/run[\\s\\S]*?data[\\s\\S]*?OnClick[\\s\\S]*?ad\\d_/","hideFrontPagePopup","true","type_ad","#shortcutArea","ld_ac_timeout","Y","adv","1","#cmtFormTable textarea","cols","50","gaejuki_ad","find_ab","/adblock_detected/","$remove$","/background:[\\s\\S]+setTimeout\\( *\\( *\\) *=> *[A-Za-z0-9]+\\.remove\\( *\\)[\\s\\S]+Math\\.random\\( *\\) *< *percent *\\/ *100/","/finally *{\\n* *document.documentElement.removeChild\\( *[A-Za-z0-9]+ *\\) *;\\n* *}([ \\n]|.)+_ad\"]\\);/"];
 
-const $scriptletArglists$ = /* 10 */ "0,0,1;1,2,3;2,4,5;2,6,7;3,8,9,10;4,11;4,12;5,13,14;0,0,15;0,0,16";
+const $scriptletArglists$ = /* 11 */ "0,0,1;1,2,3;2,4,5;1,6,7;1,8,9;3,10,11,12;4,13;4,14;5,15,16;0,0,17;0,0,18";
 
-const $scriptletArglistRefs$ = /* 8 */ "3;5;2;1;6,7;0;8,9;4";
+const $scriptletArglistRefs$ = /* 9 */ "1;4;6;3;2;7,8;0;9,10;5";
 
-const $scriptletHostnames$ = /* 8 */ ["ssodam.com","dcinside.com","oh-yes.co.kr","www.naver.com","m.dcinside.com","m.humoruniv.com","gall.dcinside.com","mlbpark.donga.com"];
+const $scriptletHostnames$ = /* 9 */ ["maple.gg","ssodam.com","dcinside.com","oh-yes.co.kr","www.naver.com","m.dcinside.com","m.humoruniv.com","gall.dcinside.com","mlbpark.donga.com"];
 
 const $hasEntities$ = true;
 const $hasAncestors$ = true;

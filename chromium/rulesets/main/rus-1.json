@@ -722,5 +722,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/analytics/targetpixel?campaignid="},"id":721,"priority":10},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["?utm_source","_ga","_gl","_openstat","admitad_uid","afclid","amp;utm_campaign","amp;utm_content","amp;utm_erid","amp;utm_medium","amp;utm_source","amp;utm_term","at_gd","cuid","fref","gclid","gtm","ila_camaign","ila_context","ila_location","irclickid","irgwc","maca","mt_adset","mt_campaign","mt_click_id","mt_link_id","mt_network","mt_sub","mt_sub1","mt_sub2","mt_sub3","mt_sub4","mt_sub5","pclid","pulse_traffic","ref_src","ref_url","referrer_clid","rtclick","traffic_source","utm-source","utm_campaign","utm_campaing","utm_cmpaign","utm_content","utm_erid","utm_event","utm_id","utm_medium","utm_name","utm_referer","utm_referrer","utm_sourece","utm_space","utm_term","utm_test","utmterm","xtor","yaclid","yclid","yredirect","ysclid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"]},"id":722},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||ntv.ru/api/player/related/"},"id":723,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"/atlas/metrics"},"id":724,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"/atlas/metrics"},"id":724,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||lf3.mail.ru/?zero="},"id":725,"priority":10}
 ]

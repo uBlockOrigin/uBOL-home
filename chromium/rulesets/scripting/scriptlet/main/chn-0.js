@@ -300,85 +300,6 @@ function abortOnStackTrace(
     makeProxy(owner, chain);
 }
 
-function addEventListenerDefuser(
-    type = '',
-    pattern = ''
-) {
-    const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
-    const reType = safe.patternToRegex(type, undefined, true);
-    const rePattern = safe.patternToRegex(pattern);
-    const debug = shouldDebug(extraArgs);
-    const targetSelector = extraArgs.elements || undefined;
-    const elementMatches = elem => {
-        if ( targetSelector === 'window' ) { return elem === window; }
-        if ( targetSelector === 'document' ) { return elem === document; }
-        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
-        const elems = Array.from(document.querySelectorAll(targetSelector));
-        return elems.includes(elem);
-    };
-    const elementDetails = elem => {
-        if ( elem instanceof Window ) { return 'window'; }
-        if ( elem instanceof Document ) { return 'document'; }
-        if ( elem instanceof Element === false ) { return '?'; }
-        const parts = [];
-        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
-        const id = String(elem.id);
-        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
-        for ( let i = 0; i < elem.classList.length; i++ ) {
-            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
-        }
-        for ( let i = 0; i < elem.attributes.length; i++ ) {
-            const attr = elem.attributes.item(i);
-            if ( attr.name === 'id' ) { continue; }
-            if ( attr.name === 'class' ) { continue; }
-            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
-        }
-        return parts.join('');
-    };
-    const shouldPrevent = (thisArg, type, handler) => {
-        const matchesType = safe.RegExp_test.call(reType, type);
-        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
-        const matchesEither = matchesType || matchesHandler;
-        const matchesBoth = matchesType && matchesHandler;
-        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
-            debugger; // eslint-disable-line no-debugger
-        }
-        if ( matchesBoth && targetSelector !== undefined ) {
-            if ( elementMatches(thisArg) === false ) { return false; }
-        }
-        return matchesBoth;
-    };
-    const proxyFn = function(context) {
-        const { callArgs, thisArg } = context;
-        let t, h;
-        try {
-            t = String(callArgs[0]);
-            if ( typeof callArgs[1] === 'function' ) {
-                h = String(safe.Function_toString(callArgs[1]));
-            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
-                if ( typeof callArgs[1].handleEvent === 'function' ) {
-                    h = String(safe.Function_toString(callArgs[1].handleEvent));
-                }
-            } else {
-                h = String(callArgs[1]);
-            }
-        } catch {
-        }
-        if ( type === '' && pattern === '' ) {
-            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        } else if ( shouldPrevent(thisArg, t, h) ) {
-            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        }
-        return context.reflect();
-    };
-    runAt(( ) => {
-        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
-        proxyApplyFn('document.addEventListener', proxyFn);
-    }, extraArgs.runAt);
-}
-
 function adjustSetInterval(
     needleArg = '',
     delayArg = '',
@@ -889,6 +810,98 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
         }
     }
     return needles;
+}
+
+function preventAddEventListener(
+    type = '',
+    pattern = ''
+) {
+    const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
+    const reType = safe.patternToRegex(type, undefined, true);
+    const rePattern = safe.patternToRegex(pattern);
+    const targetSelector = extraArgs.elements || undefined;
+    const elementMatches = elem => {
+        if ( targetSelector === 'window' ) { return elem === window; }
+        if ( targetSelector === 'document' ) { return elem === document; }
+        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
+        const elems = Array.from(document.querySelectorAll(targetSelector));
+        return elems.includes(elem);
+    };
+    const elementDetails = elem => {
+        if ( elem instanceof Window ) { return 'window'; }
+        if ( elem instanceof Document ) { return 'document'; }
+        if ( elem instanceof Element === false ) { return '?'; }
+        const parts = [];
+        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
+        const id = String(elem.id);
+        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
+        for ( let i = 0; i < elem.classList.length; i++ ) {
+            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
+        }
+        for ( let i = 0; i < elem.attributes.length; i++ ) {
+            const attr = elem.attributes.item(i);
+            if ( attr.name === 'id' ) { continue; }
+            if ( attr.name === 'class' ) { continue; }
+            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
+        }
+        return parts.join('');
+    };
+    const shouldPrevent = (thisArg, type, handler) => {
+        const matchesType = safe.RegExp_test.call(reType, type);
+        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesEither = matchesType || matchesHandler;
+        const matchesBoth = matchesType && matchesHandler;
+        if ( safe.logLevel > 1 && matchesEither ) {
+            debugger; // eslint-disable-line no-debugger
+        }
+        if ( matchesBoth && targetSelector !== undefined ) {
+            if ( elementMatches(thisArg) === false ) { return false; }
+        }
+        return matchesBoth;
+    };
+    const proxyFn = function(context) {
+        const { callArgs, thisArg } = context;
+        let t, h;
+        try {
+            t = String(callArgs[0]);
+            if ( typeof callArgs[1] === 'function' ) {
+                h = String(safe.Function_toString(callArgs[1]));
+            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
+                if ( typeof callArgs[1].handleEvent === 'function' ) {
+                    h = String(safe.Function_toString(callArgs[1].handleEvent));
+                }
+            } else {
+                h = String(callArgs[1]);
+            }
+        } catch {
+        }
+        if ( type === '' && pattern === '' ) {
+            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        } else if ( shouldPrevent(thisArg, t, h) ) {
+            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        }
+        return context.reflect();
+    };
+    runAt(( ) => {
+        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = EventTarget.prototype;
+            Object.defineProperty(EventTarget.prototype, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+        proxyApplyFn('document.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = document;
+            Object.defineProperty(document, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+    }, extraArgs.runAt);
 }
 
 function preventFetch(...args) {
@@ -1935,7 +1948,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 18 */
-[preventFetch,spoofCSS,abortCurrentScript,abortOnStackTrace,setConstant,preventSetTimeout,abortOnPropertyWrite,addEventListenerDefuser,abortOnPropertyRead,preventXhr,preventSetInterval,noEvalIf,noWindowOpenIf,adjustSetTimeout,adjustSetInterval,jsonPrune,removeAttr,evaldataPrune];
+[preventFetch,spoofCSS,abortCurrentScript,abortOnStackTrace,setConstant,preventSetTimeout,abortOnPropertyWrite,preventAddEventListener,abortOnPropertyRead,preventXhr,preventSetInterval,noEvalIf,noWindowOpenIf,adjustSetTimeout,adjustSetInterval,jsonPrune,removeAttr,evaldataPrune];
 
 const $scriptletArgs$ = /* 215 */ ["adsbygoogle.js",".adsbygoogle","display","block","pagead2.googlesyndication.com","EventTarget.prototype.addEventListener","window.getComputedStyle","document.getElementById","adBlockDetected","alert",".onerror","ad_id_for_555","","all520dddaaa2022ccc","true",".offsetHeight == 0","checkAdblock","/DOMContentLoaded|load|complete/","/check|detected/","ads",".offsetHeight","_AdBlockInit","noopFunc","/googlesyndication\\.com|doubleclick\\.net/","checkAndHandleAdBlock","undefined","document.createElement","/api/ads","alertadmodal","adsbygoogle","{}","adsbygoogle.loaded","float_right > div","document.dispatchEvent","/getexoloader/","decodeURIComponent","pagead","www3.doubleclick.net","document.querySelector","adblock_tip","AD_SURVEY_Add_AdPos","AD_SURVEY_Add_AdPos_Simple","killads","/\\.height\\(\\) == 0|adsbygoogle/","myModal","loadErrorTip","ins.adsbygoogle","isAdsDisplayed","error","event.target.tagName","_0x","fuzqingAdPlus","Ad Block","all520dddaaa2022aaa","canRunAds","DOMContentLoaded","adBlock","adblock","0","can_run_ads","typeof(ad)","jQuery","\\u","document.writeln","发现严重BUG","make_rand_div","checker","google_tag_manager","/pagead2\\.googlesyndication\\.com|\\/fbevents\\.js/","google.ima.AdError","/#myModal'\\)\\.modal/","ga","google_empty_script_included","setTimeout","COOKIE_NAME","html","ADS_BLOCKED","$","adskilltest","/home/?adblock=","/!document\\.getElementById\\([\\s\\S]*?\\.style\\.display=/","showRemoveAdBlocker","Object.prototype.cnobpreroll_","Object.prototype.canobpreroll_","ad_num_show","!document.getElementById(btoa","daau_app","NativeAd","__jsadsuccess","checkSiteNormalLoad","__DOMAIN","onload","null","adbk","false","/ad block stop|warm_msg/","config.group","encodeURIComponent","preBid","preBid.displayAd","preBid.getPrerollVASTUrl","adStart","eval","document.write","player.VastADPlugin","ADSOBJET","Object.prototype.pgmp","invokeInterstitial","Object.prototype.ShouldLoadAds","delCookie","injectPops","myPlayer.adDisplay","NEWS_FEED","infoid","document.write(ad);","conone_lmg","location.href","3000","adCountDown","0.02",".s--","Object.prototype.ad_switch","dy_card_dyrun","/bit\\.ly|kbtv/","video-ad-timeout","*","tips","poped","*.*","adFeedbackData adType adServedUrls","list.*.link.ad list.*.link.kicker","configs.*.properties.slideshowWCSettings.interstitialNativeAds configs.*.properties.fullScreenSlideshowSettings.interstitialNativeAds properties.componentConfigs.slideshowConfigs.interstitialNativeAds properties.componentConfigs.slideshowConfigs.slideshowSettings.interstitialNativeAds","popunder","Object.prototype.adData","Object.prototype._adData","qciss.net","akumtagcc","myclick","/getCookie[\\s\\S]*?\\(\"\\\\x/","MM_openBrWindow","/\\.(gif|php)/","window.leave","CloseAd","lists","timerAdCountdown","88p2p.com","is_show","adbyunion","Math.floor","data.*.list.[-].resourceData.adData","visitUrl","addImageAd","Uint8Array","loadAd","createFixedBottomBannerWithClose","/deposit-bonus?platform=26&utm_source=","mmPopup() {","document.getElementsByTagName","_mtj","try{e()}catch(e){if(t[e.message])return;",".current=setTimeout","5000","0.001","localStorage","position:","window.location.href","allData.safeLevel","1","ecjkox.com","ads_codes","touchend","!/external","adUI","1000","appData","[]","topData","midData","btmData","coupletData","data-ads_url","[data-ads_url]","navigator","Math.random","parentNode.insertBefore","return a.split","WebSocket","adModal","adInfo","isAdLoaded","Object.prototype.noAD","/getCookie|checkCK|checkCookie|checkC00kie|checkCoookie|checkCookiiiie|document\\.cookie|buttonClose|exptime/","infoList","data.CardList.[].children_list.ad_list data.CardList.[-].params.advertiser_name","addEventListener(\"touchstart\"","adObj","clientheight","data.[-].ad.adScene items.*.video.*.data.[-].ad.adScene data.template.tabs.*.blocks.*.data.data.*.videos.feature_ad data.template.tabs.*.blocks.*.data.data.videos.*.ad","style","#banner[style*=\"background-image:url\"]","CreativePlayerwebPlugin.AD_EVENT.AD_DESTROY","CreativePlayerwebPlugin.AD_EVENT.AD_LOAD_START","ad","ConFig.config.ads","data.cm_info.ads","pageData.__banners.0.commercial.mediaUrl","pageData.__banners.0.commercial.jumpUrl","pageData.__banners.0.commercial.title","pageData.__banners.1.commercial.mediaUrl","pageData.__banners.1.commercial.jumpUrl","pageData.__banners.1.commercial.title","detailParams.is_ad_play","entity.commercial","Function","new Function(document["];
 

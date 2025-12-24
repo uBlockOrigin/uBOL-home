@@ -844,7 +844,7 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 2 */
 [trustedJsonEditXhrRequest,trustedJsonEditXhrResponse];
 
-const $scriptletArgs$ = /* 4 */ ["[?..context.client.originalUrl^=\"https://www.youtube.com/watch\"]..playbackContext[?.contentPlaybackContext]+={\"adPlaybackContext\":{\"adType\":\"AD_TYPE_INSTREAM\"}}","propsToMatch","/\\/(player|get_watch)/","..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200}"];
+const $scriptletArgs$ = /* 4 */ ["[?..context.client.mainAppWebInfo.graftUrl^=\"https://www.youtube.com/watch\"]..playbackContext[?.contentPlaybackContext]+={\"adPlaybackContext\":{\"adType\":\"AD_TYPE_INSTREAM\"}}","propsToMatch","/\\/(player|get_watch)/","..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200}"];
 
 const $scriptletArglists$ = /* 2 */ "0,0,1,2;1,3,1,2";
 

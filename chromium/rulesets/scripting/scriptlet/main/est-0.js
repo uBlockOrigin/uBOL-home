@@ -30,7 +30,7 @@
 
 /******************************************************************************/
 
-function addEventListenerDefuser(
+function preventAddEventListener(
     type = '',
     pattern = ''
 ) {
@@ -39,7 +39,6 @@ function addEventListenerDefuser(
     const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
     const reType = safe.patternToRegex(type, undefined, true);
     const rePattern = safe.patternToRegex(pattern);
-    const debug = shouldDebug(extraArgs);
     const targetSelector = extraArgs.elements || undefined;
     const elementMatches = elem => {
         if ( targetSelector === 'window' ) { return elem === window; }
@@ -72,7 +71,7 @@ function addEventListenerDefuser(
         const matchesHandler = safe.RegExp_test.call(rePattern, handler);
         const matchesEither = matchesType || matchesHandler;
         const matchesBoth = matchesType && matchesHandler;
-        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
+        if ( safe.logLevel > 1 && matchesEither ) {
             debugger; // eslint-disable-line no-debugger
         }
         if ( matchesBoth && targetSelector !== undefined ) {
@@ -105,7 +104,21 @@ function addEventListenerDefuser(
     };
     runAt(( ) => {
         proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = EventTarget.prototype;
+            Object.defineProperty(EventTarget.prototype, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
         proxyApplyFn('document.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = document;
+            Object.defineProperty(document, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
     }, extraArgs.runAt);
 }
 
@@ -414,17 +427,12 @@ function safeSelf() {
     return safe;
 }
 
-function shouldDebug(details) {
-    if ( details instanceof Object === false ) { return false; }
-    return scriptletGlobals.canDebug && details.debug;
-}
-
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 1 */
-[addEventListenerDefuser];
+[preventAddEventListener];
 
 const $scriptletArgs$ = /* 1 */ ["copy"];
 

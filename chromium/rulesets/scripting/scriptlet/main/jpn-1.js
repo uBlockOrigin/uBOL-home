@@ -275,85 +275,6 @@ function abortOnStackTrace(
     makeProxy(owner, chain);
 }
 
-function addEventListenerDefuser(
-    type = '',
-    pattern = ''
-) {
-    const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
-    const reType = safe.patternToRegex(type, undefined, true);
-    const rePattern = safe.patternToRegex(pattern);
-    const debug = shouldDebug(extraArgs);
-    const targetSelector = extraArgs.elements || undefined;
-    const elementMatches = elem => {
-        if ( targetSelector === 'window' ) { return elem === window; }
-        if ( targetSelector === 'document' ) { return elem === document; }
-        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
-        const elems = Array.from(document.querySelectorAll(targetSelector));
-        return elems.includes(elem);
-    };
-    const elementDetails = elem => {
-        if ( elem instanceof Window ) { return 'window'; }
-        if ( elem instanceof Document ) { return 'document'; }
-        if ( elem instanceof Element === false ) { return '?'; }
-        const parts = [];
-        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
-        const id = String(elem.id);
-        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
-        for ( let i = 0; i < elem.classList.length; i++ ) {
-            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
-        }
-        for ( let i = 0; i < elem.attributes.length; i++ ) {
-            const attr = elem.attributes.item(i);
-            if ( attr.name === 'id' ) { continue; }
-            if ( attr.name === 'class' ) { continue; }
-            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
-        }
-        return parts.join('');
-    };
-    const shouldPrevent = (thisArg, type, handler) => {
-        const matchesType = safe.RegExp_test.call(reType, type);
-        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
-        const matchesEither = matchesType || matchesHandler;
-        const matchesBoth = matchesType && matchesHandler;
-        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
-            debugger; // eslint-disable-line no-debugger
-        }
-        if ( matchesBoth && targetSelector !== undefined ) {
-            if ( elementMatches(thisArg) === false ) { return false; }
-        }
-        return matchesBoth;
-    };
-    const proxyFn = function(context) {
-        const { callArgs, thisArg } = context;
-        let t, h;
-        try {
-            t = String(callArgs[0]);
-            if ( typeof callArgs[1] === 'function' ) {
-                h = String(safe.Function_toString(callArgs[1]));
-            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
-                if ( typeof callArgs[1].handleEvent === 'function' ) {
-                    h = String(safe.Function_toString(callArgs[1].handleEvent));
-                }
-            } else {
-                h = String(callArgs[1]);
-            }
-        } catch {
-        }
-        if ( type === '' && pattern === '' ) {
-            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        } else if ( shouldPrevent(thisArg, t, h) ) {
-            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        }
-        return context.reflect();
-    };
-    runAt(( ) => {
-        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
-        proxyApplyFn('document.addEventListener', proxyFn);
-    }, extraArgs.runAt);
-}
-
 function adjustSetInterval(
     needleArg = '',
     delayArg = '',
@@ -851,6 +772,98 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
         }
     }
     return needles;
+}
+
+function preventAddEventListener(
+    type = '',
+    pattern = ''
+) {
+    const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
+    const reType = safe.patternToRegex(type, undefined, true);
+    const rePattern = safe.patternToRegex(pattern);
+    const targetSelector = extraArgs.elements || undefined;
+    const elementMatches = elem => {
+        if ( targetSelector === 'window' ) { return elem === window; }
+        if ( targetSelector === 'document' ) { return elem === document; }
+        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
+        const elems = Array.from(document.querySelectorAll(targetSelector));
+        return elems.includes(elem);
+    };
+    const elementDetails = elem => {
+        if ( elem instanceof Window ) { return 'window'; }
+        if ( elem instanceof Document ) { return 'document'; }
+        if ( elem instanceof Element === false ) { return '?'; }
+        const parts = [];
+        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
+        const id = String(elem.id);
+        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
+        for ( let i = 0; i < elem.classList.length; i++ ) {
+            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
+        }
+        for ( let i = 0; i < elem.attributes.length; i++ ) {
+            const attr = elem.attributes.item(i);
+            if ( attr.name === 'id' ) { continue; }
+            if ( attr.name === 'class' ) { continue; }
+            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
+        }
+        return parts.join('');
+    };
+    const shouldPrevent = (thisArg, type, handler) => {
+        const matchesType = safe.RegExp_test.call(reType, type);
+        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesEither = matchesType || matchesHandler;
+        const matchesBoth = matchesType && matchesHandler;
+        if ( safe.logLevel > 1 && matchesEither ) {
+            debugger; // eslint-disable-line no-debugger
+        }
+        if ( matchesBoth && targetSelector !== undefined ) {
+            if ( elementMatches(thisArg) === false ) { return false; }
+        }
+        return matchesBoth;
+    };
+    const proxyFn = function(context) {
+        const { callArgs, thisArg } = context;
+        let t, h;
+        try {
+            t = String(callArgs[0]);
+            if ( typeof callArgs[1] === 'function' ) {
+                h = String(safe.Function_toString(callArgs[1]));
+            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
+                if ( typeof callArgs[1].handleEvent === 'function' ) {
+                    h = String(safe.Function_toString(callArgs[1].handleEvent));
+                }
+            } else {
+                h = String(callArgs[1]);
+            }
+        } catch {
+        }
+        if ( type === '' && pattern === '' ) {
+            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        } else if ( shouldPrevent(thisArg, t, h) ) {
+            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        }
+        return context.reflect();
+    };
+    runAt(( ) => {
+        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = EventTarget.prototype;
+            Object.defineProperty(EventTarget.prototype, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+        proxyApplyFn('document.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = document;
+            Object.defineProperty(document, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+    }, extraArgs.runAt);
 }
 
 function preventFetch(...args) {
@@ -1897,15 +1910,15 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 16 */
-[preventFetch,setConstant,addEventListenerDefuser,noEvalIf,spoofCSS,abortOnStackTrace,preventSetTimeout,abortCurrentScript,removeAttr,abortOnPropertyRead,jsonPrune,preventXhr,adjustSetInterval,preventSetInterval,noWindowOpenIf,adjustSetTimeout];
+[preventFetch,setConstant,preventAddEventListener,noEvalIf,spoofCSS,abortOnStackTrace,preventSetTimeout,abortCurrentScript,removeAttr,abortOnPropertyRead,jsonPrune,preventXhr,adjustSetInterval,preventSetInterval,noWindowOpenIf,adjustSetTimeout];
 
-const $scriptletArgs$ = /* 165 */ ["pagead2.googlesyndication.com","/adm\\.shinobi\\.jp\\/st\\/t\\.js/ method:HEAD mode:no-cors","navigator.brave","undefined","adsbygoogle.js","load","adBlockDetected","google_tag_manager","{}","adsbygoogle.pageState","1","広告","delayCheckA","adsbygoogle","delayCheckAB","myFunc","noopFunc","ins.adsbygoogle","display","block","Function.prototype.toString","/w/load.php?lang=ja&modules=codex-search-styles%2Cjquery%2Coojs%2C&skin=vector-2022&version=L58hf","()=>k(S(4","#mw-content-text div[style] a:is([href*=\"contents.fc2.com\"],[href*=\"dmm.co.jp\"])","font-size","14px","#mw-content-text div[style] a:is([href*=\"contents.fc2.com\"],[href*=\"dmm.co.jp\"]) img","height","128px","EventTarget.prototype.addEventListener","eval","href","a[style*=\"display:\"][href^=\"https://al.dmm.co.jp\"]","stay","return","style",".js-reward-target[style]","onload","google_esf","adBlockerDetected","false","DOMContentLoaded","interstitialAd","ad_flg ad_url data.adData data.adTagUrl","doubleclick.net","all520dddaaa2022ccc","true","oAdChk","tpc.googlesyndication.com","id","#div-gpt-ad-sidebottom","#div-gpt-ad-footer","#div-gpt-ad-pagebottom","#div-gpt-ad-relatedbottom-1","adsCount","document.getElementById","_0x","cdn.adschill.com","document.querySelector","error","adscript-error","flgDisplay","adsbygoogle.loaded","/location\\.href|document\\./","gptScriptLoaded","AdBlockLimitation","objDef.resolve","class",".quigo","jQuery","decodeURIComponent","ads","result.ad_info","result.paths.[].ad_info","document.write","sitejack","document.createElement","overview","imageUrls","videoInstArea","$","google_ads_iframe_","","setTrigger","pum_vars","reward_countdown","ads_data","timerId","1000",".cps-post-main > a[href^=\"https://www.amazon.co.jp\"]","q2w3_sidebar(q2w3_sidebar_options","movie_cnt","300","document.referrer","gmo_bb","scroll","b.type","click","event","ads.[].imageUrl","document.currentScript","insertAdjacentHTML","fanza_link","floatingAd","playing","VAST_TARGET",".run()}","getAdCookie","tag","Math.random","addEventListener","style.display","simplegameAdCountDown","0.02","window[","jmp","Math","showPopUpBanner","hoihoi","lists","geoAvailable","$.popunder","data-popup-url","aeriaGamesAdCountDown","onclick","span > a[onclick]","visibility","4000","[native code]","2000","0.3","3000","0.25","0.2","FIRST_DELAY","0","NEXT_DELAY","sec","#kk","skipcnt","0.001","waqool","/[Aa]dDiv/","return r(!0)","IFTG","data.adData","/nrWrapper\\(\\)|n\\.setTimeoutIds_\\.has\\(i\\)/","10000","/adSkip|window\\.ADGMAD/","30000","return n(!0)","univresalP","isGGSurvey","enable_dl_after_countdown","props.initialProps.pageProps.pageData.brandingAds","randomad","SU_Api.AdsTimer","-1","map_ad_bottom_height","Fixed","data.response.videoAds data.response.waku.tagRelatedBanner","onmousedown","a[onmousedown^=\"this.href=\\\"//widgets.taxel.jp\"]","iframe[id^=\"google_ads_iframe\"]","TagProvider.cleanup"];
+const $scriptletArgs$ = /* 165 */ ["pagead2.googlesyndication.com","/adm\\.shinobi\\.jp\\/st\\/t\\.js/ method:HEAD mode:no-cors","navigator.brave","undefined","adsbygoogle.js","load","adBlockDetected","google_tag_manager","{}","adsbygoogle.pageState","1","広告","delayCheckA","adsbygoogle","delayCheckAB","myFunc","noopFunc","ins.adsbygoogle","display","block","Function.prototype.toString","/w/load.php?lang=ja&modules=codex-search-styles%2Cjquery%2Coojs%2C&skin=vector-2022&version=L58hf","()=>k(S(4","#mw-content-text div[style] a:is([href*=\"contents.fc2.com\"],[href*=\"dmm.co.jp\"])","font-size","14px","#mw-content-text div[style] a:is([href*=\"contents.fc2.com\"],[href*=\"dmm.co.jp\"]) img","height","128px","EventTarget.prototype.addEventListener","eval","href","a[style*=\"display:\"][href^=\"https://al.dmm.co.jp\"]","stay","return","style",".js-reward-target[style]","onload","google_esf","adBlockerDetected","false","DOMContentLoaded","interstitialAd","ad_flg ad_url data.adData data.adTagUrl","doubleclick.net","all520dddaaa2022ccc","true","oAdChk","tpc.googlesyndication.com","id","#div-gpt-ad-sidebottom","#div-gpt-ad-footer","#div-gpt-ad-pagebottom","#div-gpt-ad-relatedbottom-1","adsCount","document.getElementById","_0x","cdn.adschill.com","document.querySelector","error","adscript-error","flgDisplay","adsbygoogle.loaded","/location\\.href|document\\./","gptScriptLoaded","AdBlockLimitation","objDef.resolve","class",".quigo","jQuery","decodeURIComponent","ads","result.ad_info","result.paths.[].ad_info","document.write","sitejack","document.createElement","overview","imageUrls","videoInstArea","$","google_ads_iframe_","","setTrigger","pum_vars","reward_countdown","ads_data","timerId","1000",".cps-post-main a[href^=\"https://www.amazon.co.jp\"]","q2w3_sidebar(q2w3_sidebar_options","movie_cnt","300","document.referrer","gmo_bb","scroll","b.type","click","event","document.currentScript","insertAdjacentHTML","fanza_link","floatingAd","playing","VAST_TARGET",".run()}","getAdCookie","tag","Math.random","addEventListener","style.display","simplegameAdCountDown","0.02","window[","jmp","Math","showPopUpBanner","hoihoi","lists","geoAvailable","$.popunder","data-popup-url","aeriaGamesAdCountDown","onclick","span > a[onclick]","visibility","4000","[native code]","2000","0.3","3000","0.25","0.2","FIRST_DELAY","0","NEXT_DELAY","sec","#kk","skipcnt","0.001","waqool","/[Aa]dDiv/","return r(!0)","IFTG","data.adData","/nrWrapper\\(\\)|n\\.setTimeoutIds_\\.has\\(i\\)/","10000","/adSkip|window\\.ADGMAD/","30000","return n(!0)","univresalP","isGGSurvey","enable_dl_after_countdown","props.initialProps.pageProps.pageData.brandingAds","wpsite_clickable_data","randomad","SU_Api.AdsTimer","-1","map_ad_bottom_height","Fixed","data.response.videoAds data.response.waku.tagRelatedBanner","onmousedown","a[onmousedown^=\"this.href=\\\"//widgets.taxel.jp\"]","iframe[id^=\"google_ads_iframe\"]","TagProvider.cleanup"];
 
-const $scriptletArglists$ = /* 122 */ "0,0;0,1;1,2,3;0,4;2,5,6;1,7,8;1,9,10;3,11;2,5,12;0,13;2,5,14;1,15,16;4,17,18,19;5,20,21;6,22;4,23,24,25;4,26,27,28;7,29,30;8,31,32,33;6,34;8,35,36,33;7,37,38;9,6;1,39,40;2,41,42;10,43;11,44;1,45,46;6,47;0,48;8,49,50;8,49,51;8,49,52;8,49,53;7,37,54;7,2;7,55,56;2,5,54;6,56;0,57;7,58,56;2,59,60;1,61,40;1,62,46;6,63;1,64,46;9,65;6,66;1,6,16;8,67,68,33;7,69,70;10,71;10,72;10,73;7,74,75;7,76,77;7,55,78;2,5,79;7,80,81;2,82,83;1,84,3;12,85;1,86,8;12,87,88;8,31,89;13,90;6,91,92;7,93,94;14;1,74,16;2,95,96;2,97,98;10,99;7,100,101;9,102;7,69,103;2,104,105;12,106,88;6,107;7,108,109;6,103;7,110,111;15,112,88,113;2,41,114;7,115,116;2,41,117;3,118;7,55,119;1,120,46;1,121,16;8,122;15,123,82,113;8,124,125;15,126,127;15,128,129,130;15,128,131,132;15,128,127,133;1,134,135;1,136,135;1,137,135;8,31,138,33;12,139,88,140;2,97,141;2,41,142;6,143;7,100,144;10,145;15,146,147;15,148,149,140;6,150;1,151,16;1,152,46;1,153,46;10,154;7,76,155;1,156,157;1,158,135;2,41,159;10,160;8,161,162,33;8,27,163,33;1,164,16";
+const $scriptletArglists$ = /* 122 */ "0,0;0,1;1,2,3;0,4;2,5,6;1,7,8;1,9,10;3,11;2,5,12;0,13;2,5,14;1,15,16;4,17,18,19;5,20,21;6,22;4,23,24,25;4,26,27,28;7,29,30;8,31,32,33;6,34;8,35,36,33;7,37,38;9,6;1,39,40;2,41,42;10,43;11,44;1,45,46;6,47;0,48;8,49,50;8,49,51;8,49,52;8,49,53;7,37,54;7,2;7,55,56;2,5,54;6,56;0,57;7,58,56;2,59,60;1,61,40;1,62,46;6,63;1,64,46;9,65;6,66;1,6,16;8,67,68,33;7,69,70;10,71;10,72;10,73;7,74,75;7,76,77;7,55,78;2,5,79;7,80,81;2,82,83;1,84,3;12,85;1,86,8;12,87,88;8,31,89,33;13,90;6,91,92;7,93,94;14;1,74,16;2,95,96;2,97,98;7,99,100;9,101;7,69,102;2,103,104;12,105,88;6,106;7,107,108;6,102;7,109,110;15,111,88,112;2,41,113;7,114,115;2,41,116;3,117;7,55,118;1,119,46;1,120,16;8,121;15,122,82,112;8,123,124;15,125,126;15,127,128,129;15,127,130,131;15,127,126,132;1,133,134;1,135,134;1,136,134;8,31,137,33;12,138,88,139;2,97,140;2,41,141;6,142;7,99,143;10,144;15,145,146;15,147,148,139;6,149;1,150,16;1,151,46;1,152,46;10,153;9,154;7,76,155;1,156,157;1,158,134;2,41,159;10,160;8,161,162,33;8,27,163,33;1,164,16";
 
-const $scriptletArglistRefs$ = /* 195 */ "68;67;68,89,90;11;75,80;99;51,106,107;92;27;8;81;2,3;47;99;43;48;45;20;80;24;28;22;67;74;72;0;72;75,80;27;5,6;49;80;0;11;69;78;80;120;72;75;72;60;9;24;104;80;24;8;41,42;68;75,80;23;121;114;4;99;1;24;19;8;38,39,40;72;46;66;67;0;72;80;73;38;77;38;67;38;8;8,105;80;116;72;117;80;38;11;58,111,112;103;38;99;21;67;38;38;103;72;59;56,57;29,30,31,32,33;58,111,112;80;110;67;85;17,18;38;38;38;75;75,80;79;68;35,44;60;103;82;109;80;119;12;72;24;10;103;62;103;108;67;67;72;7;67;13,14,15,16;67;80;80;80;8;80;64;103;72;80;8;83;65;115;54,75,80,84;67;72;87;80;29,30,31,32,33;61;68,76;118;54;55;72;8;8;75;80;100;80;102;111,112;70;71;50;75;113;67;88;0;38;25,26;75;68;34,37;0,36;86;80;0;75;72;86;91;86;0;51,52,53;81;108;108;93,94,95,96,97,98;101;63;108";
+const $scriptletArglistRefs$ = /* 196 */ "68;67;68,88,89;11;74,79;98;51,105,106;91;27;8;80;2,3;47;98;43;48;45;20;79;24;28;22;67;73;51;0;51;74,79;27;5,6;49;79;0;11;69;77;79;120;51;74;51;60;9;24;103;79;24;8;41,42;68;74,79;23;121;114;4;98;1;24;19;8;38,39,40;51;46;66;67;0;51;79;72;38;76;38;67;38;8;8,104;79;116;51;117;79;38;11;58,110,111;102;38;98;21;67;38;38;102;51;59;56,57;29,30,31,32,33;58,110,111;79;109;67;84;17,18;38;38;38;74;74,79;78;68;35,44;60;102;81;108;79;119;12;51;24;10;102;62;102;107;67;67;51;7;67;13,14,15,16;67;79;79;79;8;79;64;102;51;79;8;82;65;115;54,74,79,83;67;51;86;79;29,30,31,32,33;61;68,75;118;54;55;51;8;8;74;79;99;79;101;110,111;70;71;50;74;112;67;87;0;113;38;25,26;74;68;34,37;0,36;85;79;0;74;51;85;90;85;0;51,52,53;80;107;107;92,93,94,95,96,97;100;63;107";
 
-const $scriptletHostnames$ = /* 195 */ ["asg.to","h1g.jp","wav.tv","xth.jp","blog.jp","cmnw.jp","tver.jp","380cc.cc","520cc.cc","h178.com","javmix.*","rkd3.dev","crefan.jp","dotti2.jp","g-pc.info","h-ken.net","intaa.net","jprime.jp","ldblog.jp","memo.wiki","o-dan.net","pointi.jp","riajo.com","shico.xyz","sushi.ski","tojav.net","trpger.us","2chblog.jp","520call.me","aimomo.net","coron.tech","ebitsu.net","gunauc.net","in-jpn.com","jav380.com","javcup.com","jisaka.com","kojodan.jp","misskey.io","nwknews.jp","p1.a9z.dev","pictab.art","rxlife.net","seesaa.net","twiman.net","vipnews.jp","beasoku.com","best-hit.tv","coolpan.net","dl.520cc.cc","doorblog.jp","egotter.com","famitsu.com","figsoku.net","gigafile.nu","gotouchi.jp","himachat.jp","kakenhi.net","kotobank.jp","localch.net","manga1001.*","misskey.art","modalina.jp","nan-net.com","nkreport.jp","shihiro.com","warpday.net","46matome.net","agora-web.jp","ap-siken.com","collepic.net","db-siken.com","engineweb.jp","fe-siken.com","j-rugby.club","jukenbbs.com","livedoor.biz","mapion.co.jp","mk.yopo.work","negisoku.com","norisoku.com","nw-siken.com","oninet.ne.jp","photo-ac.com","playing.wiki","pm-siken.com","pochitto2.jp","qa.crefan.jp","realsound.jp","sc-siken.com","sg-siken.com","sokuhou.wiki","takusuki.com","twidouga.net","twivideo.net","youpouch.com","ac-illust.com","animesoku.com","ddd-smart.net","encount.press","ero-video.net","exploader.net","fp1-siken.com","fp2-siken.com","fp3-siken.com","gundamlog.com","livedoor.blog","majikichi.com","motimoti3d.jp","musenboya.com","onagazou.info","seesaawiki.jp","simplegame.jp","skebetter.com","vtubernews.jp","www.ohk.co.jp","yourfones.net","zadankai.club","addchannel.net","bm.best-hit.tv","chronicle.wiki","fashionpost.jp","game-info.wiki","kantangame.com","kenshonavi.com","maidonanews.jp","misskirara.net","pokegonews.net","trafficnews.jp","wiki.yjsnpi.nu","yougakumap.com","all-nationz.com","fiveslot777.com","giants-news.com","j-baseball.club","kijyomatome.com","lifematome.blog","mindhack2ch.com","misskeytsf.love","momoclonews.com","shukatsubbs.com","tokyomotion.net","yaraon-blog.com","azby.fmworld.net","blog.livedoor.jp","chibanippo.co.jp","live-theater.net","momoiroadult.com","oumaga-times.com","rocketnews24.com","shindanmaker.com","uraaka-joshi.com","www.nicovideo.jp","akibablog.blog.jp","erommd-street.com","ikaskey.bktsk.com","j-basketball.club","j-volleyball.club","kijomatomelog.com","konoyubitomare.jp","mekomeko-club.icu","openworldnews.net","shinshi-manga.net","silhouette-ac.com","anacap.doorblog.jp","anianierosuki.work","connect.coron.tech","digital-thread.com","search.yahoo.co.jp","searchkoreanews.jp","sonae.sankei.co.jp","success-corp.co.jp","itpassportsiken.com","lemino.docomo.ne.jp","nandemo-uketori.com","trendynailwraps.com","blog-and-destroy.com","kledgeb.blogspot.com","mjoato3uion.ky-3.net","pachinkopachisro.com","video.tv-tokyo.co.jp","yugioh-starlight.com","misskey.resonite.love","ov53i9il.blog.fc2.com","minigame.aeriagames.jp","qaacacthlive.omaww.net","audio-sound-premium.com","sports.tv.rakuten.co.jp","xn--gmq92kd2rm1kx34a.com","game.pointmall.rakuten.net","chance.enjoy.point.auone.jp","ponta.abstractpainting.work","portal.game.success-corp.jp","portal.game.sycasualgames.com","game.hiroba.dpoint.docomo.ne.jp"];
+const $scriptletHostnames$ = /* 196 */ ["asg.to","h1g.jp","wav.tv","xth.jp","blog.jp","cmnw.jp","tver.jp","380cc.cc","520cc.cc","h178.com","javmix.*","rkd3.dev","crefan.jp","dotti2.jp","g-pc.info","h-ken.net","intaa.net","jprime.jp","ldblog.jp","memo.wiki","o-dan.net","pointi.jp","riajo.com","shico.xyz","sushi.ski","tojav.net","trpger.us","2chblog.jp","520call.me","aimomo.net","coron.tech","ebitsu.net","gunauc.net","in-jpn.com","jav380.com","javcup.com","jisaka.com","kojodan.jp","misskey.io","nwknews.jp","p1.a9z.dev","pictab.art","rxlife.net","seesaa.net","twiman.net","vipnews.jp","beasoku.com","best-hit.tv","coolpan.net","dl.520cc.cc","doorblog.jp","egotter.com","famitsu.com","figsoku.net","gigafile.nu","gotouchi.jp","himachat.jp","kakenhi.net","kotobank.jp","localch.net","manga1001.*","misskey.art","modalina.jp","nan-net.com","nkreport.jp","shihiro.com","warpday.net","46matome.net","agora-web.jp","ap-siken.com","collepic.net","db-siken.com","engineweb.jp","fe-siken.com","j-rugby.club","jukenbbs.com","livedoor.biz","mapion.co.jp","mk.yopo.work","negisoku.com","norisoku.com","nw-siken.com","oninet.ne.jp","photo-ac.com","playing.wiki","pm-siken.com","pochitto2.jp","qa.crefan.jp","realsound.jp","sc-siken.com","sg-siken.com","sokuhou.wiki","takusuki.com","twidouga.net","twivideo.net","youpouch.com","ac-illust.com","animesoku.com","ddd-smart.net","encount.press","ero-video.net","exploader.net","fp1-siken.com","fp2-siken.com","fp3-siken.com","gundamlog.com","livedoor.blog","majikichi.com","motimoti3d.jp","musenboya.com","onagazou.info","seesaawiki.jp","simplegame.jp","skebetter.com","vtubernews.jp","www.ohk.co.jp","yourfones.net","zadankai.club","addchannel.net","bm.best-hit.tv","chronicle.wiki","fashionpost.jp","game-info.wiki","kantangame.com","kenshonavi.com","maidonanews.jp","misskirara.net","pokegonews.net","trafficnews.jp","wiki.yjsnpi.nu","yougakumap.com","all-nationz.com","fiveslot777.com","giants-news.com","j-baseball.club","kijyomatome.com","lifematome.blog","mindhack2ch.com","misskeytsf.love","momoclonews.com","shukatsubbs.com","tokyomotion.net","yaraon-blog.com","azby.fmworld.net","blog.livedoor.jp","chibanippo.co.jp","live-theater.net","momoiroadult.com","oumaga-times.com","rocketnews24.com","shindanmaker.com","uraaka-joshi.com","www.nicovideo.jp","akibablog.blog.jp","erommd-street.com","ikaskey.bktsk.com","j-basketball.club","j-volleyball.club","kijomatomelog.com","konoyubitomare.jp","mekomeko-club.icu","openworldnews.net","shinshi-manga.net","silhouette-ac.com","anacap.doorblog.jp","anianierosuki.work","connect.coron.tech","digital-thread.com","search.yahoo.co.jp","searchkoreanews.jp","sonae.sankei.co.jp","success-corp.co.jp","automaton-media.com","itpassportsiken.com","lemino.docomo.ne.jp","nandemo-uketori.com","trendynailwraps.com","blog-and-destroy.com","kledgeb.blogspot.com","mjoato3uion.ky-3.net","pachinkopachisro.com","video.tv-tokyo.co.jp","yugioh-starlight.com","misskey.resonite.love","ov53i9il.blog.fc2.com","minigame.aeriagames.jp","qaacacthlive.omaww.net","audio-sound-premium.com","sports.tv.rakuten.co.jp","xn--gmq92kd2rm1kx34a.com","game.pointmall.rakuten.net","chance.enjoy.point.auone.jp","ponta.abstractpainting.work","portal.game.success-corp.jp","portal.game.sycasualgames.com","game.hiroba.dpoint.docomo.ne.jp"];
 
 const $hasEntities$ = true;
 const $hasAncestors$ = true;

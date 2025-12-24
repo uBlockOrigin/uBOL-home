@@ -246,85 +246,6 @@ function abortOnPropertyWrite(
     });
 }
 
-function addEventListenerDefuser(
-    type = '',
-    pattern = ''
-) {
-    const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
-    const reType = safe.patternToRegex(type, undefined, true);
-    const rePattern = safe.patternToRegex(pattern);
-    const debug = shouldDebug(extraArgs);
-    const targetSelector = extraArgs.elements || undefined;
-    const elementMatches = elem => {
-        if ( targetSelector === 'window' ) { return elem === window; }
-        if ( targetSelector === 'document' ) { return elem === document; }
-        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
-        const elems = Array.from(document.querySelectorAll(targetSelector));
-        return elems.includes(elem);
-    };
-    const elementDetails = elem => {
-        if ( elem instanceof Window ) { return 'window'; }
-        if ( elem instanceof Document ) { return 'document'; }
-        if ( elem instanceof Element === false ) { return '?'; }
-        const parts = [];
-        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
-        const id = String(elem.id);
-        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
-        for ( let i = 0; i < elem.classList.length; i++ ) {
-            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
-        }
-        for ( let i = 0; i < elem.attributes.length; i++ ) {
-            const attr = elem.attributes.item(i);
-            if ( attr.name === 'id' ) { continue; }
-            if ( attr.name === 'class' ) { continue; }
-            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
-        }
-        return parts.join('');
-    };
-    const shouldPrevent = (thisArg, type, handler) => {
-        const matchesType = safe.RegExp_test.call(reType, type);
-        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
-        const matchesEither = matchesType || matchesHandler;
-        const matchesBoth = matchesType && matchesHandler;
-        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
-            debugger; // eslint-disable-line no-debugger
-        }
-        if ( matchesBoth && targetSelector !== undefined ) {
-            if ( elementMatches(thisArg) === false ) { return false; }
-        }
-        return matchesBoth;
-    };
-    const proxyFn = function(context) {
-        const { callArgs, thisArg } = context;
-        let t, h;
-        try {
-            t = String(callArgs[0]);
-            if ( typeof callArgs[1] === 'function' ) {
-                h = String(safe.Function_toString(callArgs[1]));
-            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
-                if ( typeof callArgs[1].handleEvent === 'function' ) {
-                    h = String(safe.Function_toString(callArgs[1].handleEvent));
-                }
-            } else {
-                h = String(callArgs[1]);
-            }
-        } catch {
-        }
-        if ( type === '' && pattern === '' ) {
-            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        } else if ( shouldPrevent(thisArg, t, h) ) {
-            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        }
-        return context.reflect();
-    };
-    runAt(( ) => {
-        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
-        proxyApplyFn('document.addEventListener', proxyFn);
-    }, extraArgs.runAt);
-}
-
 function adjustSetInterval(
     needleArg = '',
     delayArg = '',
@@ -801,6 +722,98 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
         }
     }
     return needles;
+}
+
+function preventAddEventListener(
+    type = '',
+    pattern = ''
+) {
+    const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
+    const reType = safe.patternToRegex(type, undefined, true);
+    const rePattern = safe.patternToRegex(pattern);
+    const targetSelector = extraArgs.elements || undefined;
+    const elementMatches = elem => {
+        if ( targetSelector === 'window' ) { return elem === window; }
+        if ( targetSelector === 'document' ) { return elem === document; }
+        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
+        const elems = Array.from(document.querySelectorAll(targetSelector));
+        return elems.includes(elem);
+    };
+    const elementDetails = elem => {
+        if ( elem instanceof Window ) { return 'window'; }
+        if ( elem instanceof Document ) { return 'document'; }
+        if ( elem instanceof Element === false ) { return '?'; }
+        const parts = [];
+        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
+        const id = String(elem.id);
+        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
+        for ( let i = 0; i < elem.classList.length; i++ ) {
+            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
+        }
+        for ( let i = 0; i < elem.attributes.length; i++ ) {
+            const attr = elem.attributes.item(i);
+            if ( attr.name === 'id' ) { continue; }
+            if ( attr.name === 'class' ) { continue; }
+            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
+        }
+        return parts.join('');
+    };
+    const shouldPrevent = (thisArg, type, handler) => {
+        const matchesType = safe.RegExp_test.call(reType, type);
+        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesEither = matchesType || matchesHandler;
+        const matchesBoth = matchesType && matchesHandler;
+        if ( safe.logLevel > 1 && matchesEither ) {
+            debugger; // eslint-disable-line no-debugger
+        }
+        if ( matchesBoth && targetSelector !== undefined ) {
+            if ( elementMatches(thisArg) === false ) { return false; }
+        }
+        return matchesBoth;
+    };
+    const proxyFn = function(context) {
+        const { callArgs, thisArg } = context;
+        let t, h;
+        try {
+            t = String(callArgs[0]);
+            if ( typeof callArgs[1] === 'function' ) {
+                h = String(safe.Function_toString(callArgs[1]));
+            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
+                if ( typeof callArgs[1].handleEvent === 'function' ) {
+                    h = String(safe.Function_toString(callArgs[1].handleEvent));
+                }
+            } else {
+                h = String(callArgs[1]);
+            }
+        } catch {
+        }
+        if ( type === '' && pattern === '' ) {
+            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        } else if ( shouldPrevent(thisArg, t, h) ) {
+            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        }
+        return context.reflect();
+    };
+    runAt(( ) => {
+        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = EventTarget.prototype;
+            Object.defineProperty(EventTarget.prototype, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+        proxyApplyFn('document.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = document;
+            Object.defineProperty(document, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+    }, extraArgs.runAt);
 }
 
 function preventFetch(...args) {
@@ -1751,7 +1764,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 15 */
-[preventFetch,preventSetTimeout,jsonPrune,setConstant,abortCurrentScript,addEventListenerDefuser,preventRequestAnimationFrame,preventXhr,abortOnPropertyRead,abortOnPropertyWrite,preventSetInterval,adjustSetInterval,adjustSetTimeout,removeAttr,noWindowOpenIf];
+[preventFetch,preventSetTimeout,jsonPrune,setConstant,abortCurrentScript,preventAddEventListener,preventRequestAnimationFrame,preventXhr,abortOnPropertyRead,abortOnPropertyWrite,preventSetInterval,adjustSetInterval,adjustSetTimeout,removeAttr,noWindowOpenIf];
 
 const $scriptletArgs$ = /* 143 */ ["pagead2.googlesyndication.com","displayCookieWallBanner","siteParams.aabMessage","LCI.adNetwork","undefined","jQuery","adblocker","penci_options_set.ad_blocker_detector","false","ima","{}","DOMContentLoaded","adblock","integrityObserver.corrupted","0","checkAdsBlocked","noopFunc","Date.now","dAp","true","detected","isAdblock","load","/www3\\.doubleclick\\.net|tagger\\.opecloud\\.com|fwmrm\\.net/","emptyArr","chp_ads_blocker_detector","adsBlocked","tag.min.js","fwmrm","checkDiv","navigator.brave","js.sddan.com","ABDetector","document.getElementById","Blocking Ads","document.createElement","moneyAbovePrivacy","bAdBlocker","Object.prototype.autoRecov","noPub","1","canRunAds","adClasses","[]","dtctAB","adskeeper.co.uk","document.write","alert","setTimeout","bloqueur","Promise","window.location","msg_ab","gothamBatAdblock","adblockdetected","adsbygoogle","document.querySelector","oadbActive","window.adsapp","ujloijdkhjkwus","$","checkAds","wIsAdBlocked","mdpDeBlocker","adBlockDetected","adback","google_jobrunner","adParams siteParams.aabMessage","onload","ptv.Data.uniroll","pmd.Data.uniroll","OAS_AD","ads.enableAntiAdBlocking","v.fwmrm.net","Object.prototype.isBlockerDetected","__TF1_CONFIG__.featureFlag.contentAccess.isAdblockCheckRequired","__TF1_CONFIG__.adblock.display","__TF1_CONFIG__.adblock.serverRequest","static.adsafeprotected.com/favicon.ico","/^https:\\/\\/ads\\.stickyadstv\\.com\\/$/ method:HEAD","defaultConsentString","*","0.001","event_listener_timeout","/userConsentProcess|this===/","href","a[href]#clickfakeplayer","return t()","sessionStorage","click","Popup","advanced_ads_ready","userConsentProcessEnded","randno","25","FastClick","FastClick.attach","setTimeoutIds_",".content-propose > a[href].btn-ad-iframe","empire.isAdbActive","empire.directHideAds","empire.countpremium.film","empire.countpremium.serie","empire.countpremiumMore.film.count","empire.countpremiumMore.serie.count","empire.countpremiumaccount.film","empire.countpremiumaccount.serie","empire.mediaData.advisorDirect","","empire.mediaData.advisorMovie","empire.mediaData.advisorSerie","adsConfig","isSetupAccess","/userConsentProcessEnded|\\[0\\]\\+\"With\"/","interstitial","JSON.parse","document.createElement('script')","document.documentElement).appendChild","Object.prototype.withAds","AC.config.ads","getAudioAdUrl","zoneSett","aEteAffiche","__yget_ad_list","_adb","td_ad_background_click_link","__data.application.settings.featPlayerAds","ads.*.default ads.*.url ads.enableMidrolls","ads","applaunch.data.player.features.ad.enabled applaunch.data.player.features.ad.dai.enabled","appName","tv.freewheel.SDK.Util.pingURLWithForm","trueFunc","tv.freewheel.SDK.Util.pingURLWithImage","tv.freewheel.SDK.Util.pingURLWithScript","tv.freewheel.SDK.Util.pingURLWithXMLHTTPRequest","tv.freewheel.SDK.Util.sendAdRequestWithXMLHTTPRequest","__NEXT_DATA__.runtimeConfig.playerTF1.ads.enable","data.result.items.sidebar.[-].type.[=].advertiser_ads","data.search_id","fetch","Uint8Array","#clickfakeplayer"];
 

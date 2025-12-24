@@ -300,85 +300,6 @@ function abortOnStackTrace(
     makeProxy(owner, chain);
 }
 
-function addEventListenerDefuser(
-    type = '',
-    pattern = ''
-) {
-    const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
-    const reType = safe.patternToRegex(type, undefined, true);
-    const rePattern = safe.patternToRegex(pattern);
-    const debug = shouldDebug(extraArgs);
-    const targetSelector = extraArgs.elements || undefined;
-    const elementMatches = elem => {
-        if ( targetSelector === 'window' ) { return elem === window; }
-        if ( targetSelector === 'document' ) { return elem === document; }
-        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
-        const elems = Array.from(document.querySelectorAll(targetSelector));
-        return elems.includes(elem);
-    };
-    const elementDetails = elem => {
-        if ( elem instanceof Window ) { return 'window'; }
-        if ( elem instanceof Document ) { return 'document'; }
-        if ( elem instanceof Element === false ) { return '?'; }
-        const parts = [];
-        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
-        const id = String(elem.id);
-        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
-        for ( let i = 0; i < elem.classList.length; i++ ) {
-            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
-        }
-        for ( let i = 0; i < elem.attributes.length; i++ ) {
-            const attr = elem.attributes.item(i);
-            if ( attr.name === 'id' ) { continue; }
-            if ( attr.name === 'class' ) { continue; }
-            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
-        }
-        return parts.join('');
-    };
-    const shouldPrevent = (thisArg, type, handler) => {
-        const matchesType = safe.RegExp_test.call(reType, type);
-        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
-        const matchesEither = matchesType || matchesHandler;
-        const matchesBoth = matchesType && matchesHandler;
-        if ( debug === 1 && matchesBoth || debug === 2 && matchesEither ) {
-            debugger; // eslint-disable-line no-debugger
-        }
-        if ( matchesBoth && targetSelector !== undefined ) {
-            if ( elementMatches(thisArg) === false ) { return false; }
-        }
-        return matchesBoth;
-    };
-    const proxyFn = function(context) {
-        const { callArgs, thisArg } = context;
-        let t, h;
-        try {
-            t = String(callArgs[0]);
-            if ( typeof callArgs[1] === 'function' ) {
-                h = String(safe.Function_toString(callArgs[1]));
-            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
-                if ( typeof callArgs[1].handleEvent === 'function' ) {
-                    h = String(safe.Function_toString(callArgs[1].handleEvent));
-                }
-            } else {
-                h = String(callArgs[1]);
-            }
-        } catch {
-        }
-        if ( type === '' && pattern === '' ) {
-            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        } else if ( shouldPrevent(thisArg, t, h) ) {
-            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
-        }
-        return context.reflect();
-    };
-    runAt(( ) => {
-        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
-        proxyApplyFn('document.addEventListener', proxyFn);
-    }, extraArgs.runAt);
-}
-
 function collateFetchArgumentsFn(resource, options) {
     const safe = safeSelf();
     const props = [
@@ -881,6 +802,98 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
         }
     }
     return needles;
+}
+
+function preventAddEventListener(
+    type = '',
+    pattern = ''
+) {
+    const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
+    const reType = safe.patternToRegex(type, undefined, true);
+    const rePattern = safe.patternToRegex(pattern);
+    const targetSelector = extraArgs.elements || undefined;
+    const elementMatches = elem => {
+        if ( targetSelector === 'window' ) { return elem === window; }
+        if ( targetSelector === 'document' ) { return elem === document; }
+        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
+        const elems = Array.from(document.querySelectorAll(targetSelector));
+        return elems.includes(elem);
+    };
+    const elementDetails = elem => {
+        if ( elem instanceof Window ) { return 'window'; }
+        if ( elem instanceof Document ) { return 'document'; }
+        if ( elem instanceof Element === false ) { return '?'; }
+        const parts = [];
+        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
+        const id = String(elem.id);
+        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
+        for ( let i = 0; i < elem.classList.length; i++ ) {
+            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
+        }
+        for ( let i = 0; i < elem.attributes.length; i++ ) {
+            const attr = elem.attributes.item(i);
+            if ( attr.name === 'id' ) { continue; }
+            if ( attr.name === 'class' ) { continue; }
+            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
+        }
+        return parts.join('');
+    };
+    const shouldPrevent = (thisArg, type, handler) => {
+        const matchesType = safe.RegExp_test.call(reType, type);
+        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesEither = matchesType || matchesHandler;
+        const matchesBoth = matchesType && matchesHandler;
+        if ( safe.logLevel > 1 && matchesEither ) {
+            debugger; // eslint-disable-line no-debugger
+        }
+        if ( matchesBoth && targetSelector !== undefined ) {
+            if ( elementMatches(thisArg) === false ) { return false; }
+        }
+        return matchesBoth;
+    };
+    const proxyFn = function(context) {
+        const { callArgs, thisArg } = context;
+        let t, h;
+        try {
+            t = String(callArgs[0]);
+            if ( typeof callArgs[1] === 'function' ) {
+                h = String(safe.Function_toString(callArgs[1]));
+            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
+                if ( typeof callArgs[1].handleEvent === 'function' ) {
+                    h = String(safe.Function_toString(callArgs[1].handleEvent));
+                }
+            } else {
+                h = String(callArgs[1]);
+            }
+        } catch {
+        }
+        if ( type === '' && pattern === '' ) {
+            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        } else if ( shouldPrevent(thisArg, t, h) ) {
+            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        }
+        return context.reflect();
+    };
+    runAt(( ) => {
+        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = EventTarget.prototype;
+            Object.defineProperty(EventTarget.prototype, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+        proxyApplyFn('document.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = document;
+            Object.defineProperty(document, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+    }, extraArgs.runAt);
 }
 
 function preventFetch(...args) {
@@ -1927,7 +1940,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 15 */
-[setConstant,abortCurrentScript,preventSetTimeout,abortOnStackTrace,jsonPrune,jsonPruneXhrResponse,noWindowOpenIf,preventXhr,preventSetInterval,addEventListenerDefuser,removeAttr,abortOnPropertyRead,preventFetch,spoofCSS,abortOnPropertyWrite];
+[setConstant,abortCurrentScript,preventSetTimeout,abortOnStackTrace,jsonPrune,jsonPruneXhrResponse,noWindowOpenIf,preventXhr,preventSetInterval,preventAddEventListener,removeAttr,abortOnPropertyRead,preventFetch,spoofCSS,abortOnPropertyWrite];
 
 const $scriptletArgs$ = /* 142 */ ["_ads_zum_main_initbanner_750_zum_main_br_widget_336","true","popMagic.init","list_end_run_read_top_boom","noopFunc","list_end_run_pds_notice_boom","list_end_run_comment_bottom_boom","list_end_run_center_boom","list_end_run_list_bottom_boom","height && 1 <= height && height <= 20","list_end_run","$.prototype.html","_boom","/\\/images\\/[A-z0-9-_]+\\.?(jpg|gif)/","tpl apply","tpl.[].c","ads.[-].eventTracking.ackImpressions.[].url","ads.[].adInfo.responseSize","propsToMatch","url:api.chzzk.naver.com/service/t/","adBreaks.[-].adSources.[].withRemindAd","videoAdScheduleId","getPowerLink","pandalive.co.kr/evt/","api-v2.adrop.io/request","layers.[-].metadata.name.{=}.POI_Ads","","url:/PCWeb_Real.json","[].data.poiRecommendations.recommendations.[].items.[-].adClickLog.clickUrl","commonTrailer","undefined","jQuery",".adsbygoogle","ad.smartmediarep.com/NetInsight/video/smr","length:300","coupangAd","[native code]","1000","data","data.getBannerAdExchange","popup_goods","powerLink","powerLink.ads","String.prototype.substring","/checkCookie.+main\\.do/","Math.uuid","asFunction","hashchange","#viewus-explore-more","jQuery.fn.getUrlParameter","adRecommend.adUnits.[]","window.__NEXT_DATA__.props.pageProps.initialState.post.adhistory","{}","piBlock","$is.powerLink.loadPowerLink","SbsHtml5PlayerContainer.prototype.renderAdSequence","data.BrandAd","jQuery.prototype.load","is_coupang","DOMContentLoaded","link.coupang.com","coupang_dont_show_prompty_interval","jQuery.prototype.on","pum_vars","placeholder","#webzineHeadmenuF1 input[placeholder][autocomplete=\"off\"]","pum_popups","data.supertopADNos","player.renderAdSequence","bannerpop.popup","open","/\\/popup\\//","input#searchMainKeyword","input#searchKeyword","api/avods/v1/advertisement","player.advertisement_finished","window.open","/gears/popup/default.aspx","notice_view_html.php","15000","input.search_input","asap stay","ads","$","/danawa-dpg-common-sponsorBanner-/","myScript[myScript.length - 1 ]","getAdcrUrl","random_imglink","vrixadsdk","hahaha","animationEffects[settings.animation.effect]","document.addEventListener","/adscale_slot_id/","/\\.displayMessage\\(/","adBlockDetected","ai_adb.init","ai_run_scripts","/^https.\\/\\/videoads\\.kakao\\.com\\/adserver\\/api\\/v[0-9]{1","2}\\/vmap$/","adsBlocked","imasdk.googleapis.com/js/sdkloader/ima3.js","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js","addc.dcinside.com","pageshow","/\\.persisted *&& *interval_Ad *&& *clearInterval\\( *interval_Ad *\\)/","emptyStr","blockedState","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js method:HEAD","getComputedStyle(t).getPropertyValue(\"visibility\")","adBlockedMessage","display","block","adblockChecker",".ad-banner.adsbox.ad-unit.ad-zone","checkAdBlock","www3.doubleclick.net","linkPass","load","_0x","adblockanalytics.com","adsbygoogle.js","adsbygoogle","chp_ads_blocker_detector","/compass.adop.cc|adsbygoogle/","HTMLAnchorElement.prototype.onclick","banner_book","blockCheck2022","alert","chk_adBlock","document.getElementById","adblock","$.prototype.fadeIn",".adsense-area","DHAntiAdBlocker","addEventListener","fuckadblock.min.js","#ad_center","ad.innerHTML.replace","checkAds","adManager.js","document[_0x","NAVER_ADPOST_V2"];
 
