@@ -1,3 +1,9 @@
+- [Add support for regex-based extended filters](https://github.com/gorhill/uBlock/commit/377cf9d86b)
+
+----------
+
+### 2025.1224.1544
+
 - [Mind id/class attribute changes in generic cosmetic filterer](https://github.com/gorhill/uBlock/commit/c975fbb9d7)
 - [Mind anscestor hostnames when evaluating host permissions](https://github.com/gorhill/uBlock/commit/4e0f47f11a)
 - Updated filter lists
