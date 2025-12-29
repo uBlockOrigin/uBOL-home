@@ -1,3 +1,7 @@
+- [Add easylist AI suggestions to stock lists](https://github.com/gorhill/uBlock/commit/675ae7b5af)
+- [Safari] [Increase local storage limit beyond 5 MB](https://github.com/gorhill/uBlock/commit/bda2a50ec8)
+- [Add page-wide spinner when restoring/resetting settings](https://github.com/gorhill/uBlock/commit/f7f96140d9)
+- [Add ability to reset to default settings](https://github.com/gorhill/uBlock/commit/6063d4f0ad)
 - [Add support for regex-based extended filters](https://github.com/gorhill/uBlock/commit/377cf9d86b)
 
 ----------
