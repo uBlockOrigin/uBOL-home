@@ -833,12 +833,15 @@ const $scriptletArgs$ = /* 41 */ ["_ga","OK","","reload","1","views","script","/
 
 const $scriptletArglists$ = /* 25 */ "0,0,1,2,3,4;0,5,4;1,6,7,8;2,9,10,11;3,12,4;4,6,13;5,14,15;0,16,4;4,6,17;3,18,19;0,20,4;0,21,4;6,5;5,22,23;5,24,25;5,26,27;0,28,4;5,29,30;0,31,4;5,32,33;5,34,35;7,36,37;5,32,30;8,38,37;5,39,40";
 
-const $scriptletArglistRefs$ = /* 87 */ "3,4;7;16;23;23;23;23;14;6;16;23;5;23;8;23;23;23;15;5;23;1,12;23;23;23;23;23;23;23;20;23;19;23;23;23;23;23;23;23;23;23;23;23;23;10,11;22;23;23;23;23;23;23;23;23;23;23;23;23;17;0;21;23;23;23;23;23;23;23;23;23;23;23;23;23;23;24;23;23;23;23;23;23;23;18;0;2;13;9";
+const $scriptletArglistRefs$ = /* 88 */ "3,4;7;16;23;23;23;23;14;6;16;23;5;23;8;23;23;23;15;5;23;1,12;23;23;23;23;23;23;23;20;23;19;23;23;23;23;23;23;23;23;23;23;23;23;10,11;22;23;23;23;23;23;23;23;23;23;23;23;23;23;17;0;21;23;23;23;23;23;23;23;23;23;23;23;23;23;23;24;23;23;23;23;23;23;23;18;0;2;13;9";
 
-const $scriptletHostnames$ = /* 87 */ ["mdpr.jp","hanime.tv","m.nuvid.*","seexh.com","xhbig.com","xhvid.com","fullxh.com","lepoint.fr","m.7days.ru","m.hd21.com","megaxh.com","nan-net.jp","openxh.com","tupaki.com","xhopen.com","xhspot.com","xhtree.com","mumsnet.com","nan-net.com","openxh1.com","pornhub.com","xhamster3.*","xhmoon5.com","xhtotal.com","xhwide1.com","xhwide2.com","xhwide5.com","interxh.site","kayak.com.tr","valuexh.life","www.ixbt.com","xhaccess.com","xhadult2.com","xhadult3.com","xhamster.com","xhamster.one","xhamster13.*","xhamster16.*","xhamster17.*","xhamster18.*","xhdate.world","aawweb.beauty","colourxh.site","m.proporn.com","slovoidilo.ua","stripchat.com","xhamster.desi","xhamster2.com","xhamster3.com","xhamster7.com","xhamster8.com","xhamster9.com","xhbranch5.com","xhchannel.com","xhlease.world","xhplanet2.com","galleryxh.site","liquipedia.net","m.dcinside.com","quotidiano.net","xhamster1.desi","xhamster10.com","xhamster12.com","xhamster14.com","xhamster15.com","xhamster19.com","xhamster2.desi","xhamster22.com","xhamster27.com","xhamster4.desi","xhamster40.com","xhamster5.desi","xhofficial.com","xhwebsite2.com","accuweather.com","xhamster18.desi","xhamster19.desi","xhamster20.desi","xhamster42.desi","xhamster43.desi","xhamster44.desi","xhamsterporno.mx","m.economictimes.com","upload.dcinside.com","watch.impress.co.jp","thestudentroom.co.uk","forum.donanimhaber.com"];
+const $scriptletHostnames$ = /* 88 */ ["mdpr.jp","hanime.tv","m.nuvid.*","seexh.com","xhbig.com","xhvid.com","fullxh.com","lepoint.fr","m.7days.ru","m.hd21.com","megaxh.com","nan-net.jp","openxh.com","tupaki.com","xhopen.com","xhspot.com","xhtree.com","mumsnet.com","nan-net.com","openxh1.com","pornhub.com","xhamster3.*","xhmoon5.com","xhtotal.com","xhwide1.com","xhwide2.com","xhwide5.com","interxh.site","kayak.com.tr","valuexh.life","www.ixbt.com","xhaccess.com","xhadult2.com","xhadult3.com","xhamster.com","xhamster.one","xhamster13.*","xhamster16.*","xhamster17.*","xhamster18.*","xhdate.world","aawweb.beauty","colourxh.site","m.proporn.com","slovoidilo.ua","stripchat.com","tr.usbxh.life","xhamster.desi","xhamster2.com","xhamster3.com","xhamster7.com","xhamster8.com","xhamster9.com","xhbranch5.com","xhchannel.com","xhlease.world","xhplanet2.com","galleryxh.site","liquipedia.net","m.dcinside.com","quotidiano.net","xhamster1.desi","xhamster10.com","xhamster12.com","xhamster14.com","xhamster15.com","xhamster19.com","xhamster2.desi","xhamster22.com","xhamster27.com","xhamster4.desi","xhamster40.com","xhamster5.desi","xhofficial.com","xhwebsite2.com","accuweather.com","xhamster18.desi","xhamster19.desi","xhamster20.desi","xhamster42.desi","xhamster43.desi","xhamster44.desi","xhamsterporno.mx","m.economictimes.com","upload.dcinside.com","watch.impress.co.jp","thestudentroom.co.uk","forum.donanimhaber.com"];
+
+const $scriptletFromRegexes$ = /* 0 */ [];
 
 const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -925,11 +928,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -937,6 +938,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

@@ -1056,8 +1056,11 @@ const $scriptletArglistRefs$ = /* 99 */ "10;9;8;9;9;4;8;9;8;9;9;8;8;10;8;9;9;9;9
 
 const $scriptletHostnames$ = /* 99 */ ["x.com","wiz.io","abc.com","ajc.com","10tv.com","4399.com","abc7.com","cbs8.com","kark.com","khou.com","ksdk.com","ktla.com","ktsm.com","temu.com","wavy.com","wbir.com","wcnc.com","wfaa.com","wgrz.com","wkyc.com","wltx.com","wnep.com","wqad.com","wsvn.com","wthr.com","wtol.com","wtsp.com","9news.com","abc10.com","abc11.com","abc13.com","abc15.com","abc30.com","fox61.com","kens5.com","king5.com","nbc4i.com","sushi.ski","wusa9.com","wwltv.com","12news.com","abc7ny.com","clarin.com","dhgate.com","kare11.com","nbcdfw.com","news10.com","whas11.com","wzzm13.com","zippia.com","11alive.com","alibaba.com","fox2now.com","thehill.com","abc7news.com","banistmo.com","buttersc.one","mivatter.com","mk.yopo.work","nijimiss.moe","theverge.com","13newsnow.com","aliexpress.us","gmarket.co.kr","instagram.com","m.youtube.com","nbcboston.com","wfmynews2.com","aliexpress.com","nbcbayarea.com","nbcchicago.com","nbcnewyork.com","oekakiskey.com","tekinvestor.no","5newsonline.com","abc7chicago.com","gp.tsukimi.club","misskey.systems","msk.kitazawa.me","myarklamiss.com","mytwintiers.com","nbcsandiego.com","nwahomepage.com","telemundopr.com","tradingview.com","voskey.icalo.net","finance.yahoo.com","nbclosangeles.com","firstcoastnews.com","nbcconnecticut.com","analyticsvidhya.com","gadgetizedpanda.com","nbcphiladelphia.com","newscentermaine.com","misskey.gamelore.fun","novelskey.tarbin.net","winnipegfreepress.com","invillage-outvillage.com","side.misskey.productions"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1144,11 +1147,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1156,6 +1157,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

@@ -1392,18 +1392,21 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 9 */
-[abortOnPropertyRead,abortCurrentScript,abortOnPropertyWrite,setConstant,preventFetch,preventSetTimeout,preventAddEventListener,jsonPrune,removeAttr];
+[abortOnPropertyRead,abortCurrentScript,abortOnPropertyWrite,setConstant,preventAddEventListener,preventFetch,preventSetTimeout,jsonPrune,removeAttr];
 
-const $scriptletArgs$ = /* 104 */ ["_0x3f9b","parseInt","adsRedirectPopups","document.addEventListener","ai_run","setTimeout","Aff","AdtimaRender","Object.defineProperty","ADMStorageFileCDN","noopFunc","open","$","aff","pop","POP","popunder","arrDirectLink","document.getElementById","openPop","method:HEAD","jQuery","popup","WebAssembly","globalThis","navigator","devtoolsDetector","maxAds","0","adx","adblock","Symbol","break;case $","document.createElement",";break;case","eval","$._Eu","ad_block","Popup","setInterval","offsetHeight","Click","document.getElementsByClassName","reading-content","optad","pushOnPage","DisplayAHTML","5001","callback","6004","JSON.parse","break;case $.","PopUnder","sessionStorage","click_time","JSON","fromCharCode","script","addEvent","popu","click","ads","p0pUpRandom","adsPlayer","adsPopupPlayer","adsTvc","keyPlayer","window.addEventListener","localStorage","document.querySelectorAll","popMagic","myModal","Ads","Math.round","Cookies","linkAff","null","3","window.open","adState","appendChild","Promise","break;case","opup","document.cookie","runAllDetections","oneClick","instantiate","seconds","atob","initialAdURLs","D4zz","timer","sp","_$_d52e","click_ads","props.children.[].props.tvc","urlAds","","window.location","target|onclick","a[href^=\"/video/\"]","adsTvcs","adtimaConfig"];
+const $scriptletArgs$ = /* 104 */ ["_0x3f9b","parseInt","document.addEventListener","ai_run","setTimeout","Aff","AdtimaRender","Object.defineProperty","ADMStorageFileCDN","noopFunc","open","$","aff","jQuery","adsPlayer","","adsTvcs","pop","POP","click","ads","popunder","arrDirectLink","document.getElementById","openPop","method:HEAD","popup","WebAssembly","globalThis","navigator","devtoolsDetector","maxAds","0","adx","adblock","Symbol","break;case $","document.createElement",";break;case","eval","$._Eu","ad_block","Popup","setInterval","offsetHeight","Click","document.getElementsByClassName","reading-content","optad","pushOnPage","DisplayAHTML","5001","callback","6004","JSON.parse","break;case $.","PopUnder","sessionStorage","click_time","JSON","fromCharCode","script","addEvent","popu","p0pUpRandom","adsPopupPlayer","adsTvc","keyPlayer","window.addEventListener","localStorage","document.querySelectorAll","popMagic","myModal","Ads","Math.round","linkAff","null","3","window.open","adState","appendChild","Promise","break;case","opup","document.cookie","Cookies","runAllDetections","oneClick","instantiate","seconds","atob","adsRedirectPopups","initialAdURLs","D4zz","timer","sp","_$_d52e","click_ads","props.children.[].props.tvc","urlAds","window.location","target|onclick","a[href^=\"/video/\"]","adtimaConfig"];
 
-const $scriptletArglists$ = /* 87 */ "0,0;0,1;0,2;1,3,4;1,5,6;2,7;1,8,9;3,9,10;1,3,11;1,12,13;1,3,14;1,3,15;1,3,16;1,12,17;3,11,10;1,18,19;4,20;1,21,22;1,23,24;1,25,26;3,27,28;1,3,29;1,12,30;1,31,32;1,33,34;1,35,36;1,5,37;1,21,38;1,39,40;1,3,41;1,42,43;1,33,44;0,45;5,46,47;5,48,49;1,50,51;1,12,52;0,53;1,21,54;0,11;1,55,56;1,12,14;1,33,57;1,58,59;6,60,61;1,12,62;0,61;0,63;0,64;0,65;0,66;1,67,68;1,69,70;1,18,71;1,67,72;0,73;0,74;3,75,76,77;1,12,78;1,3,79;1,5,80;1,35;1,81,82;1,3,83;0,84;1,21,78;1,3,85;0,86;1,23,87;3,88,28;1,3,89;0,90;3,91,10;3,92,28;0,68;0,93;2,94;1,5,11;1,21,95;7,96;3,97,98;1,5,99;8,100,101;1,21,11;3,63,98;3,102,98;0,103";
+const $scriptletArglists$ = /* 87 */ "0,0;0,1;1,2,3;1,4,5;2,6;1,7,8;3,8,9;1,2,10;1,11,12;1,13,10;3,14,15;3,16,15;1,2,17;1,2,18;4,19,20;1,2,21;1,11,22;3,10,9;1,23,24;5,25;1,13,26;1,27,28;1,29,30;3,31,32;1,2,33;1,11,34;1,35,36;1,37,38;1,39,40;1,4,41;1,13,42;1,43,44;1,2,45;1,46,47;1,37,48;0,49;6,50,51;6,52,53;1,54,55;1,11,56;0,57;1,13,58;0,10;1,59,60;1,11,17;1,37,61;1,62,63;1,11,64;0,20;0,14;0,65;0,66;0,67;1,68,69;1,70,71;1,23,72;1,68,73;0,74;3,75,76,77;1,11,78;1,2,79;1,4,80;1,39;1,81,82;1,2,83;0,84;0,85;1,13,78;1,2,86;0,87;1,27,88;3,89,32;1,2,90;0,91;0,92;3,93,9;3,94,32;0,69;0,95;2,96;1,4,10;1,13,97;7,98;3,99,15;1,4,100;8,101,102;0,103";
 
-const $scriptletArglistRefs$ = /* 163 */ "1;39;6,7;22;6,7;68;6,7;8;6,7;70;86;68;6,7;46,47,48,49,50;51,68;25;69;79;39;74;6,7;5;17;29;36,68;39;45;41;9;24;60;6,7;64;16;19;68;18;52;64;39;18;65;67;63;68;14,15;39;39,64;39;68;8;64;10;11;68;23,24,25;4,26;68;35;37;41;43;44;53;72;9;6,7;71;63;20,64;21;41;52;68;68;68;57;59;61;68;68;80;39,74;83,84,85;68;8;68;27,28;30;44;68;64;14,15;15;68;55;64;4;68;64;68;10;9;9;68;9;20;39;18;39;62;63;73;68;39;31,32,33,34;31,32,33,34;64;64;68;62;64;72;25;0;68;31,32,33,34;64;42,68;56,68;39;64;58;68;68;12,68;13;64;38;40;68;39;64;39;64,74;4,74;78;2;3,4;13;68;64;14,15;66;68,76;81,82;54;75;4,58;77;18;68;14";
+const $scriptletArglistRefs$ = /* 163 */ "1;42;5,6;25;5,6;70;5,6;7;5,6;72;86;70;5,6;14;48,49,50,51,52;53,70;28;71;82;42;77;5,6;4;20;32;39,70;42;47;44;8;27;61;5,6;65;19;22;70;21;54;65;42;21;67;69;64;70;17,18;42;42,65;42;70;7;65;12;13;70;26,27,28;3,29;70;38;40;44;46;55;75;8;5,6;74;64;23,65;24;44;54;70;70;70;58;60;62;70;66,70;70;12;83;42,77;70;7;70;30,31;33;70;65;17,18;18;70;57;65;3;70;65;70;8;8;70;8;23;42;21;42;63;64;76;70;14;42;34,35,36,37;34,35,36,37;65;65;70;63;65;73;75;28;0;70;34,35,36,37;65;45,70;42;65;59;70;70;15,70;16;65;41;43;70;42;65;42;65,77;3,77;81;2,3;16;9,10,11;70;65;17,18;68;70,79;84,85;56;78;3,59;80;21;70;17";
 
-const $scriptletHostnames$ = /* 163 */ ["aoe.vn","anh.moe","genk.vn","hh2d.tv","soha.vn","vlxx.bz","cafef.vn","game8.vn","gamek.vn","vozer.io","znews.vn","hhtq5.vip","kenh14.vn","plcdn.xyz","quatvn.my","tram3d.me","vndoc.com","xem16.net","xfast.sbs","xnhau.hot","afamily.vn","baomoi.com","gocmod.com","javhd.shop","lxmanga.my","noitu.site","phimtho.cc","sieudam.sh","tekora.fun","tram3d.com","tram3d.xyz","tuoitre.vn","comong.info","giavang.net","gotphim.com","haysex.mobi","hhvsub1.com","misskon.com","phimhdc.com","sachmoi.net","sextop1.ing","vailonxx.co","vinaurl.net","yanhh3d.vip","yurineko.my","abysscdn.com","anime12.site","anime47.best","bluphim5.com","buomtv.media","checkscam.vn","chich69.club","cliphubs.com","clipphot.biz","hentaivc.pro","hh3dhay.life","imail.edu.vn","javtiful.com","lrepacks.net","motchillk.gg","pheclip.love","phimmoi.club","phimmoier.io","saigon24.net","sexdiaryx.to","tekora.space","thanhnien.vn","www.asu.baby","z.chinav.sex","hayhaytv.site","haysexvn.baby","phim18vip.one","rphang.online","sex.xinh3x.me","sexdiary.club","sexviet88.xyz","tailieumoi.vn","thiendia1.vip","truyen247.pro","truyenvn.shop","vevocloud.com","xemphimhd.top","xemphimjav.us","xoilaczzyy.cc","cliphot69.shop","cunghocvui.com","damconuong.onl","ios.codevn.net","laophatgia.net","motchillbr.com","phim18hdxx.com","phimchill.life","player-cdn.com","playhydrax.com","sayhentai.live","sex.javnong.cc","thefaplive.com","trumtruyen.xyz","truyenqqno.com","tv.tvhayhd.org","umetruyenz.org","viet69hay.life","childish2x1.fun","childish2x2.fun","ihentai.network","lottedira.store","motchillzz.site","mv.phimmoiaz.cc","nettruyenar.com","phimsexvn1.blog","truyenqqtto.com","truyensextv.com","www.iosviet.com","clipsexsub3x.net","hoctot.hocmai.vn","linkneverdie.net","linkneverdie.top","mv.phimbathu.one","newshound.org.uk","newtruyenhot.pro","phim.haysex.asia","ungtycomicso.com","www.gvnvh18z.com","animevietsub.show","animevietsub9.com","demo.14412882.com","linkneverdie2.com","mv.dailyphimz.com","phimlongtieng.net","sex.xinhmupvn.net","truyenfull.vision","truyensieuhay.com","tusachmanga99.com","vn2.xvideos69.xxx","vn5.sexviet88.xyz","dualeotruyenvx.com","economic45882.shop","honghotduongpho.vn","motchilltvphim.com","nettruyenviet1.com","phimsexhayvn81.com","player.phimapi.com","quangcaoyenbai.com","samtruyentranh.com","teamlanhlung8.shop","www.motchill36.com","www.truyen35zz.com","archphotoawards.com","audiotruyenfull.com","cdn4.tiptoe34x1.fun","doctruyen3qui19.com","forum.timfshare.com","freeplayervideo.com","vanphatelectric.com","www.sieutamphim.pro","xnxx-sex-videos.com","sedirkettering.co.uk","www.nettruyenupp.com","teamlanhlungday.store","www.toptruyentv14.com","goctruyentranhvui17.com","motphim.pokemonviet.com","www.bachnguyetquang.online"];
+const $scriptletHostnames$ = /* 163 */ ["aoe.vn","anh.moe","genk.vn","hh2d.tv","soha.vn","vlxx.bz","cafef.vn","game8.vn","gamek.vn","vozer.io","znews.vn","hhtq5.vip","kenh14.vn","ohsas.org","plcdn.xyz","quatvn.my","tram3d.me","vndoc.com","xem16.net","xfast.sbs","xnhau.hot","afamily.vn","baomoi.com","gocmod.com","javhd.shop","lxmanga.my","noitu.site","phimtho.cc","sieudam.sh","tekora.fun","tram3d.com","tram3d.xyz","tuoitre.vn","comong.info","giavang.net","gotphim.com","haysex.mobi","hhvsub1.com","misskon.com","phimhdc.com","sachmoi.net","sextop1.ing","vailonxx.co","vinaurl.net","yanhh3d.vip","yurineko.my","abysscdn.com","anime13.site","anime47.best","bluphim5.com","buomtv.media","checkscam.vn","chich69.club","cliphubs.com","clipphot.biz","hentaivc.pro","hh3dhay.life","imail.edu.vn","javtiful.com","lrepacks.net","motchillk.gg","pheclip.love","phimmoi.club","saigon24.net","sexdiaryx.to","tekora.space","thanhnien.vn","www.asu.baby","z.chinav.sex","hayhaytv.site","haysexvn.baby","phim18vip.one","rphang.online","sex.xinh3x.me","sexdiary.club","sexviet88.xyz","tailieumoi.vn","thiendia1.vip","truyen247.pro","truyenvn.shop","vailonmup.com","vevocloud.com","viet69hay.com","xemphimhd.top","xemphimjav.us","cliphot69.shop","cunghocvui.com","damconuong.onl","ios.codevn.net","laophatgia.net","phim18hdxx.com","phimchill.life","player-cdn.com","playhydrax.com","sayhentai.live","sex.javnong.cc","thefaplive.com","trumtruyen.xyz","truyenqqno.com","tv.tvhayhd.org","umetruyenz.org","childish2x1.fun","childish2x2.fun","ihentai.network","lottedira.store","motchillzz.site","mv.phimmoiaz.cc","nettruyenar.com","phimsexvn1.blog","truyenqqtto.com","truyensextv.com","www.iosviet.com","clipsexsub3x.net","djangobrasil.org","hoctot.hocmai.vn","linkneverdie.net","linkneverdie.top","mv.phimbathu.one","newshound.org.uk","newtruyenhot.pro","phim.haysex.asia","ungtycomicso.com","wemakeevents.org","www.gvnvh18z.com","animevietsub.show","animevietsub9.com","demo.14412882.com","linkneverdie2.com","mv.dailyphimz.com","phimlongtieng.net","truyenfull.vision","truyensieuhay.com","tusachmanga99.com","vn2.xvideos69.xxx","vn6.sexviet88.xyz","dualeotruyenvx.com","economic45882.shop","honghotduongpho.vn","motchilltvphim.com","nettruyenviet1.com","phimsexhayvn85.com","player.phimapi.com","quangcaoyenbai.com","samtruyentranh.com","teamlanhlung8.shop","www.motchill37.com","www.truyen35zz.com","audiotruyenfull.com","cdn4.tiptoe34x1.fun","churchofreality.org","doctruyen3qui19.com","forum.timfshare.com","freeplayervideo.com","vanphatelectric.com","www.sieutamphim.pro","xnxx-sex-videos.com","sedirkettering.co.uk","www.nettruyenupp.com","teamlanhlungday.store","www.toptruyentv14.com","goctruyentranhvui17.com","motphim.pokemonviet.com","www.bachnguyetquang.online"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1490,11 +1493,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1502,6 +1503,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

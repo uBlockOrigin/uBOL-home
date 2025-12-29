@@ -300,6 +300,34 @@ function abortOnStackTrace(
     makeProxy(owner, chain);
 }
 
+function adjustSetTimeout(
+    needleArg = '',
+    delayArg = '',
+    boostArg = ''
+) {
+    if ( typeof needleArg !== 'string' ) { return; }
+    const safe = safeSelf();
+    const reNeedle = safe.patternToRegex(needleArg);
+    let delay = delayArg !== '*' ? parseInt(delayArg, 10) : -1;
+    if ( isNaN(delay) || isFinite(delay) === false ) { delay = 1000; }
+    let boost = parseFloat(boostArg);
+    boost = isNaN(boost) === false && isFinite(boost)
+        ? Math.min(Math.max(boost, 0.001), 50)
+        : 0.05;
+    self.setTimeout = new Proxy(self.setTimeout, {
+        apply: function(target, thisArg, args) {
+            const [ a, b ] = args;
+            if (
+                (delay === -1 || b === delay) &&
+                reNeedle.test(a.toString())
+            ) {
+                args[1] = b * boost;
+            }
+            return target.apply(thisArg, args);
+        }
+    });
+}
+
 function collateFetchArgumentsFn(resource, options) {
     const safe = safeSelf();
     const props = [
@@ -1939,19 +1967,22 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 15 */
-[setConstant,abortCurrentScript,preventSetTimeout,abortOnStackTrace,jsonPrune,jsonPruneXhrResponse,noWindowOpenIf,preventXhr,preventSetInterval,preventAddEventListener,removeAttr,abortOnPropertyRead,preventFetch,spoofCSS,abortOnPropertyWrite];
+const $scriptletFunctions$ = /* 16 */
+[setConstant,abortCurrentScript,preventSetTimeout,abortOnStackTrace,jsonPrune,jsonPruneXhrResponse,noWindowOpenIf,preventXhr,preventSetInterval,preventAddEventListener,removeAttr,abortOnPropertyRead,adjustSetTimeout,preventFetch,spoofCSS,abortOnPropertyWrite];
 
-const $scriptletArgs$ = /* 142 */ ["_ads_zum_main_initbanner_750_zum_main_br_widget_336","true","popMagic.init","list_end_run_read_top_boom","noopFunc","list_end_run_pds_notice_boom","list_end_run_comment_bottom_boom","list_end_run_center_boom","list_end_run_list_bottom_boom","height && 1 <= height && height <= 20","list_end_run","$.prototype.html","_boom","/\\/images\\/[A-z0-9-_]+\\.?(jpg|gif)/","tpl apply","tpl.[].c","ads.[-].eventTracking.ackImpressions.[].url","ads.[].adInfo.responseSize","propsToMatch","url:api.chzzk.naver.com/service/t/","adBreaks.[-].adSources.[].withRemindAd","videoAdScheduleId","getPowerLink","pandalive.co.kr/evt/","api-v2.adrop.io/request","layers.[-].metadata.name.{=}.POI_Ads","","url:/PCWeb_Real.json","[].data.poiRecommendations.recommendations.[].items.[-].adClickLog.clickUrl","commonTrailer","undefined","jQuery",".adsbygoogle","ad.smartmediarep.com/NetInsight/video/smr","length:300","coupangAd","[native code]","1000","data","data.getBannerAdExchange","popup_goods","powerLink","powerLink.ads","String.prototype.substring","/checkCookie.+main\\.do/","Math.uuid","asFunction","hashchange","#viewus-explore-more","jQuery.fn.getUrlParameter","adRecommend.adUnits.[]","window.__NEXT_DATA__.props.pageProps.initialState.post.adhistory","{}","piBlock","$is.powerLink.loadPowerLink","SbsHtml5PlayerContainer.prototype.renderAdSequence","data.BrandAd","jQuery.prototype.load","is_coupang","DOMContentLoaded","link.coupang.com","coupang_dont_show_prompty_interval","jQuery.prototype.on","pum_vars","placeholder","#webzineHeadmenuF1 input[placeholder][autocomplete=\"off\"]","pum_popups","data.supertopADNos","player.renderAdSequence","bannerpop.popup","open","/\\/popup\\//","input#searchMainKeyword","input#searchKeyword","api/avods/v1/advertisement","player.advertisement_finished","window.open","/gears/popup/default.aspx","notice_view_html.php","15000","input.search_input","asap stay","ads","$","/danawa-dpg-common-sponsorBanner-/","myScript[myScript.length - 1 ]","getAdcrUrl","random_imglink","vrixadsdk","hahaha","animationEffects[settings.animation.effect]","document.addEventListener","/adscale_slot_id/","/\\.displayMessage\\(/","adBlockDetected","ai_adb.init","ai_run_scripts","/^https.\\/\\/videoads\\.kakao\\.com\\/adserver\\/api\\/v[0-9]{1","2}\\/vmap$/","adsBlocked","imasdk.googleapis.com/js/sdkloader/ima3.js","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js","addc.dcinside.com","pageshow","/\\.persisted *&& *interval_Ad *&& *clearInterval\\( *interval_Ad *\\)/","emptyStr","blockedState","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js method:HEAD","getComputedStyle(t).getPropertyValue(\"visibility\")","adBlockedMessage","display","block","adblockChecker",".ad-banner.adsbox.ad-unit.ad-zone","checkAdBlock","www3.doubleclick.net","linkPass","load","_0x","adblockanalytics.com","adsbygoogle.js","adsbygoogle","chp_ads_blocker_detector","/compass.adop.cc|adsbygoogle/","HTMLAnchorElement.prototype.onclick","banner_book","blockCheck2022","alert","chk_adBlock","document.getElementById","adblock","$.prototype.fadeIn",".adsense-area","DHAntiAdBlocker","addEventListener","fuckadblock.min.js","#ad_center","ad.innerHTML.replace","checkAds","adManager.js","document[_0x","NAVER_ADPOST_V2"];
+const $scriptletArgs$ = /* 146 */ ["_ads_zum_main_initbanner_750_zum_main_br_widget_336","true","popMagic.init","list_end_run_read_top_boom","noopFunc","list_end_run_pds_notice_boom","list_end_run_comment_bottom_boom","list_end_run_center_boom","list_end_run_list_bottom_boom","height && 1 <= height && height <= 20","list_end_run","$.prototype.html","_boom","/\\/images\\/[A-z0-9-_]+\\.?(jpg|gif)/","tpl apply","tpl.[].c","ads.[-].eventTracking.ackImpressions.[].url","ads.[].adInfo.responseSize","propsToMatch","url:api.chzzk.naver.com/service/t/","adBreaks.[-].adSources.[].withRemindAd","videoAdScheduleId","getPowerLink","pandalive.co.kr/evt/","api-v2.adrop.io/request","layers.[-].metadata.name.{=}.POI_Ads","","url:/PCWeb_Real.json","[].data.poiRecommendations.recommendations.[].items.[-].adClickLog.clickUrl","commonTrailer","undefined","jQuery",".adsbygoogle","ad.smartmediarep.com/NetInsight/video/smr","length:300","coupangAd","[native code]","1000","data","data.getBannerAdExchange","popup_goods","powerLink","powerLink.ads","String.prototype.substring","/checkCookie.+main\\.do/","Math.uuid","asFunction","hashchange","#viewus-explore-more","jQuery.fn.getUrlParameter","adRecommend.adUnits.[]","window.__NEXT_DATA__.props.pageProps.initialState.post.adhistory","{}","piBlock","$is.powerLink.loadPowerLink","SbsHtml5PlayerContainer.prototype.renderAdSequence","data.BrandAd","jQuery.prototype.load","is_coupang","DOMContentLoaded","link.coupang.com","coupang_dont_show_prompty_interval","jQuery.prototype.on","pum_vars","placeholder","#webzineHeadmenuF1 input[placeholder][autocomplete=\"off\"]","pum_popups","data.supertopADNos","player.renderAdSequence","bannerpop.popup","open","/\\/popup\\//","input#searchMainKeyword","input#searchKeyword","api/avods/v1/advertisement","player.advertisement_finished","window.open","/gears/popup/default.aspx","notice_view_html.php","15000","input.search_input","asap stay","ads","$","/danawa-dpg-common-sponsorBanner-/","myScript[myScript.length - 1 ]","getAdcrUrl","random_imglink","vrixadsdk","hahaha","click","'opMagic","animationEffects[settings.animation.effect]","closeBtn.innerHTML","0.001","document.addEventListener","/adscale_slot_id/","/\\.displayMessage\\(/","adBlockDetected","ai_adb.init","ai_run_scripts","/^https.\\/\\/videoads\\.kakao\\.com\\/adserver\\/api\\/v[0-9]{1","2}\\/vmap$/","adsBlocked","imasdk.googleapis.com/js/sdkloader/ima3.js","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js","addc.dcinside.com","pageshow","/\\.persisted *&& *interval_Ad *&& *clearInterval\\( *interval_Ad *\\)/","emptyStr","blockedState","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js method:HEAD","getComputedStyle(t).getPropertyValue(\"visibility\")","adBlockedMessage","display","block","adblockChecker",".ad-banner.adsbox.ad-unit.ad-zone","checkAdBlock","www3.doubleclick.net","linkPass","load","_0x","adblockanalytics.com","adsbygoogle.js","adsbygoogle","chp_ads_blocker_detector","/compass.adop.cc|adsbygoogle/","HTMLAnchorElement.prototype.onclick","banner_book","blockCheck2022","alert","chk_adBlock","document.getElementById","adblock","$.prototype.fadeIn",".adsense-area","DHAntiAdBlocker","addEventListener","fuckadblock.min.js","#ad_center","ad.innerHTML.replace","checkAds","adManager.js","document[_0x","NAVER_ADPOST_V2"];
 
-const $scriptletArglists$ = /* 112 */ "0,0,1;1,2;0,3,4;0,5,4;0,6,4;0,7,4;0,8,4;2,9;0,10,4;3,11,12;1,11,13;4,14,15;5,16,17,18,19;5,20,21,18,19;0,22,4;6,23;7,24;5,25,26,18,27;4,28;0,29,30;1,31,32;7,33,34;2,35;8,36,37;4,38,39;2,40;4,41,42;3,43,44;0,45,26,26,46;9,47,48;0,49,26,46;4,50;0,51,52;2,53;0,54,4;0,55,4;4,56;1,57,58;9,59,60;1,31,60;1,31,61;1,62,58;0,63,30;10,64,65;11,66;4,67;0,68,30;0,69,4;1,70,71;10,64,72;10,64,73;1,69;7,74;0,75,1;1,76,77;1,76,78;2,26,79;10,64,80,81;4,82;1,83,84;1,83,85;0,86,26;0,87,4;0,88,30;0,89,4;8,90;1,91,92;2,93;11,94;1,95;1,96;7,97,98;12,97,98;0,99,4;7,100;12,100;7,101;12,101;2,102;9,103,104;7,102,105;0,106,26;12,107,105;2,108;2,109;13,32,110,111;0,112,4;13,113,110,111;0,114,30;12,115;0,116,1;9,117,118;12,119;12,120;7,121;1,122;7,123,105;14,124;2,125;2,126;3,127,128;1,129,130;11,131;1,83,132;0,133,1;1,134,135;1,83,136;2,137;0,138,4;12,139;2,140;0,141,4";
+const $scriptletArglists$ = /* 114 */ "0,0,1;1,2;0,3,4;0,5,4;0,6,4;0,7,4;0,8,4;2,9;0,10,4;3,11,12;1,11,13;4,14,15;5,16,17,18,19;5,20,21,18,19;0,22,4;6,23;7,24;5,25,26,18,27;4,28;0,29,30;1,31,32;7,33,34;2,35;8,36,37;4,38,39;2,40;4,41,42;3,43,44;0,45,26,26,46;9,47,48;0,49,26,46;4,50;0,51,52;2,53;0,54,4;0,55,4;4,56;1,57,58;9,59,60;1,31,60;1,31,61;1,62,58;0,63,30;10,64,65;11,66;4,67;0,68,30;0,69,4;1,70,71;10,64,72;10,64,73;1,69;7,74;0,75,1;1,76,77;1,76,78;2,26,79;10,64,80,81;4,82;1,83,84;1,83,85;0,86,26;0,87,4;0,88,30;0,89,4;9,90,91;8,92;12,93,26,94;1,95,96;2,97;11,98;1,99;1,100;7,101,102;13,101,102;0,103,4;7,104;13,104;7,105;13,105;2,106;9,107,108;7,106,109;0,110,26;13,111,109;2,112;2,113;14,32,114,115;0,116,4;14,117,114,115;0,118,30;13,119;0,120,1;9,121,122;13,123;13,124;7,125;1,126;7,127,109;15,128;2,129;2,130;3,131,132;1,133,134;11,135;1,83,136;0,137,1;1,138,139;1,83,140;2,141;0,142,4;13,143;2,144;0,145,4";
 
-const $scriptletArglistRefs$ = /* 136 */ "66;15;0;29;109;63;73;57;68;29;65;54;14,45;70;20,64;61;48;76;35,46;104;68;95;23,52;51;16;55;39;42;95,96,97;47;70;28;43;41;37;69;66,85;101;66,67,68,108;66;67;82;91;62;66;110;110;110;110;110;110;110;110;110;110;38;89;66;108;98;71,72;53;66;89;41;11;17;41;83;66;59,60;89;100;56;78,79,80;21;74,75,76,77;107;25;111;12,13;33;24;42;67;49,50;2,3,4,5,6,7,8,9,10;30;83;87;41;40;41;66;33;71,72;84;83;19;33;37;41;42;38;90;66;81;92,93;32;18;41;33;71,72;26;102;41;105;99;44;103;88;66;22;18;58;1;27;40;34;41;86;94;68;36;31;106";
+const $scriptletArglistRefs$ = /* 136 */ "68;15;0;29;111;63;75;57;70;29;66;54;14,45;72;20,64;61;48;78;35,46;106;70;97;23,52;51;16;55;39;42;97,98,99;47;72;28;43;41;37;71;68,87;103;68,69,70,110;68;69;84;93;62;68;112;112;112;112;112;112;112;112;112;112;38;91;68;110;100;73,74;53;68;91;41;11;17;41;85;68;59,60;91;102;56;80,81,82;21;76,77,78,79;109;25;113;12,13;33;24;42;69;49,50;2,3,4,5,6,7,8,9,10;30;85;89;41;40;41;68;33;73,74;86;85;19;33;37;41;42;38;92;68;83;94,95;32;18;41;33;73,74;26;104;41;107;101;44;105;90;68;22;18;58;1;27;40;34;41;88;96;70;36;31;108";
 
 const $scriptletHostnames$ = /* 136 */ ["asdn.kr","heye.kr","zum.com","dfast.kr","hasha.in","imbc.com","meeco.kr","pping.kr","te31.com","youtu.co","zzzz.lol","cfnews.kr","enuri.com","jootc.com","kilho.net","naver.com","nesin.com","noonnu.cc","sbs.co.kr","sogirl.so","x86.co.kr","deokhu.com","laftel.net","mjmedi.com","newneek.co","sjtoday.kr","yachuk.com","333aaa.site","3dpchip.com","domin.co.kr","ehpub.co.kr","hub.zum.com","inven.co.kr","keela.co.kr","newsn24.com","plankim.com","remiz.co.kr","ssulwar.com","tistory.com","untitle.org","zuzunza.com","chzzkban.xyz","klauncher.kr","koreapas.com","love.asdn.kr","lover932.net","lover933.net","lover934.net","lover935.net","lover936.net","lover937.net","lover938.net","lover939.net","lover940.net","lover941.net","momkim.co.kr","namechart.kr","poketory.com","sajuplus.net","sysnet.pe.kr","tv.kakao.com","tvchosun.com","withukor.com","blackkiwi.net","jiwootube.com","m.fmkorea.com","map.naver.com","skysky138.com","tv.jtbc.co.kr","bikesell.co.kr","dpg.danawa.com","eftlibrary.com","errornight.com","filetender.com","m.dcinside.com","mplay.mk.co.kr","spotvnow.co.kr","stockinfo7.com","10000recipe.com","auto.danawa.com","chzzk.naver.com","digitstar77.com","doctornow.co.kr","fun-iyagi.co.kr","iphonedev.co.kr","kyobobook.co.kr","m.humoruniv.com","mememedia.co.kr","mvod.jtbc.co.kr","news.jtbc.co.kr","picknpicker.com","aannm.cafe24.com","actingbaum.co.kr","healthfeed.co.kr","itinformation.kr","kakaotv.daum.net","mylocation.co.kr","onair.jtbc.co.kr","platformgreat.kr","postincome.co.kr","smartinpress.com","sotrychatter.com","timecoffee.co.kr","whathappen.co.kr","dinfo.3dpchip.com","enjoytaiwan.co.kr","gall.dcinside.com","hub.weirdhost.xyz","humors.zigcou.com","m.place.naver.com","moneyissues.co.kr","moneytoring.co.kr","play-tv.kakao.com","search.11st.co.kr","detegice.github.io","news.ssongyi.co.kr","focuskr.tistory.com","genshin.gamedot.org","hashnews.cafe24.com","ilsangt.tistory.com","minipol.tistory.com","seo-marketing.co.kr","enjoyplan.tistory.com","pcmap.place.naver.com","shoppinghow.kakao.com","watchfreejavonline.co","www.cultureland.co.kr","beomil09121.cafe24.com","shopping.interpark.com","xn--wh1b751afvcpsb.com","checkwhoiam.tistory.com","luckyquiz3.blogspot.com","1004lucifer.blogspot.com","search.shopping.naver.com","msearch.shopping.naver.com","singingdalong.blogspot.com"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 1 */ ["lover","lover[0-9]\\.net","65,67"];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = true;
 
 /******************************************************************************/
 
@@ -2038,11 +2069,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -2050,6 +2079,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

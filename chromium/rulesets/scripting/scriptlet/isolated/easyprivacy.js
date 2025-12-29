@@ -767,8 +767,11 @@ const $scriptletArglistRefs$ = /* 148 */ "4;4;4;7;2;9;6;9;4;4;4;3;4;4;4;4;4;4;4;
 
 const $scriptletHostnames$ = /* 148 */ ["al.com","nj.com","cbr.com","abema.tv","usaa.com","coomer.st","fedex.com","kemono.cr","mlive.com","predic.ro","nordot.app","nypost.com","realgm.com","silive.com","tvline.com","artnews.com","awkward.com","blogher.com","cattime.com","cbsnews.com","decider.com","dogtime.com","hotcars.com","kion546.com","pagesix.com","samchui.com","sherdog.com","visible.com","allmovie.com","allmusic.com","antyradio.pl","artforum.com","baeldung.com","collider.com","crafty.house","faithhub.net","gamerant.com","gulflive.com","helloflo.com","madewell.com","masslive.com","movieweb.com","observer.com","pennlive.com","phileweb.com","qtoptens.com","sheknows.com","sidereel.com","syracuse.com","thegamer.com","topspeed.com","tutsnode.org","247sports.com","abc17news.com","bethcakes.com","briefeguru.de","cbssports.com","cleveland.com","fsm-media.com","howtogeek.com","indiewire.com","makeuseof.com","melangery.com","modernmom.com","momtastic.com","nsjonline.com","puckermom.com","pwinsider.com","spacenews.com","thethings.com","timesnews.net","awkwardmom.com","cheatsheet.com","comingsoon.net","dailyvoice.com","femestella.com","localnews8.com","oregonlive.com","robbreport.com","sandrarose.com","screenrant.com","thenerdyme.com","agrodigital.com","bluegraygal.com","freeconvert.com","givemesport.com","mensjournal.com","adoredbyalex.com","dualshockers.com","footwearnews.com","jasminemaria.com","lizzieinlace.com","lonestarlive.com","madeeveryday.com","mardomreport.net","mostlymorgan.com","oakvillenews.org","simpleflying.com","androidpolice.com","carmagazine.co.uk","chaptercheats.com","dustyoldthing.com","funtasticlife.com","fwmadebycarli.com","lettyskitchen.com","motherwellmag.com","musicfeeds.com.au","superherohype.com","tablelifeblog.com","thecelticblog.com","toyotaklub.org.pl","allaboutthetea.com","gfinityesports.com","homeglowdesign.com","insider-gaming.com","lifeinleggings.com","liveandletsfly.com","nationalreview.com","pinkonthecheek.com","ssnewstelegram.com","thefashionspot.com","aliontherunblog.com","didyouknowfacts.com","honeygirlsworld.com","milestomemories.com","royalmailchat.co.uk","sloughexpress.co.uk","allthingsthrifty.com","bailiwickexpress.com","becomingpeculiar.com","insurancejournal.com","lehighvalleylive.com","spotofteadesigns.com","thebeautysection.com","theprudentgarden.com","barnsleychronicle.com","competentedigitale.ro","travelingformiles.com","commercialobserver.com","amessagewithabottle.com","nothingbutnewcastle.com","thecurvyfashionista.com","stacysrandomthoughts.com","muddybootsanddiamonds.com","sportsgamblingpodcast.com","thenonconsumeradvocate.com","maidenhead-advertiser.co.uk","frogsandsnailsandpuppydogtail.com"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -855,11 +858,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -867,6 +868,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

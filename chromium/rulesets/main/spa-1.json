@@ -707,6 +707,7 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||ads.clubedohardware.com.br/"},"id":706,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||universoformulas.com/js/adsbygoogle.js"},"id":707,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||olympusbiblioteca.com/third-parties.js"},"id":708,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["anitube.news"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||drpc.org^"},"id":709,"priority":10},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||nmn900.com/js/adsbygoogle.js"},"id":710,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||eestatic.com/assets_js/dyn/adsiframe.js"},"id":711,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||elconfidencial.com/javascript/v*/class/requiremodules/ads/adsbygoogle.js"},"id":712,"priority":30},

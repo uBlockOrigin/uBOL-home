@@ -308,8 +308,11 @@ const $scriptletArglistRefs$ = /* 37 */ "0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
 
 const $scriptletHostnames$ = /* 37 */ ["g.cz","e15.cz","auto.cz","dama.cz","kupi.cz","zeny.cz","zive.cz","arome.cz","blesk.cz","cnews.cz","extra.cz","idnes.cz","onetv.cz","super.cz","abicko.cz","expres.cz","fights.cz","iprima.cz","reflex.cz","emimino.cz","kinobox.cz","lidovky.cz","maminka.cz","novinky.cz","tiscali.cz","aktualne.cz","labuznik.cz","vitalion.cz","ahaonline.cz","autorevue.cz","osobnosti.cz","modnipeklo.cz","mojezdravi.cz","nasepenize.cz","spisovatele.cz","karaoketexty.cz","mojecelebrity.cz"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -396,11 +399,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -408,6 +409,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

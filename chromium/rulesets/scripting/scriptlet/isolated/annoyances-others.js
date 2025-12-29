@@ -42,6 +42,12 @@ function getCookieFn(
     }
 }
 
+function getRandomTokenFn() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+}
+
 function getSafeCookieValuesFn() {
     return [
         'accept', 'reject',
@@ -202,6 +208,116 @@ function removeCookie(
             throttle(remove);
         }, { passive: true });
     }
+}
+
+function removeNodeText(
+    nodeName,
+    includes,
+    ...extraArgs
+) {
+    replaceNodeTextFn(nodeName, '', '', 'includes', includes || '', ...extraArgs);
+}
+
+function replaceNodeTextFn(
+    nodeName = '',
+    pattern = '',
+    replacement = ''
+) {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('replace-node-text.fn', ...Array.from(arguments));
+    const reNodeName = safe.patternToRegex(nodeName, 'i', true);
+    const rePattern = safe.patternToRegex(pattern, 'gms');
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const reIncludes = extraArgs.includes || extraArgs.condition
+        ? safe.patternToRegex(extraArgs.includes || extraArgs.condition, 'ms')
+        : null;
+    const reExcludes = extraArgs.excludes
+        ? safe.patternToRegex(extraArgs.excludes, 'ms')
+        : null;
+    const stop = (takeRecord = true) => {
+        if ( takeRecord ) {
+            handleMutations(observer.takeRecords());
+        }
+        observer.disconnect();
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, 'Quitting');
+        }
+    };
+    const textContentFactory = (( ) => {
+        const out = { createScript: s => s };
+        const { trustedTypes: tt } = self;
+        if ( tt instanceof Object ) {
+            if ( typeof tt.getPropertyType === 'function' ) {
+                if ( tt.getPropertyType('script', 'textContent') === 'TrustedScript' ) {
+                    return tt.createPolicy(getRandomTokenFn(), out);
+                }
+            }
+        }
+        return out;
+    })();
+    let sedCount = extraArgs.sedCount || 0;
+    const handleNode = node => {
+        const before = node.textContent;
+        if ( reIncludes ) {
+            reIncludes.lastIndex = 0;
+            if ( safe.RegExp_test.call(reIncludes, before) === false ) { return true; }
+        }
+        if ( reExcludes ) {
+            reExcludes.lastIndex = 0;
+            if ( safe.RegExp_test.call(reExcludes, before) ) { return true; }
+        }
+        rePattern.lastIndex = 0;
+        if ( safe.RegExp_test.call(rePattern, before) === false ) { return true; }
+        rePattern.lastIndex = 0;
+        const after = pattern !== ''
+            ? before.replace(rePattern, replacement)
+            : replacement;
+        node.textContent = node.nodeName === 'SCRIPT'
+            ? textContentFactory.createScript(after)
+            : after;
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `Text before:\n${before.trim()}`);
+        }
+        safe.uboLog(logPrefix, `Text after:\n${after.trim()}`);
+        return sedCount === 0 || (sedCount -= 1) !== 0;
+    };
+    const handleMutations = mutations => {
+        for ( const mutation of mutations ) {
+            for ( const node of mutation.addedNodes ) {
+                if ( reNodeName.test(node.nodeName) === false ) { continue; }
+                if ( handleNode(node) ) { continue; }
+                stop(false); return;
+            }
+        }
+    };
+    const observer = new MutationObserver(handleMutations);
+    observer.observe(document, { childList: true, subtree: true });
+    if ( document.documentElement ) {
+        const treeWalker = document.createTreeWalker(
+            document.documentElement,
+            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT
+        );
+        let count = 0;
+        for (;;) {
+            const node = treeWalker.nextNode();
+            count += 1;
+            if ( node === null ) { break; }
+            if ( reNodeName.test(node.nodeName) === false ) { continue; }
+            if ( node === document.currentScript ) { continue; }
+            if ( handleNode(node) ) { continue; }
+            stop(); break;
+        }
+        safe.uboLog(logPrefix, `${count} nodes present before installing mutation observer`);
+    }
+    if ( extraArgs.stay ) { return; }
+    runAt(( ) => {
+        const quitAfter = extraArgs.quitAfter || 0;
+        if ( quitAfter !== 0 ) {
+            setTimeout(( ) => { stop(); }, quitAfter);
+        } else {
+            stop();
+        }
+    }, 'interactive');
 }
 
 function runAt(fn, when) {
@@ -617,19 +733,22 @@ function setSessionStorageItem(key = '', value = '') {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 5 */
-[setSessionStorageItem,removeCookie,setLocalStorageItem,setCookie,removeClass];
+const $scriptletFunctions$ = /* 6 */
+[setSessionStorageItem,removeCookie,setLocalStorageItem,setCookie,removeClass,removeNodeText];
 
-const $scriptletArgs$ = /* 84 */ ["sem30_popup_shown","1","br_mc","articlesRead","gatedSignupTimerCounter","$remove$","_zippia-popup-s_t","tce","when","scroll","gu.history.weeklyArticleCount","gu.history.dailyArticleCount","registration_modal_dismissed","true","statistics-appOpenedCount","vox_article_readcount","vox_article_readcount_count","total_page_views","2","oon-scroll-lock","body","stay","history","wp_dark_mode_active","perm_cnn_regwall_v1","REG_WALL_METER","ArcP","arc","current-pageviews","product-previews","kiosq_article_reset","kiosq_article_url_ack","tpm_article_views","tpm_page_views","apv","false","js-no-scroll","html","patreonAnnouncementShown","blocked","mfp-popup-exit-quiz-v2","","signUpBannerDismissed","shouldShowAuthBannerAfterQuery","dismissedUpgradePrompt","__tp-gaAccount","disabled","newYeradlariWebsiteHidden","stream","dn_alert_homescreen_closed","dn_donation_count","sbj_archiveStatus","arts","campaign_seen_today","countChapterNum","stickyBanner","issuem_lp","ArticlePaywallList","hasVisitedBefore","pum_popup_14631_page_views","xbc","/^tncms:meter:/","oai/apps/noAuthHasDismissedSoftRateLimitModal","meter_haystack","lifetime_page_view_count","page_view_count","Drupal_visitor_paywall","client_id","premium_popup","AAJPaywall","modalViewed","mode-quills","MAID","csm_unique_stories","LMT_freeUserUsageBlock","onboardingData","HideDonationLightbox","styles_stuck__gtILi","sticky","jw-flag-floating","powa-sticky","video__docker_state_docked","floating","inc_optin_never_see_again-popup-1"];
+const $scriptletArgs$ = /* 86 */ ["sem30_popup_shown","1","br_mc","articlesRead","gatedSignupTimerCounter","$remove$","_zippia-popup-s_t","tce","when","scroll","gu.history.weeklyArticleCount","gu.history.dailyArticleCount","registration_modal_dismissed","true","statistics-appOpenedCount","vox_article_readcount","vox_article_readcount_count","total_page_views","2","oon-scroll-lock","body","stay","history","wp_dark_mode_active","perm_cnn_regwall_v1","REG_WALL_METER","ArcP","arc","current-pageviews","product-previews","kiosq_article_reset","kiosq_article_url_ack","tpm_article_views","tpm_page_views","apv","false","js-no-scroll","html","patreonAnnouncementShown","blocked","mfp-popup-exit-quiz-v2","","signUpBannerDismissed","shouldShowAuthBannerAfterQuery","dismissedUpgradePrompt","__tp-gaAccount","disabled","newYeradlariWebsiteHidden","stream","dn_alert_homescreen_closed","dn_donation_count","sbj_archiveStatus","arts","campaign_seen_today","countChapterNum","stickyBanner","issuem_lp","ArticlePaywallList","hasVisitedBefore","pum_popup_14631_page_views","xbc","/^tncms:meter:/","oai/apps/noAuthHasDismissedSoftRateLimitModal","meter_haystack","lifetime_page_view_count","page_view_count","Drupal_visitor_paywall","client_id","premium_popup","AAJPaywall","modalViewed","script","userData_","mode-quills","MAID","csm_unique_stories","LMT_freeUserUsageBlock","onboardingData","HideDonationLightbox","styles_stuck__gtILi","sticky","jw-flag-floating","powa-sticky","video__docker_state_docked","floating","inc_optin_never_see_again-popup-1"];
 
-const $scriptletArglists$ = /* 72 */ "0,0,1;1,2;1,3;2,4,5;1,6;1,7,8,9;2,10,5;2,11,5;3,12,13;2,14,1;2,15,5;2,16,5;2,17,18;4,19,20,21;2,22,5;2,23,1;2,24,5;2,25,5;2,26,5;1,27;1,28;1,29;2,30,5;2,31,5;1,32;1,33;3,34,35;4,36,37,21;3,38,13;4,39,20,21;4,40,41,21;0,42,13;0,43,35;2,44,13;2,45,46;2,47,13;0,48,13;3,49,1;3,50,1;1,51;1,52;3,53,13;2,54,5;4,55,41,21;1,56;1,57;2,58,13;3,59,1;1,60;1,61;0,62,13;1,63;1,64;1,65;1,66;1,67;3,68,1;1,69;0,70,13;2,71,5;1,72;2,73,5;2,74,5;2,75,5;3,76,1;4,77,41,21;4,78,41,21;4,79,41,21;4,80,41,21;4,81,41,21;4,82,41,21;3,83,1";
+const $scriptletArglists$ = /* 73 */ "0,0,1;1,2;1,3;2,4,5;1,6;1,7,8,9;2,10,5;2,11,5;3,12,13;2,14,1;2,15,5;2,16,5;2,17,18;4,19,20,21;2,22,5;2,23,1;2,24,5;2,25,5;2,26,5;1,27;1,28;1,29;2,30,5;2,31,5;1,32;1,33;3,34,35;4,36,37,21;3,38,13;4,39,20,21;4,40,41,21;0,42,13;0,43,35;2,44,13;2,45,46;2,47,13;0,48,13;3,49,1;3,50,1;1,51;1,52;3,53,13;2,54,5;4,55,41,21;1,56;1,57;2,58,13;3,59,1;1,60;1,61;0,62,13;1,63;1,64;1,65;1,66;1,67;3,68,1;1,69;0,70,13;5,71,72;2,73,5;1,74;2,75,5;2,76,5;2,77,5;3,78,1;4,79,41,21;4,80,41,21;4,81,41,21;4,82,41,21;4,83,41,21;4,84,41,21;3,85,1";
 
-const $scriptletArglistRefs$ = /* 89 */ "48;2;16,17;9;10,11;71;68;68;69;69;62,63;19;13;65;48;64;45;43;20,21;56;3,4;70;50;29;65;42;48;18;60;0;8;49;49;22,23;48;2;37,38;2;36;2;48;59;2;33;14;61;2;46;52,53;18;2;30;31,32;2;12;49;2;67;5;26;2;40;48;47;27;55;6,7;41;2;34;44;2;66,67;48;49;1;28;35;2;15;51;49;24,25;54;49;48;58;39;57";
+const $scriptletArglistRefs$ = /* 90 */ "48;2;16,17;9;10,11;72;69;69;70;70;63,64;19;13;66;48;65;45;43;20,21;56;3,4;71;50;29;66;42;48;18;61;0;8;49;49;22,23;48;2;37,38;2;36;2;48;60;2;33;14;62;2;46;52,53;18;2;30;31,32;2;12;49;2;68;5;26;2;40;48;47;27;55;6,7;41;2;34;59;44;2;67,68;48;49;1;28;35;2;15;51;49;24,25;54;49;48;58;39;57";
 
-const $scriptletHostnames$ = /* 89 */ ["bbc.com","cbr.com","cnn.com","r34.app","vox.com","branc.jp","kbtx.com","kptv.com","wfaa.com","wkyc.com","deepl.com","nautil.us","on.orf.at","today.com","nypost.com","oceana.org","plough.com","redfin.com","rtings.com","rumble.com","zippia.com","cbsnews.com","chatgpt.com","inquinte.ca","nbcnews.com","pawread.com","politico.eu","reuters.com","science.org","semrush.com","thebump.com","thespec.com","thestar.com","theweek.com","climbing.com","collider.com","dutchnews.nl","gamerant.com","infowars.com","movieweb.com","politico.com","quillbot.com","thegamer.com","uploadvr.com","bloomberg.com","csmonitor.com","howtogeek.com","inscribed.app","investing.com","irishnews.com","makeuseof.com","neilpatel.com","perplexity.ai","pocketnow.com","thejournal.ie","therecord.com","thetravel.com","allrecipes.com","lawinsider.com","nzherald.co.nz","screenrant.com","techinasia.com","triathlete.com","firstthings.com","opensecrets.org","startribune.com","theguardian.com","democracynow.org","dualshockers.com","seekingalpha.com","theolivepress.es","androidpolice.com","independent.co.uk","themonthly.com.au","wellandtribune.ca","bestrecipes.com.au","gmap-pedometer.com","nisanyansozluk.com","xda-developers.com","dailynewshungary.com","hartfordbusiness.com","niagarafallsreview.ca","talkingpointsmemo.com","commonwealmagazine.org","stcatharinesstandard.ca","thesaturdaypaper.com.au","fantasyfootballhub.co.uk","sportsbusinessjournal.com","americanaffairsjournal.org"];
+const $scriptletHostnames$ = /* 90 */ ["bbc.com","cbr.com","cnn.com","r34.app","vox.com","branc.jp","kbtx.com","kptv.com","wfaa.com","wkyc.com","deepl.com","nautil.us","on.orf.at","today.com","nypost.com","oceana.org","plough.com","redfin.com","rtings.com","rumble.com","zippia.com","cbsnews.com","chatgpt.com","inquinte.ca","nbcnews.com","pawread.com","politico.eu","reuters.com","science.org","semrush.com","thebump.com","thespec.com","thestar.com","theweek.com","climbing.com","collider.com","dutchnews.nl","gamerant.com","infowars.com","movieweb.com","politico.com","quillbot.com","thegamer.com","uploadvr.com","bloomberg.com","csmonitor.com","howtogeek.com","inscribed.app","investing.com","irishnews.com","makeuseof.com","neilpatel.com","perplexity.ai","pocketnow.com","thejournal.ie","therecord.com","thetravel.com","allrecipes.com","lawinsider.com","nzherald.co.nz","screenrant.com","techinasia.com","triathlete.com","firstthings.com","opensecrets.org","startribune.com","theguardian.com","democracynow.org","dualshockers.com","seekingalpha.com","theintercept.com","theolivepress.es","androidpolice.com","independent.co.uk","themonthly.com.au","wellandtribune.ca","bestrecipes.com.au","gmap-pedometer.com","nisanyansozluk.com","xda-developers.com","dailynewshungary.com","hartfordbusiness.com","niagarafallsreview.ca","talkingpointsmemo.com","commonwealmagazine.org","stcatharinesstandard.ca","thesaturdaypaper.com.au","fantasyfootballhub.co.uk","sportsbusinessjournal.com","americanaffairsjournal.org"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -716,11 +835,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -728,6 +845,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

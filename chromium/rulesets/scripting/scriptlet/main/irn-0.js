@@ -1779,8 +1779,11 @@ const $scriptletArglistRefs$ = /* 106 */ "9;19;19;19;22;37;70;58;2,3,4;1;46;88;8
 
 const $scriptletHostnames$ = /* 106 */ ["ac.ir","1da.ir","1ea.ir","2ad.ir","fam.ir","iwo.ir","tmk.ir","xip.li","anaj.ir","blog.ir","lenz.ir","oila.tj","up44.ir","bizma.ir","mopon.ir","opizo.me","rebec.ir","farnet.io","my.mci.ir","subf2m.ir","tabnak.ir","vakil.net","yeknet.ir","alaatv.com","fidibo.com","filmnet.ir","jeyran.net","karbord.io","musichi.ir","noorlib.ir","pwa.mci.ir","sclinic.ir","subkade.ir","tak3da.com","themez.top","tinroid.ir","uptrack.ir","uupload.ir","appiroid.ir","binanews.ir","fontyab.com","jafekri.com","msbmusic.ir","musicdel.ir","musictag.ir","takmili.com","tamasha.com","targoman.ir","zeemusic.ir","animelist.tv","fileboro.com","iranstar.com","itarfand.com","jobvision.ir","khabarpu.com","najiremix.ir","naslmusic.ir","netgasht.com","saednews.com","texahang.org","artmusics.top","barcanews.org","behtaraneh.ir","coffeeapps.ir","elmefarda.com","getandroid.ir","gold-team.org","likeemusic.ir","musiceman.net","musicpars3.ir","myhastidl.cam","nab-music.com","p30konkor.com","searchline.ir","takhfifan.com","tarfandha.org","app.snapp.taxi","autosafkar.com","bandmoviez.one","dailymobile.ir","downloadha.com","iran-music.com","ketabesabz.com","lahzeakhar.com","musickhone.com","play.namava.ir","power-music.ir","s-moshaver.com","shahanmusic.ir","skyroom.online","tabanmusic.com","tigatravel.com","androidparsi.ir","androidtime.com","app.blubank.com","ganjipakhsh.com","musicguitars.ir","mybia4music.com","salamatnews.com","uploadgoogle.ir","androidgozar.com","javan-musics.com","hamisheonline.com","anesthesianotes.ir","play.radiojavan.com","player.telewebion.com"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1867,11 +1870,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1879,6 +1880,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

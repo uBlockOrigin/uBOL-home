@@ -1358,8 +1358,11 @@ const $scriptletArglistRefs$ = /* 117 */ "38,39;0;38,39;38,39;2;2;38,39;5;38,39;
 
 const $scriptletHostnames$ = /* 117 */ ["g.cz","cc.cz","e15.cz","auto.cz","csfd.cz","csfd.sk","dama.cz","ewrc.cz","kupi.cz","root.cz","zeny.cz","zive.cz","arome.cz","blesk.cz","cnews.cz","drbna.cz","extra.cz","fzone.cz","hokej.cz","idnes.cz","kurzy.cz","libli.tv","magio.tv","onetv.cz","sauto.cz","super.cz","abicko.cz","expres.cz","fdrive.cz","fights.cz","impuls.cz","iprima.cz","reflex.cz","seznam.cz","stream.cz","tv.htn.cz","tv.nuo.sk","ctrlv.link","emimino.cz","kinobox.cz","lidovky.cz","maminka.cz","markiza.sk","nerdfix.cz","novinky.cz","tiscali.cz","tn.nova.cz","aktualne.cz","itv.satt.cz","jon.4net.tv","labuznik.cz","onlajny.com","rychlost.cz","rychlost.sk","sprintel.tv","sreality.cz","titulky.com","tv.e-max.sk","tv.tv2go.eu","tvnoviny.sk","vitalion.cz","zdopravy.cz","ahaonline.cz","autorevue.cz","chip.4net.tv","indian-tv.cz","live.4net.tv","live.rete.cz","media.joj.sk","mobilenet.cz","osobnosti.cz","tv.itcity.sk","tv.sauron.cz","warforum.xyz","modnipeklo.cz","mojezdravi.cz","nasepenize.cz","pegas.4net.tv","prime.4net.tv","tv.giganet.sk","tv.maxicom.cz","tv.selfnet.cz","winet.4net.tv","zona.telly.cz","live.chiptv.cz","pamico.4net.tv","spisovatele.cz","tv.rainside.sk","karaoketexty.cz","live.kabelko.sk","live.martico.sk","live.metrotv.sk","martico.4net.tv","online.pecka.tv","seznamzpravy.cz","svetandroida.cz","tv.tes-media.sk","doubrava.4net.tv","games.tiscali.cz","live-new.4net.tv","live.rapidnet.tv","mojecelebrity.cz","profinet.4net.tv","rapidnet.4net.tv","live-rete.4net.tv","live.swan.4net.tv","prestonet.4net.tv","live.artos.4net.tv","navratdoreality.cz","podcasty.seznam.cz","tv.nejpripojeni.cz","muj.internethned.cz","parlamentnilisty.cz","media.cms.markiza.sk","sleduj.interaktivni.tv","tvadmin.pamico-czech.cz","gemnet.4net.tvhtn.4net.tv"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1446,11 +1449,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1458,6 +1459,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

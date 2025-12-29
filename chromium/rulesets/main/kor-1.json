@@ -907,7 +907,7 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/googletagservices_gpt.js"},"type":"redirect"},"condition":{"resourceTypes":["script"],"urlFilter":"||googletagservices.com/tag/js/gpt.js"},"id":906,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/googletagservices_gpt.js"},"type":"redirect"},"condition":{"resourceTypes":["script"],"urlFilter":"||securepubads.g.doubleclick.net/tag/js/gpt.js"},"id":907,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||advod.sbs.co.kr/sbsad/"},"id":908,"priority":11},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cp"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||newspic.kr^"},"id":909,"priority":2},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cp"]}}},"type":"redirect"},"condition":{"requestDomains":["newspic.kr"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^cp="},"id":909},
 {"action":{"type":"block"},"condition":{"urlFilter":"||news.sbs.co.kr/js/news-player/player.adinfourllist.js"},"id":910,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||11st.co.kr/js/ver/*/powerlink.js"},"id":911,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["aniplustv.com"],"urlFilter":"||api.aniplustv.com:3100/geoip"},"id":912,"priority":10},
@@ -937,5 +937,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||contents.kyobobook.co.kr/advrcntr/imac/creatives/"},"id":936,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mapleland.gg/img/latal"},"id":937,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||web.joongna.com/main-web/_next/static/chunks/productadsblock"},"id":938,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||common.joongna.com/static/json/exclude-adsense.json"},"id":939,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||common.joongna.com/static/json/exclude-adsense.json"},"id":939,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||img.tvchosun.com/news/article/content_ad.js"},"id":940,"priority":10}
 ]

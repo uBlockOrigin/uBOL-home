@@ -1204,8 +1204,11 @@ const $scriptletArglistRefs$ = /* 130 */ "0,1;3;0,1;3;9;3;3;0,1;0,1;3;3;0,1;0,1;
 
 const $scriptletHostnames$ = /* 130 */ ["x.com","cbr.com","dnb.com","ijr.com","mwed.jp","wnd.com","cwtv.com","espn.com","kkrt.com","money.it","omg.blog","uber.com","usaa.com","wral.com","chime.com","delta.com","dnb.co.uk","freep.com","qobuz.com","tidal.com","twitch.tv","vimeo.com","yahoo.com","apnews.com","boston.com","costco.com","deezer.com","hopwtr.com","norton.com","nypost.com","ranker.com","rivals.com","subway.com","bolighub.dk","capezio.com","cattime.com","dogtime.com","gbatemp.net","geizhals.de","nbcnews.com","neopets.com","pandora.com","porsche.com","reuters.com","sporcle.com","spotify.com","titantv.com","twitter.com","visible.com","weather.com","audizine.com","collider.com","engadget.com","formula1.com","gamerant.com","grabify.link","hemmings.com","inquirer.net","jdsports.com","madewell.com","mazdausa.com","movieweb.com","nicovideo.jp","sidereel.com","thegamer.com","tirerack.com","topspeed.com","ubereats.com","usatoday.com","247sports.com","fresnobee.com","hancinema.net","howtogeek.com","magesypro.pro","makeuseof.com","newyorker.com","pwinsider.com","savvytime.com","thelayoff.com","cheatsheet.com","comingsoon.net","eventbrite.com","golfdigest.com","milesplit.live","screenrant.com","siliconera.com","soundcloud.com","techcrunch.com","ticketmaster.*","twinfinite.net","videogamer.com","accuweather.com","acmemarkets.com","arstechnica.com","crunchyroll.com","flyfrontier.com","mensjournal.com","order-order.com","payment.nba.com","techlicious.com","technicpack.net","wrestlezone.com","esportstales.com","knowyourmeme.com","lenscrafters.com","motorbiscuit.com","ncbi.nlm.nih.gov","nofilmschool.com","simpleflying.com","thenerdstash.com","wrestlinginc.com","wunderground.com","androidpolice.com","dollargeneral.com","harborfreight.com","monsterenergy.com","bringmethenews.com","insider-gaming.com","nationalreview.com","thefashionspot.com","xda-developers.com","blackenterprise.com","forums.hfboards.com","stealthoptional.com","thedraftnetwork.com","informazionefiscale.it","gladiatorgarageworks.com","livewithkellyandmark.com","playstationlifestyle.net","worldpopulationreview.com"];
 
+const $scriptletFromRegexes$ = /* 0 */ [];
+
 const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1292,11 +1295,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1304,6 +1305,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

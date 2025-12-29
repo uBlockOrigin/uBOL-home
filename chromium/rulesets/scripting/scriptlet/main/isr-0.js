@@ -1264,8 +1264,11 @@ const $scriptletArglistRefs$ = /* 60 */ "4,6,10,11;15,16;4;4;4,8,9;4,6;4,6;4,6,7
 
 const $scriptletHostnames$ = /* 60 */ ["inn.co.il","jmusic.me","n12.co.il","one.co.il","13tv.co.il","mako.co.il","yad2.co.il","ynet.co.il","sheee.co.il","tvbee.co.il","walla.co.il","13news.co.il","globes.co.il","hwzone.co.il","morfix.co.il","sport5.co.il","tech12.co.il","b.walla.co.il","e.walla.co.il","haaretz.co.il","isramedia.net","themarker.com","calcalist.co.il","mag.walla.co.il","vod.walla.co.il","www.walla.co.il","cars.walla.co.il","euro.walla.co.il","food.walla.co.il","home.walla.co.il","kids.walla.co.il","mail.walla.co.il","news.walla.co.il","nick.walla.co.il","tags.walla.co.il","tech.walla.co.il","viva.walla.co.il","6days.walla.co.il","buzzit.walla.co.il","celebs.walla.co.il","movies.walla.co.il","nadlan.walla.co.il","sports.walla.co.il","travel.walla.co.il","animals.walla.co.il","fashion.walla.co.il","finance.walla.co.il","healthy.walla.co.il","judaism.walla.co.il","mundial.walla.co.il","weather.walla.co.il","olympics.walla.co.il","tv-guide.walla.co.il","astrology.walla.co.il","elections.walla.co.il","foodsdictionary.co.il","usaelections.walla.co.il","www-globes-co-il.eu1.proxy.openathens.net","www-haaretz-co-il.eu1.proxy.openathens.net","www-themarker-com.eu1.proxy.openathens.net"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1352,11 +1355,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1364,6 +1365,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

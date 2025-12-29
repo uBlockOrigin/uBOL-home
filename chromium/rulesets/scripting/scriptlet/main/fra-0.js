@@ -1770,12 +1770,15 @@ const $scriptletArgs$ = /* 143 */ ["pagead2.googlesyndication.com","displayCooki
 
 const $scriptletArglists$ = /* 122 */ "0,0;1,1;2,2;3,3,4;4,5,6;3,7,8;3,9,10;5,11,12;3,13,14;3,15,16;6,17;3,18,19;1,20;7,0;1,21;5,11,21;5,22,21;0,23,24;4,25;8,26;0,27;0,28;3,29,16;3,30,4;0,31;8,32;4,33,34;4,35,12;3,36,19;3,37,8;8,38;3,39,40;3,41,19;3,42,43;9,44;0,45;4,46,47;4,48,49;4,50,47;10,51;4,33,52;8,53;3,54,8;10,55;5,11,55;3,13,8;4,56,57;3,58,19;3,59,8;4,60,61;3,62,8;8,63;3,64,8;4,33,65;1,55;3,66,16;2,67;8,68;3,69,10;3,70,10;3,71,16;2,72;7,73;3,74,8;3,75,8;3,76,8;3,77,8;0,78;0,79;11,80,81,82;12,83,81,82;12,84,81,82;13,85,86;12,87,81,82;1,88;5,89,90;3,91,16;12,92,81,82;14;1,93,94;3,95,16;3,96,16;12,97,81,82;13,85,98;3,99,8;3,100,4;3,101,14;3,102,14;3,103,14;3,104,14;3,105,14;3,106,14;3,107,108;3,109,40;3,110,40;3,111,43;3,112,19;12,113,81,82;5,11,114;4,115,116;4,35,117;3,118,8;3,119,10;3,120,16;8,121;3,122,19;8,123;8,124;9,125;3,126,8;2,127,128;2,129,130;3,131,132;3,133,132;3,134,132;3,135,132;3,136,132;3,137,8;2,138,139;4,140,141;13,85,142;9,123";
 
-const $scriptletArglistRefs$ = /* 115 */ "62,63,112,113,114,115,116;101;6;29;103;64,65,66,67,68,112,113,114,115,116;101;98;103;82;29;29;30;101;41;108;20;21;74,78;58,59;118;104;101;105;99,100;0;111;9,34;60;29;67,68,69,117;6;102;51;22;13,25;103;27;24;31;60;73;13,34;120;47;10,11,12;1;101;79;55;32;42;40;4,5;106;61,109,110;52;57;82;26;7,42;41;13;39;35,36,37,38;121;57;76;77;71;49;17;72;97;14,15,16;78,84,85,86,87,88,89,90,91;48;3;107;56;53;70;54;13,23,78,84,85,86,87,88,89,90,91,92,93,94;101;2;101;101;95;23;23,78,84,85,86,87,88,89,90,91;50;119;72;18;53;13,23,78,83,84,85,86,87,88,89,90,91,92,93,94;4,5;33;0;32;0;46;2,45;96;2,8;0;0,28;0;43,44;80,81;19;0;0;75";
+const $scriptletArglistRefs$ = /* 116 */ "62,63,112,113,114,115,116;101;6;29;103;64,65,66,67,68,112,113,114,115,116;101;98;103;82;29;29;30;101;41;108;20;21;74,78;58,59;118;104;101;105;99,100;0;111;9,34;60;29;67,68,69,117;6;102;51;22;13,25;103;27;24;31;60;73;13,34;120;47;10,11,12;1;101;79;55;32;42;40;4,5;106;61,109,110;52;57;82;26;7,42;41;13;39;35,36,37,38;121;57;76;77;71;49;0;17;72;97;14,15,16;78,84,85,86,87,88,89,90,91;48;3;107;56;53;70;54;13,23,78,84,85,86,87,88,89,90,91,92,93,94;101;2;101;101;95;23;23,78,84,85,86,87,88,89,90,91;50;119;72;18;53;13,23,78,83,84,85,86,87,88,89,90,91,92,93,94;4,5;33;0;32;0;46;2,45;96;2,8;0;0,28;0;43,44;80,81;19;0;0;75";
 
-const $scriptletHostnames$ = /* 115 */ ["m6.fr","geo.fr","qub.ca","rtl.be","rtl.fr","tf1.fr","gala.fr","macg.co","rtl2.fr","20min.ch","7sur7.be","dhnet.be","radio.fr","voici.fr","9docu.org","actu17.fr","darkino.*","france.tv","japscan.*","playtv.fr","qwant.com","11anim.com","capital.fr","e-sushi.fr","japscan.me","planhub.ca","rtlplay.be","rustica.fr","skyrock.fr","sudinfo.be","tf1info.fr","tvaplus.ca","allocine.fr","bleachmx.fr","cinefil.com","ebookdz.com","funradio.fr","lemanip.com","malekal.com","pianoweb.fr","skyrock.com","sudouest.fr","systemed.fr","1jour1film.*","20minutes.fr","cookomix.com","gamekult.com","gentside.com","jeune-gay.fr","jtrouver.com","mac4ever.com","varmatin.com","abcbourse.com","adala-news.fr","basketusa.com","canalplus.com","hack-life.net","iphonesoft.fr","lessentiel.lu","monumentum.fr","nicematin.com","vostfr.stream","air-journal.fr","chat.babel.com","crunchyscan.fr","ecranlarge.com","iphonetweak.fr","justarrived.lu","magicmaman.com","marieclaire.fr","monacomatin.mc","rmcbfmplay.com","1jour1film.cyou","cosmopolitan.fr","cyclismactu.net","empire-stream.*","hollywoodpq.com","lecrabeinfo.net","lindependant.fr","linternaute.com","recreatisse.com","supersoluce.com","voyageforum.com","empire-anime.com","femmeactuelle.fr","journaldunet.com","maxisciences.com","programme-tv.net","e-player-stream.*","empire-stream.net","empire-streamz.fr","jardiner-malin.fr","observalgerie.com","seriepourvous.com","super-ethanol.com","ultimate-catch.eu","empire-streaming.*","equinoxmagazine.fr","jaitoutcompris.com","meteo-grenoble.com","parlons-basket.com","techno-science.net","cliqueduplateau.com","commentcamarche.net","e-player-stream.app","journaldesfemmes.fr","lameteoagricole.net","signal-arnaques.com","animedigitalnetwork.fr","lecourrier-du-soir.com","occasions.decathlon.fr","benjaminellisbernard.fr","animationdigitalnetwork.fr","animationdigitalnetwork.com","player.melaniezettofrais.online"];
+const $scriptletHostnames$ = /* 116 */ ["m6.fr","geo.fr","qub.ca","rtl.be","rtl.fr","tf1.fr","gala.fr","macg.co","rtl2.fr","20min.ch","7sur7.be","dhnet.be","radio.fr","voici.fr","9docu.org","actu17.fr","darkino.*","france.tv","japscan.*","playtv.fr","qwant.com","11anim.com","capital.fr","e-sushi.fr","japscan.me","planhub.ca","rtlplay.be","rustica.fr","skyrock.fr","sudinfo.be","tf1info.fr","tvaplus.ca","allocine.fr","bleachmx.fr","cinefil.com","ebookdz.com","funradio.fr","lemanip.com","malekal.com","pianoweb.fr","skyrock.com","sudouest.fr","systemed.fr","1jour1film.*","20minutes.fr","cookomix.com","gamekult.com","gentside.com","jeune-gay.fr","jtrouver.com","mac4ever.com","varmatin.com","abcbourse.com","adala-news.fr","basketusa.com","canalplus.com","hack-life.net","iphonesoft.fr","lessentiel.lu","monumentum.fr","nicematin.com","vostfr.stream","air-journal.fr","chat.babel.com","crunchyscan.fr","ecranlarge.com","iphonetweak.fr","justarrived.lu","magicmaman.com","marieclaire.fr","monacomatin.mc","monlatuque.com","rmcbfmplay.com","1jour1film.cyou","cosmopolitan.fr","cyclismactu.net","empire-stream.*","hollywoodpq.com","lecrabeinfo.net","lindependant.fr","linternaute.com","recreatisse.com","supersoluce.com","voyageforum.com","empire-anime.com","femmeactuelle.fr","journaldunet.com","maxisciences.com","programme-tv.net","e-player-stream.*","empire-stream.net","empire-streamz.fr","jardiner-malin.fr","observalgerie.com","seriepourvous.com","super-ethanol.com","ultimate-catch.eu","empire-streaming.*","equinoxmagazine.fr","jaitoutcompris.com","meteo-grenoble.com","parlons-basket.com","techno-science.net","cliqueduplateau.com","commentcamarche.net","e-player-stream.app","journaldesfemmes.fr","lameteoagricole.net","signal-arnaques.com","animedigitalnetwork.fr","lecourrier-du-soir.com","occasions.decathlon.fr","benjaminellisbernard.fr","animationdigitalnetwork.fr","animationdigitalnetwork.com","player.melaniezettofrais.online"];
+
+const $scriptletFromRegexes$ = /* 0 */ [];
 
 const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1862,11 +1865,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1874,6 +1875,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

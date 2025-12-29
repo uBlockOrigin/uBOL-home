@@ -1229,8 +1229,11 @@ const $scriptletArglistRefs$ = /* 37 */ "11,15;9;1;17;0;18;17;17;4;19;17;17;13;1
 
 const $scriptletHostnames$ = /* 37 */ ["netq.me","mudah.my","doroni.me","kiryuu.id","onnano.tv","dicrotin.*","indobo.com","kiryuu.org","kompas.com","lk21semi.*","njavtv.com","sukasex.tv","tutwuri.id","anichin.top","moenime.com","sukasex.net","westmanga.*","5.253.86.213","igobokep.cam","jenismac.com","kiryuu01.com","ainzscans.net","moutogami.com","moviekhhd.biz","3gpterbaru.com","animekompi.vip","info.vebma.com","sk21.sob4t.xyz","193.142.147.230","juraganfilm.ink","kimcilonly.site","komikcast02.com","jurnalistekno.id","thejakartapost.com","kisahterlarang.site","info.mapsaddress.com","cloud.majalahhewan.com"];
 
+const $scriptletFromRegexes$ = /* 0 */ [];
+
 const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1317,11 +1320,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1329,6 +1330,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

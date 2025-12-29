@@ -189,7 +189,7 @@
   },
   "supportReportSpecificButton": {
     "message": "Neue Meldung auf GitHub erstellen",
-    "description": "Text for button which open an external webpage in Support pane"
+    "description": "Text for button which opens an external web page in Support pane"
   },
   "defaultFilteringModeSectionLabel": {
     "message": "Standardfiltermodus",
@@ -281,7 +281,7 @@
   },
   "strictblockTitle": {
     "message": "Seite blockiert",
-    "description": "Webpage title for the strict-blocked page"
+    "description": "Web page title for the strict-blocked page"
   },
   "strictblockSentence1": {
     "message": "uBO Lite hat das Laden der folgenden Seite verhindert:",
@@ -301,7 +301,7 @@
   },
   "strictblockBack": {
     "message": "Zurück",
-    "description": "A button to go back to the previous webpage"
+    "description": "A button to go back to the previous web page"
   },
   "strictblockClose": {
     "message": "Dieses Fenster schließen",
@@ -382,6 +382,14 @@
   "restoreButton": {
     "message": "Wiederherstellen …",
     "description": "Text for buttons used to restore content"
+  },
+  "resetToDefaultButton": {
+    "message": "Auf Werkseinstellungen zurücksetzen …",
+    "description": "Text for buttons used to reset configurations to default"
+  },
+  "resetToDefaultConfirm": {
+    "message": "Alle angepassten Einstellungen werden entfernt. Mit dem Zurücksetzen auf Werkseinstellungen fortfahren?",
+    "description": "Message asking user to confirm reset to default settings"
   },
   "dnrRulesWarning": {
     "message": "Verwenden Sie keine Regeln aus unseriösen Quellen",

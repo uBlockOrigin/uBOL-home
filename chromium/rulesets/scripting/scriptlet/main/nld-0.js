@@ -1653,8 +1653,11 @@ const $scriptletArglistRefs$ = /* 23 */ "4;21;16;4;10,11;7;10,11;1;16;19;2,13;18
 
 const $scriptletHostnames$ = /* 23 */ ["538.nl","nos.nl","npo.nl","kijk.nl","play.tv","vtmgo.be","goplay.be","radio10.nl","avrotros.nl","dailybuzz.nl","forum.fok.nl","geenstijl.nl","tweakers.net","autotrader.nl","hardware.info","filmvandaag.nl","omroepbrabant.nl","topkleurplaat.nl","vandaaginside.nl","webcams-texel.nl","indeleiderstrui.nl","hartvannederland.nl","webcams-vlissingen.nl"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1741,11 +1744,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1753,6 +1754,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

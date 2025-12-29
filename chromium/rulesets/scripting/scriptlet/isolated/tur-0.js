@@ -707,8 +707,11 @@ const $scriptletArglistRefs$ = /* 63 */ "3;11;3;2;16;6;15;6;7;4;3;3;10;8,12,13;1
 
 const $scriptletHostnames$ = /* 63 */ ["kgrt.net","sinema.*","halk54.com","turkanime.co","burdurweb.com","dizilla40.com","efullizle.com","flatscher.net","diziyiizle.com","eksisozluk.com","gazeterize.com","haberlisin.com","bugunkibris.com","cizgivedizi.com","askimyavas54.com","askimyavas55.com","askimyavas56.com","askimyavas57.com","askimyavas58.com","askimyavas59.com","askimyavas60.com","askimyavas61.com","askimyavas62.com","askimyavas63.com","askimyavas64.com","askimyavas65.com","askimyavas66.com","askimyavas67.com","askimyavas68.com","askimyavas69.com","askimyavas70.com","askimyavas71.com","askimyavas72.com","askimyavas73.com","bursahaberdar.com","hdfilmcehennemi.*","klasikfilmler.net","mactanmaca791.sbs","mactanmaca792.sbs","mactanmaca793.sbs","mactanmaca794.sbs","mactanmaca795.sbs","mactanmaca796.sbs","mactanmaca797.sbs","mactanmaca798.sbs","mactanmaca799.sbs","mactanmaca800.sbs","mactanmaca801.sbs","mactanmaca802.sbs","mactanmaca803.sbs","mactanmaca804.sbs","mactanmaca805.sbs","mactanmaca806.sbs","mactanmaca807.sbs","mactanmaca808.sbs","mactanmaca809.sbs","mactanmaca810.sbs","yabancidiziio.com","birsenaltuntas.com","eskisehirhaber.com","erotizmfilmleri1.cc","filmseyretizlet.com","mobile.donanimhaber.com"];
 
+const $scriptletFromRegexes$ = /* 2 */ ["askimyav","askimyavas\\d+\\.com","17","mactanma","mactanmaca\\d+\\.sbs","18"];
+
 const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $hasAncestors$ = false;
+const $hasRegexes$ = true;
 
 /******************************************************************************/
 
@@ -795,11 +798,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -807,6 +808,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

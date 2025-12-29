@@ -865,8 +865,11 @@ const $scriptletArglistRefs$ = /* 42 */ "20;0,1,7;1;12;19;1;0,1;0;1;18;0;24,25,2
 
 const $scriptletHostnames$ = /* 42 */ ["m3.se","elle.se","hant.se","inet.se","leta.se","allas.se","femina.se","godare.se","mabra.com","norpan.se","rodeo.net","fempers.se","medibok.se","pilsner.nu","bio-link.se","byggahus.se","macworld.se","expressen.se","golflivet.se","pcforalla.se","svenskdam.se","synonymer.se","web-tools.se","byggipedia.se","dinbyggare.se","familjeliv.se","motherhood.se","spelhubben.se","vitaestilo.se","webhallen.com","aftonbladet.se","destination.se","galamagasin.se","landetsfria.nu","sistaminuten.se","inredningsvis.se","skrattsajten.com","tidningensyre.se","kandisvarlden.com","tidningenglobal.se","residencemagazine.se","internetodontologi.se"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -953,11 +956,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -965,6 +966,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

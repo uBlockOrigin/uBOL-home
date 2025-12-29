@@ -1062,8 +1062,11 @@ const $scriptletArglistRefs$ = /* 21 */ "18;1;1;4;13;1,9;8;5;3;1,6,7;14,15,16;0;
 
 const $scriptletHostnames$ = /* 21 */ ["eporno.ro","fsplayer.*","nosteam.ro","vwforum.ro","lovendal.ro","vzlinks.com","yoixmzo.xyz","bloground.ro","cool-etv.net","posturi.live","canale-tv.com","turdanews.net","filme-porno.ro","boardingpass.ro","nosteamgames.ro","onlyplay.online","filme2023.online","filmeserialegratis.*","competentedigitale.ro","player.desenefaine.net","filmeonlinesubtitrate.org"];
 
+const $scriptletFromRegexes$ = /* 0 */ [];
+
 const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1150,11 +1153,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1162,6 +1163,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

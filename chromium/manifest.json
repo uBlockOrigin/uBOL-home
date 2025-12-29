@@ -73,6 +73,11 @@
         "path": "/rulesets/main/adguard-spyware-url.json"
       },
       {
+        "id": "annoyances-ai",
+        "enabled": false,
+        "path": "/rulesets/main/annoyances-ai.json"
+      },
+      {
         "id": "annoyances-cookies",
         "enabled": false,
         "path": "/rulesets/main/annoyances-cookies.json"
@@ -325,7 +330,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2025.1224.1544",
+  "version": "2025.1229.1729",
   "web_accessible_resources": [
     {
       "resources": [

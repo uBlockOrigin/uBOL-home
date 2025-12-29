@@ -1039,8 +1039,11 @@ const $scriptletArglistRefs$ = /* 34 */ "10;20,21;30;23;2;13;29;8,9;4;0;1;13;12;
 
 const $scriptletHostnames$ = /* 34 */ ["24.hu","hang.hu","life.hu","port.hu","blikk.hu","divany.hu","femina.hu","vezess.hu","foodker.hu","jofogas.hu","arcanum.com","totalcar.hu","calculat.org","lifestory.hu","napiszar.com","rimkereso.hu","totalbike.hu","huaweiblog.hu","karpathir.com","player.rtl.hu","hazipatika.com","magyarhang.org","milestone66.hu","mindmegette.hu","paplanvilag.hu","sorozatwiki.hu","reformsziget.hu","myonlineradio.hu","online-filmek.ac","online-filmek.me","laptophardware.hu","embed.indavideo.hu","hosszupuskasub.com","angol-magyar-szotar.hu"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1127,11 +1130,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1139,6 +1140,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

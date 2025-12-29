@@ -2073,8 +2073,11 @@ const $scriptletArglistRefs$ = /* 50 */ "41;25;36;42;22,30;15;2;7;46;22,30;40;16
 
 const $scriptletHostnames$ = /* 50 */ ["h1g.jp","delfi.lt","m.iyf.tv","tu93.org","m.nuvid.*","nbc4i.com","redd.tube","erozine.jp","komaki2.jp","m.hd21.com","pornhd.com","saveur.com","supleks.jp","gamerch.com","gotporn.com","m.efuxs.com","nytimes.com","oreno3d.com","pornhub.com","pornhub.net","pornhub.org","rakukan.net","reuters.com","idaprikol.ru","momon-ga.com","youpouch.com","erobanach.com","m.drtuber.com","m.tnaflix.com","m.viptube.com","mediafire.com","m.sunporno.com","news.mynavi.jp","quiz-facts.com","soranews24.com","dailymotion.com","m.hellporno.com","openloadpro.com","moneycontrol.com","rocketnews24.com","straitstimes.com","m.livehindustan.com","m.minixiaoshuow.com","mudainodocument.com","seikeidouga.blog.jp","business-standard.com","nijimen.kusuguru.co.jp","wuxianxiaoshuowang.com","nazology.kusuguru.co.jp","timesofindia.indiatimes.com"];
 
+const $scriptletFromRegexes$ = /* 0 */ [];
+
 const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -2161,11 +2164,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -2173,6 +2174,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

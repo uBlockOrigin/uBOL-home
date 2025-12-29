@@ -725,6 +725,7 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||konkurs24h.pl^*^advalue"},"id":724,"priority":30},
 {"action":{"type":"allow"},"condition":{"excludedResourceTypes":["main_frame","stylesheet"],"initiatorDomains":["reklama.ringieraxelspringer.pl"],"urlFilter":"/reklama."},"id":725,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["reklama.grajewo.net.pl"],"urlFilter":"||reklama.grajewo.net.pl/"},"id":726,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||xinloc.com"},"id":727,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.olx.pl"],"urlFilter":"||olx.org/ads/offer-eligibility"},"id":728,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||fastwhitecat.com/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-download-tracker.js"},"id":730,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["plus.pl","polsatbox.pl"],"urlFilter":"||www.cloudflare.com/cdn-cgi/trace"},"id":732,"priority":30},

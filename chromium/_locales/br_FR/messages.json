@@ -189,7 +189,7 @@
   },
   "supportReportSpecificButton": {
     "message": "Sevel ur rentañ-kont nevez",
-    "description": "Text for button which open an external webpage in Support pane"
+    "description": "Text for button which opens an external web page in Support pane"
   },
   "defaultFilteringModeSectionLabel": {
     "message": "Mod silañ dre ziouer",
@@ -272,7 +272,7 @@
     "description": "A summary description of the back up/restore section."
   },
   "settingsBackupRestoreLegend": {
-    "message": "Restoring will overwrite all your current custom settings.",
+    "message": "Ar gwared a erlec'hio an holl arventennoù personelaet a-vremañ.",
     "description": "Important information about the back up/restore section."
   },
   "findListsPlaceholder": {
@@ -281,7 +281,7 @@
   },
   "strictblockTitle": {
     "message": "Pajenn stanket",
-    "description": "Webpage title for the strict-blocked page"
+    "description": "Web page title for the strict-blocked page"
   },
   "strictblockSentence1": {
     "message": "uBO Lite en deus miret ar bajenn-mañ da gargañ:",
@@ -301,7 +301,7 @@
   },
   "strictblockBack": {
     "message": "Distreiñ",
-    "description": "A button to go back to the previous webpage"
+    "description": "A button to go back to the previous web page"
   },
   "strictblockClose": {
     "message": "Serriñ ar prenestr-mañ",
@@ -380,8 +380,16 @@
     "description": "Text for buttons used to back up content"
   },
   "restoreButton": {
-    "message": "Restore…",
+    "message": "Adsevel…",
     "description": "Text for buttons used to restore content"
+  },
+  "resetToDefaultButton": {
+    "message": "Adlakaat an arventennoù dre ziouer…",
+    "description": "Text for buttons used to reset configurations to default"
+  },
+  "resetToDefaultConfirm": {
+    "message": "Hoc'h holl arventennoù personelaet a vo dilamet. Daoust hag a fell deoc'h adlakaat an arventennoù dre ziouer?",
+    "description": "Message asking user to confirm reset to default settings"
   },
   "dnrRulesWarning": {
     "message": "Arabat ouzhpennañ danvez a zeu diouzh mammennoù douetus.",

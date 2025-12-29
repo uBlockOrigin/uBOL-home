@@ -1958,8 +1958,11 @@ const $scriptletArglistRefs$ = /* 205 */ "69,70;58,59;94,95;168,169;113,114,115;
 
 const $scriptletHostnames$ = /* 205 */ ["ddys.*","ebb.io","iyf.tv","le.com","msn.cn","qq.com","4gtv.tv","5278.cc","beqg.cc","cnys.tv","crxs.me","ddrk.me","logi.im","now.com","slit.cn","wnacg.*","yfsp.tv","2urs.com","520cc.cc","69xx.one","av6k.com","avcao.cc","bde4.com","bde4.icu","huya.com","itdog.cn","jkpan.cc","koyi.pub","mxdm.xyz","noy1.top","o8tv.com","poedb.tw","sohu.com","t66y.com","v.qq.com","xchina.*","xkyn.com","233tw.com","51zxw.net","akkxs.net","applnn.cc","axjbt.com","efuxs.com","fsbot.xyz","ggjav.com","hboav.com","iqiyi.com","linetv.tw","moeci.com","mpyit.com","nivod2.tv","nodejs.cn","playav.cc","qciss.net","rjno1.com","sssam.com","theav.xyz","wnacg1.cc","x99av.com","xvideo.cc","youku.com","445nan.com","520call.me","85tube.com","aiyifan.tv","caq98i.top","cidetxt.cc","douyin.com","dqzboy.com","enhuku.com","huavod.com","huoqwk.com","iplark.com","itbaoku.cn","jav777.xyz","lpl.qq.com","m.86kl.com","m.lwxs.com","mcappx.com","new.qq.com","nivod2.com","nivod4.com","nivod5.com","pcbeta.com","pixnet.net","porn87.com","surirt.com","theporn.cc","tingfm.com","tsubasa.im","vikacg.com","wandhi.com","wnacg05.cc","www.qq.com","1090ys8.com","18comic.org","18comic.vip","3dmgame.com","69shumi.com","88files.net","91porna.com","bigpixel.cn","bingfeng.tw","bz88888.net","ekamus.info","erciyan.com","huanqiu.com","huaren.live","jianshu.com","jkptgbf.xyz","m.13xsw.com","m.91zww.com","m.nivod2.tv","m.nivod4.tv","m.nivod5.tv","m.nivod7.tv","m.nivod8.tv","m.nivod9.tv","m.youku.com","mfulbvu.xyz","news.qq.com","nunuyy3.org","papalah.com","umbooks.com","v.ifeng.com","v.youku.com","vxetable.cn","youneed.win","youziks.com","1keydata.com","baomidou.com","bilibili.com","bukaivip.com","docsmall.com","getitfree.cn","goodav17.com","m.nivod2.com","m.nivod4.com","ohmanhua.com","pansearch.me","pornbest.org","xbeibeix.com","xiebruce.top","axu.pages.dev","axutongxue.cn","bilinovel.com","biquge321.com","biquge543.com","cocomanga.com","colamanga.com","embedrise.com","freejavbt.com","ftchinese.com","haoweichi.com","hentaicomic.*","linovelib.com","macromicro.me","onemanhua.com","pg-wuming.com","pincong.rocks","slashlook.com","slashview.com","sports.qq.com","yeshuyuan.com","zhenbuka3.com","174.127.195.98","axutongxue.com","axutongxue.net","axutongxue.vip","dianyingim.com","hanime1-me.icu","hanime1-me.top","iwatchme2u.com","javlibrary.com","m.shuhaige.net","ruanyifeng.com","tangdoucdn.com","v-wb.youku.com","wenxuecity.com","dogfight360.com","jmcomic-zzz.org","youranshare.com","axutongxue.space","haiwaishubao.com","league-funny.com","m.biqiugege8.com","player.hboav.com","banzhu1111111.com","banzhu2222222.com","banzhu3333333.com","banzhu4444444.com","banzhu5555555.com","banzhu6666666.com","banzhu7777777.com","banzhu8888888.com","banzhu9999999.com","m.biquge12345.com","wap.biqugewx.info","wap.yushuwu.cloud","work.weixin.qq.com","hamivideo.hinet.net","helper-employer.com","edc1014070.pixnet.net","axutongxue.onrender.com","taiwanlibrarysearch.herokuapp.com"];
 
+const $scriptletFromRegexes$ = /* 0 */ [];
+
 const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -2046,11 +2049,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -2058,6 +2059,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

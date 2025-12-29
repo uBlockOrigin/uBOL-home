@@ -33,6 +33,8 @@ amp-iframe[src^="https://html.redtram.com/"],
 amp-iframe[src^="https://widgets.outbrain.com"],
 amp-sticky-ad,
 body > style + div[id="ics"],
+div[class^="MidArticleAdUnit_mobile_"],
+div[class^="PrimisMidArticleAdUnit_mobile_"],
 iframe[width="320"][height="50"],
 img[width="320"][height="50"] {
     display: none !important;

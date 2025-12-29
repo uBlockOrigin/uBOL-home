@@ -189,7 +189,7 @@
   },
   "supportReportSpecificButton": {
     "message": "Új jelentés létrehozása GitHub-ra",
-    "description": "Text for button which open an external webpage in Support pane"
+    "description": "Text for button which opens an external web page in Support pane"
   },
   "defaultFilteringModeSectionLabel": {
     "message": "Alapértelmezett szűrési mód",
@@ -281,7 +281,7 @@
   },
   "strictblockTitle": {
     "message": "Oldal blokkolva",
-    "description": "Webpage title for the strict-blocked page"
+    "description": "Web page title for the strict-blocked page"
   },
   "strictblockSentence1": {
     "message": "A uBO Lite megakadályozta a következő oldal betöltését:",
@@ -301,7 +301,7 @@
   },
   "strictblockBack": {
     "message": "Vissza",
-    "description": "A button to go back to the previous webpage"
+    "description": "A button to go back to the previous web page"
   },
   "strictblockClose": {
     "message": "Ablak bezárása",
@@ -382,6 +382,14 @@
   "restoreButton": {
     "message": "Helyreállítás…",
     "description": "Text for buttons used to restore content"
+  },
+  "resetToDefaultButton": {
+    "message": "Alapértelmezett beállításokra visszaállítás…",
+    "description": "Text for buttons used to reset configurations to default"
+  },
+  "resetToDefaultConfirm": {
+    "message": "Az összes egyéni beállításod törlődik. Tényleg az alapbeállításokra akarsz viszzaállítani?",
+    "description": "Message asking user to confirm reset to default settings"
   },
   "dnrRulesWarning": {
     "message": "Ne adjon hozzá megbízhatatlan forrásokból származó tartalmat.",

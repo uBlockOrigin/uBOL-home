@@ -1134,7 +1134,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||static.inpcdn.com/4,6ab677724766.webp"},"id":1133,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||efo-bf.net/wp-content/uploads/*.gif"},"id":1134,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||diziyou*.com/wp-content/*.gif"},"id":1135,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||dizi*.life/assets/images/*.gif"},"id":1136,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["adrbook.com"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":1136,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["canlimacizlene.blogspot.com"],"resourceTypes":["image"],"urlFilter":"||blogger.googleusercontent.com^"},"id":1137,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||teknotalk.com/wp-content/uploads/*/turknet_banner_"},"id":1138,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||teknotalk.com/wp-content/uploads/*/banner-*-"},"id":1139,"priority":10},
@@ -1241,5 +1241,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||zeusdizi*.com/*.gif"},"id":1240,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||imagestoo.com/*.xml"},"id":1241,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||macellan.online/allads/"},"id":1242,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||mactanmaca*.sbs/wp-content/*.gif|"},"id":1243,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||mactanmaca*.sbs/wp-content/*.gif|"},"id":1243,"priority":10},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["adrbook.com"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":1244,"priority":41},
+{"action":{"type":"block"},"condition":{"urlFilter":"||dizi*.life/assets/*.gif"},"id":1245,"priority":10}
 ]

@@ -1338,8 +1338,11 @@ const $scriptletArglistRefs$ = /* 169 */ "8,10;8;6,16;8;8;12;12;12;3;24;24;8;12;
 
 const $scriptletHostnames$ = /* 169 */ ["at.ua","do.am","ain.ua","moy.su","my1.ru","ogo.ua","sud.ua","zik.ua","24tv.ua","azku.ru","bouw.ru","clan.su","elle.ua","grad.ua","silf.ua","tele.ru","viva.ua","womo.ua","4mama.ua","d-mod.ru","dengi.ua","diwis.ru","fakty.ua","narod.ru","ria-m.tv","vlast.kz","www.i.ua","13idei.ru","colady.ru","ex-fs.net","iklife.ru","isport.ua","ixtira.tv","jetvis.ru","kinogo.eu","kubik3.ru","kursiv.kz","molbuk.ua","oblcit.ru","toysew.ru","zaxid.net","aniqit.com","anisima.ru","bagnet.org","cbn.com.ua","glavnoe.ua","hvylya.net","kopomko.ru","lumpics.ru","mirknig.su","newsua.one","nnmclub.to","nr2.com.ua","rub.org.ua","rusjev.net","sibkray.ru","unn.com.ua","usatiki.ru","zikua.news","3witcher.ru","agronews.ua","comments.ua","dooralei.ru","golos.te.ua","igrul-ka.ru","it-doc.info","kurs.com.ru","kurs.com.ua","megomult.ru","menstois.ru","mydizajn.ru","pingvin.pro","selezen.net","sinoptik.ua","staroetv.su","teren.in.ua","times.km.ua","womanel.com","1plus1.video","allboxing.ru","baragozik.ru","brjunetka.ru","catfishes.ru","doramakun.ru","enovosty.com","ethnoboho.ru","freerutor.me","glavpost.com","idealsad.com","kulikavto.ru","newsoneua.tv","paravozik.tv","plus-plus.tv","provce.ck.ua","rusadmin.biz","subsidii.net","tapochek.net","tverigrad.ru","versii.if.ua","altyn-orda.kz","cikavosti.com","fainaidea.com","glav-dacha.ru","greenflash.su","guitarrist.ru","livekavkaz.ru","play-force.ru","procherk.info","rainbowsky.ru","rugraphics.ru","sam-sdelay.ru","sdelaicomp.ru","telefongid.ru","tenews.org.ua","viborprost.ru","vsviti.com.ua","zakonguru.com","4studio.com.ua","agroreview.com","antirodinka.ru","cheline.com.ua","dv-gazeta.info","info-effect.ru","kapital-rus.ru","kino-hd720.net","love-mother.ru","marieclaire.ua","megabitcomp.ru","mignews.com.ua","otvetnavse.com","plitkar.com.ua","portal.lviv.ua","pro-zakupki.ru","proagro.com.ua","prozoro.net.ua","redpost.com.ua","samelectrik.ru","snow-motion.ru","sprintotvet.ru","tehnika.expert","telegraf.in.ua","windowstune.ru","fanofnfs.3dn.ru","fitnavigator.ru","historynotes.ru","news.dks.com.ua","privivkainfo.ru","rivnepost.rv.ua","root-nation.com","russkiiyazyk.ru","serviceyard.net","tc-image.3dn.ru","elektronika56.ru","gorodkiev.com.ua","kino-fs.ucoz.net","kino-torrent.net","rivnenews.com.ua","selfmadetrip.com","svoimi-rykami.ru","volyninfa.com.ua","pokatushki-pmr.ru","legion-rus.clan.su","politnavigator.net","classicalmusicnews.ru","prichernomorie.com.ua","ustroim-prazdnik.info","cosmonova-broadcast.tv","sekreti-domovodstva.ru","programdownloadfree.com"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1426,11 +1429,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1438,6 +1439,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

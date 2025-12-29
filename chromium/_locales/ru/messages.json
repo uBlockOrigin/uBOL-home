@@ -189,7 +189,7 @@
   },
   "supportReportSpecificButton": {
     "message": "Создать новый отчёт в GitHub",
-    "description": "Text for button which open an external webpage in Support pane"
+    "description": "Text for button which opens an external web page in Support pane"
   },
   "defaultFilteringModeSectionLabel": {
     "message": "Режим фильтрации по умолчанию",
@@ -281,7 +281,7 @@
   },
   "strictblockTitle": {
     "message": "Страница заблокирована",
-    "description": "Webpage title for the strict-blocked page"
+    "description": "Web page title for the strict-blocked page"
   },
   "strictblockSentence1": {
     "message": "uBO Lite предотвратил загрузку следующей страницы:",
@@ -301,7 +301,7 @@
   },
   "strictblockBack": {
     "message": "Назад",
-    "description": "A button to go back to the previous webpage"
+    "description": "A button to go back to the previous web page"
   },
   "strictblockClose": {
     "message": "Закрыть это окно",
@@ -382,6 +382,14 @@
   "restoreButton": {
     "message": "Восстановить…",
     "description": "Text for buttons used to restore content"
+  },
+  "resetToDefaultButton": {
+    "message": "Сброс до настроек по умолчанию…",
+    "description": "Text for buttons used to reset configurations to default"
+  },
+  "resetToDefaultConfirm": {
+    "message": "Все ваши пользовательские настройки будут удалены. Уверены, что хотите восстановить настройки по умолчанию?",
+    "description": "Message asking user to confirm reset to default settings"
   },
   "dnrRulesWarning": {
     "message": "Не добавлять содержимое из ненадёжных источников",

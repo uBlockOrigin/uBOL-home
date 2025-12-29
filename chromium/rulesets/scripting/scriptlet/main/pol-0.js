@@ -1289,8 +1289,11 @@ const $scriptletArglistRefs$ = /* 81 */ "7,19;3;3;13,17,18;12,13,14,20;48;20;47;
 
 const $scriptletHostnames$ = /* 81 */ ["wp.pl","v10.pl","gala.pl","open.fm","money.pl","otube.pl","tv.wp.pl","cda-tv.pl","garnek.pl","gry.wp.pl","purepc.pl","www.wp.pl","bankier.pl","ebd.cda.pl","filiser.tv","film.wp.pl","filmweb.pl","filmy69.pl","kobieta.pl","komixxy.pl","otomoto.pl","pcworld.pl","pudelek.pl","tech.wp.pl","anyfiles.pl","autokult.pl","dziennik.pl","ekino-tv.pl","facet.wp.pl","pilot.wp.pl","playpuls.pl","streamin.to","wideo.wp.pl","animezone.pl","eurogamer.pl","kafeteria.pl","naekranie.pl","parenting.pl","poczta.wp.pl","pogoda.wp.pl","polygamia.pl","profil.wp.pl","abczdrowie.pl","czasdzieci.pl","echirurgia.pl","fitness.wp.pl","fotoblogia.pl","gry-online.pl","gwiazdy.wp.pl","jegostrona.pl","kobieta.wp.pl","medycyna24.pl","menshealth.pl","tubagliwic.pl","twojeip.wp.pl","autocentrum.pl","calcoolator.pl","hdtvpolska.com","horoskop.wp.pl","joemonster.org","teleshow.wp.pl","transfery.info","wawalove.wp.pl","www.interia.pl","demotywatory.pl","gadzetomania.pl","komorkomania.pl","swiatfilmow.com","tubawyszkowa.pl","womenshealth.pl","facetemjestem.pl","filmowakraina.tv","pl.vpnmentor.com","runners-world.pl","wiadomosci.wp.pl","www.elektroda.pl","opensubtitles.org","motocykl-online.pl","sportowefakty.wp.pl","www.dobreprogramy.pl","auto-motor-i-sport.pl"];
 
-const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $scriptletFromRegexes$ = /* 0 */ [];
+
+const $hasEntities$ = false;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1377,11 +1380,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1389,6 +1390,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {

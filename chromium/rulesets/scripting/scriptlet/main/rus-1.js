@@ -1564,8 +1564,11 @@ const $scriptletArglistRefs$ = /* 64 */ "20,24,25,26,27,28,29;10,11;10,11;30,31;
 
 const $scriptletHostnames$ = /* 64 */ ["ya.*","eda.*","wmj.*","ya.ru","4pda.*","auto.*","dzen.*","ivi.ru","quto.*","dzen.ru","lenta.*","motor.*","anilib.*","yandex.*","gazeta.ru","innal.top","letidor.*","naylo.top","passion.*","rambler.*","rutr.life","shakko.ru","animelib.*","levik.blog","moslenta.*","naydex.net","yandex.net","periskop.su","shedevrum.*","championat.*","game4you.top","gazeta.press","lena-miro.ru","mail.ukr.net","rustorka.com","rustorka.net","rustorka.top","rutracker.nl","www.afisha.*","www.google.*","yastatic.net","avtorambler.*","id.rambler.ru","livejournal.*","mail.yandex.*","online-fix.me","otvet.mail.ru","rutracker.lib","rutracker.net","rutracker.org","shiro-kino.ru","vp.rambler.ru","mail.rambler.*","nova.rambler.*","search.ukr.net","music.youtube.*","quiz.rambler.ru","rustorkacom.lib","vadimrazumov.ru","olegmakarenko.ru","games.s3.yandex.net","horoscopes.rambler.*","widgets.kinopoisk.ru","frontend.vh.yandex.ru"];
 
+const $scriptletFromRegexes$ = /* 0 */ [];
+
 const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $hasAncestors$ = false;
+const $hasRegexes$ = false;
 
 /******************************************************************************/
 
@@ -1652,11 +1655,9 @@ if ( $hasAncestors$ ) {
 }
 $scriptletHostnames$.length = 0;
 
-if ( todoIndices.size === 0 ) { return; }
-
 // Collect arglist references
 const todo = new Set();
-{
+if ( todoIndices.size !== 0 ) {
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1664,6 +1665,24 @@ const todo = new Set();
         }
     }
 }
+if ( $hasRegexes$ ) {
+    const { hns } = entries[0];
+    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
+        const needle = $scriptletFromRegexes$[i+0];
+        let regex;
+        for ( const hn of hns ) {
+            if ( hn.includes(needle) === false ) { continue; }
+            if ( regex === undefined ) {
+                regex = new RegExp($scriptletFromRegexes$[i+1]);
+            }
+            if ( regex.test(hn) === false ) { continue; }
+            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+                todo.add(ref);
+            }
+        }
+    }
+}
+if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
