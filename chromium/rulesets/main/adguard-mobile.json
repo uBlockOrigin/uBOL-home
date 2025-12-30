@@ -541,5 +541,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||wi-fi.ru/ad_video/"},"id":540,"priority":41},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":".libaishuo.com^"},"id":541,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||userapi.qiekj.com/slot/get"},"id":542,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||lettuceclub.net/asset/js/job_box_"},"id":543,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||lettuceclub.net/asset/js/job_box_"},"id":543,"priority":10},
+{"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||grab.onelink.me/*^af_dp=grab%3a%2f%2fopen%3f"},"id":544,"priority":30}
 ]
