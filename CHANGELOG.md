@@ -1,3 +1,9 @@
+- [Fix "Proceed" button not working in strict-block page](https://github.com/gorhill/uBlock/commit/9b45333e0d)
+
+----------
+
+### 2025.1229.1729
+
 - [Add easylist AI suggestions to stock lists](https://github.com/gorhill/uBlock/commit/675ae7b5af)
 - [Use parameter name as url filter where possible](https://github.com/gorhill/uBlock/commit/85f587162f)
 - [Safari] [Increase local storage limit beyond 5 MB](https://github.com/gorhill/uBlock/commit/bda2a50ec8)
