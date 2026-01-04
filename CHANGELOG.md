@@ -1,4 +1,12 @@
+- [Fix regression in conversion of `removeparam` filters](https://github.com/gorhill/uBlock/commit/329e99fd19)
+- Updated filter lists
+
+----------
+
+### 2025.1230.2048
+
 - [Fix "Proceed" button not working in strict-block page](https://github.com/gorhill/uBlock/commit/9b45333e0d)
+- Updated filter lists
 
 ----------
 
@@ -10,6 +18,7 @@
 - [Add page-wide spinner when restoring/resetting settings](https://github.com/gorhill/uBlock/commit/f7f96140d9)
 - [Add ability to reset to default settings](https://github.com/gorhill/uBlock/commit/6063d4f0ad)
 - [Add support for regex-based extended filters](https://github.com/gorhill/uBlock/commit/377cf9d86b)
+- Updated filter lists
 
 ----------
 
