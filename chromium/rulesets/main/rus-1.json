@@ -404,7 +404,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["eapteka.ru"],"urlFilter":"/manifest.json"},"id":403,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||footboom.com/dist/app/js/antiadblock-"},"id":404,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["mediator.mail.ru"],"urlFilter":"||mediator.mail.ru^"},"id":405,"priority":10},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"excludedInitiatorDomains":["auth.mail.ru"],"initiatorDomains":["3dnews.ru","7days.ru","auto.ru","autodaily.ru","autonews.ru","autopilot.ru","habr.com","igromania.ru","klops.ru","kommersant.ru","mail.ru","metro-cc.ru","mk.ru","myweekend.ru","ntv.ru","ozon.ru","quote.ru","rbc.ru","rbclife.ru","ridus.ru","sportmail.ru","sportrbc.ru","sports.ru","vkplay.ru"],"resourceTypes":["main_frame"],"urlFilter":"?from="},"id":406},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"excludedInitiatorDomains":["auth.mail.ru","e.mail.ru","octavius.mail.ru"],"initiatorDomains":["3dnews.ru","7days.ru","auto.ru","autodaily.ru","autonews.ru","autopilot.ru","habr.com","igromania.ru","klops.ru","kommersant.ru","mail.ru","metro-cc.ru","mk.ru","myweekend.ru","ntv.ru","ozon.ru","quote.ru","rbc.ru","rbclife.ru","ridus.ru","sportmail.ru","sportrbc.ru","sports.ru","vkplay.ru"],"resourceTypes":["main_frame"],"urlFilter":"?from="},"id":406},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mrgcdn.ru/uploads/mstatic/js/utm_"},"id":407,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["rang.com.ua"],"urlFilter":"||rang.com.ua^"},"id":408,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||strm.yandex.ru/get/*?sid=*&vsid="},"id":409,"priority":10},
@@ -837,5 +837,9 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["referrer"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"referrer=appmetrica_tracking_id"},"id":836},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["partner"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"utm_source=*partner="},"id":837},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["source"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||disk.yandex."},"id":838},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["r"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||rutube.ru/video/"},"id":839}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["r"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||rutube.ru/video/"},"id":839},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["integration"]}}},"type":"redirect"},"condition":{"initiatorDomains":["dzen.ru"],"resourceTypes":["main_frame"],"urlFilter":"^integration="},"id":840},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["place"]}}},"type":"redirect"},"condition":{"initiatorDomains":["dzen.ru"],"resourceTypes":["main_frame"],"urlFilter":"^place="},"id":841},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["secdata"]}}},"type":"redirect"},"condition":{"initiatorDomains":["dzen.ru"],"resourceTypes":["main_frame"],"urlFilter":"^secdata="},"id":842},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mail.ru"],"resourceTypes":["main_frame"],"urlFilter":"?from=logout"},"id":843}
 ]

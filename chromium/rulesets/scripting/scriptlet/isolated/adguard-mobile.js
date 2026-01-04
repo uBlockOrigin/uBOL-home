@@ -554,7 +554,8 @@ function setAttrFn(
     logPrefix,
     selector = '',
     attr = '',
-    value = ''
+    value = '',
+    options = {}
 ) {
     if ( selector === '' ) { return; }
     if ( attr === '' ) { return; }
@@ -616,7 +617,7 @@ function setAttrFn(
             childList: true,
         });
     };
-    runAt(( ) => { start(); }, 'idle');
+    runAt(( ) => { start(); }, options.runAt || 'idle');
 }
 
 function setCookie(
@@ -819,7 +820,8 @@ function trustedSetAttr(
 ) {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('trusted-set-attr', selector, attr, value);
-    setAttrFn(true, logPrefix, selector, attr, value);
+    const options = safe.getExtraArgs(Array.from(arguments), 3);
+    setAttrFn(true, logPrefix, selector, attr, value, options);
 }
 
 /******************************************************************************/

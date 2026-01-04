@@ -418,5 +418,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/plugins/boost/public/js/boost-public.js"},"id":417,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/snowfall.js"},"id":418,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["smeal.psu.edu"],"resourceTypes":["sub_frame"],"urlFilter":"||feed.mikle.com/widget/"},"id":419,"priority":30},
-{"action":{"type":"block"},"condition":{"urlFilter":"||minorasu.basf.co.jp/shared/scripts/questionnaire.js"},"id":420,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||minorasu.basf.co.jp/shared/scripts/questionnaire.js"},"id":420,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||timesprayer.today/widget_frame.php"},"id":421,"priority":10}
 ]

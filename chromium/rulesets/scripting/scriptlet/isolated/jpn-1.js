@@ -600,7 +600,6 @@ function setAttr(
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('set-attr', selector, attr, value);
     const validValues = [ '', 'false', 'true' ];
-
     if ( validValues.includes(value.toLowerCase()) === false ) {
         if ( /^\d+$/.test(value) ) {
             const n = parseInt(value, 10);
@@ -610,8 +609,8 @@ function setAttr(
             return;
         }
     }
-
-    setAttrFn(false, logPrefix, selector, attr, value);
+    const options = safe.getExtraArgs(Array.from(arguments), 3);
+    setAttrFn(false, logPrefix, selector, attr, value, options);
 }
 
 function setAttrFn(
@@ -619,7 +618,8 @@ function setAttrFn(
     logPrefix,
     selector = '',
     attr = '',
-    value = ''
+    value = '',
+    options = {}
 ) {
     if ( selector === '' ) { return; }
     if ( attr === '' ) { return; }
@@ -681,7 +681,7 @@ function setAttrFn(
             childList: true,
         });
     };
-    runAt(( ) => { start(); }, 'idle');
+    runAt(( ) => { start(); }, options.runAt || 'idle');
 }
 
 function setCookie(
