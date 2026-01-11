@@ -798,7 +798,7 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_name"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^utm_name="},"id":797},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_referer"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^utm_referer="},"id":798},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_referrer"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^utm_referrer="},"id":799},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_source"]}}},"type":"redirect"},"condition":{"excludedInitiatorDomains":["link.softoroom.org"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^utm_source="},"id":800},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["at"]}}},"type":"redirect"},"condition":{"initiatorDomains":["ozon.ru"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^at="},"id":800},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_sourece"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^utm_sourece="},"id":801},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_space"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^utm_space="},"id":802},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_term"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^utm_term="},"id":803},
@@ -841,5 +841,6 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["integration"]}}},"type":"redirect"},"condition":{"initiatorDomains":["dzen.ru"],"resourceTypes":["main_frame"],"urlFilter":"^integration="},"id":840},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["place"]}}},"type":"redirect"},"condition":{"initiatorDomains":["dzen.ru"],"resourceTypes":["main_frame"],"urlFilter":"^place="},"id":841},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["secdata"]}}},"type":"redirect"},"condition":{"initiatorDomains":["dzen.ru"],"resourceTypes":["main_frame"],"urlFilter":"^secdata="},"id":842},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mail.ru"],"resourceTypes":["main_frame"],"urlFilter":"?from=logout"},"id":843}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mail.ru"],"resourceTypes":["main_frame"],"urlFilter":"?from=logout"},"id":843},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_source"]}}},"type":"redirect"},"condition":{"excludedInitiatorDomains":["softoroom.org"],"resourceTypes":["main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^utm_source="},"id":844}
 ]

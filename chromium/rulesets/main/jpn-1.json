@@ -1329,7 +1329,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kenko-tokina.co.jp"],"urlFilter":"||nakanohito.jp^*/bi.js"},"id":1328,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["h1g.jp"],"urlFilter":"||ratel-ad.com/file/box/huriwakeheigu.js"},"id":1329,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"/fb9e87c415.php"},"id":1330,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["cfd","fun","qpon","shop","space","top","xyz"],"resourceTypes":["main_frame"],"urlFilter":"/brand/detail/m*.html?zenid="},"id":1331,"priority":10},
+{"action":{"type":"block"},"condition":{"requestDomains":["cfd","fun","qpon","sale","shop","space","top","xyz"],"resourceTypes":["main_frame"],"urlFilter":"/brand/detail/m*.html?zenid="},"id":1331,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["mens-ex.jp","www.asahi.com"],"urlFilter":"||logly.co.jp/lift"},"id":1332,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||band-aid.jp/sites/bandaid_jp/files/styles/medium/public/product-images"},"id":1333,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["wowgame.jp"],"urlFilter":"||a.image.accesstrade.net/m/m_img/*/file4.jpg"},"id":1334,"priority":30},

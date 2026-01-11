@@ -877,7 +877,7 @@ function setSessionStorageItem(key = '', value = '') {
     setLocalStorageItemFn('session', false, key, value, options);
 }
 
-function urlSkip(url, blocked, steps, directive = {}) {
+function urlSkip(url, blocked, steps) {
     try {
         let redirectBlocked = false;
         let urlout = url;
@@ -937,10 +937,7 @@ function urlSkip(url, blocked, steps, directive = {}) {
             }
             // Regex extraction from first capture group
             if ( c0 === 0x2F ) { // /
-                const re = directive.cache ?? new RegExp(step.slice(1, -1));
-                if ( directive.cache === null ) {
-                    directive.cache = re;
-                }
+                const re = new RegExp(step.slice(1, -1));
                 const match = re.exec(urlin);
                 if ( match === null ) { return; }
                 if ( match.length <= 1 ) { return; }

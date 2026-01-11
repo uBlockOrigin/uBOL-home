@@ -339,6 +339,7 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||fiches-auto.fr/popup2.js"},"id":338,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["euazurebge.b2clogin.com"],"urlFilter":"||xzeepb2clookuppsta001.blob.core.windows.net/bge/src/js/google-analytics.js"},"id":339,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tendancehotellerie.fr/img/png/transaxio_hotel_partenaire_in_extenso.png"},"id":340,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["msn.com"],"urlFilter":"||assets.msn.com/bundles/v*/cghomepage/latest/web-components_super-cards_dist_cards_super-native-ad-card_native-ad-card-casual-games-landin-*.*.js"},"id":341,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["japscan.vip"],"urlFilter":"||bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"},"id":342,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["japscan.vip"],"urlFilter":"||ko-fi.com/cdn/scripts/overlay-widget.js"},"id":343,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"_300x250px_"},"id":344,"priority":10},
