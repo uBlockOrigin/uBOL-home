@@ -1,3 +1,10 @@
+- [Show spinner when filtering mode change takes long](https://github.com/gorhill/uBlock/commit/dfeb4e79ed)
+- Updated filter lists
+
+----------
+
+### 2026.104.1656
+
 - [Fix regression in conversion of `removeparam` filters](https://github.com/gorhill/uBlock/commit/329e99fd19)
 - Updated filter lists
 
