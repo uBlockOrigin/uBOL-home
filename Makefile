@@ -68,6 +68,15 @@ publish-firefox:
 		channel=unlisted \
 		updatepath=./dist/firefox/updates.json
 
+publish-dev-firefox:
+	node publish-extension/publish-firefox.js \
+		ghowner=uBlockOrigin \
+		ghrepo=uBOL-home \
+		ghtag=$(version) \
+		ghasset=firefox \
+		storeid=uBOLiteRedux@raymondhill.net \
+		channel=unlisted
+
 # Usage: make upload-firefox version=?
 upload-firefox:
 	node publish-extension/upload-firefox.js \
@@ -78,6 +87,15 @@ upload-firefox:
 		storeid=uBOLiteRedux@raymondhill.net \
 		channel=unlisted \
 		updatepath=./dist/firefox/updates.json
+
+upload-dev-firefox:
+	node publish-extension/upload-firefox.js \
+		ghowner=uBlockOrigin \
+		ghrepo=uBOL-home \
+		ghtag=$(version) \
+		ghasset=firefox \
+		storeid=uBOLiteRedux@raymondhill.net \
+		channel=unlisted
 
 # Usage: make publish-safari-macos version=?
 publish-safari-macos:
