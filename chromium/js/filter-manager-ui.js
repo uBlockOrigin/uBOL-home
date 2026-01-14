@@ -383,7 +383,7 @@ async function importFromText(text) {
         }
     }
 
-    if ( hostnameToSelectorsMap.size === 0 ) { return; }
+    if ( hostnameToSelectorsMap.size === 0 ) { return false; }
 
     dom.cl.add(dom.body, 'readonly');
     updateContentEditability();
@@ -402,15 +402,21 @@ async function importFromText(text) {
     await debounceRenderCustomFilters();
     dom.cl.remove(dom.body, 'readonly');
     updateContentEditability();
+
+    return true;
 }
 
 /******************************************************************************/
 
-function importFromTextarea() {
-    dom.prop('section[data-pane="filters"] details', 'open', false);
+async function importFromTextarea() {
     const textarea = qs$('section[data-pane="filters"] .importFromText textarea');
-    importFromText(textarea.value);
-    textarea.value = '';
+
+    if ( await importFromText(textarea.value) ) {
+        dom.prop('section[data-pane="filters"] details', 'open', false);
+        textarea.value = '';
+    } else {
+        window.alert("No valid rules found");
+    }
 }
 
 /******************************************************************************/
