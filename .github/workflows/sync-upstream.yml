@@ -30,12 +30,12 @@ jobs:
 
       - name: Update main from upstream
         run: |
-          git checkout main
+          git checkout -B main origin/main
           git merge upstream/main --no-edit
 
       - name: Rebase custom on updated main
         run: |
-          git checkout custom
+          git checkout -B custom origin/custom || git checkout custom
           git rebase main
 
       - name: Push updated branches

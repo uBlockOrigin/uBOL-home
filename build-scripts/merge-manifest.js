@@ -18,7 +18,7 @@ const PLATFORMS = [
   { name: 'firefox', manifest: 'firefox/manifest.json' }
 ];
 
-const CUSTOM_SCRIPT = 'js/notifications.js';
+const CUSTOM_SCRIPT = '/js/notifications.js';
 const NOTIFICATIONS_PERMISSION = 'notifications';
 
 function mergeManifest(platform) {
