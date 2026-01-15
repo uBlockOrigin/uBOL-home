@@ -103,7 +103,6 @@ import {
 
 import { dnr } from './ext-compat.js';
 import { toggleToolbarIcon } from './action.js';
-import './notifications.js';
 
 /******************************************************************************/
 
