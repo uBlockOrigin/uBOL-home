@@ -23,7 +23,7 @@ const NOTIFICATIONS_PERMISSION = 'notifications';
 
 function mergeManifest(platform) {
   const manifestPath = path.join(rootDir, platform.manifest);
-  
+
   // Check if manifest exists
   if (!fs.existsSync(manifestPath)) {
     console.warn(`⚠️  Manifest not found: ${platform.manifest}`);
@@ -39,21 +39,19 @@ function mergeManifest(platform) {
 
     // Handle background scripts
     if (manifest.background) {
-      // Chrome/Edge Manifest V3: has service_worker, may also have scripts array
+      // Chrome/Edge Manifest V3: has service_worker, does NOT support scripts array
+      // We'll import notifications.js into background.js instead (handled by inject-background.js)
       if (manifest.background.service_worker) {
-        // For Manifest V3, we can add scripts array alongside service_worker
-        if (!manifest.background.scripts) {
-          manifest.background.scripts = [];
-        }
-        
-        // Add custom script if not already present
-        if (!manifest.background.scripts.includes(CUSTOM_SCRIPT)) {
-          manifest.background.scripts.push(CUSTOM_SCRIPT);
+        // Manifest V3 doesn't support background.scripts
+        // Remove it if it exists (from previous incorrect merges)
+        if (manifest.background.scripts) {
+          delete manifest.background.scripts;
           updated = true;
-          console.log(`  ✓ Added ${CUSTOM_SCRIPT} to background.scripts`);
+          console.log(`  ✓ Removed invalid background.scripts (Manifest V3 doesn't support it)`);
         }
+        console.log(`  ℹ️  Manifest V3: notifications will be imported into background.js`);
       }
-      // Firefox Manifest V2/V3: has scripts array
+      // Firefox Manifest V2/V3: has scripts array (Firefox supports it)
       else if (manifest.background.scripts && Array.isArray(manifest.background.scripts)) {
         // Add custom script if not already present
         if (!manifest.background.scripts.includes(CUSTOM_SCRIPT)) {
@@ -84,7 +82,7 @@ function mergeManifest(platform) {
       return true;
     } else {
       console.log(`ℹ️  No changes needed: ${platform.manifest}\n`);
-      return false;
+      return true; // No changes needed is still success
     }
 
   } catch (error) {
@@ -102,7 +100,7 @@ function mergeAllManifests() {
   for (const platform of PLATFORMS) {
     console.log(`Processing ${platform.name}...`);
     const result = mergeManifest(platform);
-    
+
     if (result === false) {
       errorCount++;
     } else {

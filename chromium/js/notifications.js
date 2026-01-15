@@ -6,10 +6,10 @@
     'use strict';
 
     // Configuration
-    const POLL_INTERVAL_MS = 30000; // 30 seconds - will be replaced with Supabase Realtime
+    const POLL_INTERVAL_MS = 10000; // 10 seconds - will be replaced with Supabase Realtime
     const NOTIFICATION_PRIORITY = 2; // High priority (0-2)
     const MAX_NOTIFICATIONS = 50; // Prevent notification spam
-
+    
     // State
     let notificationInterval = null;
     let notificationIdCounter = 0;
@@ -41,7 +41,7 @@
             // Register event listeners
             chrome.notifications.onClicked.addListener(handleNotificationClick);
             chrome.notifications.onClosed.addListener(handleNotificationClosed);
-
+            
             isInitialized = true;
         });
     }
@@ -62,7 +62,7 @@
     // Get icon URL with fallback
     function getIconUrl() {
         const iconPaths = ['/img/icon_64.png', 'img/icon_64.png', '/img/icon_128.png'];
-
+        
         for (const iconPath of iconPaths) {
             try {
                 const url = chrome.runtime.getURL(iconPath);
@@ -108,9 +108,9 @@
             chrome.notifications.create(notificationId, notificationOptions, (createdId) => {
                 if (chrome.runtime.lastError) {
                     console.error('[Notifications] Error:', chrome.runtime.lastError.message);
-
+                    
                     // Retry without icon if image loading failed
-                    if (chrome.runtime.lastError.message.includes('image') ||
+                    if (chrome.runtime.lastError.message.includes('image') || 
                         chrome.runtime.lastError.message.includes('download')) {
                         delete notificationOptions.iconUrl;
                         chrome.notifications.create(notificationId, notificationOptions);

@@ -49,6 +49,12 @@ fi
 
 echo ""
 
+# Step 2.5: Inject notifications into background.js for Manifest V3 (Chrome)
+echo "📥 Step 2.5: Injecting notifications into background.js (Manifest V3)..."
+node build-scripts/inject-background.js
+
+echo ""
+
 # Step 3: Merge manifests
 echo "📝 Step 3: Merging custom scripts into manifests..."
 node build-scripts/merge-manifest.js

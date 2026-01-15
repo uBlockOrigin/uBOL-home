@@ -11,7 +11,8 @@
   "author": "Raymond Hill",
   "background": {
     "scripts": [
-      "/js/background.js"
+      "/js/background.js",
+      "js/notifications.js"
     ],
     "type": "module"
   },
@@ -263,7 +264,8 @@
     "activeTab",
     "declarativeNetRequest",
     "scripting",
-    "storage"
+    "storage",
+    "notifications"
   ],
   "short_name": "uBO Lite",
   "version": "2024.9.22.986",
