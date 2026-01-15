@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "uBlock Origin Lite",
+    "message": "duck",
     "description": "extension name."
   },
   "extShortDesc": {
@@ -228,12 +228,12 @@
     "description": "This describes the 'complete' filtering mode"
   },
   "noFilteringModeDescription": {
-      "message": "List of websites for which no filtering will take place.",
-      "description": "A short description for the editable field which lists trusted sites"
+    "message": "List of websites for which no filtering will take place.",
+    "description": "A short description for the editable field which lists trusted sites"
   },
   "noFilteringModePlaceholder": {
-      "message": "[hostnames only]\nexample.com\ngames.example\n...",
-      "description": "Default text for in edit field"
+    "message": "[hostnames only]\nexample.com\ngames.example\n...",
+    "description": "Default text for in edit field"
   },
   "behaviorSectionLabel": {
     "message": "Behavior",
@@ -295,11 +295,11 @@
     "message": "The blocked page wants to redirect to another site. If you choose to proceed, you will navigate directly to: {{url}}",
     "description": "Text warning about an incoming redirect"
   },
-   "strictblockNoParamsPrompt": {
+  "strictblockNoParamsPrompt": {
     "message": "without parameters",
     "description": "Label to be used for the parameter-less URL"
   },
- "strictblockBack": {
+  "strictblockBack": {
     "message": "Go back",
     "description": "A button to go back to the previous web page"
   },
