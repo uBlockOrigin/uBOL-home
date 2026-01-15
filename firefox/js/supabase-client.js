@@ -138,6 +138,9 @@
                 url += '?' + params.toString();
             }
 
+            // Debug logging (can be removed in production)
+            console.log('[SupabaseClient] Select query:', url.substring(0, 200) + (url.length > 200 ? '...' : ''));
+
             try {
                 const response = await fetch(url, {
                     method: 'GET',
@@ -146,10 +149,13 @@
 
                 if (!response.ok) {
                     const errorText = await response.text();
-                    throw new Error(`Supabase API error: ${response.status} ${response.statusText} - ${errorText}`);
+                    const error = new Error(`Supabase API error: ${response.status} ${response.statusText} - ${errorText}`);
+                    console.error('[SupabaseClient] Select error:', response.status, errorText.substring(0, 200));
+                    return { data: null, error };
                 }
 
                 const json = await response.json();
+                console.log('[SupabaseClient] Select success, returned', Array.isArray(json) ? json.length : 1, 'row(s)');
                 return { data: json, error: null };
             } catch (error) {
                 console.error('[SupabaseClient] Select failed:', error);
