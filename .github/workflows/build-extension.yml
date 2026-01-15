@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -19,6 +19,7 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -77,11 +78,26 @@ jobs:
           echo "### Download Artifacts" >> $GITHUB_STEP_SUMMARY
           echo "- Chrome/Chromium: chrome-extension (folder)" >> $GITHUB_STEP_SUMMARY
           echo "- Firefox: firefox-extension (folder)" >> $GITHUB_STEP_SUMMARY
-        
-      - name: Commit changes
-        uses: actions/commit-push@v4
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.has_changes == 'true'
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: "[build-extension] Build extension and create artifacts"
           branch: custom
-          push: true
+          message: "[build-extension] Build extension and create artifacts"
+          force: false
