@@ -1,113 +1,73 @@
-name: uBO Lite release
+name: Create Release from Artifacts
 
 on:
   workflow_dispatch:
     inputs:
-      branch:
-        description: 'Branch to build from'
+      tag_name:
+        description: 'Release tag name'
+        required: true
+        type: string
+      release_name:
+        description: 'Release name (defaults to tag name)'
         required: false
-        default: 'custom'
+        type: string
+      prerelease:
+        description: 'Mark as prerelease'
+        required: false
+        default: true
+        type: boolean
+      workflow_run_id:
+        description: 'Workflow run ID to download artifacts from (optional)'
+        required: false
         type: string
 
 permissions:
-  contents: read
-
-# I used the following project as template to get started:
-# https://github.com/dessant/search-by-image/blob/master/.github/workflows/ci.yml
-
-# this flow build things form ublock, for example chromium, edge, firefox, safari.
-# chromium got build and placed in the parent directory of ublock
+  contents: write
+  actions: read
 
 jobs:
-  build:
-    permissions:
-      contents: write # for creating release
-    name: Build packages
+  create-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone repository
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.branch || 'custom' }}
-          persist-credentials: false
-          submodules: recursive
-      - name: Locate uBO repo
-        run: |
-          UBOL_REPO_DIR=$(pwd)
-          UBLOCK_REPO_DIR="$UBOL_REPO_DIR/uBlock"
-          echo "UBLOCK_REPO_DIR=$UBLOCK_REPO_DIR" >> $GITHUB_ENV
-      # Version, time-based
-      - name: Create unique time-based version
-        run: |
-          TAGNAME=$(date -u "+%Y").$(date -u "+%-m*100+%-d" | bc).$(date -u "+%H*100+%M" | bc)
-          echo "TAGNAME=$TAGNAME" >> $GITHUB_ENV
-          echo "Version: $TAGNAME"
-      # Chromium
-      - name: Build Chromium uBOLite
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          UBOL_REPO_DIR=$(pwd)
-          cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
-          echo "CHROMIUM_PACKAGE=uBOLite_${{ env.TAGNAME }}.chromium.zip" >> $GITHUB_ENV
-          cd - > /dev/null
-          rm -rf chromium
-          mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
-      # Edge
-      - name: Build Edge uBOLite
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          UBOL_REPO_DIR=$(pwd)
-          cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh edge ${{ env.TAGNAME }}
-          echo "EDGE_PACKAGE=uBOLite_${{ env.TAGNAME }}.edge.zip" >> $GITHUB_ENV
-          cd - > /dev/null
-      # Firefox
-      - name: Build Firefox uBOLite
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          UBOL_REPO_DIR=$(pwd)
-          cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh firefox ${{ env.TAGNAME }}
-          echo "FIREFOX_PACKAGE=uBOLite_${{ env.TAGNAME }}.firefox.xpi" >> $GITHUB_ENV
-          cd - > /dev/null
-      # Safari
-      - name: Build Safari uBOLite
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          UBOL_REPO_DIR=$(pwd)
-          cd $UBLOCK_REPO_DIR
-          tools/make-mv3.sh safari ${{ env.TAGNAME }}
-          echo "SAFARI_PACKAGE=uBOLite_${{ env.TAGNAME }}.safari.zip" >> $GITHUB_ENV
-          cd - > /dev/null
-      
-      - name: Commit uBOLite MV3 package files
-        # https://github.com/marketplace/actions/github-action-for-committing-changes-to-a-repository
-        uses: devops-infra/action-commit-push@master
+          fetch-depth: 0
+
+      - name: Download artifacts from workflow run
+        if: ${{ inputs.workflow_run_id != '' }}
+        uses: actions/download-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: "[workflow] Update uBOLite MV3 package files for ${{ env.TAGNAME }}"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ inputs.workflow_run_id }}
+          pattern: 'chrome-extension,firefox-extension'
+          merge-multiple: false
+
+      - name: List downloaded artifacts
+        run: |
+          echo "Downloaded artifacts:"
+          find . -name "*.zip" -o -name "*.xpi" | head -20
+
       - name: Assemble release text
         run: |
-          sed -e 's/%tag%/${{ env.TAGNAME }}/g' .github/workflows/RELEASE_BODY.md > release_body0.txt
-          grep -m1 -B10000 -- "----------" CHANGELOG.md | head -n -2 > release_notes.txt
-          sed -e '/%changelog%/{r release_notes.txt' -e 'd}' release_body0.txt > release_body.txt
+          TAGNAME="${{ inputs.tag_name }}"
+          sed -e "s/%tag%/$TAGNAME/g" .github/workflows/RELEASE_BODY.md > release_body0.txt 2>/dev/null || echo "Release $TAGNAME" > release_body0.txt
+          if [ -f CHANGELOG.md ]; then
+            grep -m1 -B10000 -- "----------" CHANGELOG.md | head -n -2 > release_notes.txt 2>/dev/null || echo "" > release_notes.txt
+            sed -e '/%changelog%/{r release_notes.txt' -e 'd}' release_body0.txt > release_body.txt
+          else
+            cp release_body0.txt release_body.txt
+          fi
+
       - name: Create GitHub release
-        id: create_release
         uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.TAGNAME }}
-          name: ${{ env.TAGNAME }}
-          prerelease: true
+          tag_name: ${{ inputs.tag_name }}
+          name: ${{ inputs.release_name || inputs.tag_name }}
+          prerelease: ${{ inputs.prerelease }}
           body_path: release_body.txt
           files: |
-            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
-            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.EDGE_PACKAGE }}
-            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.FIREFOX_PACKAGE }}
-            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.SAFARI_PACKAGE }}
+            chrome-extension.zip
+            firefox-extension.zip

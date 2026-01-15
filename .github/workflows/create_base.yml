@@ -1,0 +1,89 @@
+name: Create Base Build
+
+on:
+  workflow_run:
+    workflows: ["Sync upstream and reapply custom changes"]
+    types:
+      - completed
+    branches:
+      - custom
+
+permissions:
+  contents: write # for committing changes
+
+# This workflow builds uBOLite from uBlock for all platforms (chromium, edge, firefox, safari)
+# and commits the built packages to the home repo and commit the changes to the custom branch
+
+jobs:
+  build:
+    name: Build packages
+    runs-on: ubuntu-latest
+    # Skip if triggered by workflow_run and the triggering workflow failed
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+        with:
+          ref: custom
+          persist-credentials: true
+          submodules: recursive
+      - name: Locate uBO repo
+        run: |
+          UBOL_REPO_DIR=$(pwd)
+          UBLOCK_REPO_DIR="$UBOL_REPO_DIR/uBlock"
+          echo "UBLOCK_REPO_DIR=$UBLOCK_REPO_DIR" >> $GITHUB_ENV
+      # Version, time-based
+      - name: Create unique time-based version
+        run: |
+          TAGNAME=$(date -u "+%Y").$(date -u "+%-m*100+%-d" | bc).$(date -u "+%H*100+%M" | bc)
+          echo "TAGNAME=$TAGNAME" >> $GITHUB_ENV
+          echo "Version: $TAGNAME"
+      # Chromium
+      - name: Build Chromium uBOLite
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          UBOL_REPO_DIR=$(pwd)
+          cd $UBLOCK_REPO_DIR
+          tools/make-mv3.sh chromium ${{ env.TAGNAME }} before=$UBOL_REPO_DIR
+          echo "CHROMIUM_PACKAGE=uBOLite_${{ env.TAGNAME }}.chromium.zip" >> $GITHUB_ENV
+          cd - > /dev/null
+          rm -rf chromium
+          mv "$UBLOCK_REPO_DIR/dist/build/uBOLite.chromium" chromium
+      # Edge
+      - name: Build Edge uBOLite
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          UBOL_REPO_DIR=$(pwd)
+          cd $UBLOCK_REPO_DIR
+          tools/make-mv3.sh edge ${{ env.TAGNAME }}
+          echo "EDGE_PACKAGE=uBOLite_${{ env.TAGNAME }}.edge.zip" >> $GITHUB_ENV
+          cd - > /dev/null
+      # Firefox
+      - name: Build Firefox uBOLite
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          UBOL_REPO_DIR=$(pwd)
+          cd $UBLOCK_REPO_DIR
+          tools/make-mv3.sh firefox ${{ env.TAGNAME }}
+          echo "FIREFOX_PACKAGE=uBOLite_${{ env.TAGNAME }}.firefox.xpi" >> $GITHUB_ENV
+          cd - > /dev/null
+      # Safari
+      - name: Build Safari uBOLite
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          UBOL_REPO_DIR=$(pwd)
+          cd $UBLOCK_REPO_DIR
+          tools/make-mv3.sh safari ${{ env.TAGNAME }}
+          echo "SAFARI_PACKAGE=uBOLite_${{ env.TAGNAME }}.safari.zip" >> $GITHUB_ENV
+          cd - > /dev/null
+      
+      - name: Commit uBOLite MV3 package files
+        # https://github.com/marketplace/actions/github-action-for-committing-changes-to-a-repository
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: "[workflow] Update uBOLite MV3 package files for ${{ env.TAGNAME }}"

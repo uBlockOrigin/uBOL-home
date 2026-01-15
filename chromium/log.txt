@@ -1,17 +1,17 @@
-Secret: 130e5e8fc382f879
-Version: 2026.115.1320
+Secret: 64955dc9caa0a0f0
+Version: 2026.115.1424
 ============================
 Listset for 'ublock-filters':
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/quick-fixes.min.txt
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/unbreak.min.txt
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/filters.min.txt
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/privacy.min.txt
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/ubol-filters.txt
-Input filter count: 9476
-	Accepted filter count: 9454
+	Fetched local https://ublockorigin.github.io/uAssets/filters/quick-fixes.min.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/ubol-filters.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/unbreak.min.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/privacy.min.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/filters.min.txt
+Input filter count: 9478
+	Accepted filter count: 9456
 	Rejected filter count: 1
-Output rule count: 5904
-	Static rules: 4745
+Output rule count: 5905
+	Static rules: 4746
 		Salvaged rule by ignoring 1 unsupported domain= option: erotic-beauties.com|hardsex.cc|rule34.top|sex-movies.biz|tube18.sexy|xvideos.name|booru.*
 		Salvaged rule by ignoring 1 unsupported domain= option: 8boobs.com|angelgals.com|babesexy.com|babesinporn.com|fooxybabes.com|hotbabeswanted.com|hotstunners.com|mainbabes.com|nakedbabes.club|nakedgirlsroom.com|nudebabes.sexy|pleasuregirl.net|rabbitsfun.com|sexybabes.club|sexybabesart.com|wantedbabes.com|silkengirl.*
 		Salvaged rule by ignoring 1 unsupported domain= option: web.de|gmx.*
@@ -871,13 +871,13 @@ CSS-specific: 4720 distinct filters for 4350 distinct hostnames
 CSS-procedural: 1246 distinct filters for 1692 distinct hostnames
 ============================
 Listset for 'easylist':
-	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist.txt
-Input filter count: 57534
-	Accepted filter count: 57503
+	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist.txt
+Input filter count: 57571
+	Accepted filter count: 57540
 	Rejected filter count: 19
-Output rule count: 3608
-	Pruning requestDomains: from 47207 to 47205
-	Static rules: 3582
+Output rule count: 3609
+	Pruning requestDomains: from 47243 to 47241
+	Static rules: 3583
 
 	Maybe good (regexes): 19
 	urlskip=: 0
@@ -905,12 +905,12 @@ CSS-specific: 9760 distinct filters for 7748 distinct hostnames
 CSS-procedural: 232 distinct filters for 225 distinct hostnames
 ============================
 Listset for 'easyprivacy':
-	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easyprivacy.txt
-Input filter count: 54810
-	Accepted filter count: 54778
+	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easyprivacy.txt
+Input filter count: 54813
+	Accepted filter count: 54781
 	Rejected filter count: 30
-Output rule count: 8488
-	Static rules: 8480
+Output rule count: 8490
+	Static rules: 8482
 		Salvaged rule by ignoring 1 unsupported domain= option: allmodern.com|birchlane.com|catbirdnyc.com|gametime.co|jossandmain.com|ladym.com|libertylondon.com|mediamarkt.de|nobullproject.com|paynow.pmnts.io|perigold.com|theathletesfoot.co.nz|theathletesfoot.com.au|wayfair.*
 	Maybe good (regexes): 7
 	urlskip=: 0
@@ -921,7 +921,7 @@ CSS-generic: 2 plain CSS selectors
 CSS-procedural: 3 distinct filters for 4 distinct hostnames
 ============================
 Listset for 'pgl':
-	Fetching remote https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext
+	Fetched local https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext
 Input filter count: 3489
 	Accepted filter count: 3408
 	Rejected filter count: 81
@@ -935,7 +935,7 @@ Output rule count: 1
 
 ============================
 Listset for 'ublock-badware':
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/badware.min.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/badware.min.txt
 Input filter count: 10447
 	Accepted filter count: 10415
 	Rejected filter count: 0
@@ -1010,7 +1010,7 @@ CSS-specific: 36 distinct filters for 195 distinct hostnames
 CSS-procedural: 11 distinct filters for 29 distinct hostnames
 ============================
 Listset for 'urlhaus-full':
-	Fetching remote https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-hosts.txt
+	Fetched local https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-hosts.txt
 Input filter count: 11492
 	Accepted filter count: 11492
 	Rejected filter count: 0
@@ -1024,8 +1024,8 @@ Output rule count: 1
 
 ============================
 Listset for 'adguard-mobile':
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/filters-mobile.txt
-	Fetching remote https://filters.adtidy.org/extension/ublock/filters/11.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/filters-mobile.txt
+	Fetched local https://filters.adtidy.org/extension/ublock/filters/11.txt
 Input filter count: 1509
 	Accepted filter count: 1505
 	Rejected filter count: 4
@@ -1045,7 +1045,7 @@ CSS-specific: 5217 distinct filters for 4136 distinct hostnames
 CSS-procedural: 540 distinct filters for 436 distinct hostnames
 ============================
 Listset for 'block-lan':
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/lan-block.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/lan-block.txt
 Input filter count: 91
 	Accepted filter count: 91
 	Rejected filter count: 0
@@ -1059,7 +1059,7 @@ Output rule count: 18
 
 ============================
 Listset for 'dpollock-0':
-	Fetching remote https://someonewhocares.org/hosts/hosts
+	Fetched local https://someonewhocares.org/hosts/hosts
 Input filter count: 11786
 	Accepted filter count: 11776
 	Rejected filter count: 10
@@ -1073,7 +1073,7 @@ Output rule count: 1
 
 ============================
 Listset for 'adguard-spyware-url':
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/privacy-removeparam.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/privacy-removeparam.txt
 Input filter count: 2407
 	Accepted filter count: 2391
 	Rejected filter count: 0
@@ -1215,7 +1215,7 @@ Output rule count: 1679
 CSS-specific: 1 distinct filters for 3 distinct hostnames
 ============================
 Listset for 'annoyances-ai':
-	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-ai.txt
+	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist-ai.txt
 Input filter count: 2
 	Accepted filter count: 2
 	Rejected filter count: 0
@@ -1230,8 +1230,8 @@ CSS-specific: 42 distinct filters for 44 distinct hostnames
 CSS-procedural: 11 distinct filters for 8 distinct hostnames
 ============================
 Listset for 'annoyances-cookies':
-	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-cookies.txt
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/annoyances-cookies.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/annoyances-cookies.txt
+	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist-cookies.txt
 Input filter count: 2125
 	Accepted filter count: 2124
 	Rejected filter count: 0
@@ -1250,12 +1250,12 @@ Output rule count: 1773
 CSS-generic: 202 specific CSS exceptions
 CSS-generic: 3964 plain CSS selectors
 CSS-generic-high: 167 plain CSS selectors
-CSS-specific: 6538 distinct filters for 17638 distinct hostnames
+CSS-specific: 6538 distinct filters for 17640 distinct hostnames
 CSS-procedural: 91 distinct filters for 2691 distinct hostnames
 ============================
 Listset for 'annoyances-overlays':
-	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-newsletters.txt
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/annoyances-others.txt
+	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist-newsletters.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/annoyances-others.txt
 Input filter count: 466
 	Accepted filter count: 466
 	Rejected filter count: 0
@@ -1301,7 +1301,7 @@ CSS-specific: 3857 distinct filters for 5198 distinct hostnames
 CSS-procedural: 497 distinct filters for 1222 distinct hostnames
 ============================
 Listset for 'annoyances-social':
-	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-social.txt
+	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist-social.txt
 Input filter count: 666
 	Accepted filter count: 666
 	Rejected filter count: 0
@@ -1315,11 +1315,11 @@ Output rule count: 593
 CSS-generic: 96 specific CSS exceptions
 CSS-generic: 3648 plain CSS selectors
 CSS-generic-high: 111 plain CSS selectors
-CSS-specific: 2897 distinct filters for 4757 distinct hostnames
+CSS-specific: 2898 distinct filters for 4757 distinct hostnames
 CSS-procedural: 39 distinct filters for 38 distinct hostnames
 ============================
 Listset for 'annoyances-widgets':
-	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-chat.txt
+	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist-chat.txt
 Input filter count: 231
 	Accepted filter count: 230
 	Rejected filter count: 1
@@ -1337,7 +1337,7 @@ CSS-generic-high: 1 plain CSS selectors
 CSS-specific: 13 distinct filters for 6 distinct hostnames
 ============================
 Listset for 'annoyances-others':
-	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-annoyances.txt
+	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist-annoyances.txt
 Input filter count: 744
 	Accepted filter count: 744
 	Rejected filter count: 0
@@ -1356,7 +1356,7 @@ CSS-specific: 2059 distinct filters for 2480 distinct hostnames
 CSS-procedural: 73 distinct filters for 81 distinct hostnames
 ============================
 Listset for 'annoyances-notifications':
-	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-notifications.txt
+	Fetched local https://ublockorigin.github.io/uAssets/thirdparties/easylist-notifications.txt
 Input filter count: 474
 	Accepted filter count: 473
 	Rejected filter count: 1
@@ -1374,7 +1374,7 @@ CSS-specific: 680 distinct filters for 1194 distinct hostnames
 CSS-procedural: 41 distinct filters for 109 distinct hostnames
 ============================
 Listset for 'ublock-experimental':
-	Fetching remote https://ublockorigin.github.io/uAssets/filters/experimental.min.txt
+	Fetched local https://ublockorigin.github.io/uAssets/filters/experimental.min.txt
 Input filter count: 0
 	Accepted filter count: 0
 	Rejected filter count: 0
@@ -1387,7 +1387,7 @@ Output rule count: 0
 
 ============================
 Listset for 'stevenblack-hosts':
-	Fetching remote https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+	Fetched local https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 Input filter count: 73825
 	Accepted filter count: 73737
 	Rejected filter count: 88
@@ -1401,7 +1401,7 @@ Output rule count: 2
 		Rejected filter: ### Version: V1.2021.05.8588
 ============================
 Listset for 'ubol-tests':
-	Fetching remote https://ublockorigin.github.io/uBOL-home/tests/test-filters.txt
+	Fetched local https://ublockorigin.github.io/uBOL-home/tests/test-filters.txt
 Input filter count: 10
 	Accepted filter count: 10
 	Rejected filter count: 0
@@ -1418,7 +1418,7 @@ CSS-specific: 13 distinct filters for 2 distinct hostnames
 CSS-procedural: 17 distinct filters for 2 distinct hostnames
 ============================
 Listset for 'alb-0':
-	Fetching remote https://raw.githubusercontent.com/AnXh3L0/blocklist/master/albanian-easylist-addition/Albania.txt
+	Fetched local https://raw.githubusercontent.com/AnXh3L0/blocklist/master/albanian-easylist-addition/Albania.txt
 Input filter count: 35
 	Accepted filter count: 35
 	Rejected filter count: 0
@@ -1437,7 +1437,7 @@ CSS-specific: 247 distinct filters for 107 distinct hostnames
 CSS-procedural: 7 distinct filters for 7 distinct hostnames
 ============================
 Listset for 'bgr-0':
-	Fetching remote https://stanev.org/abp/adblock_bg.txt
+	Fetched local https://stanev.org/abp/adblock_bg.txt
 Input filter count: 707
 	Accepted filter count: 706
 	Rejected filter count: 1
@@ -1453,7 +1453,7 @@ CSS-generic: 7 plain CSS selectors
 CSS-specific: 414 distinct filters for 185 distinct hostnames
 ============================
 Listset for 'chn-0':
-	Fetching remote https://filters.adtidy.org/extension/ublock/filters/224.txt
+	Fetched local https://filters.adtidy.org/extension/ublock/filters/224.txt
 Input filter count: 15433
 	Accepted filter count: 15410
 	Rejected filter count: 7
@@ -1480,8 +1480,8 @@ CSS-specific: 7151 distinct filters for 3184 distinct hostnames
 CSS-procedural: 215 distinct filters for 197 distinct hostnames
 ============================
 Listset for 'cze-0':
-	Fetching remote https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt
-	Fetching remote https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters_ublock.txt
+	Fetched local https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt
+	Fetched local https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters_ublock.txt
 Input filter count: 251
 	Accepted filter count: 250
 	Rejected filter count: 1
@@ -1503,7 +1503,7 @@ CSS-specific: 309 distinct filters for 212 distinct hostnames
 CSS-procedural: 42 distinct filters for 35 distinct hostnames
 ============================
 Listset for 'deu-0':
-	Fetching remote https://easylist.to/easylistgermany/easylistgermany.txt
+	Fetched local https://easylist.to/easylistgermany/easylistgermany.txt
 Input filter count: 2301
 	Accepted filter count: 2298
 	Rejected filter count: 3
@@ -1526,7 +1526,7 @@ CSS-specific: 3028 distinct filters for 2071 distinct hostnames
 CSS-procedural: 107 distinct filters for 78 distinct hostnames
 ============================
 Listset for 'est-0':
-	Fetching remote https://ubo-et.lepik.io/list.txt
+	Fetched local https://ubo-et.lepik.io/list.txt
 Input filter count: 261
 	Accepted filter count: 259
 	Rejected filter count: 2
@@ -1544,8 +1544,8 @@ CSS-specific: 175 distinct filters for 69 distinct hostnames
 CSS-procedural: 13 distinct filters for 3 distinct hostnames
 ============================
 Listset for 'fin-0':
-	Fetching remote https://raw.githubusercontent.com/finnish-easylist-addition/finnish-easylist-addition/gh-pages/Finland_adb.txt
-	Fetching remote https://raw.githubusercontent.com/finnish-easylist-addition/finnish-easylist-addition/gh-pages/Finland_adb_uBO_extras.txt
+	Fetched local https://raw.githubusercontent.com/finnish-easylist-addition/finnish-easylist-addition/gh-pages/Finland_adb.txt
+	Fetched local https://raw.githubusercontent.com/finnish-easylist-addition/finnish-easylist-addition/gh-pages/Finland_adb_uBO_extras.txt
 Input filter count: 203
 	Accepted filter count: 203
 	Rejected filter count: 0
@@ -1563,7 +1563,7 @@ CSS-specific: 1014 distinct filters for 542 distinct hostnames
 CSS-procedural: 155 distinct filters for 115 distinct hostnames
 ============================
 Listset for 'fra-0':
-	Fetching remote https://filters.adtidy.org/extension/ublock/filters/16.txt
+	Fetched local https://filters.adtidy.org/extension/ublock/filters/16.txt
 Input filter count: 13691
 	Accepted filter count: 13265
 	Rejected filter count: 419
@@ -1595,7 +1595,7 @@ CSS-specific: 2359 distinct filters for 1715 distinct hostnames
 CSS-procedural: 173 distinct filters for 154 distinct hostnames
 ============================
 Listset for 'grc-0':
-	Fetching remote https://www.void.gr/kargig/void-gr-filters.txt
+	Fetched local https://www.void.gr/kargig/void-gr-filters.txt
 Input filter count: 461
 	Accepted filter count: 460
 	Rejected filter count: 1
@@ -1613,7 +1613,7 @@ CSS-specific: 688 distinct filters for 203 distinct hostnames
 CSS-procedural: 9 distinct filters for 9 distinct hostnames
 ============================
 Listset for 'hrv-0':
-	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/SerboCroatianList.txt
+	Fetched local https://raw.githubusercontent.com/DandelionSprout/adfilt/master/SerboCroatianList.txt
 Input filter count: 88
 	Accepted filter count: 88
 	Rejected filter count: 0
@@ -1631,7 +1631,7 @@ CSS-specific: 342 distinct filters for 176 distinct hostnames
 CSS-procedural: 11 distinct filters for 10 distinct hostnames
 ============================
 Listset for 'hun-0':
-	Fetching remote https://cdn.jsdelivr.net/gh/hufilter/hufilter@gh-pages/hufilter-ublock.txt
+	Fetched local https://cdn.jsdelivr.net/gh/hufilter/hufilter@gh-pages/hufilter-ublock.txt
 Input filter count: 410
 	Accepted filter count: 408
 	Rejected filter count: 1
@@ -1649,7 +1649,7 @@ CSS-specific: 1139 distinct filters for 518 distinct hostnames
 CSS-procedural: 58 distinct filters for 55 distinct hostnames
 ============================
 Listset for 'idn-0':
-	Fetching remote https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt
+	Fetched local https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt
 Input filter count: 4105
 	Accepted filter count: 4105
 	Rejected filter count: 0
@@ -1665,10 +1665,10 @@ CSS-generic: 7 specific CSS exceptions
 CSS-generic: 363 plain CSS selectors
 CSS-generic-high: 3814 plain CSS selectors
 CSS-specific: 1248 distinct filters for 729 distinct hostnames
-CSS-procedural: 19 distinct filters for 15 distinct hostnames
+CSS-procedural: 20 distinct filters for 15 distinct hostnames
 ============================
 Listset for 'ind-0':
-	Fetching remote https://easylist-downloads.adblockplus.org/indianlist.txt
+	Fetched local https://easylist-downloads.adblockplus.org/indianlist.txt
 Input filter count: 4866
 	Accepted filter count: 4866
 	Rejected filter count: 0
@@ -1691,14 +1691,14 @@ CSS-specific: 4612 distinct filters for 5417 distinct hostnames
 CSS-procedural: 137 distinct filters for 141 distinct hostnames
 ============================
 Listset for 'irn-0':
-	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlocker.txt
-	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlocker-Deprecated.txt
-	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerAds.txt
-	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerTrackers.txt
-	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerCensor.txt
-	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerHalfPrice.txt
-	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerMalware.txt
-	Fetching remote https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerPhishing.txt
+	Fetched local https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlocker.txt
+	Fetched local https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlocker-Deprecated.txt
+	Fetched local https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerAds.txt
+	Fetched local https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerTrackers.txt
+	Fetched local https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerCensor.txt
+	Fetched local https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerHalfPrice.txt
+	Fetched local https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerMalware.txt
+	Fetched local https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerPhishing.txt
 Input filter count: 1365
 	Accepted filter count: 1337
 	Rejected filter count: 1
@@ -1738,7 +1738,7 @@ CSS-specific: 853 distinct filters for 492 distinct hostnames
 CSS-procedural: 819 distinct filters for 189 distinct hostnames
 ============================
 Listset for 'isl-0':
-	Fetching remote https://raw.githubusercontent.com/brave/adblock-lists/master/custom/is.txt
+	Fetched local https://raw.githubusercontent.com/brave/adblock-lists/master/custom/is.txt
 Input filter count: 12
 	Accepted filter count: 12
 	Rejected filter count: 0
@@ -1753,8 +1753,8 @@ CSS-specific: 60 distinct filters for 34 distinct hostnames
 CSS-procedural: 1 distinct filters for 1 distinct hostnames
 ============================
 Listset for 'isr-0':
-	Fetching remote https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt
-	Fetching remote https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew-uBO.txt
+	Fetched local https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt
+	Fetched local https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew-uBO.txt
 Input filter count: 492
 	Accepted filter count: 492
 	Rejected filter count: 0
@@ -1780,7 +1780,7 @@ CSS-specific: 727 distinct filters for 360 distinct hostnames
 CSS-procedural: 12 distinct filters for 10 distinct hostnames
 ============================
 Listset for 'ita-0':
-	Fetching remote https://easylist-downloads.adblockplus.org/easylistitaly.txt
+	Fetched local https://easylist-downloads.adblockplus.org/easylistitaly.txt
 Input filter count: 1158
 	Accepted filter count: 1158
 	Rejected filter count: 0
@@ -1798,7 +1798,7 @@ CSS-specific: 2563 distinct filters for 2783 distinct hostnames
 CSS-procedural: 24 distinct filters for 24 distinct hostnames
 ============================
 Listset for 'jpn-1':
-	Fetching remote https://filters.adtidy.org/extension/ublock/filters/7.txt
+	Fetched local https://filters.adtidy.org/extension/ublock/filters/7.txt
 Input filter count: 2315
 	Accepted filter count: 2315
 	Rejected filter count: 0
@@ -1834,99 +1834,99 @@ CSS-specific: 8148 distinct filters for 5234 distinct hostnames
 CSS-procedural: 935 distinct filters for 717 distinct hostnames
 ============================
 Listset for 'kor-1':
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filter-uBlockOrigin.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/3rd_domains.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/1st_domains.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/general_elemhide.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/filter-uBlockOrigin.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/specific_ELEMHIDE.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/general_url.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/general_url.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/specific_URL.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/specific_ELEMHIDE.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/allowlist.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/extended_css_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/extended_css_INJECTION.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/specific_REDIRECT.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/extended_css_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/extended_css_INJECTION.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/scriptlets.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/javascript.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/javascript.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/antiadblock.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/removeparam.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/allowlist.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/specific_URL.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/3rd_domains.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/1st_domains.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/general_elemhide.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/specific_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/general_url.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/general_url.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/specific_URL.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/specific_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/allowlist.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/extended_css_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/extended_css_INJECTION.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/specific_REDIRECT.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/extended_css_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/extended_css_INJECTION.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/scriptlets.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/javascript.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/javascript.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/antiadblock.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/removeparam.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/allowlist.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/specific_URL.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/3rd_domains.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/1st_domains.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/general_elemhide.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/specific_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/general_url.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/general_url.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/specific_URL.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/specific_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/allowlist.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/extended_css_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/extended_css_INJECTION.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/specific_REDIRECT.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/extended_css_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/extended_css_INJECTION.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/scriptlets.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/javascript.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/javascript.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/antiadblock.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/removeparam.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/allowlist.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/specific_URL.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/3rd_domains.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/1st_domains.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/general_elemhide.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/specific_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/general_url.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/general_url.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/specific_URL.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/specific_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/allowlist.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/extended_css_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/extended_css_INJECTION.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/specific_REDIRECT.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/extended_css_ELEMHIDE.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/extended_css_INJECTION.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/scriptlets.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/javascript.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/javascript.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/antiadblock.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/removeparam.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/allowlist.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/specific_URL.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/specific_CSS.txt
 	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/specific_CSS.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/specific_CSS.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/specific_CSS.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/specific_CSS.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/specific_CSS.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/specific_CSS.txt
-	Fetching remote https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/specific_CSS.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/3rd_domains.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/1st_domains.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/general_elemhide.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/extended_css_INJECTION.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/specific_REDIRECT.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/specific_URL.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/extended_css_ELEMHIDE.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/extended_css_INJECTION.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/javascript.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/scriptlets.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/javascript.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/antiadblock.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/removeparam.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-uBO/allowlist.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/3rd_domains.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/1st_domains.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/general_elemhide.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/specific_ELEMHIDE.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/general_url.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/general_url.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/specific_URL.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/extended_css_INJECTION.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/allowlist.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/extended_css_ELEMHIDE.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/specific_REDIRECT.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/extended_css_ELEMHIDE.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/extended_css_INJECTION.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/scriptlets.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/javascript.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/javascript.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/removeparam.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/antiadblock.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/allowlist.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/specific_URL.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/3rd_domains.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/specific_ELEMHIDE.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/general_elemhide.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/general_url.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/general_url.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/specific_URL.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/specific_ELEMHIDE.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/allowlist.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/extended_css_INJECTION.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/specific_REDIRECT.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/extended_css_INJECTION.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/javascript.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/javascript.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/antiadblock.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/removeparam.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/allowlist.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/specific_URL.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/3rd_domains.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/general_elemhide.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/general_url.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/general_url.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/specific_ELEMHIDE.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/specific_URL.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/specific_ELEMHIDE.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/allowlist.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/extended_css_ELEMHIDE.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/extended_css_INJECTION.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/specific_REDIRECT.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/extended_css_ELEMHIDE.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/extended_css_INJECTION.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/scriptlets.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/javascript.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/javascript.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/antiadblock.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/removeparam.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/allowlist.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/specific_URL.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/adblocking/filters-share/specific_CSS.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-share/specific_CSS.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/analytics/filters-uBO/specific_CSS.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-share/specific_CSS.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/annoyance/filters-uBO/specific_CSS.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-share/specific_CSS.txt
+	Fetched local https://cdn.jsdelivr.net/gh/List-KR/List-KR@latest/antiadblockplus/filters-uBO/specific_CSS.txt
 Input filter count: 1565
 	Accepted filter count: 1557
 	Rejected filter count: 1
@@ -2097,8 +2097,8 @@ CSS-procedural: 56 distinct filters for 82 distinct hostnames
 ============================
 Listset for 'nor-0':
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt
-	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/AntiAdblockEntries.txt
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotFirefox.txt
+	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/AntiAdblockEntries.txt
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-NotBrave.txt
 	Fetching remote https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/AdditionalGenericEntriesForUBO.txt
 Input filter count: 2067
