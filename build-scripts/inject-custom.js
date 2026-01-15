@@ -1,0 +1,74 @@
+#!/usr/bin/env node
+/**
+ * Custom file injection script for uBOL-home
+ * Copies custom background scripts to platform-specific directories
+ */
+
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
+
+// Platform directories
+const PLATFORMS = ['chromium', 'firefox'];
+const CUSTOM_SCRIPT = 'custom/background/notifications.js';
+const TARGET_DIR = 'js';
+
+function injectCustomFiles() {
+    console.log('🔧 Injecting custom files into platform builds...\n');
+
+    const customScriptPath = path.join(rootDir, CUSTOM_SCRIPT);
+
+    // Check if custom script exists
+    if (!fs.existsSync(customScriptPath)) {
+        console.error(`❌ Custom script not found: ${customScriptPath}`);
+        process.exit(1);
+    }
+
+    let successCount = 0;
+    let errorCount = 0;
+
+    // Inject into each platform
+    for (const platform of PLATFORMS) {
+        const platformDir = path.join(rootDir, platform);
+        const targetJsDir = path.join(platformDir, TARGET_DIR);
+        const targetScriptPath = path.join(targetJsDir, 'notifications.js');
+
+        try {
+            // Check if platform directory exists
+            if (!fs.existsSync(platformDir)) {
+                console.warn(`⚠️  Platform directory not found: ${platform}`);
+                continue;
+            }
+
+            // Ensure js directory exists
+            if (!fs.existsSync(targetJsDir)) {
+                fs.mkdirSync(targetJsDir, { recursive: true });
+                console.log(`📁 Created directory: ${targetJsDir}`);
+            }
+
+            // Copy custom script to platform js directory
+            fs.copyFileSync(customScriptPath, targetScriptPath);
+            console.log(`✅ Injected: ${platform}/js/notifications.js`);
+            successCount++;
+
+        } catch (error) {
+            console.error(`❌ Error injecting into ${platform}:`, error.message);
+            errorCount++;
+        }
+    }
+
+    console.log(`\n📊 Injection Summary: ${successCount} successful, ${errorCount} failed`);
+
+    if (errorCount > 0) {
+        process.exit(1);
+    }
+
+    console.log('✅ Custom file injection complete!\n');
+}
+
+// Run injection
+injectCustomFiles();

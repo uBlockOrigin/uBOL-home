@@ -1,0 +1,44 @@
+name: Sync upstream and reapply custom changes
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # daily at 03:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/uBlockOrigin/uBOL-home.git || true
+          git fetch upstream
+
+      - name: Update main from upstream
+        run: |
+          git checkout main
+          git merge upstream/main --no-edit
+
+      - name: Rebase custom on updated main
+        run: |
+          git checkout custom
+          git rebase main
+
+      - name: Push updated branches
+        run: |
+          git push origin main
+          git push origin custom --force-with-lease
