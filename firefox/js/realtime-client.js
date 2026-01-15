@@ -216,14 +216,14 @@
                         // Supabase Realtime sends data in payload.record or payload.new
                         // Handle both formats for compatibility
                         const recordData = payload.record || payload.new || payload;
-                        
+
                         // Format payload to match expected structure
                         const eventPayload = {
                             new: recordData,
                             old: payload.old || null,
                             eventType: event
                         };
-                        
+
                         console.log(`[RealtimeClient] ${event} event received for ${table}:`, recordData);
                         listener.callback(eventPayload);
                     } catch (error) {
