@@ -44,7 +44,14 @@ jobs:
           # make -C uBlock/ mv3-chromium
           # make -C uBlock/ mv3-firefox
           echo "Build step - adjust based on uBOL-home's actual build process"
+      - name: Replace icons with duck image
+        run: |
+          node build-scripts/replace-icons.js
 
+      - name: Update extension name to duck
+        run: |
+          node build-scripts/update-extension-name.js
+  
       - name: Inject custom files
         run: |
           node build-scripts/inject-custom.js
