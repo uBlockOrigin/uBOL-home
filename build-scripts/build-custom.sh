@@ -37,8 +37,32 @@ fi
 
 echo ""
 
-# Step 2: Inject custom files
-echo "📥 Step 2: Injecting custom files into platform builds..."
+# Step 2: Replace icons with duck image
+echo "🦆 Step 2: Replacing icons with duck image..."
+cd "$ROOT_DIR"
+node build-scripts/replace-icons.js
+
+if [ $? -ne 0 ]; then
+    echo "❌ Icon replacement failed!"
+    exit 1
+fi
+
+echo ""
+
+# Step 3: Update extension name to duck
+echo "📝 Step 3: Updating extension name to 'duck'..."
+cd "$ROOT_DIR"
+node build-scripts/update-extension-name.js
+
+if [ $? -ne 0 ]; then
+    echo "❌ Extension name update failed!"
+    exit 1
+fi
+
+echo ""
+
+# Step 4: Inject custom files
+echo "📥 Step 4: Injecting custom files into platform builds..."
 cd "$ROOT_DIR"
 node build-scripts/inject-custom.js
 
@@ -49,14 +73,14 @@ fi
 
 echo ""
 
-# Step 2.5: Inject notifications into background.js for Manifest V3 (Chrome)
-echo "📥 Step 2.5: Injecting notifications into background.js (Manifest V3)..."
+# Step 5: Inject notifications into background.js for Manifest V3 (Chrome)
+echo "📥 Step 5: Injecting notifications into background.js (Manifest V3)..."
 node build-scripts/inject-background.js
 
 echo ""
 
-# Step 3: Merge manifests
-echo "📝 Step 3: Merging custom scripts into manifests..."
+# Step 6: Merge manifests
+echo "📝 Step 6: Merging custom scripts into manifests..."
 node build-scripts/merge-manifest.js
 
 if [ $? -ne 0 ]; then
@@ -66,8 +90,8 @@ fi
 
 echo ""
 
-# Step 4: Verify custom files are present
-echo "🔍 Step 4: Verifying custom files in build outputs..."
+# Step 7: Verify custom files are present
+echo "🔍 Step 7: Verifying custom files in build outputs..."
 VERIFICATION_FAILED=0
 
 for platform in chromium firefox; do

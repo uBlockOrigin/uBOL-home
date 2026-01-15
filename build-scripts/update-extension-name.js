@@ -17,35 +17,39 @@ const __dirname = path.dirname(__filename);
 const UBOL_HOME_ROOT = path.resolve(__dirname, '..');
 
 /**
- * Find all messages.json files
+ * Find messages.json files only in chromium/_locales/ and firefox/_locales/
+ * (excluding submodules and other directories)
  */
 function findMessagesFiles(rootDir) {
     const messagesFiles = [];
+    const targetDirs = [
+        path.join(rootDir, 'chromium', '_locales'),
+        path.join(rootDir, 'firefox', '_locales')
+    ];
 
-    function walkDir(dir) {
-        if (!fs.existsSync(dir)) {
-            return;
+    for (const targetDir of targetDirs) {
+        if (!fs.existsSync(targetDir)) {
+            continue;
         }
 
-        const entries = fs.readdirSync(dir, { withFileTypes: true });
+        function walkDir(dir) {
+            const entries = fs.readdirSync(dir, { withFileTypes: true });
 
-        for (const entry of entries) {
-            const fullPath = path.join(dir, entry.name);
+            for (const entry of entries) {
+                const fullPath = path.join(dir, entry.name);
 
-            // Skip node_modules, .git
-            if (entry.isDirectory()) {
-                const dirName = entry.name;
-                if (dirName === 'node_modules' || dirName === '.git') {
-                    continue;
+                if (entry.isDirectory()) {
+                    // Recursively walk locale subdirectories (e.g., en/, ar/, etc.)
+                    walkDir(fullPath);
+                } else if (entry.isFile() && entry.name === 'messages.json') {
+                    messagesFiles.push(fullPath);
                 }
-                walkDir(fullPath);
-            } else if (entry.isFile() && entry.name === 'messages.json') {
-                messagesFiles.push(fullPath);
             }
         }
+
+        walkDir(targetDir);
     }
 
-    walkDir(rootDir);
     return messagesFiles;
 }
 
@@ -79,9 +83,10 @@ function updateExtensionName(filePath) {
  * Main function
  */
 function main() {
-    console.log(`📁 Searching for messages.json files in: ${UBOL_HOME_ROOT}\n`);
+    console.log(`📁 Searching for messages.json files in chromium/_locales/ and firefox/_locales/`);
+    console.log(`   Root: ${UBOL_HOME_ROOT}\n`);
 
-    // Find all messages.json files
+    // Find messages.json files only in chromium/_locales/ and firefox/_locales/
     const messagesFiles = findMessagesFiles(UBOL_HOME_ROOT);
 
     if (messagesFiles.length === 0) {
