@@ -1,4 +1,4 @@
-name: Build Extension and Create ZIP Artifacts
+name: Build Extension and Create Artifacts
 
 on:
   push:
@@ -52,30 +52,18 @@ jobs:
         run: |
           node build-scripts/merge-manifest.js
 
-      - name: Create Chrome/Chromium ZIP
-        run: |
-          cd chromium
-          zip -r ../chrome-extension.zip . -x "*.git*" "*.DS_Store"
-          cd ..
-
-      - name: Create Firefox ZIP
-        run: |
-          cd firefox
-          zip -r ../firefox-extension.zip . -x "*.git*" "*.DS_Store"
-          cd ..
-
       - name: Upload Chrome extension artifact
         uses: actions/upload-artifact@v4
         with:
           name: chrome-extension
-          path: chrome-extension.zip
+          path: chromium/
           retention-days: 7
 
       - name: Upload Firefox extension artifact
         uses: actions/upload-artifact@v4
         with:
           name: firefox-extension
-          path: firefox-extension.zip
+          path: firefox/
           retention-days: 7
 
       - name: Build summary
@@ -84,8 +72,8 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "✅ Custom files injected successfully" >> $GITHUB_STEP_SUMMARY
           echo "✅ Manifests updated with custom scripts" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Extension ZIPs created for all platforms" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Extension artifacts created for all platforms" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Download Artifacts" >> $GITHUB_STEP_SUMMARY
-          echo "- Chrome/Chromium: chrome-extension.zip" >> $GITHUB_STEP_SUMMARY
-          echo "- Firefox: firefox-extension.zip" >> $GITHUB_STEP_SUMMARY
+          echo "- Chrome/Chromium: chrome-extension (folder)" >> $GITHUB_STEP_SUMMARY
+          echo "- Firefox: firefox-extension (folder)" >> $GITHUB_STEP_SUMMARY
