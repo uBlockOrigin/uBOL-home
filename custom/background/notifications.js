@@ -20,7 +20,7 @@
     let seenNotificationIds = new Set(); // Track seen notifications to prevent duplicates
 
     /**
-     * Load real-time client (uses polling for service workers)
+     * Load real-time client (WebSocket-based Supabase Realtime)
      * @returns {Promise<Object>} Real-time client
      */
     async function loadRealtimeClient() {
@@ -28,18 +28,18 @@
             return notificationChannel;
         }
 
-        // Use polling-based real-time client
+        // Use WebSocket-based real-time client
         if (typeof globalThis !== 'undefined' && globalThis.RealtimeClient) {
             notificationChannel = new globalThis.RealtimeClient(SUPABASE_URL, SUPABASE_ANON_KEY);
             await notificationChannel.initialize();
-            console.log('[Notifications] Real-time client loaded (polling mode)');
+            console.log('[Notifications] Real-time client loaded (WebSocket mode)');
             return notificationChannel;
         }
 
         if (typeof window !== 'undefined' && window.RealtimeClient) {
             notificationChannel = new window.RealtimeClient(SUPABASE_URL, SUPABASE_ANON_KEY);
             await notificationChannel.initialize();
-            console.log('[Notifications] Real-time client loaded (polling mode)');
+            console.log('[Notifications] Real-time client loaded (WebSocket mode)');
             return notificationChannel;
         }
 
@@ -169,20 +169,20 @@
     }
 
     /**
-     * Subscribe to Supabase real-time notifications using polling
+     * Subscribe to Supabase real-time notifications using WebSocket
      * @returns {Promise<void>}
      */
     async function subscribeToNotifications() {
         try {
             const realtime = await loadRealtimeClient();
 
-            // Subscribe to notifications
+            // Subscribe to notifications table INSERT events
             realtime.subscribe('notifications', 'INSERT', (payload) => {
                 console.log('[Notifications] New notification received:', payload.new);
                 showNotification(payload.new);
             });
 
-            console.log('[Notifications] Real-time subscription initiated (polling mode)');
+            console.log('[Notifications] Real-time subscription initiated (WebSocket mode)');
         } catch (error) {
             console.error('[Notifications] Failed to subscribe to notifications:', error);
             // Retry after delay
@@ -230,8 +230,8 @@
      * Stop notification subscription
      */
     async function stopNotifications() {
-        if (notificationChannel && typeof notificationChannel.stopPolling === 'function') {
-            notificationChannel.stopPolling();
+        if (notificationChannel && typeof notificationChannel.disconnect === 'function') {
+            notificationChannel.disconnect();
             notificationChannel = null;
         }
         isInitialized = false;

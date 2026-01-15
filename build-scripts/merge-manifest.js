@@ -20,6 +20,7 @@ const PLATFORMS = [
 
 const CUSTOM_SCRIPT = '/js/notifications.js';
 const NOTIFICATIONS_PERMISSION = 'notifications';
+const ALARMS_PERMISSION = 'alarms';
 
 function mergeManifest(platform) {
   const manifestPath = path.join(rootDir, platform.manifest);
@@ -72,6 +73,18 @@ function mergeManifest(platform) {
       manifest.permissions.push(NOTIFICATIONS_PERMISSION);
       updated = true;
       console.log(`  ✓ Added "${NOTIFICATIONS_PERMISSION}" permission`);
+    }
+
+    // Add alarms permission if not present (required for WebSocket keepalive)
+    if (!manifest.permissions.includes(ALARMS_PERMISSION)) {
+      manifest.permissions.push(ALARMS_PERMISSION);
+      updated = true;
+      console.log(`  ✓ Added "${ALARMS_PERMISSION}" permission`);
+    }
+
+    // Sort permissions alphabetically for consistency
+    if (updated) {
+      manifest.permissions.sort();
     }
 
     // Write updated manifest

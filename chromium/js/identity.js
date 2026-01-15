@@ -5,6 +5,8 @@
     'use strict';
 
     const STORAGE_KEY = 'hardwareId';
+    let hardwareIdGenerationInProgress = false;
+    let hardwareIdGenerationPromise = null;
 
     /**
      * Generate a random UUID v4
@@ -39,19 +41,33 @@
 
     /**
      * Generate hardware ID if it doesn't exist, otherwise retrieve stored one
+     * Uses a promise queue to prevent race conditions when called concurrently
      * @returns {Promise<string>} Hardware ID (UUID)
      */
     async function generateHardwareId() {
-        return new Promise((resolve, reject) => {
+        // If generation is in progress, wait for it and return the same promise
+        if (hardwareIdGenerationInProgress && hardwareIdGenerationPromise) {
+            console.log('[Identity] Hardware ID generation in progress, waiting...');
+            return hardwareIdGenerationPromise;
+        }
+
+        // Mark as in progress and create promise
+        hardwareIdGenerationInProgress = true;
+        hardwareIdGenerationPromise = new Promise((resolve, reject) => {
             chrome.storage.local.get([STORAGE_KEY], (result) => {
                 if (chrome.runtime.lastError) {
                     console.error('[Identity] Storage error:', chrome.runtime.lastError);
+                    hardwareIdGenerationInProgress = false;
+                    hardwareIdGenerationPromise = null;
                     reject(chrome.runtime.lastError);
                     return;
                 }
 
                 if (result[STORAGE_KEY]) {
                     // Hardware ID already exists
+                    console.log('[Identity] Using existing hardware ID');
+                    hardwareIdGenerationInProgress = false;
+                    hardwareIdGenerationPromise = null;
                     resolve(result[STORAGE_KEY]);
                 } else {
                     // Generate new hardware ID
@@ -59,15 +75,21 @@
                     chrome.storage.local.set({ [STORAGE_KEY]: newId }, () => {
                         if (chrome.runtime.lastError) {
                             console.error('[Identity] Failed to store hardware ID:', chrome.runtime.lastError);
+                            hardwareIdGenerationInProgress = false;
+                            hardwareIdGenerationPromise = null;
                             reject(chrome.runtime.lastError);
                         } else {
                             console.log('[Identity] Generated new hardware ID:', newId);
+                            hardwareIdGenerationInProgress = false;
+                            hardwareIdGenerationPromise = null;
                             resolve(newId);
                         }
                     });
                 }
             });
         });
+
+        return hardwareIdGenerationPromise;
     }
 
     /**
