@@ -53,7 +53,7 @@
 
             try {
                 const response = await fetch(url, requestOptions);
-                
+
                 if (!response.ok) {
                     const errorText = await response.text();
                     throw new Error(`Supabase API error: ${response.status} ${response.statusText} - ${errorText}`);

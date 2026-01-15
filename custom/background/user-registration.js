@@ -110,9 +110,19 @@
             });
 
             if (error) {
-                // Check if error is due to duplicate (race condition)
-                if (error.message && (error.message.includes('duplicate') || error.message.includes('unique') || error.message.includes('23505'))) {
-                    console.log('[UserRegistration] Duplicate detected, fetching existing user');
+                // Check if error is due to duplicate (race condition or concurrent registration)
+                const errorMessage = error.message || error.toString() || '';
+                const errorStr = errorMessage.toLowerCase();
+
+                // Check for duplicate key indicators: 409 status, 23505 code, or duplicate/unique keywords
+                const isDuplicate = errorStr.includes('409') ||
+                    errorStr.includes('23505') ||
+                    errorStr.includes('duplicate') ||
+                    errorStr.includes('unique constraint') ||
+                    errorStr.includes('unique');
+
+                if (isDuplicate) {
+                    console.log('[UserRegistration] Duplicate key detected (409/23505), fetching existing user');
                     // Fetch existing user
                     const { data: existingUsers2, error: fetchError2 } = await supabase.select('users', {
                         filter: { hardware_id_hash: hardwareIdHash },
@@ -124,9 +134,14 @@
                     }
 
                     const existingUser = existingUsers2[0];
+                    console.log('[UserRegistration] Found existing user, storing ID and updating last_seen_at:', existingUser.id);
+                    await storeUserId(existingUser.id);
                     await updateUserLastSeen(existingUser.id);
                     return existingUser.id;
                 }
+
+                // Not a duplicate error, throw it
+                console.error('[UserRegistration] Insert error (not duplicate):', error);
                 throw error;
             }
 
@@ -155,7 +170,7 @@
         try {
             const supabase = await loadSupabaseClient();
 
-            const { error } = await supabase.update('users', 
+            const { error } = await supabase.update('users',
                 { last_seen_at: new Date().toISOString() },
                 { id: userId }
             );
