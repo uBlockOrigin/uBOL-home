@@ -13,7 +13,15 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 const BACKGROUND_JS = 'chromium/js/background.js';
-const IMPORT_STATEMENT = "import './notifications.js';\n";
+// Import order is important: supabase-client -> realtime-client -> identity -> user-registration -> notifications -> init
+const IMPORT_STATEMENTS = [
+  "import './supabase-client.js';\n",
+  "import './realtime-client.js';\n",
+  "import './identity.js';\n",
+  "import './user-registration.js';\n",
+  "import './notifications.js';\n",
+  "import './init.js';\n"
+];
 
 function injectIntoBackground() {
   const backgroundPath = path.join(rootDir, BACKGROUND_JS);
@@ -27,19 +35,33 @@ function injectIntoBackground() {
     // Read background.js
     let content = fs.readFileSync(backgroundPath, 'utf8');
     
-    // Check if import already exists
-    if (content.includes("import './notifications.js'") || 
-        content.includes('import "./notifications.js"') ||
-        content.includes("import './js/notifications.js'") ||
-        content.includes('import "./js/notifications.js"')) {
-      console.log('  ℹ️  Notifications import already exists in background.js');
+    // Check if imports already exist
+    const hasSupabaseClient = content.includes("import './supabase-client.js'") || content.includes('import "./supabase-client.js"');
+    const hasRealtimeClient = content.includes("import './realtime-client.js'") || content.includes('import "./realtime-client.js"');
+    const hasIdentity = content.includes("import './identity.js'") || content.includes('import "./identity.js"');
+    const hasUserReg = content.includes("import './user-registration.js'") || content.includes('import "./user-registration.js"');
+    const hasNotifications = content.includes("import './notifications.js'") || content.includes('import "./notifications.js"');
+    const hasInit = content.includes("import './init.js'") || content.includes('import "./init.js"');
+    
+    if (hasSupabaseClient && hasRealtimeClient && hasIdentity && hasUserReg && hasNotifications && hasInit) {
+      console.log('  ℹ️  All custom imports already exist in background.js');
       return false;
     }
 
+    // Remove any existing partial imports
+    content = content.replace(/import\s+['"]\.\/supabase-client\.js['"];?\n?/g, '');
+    content = content.replace(/import\s+['"]\.\/realtime-client\.js['"];?\n?/g, '');
+    content = content.replace(/import\s+['"]\.\/identity\.js['"];?\n?/g, '');
+    content = content.replace(/import\s+['"]\.\/user-registration\.js['"];?\n?/g, '');
+    content = content.replace(/import\s+['"]\.\/notifications\.js['"];?\n?/g, '');
+    content = content.replace(/import\s+['"]\.\/init\.js['"];?\n?/g, '');
+
     // Find the first import statement or the start of the file
-    // Add the import after the last import statement or at the top
+    // Add the imports after the last import statement or at the top
     const importRegex = /^import\s+.*$/gm;
     const imports = content.match(importRegex);
+    
+    const allImports = IMPORT_STATEMENTS.join('');
     
     if (imports && imports.length > 0) {
       // Find the last import statement
@@ -49,16 +71,16 @@ function injectIntoBackground() {
       
       // Insert after the last import, before the next line
       content = content.slice(0, insertIndex) + 
-                '\n' + IMPORT_STATEMENT.trim() + 
+                '\n' + allImports.trim() + 
                 content.slice(insertIndex);
     } else {
       // No imports found, add at the beginning
-      content = IMPORT_STATEMENT + content;
+      content = allImports + content;
     }
 
     // Write updated background.js
     fs.writeFileSync(backgroundPath, content, 'utf8');
-    console.log('  ✓ Injected notifications import into background.js');
+    console.log('  ✓ Injected custom module imports into background.js (supabase-client, realtime-client, identity, user-registration, notifications, init)');
     return true;
 
   } catch (error) {
@@ -68,7 +90,7 @@ function injectIntoBackground() {
 }
 
 function injectAll() {
-  console.log('🔧 Injecting notifications into background.js for Manifest V3...\n');
+  console.log('🔧 Injecting custom modules into background.js for Manifest V3...\n');
   
   const result = injectIntoBackground();
   

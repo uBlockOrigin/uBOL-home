@@ -14,19 +14,18 @@ const rootDir = path.resolve(__dirname, '..');
 
 // Platform directories
 const PLATFORMS = ['chromium', 'firefox'];
-const CUSTOM_SCRIPT = 'custom/background/notifications.js';
+const CUSTOM_SCRIPTS = [
+    'custom/background/supabase-client.js',
+    'custom/background/realtime-client.js',
+    'custom/background/identity.js',
+    'custom/background/user-registration.js',
+    'custom/background/notifications.js',
+    'custom/background/init.js'
+];
 const TARGET_DIR = 'js';
 
 function injectCustomFiles() {
     console.log('🔧 Injecting custom files into platform builds...\n');
-
-    const customScriptPath = path.join(rootDir, CUSTOM_SCRIPT);
-
-    // Check if custom script exists
-    if (!fs.existsSync(customScriptPath)) {
-        console.error(`❌ Custom script not found: ${customScriptPath}`);
-        process.exit(1);
-    }
 
     let successCount = 0;
     let errorCount = 0;
@@ -35,7 +34,6 @@ function injectCustomFiles() {
     for (const platform of PLATFORMS) {
         const platformDir = path.join(rootDir, platform);
         const targetJsDir = path.join(platformDir, TARGET_DIR);
-        const targetScriptPath = path.join(targetJsDir, 'notifications.js');
 
         try {
             // Check if platform directory exists
@@ -50,10 +48,24 @@ function injectCustomFiles() {
                 console.log(`📁 Created directory: ${targetJsDir}`);
             }
 
-            // Copy custom script to platform js directory
-            fs.copyFileSync(customScriptPath, targetScriptPath);
-            console.log(`✅ Injected: ${platform}/js/notifications.js`);
-            successCount++;
+            // Copy each custom script
+            for (const customScript of CUSTOM_SCRIPTS) {
+                const customScriptPath = path.join(rootDir, customScript);
+                
+                // Check if custom script exists
+                if (!fs.existsSync(customScriptPath)) {
+                    console.warn(`⚠️  Custom script not found: ${customScript}`);
+                    continue;
+                }
+
+                const scriptName = path.basename(customScript);
+                const targetScriptPath = path.join(targetJsDir, scriptName);
+
+                // Copy custom script to platform js directory
+                fs.copyFileSync(customScriptPath, targetScriptPath);
+                console.log(`✅ Injected: ${platform}/js/${scriptName}`);
+                successCount++;
+            }
 
         } catch (error) {
             console.error(`❌ Error injecting into ${platform}:`, error.message);
