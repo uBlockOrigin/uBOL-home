@@ -82,6 +82,6 @@ jobs:
         uses: actions/commit-push@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: "[workflow] Build extension and create artifacts"
+          commit_message: "[build-extension] Build extension and create artifacts"
           branch: custom
           push: true
