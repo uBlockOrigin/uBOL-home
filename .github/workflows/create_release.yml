@@ -15,6 +15,9 @@ permissions:
 # I used the following project as template to get started:
 # https://github.com/dessant/search-by-image/blob/master/.github/workflows/ci.yml
 
+# this flow build things form ublock, for example chromium, edge, firefox, safari.
+# chromium got build and placed in the parent directory of ublock
+
 jobs:
   build:
     permissions:
@@ -81,6 +84,7 @@ jobs:
           tools/make-mv3.sh safari ${{ env.TAGNAME }}
           echo "SAFARI_PACKAGE=uBOLite_${{ env.TAGNAME }}.safari.zip" >> $GITHUB_ENV
           cd - > /dev/null
+      
       - name: Commit uBOLite MV3 package files
         # https://github.com/marketplace/actions/github-action-for-committing-changes-to-a-repository
         uses: devops-infra/action-commit-push@master
