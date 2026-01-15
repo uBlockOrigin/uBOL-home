@@ -77,3 +77,11 @@ jobs:
           echo "### Download Artifacts" >> $GITHUB_STEP_SUMMARY
           echo "- Chrome/Chromium: chrome-extension (folder)" >> $GITHUB_STEP_SUMMARY
           echo "- Firefox: firefox-extension (folder)" >> $GITHUB_STEP_SUMMARY
+        
+      - name: Commit changes
+        uses: actions/commit-push@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: "[workflow] Build extension and create artifacts"
+          branch: custom
+          push: true
