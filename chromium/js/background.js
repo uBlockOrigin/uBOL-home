@@ -103,12 +103,6 @@ import {
 
 import { dnr } from './ext-compat.js';
 import { toggleToolbarIcon } from './action.js';
-import './supabase-client.js';
-import './realtime-client.js';
-import './identity.js';
-import './user-registration.js';
-import './notifications.js';
-import './init.js';
 
 /******************************************************************************/
 

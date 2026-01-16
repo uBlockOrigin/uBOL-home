@@ -322,17 +322,15 @@
   "options_page": "dashboard.html",
   "permissions": [
     "activeTab",
-    "alarms",
     "declarativeNetRequest",
     "scripting",
-    "storage",
-    "notifications"
+    "storage"
   ],
   "short_name": "uBO Lite",
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2026.115.1529",
+  "version": "2026.116.358",
   "web_accessible_resources": [
     {
       "resources": [
