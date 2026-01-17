@@ -1,3 +1,10 @@
+- [Fix equality test between two rulesets](https://github.com/gorhill/uBlock/commit/222f4fbbc1)
+- [Add "Liste AR" to stock rulesets](https://github.com/gorhill/uBlock/commit/2ec2610f36)
+
+----------
+
+### 2026.111.1925
+
 - [Show spinner when filtering mode change takes long](https://github.com/gorhill/uBlock/commit/dfeb4e79ed)
 - Updated filter lists
 
