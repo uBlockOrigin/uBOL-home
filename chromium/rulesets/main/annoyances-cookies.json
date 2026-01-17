@@ -1769,5 +1769,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["asket.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||consentcdn.cookiebot.com/consentconfig/"},"id":1768,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||technomedia.com/*/cookies.js"},"id":1769,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["01net.com","gizmodo.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||api.consentframework.com/api/"},"id":1770,"priority":30},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["news.sky.com"],"urlFilter":"||privacy-mgmt.com^"},"id":1771,"priority":40}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["news.sky.com"],"urlFilter":"||privacy-mgmt.com^"},"id":1771,"priority":40},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["humblebundle.com","ign.com","nintendolife.com","purexbox.com","pushsquare.com","speedtest.net","timeextension.com"],"urlFilter":"||ziffstatic.com^*/zdconsent.js"},"id":1772,"priority":30}
 ]

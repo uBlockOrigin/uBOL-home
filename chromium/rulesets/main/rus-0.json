@@ -5937,5 +5937,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||krivbass.city/i/banners/"},"id":5936,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||pms.mail.ru/|"},"id":5937,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||rstprgapipt.com/*.xml?view="},"id":5938,"priority":10},
-{"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"connect-src 'self' *.imgsmail.ru *.mail.ru ok.ru vk.com data: blob:"},{"header":"content-security-policy","operation":"append","value":"frame-src 'self' *.mail.ru id.vk.ru https://yandex.ru/"}],"type":"modifyHeaders"},"condition":{"resourceTypes":["main_frame","sub_frame"],"urlFilter":"://mail.ru/"},"id":5939}
+{"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"connect-src 'self' *.imgsmail.ru *.mail.ru ok.ru vk.com data: blob:"},{"header":"content-security-policy","operation":"append","value":"frame-src 'self' *.mail.ru id.vk.ru https://yandex.ru/"}],"type":"modifyHeaders"},"condition":{"resourceTypes":["main_frame","sub_frame"],"urlFilter":"://mail.ru/"},"id":5939},
+{"action":{"type":"block"},"condition":{"urlFilter":"||gamegpu.com/images/banners"},"id":5940,"priority":10}
 ]
