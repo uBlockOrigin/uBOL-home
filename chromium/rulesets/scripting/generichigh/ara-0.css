@@ -1,0 +1,79 @@
+/*******************************************************************************
+
+    uBlock Origin Lite - a comprehensive, MV3-compliant content blocker
+    Copyright (C) 2014-present Raymond Hill
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see {http://www.gnu.org/licenses/}.
+
+    Home: https://github.com/gorhill/uBlock
+*/
+
+/* ara-0 */
+
+[ad-unit="160X600"],
+[ad-unit="300X250"],
+[ad-unit="300X600"],
+[ad-unit="468X60"],
+[ad-unit="728X300"],
+[ad-unit="728X90"],
+[class$="125ads"],
+[class^="a4h_ads-"],
+[class^="ad-id_ad"],
+[class^="ad-location_comments"],
+[class^="ad-location_content"],
+[class^="ad-location_post"],
+[data-content="advertisement"],
+[data-original-title="Advertisment"],
+[data-original-title="مساحه اعلانية"],
+[href*="ad2games.com/"],
+[id^="ads300_600-widget-"],
+a > img[alt="ضع اعلانك هنا"],
+a > img[title="تبلیغات"],
+a > img[title="ضع اعلانك هنا"],
+a[data-ads-placement-id],
+a[data-ads-placement-type],
+a[href*=".aflam.info"],
+a[href*=".forooqso.tv/"],
+a[href*=".hao123.com/?tn="] > img,
+a[href*="/?track=ad:"],
+a[href*="adintop.com/outgoing/click.php?"],
+a[href*="booraq.org"],
+a[href*="dubizzle.com/ar/?utm_source="],
+a[href^="http://arabyads.go2cloud.org/"],
+a[href^="http://clicks.pipaffiliates.com/"] > img,
+a[href^="http://viral481.com/srv."],
+a[href^="http://www.fusebux.com/index.php?r="] > img,
+a[href^="https://arabic-life.buzz/"],
+a[href^="https://cs-api.postquare.com/gas-api/click.json?"],
+a[href^="https://firstbyte.pro/?from="] > img,
+a[href^="https://halocell.com/go/"] > img,
+a[href^="https://khamsat.com/?r="] > img,
+a[href^="https://witalfieldt.com/"],
+aside[id^="custom-ads-"],
+div[class^="ad-id_shortcode"],
+div[class^="ads-area-"],
+div[id^="POSTQUARE_WIDGET"],
+div[id^="adSlot-inPage"],
+div[id^="admixer_"],
+div[id^="ads-postbr"],
+div[itemtype="https://schema.org/WPAdBlock"],
+img[alt="إعلان"][height="60"],
+img[alt="إعلان"][width="150"],
+img[alt="ضع إعلانك هنا"],
+img[alt^="مساحة اعلانية"],
+img[src*="/adv/"][alt="إعلان"],
+img[title="اعــلن مــــــعنا"],
+region-pub-top {
+    display: none !important;
+}
