@@ -1,0 +1,27 @@
+[
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "ad.utop.ir",
+   "ban.alukah.net",
+   "campaign-uploads.s3.amazonaws.com",
+   "mlbanners.misrlinks.com",
+   "popup.egyup.com",
+   "projectagora.s3.amazonaws.com",
+   "xatech.com"
+  ],
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
+]
