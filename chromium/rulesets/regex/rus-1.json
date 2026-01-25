@@ -20,5 +20,23 @@
  },
  "id": 1,
  "priority": 11
+},
+{
+ "action": {
+  "type": "allow"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "nnm-club.me",
+   "nnmclub.ro",
+   "nnmclub.to"
+  ],
+  "regexFilter": "forum\\/(login|release|torrent)\\.php\\?(logout|mode)\\=",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 2,
+ "priority": 30
 }
 ]

@@ -109,6 +109,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/mobiledownloadbanner.js"},"id":108,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/smart-app-banner.js"},"id":109,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||azureedge.net/js/cookie_notificacao.min.js"},"id":110,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||surveymonkey.com/fides.js"},"id":111,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||medallia.com^*/onsite/embed.js"},"id":112,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ternairsoftware.com/publicwebpush/"},"id":113,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||viafoura.net/push_handlers.js"},"id":114,"priority":10},

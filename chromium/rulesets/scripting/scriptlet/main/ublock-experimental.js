@@ -478,6 +478,24 @@ class JSONPath {
     }
 }
 
+function getExceptionTokenFn() {
+    const token = getRandomTokenFn();
+    const oe = self.onerror;
+    self.onerror = function(msg, ...args) {
+        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
+        if ( oe instanceof Function ) {
+            return oe.call(this, msg, ...args);
+        }
+    }.bind();
+    return token;
+}
+
+function getRandomTokenFn() {
+    const safe = safeSelf();
+    return safe.String_fromCharCode(Date.now() % 26 + 97) +
+        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+}
+
 function jsonEditXhrRequestFn(trusted, jsonq = '') {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix(
@@ -615,6 +633,158 @@ function matchObjectPropertiesFn(propNeedles, ...objs) {
         }
     }
     return matched;
+}
+
+function matchesStackTraceFn(
+    needleDetails,
+    logLevel = ''
+) {
+    const safe = safeSelf();
+    const exceptionToken = getExceptionTokenFn();
+    const error = new safe.Error(exceptionToken);
+    const docURL = new URL(self.location.href);
+    docURL.hash = '';
+    // Normalize stack trace
+    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
+    const lines = [];
+    for ( let line of safe.String_split.call(error.stack, /[\n\r]+/) ) {
+        if ( line.includes(exceptionToken) ) { continue; }
+        line = line.trim();
+        const match = safe.RegExp_exec.call(reLine, line);
+        if ( match === null ) { continue; }
+        let url = match[2];
+        if ( url.startsWith('(') ) { url = url.slice(1); }
+        if ( url === docURL.href ) {
+            url = 'inlineScript';
+        } else if ( url.startsWith('<anonymous>') ) {
+            url = 'injectedScript';
+        }
+        let fn = match[1] !== undefined
+            ? match[1].slice(0, -1)
+            : line.slice(0, match.index).trim();
+        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
+        let rowcol = match[3];
+        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
+    }
+    lines[0] = `stackDepth:${lines.length-1}`;
+    const stack = lines.join('\t');
+    const r = needleDetails.matchAll !== true &&
+        safe.testPattern(needleDetails, stack);
+    if (
+        logLevel === 'all' ||
+        logLevel === 'match' && r ||
+        logLevel === 'nomatch' && !r
+    ) {
+        safe.uboLog(stack.replace(/\t/g, '\n'));
+    }
+    return r;
+}
+
+function objectFindOwnerFn(
+    root,
+    path,
+    prune = false
+) {
+    const safe = safeSelf();
+    let owner = root;
+    let chain = path;
+    for (;;) {
+        if ( typeof owner !== 'object' || owner === null  ) { return false; }
+        const pos = chain.indexOf('.');
+        if ( pos === -1 ) {
+            if ( prune === false ) {
+                return safe.Object_hasOwn(owner, chain);
+            }
+            let modified = false;
+            if ( chain === '*' ) {
+                for ( const key in owner ) {
+                    if ( safe.Object_hasOwn(owner, key) === false ) { continue; }
+                    delete owner[key];
+                    modified = true;
+                }
+            } else if ( safe.Object_hasOwn(owner, chain) ) {
+                delete owner[chain];
+                modified = true;
+            }
+            return modified;
+        }
+        const prop = chain.slice(0, pos);
+        const next = chain.slice(pos + 1);
+        let found = false;
+        if ( prop === '[-]' && Array.isArray(owner) ) {
+            let i = owner.length;
+            while ( i-- ) {
+                if ( objectFindOwnerFn(owner[i], next) === false ) { continue; }
+                owner.splice(i, 1);
+                found = true;
+            }
+            return found;
+        }
+        if ( prop === '{-}' && owner instanceof Object ) {
+            for ( const key of Object.keys(owner) ) {
+                if ( objectFindOwnerFn(owner[key], next) === false ) { continue; }
+                delete owner[key];
+                found = true;
+            }
+            return found;
+        }
+        if (
+            prop === '[]' && Array.isArray(owner) ||
+            prop === '{}' && owner instanceof Object ||
+            prop === '*' && owner instanceof Object
+        ) {
+            for ( const key of Object.keys(owner) ) {
+                if (objectFindOwnerFn(owner[key], next, prune) === false ) { continue; }
+                found = true;
+            }
+            return found;
+        }
+        if ( safe.Object_hasOwn(owner, prop) === false ) { return false; }
+        owner = owner[prop];
+        chain = chain.slice(pos + 1);
+    }
+}
+
+function objectPruneFn(
+    obj,
+    rawPrunePaths,
+    rawNeedlePaths,
+    stackNeedleDetails = { matchAll: true },
+    extraArgs = {}
+) {
+    if ( typeof rawPrunePaths !== 'string' ) { return; }
+    const safe = safeSelf();
+    const prunePaths = rawPrunePaths !== ''
+        ? safe.String_split.call(rawPrunePaths, / +/)
+        : [];
+    const needlePaths = prunePaths.length !== 0 && rawNeedlePaths !== ''
+        ? safe.String_split.call(rawNeedlePaths, / +/)
+        : [];
+    if ( stackNeedleDetails.matchAll !== true ) {
+        if ( matchesStackTraceFn(stackNeedleDetails, extraArgs.logstack) === false ) {
+            return;
+        }
+    }
+    if ( objectPruneFn.mustProcess === undefined ) {
+        objectPruneFn.mustProcess = (root, needlePaths) => {
+            for ( const needlePath of needlePaths ) {
+                if ( objectFindOwnerFn(root, needlePath) === false ) {
+                    return false;
+                }
+            }
+            return true;
+        };
+    }
+    if ( prunePaths.length === 0 ) { return; }
+    let outcome = 'nomatch';
+    if ( objectPruneFn.mustProcess(obj, needlePaths) ) {
+        for ( const path of prunePaths ) {
+            if ( objectFindOwnerFn(obj, path, true) ) {
+                outcome = 'match';
+            }
+        }
+    }
+    if ( outcome === 'match' ) { return obj; }
 }
 
 function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
@@ -837,18 +1007,86 @@ function trustedJsonEditXhrResponse(jsonq = '', ...args) {
     jsonEditXhrResponseFn(true, jsonq, ...args);
 }
 
+function trustedPruneInboundObject(
+    entryPoint = '',
+    argPos = '',
+    rawPrunePaths = '',
+    rawNeedlePaths = ''
+) {
+    if ( entryPoint === '' ) { return; }
+    let context = globalThis;
+    let prop = entryPoint;
+    for (;;) {
+        const pos = prop.indexOf('.');
+        if ( pos === -1 ) { break; }
+        context = context[prop.slice(0, pos)];
+        if ( context instanceof Object === false ) { return; }
+        prop = prop.slice(pos+1);
+    }
+    if ( typeof context[prop] !== 'function' ) { return; }
+    const argIndex = parseInt(argPos);
+    if ( isNaN(argIndex) ) { return; }
+    if ( argIndex < 1 ) { return; }
+    const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 4);
+    const needlePaths = [];
+    if ( rawPrunePaths !== '' ) {
+        needlePaths.push(...safe.String_split.call(rawPrunePaths, / +/));
+    }
+    if ( rawNeedlePaths !== '' ) {
+        needlePaths.push(...safe.String_split.call(rawNeedlePaths, / +/));
+    }
+    const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
+    const mustProcess = root => {
+        for ( const needlePath of needlePaths ) {
+            if ( objectFindOwnerFn(root, needlePath) === false ) {
+                return false;
+            }
+        }
+        return true;
+    };
+    context[prop] = new Proxy(context[prop], {
+        apply: function(target, thisArg, args) {
+            const targetArg = argIndex <= args.length
+                ? args[argIndex-1]
+                : undefined;
+            if ( targetArg instanceof Object && mustProcess(targetArg) ) {
+                let objBefore = targetArg;
+                if ( extraArgs.dontOverwrite ) {
+                    try {
+                        objBefore = safe.JSON_parse(safe.JSON_stringify(targetArg));
+                    } catch {
+                        objBefore = undefined;
+                    }
+                }
+                if ( objBefore !== undefined ) {
+                    const objAfter = objectPruneFn(
+                        objBefore,
+                        rawPrunePaths,
+                        rawNeedlePaths,
+                        stackNeedle,
+                        extraArgs
+                    );
+                    args[argIndex-1] = objAfter || objBefore;
+                }
+            }
+            return Reflect.apply(target, thisArg, args);
+        },
+    });
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 2 */
-[trustedJsonEditXhrRequest,trustedJsonEditXhrResponse];
+const $scriptletFunctions$ = /* 3 */
+[trustedJsonEditXhrRequest,trustedJsonEditXhrResponse,trustedPruneInboundObject];
 
-const $scriptletArgs$ = /* 4 */ ["[?..context.client.mainAppWebInfo.graftUrl^=\"https://www.youtube.com/watch\"]..playbackContext[?.contentPlaybackContext]+={\"adPlaybackContext\":{\"adType\":\"AD_TYPE_INSTREAM\"}}","propsToMatch","/\\/(player|get_watch)/","..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200}"];
+const $scriptletArgs$ = /* 9 */ ["[?..context.client.mainAppWebInfo.graftUrl^=\"https://www.youtube.com/watch\"]..playbackContext[?.contentPlaybackContext]+={\"adPlaybackContext\":{\"adType\":\"AD_TYPE_INSTREAM\"}}","propsToMatch","/\\/(player|get_watch)/","..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200}","JSON.stringify","1","context.client.configInfo.appInstallData","playbackContext","playerRequest"];
 
-const $scriptletArglists$ = /* 2 */ "0,0,1,2;1,3,1,2";
+const $scriptletArglists$ = /* 4 */ "0,0,1,2;1,3,1,2;2,4,5,6,7;2,4,5,6,8";
 
-const $scriptletArglistRefs$ = /* 1 */ "0,1";
+const $scriptletArglistRefs$ = /* 1 */ "0,1,2,3";
 
 const $scriptletHostnames$ = /* 1 */ ["www.youtube.com"];
 

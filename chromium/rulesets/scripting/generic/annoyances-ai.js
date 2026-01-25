@@ -19,7 +19,7 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-// kor-1
+// annoyances-ai
 
 // Important!
 // Isolate from global scope
@@ -27,9 +27,9 @@
 
 /******************************************************************************/
 
-const genericSelectorMap = [[605,".ad_wrapper"],[4034,"._popIn_recommend_article_ad"],[3275,"#admaru"],[345,".revenue_unit_item.tenping,\n.revenue_unit_item.dable,\n.revenue_unit_item.adfit"],[168,"ins.viewus-ad"],[1009,"#livereAdWrapper"],[2250,"ins.fastview-ad"],[2136,"ins.adsbyadop"],[2947,"ins.adsbygoogle[data-ad-slot]"],[1217,"ins.kakao_ad_area"]];
-const genericExceptionSieve = [1243,1276,3443,1973,1187,3910,1471,2528,857,1217,4020,2421,1514,2947,817,1908,3023,1344,2625,2289,1575,3775,3000,635,3271,1270,167,1199,100,293];
-const genericExceptionMap = [["grip.show",".top-banners"],["blackdesertm.com",".left_bnr"],["novelpia.com",".sponsor-btns\n#sponsorTab"],["mimacstudy.com",".adinfo"],["displayad.naver.com",".ad_item"],["te31.com","#gallery-advert"],["x86.co.kr",".download_ad"],["kakaotv.daum.net","#adContainer\nins.kakao_ad_area\n#adBlockPixelTag\n.banner_ad"],["play-tv.kakao.com","#adContainer\nins.kakao_ad_area\n#adBlockPixelTag\n.banner_ad"],["tv.kakao.com","#adContainer\nins.kakao_ad_area\n#adBlockPixelTag\n.banner_ad"],["meeco.kr",".googleAd"],["remiz.co.kr",".googleAd\nins.adsbygoogle[data-ad-slot]\n.ad-body\n#googleAd"],["aagag.com","ins.adsbygoogle[data-ad-slot]"],["t.hi098123.com","ins.adsbygoogle[data-ad-slot]"],["uda1004.tistory.com","ins.adsbygoogle[data-ad-slot]\nins.adsbygoogle[data-ad-slot]"],["exey.io","ins.adsbygoogle[data-ad-slot]"],["ff14angler.com","ins.adsbygoogle[data-ad-slot]"],["play.aidungeon.io","ins.adsbygoogle[data-ad-slot]"],["tamrieltradecentre.com","ins.adsbygoogle[data-ad-slot]"],["downloads.descendant.me","ins.adsbygoogle[data-ad-slot]"],["html5.gamedistribution.com","ins.adsbygoogle[data-ad-slot]"],["paraphraser.io","ins.adsbygoogle[data-ad-slot]"],["sekai-kabuka.com","ins.adsbygoogle[data-ad-slot]"],["teemo.gg","ins.adsbygoogle[data-ad-slot]"],["xtremestream.co","ins.adsbygoogle[data-ad-slot]"],["dicoall.com","#AdHeader\n#AD_Top\n#homead\n#ad-lead\n#rightAd"],["tabriz.kr","#AdHeader\n#AD_Top\n#homead\n#ad-lead"],["vod.jtbc.co.kr",".ad-unit:not(.textads)\n.ad-zone:not(.textads)"],["avdbs.com",".ad-btn"],["bera.world",".ads\n#google_ads"],["sellas.ink",".ads\n#google_ads"],["1412.live",".ads\n#google_ads"],["somenotes247.blogspot.com",".vertical-ads"],["mnews.jtbc.co.kr",".ad_bottom"],["clien.net",".ad_banner"],["persnacons.tistory.com",".topAD"]];
+const genericSelectorMap = [[1641,"#kapa-widget-container"]];
+const genericExceptionSieve = undefined;
+const genericExceptionMap = undefined;
 
 if ( genericSelectorMap ) {
     const map = self.genericSelectorMap =

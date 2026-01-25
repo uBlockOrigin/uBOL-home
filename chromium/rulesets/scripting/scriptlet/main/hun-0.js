@@ -217,92 +217,6 @@ function getRandomTokenFn() {
         safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
 }
 
-function noWindowOpenIf(
-    pattern = '',
-    delay = '',
-    decoy = ''
-) {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('no-window-open-if', pattern, delay, decoy);
-    const targetMatchResult = pattern.startsWith('!') === false;
-    if ( targetMatchResult === false ) {
-        pattern = pattern.slice(1);
-    }
-    const rePattern = safe.patternToRegex(pattern);
-    const autoRemoveAfter = (parseFloat(delay) || 0) * 1000;
-    const setTimeout = self.setTimeout;
-    const createDecoy = function(tag, urlProp, url) {
-        const decoyElem = document.createElement(tag);
-        decoyElem[urlProp] = url;
-        decoyElem.style.setProperty('height','1px', 'important');
-        decoyElem.style.setProperty('position','fixed', 'important');
-        decoyElem.style.setProperty('top','-1px', 'important');
-        decoyElem.style.setProperty('width','1px', 'important');
-        document.body.appendChild(decoyElem);
-        setTimeout(( ) => { decoyElem.remove(); }, autoRemoveAfter);
-        return decoyElem;
-    };
-    const noopFunc = function(){};
-    proxyApplyFn('open', function open(context) {
-        if ( pattern === 'debug' && safe.logLevel !== 0 ) {
-            debugger; // eslint-disable-line no-debugger
-            return context.reflect();
-        }
-        const { callArgs } = context;
-        const haystack = callArgs.join(' ');
-        if ( rePattern.test(haystack) !== targetMatchResult ) {
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `Allowed (${callArgs.join(', ')})`);
-            }
-            return context.reflect();
-        }
-        safe.uboLog(logPrefix, `Prevented (${callArgs.join(', ')})`);
-        if ( delay === '' ) { return null; }
-        if ( decoy === 'blank' ) {
-            callArgs[0] = 'about:blank';
-            const r = context.reflect();
-            setTimeout(( ) => { r.close(); }, autoRemoveAfter);
-            return r;
-        }
-        const decoyElem = decoy === 'obj'
-            ? createDecoy('object', 'data', ...callArgs)
-            : createDecoy('iframe', 'src', ...callArgs);
-        let popup = decoyElem.contentWindow;
-        if ( typeof popup === 'object' && popup !== null ) {
-            Object.defineProperty(popup, 'closed', { value: false });
-        } else {
-            popup = new Proxy(self, {
-                get: function(target, prop, ...args) {
-                    if ( prop === 'closed' ) { return false; }
-                    const r = Reflect.get(target, prop, ...args);
-                    if ( typeof r === 'function' ) { return noopFunc; }
-                    return r;
-                },
-                set: function(...args) {
-                    return Reflect.set(...args);
-                },
-            });
-        }
-        if ( safe.logLevel !== 0 ) {
-            popup = new Proxy(popup, {
-                get: function(target, prop, ...args) {
-                    const r = Reflect.get(target, prop, ...args);
-                    safe.uboLog(logPrefix, `popup / get ${prop} === ${r}`);
-                    if ( typeof r === 'function' ) {
-                        return (...args) => { return r.call(target, ...args); };
-                    }
-                    return r;
-                },
-                set: function(target, prop, value, ...args) {
-                    safe.uboLog(logPrefix, `popup / set ${prop} = ${value}`);
-                    return Reflect.set(target, prop, value, ...args);
-                },
-            });
-        }
-        return popup;
-    });
-}
-
 function preventAddEventListener(
     type = '',
     pattern = ''
@@ -1028,16 +942,16 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 7 */
-[preventSetTimeout,setConstant,removeAttr,noWindowOpenIf,abortCurrentScript,preventAddEventListener,abortOnPropertyWrite];
+const $scriptletFunctions$ = /* 6 */
+[preventSetTimeout,setConstant,removeAttr,abortCurrentScript,preventAddEventListener,abortOnPropertyWrite];
 
 const $scriptletArgs$ = /* 52 */ ["E(!1)","show_modal","noopFunc","style","body","stay","cookie_alert_overlay","oncontextmenu","href","[href*=\"ad.adverticum.net\"]","document.createElement","setTimeout","mouseleave","showFbPopup","FbExit","3000","load","reklám blokkolókat","window._ceCTSData","hirdetések","adblock","false","adstest","4000","document.head","currentScript.remove","AdHandler.adblocked","0","AdHandler.adBlockEnabled","AdHandler.checkAdblock","a2blckLayer","tie.ad_blocker_detector","undefined","getComputedStyle","document.addEventListener","ai_run_","document.getElementById","ENABLE_PAGE_LEVEL_ADS","true","document.body.style","fetch","mode","detect_adblock","falseFunc","gemiusStream","{}","gemiusStream.event","gemiusStream.init","window.ado","null","class","section[class=\"life-section l-section-main article-section l-section-article\"]"];
 
-const $scriptletArglists$ = /* 33 */ "0,0;1,1,2;2,3,4,5;3;1,6,2;2,7;2,8,9;4,10,11;5,12,13;0,14,15;5,16,17;4,18,19;1,20,21;0,22,23;4,24,25;1,26,27;1,28,27;1,29,2;4,18,30;1,31,32;6,33;4,34,35;4,36,35;1,37,38;6,39;4,40,41;1,42,43;1,44,45;1,46,2;1,47,2;1,48,49;2,50,51;2,3,4";
+const $scriptletArglists$ = /* 32 */ "0,0;1,1,2;2,3,4,5;1,6,2;2,7;2,8,9;3,10,11;4,12,13;0,14,15;4,16,17;3,18,19;1,20,21;0,22,23;3,24,25;1,26,27;1,28,27;1,29,2;3,18,30;1,31,32;5,33;3,34,35;3,36,35;1,37,38;5,39;3,40,41;1,42,43;1,44,45;1,46,2;1,47,2;1,48,49;2,50,51;2,3,4";
 
-const $scriptletArglistRefs$ = /* 35 */ "11;21,22;31;24;2;14;30;8,9;4;0;10;1;14;13;5;7;26;14;19;20;27,28,29;18;21,22;4;6;4;32;4;23;25;25;4;15,16,17;3;12";
+const $scriptletArglistRefs$ = /* 33 */ "10;20,21;30;23;2;13;29;7,8;3;0;9;1;13;12;4;6;25;13;18;19;26,27,28;17;3;5;3;31;3;22;24;24;3;14,15,16;11";
 
-const $scriptletHostnames$ = /* 35 */ ["24.hu","hang.hu","life.hu","port.hu","blikk.hu","divany.hu","femina.hu","vezess.hu","foodker.hu","jofogas.hu","naphire.hu","arcanum.com","totalcar.hu","calculat.org","lifestory.hu","napiszar.com","rimkereso.hu","totalbike.hu","huaweiblog.hu","karpathir.com","player.rtl.hu","hazipatika.com","magyarhang.org","milestone66.hu","mindmegette.hu","paplanvilag.hu","sorozatwiki.hu","reformsziget.hu","myonlineradio.hu","online-filmek.ac","online-filmek.me","laptophardware.hu","embed.indavideo.hu","hosszupuskasub.com","angol-magyar-szotar.hu"];
+const $scriptletHostnames$ = /* 33 */ ["24.hu","hang.hu","life.hu","port.hu","blikk.hu","divany.hu","femina.hu","vezess.hu","foodker.hu","jofogas.hu","naphire.hu","arcanum.com","totalcar.hu","calculat.org","lifestory.hu","napiszar.com","rimkereso.hu","totalbike.hu","huaweiblog.hu","karpathir.com","player.rtl.hu","hazipatika.com","milestone66.hu","mindmegette.hu","paplanvilag.hu","sorozatwiki.hu","reformsziget.hu","myonlineradio.hu","online-filmek.ac","online-filmek.me","laptophardware.hu","embed.indavideo.hu","angol-magyar-szotar.hu"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

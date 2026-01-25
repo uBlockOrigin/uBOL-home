@@ -92,7 +92,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?aftonbladet\\.se\\.\\S*?\\..*",
+  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?aftonbladet\\.se\\..*?\\..*",
   "resourceTypes": [
    "main_frame"
   ]

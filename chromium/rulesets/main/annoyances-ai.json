@@ -15,7 +15,10 @@
  },
  "condition": {
   "domainType": "thirdParty",
-  "urlFilter": "||askmiso.com^"
+  "requestDomains": [
+   "askmiso.com",
+   "widget.kapa.ai"
+  ]
  },
  "id": 2,
  "priority": 10

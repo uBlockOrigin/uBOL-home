@@ -402,6 +402,10 @@ function onMessage(request, sender, callback) {
         });
         return true;
 
+    case 'getShowBlockedCount':
+        callback(rulesetConfig.showBlockedCount);
+        break;
+
     case 'setShowBlockedCount':
         rulesetConfig.showBlockedCount = request.state && true || false;
         if ( canShowBlockedCount ) {
@@ -595,6 +599,12 @@ function onMessage(request, sender, callback) {
         });
         return true;
 
+    case 'getRegisteredContentScripts':
+        scrmgr.getRegisteredContentScripts().then(ids => {
+            callback(ids);
+        });
+        return true;
+
     case 'getConsoleOutput':
         callback(getConsoleOutput());
         break;
@@ -667,7 +677,9 @@ async function startSession() {
     // Permissions may have been removed while the extension was disabled
     const permissionsUpdated = await syncWithBrowserPermissions();
 
-    if ( isNewVersion || permissionsUpdated ) {
+    const shouldInject = isNewVersion || permissionsUpdated ||
+        isSideloaded && rulesetConfig.developerMode;
+    if ( shouldInject ) {
         registerInjectables();
     }
 

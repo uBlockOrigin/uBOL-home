@@ -171,6 +171,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||gomovies-online.*/addons/*.gif"},"id":170,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||samfw.com/assets/*.gif"},"id":171,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ruralking.com"],"resourceTypes":["script"],"urlFilter":"||listrakbi.com^"},"id":172,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||utaten.com/css/print.css"},"id":173,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["ninjakitchen.com"],"resourceTypes":["script"],"urlFilter":"||listrakbi.com/scripts/"},"id":174,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["uol.com.br"],"resourceTypes":["script"],"urlFilter":"/lib.ucopy/ucopy.js"},"id":175,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||adsrt.com/assets/js/particles.min.js"},"id":176,"priority":10},

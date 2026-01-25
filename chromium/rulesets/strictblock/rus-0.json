@@ -1925,7 +1925,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?yandex\\.net(?:[^%.0-9a-z_-]|$)\\S*?/weboffer/.*",
+  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?yandex\\.net(?:[^%.0-9a-z_-]|$).*?/weboffer/.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -1941,7 +1941,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?e\\.radikal\\.host/\\S*?\\..*",
+  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?e\\.radikal\\.host/.*?\\..*",
   "resourceTypes": [
    "main_frame"
   ]

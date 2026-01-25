@@ -490,5 +490,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||gp33.nl/assets/common/ads-helper.js"},"id":489,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["play.tv"],"resourceTypes":["script"],"urlFilter":"||securepubads.g.doubleclick.net/*gpt"},"id":490,"priority":30},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/google-ima.js"},"type":"redirect"},"condition":{"initiatorDomains":["player.vrt.be"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":491,"priority":11},
-{"action":{"type":"block"},"condition":{"urlFilter":"||zeilen.nl/builds/zeilen/assets/taboola-page-view-id-*.js"},"id":492,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||zeilen.nl/builds/zeilen/assets/taboola-page-view-id-*.js"},"id":492,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["matele.be"],"urlFilter":"||ssl.p.jwpcdn.com/player/v/*/vast.js"},"id":493,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["kijk.nl"],"urlFilter":"||ssl.p.jwpcdn.com/player/v/*/freewheel.js"},"id":494,"priority":10}
 ]

@@ -249,5 +249,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||hidabroot.wizzo.stream/storage/2024/*/*/original.mp4|"},"id":248,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||xads.zedo.com/ads2/c?*.one.co.il/"},"id":249,"priority":41},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||biu.ac.il^*/stormcaster.js"},"id":250,"priority":30},
-{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||auto.co.il/static/iframe_bn.html?*="},"id":251,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||auto.co.il/static/iframe_bn.html?*="},"id":251,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||radio.coolsite.co.il/sekindo/"},"id":252,"priority":10}
 ]
