@@ -1,5 +1,14 @@
+- [Add to troubleshooting info](https://github.com/gorhill/uBlock/commit/c6de97ceb7)
+- [Fix regex in regex substitution rules](https://github.com/gorhill/uBlock/commit/f36dd3461b)
+- Updated filter lists
+
+----------
+
+### 2026.118.1828
+
 - [Fix equality test between two rulesets](https://github.com/gorhill/uBlock/commit/222f4fbbc1)
 - [Add "Liste AR" to stock rulesets](https://github.com/gorhill/uBlock/commit/2ec2610f36)
+- Updated filter lists
 
 ----------
 
