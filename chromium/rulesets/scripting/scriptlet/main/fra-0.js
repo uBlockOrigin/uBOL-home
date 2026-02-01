@@ -389,6 +389,14 @@ function generateContentFn(trusted, directive) {
             warXHR.send();
         }).catch(( ) => '');
     }
+    if ( directive.startsWith('join:') ) {
+        const parts = directive.slice(7)
+                .split(directive.slice(5, 7))
+                .map(a => generateContentFn(trusted, a));
+        return parts.some(a => a instanceof Promise)
+            ? Promise.all(parts).then(parts => parts.join(''))
+            : parts.join('');
+    }
     if ( trusted ) {
         return directive;
     }
@@ -422,26 +430,24 @@ function jsonPrune(
     const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
     const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
     const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    JSON.parse = new Proxy(JSON.parse, {
-        apply: function(target, thisArg, args) {
-            const objBefore = Reflect.apply(target, thisArg, args);
-            if ( rawPrunePaths === '' ) {
-                safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
-            }
-            const objAfter = objectPruneFn(
-                objBefore,
-                rawPrunePaths,
-                rawNeedlePaths,
-                stackNeedleDetails,
-                extraArgs
-            );
-            if ( objAfter === undefined ) { return objBefore; }
-            safe.uboLog(logPrefix, 'Pruned');
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
-            }
-            return objAfter;
-        },
+    proxyApplyFn('JSON.parse', function(context) {
+        const objBefore = context.reflect();
+        if ( rawPrunePaths === '' ) {
+            safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
+        }
+        const objAfter = objectPruneFn(
+            objBefore,
+            rawPrunePaths,
+            rawNeedlePaths,
+            stackNeedleDetails,
+            extraArgs
+        );
+        if ( objAfter === undefined ) { return objBefore; }
+        safe.uboLog(logPrefix, 'Pruned');
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
+        }
+        return objAfter;
     });
 }
 
@@ -998,163 +1004,154 @@ function preventXhrFn(
         } catch {
         }
     };
-    const XHRBefore = XMLHttpRequest.prototype;
-    self.XMLHttpRequest = class extends self.XMLHttpRequest {
-        open(method, url, ...args) {
-            xhrInstances.delete(this);
-            if ( warOrigin !== undefined && url.startsWith(warOrigin) ) {
-                return super.open(method, url, ...args);
-            }
-            const haystack = { method, url };
-            if ( propsToMatch === '' && directive === '' ) {
-                safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(haystack, null, 2)}`);
-                return super.open(method, url, ...args);
-            }
-            if ( matchObjectPropertiesFn(propNeedles, haystack) ) {
-                const xhrDetails = Object.assign(haystack, {
-                    xhr: this,
-                    defer: args.length === 0 || !!args[0],
-                    directive,
-                    headers: {
-                        'date': '',
-                        'content-type': '',
-                        'content-length': '',
-                    },
-                    url: haystack.url,
-                    props: {
-                        response: { value: '' },
-                        responseText: { value: '' },
-                        responseXML: { value: null },
-                    },
-                });
-                xhrInstances.set(this, xhrDetails);
-            }
-            return super.open(method, url, ...args);
+    proxyApplyFn('XMLHttpRequest.prototype.open', function(context) {
+        const { thisArg, callArgs } = context;
+        xhrInstances.delete(thisArg);
+        const [ method, url, ...args ] = callArgs;
+        if ( warOrigin !== undefined && url.startsWith(warOrigin) ) {
+            return context.reflect();
         }
-        send(...args) {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined ) {
-                return super.send(...args);
-            }
-            xhrDetails.headers['date'] = (new Date()).toUTCString();
-            let xhrText = '';
-            switch ( this.responseType ) {
-            case 'arraybuffer':
-                xhrDetails.props.response.value = new ArrayBuffer(0);
-                xhrDetails.headers['content-type'] = 'application/octet-stream';
-                break;
-            case 'blob':
-                xhrDetails.props.response.value = new Blob([]);
-                xhrDetails.headers['content-type'] = 'application/octet-stream';
-                break;
-            case 'document': {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString('', 'text/html');
-                xhrDetails.props.response.value = doc;
-                xhrDetails.props.responseXML.value = doc;
-                xhrDetails.headers['content-type'] = 'text/html';
-                break;
-            }
-            case 'json':
-                xhrDetails.props.response.value = {};
-                xhrDetails.props.responseText.value = '{}';
-                xhrDetails.headers['content-type'] = 'application/json';
-                break;
-            default: {
-                if ( directive === '' ) { break; }
-                xhrText = generateContentFn(trusted, xhrDetails.directive);
-                if ( xhrText instanceof Promise ) {
-                    xhrText = xhrText.then(text => {
-                        xhrDetails.props.response.value = text;
-                        xhrDetails.props.responseText.value = text;
-                    });
-                } else {
-                    xhrDetails.props.response.value = xhrText;
-                    xhrDetails.props.responseText.value = xhrText;
-                }
-                xhrDetails.headers['content-type'] = 'text/plain';
-                break;
-            }
-            }
-            if ( xhrDetails.defer === false ) {
-                xhrDetails.headers['content-length'] = `${xhrDetails.props.response.value}`.length;
-                Object.defineProperties(xhrDetails.xhr, {
-                    readyState: { value: 4 },
-                    responseURL: { value: xhrDetails.url },
-                    status: { value: 200 },
-                    statusText: { value: 'OK' },
-                });
-                Object.defineProperties(xhrDetails.xhr, xhrDetails.props);
-                return;
-            }
-            Promise.resolve(xhrText).then(( ) => xhrDetails).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 1, configurable: true },
-                    responseURL: { value: xhrDetails.url },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                xhrDetails.headers['content-length'] = `${details.props.response.value}`.length;
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 2, configurable: true },
-                    status: { value: 200 },
-                    statusText: { value: 'OK' },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 3, configurable: true },
-                });
-                Object.defineProperties(details.xhr, details.props);
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 4 },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                safeDispatchEvent(details.xhr, 'load');
-                safeDispatchEvent(details.xhr, 'loadend');
-                safe.uboLog(logPrefix, `Prevented with response:\n${details.xhr.response}`);
+        const haystack = { method, url };
+        if ( propsToMatch === '' && directive === '' ) {
+            safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(haystack, null, 2)}`);
+            return context.reflect();
+        }
+        if ( matchObjectPropertiesFn(propNeedles, haystack) ) {
+            const xhrDetails = Object.assign(haystack, {
+                xhr: thisArg,
+                defer: args.length === 0 || !!args[0],
+                directive,
+                headers: {
+                    'date': '',
+                    'content-type': '',
+                    'content-length': '',
+                },
+                url: haystack.url,
+                props: {
+                    response: { value: '' },
+                    responseText: { value: '' },
+                    responseXML: { value: null },
+                },
             });
+            xhrInstances.set(thisArg, xhrDetails);
         }
-        getResponseHeader(headerName) {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
-                return super.getResponseHeader(headerName);
-            }
-            const value = xhrDetails.headers[headerName.toLowerCase()];
-            if ( value !== undefined && value !== '' ) { return value; }
-            return null;
+        return context.reflect();
+    });
+    proxyApplyFn('XMLHttpRequest.prototype.send', function(context) {
+        const { thisArg } = context;
+        const xhrDetails = xhrInstances.get(thisArg);
+        if ( xhrDetails === undefined ) {
+            return context.reflect();
         }
-        getAllResponseHeaders() {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
-                return super.getAllResponseHeaders();
-            }
-            const out = [];
-            for ( const [ name, value ] of Object.entries(xhrDetails.headers) ) {
-                if ( !value ) { continue; }
-                out.push(`${name}: ${value}`);
-            }
-            if ( out.length !== 0 ) { out.push(''); }
-            return out.join('\r\n');
+        xhrDetails.headers['date'] = (new Date()).toUTCString();
+        let xhrText = '';
+        switch ( thisArg.responseType ) {
+        case 'arraybuffer':
+            xhrDetails.props.response.value = new ArrayBuffer(0);
+            xhrDetails.headers['content-type'] = 'application/octet-stream';
+            break;
+        case 'blob':
+            xhrDetails.props.response.value = new Blob([]);
+            xhrDetails.headers['content-type'] = 'application/octet-stream';
+            break;
+        case 'document': {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString('', 'text/html');
+            xhrDetails.props.response.value = doc;
+            xhrDetails.props.responseXML.value = doc;
+            xhrDetails.headers['content-type'] = 'text/html';
+            break;
         }
-    };
-    self.XMLHttpRequest.prototype.open.toString = function() {
-        return XHRBefore.open.toString();
-    };
-    self.XMLHttpRequest.prototype.send.toString = function() {
-        return XHRBefore.send.toString();
-    };
-    self.XMLHttpRequest.prototype.getResponseHeader.toString = function() {
-        return XHRBefore.getResponseHeader.toString();
-    };
-    self.XMLHttpRequest.prototype.getAllResponseHeaders.toString = function() {
-        return XHRBefore.getAllResponseHeaders.toString();
-    };
+        case 'json':
+            xhrDetails.props.response.value = {};
+            xhrDetails.props.responseText.value = '{}';
+            xhrDetails.headers['content-type'] = 'application/json';
+            break;
+        default: {
+            if ( directive === '' ) { break; }
+            xhrText = generateContentFn(trusted, xhrDetails.directive);
+            if ( xhrText instanceof Promise ) {
+                xhrText = xhrText.then(text => {
+                    xhrDetails.props.response.value = text;
+                    xhrDetails.props.responseText.value = text;
+                });
+            } else {
+                xhrDetails.props.response.value = xhrText;
+                xhrDetails.props.responseText.value = xhrText;
+            }
+            xhrDetails.headers['content-type'] = 'text/plain';
+            break;
+        }
+        }
+        if ( xhrDetails.defer === false ) {
+            xhrDetails.headers['content-length'] = `${xhrDetails.props.response.value}`.length;
+            Object.defineProperties(xhrDetails.xhr, {
+                readyState: { value: 4 },
+                responseURL: { value: xhrDetails.url },
+                status: { value: 200 },
+                statusText: { value: 'OK' },
+            });
+            Object.defineProperties(xhrDetails.xhr, xhrDetails.props);
+            return;
+        }
+        Promise.resolve(xhrText).then(( ) => xhrDetails).then(details => {
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 1, configurable: true },
+                responseURL: { value: xhrDetails.url },
+            });
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            return details;
+        }).then(details => {
+            xhrDetails.headers['content-length'] = `${details.props.response.value}`.length;
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 2, configurable: true },
+                status: { value: 200 },
+                statusText: { value: 'OK' },
+            });
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            return details;
+        }).then(details => {
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 3, configurable: true },
+            });
+            Object.defineProperties(details.xhr, details.props);
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            return details;
+        }).then(details => {
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 4 },
+            });
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            safeDispatchEvent(details.xhr, 'load');
+            safeDispatchEvent(details.xhr, 'loadend');
+            safe.uboLog(logPrefix, `Prevented with response:\n${details.xhr.response}`);
+        });
+    });
+    proxyApplyFn('XMLHttpRequest.prototype.getResponseHeader', function(context) {
+        const { thisArg } = context;
+        const xhrDetails = xhrInstances.get(thisArg);
+        if ( xhrDetails === undefined || thisArg.readyState < thisArg.HEADERS_RECEIVED ) {
+            return context.reflect();
+        }
+        const headerName = `${context.callArgs[0]}`;
+        const value = xhrDetails.headers[headerName.toLowerCase()];
+        if ( value !== undefined && value !== '' ) { return value; }
+        return null;
+    });
+    proxyApplyFn('XMLHttpRequest.prototype.getAllResponseHeaders', function(context) {
+        const { thisArg } = context;
+        const xhrDetails = xhrInstances.get(thisArg);
+        if ( xhrDetails === undefined || thisArg.readyState < thisArg.HEADERS_RECEIVED ) {
+            return context.reflect();
+        }
+        const out = [];
+        for ( const [ name, value ] of Object.entries(xhrDetails.headers) ) {
+            if ( !value ) { continue; }
+            out.push(`${name}: ${value}`);
+        }
+        if ( out.length !== 0 ) { out.push(''); }
+        return out.join('\r\n');
+    });
 }
 
 function proxyApplyFn(
@@ -1219,27 +1216,38 @@ function proxyApplyFn(
             }
         };
         proxyApplyFn.isCtor = new Map();
+        proxyApplyFn.proxies = new WeakMap();
+        proxyApplyFn.nativeToString = Function.prototype.toString;
+        const proxiedToString = new Proxy(Function.prototype.toString, {
+            apply(target, thisArg) {
+                let proxied = thisArg;
+                for(;;) {
+                    const fn = proxyApplyFn.proxies.get(proxied);
+                    if ( fn === undefined ) { break; }
+                    proxied = fn;
+                }
+                return proxyApplyFn.nativeToString.call(proxied);
+            }
+        });
+        proxyApplyFn.proxies.set(proxiedToString, proxyApplyFn.nativeToString);
+        Function.prototype.toString = proxiedToString;
     }
     if ( proxyApplyFn.isCtor.has(target) === false ) {
         proxyApplyFn.isCtor.set(target, fn.prototype?.constructor === fn);
     }
-    const fnStr = fn.toString();
-    const toString = (function toString() { return fnStr; }).bind(null);
     const proxyDetails = {
         apply(target, thisArg, args) {
             return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) { return toString; }
-            return Reflect.get(target, prop);
-        },
+        }
     };
     if ( proxyApplyFn.isCtor.get(target) ) {
         proxyDetails.construct = function(target, args) {
             return handler(proxyApplyFn.CtorContext.factory(target, args));
         };
     }
-    context[prop] = new Proxy(fn, proxyDetails);
+    const proxiedTarget = new Proxy(fn, proxyDetails);
+    proxyApplyFn.proxies.set(proxiedTarget, fn);
+    context[prop] = proxiedTarget;
 }
 
 function removeAttr(
@@ -1764,15 +1772,15 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 15 */
-[preventFetch,preventSetTimeout,jsonPrune,setConstant,abortCurrentScript,preventAddEventListener,preventRequestAnimationFrame,preventXhr,abortOnPropertyRead,abortOnPropertyWrite,preventSetInterval,adjustSetInterval,adjustSetTimeout,removeAttr,noWindowOpenIf];
+[setConstant,preventFetch,preventSetTimeout,jsonPrune,abortCurrentScript,preventAddEventListener,preventRequestAnimationFrame,preventXhr,abortOnPropertyRead,abortOnPropertyWrite,preventSetInterval,adjustSetInterval,adjustSetTimeout,removeAttr,noWindowOpenIf];
 
-const $scriptletArgs$ = /* 143 */ ["pagead2.googlesyndication.com","displayCookieWallBanner","siteParams.aabMessage","LCI.adNetwork","undefined","jQuery","adblocker","penci_options_set.ad_blocker_detector","false","ima","{}","DOMContentLoaded","adblock","integrityObserver.corrupted","0","checkAdsBlocked","noopFunc","Date.now","dAp","true","detected","isAdblock","load","/www3\\.doubleclick\\.net|tagger\\.opecloud\\.com|fwmrm\\.net/","emptyArr","chp_ads_blocker_detector","adsBlocked","tag.min.js","fwmrm","checkDiv","navigator.brave","js.sddan.com","ABDetector","document.getElementById","Blocking Ads","document.createElement","moneyAbovePrivacy","bAdBlocker","Object.prototype.autoRecov","noPub","1","canRunAds","adClasses","[]","dtctAB","adskeeper.co.uk","document.write","alert","setTimeout","bloqueur","Promise","window.location","msg_ab","gothamBatAdblock","adblockdetected","adsbygoogle","document.querySelector","oadbActive","window.adsapp","ujloijdkhjkwus","$","checkAds","wIsAdBlocked","mdpDeBlocker","adBlockDetected","adback","google_jobrunner","adParams siteParams.aabMessage","onload","ptv.Data.uniroll","pmd.Data.uniroll","OAS_AD","ads.enableAntiAdBlocking","v.fwmrm.net","Object.prototype.isBlockerDetected","__TF1_CONFIG__.featureFlag.contentAccess.isAdblockCheckRequired","__TF1_CONFIG__.adblock.display","__TF1_CONFIG__.adblock.serverRequest","static.adsafeprotected.com/favicon.ico","/^https:\\/\\/ads\\.stickyadstv\\.com\\/$/ method:HEAD","defaultConsentString","*","0.001","event_listener_timeout","/userConsentProcess|this===/","href","a[href]#clickfakeplayer","return t()","sessionStorage","click","Popup","advanced_ads_ready","userConsentProcessEnded","randno","25","FastClick","FastClick.attach","setTimeoutIds_",".content-propose > a[href].btn-ad-iframe","empire.isAdbActive","empire.directHideAds","empire.countpremium.film","empire.countpremium.serie","empire.countpremiumMore.film.count","empire.countpremiumMore.serie.count","empire.countpremiumaccount.film","empire.countpremiumaccount.serie","empire.mediaData.advisorDirect","","empire.mediaData.advisorMovie","empire.mediaData.advisorSerie","adsConfig","isSetupAccess","/userConsentProcessEnded|\\[0\\]\\+\"With\"/","interstitial","JSON.parse","document.createElement('script')","document.documentElement).appendChild","Object.prototype.withAds","AC.config.ads","getAudioAdUrl","zoneSett","aEteAffiche","__yget_ad_list","_adb","td_ad_background_click_link","__data.application.settings.featPlayerAds","ads.*.default ads.*.url ads.enableMidrolls","ads","applaunch.data.player.features.ad.enabled applaunch.data.player.features.ad.dai.enabled","appName","tv.freewheel.SDK.Util.pingURLWithForm","trueFunc","tv.freewheel.SDK.Util.pingURLWithImage","tv.freewheel.SDK.Util.pingURLWithScript","tv.freewheel.SDK.Util.pingURLWithXMLHTTPRequest","tv.freewheel.SDK.Util.sendAdRequestWithXMLHTTPRequest","__NEXT_DATA__.runtimeConfig.playerTF1.ads.enable","data.result.items.sidebar.[-].type.[=].advertiser_ads","data.search_id","fetch","Uint8Array","#clickfakeplayer"];
+const $scriptletArgs$ = /* 144 */ ["__NEXT_DATA__.runtimeConfig._qub_sdk.qubConfig.ad.adBlockerDetectorEnabled","false","pagead2.googlesyndication.com","displayCookieWallBanner","siteParams.aabMessage","LCI.adNetwork","undefined","jQuery","adblocker","penci_options_set.ad_blocker_detector","ima","{}","DOMContentLoaded","adblock","integrityObserver.corrupted","0","checkAdsBlocked","noopFunc","Date.now","dAp","true","detected","isAdblock","load","/www3\\.doubleclick\\.net|tagger\\.opecloud\\.com|fwmrm\\.net/","emptyArr","chp_ads_blocker_detector","adsBlocked","tag.min.js","fwmrm","checkDiv","navigator.brave","js.sddan.com","ABDetector","document.getElementById","Blocking Ads","document.createElement","moneyAbovePrivacy","bAdBlocker","Object.prototype.autoRecov","noPub","1","canRunAds","adClasses","[]","dtctAB","adskeeper.co.uk","document.write","alert","setTimeout","bloqueur","Promise","window.location","msg_ab","gothamBatAdblock","adblockdetected","adsbygoogle","document.querySelector","oadbActive","window.adsapp","ujloijdkhjkwus","$","checkAds","wIsAdBlocked","mdpDeBlocker","adBlockDetected","adback","google_jobrunner","adParams siteParams.aabMessage","onload","ptv.Data.uniroll","pmd.Data.uniroll","OAS_AD","ads.enableAntiAdBlocking","v.fwmrm.net","Object.prototype.isBlockerDetected","__TF1_CONFIG__.featureFlag.contentAccess.isAdblockCheckRequired","__TF1_CONFIG__.adblock.display","__TF1_CONFIG__.adblock.serverRequest","static.adsafeprotected.com/favicon.ico","/^https:\\/\\/ads\\.stickyadstv\\.com\\/$/ method:HEAD","defaultConsentString","*","0.001","event_listener_timeout","/userConsentProcess|this===/","href","a[href]#clickfakeplayer","return t()","sessionStorage","click","Popup","advanced_ads_ready","userConsentProcessEnded","randno","25","FastClick","FastClick.attach","setTimeoutIds_",".content-propose > a[href].btn-ad-iframe","empire.isAdbActive","empire.directHideAds","empire.countpremium.film","empire.countpremium.serie","empire.countpremiumMore.film.count","empire.countpremiumMore.serie.count","empire.countpremiumaccount.film","empire.countpremiumaccount.serie","empire.mediaData.advisorDirect","","empire.mediaData.advisorMovie","empire.mediaData.advisorSerie","adsConfig","isSetupAccess","/userConsentProcessEnded|\\[0\\]\\+\"With\"/","interstitial","JSON.parse","document.createElement('script')","document.documentElement).appendChild","Object.prototype.withAds","AC.config.ads","getAudioAdUrl","zoneSett","aEteAffiche","__yget_ad_list","_adb","td_ad_background_click_link","__data.application.settings.featPlayerAds","ads.*.default ads.*.url ads.enableMidrolls","ads","applaunch.data.player.features.ad.enabled applaunch.data.player.features.ad.dai.enabled","appName","tv.freewheel.SDK.Util.pingURLWithForm","trueFunc","tv.freewheel.SDK.Util.pingURLWithImage","tv.freewheel.SDK.Util.pingURLWithScript","tv.freewheel.SDK.Util.pingURLWithXMLHTTPRequest","tv.freewheel.SDK.Util.sendAdRequestWithXMLHTTPRequest","__NEXT_DATA__.runtimeConfig.playerTF1.ads.enable","data.result.items.sidebar.[-].type.[=].advertiser_ads","data.search_id","fetch","Uint8Array","#clickfakeplayer"];
 
-const $scriptletArglists$ = /* 122 */ "0,0;1,1;2,2;3,3,4;4,5,6;3,7,8;3,9,10;5,11,12;3,13,14;3,15,16;6,17;3,18,19;1,20;7,0;1,21;5,11,21;5,22,21;0,23,24;4,25;8,26;0,27;0,28;3,29,16;3,30,4;0,31;8,32;4,33,34;4,35,12;3,36,19;3,37,8;8,38;3,39,40;3,41,19;3,42,43;9,44;0,45;4,46,47;4,48,49;4,50,47;10,51;4,33,52;8,53;3,54,8;10,55;5,11,55;3,13,8;4,56,57;3,58,19;3,59,8;4,60,61;3,62,8;8,63;3,64,8;4,33,65;1,55;3,66,16;2,67;8,68;3,69,10;3,70,10;3,71,16;2,72;7,73;3,74,8;3,75,8;3,76,8;3,77,8;0,78;0,79;11,80,81,82;12,83,81,82;12,84,81,82;13,85,86;12,87,81,82;1,88;5,89,90;3,91,16;12,92,81,82;14;1,93,94;3,95,16;3,96,16;12,97,81,82;13,85,98;3,99,8;3,100,4;3,101,14;3,102,14;3,103,14;3,104,14;3,105,14;3,106,14;3,107,108;3,109,40;3,110,40;3,111,43;3,112,19;12,113,81,82;5,11,114;4,115,116;4,35,117;3,118,8;3,119,10;3,120,16;8,121;3,122,19;8,123;8,124;9,125;3,126,8;2,127,128;2,129,130;3,131,132;3,133,132;3,134,132;3,135,132;3,136,132;3,137,8;2,138,139;4,140,141;13,85,142;9,123";
+const $scriptletArglists$ = /* 123 */ "0,0,1;1,2;2,3;3,4;0,5,6;4,7,8;0,9,1;0,10,11;5,12,13;0,14,15;0,16,17;6,18;0,19,20;2,21;7,2;2,22;5,12,22;5,23,22;1,24,25;4,26;8,27;1,28;1,29;0,30,17;0,31,6;1,32;8,33;4,34,35;4,36,13;0,37,20;0,38,1;8,39;0,40,41;0,42,20;0,43,44;9,45;1,46;4,47,48;4,49,50;4,51,48;10,52;4,34,53;8,54;0,55,1;10,56;5,12,56;0,14,1;4,57,58;0,59,20;0,60,1;4,61,62;0,63,1;8,64;0,65,1;4,34,66;2,56;0,67,17;3,68;8,69;0,70,11;0,71,11;0,72,17;3,73;7,74;0,75,1;0,76,1;0,77,1;0,78,1;1,79;1,80;11,81,82,83;12,84,82,83;12,85,82,83;13,86,87;12,88,82,83;2,89;5,90,91;0,92,17;12,93,82,83;14;2,94,95;0,96,17;0,97,17;12,98,82,83;13,86,99;0,100,1;0,101,6;0,102,15;0,103,15;0,104,15;0,105,15;0,106,15;0,107,15;0,108,109;0,110,41;0,111,41;0,112,44;0,113,20;12,114,82,83;5,12,115;4,116,117;4,36,118;0,119,1;0,120,11;0,121,17;8,122;0,123,20;8,124;8,125;9,126;0,127,1;3,128,129;3,130,131;0,132,133;0,134,133;0,135,133;0,136,133;0,137,133;0,138,1;3,139,140;4,141,142;13,86,143;9,124";
 
-const $scriptletArglistRefs$ = /* 116 */ "62,63,112,113,114,115,116;101;6;29;103;64,65,66,67,68,112,113,114,115,116;101;98;103;82;29;29;30;101;41;108;20;21;74,78;58,59;118;104;101;105;99,100;0;111;9,34;60;29;67,68,69,117;6;102;51;22;13,25;103;27;24;31;60;73;13,34;120;47;10,11,12;1;101;79;55;32;42;40;4,5;106;61,109,110;52;57;82;26;7,42;41;13;39;35,36,37,38;121;57;76;77;71;49;0;17;72;97;14,15,16;78,84,85,86,87,88,89,90,91;48;3;107;56;53;70;54;13,23,78,84,85,86,87,88,89,90,91,92,93,94;101;2;101;101;95;23;23,78,84,85,86,87,88,89,90,91;50;119;72;18;53;13,23,78,83,84,85,86,87,88,89,90,91,92,93,94;4,5;33;0;32;0;46;2,45;96;2,8;0;0,28;0;43,44;80,81;19;0;0;75";
+const $scriptletArglistRefs$ = /* 117 */ "63,64,113,114,115,116,117;102;7;30;104;65,66,67,68,69,113,114,115,116,117;102;99;104;83;30;30;31;102;42;109;21;22;75,79;59,60;119;105;102;106;100,101;1;112;10,35;61;30;68,69,70,118;7;103;52;23;14,26;104;28;25;32;61;74;14,35;121;48;11,12,13;2;102;80;56;33;43;41;5,6;107;62,110,111;53;58;83;27;8,43;42;14;40;36,37,38,39;122;58;77;78;72;50;1;18;73;98;0;15,16,17;79,85,86,87,88,89,90,91,92;49;4;108;57;54;71;55;14,24,79,85,86,87,88,89,90,91,92,93,94,95;102;3;102;102;96;24;24,79,85,86,87,88,89,90,91,92;51;120;73;19;54;14,24,79,84,85,86,87,88,89,90,91,92,93,94,95;5,6;34;1;33;1;47;3,46;97;3,9;1;1,29;1;44,45;81,82;20;1;1;76";
 
-const $scriptletHostnames$ = /* 116 */ ["m6.fr","geo.fr","qub.ca","rtl.be","rtl.fr","tf1.fr","gala.fr","macg.co","rtl2.fr","20min.ch","7sur7.be","dhnet.be","radio.fr","voici.fr","9docu.org","actu17.fr","darkino.*","france.tv","japscan.*","playtv.fr","qwant.com","11anim.com","capital.fr","e-sushi.fr","japscan.me","planhub.ca","rtlplay.be","rustica.fr","skyrock.fr","sudinfo.be","tf1info.fr","tvaplus.ca","allocine.fr","bleachmx.fr","cinefil.com","ebookdz.com","funradio.fr","lemanip.com","malekal.com","pianoweb.fr","skyrock.com","sudouest.fr","systemed.fr","1jour1film.*","20minutes.fr","cookomix.com","gamekult.com","gentside.com","jeune-gay.fr","jtrouver.com","mac4ever.com","varmatin.com","abcbourse.com","adala-news.fr","basketusa.com","canalplus.com","hack-life.net","iphonesoft.fr","lessentiel.lu","monumentum.fr","nicematin.com","vostfr.stream","air-journal.fr","chat.babel.com","crunchyscan.fr","ecranlarge.com","iphonetweak.fr","justarrived.lu","magicmaman.com","marieclaire.fr","monacomatin.mc","monlatuque.com","rmcbfmplay.com","1jour1film.cyou","cosmopolitan.fr","cyclismactu.net","empire-stream.*","hollywoodpq.com","lecrabeinfo.net","lindependant.fr","linternaute.com","recreatisse.com","supersoluce.com","voyageforum.com","empire-anime.com","femmeactuelle.fr","journaldunet.com","maxisciences.com","programme-tv.net","e-player-stream.*","empire-stream.net","empire-streamz.fr","jardiner-malin.fr","observalgerie.com","seriepourvous.com","super-ethanol.com","ultimate-catch.eu","empire-streaming.*","equinoxmagazine.fr","jaitoutcompris.com","meteo-grenoble.com","parlons-basket.com","techno-science.net","cliqueduplateau.com","commentcamarche.net","e-player-stream.app","journaldesfemmes.fr","lameteoagricole.net","signal-arnaques.com","animedigitalnetwork.fr","lecourrier-du-soir.com","occasions.decathlon.fr","benjaminellisbernard.fr","animationdigitalnetwork.fr","animationdigitalnetwork.com","player.melaniezettofrais.online"];
+const $scriptletHostnames$ = /* 117 */ ["m6.fr","geo.fr","qub.ca","rtl.be","rtl.fr","tf1.fr","gala.fr","macg.co","rtl2.fr","20min.ch","7sur7.be","dhnet.be","radio.fr","voici.fr","9docu.org","actu17.fr","darkino.*","france.tv","japscan.*","playtv.fr","qwant.com","11anim.com","capital.fr","e-sushi.fr","japscan.me","planhub.ca","rtlplay.be","rustica.fr","skyrock.fr","sudinfo.be","tf1info.fr","tvaplus.ca","allocine.fr","bleachmx.fr","cinefil.com","ebookdz.com","funradio.fr","lemanip.com","malekal.com","pianoweb.fr","skyrock.com","sudouest.fr","systemed.fr","1jour1film.*","20minutes.fr","cookomix.com","gamekult.com","gentside.com","jeune-gay.fr","jtrouver.com","mac4ever.com","varmatin.com","abcbourse.com","adala-news.fr","basketusa.com","canalplus.com","hack-life.net","iphonesoft.fr","lessentiel.lu","monumentum.fr","nicematin.com","vostfr.stream","air-journal.fr","chat.babel.com","crunchyscan.fr","ecranlarge.com","iphonetweak.fr","justarrived.lu","magicmaman.com","marieclaire.fr","monacomatin.mc","monlatuque.com","rmcbfmplay.com","1jour1film.cyou","cosmopolitan.fr","coupdepouce.com","cyclismactu.net","empire-stream.*","hollywoodpq.com","lecrabeinfo.net","lindependant.fr","linternaute.com","recreatisse.com","supersoluce.com","voyageforum.com","empire-anime.com","femmeactuelle.fr","journaldunet.com","maxisciences.com","programme-tv.net","e-player-stream.*","empire-stream.net","empire-streamz.fr","jardiner-malin.fr","observalgerie.com","seriepourvous.com","super-ethanol.com","ultimate-catch.eu","empire-streaming.*","equinoxmagazine.fr","jaitoutcompris.com","meteo-grenoble.com","parlons-basket.com","techno-science.net","cliqueduplateau.com","commentcamarche.net","e-player-stream.app","journaldesfemmes.fr","lameteoagricole.net","signal-arnaques.com","animedigitalnetwork.fr","lecourrier-du-soir.com","occasions.decathlon.fr","benjaminellisbernard.fr","animationdigitalnetwork.fr","animationdigitalnetwork.com","player.melaniezettofrais.online"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

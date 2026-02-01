@@ -333,6 +333,14 @@ function generateContentFn(trusted, directive) {
             warXHR.send();
         }).catch(( ) => '');
     }
+    if ( directive.startsWith('join:') ) {
+        const parts = directive.slice(7)
+                .split(directive.slice(5, 7))
+                .map(a => generateContentFn(trusted, a));
+        return parts.some(a => a instanceof Promise)
+            ? Promise.all(parts).then(parts => parts.join(''))
+            : parts.join('');
+    }
     if ( trusted ) {
         return directive;
     }
@@ -366,26 +374,24 @@ function jsonPrune(
     const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
     const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
     const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    JSON.parse = new Proxy(JSON.parse, {
-        apply: function(target, thisArg, args) {
-            const objBefore = Reflect.apply(target, thisArg, args);
-            if ( rawPrunePaths === '' ) {
-                safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
-            }
-            const objAfter = objectPruneFn(
-                objBefore,
-                rawPrunePaths,
-                rawNeedlePaths,
-                stackNeedleDetails,
-                extraArgs
-            );
-            if ( objAfter === undefined ) { return objBefore; }
-            safe.uboLog(logPrefix, 'Pruned');
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
-            }
-            return objAfter;
-        },
+    proxyApplyFn('JSON.parse', function(context) {
+        const objBefore = context.reflect();
+        if ( rawPrunePaths === '' ) {
+            safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
+        }
+        const objAfter = objectPruneFn(
+            objBefore,
+            rawPrunePaths,
+            rawNeedlePaths,
+            stackNeedleDetails,
+            extraArgs
+        );
+        if ( objAfter === undefined ) { return objBefore; }
+        safe.uboLog(logPrefix, 'Pruned');
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
+        }
+        return objAfter;
     });
 }
 
@@ -847,27 +853,38 @@ function proxyApplyFn(
             }
         };
         proxyApplyFn.isCtor = new Map();
+        proxyApplyFn.proxies = new WeakMap();
+        proxyApplyFn.nativeToString = Function.prototype.toString;
+        const proxiedToString = new Proxy(Function.prototype.toString, {
+            apply(target, thisArg) {
+                let proxied = thisArg;
+                for(;;) {
+                    const fn = proxyApplyFn.proxies.get(proxied);
+                    if ( fn === undefined ) { break; }
+                    proxied = fn;
+                }
+                return proxyApplyFn.nativeToString.call(proxied);
+            }
+        });
+        proxyApplyFn.proxies.set(proxiedToString, proxyApplyFn.nativeToString);
+        Function.prototype.toString = proxiedToString;
     }
     if ( proxyApplyFn.isCtor.has(target) === false ) {
         proxyApplyFn.isCtor.set(target, fn.prototype?.constructor === fn);
     }
-    const fnStr = fn.toString();
-    const toString = (function toString() { return fnStr; }).bind(null);
     const proxyDetails = {
         apply(target, thisArg, args) {
             return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) { return toString; }
-            return Reflect.get(target, prop);
-        },
+        }
     };
     if ( proxyApplyFn.isCtor.get(target) ) {
         proxyDetails.construct = function(target, args) {
             return handler(proxyApplyFn.CtorContext.factory(target, args));
         };
     }
-    context[prop] = new Proxy(fn, proxyDetails);
+    const proxiedTarget = new Proxy(fn, proxyDetails);
+    proxyApplyFn.proxies.set(proxiedTarget, fn);
+    context[prop] = proxiedTarget;
 }
 
 function removeAttr(
@@ -1392,15 +1409,15 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 9 */
-[preventSetTimeout,abortOnPropertyRead,abortCurrentScript,abortOnPropertyWrite,setConstant,preventFetch,preventAddEventListener,jsonPrune,removeAttr];
+[preventSetTimeout,abortOnPropertyRead,abortCurrentScript,setConstant,abortOnPropertyWrite,preventFetch,preventAddEventListener,jsonPrune,removeAttr];
 
-const $scriptletArgs$ = /* 105 */ ["Adblock","_0x3f9b","parseInt","document.addEventListener","ai_run","setTimeout","Aff","AdtimaRender","window.addEventListener","Ads","Object.defineProperty","ADMStorageFileCDN","noopFunc","open","$","aff","pop","POP","popunder","arrDirectLink","document.getElementById","openPop","method:HEAD","jQuery","popup","navigator","devtoolsDetector","adblock","Symbol","break;case $","document.createElement",";break;case","eval","$._Eu","ad_block","Popup","setInterval","offsetHeight","Click","document.getElementsByClassName","reading-content","optad","pushOnPage","DisplayAHTML","5001","callback","6004","JSON.parse","break;case $.","PopUnder","sessionStorage","click_time","WebAssembly","globalThis","JSON","fromCharCode","script","addEvent","popu","click","ads","p0pUpRandom","urlAds","","adsPlayer","adsPopupPlayer","adsTvc","keyPlayer","localStorage","document.querySelectorAll","popMagic","adsRedirectPopups","myModal","adx","Math.round","adsTvcs","linkAff","null","3","window.open","adState","appendChild","Promise","break;case","opup","document.cookie","oneClick","Cookies","instantiate","seconds","0","atob","initialAdURLs","D4zz","timer","sp","isSwapping","_$_d52e","click_ads","props.children.[].props.tvc","maxAds","window.location","target|onclick","a[href^=\"/video/\"]","adtimaConfig"];
+const $scriptletArgs$ = /* 105 */ ["Adblock","_0x3f9b","parseInt","document.addEventListener","ai_run","setTimeout","Aff","jQuery","open","adsPlayer","","adsTvcs","AdtimaRender","adsRedirectPopups","Object.defineProperty","ADMStorageFileCDN","noopFunc","window.addEventListener","Ads","$","aff","pop","POP","popunder","arrDirectLink","document.getElementById","openPop","method:HEAD","popup","navigator","devtoolsDetector","adx","adblock","Symbol","break;case $","document.createElement",";break;case","eval","$._Eu","ad_block","Popup","setInterval","offsetHeight","Click","document.getElementsByClassName","reading-content","optad","pushOnPage","DisplayAHTML","5001","callback","6004","JSON.parse","break;case $.","PopUnder","sessionStorage","click_time","WebAssembly","globalThis","JSON","fromCharCode","script","click","ads","p0pUpRandom","urlAds","adsPopupPlayer","adsTvc","keyPlayer","localStorage","addEvent","popu","document.querySelectorAll","popMagic","myModal","Math.round","linkAff","null","3","window.open","adState","appendChild","Promise","break;case","opup","document.cookie","oneClick","Cookies","instantiate","seconds","0","atob","initialAdURLs","D4zz","timer","sp","isSwapping","_$_d52e","click_ads","props.children.[].props.tvc","maxAds","window.location","target|onclick","a[href^=\"/video/\"]","adtimaConfig"];
 
-const $scriptletArglists$ = /* 88 */ "0,0;1,1;1,2;2,3,4;2,5,6;3,7;2,8,9;2,10,11;4,11,12;2,3,13;2,14,15;2,3,16;2,3,17;2,3,18;2,14,19;4,13,12;2,20,21;5,22;2,23,24;2,25,26;2,14,27;2,28,29;2,30,31;2,32,33;2,5,34;2,23,35;2,36,37;2,3,38;2,39,40;2,30,41;1,42;0,43,44;0,45,46;2,47,48;2,14,49;1,50;2,23,51;1,13;2,52,53;2,54,55;2,14,16;2,30,56;2,57,58;6,59,60;2,14,61;4,62,63;1,60;1,64;1,65;1,66;1,67;2,8,68;2,69,70;1,71;2,20,72;2,3,73;1,74;2,23,13;4,64,63;4,75,63;4,76,77,78;2,14,79;2,3,80;2,5,81;2,32;2,82,83;2,3,84;1,85;2,23,79;1,86;1,87;2,52,88;4,89,90;2,3,91;1,92;4,93,12;4,94,90;1,68;1,95;6,59,96;3,97;2,5,13;2,23,98;7,99;4,100,90;2,5,101;8,102,103;1,104";
+const $scriptletArglists$ = /* 88 */ "0,0;1,1;1,2;2,3,4;2,5,6;2,7,8;3,9,10;3,11,10;4,12;1,13;2,14,15;3,15,16;2,17,18;2,3,8;2,19,20;2,3,21;2,3,22;2,3,23;2,19,24;3,8,16;2,25,26;5,27;2,7,28;2,29,30;2,3,31;2,19,32;2,33,34;2,35,36;2,37,38;2,5,39;2,7,40;2,41,42;2,3,43;2,44,45;2,35,46;1,47;0,48,49;0,50,51;2,52,53;2,19,54;1,55;2,7,56;1,8;2,57,58;2,59,60;2,19,21;2,35,61;6,62,63;2,19,64;3,65,10;1,63;1,9;1,66;1,67;1,68;2,17,69;2,70,71;2,72,73;2,25,74;1,75;3,76,77,78;2,19,79;2,3,80;2,5,81;2,37;2,82,83;2,3,84;1,85;2,7,79;1,86;1,87;2,57,88;3,89,90;2,3,91;1,92;3,93,16;3,94,90;1,69;1,95;6,62,96;4,97;2,5,8;2,7,98;7,99;3,100,90;2,5,101;8,102,103;1,104";
 
-const $scriptletArglistRefs$ = /* 166 */ "2;37;7,8;20;7,8;7,8;9;7,8;43;71;73;87;71;7,8;46,47,48,49,50;51,71;55;71;72;83;37;77;7,8;5;18;27;37;44;40;10;22;7,8;66;67;67;17;19;38;52;67;37;67;38;63;68;69;35;15,16;37;0,37,67;37;71;9;11;12;71;21,22,23;4,24;71;33;35;40;42;43;54;75;10;7,8;70,71;74;67,84;66;34,71;40;45;52;71;71;71;60;62;23;64;71;71;79;71;9;71;25,26;28;71;67;15,16;16;71;56;67;4;71;67;71;37,77;23;10;10;71;10;84;37;38;11;71;65;66;76;23;6;71;37;29,30,31,32;29,30,31,32;67;71;65;37;75;1;71;29,30,31,32;67;41,71;53;37;67;61;67;71;71;13,71;14;67;36;39;71;37;67;37;67,77;4,77;82;3,4;14;71;67;15,16;57,58,59;71,80;81;85,86;78;4,61;71;71;6;15";
+const $scriptletArglistRefs$ = /* 168 */ "2;42;10,11;25;10,11;10,11;13;10,11;71;73;87;40;71;10,11;50,51,52,53,54;55,71;71;72;83;42;77;10,11;8;22;32;42;48;56;45;14;27;10,11;66;67;67;21;23;43;57;67;47;42;67;43;63;68;71;69;19,20;42;0,42,67;42;71;13;15;16;24;71;26,27,28;4,29;71;38;40;45;58;75;14;10,11;70,71;74;67,84;66;39,71;45;49;57;71;71;71;60;62;28;64;71;71;79;12;71;47;13;71;30,31;33;71;67;19,20;20;59;67;4;71;67;71;42,77;28;14;14;71;14;84;42;43;71;65;66;15;76;28;71;42;34,35,36,37;34,35,36,37;67;71;65;42;75;1;5,6,7;71;34,35,36,37;67;46,71;42;67;61;67;71;71;17,71;18;67;41;44;42;67;42;67,77;4,77;82;16;3,4;9;18;71;67;19,20;71;71,80;81;85,86;12;78;4,61;71;71;71;19";
 
-const $scriptletHostnames$ = /* 166 */ ["aoe.vn","anh.moe","genk.vn","hh2d.tv","soha.vn","cafef.vn","game8.vn","gamek.vn","lurj.org","vlxx.net","vozer.io","znews.vn","hhtq5.vip","kenh14.vn","plcdn.xyz","quatvn.my","scdvd.com","viet69.cm","vndoc.com","xem16.net","xfast.sbs","xnhau.hot","afamily.vn","baomoi.com","gocmod.com","javhd.shop","noitu.site","phimtho.cc","sieudam.sh","tekora.fun","tram3d.com","tuoitre.vn","yanhh3d.gg","chich69.top","comong.info","giavang.net","gotphim.com","hhvsub1.com","misskon.com","phimhdc.com","sachmoi.net","sexhihi.fit","sextop1.moi","tram3d.info","vailonxx.co","vinaurl.net","zcap3.space","abysscdn.com","anime13.site","anime47.best","bluphim5.com","buomtv.media","checkscam.vn","cliphubs.com","clipphot.biz","hentaivc.pro","hh3dhay.life","imail.edu.vn","javtiful.com","lrepacks.net","motchillk.mx","pheclip.love","phimmoi.club","phimmoiii.sh","saigon24.net","sexdiaryx.to","tekora.space","thanhnien.vn","vlgaisex.pro","www.asu.baby","xemphim.site","z.chinav.sex","lxmanga.space","phim18vip.one","phimvuihd.net","rphang.online","sex.xinh3x.me","sexdiary.club","sexviet88.xyz","tailieumoi.vn","thiendia1.vip","tram3d.online","truyen247.pro","truyenvn.shop","vevocloud.com","www.rophim.nl","cliphot69.shop","cunghocvui.com","damconuong.app","ios.codevn.net","laophatgia.net","phim18hdxx.com","phimchill.life","player-cdn.com","playhydrax.com","sayhentai.live","sex.javnong.cc","thefaplive.com","trumtruyen.xyz","truyenqqno.com","tv.tvhayhd.org","umetruyenz.org","xemphimjav.xyz","animevietsub.ee","childish2x1.fun","childish2x2.fun","ihentai.network","lottedira.store","motchillzz.site","mv.phimmoiaz.cc","nettruyenar.com","olivierperu.com","playjumps.co.uk","truyenqqtto.com","truyensextv.com","www.iosviet.com","animevietsub.vip","basmaticw5.co.uk","clipsexsub3x.net","hoctot.hocmai.vn","linkneverdie.net","linkneverdie.top","mv.phimbathu.one","newtruyenhot.pro","phim.haysex.asia","phimsexvn1.co.uk","www.gvnvh18z.com","animevietsub9.com","demo.14412882.com","linkneverdie2.com","mv.dailyphimz.com","phimlongtieng.net","russianbooker.org","truyenfull.vision","truyensieuhay.com","tusachmanga99.com","ungtycomicsao.com","vn2.xvideos69.xxx","vn6.sexviet88.xyz","dualeotruyenpe.com","economic45882.shop","honghotduongpho.vn","motchilltvphim.com","nettruyenviet1.com","phimsexhayvn99.com","player.phimapi.com","quangcaoyenbai.com","samtruyentranh.com","teamlanhlung8.shop","www.motchill41.com","www.truyen35zz.com","audiotruyenfull.com","cdn4.tiptoe34x1.fun","doctruyen3qhubz.com","forum.timfshare.com","freeplayervideo.com","sresproductions.com","www.sieutamphim.pro","www.toptruyenxi.com","xnxx-sex-videos.com","www.nettruyenupp.com","teamlanhlungday.store","goctruyentranhvui19.com","motphim.pokemonviet.com","littleitalyaberdeen.co.uk","www.bachnguyetquang.online"];
+const $scriptletHostnames$ = /* 168 */ ["aoe.vn","anh.moe","genk.vn","hh2d.tv","soha.vn","cafef.vn","game8.vn","gamek.vn","vlxx.net","vozer.io","znews.vn","cap3.life","hhtq5.vip","kenh14.vn","plcdn.xyz","quatvn.my","viet69.cm","vndoc.com","xem16.net","xfast.sbs","xnhau.hot","afamily.vn","baomoi.com","gocmod.com","javhd.shop","noitu.site","phimtho.cc","rophim.moe","sieudam.sh","tekora.fun","tram3d.com","tuoitre.vn","yanhh3d.gg","chich69.top","comong.info","giavang.net","gotphim.com","hhvsub1.com","misskon.com","phimhdc.com","phimmoii.to","sachmoi.net","sexhihi.fit","sextop1.moi","tram3d.info","vailonxx.co","viet69vn.at","vinaurl.net","abysscdn.com","anime13.site","anime47.best","bluphim5.com","buomtv.media","checkscam.vn","cliphubs.com","clipphot.biz","haysexvn.lol","hentaivc.pro","hh3dhay.life","imail.edu.vn","javtiful.com","lrepacks.net","motchillk.ac","pheclip.love","saigon24.net","sexdiaryx.to","tekora.space","thanhnien.vn","vlgaisex.pro","www.asu.baby","xemphim.site","z.chinav.sex","lxmanga.space","phim18vip.one","phimvuihd.net","rphang.online","sex.xinh3x.me","sexdiary.club","sexviet88.xyz","tailieumoi.vn","thiendia1.vip","tram3d.online","truyen247.pro","truyenvn.shop","vevocloud.com","www.rophim.nl","call-io-pe.net","cliphot69.shop","comanalysis.ch","cunghocvui.com","damconuong.app","ios.codevn.net","laophatgia.net","phim18hdxx.com","phimchill.life","player-cdn.com","playhydrax.com","sex.javnong.cc","thefaplive.com","trumtruyen.xyz","truyenqqno.com","tv.tvhayhd.org","umetruyenz.org","xemphimjav.xyz","animevietsub.ee","childish2x1.fun","childish2x2.fun","ihentai.network","lottedira.store","motchillzz.site","mv.phimmoiaz.cc","nettruyenar.com","sayhentai.world","truyenqqtto.com","truyensextv.com","viet69hayz.life","www.iosviet.com","animevietsub.vip","clipsexsub3x.net","hoctot.hocmai.vn","linkneverdie.net","linkneverdie.top","mv.phimbathu.one","newtruyenhot.pro","phim.haysex.asia","phimsexvn1.co.uk","www.gvnvh18z.com","animevietsub9.com","auger-loizeau.com","demo.14412882.com","linkneverdie2.com","mv.dailyphimz.com","phimlongtieng.net","truyenfull.vision","truyensieuhay.com","tusachmanga99.com","ungtycomicseo.com","vn2.xvideos69.xxx","vn6.sexviet88.xyz","dualeotruyenpe.com","economic45882.shop","honghotduongpho.vn","motchilltvphim.com","nettruyenviet1.com","player.phimapi.com","quangcaoyenbai.com","samtruyentranh.com","teamlanhlung8.shop","www.motchill42.com","www.truyen35zz.com","as-technology.co.uk","audiotruyenfull.com","borealisrecords.com","cdn4.tiptoe34x1.fun","doctruyen3qhubz.com","forum.timfshare.com","freeplayervideo.com","phimsexhayvn103.com","www.sieutamphim.pro","www.toptruyenxi.com","xnxx-sex-videos.com","thaizabbbyging.co.uk","www.nettruyenupp.com","teamlanhlungday.store","andywhitemosaics.co.uk","goctruyentranhvui19.com","motphim.pokemonviet.com","www.bachnguyetquang.online"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

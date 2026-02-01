@@ -443,6 +443,14 @@ function generateContentFn(trusted, directive) {
             warXHR.send();
         }).catch(( ) => '');
     }
+    if ( directive.startsWith('join:') ) {
+        const parts = directive.slice(7)
+                .split(directive.slice(5, 7))
+                .map(a => generateContentFn(trusted, a));
+        return parts.some(a => a instanceof Promise)
+            ? Promise.all(parts).then(parts => parts.join(''))
+            : parts.join('');
+    }
     if ( trusted ) {
         return directive;
     }
@@ -476,26 +484,24 @@ function jsonPrune(
     const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
     const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
     const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    JSON.parse = new Proxy(JSON.parse, {
-        apply: function(target, thisArg, args) {
-            const objBefore = Reflect.apply(target, thisArg, args);
-            if ( rawPrunePaths === '' ) {
-                safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
-            }
-            const objAfter = objectPruneFn(
-                objBefore,
-                rawPrunePaths,
-                rawNeedlePaths,
-                stackNeedleDetails,
-                extraArgs
-            );
-            if ( objAfter === undefined ) { return objBefore; }
-            safe.uboLog(logPrefix, 'Pruned');
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
-            }
-            return objAfter;
-        },
+    proxyApplyFn('JSON.parse', function(context) {
+        const objBefore = context.reflect();
+        if ( rawPrunePaths === '' ) {
+            safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
+        }
+        const objAfter = objectPruneFn(
+            objBefore,
+            rawPrunePaths,
+            rawNeedlePaths,
+            stackNeedleDetails,
+            extraArgs
+        );
+        if ( objAfter === undefined ) { return objBefore; }
+        safe.uboLog(logPrefix, 'Pruned');
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
+        }
+        return objAfter;
     });
 }
 
@@ -1210,163 +1216,154 @@ function preventXhrFn(
         } catch {
         }
     };
-    const XHRBefore = XMLHttpRequest.prototype;
-    self.XMLHttpRequest = class extends self.XMLHttpRequest {
-        open(method, url, ...args) {
-            xhrInstances.delete(this);
-            if ( warOrigin !== undefined && url.startsWith(warOrigin) ) {
-                return super.open(method, url, ...args);
-            }
-            const haystack = { method, url };
-            if ( propsToMatch === '' && directive === '' ) {
-                safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(haystack, null, 2)}`);
-                return super.open(method, url, ...args);
-            }
-            if ( matchObjectPropertiesFn(propNeedles, haystack) ) {
-                const xhrDetails = Object.assign(haystack, {
-                    xhr: this,
-                    defer: args.length === 0 || !!args[0],
-                    directive,
-                    headers: {
-                        'date': '',
-                        'content-type': '',
-                        'content-length': '',
-                    },
-                    url: haystack.url,
-                    props: {
-                        response: { value: '' },
-                        responseText: { value: '' },
-                        responseXML: { value: null },
-                    },
-                });
-                xhrInstances.set(this, xhrDetails);
-            }
-            return super.open(method, url, ...args);
+    proxyApplyFn('XMLHttpRequest.prototype.open', function(context) {
+        const { thisArg, callArgs } = context;
+        xhrInstances.delete(thisArg);
+        const [ method, url, ...args ] = callArgs;
+        if ( warOrigin !== undefined && url.startsWith(warOrigin) ) {
+            return context.reflect();
         }
-        send(...args) {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined ) {
-                return super.send(...args);
-            }
-            xhrDetails.headers['date'] = (new Date()).toUTCString();
-            let xhrText = '';
-            switch ( this.responseType ) {
-            case 'arraybuffer':
-                xhrDetails.props.response.value = new ArrayBuffer(0);
-                xhrDetails.headers['content-type'] = 'application/octet-stream';
-                break;
-            case 'blob':
-                xhrDetails.props.response.value = new Blob([]);
-                xhrDetails.headers['content-type'] = 'application/octet-stream';
-                break;
-            case 'document': {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString('', 'text/html');
-                xhrDetails.props.response.value = doc;
-                xhrDetails.props.responseXML.value = doc;
-                xhrDetails.headers['content-type'] = 'text/html';
-                break;
-            }
-            case 'json':
-                xhrDetails.props.response.value = {};
-                xhrDetails.props.responseText.value = '{}';
-                xhrDetails.headers['content-type'] = 'application/json';
-                break;
-            default: {
-                if ( directive === '' ) { break; }
-                xhrText = generateContentFn(trusted, xhrDetails.directive);
-                if ( xhrText instanceof Promise ) {
-                    xhrText = xhrText.then(text => {
-                        xhrDetails.props.response.value = text;
-                        xhrDetails.props.responseText.value = text;
-                    });
-                } else {
-                    xhrDetails.props.response.value = xhrText;
-                    xhrDetails.props.responseText.value = xhrText;
-                }
-                xhrDetails.headers['content-type'] = 'text/plain';
-                break;
-            }
-            }
-            if ( xhrDetails.defer === false ) {
-                xhrDetails.headers['content-length'] = `${xhrDetails.props.response.value}`.length;
-                Object.defineProperties(xhrDetails.xhr, {
-                    readyState: { value: 4 },
-                    responseURL: { value: xhrDetails.url },
-                    status: { value: 200 },
-                    statusText: { value: 'OK' },
-                });
-                Object.defineProperties(xhrDetails.xhr, xhrDetails.props);
-                return;
-            }
-            Promise.resolve(xhrText).then(( ) => xhrDetails).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 1, configurable: true },
-                    responseURL: { value: xhrDetails.url },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                xhrDetails.headers['content-length'] = `${details.props.response.value}`.length;
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 2, configurable: true },
-                    status: { value: 200 },
-                    statusText: { value: 'OK' },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 3, configurable: true },
-                });
-                Object.defineProperties(details.xhr, details.props);
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 4 },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                safeDispatchEvent(details.xhr, 'load');
-                safeDispatchEvent(details.xhr, 'loadend');
-                safe.uboLog(logPrefix, `Prevented with response:\n${details.xhr.response}`);
+        const haystack = { method, url };
+        if ( propsToMatch === '' && directive === '' ) {
+            safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(haystack, null, 2)}`);
+            return context.reflect();
+        }
+        if ( matchObjectPropertiesFn(propNeedles, haystack) ) {
+            const xhrDetails = Object.assign(haystack, {
+                xhr: thisArg,
+                defer: args.length === 0 || !!args[0],
+                directive,
+                headers: {
+                    'date': '',
+                    'content-type': '',
+                    'content-length': '',
+                },
+                url: haystack.url,
+                props: {
+                    response: { value: '' },
+                    responseText: { value: '' },
+                    responseXML: { value: null },
+                },
             });
+            xhrInstances.set(thisArg, xhrDetails);
         }
-        getResponseHeader(headerName) {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
-                return super.getResponseHeader(headerName);
-            }
-            const value = xhrDetails.headers[headerName.toLowerCase()];
-            if ( value !== undefined && value !== '' ) { return value; }
-            return null;
+        return context.reflect();
+    });
+    proxyApplyFn('XMLHttpRequest.prototype.send', function(context) {
+        const { thisArg } = context;
+        const xhrDetails = xhrInstances.get(thisArg);
+        if ( xhrDetails === undefined ) {
+            return context.reflect();
         }
-        getAllResponseHeaders() {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
-                return super.getAllResponseHeaders();
-            }
-            const out = [];
-            for ( const [ name, value ] of Object.entries(xhrDetails.headers) ) {
-                if ( !value ) { continue; }
-                out.push(`${name}: ${value}`);
-            }
-            if ( out.length !== 0 ) { out.push(''); }
-            return out.join('\r\n');
+        xhrDetails.headers['date'] = (new Date()).toUTCString();
+        let xhrText = '';
+        switch ( thisArg.responseType ) {
+        case 'arraybuffer':
+            xhrDetails.props.response.value = new ArrayBuffer(0);
+            xhrDetails.headers['content-type'] = 'application/octet-stream';
+            break;
+        case 'blob':
+            xhrDetails.props.response.value = new Blob([]);
+            xhrDetails.headers['content-type'] = 'application/octet-stream';
+            break;
+        case 'document': {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString('', 'text/html');
+            xhrDetails.props.response.value = doc;
+            xhrDetails.props.responseXML.value = doc;
+            xhrDetails.headers['content-type'] = 'text/html';
+            break;
         }
-    };
-    self.XMLHttpRequest.prototype.open.toString = function() {
-        return XHRBefore.open.toString();
-    };
-    self.XMLHttpRequest.prototype.send.toString = function() {
-        return XHRBefore.send.toString();
-    };
-    self.XMLHttpRequest.prototype.getResponseHeader.toString = function() {
-        return XHRBefore.getResponseHeader.toString();
-    };
-    self.XMLHttpRequest.prototype.getAllResponseHeaders.toString = function() {
-        return XHRBefore.getAllResponseHeaders.toString();
-    };
+        case 'json':
+            xhrDetails.props.response.value = {};
+            xhrDetails.props.responseText.value = '{}';
+            xhrDetails.headers['content-type'] = 'application/json';
+            break;
+        default: {
+            if ( directive === '' ) { break; }
+            xhrText = generateContentFn(trusted, xhrDetails.directive);
+            if ( xhrText instanceof Promise ) {
+                xhrText = xhrText.then(text => {
+                    xhrDetails.props.response.value = text;
+                    xhrDetails.props.responseText.value = text;
+                });
+            } else {
+                xhrDetails.props.response.value = xhrText;
+                xhrDetails.props.responseText.value = xhrText;
+            }
+            xhrDetails.headers['content-type'] = 'text/plain';
+            break;
+        }
+        }
+        if ( xhrDetails.defer === false ) {
+            xhrDetails.headers['content-length'] = `${xhrDetails.props.response.value}`.length;
+            Object.defineProperties(xhrDetails.xhr, {
+                readyState: { value: 4 },
+                responseURL: { value: xhrDetails.url },
+                status: { value: 200 },
+                statusText: { value: 'OK' },
+            });
+            Object.defineProperties(xhrDetails.xhr, xhrDetails.props);
+            return;
+        }
+        Promise.resolve(xhrText).then(( ) => xhrDetails).then(details => {
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 1, configurable: true },
+                responseURL: { value: xhrDetails.url },
+            });
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            return details;
+        }).then(details => {
+            xhrDetails.headers['content-length'] = `${details.props.response.value}`.length;
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 2, configurable: true },
+                status: { value: 200 },
+                statusText: { value: 'OK' },
+            });
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            return details;
+        }).then(details => {
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 3, configurable: true },
+            });
+            Object.defineProperties(details.xhr, details.props);
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            return details;
+        }).then(details => {
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 4 },
+            });
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            safeDispatchEvent(details.xhr, 'load');
+            safeDispatchEvent(details.xhr, 'loadend');
+            safe.uboLog(logPrefix, `Prevented with response:\n${details.xhr.response}`);
+        });
+    });
+    proxyApplyFn('XMLHttpRequest.prototype.getResponseHeader', function(context) {
+        const { thisArg } = context;
+        const xhrDetails = xhrInstances.get(thisArg);
+        if ( xhrDetails === undefined || thisArg.readyState < thisArg.HEADERS_RECEIVED ) {
+            return context.reflect();
+        }
+        const headerName = `${context.callArgs[0]}`;
+        const value = xhrDetails.headers[headerName.toLowerCase()];
+        if ( value !== undefined && value !== '' ) { return value; }
+        return null;
+    });
+    proxyApplyFn('XMLHttpRequest.prototype.getAllResponseHeaders', function(context) {
+        const { thisArg } = context;
+        const xhrDetails = xhrInstances.get(thisArg);
+        if ( xhrDetails === undefined || thisArg.readyState < thisArg.HEADERS_RECEIVED ) {
+            return context.reflect();
+        }
+        const out = [];
+        for ( const [ name, value ] of Object.entries(xhrDetails.headers) ) {
+            if ( !value ) { continue; }
+            out.push(`${name}: ${value}`);
+        }
+        if ( out.length !== 0 ) { out.push(''); }
+        return out.join('\r\n');
+    });
 }
 
 function proxyApplyFn(
@@ -1431,27 +1428,38 @@ function proxyApplyFn(
             }
         };
         proxyApplyFn.isCtor = new Map();
+        proxyApplyFn.proxies = new WeakMap();
+        proxyApplyFn.nativeToString = Function.prototype.toString;
+        const proxiedToString = new Proxy(Function.prototype.toString, {
+            apply(target, thisArg) {
+                let proxied = thisArg;
+                for(;;) {
+                    const fn = proxyApplyFn.proxies.get(proxied);
+                    if ( fn === undefined ) { break; }
+                    proxied = fn;
+                }
+                return proxyApplyFn.nativeToString.call(proxied);
+            }
+        });
+        proxyApplyFn.proxies.set(proxiedToString, proxyApplyFn.nativeToString);
+        Function.prototype.toString = proxiedToString;
     }
     if ( proxyApplyFn.isCtor.has(target) === false ) {
         proxyApplyFn.isCtor.set(target, fn.prototype?.constructor === fn);
     }
-    const fnStr = fn.toString();
-    const toString = (function toString() { return fnStr; }).bind(null);
     const proxyDetails = {
         apply(target, thisArg, args) {
             return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) { return toString; }
-            return Reflect.get(target, prop);
-        },
+        }
     };
     if ( proxyApplyFn.isCtor.get(target) ) {
         proxyDetails.construct = function(target, args) {
             return handler(proxyApplyFn.CtorContext.factory(target, args));
         };
     }
-    context[prop] = new Proxy(fn, proxyDetails);
+    const proxiedTarget = new Proxy(fn, proxyDetails);
+    proxyApplyFn.proxies.set(proxiedTarget, fn);
+    context[prop] = proxiedTarget;
 }
 
 function removeAttr(
@@ -1978,15 +1986,15 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 17 */
 [preventSetTimeout,setConstant,preventAddEventListener,preventSetInterval,preventFetch,preventXhr,abortOnPropertyRead,abortCurrentScript,abortOnStackTrace,abortOnPropertyWrite,noWindowOpenIf,removeAttr,adjustSetInterval,m3uPrune,jsonPrune,noEvalIf,adjustSetTimeout];
 
-const $scriptletArgs$ = /* 205 */ ["0===o.offsetLeft&&0===o.offsetTop","adblock.check","noopFunc",".offsetHeight === 0","load","/adblock/i","adBlock","adBlockDetected","App.detectAdBlock","adsbygoogle","adBlockerDetected","/agead2\\.googlesyndication\\.com|googleadservices\\.com/","canRunAds","true","pagead2.googlesyndication.com","adblockmesaj","adblockalert","AdBlock","offsetParent","EventTarget.prototype.addEventListener",".height();","ad_block_detected","eyeOfErstream.detectedBloke","falseFunc","/advert.js","$('body').empty().append","https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js","static.doubleclick.net/instream/ad_status.js","kanews-modal-adblock","5000","XV","tie.ad_blocker_disallow_images_placeholder","undefined","/assets/js/prebid","detectedAdBlock","eazy_ad_unblocker_msg_var","","www3.doubleclick.net","detector_active","adblock_active","false","document.addEventListener","/abisuq/","adBlockRunning","$","adblock","detectAdBlock","adb","!document.getElementById(btoa","maari","adBlockEnabled","/div#gpt-passback|playerNew\\.dispose\\(\\)/","doubleclick.net","kan_vars.adblock","hasAdblock","AdblockDetector","arlinablock","adblockCheckUrl","adservice","{}","jQuery.adblock","koddostu_com_adblock_yok","null","document.querySelector","window.onload","ad_killer","adsBlocked","adregain_wall","rTargets","rInt","puShown","isShow","initPu","initAd","click","checkTarget","initPop","oV1","Object.prototype.isAdMonetizationDisabled","/img[\\s\\S]*?\\.gif/","document.write","_blank","app.ads","openRandomUrl","openPopup","popURL","wpsaData","style","#episode","after-ads","*","0.001",".hit.gemius.","data-money","div[data-money]","data-href","span[data-href^=\"https://ensonhaber.me/\"]","money--skip","0.02","pop_status","AdmostClient","/cdn\\.net\\/.*\\/ad\\//","/daioncdn\\.net\\/.*\\.m3u8/","sagAltReklamListesi","S_Popup","2","loadPlayerAds","trueFunc","reklamsayisi","0","reklam","productAds","spotxchange.com","volumeClearInterval","clicked","adSearchTitle","wt()","100","ads","popundr","placeholder","input[id=\"search-textbox\"]","showPop","yeniSekmeAdresi","initDizi",".addClass('getir')","HBiddings.vastUrl","flipHover","bit.ly","initOpen","#myModal","loadBrands","maxActive","rg","sessionStorage.getItem","Object.prototype.video_ads","Object.prototype.ads_enable","td_ad_background_click_link","wpsite_clickable_data","advert","/ads/","jsPopunder","start","1","popup","openHiddenPopup","DOMContentLoaded","popupLastOpened","window.open","message","localStorage","jwSetup.advertising","disabled","button#skipBtn","lastOpened","/reklam/i","href","div[class^=\"swiper-\"] > a[href^=\"https://www.sinpasyts.com/\"]",".swiper-pagination > a[href=\"null\"]","isFirstLoad","checkAndOpenPopup","/hlktrpl.cfd\\/\\w+.xml/","Popunder","popupInterval","window.config.adv.enabled","doOpen","popURLs","edsiga.com","manset_adv_imp","var adx =","popupShown","jsAd","document.createElement","/\\.src=[\\s\\S]*?getElementsByTagName/","adsConfig","PopBanner","config.adv","getLink","data-front","#tv-spoox2","adx","a[href^=\"https://www.haber7.com/advertorial/\"].headline-slider-item",".slick-dots > li > a[href^=\"https://www.haber7.com/advertorial/\"]",".parentNode.insertBefore(","config.advertisement.enabled","config.adv.enabled","window.advertisement.states.activate","popns","videotutucu","adscfg.enabled","onPopUnderLoaded","player.vroll","loading","iframe[loading=\"lazy\"]","document.referrer","getFrontVideo","sec--","timeleft","window.config.advertisement.0.enabled","reklam_1","#rekgecyen","/filmizletv\\..*\\/uploads\\/Psk\\//","video_shown","reklam_","ifrld"];
+const $scriptletArgs$ = /* 200 */ ["0===o.offsetLeft&&0===o.offsetTop","adblock.check","noopFunc",".offsetHeight === 0","load","/adblock/i","adBlock","adBlockDetected","App.detectAdBlock","adsbygoogle","adBlockerDetected","/agead2\\.googlesyndication\\.com|googleadservices\\.com/","canRunAds","true","pagead2.googlesyndication.com","adblockmesaj","adblockalert","AdBlock","offsetParent","EventTarget.prototype.addEventListener",".height();","ad_block_detected","eyeOfErstream.detectedBloke","falseFunc","/advert.js","$('body').empty().append","https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js","static.doubleclick.net/instream/ad_status.js","kanews-modal-adblock","5000","XV","tie.ad_blocker_disallow_images_placeholder","undefined","/assets/js/prebid","detectedAdBlock","eazy_ad_unblocker_msg_var","","www3.doubleclick.net","detector_active","adblock_active","false","document.addEventListener","/abisuq/","adBlockRunning","$","adblock","detectAdBlock","adb","!document.getElementById(btoa","maari","adBlockEnabled","/div#gpt-passback|playerNew\\.dispose\\(\\)/","doubleclick.net","kan_vars.adblock","arlinablock","adblockCheckUrl","adservice","{}","jQuery.adblock","koddostu_com_adblock_yok","null","document.querySelector","window.onload","ad_killer","adsBlocked","adregain_wall","rTargets","rInt","puShown","isShow","initPu","initAd","click","checkTarget","initPop","oV1","Object.prototype.isAdMonetizationDisabled","/img[\\s\\S]*?\\.gif/","document.write","_blank","app.ads","openRandomUrl","openPopup","popURL","wpsaData","style","#episode","after-ads","*","0.001",".hit.gemius.","data-money","div[data-money]","data-href","span[data-href^=\"https://ensonhaber.me/\"]","money--skip","0.02","pop_status","AdmostClient","/cdn\\.net\\/.*\\/ad\\//","/daioncdn\\.net\\/.*\\.m3u8/","sagAltReklamListesi","S_Popup","2","loadPlayerAds","trueFunc","reklamsayisi","0","reklam","productAds","spotxchange.com","volumeClearInterval","clicked","adSearchTitle","wt()","100","ads","popundr","placeholder","input[id=\"search-textbox\"]","showPop","yeniSekmeAdresi","initDizi",".addClass('getir')","HBiddings.vastUrl","flipHover","bit.ly","initOpen","#myModal","loadBrands","maxActive","rg","sessionStorage.getItem","Object.prototype.video_ads","Object.prototype.ads_enable","td_ad_background_click_link","wpsite_clickable_data","advert","/ads/","jsPopunder","start","1","popup","popUnder","openHiddenPopup","DOMContentLoaded","popupLastOpened","window.open","message","localStorage","jwSetup.advertising","disabled","button#skipBtn","lastOpened","/reklam/i","href","div[class^=\"swiper-\"] > a[href^=\"https://www.sinpasyts.com/\"]",".swiper-pagination > a[href=\"null\"]","isFirstLoad","checkAndOpenPopup","/hlktrpl.cfd\\/\\w+.xml/","Popunder","popupInterval","window.config.adv.enabled","doOpen","popURLs","edsiga.com","manset_adv_imp","var adx =","popupShown","jsAd","document.createElement","/\\.src=[\\s\\S]*?getElementsByTagName/","adsConfig","PopBanner","config.adv","getLink","data-front","#tv-spoox2","adx","a[href^=\"https://www.haber7.com/advertorial/\"].headline-slider-item",".slick-dots > li > a[href^=\"https://www.haber7.com/advertorial/\"]",".parentNode.insertBefore(","config.advertisement.enabled","config.adv.enabled","window.advertisement.states.activate","popns","videotutucu","adscfg.enabled","onPopUnderLoaded","player.vroll","loading","iframe[loading=\"lazy\"]","document.referrer","getFrontVideo","sec--","timeleft","video_shown","reklam_","ifrld"];
 
-const $scriptletArglists$ = /* 178 */ "0,0;1,1,2;0,3;2,4,5;0,6;1,7,2;1,8,2;0,9;3,10;4,11;1,12,13;5,14;6,15;0,16;4,14;0,17;0,18;7,19,20;0,21;1,22,23;5,24;0,25;4,26;5,27;0,28,29;6,30;1,31,32;4,33;6,34;1,35,36;4,37;1,38,13;1,39,40;7,41,42;1,43,40;7,44,45;6,46;1,47,40;7,44,48;1,49,2;1,50,40;0,51;4,52;1,53,32;1,54,40;1,55,32;7,19,56;1,57,36;1,58,59;1,60,40;1,61,62;8,63,64;7,19,65;1,45,40;6,66;9,67;6,68;9,69;1,70,13;1,71,13;6,72;6,73;2,74,75;6,76;6,77;1,78,13;0,79;7,80,81;1,82,59;9,83;6,84;9,85;10;1,86,32;11,87,88;12,89,90,91;7,80,92;11,93,94;11,95,96;12,97,36,98;6,99;1,100,2;13,101,102;6,103;1,104,105;1,106,107;1,108,109;12,110,90,98;14,111;5,112;1,113,109;1,114,13;1,115,36;0,116,117;14,118;2,74,119;11,120,121;2,74,122;9,123;6,124;3,125;1,126,36;3,127;10,128;1,129,32;7,44,130;7,131;14,87,132;1,133,2;7,134,110;1,135,2;1,136,40;1,137,36;6,138;12,139,90,91;7,44,140;6,141;1,142,143;1,144,2;2,74,145;2,146,145;2,146,147;15,148;2,149,150;1,151,32;11,152,153;2,74,154;2,74,155;11,156,157;11,156,158;1,159,40;2,74,84;2,36,160;5,161;7,19,162;7,41,163;1,164,109;6,165;9,166;7,165,167;1,168,2;2,146,169;1,170,13;0,171;7,172,173;1,174,59;1,175,32;1,176,59;9,177;1,118,59;11,178,179;9,180;11,156,181;11,156,182;7,172,183;1,184,40;1,185,40;1,185,109;1,186,40;6,187;2,146,188;1,189,40;9,190;1,191,2;11,192,193;1,194,36;1,195,2;1,108,143;12,196,90,91;12,197,90,98;1,198,109;2,74,148;1,199,36;12,200,90,98;0,201;1,202,143;12,203,90,91;16,204,90,91";
+const $scriptletArglists$ = /* 172 */ "0,0;1,1,2;0,3;2,4,5;0,6;1,7,2;1,8,2;0,9;3,10;4,11;1,12,13;5,14;6,15;0,16;4,14;0,17;0,18;7,19,20;0,21;1,22,23;5,24;0,25;4,26;5,27;0,28,29;6,30;1,31,32;4,33;6,34;1,35,36;4,37;1,38,13;1,39,40;7,41,42;1,43,40;7,44,45;6,46;1,47,40;7,44,48;1,49,2;1,50,40;0,51;4,52;1,53,32;7,19,54;1,55,36;1,56,57;1,58,40;1,59,60;8,61,62;7,19,63;1,45,40;6,64;9,65;6,66;9,67;1,68,13;1,69,13;6,70;6,71;2,72,73;6,74;6,75;1,76,13;0,77;7,78,79;1,80,57;9,81;6,82;9,83;10;1,84,32;11,85,86;12,87,88,89;7,78,90;11,91,92;11,93,94;12,95,36,96;6,97;1,98,2;13,99,100;6,101;1,102,103;1,104,105;1,106,107;12,108,88,96;14,109;5,110;1,111,107;1,112,13;1,113,36;0,114,115;14,116;2,72,117;11,118,119;2,72,120;9,121;6,122;3,123;1,124,36;3,125;10,126;1,127,32;7,44,128;7,129;14,85,130;1,131,2;7,132,108;1,133,2;1,134,40;1,135,36;6,136;12,137,88,89;7,44,138;6,139;1,140,141;1,142,2;2,72,143;2,72,144;2,145,144;2,145,146;15,147;2,148,149;1,150,32;11,151,152;2,72,153;2,72,154;11,155,156;11,155,157;1,158,40;2,72,82;2,36,159;5,160;7,19,161;7,41,162;1,163,107;6,164;9,165;7,164,166;1,167,2;2,145,168;1,169,13;0,170;7,171,172;1,173,57;1,174,32;1,175,57;9,176;1,116,57;11,177,178;9,179;11,155,180;11,155,181;7,171,182;1,183,40;1,184,40;1,184,107;1,185,40;6,186;2,145,187;1,188,40;9,189;1,190,2;11,191,192;1,193,36;1,194,2;1,106,141;12,195,88,89;12,196,88,96;1,197,141;12,198,88,89;16,199,88,89";
 
-const $scriptletArglistRefs$ = /* 1083 */ "58,60,154;56,57;58,60,154;58,61;177;121;0;58;73;138;58;58;19;58;14;136;10,60;167,168;58,77;65;82;94;82,101;30;58;58;119,120;73;58,99;58;58;177;58;6;152,153;2;114;136;82;105;82;14;14,39,40,41,42;58,64;144;58,75;58,75;1;26;60;82,89;124;58;69;58;72,134;44,45;104;118;17;66,67;58;141;71;58;97;82;109;58;58;60;58;137;60;73;58,167,168,177;133;18;58;12,23;37;98;38;38;58;58,60,154;58;82;122;94;58;64;82;43;58;58;60;60;58;63;60;58;58;58,167,168,172,173,174,177;58,86,87,177;167,168,177;72;85;143;32;100;49;58;147;27,28;82;82;58;91;58;38;82;166;166;166;166;166;166;166;166;166;166;166;106;12;58;61;82;58;115;58;60;58;58;58;58;58;58;58;123;58;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;163;60;149;58;58;58,72,77,79;58;25;62;58;60;123;58;0;12;142;82;58;138;13;72,150,151;72,84;136;47,48,82;58;34;34;58;52;58;82;58;140;82;136;136;112,113;51;72,142;90;58,116;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;58,175;76;11,29,58,72,131;137;61;59;164,169;72;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;58;14;82;14;73;73;73;73;73;73;73;73;73;73;73;73;73;73;73;137;137;137;137;137;137;137;137;137;137;137;137;137;137;137;137;137;137;137;137;93,96;60,72,131;78,102;72,132,138;72;58;60;177;60;58,167,168,177;8,9;58;58;177;61;61,80,98;136;54;58;1;125;136;162;58;58;2;58;72;62;58;58;33;59;59;59;59;59;59;59;59;59;59;59;59;59;59;59;59;59;58;60;128,129;60;157;157;157;157;157;157;157;157;157;157;157;17,162;82;135;72,126;95;58;142;172,173,174;172,173,174;172,173,174;172,173,174;172,173,174;172,173,174;172,173,174;58;62;136;107;136;136;0;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;3,4,5;72;103,112;58,61;58;60;58;58,77;60;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;59,147;24;59;59;59;59;59;59;59;59;59;59;59;59;146;60;72,151;70;74;0;60;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;58;58;172,173,174;172,173,174;172,173,174;172,173,174;172,173,174;172,173,174;172,173,174;172,173,174;58,172,173,174;172,173,174;172,173,174;58,86,87,167,168,177;83;177;58;159;159;159;159;53;35;60;58;7;70;59;59;59;59;59;59;59;59;59;59;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;170,171;139;117;1;156;156;156;156;156;156;156;156;156;156;60,72;14;60;11;127;58;130;162;63;159;159;159;159;159;159;159;159;159;159;159;159;159;159;159;159;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;60;58;160;160;160;160;160;160;160;160;160;58;58;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;55;58;136;7;58;60;59;31;123;0;58,63;81;136;58;58;167,168,177;63,68;167,168,177;137;167,168;160;160;160;160;160;160;160;160;160;160;160;12;0;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;58,176;72;58;61;61;72;58;58;58;60;62;62;108;148;58;58,62;136;10;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;0;58;22;58;50;70;62;62;0;58;110,111;14;147;58;61;68;58;7;58;58;58;61;59;58;36;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;50;58;61;61;60;72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;58,72;15,16;63;61;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;58;145;92;61;58;49;33;127;158;158;158;158;158;158;158;158;158;158;158;158;158;158;158;158;158;158;158;158;85;88;58;58;58;58;58;46;60;58;155;58;58;58;58;58;58;58";
+const $scriptletArglistRefs$ = /* 999 */ "56,58,153;54,55;56,58,153;56,59;171;120;0;56;71;137;56;56;19;56;14;135;10,58;166,167;56,75;63;80;92;80,99;30;56;56;118,119;71;56,97;56;56;171;56;6;151,152;2;112;135;80;103;80;14;14,39,40,41,42;56,62;143;56,73;56,73;1;26;58;80,87;123;56;67;56;70,133;102;116;17;64,65;56;140;69;56;95;80;107;56;56;58;56;136;58;71;56,166,167,171;132;18;56;12,23;37;96;38;38;56;56,58,153;56;80;121;92;56;62;80;43;56;56;58;58;56;61;58;56;56;56,166,167,171;56,84,85,171;166,167,171;70;83;142;32;98;47;56;146;27,28;80;80;56;89;56;38;80;165;165;165;165;165;165;165;165;165;165;165;104;12;56;59;80;56;113;56;58;56;56;56;56;56;56;56;122;56;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;162;58;148;56;56;56,70,75,77;56;25;60;56;58;122;56;0;12;141;80;56;137;13;70,149,150;70,82;135;45,46,80;56;34;34;56;50;56;80;56;139;80;135;135;110,111;49;70,141;88;56,114;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;56,169;74;11,29,56,70,130;136;59;163,168;70;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;56;14;80;14;71;71;71;71;71;71;71;71;71;71;71;71;71;71;71;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;136;91,94;58,70,130;76,100;70,131,137;70;56;58;171;58;56,166,167,171;8,9;56;56;171;59;59,78,96;135;52;56;1;124;135;161;56;56;2;56;70;60;56;56;33;57;57;57;57;57;57;57;56;58;127,128;58;156;156;156;156;156;156;156;156;156;156;156;17,161;80;134;70,125;93;56;141;56;60;135;105;135;135;0;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;20,21;3,4,5;70;101,110;56,59;56;58;56;56,75;58;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;57,146;24;57;145;58;70,150;68;72;0;58;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;56;56;56;56,84,85,166,167,171;81;171;56;158;158;158;158;51;35;58;56;7;68;138;115;1;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;155;58,70;14;58;11;126;56;129;161;61;158;158;158;158;158;158;158;158;158;158;158;158;158;158;158;158;58;56;159;159;159;159;159;159;159;159;159;56;56;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;154;53;56;135;7;56;58;31;122;0;56,61;79;135;56;56;166,167,171;61,66;166,167,171;136;166,167;159;159;159;159;159;159;159;159;159;159;159;12;0;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;56,170;70;56;59;59;70;56;56;56;58;60;60;106;147;56;56,60;135;10;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;0;56;70;22;56;48;68;60;60;0;56;108,109;14;146;56;59;66;56;7;56;56;56;59;57;56;36;117;135;135;135;135;135;135;135;135;135;135;135;135;135;135;135;135;135;135;135;135;48;56;59;59;58;70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;56,70;15,16;61;59;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;56;144;90;59;56;47;33;126;157;157;157;157;157;157;157;157;157;157;157;157;157;157;157;157;157;157;157;157;83;86;56;56;56;56;56;44;58;56;154;56;56;56;56;56;56;56";
 
-const $scriptletHostnames$ = /* 1083 */ ["anizm.*","r10.net","anizle.*","diziyo.*","sinema.*","ag2m4.cfd","azbuz.org","dafflix.*","dizilla.*","dizimag.*","dizimov.*","dizipal.*","exxen.com","hdfilm.us","nedir.org","pages.dev","promy.pro","sinema.cx","sinepal.*","sporx.com","tabii.com","trstx.org","atv.com.tr","bikifi.com","dizicaps.*","dizimag.eu","dizipala.*","diziroll.*","diziyou.co","filmfc.com","filmhe.com","filmizle.*","filmjr.org","haber3.com","haber7.com","isgfrm.com","itemci.com","justintv.*","kanal7.com","kenttv.net","ntv.com.tr","ogznet.com","puhutv.com","shirl.club","sinefil.tv","tafdi3.com","tafdi4.com","teknop.net","tgyama.com","trfilm.net","tv8.com.tr","vidlax.xyz","volsex.com","yeppuu.com","zarize.com","animeler.me","cnnturk.com","contentx.me","diziall.com","dizifon.com","dizigom1.tv","dizikorea.*","dizipal.org","dizipia.com","dizirex.com","dizirix.net","dmax.com.tr","duzcetv.com","efendim.xyz","filmcus.com","filmcuss.cc","filmgo1.com","filmizle.cx","filmjr2.org","filmmodu.co","hdfilmcix.*","hlktrpl.cfd","intekno.net","izlekolik.*","mangawt.com","miuitr.info","mixizle.com","osxinfo.net","otopark.com","pembetv18.*","puffytr.com","tranimaci.*","trtizle.com","turkanime.*","vipifsa.com","zerotik.com","altporno.xyz","aspor.com.tr","coinotag.com","cristal.guru","diziboxx.com","diziday1.com","dizimax2.com","dizimore.com","diziwatch.tv","dolufilm.org","erotikgo.com","filmcusx.com","filmizletv.*","fullhdfilm.*","fullhdizle.*","izleorg3.org","izlesene.com","joymaxtr.com","karnaval.com","nowtv.com.tr","oyungibi.com","playerzz.xyz","pllsfored.co","sozcu.com.tr","teve2.com.tr","tlctv.com.tr","turkaliz.com","turkanime.co","turkifsa.xyz","turkrock.com","tv8bucuk.com","tvboff10.com","tvboff11.com","tvboff12.com","tvboff13.com","tvboff14.com","tvboff15.com","tvboff16.com","tvboff17.com","tvboff18.com","tvboff19.com","tvboff20.com","ulker.com.tr","vidtekno.com","zzerotik.com","720pizleme.cc","ahaber.com.tr","arrowizle.com","bizimyaka.com","burdenfly.com","dipfilmizle.*","dizikral.club","dizikral.live","dizikral1.pro","dizikral2.pro","dizikral3.pro","dizikral4.pro","dizikral5.pro","dizilla40.com","dizipaltv.net","diziyou11.com","diziyou12.com","diziyou13.com","diziyou14.com","diziyou15.com","diziyou16.com","diziyou17.com","diziyou18.com","diziyou19.com","diziyou20.com","diziyou21.com","diziyou22.com","diziyou23.com","diziyou24.com","diziyou25.com","diziyou26.com","diziyou27.com","diziyou28.com","diziyou29.com","diziyou30.com","diziyou31.com","diziyou32.com","diziyou33.com","diziyou34.com","diziyou35.com","diziyou36.com","diziyou37.com","diziyou38.com","diziyou39.com","diziyou40.com","diziyou41.com","diziyou42.com","diziyou43.com","diziyou44.com","diziyou45.com","diziyou46.com","diziyou47.com","diziyou48.com","diziyou49.com","diziyou50.com","diziyoutv.com","domplayer.org","ediziizle.com","efullizle.com","elzemfilm.org","erotikjam.com","exceldepo.com","filmizlemax.*","filmizletv1.*","filmmoduu.com","flatscher.net","fluffcore.com","genelpara.com","gsmturkey.net","guzelfilm.com","haberturk.com","hdfilmizle.in","hdnetflix.net","inceleriz.com","izlekolik.org","jetfilmizle.*","justin-tv.org","kanald.com.tr","korkuseli.com","mangaship.com","mangaship.net","maxfilmizle.*","mordefter.com","pornoanne.com","showtv.com.tr","sinemaizle.co","sondakika.com","startv.com.tr","t24giris2.cfd","taraftarium.*","technopat.net","tekniknot.com","tranimaci.com","tranimeci.com","tranimeizle.*","trgoals11.top","trgoals12.top","trgoals13.top","trgoals14.top","trgoals15.top","trgoals16.top","trgoals17.top","trgoals18.top","trgoals19.top","trgoals20.top","trgoals21.top","trgoals22.top","trgoals23.top","trgoals24.top","trgoals25.top","trgoals26.top","trgoals27.top","trgoals28.top","trgoals29.top","trgoals30.top","trgoals31.top","trgoals32.top","trgoals33.top","trgoals34.top","trgoals35.top","trgoals36.top","trgoals37.top","trgoals38.top","trgoals39.top","trgoals40.top","trgoals41.top","trgoals42.top","trgoals43.top","trgoals44.top","trgoals45.top","trgoals46.top","trgoals47.top","trgoals48.top","trgoals49.top","trgoals50.top","ulketv.com.tr","uzaymanga.com","vkfilmizlee.*","vkfilmizlet.*","webteizle.xyz","yabancidizi.*","youtubemp3.us","zeustv109.com","zeustv110.com","zeustv111.com","zeustv112.com","zeustv113.com","zeustv114.com","zeustv115.com","zeustv116.com","zeustv117.com","zeustv118.com","zeustv119.com","zeustv120.com","zeustv121.com","zeustv122.com","zeustv123.com","zeustv124.com","zeustv125.com","zeustv126.com","zeustv127.com","zeustv128.com","asfilmizle.com","bafrahaber.com","beyaztv.com.tr","dentalilan.com","dizipal12.site","dizipal13.site","dizipal14.site","dizipal15.site","dizipal16.site","dizipal17.site","dizipal19.site","dizipal21.site","dizipal22.site","dizipal23.site","dizipal24.site","dizipal25.site","dizipal26.site","dizipal27.site","dizipal28.site","dizipalx54.com","dizipalx55.com","dizipalx56.com","dizipalx57.com","dizipalx58.com","dizipalx59.com","dizipalx60.com","dizipalx61.com","dizipalx62.com","dizipalx63.com","dizipalx64.com","dizipalx65.com","dizipalx66.com","dizipalx67.com","dizipalx68.com","dizipalx69.com","dizipalx70.com","dizipalx71.com","dizipalx72.com","dizipalx73.com","eksisozluk.com","eldermanga.com","ensonhaber.com","epikplayer.xyz","erosfilmizle.*","erotikfimm.com","erotikhoot.com","filmizleplus.*","filmzevkim.com","fullfilmizle.*","gecmisi.com.tr","geziforumu.com","hdfilmizle.org","hdfilmsitesi.*","hdfreeizle.com","hdmixfilim.com","justintvde.com","kanalmaras.com","onlinedizi.sbs","ozgunbilgi.com","pandaspor.live","selcuksports.*","seyredeger.com","sinekolikk.com","sinemangoo.org","sinematurk.com","sinetiktok.com","videojs.online","videoseyred.in","vizyon18tv.com","vkfilmizle.net","vknsorgula.net","webteizle.info","webteizle1.xyz","webteizle2.xyz","webteizle3.com","webteizle3.xyz","webteizle4.com","webteizle4.xyz","webteizle5.com","webteizle5.xyz","webteizle6.com","webteizle6.xyz","webteizle7.com","webteizle7.xyz","webteizle8.com","webteizle8.xyz","webteizle9.com","webteizle9.xyz","yavuzfilmm.com","zerotiktok.com","aydinlik.com.tr","bamfilmizle.com","betivotv156.com","betivotv157.com","betivotv158.com","betivotv159.com","betivotv160.com","betivotv161.com","betivotv162.com","betivotv163.com","betivotv164.com","betivotv165.com","betivotv166.com","birasyadizi.com","bloomberght.com","cizgivedizi.com","dizipal.website","eescobarvip.com","erotikkizle.com","filmdizibox.com","filmizletv3.com","filmizletv4.com","filmizletv5.com","filmizletv6.com","filmizletv7.com","filmizletv8.com","filmizletv9.com","filmkuzusu1.com","filmmakinesi1.*","hayrirsds24.cfd","ifsamerkezi.com","inattvgiris.pro","justintvsh.baby","kriptoradar.com","kuponuna476.top","kuponuna477.top","kuponuna478.top","kuponuna479.top","kuponuna480.top","kuponuna481.top","kuponuna482.top","kuponuna483.top","kuponuna484.top","kuponuna485.top","kuponuna486.top","kuponuna487.top","kuponuna488.top","kuponuna489.top","kuponuna490.top","kuponuna491.top","kuponuna492.top","kuponuna493.top","kuponuna494.top","kuponuna495.top","kuponuna496.top","kuponuna497.top","kuponuna498.top","kuponuna499.top","kuponuna500.top","kuponuna501.top","kuponuna502.top","kuponuna503.top","kuponuna504.top","kuponuna505.top","kuponuna506.top","kuponuna507.top","kuponuna508.top","kuponuna509.top","kuponuna510.top","kuponuna511.top","kuponuna512.top","kuponuna513.top","kuponuna514.top","kuponuna515.top","kuponuna516.top","kuponuna517.top","kuponuna518.top","kuponuna519.top","kuponuna520.top","kuponuna521.top","kuponuna522.top","kuponuna523.top","kuponuna524.top","kuponuna525.top","kuponuna526.top","kuponuna527.top","kuponuna528.top","kuponuna529.top","kuponuna530.top","kuponuna531.top","kuponuna532.top","kuponuna533.top","kuponuna534.top","kuponuna535.top","kuponuna536.top","kuponuna537.top","kuponuna538.top","kuponuna539.top","kuponuna540.top","kuponuna541.top","kuponuna542.top","kuponuna543.top","kuponuna544.top","kuponuna545.top","kuponuna546.top","kuponuna547.top","kuponuna548.top","kuponuna549.top","kuponuna550.top","kuponuna551.top","kuponuna552.top","kuponuna553.top","kuponuna554.top","kuponuna555.top","kuponuna556.top","kuponuna557.top","kuponuna558.top","kuponuna559.top","kuponuna560.top","kuponuna561.top","kuponuna562.top","kuponuna563.top","kuponuna564.top","kuponuna565.top","kuponuna566.top","kuponuna567.top","kuponuna568.top","kuponuna569.top","merlinscans.com","movietube32.xyz","pchocasi.com.tr","sinemakolik.net","sinemakolik.org","sinemakolix.com","sinemakolix.net","siyahfilmizle.*","tenshimanga.com","trgoals1495.xyz","trgoals1496.xyz","trgoals1497.xyz","trgoals1498.xyz","trgoals1499.xyz","trgoals1500.xyz","trgoals1501.xyz","trgoals1502.xyz","trgoals1503.xyz","trgoals1504.xyz","trgoals1505.xyz","trgoals1506.xyz","trgoals1507.xyz","trgoals1508.xyz","trgoals1509.xyz","trgoals1510.xyz","trgoals1511.xyz","trgoals1512.xyz","trgoals1513.xyz","trgoals1514.xyz","trgoals1515.xyz","trgoals1516.xyz","trgoals1517.xyz","trgoals1518.xyz","trgoals1519.xyz","trgoals1520.xyz","trgoals1521.xyz","trgoals1522.xyz","trgoals1523.xyz","trgoals1524.xyz","trgoals1525.xyz","trgoals1526.xyz","trgoals1527.xyz","trgoals1528.xyz","trgoals1529.xyz","trgoals1530.xyz","trgoals1531.xyz","trgoals1532.xyz","trgoals1533.xyz","trgoals1534.xyz","trgoals1535.xyz","trgoals1536.xyz","trgoals1537.xyz","trgoals1538.xyz","trgoals1539.xyz","trgoals1540.xyz","trgoals1541.xyz","trgoals1542.xyz","trgoals1543.xyz","veryansintv.com","webteizle.click","webteizle1.info","webteizle10.com","webteizle10.xyz","webteizle2.info","webteizle3.info","webteizle4.info","webteizle5.info","webteizle6.info","webteizle7.info","webteizle8.info","webteizle9.info","yeniasya.com.tr","zipfilmizle.com","4kfilmizlesene.*","afroditscans.com","asyadiziizle.com","bakimlikadin.net","balfilmizle2.org","belestepe701.sbs","belestepe702.sbs","belestepe703.sbs","belestepe704.sbs","belestepe705.sbs","belestepe706.sbs","belestepe707.sbs","belestepe708.sbs","belestepe709.sbs","belestepe710.sbs","belestepe711.sbs","belestepe712.sbs","belestepe713.sbs","belestepe714.sbs","belestepe715.sbs","belestepe716.sbs","belestepe717.sbs","belestepe718.sbs","belestepe719.sbs","belestepe720.sbs","bumfilmizle1.com","filmerotixxx.com","filmizletv10.com","filmizletv11.com","filmizletv12.com","filmizletv13.com","filmizletv14.com","filmizletv15.com","filmizletv16.com","filmizletv17.com","filmizletv18.com","filmizletv19.com","filmizletv20.com","fullhdfilmizle.*","goodfilmizle.com","hdfilmizlesene.*","hdfilmizletv.net","hentaizm6.online","hentaizm7.online","hentaizm8.online","hentaizm9.online","klavyeanaliz.org","okultanitimi.net","sinemadafilm.com","sinemadelisi.com","teknoinfo.com.tr","webdramaturkey.*","webteizle1.click","webteizle10.info","webteizle2.click","webteizle3.click","webteizle4.click","webteizle5.click","webteizle6.click","webteizle7.click","webteizle8.click","webteizle9.click","xyzsports173.xyz","xyzsports174.xyz","xyzsports175.xyz","xyzsports176.xyz","xyzsports177.xyz","xyzsports178.xyz","xyzsports179.xyz","xyzsports180.xyz","xyzsports181.xyz","xyzsports182.xyz","xyzsports183.xyz","xyzsports184.xyz","xyzsports185.xyz","xyzsports186.xyz","xyzsports187.xyz","xyzsports188.xyz","xyzsports189.xyz","xyzsports190.xyz","xyzsports191.xyz","xyzsports192.xyz","xyzsports193.xyz","xyzsports194.xyz","xyzsports195.xyz","xyzsports197.xyz","xyzsports198.xyz","xyzsports199.xyz","xyzsports200.xyz","asyaanimeleri.com","aydindenge.com.tr","beceriksizler.net","bosssports214.com","bosssports215.com","bosssports216.com","bosssports217.com","bosssports218.com","bosssports219.com","bosssports220.com","bosssports221.com","bosssports222.com","bosssports223.com","breakingbadizle.*","discordsunucu.com","erotizmvadisi.com","forumchess.com.tr","fullfilmcibaba.nl","fullhdfilmmodu2.*","hdfilmcehennemi.*","hdfilmizleamk.net","hdfilmizlesen.com","hentaizm10.online","hentaizm11.online","hentaizm12.online","hentaizm13.online","hentaizm14.online","hentaizm15.online","hentaizm16.online","hentaizm17.online","hentaizm18.online","hentaizm19.online","hentaizm20.online","hentaizm21.online","hentaizm22.online","hentaizm23.online","hentaizm24.online","hentaizm25.online","inattvizle199.top","inattvizle200.top","inattvizle201.top","inattvizle203.top","inattvizle204.top","inattvizle205.top","inattvizle206.top","inattvizle207.top","inattvizle208.top","inattvizle209.top","inattvizle210.top","inattvizle211.top","inattvizle212.top","inattvizle213.top","inattvizle214.top","inattvizle215.top","inattvizle216.top","inattvizle217.top","jetfilmizletv.net","kelebekfilmm1.com","klasikfilmler1.cc","klasikfilmler2.cc","klasikfilmler3.cc","klasikfilmler4.cc","klasikfilmler5.cc","klasikfilmler6.cc","klasikfilmler7.cc","klasikfilmler8.cc","klasikfilmler9.cc","kuzufilmizle1.com","macicanliizle.sbs","macizlevip741.sbs","macizlevip742.sbs","macizlevip743.sbs","macizlevip744.sbs","macizlevip745.sbs","macizlevip746.sbs","macizlevip747.sbs","macizlevip748.sbs","macizlevip749.sbs","macizlevip750.sbs","macizlevip751.sbs","macizlevip752.sbs","macizlevip753.sbs","macizlevip754.sbs","macizlevip755.sbs","macizlevip756.sbs","macizlevip757.sbs","macizlevip758.sbs","macizlevip759.sbs","macizlevip760.sbs","mactanmaca791.sbs","mactanmaca792.sbs","mactanmaca793.sbs","mactanmaca794.sbs","mactanmaca795.sbs","mactanmaca796.sbs","mactanmaca797.sbs","mactanmaca798.sbs","mactanmaca799.sbs","mactanmaca800.sbs","mactanmaca801.sbs","mactanmaca802.sbs","mactanmaca803.sbs","mactanmaca804.sbs","mactanmaca805.sbs","mactanmaca806.sbs","mactanmaca807.sbs","mactanmaca808.sbs","mactanmaca809.sbs","mactanmaca810.sbs","memoryhackers.org","royalfilmizle.com","selcuk-sports.com","sosyogaraj.com.tr","taraftariumxx.cfd","turkifsaalemi.com","webteizle10.click","wheel-size.com.tr","yabancidiziio.com","zamaninvarken.com","1080hdfilmizle.com","arsiv.mackolik.com","dmlstechnology.com","erotikfilmtube.com","filmifullizlet.com","filmizlehdfilm.com","filmizlehdizle.com","fullhdfilmizletv.*","hdfilmizlesene.net","hdfilmizlesene.org","klasikfilmler10.cc","klasikfilmler11.cc","klasikfilmler12.cc","klasikfilmler13.cc","klasikfilmler14.cc","klasikfilmler15.cc","klasikfilmler16.cc","klasikfilmler17.cc","klasikfilmler18.cc","klasikfilmler19.cc","klasikfilmler20.cc","komputerdelisi.com","korsanedebiyat.com","lorabettvhd68.shop","lorabettvhd69.shop","lorabettvhd70.shop","lorabettvhd71.shop","lorabettvhd72.shop","lorabettvhd73.shop","lorabettvhd74.shop","lorabettvhd75.shop","lorabettvhd76.shop","lorabettvhd77.shop","lorabettvhd78.shop","lorabettvhd79.shop","lorabettvhd80.shop","lorabettvhd81.shop","lorabettvhd82.shop","lorabettvhd83.shop","lorabettvhd84.shop","lorabettvhd85.shop","lorabettvhd86.shop","lorabettvhd87.shop","papazsports842.pro","papazsports843.pro","papazsports844.pro","papazsports845.pro","papazsports846.pro","papazsports847.pro","papazsports848.pro","papazsports849.pro","papazsports850.pro","papazsports851.pro","papazsports852.pro","papazsports853.pro","papazsports854.pro","papazsports855.pro","papazsports856.pro","papazsports857.pro","papazsports858.pro","papazsports859.pro","papazsports860.pro","papazsports861.pro","player.filmizle.in","sinemafilmizle.net","superfilmgeldi.biz","superfilmgeldi.net","turkerotikfilm.com","yabancidizibax.com","yabancidizilertv.*","yabancidizivip.com","yenierotikfilm.xyz","720pfilmizleme1.com","720pfilmizletir.com","edebiyatdefteri.com","erotikhdfilmx3.shop","filmseyretizlet.net","hdfilmcehennem.live","hudsonlegalblog.com","iddaaorantahmin.com","justintvizle550.top","justintvizle551.top","justintvizle552.top","justintvizle553.top","justintvizle554.top","justintvizle555.top","justintvizle556.top","justintvizle557.top","justintvizle558.top","justintvizle559.top","justintvizle560.top","justintvizle561.top","justintvizle562.top","justintvizle563.top","justintvizle564.top","justintvizle565.top","justintvizle566.top","justintvizle567.top","justintvizle568.top","justintvizle569.top","mustafabukulmez.com","onlinefilmizle.site","raindropteamfan.com","sexfilmleriizle.com","turkdenizcileri.com","webdramaturkey2.com","1080pfilmizletir.com","720pfilmizlesene.com","ankarakampkafasi.com","asyafanatiklerim.com","belgeselizlesene.com","boxofficeturkiye.com","buenosairesideal.com","filmifullizle.online","fullfilmizlebaba.com","fullfilmizlesene.net","fullhdfilmizlesene.*","menufiyatlari.com.tr","netfullfilmizle3.com","sinemadafilmizle.net","sinemadafilmizle.org","supernaturalizle.com","tekfullfilmizle5.com","tekparthdfilmizle.cc","telegramgruplari.com","beintvcanliizle52.com","beintvcanliizle53.com","beintvcanliizle54.com","beintvcanliizle55.com","beintvcanliizle56.com","beintvcanliizle57.com","beintvcanliizle58.com","beintvcanliizle59.com","beintvcanliizle60.com","beintvcanliizle61.com","beintvcanliizle62.com","beintvcanliizle63.com","beintvcanliizle64.com","beintvcanliizle65.com","beintvcanliizle66.com","beintvcanliizle67.com","beintvcanliizle68.com","beintvcanliizle69.com","beintvcanliizle70.com","beintvcanliizle71.com","bilgalem.blogspot.com","fullhdfilmcenneti.pro","fullhdfilmizleabi.com","fullhdfilmizlett1.com","guneykoresinemasi.com","hdselcuksports368.top","hdselcuksports420.top","hdselcuksports421.top","hdselcuksports422.top","hdselcuksports423.top","hdselcuksports424.top","hdselcuksports425.top","hdselcuksports426.top","hdselcuksports427.top","hdselcuksports428.top","hdselcuksports429.top","hdselcuksports430.top","hdselcuksports431.top","hdselcuksports432.top","hdselcuksports433.top","hdselcuksports434.top","hdselcuksports435.top","hdselcuksports436.top","hdselcuksports437.top","hdselcuksports438.top","hdselcuksports439.top","hdselcuksports440.top","hdselcuksports441.top","hdselcuksports442.top","hdselcuksports443.top","hdselcuksports444.top","hdselcuksports445.top","hdselcuksports446.top","hdselcuksports447.top","hdselcuksports448.top","hdselcuksports449.top","hdselcuksports450.top","hdselcuksports451.top","hdselcuksports452.top","hdselcuksports453.top","hdselcuksports454.top","hdselcuksports455.top","hdselcuksports456.top","hdselcuksports457.top","hdselcuksports458.top","hdselcuksports459.top","hdselcuksports460.top","hdselcuksports461.top","hdselcuksports462.top","hdselcuksports463.top","hdselcuksports464.top","hdselcuksports465.top","hdselcuksports466.top","hdselcuksports467.top","hdselcuksports468.top","hdselcuksports469.top","hdselcuksports470.top","hdselcuksports471.top","hdselcuksports472.top","sinnerclownceviri.com","yabancidiziizlesene.*","bettercallsaulizle.com","canlimacizlemax446.top","canlimacizlemax447.top","canlimacizlemax448.top","canlimacizlemax449.top","canlimacizlemax450.top","canlimacizlemax451.top","canlimacizlemax452.top","canlimacizlemax453.top","canlimacizlemax454.top","canlimacizlemax455.top","canlimacizlemax456.top","canlimacizlemax457.top","canlimacizlemax458.top","canlimacizlemax459.top","canlimacizlemax460.top","canlimacizlemax461.top","canlimacizlemax462.top","canlimacizlemax463.top","canlimacizlemax464.top","canlimacizlemax465.top","canlimacizlemax466.top","canlimacizlemax467.top","canlimacizlemax468.top","canlimacizlemax469.top","canlimacizlemax470.top","canlimacizlemax471.top","canlimacizlemax472.top","canlimacizlemax473.top","canlimacizlemax474.top","canlimacizlemax475.top","canlimacizlemax476.top","canlimacizlemax477.top","canlimacizlemax478.top","canlimacizlemax479.top","da95848c82c933d2.click","forum.donanimhaber.com","fullhdfilmizlepala.com","hdfilmcehennemizle.com","veterinerhekimleri.com","azsekerlik.blogspot.com","fullfilmcibabaizlet.com","goley90canlitv3003.site","goley90canlitv3004.site","goley90canlitv3005.site","goley90canlitv3006.site","goley90canlitv3007.site","goley90canlitv3008.site","goley90canlitv3009.site","goley90canlitv3010.site","goley90canlitv3011.site","goley90canlitv3012.site","goley90canlitv3013.site","goley90canlitv3014.site","goley90canlitv3015.site","goley90canlitv3016.site","goley90canlitv3017.site","goley90canlitv3018.site","goley90canlitv3019.site","goley90canlitv3020.site","goley90canlitv3021.site","goley90canlitv3022.site","nefisyemektarifleri.com","search.donanimhaber.com","tekparthdfilmizlesene.*","justintvx30.blogspot.com","justintvxx10.blogspot.com","turkcealtyazilipornom.com","justintvgiris.blogspot.com","kampanyatakip.blogspot.com","canlimacizlene.blogspot.com","taraftarium402.blogspot.com","cinque.668a396e58bcbc27.click","taraftariummdeneme.blogspot.com","sportboss-macizlesbs.blogspot.com","taraftarium24hdgiris1.blogspot.com","inattv-taraftarium24-macizle.blogspot.com","taraftarium24canli-macizlesene.blogspot.com","canli-mac-izle-taraftarium24-izle.blogspot.com","selcukspor-taraftarium24canliizle1.blogspot.com"];
+const $scriptletHostnames$ = /* 999 */ ["anizm.*","r10.net","anizle.*","diziyo.*","sinema.*","ag2m4.cfd","azbuz.org","dafflix.*","dizilla.*","dizimag.*","dizimov.*","dizipal.*","exxen.com","hdfilm.us","nedir.org","pages.dev","promy.pro","sinema.cx","sinepal.*","sporx.com","tabii.com","trstx.org","atv.com.tr","bikifi.com","dizicaps.*","dizimag.eu","dizipala.*","diziroll.*","diziyou.co","filmfc.com","filmhe.com","filmizle.*","filmjr.org","haber3.com","haber7.com","isgfrm.com","itemci.com","justintv.*","kanal7.com","kenttv.net","ntv.com.tr","ogznet.com","puhutv.com","shirl.club","sinefil.tv","tafdi3.com","tafdi4.com","teknop.net","tgyama.com","trfilm.net","tv8.com.tr","vidlax.xyz","volsex.com","yeppuu.com","zarize.com","animeler.me","contentx.me","diziall.com","dizifon.com","dizigom1.tv","dizikorea.*","dizipal.org","dizipia.com","dizirex.com","dizirix.net","dmax.com.tr","duzcetv.com","efendim.xyz","filmcus.com","filmcuss.cc","filmgo1.com","filmizle.cx","filmjr2.org","filmmodu.co","hdfilmcix.*","hlktrpl.cfd","intekno.net","izlekolik.*","mangawt.com","miuitr.info","mixizle.com","osxinfo.net","otopark.com","pembetv18.*","puffytr.com","tranimaci.*","trtizle.com","turkanime.*","vipifsa.com","zerotik.com","altporno.xyz","aspor.com.tr","coinotag.com","cristal.guru","diziboxx.com","diziday1.com","dizimax2.com","dizimore.com","diziwatch.tv","dolufilm.org","erotikgo.com","filmcusx.com","filmizletv.*","fullhdfilm.*","fullhdizle.*","izleorg3.org","izlesene.com","joymaxtr.com","karnaval.com","nowtv.com.tr","oyungibi.com","playerzz.xyz","pllsfored.co","sozcu.com.tr","teve2.com.tr","tlctv.com.tr","turkaliz.com","turkanime.co","turkifsa.xyz","turkrock.com","tv8bucuk.com","tvboff10.com","tvboff11.com","tvboff12.com","tvboff13.com","tvboff14.com","tvboff15.com","tvboff16.com","tvboff17.com","tvboff18.com","tvboff19.com","tvboff20.com","ulker.com.tr","vidtekno.com","zzerotik.com","720pizleme.cc","ahaber.com.tr","arrowizle.com","bizimyaka.com","burdenfly.com","dipfilmizle.*","dizikral.club","dizikral.live","dizikral1.pro","dizikral2.pro","dizikral3.pro","dizikral4.pro","dizikral5.pro","dizilla40.com","dizipaltv.net","diziyou11.com","diziyou12.com","diziyou13.com","diziyou14.com","diziyou15.com","diziyou16.com","diziyou17.com","diziyou18.com","diziyou19.com","diziyou20.com","diziyou21.com","diziyou22.com","diziyou23.com","diziyou24.com","diziyou25.com","diziyou26.com","diziyou27.com","diziyou28.com","diziyou29.com","diziyou30.com","diziyou31.com","diziyou32.com","diziyou33.com","diziyou34.com","diziyou35.com","diziyou36.com","diziyou37.com","diziyou38.com","diziyou39.com","diziyou40.com","diziyou41.com","diziyou42.com","diziyou43.com","diziyou44.com","diziyou45.com","diziyou46.com","diziyou47.com","diziyou48.com","diziyou49.com","diziyou50.com","diziyoutv.com","domplayer.org","ediziizle.com","efullizle.com","elzemfilm.org","erotikjam.com","exceldepo.com","filmizlemax.*","filmizletv1.*","filmmoduu.com","flatscher.net","fluffcore.com","genelpara.com","gsmturkey.net","guzelfilm.com","haberturk.com","hdfilmizle.in","hdnetflix.net","inceleriz.com","izlekolik.org","jetfilmizle.*","justin-tv.org","kanald.com.tr","korkuseli.com","mangaship.com","mangaship.net","maxfilmizle.*","mordefter.com","pornoanne.com","showtv.com.tr","sinemaizle.co","sondakika.com","startv.com.tr","t24giris2.cfd","taraftarium.*","technopat.net","tekniknot.com","tranimaci.com","tranimeci.com","tranimeizle.*","trgoals11.top","trgoals12.top","trgoals13.top","trgoals14.top","trgoals15.top","trgoals16.top","trgoals17.top","trgoals18.top","trgoals19.top","trgoals20.top","trgoals21.top","trgoals22.top","trgoals23.top","trgoals24.top","trgoals25.top","trgoals26.top","trgoals27.top","trgoals28.top","trgoals29.top","trgoals30.top","trgoals31.top","trgoals32.top","trgoals33.top","trgoals34.top","trgoals35.top","trgoals36.top","trgoals37.top","trgoals38.top","trgoals39.top","trgoals40.top","trgoals41.top","trgoals42.top","trgoals43.top","trgoals44.top","trgoals45.top","trgoals46.top","trgoals47.top","trgoals48.top","trgoals49.top","trgoals50.top","ulketv.com.tr","uzaymanga.com","vkfilmizlee.*","vkfilmizlet.*","yabancidizi.*","youtubemp3.us","zeustv109.com","zeustv110.com","zeustv111.com","zeustv112.com","zeustv113.com","zeustv114.com","zeustv115.com","zeustv116.com","zeustv117.com","zeustv118.com","zeustv119.com","zeustv120.com","zeustv121.com","zeustv122.com","zeustv123.com","zeustv124.com","zeustv125.com","zeustv126.com","zeustv127.com","zeustv128.com","asfilmizle.com","bafrahaber.com","beyaztv.com.tr","dentalilan.com","dizipal12.site","dizipal13.site","dizipal14.site","dizipal15.site","dizipal16.site","dizipal17.site","dizipal19.site","dizipal21.site","dizipal22.site","dizipal23.site","dizipal24.site","dizipal25.site","dizipal26.site","dizipal27.site","dizipal28.site","dizipalx54.com","dizipalx55.com","dizipalx56.com","dizipalx57.com","dizipalx58.com","dizipalx59.com","dizipalx60.com","dizipalx61.com","dizipalx62.com","dizipalx63.com","dizipalx64.com","dizipalx65.com","dizipalx66.com","dizipalx67.com","dizipalx68.com","dizipalx69.com","dizipalx70.com","dizipalx71.com","dizipalx72.com","dizipalx73.com","eksisozluk.com","eldermanga.com","ensonhaber.com","epikplayer.xyz","erosfilmizle.*","erotikfimm.com","erotikhoot.com","filmizleplus.*","filmzevkim.com","fullfilmizle.*","gecmisi.com.tr","geziforumu.com","hdfilmizle.org","hdfilmsitesi.*","hdfreeizle.com","hdmixfilim.com","justintvde.com","kanalmaras.com","onlinedizi.sbs","ozgunbilgi.com","pandaspor.live","selcuksports.*","seyredeger.com","sinekolikk.com","sinemangoo.org","sinematurk.com","sinetiktok.com","videojs.online","videoseyred.in","vizyon18tv.com","vkfilmizle.net","vknsorgula.net","webteizle3.xyz","webteizle4.xyz","webteizle5.xyz","webteizle6.xyz","webteizle7.xyz","webteizle8.xyz","webteizle9.xyz","yavuzfilmm.com","zerotiktok.com","aydinlik.com.tr","bamfilmizle.com","betivotv156.com","betivotv157.com","betivotv158.com","betivotv159.com","betivotv160.com","betivotv161.com","betivotv162.com","betivotv163.com","betivotv164.com","betivotv165.com","betivotv166.com","birasyadizi.com","bloomberght.com","cizgivedizi.com","dizipal.website","eescobarvip.com","erotikkizle.com","filmdizibox.com","filmkuzusu1.com","filmmakinesi1.*","hayrirsds24.cfd","ifsamerkezi.com","inattvgiris.pro","justintvsh.baby","kriptoradar.com","kuponuna476.top","kuponuna477.top","kuponuna478.top","kuponuna479.top","kuponuna480.top","kuponuna481.top","kuponuna482.top","kuponuna483.top","kuponuna484.top","kuponuna485.top","kuponuna486.top","kuponuna487.top","kuponuna488.top","kuponuna489.top","kuponuna490.top","kuponuna491.top","kuponuna492.top","kuponuna493.top","kuponuna494.top","kuponuna495.top","kuponuna496.top","kuponuna497.top","kuponuna498.top","kuponuna499.top","kuponuna500.top","kuponuna501.top","kuponuna502.top","kuponuna503.top","kuponuna504.top","kuponuna505.top","kuponuna506.top","kuponuna507.top","kuponuna508.top","kuponuna509.top","kuponuna510.top","kuponuna511.top","kuponuna512.top","kuponuna513.top","kuponuna514.top","kuponuna515.top","kuponuna516.top","kuponuna517.top","kuponuna518.top","kuponuna519.top","kuponuna520.top","kuponuna521.top","kuponuna522.top","kuponuna523.top","kuponuna524.top","kuponuna525.top","kuponuna526.top","kuponuna527.top","kuponuna528.top","kuponuna529.top","kuponuna530.top","kuponuna531.top","kuponuna532.top","kuponuna533.top","kuponuna534.top","kuponuna535.top","kuponuna536.top","kuponuna537.top","kuponuna538.top","kuponuna539.top","kuponuna540.top","kuponuna541.top","kuponuna542.top","kuponuna543.top","kuponuna544.top","kuponuna545.top","kuponuna546.top","kuponuna547.top","kuponuna548.top","kuponuna549.top","kuponuna550.top","kuponuna551.top","kuponuna552.top","kuponuna553.top","kuponuna554.top","kuponuna555.top","kuponuna556.top","kuponuna557.top","kuponuna558.top","kuponuna559.top","kuponuna560.top","kuponuna561.top","kuponuna562.top","kuponuna563.top","kuponuna564.top","kuponuna565.top","kuponuna566.top","kuponuna567.top","kuponuna568.top","kuponuna569.top","merlinscans.com","movietube32.xyz","pchocasi.com.tr","sinemakolik.net","sinemakolik.org","sinemakolix.com","sinemakolix.net","siyahfilmizle.*","tenshimanga.com","trgoals1495.xyz","trgoals1496.xyz","trgoals1497.xyz","trgoals1498.xyz","trgoals1499.xyz","trgoals1500.xyz","trgoals1501.xyz","trgoals1502.xyz","trgoals1503.xyz","trgoals1504.xyz","trgoals1505.xyz","trgoals1506.xyz","trgoals1507.xyz","trgoals1508.xyz","trgoals1509.xyz","trgoals1510.xyz","trgoals1511.xyz","trgoals1512.xyz","trgoals1513.xyz","trgoals1514.xyz","trgoals1515.xyz","trgoals1516.xyz","trgoals1517.xyz","trgoals1518.xyz","trgoals1519.xyz","trgoals1520.xyz","trgoals1521.xyz","trgoals1522.xyz","trgoals1523.xyz","trgoals1524.xyz","trgoals1525.xyz","trgoals1526.xyz","trgoals1527.xyz","trgoals1528.xyz","trgoals1529.xyz","trgoals1530.xyz","trgoals1531.xyz","trgoals1532.xyz","trgoals1533.xyz","trgoals1534.xyz","trgoals1535.xyz","trgoals1536.xyz","trgoals1537.xyz","trgoals1538.xyz","trgoals1539.xyz","trgoals1540.xyz","trgoals1541.xyz","trgoals1542.xyz","trgoals1543.xyz","veryansintv.com","webteizle10.xyz","yeniasya.com.tr","zipfilmizle.com","4kfilmizlesene.*","afroditscans.com","asyadiziizle.com","bakimlikadin.net","balfilmizle2.org","belestepe701.sbs","belestepe702.sbs","belestepe703.sbs","belestepe704.sbs","belestepe705.sbs","belestepe706.sbs","belestepe707.sbs","belestepe708.sbs","belestepe709.sbs","belestepe710.sbs","belestepe711.sbs","belestepe712.sbs","belestepe713.sbs","belestepe714.sbs","belestepe715.sbs","belestepe716.sbs","belestepe717.sbs","belestepe718.sbs","belestepe719.sbs","belestepe720.sbs","bumfilmizle1.com","filmerotixxx.com","filmizletv18.com","fullhdfilmizle.*","goodfilmizle.com","hdfilmizlesene.*","hdfilmizletv.net","hentaizm6.online","hentaizm7.online","hentaizm8.online","hentaizm9.online","klavyeanaliz.org","okultanitimi.net","sinemadafilm.com","sinemadelisi.com","teknoinfo.com.tr","webdramaturkey.*","asyaanimeleri.com","aydindenge.com.tr","beceriksizler.net","bosssports326.com","bosssports327.com","bosssports328.com","bosssports329.com","bosssports330.com","bosssports331.com","bosssports332.com","bosssports333.com","bosssports334.com","bosssports335.com","bosssports336.com","bosssports337.com","bosssports338.com","bosssports339.com","bosssports340.com","bosssports341.com","bosssports342.com","bosssports343.com","bosssports344.com","bosssports345.com","breakingbadizle.*","discordsunucu.com","erotizmvadisi.com","forumchess.com.tr","fullfilmcibaba.nl","fullhdfilmmodu2.*","hdfilmcehennemi.*","hdfilmizleamk.net","hdfilmizlesen.com","hentaizm10.online","hentaizm11.online","hentaizm12.online","hentaizm13.online","hentaizm14.online","hentaizm15.online","hentaizm16.online","hentaizm17.online","hentaizm18.online","hentaizm19.online","hentaizm20.online","hentaizm21.online","hentaizm22.online","hentaizm23.online","hentaizm24.online","hentaizm25.online","jetfilmizletv.net","kelebekfilmm1.com","klasikfilmler1.cc","klasikfilmler2.cc","klasikfilmler3.cc","klasikfilmler4.cc","klasikfilmler5.cc","klasikfilmler6.cc","klasikfilmler7.cc","klasikfilmler8.cc","klasikfilmler9.cc","kuzufilmizle1.com","macicanliizle.sbs","macizlevip741.sbs","macizlevip742.sbs","macizlevip743.sbs","macizlevip744.sbs","macizlevip745.sbs","macizlevip746.sbs","macizlevip747.sbs","macizlevip748.sbs","macizlevip749.sbs","macizlevip750.sbs","macizlevip751.sbs","macizlevip752.sbs","macizlevip753.sbs","macizlevip754.sbs","macizlevip755.sbs","macizlevip756.sbs","macizlevip757.sbs","macizlevip758.sbs","macizlevip759.sbs","macizlevip760.sbs","mactanmaca791.sbs","mactanmaca792.sbs","mactanmaca793.sbs","mactanmaca794.sbs","mactanmaca795.sbs","mactanmaca796.sbs","mactanmaca797.sbs","mactanmaca798.sbs","mactanmaca799.sbs","mactanmaca800.sbs","mactanmaca801.sbs","mactanmaca802.sbs","mactanmaca803.sbs","mactanmaca804.sbs","mactanmaca805.sbs","mactanmaca806.sbs","mactanmaca807.sbs","mactanmaca808.sbs","mactanmaca809.sbs","mactanmaca810.sbs","memoryhackers.org","royalfilmizle.com","selcuk-sports.com","sosyogaraj.com.tr","taraftariumxx.cfd","turkifsaalemi.com","wheel-size.com.tr","yabancidiziio.com","zamaninvarken.com","1080hdfilmizle.com","arsiv.mackolik.com","dmlstechnology.com","erotikfilmtube.com","filmifullizlet.com","filmizlehdfilm.com","filmizlehdizle.com","fullhdfilmizletv.*","hdfilmizlesene.net","hdfilmizlesene.org","klasikfilmler10.cc","klasikfilmler11.cc","klasikfilmler12.cc","klasikfilmler13.cc","klasikfilmler14.cc","klasikfilmler15.cc","klasikfilmler16.cc","klasikfilmler17.cc","klasikfilmler18.cc","klasikfilmler19.cc","klasikfilmler20.cc","komputerdelisi.com","korsanedebiyat.com","lorabettvhd68.shop","lorabettvhd69.shop","lorabettvhd70.shop","lorabettvhd71.shop","lorabettvhd72.shop","lorabettvhd73.shop","lorabettvhd74.shop","lorabettvhd75.shop","lorabettvhd76.shop","lorabettvhd77.shop","lorabettvhd78.shop","lorabettvhd79.shop","lorabettvhd80.shop","lorabettvhd81.shop","lorabettvhd82.shop","lorabettvhd83.shop","lorabettvhd84.shop","lorabettvhd85.shop","lorabettvhd86.shop","lorabettvhd87.shop","papazsports842.pro","papazsports843.pro","papazsports844.pro","papazsports845.pro","papazsports846.pro","papazsports847.pro","papazsports848.pro","papazsports849.pro","papazsports850.pro","papazsports851.pro","papazsports852.pro","papazsports853.pro","papazsports854.pro","papazsports855.pro","papazsports856.pro","papazsports857.pro","papazsports858.pro","papazsports859.pro","papazsports860.pro","papazsports861.pro","player.filmizle.in","sinemafilmizle.net","superfilmgeldi.biz","superfilmgeldi.net","turkerotikfilm.com","yabancidizibax.com","yabancidizilertv.*","yabancidizivip.com","yenierotikfilm.xyz","720pfilmizleme1.com","720pfilmizletir.com","edebiyatdefteri.com","erotikhdfilmx3.shop","filmseyretizlet.net","hdfilmcehennem.live","hudsonlegalblog.com","iddaaorantahmin.com","justintvizle550.top","justintvizle551.top","justintvizle552.top","justintvizle553.top","justintvizle554.top","justintvizle555.top","justintvizle556.top","justintvizle557.top","justintvizle558.top","justintvizle559.top","justintvizle560.top","justintvizle561.top","justintvizle562.top","justintvizle563.top","justintvizle564.top","justintvizle565.top","justintvizle566.top","justintvizle567.top","justintvizle568.top","justintvizle569.top","mustafabukulmez.com","onlinefilmizle.site","primeembedpanel.com","raindropteamfan.com","sexfilmleriizle.com","turkdenizcileri.com","webdramaturkey2.com","1080pfilmizletir.com","720pfilmizlesene.com","ankarakampkafasi.com","asyafanatiklerim.com","belgeselizlesene.com","boxofficeturkiye.com","buenosairesideal.com","filmifullizle.online","fullfilmizlebaba.com","fullfilmizlesene.net","fullhdfilmizlesene.*","menufiyatlari.com.tr","netfullfilmizle3.com","sinemadafilmizle.net","sinemadafilmizle.org","supernaturalizle.com","tekfullfilmizle5.com","tekparthdfilmizle.cc","telegramgruplari.com","turkifsalifetr1.blog","beintvcanliizle52.com","beintvcanliizle53.com","beintvcanliizle54.com","beintvcanliizle55.com","beintvcanliizle56.com","beintvcanliizle57.com","beintvcanliizle58.com","beintvcanliizle59.com","beintvcanliizle60.com","beintvcanliizle61.com","beintvcanliizle62.com","beintvcanliizle63.com","beintvcanliizle64.com","beintvcanliizle65.com","beintvcanliizle66.com","beintvcanliizle67.com","beintvcanliizle68.com","beintvcanliizle69.com","beintvcanliizle70.com","beintvcanliizle71.com","bilgalem.blogspot.com","fullhdfilmcenneti.pro","fullhdfilmizleabi.com","fullhdfilmizlett1.com","guneykoresinemasi.com","hdselcuksports368.top","hdselcuksports420.top","hdselcuksports421.top","hdselcuksports422.top","hdselcuksports423.top","hdselcuksports424.top","hdselcuksports425.top","hdselcuksports426.top","hdselcuksports427.top","hdselcuksports428.top","hdselcuksports429.top","hdselcuksports430.top","hdselcuksports431.top","hdselcuksports432.top","hdselcuksports433.top","hdselcuksports434.top","hdselcuksports435.top","hdselcuksports436.top","hdselcuksports437.top","hdselcuksports438.top","hdselcuksports439.top","hdselcuksports440.top","hdselcuksports441.top","hdselcuksports442.top","hdselcuksports443.top","hdselcuksports444.top","hdselcuksports445.top","hdselcuksports446.top","hdselcuksports447.top","hdselcuksports448.top","hdselcuksports449.top","hdselcuksports450.top","hdselcuksports451.top","hdselcuksports452.top","hdselcuksports453.top","hdselcuksports454.top","hdselcuksports455.top","hdselcuksports456.top","hdselcuksports457.top","hdselcuksports458.top","hdselcuksports459.top","hdselcuksports460.top","hdselcuksports461.top","hdselcuksports462.top","hdselcuksports463.top","hdselcuksports464.top","hdselcuksports465.top","hdselcuksports466.top","hdselcuksports467.top","hdselcuksports468.top","hdselcuksports469.top","hdselcuksports470.top","hdselcuksports471.top","hdselcuksports472.top","sinnerclownceviri.com","yabancidiziizlesene.*","bettercallsaulizle.com","canlimacizlemax446.top","canlimacizlemax447.top","canlimacizlemax448.top","canlimacizlemax449.top","canlimacizlemax450.top","canlimacizlemax451.top","canlimacizlemax452.top","canlimacizlemax453.top","canlimacizlemax454.top","canlimacizlemax455.top","canlimacizlemax456.top","canlimacizlemax457.top","canlimacizlemax458.top","canlimacizlemax459.top","canlimacizlemax460.top","canlimacizlemax461.top","canlimacizlemax462.top","canlimacizlemax463.top","canlimacizlemax464.top","canlimacizlemax465.top","canlimacizlemax466.top","canlimacizlemax467.top","canlimacizlemax468.top","canlimacizlemax469.top","canlimacizlemax470.top","canlimacizlemax471.top","canlimacizlemax472.top","canlimacizlemax473.top","canlimacizlemax474.top","canlimacizlemax475.top","canlimacizlemax476.top","canlimacizlemax477.top","canlimacizlemax478.top","canlimacizlemax479.top","da95848c82c933d2.click","forum.donanimhaber.com","fullhdfilmizlepala.com","hdfilmcehennemizle.com","veterinerhekimleri.com","azsekerlik.blogspot.com","fullfilmcibabaizlet.com","goley90canlitv3003.site","goley90canlitv3004.site","goley90canlitv3005.site","goley90canlitv3006.site","goley90canlitv3007.site","goley90canlitv3008.site","goley90canlitv3009.site","goley90canlitv3010.site","goley90canlitv3011.site","goley90canlitv3012.site","goley90canlitv3013.site","goley90canlitv3014.site","goley90canlitv3015.site","goley90canlitv3016.site","goley90canlitv3017.site","goley90canlitv3018.site","goley90canlitv3019.site","goley90canlitv3020.site","goley90canlitv3021.site","goley90canlitv3022.site","nefisyemektarifleri.com","search.donanimhaber.com","tekparthdfilmizlesene.*","justintvx30.blogspot.com","justintvxx10.blogspot.com","turkcealtyazilipornom.com","justintvgiris.blogspot.com","kampanyatakip.blogspot.com","canlimacizlene.blogspot.com","taraftarium402.blogspot.com","cinque.668a396e58bcbc27.click","taraftariummdeneme.blogspot.com","sportboss-macizlesbs.blogspot.com","taraftarium24hdgiris1.blogspot.com","inattv-taraftarium24-macizle.blogspot.com","taraftarium24canli-macizlesene.blogspot.com","canli-mac-izle-taraftarium24-izle.blogspot.com","selcukspor-taraftarium24canliizle1.blogspot.com"];
 
-const $scriptletFromRegexes$ = /* 36 */ ["canlitri","(^|.+\\.)canlitribun\\d+\\.live","20","lorabett","lorabettvhd\\d+\\.shop","58","canlimac","canlimacizlemax\\d+\\.top","58","hdselcuk","hdselcuksports\\d+\\.top","58,72","justintv","justintvizle\\d+\\.top","58,72","dizikral","dizikral(?:\\d+\\.pro|\\.live|\\.club)","58","www.trgo","^www\\.trgoals\\d+\\.top$","58,175","inattviz","inattvizle\\d+\\.top","58","papazspo","papazsports\\d+\\.pro","58","webteizl","^webteizle\\d+\\.xyz","59","webteizl","^webteizle\\d+\\.com","59","webteizl","^webteizle\\d+\\.info","59","trgoals","trgoals\\d+\\.xyz$","59,147","hdfilmce","hdfilmcehennemi\\d+.org","72","beintvca","beintvcanliizle\\d+.com","136","inattvco","inattvcom\\d+\\.xyz","136","dizipalx","dizipalx\\d+.com","137","zeustv","zeustv\\d+\\.com","155","canlimac","canlimaclar\\d+\\.sbs","155","macizlev","macizlevip\\d+\\.sbs","155","belestep","belestepe\\d+\\.sbs","155","mactanma","mactanmaca\\d+\\.sbs","155","bossspor","bosssports\\d+\\.com","156","betivotv","betivotv\\d+\\.com","157","goley90c","goley90canlitv\\d+\\.site","158","hentaizm","hentaizm\\d+.online","159","klasikfi","klasikfilmler\\d+\\.cc","160","izlemac","izlemac\\d+\\.sbs","161",".strmrdr","^i\\[a-z\\]*\\.strmrdr\\[a-z0-9\\]+\\..*","161","mackeyfi","mackeyfi\\d+\\.sbs$","161","diziyou","diziyou\\d+\\.com","163","dizilla","dizilla\\d*\\.(club|com|nl)","164","main.uxs","^main\\.uxsyplayer[a-z0-9]+\\.click$","165","dcdl","dcdl[a-z0-9-]+\\.xyz$","165","tvboff","tvboff\\d+\\.com","166","xyzsport","(^|.+\\.)xyzsports[a-z0-9-]+\\.xyz","170"];
+const $scriptletFromRegexes$ = /* 31 */ ["canlitri","(^|.+\\.)canlitribun\\d+\\.live","20","lorabett","lorabettvhd\\d+\\.shop","56","canlimac","canlimacizlemax\\d+\\.top","56","hdselcuk","hdselcuksports\\d+\\.top","56,70","justintv","justintvizle\\d+\\.top","56,70","dizikral","dizikral(?:\\d+\\.pro|\\.live|\\.club)","56","www.trgo","^www\\.trgoals\\d+\\.top$","56,169","papazspo","papazsports\\d+\\.pro","56","webteizl","^webteizle\\d+\\.xyz","57","trgoals","trgoals\\d+\\.xyz$","57,146","hdfilmce","hdfilmcehennemi\\d+.org","70","beintvca","beintvcanliizle\\d+.com","135","dizipalx","dizipalx\\d+.com","136","zeustv","zeustv\\d+\\.com","154","canlimac","canlimaclar\\d+\\.sbs","154","macizlev","macizlevip\\d+\\.sbs","154","belestep","belestepe\\d+\\.sbs","154","mactanma","mactanmaca\\d+\\.sbs","154","bossspor","bosssports\\d+\\.com","155","betivotv","betivotv\\d+\\.com","156","goley90c","goley90canlitv\\d+\\.site","157","hentaizm","hentaizm\\d+.online","158","klasikfi","klasikfilmler\\d+\\.cc","159","izlemac","izlemac\\d+\\.sbs","160",".strmrdr","^i\\[a-z\\]*\\.strmrdr\\[a-z0-9\\]+\\..*","160","mackeyfi","mackeyfi\\d+\\.sbs$","160","diziyou","diziyou\\d+\\.com","162","dizilla","dizilla\\d*\\.(club|com|nl)","163","main.uxs","^main\\.uxsyplayer[a-z0-9]+\\.click$","164","dcdl","dcdl[a-z0-9-]+\\.xyz$","164","tvboff","tvboff\\d+\\.com","165"];
 
 const $hasEntities$ = true;
 const $hasAncestors$ = false;

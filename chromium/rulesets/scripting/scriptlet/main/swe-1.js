@@ -322,6 +322,14 @@ function generateContentFn(trusted, directive) {
             warXHR.send();
         }).catch(( ) => '');
     }
+    if ( directive.startsWith('join:') ) {
+        const parts = directive.slice(7)
+                .split(directive.slice(5, 7))
+                .map(a => generateContentFn(trusted, a));
+        return parts.some(a => a instanceof Promise)
+            ? Promise.all(parts).then(parts => parts.join(''))
+            : parts.join('');
+    }
     if ( trusted ) {
         return directive;
     }
@@ -355,26 +363,24 @@ function jsonPrune(
     const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
     const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
     const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    JSON.parse = new Proxy(JSON.parse, {
-        apply: function(target, thisArg, args) {
-            const objBefore = Reflect.apply(target, thisArg, args);
-            if ( rawPrunePaths === '' ) {
-                safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
-            }
-            const objAfter = objectPruneFn(
-                objBefore,
-                rawPrunePaths,
-                rawNeedlePaths,
-                stackNeedleDetails,
-                extraArgs
-            );
-            if ( objAfter === undefined ) { return objBefore; }
-            safe.uboLog(logPrefix, 'Pruned');
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
-            }
-            return objAfter;
-        },
+    proxyApplyFn('JSON.parse', function(context) {
+        const objBefore = context.reflect();
+        if ( rawPrunePaths === '' ) {
+            safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
+        }
+        const objAfter = objectPruneFn(
+            objBefore,
+            rawPrunePaths,
+            rawNeedlePaths,
+            stackNeedleDetails,
+            extraArgs
+        );
+        if ( objAfter === undefined ) { return objBefore; }
+        safe.uboLog(logPrefix, 'Pruned');
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
+        }
+        return objAfter;
     });
 }
 
@@ -823,163 +829,154 @@ function preventXhrFn(
         } catch {
         }
     };
-    const XHRBefore = XMLHttpRequest.prototype;
-    self.XMLHttpRequest = class extends self.XMLHttpRequest {
-        open(method, url, ...args) {
-            xhrInstances.delete(this);
-            if ( warOrigin !== undefined && url.startsWith(warOrigin) ) {
-                return super.open(method, url, ...args);
-            }
-            const haystack = { method, url };
-            if ( propsToMatch === '' && directive === '' ) {
-                safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(haystack, null, 2)}`);
-                return super.open(method, url, ...args);
-            }
-            if ( matchObjectPropertiesFn(propNeedles, haystack) ) {
-                const xhrDetails = Object.assign(haystack, {
-                    xhr: this,
-                    defer: args.length === 0 || !!args[0],
-                    directive,
-                    headers: {
-                        'date': '',
-                        'content-type': '',
-                        'content-length': '',
-                    },
-                    url: haystack.url,
-                    props: {
-                        response: { value: '' },
-                        responseText: { value: '' },
-                        responseXML: { value: null },
-                    },
-                });
-                xhrInstances.set(this, xhrDetails);
-            }
-            return super.open(method, url, ...args);
+    proxyApplyFn('XMLHttpRequest.prototype.open', function(context) {
+        const { thisArg, callArgs } = context;
+        xhrInstances.delete(thisArg);
+        const [ method, url, ...args ] = callArgs;
+        if ( warOrigin !== undefined && url.startsWith(warOrigin) ) {
+            return context.reflect();
         }
-        send(...args) {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined ) {
-                return super.send(...args);
-            }
-            xhrDetails.headers['date'] = (new Date()).toUTCString();
-            let xhrText = '';
-            switch ( this.responseType ) {
-            case 'arraybuffer':
-                xhrDetails.props.response.value = new ArrayBuffer(0);
-                xhrDetails.headers['content-type'] = 'application/octet-stream';
-                break;
-            case 'blob':
-                xhrDetails.props.response.value = new Blob([]);
-                xhrDetails.headers['content-type'] = 'application/octet-stream';
-                break;
-            case 'document': {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString('', 'text/html');
-                xhrDetails.props.response.value = doc;
-                xhrDetails.props.responseXML.value = doc;
-                xhrDetails.headers['content-type'] = 'text/html';
-                break;
-            }
-            case 'json':
-                xhrDetails.props.response.value = {};
-                xhrDetails.props.responseText.value = '{}';
-                xhrDetails.headers['content-type'] = 'application/json';
-                break;
-            default: {
-                if ( directive === '' ) { break; }
-                xhrText = generateContentFn(trusted, xhrDetails.directive);
-                if ( xhrText instanceof Promise ) {
-                    xhrText = xhrText.then(text => {
-                        xhrDetails.props.response.value = text;
-                        xhrDetails.props.responseText.value = text;
-                    });
-                } else {
-                    xhrDetails.props.response.value = xhrText;
-                    xhrDetails.props.responseText.value = xhrText;
-                }
-                xhrDetails.headers['content-type'] = 'text/plain';
-                break;
-            }
-            }
-            if ( xhrDetails.defer === false ) {
-                xhrDetails.headers['content-length'] = `${xhrDetails.props.response.value}`.length;
-                Object.defineProperties(xhrDetails.xhr, {
-                    readyState: { value: 4 },
-                    responseURL: { value: xhrDetails.url },
-                    status: { value: 200 },
-                    statusText: { value: 'OK' },
-                });
-                Object.defineProperties(xhrDetails.xhr, xhrDetails.props);
-                return;
-            }
-            Promise.resolve(xhrText).then(( ) => xhrDetails).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 1, configurable: true },
-                    responseURL: { value: xhrDetails.url },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                xhrDetails.headers['content-length'] = `${details.props.response.value}`.length;
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 2, configurable: true },
-                    status: { value: 200 },
-                    statusText: { value: 'OK' },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 3, configurable: true },
-                });
-                Object.defineProperties(details.xhr, details.props);
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                return details;
-            }).then(details => {
-                Object.defineProperties(details.xhr, {
-                    readyState: { value: 4 },
-                });
-                safeDispatchEvent(details.xhr, 'readystatechange');
-                safeDispatchEvent(details.xhr, 'load');
-                safeDispatchEvent(details.xhr, 'loadend');
-                safe.uboLog(logPrefix, `Prevented with response:\n${details.xhr.response}`);
+        const haystack = { method, url };
+        if ( propsToMatch === '' && directive === '' ) {
+            safe.uboLog(logPrefix, `Called: ${safe.JSON_stringify(haystack, null, 2)}`);
+            return context.reflect();
+        }
+        if ( matchObjectPropertiesFn(propNeedles, haystack) ) {
+            const xhrDetails = Object.assign(haystack, {
+                xhr: thisArg,
+                defer: args.length === 0 || !!args[0],
+                directive,
+                headers: {
+                    'date': '',
+                    'content-type': '',
+                    'content-length': '',
+                },
+                url: haystack.url,
+                props: {
+                    response: { value: '' },
+                    responseText: { value: '' },
+                    responseXML: { value: null },
+                },
             });
+            xhrInstances.set(thisArg, xhrDetails);
         }
-        getResponseHeader(headerName) {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
-                return super.getResponseHeader(headerName);
-            }
-            const value = xhrDetails.headers[headerName.toLowerCase()];
-            if ( value !== undefined && value !== '' ) { return value; }
-            return null;
+        return context.reflect();
+    });
+    proxyApplyFn('XMLHttpRequest.prototype.send', function(context) {
+        const { thisArg } = context;
+        const xhrDetails = xhrInstances.get(thisArg);
+        if ( xhrDetails === undefined ) {
+            return context.reflect();
         }
-        getAllResponseHeaders() {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined || this.readyState < this.HEADERS_RECEIVED ) {
-                return super.getAllResponseHeaders();
-            }
-            const out = [];
-            for ( const [ name, value ] of Object.entries(xhrDetails.headers) ) {
-                if ( !value ) { continue; }
-                out.push(`${name}: ${value}`);
-            }
-            if ( out.length !== 0 ) { out.push(''); }
-            return out.join('\r\n');
+        xhrDetails.headers['date'] = (new Date()).toUTCString();
+        let xhrText = '';
+        switch ( thisArg.responseType ) {
+        case 'arraybuffer':
+            xhrDetails.props.response.value = new ArrayBuffer(0);
+            xhrDetails.headers['content-type'] = 'application/octet-stream';
+            break;
+        case 'blob':
+            xhrDetails.props.response.value = new Blob([]);
+            xhrDetails.headers['content-type'] = 'application/octet-stream';
+            break;
+        case 'document': {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString('', 'text/html');
+            xhrDetails.props.response.value = doc;
+            xhrDetails.props.responseXML.value = doc;
+            xhrDetails.headers['content-type'] = 'text/html';
+            break;
         }
-    };
-    self.XMLHttpRequest.prototype.open.toString = function() {
-        return XHRBefore.open.toString();
-    };
-    self.XMLHttpRequest.prototype.send.toString = function() {
-        return XHRBefore.send.toString();
-    };
-    self.XMLHttpRequest.prototype.getResponseHeader.toString = function() {
-        return XHRBefore.getResponseHeader.toString();
-    };
-    self.XMLHttpRequest.prototype.getAllResponseHeaders.toString = function() {
-        return XHRBefore.getAllResponseHeaders.toString();
-    };
+        case 'json':
+            xhrDetails.props.response.value = {};
+            xhrDetails.props.responseText.value = '{}';
+            xhrDetails.headers['content-type'] = 'application/json';
+            break;
+        default: {
+            if ( directive === '' ) { break; }
+            xhrText = generateContentFn(trusted, xhrDetails.directive);
+            if ( xhrText instanceof Promise ) {
+                xhrText = xhrText.then(text => {
+                    xhrDetails.props.response.value = text;
+                    xhrDetails.props.responseText.value = text;
+                });
+            } else {
+                xhrDetails.props.response.value = xhrText;
+                xhrDetails.props.responseText.value = xhrText;
+            }
+            xhrDetails.headers['content-type'] = 'text/plain';
+            break;
+        }
+        }
+        if ( xhrDetails.defer === false ) {
+            xhrDetails.headers['content-length'] = `${xhrDetails.props.response.value}`.length;
+            Object.defineProperties(xhrDetails.xhr, {
+                readyState: { value: 4 },
+                responseURL: { value: xhrDetails.url },
+                status: { value: 200 },
+                statusText: { value: 'OK' },
+            });
+            Object.defineProperties(xhrDetails.xhr, xhrDetails.props);
+            return;
+        }
+        Promise.resolve(xhrText).then(( ) => xhrDetails).then(details => {
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 1, configurable: true },
+                responseURL: { value: xhrDetails.url },
+            });
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            return details;
+        }).then(details => {
+            xhrDetails.headers['content-length'] = `${details.props.response.value}`.length;
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 2, configurable: true },
+                status: { value: 200 },
+                statusText: { value: 'OK' },
+            });
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            return details;
+        }).then(details => {
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 3, configurable: true },
+            });
+            Object.defineProperties(details.xhr, details.props);
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            return details;
+        }).then(details => {
+            Object.defineProperties(details.xhr, {
+                readyState: { value: 4 },
+            });
+            safeDispatchEvent(details.xhr, 'readystatechange');
+            safeDispatchEvent(details.xhr, 'load');
+            safeDispatchEvent(details.xhr, 'loadend');
+            safe.uboLog(logPrefix, `Prevented with response:\n${details.xhr.response}`);
+        });
+    });
+    proxyApplyFn('XMLHttpRequest.prototype.getResponseHeader', function(context) {
+        const { thisArg } = context;
+        const xhrDetails = xhrInstances.get(thisArg);
+        if ( xhrDetails === undefined || thisArg.readyState < thisArg.HEADERS_RECEIVED ) {
+            return context.reflect();
+        }
+        const headerName = `${context.callArgs[0]}`;
+        const value = xhrDetails.headers[headerName.toLowerCase()];
+        if ( value !== undefined && value !== '' ) { return value; }
+        return null;
+    });
+    proxyApplyFn('XMLHttpRequest.prototype.getAllResponseHeaders', function(context) {
+        const { thisArg } = context;
+        const xhrDetails = xhrInstances.get(thisArg);
+        if ( xhrDetails === undefined || thisArg.readyState < thisArg.HEADERS_RECEIVED ) {
+            return context.reflect();
+        }
+        const out = [];
+        for ( const [ name, value ] of Object.entries(xhrDetails.headers) ) {
+            if ( !value ) { continue; }
+            out.push(`${name}: ${value}`);
+        }
+        if ( out.length !== 0 ) { out.push(''); }
+        return out.join('\r\n');
+    });
 }
 
 function proxyApplyFn(
@@ -1044,27 +1041,38 @@ function proxyApplyFn(
             }
         };
         proxyApplyFn.isCtor = new Map();
+        proxyApplyFn.proxies = new WeakMap();
+        proxyApplyFn.nativeToString = Function.prototype.toString;
+        const proxiedToString = new Proxy(Function.prototype.toString, {
+            apply(target, thisArg) {
+                let proxied = thisArg;
+                for(;;) {
+                    const fn = proxyApplyFn.proxies.get(proxied);
+                    if ( fn === undefined ) { break; }
+                    proxied = fn;
+                }
+                return proxyApplyFn.nativeToString.call(proxied);
+            }
+        });
+        proxyApplyFn.proxies.set(proxiedToString, proxyApplyFn.nativeToString);
+        Function.prototype.toString = proxiedToString;
     }
     if ( proxyApplyFn.isCtor.has(target) === false ) {
         proxyApplyFn.isCtor.set(target, fn.prototype?.constructor === fn);
     }
-    const fnStr = fn.toString();
-    const toString = (function toString() { return fnStr; }).bind(null);
     const proxyDetails = {
         apply(target, thisArg, args) {
             return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) { return toString; }
-            return Reflect.get(target, prop);
-        },
+        }
     };
     if ( proxyApplyFn.isCtor.get(target) ) {
         proxyDetails.construct = function(target, args) {
             return handler(proxyApplyFn.CtorContext.factory(target, args));
         };
     }
-    context[prop] = new Proxy(fn, proxyDetails);
+    const proxiedTarget = new Proxy(fn, proxyDetails);
+    proxyApplyFn.proxies.set(proxiedTarget, fn);
+    context[prop] = proxiedTarget;
 }
 
 function runAt(fn, when) {
@@ -1662,7 +1670,7 @@ const $scriptletArgs$ = /* 70 */ ["blur","i.focusPlayerElement","scroll","t.view
 
 const $scriptletArglists$ = /* 55 */ "0,0,1;0,2,3;0,4;1,5,6;1,7,8;1,9,8;2,10;2,11;3,12;0,13,14,15,16;0,17,18;4,19;5,20;1,21,6;1,22,6;0,17,23,24;1,25,26;1,27,28;1,29,30;6,31;2,32;1,33,8;1,34,26;1,35,6;7,36;8,37;0,38;9,19,23,39,40;4,41;0,2,42;1,43,6;3,44;1,45,6;0,46;0,47;2,48;10;0,17;1,49,6;1,50,30;3,51;9,52,23,39,53;11,54,23,55;1,56,26;1,57,58;1,59,60;1,61,6;3,62;2,63;1,64,26;2,65;2,66;0,67,68;0,46,2;0,46,69";
 
-const $scriptletArglistRefs$ = /* 185 */ "11;10,11;16;27;27;11;11;11;11;11;11;46;11;11;11;11;11;11;11;11;11;11;11;11;11;41,42;11;11;0,1;0,1;37;33;0,1;11;12,13;41,42;11,29;12,13;27;4,5;11;0,1;14;18;50,51;11;37;33;26,27;0,1;11;11;33,48,49;11;11;50,51;22,23;11;11;28;11;36;39;16;41,42;2;11;11;16;11;25;53;38;11;11;11;9,10,11;15;20;52;33;48,49;11;32;50,51;34;37;0,1;11;11,50,51;11;3;11;11,46;11;11;11;27;33,43,44;0,1;31;35,37;11;48,49,50,51;48,49;50,51;8;17;11;11;46;11;27;43,44;11;33;33;50,51;50,51;19;35;21;24;11;46;11;43,44,50,51;11;43,44;11;27;11;50,51;27;43,44;50,51;50,51;48,49;11;42;27;6,35;27;48,49;46;30;27;50,51;40;50,51;48,49;27;41,42;11;50,51;27;11;11;11;11;45;47;11;11;11;27;27;11;11;11;37;46;54;48,49;11;50,51;0,1;27;50,51;11,29;11;11;11;6,7;43,44";
+const $scriptletArglistRefs$ = /* 185 */ "11;10,11;16;27;27;11;11;11;11;11;11;46;11;11;11;11;11;11;11;11;11;11;11;11;11;41,42;11;11;0,1;0,1;37;33;0,1;11;12,13;41,42;11,29;12,13;27;4,5;11;0,1;14;18;50,51;11;37;33;26,27;0,1;11;11;33,48,49;11;11;50,51;22,23;11;11;28;11;36;39;16;41,42;2;11;11;16;11;25;53;38;11;11;11;9,10,11;15;20;52;33;48,49;11;32;50,51;34;37;0,1;11;11;11;3;11;11,46;11;11;11;27;33,43,44;0,1;31;35,37;11;48,49,50,51;48,49;50,51;8;17;11;11;46;11;27;43,44;11;33;33;50,51;50,51;19;35;21;24;11;46;11;43,44,50,51;11;43,44;11;27;11;50,51;27;43,44;50,51;50,51;48,49;11;42;27;6,35;27;48,49;46;30;27;50,51;40;50,51;48,49;27;41,42;11;50,51;27;11;11;11;11;45;47;11;11;11;27;27;11;11;11;37;46;54;48,49;11;50,51;0,1;27;50,51;11,29;11;11;11;6,7;43,44";
 
 const $scriptletHostnames$ = /* 185 */ ["bt.se","di.se","fz.se","gp.se","hn.se","kt.se","nt.se","pt.se","sn.se","ut.se","vf.se","vk.se","vt.se","blt.se","klt.nu","mvt.se","nkp.se","nlt.se","nsd.se","nsk.se","nvp.se","nwt.se","skd.se","sla.se","smp.se","tv4.se","unt.se","cafe.se","elle.se","hant.se","nyan.ax","qasa.se","allas.se","byrum.se","feber.se","koket.se","mitti.se","tjock.se","ttela.se","conpot.se","corren.se","femina.se","findit.se","godare.se","guiden.se","ibnytt.se","illvet.se","kurera.se","lwcdn.com","mabra.com","norran.se","recept.se","boktugg.se","eposten.se","golfing.se","husohem.se","kamrat.com","kuriren.nu","lokalti.se","matspar.se","realtid.se","stallet.se","thatsup.se","tinyurl.se","tv4play.se","byggahus.se","ekuriren.se","fragbite.se","fssweden.se","kkuriren.se","kritiker.se","stadshem.se","swedroid.se","thelocal.se","viivilla.se","babyhjalp.se","expressen.se","fotosidan.se","hejaolika.se","home2tiny.se","lundagard.se","matsafari.nu","nyheter24.se","ordbokpro.se","rocknytt.net","sexpacket.se","streamio.com","svenskdam.se","sydostran.se","alekuriren.se","barometern.se","byggipedia.se","familjeliv.se","folkbladet.nu","folkbladet.se","hjotidning.se","kt-kuriren.se","markposten.se","morotsliv.com","motherhood.se","naringsliv.ax","spelhubben.se","svenskgolf.se","villalivet.se","aktieskolan.se","enkelteknik.se","etunawebben.se","gamereactor.se","helagotland.se","lchfarkivet.se","nordsverige.se","nuosteraker.se","sttidningen.se","trafikskola.se","vaxjobladet.se","affarsstaden.se","allagodating.se","classicmotor.se","datormagazin.se","happypancake.se","husbilsplats.se","jobsinsweden.se","kattannonser.se","kingmagazine.se","mellanbygden.nu","norrahalland.se","nyadagbladet.se","olandsbladet.se","utslappsratt.se","arvikanyheter.se","bohuslaningen.se","dalslanningen.se","densistavilan.se","harrydaposten.se","heleneholmsif.se","passioneffect.se","upphandling24.se","zeinaskitchen.se","automotorsport.se","embed.viaplay.com","hallandsposten.se","kandisvarlden.com","kungalvsposten.se","lakartidningen.se","lokaltidningen.nu","mobilanyheter.net","molndalsposten.se","polistidningen.se","tidningencurie.se","tidningenhalsa.se","trafiksakerhet.se","alingsastidning.se","fotbollskanalen.se","fryksdalsbygden.se","modernpsykologi.se","partilletidning.se","saffletidningen.se","sverigespringer.se","vasterastidning.se","vimmerbytidning.se","vinochmatguiden.se","www.aftonbladet.se","ystadsallehanda.se","alltforforaldrar.se","idrottensaffarer.se","kungsbackaposten.se","mellerudsnyheter.se","provinstidningen.se","skaraborgsbygden.se","strengnastidning.se","varldenshistoria.se","vasterbottningen.se","dagensarbetsmiljo.se","fastighetsvarlden.se","filipstadstidning.se","livsmedelsnyheter.se","residencemagazine.se","stromstadstidning.se","vadhanderisverige.se","praktisktbatagande.se","kristianstadsbladet.se","mariestadstidningen.se","trelleborgsallehanda.se","discoveringtheplanet.com","melodifestivalklubben.se"];
 

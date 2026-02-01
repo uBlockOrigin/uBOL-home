@@ -65,5 +65,18 @@
  },
  "id": 5,
  "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "regexFilter": "^https:\\/\\/autopass\\.\\d{6}\\.com(\\/.*)?$",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 6,
+ "priority": 10
 }
 ]

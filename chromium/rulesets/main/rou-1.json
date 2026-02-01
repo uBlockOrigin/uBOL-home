@@ -405,5 +405,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||bunaziuafagaras.ro/*.gif"},"id":404,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||atacul.ro/*.gif"},"id":405,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||eporno.ro/assets/js/cxads.js"},"id":406,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||filme-porno.ro/assets/js/cxads.js"},"id":407,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||filme-porno.ro/assets/js/cxads.js"},"id":407,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||livearad.ro/*advert"},"id":408,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||money.ro/*banner"},"id":409,"priority":10}
 ]

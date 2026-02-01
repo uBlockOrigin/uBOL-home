@@ -15,5 +15,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["itemci.com"],"regexFilter":"cdn.itemci.com\\/storage\\/images\\/content\\/[-a-z0-9]{10,}\\.(jpg|gif)","resourceTypes":["image"]},"id":14,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":".com\\/belge\\/[\\w\\d]+\\.(gif|png)","resourceTypes":["image"]},"id":15,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["taraftarium.tr"],"regexFilter":"\\/(justin|canli-mac)\\.gif$"},"id":16,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/dizipal\\d+.plus\\/assets\\/(wipbett|ukraa|limrabet)\\.mp4$"},"id":17,"priority":10}
+{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/dizipal\\d+.plus\\/assets\\/(wipbett|ukraa|limrabet)\\.mp4$"},"id":17,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["tr.sportplus.tv"],"regexFilter":"^https:\\/\\/apisplus[0-9]?\\.live\\/v[0-9]\\.[0-9]\\/[a-z]+$","resourceTypes":["xmlhttprequest"]},"id":18,"priority":10}
 ]

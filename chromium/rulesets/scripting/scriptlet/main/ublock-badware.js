@@ -124,6 +124,454 @@ class ArglistParser {
     }
 }
 
+class JSONPath {
+    static create(query) {
+        const jsonp = new JSONPath();
+        jsonp.compile(query);
+        return jsonp;
+    }
+    static toJSON(obj, stringifier, ...args) {
+        return (stringifier || JSON.stringify)(obj, ...args)
+            .replace(/\//g, '\\/');
+    }
+    get value() {
+        return this.#compiled && this.#compiled.rval;
+    }
+    set value(v) {
+        if ( this.#compiled === undefined ) { return; }
+        this.#compiled.rval = v;
+    }
+    get valid() {
+        return this.#compiled !== undefined;
+    }
+    compile(query) {
+        this.#compiled = undefined;
+        const r = this.#compile(query, 0);
+        if ( r === undefined ) { return; }
+        if ( r.i !== query.length ) {
+            let val;
+            if ( query.startsWith('=', r.i) ) {
+                if ( /^=repl\(.+\)$/.test(query.slice(r.i)) ) {
+                    r.modify = 'repl';
+                    val = query.slice(r.i+6, -1);
+                } else {
+                    val = query.slice(r.i+1);
+                }
+            } else if ( query.startsWith('+=', r.i) ) {
+                r.modify = '+';
+                val = query.slice(r.i+2);
+            }
+            try { r.rval = JSON.parse(val); }
+            catch { return; }
+        }
+        this.#compiled = r;
+    }
+    evaluate(root) {
+        if ( this.valid === false ) { return []; }
+        this.#root = root;
+        const paths = this.#evaluate(this.#compiled.steps, []);
+        this.#root = null;
+        return paths;
+    }
+    apply(root) {
+        if ( this.valid === false ) { return; }
+        const { rval } = this.#compiled;
+        this.#root = { '$': root };
+        const paths = this.#evaluate(this.#compiled.steps, []);
+        let i = paths.length
+        if ( i === 0 ) { this.#root = null; return; }
+        while ( i-- ) {
+            const { obj, key } = this.#resolvePath(paths[i]);
+            if ( rval !== undefined ) {
+                this.#modifyVal(obj, key);
+            } else if ( Array.isArray(obj) && typeof key === 'number' ) {
+                obj.splice(key, 1);
+            } else {
+                delete obj[key];
+            }
+        }
+        const result = this.#root['$'] ?? null;
+        this.#root = null;
+        return result;
+    }
+    dump() {
+        return JSON.stringify(this.#compiled);
+    }
+    toJSON(obj, ...args) {
+        return JSONPath.toJSON(obj, null, ...args)
+    }
+    get [Symbol.toStringTag]() {
+        return 'JSONPath';
+    }
+    #UNDEFINED = 0;
+    #ROOT = 1;
+    #CURRENT = 2;
+    #CHILDREN = 3;
+    #DESCENDANTS = 4;
+    #reUnquotedIdentifier = /^[A-Za-z_][\w]*|^\*/;
+    #reExpr = /^([!=^$*]=|[<>]=?)(.+?)\]/;
+    #reIndice = /^-?\d+/;
+    #root;
+    #compiled;
+    #compile(query, i) {
+        if ( query.length === 0 ) { return; }
+        const steps = [];
+        let c = query.charCodeAt(i);
+        if ( c === 0x24 /* $ */ ) {
+            steps.push({ mv: this.#ROOT });
+            i += 1;
+        } else if ( c === 0x40 /* @ */ ) {
+            steps.push({ mv: this.#CURRENT });
+            i += 1;
+        } else {
+            steps.push({ mv: i === 0 ? this.#ROOT : this.#CURRENT });
+        }
+        let mv = this.#UNDEFINED;
+        for (;;) {
+            if ( i === query.length ) { break; }
+            c = query.charCodeAt(i);
+            if ( c === 0x20 /* whitespace */ ) {
+                i += 1;
+                continue;
+            }
+            // Dot accessor syntax
+            if ( c === 0x2E /* . */ ) {
+                if ( mv !== this.#UNDEFINED ) { return; }
+                if ( query.startsWith('..', i) ) {
+                    mv = this.#DESCENDANTS;
+                    i += 2;
+                } else {
+                    mv = this.#CHILDREN;
+                    i += 1;
+                }
+                continue;
+            }
+            if ( c !== 0x5B /* [ */ ) {
+                if ( mv === this.#UNDEFINED ) {
+                    const step = steps.at(-1);
+                    if ( step === undefined ) { return; }
+                    i = this.#compileExpr(query, step, i);
+                    break;
+                }
+                const s = this.#consumeUnquotedIdentifier(query, i);
+                if  ( s === undefined ) { return; }
+                steps.push({ mv, k: s });
+                i += s.length;
+                mv = this.#UNDEFINED;
+                continue;
+            }
+            // Bracket accessor syntax
+            if ( query.startsWith('[?', i) ) {
+                const not = query.charCodeAt(i+2) === 0x21 /* ! */;
+                const j = i + 2 + (not ? 1 : 0);
+                const r = this.#compile(query, j);
+                if ( r === undefined ) { return; }
+                if ( query.startsWith(']', r.i) === false ) { return; }
+                if ( not ) { r.steps.at(-1).not = true; }
+                steps.push({ mv: mv || this.#CHILDREN, steps: r.steps });
+                i = r.i + 1;
+                mv = this.#UNDEFINED;
+                continue;
+            }
+            if ( query.startsWith('[*]', i) ) {
+                mv ||= this.#CHILDREN;
+                steps.push({ mv, k: '*' });
+                i += 3;
+                mv = this.#UNDEFINED;
+                continue;
+            }
+            const r = this.#consumeIdentifier(query, i+1);
+            if ( r === undefined ) { return; }
+            mv ||= this.#CHILDREN;
+            steps.push({ mv, k: r.s });
+            i = r.i + 1;
+            mv = this.#UNDEFINED;
+        }
+        if ( steps.length === 0 ) { return; }
+        if ( mv !== this.#UNDEFINED ) { return; }
+        return { steps, i };
+    }
+    #evaluate(steps, pathin) {
+        let resultset = [];
+        if ( Array.isArray(steps) === false ) { return resultset; }
+        for ( const step of steps ) {
+            switch ( step.mv ) {
+            case this.#ROOT:
+                resultset = [ [ '$' ] ];
+                break;
+            case this.#CURRENT:
+                resultset = [ pathin ];
+                break;
+            case this.#CHILDREN:
+            case this.#DESCENDANTS:
+                resultset = this.#getMatches(resultset, step);
+                break;
+            default:
+                break;
+            }
+        }
+        return resultset;
+    }
+    #getMatches(listin, step) {
+        const listout = [];
+        for ( const pathin of listin ) {
+            const { value: owner } = this.#resolvePath(pathin);
+            if ( step.k === '*' ) {
+                this.#getMatchesFromAll(pathin, step, owner, listout);
+            } else if ( step.k !== undefined ) {
+                this.#getMatchesFromKeys(pathin, step, owner, listout);
+            } else if ( step.steps ) {
+                this.#getMatchesFromExpr(pathin, step, owner, listout);
+            }
+        }
+        return listout;
+    }
+    #getMatchesFromAll(pathin, step, owner, out) {
+        const recursive = step.mv === this.#DESCENDANTS;
+        for ( const { path } of this.#getDescendants(owner, recursive) ) {
+            out.push([ ...pathin, ...path ]);
+        }
+    }
+    #getMatchesFromKeys(pathin, step, owner, out) {
+        const kk = Array.isArray(step.k) ? step.k : [ step.k ];
+        for ( const k of kk ) {
+            const normalized = this.#evaluateExpr(step, owner, k);
+            if ( normalized === undefined ) { continue; }
+            out.push([ ...pathin, normalized ]);
+        }
+        if ( step.mv !== this.#DESCENDANTS ) { return; }
+        for ( const { obj, key, path } of this.#getDescendants(owner, true) ) {
+            for ( const k of kk ) {
+                const normalized = this.#evaluateExpr(step, obj[key], k);
+                if ( normalized === undefined ) { continue; }
+                out.push([ ...pathin, ...path, normalized ]);
+            }
+        }
+    }
+    #getMatchesFromExpr(pathin, step, owner, out) {
+        const recursive = step.mv === this.#DESCENDANTS;
+        if ( Array.isArray(owner) === false ) {
+            const r = this.#evaluate(step.steps, pathin);
+            if ( r.length !== 0 ) { out.push(pathin); }
+            if ( recursive !== true ) { return; }
+        }
+        for ( const { obj, key, path } of this.#getDescendants(owner, recursive) ) {
+            if ( Array.isArray(obj[key]) ) { continue; }
+            const q = [ ...pathin, ...path ];
+            const r = this.#evaluate(step.steps, q);
+            if ( r.length === 0 ) { continue; }
+            out.push(q);
+        }
+    }
+    #normalizeKey(owner, key) {
+        if ( typeof key === 'number' ) {
+            if ( Array.isArray(owner) ) {
+                return key >= 0 ? key : owner.length + key;
+            }
+        }
+        return key;
+    }
+    #getDescendants(v, recursive) {
+        const iterator = {
+            next() {
+                const n = this.stack.length;
+                if ( n === 0 ) {
+                    this.value = undefined;
+                    this.done = true;
+                    return this;
+                }
+                const details = this.stack[n-1];
+                const entry = details.keys.next();
+                if ( entry.done ) {
+                    this.stack.pop();
+                    this.path.pop();
+                    return this.next();
+                }
+                this.path[n-1] = entry.value;
+                this.value = {
+                    obj: details.obj,
+                    key: entry.value,
+                    path: this.path.slice(),
+                };
+                const v = this.value.obj[this.value.key];
+                if ( recursive ) {
+                    if ( Array.isArray(v) ) {
+                        this.stack.push({ obj: v, keys: v.keys() });
+                    } else if ( typeof v === 'object' && v !== null ) {
+                        this.stack.push({ obj: v, keys: Object.keys(v).values() });
+                    }
+                }
+                return this;
+            },
+            path: [],
+            value: undefined,
+            done: false,
+            stack: [],
+            [Symbol.iterator]() { return this; },
+        };
+        if ( Array.isArray(v) ) {
+            iterator.stack.push({ obj: v, keys: v.keys() });
+        } else if ( typeof v === 'object' && v !== null ) {
+            iterator.stack.push({ obj: v, keys: Object.keys(v).values() });
+        }
+        return iterator;
+    }
+    #consumeIdentifier(query, i) {
+        const keys = [];
+        for (;;) {
+            const c0 = query.charCodeAt(i);
+            if ( c0 === 0x5D /* ] */ ) { break; }
+            if ( c0 === 0x2C /* , */ ) {
+                i += 1;
+                continue;
+            }
+            if ( c0 === 0x27 /* ' */ ) {
+                const r = this.#untilChar(query, 0x27 /* ' */, i+1)
+                if ( r === undefined ) { return; }
+                keys.push(r.s);
+                i = r.i;
+                continue;
+            }
+            if ( c0 === 0x2D /* - */ || c0 >= 0x30 && c0 <= 0x39 ) {
+                const match = this.#reIndice.exec(query.slice(i));
+                if ( match === null ) { return; }
+                const indice = parseInt(query.slice(i), 10);
+                keys.push(indice);
+                i += match[0].length;
+                continue;
+            }
+            const s = this.#consumeUnquotedIdentifier(query, i);
+            if ( s === undefined ) { return; }
+            keys.push(s);
+            i += s.length;
+        }
+        return { s: keys.length === 1 ? keys[0] : keys, i };
+    }
+    #consumeUnquotedIdentifier(query, i) {
+        const match = this.#reUnquotedIdentifier.exec(query.slice(i));
+        if ( match === null ) { return; }
+        return match[0];
+    }
+    #untilChar(query, targetCharCode, i) {
+        const len = query.length;
+        const parts = [];
+        let beg = i, end = i;
+        for (;;) {
+            if ( end === len ) { return; }
+            const c = query.charCodeAt(end);
+            if ( c === targetCharCode ) {
+                parts.push(query.slice(beg, end));
+                end += 1;
+                break;
+            }
+            if ( c === 0x5C /* \ */ && (end+1) < len ) {
+                const d = query.charCodeAt(end+1);
+                if ( d === targetCharCode ) {
+                    parts.push(query.slice(beg, end));
+                    end += 1;
+                    beg = end;
+                }
+            }
+            end += 1;
+        }
+        return { s: parts.join(''), i: end };
+    }
+    #compileExpr(query, step, i) {
+        if ( query.startsWith('=/', i) ) {
+            const r = this.#untilChar(query, 0x2F /* / */, i+2);
+            if ( r === undefined ) { return i; }
+            const match = /^[i]/.exec(query.slice(r.i));
+            try {
+                step.rval = new RegExp(r.s, match && match[0] || undefined);
+            } catch {
+                return i;
+            }
+            step.op = 're';
+            if ( match ) { r.i += match[0].length; }
+            return r.i;
+        }
+        const match = this.#reExpr.exec(query.slice(i));
+        if ( match === null ) { return i; }
+        try {
+            step.rval = JSON.parse(match[2]);
+            step.op = match[1];
+        } catch {
+        }
+        return i + match[1].length + match[2].length;
+    }
+    #resolvePath(path) {
+        if ( path.length === 0 ) { return { value: this.#root }; }
+        const key = path.at(-1);
+        let obj = this.#root
+        for ( let i = 0, n = path.length-1; i < n; i++ ) {
+            obj = obj[path[i]];
+        }
+        return { obj, key, value: obj[key] };
+    }
+    #evaluateExpr(step, owner, key) {
+        if ( owner === undefined || owner === null ) { return; }
+        if ( typeof key === 'number' ) {
+            if ( Array.isArray(owner) === false ) { return; }
+        }
+        const k = this.#normalizeKey(owner, key);
+        const hasOwn = Object.hasOwn(owner, k);
+        if ( step.op !== undefined && hasOwn === false ) { return; }
+        const target = step.not !== true;
+        const v = owner[k];
+        let outcome = false;
+        switch ( step.op ) {
+        case '==': outcome = (v === step.rval) === target; break;
+        case '!=': outcome = (v !== step.rval) === target; break;
+        case  '<': outcome = (v < step.rval) === target; break;
+        case '<=': outcome = (v <= step.rval) === target; break;
+        case  '>': outcome = (v > step.rval) === target; break;
+        case '>=': outcome = (v >= step.rval) === target; break;
+        case '^=': outcome = `${v}`.startsWith(step.rval) === target; break;
+        case '$=': outcome = `${v}`.endsWith(step.rval) === target; break;
+        case '*=': outcome = `${v}`.includes(step.rval) === target; break;
+        case 're': outcome = step.rval.test(`${v}`); break;
+        default: outcome = hasOwn === target; break;
+        }
+        if ( outcome ) { return k; }
+    }
+    #modifyVal(obj, key) {
+        const { modify, rval } = this.#compiled;
+        switch ( modify ) {
+        case undefined:
+            obj[key] = rval;
+            break;
+        case '+': {
+            if ( rval instanceof Object === false ) { return; }
+            const lval = obj[key];
+            if ( lval instanceof Object === false ) { return; }
+            if ( Array.isArray(lval) ) { return; }
+            for ( const [ k, v ] of Object.entries(rval) ) {
+                lval[k] = v;
+            }
+            break;
+        }
+        case 'repl': {
+            const lval = obj[key];
+            if ( typeof lval !== 'string' ) { return; }
+            if ( this.#compiled.re === undefined ) {
+                this.#compiled.re = null;
+                try {
+                    this.#compiled.re = rval.regex !== undefined
+                        ? new RegExp(rval.regex, rval.flags)
+                        : new RegExp(rval.pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+                } catch {
+                }
+            }
+            if ( this.#compiled.re === null ) { return; }
+            obj[key] = lval.replace(this.#compiled.re, rval.replacement);
+            break;
+        }
+        default:
+            break;
+        }
+    }
+}
+
 function abortCurrentScript(...args) {
     runAtHtmlElementFn(( ) => {
         abortCurrentScriptFn(...args);
@@ -291,6 +739,41 @@ function abortOnStackTrace(
     makeProxy(owner, chain);
 }
 
+function collateFetchArgumentsFn(resource, options) {
+    const safe = safeSelf();
+    const props = [
+        'body', 'cache', 'credentials', 'duplex', 'headers',
+        'integrity', 'keepalive', 'method', 'mode', 'priority',
+        'redirect', 'referrer', 'referrerPolicy', 'url'
+    ];
+    const out = {};
+    if ( collateFetchArgumentsFn.collateKnownProps === undefined ) {
+        collateFetchArgumentsFn.collateKnownProps = (src, out) => {
+            for ( const prop of props ) {
+                if ( src[prop] === undefined ) { continue; }
+                out[prop] = src[prop];
+            }
+        };
+    }
+    if (
+        typeof resource !== 'object' ||
+        safe.Object_toString.call(resource) !== '[object Request]'
+    ) {
+        out.url = `${resource}`;
+    } else {
+        let clone;
+        try {
+            clone = safe.Request_clone.call(resource);
+        } catch {
+        }
+        collateFetchArgumentsFn.collateKnownProps(clone || resource, out);
+    }
+    if ( typeof options === 'object' && options !== null ) {
+        collateFetchArgumentsFn.collateKnownProps(options, out);
+    }
+    return out;
+}
+
 function getExceptionTokenFn() {
     const token = getRandomTokenFn();
     const oe = self.onerror;
@@ -307,6 +790,83 @@ function getRandomTokenFn() {
     const safe = safeSelf();
     return safe.String_fromCharCode(Date.now() % 26 + 97) +
         safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+}
+
+function jsonEditFetchResponse(jsonq = '', ...args) {
+    jsonEditFetchResponseFn(false, jsonq, ...args);
+}
+
+function jsonEditFetchResponseFn(trusted, jsonq = '') {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix(
+        `${trusted ? 'trusted-' : ''}json-edit-fetch-response`,
+        jsonq
+    );
+    const jsonp = JSONPath.create(jsonq);
+    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
+        return safe.uboLog(logPrefix, 'Bad JSONPath query');
+    }
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
+    proxyApplyFn('fetch', function(context) {
+        const args = context.callArgs;
+        const fetchPromise = context.reflect();
+        if ( propNeedles.size !== 0 ) {
+            const props = collateFetchArgumentsFn(...args);
+            const matched = matchObjectPropertiesFn(propNeedles, props);
+            if ( matched === undefined ) { return fetchPromise; }
+            if ( safe.logLevel > 1 ) {
+                safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
+            }
+        }
+        return fetchPromise.then(responseBefore => {
+            const response = responseBefore.clone();
+            return response.json().then(obj => {
+                if ( typeof obj !== 'object' ) { return responseBefore; }
+                const objAfter = jsonp.apply(obj);
+                if ( objAfter === undefined ) { return responseBefore; }
+                safe.uboLog(logPrefix, 'Edited');
+                const responseAfter = Response.json(objAfter, {
+                    status: responseBefore.status,
+                    statusText: responseBefore.statusText,
+                    headers: responseBefore.headers,
+                });
+                Object.defineProperties(responseAfter, {
+                    ok: { value: responseBefore.ok },
+                    redirected: { value: responseBefore.redirected },
+                    type: { value: responseBefore.type },
+                    url: { value: responseBefore.url },
+                });
+                return responseAfter;
+            }).catch(reason => {
+                safe.uboErr(logPrefix, 'Error:', reason);
+                return responseBefore;
+            });
+        }).catch(reason => {
+            safe.uboErr(logPrefix, 'Error:', reason);
+            return fetchPromise;
+        });
+    });
+}
+
+function matchObjectPropertiesFn(propNeedles, ...objs) {
+    const safe = safeSelf();
+    const matched = [];
+    for ( const obj of objs ) {
+        if ( obj instanceof Object === false ) { continue; }
+        for ( const [ prop, details ] of propNeedles ) {
+            let value = obj[prop];
+            if ( value === undefined ) { continue; }
+            if ( typeof value !== 'string' ) {
+                try { value = safe.JSON_stringify(value); }
+                catch { }
+                if ( typeof value !== 'string' ) { continue; }
+            }
+            if ( safe.testPattern(details, value) === false ) { return; }
+            matched.push(`${prop}: ${value}`);
+        }
+    }
+    return matched;
 }
 
 function matchesStackTraceFn(
@@ -373,6 +933,27 @@ function noEvalIf(
         }
         return context.reflect();
     });
+}
+
+function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
+    const safe = safeSelf();
+    const needles = new Map();
+    if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
+    const options = { canNegate: true };
+    for ( const needle of safe.String_split.call(propsToMatch, /\s+/) ) {
+        let [ prop, pattern ] = safe.String_split.call(needle, ':');
+        if ( prop === '' ) { continue; }
+        if ( pattern !== undefined && /[^$\w -]/.test(prop) ) {
+            prop = `${prop}:${pattern}`;
+            pattern = undefined;
+        }
+        if ( pattern !== undefined ) {
+            needles.set(prop, safe.initPattern(pattern, options));
+        } else if ( implicit !== '' ) {
+            needles.set(implicit, safe.initPattern(prop, options));
+        }
+    }
+    return needles;
 }
 
 function parseReplaceFn(s) {
@@ -551,27 +1132,38 @@ function proxyApplyFn(
             }
         };
         proxyApplyFn.isCtor = new Map();
+        proxyApplyFn.proxies = new WeakMap();
+        proxyApplyFn.nativeToString = Function.prototype.toString;
+        const proxiedToString = new Proxy(Function.prototype.toString, {
+            apply(target, thisArg) {
+                let proxied = thisArg;
+                for(;;) {
+                    const fn = proxyApplyFn.proxies.get(proxied);
+                    if ( fn === undefined ) { break; }
+                    proxied = fn;
+                }
+                return proxyApplyFn.nativeToString.call(proxied);
+            }
+        });
+        proxyApplyFn.proxies.set(proxiedToString, proxyApplyFn.nativeToString);
+        Function.prototype.toString = proxiedToString;
     }
     if ( proxyApplyFn.isCtor.has(target) === false ) {
         proxyApplyFn.isCtor.set(target, fn.prototype?.constructor === fn);
     }
-    const fnStr = fn.toString();
-    const toString = (function toString() { return fnStr; }).bind(null);
     const proxyDetails = {
         apply(target, thisArg, args) {
             return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) { return toString; }
-            return Reflect.get(target, prop);
-        },
+        }
     };
     if ( proxyApplyFn.isCtor.get(target) ) {
         proxyDetails.construct = function(target, args) {
             return handler(proxyApplyFn.CtorContext.factory(target, args));
         };
     }
-    context[prop] = new Proxy(fn, proxyDetails);
+    const proxiedTarget = new Proxy(fn, proxyDetails);
+    proxyApplyFn.proxies.set(proxiedTarget, fn);
+    context[prop] = proxiedTarget;
 }
 
 function runAt(fn, when) {
@@ -931,16 +1523,16 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 5 */
-[preventAddEventListener,noEvalIf,abortCurrentScript,trustedReplaceArgument,abortOnStackTrace];
+const $scriptletFunctions$ = /* 6 */
+[preventAddEventListener,noEvalIf,abortCurrentScript,trustedReplaceArgument,abortOnStackTrace,jsonEditFetchResponse];
 
-const $scriptletArgs$ = /* 18 */ ["DOMContentLoaded","fullscreenEnabled","tigervip2","atob","new Function(atob(","String.prototype.includes","0","undefined","condition","/^checkout$/","WebSocket","event.data","XMLHttpRequest","/wp-content","open","executeCode","Array.prototype.indexOf","isWin"];
+const $scriptletArgs$ = /* 21 */ ["DOMContentLoaded","fullscreenEnabled","tigervip2","atob","new Function(atob(","String.prototype.includes","0","undefined","condition","/^checkout$/","WebSocket","event.data","XMLHttpRequest","/wp-content","open","executeCode","Array.prototype.indexOf","isWin",".result.items.*[?.content*=\"'+'\"]","propsToMatch","/comments"];
 
-const $scriptletArglists$ = /* 8 */ "0,0,1;1,2;2,3,4;3,5,6,7,8,9;2,10,11;4,12,13;2,14,15;4,16,17";
+const $scriptletArglists$ = /* 9 */ "0,0,1;1,2;2,3,4;3,5,6,7,8,9;2,10,11;4,12,13;2,14,15;4,16,17;5,18,19,20";
 
-const $scriptletArglistRefs$ = /* 26 */ "4;4;3;4;4;2;4;3;4;4;5;4;4;4;4;4;4;6;4;4;3;1;7;3;0;2";
+const $scriptletArglistRefs$ = /* 27 */ "8;4;4;3;4;4;2;4;3;4;4;5;4;4;4;4;4;4;6;4;4;3;1;7;3;0;2";
 
-const $scriptletHostnames$ = /* 26 */ ["ojworld.it","forqueen.cz","red17.co.uk","tvojstyl.sk","up-shop.org","crimsonav.com","adrissa.com.co","lundracing.com","jollibee.com.vn","kitapsan.com.tr","rapidkil.com.au","yairalon.com.br","joinusonline.net","mebelinovdom.com","qualityrental.com","szaszmotorshop.hu","americansoda.co.uk","weightlossdiet.top","casteloforte.com.br","centerfabril.com.br","energiasolare100.it","www.cambe.pr.gov.br","sport.elwatannews.com","workplace-products.co.uk","z13.web.core.windows.net","ngsingleissues.nationalgeographic.com"];
+const $scriptletHostnames$ = /* 27 */ ["comix.to","ojworld.it","forqueen.cz","red17.co.uk","tvojstyl.sk","up-shop.org","crimsonav.com","adrissa.com.co","lundracing.com","jollibee.com.vn","kitapsan.com.tr","rapidkil.com.au","yairalon.com.br","joinusonline.net","mebelinovdom.com","qualityrental.com","szaszmotorshop.hu","americansoda.co.uk","weightlossdiet.top","casteloforte.com.br","centerfabril.com.br","energiasolare100.it","www.cambe.pr.gov.br","sport.elwatannews.com","workplace-products.co.uk","z13.web.core.windows.net","ngsingleissues.nationalgeographic.com"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

@@ -1375,27 +1375,38 @@ function proxyApplyFn(
             }
         };
         proxyApplyFn.isCtor = new Map();
+        proxyApplyFn.proxies = new WeakMap();
+        proxyApplyFn.nativeToString = Function.prototype.toString;
+        const proxiedToString = new Proxy(Function.prototype.toString, {
+            apply(target, thisArg) {
+                let proxied = thisArg;
+                for(;;) {
+                    const fn = proxyApplyFn.proxies.get(proxied);
+                    if ( fn === undefined ) { break; }
+                    proxied = fn;
+                }
+                return proxyApplyFn.nativeToString.call(proxied);
+            }
+        });
+        proxyApplyFn.proxies.set(proxiedToString, proxyApplyFn.nativeToString);
+        Function.prototype.toString = proxiedToString;
     }
     if ( proxyApplyFn.isCtor.has(target) === false ) {
         proxyApplyFn.isCtor.set(target, fn.prototype?.constructor === fn);
     }
-    const fnStr = fn.toString();
-    const toString = (function toString() { return fnStr; }).bind(null);
     const proxyDetails = {
         apply(target, thisArg, args) {
             return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
-        },
-        get(target, prop) {
-            if ( prop === 'toString' ) { return toString; }
-            return Reflect.get(target, prop);
-        },
+        }
     };
     if ( proxyApplyFn.isCtor.get(target) ) {
         proxyDetails.construct = function(target, args) {
             return handler(proxyApplyFn.CtorContext.factory(target, args));
         };
     }
-    context[prop] = new Proxy(fn, proxyDetails);
+    const proxiedTarget = new Proxy(fn, proxyDetails);
+    proxyApplyFn.proxies.set(proxiedTarget, fn);
+    context[prop] = proxiedTarget;
 }
 
 function removeAttr(
@@ -2065,13 +2076,13 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 13 */
 [trustedJsonEditFetchResponse,setConstant,jsonPruneFetchResponse,jsonPruneXhrResponse,xmlPrune,preventAddEventListener,preventSetTimeout,abortOnPropertyRead,removeAttr,adjustSetInterval,adjustSetTimeout,abortCurrentScript,abortOnPropertyWrite];
 
-const $scriptletArgs$ = /* 81 */ ["..show_ads=false","propsToMatch","/statsig/initialize?","Object.prototype.isAdActive","false","Object.prototype.vastOptions","{}","advertising","","/player/metadata",".json","[breakId]","_VMAP_","DOMContentLoaded","bait","adBoxEl","mobiles","scroll","adBlockerCalled","DMP_IS_AUTOPLAY_ENABLED","createApp","load","document.cookie","id","#div-gpt-ad-header","inviewstitial_fired","true","(f-1)","*","0.001","firstLoad","300","style",".tadm_ad_unit","interstitial-popup","add_h2023","noopFunc","abp1","0","continueToVideoUrl","JSON.parse","/interstitial?viewkey=","player.postitialTimeout","returnAd","hidden","adformtag","[]","customAdlistMob","$","exoMobilePop","/^(?:scroll|touchmove|wheel)$/","preventDefault","/^(?:mousewheel|touchmove)$/","mobileAdvPop","data-universal-link","body","InfCustomSTAMobileFunc","bindPostitial","document.getElementsByClassName","adBlocked","initializeInterstitial","isPeriodic","0.02","PopUnder.bindEvent","exoUrl","undefined","organicPop","popUnderUrl","height","iframe[src=\"https://dq.h1g.jp/img/ad/ad_heigu.html\"]","document.createElement","interstitialAdDiv","showme","pcc","1","jmp","Math","navigator.userAgent","_rand","adsbyimobile","div[class*=\"site-header__with-mobile-leaderboard\"]"];
+const $scriptletArgs$ = /* 83 */ ["..show_ads=false","propsToMatch","/statsig/initialize?","Object.prototype.isAdActive","false","Object.prototype.vastOptions","{}","advertising","","/player/metadata",".json","[breakId]","_VMAP_","DOMContentLoaded","bait","adBoxEl","mobiles","scroll","adBlockerCalled","DMP_IS_AUTOPLAY_ENABLED","createApp","load","document.cookie","id","#div-gpt-ad-header","inviewstitial_fired","true","(f-1)","*","0.001","firstLoad","300","style",".tadm_ad_unit","interstitial-popup","add_h2023","noopFunc","abp1","0","continueToVideoUrl","JSON.parse","/interstitial?viewkey=","player.postitialTimeout","returnAd","hidden","adformtag","[]","customAdlistMob","$","exoMobilePop","/^(?:scroll|touchmove|wheel)$/","preventDefault","/^(?:mousewheel|touchmove)$/","mobileAdvPop","data-universal-link","body","InfCustomSTAMobileFunc","bindPostitial","document.getElementsByClassName","adBlocked","initializeInterstitial","isPeriodic","0.02","PopUnder.bindEvent","exoUrl","undefined","organicPop","popUnderUrl","RecommendItems.RecommendInfo.[-].DataSource.[=].spsr RecommendInfo.[-].DataSource.[=].spsr","m/product/ajax/productPersonalization","height","iframe[src=\"https://dq.h1g.jp/img/ad/ad_heigu.html\"]","document.createElement","interstitialAdDiv","showme","pcc","1","jmp","Math","navigator.userAgent","_rand","adsbyimobile","div[class*=\"site-header__with-mobile-leaderboard\"]"];
 
-const $scriptletArglists$ = /* 51 */ "0,0,1,2;1,3,4;1,5,6;2,7,8,1,9;3,7,8,1,10;4,11,8,12;5,13,14;6,15;1,16,8;5,17,18;1,19,4;7,20;5,21,22;8,23,24;1,25,26;9,27,28,29;6,30,31;8,32,33;5,13,34;1,35,36;1,37,38;10,39,28,29;11,40,41;1,42,38;5,8,43;12,44;1,45,46;1,47,46;11,48,49;5,50,51;5,52;7,53;8,54,55;1,56,36;11,57;11,58,59;1,60,36;9,61,8,62;1,63,36;1,64,65;1,66,65;7,67;8,68,69;11,70,8;5,13,71;1,72,4;1,73,74;11,75,76;11,77,78;7,79;8,32,80";
+const $scriptletArglists$ = /* 52 */ "0,0,1,2;1,3,4;1,5,6;2,7,8,1,9;3,7,8,1,10;4,11,8,12;5,13,14;6,15;1,16,8;5,17,18;1,19,4;7,20;5,21,22;8,23,24;1,25,26;9,27,28,29;6,30,31;8,32,33;5,13,34;1,35,36;1,37,38;10,39,28,29;11,40,41;1,42,38;5,8,43;12,44;1,45,46;1,47,46;11,48,49;5,50,51;5,52;7,53;8,54,55;1,56,36;11,57;11,58,59;1,60,36;9,61,8,62;1,63,36;1,64,65;1,66,65;7,67;2,68,8,69;8,70,71;11,72,8;5,13,73;1,74,4;1,75,76;11,77,78;11,79,80;7,81;8,32,82";
 
-const $scriptletArglistRefs$ = /* 53 */ "42;26;37;43;23,31;16;2;8;-6;47;23,31;41;17;35;49;38;19;0;14;20,21,22;20;20;44;50;32;12;13;24,25;31;39,40;23;6;33;28;29;18;13;3,4,10;27;24;36;13;34;9;45,46;30;48;15;5;7;11;7;1";
+const $scriptletArglistRefs$ = /* 54 */ "43;26;37;44;23,31;16;2;8;-6;48;23,31;42;41;17;35;50;38;19;0;14;20,21,22;20;20;45;51;32;12;13;24,25;31;39,40;23;6;33;28;29;18;13;3,4,10;27;24;36;13;34;9;46,47;30;49;15;5;7;11;7;1";
 
-const $scriptletHostnames$ = /* 53 */ ["h1g.jp","delfi.lt","m.iyf.tv","tu93.org","m.nuvid.*","nbc4i.com","redd.tube","erozine.jp","google.com","komaki2.jp","m.hd21.com","pornhd.com","saveur.com","supleks.jp","gamerch.com","gotporn.com","m.efuxs.com","nytimes.com","oreno3d.com","pornhub.com","pornhub.net","pornhub.org","rakukan.net","reuters.com","idaprikol.ru","momon-ga.com","youpouch.com","erobanach.com","m.drtuber.com","m.tnaflix.com","m.viptube.com","mangalivre.tv","mediafire.com","m.sunporno.com","news.mynavi.jp","quiz-facts.com","soranews24.com","dailymotion.com","m.hellporno.com","openloadpro.com","moneycontrol.com","rocketnews24.com","straitstimes.com","m.livehindustan.com","m.minixiaoshuow.com","mudainodocument.com","seikeidouga.blog.jp","business-standard.com","www.dailymotion.com>>","nijimen.kusuguru.co.jp","wuxianxiaoshuowang.com","nazology.kusuguru.co.jp","timesofindia.indiatimes.com"];
+const $scriptletHostnames$ = /* 54 */ ["h1g.jp","delfi.lt","m.iyf.tv","tu93.org","m.nuvid.*","nbc4i.com","redd.tube","erozine.jp","google.com","komaki2.jp","m.hd21.com","newegg.com","pornhd.com","saveur.com","supleks.jp","gamerch.com","gotporn.com","m.efuxs.com","nytimes.com","oreno3d.com","pornhub.com","pornhub.net","pornhub.org","rakukan.net","reuters.com","idaprikol.ru","momon-ga.com","youpouch.com","erobanach.com","m.drtuber.com","m.tnaflix.com","m.viptube.com","mangalivre.tv","mediafire.com","m.sunporno.com","news.mynavi.jp","quiz-facts.com","soranews24.com","dailymotion.com","m.hellporno.com","openloadpro.com","moneycontrol.com","rocketnews24.com","straitstimes.com","m.livehindustan.com","m.minixiaoshuow.com","mudainodocument.com","seikeidouga.blog.jp","business-standard.com","www.dailymotion.com>>","nijimen.kusuguru.co.jp","wuxianxiaoshuowang.com","nazology.kusuguru.co.jp","timesofindia.indiatimes.com"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 
