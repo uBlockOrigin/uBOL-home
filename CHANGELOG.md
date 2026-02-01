@@ -1,3 +1,10 @@
+- [Fix minor regression in reported troubleshooting info](https://github.com/gorhill/uBlock/commit/359cb070eb)
+- Updated filter lists
+
+----------
+
+### 2026.125.1931
+
 - [Add to troubleshooting info](https://github.com/gorhill/uBlock/commit/c6de97ceb7)
 - [Fix regex in regex substitution rules](https://github.com/gorhill/uBlock/commit/f36dd3461b)
 - Updated filter lists
