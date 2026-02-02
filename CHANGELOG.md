@@ -1,3 +1,16 @@
+----------
+
+### 2026.202.1612
+
+- [safari] [Remove `image` from `removeparam`](https://github.com/gorhill/uBlock/commit/1ec05d4c0a)
+- Updated filter lists
+
+----------
+
+### 2026.201.1924 
+
+- [Add `image` to generic `removeparam` filters](https://github.com/gorhill/uBlock/commit/7aff7da77d)
+- [Improve conversion of `removeparam` filters to DNR rules](https://github.com/gorhill/uBlock/commit/9b4f41df94)
 - [Fix minor regression in reported troubleshooting info](https://github.com/gorhill/uBlock/commit/359cb070eb)
 - Updated filter lists
 
