@@ -122,7 +122,7 @@
     }
 
     /**
-     * Get hashed hardware ID for Supabase
+     * Get hashed hardware ID (used as visitorId)
      * Generates ID if it doesn't exist, then hashes it
      * @returns {Promise<string>} SHA-512 hashed hardware ID
      */
@@ -130,7 +130,7 @@
         try {
             const hardwareId = await generateHardwareId();
             const hashedId = await hashHardwareId(hardwareId);
-            console.log('[Identity] Hashed hardware ID ready for Supabase');
+            console.log('[Identity] Hashed hardware ID ready (visitorId)');
             return hashedId;
         } catch (error) {
             console.error('[Identity] Failed to get hashed hardware ID:', error);

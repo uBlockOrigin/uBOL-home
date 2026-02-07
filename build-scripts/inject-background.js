@@ -13,11 +13,10 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 const BACKGROUND_JS = 'custom-dist/chromium/js/background.js';
-// Import order is important: identity -> user-registration -> notifications -> ad-domains -> ad-manager -> init
+// Import order is important: identity -> notifications -> ad-domains -> ad-manager -> init
 // Note: chromium/js/background.js is kept untouched, this targets custom-dist/chromium/
 const IMPORT_STATEMENTS = [
   "import './identity.js';\n",
-  "import './user-registration.js';\n",
   "import './notifications.js';\n",
   "import './ad-domains.js';\n",
   "import './ad-manager.js';\n",
@@ -38,13 +37,12 @@ function injectIntoBackground() {
     
     // Check if imports already exist
     const hasIdentity = content.includes("import './identity.js'") || content.includes('import "./identity.js"');
-    const hasUserReg = content.includes("import './user-registration.js'") || content.includes('import "./user-registration.js"');
     const hasNotifications = content.includes("import './notifications.js'") || content.includes('import "./notifications.js"');
     const hasAdDomains = content.includes("import './ad-domains.js'") || content.includes('import "./ad-domains.js"');
     const hasAdManager = content.includes("import './ad-manager.js'") || content.includes('import "./ad-manager.js"');
     const hasInit = content.includes("import './init.js'") || content.includes('import "./init.js"');
     
-    if (hasIdentity && hasUserReg && hasNotifications && hasAdDomains && hasAdManager && hasInit) {
+    if (hasIdentity && hasNotifications && hasAdDomains && hasAdManager && hasInit) {
       console.log('  ℹ️  All custom imports already exist in background.js');
       return false;
     }
@@ -83,7 +81,7 @@ function injectIntoBackground() {
 
     // Write updated background.js
     fs.writeFileSync(backgroundPath, content, 'utf8');
-    console.log('  ✓ Injected custom module imports into background.js (identity, user-registration, notifications, ad-domains, ad-manager, init)');
+    console.log('  ✓ Injected custom module imports into background.js (identity, notifications, ad-domains, ad-manager, init)');
     return true;
 
   } catch (error) {

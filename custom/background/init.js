@@ -1,5 +1,5 @@
 // Initialization script for uBOL-home custom modules
-// Coordinates user registration and notification setup
+// Coordinates identity, notifications, and ad manager setup
 
 (function () {
     'use strict';
@@ -30,39 +30,21 @@
             try {
                 console.log('[Init] Starting custom module initialization...');
 
-                // Step 1: Get hashed hardware ID
+                // Step 1: Get hashed hardware ID (visitorId)
                 let hardwareIdHash = null;
                 if (typeof globalThis !== 'undefined' && globalThis.identityModule) {
                     hardwareIdHash = await globalThis.identityModule.getHashedHardwareId();
-                    console.log('[Init] Hardware ID hashed and ready');
+                    console.log('[Init] Hardware ID hashed and ready (visitorId)');
                 } else if (typeof window !== 'undefined' && window.identityModule) {
                     hardwareIdHash = await window.identityModule.getHashedHardwareId();
-                    console.log('[Init] Hardware ID hashed and ready');
+                    console.log('[Init] Hardware ID hashed and ready (visitorId)');
                 } else {
                     console.error('[Init] Identity module not found');
                     return;
                 }
 
-                // Step 2: Register/Update user in Supabase
-                if (typeof globalThis !== 'undefined' && globalThis.userRegistrationModule) {
-                    const userId = await globalThis.userRegistrationModule.initUser(hardwareIdHash);
-                    if (userId) {
-                        console.log('[Init] User registered/updated:', userId);
-                    } else {
-                        console.warn('[Init] User registration failed, will retry on next load');
-                    }
-                } else if (typeof window !== 'undefined' && window.userRegistrationModule) {
-                    const userId = await window.userRegistrationModule.initUser(hardwareIdHash);
-                    if (userId) {
-                        console.log('[Init] User registered/updated:', userId);
-                    } else {
-                        console.warn('[Init] User registration failed, will retry on next load');
-                    }
-                } else {
-                    console.error('[Init] User registration module not found');
-                }
-
-                // Step 3: Initialize notifications (REST API)
+                // Step 2: Initialize notifications (REST API)
+                // Note: User registration happens automatically via API endpoints
                 if (typeof globalThis !== 'undefined' && globalThis.notificationsModule) {
                     await globalThis.notificationsModule.initNotifications();
                     console.log('[Init] Notifications initialized');
@@ -73,7 +55,7 @@
                     console.error('[Init] Notifications module not found');
                 }
 
-                // Step 4: Initialize ad manager
+                // Step 3: Initialize ad manager
                 if (typeof globalThis !== 'undefined' && globalThis.adManagerModule) {
                     await globalThis.adManagerModule.initAdManager();
                     console.log('[Init] Ad manager initialized');

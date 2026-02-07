@@ -1,57 +1,55 @@
 # Configuration Template
 
-## Supabase Credentials Setup
+## API Base URL Setup
 
-Before testing, you need to update the Supabase credentials in the following files:
+Before testing, you need to update the API base URL in the configuration file:
 
-1. **`custom/background/user-registration.js`**
-   - Line ~8: `const SUPABASE_URL = 'https://YOUR_PROJECT_ID.supabase.co';`
-   - Line ~9: `const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY';`
+**`custom/config/ad-domains.js`**
+- Line ~7: `API_BASE_URL: 'http://localhost:3000'` (for local development)
+- Update to your production dashboard URL when deploying (e.g., `'https://your-dashboard.example.com'`)
 
-2. **`custom/background/notifications.js`**
-   - Line ~8: `const SUPABASE_URL = 'https://YOUR_PROJECT_ID.supabase.co';`
-   - Line ~9: `const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY';`
+## Environment URLs
 
-## How to Get Your Supabase Credentials
+| Environment | Base URL |
+|-------------|---------|
+| Local      | `http://localhost:3000` |
+| Production | Your deployed dashboard origin (e.g. `https://your-dashboard.example.com`) |
 
-1. Go to your Supabase project dashboard: https://supabase.com/dashboard
-2. Select your project
-3. Go to **Settings** → **API**
-4. Copy:
-   - **Project URL** → Use as `SUPABASE_URL`
-   - **anon/public key** → Use as `SUPABASE_ANON_KEY` (NOT the service_role key!)
+## How It Works
 
-## Quick Setup Script
+The extension uses REST API endpoints that automatically handle user registration:
 
-You can use this script to quickly update credentials:
+- **`/api/extension/notifications`** - Fetches notifications (user registration happens automatically)
+- **`/api/extension/ad-block`** - Fetches ads and/or notifications (user registration happens automatically)
 
-```bash
-# Set your credentials
-export SUPABASE_URL="https://your-project.supabase.co"
-export SUPABASE_ANON_KEY="your-anon-key-here"
+Both endpoints automatically:
+- Upsert `extension_users` by `visitorId` (updating `lastSeenAt`, incrementing `totalRequests`)
+- Insert into `request_logs` for analytics
 
-# Update files (run from uBOL-home directory)
-sed -i "s|https://YOUR_PROJECT_ID.supabase.co|$SUPABASE_URL|g" custom/background/user-registration.js
-sed -i "s|YOUR_ANON_KEY|$SUPABASE_ANON_KEY|g" custom/background/user-registration.js
+**No separate registration call is required.** The `visitorId` is generated from the hardware ID hash (via `identity.js`).
 
-sed -i "s|https://YOUR_PROJECT_ID.supabase.co|$SUPABASE_URL|g" custom/background/notifications.js
-sed -i "s|YOUR_ANON_KEY|$SUPABASE_ANON_KEY|g" custom/background/notifications.js
-```
+## Quick Setup
+
+1. Update `API_BASE_URL` in `custom/config/ad-domains.js`
+2. Rebuild extension: `./build-scripts/build-custom.sh`
+3. Load extension in Chrome/Firefox
+4. Check browser console for initialization logs
+5. Verify API calls are made to your dashboard
 
 ## Testing Checklist
 
-After updating credentials:
+After updating the API base URL:
 
-1. ✅ Run database migrations in Supabase (see `database/supabase/SETUP_GUIDE.md`)
-2. ✅ Update credentials in both files
+1. ✅ Update `API_BASE_URL` in `custom/config/ad-domains.js`
+2. ✅ Ensure your admin dashboard is running and accessible
 3. ✅ Rebuild extension: `./build-scripts/build-custom.sh`
-4. ✅ Load extension in Chrome
+4. ✅ Load extension in browser
 5. ✅ Check browser console for initialization logs
-6. ✅ Create test notification in Supabase SQL Editor
-7. ✅ Verify notification appears in browser
+6. ✅ Verify API requests appear in dashboard logs
+7. ✅ Test notifications and ad injection on supported domains
 
 ## Security Note
 
-- **Never commit** these files with real credentials to git
-- Use environment variables or build-time replacement for production
-- The `anon` key is safe for frontend use (RLS policies protect the database)
+- The API base URL is safe to commit (it's just the endpoint URL)
+- Ensure your dashboard has proper CORS configuration for extension origins
+- The `visitorId` is a hashed hardware ID (SHA-512) and doesn't expose user identity

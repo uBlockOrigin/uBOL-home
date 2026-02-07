@@ -17,7 +17,6 @@ const rootDir = path.resolve(__dirname, '..');
 const PLATFORMS = ['custom-dist/chromium', 'custom-dist/firefox'];
 const CUSTOM_SCRIPTS = [
     'custom/background/identity.js',
-    'custom/background/user-registration.js',
     'custom/background/notifications.js',
     'custom/background/init.js',
     'custom/background/ad-manager.js',

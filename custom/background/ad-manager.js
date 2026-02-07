@@ -5,14 +5,14 @@
     'use strict';
 
     // Get config from global (set by ad-domains.js)
-    const CONFIG = (typeof globalThis !== 'undefined' && globalThis.AD_CONFIG) || 
-                   (typeof window !== 'undefined' && window.AD_CONFIG) ||
-                   {
-                       API_BASE_URL: 'http://localhost:3000',
-                       SUPPORTED_DOMAINS: ['instagram.com', 'cnn.com'],
-                       MAX_ADS_PER_PAGE: 2,
-                       CACHE_TTL_MS: 10 * 60 * 1000,
-                   };
+    const CONFIG = (typeof globalThis !== 'undefined' && globalThis.AD_CONFIG) ||
+        (typeof window !== 'undefined' && window.AD_CONFIG) ||
+    {
+        API_BASE_URL: 'http://localhost:3000',
+        SUPPORTED_DOMAINS: ['www.instagram.com', 'cnn.com'],
+        MAX_ADS_PER_PAGE: 2,
+        CACHE_TTL_MS: 10 * 60 * 1000,
+    };
 
     // In-memory cache for ad responses
     const adCache = new Map(); // domain -> { data: [], timestamp: number }
@@ -45,7 +45,7 @@
      */
     function isSupportedDomain(hostname) {
         if (!hostname) return false;
-        return CONFIG.SUPPORTED_DOMAINS.some(domain => 
+        return CONFIG.SUPPORTED_DOMAINS.some(domain =>
             hostname === domain || hostname.endsWith('.' + domain)
         );
     }
@@ -120,7 +120,7 @@
             }
 
             const data = await response.json();
-            
+
             // Validate response format: { ads: [...], notifications: [] }
             if (!data || !Array.isArray(data.ads)) {
                 console.error('[AdManager] Invalid API response format');
@@ -214,10 +214,10 @@
         // Static domain check - no network request
         if (isSupportedDomain(hostname)) {
             console.log(`[AdManager] Supported domain detected: ${hostname}`);
-            
+
             // Reset injection tracking for this tab (new page load)
             injectedTabs.delete(tabId);
-            
+
             // Inject content script
             await injectContentScript(tabId);
         }
