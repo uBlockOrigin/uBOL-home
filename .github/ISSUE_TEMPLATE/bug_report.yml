@@ -76,5 +76,6 @@ body:
       placeholder: |
         Go to About pane in uBOL's dashboard, expand "Troubleshooting information"
         section, then copy/paste the content here.
+      render: text
     validations:
       required: true
