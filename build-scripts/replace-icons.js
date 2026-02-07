@@ -126,19 +126,23 @@ function findIconFiles(rootDir) {
             // Skip submodules (uBlock is a submodule)
             if (entry.isDirectory()) {
                 const dirName = entry.name;
-                // Skip known submodule directories and original chromium/ and firefox/ (keep them untouched)
+                // Skip known submodule directories
+                // Only skip root-level chromium/ and firefox/ (not custom-dist/chromium/ or custom-dist/firefox/)
+                const isRootLevelChromium = relativePath === 'chromium';
+                const isRootLevelFirefox = relativePath === 'firefox';
+                
                 if (dirName === 'node_modules' ||
                     dirName === '.git' ||
                     dirName === 'uBlock' ||  // uBlock is a submodule
-                    dirName === 'chromium' ||  // Keep chromium/ untouched (only process custom-dist/chromium/)
-                    dirName === 'firefox' ||  // Keep firefox/ untouched (only process custom-dist/firefox/)
+                    isRootLevelChromium ||  // Keep root-level chromium/ untouched (only process custom-dist/chromium/)
+                    isRootLevelFirefox ||  // Keep root-level firefox/ untouched (only process custom-dist/firefox/)
                     (dirName === 'dist' && !fullPath.includes('safari'))) {
                     continue;
                 }
                 walkDir(fullPath);
             } else if (entry.isFile() && entry.name.match(/^icon_\d+.*\.png$/)) {
                 // Only include files from custom-dist/ directories
-                // Exclude anything under uBlock/ submodule and original chromium/ and firefox/
+                // Exclude anything under uBlock/ submodule and root-level chromium/ and firefox/
                 if (!relativePath.startsWith('uBlock' + path.sep) &&
                     !relativePath.startsWith('uBlock' + '/') &&
                     !relativePath.startsWith('chromium' + path.sep) &&
