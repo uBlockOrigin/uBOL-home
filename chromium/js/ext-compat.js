@@ -19,10 +19,18 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-import { deepEquals } from './utils.js';
-
 export const webext = self.browser || self.chrome;
 export const dnr = webext.declarativeNetRequest || {};
+
+/******************************************************************************/
+
+const ruleCompare = (a, b) => a.id - b.id;
+
+const isSameRules = (a, b) => {
+    a.sort(ruleCompare);
+    b.sort(ruleCompare);
+    return JSON.stringify(a) === JSON.stringify(b);
+};
 
 /******************************************************************************/
 
@@ -77,23 +85,19 @@ dnr.setAllowAllRules = async function(id, allowed, notAllowed, reverse, priority
         }
         addSessionRules.push(rule1);
     }
-    const promises = [];
-    const modified = deepEquals(addDynamicRules, beforeDynamicRules) === false;
-    if ( modified ) {
-        promises.push(
-            dnr.updateDynamicRules({
-                addRules: addDynamicRules,
-                removeRuleIds: beforeDynamicRules.map(r => r.id),
-            })
-        );
-    }
-    if ( deepEquals(addSessionRules, beforeSessionRules) === false ) {
-        promises.push(
-            dnr.updateSessionRules({
-                addRules: addSessionRules,
-                removeRuleIds: beforeSessionRules.map(r => r.id),
-            })
-        );
-    }
-    return Promise.all(promises).then(( ) => modified).catch(( ) => false);
+    if ( isSameRules(addDynamicRules, beforeDynamicRules) ) { return false; }
+    return Promise.all([
+        dnr.updateDynamicRules({
+            addRules: addDynamicRules,
+            removeRuleIds: beforeDynamicRules.map(r => r.id),
+        }),
+        dnr.updateSessionRules({
+            addRules: addSessionRules,
+            removeRuleIds: beforeSessionRules.map(r => r.id),
+        }),
+    ]).then(( ) =>
+        true
+    ).catch(( ) =>
+        false
+    );
 };

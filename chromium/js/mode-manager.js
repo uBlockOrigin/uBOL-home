@@ -21,6 +21,7 @@
 
 import {
     broadcastMessage,
+    hasBroadHostPermissions,
     hostnamesFromMatches,
     isDescendantHostnameOfIter,
     toBroaderHostname,
@@ -39,8 +40,6 @@ import {
 
 import { adminReadEx } from './admin.js';
 import { filteringModesToDNR } from './ruleset-manager.js';
-import { hasBroadHostPermissions } from './ext-utils.js';
-
 
 /******************************************************************************/
 

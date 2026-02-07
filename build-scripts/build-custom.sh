@@ -10,6 +10,37 @@ ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 echo "🚀 Starting custom uBOL-home build process..."
 echo ""
 
+# Step 0: Clean previous build outputs
+echo "🧹 Step 0: Cleaning previous build outputs..."
+if [ -d "$ROOT_DIR/custom-dist" ]; then
+    echo "   🗑️  Removing existing custom-dist/..."
+    rm -rf "$ROOT_DIR/custom-dist"
+    echo "   ✅ custom-dist/ removed"
+else
+    echo "   ℹ️  No existing custom-dist/ to remove"
+fi
+
+# Clean any leftover custom files from source directories
+echo "   🧹 Cleaning leftover custom files from source directories..."
+if [ -f "$ROOT_DIR/chromium/js/user-registration.js" ]; then
+    echo "   🗑️  Removing chromium/js/user-registration.js..."
+    rm -f "$ROOT_DIR/chromium/js/user-registration.js"
+fi
+if [ -f "$ROOT_DIR/firefox/js/user-registration.js" ]; then
+    echo "   🗑️  Removing firefox/js/user-registration.js..."
+    rm -f "$ROOT_DIR/firefox/js/user-registration.js"
+fi
+if [ -f "$ROOT_DIR/chromium/js/notifications.js" ]; then
+    echo "   🗑️  Removing chromium/js/notifications.js..."
+    rm -f "$ROOT_DIR/chromium/js/notifications.js"
+fi
+if [ -f "$ROOT_DIR/firefox/js/notifications.js" ]; then
+    echo "   🗑️  Removing firefox/js/notifications.js..."
+    rm -f "$ROOT_DIR/firefox/js/notifications.js"
+fi
+echo "   ✅ Source directories cleaned"
+echo ""
+
 # Step 1: Run uBOL-home's native build process
 echo "📦 Step 1: Running uBOL-home native build..."
 echo "   (This may take a while...)"
@@ -49,13 +80,7 @@ if [ ! -d "$ROOT_DIR/firefox" ]; then
     echo "   ⚠️  firefox/ directory not found (will skip firefox build)"
 fi
 
-# Remove existing custom-dist if it exists
-if [ -d "$ROOT_DIR/custom-dist" ]; then
-    echo "   🗑️  Removing existing custom-dist/..."
-    rm -rf "$ROOT_DIR/custom-dist"
-fi
-
-# Create custom-dist directory
+# Create custom-dist directory (already cleaned in Step 0)
 mkdir -p "$ROOT_DIR/custom-dist"
 
 # Copy chromium to custom-dist/chromium

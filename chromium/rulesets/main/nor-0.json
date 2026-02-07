@@ -324,7 +324,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||tv-kalundborg.b-cdn.net//system_files/banner^"},"id":323,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||dagens.dk/wp-content/themes/mgdk-master/pricerunner-widget.php^"},"id":324,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script","stylesheet"],"urlFilter":"||bold.dk/_nuxtv3/n*banner"},"id":325,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||kabaler.dk/templates/blue3/images/demens.jpg^"},"id":326,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script","stylesheet"],"urlFilter":"||gfx.no^*/refererpromo"},"id":328,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["austurfrett.is","fcbarcelona.dk","norsk-rally.com","samler.no"],"resourceTypes":["image"],"urlFilter":"/images/banners"},"id":329,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/annonse_"},"id":330,"priority":10},

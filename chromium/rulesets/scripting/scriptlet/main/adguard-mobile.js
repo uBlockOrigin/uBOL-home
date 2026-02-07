@@ -1919,164 +1919,25 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
     return value;
 }
 
-function xmlPrune(
-    selector = '',
-    selectorCheck = '',
-    urlPattern = ''
-) {
-    if ( typeof selector !== 'string' ) { return; }
-    if ( selector === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('xml-prune', selector, selectorCheck, urlPattern);
-    const reUrl = safe.patternToRegex(urlPattern);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    const queryAll = (xmlDoc, selector) => {
-        const isXpath = /^xpath\(.+\)$/.test(selector);
-        if ( isXpath === false ) {
-            return Array.from(xmlDoc.querySelectorAll(selector));
-        }
-        const xpr = xmlDoc.evaluate(
-            selector.slice(6, -1),
-            xmlDoc,
-            null,
-            XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-            null
-        );
-        const out = [];
-        for ( let i = 0; i < xpr.snapshotLength; i++ ) {
-            const node = xpr.snapshotItem(i);
-            out.push(node);
-        }
-        return out;
-    };
-    const pruneFromDoc = xmlDoc => {
-        try {
-            if ( selectorCheck !== '' && xmlDoc.querySelector(selectorCheck) === null ) {
-                return xmlDoc;
-            }
-            if ( extraArgs.logdoc ) {
-                const serializer = new XMLSerializer();
-                safe.uboLog(logPrefix, `Document is\n\t${serializer.serializeToString(xmlDoc)}`);
-            }
-            const items = queryAll(xmlDoc, selector);
-            if ( items.length === 0 ) { return xmlDoc; }
-            safe.uboLog(logPrefix, `Removing ${items.length} items`);
-            for ( const item of items ) {
-                if ( item.nodeType === 1 ) {
-                    item.remove();
-                } else if ( item.nodeType === 2 ) {
-                    item.ownerElement.removeAttribute(item.nodeName);
-                }
-                safe.uboLog(logPrefix, `${item.constructor.name}.${item.nodeName} removed`);
-            }
-        } catch(ex) {
-            safe.uboErr(logPrefix, `Error: ${ex}`);
-        }
-        return xmlDoc;
-    };
-    const pruneFromText = text => {
-        if ( (/^\s*</.test(text) && />\s*$/.test(text)) === false ) {
-            return text;
-        }
-        try {
-            const xmlParser = new DOMParser();
-            const xmlDoc = xmlParser.parseFromString(text, 'text/xml');
-            pruneFromDoc(xmlDoc);
-            const serializer = new XMLSerializer();
-            text = serializer.serializeToString(xmlDoc);
-        } catch {
-        }
-        return text;
-    };
-    const urlFromArg = arg => {
-        if ( typeof arg === 'string' ) { return arg; }
-        if ( arg instanceof Request ) { return arg.url; }
-        return String(arg);
-    };
-    self.fetch = new Proxy(self.fetch, {
-        apply: function(target, thisArg, args) {
-            const fetchPromise = Reflect.apply(target, thisArg, args);
-            if ( reUrl.test(urlFromArg(args[0])) === false ) {
-                return fetchPromise;
-            }
-            return fetchPromise.then(responseBefore => {
-                const response = responseBefore.clone();
-                return response.text().then(text => {
-                    const responseAfter = new Response(pruneFromText(text), {
-                        status: responseBefore.status,
-                        statusText: responseBefore.statusText,
-                        headers: responseBefore.headers,
-                    });
-                    Object.defineProperties(responseAfter, {
-                        ok: { value: responseBefore.ok },
-                        redirected: { value: responseBefore.redirected },
-                        type: { value: responseBefore.type },
-                        url: { value: responseBefore.url },
-                    });
-                    return responseAfter;
-                }).catch(( ) =>
-                    responseBefore
-                );
-            });
-        }
-    });
-    self.XMLHttpRequest.prototype.open = new Proxy(self.XMLHttpRequest.prototype.open, {
-        apply: async (target, thisArg, args) => {
-            if ( reUrl.test(urlFromArg(args[1])) === false ) {
-                return Reflect.apply(target, thisArg, args);
-            }
-            thisArg.addEventListener('readystatechange', function() {
-                if ( thisArg.readyState !== 4 ) { return; }
-                const type = thisArg.responseType;
-                if (
-                    type === 'document' ||
-                    type === '' && thisArg.responseXML instanceof XMLDocument
-                ) {
-                    pruneFromDoc(thisArg.responseXML);
-                    const serializer = new XMLSerializer();
-                    const textout = serializer.serializeToString(thisArg.responseXML);
-                    Object.defineProperty(thisArg, 'responseText', { value: textout });
-                    if ( typeof thisArg.response === 'string' ) {
-                        Object.defineProperty(thisArg, 'response', { value: textout });
-                    }
-                    return;
-                }
-                if (
-                    type === 'text' ||
-                    type === '' && typeof thisArg.responseText === 'string'
-                ) {
-                    const textin = thisArg.responseText;
-                    const textout = pruneFromText(textin);
-                    if ( textout === textin ) { return; }
-                    Object.defineProperty(thisArg, 'response', { value: textout });
-                    Object.defineProperty(thisArg, 'responseText', { value: textout });
-                    return;
-                }
-            });
-            return Reflect.apply(target, thisArg, args);
-        }
-    });
-}
-
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 13 */
-[trustedJsonEditFetchResponse,setConstant,jsonPruneFetchResponse,jsonPruneXhrResponse,xmlPrune,preventAddEventListener,preventSetTimeout,abortOnPropertyRead,removeAttr,adjustSetInterval,adjustSetTimeout,abortCurrentScript,abortOnPropertyWrite];
+const $scriptletFunctions$ = /* 12 */
+[trustedJsonEditFetchResponse,setConstant,jsonPruneFetchResponse,jsonPruneXhrResponse,preventAddEventListener,preventSetTimeout,abortOnPropertyRead,removeAttr,adjustSetInterval,adjustSetTimeout,abortCurrentScript,abortOnPropertyWrite];
 
-const $scriptletArgs$ = /* 81 */ ["..show_ads=false","propsToMatch","/statsig/initialize?","Object.prototype.isAdActive","false","Object.prototype.vastOptions","{}","advertising","","/player/metadata",".json","[breakId]","_VMAP_","DOMContentLoaded","bait","adBoxEl","mobiles","scroll","adBlockerCalled","DMP_IS_AUTOPLAY_ENABLED","createApp","load","document.cookie","id","#div-gpt-ad-header","inviewstitial_fired","true","(f-1)","*","0.001","firstLoad","300","style",".tadm_ad_unit","interstitial-popup","add_h2023","noopFunc","abp1","0","continueToVideoUrl","JSON.parse","/interstitial?viewkey=","player.postitialTimeout","returnAd","hidden","adformtag","[]","customAdlistMob","$","exoMobilePop","/^(?:scroll|touchmove|wheel)$/","preventDefault","/^(?:mousewheel|touchmove)$/","mobileAdvPop","data-universal-link","body","InfCustomSTAMobileFunc","bindPostitial","document.getElementsByClassName","adBlocked","initializeInterstitial","isPeriodic","0.02","PopUnder.bindEvent","exoUrl","undefined","organicPop","popUnderUrl","height","iframe[src=\"https://dq.h1g.jp/img/ad/ad_heigu.html\"]","document.createElement","interstitialAdDiv","showme","pcc","1","jmp","Math","navigator.userAgent","_rand","adsbyimobile","div[class*=\"site-header__with-mobile-leaderboard\"]"];
+const $scriptletArgs$ = /* 79 */ ["..show_ads=false","propsToMatch","/statsig/initialize?","Object.prototype.isAdActive","false","Object.prototype.vastOptions","{}","advertising","","/player/metadata",".json","DOMContentLoaded","bait","adBoxEl","mobiles","scroll","adBlockerCalled","DMP_IS_AUTOPLAY_ENABLED","createApp","load","document.cookie","id","#div-gpt-ad-header","inviewstitial_fired","true","(f-1)","*","0.001","firstLoad","300","style",".tadm_ad_unit","interstitial-popup","add_h2023","noopFunc","abp1","0","continueToVideoUrl","JSON.parse","/interstitial?viewkey=","player.postitialTimeout","returnAd","hidden","adformtag","[]","customAdlistMob","$","exoMobilePop","/^(?:scroll|touchmove|wheel)$/","preventDefault","/^(?:mousewheel|touchmove)$/","mobileAdvPop","data-universal-link","body","InfCustomSTAMobileFunc","bindPostitial","document.getElementsByClassName","adBlocked","initializeInterstitial","isPeriodic","0.02","PopUnder.bindEvent","exoUrl","undefined","organicPop","popUnderUrl","height","iframe[src=\"https://dq.h1g.jp/img/ad/ad_heigu.html\"]","document.createElement","interstitialAdDiv","showme","pcc","1","jmp","Math","navigator.userAgent","_rand","adsbyimobile","div[class*=\"site-header__with-mobile-leaderboard\"]"];
 
-const $scriptletArglists$ = /* 51 */ "0,0,1,2;1,3,4;1,5,6;2,7,8,1,9;3,7,8,1,10;4,11,8,12;5,13,14;6,15;1,16,8;5,17,18;1,19,4;7,20;5,21,22;8,23,24;1,25,26;9,27,28,29;6,30,31;8,32,33;5,13,34;1,35,36;1,37,38;10,39,28,29;11,40,41;1,42,38;5,8,43;12,44;1,45,46;1,47,46;11,48,49;5,50,51;5,52;7,53;8,54,55;1,56,36;11,57;11,58,59;1,60,36;9,61,8,62;1,63,36;1,64,65;1,66,65;7,67;8,68,69;11,70,8;5,13,71;1,72,4;1,73,74;11,75,76;11,77,78;7,79;8,32,80";
+const $scriptletArglists$ = /* 50 */ "0,0,1,2;1,3,4;1,5,6;2,7,8,1,9;3,7,8,1,10;4,11,12;5,13;1,14,8;4,15,16;1,17,4;6,18;4,19,20;7,21,22;1,23,24;8,25,26,27;5,28,29;7,30,31;4,11,32;1,33,34;1,35,36;9,37,26,27;10,38,39;1,40,36;4,8,41;11,42;1,43,44;1,45,44;10,46,47;4,48,49;4,50;6,51;7,52,53;1,54,34;10,55;10,56,57;1,58,34;8,59,8,60;1,61,34;1,62,63;1,64,63;6,65;7,66,67;10,68,8;4,11,69;1,70,4;1,71,72;10,73,74;10,75,76;6,77;7,30,78";
 
-const $scriptletArglistRefs$ = /* 53 */ "42;26;37;43;23,31;16;2;8;-6;47;23,31;41;17;35;49;38;19;0;14;20,21,22;20;20;44;50;32;12;13;24,25;31;39,40;23;6;33;28;29;18;13;3,4,10;27;24;36;13;34;9;45,46;30;48;15;5;7;11;7;1";
+const $scriptletArglistRefs$ = /* 51 */ "41;25;36;42;22,30;15;2;7;46;22,30;40;16;34;48;37;18;0;13;19,20,21;19;19;43;49;31;11;12;23,24;30;38,39;22;5;32;27;28;17;12;3,4,9;26;23;35;12;33;8;44,45;29;47;14;6;10;6;1";
 
-const $scriptletHostnames$ = /* 53 */ ["h1g.jp","delfi.lt","m.iyf.tv","tu93.org","m.nuvid.*","nbc4i.com","redd.tube","erozine.jp","google.com","komaki2.jp","m.hd21.com","pornhd.com","saveur.com","supleks.jp","gamerch.com","gotporn.com","m.efuxs.com","nytimes.com","oreno3d.com","pornhub.com","pornhub.net","pornhub.org","rakukan.net","reuters.com","idaprikol.ru","momon-ga.com","youpouch.com","erobanach.com","m.drtuber.com","m.tnaflix.com","m.viptube.com","mangalivre.tv","mediafire.com","m.sunporno.com","news.mynavi.jp","quiz-facts.com","soranews24.com","dailymotion.com","m.hellporno.com","openloadpro.com","moneycontrol.com","rocketnews24.com","straitstimes.com","m.livehindustan.com","m.minixiaoshuow.com","mudainodocument.com","seikeidouga.blog.jp","business-standard.com","www.dailymotion.com>>","nijimen.kusuguru.co.jp","wuxianxiaoshuowang.com","nazology.kusuguru.co.jp","timesofindia.indiatimes.com"];
+const $scriptletHostnames$ = /* 51 */ ["h1g.jp","delfi.lt","m.iyf.tv","tu93.org","m.nuvid.*","nbc4i.com","redd.tube","erozine.jp","komaki2.jp","m.hd21.com","pornhd.com","saveur.com","supleks.jp","gamerch.com","gotporn.com","m.efuxs.com","nytimes.com","oreno3d.com","pornhub.com","pornhub.net","pornhub.org","rakukan.net","reuters.com","idaprikol.ru","momon-ga.com","youpouch.com","erobanach.com","m.drtuber.com","m.tnaflix.com","m.viptube.com","mangalivre.tv","mediafire.com","m.sunporno.com","news.mynavi.jp","quiz-facts.com","soranews24.com","dailymotion.com","m.hellporno.com","openloadpro.com","moneycontrol.com","rocketnews24.com","straitstimes.com","m.livehindustan.com","m.minixiaoshuow.com","mudainodocument.com","seikeidouga.blog.jp","business-standard.com","nijimen.kusuguru.co.jp","wuxianxiaoshuowang.com","nazology.kusuguru.co.jp","timesofindia.indiatimes.com"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 
 const $hasEntities$ = true;
-const $hasAncestors$ = true;
+const $hasAncestors$ = false;
 const $hasRegexes$ = false;
 
 /******************************************************************************/

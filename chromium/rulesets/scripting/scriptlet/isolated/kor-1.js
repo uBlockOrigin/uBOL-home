@@ -822,13 +822,13 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 6 */
 [removeNodeText,setCookie,removeClass,setAttr,removeCookie,setLocalStorageItem];
 
-const $scriptletArgs$ = /* 21 */ ["script","/run[\\s\\S]*?data[\\s\\S]*?OnClick[\\s\\S]*?ad\\d_/","popup_view","disable","hideFrontPagePopup","true","type_ad","#shortcutArea","ld_ac_timeout","Y","adv","1","#cmtFormTable textarea","cols","50","gaejuki_ad","find_ab","/adblock_detected/","$remove$","/background:[\\s\\S]+setTimeout\\( *\\( *\\) *=> *[A-Za-z0-9]+\\.remove\\( *\\)[\\s\\S]+Math\\.random\\( *\\) *< *percent *\\/ *100/","/finally *{\\n* *document.documentElement.removeChild\\( *[A-Za-z0-9]+ *\\) *;\\n* *}([ \\n]|.)+_ad\"]\\);/"];
+const $scriptletArgs$ = /* 19 */ ["script","/run[\\s\\S]*?data[\\s\\S]*?OnClick[\\s\\S]*?ad\\d_/","hideFrontPagePopup","true","type_ad","#shortcutArea","ld_ac_timeout","Y","adv","1","#cmtFormTable textarea","cols","50","gaejuki_ad","find_ab","/adblock_detected/","$remove$","/background:[\\s\\S]+setTimeout\\( *\\( *\\) *=> *[A-Za-z0-9]+\\.remove\\( *\\)[\\s\\S]+Math\\.random\\( *\\) *< *percent *\\/ *100/","/finally *{\\n* *document.documentElement.removeChild\\( *[A-Za-z0-9]+ *\\) *;\\n* *}([ \\n]|.)+_ad\"]\\);/"];
 
-const $scriptletArglists$ = /* 12 */ "0,0,1;1,2,3;1,4,5;2,6,7;1,8,9;1,10,11;3,12,13,14;4,15;4,16;5,17,18;0,0,19;0,0,20";
+const $scriptletArglists$ = /* 11 */ "0,0,1;1,2,3;2,4,5;1,6,7;1,8,9;3,10,11,12;4,13;4,14;5,15,16;0,0,17;0,0,18";
 
-const $scriptletArglistRefs$ = /* 10 */ "2;5;7;4;3;8,9;0;1;10,11;6";
+const $scriptletArglistRefs$ = /* 9 */ "1;4;6;3;2;7,8;0;9,10;5";
 
-const $scriptletHostnames$ = /* 10 */ ["maple.gg","ssodam.com","dcinside.com","oh-yes.co.kr","www.naver.com","m.dcinside.com","m.humoruniv.com","excellesports.com","gall.dcinside.com","mlbpark.donga.com"];
+const $scriptletHostnames$ = /* 9 */ ["maple.gg","ssodam.com","dcinside.com","oh-yes.co.kr","www.naver.com","m.dcinside.com","m.humoruniv.com","gall.dcinside.com","mlbpark.donga.com"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 
