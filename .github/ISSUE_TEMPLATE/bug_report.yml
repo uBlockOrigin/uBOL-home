@@ -72,18 +72,9 @@ body:
 
   - type: input
     attributes:
-      label: uBO Lite version
-    validations:
-      required: true
-
-  - type: input
-    attributes:
-      label: Browser name and version
-    validations:
-      required: true
-
-  - type: input
-    attributes:
-      label: Operating system and version
+      label: Troubleshooting information
+      placeholder: |
+        Go to About pane in uBOL's dashboard, expand "Troubleshooting information"
+        section, then copy/paste the content here.
     validations:
       required: true
