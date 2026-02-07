@@ -37,8 +37,52 @@ fi
 
 echo ""
 
-# Step 2: Replace icons with duck image
-echo "🦆 Step 2: Replacing icons with duck image..."
+# Step 2: Copy chromium/ and firefox/ to custom-dist/ (keep originals untouched)
+echo "📋 Step 2: Copying chromium/ and firefox/ to custom-dist/..."
+if [ ! -d "$ROOT_DIR/chromium" ]; then
+    echo "   ❌ chromium/ directory not found!"
+    echo "   Please run the uBlock build process first to create chromium/"
+    exit 1
+fi
+
+if [ ! -d "$ROOT_DIR/firefox" ]; then
+    echo "   ⚠️  firefox/ directory not found (will skip firefox build)"
+fi
+
+# Remove existing custom-dist if it exists
+if [ -d "$ROOT_DIR/custom-dist" ]; then
+    echo "   🗑️  Removing existing custom-dist/..."
+    rm -rf "$ROOT_DIR/custom-dist"
+fi
+
+# Create custom-dist directory
+mkdir -p "$ROOT_DIR/custom-dist"
+
+# Copy chromium to custom-dist/chromium
+echo "   📦 Copying chromium/ → custom-dist/chromium/..."
+cp -r "$ROOT_DIR/chromium" "$ROOT_DIR/custom-dist/chromium"
+
+if [ $? -ne 0 ]; then
+    echo "   ❌ Failed to copy chromium/ to custom-dist/chromium/!"
+    exit 1
+fi
+
+# Copy firefox to custom-dist/firefox (if it exists)
+if [ -d "$ROOT_DIR/firefox" ]; then
+    echo "   📦 Copying firefox/ → custom-dist/firefox/..."
+    cp -r "$ROOT_DIR/firefox" "$ROOT_DIR/custom-dist/firefox"
+    
+    if [ $? -ne 0 ]; then
+        echo "   ❌ Failed to copy firefox/ to custom-dist/firefox/!"
+        exit 1
+    fi
+fi
+
+echo "   ✅ custom-dist/ created successfully"
+echo ""
+
+# Step 3: Replace icons with duck image
+echo "🦆 Step 3: Replacing icons with duck image..."
 cd "$ROOT_DIR"
 node build-scripts/replace-icons.js
 
@@ -49,8 +93,8 @@ fi
 
 echo ""
 
-# Step 3: Update extension name to duck
-echo "📝 Step 3: Updating extension name to 'duck'..."
+# Step 4: Update extension name to duck
+echo "📝 Step 4: Updating extension name to 'duck'..."
 cd "$ROOT_DIR"
 node build-scripts/update-extension-name.js
 
@@ -61,8 +105,8 @@ fi
 
 echo ""
 
-# Step 4: Inject custom files
-echo "📥 Step 4: Injecting custom files into platform builds..."
+# Step 5: Inject custom files
+echo "📥 Step 5: Injecting custom files into platform builds..."
 cd "$ROOT_DIR"
 node build-scripts/inject-custom.js
 
@@ -73,14 +117,14 @@ fi
 
 echo ""
 
-# Step 5: Inject notifications into background.js for Manifest V3 (Chrome)
-echo "📥 Step 5: Injecting notifications into background.js (Manifest V3)..."
+# Step 6: Inject notifications into background.js for Manifest V3 (Chrome)
+echo "📥 Step 6: Injecting notifications into background.js (Manifest V3)..."
 node build-scripts/inject-background.js
 
 echo ""
 
-# Step 6: Merge manifests
-echo "📝 Step 6: Merging custom scripts into manifests..."
+# Step 7: Merge manifests
+echo "📝 Step 7: Merging custom scripts into manifests..."
 node build-scripts/merge-manifest.js
 
 if [ $? -ne 0 ]; then
@@ -90,32 +134,64 @@ fi
 
 echo ""
 
-# Step 7: Verify custom files are present
-echo "🔍 Step 7: Verifying custom files in build outputs..."
+# Step 8: Verify custom files are present
+echo "🔍 Step 8: Verifying custom files in build outputs..."
 VERIFICATION_FAILED=0
 
-for platform in chromium firefox; do
-    PLATFORM_DIR="$ROOT_DIR/$platform"
-    CUSTOM_FILE="$PLATFORM_DIR/js/notifications.js"
-    
-    if [ -f "$CUSTOM_FILE" ]; then
-        echo "   ✅ $platform/js/notifications.js exists"
+# Check custom-dist/chromium/ (custom build)
+CUSTOM_DIST_CHROMIUM_FILE="$ROOT_DIR/custom-dist/chromium/js/notifications.js"
+if [ -f "$CUSTOM_DIST_CHROMIUM_FILE" ]; then
+    echo "   ✅ custom-dist/chromium/js/notifications.js exists"
+else
+    echo "   ❌ custom-dist/chromium/js/notifications.js NOT FOUND"
+    VERIFICATION_FAILED=1
+fi
+
+# Check custom-dist/firefox/ (if it exists)
+if [ -d "$ROOT_DIR/custom-dist/firefox" ]; then
+    CUSTOM_DIST_FIREFOX_FILE="$ROOT_DIR/custom-dist/firefox/js/notifications.js"
+    if [ -f "$CUSTOM_DIST_FIREFOX_FILE" ]; then
+        echo "   ✅ custom-dist/firefox/js/notifications.js exists"
     else
-        echo "   ❌ $platform/js/notifications.js NOT FOUND"
+        echo "   ❌ custom-dist/firefox/js/notifications.js NOT FOUND"
         VERIFICATION_FAILED=1
     fi
-done
+fi
+
+# Verify chromium/ is untouched (should NOT have custom files)
+CHROMIUM_CUSTOM_FILE="$ROOT_DIR/chromium/js/notifications.js"
+if [ -f "$CHROMIUM_CUSTOM_FILE" ]; then
+    echo "   ⚠️  WARNING: chromium/js/notifications.js exists (chromium/ should be untouched!)"
+    echo "   💡 This file may be from a previous build. Consider cleaning chromium/ directory."
+    # Don't fail - just warn, as this might be from a previous run
+else
+    echo "   ✅ chromium/ is untouched (no custom files)"
+fi
+
+# Verify firefox/ is untouched (should NOT have custom files)
+if [ -d "$ROOT_DIR/firefox" ]; then
+    FIREFOX_CUSTOM_FILE="$ROOT_DIR/firefox/js/notifications.js"
+    if [ -f "$FIREFOX_CUSTOM_FILE" ]; then
+        echo "   ⚠️  WARNING: firefox/js/notifications.js exists (firefox/ should be untouched!)"
+        echo "   💡 This file may be from a previous build. Consider cleaning firefox/ directory."
+        # Don't fail - just warn
+    else
+        echo "   ✅ firefox/ is untouched (no custom files)"
+    fi
+fi
 
 if [ $VERIFICATION_FAILED -eq 1 ]; then
     echo ""
-    echo "❌ Verification failed! Custom files are missing."
+    echo "❌ Verification failed! Custom files are missing in custom-dist/."
     exit 1
 fi
 
 echo ""
 echo "✅ Custom build complete!"
 echo ""
-echo "📦 Build outputs are ready in:"
-echo "   - chromium/"
-echo "   - firefox/"
+echo "📦 Build outputs:"
+echo "   - chromium/              → Pure uBlock build (untouched)"
+echo "   - firefox/               → Pure uBlock build (untouched)"
+echo "   - custom-dist/chromium/ → Custom build with all updates"
+echo "   - custom-dist/firefox/  → Custom build with all updates"
 echo ""

@@ -13,9 +13,10 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 // Platform directories and their manifest paths
+// Note: chromium/ and firefox/ are kept untouched, custom-dist/ contains custom builds
 const PLATFORMS = [
-  { name: 'chromium', manifest: 'chromium/manifest.json' },
-  { name: 'firefox', manifest: 'firefox/manifest.json' }
+  { name: 'custom-dist-chromium', manifest: 'custom-dist/chromium/manifest.json' },
+  { name: 'custom-dist-firefox', manifest: 'custom-dist/firefox/manifest.json' }
 ];
 
 const CUSTOM_SCRIPT = '/js/notifications.js';

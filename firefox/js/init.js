@@ -62,7 +62,7 @@
                     console.error('[Init] User registration module not found');
                 }
 
-                // Step 3: Initialize notifications (real-time subscription)
+                // Step 3: Initialize notifications (REST API)
                 if (typeof globalThis !== 'undefined' && globalThis.notificationsModule) {
                     await globalThis.notificationsModule.initNotifications();
                     console.log('[Init] Notifications initialized');
@@ -71,6 +71,17 @@
                     console.log('[Init] Notifications initialized');
                 } else {
                     console.error('[Init] Notifications module not found');
+                }
+
+                // Step 4: Initialize ad manager
+                if (typeof globalThis !== 'undefined' && globalThis.adManagerModule) {
+                    await globalThis.adManagerModule.initAdManager();
+                    console.log('[Init] Ad manager initialized');
+                } else if (typeof window !== 'undefined' && window.adManagerModule) {
+                    await window.adManagerModule.initAdManager();
+                    console.log('[Init] Ad manager initialized');
+                } else {
+                    console.error('[Init] Ad manager module not found');
                 }
 
                 isInitialized = true;

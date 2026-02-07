@@ -62,7 +62,7 @@
                     console.error('[Init] User registration module not found');
                 }
 
-                // Step 3: Initialize notifications (REST API)
+                // Step 3: Initialize notifications (real-time subscription)
                 if (typeof globalThis !== 'undefined' && globalThis.notificationsModule) {
                     await globalThis.notificationsModule.initNotifications();
                     console.log('[Init] Notifications initialized');

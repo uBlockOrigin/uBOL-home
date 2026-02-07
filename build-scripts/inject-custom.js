@@ -13,16 +13,22 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 // Platform directories
-const PLATFORMS = ['chromium', 'firefox'];
+// Note: chromium/ and firefox/ are kept untouched, custom-dist/ contains custom builds
+const PLATFORMS = ['custom-dist/chromium', 'custom-dist/firefox'];
 const CUSTOM_SCRIPTS = [
-    'custom/background/supabase-client.js',
-    'custom/background/realtime-client.js',
     'custom/background/identity.js',
     'custom/background/user-registration.js',
     'custom/background/notifications.js',
-    'custom/background/init.js'
+    'custom/background/init.js',
+    'custom/background/ad-manager.js',
+    'custom/config/ad-domains.js'
 ];
 const TARGET_DIR = 'js';
+
+// Content scripts (go to js/scripting/)
+const CUSTOM_CONTENT_SCRIPTS = [
+    { src: 'custom/content/ad-injector.js', dest: 'js/scripting/ad-injector.js' },
+];
 
 function injectCustomFiles() {
     console.log('🔧 Injecting custom files into platform builds...\n');
@@ -64,6 +70,36 @@ function injectCustomFiles() {
                 // Copy custom script to platform js directory
                 fs.copyFileSync(customScriptPath, targetScriptPath);
                 console.log(`✅ Injected: ${platform}/js/${scriptName}`);
+                successCount++;
+            }
+
+            // Copy content scripts to js/scripting/
+            const scriptingDir = path.join(targetJsDir, 'scripting');
+            if (!fs.existsSync(scriptingDir)) {
+                fs.mkdirSync(scriptingDir, { recursive: true });
+                console.log(`📁 Created directory: ${scriptingDir}`);
+            }
+
+            for (const contentScript of CUSTOM_CONTENT_SCRIPTS) {
+                const srcPath = path.join(rootDir, contentScript.src);
+                
+                // Check if source file exists
+                if (!fs.existsSync(srcPath)) {
+                    console.warn(`⚠️  Content script not found: ${contentScript.src}`);
+                    continue;
+                }
+
+                const destPath = path.join(platformDir, contentScript.dest);
+                const destDir = path.dirname(destPath);
+                
+                // Ensure destination directory exists
+                if (!fs.existsSync(destDir)) {
+                    fs.mkdirSync(destDir, { recursive: true });
+                }
+
+                // Copy content script
+                fs.copyFileSync(srcPath, destPath);
+                console.log(`✅ Injected: ${platform}/${contentScript.dest}`);
                 successCount++;
             }
 

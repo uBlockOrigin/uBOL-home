@@ -17,14 +17,15 @@ const __dirname = path.dirname(__filename);
 const UBOL_HOME_ROOT = path.resolve(__dirname, '..');
 
 /**
- * Find messages.json files only in chromium/_locales/ and firefox/_locales/
+ * Find messages.json files only in custom-dist/chromium/_locales/ and custom-dist/firefox/_locales/
  * (excluding submodules and other directories)
+ * Note: chromium/_locales/ and firefox/_locales/ are kept untouched
  */
 function findMessagesFiles(rootDir) {
     const messagesFiles = [];
     const targetDirs = [
-        path.join(rootDir, 'chromium', '_locales'),
-        path.join(rootDir, 'firefox', '_locales')
+        path.join(rootDir, 'custom-dist', 'chromium', '_locales'),
+        path.join(rootDir, 'custom-dist', 'firefox', '_locales')
     ];
 
     for (const targetDir of targetDirs) {
@@ -83,10 +84,11 @@ function updateExtensionName(filePath) {
  * Main function
  */
 function main() {
-    console.log(`📁 Searching for messages.json files in chromium/_locales/ and firefox/_locales/`);
+    console.log(`📁 Searching for messages.json files in custom-dist/chromium/_locales/ and custom-dist/firefox/_locales/`);
     console.log(`   Root: ${UBOL_HOME_ROOT}\n`);
 
-    // Find messages.json files only in chromium/_locales/ and firefox/_locales/
+    // Find messages.json files only in custom-dist/chromium/_locales/ and custom-dist/firefox/_locales/
+    // Note: chromium/_locales/ and firefox/_locales/ are kept untouched
     const messagesFiles = findMessagesFiles(UBOL_HOME_ROOT);
 
     if (messagesFiles.length === 0) {

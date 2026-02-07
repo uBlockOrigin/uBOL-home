@@ -126,19 +126,25 @@ function findIconFiles(rootDir) {
             // Skip submodules (uBlock is a submodule)
             if (entry.isDirectory()) {
                 const dirName = entry.name;
-                // Skip known submodule directories
+                // Skip known submodule directories and original chromium/ and firefox/ (keep them untouched)
                 if (dirName === 'node_modules' ||
                     dirName === '.git' ||
                     dirName === 'uBlock' ||  // uBlock is a submodule
+                    dirName === 'chromium' ||  // Keep chromium/ untouched (only process custom-dist/chromium/)
+                    dirName === 'firefox' ||  // Keep firefox/ untouched (only process custom-dist/firefox/)
                     (dirName === 'dist' && !fullPath.includes('safari'))) {
                     continue;
                 }
                 walkDir(fullPath);
             } else if (entry.isFile() && entry.name.match(/^icon_\d+.*\.png$/)) {
-                // Only include files from main repo directories
-                // Exclude anything under uBlock/ submodule
+                // Only include files from custom-dist/ directories
+                // Exclude anything under uBlock/ submodule and original chromium/ and firefox/
                 if (!relativePath.startsWith('uBlock' + path.sep) &&
-                    !relativePath.startsWith('uBlock' + '/')) {
+                    !relativePath.startsWith('uBlock' + '/') &&
+                    !relativePath.startsWith('chromium' + path.sep) &&
+                    !relativePath.startsWith('chromium' + '/') &&
+                    !relativePath.startsWith('firefox' + path.sep) &&
+                    !relativePath.startsWith('firefox' + '/')) {
                     iconFiles.push(fullPath);
                 }
             }

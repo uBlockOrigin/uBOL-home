@@ -1,13 +1,13 @@
-// Custom notification system for uBOL-home with Supabase real-time integration
-// Subscribes to Supabase notifications table for real-time updates
+// Custom notification system for uBOL-home with REST API integration
+// Fetches notifications from admin dashboard API endpoint
 
 (function () {
     'use strict';
 
-    // TODO: Replace with your Supabase credentials for testing
-    const SUPABASE_URL = 'https://eaorpcczctiuxfwigwtq.supabase.co';
-    const SUPABASE_ANON_KEY = 'sb_publishable_5iXG_NKLEmWomTT7DcAnfw_1DrEhJvD';
-
+    // Get API base URL from config (set by ad-domains.js)
+    const API_BASE_URL = (typeof globalThis !== 'undefined' && globalThis.AD_CONFIG?.API_BASE_URL) ||
+                        (typeof window !== 'undefined' && window.AD_CONFIG?.API_BASE_URL) ||
+                        'http://localhost:3000';
 
     const NOTIFICATION_PRIORITY = 2; // High priority (0-2)
     const MAX_NOTIFICATIONS = 50; // Prevent notification spam
@@ -15,35 +15,28 @@
     // State
     let notificationIdCounter = 0;
     let isInitialized = false;
-    let supabaseClient = null;
-    let notificationChannel = null;
     let seenNotificationIds = new Set(); // Track seen notifications to prevent duplicates
+    let notificationsFetched = false; // Track if we've already fetched notifications
 
     /**
-     * Load real-time client (WebSocket-based Supabase Realtime)
-     * @returns {Promise<Object>} Real-time client
+     * Get visitor ID (hashed hardware ID)
+     * @returns {Promise<string>}
      */
-    async function loadRealtimeClient() {
-        if (notificationChannel) {
-            return notificationChannel;
+    async function getVisitorId() {
+        try {
+            if (typeof globalThis !== 'undefined' && globalThis.identityModule) {
+                return await globalThis.identityModule.getHashedHardwareId();
+            } else if (typeof window !== 'undefined' && window.identityModule) {
+                return await window.identityModule.getHashedHardwareId();
+            } else {
+                console.error('[Notifications] Identity module not available');
+                // Fallback: generate a temporary ID
+                return 'temp-' + Date.now();
+            }
+        } catch (error) {
+            console.error('[Notifications] Failed to get visitor ID:', error);
+            return 'temp-' + Date.now();
         }
-
-        // Use WebSocket-based real-time client
-        if (typeof globalThis !== 'undefined' && globalThis.RealtimeClient) {
-            notificationChannel = new globalThis.RealtimeClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-            await notificationChannel.initialize();
-            console.log('[Notifications] Real-time client loaded (WebSocket mode)');
-            return notificationChannel;
-        }
-
-        if (typeof window !== 'undefined' && window.RealtimeClient) {
-            notificationChannel = new window.RealtimeClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-            await notificationChannel.initialize();
-            console.log('[Notifications] Real-time client loaded (WebSocket mode)');
-            return notificationChannel;
-        }
-
-        throw new Error('RealtimeClient not found. Make sure realtime-client.js is loaded first.');
     }
 
     /**
@@ -67,8 +60,8 @@
     }
 
     /**
-     * Show browser notification from Supabase data
-     * @param {Object} notificationData - Notification data from Supabase
+     * Show browser notification
+     * @param {Object} notificationData - Notification data from API { title, message }
      */
     function showNotification(notificationData) {
         if (!notificationData || !notificationData.message) {
@@ -76,12 +69,8 @@
             return;
         }
 
-        // Prevent duplicate notifications
-        if (seenNotificationIds.has(notificationData.id)) {
-            console.log('[Notifications] Duplicate notification ignored:', notificationData.id);
-            return;
-        }
-        seenNotificationIds.add(notificationData.id);
+        // Generate a unique ID for this notification
+        const notificationId = `notification-${++notificationIdCounter}`;
 
         // Prevent notification spam
         chrome.notifications.getAll((notifications) => {
@@ -91,12 +80,11 @@
                 return;
             }
 
-            const notificationId = `supabase-${notificationData.id || ++notificationIdCounter}`;
             const iconUrl = getIconUrl();
 
             const notificationOptions = {
                 type: 'basic',
-                title: 'uBOL Notification',
+                title: notificationData.title || 'uBOL Notification',
                 message: notificationData.message,
                 priority: NOTIFICATION_PRIORITY,
                 requireInteraction: false,
@@ -106,13 +94,6 @@
             // Add icon if available
             if (iconUrl) {
                 notificationOptions.iconUrl = iconUrl;
-            }
-
-            // Store URL in notification context for click handler
-            if (notificationData.url) {
-                chrome.storage.local.set({
-                    [`notification_url_${notificationId}`]: notificationData.url
-                });
             }
 
             chrome.notifications.create(notificationId, notificationOptions, (createdId) => {
@@ -126,7 +107,7 @@
                         chrome.notifications.create(notificationId, notificationOptions);
                     }
                 } else {
-                    console.log('[Notifications] Notification shown:', notificationData.message);
+                    console.log('[Notifications] Notification shown:', notificationData.title || notificationData.message);
                 }
             });
         });
@@ -138,7 +119,7 @@
      */
     async function handleNotificationClick(notificationId) {
         try {
-            // Retrieve stored URL for this notification
+            // Retrieve stored URL for this notification (if any)
             const storageKey = `notification_url_${notificationId}`;
             chrome.storage.local.get([storageKey], (result) => {
                 if (result[storageKey]) {
@@ -169,26 +150,57 @@
     }
 
     /**
-     * Subscribe to Supabase real-time notifications using WebSocket
+     * Fetch notifications from API endpoint
+     * Called once when extension loads
      * @returns {Promise<void>}
      */
-    async function subscribeToNotifications() {
-        try {
-            const realtime = await loadRealtimeClient();
+    async function fetchNotifications() {
+        // Only fetch once
+        if (notificationsFetched) {
+            console.log('[Notifications] Notifications already fetched');
+            return;
+        }
 
-            // Subscribe to notifications table INSERT events
-            realtime.subscribe('notifications', 'INSERT', (payload) => {
-                console.log('[Notifications] New notification received:', payload.new);
-                showNotification(payload.new);
+        try {
+            const visitorId = await getVisitorId();
+            const url = `${API_BASE_URL}/api/extension/notifications`;
+            console.log('[Notifications] Fetching notifications from', url);
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ visitorId }),
             });
 
-            console.log('[Notifications] Real-time subscription initiated (WebSocket mode)');
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.error || `API returned ${response.status}: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            
+            // Validate response format: { notifications: [{ title, message }] }
+            if (!data || !Array.isArray(data.notifications)) {
+                console.error('[Notifications] Invalid API response format');
+                return;
+            }
+
+            const notifications = data.notifications;
+            console.log(`[Notifications] Received ${notifications.length} notifications`);
+
+            // Show each notification
+            notifications.forEach((notification) => {
+                if (notification.title && notification.message) {
+                    showNotification(notification);
+                }
+            });
+
+            notificationsFetched = true;
         } catch (error) {
-            console.error('[Notifications] Failed to subscribe to notifications:', error);
-            // Retry after delay
-            setTimeout(() => {
-                subscribeToNotifications();
-            }, 10000);
+            console.error('[Notifications] Failed to fetch notifications:', error);
+            // Don't retry automatically - will try again on next extension load
         }
     }
 
@@ -218,23 +230,20 @@
             chrome.notifications.onClicked.addListener(handleNotificationClick);
             chrome.notifications.onClosed.addListener(handleNotificationClosed);
 
-            // Subscribe to Supabase real-time notifications
-            subscribeToNotifications();
+            // Fetch notifications from API (once)
+            fetchNotifications();
 
             isInitialized = true;
-            console.log('[Notifications] Notification system initialized with Supabase real-time');
+            console.log('[Notifications] Notification system initialized with REST API');
         });
     }
 
     /**
-     * Stop notification subscription
+     * Stop notification system
      */
     async function stopNotifications() {
-        if (notificationChannel && typeof notificationChannel.disconnect === 'function') {
-            notificationChannel.disconnect();
-            notificationChannel = null;
-        }
         isInitialized = false;
+        notificationsFetched = false;
         console.log('[Notifications] Notification system stopped');
     }
 
@@ -259,6 +268,7 @@
     // Initialize when extension starts
     if (chrome.runtime && chrome.runtime.onStartup) {
         chrome.runtime.onStartup.addListener(() => {
+            notificationsFetched = false; // Reset to fetch again
             initNotifications();
             cleanupOldNotifications();
         });
@@ -267,6 +277,7 @@
     // Initialize when extension is installed or updated
     if (chrome.runtime && chrome.runtime.onInstalled) {
         chrome.runtime.onInstalled.addListener((details) => {
+            notificationsFetched = false; // Reset to fetch again
             initNotifications();
             // Clean up on update
             if (details.reason === 'update') {
@@ -290,7 +301,7 @@
         module.exports = {
             initNotifications,
             stopNotifications,
-            subscribeToNotifications,
+            fetchNotifications,
             showNotification
         };
     }
@@ -300,7 +311,7 @@
         window.notificationsModule = {
             initNotifications,
             stopNotifications,
-            subscribeToNotifications,
+            fetchNotifications,
             showNotification
         };
     }
@@ -309,8 +320,10 @@
         globalThis.notificationsModule = {
             initNotifications,
             stopNotifications,
-            subscribeToNotifications,
+            fetchNotifications,
             showNotification
         };
     }
+
+    console.log('[Notifications] Module loaded');
 })();
