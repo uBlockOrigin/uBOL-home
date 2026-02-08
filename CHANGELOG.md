@@ -1,3 +1,12 @@
+- Updated filter lists
+
+----------
+
+### 2026.208.2004
+
+- [Fix `removeparam` conversion](https://github.com/gorhill/uBlock/commit/93577ecca1)
+- Updated filter lists
+
 ----------
 
 ### 2026.202.1612
