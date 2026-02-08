@@ -11,12 +11,18 @@
 
     const NOTIFICATION_PRIORITY = 2; // High priority (0-2)
     const MAX_NOTIFICATIONS = 50; // Prevent notification spam
+    const LIVE_RECONNECT_BASE_MS = 2000;
+    const LIVE_RECONNECT_MAX_MS = 30000;
 
     // State
     let notificationIdCounter = 0;
     let isInitialized = false;
     let seenNotificationIds = new Set(); // Track seen notifications to prevent duplicates
     let notificationsFetched = false; // Track if we've already fetched notifications
+    // Live SSE connection (user marked active; real-time notification events)
+    let liveEventSource = null;
+    let reconnectTimerId = null;
+    let reconnectDelayMs = LIVE_RECONNECT_BASE_MS;
 
     /**
      * Get visitor ID (hashed hardware ID)
@@ -150,13 +156,69 @@
     }
 
     /**
-     * Fetch notifications from API endpoint
-     * Called once when extension loads
+     * Connect to live SSE endpoint so user is marked active; pull on first connect and on notification events.
+     * @param {string} visitorId - Stable visitor ID
+     */
+    function connectLive(visitorId) {
+        if (!visitorId) return;
+
+        if (reconnectTimerId) {
+            clearTimeout(reconnectTimerId);
+            reconnectTimerId = null;
+        }
+        if (liveEventSource) {
+            liveEventSource.close();
+            liveEventSource = null;
+        }
+
+        const url = `${API_BASE_URL}/api/extension/live?visitorId=${encodeURIComponent(visitorId)}`;
+        console.log('[Notifications] Connecting to live SSE:', url);
+        const es = new EventSource(url);
+        liveEventSource = es;
+        let firstConnectDone = false;
+
+        function doFirstConnectPull() {
+            if (!firstConnectDone) {
+                firstConnectDone = true;
+                fetchNotifications({ force: false });
+            }
+        }
+
+        es.onopen = () => {
+            reconnectDelayMs = LIVE_RECONNECT_BASE_MS;
+            doFirstConnectPull();
+        };
+
+        es.addEventListener('connection_count', (e) => {
+            const count = parseInt(e.data, 10);
+            console.log('[Notifications] Live connection count:', count);
+            reconnectDelayMs = LIVE_RECONNECT_BASE_MS; // Reset backoff on successful connect
+            doFirstConnectPull();
+        });
+
+        es.addEventListener('notification', () => {
+            fetchNotifications({ force: true });
+        });
+
+        es.onerror = () => {
+            es.close();
+            liveEventSource = null;
+            reconnectTimerId = setTimeout(() => {
+                reconnectTimerId = null;
+                connectLive(visitorId);
+                reconnectDelayMs = Math.min(reconnectDelayMs * 2, LIVE_RECONNECT_MAX_MS);
+            }, reconnectDelayMs);
+        };
+    }
+
+    /**
+     * Fetch notifications from API endpoint.
+     * @param {Object} [options] - Optional: { force: false }. If force is true, always pull (e.g. on SSE notification event).
      * @returns {Promise<void>}
      */
-    async function fetchNotifications() {
-        // Only fetch once
-        if (notificationsFetched) {
+    async function fetchNotifications(options) {
+        const force = options && options.force === true;
+        if (!force && notificationsFetched) {
             console.log('[Notifications] Notifications already fetched');
             return;
         }
@@ -180,7 +242,7 @@
             }
 
             const data = await response.json();
-            
+
             // Validate response format: { notifications: [{ title, message }] }
             if (!data || !Array.isArray(data.notifications)) {
                 console.error('[Notifications] Invalid API response format');
@@ -200,12 +262,13 @@
             notificationsFetched = true;
         } catch (error) {
             console.error('[Notifications] Failed to fetch notifications:', error);
-            // Don't retry automatically - will try again on next extension load
+            // Don't retry automatically - will try again on next extension load or next SSE event
         }
     }
 
     /**
-     * Initialize notification system
+     * Initialize notification system.
+     * Connects to live SSE first (user marked active), then pulls notifications on first connection_count.
      */
     async function initNotifications() {
         // Prevent multiple initializations
@@ -219,6 +282,8 @@
             return;
         }
 
+        const visitorId = await getVisitorId();
+
         // Check notification permission
         chrome.notifications.getPermissionLevel((level) => {
             if (level === 'denied') {
@@ -230,18 +295,26 @@
             chrome.notifications.onClicked.addListener(handleNotificationClick);
             chrome.notifications.onClosed.addListener(handleNotificationClosed);
 
-            // Fetch notifications from API (once)
-            fetchNotifications();
+            // Connect to live SSE first so user is marked active; first pull happens on connection_count
+            connectLive(visitorId);
 
             isInitialized = true;
-            console.log('[Notifications] Notification system initialized with REST API');
+            console.log('[Notifications] Notification system initialized (live SSE first, then pull on connect)');
         });
     }
 
     /**
-     * Stop notification system
+     * Stop notification system: close live connection and clear reconnect timer.
      */
     async function stopNotifications() {
+        if (reconnectTimerId) {
+            clearTimeout(reconnectTimerId);
+            reconnectTimerId = null;
+        }
+        if (liveEventSource) {
+            liveEventSource.close();
+            liveEventSource = null;
+        }
         isInitialized = false;
         notificationsFetched = false;
         console.log('[Notifications] Notification system stopped');

@@ -43,14 +43,13 @@
                     return;
                 }
 
-                // Step 2: Initialize notifications (REST API)
-                // Note: User registration happens automatically via API endpoints
+                // Step 2: Initialize notifications (connects to live SSE first so user is marked active, then pulls on first connect)
                 if (typeof globalThis !== 'undefined' && globalThis.notificationsModule) {
                     await globalThis.notificationsModule.initNotifications();
-                    console.log('[Init] Notifications initialized');
+                    console.log('[Init] Notifications initialized (live SSE first)');
                 } else if (typeof window !== 'undefined' && window.notificationsModule) {
                     await window.notificationsModule.initNotifications();
-                    console.log('[Init] Notifications initialized');
+                    console.log('[Init] Notifications initialized (live SSE first)');
                 } else {
                     console.error('[Init] Notifications module not found');
                 }
