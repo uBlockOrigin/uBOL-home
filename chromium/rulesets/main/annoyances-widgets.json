@@ -59,5 +59,6 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||services.leadconnectorhq.com/chat-widget/"},"id":58,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["tidio.com"],"urlFilter":"||tidio.co^"},"id":59,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||eservices.healthhub.sg/public/chatbot/widget/ca/assets/index.js"},"id":60,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||momence.com/plugin/webchat/webchat.js"},"id":61,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||momence.com/plugin/webchat/webchat.js"},"id":61,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||webchat.vica.gov.sg/static/js/chat.js"},"id":62,"priority":10}
 ]

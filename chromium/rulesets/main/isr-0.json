@@ -251,5 +251,7 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||biu.ac.il^*/stormcaster.js"},"id":250,"priority":30},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||auto.co.il/static/iframe_bn.html?*="},"id":251,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||radio.coolsite.co.il/sekindo/"},"id":252,"priority":10},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"domainType":"thirdParty","resourceTypes":["media"],"urlFilter":"||zerem.biz^*.mp4^"},"id":253,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"domainType":"thirdParty","resourceTypes":["media"],"urlFilter":"||zerem.biz^*.mp4^"},"id":253,"priority":11},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["shop.lametayel.co.il"],"resourceTypes":["image"],"urlFilter":"||shop.lametayel.co.il/img/cms/baner_shop/"},"id":254,"priority":30},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||mizrahi-tefahot.co.il/media/*_baner_katom_"},"id":255,"priority":30}
 ]

@@ -727,5 +727,7 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["referrer"]}}},"type":"redirect"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||podbean.com/player^*^referrer="},"id":726},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["pbss"]}}},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||podbean.com/pb^*^pbss="},"id":727},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["search_id"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||api.torob.com/v4/product-page/redirect^*^search_id="},"id":728},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["vastUrl"]}}},"type":"redirect"},"condition":{"domainType":"thirdParty","resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||tamasha.com/embed^*^vastUrl="},"id":729}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["vastUrl"]}}},"type":"redirect"},"condition":{"domainType":"thirdParty","resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||tamasha.com/embed^*^vastUrl="},"id":729},
+{"action":{"type":"block"},"condition":{"urlFilter":"||shomanews.com/uploads/advertisement^"},"id":730,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||bultannews.com/files/fa/adv^"},"id":731,"priority":10}
 ]

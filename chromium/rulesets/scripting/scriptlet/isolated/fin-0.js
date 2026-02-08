@@ -574,13 +574,13 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 3 */
 [removeClass,setCookie,removeNodeText];
 
-const $scriptletArgs$ = /* 19 */ ["st__hidden","#gamewrapper","Profile__TopCard--advertisement","","stay","SearchResultList--advertisement","SearchResultList__Row--advertisement","cookielaw_accepted","1","reload","script","async-hide","cookiebot-consent--necessary","cookiebot-consent--preferences","cookiebot-consent--marketing","0","cookiebot-consent--statistics","tek-cookie-agreed","2"];
+const $scriptletArgs$ = /* 17 */ ["st__hidden","#gamewrapper","Profile__TopCard--advertisement","","stay","SearchResultList--advertisement","SearchResultList__Row--advertisement","cookielaw_accepted","1","reload","script","async-hide","cookiebot-consent--necessary","cookiebot-consent--preferences","cookiebot-consent--marketing","0","cookiebot-consent--statistics"];
 
-const $scriptletArglists$ = /* 11 */ "0,0,1;0,2,3,4;0,5,3,4;0,6,3,4;1,7,8,3,9,8;2,10,11;1,12,8;1,13,8;1,14,15;1,16,15;1,17,18";
+const $scriptletArglists$ = /* 10 */ "0,0,1;0,2,3,4;0,5,3,4;0,6,3,4;1,7,8,3,9,8;2,10,11;1,12,8;1,13,8;1,14,15;1,16,15";
 
-const $scriptletArglistRefs$ = /* 6 */ "4;6,7,8,9;5;1,2,3;10;0";
+const $scriptletArglistRefs$ = /* 5 */ "4;6,7,8,9;5;1,2,3;0";
 
-const $scriptletHostnames$ = /* 6 */ ["srk.fi","aalto.fi","vauva.fi","finder.fi","www.tek.fi","ap-cdn.sanomagames.com"];
+const $scriptletHostnames$ = /* 5 */ ["srk.fi","aalto.fi","vauva.fi","finder.fi","ap-cdn.sanomagames.com"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

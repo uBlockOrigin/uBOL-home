@@ -200,7 +200,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||scmp.com/sw.js"},"id":199,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||sportskeeda.com/js/production/web-notifications/"},"id":200,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||techwalla.com/push-service-worker.js"},"id":201,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||telegraphindia.com/akam-sw.js"},"id":202,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/partytown-sw.js"},"id":202,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||timesnownews.com/sw.js"},"id":203,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ultimedia.com/js/common/notification.js"},"id":204,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||weather.com/*.medalliasurvey."},"id":205,"priority":10},

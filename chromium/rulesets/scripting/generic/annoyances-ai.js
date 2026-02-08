@@ -27,7 +27,7 @@
 
 /******************************************************************************/
 
-const genericSelectorMap = [[1641,"#kapa-widget-container"]];
+const genericSelectorMap = [[3541,"#gist-answers-widget"],[1641,"#kapa-widget-container"]];
 const genericExceptionSieve = undefined;
 const genericExceptionMap = undefined;
 
