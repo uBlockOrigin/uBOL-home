@@ -944,5 +944,7 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["rel"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||youtube.com/embed/*^rel="},"id":943},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["ymclid"]}}},"type":"redirect"},"condition":{"excludedInitiatorDomains":["ozon.onelink.me"],"resourceTypes":["main_frame"],"urlFilter":"^ymclid="},"id":944},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["source"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||disk.yandex.*^source="},"id":945},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["auth_renewed"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||market.yandex.*^auth_renewed="},"id":946}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["auth_renewed"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||market.yandex.*^auth_renewed="},"id":946},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["dzen.ru"],"resourceTypes":["script"],"urlFilter":"||yandex.ru/ads/system/widget.js|"},"id":947,"priority":30},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||r3.mail.ru/j/error/?t="},"id":948,"priority":10}
 ]
