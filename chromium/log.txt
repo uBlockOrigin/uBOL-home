@@ -1,5 +1,5 @@
-Secret: 015a57268b2d854d
-Version: 2026.209.1522
+Secret: a53d9f6e7d577070
+Version: 2026.209.2116
 ============================
 Listset for 'ublock-filters':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/quick-fixes.min.txt
@@ -7,11 +7,11 @@ Listset for 'ublock-filters':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/filters.min.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/privacy.min.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/ubol-filters.txt
-Input filter count: 9497
-	Accepted filter count: 9475
+Input filter count: 9496
+	Accepted filter count: 9474
 	Rejected filter count: 1
-Output rule count: 5995
-	Static rules: 4841
+Output rule count: 5994
+	Static rules: 4840
 		Salvaged rule by ignoring 1 unsupported domain= option: erotic-beauties.com|hardsex.cc|rule34.top|sex-movies.biz|tube18.sexy|xvideos.name|booru.*
 		Salvaged rule by ignoring 1 unsupported domain= option: 8boobs.com|angelgals.com|babesexy.com|babesinporn.com|fooxybabes.com|hotbabeswanted.com|hotstunners.com|mainbabes.com|nakedbabes.club|nakedgirlsroom.com|nudebabes.sexy|pleasuregirl.net|rabbitsfun.com|sexybabes.club|sexybabesart.com|wantedbabes.com|silkengirl.*
 		Salvaged rule by ignoring 1 unsupported domain= option: web.de|gmx.*
@@ -915,11 +915,11 @@ CSS-procedural: 3 distinct filters for 4 distinct hostnames
 ============================
 Listset for 'pgl':
 	Fetching remote https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext
-Input filter count: 3499
-	Accepted filter count: 3418
+Input filter count: 3501
+	Accepted filter count: 3420
 	Rejected filter count: 81
 Output rule count: 1
-	Pruning requestDomains: from 3418 to 3417
+	Pruning requestDomains: from 3420 to 3419
 	Static rules: 1
 
 	Maybe good (regexes): 0
@@ -1019,12 +1019,12 @@ Output rule count: 1
 Listset for 'adguard-mobile':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/filters-mobile.txt
 	Fetching remote https://filters.adtidy.org/extension/ublock/filters/11.txt
-Input filter count: 1520
-	Accepted filter count: 1516
+Input filter count: 1521
+	Accepted filter count: 1517
 	Rejected filter count: 4
-Output rule count: 556
+Output rule count: 557
 	Pruning requestDomains: from 882 to 874
-	Static rules: 544
+	Static rules: 545
 
 	Maybe good (regexes): 9
 	urlskip=: 0
@@ -1034,7 +1034,7 @@ Output rule count: 556
 CSS-generic: 18 specific CSS exceptions
 CSS-generic: 16 plain CSS selectors
 CSS-generic-high: 16 plain CSS selectors
-CSS-specific: 5268 distinct filters for 4160 distinct hostnames
+CSS-specific: 5269 distinct filters for 4162 distinct hostnames
 CSS-procedural: 543 distinct filters for 439 distinct hostnames
 ============================
 Listset for 'block-lan':
@@ -1053,11 +1053,11 @@ Output rule count: 18
 ============================
 Listset for 'dpollock-0':
 	Fetching remote https://someonewhocares.org/hosts/hosts
-Input filter count: 11969
-	Accepted filter count: 11959
+Input filter count: 11970
+	Accepted filter count: 11960
 	Rejected filter count: 10
 Output rule count: 1
-	Pruning requestDomains: from 11959 to 9745
+	Pruning requestDomains: from 11960 to 9746
 	Static rules: 1
 
 	Maybe good (regexes): 0
@@ -1517,8 +1517,8 @@ CSS-procedural: 42 distinct filters for 35 distinct hostnames
 ============================
 Listset for 'deu-0':
 	Fetching remote https://easylist.to/easylistgermany/easylistgermany.txt
-Input filter count: 2302
-	Accepted filter count: 2299
+Input filter count: 2301
+	Accepted filter count: 2298
 	Rejected filter count: 3
 Output rule count: 1823
 	Static rules: 1813
@@ -1535,7 +1535,7 @@ Output rule count: 1823
 CSS-generic: 35 specific CSS exceptions
 CSS-generic: 326 plain CSS selectors
 CSS-generic-high: 35 plain CSS selectors
-CSS-specific: 3051 distinct filters for 2079 distinct hostnames
+CSS-specific: 3052 distinct filters for 2078 distinct hostnames
 CSS-procedural: 107 distinct filters for 78 distinct hostnames
 ============================
 Listset for 'est-0':
@@ -1572,7 +1572,7 @@ Output rule count: 184
 CSS-generic: 7 specific CSS exceptions
 CSS-generic: 54 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
-CSS-specific: 1016 distinct filters for 542 distinct hostnames
+CSS-specific: 1017 distinct filters for 542 distinct hostnames
 CSS-procedural: 155 distinct filters for 115 distinct hostnames
 ============================
 Listset for 'fra-0':
@@ -1843,7 +1843,7 @@ Output rule count: 1731
 CSS-generic: 85 specific CSS exceptions
 CSS-generic: 108 plain CSS selectors
 CSS-generic-high: 12 plain CSS selectors
-CSS-specific: 8189 distinct filters for 5247 distinct hostnames
+CSS-specific: 8190 distinct filters for 5248 distinct hostnames
 CSS-procedural: 933 distinct filters for 714 distinct hostnames
 ============================
 Listset for 'kor-1':
@@ -2236,7 +2236,7 @@ CSS-generic: 2 specific CSS exceptions
 CSS-generic: 10 plain CSS selectors
 CSS-generic-high: 3 plain CSS selectors
 CSS-specific: 866 distinct filters for 454 distinct hostnames
-CSS-procedural: 78 distinct filters for 71 distinct hostnames
+CSS-procedural: 79 distinct filters for 72 distinct hostnames
 ============================
 Listset for 'rus-0':
 	Fetching remote https://raw.githubusercontent.com/easylist/ruadlist/master/RuAdList-uBO.txt
@@ -2271,7 +2271,7 @@ Output rule count: 5972
 CSS-generic: 163 specific CSS exceptions
 CSS-generic: 300 plain CSS selectors
 CSS-generic-high: 608 plain CSS selectors
-CSS-specific: 10513 distinct filters for 7445 distinct hostnames
+CSS-specific: 10515 distinct filters for 7445 distinct hostnames
 CSS-procedural: 1248 distinct filters for 1198 distinct hostnames
 ============================
 Listset for 'rus-1':
