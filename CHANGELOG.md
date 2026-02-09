@@ -2,6 +2,13 @@
 
 ----------
 
+### 2026.209.1522
+
+- [Force register content scripts when none are found](https://github.com/gorhill/uBlock/commit/2b63dcdcb6)
+- Updated filter lists
+
+----------
+
 ### 2026.208.2004
 
 - [Fix `removeparam` conversion](https://github.com/gorhill/uBlock/commit/93577ecca1)
