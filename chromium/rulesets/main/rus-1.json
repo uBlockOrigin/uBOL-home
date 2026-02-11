@@ -946,5 +946,7 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["source"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||disk.yandex.*^source="},"id":945},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["auth_renewed"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||market.yandex.*^auth_renewed="},"id":946},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["dzen.ru"],"resourceTypes":["script"],"urlFilter":"||yandex.ru/ads/system/widget.js|"},"id":947,"priority":30},
-{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||r3.mail.ru/j/error/?t="},"id":948,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||r3.mail.ru/j/error/?t="},"id":948,"priority":10},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["hs"]}}},"type":"redirect"},"condition":{"initiatorDomains":["ozon.ru"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^hs="},"id":949},
+{"action":{"type":"block"},"condition":{"urlFilter":"/sgtm/gtm.js"},"id":950,"priority":10}
 ]

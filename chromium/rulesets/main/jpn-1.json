@@ -1694,5 +1694,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||app.lazuda.com/api/kyujin_box/"},"id":1693,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":".com/api/support/messageget|"},"id":1694,"priority":10},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["gm"]}}},"type":"redirect"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||nexon.com/ngm/?gm="},"id":1695},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["pointmall.rakuten.co.jp"],"urlFilter":"||j.microad.net/js/compass.js"},"id":1696,"priority":30}
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["pointmall.rakuten.co.jp"],"urlFilter":"||j.microad.net/js/compass.js"},"id":1696,"priority":30},
+{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":".top/index/category?category_id=*&coll_id="},"id":1697,"priority":10}
 ]
