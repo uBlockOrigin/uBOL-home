@@ -1,3 +1,4 @@
+- [Remove "Steven Black’s Unified Hosts" list](https://github.com/gorhill/uBlock/commit/8d9832b4d6)
 - Updated filter lists
 
 ----------
