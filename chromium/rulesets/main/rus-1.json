@@ -476,7 +476,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"://hit."},"id":475,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"://hits."},"id":476,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"://piwik."},"id":477,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["sportlive365.net"],"excludedResourceTypes":["main_frame","stylesheet","sub_frame"],"urlFilter":"://stat."},"id":478,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["github.io","sportlive365.net"],"excludedResourceTypes":["main_frame","stylesheet","sub_frame"],"urlFilter":"://stat."},"id":478,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedResourceTypes":["main_frame","stylesheet","xmlhttprequest"],"urlFilter":"://top."},"id":479,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"//stats.myangular.life^"},"id":480,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"://a.pr-cy.ru^"},"id":481,"priority":10},

@@ -954,15 +954,15 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 6 */
-[preventSetTimeout,setConstant,removeAttr,abortCurrentScript,preventAddEventListener,abortOnPropertyWrite];
+[preventSetTimeout,setConstant,removeAttr,abortOnPropertyWrite,abortCurrentScript,preventAddEventListener];
 
-const $scriptletArgs$ = /* 52 */ ["E(!1)","show_modal","noopFunc","style","body","stay","oncontextmenu","href","[href*=\"ad.adverticum.net\"]","document.createElement","setTimeout","mouseleave","showFbPopup","FbExit","3000","cookie_alert_overlay","load","reklám blokkolókat","window._ceCTSData","hirdetések","adblock","false","adstest","4000","document.head","currentScript.remove","AdHandler.adblocked","0","AdHandler.adBlockEnabled","AdHandler.checkAdblock","a2blckLayer","tie.ad_blocker_detector","undefined","getComputedStyle","document.addEventListener","ai_run_","document.getElementById","ENABLE_PAGE_LEVEL_ADS","true","document.body.style","fetch","mode","detect_adblock","falseFunc","gemiusStream","{}","gemiusStream.event","gemiusStream.init","window.ado","null","class","section[class=\"life-section l-section-main article-section l-section-article\"]"];
+const $scriptletArgs$ = /* 53 */ ["E(!1)","show_modal","noopFunc","style","body","stay","oxyShowModal","oncontextmenu","href","[href*=\"ad.adverticum.net\"]","document.createElement","setTimeout","mouseleave","showFbPopup","FbExit","3000","cookie_alert_overlay","load","reklám blokkolókat","window._ceCTSData","hirdetések","adblock","false","adstest","4000","document.head","currentScript.remove","AdHandler.adblocked","0","AdHandler.adBlockEnabled","AdHandler.checkAdblock","a2blckLayer","tie.ad_blocker_detector","undefined","getComputedStyle","document.addEventListener","ai_run_","document.getElementById","ENABLE_PAGE_LEVEL_ADS","true","document.body.style","fetch","mode","detect_adblock","falseFunc","gemiusStream","{}","gemiusStream.event","gemiusStream.init","window.ado","null","class","section[class=\"life-section l-section-main article-section l-section-article\"]"];
 
-const $scriptletArglists$ = /* 32 */ "0,0;1,1,2;2,3,4,5;2,6;2,7,8;3,9,10;4,11,12;0,13,14;1,15,2;4,16,17;3,18,19;1,20,21;0,22,23;3,24,25;1,26,27;1,28,27;1,29,2;3,18,30;1,31,32;5,33;3,34,35;3,36,35;1,37,38;5,39;3,40,41;1,42,43;1,44,45;1,46,2;1,47,2;1,48,49;2,50,51;2,3,4";
+const $scriptletArglists$ = /* 33 */ "0,0;1,1,2;2,3,4,5;3,6;2,7;2,8,9;4,10,11;5,12,13;0,14,15;1,16,2;5,17,18;4,19,20;1,21,22;0,23,24;4,25,26;1,27,28;1,29,28;1,30,2;4,19,31;1,32,33;3,34;4,35,36;4,37,36;1,38,39;3,40;4,41,42;1,43,44;1,45,46;1,47,2;1,48,2;1,49,50;2,51,52;2,3,4";
 
-const $scriptletArglistRefs$ = /* 33 */ "10;20,21;30;23;2;13;29;6,7;8;0;9;1;13;12;3;5;25;13;18;19;26,27,28;17;8;4;8;31;8;22;24;24;8;14,15,16;11";
+const $scriptletArglistRefs$ = /* 34 */ "11;21,22;31;24;2;3;14;30;7,8;9;0;10;1;14;13;4;6;26;14;19;20;27,28,29;18;9;5;9;32;9;23;25;25;9;15,16,17;12";
 
-const $scriptletHostnames$ = /* 33 */ ["24.hu","hang.hu","life.hu","port.hu","blikk.hu","divany.hu","femina.hu","vezess.hu","foodker.hu","jofogas.hu","naphire.hu","arcanum.com","totalcar.hu","calculat.org","lifestory.hu","napiszar.com","rimkereso.hu","totalbike.hu","huaweiblog.hu","karpathir.com","player.rtl.hu","hazipatika.com","milestone66.hu","mindmegette.hu","paplanvilag.hu","sorozatwiki.hu","reformsziget.hu","myonlineradio.hu","online-filmek.ac","online-filmek.me","laptophardware.hu","embed.indavideo.hu","angol-magyar-szotar.hu"];
+const $scriptletHostnames$ = /* 34 */ ["24.hu","hang.hu","life.hu","port.hu","blikk.hu","hiros.hu","divany.hu","femina.hu","vezess.hu","foodker.hu","jofogas.hu","naphire.hu","arcanum.com","totalcar.hu","calculat.org","lifestory.hu","napiszar.com","rimkereso.hu","totalbike.hu","huaweiblog.hu","karpathir.com","player.rtl.hu","hazipatika.com","milestone66.hu","mindmegette.hu","paplanvilag.hu","sorozatwiki.hu","reformsziget.hu","myonlineradio.hu","online-filmek.ac","online-filmek.me","laptophardware.hu","embed.indavideo.hu","angol-magyar-szotar.hu"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

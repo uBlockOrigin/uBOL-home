@@ -23,5 +23,25 @@
  },
  "id": 2,
  "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "urlFilter": "||asus-brand-assistant.asus.com/brand-assistant.js"
+ },
+ "id": 3,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "urlFilter": "||embed.chatnode.ai^"
+ },
+ "id": 4,
+ "priority": 10
 }
 ]
