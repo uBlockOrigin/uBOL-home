@@ -13,19 +13,19 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 const BACKGROUND_JS = 'custom-dist/chromium/js/background.js';
-// Import order is important: identity -> notifications -> ad-domains -> ad-manager -> init
+// Import order is important: ad-domains first (single source for API_BASE_URL), then identity -> notifications -> ad-manager -> init
 // Note: chromium/js/background.js is kept untouched, this targets custom-dist/chromium/
 const IMPORT_STATEMENTS = [
+  "import './ad-domains.js';\n",
   "import './identity.js';\n",
   "import './notifications.js';\n",
-  "import './ad-domains.js';\n",
   "import './ad-manager.js';\n",
   "import './init.js';\n"
 ];
 
 function injectIntoBackground() {
   const backgroundPath = path.join(rootDir, BACKGROUND_JS);
-  
+
   if (!fs.existsSync(backgroundPath)) {
     console.warn(`⚠️  Background.js not found: ${BACKGROUND_JS}`);
     return false;
@@ -34,14 +34,14 @@ function injectIntoBackground() {
   try {
     // Read background.js
     let content = fs.readFileSync(backgroundPath, 'utf8');
-    
+
     // Check if imports already exist
     const hasIdentity = content.includes("import './identity.js'") || content.includes('import "./identity.js"');
     const hasNotifications = content.includes("import './notifications.js'") || content.includes('import "./notifications.js"');
     const hasAdDomains = content.includes("import './ad-domains.js'") || content.includes('import "./ad-domains.js"');
     const hasAdManager = content.includes("import './ad-manager.js'") || content.includes('import "./ad-manager.js"');
     const hasInit = content.includes("import './init.js'") || content.includes('import "./init.js"');
-    
+
     if (hasIdentity && hasNotifications && hasAdDomains && hasAdManager && hasInit) {
       console.log('  ℹ️  All custom imports already exist in background.js');
       return false;
@@ -61,19 +61,19 @@ function injectIntoBackground() {
     // Add the imports after the last import statement or at the top
     const importRegex = /^import\s+.*$/gm;
     const imports = content.match(importRegex);
-    
+
     const allImports = IMPORT_STATEMENTS.join('');
-    
+
     if (imports && imports.length > 0) {
       // Find the last import statement
       const lastImport = imports[imports.length - 1];
       const lastImportIndex = content.lastIndexOf(lastImport);
       const insertIndex = lastImportIndex + lastImport.length;
-      
+
       // Insert after the last import, before the next line
-      content = content.slice(0, insertIndex) + 
-                '\n' + allImports.trim() + 
-                content.slice(insertIndex);
+      content = content.slice(0, insertIndex) +
+        '\n' + allImports.trim() +
+        content.slice(insertIndex);
     } else {
       // No imports found, add at the beginning
       content = allImports + content;
@@ -92,9 +92,9 @@ function injectIntoBackground() {
 
 function injectAll() {
   console.log('🔧 Injecting custom modules into background.js for Manifest V3...\n');
-  
+
   const result = injectIntoBackground();
-  
+
   if (result) {
     console.log('✅ Background injection complete!\n');
   } else {

@@ -15,12 +15,13 @@ const rootDir = path.resolve(__dirname, '..');
 // Platform directories
 // Note: chromium/ and firefox/ are kept untouched, custom-dist/ contains custom builds
 const PLATFORMS = ['custom-dist/chromium', 'custom-dist/firefox'];
+// ad-domains.js first so AD_CONFIG (API_BASE_URL) is available to all other modules
 const CUSTOM_SCRIPTS = [
+    'custom/config/ad-domains.js',
     'custom/background/identity.js',
     'custom/background/notifications.js',
     'custom/background/init.js',
-    'custom/background/ad-manager.js',
-    'custom/config/ad-domains.js'
+    'custom/background/ad-manager.js'
 ];
 const TARGET_DIR = 'js';
 
@@ -56,7 +57,7 @@ function injectCustomFiles() {
             // Copy each custom script
             for (const customScript of CUSTOM_SCRIPTS) {
                 const customScriptPath = path.join(rootDir, customScript);
-                
+
                 // Check if custom script exists
                 if (!fs.existsSync(customScriptPath)) {
                     console.warn(`⚠️  Custom script not found: ${customScript}`);
@@ -81,7 +82,7 @@ function injectCustomFiles() {
 
             for (const contentScript of CUSTOM_CONTENT_SCRIPTS) {
                 const srcPath = path.join(rootDir, contentScript.src);
-                
+
                 // Check if source file exists
                 if (!fs.existsSync(srcPath)) {
                     console.warn(`⚠️  Content script not found: ${contentScript.src}`);
@@ -90,7 +91,7 @@ function injectCustomFiles() {
 
                 const destPath = path.join(platformDir, contentScript.dest);
                 const destDir = path.dirname(destPath);
-                
+
                 // Ensure destination directory exists
                 if (!fs.existsSync(destDir)) {
                     fs.mkdirSync(destDir, { recursive: true });

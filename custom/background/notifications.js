@@ -4,10 +4,10 @@
 (function () {
     'use strict';
 
-    // Get API base URL from config (set by ad-domains.js)
+    // Get API base URL from config (set by ad-domains.js - loaded first)
     const API_BASE_URL = (typeof globalThis !== 'undefined' && globalThis.AD_CONFIG?.API_BASE_URL) ||
-                        (typeof window !== 'undefined' && window.AD_CONFIG?.API_BASE_URL) ||
-                        'http://localhost:3000';
+        (typeof window !== 'undefined' && window.AD_CONFIG?.API_BASE_URL) ||
+        '';
 
     const NOTIFICATION_PRIORITY = 2; // High priority (0-2)
     const MAX_NOTIFICATIONS = 50; // Prevent notification spam
@@ -67,11 +67,14 @@
 
     /**
      * Show browser notification
-     * @param {Object} notificationData - Notification data from API { title, message }
+     * @param {Object} notificationData - Notification data from API { title, message, ctaLink? }
      */
     function showNotification(notificationData) {
         if (!notificationData || !notificationData.message) {
             console.warn('[Notifications] Invalid notification data');
+            return;
+        }
+        if (!chrome.notifications || typeof chrome.notifications.getAll !== 'function') {
             return;
         }
 
@@ -100,6 +103,11 @@
             // Add icon if available
             if (iconUrl) {
                 notificationOptions.iconUrl = iconUrl;
+            }
+
+            // Store ctaLink for handleNotificationClick to open when user clicks
+            if (notificationData.ctaLink) {
+                chrome.storage.local.set({ [`notification_url_${notificationId}`]: notificationData.ctaLink });
             }
 
             chrome.notifications.create(notificationId, notificationOptions, (createdId) => {
@@ -161,6 +169,10 @@
      */
     function connectLive(visitorId) {
         if (!visitorId) return;
+        if (!API_BASE_URL) {
+            console.warn('[Notifications] API_BASE_URL not set (ad-domains.js must load first)');
+            return;
+        }
 
         if (reconnectTimerId) {
             clearTimeout(reconnectTimerId);
@@ -190,8 +202,6 @@
         };
 
         es.addEventListener('connection_count', (e) => {
-            const count = parseInt(e.data, 10);
-            console.log('[Notifications] Live connection count:', count);
             reconnectDelayMs = LIVE_RECONNECT_BASE_MS; // Reset backoff on successful connect
             doFirstConnectPull();
         });
@@ -222,23 +232,35 @@
             console.log('[Notifications] Notifications already fetched');
             return;
         }
+        if (!API_BASE_URL) {
+            console.warn('[Notifications] API_BASE_URL not set (ad-domains.js must load first)');
+            return;
+        }
 
         try {
             const visitorId = await getVisitorId();
             const url = `${API_BASE_URL}/api/extension/notifications`;
             console.log('[Notifications] Fetching notifications from', url);
 
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ visitorId }),
-            });
+            let response;
+            try {
+                response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ visitorId }),
+                });
+            } catch (fetchErr) {
+                console.warn('[Notifications] Request failed (no response). Possible causes: CORS (allow extension origin on the API), network error, or invalid SSL.', fetchErr?.message || fetchErr);
+                throw fetchErr;
+            }
 
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
-                throw new Error(errorData.error || `API returned ${response.status}: ${response.statusText}`);
+                const msg = errorData.error || `API returned ${response.status}: ${response.statusText}`;
+                console.warn('[Notifications] API error', response.status, msg);
+                throw new Error(msg);
             }
 
             const data = await response.json();
@@ -261,7 +283,7 @@
 
             notificationsFetched = true;
         } catch (error) {
-            console.error('[Notifications] Failed to fetch notifications:', error);
+            console.error('[Notifications] Failed to fetch notifications:', error?.message || error);
             // Don't retry automatically - will try again on next extension load or next SSE event
         }
     }
@@ -324,6 +346,9 @@
      * Clean up old notifications (prevent accumulation)
      */
     function cleanupOldNotifications() {
+        if (!chrome.notifications || typeof chrome.notifications.getAll !== 'function') {
+            return;
+        }
         chrome.notifications.getAll((notifications) => {
             const notificationIds = Object.keys(notifications || {});
             if (notificationIds.length > MAX_NOTIFICATIONS) {

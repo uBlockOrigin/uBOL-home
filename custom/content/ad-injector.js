@@ -7,32 +7,10 @@
 
     // Get config from global (set by ad-domains.js via background). Single source of truth for DEBUG_AD_FRAMES is injected AD_CONFIG; fallback to true only when AD_CONFIG is missing.
     const CONFIG = (typeof window !== 'undefined' && window.AD_CONFIG) ||
-    {
-        MAX_ADS_PER_PAGE: 2,
-        SCAN_DEBOUNCE_MS: 1000,
-        LAYOUT_SHIFT_THRESHOLD_PX: 50,
-        MIN_AD_WIDTH: 300,
-        MIN_AD_HEIGHT: 250,
-        DEBUG_AD_FRAMES: true,
-        AD_KEYWORDS: [
-            'ad', 'ads', 'advert', 'advertisement', 'advertising',
-            'banner', 'sponsor', 'sponsored', 'promo', 'promotion',
-            'dfp', 'gpt-ad', 'gpt', 'taboola', 'outbrain',
-            'adsense', 'doubleclick', 'adtech', 'adserver',
-            'adunit', 'adslot', 'adcontainer', 'ad-wrapper',
-            'ad-box', 'ad-frame', 'ad-zone', 'ad-placeholder'
-        ],
-        STANDARD_AD_SIZES: [
-            { width: 300, height: 250 },
-            { width: 728, height: 90 },
-            { width: 160, height: 600 },
-            { width: 320, height: 50 },
-            { width: 300, height: 600 },
-            { width: 970, height: 250 },
-            { width: 970, height: 90 },
-            { width: 336, height: 280 },
-        ],
-    };
+        { MAX_ADS_PER_PAGE: 2, SCAN_DEBOUNCE_MS: 1000, LAYOUT_SHIFT_THRESHOLD_PX: 50, DEBUG_AD_FRAMES: true };
+
+    const MIN_AD_WIDTH = 300;
+    const MIN_AD_HEIGHT = 250;
 
     // State
     let ads = [];
@@ -44,14 +22,12 @@
     let scanDebounceTimer = null;
     let currentUrl = window.location.href;
     let isInitialized = false;
-    const INSTAGRAM_RETRY_DELAYS_MS = [2500, 5000, 8000];
-    const INSTAGRAM_MAX_RETRIES = 3;
-    let instagramRetryCount = 0;
     let instagramUrlPollId = null; // SPA URL check when we skip mutation observer on Instagram
 
     const MAX_SLOT_RETRIES = 3;
     const SLOT_RETRY_DELAYS_MS = [1500, 3500, 6000];
     let slotRetryCount = 0;
+    let popupDismissedByUser = false; // Do not re-show popup after user closes it
 
     // Generate obfuscated attribute name once per page load
     const OBFUSCATED_ATTR = '_x' + Math.random().toString(36).substr(2, 5);
@@ -80,13 +56,26 @@
     }
 
     /**
-     * Normalize ad: image URL or API-supplied base64 data URL
-     * API may send image: "Yes" and actual URL in imageUrl; or dataUrl/imageData/image as data: URL
+     * Normalize ad: image URL or API-supplied base64 data URL; or HTML content for direct injection
+     * API may send image/imageUrl, dataUrl/imageData, or html (string) with optional type (e.g. 'popup')
      * @param {object} ad
      * @returns {object}
      */
     function normalizeAd(ad) {
         const a = { ...ad };
+        if (a.html != null && typeof a.html !== 'string') {
+            a.html = String(a.html);
+        }
+        if (a.type != null && typeof a.type !== 'string') {
+            a.type = String(a.type);
+        }
+        // Map API fields: htmlCode -> html, displayAs -> type
+        if ((a.html == null || a.html === '') && a.htmlCode != null && typeof a.htmlCode === 'string') {
+            a.html = a.htmlCode.trim();
+        }
+        if (a.displayAs != null && typeof a.displayAs === 'string') {
+            a.type = a.displayAs;
+        }
         const dataUrlRaw = a.dataUrl || a.imageData || (a.image && typeof a.image === 'string' && a.image.trim().startsWith('data:') ? a.image : null);
         if (dataUrlRaw && typeof dataUrlRaw === 'string' && dataUrlRaw.trim().startsWith('data:')) {
             a.imageDataUrl = dataUrlRaw.trim();
@@ -173,355 +162,6 @@
     }
 
     /**
-     * Check if element is visible
-     * @param {HTMLElement} el
-     * @returns {boolean}
-     */
-    function isVisible(el) {
-        if (!el) return false;
-        const rect = el.getBoundingClientRect();
-        const style = window.getComputedStyle(el);
-        return (
-            rect.width > 0 &&
-            rect.height > 0 &&
-            style.display !== 'none' &&
-            style.visibility !== 'hidden' &&
-            style.opacity !== '0'
-        );
-    }
-
-    /**
-     * Check if element has overflow hidden
-     * @param {HTMLElement} el
-     * @returns {boolean}
-     */
-    function hasOverflowHidden(el) {
-        if (!el) return false;
-        const style = window.getComputedStyle(el);
-        return style.overflow === 'hidden' || style.overflowX === 'hidden' || style.overflowY === 'hidden';
-    }
-
-    /**
-     * Check if element is in viewport
-     * @param {HTMLElement} el
-     * @returns {boolean}
-     */
-    function isInViewport(el) {
-        if (!el) return false;
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
-    /**
-     * Get class name as string (HTMLElement has string; SVGElement has SVGAnimatedString)
-     * @param {Element} el
-     * @returns {string}
-     */
-    function getClassNameString(el) {
-        if (!el || el.className == null) return '';
-        const c = el.className;
-        if (typeof c === 'string') return c;
-        if (typeof c === 'object' && typeof c.baseVal === 'string') return c.baseVal;
-        return String(c);
-    }
-
-    /**
-     * Check if element has ad-related keywords in class or ID
-     * @param {HTMLElement} el
-     * @returns {boolean}
-     */
-    function hasAdKeywords(el) {
-        if (!el) return false;
-        const adKeywords = CONFIG.AD_KEYWORDS || [];
-        const className = getClassNameString(el).toLowerCase();
-        const id = (el.id != null ? String(el.id) : '').toLowerCase();
-
-        return adKeywords.some(keyword =>
-            className.includes(keyword) || id.includes(keyword)
-        );
-    }
-
-    /**
-     * Check if element matches standard ad dimensions
-     * @param {HTMLElement} el
-     * @returns {boolean}
-     */
-    function matchesStandardAdSize(el) {
-        if (!el) return false;
-        const rect = el.getBoundingClientRect();
-        const standardSizes = CONFIG.STANDARD_AD_SIZES || [];
-
-        // Allow 5px tolerance for each dimension
-        return standardSizes.some(size => {
-            const widthMatch = Math.abs(rect.width - size.width) <= 5;
-            const heightMatch = Math.abs(rect.height - size.height) <= 5;
-            return widthMatch && heightMatch && rect.width > 0 && rect.height > 0;
-        });
-    }
-
-    /**
-     * Check if element is hidden by cosmetic filters (display:none!important)
-     * @param {HTMLElement} el
-     * @returns {boolean}
-     */
-    function isHiddenByBlocker(el) {
-        if (!el) return false;
-        const style = window.getComputedStyle(el);
-        // Check if display is none with important flag (signature of cosmetic filters)
-        if (style.display === 'none') {
-            // Check if it has ad-related identifiers
-            return hasAdKeywords(el);
-        }
-        return false;
-    }
-
-    /**
-     * Detect empty ad frames across the entire DOM
-     * @returns {Array} Array of slot objects with element, rect, reason, originalSelector
-     */
-    function detectEmptyAdFrames() {
-        const slots = [];
-        const seenElements = new Set();
-        const adKeywords = CONFIG.AD_KEYWORDS || [];
-
-        // Strategy 1: Empty/collapsed iframes
-        const iframes = document.querySelectorAll('iframe');
-        for (const iframe of iframes) {
-            if (seenElements.has(iframe)) continue;
-
-            const rect = iframe.getBoundingClientRect();
-            const style = window.getComputedStyle(iframe);
-
-            // Check if iframe is collapsed or hidden
-            if ((rect.width === 0 && rect.height === 0) ||
-                style.display === 'none' ||
-                style.visibility === 'hidden') {
-
-                // Check if it has ad-related attributes or is in ad container
-                const parent = iframe.parentElement;
-                if (hasAdKeywords(iframe) || (parent && hasAdKeywords(parent))) {
-                    seenElements.add(iframe);
-                    slots.push({
-                        element: iframe,
-                        rect: rect,
-                        reason: 'empty-iframe',
-                        originalSelector: iframe.id || getClassNameString(iframe) || 'iframe',
-                        parent: parent || iframe.parentElement,
-                        replaceElement: iframe
-                    });
-                }
-            }
-        }
-
-        // Strategy 2: Empty ad containers (by keyword matching)
-        // Use a more comprehensive selector
-        const allElements = document.querySelectorAll('*');
-        for (const el of allElements) {
-            if (seenElements.has(el)) continue;
-            if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE' || el.tagName === 'NOSCRIPT') continue;
-
-            // Check if element has ad-related keywords
-            if (!hasAdKeywords(el)) continue;
-
-            const rect = el.getBoundingClientRect();
-            const style = window.getComputedStyle(el);
-
-            // Check if empty or collapsed
-            const isEmpty = el.children.length === 0 &&
-                el.textContent.trim() === '' &&
-                el.innerHTML.trim() === '';
-
-            const isCollapsed = rect.width === 0 && rect.height === 0;
-            const isHidden = style.display === 'none' || style.visibility === 'hidden';
-            const hasZeroHeight = el.scrollHeight === 0 || el.clientHeight === 0;
-
-            // Must meet minimum size requirements if visible
-            const meetsMinSize = rect.width >= CONFIG.MIN_AD_WIDTH &&
-                rect.height >= CONFIG.MIN_AD_HEIGHT;
-
-            if ((isEmpty || isCollapsed || isHidden || hasZeroHeight) &&
-                (isHidden || meetsMinSize || matchesStandardAdSize(el))) {
-
-                seenElements.add(el);
-                const firstClass = getClassNameString(el).trim().split(/\s+/)[0];
-                const selector = el.id ? `#${el.id}` :
-                    firstClass ? `.${firstClass}` :
-                        el.tagName.toLowerCase();
-
-                slots.push({
-                    element: el,
-                    rect: rect,
-                    reason: isEmpty ? 'empty-container' :
-                        isHidden ? 'hidden-by-blocker' :
-                            'collapsed-container',
-                    originalSelector: selector,
-                    parent: el.parentElement,
-                    replaceElement: el
-                });
-            }
-        }
-
-        // Strategy 3: Elements matching standard ad sizes (even if not empty)
-        // These might be placeholders waiting for ads
-        for (const el of allElements) {
-            if (seenElements.has(el)) continue;
-            if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE' || el.tagName === 'NOSCRIPT') continue;
-
-            const rect = el.getBoundingClientRect();
-            if (rect.width === 0 || rect.height === 0) continue;
-
-            // Check if matches standard ad size
-            if (matchesStandardAdSize(el)) {
-                // Check if it's empty or has minimal content
-                const isEmpty = el.children.length === 0 &&
-                    el.textContent.trim().length < 20;
-
-                const style = window.getComputedStyle(el);
-                const isHidden = style.display === 'none';
-
-                if ((isEmpty || isHidden) && !seenElements.has(el)) {
-                    seenElements.add(el);
-                    const firstClass = getClassNameString(el).trim().split(/\s+/)[0];
-                    const selector = el.id ? `#${el.id}` :
-                        firstClass ? `.${firstClass}` :
-                            el.tagName.toLowerCase();
-
-                    slots.push({
-                        element: el,
-                        rect: rect,
-                        reason: 'standard-ad-size',
-                        originalSelector: selector,
-                        parent: el.parentElement,
-                        replaceElement: el
-                    });
-                }
-            }
-        }
-
-        // Strategy 4: Elements hidden by blocker with ad keywords
-        for (const el of allElements) {
-            if (seenElements.has(el)) continue;
-            if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE' || el.tagName === 'NOSCRIPT') continue;
-
-            if (isHiddenByBlocker(el)) {
-                const rect = el.getBoundingClientRect();
-                seenElements.add(el);
-                const firstClass = getClassNameString(el).trim().split(/\s+/)[0];
-                const selector = el.id ? `#${el.id}` :
-                    firstClass ? `.${firstClass}` :
-                        el.tagName.toLowerCase();
-
-                slots.push({
-                    element: el,
-                    rect: rect,
-                    reason: 'hidden-by-blocker',
-                    originalSelector: selector,
-                    parent: el.parentElement,
-                    replaceElement: el
-                });
-            }
-        }
-
-        // Strategy 5: Common ad placement areas (sidebar, aside, etc.) even without keywords
-        const commonAdSelectors = [
-            'aside', '.sidebar', '.side-bar', '.ad-sidebar',
-            '[role="complementary"]', '.widget', '.widget-area',
-            '.ad-container', '.ad-wrapper', '.ad-box', '.ad-slot',
-            '[id*="ad"]', '[class*="ad"]', '[id*="banner"]', '[class*="banner"]'
-        ];
-
-        for (const selector of commonAdSelectors) {
-            try {
-                const elements = document.querySelectorAll(selector);
-                for (const el of elements) {
-                    if (seenElements.has(el)) continue;
-                    if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE' || el.tagName === 'NOSCRIPT') continue;
-
-                    const rect = el.getBoundingClientRect();
-                    const style = window.getComputedStyle(el);
-
-                    // Check if it's empty or has minimal content
-                    const isEmpty = el.children.length === 0 && el.textContent.trim().length < 50;
-                    const isHidden = style.display === 'none';
-                    const hasMinSize = rect.width >= CONFIG.MIN_AD_WIDTH && rect.height >= CONFIG.MIN_AD_HEIGHT;
-
-                    if ((isEmpty || isHidden || matchesStandardAdSize(el)) &&
-                        (isHidden || hasMinSize || matchesStandardAdSize(el))) {
-                        seenElements.add(el);
-                        const firstClass = getClassNameString(el).trim().split(/\s+/)[0];
-                        const sel = el.id ? `#${el.id}` :
-                            firstClass ? `.${firstClass}` :
-                                selector;
-
-                        slots.push({
-                            element: el,
-                            rect: rect,
-                            reason: isEmpty ? 'empty-common-area' :
-                                isHidden ? 'hidden-common-area' :
-                                    'common-ad-area',
-                            originalSelector: sel,
-                            parent: el.parentElement,
-                            replaceElement: el
-                        });
-                    }
-                }
-            } catch (e) {
-                // Invalid selector, skip
-            }
-        }
-
-        // Strategy 6: Iframes that might be ad containers (even if not collapsed)
-        for (const iframe of iframes) {
-            if (seenElements.has(iframe)) continue;
-
-            const rect = iframe.getBoundingClientRect();
-            const style = window.getComputedStyle(iframe);
-
-            // Check if iframe matches ad size or is in ad container
-            if ((matchesStandardAdSize(iframe) ||
-                (rect.width >= CONFIG.MIN_AD_WIDTH && rect.height >= CONFIG.MIN_AD_HEIGHT)) &&
-                (style.display === 'none' || hasAdKeywords(iframe) ||
-                    (iframe.parentElement && hasAdKeywords(iframe.parentElement)))) {
-
-                seenElements.add(iframe);
-                slots.push({
-                    element: iframe,
-                    rect: rect,
-                    reason: 'iframe-ad-container',
-                    originalSelector: iframe.id || getClassNameString(iframe) || 'iframe',
-                    parent: iframe.parentElement,
-                    replaceElement: iframe
-                });
-            }
-        }
-
-        console.log(`[AdInjector] 🔍 Detection complete: found ${slots.length} potential slots before filtering`);
-
-        // Limit results and sort by size (prefer larger slots)
-        const filteredSlots = slots
-            .filter(slot => {
-                // For hidden elements, accept any size
-                if (slot.reason === 'hidden-by-blocker' || slot.reason === 'hidden-common-area') {
-                    return true;
-                }
-                // For visible elements, require minimum size
-                return slot.rect.width >= CONFIG.MIN_AD_WIDTH ||
-                    slot.rect.height >= CONFIG.MIN_AD_HEIGHT ||
-                    matchesStandardAdSize(slot.element);
-            })
-            .sort((a, b) => (b.rect.width * b.rect.height) - (a.rect.width * a.rect.height))
-            .slice(0, CONFIG.MAX_ADS_PER_PAGE * 3); // Get more candidates in debug mode
-
-        console.log(`[AdInjector] ✅ Filtered to ${filteredSlots.length} valid slots`);
-        return filteredSlots;
-    }
-
-    /**
      * Create a Shadow DOM host element with obfuscated naming
      * @returns {HTMLElement} Host element with shadow root
      */
@@ -541,7 +181,7 @@
 
     /**
      * Render red debug boxes in detected empty frames using Shadow DOM
-     * @param {Array} slots - Array of slot objects from detectEmptyAdFrames()
+     * @param {Array} slots - Array of slot objects from findInjectionSlots()
      */
     function renderDebugBoxes(slots) {
         // Clean up existing debug boxes first
@@ -586,14 +226,14 @@
                 }
                 if (!actualRect && afterElement && afterElement.getBoundingClientRect) {
                     const elRect = afterElement.getBoundingClientRect();
-                    actualRect = { width: elRect.width, height: Math.max(elRect.height, CONFIG.MIN_AD_HEIGHT) };
+                    actualRect = { width: elRect.width, height: Math.max(elRect.height, MIN_AD_HEIGHT) };
                 }
                 if (!actualRect && replaceElement && replaceElement.getBoundingClientRect) {
                     actualRect = replaceElement.getBoundingClientRect();
                 }
-                const safeRect = actualRect || { width: CONFIG.MIN_AD_WIDTH, height: CONFIG.MIN_AD_HEIGHT };
-                const width = Math.max(safeRect.width || CONFIG.MIN_AD_WIDTH, CONFIG.MIN_AD_WIDTH);
-                const height = Math.max(safeRect.height || CONFIG.MIN_AD_HEIGHT, CONFIG.MIN_AD_HEIGHT);
+                const safeRect = actualRect || { width: MIN_AD_WIDTH, height: MIN_AD_HEIGHT };
+                const width = Math.max(safeRect.width || MIN_AD_WIDTH, MIN_AD_WIDTH);
+                const height = Math.max(safeRect.height || MIN_AD_HEIGHT, MIN_AD_HEIGHT);
 
                 // Determine insertion point
                 let insertionParent = parent;
@@ -810,284 +450,16 @@
     }
 
     /**
-     * Find injection slots for CNN (including edition.cnn.com and other subdomains)
-     * @returns {Array<HTMLElement>} Array of parent elements to inject into
-     */
-    function findCNNSlots() {
-        const slots = [];
-
-        // Strategy 1: Empty ad containers (now empty because blocked)
-        const emptyAdContainers = Array.from(document.querySelectorAll('.ad, .ad-container, .ad-wrapper, [class*="ad-"], [id*="ad-"]'));
-        for (const container of emptyAdContainers) {
-            if (container.children.length === 0 && isVisible(container)) {
-                const rect = container.getBoundingClientRect();
-                if (rect.width >= CONFIG.MIN_AD_WIDTH && rect.height >= CONFIG.MIN_AD_HEIGHT) {
-                    slots.push({ parent: container.parentElement, replaceElement: container });
-                }
-            }
-        }
-
-        // Strategy 2: Between paragraphs in article body (multiple selectors for cnn.com vs edition.cnn.com)
-        const articleBodySelectors = [
-            'article .zn-body__paragraph',
-            'article p',
-            '.article-body p',
-            '.article__content p',
-            'main p',
-            '[class*="article"] p',
-            '[class*="content"] p'
-        ];
-        let paragraphs = [];
-        let paragraphParent = null;
-        for (const sel of articleBodySelectors) {
-            const first = document.querySelector(sel);
-            if (first && first.parentElement) {
-                paragraphParent = first.parentElement;
-                paragraphs = Array.from(paragraphParent.querySelectorAll('p'));
-                if (paragraphs.length >= 2) break;
-            }
-        }
-        if (paragraphs.length >= 2) {
-            const targetPara = paragraphs[Math.min(2, paragraphs.length - 1)];
-            if (targetPara && isVisible(targetPara) && paragraphParent) {
-                slots.push({ parent: paragraphParent, afterElement: targetPara });
-            }
-        }
-
-        // Strategy 3: Sidebar gaps
-        const sidebar = document.querySelector('.zn-body__read-all, aside, .sidebar, [class*="sidebar"]');
-        if (sidebar && isVisible(sidebar)) {
-            const rect = sidebar.getBoundingClientRect();
-            if (rect.width >= CONFIG.MIN_AD_WIDTH) {
-                slots.push({ parent: sidebar, prepend: true });
-            }
-        }
-
-        // Strategy 4: After first substantial block in main/article (for edition.cnn.com and sparse layouts)
-        if (slots.length === 0) {
-            const mainOrArticle = document.querySelector('main, article, [role="main"]');
-            if (mainOrArticle && isVisible(mainOrArticle)) {
-                const children = Array.from(mainOrArticle.querySelectorAll('p, div[class*="content"], div[class*="body"], .paragraph'));
-                const firstBlock = children.find(el => isVisible(el) && el.getBoundingClientRect().height > 50);
-                if (firstBlock && firstBlock.parentElement) {
-                    slots.push({ parent: firstBlock.parentElement, afterElement: firstBlock });
-                }
-            }
-        }
-
-        return slots;
-    }
-
-    /**
-     * CNN header banner fallback: insert a full-width banner below the navigation bar.
-     * Used when findCNNSlots and findContentFlowSlots both return 0.
-     * CNN page structure: [top ad area] -> [header/nav] -> [ticker bar] -> [main content]
-     * @returns {Array} Array with 0 or 1 slot objects
-     */
-    function findCNNHeaderSlot() {
-        // Try to find the header/nav element
-        const header = document.querySelector('header')
-            || document.querySelector('nav')
-            || document.querySelector('[class*="header"]');
-        if (header && header.parentElement) {
-            console.log('[AdInjector] CNN header fallback: inserting after header/nav');
-            return [{ parent: header.parentElement, afterElement: header, isHeaderBanner: true }];
-        }
-
-        // Fallback: prepend to main content area
-        const main = document.querySelector('main') || document.querySelector('[role="main"]');
-        if (main) {
-            console.log('[AdInjector] CNN header fallback: prepending to main');
-            return [{ parent: main, prepend: true, isHeaderBanner: true }];
-        }
-
-        // Last resort: prepend to body
-        console.log('[AdInjector] CNN header fallback: prepending to body');
-        return [{ parent: document.body, prepend: true, isHeaderBanner: true }];
-    }
-
-    /**
-     * Content-flow slots: find main content container and insert after every N blocks (e.g. after 2nd and 5th).
-     * Does not rely on server-side ad placeholders; places ads in natural reading flow.
-     * @returns {Array} Slot objects with parent and afterElement
-     */
-    function findContentFlowSlots() {
-        const slots = [];
-        const insertAfterIndices = (CONFIG.CONTENT_FLOW_INSERT_AFTER_INDICES && Array.isArray(CONFIG.CONTENT_FLOW_INSERT_AFTER_INDICES))
-            ? CONFIG.CONTENT_FLOW_INSERT_AFTER_INDICES
-            : [2, 5];
-        const maxSlots = typeof CONFIG.MAX_CONTENT_FLOW_SLOTS === 'number' ? CONFIG.MAX_CONTENT_FLOW_SLOTS : CONFIG.MAX_ADS_PER_PAGE;
-
-        let mainContainer = document.querySelector('main') || document.querySelector('article') || document.querySelector('[role="main"]');
-        if (!mainContainer || !isVisible(mainContainer) || hasOverflowHidden(mainContainer)) {
-            mainContainer = null;
-        }
-        if (!mainContainer) {
-            const withParagraphs = document.querySelectorAll('div');
-            for (const div of withParagraphs) {
-                const ps = div.querySelectorAll('p');
-                if (ps.length >= 3 && isVisible(div) && !hasOverflowHidden(div)) {
-                    mainContainer = div;
-                    break;
-                }
-            }
-        }
-        if (!mainContainer) return slots;
-
-        const BLOCK_TAGS = ['P', 'DIV', 'SECTION', 'ARTICLE', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'BLOCKQUOTE', 'FIGURE', 'UL', 'OL'];
-        const blocks = Array.from(mainContainer.children).filter(el => {
-            if (!el || el.nodeType !== 1) return false;
-            if (!BLOCK_TAGS.includes(el.tagName)) return false;
-            if (!isVisible(el)) return false;
-            const rect = el.getBoundingClientRect();
-            return rect.height >= 20;
-        });
-
-        for (const oneBasedIndex of insertAfterIndices) {
-            if (slots.length >= maxSlots) break;
-            const zeroBasedIndex = oneBasedIndex - 1;
-            if (zeroBasedIndex < 0 || zeroBasedIndex >= blocks.length) continue;
-            const block = blocks[zeroBasedIndex];
-            const parent = block.parentElement;
-            if (!parent) continue;
-            if (parent.querySelector && (parent.querySelector('.duck') || parent.querySelector(`[${OBFUSCATED_ATTR}]`))) continue;
-            slots.push({ parent, afterElement: block });
-        }
-        return slots;
-    }
-
-    /**
-     * Generic fallback: find safe injection slots
-     * @returns {Array<HTMLElement>} Array of parent elements to inject into
-     */
-    function findGenericSlots() {
-        const slots = [];
-        const skipTags = ['NAV', 'HEADER', 'FOOTER', 'FORM', 'INPUT', 'VIDEO', 'AUDIO', 'SCRIPT', 'STYLE'];
-        const skipSelectors = ['nav', 'header', 'footer', 'form', 'input', 'video', 'audio'];
-
-        // Scan visible containers
-        const allElements = document.querySelectorAll('body > *');
-
-        for (const el of allElements) {
-            // Skip certain elements
-            if (skipTags.includes(el.tagName) || skipSelectors.some(sel => el.matches(sel))) {
-                continue;
-            }
-
-            // Skip fixed position elements
-            const style = window.getComputedStyle(el);
-            if (style.position === 'fixed' || style.position === 'sticky') {
-                continue;
-            }
-
-            // Skip if overflow hidden
-            if (hasOverflowHidden(el)) {
-                continue;
-            }
-
-            // Check if visible and has minimum size
-            if (!isVisible(el)) {
-                continue;
-            }
-
-            const rect = el.getBoundingClientRect();
-            if (rect.width >= CONFIG.MIN_AD_WIDTH && rect.height >= CONFIG.MIN_AD_HEIGHT) {
-                // Check if already has injected ad (using obfuscated attribute)
-                if (el.querySelector(`[${OBFUSCATED_ATTR}]`) ||
-                    el.querySelector(`.${OBFUSCATED_HOST_CLASS}`)) {
-                    continue;
-                }
-
-                // Score by viewport position (prefer center)
-                const viewportCenter = window.innerHeight / 2;
-                const elementCenter = rect.top + rect.height / 2;
-                const distanceFromCenter = Math.abs(elementCenter - viewportCenter);
-
-                slots.push({
-                    parent: el,
-                    score: 1000 - distanceFromCenter, // Higher score = better
-                });
-            }
-        }
-
-        // Sort by score (highest first)
-        slots.sort((a, b) => (b.score || 0) - (a.score || 0));
-
-        return slots.slice(0, CONFIG.MAX_ADS_PER_PAGE);
-    }
-
-    /**
-     * Filter out low-quality empty-frame slots (overlays, modals, 0×0, tiny UI elements)
-     * @param {Array} slots - Slots from detectEmptyAdFrames()
-     * @returns {Array} Filtered slots
-     */
-    function filterEmptyFrameSlots(slots) {
-        const badPatterns = [
-            'ad-feedback', 'modal-overlay', 'text-tracks', 'technical-issues',
-            'content-container', 'submitted', 'overlay'
-        ];
-        const minDimension = 50; // Skip slots that are tiny in both dimensions
-        return slots.filter(slot => {
-            const sel = (slot.originalSelector || '') + (slot.element?.id || '') + (slot.element?.className || '');
-            const isBadSelector = badPatterns.some(p => sel.toLowerCase().includes(p));
-            const w = slot.rect?.width ?? 0;
-            const h = slot.rect?.height ?? 0;
-            const isTiny = w < minDimension && h < minDimension;
-            if (isBadSelector) {
-                console.log(`[AdInjector] 🚫 Skipping bad slot: ${slot.originalSelector} (${w}×${h})`);
-                return false;
-            }
-            if (isTiny && (w === 0 || h === 0)) {
-                console.log(`[AdInjector] 🚫 Skipping zero/tiny slot: ${slot.originalSelector} (${w}×${h})`);
-                return false;
-            }
-            return true;
-        });
-    }
-
-    /**
-     * Find injection slots based on domain
-     * CNN/Instagram: domain-specific slots only (no fallback to empty frames or generic).
-     * Others: content-flow, then empty frames, then generic.
+     * Find injection slots based on domain.
+     * Instagram only: uses findInstagramSlots. Other domains return empty.
      * @returns {Array} Array of slot objects
      */
     function findInjectionSlots() {
         console.log('[AdInjector] 🔍 Scanning for ad injection slots...');
 
         const domain = getDomain();
-        const isCNN = domain === 'cnn.com' || domain.includes('cnn.com');
         const isInstagram = domain === 'instagram.com' || domain.includes('instagram.com');
 
-        // CNN: CNN-specific slots -> content-flow fallback -> header banner fallback
-        if (isCNN) {
-            const slots = findCNNSlots();
-            console.log(`[AdInjector] CNN strategy found ${slots.length} slots`);
-            if (slots.length > 0) {
-                logSlots(slots, 'domain-specific');
-                return slots;
-            }
-            if (CONFIG.CNN_FALLBACK_TO_CONTENT_FLOW !== false) {
-                const contentFlowSlots = findContentFlowSlots();
-                if (contentFlowSlots.length > 0) {
-                    console.log(`[AdInjector] CNN: no CNN slots, using content-flow fallback (${contentFlowSlots.length} slots)`);
-                    logSlots(contentFlowSlots, 'content-flow');
-                    return contentFlowSlots;
-                }
-            }
-            // Ultimate fallback: header banner
-            if (CONFIG.CNN_HEADER_FALLBACK !== false) {
-                const headerSlots = findCNNHeaderSlot();
-                if (headerSlots.length > 0) {
-                    console.log('[AdInjector] CNN: using header banner fallback');
-                    logSlots(headerSlots, 'header-banner');
-                    return headerSlots;
-                }
-            }
-            console.log('[AdInjector] CNN: no slots found at all');
-            return [];
-        }
-
-        // Instagram: only one ad slot to avoid duplicates when feed loads or script runs twice
         if (isInstagram) {
             const allSlots = findInstagramSlots();
             const slots = allSlots.slice(0, 1);
@@ -1096,38 +468,9 @@
                 logSlots(slots, 'domain-specific');
                 return slots;
             }
-            return [];
         }
 
-        // Content-flow first for generic sites (main content, after N blocks); then empty frames; then generic
-        const contentFlowSlots = findContentFlowSlots();
-        if (contentFlowSlots.length > 0) {
-            console.log(`[AdInjector] ✅ Content-flow strategy found ${contentFlowSlots.length} slots`);
-            logSlots(contentFlowSlots, 'content-flow');
-            return contentFlowSlots;
-        }
-
-        // Empty ad frames (fallback)
-        let emptyFrames = detectEmptyAdFrames();
-        emptyFrames = filterEmptyFrameSlots(emptyFrames);
-        if (emptyFrames.length > 0) {
-            console.log(`[AdInjector] ✅ Found ${emptyFrames.length} empty ad frames (after filtering):`);
-            emptyFrames.forEach((slot, index) => {
-                console.log(`[AdInjector]   Slot ${index + 1}:`, {
-                    reason: slot.reason,
-                    size: `${Math.round(slot.rect?.width ?? 0)}×${Math.round(slot.rect?.height ?? 0)}`,
-                    selector: slot.originalSelector
-                });
-            });
-            return emptyFrames;
-        }
-
-        // Generic fallback
-        const slots = findGenericSlots();
-        console.log(`[AdInjector] Generic strategy found ${slots.length} slots`);
-        if (slots.length > 0) logSlots(slots, 'generic');
-        else console.log('[AdInjector] No slots from content-flow, empty frames, or generic');
-        return slots;
+        return [];
     }
 
     function logSlots(slots, kind) {
@@ -1160,10 +503,6 @@
             duckDiv.style.cssText = 'display:block;width:100%;box-sizing:border-box;margin:0;padding:0;margin-top:1rem;margin-bottom:1rem;opacity:0;transition:opacity 0.3s ease-in;';
             // Fade in after a frame so the transition is visible
             requestAnimationFrame(() => { duckDiv.style.opacity = '1'; });
-            if (slot.isHeaderBanner) {
-                duckDiv.style.marginTop = '0';
-                duckDiv.style.marginBottom = '0';
-            }
             // Reserve space on Instagram to match post-like ad (square image + caption)
             const domain = getDomain();
             if (domain === 'instagram.com' || domain.includes('instagram.com')) {
@@ -1185,6 +524,153 @@
             delete slot.prepend;
         }
         return slots;
+    }
+
+    /**
+     * Show API-supplied HTML in a popup modal via iframe. When displayAs is 'popup', the HTML is
+     * placed inside an iframe so any positioning (relative/fixed to body/html) is scoped to the
+     * iframe's document, not the main page.
+     * @param {Array} ads - Normalized ad objects; uses first ad that has .html
+     * @returns {boolean} true if popup was shown
+     */
+    function showHtmlAdModal(ads) {
+        const withHtml = ads.filter(a => a.html && typeof a.html === 'string' && a.html.trim().length > 0);
+        if (withHtml.length === 0) return false;
+        const adHtml = withHtml[0].html.trim();
+        // Wrap in full document so body/html exist; ad's position:relative/fixed will be relative to iframe
+        const html = `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="margin:0">${adHtml}</body></html>`;
+        const popup = document.createElement('div');
+        popup.setAttribute(OBFUSCATED_ATTR, 'true');
+        popup.className = OBFUSCATED_HOST_CLASS;
+        popup.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2147483647;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            background: rgba(0,0,0,0.35);
+        `;
+        const inner = document.createElement('div');
+        inner.style.cssText = `
+            position: relative;
+            min-width: 50vw;
+            min-height: 50vh;
+            width: 50vw;
+            height: 50vh;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow: auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-sizing: border-box;
+            padding: 40px 16px 16px 16px;
+        `;
+        const iframe = document.createElement('iframe');
+        iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+        iframe.style.cssText = `
+            display: block;
+            width: 100%;
+            height: calc(100% - 48px);
+            min-height: 200px;
+            border: none;
+            border-radius: 4px;
+        `;
+        iframe.srcdoc = html;
+        inner.appendChild(iframe);
+
+        function dismissPopup() {
+            popupDismissedByUser = true;
+            popup.remove();
+            const idx = injectedContainers.indexOf(popup);
+            if (idx !== -1) injectedContainers.splice(idx, 1);
+            injectedRootElements.delete(popup);
+        }
+
+        iframe.onload = () => {
+            try {
+                const doc = iframe.contentDocument;
+                if (doc && doc.body) {
+                    const observer = new MutationObserver((mutations) => {
+                        if (!popup.isConnected) return;
+                        for (const m of mutations) {
+                            if (m.type === 'childList' && m.removedNodes.length > 0) {
+                                observer.disconnect();
+                                dismissPopup();
+                                return;
+                            }
+                        }
+                    });
+                    observer.observe(doc.body, { childList: true, subtree: true });
+                }
+            } catch (_) { /* srcdoc may be opaque in some contexts */ }
+        };
+
+        const closeBtn = document.createElement('button');
+        closeBtn.textContent = '×';
+        closeBtn.setAttribute('aria-label', 'Close');
+        closeBtn.style.cssText = `
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: rgba(0,0,0,0.1);
+            border-radius: 4px;
+            font-size: 24px;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 10;
+        `;
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dismissPopup();
+        });
+        inner.appendChild(closeBtn);
+        popup.appendChild(inner);
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                dismissPopup();
+            }
+        });
+        document.body.insertBefore(popup, document.body.firstChild);
+        injectedContainers.push(popup);
+        injectedRootElements.add(popup);
+        console.log('[AdInjector] HTML ad popup shown (iframe, content isolated in modal)');
+        return true;
+    }
+
+    /**
+     * Inject API-supplied HTML ads directly into body (non-popup / simple ads).
+     * Expects ads with ad.html and displayAs/type !== 'popup'.
+     * @param {Array} ads - Normalized ad objects with .html
+     * @returns {boolean} true if any ad was injected
+     */
+    function injectHtmlAdIntoBody(ads) {
+        const inlineAds = ads.filter(a =>
+            a.html && typeof a.html === 'string' && a.html.trim().length > 0 &&
+            (a.displayAs !== 'popup' && a.type !== 'popup')
+        );
+        if (inlineAds.length === 0) return false;
+        for (const ad of inlineAds) {
+            const html = ad.html.trim();
+            const wrapper = document.createElement('div');
+            wrapper.setAttribute(OBFUSCATED_ATTR, 'true');
+            wrapper.className = OBFUSCATED_HOST_CLASS;
+            wrapper.innerHTML = html;
+            document.body.appendChild(wrapper);
+            injectedContainers.push(wrapper);
+            injectedRootElements.add(wrapper);
+        }
+        console.log(`[AdInjector] Injected ${inlineAds.length} HTML ad(s) into body`);
+        return true;
     }
 
     /**
@@ -1223,7 +709,7 @@
     /**
      * Create safe ad container using Shadow DOM (isolated from host styles and cosmetic filters)
      * @param {object} ad - Ad object from API
-     * @param {object} [slot] - Optional slot object; if slot.isHeaderBanner, use leaderboard style
+     * @param {object} [slot] - Optional slot object; if slot.isInstagramPost, use Instagram style
      * @returns {HTMLElement} Host element with shadow root containing ad content
      */
     function createAdContainer(ad, slot) {
@@ -1237,11 +723,10 @@
         // Create shadow root (closed mode for maximum isolation)
         const shadowRoot = host.attachShadow({ mode: 'closed' });
 
-        const isHeader = slot && slot.isHeaderBanner;
         const isInstagramPost = slot && slot.isInstagramPost;
         // Create wrapper inside shadow root
         const wrapper = document.createElement('div');
-        wrapper.style.cssText = isHeader
+        wrapper.style.cssText = isInstagramPost
             ? `all: initial;
                display: block;
                width: 100%;
@@ -1250,46 +735,30 @@
                padding: 0;
                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
                overflow: hidden;
-               background: #f0f0f0;
+               background: #262626;
+               color: #fafafa;
+               box-sizing: border-box;`
+            : `all: initial;
+               display: block;
+               width: 100%;
+               max-width: 320px;
+               margin: 12px auto;
+               font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+               border-radius: 8px;
+               overflow: hidden;
+               box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+               background: #ffffff;
                color: #000000;
-               box-sizing: border-box;
-               text-align: center;
-               border-bottom: 1px solid #d0d0d0;`
-            : isInstagramPost
-                ? `all: initial;
-                   display: block;
-                   width: 100%;
-                   max-width: 100%;
-                   margin: 0;
-                   padding: 0;
-                   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-                   overflow: hidden;
-                   background: #262626;
-                   color: #fafafa;
-                   box-sizing: border-box;`
-                : `all: initial;
-                   display: block;
-                   width: 100%;
-                   max-width: 320px;
-                   margin: 12px auto;
-                   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-                   border-radius: 8px;
-                   overflow: hidden;
-                   box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-                   background: #ffffff;
-                   color: #000000;
-                   box-sizing: border-box;`;
+               box-sizing: border-box;`;
 
         // Image container: use API-supplied base64 when present, else fetch via background and convert to base64
         const hasImageDataUrl = ad.imageDataUrl && typeof ad.imageDataUrl === 'string' && ad.imageDataUrl.trim().startsWith('data:');
         const hasImageUrl = ad.image && isImageUrl(ad.image);
         if (hasImageDataUrl || hasImageUrl) {
             const imageContainer = document.createElement('div');
-            imageContainer.style.cssText = isHeader
-                ? `width: 100%; height: 90px; overflow: hidden; background: #e8e8e8;`
-                : isInstagramPost
-                    ? `width: 100%; aspect-ratio: 1; overflow: hidden; background: #1a1a1a;`
-                    : `width: 100%; height: 200px; overflow: hidden; background: #f0f0f0;`;
+            imageContainer.style.cssText = isInstagramPost
+                ? `width: 100%; aspect-ratio: 1; overflow: hidden; background: #1a1a1a;`
+                : `width: 100%; height: 200px; overflow: hidden; background: #f0f0f0;`;
             const img = document.createElement('img');
             img.alt = ad.title || '';
             img.loading = 'lazy';
@@ -1478,7 +947,28 @@
             }
         }
 
-        // Find slots (empty frames or domain-specific)
+        // HTML-from-API path: popup -> modal; simple/inline -> inject into body
+        const adsWithHtml = ads.filter(a => a.html && typeof a.html === 'string' && a.html.trim().length > 0);
+        const popupAds = adsWithHtml.filter(a => a.displayAs === 'popup' || a.type === 'popup');
+        const inlineAds = adsWithHtml.filter(a => a.displayAs !== 'popup' && a.type !== 'popup');
+        if (popupAds.length > 0 || inlineAds.length > 0) {
+            let shown = false;
+            if (popupAds.length > 0 && !popupDismissedByUser && showHtmlAdModal(popupAds)) {
+                shown = true;
+                console.log('[AdInjector] ✅ HTML ad modal displayed (popup)');
+            }
+            if (inlineAds.length > 0 && injectHtmlAdIntoBody(inlineAds)) {
+                shown = true;
+                console.log('[AdInjector] ✅ HTML ad(s) injected into body');
+            }
+            if (shown) {
+                logAdEvent(getDomain());
+            }
+            console.log('[AdInjector] ========================================');
+            return;
+        }
+
+        // Find slots (empty frames or domain-specific) for card-style ads
         const slots = findInjectionSlots();
 
         console.log(`[AdInjector] 📍 Total slots found: ${slots.length}`);
@@ -1584,6 +1074,7 @@
         });
         debugBoxes = [];
         injectedRootElements.clear();
+        popupDismissedByUser = false;
         isInitialized = false;
     }
 
@@ -1669,14 +1160,6 @@
 
             scanDebounceTimer = setTimeout(() => {
                 handleSPANavigation();
-
-                // For CNN do not re-scan on DOM mutations (e.g. scroll); only URL change triggers re-inject
-                const isCNN = domain === 'cnn.com' || domain.includes('cnn.com');
-                if (isCNN) {
-                    return;
-                }
-
-                // Re-scan for new content (generic sites only)
                 if (ads.length > 0 && injectedContainers.length < CONFIG.MAX_ADS_PER_PAGE) {
                     scanAndInject();
                 }

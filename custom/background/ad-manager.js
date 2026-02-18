@@ -4,15 +4,10 @@
 (function () {
     'use strict';
 
-    // Get config from global (set by ad-domains.js)
+    // Get config from global (set by ad-domains.js - loaded first)
     const CONFIG = (typeof globalThis !== 'undefined' && globalThis.AD_CONFIG) ||
         (typeof window !== 'undefined' && window.AD_CONFIG) ||
-    {
-        API_BASE_URL: 'http://localhost:3000',
-        SUPPORTED_DOMAINS: ['instagram.com', 'cnn.com'],
-        MAX_ADS_PER_PAGE: 2,
-        CACHE_TTL_MS: 10 * 60 * 1000,
-    };
+        { SUPPORTED_DOMAINS: [], MAX_ADS_PER_PAGE: 0, CACHE_TTL_MS: 0 };
 
     // Track injected tabs to prevent duplicate injection
     const injectedTabs = new Set(); // tabId -> true
@@ -47,7 +42,8 @@
      */
     function isSupportedDomain(hostname) {
         if (!hostname) return false;
-        return CONFIG.SUPPORTED_DOMAINS.some(domain =>
+        const domains = CONFIG.SUPPORTED_DOMAINS || [];
+        return domains.some(domain =>
             hostname === domain || hostname.endsWith('.' + domain)
         );
     }
@@ -165,31 +161,84 @@
     }
 
     /**
+     * Fetch all active target domains from backend (GET /api/extension/domains).
+     * Updates CONFIG.SUPPORTED_DOMAINS. Called during init.
+     * @returns {Promise<string[]>} Array of domain strings
+     */
+    async function fetchTargetDomains() {
+        try {
+            if (!CONFIG.API_BASE_URL) {
+                console.warn('[AdManager] API_BASE_URL not set, skipping target domains fetch');
+                return CONFIG.SUPPORTED_DOMAINS || [];
+            }
+            const url = `${CONFIG.API_BASE_URL}/api/extension/domains`;
+            console.log('[AdManager] Requesting target domains from backend:', url);
+
+            const response = await fetch(url).catch((err) => {
+                console.warn('[AdManager] Failed to fetch target domains:', err?.message || err);
+                return null;
+            });
+
+            if (!response || !response.ok) {
+                console.warn('[AdManager] Target domains API returned', response?.status || 'no response');
+                return CONFIG.SUPPORTED_DOMAINS || [];
+            }
+
+            const data = await response.json();
+            const domains = Array.isArray(data?.domains) ? data.domains : [];
+            console.log('[AdManager] Target domains fetched:', domains);
+
+            // Update config (shared reference - ad-domains.js and injected content see this)
+            const config = (typeof globalThis !== 'undefined' && globalThis.AD_CONFIG) ||
+                (typeof window !== 'undefined' && window.AD_CONFIG);
+            if (config) {
+                config.SUPPORTED_DOMAINS = domains;
+            }
+            return domains;
+        } catch (error) {
+            console.warn('[AdManager] Error fetching target domains:', error?.message || error);
+            return CONFIG.SUPPORTED_DOMAINS || [];
+        }
+    }
+
+    /**
      * Fetch ads from API for a domain
      * @param {string} domain - Domain name
      * @returns {Promise<Array>} Array of ad objects
      */
     async function fetchAds(domain) {
         try {
+            if (!CONFIG.API_BASE_URL) {
+                console.warn('[AdManager] API_BASE_URL not set (ad-domains.js must load first)');
+                return [];
+            }
             const visitorId = await getVisitorId();
             const url = `${CONFIG.API_BASE_URL}/api/extension/ad-block`;
-            console.log(`[AdManager] Fetching ads from ${url} for domain ${domain}`);
+            console.log(`[AdManager] Targeted URL (fetch): domain=${domain}, api=${url}`);
 
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    visitorId,
-                    domain,
-                    requestType: 'ad',
-                }),
-            });
+            let response;
+            try {
+                response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        visitorId,
+                        domain,
+                        requestType: 'ad',
+                    }),
+                });
+            } catch (fetchErr) {
+                console.warn('[AdManager] Request failed (no response). Possible causes: CORS (allow extension origin on the API), network error, or invalid SSL.', fetchErr?.message || fetchErr);
+                throw fetchErr;
+            }
 
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
-                throw new Error(errorData.error || `API returned ${response.status}: ${response.statusText}`);
+                const msg = errorData.error || `API returned ${response.status}: ${response.statusText}`;
+                console.warn(`[AdManager] API error ${response.status} for ${domain}:`, msg);
+                throw new Error(msg);
             }
 
             const data = await response.json();
@@ -203,7 +252,7 @@
             const ads = data.ads;
 
             // Convert image URLs to base64 in worker (~10% size); then send to content script
-            await enrichAdsWithBase64Images(ads);
+            // await enrichAdsWithBase64Images(ads);  // Disabled for now - use image URLs directly
 
             // Store for reuse by GET_ADS (avoids duplicate request in same page load)
             preFetchedAds.set(domain, { data: ads, timestamp: Date.now() });
@@ -212,7 +261,7 @@
             console.log('[AdManager] Full API response:', JSON.stringify(data, null, 2));
             return ads;
         } catch (error) {
-            console.error(`[AdManager] Failed to fetch ads for ${domain}:`, error);
+            console.error(`[AdManager] Failed to fetch ads for ${domain}:`, error?.message || error);
             return [];
         }
     }
@@ -341,10 +390,17 @@
         // Static domain check - no network request
         if (isSupportedDomain(hostname)) {
             // Inject on every page load (including refresh with same URL) so ads show again
+            console.log(`[AdManager] Targeted URL (initial load):`, tab.url);
             console.log(`[AdManager] Supported domain detected: ${hostname}`);
 
             // Pre-fetch ads so they're ready before content script runs (avoids race)
-            await fetchAds(hostname).catch(() => {});
+            const ads = await fetchAds(hostname).catch(() => []);
+
+            // Only inject content script when we have ads to show
+            if (ads.length === 0) {
+                console.log(`[AdManager] No ads for ${hostname}, skipping content script injection`);
+                return;
+            }
 
             // Reset injection tracking for this tab (new page load)
             injectedTabs.delete(tabId);
@@ -477,6 +533,9 @@
         // Pre-fetch visitor ID
         await getVisitorId();
 
+        // Fetch target domains from backend (GET /api/extension/domains)
+        await fetchTargetDomains();
+
         console.log('[AdManager] Ad manager initialized');
     }
 
@@ -485,6 +544,7 @@
         globalThis.adManagerModule = {
             initAdManager,
             fetchAds,
+            fetchTargetDomains,
             logAdEvent,
             getVisitorId,
         };
@@ -494,6 +554,7 @@
         window.adManagerModule = {
             initAdManager,
             fetchAds,
+            fetchTargetDomains,
             logAdEvent,
             getVisitorId,
         };
