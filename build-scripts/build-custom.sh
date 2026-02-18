@@ -7,7 +7,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-echo "🚀 Starting custom uBOL-home build process..."
+echo "🚀 Starting Ad Warden custom build process..."
 echo ""
 
 # Step 0: Clean previous build outputs
@@ -106,6 +106,18 @@ fi
 echo "   ✅ custom-dist/ created successfully"
 echo ""
 
+# Step 2b: Inject custom popup (Ad Warden UI)
+echo "🖼️  Step 2b: Injecting custom popup UI..."
+cd "$ROOT_DIR"
+node build-scripts/inject-popup.js
+
+if [ $? -ne 0 ]; then
+    echo "❌ Popup injection failed!"
+    exit 1
+fi
+
+echo ""
+
 # Step 3: Replace icons with duck image
 echo "🦆 Step 3: Replacing icons with duck image..."
 cd "$ROOT_DIR"
@@ -118,8 +130,8 @@ fi
 
 echo ""
 
-# Step 4: Update extension name to duck
-echo "📝 Step 4: Updating extension name to 'duck'..."
+# Step 4: Update extension name to Ad Warden
+echo "📝 Step 4: Updating extension name to 'Ad Warden'..."
 cd "$ROOT_DIR"
 node build-scripts/update-extension-name.js
 

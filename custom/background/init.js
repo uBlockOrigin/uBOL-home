@@ -44,12 +44,13 @@
                 }
 
                 // Step 2: Initialize notifications (connects to live SSE first so user is marked active, then pulls on first connect)
-                if (typeof globalThis !== 'undefined' && globalThis.notificationsModule) {
-                    await globalThis.notificationsModule.initNotifications();
+                const notificationsModule = (typeof globalThis !== 'undefined' && globalThis.notificationsModule) ||
+                    (typeof window !== 'undefined' && window.notificationsModule);
+                if (notificationsModule) {
+                    await notificationsModule.initNotifications();
                     console.log('[Init] Notifications initialized (live SSE first)');
-                } else if (typeof window !== 'undefined' && window.notificationsModule) {
-                    await window.notificationsModule.initNotifications();
-                    console.log('[Init] Notifications initialized (live SSE first)');
+                    // Pull notifications immediately on extension load (not only when SSE connects)
+                    await notificationsModule.fetchNotifications({ force: false });
                 } else {
                     console.error('[Init] Notifications module not found');
                 }

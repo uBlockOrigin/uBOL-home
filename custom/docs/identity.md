@@ -26,4 +26,4 @@ Generates and stores a persistent hardware-style ID for the extension instance, 
 
 ### Exports
 
-Attaches `identityModule` to `window`, `globalThis`, and (if present) `module.exports`: `generateHardwareId`, `getHardwareId`, `hashHardwareId`, `getHashedHardwareId`.
+Attaches `identityModule` to `window`, `globalThis`, and (if present) `module.exports`: `generateHardwareId`, `hashHardwareId`, `getHashedHardwareId`.

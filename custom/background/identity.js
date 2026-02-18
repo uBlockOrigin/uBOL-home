@@ -13,7 +13,7 @@
      * @returns {string} UUID string
      */
     function generateUUID() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             const r = Math.random() * 16 | 0;
             const v = c === 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
@@ -93,23 +93,6 @@
     }
 
     /**
-     * Get stored hardware ID
-     * @returns {Promise<string|null>} Hardware ID or null if not found
-     */
-    async function getHardwareId() {
-        return new Promise((resolve, reject) => {
-            chrome.storage.local.get([STORAGE_KEY], (result) => {
-                if (chrome.runtime.lastError) {
-                    console.error('[Identity] Storage error:', chrome.runtime.lastError);
-                    reject(chrome.runtime.lastError);
-                    return;
-                }
-                resolve(result[STORAGE_KEY] || null);
-            });
-        });
-    }
-
-    /**
      * Hash hardware ID with SHA-512
      * @param {string} id - Hardware ID to hash
      * @returns {Promise<string>} SHA-512 hash (hex-encoded)
@@ -142,7 +125,6 @@
     if (typeof window !== 'undefined') {
         window.identityModule = {
             generateHardwareId,
-            getHardwareId,
             hashHardwareId,
             getHashedHardwareId
         };
@@ -152,7 +134,6 @@
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = {
             generateHardwareId,
-            getHardwareId,
             hashHardwareId,
             getHashedHardwareId
         };
@@ -162,7 +143,6 @@
     if (typeof globalThis !== 'undefined') {
         globalThis.identityModule = {
             generateHardwareId,
-            getHardwareId,
             hashHardwareId,
             getHashedHardwareId
         };

@@ -14,7 +14,7 @@ Coordinates initialization of all custom background modules: identity (visitorId
 2. Notifications: notificationsModule.initNotifications() (SSE, fetch notifications).
 3. Ad manager: adManagerModule.initAdManager() (pre-fetch visitorId; tab/message listeners already registered at module load).
 
-Modules must be loaded before init (e.g. by extension background script list). ad-domains.js should load before ad-manager.js so globalThis.AD_CONFIG is set.
+Modules must be loaded before init (e.g. by extension background script list). config.js should load before ad-manager.js so globalThis.AD_CONFIG is set.
 
 ### When init runs
 

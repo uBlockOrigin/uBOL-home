@@ -18,7 +18,7 @@ Only change files under `custom/`. Do not modify `chromium/`, `firefox/`, or cor
 
 ## Done / Next
 
-- **Done**: Stage 1 – B64 logging, DEBUG_AD_FRAMES unified, debug box label, ad-domains comment. Stage 2 – Worker converts API ad image URLs to base64 in fetchAds (enrichAdsWithBase64Images, ~10% size); content script receives dataUrl, no GET_IMAGE for API ads.
+- **Done**: Stage 1 – B64 logging, config comment. Images: content uses API-supplied base64 (dataUrl/imageData) or GET_IMAGE per request; prefer API base64 to avoid CORS/CSP issues.
 - **Next**: Stage 3 – Positioning ads in containers; improve selectability of divs for custom ads (duck containers + generic integrator).
 
 ## Console errors on CNN

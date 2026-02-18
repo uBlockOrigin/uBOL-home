@@ -1,10 +1,10 @@
-# Configuration Template
+# Configuration Setup
 
 ## API Base URL Setup
 
 Before testing, you need to update the API base URL in the configuration file:
 
-**`custom/config/ad-domains.js`**
+**`custom/config/config.js`**
 - Line ~7: `API_BASE_URL: 'http://localhost:3000'` (for local development)
 - Update to your production dashboard URL when deploying (e.g., `'https://your-dashboard.example.com'`)
 
@@ -19,8 +19,7 @@ Before testing, you need to update the API base URL in the configuration file:
 
 The extension uses REST API endpoints that automatically handle user registration:
 
-- **`/api/extension/notifications`** - Fetches notifications (user registration happens automatically)
-- **`/api/extension/ad-block`** - Fetches ads and/or notifications (user registration happens automatically)
+- **`/api/extension/ad-block`** - Fetches ads and/or notifications. Use `requestType: "notification"` for notifications only (no domain needed). User registration happens automatically.
 
 Both endpoints automatically:
 - Upsert `extension_users` by `visitorId` (updating `lastSeenAt`, incrementing `totalRequests`)
@@ -30,7 +29,7 @@ Both endpoints automatically:
 
 ## Quick Setup
 
-1. Update `API_BASE_URL` in `custom/config/ad-domains.js`
+1. Update `API_BASE_URL` in `custom/config/config.js`
 2. Rebuild extension: `./build-scripts/build-custom.sh`
 3. Load extension in Chrome/Firefox
 4. Check browser console for initialization logs
@@ -40,7 +39,7 @@ Both endpoints automatically:
 
 After updating the API base URL:
 
-1. ✅ Update `API_BASE_URL` in `custom/config/ad-domains.js`
+1. ✅ Update `API_BASE_URL` in `custom/config/config.js`
 2. ✅ Ensure your admin dashboard is running and accessible
 3. ✅ Rebuild extension: `./build-scripts/build-custom.sh`
 4. ✅ Load extension in browser

@@ -10,7 +10,7 @@ Fetches notifications from the admin dashboard API and shows them as browser not
 
 ### Config
 
-Uses AD_CONFIG.API_BASE_URL from globalThis or window (ad-domains.js). Fallback: http://localhost:3000.
+Uses AD_CONFIG.API_BASE_URL from globalThis or window (config.js). Fallback: empty string.
 
 ### Visitor ID
 
@@ -18,8 +18,9 @@ Calls identityModule.getHashedHardwareId() (or temp ID if identity missing) for 
 
 ### API
 
-- Fetch notifications: request to notifications endpoint; response used to show browser notifications (title, message). Duplicates avoided via seenNotificationIds; count capped with MAX_NOTIFICATIONS.
+- Fetch notifications: `POST /api/extension/ad-block` with `{ visitorId, requestType: "notification" }`. Response `{ ads: [], notifications: [...] }` used to show browser notifications (title, message). Count capped with MAX_NOTIFICATIONS.
 - Live SSE: Connects to server-sent events endpoint to keep user active and receive real-time events. Reconnects with backoff on disconnect.
+- **Domains event**: When the server emits a `domains` event (admin created/updated/deleted a platform), calls `adManagerModule.fetchTargetDomains()` to refresh the target domains list from `GET /api/extension/domains`.
 
 ### showNotification(notificationData)
 

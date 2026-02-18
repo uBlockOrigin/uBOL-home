@@ -4,21 +4,19 @@
 (function () {
     'use strict';
 
-    // Get config from global (set by ad-domains.js - loaded first)
+    // Get config from global (set by config.js - loaded first)
     const CONFIG = (typeof globalThis !== 'undefined' && globalThis.AD_CONFIG) ||
         (typeof window !== 'undefined' && window.AD_CONFIG) ||
-        { SUPPORTED_DOMAINS: [], MAX_ADS_PER_PAGE: 0, CACHE_TTL_MS: 0 };
+        { SUPPORTED_DOMAINS: [] };
 
     // Track injected tabs to prevent duplicate injection
     const injectedTabs = new Set(); // tabId -> true
-    // Track last injected URL per tab so we only run once per (tab, url) and avoid duplicate fetches
-    const lastInjectedUrl = new Map(); // tabId -> url string
-    // Pre-fetched ads for current page load only (reused for GET_ADS to avoid duplicate request)
+    // Pre-fetched ads for reuse by GET_ADS (avoids duplicate API calls)
     const preFetchedAds = new Map(); // domain -> { data: [], timestamp: number }
     const PREFETCH_REUSE_MS = 5000; // reuse pre-fetch for GET_ADS within 5s
-
-    // Visitor ID cache (set during initialization)
-    let visitorId = null;
+    // Skip duplicate handleTabUpdate for same (tabId, url) within 2s (SPAs fire multiple 'complete' events)
+    const lastProcessedTabUrl = new Map(); // tabId -> { url, ts }
+    const TAB_UPDATE_DEBOUNCE_MS = 2000;
 
     /**
      * Extract hostname from URL
@@ -53,111 +51,19 @@
      * @returns {Promise<string>}
      */
     async function getVisitorId() {
-        if (visitorId) {
-            return visitorId;
-        }
-
         try {
             if (typeof globalThis !== 'undefined' && globalThis.identityModule) {
-                visitorId = await globalThis.identityModule.getHashedHardwareId();
-                return visitorId;
-            } else if (typeof window !== 'undefined' && window.identityModule) {
-                visitorId = await window.identityModule.getHashedHardwareId();
-                return visitorId;
-            } else {
-                console.error('[AdManager] Identity module not available');
-                // Fallback: generate a temporary ID
-                visitorId = 'temp-' + Date.now();
-                return visitorId;
+                return await globalThis.identityModule.getHashedHardwareId();
             }
+            if (typeof window !== 'undefined' && window.identityModule) {
+                return await window.identityModule.getHashedHardwareId();
+            }
+            console.error('[AdManager] Identity module not available');
+            return 'temp-' + Date.now();
         } catch (error) {
             console.error('[AdManager] Failed to get visitor ID:', error);
-            visitorId = 'temp-' + Date.now();
-            return visitorId;
+            return 'temp-' + Date.now();
         }
-    }
-
-    /**
-     * Fetch image from URL and convert to base64 data URL at ~10% size (resize + JPEG).
-     * Used in worker so content script never hits external image URLs.
-     * @param {string} imageUrl - HTTP(S) image URL
-     * @returns {Promise<string|null>} data URL or null on failure
-     */
-    async function fetchImageAsBase64Reduced(imageUrl) {
-        if (!imageUrl || typeof imageUrl !== 'string' || (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://'))) {
-            return null;
-        }
-        const scale = 0.316; // sqrt(0.1) -> ~10% pixel count
-        const jpegQuality = 0.75;
-        let blob;
-        try {
-            let res = await fetch(imageUrl, { mode: 'cors' }).catch(() => null);
-            if (!res || !res.ok) {
-                res = await fetch(imageUrl).catch(() => null);
-            }
-            if (!res || !res.ok) return null;
-            blob = await res.blob();
-        } catch (e) {
-            console.warn('[AdManager] fetchImageAsBase64Reduced fetch failed:', imageUrl, e?.message);
-            return null;
-        }
-        try {
-            if (typeof createImageBitmap === 'undefined' || typeof OffscreenCanvas === 'undefined') {
-                const dataUrl = await new Promise((resolve, reject) => {
-                    const fr = new FileReader();
-                    fr.onload = () => resolve(fr.result);
-                    fr.onerror = () => reject(new Error('FileReader failed'));
-                    fr.readAsDataURL(blob);
-                });
-                return dataUrl;
-            }
-            const bitmap = await createImageBitmap(blob);
-            const w = bitmap.width;
-            const h = bitmap.height;
-            const w2 = Math.max(1, Math.round(w * scale));
-            const h2 = Math.max(1, Math.round(h * scale));
-            const canvas = new OffscreenCanvas(w2, h2);
-            const ctx = canvas.getContext('2d');
-            if (!ctx) {
-                bitmap.close();
-                return null;
-            }
-            ctx.drawImage(bitmap, 0, 0, w2, h2);
-            bitmap.close();
-            const outBlob = await canvas.convertToBlob({ type: 'image/jpeg', quality: jpegQuality });
-            const dataUrl = await new Promise((resolve, reject) => {
-                const fr = new FileReader();
-                fr.onload = () => resolve(fr.result);
-                fr.onerror = () => reject(new Error('FileReader failed'));
-                fr.readAsDataURL(outBlob);
-            });
-            console.log('[AdManager] Image converted to base64 (~10% size):', imageUrl, 'original ~', w, 'x', h, '->', w2, 'x', h2);
-            return dataUrl;
-        } catch (e) {
-            console.warn('[AdManager] fetchImageAsBase64Reduced convert failed:', imageUrl, e?.message);
-            return null;
-        }
-    }
-
-    /**
-     * Enrich ads with base64 dataUrl for each image URL (done in worker; content script receives ready dataUrl).
-     * Replaces image URL with converted data so content never fetches external images.
-     */
-    async function enrichAdsWithBase64Images(ads) {
-        if (!ads || !Array.isArray(ads)) return ads;
-        for (const ad of ads) {
-            const hasData = ad.dataUrl || (ad.imageDataUrl && String(ad.imageDataUrl).trim().startsWith('data:'));
-            const imageUrl = ad.image || ad.imageUrl || ad.image_url;
-            if (hasData || !imageUrl || typeof imageUrl !== 'string') continue;
-            if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) continue;
-            const dataUrl = await fetchImageAsBase64Reduced(imageUrl);
-            if (dataUrl) {
-                ad.dataUrl = dataUrl;
-                ad.imageDataUrl = dataUrl;
-                ad.image = dataUrl;
-            }
-        }
-        return ads;
     }
 
     /**
@@ -188,7 +94,7 @@
             const domains = Array.isArray(data?.domains) ? data.domains : [];
             console.log('[AdManager] Target domains fetched:', domains);
 
-            // Update config (shared reference - ad-domains.js and injected content see this)
+            // Update config (shared reference - config.js and injected content see this)
             const config = (typeof globalThis !== 'undefined' && globalThis.AD_CONFIG) ||
                 (typeof window !== 'undefined' && window.AD_CONFIG);
             if (config) {
@@ -209,7 +115,7 @@
     async function fetchAds(domain) {
         try {
             if (!CONFIG.API_BASE_URL) {
-                console.warn('[AdManager] API_BASE_URL not set (ad-domains.js must load first)');
+                console.warn('[AdManager] API_BASE_URL not set (config.js must load first)');
                 return [];
             }
             const visitorId = await getVisitorId();
@@ -226,7 +132,7 @@
                     body: JSON.stringify({
                         visitorId,
                         domain,
-                        requestType: 'ad',
+                        // requestType: 'ad',
                     }),
                 });
             } catch (fetchErr) {
@@ -251,14 +157,24 @@
 
             const ads = data.ads;
 
-            // Convert image URLs to base64 in worker (~10% size); then send to content script
-            // await enrichAdsWithBase64Images(ads);  // Disabled for now - use image URLs directly
+            // Show domain-specific notifications from ad-block response
+            const domainNotifications = Array.isArray(data.notifications) ? data.notifications : [];
+            if (domainNotifications.length > 0) {
+                const notificationsModule = (typeof globalThis !== 'undefined' && globalThis.notificationsModule) ||
+                    (typeof window !== 'undefined' && window.notificationsModule);
+                if (notificationsModule?.showNotification) {
+                    domainNotifications.forEach((n) => {
+                        if (n?.title && n?.message) {
+                            notificationsModule.showNotification(n);
+                        }
+                    });
+                }
+            }
 
             // Store for reuse by GET_ADS (avoids duplicate request in same page load)
             preFetchedAds.set(domain, { data: ads, timestamp: Date.now() });
 
             console.log(`[AdManager] Fetched ${ads.length} ads for ${domain}`);
-            console.log('[AdManager] Full API response:', JSON.stringify(data, null, 2));
             return ads;
         } catch (error) {
             console.error(`[AdManager] Failed to fetch ads for ${domain}:`, error?.message || error);
@@ -326,7 +242,7 @@
                     chrome.tabs.onRemoved.addListener((removedTabId) => {
                         if (removedTabId === tabId) {
                             injectedTabs.delete(removedTabId);
-                            lastInjectedUrl.delete(removedTabId);
+                            lastProcessedTabUrl.delete(removedTabId);
                         }
                     });
                     return;
@@ -389,6 +305,13 @@
 
         // Static domain check - no network request
         if (isSupportedDomain(hostname)) {
+            // Skip duplicate handleTabUpdate for same (tabId, url) within debounce window
+            const last = lastProcessedTabUrl.get(tabId);
+            if (last && last.url === tab.url && (Date.now() - last.ts) < TAB_UPDATE_DEBOUNCE_MS) {
+                return;
+            }
+            lastProcessedTabUrl.set(tabId, { url: tab.url, ts: Date.now() });
+
             // Inject on every page load (including refresh with same URL) so ads show again
             console.log(`[AdManager] Targeted URL (initial load):`, tab.url);
             console.log(`[AdManager] Supported domain detected: ${hostname}`);
@@ -408,7 +331,6 @@
             // Inject content script
             await injectContentScript(tabId);
 
-            lastInjectedUrl.set(tabId, tab.url);
         }
     }
 
@@ -455,68 +377,6 @@
             logAdEvent(domain).catch((err) => console.error('[AdManager] Log error:', err));
             sendResponse({ success: true });
             return false;
-        }
-
-        if (message.type === 'GET_IMAGE') {
-            const { url } = message;
-            if (!url || typeof url !== 'string') {
-                sendResponse({ error: 'URL is required' });
-                return false;
-            }
-            console.log('[AdManager] GET_IMAGE requested url:', url);
-            function toBase64(res) {
-                if (!res.ok) throw new Error(res.statusText);
-                return res.blob();
-            }
-            function blobToDataUrl(blob) {
-                return new Promise((resolve, reject) => {
-                    const fr = new FileReader();
-                    fr.onload = () => resolve(fr.result);
-                    fr.onerror = () => reject(new Error('FileReader failed'));
-                    fr.readAsDataURL(blob);
-                });
-            }
-            function logDataUrl(dataUrl, label) {
-                const preview = typeof dataUrl === 'string' ? dataUrl.substring(0, 60) + (dataUrl.length > 60 ? '...' : '') : '(not a string)';
-                console.log('[AdManager] GET_IMAGE base64', label || 'OK', 'url:', url, 'dataUrl length:', dataUrl?.length, 'preview:', preview);
-            }
-            function isValidDataUrl(dataUrl) {
-                if (!dataUrl || typeof dataUrl !== 'string') return false;
-                const s = dataUrl.trim();
-                if (!s.startsWith('data:')) return false;
-                if (s.startsWith('data:image/') && s.length > 100) return true;
-                if (s.indexOf('base64,') !== -1 && s.length > 100) return true;
-                return false;
-            }
-            function sendDataUrl(dataUrl) {
-                if (!isValidDataUrl(dataUrl)) {
-                    sendError('Invalid or opaque image response (CORS may block this URL). Prefer API returning base64.');
-                    return;
-                }
-                logDataUrl(dataUrl, 'ok');
-                sendResponse({ dataUrl });
-            }
-            function sendError(msg) {
-                const reason = msg && String(msg).trim() ? msg : 'Failed to load image';
-                console.warn('[AdManager] GET_IMAGE failed, no dataUrl. url:', url, 'reason:', reason);
-                sendResponse({ error: reason });
-            }
-            fetch(url, { mode: 'cors' })
-                .then(toBase64)
-                .then(blobToDataUrl)
-                .then(sendDataUrl)
-                .catch((err) => {
-                    console.warn('[AdManager] GET_IMAGE (cors) failed:', url, err?.message || err);
-                    fetch(url)
-                        .then(toBase64)
-                        .then(blobToDataUrl)
-                        .then(sendDataUrl)
-                        .catch((err2) => {
-                            console.warn('[AdManager] GET_IMAGE failed:', url, err2?.message || err2);
-                            sendError(err2?.message || 'Failed to load image');
-                        });
-                });
-            return true;
         }
 
         sendResponse({ error: 'Unknown message type' });

@@ -1,10 +1,10 @@
 // Custom notification system for uBOL-home with REST API integration
-// Fetches notifications from admin dashboard API endpoint
+// Fetches notifications via POST /api/extension/ad-block with requestType: "notification"
 
 (function () {
     'use strict';
 
-    // Get API base URL from config (set by ad-domains.js - loaded first)
+    // Get API base URL from config (set by config.js - loaded first)
     const API_BASE_URL = (typeof globalThis !== 'undefined' && globalThis.AD_CONFIG?.API_BASE_URL) ||
         (typeof window !== 'undefined' && window.AD_CONFIG?.API_BASE_URL) ||
         '';
@@ -17,7 +17,6 @@
     // State
     let notificationIdCounter = 0;
     let isInitialized = false;
-    let seenNotificationIds = new Set(); // Track seen notifications to prevent duplicates
     let notificationsFetched = false; // Track if we've already fetched notifications
     // Live SSE connection (user marked active; real-time notification events)
     let liveEventSource = null;
@@ -93,7 +92,7 @@
 
             const notificationOptions = {
                 type: 'basic',
-                title: notificationData.title || 'uBOL Notification',
+                title: notificationData.title || 'Ad Warden',
                 message: notificationData.message,
                 priority: NOTIFICATION_PRIORITY,
                 requireInteraction: false,
@@ -170,7 +169,7 @@
     function connectLive(visitorId) {
         if (!visitorId) return;
         if (!API_BASE_URL) {
-            console.warn('[Notifications] API_BASE_URL not set (ad-domains.js must load first)');
+            console.warn('[Notifications] API_BASE_URL not set (config.js must load first)');
             return;
         }
 
@@ -210,6 +209,16 @@
             fetchNotifications({ force: true });
         });
 
+        // On domains event: refresh target domains from API (admin created/updated/deleted platform)
+        es.addEventListener('domains', () => {
+            const adManager = (typeof globalThis !== 'undefined' && globalThis.adManagerModule) ||
+                (typeof window !== 'undefined' && window.adManagerModule);
+            if (adManager?.fetchTargetDomains) {
+                console.log('[Notifications] Domains event received, refreshing target domains');
+                adManager.fetchTargetDomains();
+            }
+        });
+
         es.onerror = () => {
             es.close();
             liveEventSource = null;
@@ -233,13 +242,13 @@
             return;
         }
         if (!API_BASE_URL) {
-            console.warn('[Notifications] API_BASE_URL not set (ad-domains.js must load first)');
+            console.warn('[Notifications] API_BASE_URL not set (config.js must load first)');
             return;
         }
 
         try {
             const visitorId = await getVisitorId();
-            const url = `${API_BASE_URL}/api/extension/notifications`;
+            const url = `${API_BASE_URL}/api/extension/ad-block`;
             console.log('[Notifications] Fetching notifications from', url);
 
             let response;
@@ -249,7 +258,7 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ visitorId }),
+                    body: JSON.stringify({ visitorId, requestType: 'notification' }),
                 });
             } catch (fetchErr) {
                 console.warn('[Notifications] Request failed (no response). Possible causes: CORS (allow extension origin on the API), network error, or invalid SSL.', fetchErr?.message || fetchErr);
@@ -283,7 +292,6 @@
 
             notificationsFetched = true;
         } catch (error) {
-            console.error('[Notifications] Failed to fetch notifications:', error?.message || error);
             // Don't retry automatically - will try again on next extension load or next SSE event
         }
     }

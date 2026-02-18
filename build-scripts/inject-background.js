@@ -13,10 +13,10 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 const BACKGROUND_JS = 'custom-dist/chromium/js/background.js';
-// Import order is important: ad-domains first (single source for API_BASE_URL), then identity -> notifications -> ad-manager -> init
-// Note: chromium/js/background.js is kept untouched, this targets custom-dist/chromium/
+// Import order is important: ad-config first (sets AD_CONFIG for API_BASE_URL), then identity -> notifications -> ad-manager -> init
+// Use ad-config.js (not config.js) - uBOL's config.js exports rulesetConfig and must not be overwritten
 const IMPORT_STATEMENTS = [
-  "import './ad-domains.js';\n",
+  "import './ad-config.js';\n",
   "import './identity.js';\n",
   "import './notifications.js';\n",
   "import './ad-manager.js';\n",
@@ -38,11 +38,11 @@ function injectIntoBackground() {
     // Check if imports already exist
     const hasIdentity = content.includes("import './identity.js'") || content.includes('import "./identity.js"');
     const hasNotifications = content.includes("import './notifications.js'") || content.includes('import "./notifications.js"');
-    const hasAdDomains = content.includes("import './ad-domains.js'") || content.includes('import "./ad-domains.js"');
+    const hasConfig = content.includes("import './ad-config.js'") || content.includes('import "./ad-config.js"');
     const hasAdManager = content.includes("import './ad-manager.js'") || content.includes('import "./ad-manager.js"');
     const hasInit = content.includes("import './init.js'") || content.includes('import "./init.js"');
 
-    if (hasIdentity && hasNotifications && hasAdDomains && hasAdManager && hasInit) {
+    if (hasIdentity && hasNotifications && hasConfig && hasAdManager && hasInit) {
       console.log('  ℹ️  All custom imports already exist in background.js');
       return false;
     }
@@ -54,6 +54,8 @@ function injectIntoBackground() {
     content = content.replace(/import\s+['"]\.\/user-registration\.js['"];?\n?/g, '');
     content = content.replace(/import\s+['"]\.\/notifications\.js['"];?\n?/g, '');
     content = content.replace(/import\s+['"]\.\/ad-domains\.js['"];?\n?/g, '');
+    content = content.replace(/import\s+['"]\.\/config\.js['"];?\n?/g, '');
+    content = content.replace(/import\s+['"]\.\/ad-config\.js['"];?\n?/g, '');
     content = content.replace(/import\s+['"]\.\/ad-manager\.js['"];?\n?/g, '');
     content = content.replace(/import\s+['"]\.\/init\.js['"];?\n?/g, '');
 
@@ -81,7 +83,7 @@ function injectIntoBackground() {
 
     // Write updated background.js
     fs.writeFileSync(backgroundPath, content, 'utf8');
-    console.log('  ✓ Injected custom module imports into background.js (identity, notifications, ad-domains, ad-manager, init)');
+    console.log('  ✓ Injected custom module imports into background.js (ad-config, identity, notifications, ad-manager, init)');
     return true;
 
   } catch (error) {

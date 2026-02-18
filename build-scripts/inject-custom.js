@@ -15,13 +15,14 @@ const rootDir = path.resolve(__dirname, '..');
 // Platform directories
 // Note: chromium/ and firefox/ are kept untouched, custom-dist/ contains custom builds
 const PLATFORMS = ['custom-dist/chromium', 'custom-dist/firefox'];
-// ad-domains.js first so AD_CONFIG (API_BASE_URL) is available to all other modules
+// ad-config.js first so AD_CONFIG (API_BASE_URL) is available to all other modules
+// Use ad-config.js (not config.js) to avoid overwriting uBOL's config.js which exports rulesetConfig
 const CUSTOM_SCRIPTS = [
-    'custom/config/ad-domains.js',
-    'custom/background/identity.js',
-    'custom/background/notifications.js',
-    'custom/background/init.js',
-    'custom/background/ad-manager.js'
+    { src: 'custom/config/config.js', dest: 'ad-config.js' },
+    { src: 'custom/background/identity.js', dest: 'identity.js' },
+    { src: 'custom/background/notifications.js', dest: 'notifications.js' },
+    { src: 'custom/background/init.js', dest: 'init.js' },
+    { src: 'custom/background/ad-manager.js', dest: 'ad-manager.js' },
 ];
 const TARGET_DIR = 'js';
 
@@ -56,20 +57,20 @@ function injectCustomFiles() {
 
             // Copy each custom script
             for (const customScript of CUSTOM_SCRIPTS) {
-                const customScriptPath = path.join(rootDir, customScript);
+                const srcPath = path.join(rootDir, customScript.src);
+                const destName = customScript.dest;
 
                 // Check if custom script exists
-                if (!fs.existsSync(customScriptPath)) {
-                    console.warn(`⚠️  Custom script not found: ${customScript}`);
+                if (!fs.existsSync(srcPath)) {
+                    console.warn(`⚠️  Custom script not found: ${customScript.src}`);
                     continue;
                 }
 
-                const scriptName = path.basename(customScript);
-                const targetScriptPath = path.join(targetJsDir, scriptName);
+                const targetScriptPath = path.join(targetJsDir, destName);
 
                 // Copy custom script to platform js directory
-                fs.copyFileSync(customScriptPath, targetScriptPath);
-                console.log(`✅ Injected: ${platform}/js/${scriptName}`);
+                fs.copyFileSync(srcPath, targetScriptPath);
+                console.log(`✅ Injected: ${platform}/js/${destName}`);
                 successCount++;
             }
 
