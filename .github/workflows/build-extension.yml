@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - custom
+  pull_request:
+    branches:
+      - custom
   workflow_dispatch:
     inputs:
       create_release:
@@ -87,7 +90,7 @@ jobs:
 
   release:
     needs: build
-    # Run on manual trigger with create_release, OR always on push (creates draft with separate zips)
+    # Skip on PR. On push to custom: preview (draft, updated each merge). On workflow_dispatch + create_release: final (published).
     if: |
       (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true') ||
       (github.event_name == 'push' && github.ref == 'refs/heads/custom')
@@ -95,6 +98,17 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Checkout (for release operations)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Delete existing preview release (so we can update it on each push)
+        if: github.event_name == 'push'
+        run: |
+          gh release delete preview --yes --cleanup-tag 2>/dev/null || true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Download artifacts (extension code per platform)
         id: download
         uses: actions/download-artifact@v4
@@ -123,13 +137,21 @@ jobs:
             exit 1
           fi
 
-      - name: Determine release tag
+      - name: Determine release tag and type
         id: tag
         run: |
-          if [ -n "${{ github.event.inputs.release_tag }}" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.create_release }}" = "true" ]; then
+            if [ -z "${{ github.event.inputs.release_tag }}" ]; then
+              echo "::error::release_tag is required when create_release is true"
+              exit 1
+            fi
             echo "tag=${{ github.event.inputs.release_tag }}" >> $GITHUB_OUTPUT
+            echo "draft=false" >> $GITHUB_OUTPUT
+            echo "name=Release ${{ github.event.inputs.release_tag }}" >> $GITHUB_OUTPUT
           else
-            echo "tag=build-${{ github.run_number }}" >> $GITHUB_OUTPUT
+            echo "tag=preview" >> $GITHUB_OUTPUT
+            echo "draft=true" >> $GITHUB_OUTPUT
+            echo "name=Preview (build ${{ github.run_number }})" >> $GITHUB_OUTPUT
           fi
 
       - name: Assemble release body
@@ -138,20 +160,20 @@ jobs:
           if [ -f .github/workflows/RELEASE_BODY.md ]; then
             sed "s/%tag%/$TAG/g" .github/workflows/RELEASE_BODY.md > release_body.txt
           else
-            echo "## Release $TAG" > release_body.txt
+            echo "## ${{ steps.tag.outputs.name }}" > release_body.txt
             echo "" >> release_body.txt
             echo "**Separate ZIP per platform:**" >> release_body.txt
             echo "- chrome-extension.zip (Chromium)" >> release_body.txt
             echo "- firefox-extension.zip (Firefox)" >> release_body.txt
           fi
 
-      - name: Create GitHub release (separate ZIP per platform)
+      - name: Create GitHub release (preview on push, final on workflow_dispatch)
         uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.tag.outputs.tag }}
-          name: ${{ steps.tag.outputs.tag }}
+          name: ${{ steps.tag.outputs.name }}
           body_path: release_body.txt
-          draft: ${{ github.event_name == 'push' }}
+          draft: ${{ steps.tag.outputs.draft }}
           files: release-assets/*.zip
