@@ -59,11 +59,19 @@ jobs:
           fi
           ls -la release-packages/
 
-      - name: Upload release packages artifact
+      - name: Upload Chrome extension ZIP artifact
         uses: actions/upload-artifact@v4
         with:
-          name: release-packages
-          path: release-packages/
+          name: chrome-extension
+          path: release-packages/chrome-extension.zip
+          retention-days: 7
+
+      - name: Upload Firefox extension ZIP artifact
+        if: hashFiles('release-packages/firefox-extension.zip') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: firefox-extension
+          path: release-packages/firefox-extension.zip
           retention-days: 7
 
       - name: Build summary
@@ -72,8 +80,9 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "✅ Custom files injected successfully (custom-dist)" >> $GITHUB_STEP_SUMMARY
           echo "✅ Manifests updated with custom scripts" >> $GITHUB_STEP_SUMMARY
-          echo "✅ ZIP artifacts created for Chromium (and Firefox if built)" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Platform ZIPs created" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Download Artifacts" >> $GITHUB_STEP_SUMMARY
-          echo "- release-packages: chrome-extension.zip, firefox-extension.zip (if built)" >> $GITHUB_STEP_SUMMARY
+          echo "### Download Artifacts (one per platform)" >> $GITHUB_STEP_SUMMARY
+          echo "- chrome-extension.zip (Chromium)" >> $GITHUB_STEP_SUMMARY
+          echo "- firefox-extension.zip (Firefox, if built)" >> $GITHUB_STEP_SUMMARY
 
