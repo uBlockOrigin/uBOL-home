@@ -132,6 +132,10 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Step 3a: Patch dashboard logo (ublock.svg -> icon_64.png)
+echo "🖼️  Step 3a: Patching dashboard logo..."
+node build-scripts/patch-dashboard.js
+
 echo ""
 
 # Step 4: Update extension name to Ad Warden
