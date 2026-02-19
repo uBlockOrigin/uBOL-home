@@ -33,7 +33,7 @@ jobs:
 
       - name: Initialize submodules
         run: |
-          git submodule update --init --recursive
+          git submodule update --init --recursive 
 
       - name: Build uBOL-home (if needed)
         run: |
@@ -50,49 +50,30 @@ jobs:
           chmod +x build-scripts/build-custom.sh
           ./build-scripts/build-custom.sh
 
-      - name: Upload Chrome extension artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: chrome-extension
-          path: chromium/
-          retention-days: 7
+      - name: Create ZIP archives from custom-dist (subdivided build)
+        run: |
+          mkdir -p release-packages
+          cd custom-dist/chromium && zip -r ../../release-packages/chrome-extension.zip . && cd ../..
+          if [ -d custom-dist/firefox ]; then
+            cd custom-dist/firefox && zip -r ../../release-packages/firefox-extension.zip . && cd ../..
+          fi
+          ls -la release-packages/
 
-      - name: Upload Firefox extension artifact
+      - name: Upload release packages artifact
         uses: actions/upload-artifact@v4
         with:
-          name: firefox-extension
-          path: firefox/
+          name: release-packages
+          path: release-packages/
           retention-days: 7
 
       - name: Build summary
         run: |
           echo "## Build Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Custom files injected successfully" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Custom files injected successfully (custom-dist)" >> $GITHUB_STEP_SUMMARY
           echo "✅ Manifests updated with custom scripts" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Extension artifacts created for all platforms" >> $GITHUB_STEP_SUMMARY
+          echo "✅ ZIP artifacts created for Chromium (and Firefox if built)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Download Artifacts" >> $GITHUB_STEP_SUMMARY
-          echo "- Chrome/Chromium: chrome-extension (folder)" >> $GITHUB_STEP_SUMMARY
-          echo "- Firefox: firefox-extension (folder)" >> $GITHUB_STEP_SUMMARY
+          echo "- release-packages: chrome-extension.zip, firefox-extension.zip (if built)" >> $GITHUB_STEP_SUMMARY
 
-      - name: Configure git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Check for changes
-        id: git-check
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-          else
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Commit and push changes
-        if: steps.git-check.outputs.has_changes == 'true'
-        uses: devops-infra/action-commit-push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: "[build-extension] Build extension and create artifacts"

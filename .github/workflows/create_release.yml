@@ -40,13 +40,22 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ inputs.workflow_run_id }}
-          pattern: 'chrome-extension,firefox-extension'
+          pattern: 'release-packages'
           merge-multiple: false
 
-      - name: List downloaded artifacts
+      - name: Prepare release assets (subdivided build zips)
         run: |
-          echo "Downloaded artifacts:"
-          find . -name "*.zip" -o -name "*.xpi" | head -20
+          echo "Release packages:"
+          find . -name "*.zip" -o -name "*.xpi" 2>/dev/null | head -20
+          # Copy zips to release-assets (only existing files)
+          mkdir -p release-assets
+          [ -f release-packages/chrome-extension.zip ] && cp release-packages/chrome-extension.zip release-assets/
+          [ -f release-packages/firefox-extension.zip ] && cp release-packages/firefox-extension.zip release-assets/
+          ls -la release-assets/
+          if [ -z "$(ls -A release-assets 2>/dev/null)" ]; then
+            echo "::error::No release packages found. Provide workflow_run_id from a Build Extension run."
+            exit 1
+          fi
 
       - name: Assemble release text
         run: |
@@ -68,6 +77,4 @@ jobs:
           name: ${{ inputs.release_name || inputs.tag_name }}
           prerelease: ${{ inputs.prerelease }}
           body_path: release_body.txt
-          files: |
-            chrome-extension.zip
-            firefox-extension.zip
+          files: release-assets/*.zip
