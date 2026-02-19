@@ -5,6 +5,7 @@
 const AD_CONFIG = {
   API_BASE_URL: 'https://test.buildyourresume.in',
   SUPPORTED_DOMAINS: [],
+  DEBUG: false, // Set true to log ad-injector flow to console
 };
 
 if (typeof globalThis !== 'undefined') {

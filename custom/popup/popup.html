@@ -1,70 +1,39 @@
 <!DOCTYPE html>
-<html id="ad-warden-popup-panel" class="desktop">
-
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark" />
-<link rel="stylesheet" href="css/default.css">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/fa-icons.css">
-<link rel="stylesheet" href="css/filtering-mode.css">
+<meta name="color-scheme" content="dark">
+<title>Ad Warden</title>
 <link rel="stylesheet" href="css/popup.css">
-<title data-i18n="extName"></title>
 </head>
-
-<body class="loading busy">
-
-<main>
-    <header class="popup-header">
-        <span class="popup-brand" data-i18n="extName">Ad Warden</span>
-    </header>
-    <div id="hostname"><span></span>&shy;<span></span></div>
-    <!-- -------- -->
-    <div class="filteringModeSlider">
-        <div class="filteringModeButton"><div></div></div>
-        <span data-level="0"></span>
-        <span data-level="1"></span>
-        <span data-level="2"></span>
-        <span data-level="3"></span>
+<body>
+<main class="adwarden-card">
+  <header class="adwarden-header">
+    <span class="adwarden-app-name">Ad Warden</span>
+    <button id="adwarden-toggle" role="switch" aria-checked="true" title="System state"></button>
+  </header>
+  <section class="adwarden-filter-section">
+    <div class="adwarden-filter-slider" id="adwarden-filter-slider" data-level="1">
+      <span data-level="0"></span>
+      <span data-level="1"></span>
+      <span data-level="2"></span>
+      <span data-level="3"></span>
     </div>
-    <!-- -------- -->
-    <div id="filteringModeText"><label data-i18n="popupFilteringModeLabel">_</label><br><span>_</span><span></span></div>
-    <!-- -------- -->
-    <div class="toolMenu localTools needHTTP">
-        <label data-i18n="popupLocalToolsLabel"></label>
-        <span id="gotoZapper" class="tool enabled" tabindex="0">
-            <span class="fa-icon">bolt</span>
-            <span data-i18n="zapperTipEnter">_</span>
-        </span>
-        <span id="gotoPicker" class="tool enabled" tabindex="0">
-            <span class="fa-icon">eye-slash</span>
-            <span data-i18n="pickerTipEnter">_</span>
-        </span>
-        <span id="gotoUnpicker" class="tool" tabindex="0">
-            <span class="fa-icon">eye-open</span>
-            <span data-i18n="unpickerTipEnter">_</span>
-        </span>
-        <span id="gotoReport" class="tool enabled" tabindex="0">
-            <span class="fa-icon">comment-alt</span>
-            <span data-i18n="popupTipReport">_</span>
-        </span>
+    <div class="adwarden-filter-label">
+      <span class="adwarden-filter-mode-text">filtering mode</span>
+      <span id="adwarden-filter-mode-name" class="adwarden-filter-mode-value">basic</span>
     </div>
-    <!-- -------- -->
-    <div class="toolRibbon globalTools">
-        <span id="gotoMatchedRules" class="fa-icon tool" tabindex="0" title="Show matched rules">list-alt<span class="caption">Show matched rules</span></span>
-        <span id="gotoDashboard" class="fa-icon tool enabled" tabindex="0" data-i18n-title="popupTipDashboard">cogs<span class="caption" data-i18n="popupTipDashboard"></span></span>
-    </div>
+  </section>
+  <section class="adwarden-metric">
+    <span id="adwarden-count">0</span>
+    <span class="adwarden-label">ads blocked</span>
+  </section>
+  <button id="adwarden-action" class="adwarden-cta">Disable Blocking</button>
+  <footer class="adwarden-domain">
+    <span id="adwarden-hostname">—</span>
+  </footer>
 </main>
-<aside>
-    <span class="fa-icon">spinner</span>
-</aside>
-
-<script src="js/theme.js" type="module"></script>
-<script src="js/fa-icons.js" type="module"></script>
-<script src="js/i18n.js" type="module"></script>
-<script src="js/popup.js" type="module"></script>
-
+<script src="js/popup-adwarden.js" type="module"></script>
 </body>
-
 </html>

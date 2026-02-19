@@ -379,8 +379,7 @@
             return false;
         }
 
-        sendResponse({ error: 'Unknown message type' });
-        return false;
+        return false; // Let uBOL's handler process popupPanelData, getFilteringMode, setFilteringMode, etc.
     }
 
     /**

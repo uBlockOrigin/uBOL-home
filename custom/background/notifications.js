@@ -306,9 +306,9 @@
             return;
         }
 
-        // Check if notifications API is available
+        // Check if notifications API is available (requires "notifications" permission in manifest)
         if (!chrome.notifications) {
-            console.error('[Notifications] API not available');
+            console.warn('[Notifications] API not available (add "notifications" permission to manifest)');
             return;
         }
 

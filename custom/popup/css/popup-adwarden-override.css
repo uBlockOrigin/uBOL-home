@@ -1,0 +1,133 @@
+/**
+ * Ad Warden - Override styles for original uBlock popup
+ * Dark theme, green accents, refined buttons
+ */
+
+:root {
+    --adwarden-green: #3fb950;
+    --adwarden-green-bright: #56d364;
+    --adwarden-green-soft: rgba(63, 185, 80, 0.15);
+    --adwarden-bg: #0d1117;
+    --adwarden-bg-soft: #161b22;
+    --adwarden-surface: #21262d;
+    --adwarden-border: #30363d;
+    /* Override accent for Ad Warden green (slider, buttons) */
+    --accent-surface-1: var(--adwarden-green) !important;
+    --popup-gap: 10px;
+    --popup-gap-thin: 6px;
+    --popup-gap-extra-thin: 4px;
+}
+
+/* Background - softer dark blue-gray */
+body {
+    background: linear-gradient(180deg, var(--adwarden-bg-soft) 0%, var(--adwarden-bg) 100%);
+    padding: 14px 16px 16px;
+}
+
+/* Main layout */
+main {
+    gap: 2px;
+}
+
+/* Extension name at top */
+.adwarden-header {
+    order: -1;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--adwarden-green-bright);
+    padding-bottom: 4px;
+}
+
+/* Hostname at bottom, 3x smaller */
+#hostname {
+    order: 999;
+    min-height: auto;
+    padding: 8px 0 0;
+    margin: 0;
+    font-size: 0.75em;
+    background: transparent;
+}
+
+/* Filtering mode section - slider color (Ad Warden green) */
+.filteringModeSlider {
+    margin: 8px 0;
+}
+.filteringModeSlider .filteringModeButton > div,
+.filteringModeSlider span[data-level] {
+    background-color: var(--adwarden-green) !important;
+    border-color: var(--adwarden-green) !important;
+}
+.filteringModeSlider[data-level="0"] .filteringModeButton > div {
+    background-color: var(--surface-2) !important;
+    border-color: var(--surface-2) !important;
+}
+.filteringModeSlider[data-level="0"] span[data-level] {
+    background-color: var(--surface-2) !important;
+}
+.filteringModeSlider[data-level="1"] span[data-level]:nth-of-type(1) ~ span[data-level],
+.filteringModeSlider[data-level="2"] span[data-level]:nth-of-type(2) ~ span[data-level] {
+    background-color: var(--surface-2) !important;
+}
+
+#filteringModeText {
+    margin: 4px 0 10px;
+    line-height: 1.4;
+}
+
+#filteringModeText > span {
+    font-weight: 600;
+}
+
+/* Tool menu */
+.toolMenu {
+    margin: 8px 0 0;
+    padding-top: 10px;
+    border-top-color: var(--adwarden-border);
+}
+
+.toolMenu > label {
+    margin-bottom: 6px;
+}
+
+.toolMenu > .tool {
+    padding: 8px 10px;
+    margin: 2px 0;
+}
+
+/* Remove bottom empty box - hide toolRibbon when no tools are enabled */
+.toolRibbon:not(:has(.tool.enabled)) {
+    display: none;
+}
+
+.toolRibbon {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
+.toolRibbon .tool {
+    padding: 8px 10px;
+}
+
+/* Button styling - stronger green accent */
+.toolMenu .tool,
+.toolRibbon .tool {
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+    color: var(--adwarden-green-bright);
+}
+
+.toolMenu .tool:hover,
+.toolMenu .tool.enabled:focus,
+.toolRibbon .tool:hover,
+.toolRibbon .tool.enabled:focus {
+    background: var(--adwarden-green-soft);
+    color: var(--adwarden-green-bright);
+}
+
+.toolMenu .tool .fa-icon,
+.toolRibbon .tool .fa-icon {
+    fill: var(--adwarden-green);
+}
+

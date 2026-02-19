@@ -21,13 +21,15 @@
 
 (api => {
     if ( typeof api === 'object' ) { return; }
-    self.cssAPI = {
-        insert(css) {
+    const safeInsert = function(css) {
+        try {
             chrome.runtime.sendMessage({
                 what: 'insertCSS',
                 css,
-            }).catch(( ) => {
-            });
-        },
+            }).catch(( ) => { });
+        } catch (e) {
+            /* Extension context invalidated - ignore */
+        }
     };
+    self.cssAPI = { insert: safeInsert };
 })(self.cssAPI);

@@ -116,6 +116,10 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Step 2c: Patch css-api.js for Extension context invalidated
+echo "🔧 Step 2c: Patching css-api.js..."
+node build-scripts/patch-css-api.js
+
 echo ""
 
 # Step 3: Replace icons with duck image
@@ -153,6 +157,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
+
 
 # Step 6: Inject notifications into background.js for Manifest V3 (Chrome)
 echo "📥 Step 6: Injecting notifications into background.js (Manifest V3)..."
