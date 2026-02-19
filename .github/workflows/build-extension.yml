@@ -60,28 +60,19 @@ jobs:
           chmod +x build-scripts/build-custom.sh
           ./build-scripts/build-custom.sh
 
-      - name: Create ZIP archives from custom-dist (one per platform)
-        run: |
-          mkdir -p release-packages
-          cd custom-dist/chromium && zip -r ../../release-packages/chrome-extension.zip . && cd ../..
-          if [ -d custom-dist/firefox ]; then
-            cd custom-dist/firefox && zip -r ../../release-packages/firefox-extension.zip . && cd ../..
-          fi
-          ls -la release-packages/
-
-      - name: Upload Chrome extension ZIP (separate artifact)
+      - name: Upload Chrome extension (extension code directly, no zip-in-zip)
         uses: actions/upload-artifact@v4
         with:
           name: chrome-extension
-          path: release-packages/chrome-extension.zip
+          path: custom-dist/chromium/
           retention-days: 7
 
-      - name: Upload Firefox extension ZIP (separate artifact)
-        if: hashFiles('release-packages/firefox-extension.zip') != ''
+      - name: Upload Firefox extension (extension code directly, no zip-in-zip)
+        if: hashFiles('custom-dist/firefox/*') != ''
         uses: actions/upload-artifact@v4
         with:
           name: firefox-extension
-          path: release-packages/firefox-extension.zip
+          path: custom-dist/firefox/
           retention-days: 7
 
       - name: Build summary
@@ -89,12 +80,10 @@ jobs:
           echo "## Build Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "✅ Custom files injected successfully (custom-dist)" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Manifests updated with custom scripts" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Platform ZIPs created" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Artifacts = extension code directly (one extract, no zip-in-zip)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Download (separate ZIP per platform)" >> $GITHUB_STEP_SUMMARY
-          echo "- **Releases page**: Each platform = separate download link (chrome-extension.zip, firefox-extension.zip)" >> $GITHUB_STEP_SUMMARY
-          echo "- Artifacts: chrome-extension, firefox-extension (download each individually, not 'Download all')" >> $GITHUB_STEP_SUMMARY
+          echo "### Download" >> $GITHUB_STEP_SUMMARY
+          echo "- chrome-extension, firefox-extension: extract once → extension code ready to load" >> $GITHUB_STEP_SUMMARY
 
   release:
     needs: build
@@ -106,21 +95,25 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Download artifacts (separate ZIP per platform)
+      - name: Download artifacts (extension code per platform)
         uses: actions/download-artifact@v4
         with:
           pattern: 'chrome-extension,firefox-extension'
           merge-multiple: false
 
-      - name: Collect release assets (each platform = separate file)
+      - name: Create release ZIPs (one per platform, extension code inside)
         run: |
           mkdir -p release-assets
-          find . -name "chrome-extension.zip" -not -path "./release-assets/*" -exec cp {} release-assets/ \;
-          find . -name "firefox-extension.zip" -not -path "./release-assets/*" -exec cp {} release-assets/ \;
-          echo "Release assets (separate ZIP per platform):"
+          # Artifacts are extension folders - zip each for release
+          for dir in chrome-extension firefox-extension; do
+            if [ -d "$dir" ]; then
+              cd "$dir" && zip -r ../release-assets/"$dir".zip . && cd ..
+            fi
+          done
+          echo "Release ZIPs (extension code inside, no zip-in-zip):"
           ls -la release-assets/
           if [ -z "$(ls -A release-assets 2>/dev/null)" ]; then
-            echo "::error::No platform zips found"
+            echo "::error::No platform artifacts found"
             exit 1
           fi
 
