@@ -92,13 +92,16 @@ jobs:
           echo "✅ Manifests updated with custom scripts" >> $GITHUB_STEP_SUMMARY
           echo "✅ Platform ZIPs created" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Download Artifacts (one per platform)" >> $GITHUB_STEP_SUMMARY
-          echo "- chrome-extension.zip (Chromium)" >> $GITHUB_STEP_SUMMARY
-          echo "- firefox-extension.zip (Firefox, if built)" >> $GITHUB_STEP_SUMMARY
+          echo "### Download (separate ZIP per platform)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Releases page**: Each platform = separate download link (chrome-extension.zip, firefox-extension.zip)" >> $GITHUB_STEP_SUMMARY
+          echo "- Artifacts: chrome-extension, firefox-extension (download each individually, not 'Download all')" >> $GITHUB_STEP_SUMMARY
 
   release:
     needs: build
-    if: github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true'
+    # Run on manual trigger with create_release, OR always on push (creates draft with separate zips)
+    if: |
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true') ||
+      (github.event_name == 'push' && github.ref == 'refs/heads/custom')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -116,18 +119,31 @@ jobs:
           find . -name "firefox-extension.zip" -not -path "./release-assets/*" -exec cp {} release-assets/ \;
           echo "Release assets (separate ZIP per platform):"
           ls -la release-assets/
+          if [ -z "$(ls -A release-assets 2>/dev/null)" ]; then
+            echo "::error::No platform zips found"
+            exit 1
+          fi
+
+      - name: Determine release tag
+        id: tag
+        run: |
+          if [ -n "${{ github.event.inputs.release_tag }}" ]; then
+            echo "tag=${{ github.event.inputs.release_tag }}" >> $GITHUB_OUTPUT
+          else
+            echo "tag=build-${{ github.run_number }}" >> $GITHUB_OUTPUT
+          fi
 
       - name: Assemble release body
         run: |
-          TAG="${{ github.event.inputs.release_tag }}"
-          if [ -z "$TAG" ]; then
-            echo "::error::release_tag is required when create_release is true"
-            exit 1
-          fi
+          TAG="${{ steps.tag.outputs.tag }}"
           if [ -f .github/workflows/RELEASE_BODY.md ]; then
             sed "s/%tag%/$TAG/g" .github/workflows/RELEASE_BODY.md > release_body.txt
           else
-            echo "Release $TAG" > release_body.txt
+            echo "## Release $TAG" > release_body.txt
+            echo "" >> release_body.txt
+            echo "**Separate ZIP per platform:**" >> release_body.txt
+            echo "- chrome-extension.zip (Chromium)" >> release_body.txt
+            echo "- firefox-extension.zip (Firefox)" >> release_body.txt
           fi
 
       - name: Create GitHub release (separate ZIP per platform)
@@ -135,7 +151,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.event.inputs.release_tag }}
-          name: ${{ github.event.inputs.release_tag }}
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: ${{ steps.tag.outputs.tag }}
           body_path: release_body.txt
+          draft: ${{ github.event_name == 'push' }}
           files: release-assets/*.zip
