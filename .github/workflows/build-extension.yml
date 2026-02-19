@@ -120,12 +120,10 @@ jobs:
         run: |
           echo "Downloaded structure:"
           ls -la
-          find . -maxdepth 2 -type d -name "*-extension" 2>/dev/null || true
           mkdir -p release-assets
-          # Artifacts are in dirs matching *-extension - zip each for release
-          for dir in */; do
-            dir="${dir%/}"
-            if [[ "$dir" == *-extension ]]; then
+          # Only zip artifact dirs (chrome-extension, firefox-extension) - skip publish-extension submodule
+          for dir in chrome-extension firefox-extension; do
+            if [ -d "$dir" ] && [ -f "$dir/manifest.json" ]; then
               echo "Zipping $dir..."
               (cd "$dir" && zip -r ../release-assets/"$dir".zip .)
             fi
