@@ -96,18 +96,24 @@ jobs:
       contents: write
     steps:
       - name: Download artifacts (extension code per platform)
+        id: download
         uses: actions/download-artifact@v4
         with:
-          pattern: 'chrome-extension,firefox-extension'
+          pattern: '*-extension'
           merge-multiple: false
 
       - name: Create release ZIPs (one per platform, extension code inside)
         run: |
+          echo "Downloaded structure:"
+          ls -la
+          find . -maxdepth 2 -type d -name "*-extension" 2>/dev/null || true
           mkdir -p release-assets
-          # Artifacts are extension folders - zip each for release
-          for dir in chrome-extension firefox-extension; do
-            if [ -d "$dir" ]; then
-              cd "$dir" && zip -r ../release-assets/"$dir".zip . && cd ..
+          # Artifacts are in dirs matching *-extension - zip each for release
+          for dir in */; do
+            dir="${dir%/}"
+            if [[ "$dir" == *-extension ]]; then
+              echo "Zipping $dir..."
+              (cd "$dir" && zip -r ../release-assets/"$dir".zip .)
             fi
           done
           echo "Release ZIPs (extension code inside, no zip-in-zip):"

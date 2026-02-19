@@ -40,7 +40,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ inputs.workflow_run_id }}
-          pattern: 'chrome-extension,firefox-extension'
+          pattern: '*-extension'
           merge-multiple: false
 
       - name: Create release ZIPs from artifacts (extension code per platform)
@@ -48,10 +48,12 @@ jobs:
           echo "Downloaded artifacts (extension folders):"
           ls -la
           mkdir -p release-assets
-          # Artifacts are extension folders - zip each for release
-          for dir in chrome-extension firefox-extension; do
-            if [ -d "$dir" ]; then
-              cd "$dir" && zip -r ../release-assets/"$dir".zip . && cd ..
+          # Artifacts are in dirs matching *-extension - zip each for release
+          for dir in */; do
+            dir="${dir%/}"
+            if [[ "$dir" == *-extension ]]; then
+              echo "Zipping $dir..."
+              (cd "$dir" && zip -r ../release-assets/"$dir".zip .)
             fi
           done
           echo "Release ZIPs (extension code inside):"
