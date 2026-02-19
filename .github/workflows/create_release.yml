@@ -48,8 +48,10 @@ jobs:
           echo "Downloaded artifacts:"
           find . -name "*.zip" -o -name "*.xpi" 2>/dev/null | head -20
           mkdir -p release-assets
-          [ -f chrome-extension/chrome-extension.zip ] && cp chrome-extension/chrome-extension.zip release-assets/
-          [ -f firefox-extension/firefox-extension.zip ] && cp firefox-extension/firefox-extension.zip release-assets/
+          # Artifact structure varies - find each platform zip wherever it landed
+          find . -name "chrome-extension.zip" -not -path "./release-assets/*" -exec cp {} release-assets/ \;
+          find . -name "firefox-extension.zip" -not -path "./release-assets/*" -exec cp {} release-assets/ \;
+          echo "Release assets (separate file per platform):"
           ls -la release-assets/
           if [ -z "$(ls -A release-assets 2>/dev/null)" ]; then
             echo "::error::No release packages found. Provide workflow_run_id from a Build Extension run."

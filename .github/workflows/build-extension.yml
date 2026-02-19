@@ -5,6 +5,16 @@ on:
     branches:
       - custom
   workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Create GitHub release with separate ZIPs per platform'
+        required: false
+        default: false
+        type: boolean
+      release_tag:
+        description: 'Release tag (e.g. v1.0.0) - required if create_release is true'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -50,7 +60,7 @@ jobs:
           chmod +x build-scripts/build-custom.sh
           ./build-scripts/build-custom.sh
 
-      - name: Create ZIP archives from custom-dist (subdivided build)
+      - name: Create ZIP archives from custom-dist (one per platform)
         run: |
           mkdir -p release-packages
           cd custom-dist/chromium && zip -r ../../release-packages/chrome-extension.zip . && cd ../..
@@ -59,14 +69,14 @@ jobs:
           fi
           ls -la release-packages/
 
-      - name: Upload Chrome extension ZIP artifact
+      - name: Upload Chrome extension ZIP (separate artifact)
         uses: actions/upload-artifact@v4
         with:
           name: chrome-extension
           path: release-packages/chrome-extension.zip
           retention-days: 7
 
-      - name: Upload Firefox extension ZIP artifact
+      - name: Upload Firefox extension ZIP (separate artifact)
         if: hashFiles('release-packages/firefox-extension.zip') != ''
         uses: actions/upload-artifact@v4
         with:
@@ -86,3 +96,46 @@ jobs:
           echo "- chrome-extension.zip (Chromium)" >> $GITHUB_STEP_SUMMARY
           echo "- firefox-extension.zip (Firefox, if built)" >> $GITHUB_STEP_SUMMARY
 
+  release:
+    needs: build
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download artifacts (separate ZIP per platform)
+        uses: actions/download-artifact@v4
+        with:
+          pattern: 'chrome-extension,firefox-extension'
+          merge-multiple: false
+
+      - name: Collect release assets (each platform = separate file)
+        run: |
+          mkdir -p release-assets
+          find . -name "chrome-extension.zip" -not -path "./release-assets/*" -exec cp {} release-assets/ \;
+          find . -name "firefox-extension.zip" -not -path "./release-assets/*" -exec cp {} release-assets/ \;
+          echo "Release assets (separate ZIP per platform):"
+          ls -la release-assets/
+
+      - name: Assemble release body
+        run: |
+          TAG="${{ github.event.inputs.release_tag }}"
+          if [ -z "$TAG" ]; then
+            echo "::error::release_tag is required when create_release is true"
+            exit 1
+          fi
+          if [ -f .github/workflows/RELEASE_BODY.md ]; then
+            sed "s/%tag%/$TAG/g" .github/workflows/RELEASE_BODY.md > release_body.txt
+          else
+            echo "Release $TAG" > release_body.txt
+          fi
+
+      - name: Create GitHub release (separate ZIP per platform)
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.event.inputs.release_tag }}
+          name: ${{ github.event.inputs.release_tag }}
+          body_path: release_body.txt
+          files: release-assets/*.zip
