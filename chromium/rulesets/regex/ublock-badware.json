@@ -94,7 +94,7 @@
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/online\\.[a-z]{7,}\\.top\\/","requestDomains":["top"],"resourceTypes":["main_frame"]},"id":93,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["air-up.com"],"regexFilter":"^https:\\/\\/www\\.air-?up-?[a-z]{2,}\\.com\\/","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":94,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["air-up.com"],"regexFilter":"^https:\\/\\/www\\.xn--airup[a-z]{5,6}-[a-z0-9]{3}\\.com\\/","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":95,"priority":10},
-{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https?:\\/\\/www\\.[a-z]{9,20}\\.com\\/o-[a-z]{4}-[a-z]\\d6-[a-f0-9]{32}\\b","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":96,"priority":10},
+{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/d[0-9a-z]{19}\\.[a-z]{3,4}-[a-z]{7,8}(?:\\.[a-z]{2})?\\.[a-z]{2,3}\\/xm\\/xm\\d\\/\\?","requestDomains":["co.in","pro","sbs"],"resourceTypes":["main_frame"]},"id":96,"priority":10},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[0-9a-z]{7}\\.([0-9a-z]{7})\\.top\\/[0-9a-z]{7}\\?t=\\1&cid=[0-9a-z]+","requestDomains":["top"],"resourceTypes":["main_frame"]},"id":97,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["facebook.com"],"regexFilter":"^https:\\/\\/help-\\d{8}\\.[a-z0-9]{6}-\\d{2}\\.click\\/","requestDomains":["click"],"resourceTypes":["main_frame"]},"id":98,"priority":10},
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]{7,8}\\.com\\/\\?s=[0-9a-z]{13}&q=","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":99,"priority":10},
@@ -128,7 +128,7 @@
 {"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]{12,15}\\.com\\/\\?p=[0-9a-f]{32}&u=[0-9a-f]{138}\\b","resourceTypes":["main_frame"]},"id":127,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/s[cfntz]y?[ace][acemnu][a-z]{1,4}or?[mn][a-z]{4,8}[iy][a-z]?\\.ru\\/","requestDomains":["ru"],"resourceTypes":["main_frame"]},"id":128,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https?:\\/\\/qqh[0-9]\\.mom\\/","requestDomains":["mom"],"resourceTypes":["main_frame"]},"id":129,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/d[0-9a-z]{19}\\.[a-z]{3,4}-[a-z]{7,8}\\.[a-z]{3}\\/xm\\/xm\\d\\/\\?","requestDomains":["pro","sbs"],"resourceTypes":["main_frame"]},"id":130,"priority":10},
+{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https?:\\/\\/www\\.[a-z]{9,20}\\.com\\/o-[a-z]{4}-[a-z]\\d{2}-[a-f0-9]{32}\\b","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":130,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/blockchecker[0-9]\\.pages\\.dev\\/","requestDomains":["pages.dev"],"resourceTypes":["main_frame"]},"id":131,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["z03.azurefd.net"],"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[a-z]{5,20}-[0-9a-z]{16}\\.z03\\.azurefd\\.net\\/[0-9A-Za-z]+0[0-9A-Za-z]+\\/index\\.html","resourceTypes":["main_frame"]},"id":132,"priority":10}
 ]

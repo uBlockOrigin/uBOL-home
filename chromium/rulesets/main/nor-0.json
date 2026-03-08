@@ -709,5 +709,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||altinn-ids."},"id":708,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||altinnnorge."},"id":709,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||minside-altinn."},"id":710,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||smakelig.com/wp-content/uploads/202*.gif|"},"id":711,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||smakelig.com/wp-content/uploads/202*.gif|"},"id":711,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["politiken.dk"],"resourceTypes":["script"],"urlFilter":"://consent.cookiebot.com^"},"id":712,"priority":30}
 ]

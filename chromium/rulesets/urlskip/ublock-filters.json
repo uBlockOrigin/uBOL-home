@@ -308,6 +308,13 @@
   ]
  },
  {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?asd\\.\\S*?/l/ahr0c",
+  "steps": [
+   "/\\/l\\/(aHR0c[^&#]+)/",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?rd\\.remove\\.bg/cl0/http",
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",
@@ -1351,6 +1358,12 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?triplink\\.trip\\.com/forward/middlepages/channel/edm\\?targeturl=",
   "steps": [
    "?targetUrl"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?tracking\\.inflection\\.io/\\S*?/redirect\\?redirect=",
+  "steps": [
+   "?redirect"
   ]
  }
 ]

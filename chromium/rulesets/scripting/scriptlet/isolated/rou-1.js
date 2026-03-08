@@ -574,13 +574,13 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 3 */
 [removeNodeText,removeClass,setCookie];
 
-const $scriptletArgs$ = /* 10 */ ["script","adsbygoogle","_bannerTop1","/jQuery.*reload/","document.head.appendChild","ai_adb","document.body.classList.add","fwp_wpm_","1","/skin|insertAdjacentHTML|netflix/"];
+const $scriptletArgs$ = /* 11 */ ["script","adsbygoogle","_bannerTop1","/jQuery.*reload/","document.head.appendChild","ai_adb","document.body.classList.add","fwp_wpm_","1","/skin|insertAdjacentHTML|netflix/","var Data"];
 
-const $scriptletArglists$ = /* 8 */ "0,0,1;1,2;0,0,3;0,0,4;0,0,5;0,0,6;2,7,8;0,0,9";
+const $scriptletArglists$ = /* 9 */ "0,0,1;1,2;0,0,3;0,0,4;0,0,5;0,0,6;2,7,8;0,0,9;0,0,10";
 
-const $scriptletArglistRefs$ = /* 8 */ "5;6;4;7;2;0;3;1";
+const $scriptletArglistRefs$ = /* 9 */ "5;6;4;7;8;2;0;3;1";
 
-const $scriptletHostnames$ = /* 8 */ ["gsp.ro","acasa.ro","clujust.ro","hotnews.ro","sampmoduri.ro","turdanews.net","filme2023.online","myradioonline.ro"];
+const $scriptletHostnames$ = /* 9 */ ["gsp.ro","acasa.ro","clujust.ro","hotnews.ro","softinfo.ro","sampmoduri.ro","turdanews.net","filme2023.online","myradioonline.ro"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

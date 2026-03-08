@@ -862,7 +862,7 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["qt"]}}},"type":"redirect"},"condition":{"initiatorDomains":["svpressa.ru"],"resourceTypes":["main_frame"],"urlFilter":"^qt="},"id":861},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["top"]}}},"type":"redirect"},"condition":{"initiatorDomains":["svpressa.ru"],"resourceTypes":["main_frame"],"urlFilter":"^top="},"id":862},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["tvtd"]}}},"type":"redirect"},"condition":{"initiatorDomains":["svpressa.ru"],"resourceTypes":["main_frame"],"urlFilter":"^tvtd="},"id":863},
-{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["au.ru","av.by","filmweb.pl","glavagronom.ru","itpc.ru","jiten.moe","letu.ru","mos.ru","pay.tns-e.ru","pikabu.ru","poro.gg","traktorist.ua","work.ua"],"urlFilter":"/counters^"},"id":864,"priority":10},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["hta"]}}},"type":"redirect"},"condition":{"initiatorDomains":["svpressa.ru"],"resourceTypes":["main_frame"],"urlFilter":"^hta="},"id":864},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["aff_trace_key"]}}},"type":"redirect"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||aliexpress.*^aff_trace_key="},"id":865},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["afsmartredirect"]}}},"type":"redirect"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||aliexpress.*^afsmartredirect="},"id":866},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["algo_pvid"]}}},"type":"redirect"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||aliexpress.*^algo_pvid="},"id":867},
@@ -951,5 +951,8 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/sgtm/gtm.js"},"id":950,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||api-statist.tinkoff.ru/gateway/*/events"},"id":951,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["journal-bt.wildberries.ru"],"urlFilter":"||journal-bt.wildberries.ru^"},"id":952,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||tbank.ru/api/*/log/"},"id":953,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||tbank.ru/api/*/log/"},"id":953,"priority":10},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["htn"]}}},"type":"redirect"},"condition":{"initiatorDomains":["svpressa.ru"],"resourceTypes":["main_frame"],"urlFilter":"^htn="},"id":954},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["nmp"]}}},"type":"redirect"},"condition":{"initiatorDomains":["svpressa.ru"],"resourceTypes":["main_frame"],"urlFilter":"^nmp="},"id":955},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["astral.ru","au.ru","av.by","filmweb.pl","glavagronom.ru","itpc.ru","jiten.moe","letu.ru","mos.ru","pay.tns-e.ru","pikabu.ru","poro.gg","traktorist.ua","work.ua"],"urlFilter":"/counters^"},"id":956,"priority":10}
 ]
