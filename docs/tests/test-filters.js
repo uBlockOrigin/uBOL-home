@@ -57,6 +57,19 @@ jobs.push(function bnf5() {
     hide('#bnf5 .fail');
 });
 
+jobs.push(function bnf6() {
+    fetch('/bnf6.txt', { method: 'get' }).then(response => {
+        if ( response.ok !== true ) { return; }
+        return response.text();
+    }).then(text => {
+        if ( typeof text !== 'string' ) { return; }
+        if ( text !== 'ok' ) { return; }
+        return fetch('/bnf6.txt', { method: 'head' })
+    }).catch(( ) => {
+        hide('#bnf6 .fail');
+    });
+});
+
 jobs.push(function anf1() {
     const img = qs$('#anf1 img');
     img.decode().then(( ) => {
