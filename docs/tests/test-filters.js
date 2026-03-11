@@ -48,7 +48,7 @@ jobs.push(function bnf3() {
 
 // This just tests whether the filtering engine can deal with a very long URL
 jobs.push(function bnf4() {
-    const looongURL = `/${'a-'.repeat(16384)}bnf4.gif`;
+    const looongURL = `./${'a-'.repeat(16384)}bnf4.gif`;
     fetch(looongURL).then(response => response.text()).catch(( ) => { });
 });
 
@@ -58,13 +58,13 @@ jobs.push(function bnf5() {
 });
 
 jobs.push(function bnf6() {
-    fetch('/bnf6.txt', { method: 'get' }).then(response => {
+    fetch('./bnf6.txt', { method: 'get' }).then(response => {
         if ( response.ok !== true ) { return; }
         return response.text();
     }).then(text => {
         if ( typeof text !== 'string' ) { return; }
         if ( text !== 'ok' ) { return; }
-        return fetch('/bnf6.txt', { method: 'head' })
+        return fetch('./bnf6.txt', { method: 'head' })
     }).catch(( ) => {
         hide('#bnf6 .fail');
     });
