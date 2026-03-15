@@ -258,5 +258,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kkl-jnf.org","kkl.org.il"],"resourceTypes":["image"],"urlFilter":"||kkl-jnf.org^*/files/banners/"},"id":257,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kkl-jnf.org","kkl.org.il"],"resourceTypes":["image"],"urlFilter":"||kkl.org.il/files/banners/"},"id":258,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kkl-jnf.org","kkl.org.il"],"resourceTypes":["image"],"urlFilter":"||kkl.org.il^*/files/banners/"},"id":259,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||hidabroot.org/themes/hdb/videojs/videojs.ads.min.js"},"id":260,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||hidabroot.org/themes/hdb/videojs/videojs.ads.min.js"},"id":260,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["kiftzuba.co.il"],"resourceTypes":["script"],"urlFilter":"||bytheweb.info/websites_files/extra_css/"},"id":261,"priority":30}
 ]

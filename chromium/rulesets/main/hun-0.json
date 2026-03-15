@@ -169,6 +169,8 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["itthonrolhaza.hu"],"resourceTypes":["script"],"urlFilter":"/wp-content/plugins/wp-popups-lite/src/assets/js/wppopups.js^"},"id":168,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["liked.hu"],"resourceTypes":["script"],"urlFilter":"/choice/*/cmp2*.js^"},"id":169,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||rosszlanyok.hu/bannerek/"},"id":170,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["gyakorikerdesek.hu"],"resourceTypes":["image","media"]},"id":171,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["gyakorikerdesek.hu"],"resourceTypes":["image"],"urlFilter":"||gyakorikerdesek.hu/p/"},"id":172,"priority":30},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||onlinestream.live/js/adb.js"},"id":173,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/gemius.js^"},"id":175,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/gemius.min.js^"},"id":176,"priority":10},

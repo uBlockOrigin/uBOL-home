@@ -544,5 +544,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||lettuceclub.net/asset/js/job_box_"},"id":543,"priority":10},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||grab.onelink.me/*^af_dp=grab%3a%2f%2fopen%3f"},"id":544,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["imgbox.com"],"resourceTypes":["sub_frame"],"urlFilter":"||cdn.sinparty.com^"},"id":545,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||image.entabe.jp/img/elife/300_250.png"},"id":546,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||image.entabe.jp/img/elife/300_250.png"},"id":546,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||ogfap.com/_astro/adcontainer."},"id":547,"priority":10}
 ]

@@ -130,5 +130,25 @@
   "urlFilter": "/anf3.html"
  },
  "id": 7
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "requestDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "requestMethods": [
+   "head"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "/bnf6.txt^"
+ },
+ "id": 8,
+ "priority": 10
 }
 ]

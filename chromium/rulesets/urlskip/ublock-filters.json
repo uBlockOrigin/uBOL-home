@@ -7,12 +7,6 @@
   ]
  },
  {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?www\\.google\\.\\S*?/url\\?sa=t&rct=j&source=webhp&url=",
-  "steps": [
-   "?url"
-  ]
- },
- {
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?jdoqocy\\.com/click-\\S*?&url=",
   "steps": [
    "?url",
@@ -160,12 +154,6 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?safelinks\\.protection\\.outlook\\.com/\\?url=",
   "steps": [
    "?url"
-  ]
- },
- {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?www\\.amazon\\.in/gp/r\\.html",
-  "steps": [
-   "?U"
   ]
  },
  {
@@ -319,6 +307,12 @@
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",
    "-uricomponent"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?www\\.google\\.\\S*?/url\\?\\S*?&url=",
+  "steps": [
+   "?url"
   ]
  },
  {
@@ -1195,7 +1189,7 @@
   ]
  },
  {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?5ch\\.net/jump/to\\?url=http",
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?5ch\\.io/jump/to\\?url=http",
   "steps": [
    "?url"
   ]
@@ -1207,7 +1201,7 @@
   ]
  },
  {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?jump\\.5ch\\.net/\\?http",
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?jump\\.5ch\\.io/\\?http",
   "steps": [
    "/\\/\\?(https?.+)/"
   ]
@@ -1260,6 +1254,12 @@
   "re": "^[a-z-]+://(?:[^/?#]+\\.)?page\\.link/\\?link=http",
   "steps": [
    "?link"
+  ]
+ },
+ {
+  "re": "^[a-z-]+://(?:[^/?#]+\\.)?www\\.amazon\\.\\S*?/gp/r\\.html\\?\\S*?&u=http",
+  "steps": [
+   "?U"
   ]
  },
  {
