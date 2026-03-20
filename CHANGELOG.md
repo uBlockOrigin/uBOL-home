@@ -1,5 +1,5 @@
 - [Add support for popup filtering](https://github.com/gorhill/uBlock/commit/12d7157d78)
-    - To be safe against potential regression, popup filtering will currently be enforced only with default filtering mode set to _complete_.
+    - To be safe against potential regression, popup filtering will be enforced only with default filtering mode set to _complete_ for the time being. Once well-tested, the feature will be enabled in _optimal_ mode.
 - [safari] [Drop some lists from default rulesets](https://github.com/gorhill/uBlock/commit/8c5ddc08f9)
 - [safari] [Expand `requestDomains` rules into multiple `urlFilter` rules](https://github.com/gorhill/uBlock/commit/82f87420d2)
 - [Use low-priority "allow" rules for excepted modifier filters](https://github.com/gorhill/uBlock/commit/e7971e6bbd)
