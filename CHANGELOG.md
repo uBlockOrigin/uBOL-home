@@ -1,3 +1,45 @@
+- [Add support for popup filtering](https://github.com/gorhill/uBlock/commit/12d7157d78)
+    - To be safe against potential regression, popup filtering will currently be enforced only with default filtering mode set to _complete_.
+- [safari] [Drop some lists from default rulesets](https://github.com/gorhill/uBlock/commit/8c5ddc08f9)
+- [safari] [Expand `requestDomains` rules into multiple `urlFilter` rules](https://github.com/gorhill/uBlock/commit/82f87420d2)
+- [Use low-priority "allow" rules for excepted modifier filters](https://github.com/gorhill/uBlock/commit/e7971e6bbd)
+- [Add missing call to re-register content scripts](https://github.com/gorhill/uBlock/commit/fcb1eeee17)
+- Updated filter lists
+
+----------
+
+### 2026.315.1814
+
+- Updated filter lists
+
+----------
+
+### 2026.308.1810
+
+- Updated filter lists
+
+----------
+
+### 2026.301.2014
+
+- Updated filter lists
+
+----------
+
+### 2026.222.1657
+
+- Updated filter lists
+
+----------
+
+### 2026.215.1801
+
+- Updated filter lists
+
+----------
+
+### 2026.211.2314
+
 - [Remove "Steven Black’s Unified Hosts" list](https://github.com/gorhill/uBlock/commit/8d9832b4d6)
 - Updated filter lists
 
