@@ -1255,13 +1255,13 @@ function shouldDebug(details) {
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 10 */
-[abortCurrentScript,preventAddEventListener,abortOnPropertyRead,adjustSetInterval,preventFetch,preventXhr,noEvalIf,preventSetTimeout,noWindowOpenIf,abortOnPropertyWrite];
+[abortOnPropertyRead,abortOnPropertyWrite,abortCurrentScript,preventAddEventListener,adjustSetInterval,preventFetch,preventXhr,noEvalIf,preventSetTimeout,noWindowOpenIf];
 
-const $scriptletArgs$ = /* 24 */ ["getComputedStyle","","cpm","click","linkOpened","load","/adblock/i","scroll","kgSticky","$.magnificPopup.open","LieDetector","popup_custom_data","ads.google.com","adsbygoogle","clarity.ms","trafficbass.com","googlesyndication","/chp_?ad/","console","location.href","3000","MutationObserver","SGPB_POPUP_PARAMS","chp_ads_blocker_detector"];
+const $scriptletArgs$ = /* 24 */ ["SGPB_POPUP_PARAMS","MutationObserver","chp_ads_blocker_detector","getComputedStyle","","cpm","click","linkOpened","load","/adblock/i","scroll","kgSticky","$.magnificPopup.open","LieDetector","popup_custom_data","ads.google.com","adsbygoogle","clarity.ms","trafficbass.com","googlesyndication","/chp_?ad/","console","location.href","3000"];
 
-const $scriptletArglists$ = /* 20 */ "0,0,1,2;1,3,4;1,5,6;1,7,8;2,9;2,10;2,11;3;4,12;4,13;4,14;4,15;5,16;6,17;7,18;7,19,20;8;9,21;2,22;0,23";
+const $scriptletArglists$ = /* 20 */ "0,0;1,1;2,2;2,3,4,5;3,6,7;3,8,9;3,10,11;0,12;0,13;0,14;4;5,15;5,16;5,17;5,18;6,19;7,20;8,21;8,22,23;9";
 
-const $scriptletArglistRefs$ = /* 38 */ "10,14;8;0;16;18;16;16;16;3;19;16;16;16;12;16;11;16;16;13;17;13;7,13;16;13;2;15;5;16;1;6;13;4;16;16;12,16;7;9;16";
+const $scriptletArglistRefs$ = /* 38 */ "13,17;11;3;19;0;19;19;19;6;2;19;19;19;15;19;14;19;19;16;1;16;10,16;19;16;5;18;8;19;4;9;16;7;19;19;15,19;10;12;19";
 
 const $scriptletHostnames$ = /* 38 */ ["netq.me","mudah.my","doroni.me","kiryuu.id","dicrotin.*","igodesu.tv","indobo.com","kiryuu.org","kompas.com","lk21semi.*","nimegami.*","njavtv.com","sukasex.tv","tutwuri.id","anichin.top","moenime.com","sukasex.net","westmanga.*","5.253.86.213","animekompi.*","igobokep.cam","jenismac.com","kiryuu01.com","ainzscans.net","moutogami.com","moviekhhd.biz","3gpterbaru.com","animekompi.vip","info.vebma.com","sk21.sob4t.xyz","193.142.147.230","juraganfilm.ink","kimcilonly.site","komikcast02.com","jurnalistekno.id","bahasteknologi.com","thejakartapost.com","kisahterlarang.site"];
 

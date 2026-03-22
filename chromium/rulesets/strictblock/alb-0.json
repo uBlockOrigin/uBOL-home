@@ -1,0 +1,18 @@
+[
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?gjc\\.gjirafa\\.com[^%.0-9a-z_-]?.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 1,
+ "priority": 29
+}
+]

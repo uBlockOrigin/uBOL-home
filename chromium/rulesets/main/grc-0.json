@@ -401,8 +401,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["gazzetta.gr"],"resourceTypes":["script"],"urlFilter":"||cdnprojectagora.s3.amazonaws.com/gr/gazzetta.js"},"id":400,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||bankingnews.gr/ad/*/"},"id":401,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||madinad-data.s3.amazonaws.com^"},"id":402,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"goldenconcept.ir^"},"id":403,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"indusviva.com^"},"id":404,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["adstorebluebird.cy","adwebone.com","madinad.com","vidads.gr"]},"id":405,"priority":10},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||politis-news.com/banners/entheta/"},"id":406,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||resources.sport-fm.gr/sportfm/newspapers/"},"id":407,"priority":30},

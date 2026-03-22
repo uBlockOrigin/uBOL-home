@@ -79,6 +79,7 @@
    "adcenter-api.cashwalk.co",
    "adcolony.com",
    "adcs.myappsget.com",
+   "adcs.rqmob.com",
    "addapptr.com",
    "addata.mediacategory.com",
    "adeeply.ru",
@@ -217,6 +218,7 @@
    "adx-open-service.youku.com",
    "adx-os.bridgeoos.com",
    "adx-sg-req.bridgeoos.com",
+   "adx-tk.rayjump.com",
    "adxcorp.kr",
    "adz.mobi",
    "adzerk.net",
@@ -345,6 +347,7 @@
    "cashprom.ru",
    "casino-ad-mediation.me2zengame.com",
    "cdn-ad.wtzw.com",
+   "cdn-adn.rayjump.com",
    "cdn-api.admost.com",
    "cdn-cf.postitial.com",
    "cdn-image.com",
@@ -373,6 +376,7 @@
    "config.inmobi.com",
    "config.tremorhub.com",
    "configuration.ttpsdk.info",
+   "configure.rayjump.com",
    "consent.easybrain.com",
    "contextualadv.com",
    "cp.pushwoosh.com",
@@ -477,6 +481,7 @@
    "gynax.com",
    "h5.isnssdk.com",
    "ha-api.pushwoosh.com",
+   "hb.rayjump.com",
    "hellay.net",
    "heyzap.com",
    "holder.com.ua",
@@ -489,6 +494,7 @@
    "httpool.com",
    "huntmad.com",
    "hw-ot-ad.a.yximgs.com",
+   "hybird.rayjump.com",
    "hybrid.ai",
    "hyperadx.com",
    "i-vengo.com",
@@ -615,6 +621,7 @@
    "nbcollectretry.kugou.com",
    "nearbyad.com",
    "nend.net",
+   "net.rayjump.com",
    "netavenir.com",
    "netseer.com",
    "netshelter.net",
@@ -742,6 +749,7 @@
    "serveraddr.service.kugou.com",
    "service-ad-image-ga.prd.pluto.tv",
    "sessionm.com",
+   "setting.rayjump.com",
    "shareasale.com",
    "sharethrough.com",
    "sheilaqeb.com",
@@ -892,6 +900,22 @@
   ]
  },
  "id": 1,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?gwrtdp-tn690bfadt\\.tclclouds\\.com[^%.0-9a-z_-]?.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 2,
  "priority": 29
 }
 ]

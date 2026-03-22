@@ -357,7 +357,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/api/delivery/knowledge?callback=window._an.setabshow"},"id":356,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||veo-hentai.com/wp-content/plugins/veohentai/popunder-unificado.js"},"id":357,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||drylnk.com/apu.php?zoneid="},"id":358,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["ads.impulsosocial.online","crummydevioussucculent.com"],"resourceTypes":["main_frame"]},"id":359,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||outbound-proxy-us-east1-0-glob-usercontent-client-id-4143213601.googleapis.com.do/*/sweetalert"},"id":359,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||renatoalves.com.br/images/banners^"},"id":360,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||baixartorrent.info/wp-content/uploads*/a0*b-"},"id":361,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||vertelevisor.com/publivertelevisor.html"},"id":362,"priority":10},
@@ -880,9 +880,11 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||publi.forum.ad^"},"id":879,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||d2dvq461rdwooi.cloudfront.net/*/interna/spaces.js"},"id":880,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.bcdn.zip/scripts/aadirect*.min.js"},"id":881,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||sushianimes.com.br/app/theme/assets/js/lazycore-ad.js"},"id":882,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||bpiexpressoimobiliario.pt^"},"id":883,"priority":10},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||seur.com^"},"id":884,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||img.wikicharlie.cl^"},"id":885,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||nuload.net/*/adlist.json"},"id":886,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||nuload.net/*/ad.js^"},"id":887,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||nuload.net/*/ad.js^"},"id":887,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||hentaihd.*.php|"},"id":888,"priority":10}
 ]

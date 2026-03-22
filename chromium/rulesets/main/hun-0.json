@@ -25,7 +25,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||femcafe.hu/*/sponsoration/"},"id":24,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||femcafe.hu/*/szponzoracio/"},"id":25,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||femcafe.hu/spike-ad/"},"id":26,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["aliexpress.hu","aliexpressz.hu","azsiacenter.hu","azsiacentrum.hu","kinaiwebaruhaz.hu","magyarszo.com","maplin.hu","mikroelektronik.hu","petpoolalarm.com","sexmeup.hu","xn--microelectrnica-5rb.es"],"resourceTypes":["main_frame"]},"id":27,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["posta.hu"],"resourceTypes":["stylesheet"],"urlFilter":"/cookie-modal.css"},"id":28,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["posta.hu"],"resourceTypes":["stylesheet"],"urlFilter":"/cookie-information-modal.css"},"id":29,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||harmonet.hu/*hirdetes"},"id":30,"priority":10},

@@ -101,7 +101,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||mediatn.cms.nova.cz/robots.txt"},"id":100,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||motorkari.cz^"},"id":101,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||radia.sk/_uputavky/"},"id":102,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||indian-tv.cz/uploads/"},"id":103,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":".livebox.cz/ta3_vod_com"},"id":104,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||graphics.stdout.cz/b:commercial"},"id":105,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||im9.cz/*/vyrobce/*background"},"id":106,"priority":10},

@@ -107,6 +107,7 @@
    "cau1aighae.com",
    "cdn-t.b5c1d2e8c9982e3b965a27ac72ru7284cc.com",
    "cdn.alfasense.net",
+   "cdn.debitcrebit669.com",
    "cdn.dmtgvn.com",
    "cdn.dsmstats.com",
    "cdn.neon.click",
@@ -287,6 +288,7 @@
    "s2517.com",
    "safeview.ukr.net",
    "sarafan.fun",
+   "sdk.adiam.tech",
    "serl.mooo.com",
    "servetraff.com",
    "servw.bid",
@@ -407,7 +409,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?slotscity\\.ua/registration\\?refcode=.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?slotscity\\.ua\\/registration\\?refcode=.*",
   "resourceTypes": [
    "main_frame"
   ]

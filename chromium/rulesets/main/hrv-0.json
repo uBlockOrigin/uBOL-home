@@ -19,7 +19,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["uns.org.rs"],"resourceTypes":["image"],"urlFilter":"&code=banner360x1080|"},"id":18,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hr/content/banner^"},"id":19,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hr/portal/banner?"},"id":20,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["a.mabipa.com","btloader.com","eph-adsjutarnji.cdn.sysbee.net","klik-slider.morgancode.com","linker.hr","lupon.media","redakcija.alo.rs","swcs.24sata.rocks","traffic.styria.hr","widget.admiral.hr","widget.marktjagd.de","widgets.jutarnji.hr"]},"id":21,"priority":10},
+{"action":{"type":"block"},"condition":{"requestDomains":["a.mabipa.com","btloader.com","eph-adsjutarnji.cdn.sysbee.net","klik-slider.morgancode.com","linker.hr","lupon.media","redakcija.alo.rs","swcs.24sata.rocks","traffic.styria.hr","widget.admiral.hr","widget.halooglasi.com","widget.marktjagd.de","widgets.jutarnji.hr"]},"id":21,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["avalaads.com","cxpublic.com","native.tportal.hr"]},"id":22,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||bug.hr/ads/"},"id":23,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["nova.rs"],"urlFilter":"||contentexchange.me^"},"id":24,"priority":10},

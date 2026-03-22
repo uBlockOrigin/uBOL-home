@@ -48,7 +48,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^.*goldenconcept\\.ir(?:[^%.0-9a-z_-]|$).*",
+  "regexFilter": "^.*goldenconcept\\.ir[^%.0-9a-z_-]?.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -64,7 +64,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^.*indusviva\\.com(?:[^%.0-9a-z_-]|$).*",
+  "regexFilter": "^.*indusviva\\.com[^%.0-9a-z_-]?.*",
   "resourceTypes": [
    "main_frame"
   ]

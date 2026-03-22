@@ -1,18 +1,18 @@
 [
  {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?l\\.facebook\\.com/l\\.php\\?u=",
+  "re": "^[^:]+://(?:[^/]+\\.)?l\\.facebook\\.com/l\\.php\\?u=",
   "steps": [
    "?u"
   ]
  },
  {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?l\\.instagram\\.com/\\?u=",
+  "re": "^[^:]+://(?:[^/]+\\.)?l\\.instagram\\.com/\\?u=",
   "steps": [
    "?u"
   ]
  },
  {
-  "re": "^[a-z-]+://(?:[^/?#]+\\.)?urldefense\\.com/v\\S*?/__http",
+  "re": "^[^:]+://(?:[^/]+\\.)?urldefense\\.com/v.*?/__http",
   "steps": [
    "/__(.*)__;!!/"
   ]

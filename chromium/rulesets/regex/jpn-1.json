@@ -1,19 +1,137 @@
 [
-{"action":{"type":"block"},"condition":{"initiatorDomains":["proengineer.internous.co.jp"],"regexFilter":"\\/bnr_side_(kiso3|octopass)\\.jpg"},"id":1,"priority":10},
-{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"\\/all\\/login\\.php\\?([0-9a-f]{32})=\\1$","requestDomains":["com"],"resourceTypes":["main_frame"]},"id":2,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"\\/t_([0-9A-Za-z]{32})\\?token=\\1","requestDomains":["cloud","cn","com","net","top","vip"],"resourceTypes":["main_frame"]},"id":3,"priority":10},
-{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https?:\\/\\/(?:j[ap]|qq)\\d{4,8}\\.[a-z]{6,8}\\.[a-z]{2,10}\\/","requestDomains":["agency","art","asia","auction","bar","beauty","beer","best","biz","bond","business","cam","cards","casa","click","cloud","coupons","courses","cv","digital","diy","fashion","food","forum","gay","guru","hair","info","life","link","live","living","ltd","my","ooo","property","pw","qpon","republican","rocks","run","sale","sbs","services","shop","skin","store","studio","support","surf","tattoo","tech","today","top","uno","watch","work"],"resourceTypes":["main_frame"]},"id":4,"priority":10},
-{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"\\.com\\/(?:[a-z]{2,}-)+p-\\d{4,6}\\.html\\?(?:page_source|prevRef|re[fl])=","resourceTypes":["main_frame"]},"id":5,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"\\.(?:club|cn|icu|top|pro|site|work)\\/Personal\\/member\\/Login\\/index\\.php\\?oneTimeAccessID=","requestDomains":["club","cn","icu","pro","site","top","work"],"resourceTypes":["main_frame"]},"id":6,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"^https?:\\/\\/(?:[-0-9a-z]{3,}\\.)?[a-z]{5,}\\.[a-z]{3,7}\\/product\\/\\d{4,7}(\\.html)?$","requestDomains":["baby","blog","bond","cam","casa","club","fun","homes","online","rest","sbs","shop","surf","top","website","yoga"],"resourceTypes":["main_frame"]},"id":7,"priority":10},
-{"action":{"type":"block"},"condition":{"isUrlFilterCaseSensitive":true,"regexFilter":"^https:\\/\\/[-0-9a-z]{6,20}\\.com\\/item-[0-9A-Za-z]{10}\\.html$","resourceTypes":["main_frame"]},"id":8,"priority":10},
-{"action":{"type":"block"},"condition":{"excludedRequestDomains":["openfoodfacts.org"],"regexFilter":"^https?:\\/\\/(?:[-0-9a-z]{4,}\\.)?[a-z]{5,}\\.org\\/product\\/\\d{4,7}(\\.html)?$","resourceTypes":["main_frame"]},"id":9,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["duckdns.org"],"regexFilter":"^https?:\\/\\/[0-9a-z]{5,10}\\.duckdns","resourceTypes":["main_frame"]},"id":10,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["hime.me","konyoku.net","toukou.tv","tuma.jp"],"regexFilter":"\\/pc(?:max)?728(?:200)?[a-z]?\\.png$","resourceTypes":["image"]},"id":11,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["jmd.co.jp"],"regexFilter":"\\/bv\\.php\\?no=2(?:6[79]|7[37]|9[12])$","resourceTypes":["image"]},"id":12,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["www.ne.jp"],"regexFilter":"\\/shinbun\\/[0-9a-z]{3,12}200(280)?\\.(?:jpg|png)$","resourceTypes":["image"]},"id":14,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["goonews.jp"],"regexFilter":"\\/right\\/(?:[a-z]+([a-z_]+\\d{2})?|[0-9a-z_-]*(?:bnr|banner)[0-9a-z-_]*)\\.(?:gif|jpg|png)$","resourceTypes":["image"]},"id":17,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["logistics.jp"],"isUrlFilterCaseSensitive":true,"regexFilter":"dcms_media\\/image\\/(?:bownow|[%_0-9A-Z]{30,})\\.(?:png|jpg)$","resourceTypes":["image"]},"id":18,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["anime365.net"],"regexFilter":"\\/js\\/(?:anime|comic|doujin|game)Ranking","resourceTypes":["xmlhttprequest"]},"id":19,"priority":10},
-{"action":{"type":"block"},"condition":{"regexFilter":"^https:\\/\\/[a-z]{5,8}\\.[a-z]{4,10}\\.[a-z]{2,6}\\/item\\/m\\d{10,11}$","requestDomains":["shop"],"resourceTypes":["main_frame"]},"id":21,"priority":10}
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "proengineer.internous.co.jp"
+  ],
+  "regexFilter": "\\/bnr_side_(kiso3|octopass)\\.jpg"
+ },
+ "id": 1,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "duckdns.org"
+  ],
+  "regexFilter": "^https?:\\/\\/[0-9a-z]{5,10}\\.duckdns",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 10,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "initiatorDomains": [
+   "hime.me",
+   "konyoku.net",
+   "toukou.tv",
+   "tuma.jp"
+  ],
+  "regexFilter": "\\/pc(?:max)?728(?:200)?[a-z]?\\.png$",
+  "resourceTypes": [
+   "image"
+  ]
+ },
+ "id": 11,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "initiatorDomains": [
+   "jmd.co.jp"
+  ],
+  "regexFilter": "\\/bv\\.php\\?no=2(?:6[79]|7[37]|9[12])$",
+  "resourceTypes": [
+   "image"
+  ]
+ },
+ "id": 12,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "initiatorDomains": [
+   "www.ne.jp"
+  ],
+  "regexFilter": "\\/shinbun\\/[0-9a-z]{3,12}200(280)?\\.(?:jpg|png)$",
+  "resourceTypes": [
+   "image"
+  ]
+ },
+ "id": 14,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "initiatorDomains": [
+   "goonews.jp"
+  ],
+  "regexFilter": "\\/right\\/(?:[a-z]+([a-z_]+\\d{2})?|[0-9a-z_-]*(?:bnr|banner)[0-9a-z-_]*)\\.(?:gif|jpg|png)$",
+  "resourceTypes": [
+   "image"
+  ]
+ },
+ "id": 17,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "initiatorDomains": [
+   "logistics.jp"
+  ],
+  "isUrlFilterCaseSensitive": true,
+  "regexFilter": "dcms_media\\/image\\/(?:bownow|[%_0-9A-Z]{30,})\\.(?:png|jpg)$",
+  "resourceTypes": [
+   "image"
+  ]
+ },
+ "id": 18,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "initiatorDomains": [
+   "anime365.net"
+  ],
+  "regexFilter": "\\/js\\/(?:anime|comic|doujin|game)Ranking",
+  "resourceTypes": [
+   "xmlhttprequest"
+  ]
+ },
+ "id": 19,
+ "priority": 10
+}
 ]

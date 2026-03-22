@@ -48,6 +48,7 @@
    "jurnalul-militar.ro",
    "klodrum.com",
    "kreativcdn.net",
+   "l.profitshare.ro",
    "listat.biz",
    "megapopads.com",
    "minecrunch.co",
@@ -103,7 +104,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?femeisingure\\.net(?:[^%.0-9a-z_-]|$).*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?femeisingure\\.net[^%.0-9a-z_-]?.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -119,7 +120,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?easyaff\\.net/\\?ref.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?easyaff\\.net\\/\\?ref.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -135,7 +136,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^.*/click\\?impid=.*",
+  "regexFilter": "^.*\\/click\\?impid=.*",
   "resourceTypes": [
    "main_frame"
   ]

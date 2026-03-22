@@ -47,7 +47,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?indian-tv\\.cz/uploads/.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?indian-tv\\.cz\\/uploads\\/.*",
   "resourceTypes": [
    "main_frame"
   ]

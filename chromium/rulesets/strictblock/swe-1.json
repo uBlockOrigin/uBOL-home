@@ -68,6 +68,7 @@
    "telemetry.bambuser.io",
    "tracing.yelp.com",
    "track.intersport.se",
+   "track.mediaintelliview.com",
    "track.yetric.net",
    "tracking.fasab6f.se",
    "tvm-tv4-freewheel.akamaized.net",
@@ -93,7 +94,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[a-z-]+://(?:[^/?#]+\\.)?aftonbladet\\.se\\..*?\\..*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?aftonbladet\\.se\\..*?\\..*",
   "resourceTypes": [
    "main_frame"
   ]

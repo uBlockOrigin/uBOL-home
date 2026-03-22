@@ -20,19 +20,6 @@
   "type": "block"
  },
  "condition": {
-  "regexFilter": "^(https?:\\/\\/)?[a-z]{10,12}\\.easy\\.co(\\/.*)?$",
-  "resourceTypes": [
-   "main_frame"
-  ]
- },
- "id": 2,
- "priority": 10
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
   "domainType": "thirdParty",
   "regexFilter": "^.*:\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpe?g|png)((\\?|&).*)?$"
  },
@@ -64,19 +51,6 @@
   "regexFilter": "^(https?:\\/\\/)?hokaoneone[a-z0-9].*$"
  },
  "id": 5,
- "priority": 10
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "regexFilter": "^https:\\/\\/autopass\\.\\d{6}\\.com(\\/.*)?$",
-  "resourceTypes": [
-   "main_frame"
-  ]
- },
- "id": 6,
  "priority": 10
 }
 ]

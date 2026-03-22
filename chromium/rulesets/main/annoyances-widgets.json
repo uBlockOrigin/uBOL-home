@@ -36,7 +36,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["vitbikes.de"],"resourceTypes":["script"],"urlFilter":"||embed.typeform.com/next/embed.js"},"id":35,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["casbin.org"],"urlFilter":"||ai.casbin.com^"},"id":36,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||boost.ai/chatpanel/"},"id":37,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedResourceTypes":["image","main_frame"],"urlFilter":"||crisp.chat^"},"id":38,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||script.ask.gov.sg/widget.js"},"id":38,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["paloaltonetworks.com"],"urlFilter":"||driftt.com^"},"id":39,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["zoho.com","zoho.eu","zoho.in","zohoshowtime.com"],"urlFilter":"||js.zohocdn.com/ichat/"},"id":40,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["zoho.com","zoho.eu","zoho.in","zohoshowtime.com"],"urlFilter":"||js.zohocdn.com/salesiq/js/floatbutton1_"},"id":41,"priority":10},
@@ -60,5 +60,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["tidio.com"],"urlFilter":"||tidio.co^"},"id":59,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||eservices.healthhub.sg/public/chatbot/widget/ca/assets/index.js"},"id":60,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||momence.com/plugin/webchat/webchat.js"},"id":61,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||webchat.vica.gov.sg/static/js/chat.js"},"id":62,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||webchat.vica.gov.sg/static/js/chat.js"},"id":62,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||static.zdassets.com/web_widget/messenger/"},"id":63,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedResourceTypes":["image"],"urlFilter":"||crisp.chat^"},"id":64,"priority":10}
 ]

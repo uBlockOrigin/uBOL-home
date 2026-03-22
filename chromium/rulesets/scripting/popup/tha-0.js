@@ -1,7 +1,7 @@
 /*******************************************************************************
 
     uBlock Origin Lite - a comprehensive, MV3-compliant content blocker
-    Copyright (C) 2014-present Raymond Hill
+    Copyright (C) 2026-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,17 +21,11 @@
 
 // Important!
 // Isolate from global scope
-(function uBOL_cssProceduralImport() {
+(function uBOL_preventPopup() {
 
-/******************************************************************************/
+    const details = {"id":"tha-0","block":{"hostnames":["35.193.89.147"],"regexes":[]},"allow":{"hostnames":[],"regexes":[]}};
 
-const rulesetId = "ublock-experimental";
-
-self.proceduralImports = self.proceduralImports || [];
-self.proceduralImports.push(rulesetId);
-
-/******************************************************************************/
+    self.preventPopupDetails = self.preventPopupDetails || [];
+    self.preventPopupDetails.push(details);
 
 })();
-
-/******************************************************************************/
