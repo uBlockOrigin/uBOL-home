@@ -69,6 +69,7 @@
  "condition": {
   "domainType": "thirdParty",
   "excludedResourceTypes": [
+   "main_frame",
    "media",
    "sub_frame"
   ],
@@ -97,6 +98,7 @@
  "condition": {
   "domainType": "thirdParty",
   "excludedResourceTypes": [
+   "main_frame",
    "media"
   ],
   "initiatorDomains": [

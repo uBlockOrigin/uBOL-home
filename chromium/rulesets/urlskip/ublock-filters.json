@@ -1359,5 +1359,11 @@
   "steps": [
    "?redirect"
   ]
+ },
+ {
+  "re": "^[^:]+://(?:[^/]+\\.)?www\\.google\\..*?/url\\?sa=.*?&source=.*?&cd=&ved=.*?&url=",
+  "steps": [
+   "?url"
+  ]
  }
 ]

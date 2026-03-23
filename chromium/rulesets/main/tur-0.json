@@ -850,6 +850,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||boluolay.com/banner.php"},"id":849,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||boluolay.com/images/banner"},"id":850,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||canakkaleolay.com/dosyalar"},"id":851,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||nesinetv*.com/*.gif"},"id":852,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||dogruses.com/images/banner_"},"id":853,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||dunyabulteni.net/media/banner/"},"id":854,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||duzceparantez.com/banner/"},"id":855,"priority":10},
@@ -1046,6 +1047,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kodvizit.com"],"urlFilter":"||cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js"},"id":1046,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||gezenbilir.com/js/siropu/am/ads.min.js"},"id":1047,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||haberturk.com/scripts/ads.js"},"id":1048,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||data-reality.com/skor.php"},"id":1049,"priority":10},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||forum.miuiturkiye.net/js/s7pqm/*.js"},"id":1050,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["altin.in"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/*/show_ads_impl.js"},"id":1051,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||live.ntvradyo.com.tr/advertisement.js"},"id":1052,"priority":30},
@@ -1271,5 +1273,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||blogger.googleusercontent.com/img/*/s1600/mrt-pageskin-1.jpg"},"id":1272,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||blogger.googleusercontent.com/img/*/s1600/yayinmrt.jpg"},"id":1273,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||taraftarium24pro*.vip/*.gif"},"id":1274,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||taraftarium*.top/lib/uploads/r/"},"id":1275,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||taraftarium*.top/lib/uploads/r/"},"id":1275,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||betvinotv*.live/*.gif"},"id":1276,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||betvinotv*.live/yayinonu.jpg"},"id":1277,"priority":10}
 ]

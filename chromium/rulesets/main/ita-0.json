@@ -188,7 +188,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["ilgiornale.it"],"urlFilter":"||assets.evolutionadv.it/ilgiornale_it/ilgiornale_it.new.js"},"id":187,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||plug.it/banners/"},"id":188,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["open.online"],"urlFilter":"||assets.evolutionadv.it/open_online/open_online.new.js"},"id":189,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","excludedResourceTypes":["ping"],"urlFilter":"||youston.agency/google-ads/"},"id":190,"priority":30},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","excludedResourceTypes":["main_frame","ping"],"urlFilter":"||youston.agency/google-ads/"},"id":190,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["nonchiamatemiturista.it"],"urlFilter":"||sherpa.agoda.com/sherparender/simplesearchwidget?"},"id":200,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tccstatic.com^*/banner/"},"id":212,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||uzi.it/b/"},"id":220,"priority":10},

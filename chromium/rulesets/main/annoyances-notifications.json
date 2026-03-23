@@ -279,5 +279,5 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/webpush_service-worker.js"},"id":278,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdnapps.avada.io/faq/sounds/"},"id":279,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||client.salesmartly.com/setting/sounds/"},"id":280,"priority":10},
-{"action":{"type":"block"},"condition":{"excludedResourceTypes":["stylesheet"],"urlFilter":"/push-notifications."},"id":281,"priority":10}
+{"action":{"type":"block"},"condition":{"excludedResourceTypes":["main_frame","stylesheet"],"urlFilter":"/push-notifications."},"id":281,"priority":10}
 ]

@@ -62,5 +62,5 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||momence.com/plugin/webchat/webchat.js"},"id":61,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||webchat.vica.gov.sg/static/js/chat.js"},"id":62,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||static.zdassets.com/web_widget/messenger/"},"id":63,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedResourceTypes":["image"],"urlFilter":"||crisp.chat^"},"id":64,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedResourceTypes":["image","main_frame"],"urlFilter":"||crisp.chat^"},"id":64,"priority":10}
 ]
