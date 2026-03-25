@@ -146,6 +146,13 @@ jobs.push(function sf6() {
     hide('#sf6 .fail');
 });
 
+jobs.push(function sf7() {
+    const elem = document.querySelector('#sf7 .fail');
+    elem.innerHTML = '<b></b>';
+    if ( elem.innerHTML === '<b></b>' ) { return; }
+    hide('#sf7 .fail');
+});
+
 jobs.push(async function x() {
     const obj = await self.ffubo1Sentinel;
     if ( obj instanceof Object === false ) { return; }

@@ -52,6 +52,7 @@ ublockorigin.github.io>>,localhost>>##+js(set, sf3Sentinel, undefined)
 ublockorigin.github.io,localhost##+js(jsonl-edit-xhr-response, .b, propsToMatch, /sample.jsonl)
 ublockorigin.github.io,localhost##+js(jsonl-edit-fetch-response, .b, propsToMatch, /sample.jsonl)
 ublockorigin.github.io,localhost##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, Element.prototype.getElementsByTagName)
+ublockorigin.github.io,localhost##+js(prevent-innerHTML, #sf7 .fail, <b>)
 
 ! Generic cosmetic filters
 ###gcf #gcf1 .fail
