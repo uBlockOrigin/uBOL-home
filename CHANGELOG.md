@@ -1,4 +1,13 @@
+- [Fix total count of DNR rules](https://github.com/gorhill/uBlock/commit/2bc251bcf9)
+- Updated filter lists
+
+----------
+
+### 2026.323.2044
+
 - [Fix regression leading to overzealous blocking](https://github.com/gorhill/uBlock/commit/751104a82c)
+- Updated filter lists
+
 ----------
 
 ### 2026.322.1735
