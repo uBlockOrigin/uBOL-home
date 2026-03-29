@@ -547,6 +547,56 @@ function collateFetchArgumentsFn(resource, options) {
     return out;
 }
 
+function freezeElementProperty(
+    property = '',
+    selector = '',
+    pattern = ''
+) {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('freeze-element-property', property, selector, pattern);
+    const matcher = safe.initPattern(pattern, { canNegate: true });
+    const owner = (( ) => {
+        if ( Object.hasOwn(Element.prototype, property) ) {
+            return Element.prototype;
+        }
+        if ( Object.hasOwn(HTMLElement.prototype, property) ) {
+            return HTMLElement.prototype;
+        }
+        if ( Object.hasOwn(Node.prototype, property) ) {
+            return Node.prototype;
+        }
+        return null;
+    })();
+    if ( owner === null ) { return; }
+    const current = safe.Object_getOwnPropertyDescriptor(owner, property);
+    if ( current === undefined ) { return; }
+    const shouldPreventSet = (elem, a) => {
+        if ( selector !== '' ) {
+            if ( typeof elem.matches !== 'function' ) { return false; }
+            if ( elem.matches(selector) === false ) { return false; }
+        }
+        return safe.testPattern(matcher, `${a}`);
+    };
+    Object.defineProperty(owner, property, {
+        get: function() {
+            return current.get
+                ? current.get.call(this)
+                : current.value;
+        },
+        set: function(a) {
+            if ( shouldPreventSet(this, a) ) {
+                safe.uboLog(logPrefix, 'Assignment prevented');
+            } else if ( current.set ) {
+                current.set.call(this, a);
+            }
+            if ( safe.logLevel > 1 ) {
+                safe.uboLog(logPrefix, `Assigned:\n${a}`);
+            }
+            current.value = a;
+        },
+    });
+}
+
 function jsonlEditFetchResponse(jsonq = '', ...args) {
     jsonlEditFetchResponseFn(false, jsonq, ...args);
 }
@@ -735,6 +785,13 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
         }
     }
     return needles;
+}
+
+function preventInnerHTML(
+    selector = '',
+    pattern = ''
+) {
+    freezeElementProperty('innerHTML', selector, pattern);
 }
 
 function preventSetTimeout(
@@ -1333,14 +1390,14 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 5 */
-[setConstant,preventSetTimeout,jsonlEditXhrResponse,jsonlEditFetchResponse,trustedPreventDomBypass];
+const $scriptletFunctions$ = /* 6 */
+[setConstant,preventSetTimeout,jsonlEditXhrResponse,jsonlEditFetchResponse,trustedPreventDomBypass,preventInnerHTML];
 
-const $scriptletArgs$ = /* 9 */ ["sf1Sentinel","undefined","sf2Sentinel","sf3Sentinel",".b","propsToMatch","/sample.jsonl","Node.prototype.appendChild","Element.prototype.getElementsByTagName"];
+const $scriptletArgs$ = /* 11 */ ["sf1Sentinel","undefined","sf2Sentinel","sf3Sentinel",".b","propsToMatch","/sample.jsonl","Node.prototype.appendChild","Element.prototype.getElementsByTagName","#sf7 .fail","<b>"];
 
-const $scriptletArglists$ = /* 6 */ "0,0,1;1,2;0,3,1;2,4,5,6;3,4,5,6;4,7,8";
+const $scriptletArglists$ = /* 7 */ "0,0,1;1,2;0,3,1;2,4,5,6;3,4,5,6;4,7,8;5,9,10";
 
-const $scriptletArglistRefs$ = /* 4 */ "0,1,3,4,5;2;0,1,3,4,5;2";
+const $scriptletArglistRefs$ = /* 4 */ "0,1,3,4,5,6;2;0,1,3,4,5,6;2";
 
 const $scriptletHostnames$ = /* 4 */ ["localhost","localhost>>","ublockorigin.github.io","ublockorigin.github.io>>"];
 

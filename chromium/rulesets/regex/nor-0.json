@@ -20,6 +20,16 @@
   "type": "block"
  },
  "condition": {
+  "regexFilter": "((https?|tcp):\\/\\/)?204\\.194\\.54\\.\\d{1,3}([:/].*)?$"
+ },
+ "id": 2,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
   "domainType": "thirdParty",
   "regexFilter": "^.*:\\/\\/f\\.nordiskemedier\\.dk\\/2[a-z0-9]{12,}\\.(jpe?g|png)((\\?|&).*)?$"
  },

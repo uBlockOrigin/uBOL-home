@@ -81,7 +81,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["alanyapostasi.com.tr","cukurovaexpres.com","haber46.com.tr","karamangundem.com","pratikhaber.com","sonhaber.eu","tercihiniyap.net","yalovagazetesi.com"],"urlFilter":"/images/banner/"},"id":80,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["anayurtgazetesi.com","bugunkocaeli.com.tr","cagdaskocaeli.com.tr","dirilispostasi.com","enkocaeli.com","kocaelibarisgazetesi.com","kocaelifikir.com","kocaelikoz.com","mansetaydin.com","medyaankara.com","ozgunkocaeli.com.tr","seskocaeli.com","sigortahaber.com","turkuazgazetesi.net","urfanatik.com","yenialanya.com"],"urlFilter":"/service/advertchannels?"},"id":81,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||wfilmizle.my/wp-content/uploads/*/wfilmizle.jpg"},"id":82,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["patronmac15.cfd","patronmac16.cfd","patronmac17.cfd","patronmac18.cfd","patronmac19.cfd","patronmac20.cfd","patronmac21.cfd","patronmac22.cfd","patronmac23.cfd","patronmac24.cfd","patronmac25.cfd","patronmac26.cfd","patronmac27.cfd","patronmac28.cfd","patronmac29.cfd","patronmac30.cfd","patronmac31.cfd","patronmac32.cfd","patronmac33.cfd","patronmac34.cfd","patronmac35.cfd","patronmac36.cfd","patronmac37.cfd","patronmac38.cfd","patronmac39.cfd","patronmac40.cfd","patronmac41.cfd","patronmac42.cfd","patronmac43.cfd","patronmac44.cfd","patronmac45.cfd","patronmac46.cfd","patronmac47.cfd","patronmac48.cfd","patronmac49.cfd","patronmac50.cfd","patronmac51.cfd","patronmac52.cfd","patronmac53.cfd","patronmac54.cfd","patronmac55.cfd","patronmac56.cfd","patronmac57.cfd","patronmac58.cfd","patronmac59.cfd","patronmac60.cfd","patronmac61.cfd","patronmac62.cfd","patronmac63.cfd","patronmac64.cfd"],"urlFilter":"||cdn.jsdelivr.net/*.mp4"},"id":83,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["patronmac100.cfd","patronmac51.cfd","patronmac52.cfd","patronmac53.cfd","patronmac54.cfd","patronmac55.cfd","patronmac56.cfd","patronmac57.cfd","patronmac58.cfd","patronmac59.cfd","patronmac60.cfd","patronmac61.cfd","patronmac62.cfd","patronmac63.cfd","patronmac64.cfd","patronmac65.cfd","patronmac66.cfd","patronmac67.cfd","patronmac68.cfd","patronmac69.cfd","patronmac70.cfd","patronmac71.cfd","patronmac72.cfd","patronmac73.cfd","patronmac74.cfd","patronmac75.cfd","patronmac76.cfd","patronmac77.cfd","patronmac78.cfd","patronmac79.cfd","patronmac80.cfd","patronmac81.cfd","patronmac82.cfd","patronmac83.cfd","patronmac84.cfd","patronmac85.cfd","patronmac86.cfd","patronmac87.cfd","patronmac88.cfd","patronmac89.cfd","patronmac90.cfd","patronmac91.cfd","patronmac92.cfd","patronmac93.cfd","patronmac94.cfd","patronmac95.cfd","patronmac96.cfd","patronmac97.cfd","patronmac98.cfd","patronmac99.cfd"],"urlFilter":"||cdn.jsdelivr.net/*.mp4"},"id":83,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["cdnfast.sbs"],"urlFilter":"||video.twimg.com/amplify_video/"},"id":84,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mackeyfi*.sbs/wp-content/uploads/*/wal*.png"},"id":85,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mackeyfi*.sbs/wp-content/uploads/*.gif"},"id":86,"priority":10},
@@ -1258,7 +1258,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||bahisotv*.com/banner"},"id":1257,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.jsdelivr.net/gh/lookatusdoweneedu/v/*.mp4"},"id":1258,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||pornoizle9.icu/pk8/ntr/b100.js"},"id":1259,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||ifsakolik.com/*.gif"},"id":1260,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kartalhaber.com/images/banners/"},"id":1260,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cimcime*.com/wp-content/uploads/*.gif"},"id":1261,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||dahahizli*.com/wp-content/uploads/*.gif"},"id":1262,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||finans.mynet.com/mymani/widget-form/"},"id":1263,"priority":10},
@@ -1275,5 +1275,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||taraftarium24pro*.vip/*.gif"},"id":1274,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||taraftarium*.top/lib/uploads/r/"},"id":1275,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||betvinotv*.live/*.gif"},"id":1276,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||betvinotv*.live/yayinonu.jpg"},"id":1277,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||betvinotv*.live/yayinonu.jpg"},"id":1277,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||blogger.googleusercontent.com/img/*/pshg-min-min.gif"},"id":1278,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||bloomberght.com/adsbht/"},"id":1279,"priority":10}
 ]

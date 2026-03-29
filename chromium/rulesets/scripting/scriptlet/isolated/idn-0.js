@@ -466,9 +466,9 @@ const $scriptletArgs$ = /* 13 */ ["content-wrap","content-wrap|wrap-all","t480",
 
 const $scriptletArglists$ = /* 11 */ "0,0;0,1;0,2;1;2,3,4;2,3,5;2,3,6;2,3,7;2,3,8;2,3,9,10,11;2,3,12";
 
-const $scriptletArglistRefs$ = /* 15 */ "1;8;0;8;9;8;2;3;4;10;4;7;6;5;8";
+const $scriptletArglistRefs$ = /* 16 */ "1;8;0;8;9;8;2;3;4;10;4;7;6;5;5;8";
 
-const $scriptletHostnames$ = /* 15 */ ["inews.id","sukasex.tv","okezone.com","sukasex.net","gramedia.com","layarwibu.com","sindonews.com","tipskerja.com","3gpterbaru.com","carisinyal.com","duniaseksi.com","katadata.co.id","wisatalova.com","almaftuchin.com","kisahterlarang.site"];
+const $scriptletHostnames$ = /* 16 */ ["inews.id","sukasex.tv","okezone.com","sukasex.net","gramedia.com","layarwibu.com","sindonews.com","tipskerja.com","3gpterbaru.com","carisinyal.com","duniaseksi.com","katadata.co.id","wisatalova.com","almaftuchin.com","indokontraktor.com","kisahterlarang.site"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

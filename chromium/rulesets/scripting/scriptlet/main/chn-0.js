@@ -404,6 +404,56 @@ function evaldataPrune(
     });
 }
 
+function freezeElementProperty(
+    property = '',
+    selector = '',
+    pattern = ''
+) {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('freeze-element-property', property, selector, pattern);
+    const matcher = safe.initPattern(pattern, { canNegate: true });
+    const owner = (( ) => {
+        if ( Object.hasOwn(Element.prototype, property) ) {
+            return Element.prototype;
+        }
+        if ( Object.hasOwn(HTMLElement.prototype, property) ) {
+            return HTMLElement.prototype;
+        }
+        if ( Object.hasOwn(Node.prototype, property) ) {
+            return Node.prototype;
+        }
+        return null;
+    })();
+    if ( owner === null ) { return; }
+    const current = safe.Object_getOwnPropertyDescriptor(owner, property);
+    if ( current === undefined ) { return; }
+    const shouldPreventSet = (elem, a) => {
+        if ( selector !== '' ) {
+            if ( typeof elem.matches !== 'function' ) { return false; }
+            if ( elem.matches(selector) === false ) { return false; }
+        }
+        return safe.testPattern(matcher, `${a}`);
+    };
+    Object.defineProperty(owner, property, {
+        get: function() {
+            return current.get
+                ? current.get.call(this)
+                : current.value;
+        },
+        set: function(a) {
+            if ( shouldPreventSet(this, a) ) {
+                safe.uboLog(logPrefix, 'Assignment prevented');
+            } else if ( current.set ) {
+                current.set.call(this, a);
+            }
+            if ( safe.logLevel > 1 ) {
+                safe.uboLog(logPrefix, `Assigned:\n${a}`);
+            }
+            current.value = a;
+        },
+    });
+}
+
 function generateContentFn(trusted, directive) {
     const safe = safeSelf();
     const randomize = len => {
@@ -999,36 +1049,7 @@ function preventInnerHTML(
     selector = '',
     pattern = ''
 ) {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('prevent-innerHTML', selector, pattern);
-    const matcher = safe.initPattern(pattern, { canNegate: true });
-    const current = safe.Object_getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
-    if ( current === undefined ) { return; }
-    const shouldPreventSet = (elem, a) => {
-        if ( selector !== '' ) {
-            if ( typeof elem.matches !== 'function' ) { return false; }
-            if ( elem.matches(selector) === false ) { return false; }
-        }
-        return safe.testPattern(matcher, `${a}`);
-    };
-    Object.defineProperty(Element.prototype, 'innerHTML', {
-        get: function() {
-            return current.get
-                ? current.get.call(this)
-                : current.value;
-        },
-        set: function(a) {
-            if ( shouldPreventSet(this, a) ) {
-                safe.uboLog(logPrefix, 'Prevented');
-            } else if ( current.set ) {
-                current.set.call(this, a);
-            }
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `Assigned:\n${a}`);
-            }
-            current.value = a;
-        },
-    });
+    freezeElementProperty('innerHTML', selector, pattern);
 }
 
 function preventSetInterval(
@@ -1995,11 +2016,11 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 19 */
 [preventSetTimeout,preventFetch,spoofCSS,abortCurrentScript,abortOnStackTrace,setConstant,abortOnPropertyWrite,preventAddEventListener,abortOnPropertyRead,preventXhr,preventSetInterval,noEvalIf,noWindowOpenIf,adjustSetTimeout,adjustSetInterval,jsonPrune,preventInnerHTML,removeAttr,evaldataPrune];
 
-const $scriptletArgs$ = /* 220 */ ["offsetHeight === 0","adsbygoogle.js",".adsbygoogle","display","block","pagead2.googlesyndication.com","EventTarget.prototype.addEventListener","window.getComputedStyle","document.getElementById","adBlockDetected","alert",".onerror","ad_id_for_555","","all520dddaaa2022ccc","true",".offsetHeight == 0","checkAdblock","/DOMContentLoaded|load|complete/","/check|detected/","ads",".offsetHeight","_AdBlockInit","noopFunc","/googlesyndication\\.com|doubleclick\\.net/","checkAndHandleAdBlock","undefined","document.createElement","/api/ads","alertadmodal","adsbygoogle","{}","adsbygoogle.loaded","float_right > div","document.dispatchEvent","/getexoloader/","decodeURIComponent","pagead","www3.doubleclick.net","document.querySelector","adblock_tip","AD_SURVEY_Add_AdPos","AD_SURVEY_Add_AdPos_Simple","killads","/\\.height\\(\\) == 0|adsbygoogle/","myModal","loadErrorTip","ins.adsbygoogle","isAdsDisplayed","error","event.target.tagName","_0x","fuzqingAdPlus","Ad Block","all520dddaaa2022aaa","canRunAds","DOMContentLoaded","adBlock","adblock","0","can_run_ads","typeof(ad)","jQuery","\\u","document.writeln","发现严重BUG","make_rand_div","checker","google_tag_manager","/pagead2\\.googlesyndication\\.com|\\/fbevents\\.js/","google.ima.AdError","/#myModal'\\)\\.modal/","ga","google_empty_script_included","setTimeout","COOKIE_NAME","html","ADS_BLOCKED","$","adskilltest","/home/?adblock=","/!document\\.getElementById\\([\\s\\S]*?\\.style\\.display=/","showRemoveAdBlocker","Object.prototype.cnobpreroll_","Object.prototype.canobpreroll_","ad_num_show","!document.getElementById(btoa","daau_app","NativeAd","__jsadsuccess","checkSiteNormalLoad","__DOMAIN","onload","null","adbk","false","/ad block stop|warm_msg/","config.group","encodeURIComponent","preBid","preBid.displayAd","preBid.getPrerollVASTUrl","adStart","eval","document.write","player.VastADPlugin","ADSOBJET","Object.prototype.pgmp","invokeInterstitial","Object.prototype.ShouldLoadAds","delCookie","injectPops","myPlayer.adDisplay","NEWS_FEED","infoid","document.write(ad);","conone_lmg","location.href","3000","adCountDown","0.02",".s--","Object.prototype.ad_switch","dy_card_dyrun","/bit\\.ly|kbtv/","video-ad-timeout","*","tips","poped","*.*","adFeedbackData adType adServedUrls","list.*.link.ad list.*.link.kicker","configs.*.properties.slideshowWCSettings.interstitialNativeAds configs.*.properties.fullScreenSlideshowSettings.interstitialNativeAds properties.componentConfigs.slideshowConfigs.interstitialNativeAds properties.componentConfigs.slideshowConfigs.slideshowSettings.interstitialNativeAds","popunder","Object.prototype.adData","Object.prototype._adData","qciss.net","akumtagcc","myclick","/getCookie[\\s\\S]*?\\(\"\\\\x/","MM_openBrWindow","/\\.(gif|php)/","window.leave","CloseAd","lists","timerAdCountdown","88p2p.com","is_show","click","window.open","adbyunion","Math.floor","data.*.list.[-].resourceData.adData","visitUrl","addImageAd","Uint8Array","loadAd","createFixedBottomBannerWithClose","/deposit-bonus?platform=26&utm_source=","mmPopup() {","div","_mtj","document.getElementsByTagName","try{e()}catch(e){if(t[e.message])return;",".current=setTimeout","5000","0.001","localStorage","position:","window.location.href","allData.safeLevel","1","ecjkox.com","ads_codes","touchend","!/external","adUI","1000","appData","[]","topData","midData","btmData","coupletData","data-ads_url","[data-ads_url]","navigator","Math.random","parentNode.insertBefore","return a.split","WebSocket","adModal","adInfo","isAdLoaded","Object.prototype.noAD","/getCookie|checkCK|checkCookie|checkC00kie|checkCoookie|checkCookiiiie|document\\.cookie|buttonClose|exptime/","infoList","data.CardList.[].children_list.ad_list data.CardList.[-].params.advertiser_name","addEventListener(\"touchstart\"","adObj","clientheight","/(?=^(?![\\s\\S]*(static|jquery)))/","data.[-].ad.adScene items.*.video.*.data.[-].ad.adScene data.template.tabs.*.blocks.*.data.data.*.videos.feature_ad data.template.tabs.*.blocks.*.data.data.videos.*.ad","style","#banner[style*=\"background-image:url\"]","CreativePlayerwebPlugin.AD_EVENT.AD_DESTROY","CreativePlayerwebPlugin.AD_EVENT.AD_LOAD_START","ad","ConFig.config.ads","data.cm_info.ads","pageData.__banners.0.commercial.mediaUrl","pageData.__banners.0.commercial.jumpUrl","pageData.__banners.0.commercial.title","pageData.__banners.1.commercial.mediaUrl","pageData.__banners.1.commercial.jumpUrl","pageData.__banners.1.commercial.title","detailParams.is_ad_play","entity.commercial","Function","new Function(document["];
+const $scriptletArgs$ = /* 221 */ ["offsetHeight === 0","adsbygoogle.js",".adsbygoogle","display","block","pagead2.googlesyndication.com","EventTarget.prototype.addEventListener","window.getComputedStyle","document.getElementById","adBlockDetected","alert",".onerror","ad_id_for_555","","all520dddaaa2022ccc","true",".offsetHeight == 0","checkAdblock","/DOMContentLoaded|load|complete/","/check|detected/","ads",".offsetHeight","_AdBlockInit","noopFunc","/googlesyndication\\.com|doubleclick\\.net/","checkAndHandleAdBlock","undefined","document.createElement","/api/ads","alertadmodal","adsbygoogle","{}","adsbygoogle.loaded","float_right > div","document.dispatchEvent","/getexoloader/","decodeURIComponent","pagead","www3.doubleclick.net","document.querySelector","adblock_tip","AD_SURVEY_Add_AdPos","AD_SURVEY_Add_AdPos_Simple","killads","/\\.height\\(\\) == 0|adsbygoogle/","myModal","loadErrorTip","ins.adsbygoogle","isAdsDisplayed","error","event.target.tagName","_0x","fuzqingAdPlus","Ad Block","all520dddaaa2022aaa","canRunAds","DOMContentLoaded","adBlock","adblock","0","can_run_ads","typeof(ad)","jQuery","\\u","document.writeln","发现严重BUG","make_rand_div","checker","google_tag_manager","/pagead2\\.googlesyndication\\.com|\\/fbevents\\.js/","google.ima.AdError","/#myModal'\\)\\.modal/","ga","google_empty_script_included","setTimeout","COOKIE_NAME","html","ADS_BLOCKED","$","adskilltest","/home/?adblock=","/!document\\.getElementById\\([\\s\\S]*?\\.style\\.display=/","showRemoveAdBlocker","Object.prototype.cnobpreroll_","Object.prototype.canobpreroll_","ad_num_show","!document.getElementById(btoa","daau_app","NativeAd","__jsadsuccess","checkSiteNormalLoad","__DOMAIN","onload","null","adbk","false","/ad block stop|warm_msg/","config.group","encodeURIComponent","preBid","preBid.displayAd","preBid.getPrerollVASTUrl","adStart","eval","document.write","player.VastADPlugin","ADSOBJET","Object.prototype.pgmp","invokeInterstitial","Object.prototype.ShouldLoadAds","delCookie","injectPops","myPlayer.adDisplay","NEWS_FEED","infoid","document.write(ad);","conone_lmg","location.href","3000","adCountDown","0.02",".s--","Object.prototype.ad_switch","dy_card_dyrun","/bit\\.ly|kbtv/","video-ad-timeout","*","tips","poped","*.*","adFeedbackData adType adServedUrls","list.*.link.ad list.*.link.kicker","configs.*.properties.slideshowWCSettings.interstitialNativeAds configs.*.properties.fullScreenSlideshowSettings.interstitialNativeAds properties.componentConfigs.slideshowConfigs.interstitialNativeAds properties.componentConfigs.slideshowConfigs.slideshowSettings.interstitialNativeAds","popunder","Object.prototype.adData","Object.prototype._adData","qciss.net","akumtagcc","myclick","/getCookie[\\s\\S]*?\\(\"\\\\x/","MM_openBrWindow","/\\.(gif|php)/","window.leave","CloseAd","lists","timerAdCountdown","88p2p.com","is_show","click","window.open","adbyunion","Math.floor","data.*.list.[-].resourceData.adData","visitUrl","adRender","addImageAd","Uint8Array","loadAd","createFixedBottomBannerWithClose","/deposit-bonus?platform=26&utm_source=","mmPopup() {","div","_mtj","document.getElementsByTagName","try{e()}catch(e){if(t[e.message])return;",".current=setTimeout","5000","0.001","localStorage","position:","window.location.href","allData.safeLevel","1","ecjkox.com","ads_codes","touchend","!/external","adUI","1000","appData","[]","topData","midData","btmData","coupletData","data-ads_url","[data-ads_url]","navigator","Math.random","parentNode.insertBefore","return a.split","WebSocket","adModal","adInfo","isAdLoaded","Object.prototype.noAD","/getCookie|checkCK|checkCookie|checkC00kie|checkCoookie|checkCookiiiie|document\\.cookie|buttonClose|exptime/","infoList","data.CardList.[].children_list.ad_list data.CardList.[-].params.advertiser_name","addEventListener(\"touchstart\"","adObj","clientheight","/(?=^(?![\\s\\S]*(static|jquery)))/","data.[-].ad.adScene items.*.video.*.data.[-].ad.adScene data.template.tabs.*.blocks.*.data.data.*.videos.feature_ad data.template.tabs.*.blocks.*.data.data.videos.*.ad","style","#banner[style*=\"background-image:url\"]","CreativePlayerwebPlugin.AD_EVENT.AD_DESTROY","CreativePlayerwebPlugin.AD_EVENT.AD_LOAD_START","ad","ConFig.config.ads","data.cm_info.ads","pageData.__banners.0.commercial.mediaUrl","pageData.__banners.0.commercial.jumpUrl","pageData.__banners.0.commercial.title","pageData.__banners.1.commercial.mediaUrl","pageData.__banners.1.commercial.jumpUrl","pageData.__banners.1.commercial.title","detailParams.is_ad_play","entity.commercial","Function","new Function(document["];
 
-const $scriptletArglists$ = /* 197 */ "0,0;1,1;2,2,3,4;1,5;3,6,7;3,8,9;4,10,11;5,12,13;5,14,15;0,16;6,17;7,18,19;8,20;0,21;5,22,23;1,24;5,25,26;3,27,5;9,28;8,29;5,30,31;5,32,15;0,33;3,34,35;3,36,37;1,38;9,30;3,39,7;0,40;5,41,23;5,42,23;5,43,15;0,44;0,45;0,46;0,47;5,48,15;7,49,50;0,51;5,52,31;10,53;8,9;5,54,26;5,55,15;7,56,57;5,58,59;5,60,15;0,58;3,10,61;3,62,63;3,64,63;0,65;4,27,66;0,67;5,68,31;9,5;1,69;5,70,23;3,8,71;5,72,23;5,73,15;3,74,75;0,76;11,77;5,30,23;3,78,79;0,80;10,80;3,8,81;7,13,82;5,83,15;5,84,15;0,85;0,30;5,20,13;3,78,86;8,87;5,88,23;5,89,15;0,90;6,91;5,92,93;5,94,95;0,96;5,97,13;11,98;5,99,31;5,100,23;5,101,23;6,102;3,103,51;3,104,51;5,105,23;5,106,31;12;4,107,108;8,109;6,110;3,62,111;5,112,26;5,113,23;3,78,114;3,104,115;5,116,23;7,56,27;0,117,118;13,119,13,120;14,121,13,120;5,122,59;5,123,26;12,124;13,125,126,120;3,104,127;5,128,15;15,129,130;15,126,131;15,132;8,133;5,134,31;13,13,13,120;5,135,31;12,59,136;8,137;8,138;3,104,139;5,140,23;3,104,141;3,142;13,143,13,120;5,144,26;3,78,133;14,145,13,120;12,146;5,147,95;7,148,149;8,150;3,151,127;15,152;3,27,153;8,154;4,155,156;8,157;3,78,158;3,78,159;16,160,161;3,162,161;0,163;3,64;13,164,165,166;3,104;7,56,167;3,104,168;0,169;5,170,171;0,172;3,104,173;7,174,169;12,175;14,176,177,120;5,178,179;5,180,179;5,181,179;5,182,179;5,183,179;17,184,185;3,186,117;3,187,188;3,27,189;11,190;3,78,191;5,192,31;5,193,15;5,194,15;0,195;5,196,179;15,197;0,198;5,199,23;7,174,200;4,27,201;15,202;17,203,204;5,205,13;5,206,13;15,20;15,207;5,208,31;15,209;5,210,13;5,211,13;5,212,13;5,213,13;5,214,13;5,215,13;5,216,95;18,217;3,218,219";
+const $scriptletArglists$ = /* 198 */ "0,0;1,1;2,2,3,4;1,5;3,6,7;3,8,9;4,10,11;5,12,13;5,14,15;0,16;6,17;7,18,19;8,20;0,21;5,22,23;1,24;5,25,26;3,27,5;9,28;8,29;5,30,31;5,32,15;0,33;3,34,35;3,36,37;1,38;9,30;3,39,7;0,40;5,41,23;5,42,23;5,43,15;0,44;0,45;0,46;0,47;5,48,15;7,49,50;0,51;5,52,31;10,53;8,9;5,54,26;5,55,15;7,56,57;5,58,59;5,60,15;0,58;3,10,61;3,62,63;3,64,63;0,65;4,27,66;0,67;5,68,31;9,5;1,69;5,70,23;3,8,71;5,72,23;5,73,15;3,74,75;0,76;11,77;5,30,23;3,78,79;0,80;10,80;3,8,81;7,13,82;5,83,15;5,84,15;0,85;0,30;5,20,13;3,78,86;8,87;5,88,23;5,89,15;0,90;6,91;5,92,93;5,94,95;0,96;5,97,13;11,98;5,99,31;5,100,23;5,101,23;6,102;3,103,51;3,104,51;5,105,23;5,106,31;12;4,107,108;8,109;6,110;3,62,111;5,112,26;5,113,23;3,78,114;3,104,115;5,116,23;7,56,27;0,117,118;13,119,13,120;14,121,13,120;5,122,59;5,123,26;12,124;13,125,126,120;3,104,127;5,128,15;15,129,130;15,126,131;15,132;8,133;5,134,31;13,13,13,120;5,135,31;12,59,136;8,137;8,138;3,104,139;5,140,23;3,104,141;3,142;13,143,13,120;5,144,26;3,78,133;14,145,13,120;12,146;5,147,95;7,148,149;8,150;3,151,127;15,152;3,27,153;5,154,23;8,155;4,156,157;8,158;3,78,159;3,78,160;16,161,162;3,163,162;0,164;3,64;13,165,166,167;3,104;7,56,168;3,104,169;0,170;5,171,172;0,173;3,104,174;7,175,170;12,176;14,177,178,120;5,179,180;5,181,180;5,182,180;5,183,180;5,184,180;17,185,186;3,187,117;3,188,189;3,27,190;11,191;3,78,192;5,193,31;5,194,15;5,195,15;0,196;5,197,180;15,198;0,199;5,200,23;7,175,201;4,27,202;15,203;17,204,205;5,206,13;5,207,13;15,20;15,208;5,209,31;15,210;5,211,13;5,212,13;5,213,13;5,214,13;5,215,13;5,216,13;5,217,95;18,218;3,219,220";
 
-const $scriptletArglistRefs$ = /* 210 */ "11,169;70,71;59,60;95,96;171,172;114,115,116;185;3;83,132;156;84;138;70,71;35;86,87,88;48;126;95,96;12;8,33,105;133;155;123;131;43;170,181;28;31,49,50;39;196;18;112;58;137;62;0;175,182,183,184;11,169;103;51;106;90;85;123;151;3;130;81,82,83;158,180;54,55,56,57;38;3;188,189,190,191,192,193,194;14,20,21;5;121;37;74;133;126;93;113;119;9,159,160,161,162,163;8,42;104;95,96;19;146;148;4;177;186;176;150;31;63;182,183;122;90,91;6;184;188,189,190,191,192,193,194;188,189,190,191,192,193,194;188,189,190,191,192,193,194;145;52;127;130;7,8;133;43,46,47;66,67;157;15;136;184;41;22,23;22,23;89;156;94;164;31;61;145;35,36;152;29,30;94,186;100;164;178;97;195;195;195;195;195;195;120;164;184;101;41;94,147;153;120;24;76;154;27;14;187;128;14;68;117;195;195;77,78,79,80;26;98;94,134,144;32;69;173,174;173,174;16,17;156;156;34,77,78,79;34;94;94;13;73;126;44,45;179;142,143;77,78,79;75;40;43;3;182,183,184,-186;135;128;10;173,174;173,174;173,174;109;139,140,141;139,140,141;110,111;124;165,166,167;53;107,108;118;64;102;22,23;65;173,174;149;72;129;92;145;145;145;145;145;145;145;145;145;156;176;168,178;-186;99;1,2;125;173,174;25";
+const $scriptletArglistRefs$ = /* 210 */ "11,170;70,71;59,60;95,96;172,173;114,115,116;186;3;83,132;157;84;138;70,71;35;86,87,88;48;126;95,96;12;8,33,105;133;156;123;131;43;171,182;28;31,49,50;39;197;18;112;58;137;62;0;176,183,184,185;11,170;103;51;106;90;85;123;152;3;130;81,82,83;159,181;54,55,56,57;38;3;189,190,191,192,193,194,195;14,20,21,139;5;121;37;74;133;126;93;113;119;9,160,161,162,163,164;8,42;104;95,96;19;147;149;4;178;187;177;151;31;63;183,184;122;90,91;6;185;189,190,191,192,193,194,195;189,190,191,192,193,194,195;189,190,191,192,193,194,195;146;52;127;130;7,8;133;43,46,47;66,67;158;15;136;185;41;22,23;22,23;89;157;94;165;31;61;146;35,36;153;29,30;94,187;100;165;179;97;196;196;196;196;196;196;120;165;185;101;41;94,148;154;120;24;76;155;27;14;188;128;14;68;117;196;196;77,78,79,80;26;98;94,134,145;32;69;174,175;174,175;16,17;157;157;34,77,78,79;34;94;94;13;73;126;44,45;180;143,144;77,78,79;75;40;43;3;183,184,185,-187;135;128;10;174,175;174,175;174,175;109;140,141,142;140,141,142;110,111;124;166,167,168;53;107,108;118;64;102;22,23;65;174,175;150;72;129;92;146;146;146;146;146;146;146;146;146;157;177;169,179;-187;99;1,2;125;174,175;25";
 
 const $scriptletHostnames$ = /* 210 */ ["8se.me","ddys.*","ebb.io","iyf.tv","le.com","msn.cn","qq.com","4gtv.tv","5278.cc","beqg.cc","cnys.tv","crxs.me","ddrk.me","logi.im","now.com","slit.cn","wnacg.*","yfsp.tv","2urs.com","520cc.cc","69xx.one","av6k.com","avcao.cc","bde4.com","bde4.icu","huya.com","itdog.cn","jkpan.cc","koyi.pub","mxdm.xyz","noy1.top","o8tv.com","poedb.tw","sohu.com","t66y.com","tstrs.me","v.qq.com","xchina.*","xkyn.com","233tw.com","51zxw.net","akkxs.net","applnn.cc","axjbt.com","efuxs.com","fsbot.xyz","ggjav.com","hboav.com","iqiyi.com","linetv.tw","moeci.com","mpyit.com","nivod2.tv","nodejs.cn","playav.cc","qciss.net","rjno1.com","sssam.com","theav.xyz","wnacg1.cc","x99av.com","xvideo.cc","youku.com","445nan.com","520call.me","85tube.com","aiyifan.tv","caq98i.top","cidetxt.cc","douyin.com","dqzboy.com","enhuku.com","huavod.com","huoqwk.com","iplark.com","itbaoku.cn","jav777.xyz","lpl.qq.com","m.86kl.com","m.lwxs.com","mcappx.com","new.qq.com","nivod2.com","nivod4.com","nivod5.com","nunuju.net","pcbeta.com","pixnet.net","porn87.com","surirt.com","theporn.cc","tingfm.com","tsubasa.im","vikacg.com","wandhi.com","wnacg05.cc","www.qq.com","1090ys8.com","18comic.org","18comic.vip","3dmgame.com","69shumi.com","88files.net","91porna.com","bigpixel.cn","bingfeng.tw","bz88888.net","ekamus.info","erciyan.com","huanqiu.com","huaren.live","jianshu.com","jkptgbf.xyz","m.13xsw.com","m.91zww.com","m.nivod2.tv","m.nivod4.tv","m.nivod5.tv","m.nivod7.tv","m.nivod8.tv","m.nivod9.tv","m.youku.com","mfulbvu.xyz","news.qq.com","nunuyy3.org","papalah.com","umbooks.com","v.ifeng.com","v.youku.com","vxetable.cn","youneed.win","youziks.com","1keydata.com","baomidou.com","bilibili.com","bukaivip.com","docsmall.com","getitfree.cn","goodav17.com","m.nivod2.com","m.nivod4.com","ohmanhua.com","pansearch.me","pornbest.org","wikisport.cc","xbeibeix.com","xiebruce.top","axu.pages.dev","axutongxue.cn","bilinovel.com","biquge321.com","biquge543.com","cocomanga.com","colamanga.com","embedrise.com","freejavbt.com","ftchinese.com","haoweichi.com","hentaicomic.*","linovelib.com","m.1024txt.com","macromicro.me","onemanhua.com","pg-wuming.com","pincong.rocks","slashlook.com","slashview.com","sports.qq.com","yeshuyuan.com","zhenbuka3.com","174.127.195.98","axutongxue.com","axutongxue.net","axutongxue.vip","dianyingim.com","hanime1-me.icu","hanime1-me.top","iwatchme2u.com","javlibrary.com","m.shuhaige.net","ruanyifeng.com","tangdoucdn.com","v-wb.youku.com","wenxuecity.com","dogfight360.com","jmcomic-zzz.org","youranshare.com","axutongxue.space","haiwaishubao.com","league-funny.com","m.biqiugege8.com","player.hboav.com","banzhu1111111.com","banzhu2222222.com","banzhu3333333.com","banzhu4444444.com","banzhu5555555.com","banzhu6666666.com","banzhu7777777.com","banzhu8888888.com","banzhu9999999.com","m.biquge12345.com","wap.biqugewx.info","wap.yushuwu.cloud","work.weixin.qq.com","hamivideo.hinet.net","helper-employer.com","edc1014070.pixnet.net","axutongxue.onrender.com","taiwanlibrarysearch.herokuapp.com"];
 
