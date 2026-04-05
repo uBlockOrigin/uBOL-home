@@ -23,7 +23,7 @@
 // Isolate from global scope
 (function uBOL_preventPopup() {
 
-    const details = {"id":"jpn-1","block":{"hostnames":["av-mov.com","freeadd.me","line-e.com","linoee.com","twitob.com","askfollow.us","line-jp.live","unddeliv.com","bra.almado.jp","hydrangeao.com","ranmaotome.com","moro-douga.link","thepsusiwho.com","click-count.info","googleailesi.com","paradise1972.com","assessoriagmv.com","japans-offers.com","lucky-website.com","amazonlogistics.jp","infohimatalk77.net","more-followers.com","enmusubimail000.com","twitterfollowers.site","sb-hip-happy.ourservice.jp"],"regexes":["ijavcup.","^[^:]+:\\/\\/([^:/]+\\.)?javcup\\.com\\/pop\\/"]},"allow":{"hostnames":[],"regexes":[]}};
+    const details = {"id":"jpn-1","block":{"hostnames":["av-mov.com","freeadd.me","line-e.com","linoee.com","twitob.com","askfollow.us","line-jp.live","unddeliv.com","bra.almado.jp","hydrangeao.com","ranmaotome.com","yariman.online","moro-douga.link","thepsusiwho.com","click-count.info","googleailesi.com","paradise1972.com","assessoriagmv.com","japans-offers.com","lucky-website.com","amazonlogistics.jp","infohimatalk77.net","more-followers.com","enmusubimail000.com","twitterfollowers.site","sb-hip-happy.ourservice.jp"],"regexes":["ijavcup.","^[^:]+:\\/\\/([^:/]+\\.)?javcup\\.com\\/pop\\/"]},"allow":{"hostnames":[],"regexes":[]}};
 
     self.preventPopupDetails = self.preventPopupDetails || [];
     self.preventPopupDetails.push(details);

@@ -17,22 +17,6 @@
   "type": "block"
  },
  "condition": {
-  "initiatorDomains": [
-   "duckdns.org"
-  ],
-  "regexFilter": "^https?:\\/\\/[0-9a-z]{5,10}\\.duckdns",
-  "resourceTypes": [
-   "main_frame"
-  ]
- },
- "id": 10,
- "priority": 10
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
   "domainType": "firstParty",
   "initiatorDomains": [
    "hime.me",

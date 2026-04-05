@@ -309,6 +309,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||gandul.ro/*tobacco"},"id":308,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["timesnewroman.ro"],"resourceTypes":["sub_frame"],"urlFilter":"||widget.apsis.ai^"},"id":309,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["moise.ro"],"resourceTypes":["websocket"],"urlFilter":"||push.tradeville.eu^"},"id":310,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["craiovaforum.ro"],"resourceTypes":["script"],"urlFilter":"||clarity.ms/tag/"},"id":311,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||observatorulph.ro/cdn-cgi/apps/"},"id":314,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["dot.ro"],"resourceTypes":["script"],"urlFilter":"/cdn-cgi/apps/head/"},"id":315,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["xmlhttprequest"],"urlFilter":"||sapi.emag.*/recommendations/*zones=adss"},"id":316,"priority":10},
