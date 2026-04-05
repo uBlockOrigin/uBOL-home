@@ -1,3 +1,10 @@
+- [Fix `header=` conversion in custom DNR rules](https://github.com/gorhill/uBlock/commit/cfe54fc900)
+- Updated filter lists
+
+----------
+
+### 2026.329.1951
+
 - [Fix total count of DNR rules](https://github.com/gorhill/uBlock/commit/2bc251bcf9)
 - Updated filter lists
 
