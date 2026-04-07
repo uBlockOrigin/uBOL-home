@@ -76,25 +76,12 @@ jobs:
         id: create_beta_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          body: |
-            **uBO Lite** (uBOL), an [MV3 API-based](https://developer.chrome.com/docs/extensions/mv3/intro/) content blocker.
-            
-            - [Synopsis](https://github.com/uBlockOrigin/uBOL-issues#readme)
-            - [Documentation](https://github.com/uBlockOrigin/uBOL-home/wiki)
-            
-            ## Release notes
-            
-            - Updated filter lists
-            
-            # Installation
-            
-            - Firefox: Click [uBOLite ${{ env.TAGNAME }}-beta](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}-beta/uBOLite.beta.firefox.signed.xpi)
         run: |
+          sed -e 's/%tag%/${{ env.TAGNAME }}-beta/g' .github/workflows/BETA_BODY.md > beta_body.txt
           gh release create ${{ env.TAGNAME }}-beta \
             --title "${{ env.TAGNAME }}-beta" \
             --prerelease \
-            --notes ${{ env.INPUT_BODY }}
+            --notes-file beta_body.txt
           gh release upload ${{ github.ref_name }}-beta \
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip \
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.edge.zip \
