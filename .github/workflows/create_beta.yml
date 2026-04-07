@@ -74,13 +74,9 @@ jobs:
              ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.safari.zip
       - name: Create GitHub beta release
         id: create_beta_release
-        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.TAGNAME }}-beta
-          name: ${{ env.TAGNAME }}-beta
-          prerelease: true
           body: |
             **uBO Lite** (uBOL), an [MV3 API-based](https://developer.chrome.com/docs/extensions/mv3/intro/) content blocker.
             
@@ -94,9 +90,13 @@ jobs:
             # Installation
             
             - Firefox: Click [uBOLite ${{ env.TAGNAME }}-beta](https://github.com/uBlockOrigin/uBOL-home/releases/download/${{ env.TAGNAME }}-beta/uBOLite.beta.firefox.signed.xpi)
-            
-          files: |
-            ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip
-            ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.edge.zip
-            ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.firefox.xpi
+        run: |
+          gh release create ${{ env.TAGNAME }}-beta \
+            --title "${{ env.TAGNAME }}-beta" \
+            --prerelease \
+            --notes ${{ env.INPUT_BODY }}
+          gh release upload ${{ github.ref_name }}-beta \
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip \
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.edge.zip \
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.firefox.xpi \
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.safari.zip
