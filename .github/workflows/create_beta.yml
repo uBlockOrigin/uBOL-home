@@ -82,7 +82,7 @@ jobs:
             --title "${{ env.TAGNAME }}-beta" \
             --prerelease \
             --notes-file beta_body.txt
-          gh release upload ${{ github.ref_name }}-beta \
+          gh release upload ${{ env.TAGNAME }}-beta \
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.chromium.zip \
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.edge.zip \
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/uBOLite.beta.firefox.xpi \
