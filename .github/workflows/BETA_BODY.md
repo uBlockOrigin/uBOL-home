@@ -9,4 +9,4 @@
 
 # Installation
 
-- Firefox: Click [uBOLite %tag%-beta](https://github.com/uBlockOrigin/uBOL-home/releases/download/%tag%-beta/uBOLite.beta.firefox.signed.xpi)
+- Firefox: Click [uBOLite %tag%](https://github.com/uBlockOrigin/uBOL-home/releases/download/%tag%/uBOLite.beta.firefox.signed.xpi)

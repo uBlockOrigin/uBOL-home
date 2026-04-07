@@ -84,18 +84,18 @@ jobs:
           sed -e 's/%tag%/${{ env.TAGNAME }}/g' .github/workflows/RELEASE_BODY.md > release_body0.txt
           grep -m1 -B10000 -- "----------" CHANGELOG.md | head -n -2 > release_notes.txt
           sed -e '/%changelog%/{r release_notes.txt' -e 'd}' release_body0.txt > release_body.txt
+
       - name: Create GitHub release
         id: create_release
-        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ env.TAGNAME }}
-          name: ${{ env.TAGNAME }}
-          prerelease: true
-          body_path: release_body.txt
-          files: |
-            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }}
-            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.EDGE_PACKAGE }}
-            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.FIREFOX_PACKAGE }}
+        run: |
+          gh release create ${{ env.TAGNAME }} \
+            --title "${{ env.TAGNAME }}" \
+            --prerelease \
+            --notes-file release_body.txt
+          gh release upload ${{ env.TAGNAME }} \
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.CHROMIUM_PACKAGE }} \
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.EDGE_PACKAGE }} \
+            ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.FIREFOX_PACKAGE }} \
             ${{ env.UBLOCK_REPO_DIR }}/dist/build/${{ env.SAFARI_PACKAGE }}
