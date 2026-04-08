@@ -887,5 +887,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||nuload.net/*/adlist.json"},"id":886,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||nuload.net/*/ad.js^"},"id":887,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||hentaihd.*.php|"},"id":888,"priority":10},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["file4go.lol"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||cdnpc.net^"},"id":889,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["file4go.lol"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||cdnpc.net^"},"id":889,"priority":11},
+{"action":{"type":"block"},"condition":{"urlFilter":"||blizzboygames.net/wp-content/plugins/notificationx/assets/public/js/frontend.js"},"id":890,"priority":10}
 ]

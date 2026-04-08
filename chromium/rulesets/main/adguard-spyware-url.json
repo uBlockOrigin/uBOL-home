@@ -1956,5 +1956,8 @@
 {"action":{"type":"allow"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||kotaku.com/embed/comments"},"id":1955},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||fakt.pl/*&srcc=ucs"},"id":1956},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||przegladsportowy.pl/*&srcc=ucs"},"id":1957},
-{"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||m.maoyan.com/api/mtrade/mmcs/cinema/v2/select/movie/cinemas.json"},"id":1958}
+{"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||m.maoyan.com/api/mtrade/mmcs/cinema/v2/select/movie/cinemas.json"},"id":1958},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["wa_ref"]}}},"type":"redirect"},"condition":{"requestDomains":["usaa.com"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^wa_ref="},"id":1959},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["n_tw"]}}},"type":"redirect"},"condition":{"requestDomains":["nikkei.com"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^n_tw="},"id":1960},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_prid"]}}},"type":"redirect"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^utm_prid="},"id":1961}
 ]
