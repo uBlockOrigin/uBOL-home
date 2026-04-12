@@ -786,6 +786,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||res.sooplive.com/script/da/af_da_block.js"},"id":785,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||res.sooplive.com/script/da/ad_check.js"},"id":786,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||static.sooplive.com/asset/service/ad/"},"id":787,"priority":10},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["litomi.in"],"resourceTypes":["script"],"urlFilter":"||jads.co^"},"id":788,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"||media.cokcok.vip/assets/images/"},"id":792,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||google.com/adsense/search/"},"id":793,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["weather.naver.com"],"urlFilter":"||ssl.pstatic.net/tveta/libs/glad/prod/gfp-core.js"},"id":794,"priority":30},

@@ -261,7 +261,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","urlFilter":"||mms.cnn.com^"},"id":260,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["free-scores.com"],"resourceTypes":["image"],"urlFilter":"||pagead2.googlesyndication.com/pagead/"},"id":261,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||el-vidas.nl^*/phpcuong_newsletter/"},"id":262,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["rydercup.com"],"resourceTypes":["script"],"urlFilter":"||lightboxcdn.com/vendor/"},"id":263,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["pgachampionship.com","rydercup.com"],"resourceTypes":["script"],"urlFilter":"||lightboxcdn.com/vendor/"},"id":263,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["escapistmagazine.com"],"resourceTypes":["script"],"urlFilter":"||pico.tools/load/build.js"},"id":264,"priority":30},
 {"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"script-src *"}],"type":"modifyHeaders"},"condition":{"requestDomains":["gaypornmasters.com","gaypornwave.com"],"resourceTypes":["main_frame","sub_frame"]},"id":265},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["starblast.io"],"resourceTypes":["script"],"urlFilter":"||cdnjs.cloudflare.com/ajax/libs/blockadblock/*/blockadblock.min.js"},"id":266,"priority":30},

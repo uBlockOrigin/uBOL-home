@@ -23,7 +23,7 @@
 // Isolate from global scope
 (function uBOL_preventPopup() {
 
-    const details = {"id":"vie-1","block":{"hostnames":["hqq.to","nh-technologies.ru.com"],"regexes":[]},"allow":{"hostnames":[],"regexes":[]}};
+    const details = {"id":"vie-1","block":{"hostnames":["hqq.to","skema.gb.net"],"regexes":[]},"allow":{"hostnames":[],"regexes":[]}};
 
     self.preventPopupDetails = self.preventPopupDetails || [];
     self.preventPopupDetails.push(details);

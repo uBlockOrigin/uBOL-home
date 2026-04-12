@@ -957,5 +957,8 @@
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["astral.ru","au.ru","av.by","filmweb.pl","glavagronom.ru","itpc.ru","jiten.moe","letu.ru","mos.ru","pay.tns-e.ru","pikabu.ru","poro.gg","traktorist.ua","work.ua"],"urlFilter":"/counters^"},"id":956,"priority":10},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["context"]}}},"type":"redirect"},"condition":{"initiatorDomains":["avito.ru"],"resourceTypes":["main_frame"],"urlFilter":"^context="},"id":957},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ixbt.pro/api/_brimp/"},"id":958,"priority":10},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["geoblock"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||kodikplayer.com/*geoblock="},"id":959}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["geoblock"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||kodikplayer.com/*geoblock="},"id":959},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["geo_block"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||zenithjs.ws/embed/*geo_block="},"id":960},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["geoBlock"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||zenithjs.ws/embed/*geoblock="},"id":961},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_to"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||alice.yandex.*/?utm_to="},"id":962}
 ]
