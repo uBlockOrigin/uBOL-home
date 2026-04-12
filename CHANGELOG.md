@@ -1,3 +1,9 @@
+- Updated filter lists
+
+----------
+
+### 2026.405.2010
+
 - [Fix `header=` conversion in custom DNR rules](https://github.com/gorhill/uBlock/commit/cfe54fc900)
 - Updated filter lists
 
