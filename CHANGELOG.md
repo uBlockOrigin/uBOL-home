@@ -1,3 +1,10 @@
+- [Add support for custom scriptlet filters](https://github.com/gorhill/uBlock/commit/46852ebd6f)
+- Updated filter lists
+
+----------
+
+### 2026.412.1536
+
 - Updated filter lists
 
 ----------
