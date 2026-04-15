@@ -1,3 +1,4 @@
+- [Fix bug in custom filter removal code](https://github.com/gorhill/uBlock/commit/14946474fb)
 - [Add support for custom scriptlet filters](https://github.com/gorhill/uBlock/commit/46852ebd6f)
 - Updated filter lists
 
