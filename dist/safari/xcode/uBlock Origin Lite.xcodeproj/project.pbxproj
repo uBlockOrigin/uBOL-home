@@ -1377,57 +1377,32 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E440C1F12DCA67F400EF68A5 /* Exceptions for "macOS (App)" folder in "uBlock Origin Lite (macOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = E460317D2DC126470088109E /* uBlock Origin Lite (macOS) */;
-		};
-		E46031B92DC126470088109E /* Exceptions for "Shared (App)" folder in "uBlock Origin Lite (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"/Localized: Resources/Main.html",
-				AppIcon.icon,
-				Resources/Icon.png,
-				Resources/Script.js,
-				Resources/Style.css,
-				ViewController.swift,
-			);
-			target = E460316B2DC126470088109E /* uBlock Origin Lite (iOS) */;
-		};
-		E46031C22DC126470088109E /* Exceptions for "iOS (App)" folder in "uBlock Origin Lite (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = E460316B2DC126470088109E /* uBlock Origin Lite (iOS) */;
-		};
-		E46031C32DC126470088109E /* Exceptions for "Shared (App)" folder in "uBlock Origin Lite (macOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"/Localized: Resources/Main.html",
-				AppIcon.icon,
-				Resources/Icon.png,
-				Resources/Script.js,
-				Resources/Style.css,
-				ViewController.swift,
-			);
-			target = E460317D2DC126470088109E /* uBlock Origin Lite (macOS) */;
-		};
-		E4CD2F372DD7A1B0006165C4 /* Exceptions for "macOS (Extension)" folder in "uBlock Origin Lite Extension (macOS)" target */ = {
+		96FC6B422F900DEC00A96062 /* Exceptions for "Shared (Extension)" folder in "uBlock Origin Lite Extension (macOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
 			target = E46031932DC126470088109E /* uBlock Origin Lite Extension (macOS) */;
 		};
-		E4CD2F5B2DD7A1DC006165C4 /* Exceptions for "iOS (Extension)" folder in "uBlock Origin Lite Extension (iOS)" target */ = {
+		E46031B92DC126470088109E /* Exceptions for "Shared (App)" folder in "uBlock Origin Lite (iOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				AppIcon.icon,
+				Assets.xcassets,
+				ContentView.swift,
+				uBlockOriginLiteApp.swift,
 			);
-			target = E46031892DC126470088109E /* uBlock Origin Lite Extension (iOS) */;
+			target = E460316B2DC126470088109E /* uBlock Origin Lite (iOS) */;
+		};
+		E46031C32DC126470088109E /* Exceptions for "Shared (App)" folder in "uBlock Origin Lite (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppIcon.icon,
+				Assets.xcassets,
+				ContentView.swift,
+				uBlockOriginLiteApp.swift,
+			);
+			target = E460317D2DC126470088109E /* uBlock Origin Lite (macOS) */;
 		};
 		E4D0AC2A2DC63FDD00C15F1F /* Exceptions for "Shared (Extension)" folder in "uBlock Origin Lite Extension (iOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -1448,42 +1423,11 @@
 			path = "Shared (App)";
 			sourceTree = "<group>";
 		};
-		E460316E2DC126470088109E /* iOS (App) */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				E46031C22DC126470088109E /* Exceptions for "iOS (App)" folder in "uBlock Origin Lite (iOS)" target */,
-			);
-			path = "iOS (App)";
-			sourceTree = "<group>";
-		};
-		E460317F2DC126470088109E /* macOS (App) */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				E440C1F12DCA67F400EF68A5 /* Exceptions for "macOS (App)" folder in "uBlock Origin Lite (macOS)" target */,
-			);
-			path = "macOS (App)";
-			sourceTree = "<group>";
-		};
-		E460318E2DC126470088109E /* iOS (Extension) */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				E4CD2F5B2DD7A1DC006165C4 /* Exceptions for "iOS (Extension)" folder in "uBlock Origin Lite Extension (iOS)" target */,
-			);
-			path = "iOS (Extension)";
-			sourceTree = "<group>";
-		};
-		E46031982DC126470088109E /* macOS (Extension) */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				E4CD2F372DD7A1B0006165C4 /* Exceptions for "macOS (Extension)" folder in "uBlock Origin Lite Extension (macOS)" target */,
-			);
-			path = "macOS (Extension)";
-			sourceTree = "<group>";
-		};
 		E4D0AC272DC63FDD00C15F1F /* Shared (Extension) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				E4D0AC2A2DC63FDD00C15F1F /* Exceptions for "Shared (Extension)" folder in "uBlock Origin Lite Extension (iOS)" target */,
+				96FC6B422F900DEC00A96062 /* Exceptions for "Shared (Extension)" folder in "uBlock Origin Lite Extension (macOS)" target */,
 			);
 			path = "Shared (Extension)";
 			sourceTree = "<group>";
@@ -3582,10 +3526,6 @@
 			isa = PBXGroup;
 			children = (
 				E433D6D22EB56EE9003F055E /* Extension files */,
-				E460316E2DC126470088109E /* iOS (App) */,
-				E460317F2DC126470088109E /* macOS (App) */,
-				E460318E2DC126470088109E /* iOS (Extension) */,
-				E46031982DC126470088109E /* macOS (Extension) */,
 				E46031542DC126470088109E /* Shared (App) */,
 				E4D0AC272DC63FDD00C15F1F /* Shared (Extension) */,
 				E460316D2DC126470088109E /* Products */,
@@ -3624,9 +3564,6 @@
 			dependencies = (
 				E460318D2DC126470088109E /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				E460316E2DC126470088109E /* iOS (App) */,
-			);
 			name = "uBlock Origin Lite (iOS)";
 			productName = "uBlock Origin Lite (iOS)";
 			productReference = E460316C2DC126470088109E /* uBlock Origin Lite.app */;
@@ -3646,9 +3583,6 @@
 			dependencies = (
 				E46031972DC126470088109E /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				E460317F2DC126470088109E /* macOS (App) */,
-			);
 			name = "uBlock Origin Lite (macOS)";
 			productName = "uBlock Origin Lite (macOS)";
 			productReference = E460317E2DC126470088109E /* uBlock Origin Lite.app */;
@@ -3663,9 +3597,6 @@
 				E4CD2F5A2DD7A1DC006165C4 /* Resources */,
 			);
 			buildRules = (
-			);
-			fileSystemSynchronizedGroups = (
-				E460318E2DC126470088109E /* iOS (Extension) */,
 			);
 			name = "uBlock Origin Lite Extension (iOS)";
 			productName = "uBlock Origin Lite Extension (iOS)";
@@ -3683,7 +3614,6 @@
 			buildRules = (
 			);
 			fileSystemSynchronizedGroups = (
-				E46031982DC126470088109E /* macOS (Extension) */,
 				E4D0AC272DC63FDD00C15F1F /* Shared (Extension) */,
 			);
 			name = "uBlock Origin Lite Extension (macOS)";
@@ -3838,7 +3768,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_FILE = "Shared (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
@@ -3857,6 +3787,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -3869,7 +3800,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_FILE = "Shared (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
@@ -3888,6 +3819,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -3905,13 +3837,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WY4R6PNRF6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_FILE = "Shared (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
@@ -3931,6 +3861,7 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -3947,13 +3878,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WY4R6PNRF6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_FILE = "Shared (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
@@ -3973,6 +3902,7 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -3984,14 +3914,14 @@
 		E46031C52DC126470088109E /* Debug configuration for PBXNativeTarget "uBlock Origin Lite Extension (macOS)" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/uBlock Origin Lite.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Shared (Extension)/uBlock Origin Lite.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = WY4R6PNRF6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_FILE = "Shared (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4016,14 +3946,14 @@
 		E46031C62DC126470088109E /* Release configuration for PBXNativeTarget "uBlock Origin Lite Extension (macOS)" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/uBlock Origin Lite.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Shared (Extension)/uBlock Origin Lite.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = WY4R6PNRF6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_FILE = "Shared (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4050,14 +3980,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/uBlock Origin Lite.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Shared (App)/uBlock Origin Lite.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WY4R6PNRF6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_FILE = "Shared (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -4089,14 +4019,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/uBlock Origin Lite.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Shared (App)/uBlock Origin Lite.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WY4R6PNRF6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_FILE = "Shared (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "uBlock Origin Lite";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
