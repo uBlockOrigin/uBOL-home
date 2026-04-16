@@ -1,5 +1,5 @@
-- [Fix bug in custom filter removal code](https://github.com/gorhill/uBlock/commit/14946474fb)
-- [Add support for custom scriptlet filters](https://github.com/gorhill/uBlock/commit/46852ebd6f)
+- [safari] [Upload new icons for Apple platform and delete old icons](https://github.com/uBlockOrigin/uBOL-home/commit/d5a1859e87) by [6c67b9](https://github.com/6c67b9)
+- [chromium] [Add support for custom scriptlet filters](https://github.com/gorhill/uBlock/commit/46852ebd6f)
 - Updated filter lists
 
 ----------
