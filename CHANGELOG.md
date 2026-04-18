@@ -1,3 +1,4 @@
+- [Improve usability of "Custom filters" pane](https://github.com/gorhill/uBlock/commit/44d1eead39)
 - [Add aria-label attributes in filtering mode slider](https://github.com/gorhill/uBlock/commit/cf93f2864a)
 - [safari] [Upload new icons for Apple platform and delete old icons](https://github.com/uBlockOrigin/uBOL-home/commit/d5a1859e87) by [6c67b9](https://github.com/6c67b9)
 - [chromium] [Add support for custom scriptlet filters](https://github.com/gorhill/uBlock/commit/46852ebd6f)
