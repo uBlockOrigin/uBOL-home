@@ -2,10 +2,10 @@
  [
   "ublock-filters",
   {
-   "ISOLATED": [
+   "MAIN": [
     "*"
    ],
-   "MAIN": [
+   "ISOLATED": [
     "*"
    ]
   }
@@ -13,6 +13,9 @@
  [
   "easyprivacy",
   {
+   "MAIN": [
+    "*"
+   ],
    "ISOLATED": [
     "247sports.com",
     "abc17news.com",
@@ -153,9 +156,6 @@
     "tvline.com",
     "usaa.com",
     "visible.com"
-   ],
-   "MAIN": [
-    "*"
    ]
   }
  ],
@@ -195,10 +195,10 @@
  [
   "adguard-mobile",
   {
-   "ISOLATED": [
+   "MAIN": [
     "*"
    ],
-   "MAIN": [
+   "ISOLATED": [
     "*"
    ]
   }
@@ -206,9 +206,6 @@
  [
   "annoyances-cookies",
   {
-   "ISOLATED": [
-    "*"
-   ],
    "MAIN": [
     "1000-haushaltstipps.de",
     "199-euro-computer.de",
@@ -819,16 +816,19 @@
     "zouboulis.com",
     "zumkutscher.de",
     "zur-glocke.com"
+   ],
+   "ISOLATED": [
+    "*"
    ]
   }
  ],
  [
   "annoyances-overlays",
   {
-   "ISOLATED": [
+   "MAIN": [
     "*"
    ],
-   "MAIN": [
+   "ISOLATED": [
     "*"
    ]
   }
@@ -844,106 +844,6 @@
  [
   "annoyances-others",
   {
-   "ISOLATED": [
-    "accountantsdaily.com.au",
-    "allrecipes.com",
-    "americanaffairsjournal.org",
-    "androidpolice.com",
-    "bbc.com",
-    "bestrecipes.com.au",
-    "bloomberg.com",
-    "branc.jp",
-    "cbr.com",
-    "cbsnews.com",
-    "chatgpt.com",
-    "climbing.com",
-    "cnn.com",
-    "collider.com",
-    "commonwealmagazine.org",
-    "csmonitor.com",
-    "cyberdaily.au",
-    "dailynewshungary.com",
-    "deepl.com",
-    "defenceconnect.com.au",
-    "democracynow.org",
-    "dualshockers.com",
-    "dutchnews.nl",
-    "fantasyfootballhub.co.uk",
-    "firstthings.com",
-    "gamerant.com",
-    "gmap-pedometer.com",
-    "hartfordbusiness.com",
-    "howtogeek.com",
-    "independent.co.uk",
-    "infowars.com",
-    "inquinte.ca",
-    "inscribed.app",
-    "investing.com",
-    "irishnews.com",
-    "kbtx.com",
-    "kptv.com",
-    "lawinsider.com",
-    "lawyersweekly.com.au",
-    "makeuseof.com",
-    "movieweb.com",
-    "nautil.us",
-    "nbcnews.com",
-    "neilpatel.com",
-    "niagarafallsreview.ca",
-    "nisanyansozluk.com",
-    "nypost.com",
-    "nzherald.co.nz",
-    "oceana.org",
-    "on.orf.at",
-    "opensecrets.org",
-    "pawread.com",
-    "perplexity.ai",
-    "plough.com",
-    "pocketnow.com",
-    "politico.com",
-    "politico.eu",
-    "quillbot.com",
-    "r34.app",
-    "realestatebusiness.com.au",
-    "redfin.com",
-    "reuters.com",
-    "rtings.com",
-    "rumble.com",
-    "science.org",
-    "screenrant.com",
-    "seekingalpha.com",
-    "semrush.com",
-    "smartpropertyinvestment.com.au",
-    "spiked-online.com",
-    "sportsbusinessjournal.com",
-    "startribune.com",
-    "stcatharinesstandard.ca",
-    "talkingpointsmemo.com",
-    "techinasia.com",
-    "theadviser.com.au",
-    "thebump.com",
-    "thegamer.com",
-    "theguardian.com",
-    "theintercept.com",
-    "thejournal.ie",
-    "themonthly.com.au",
-    "theolivepress.es",
-    "therecord.com",
-    "thesaturdaypaper.com.au",
-    "thespec.com",
-    "thestar.com",
-    "thetravel.com",
-    "theweek.com",
-    "today.com",
-    "triathlete.com",
-    "uploadvr.com",
-    "vox.com",
-    "wellandtribune.ca",
-    "wfaa.com",
-    "wkyc.com",
-    "xda-developers.com",
-    "zippia.com"
-   ],
    "MAIN": [
     "10tv.com",
     "11alive.com",
@@ -1045,12 +945,123 @@
     "wzzm13.com",
     "x.com",
     "zippia.com"
+   ],
+   "ISOLATED": [
+    "accountantsdaily.com.au",
+    "allrecipes.com",
+    "americanaffairsjournal.org",
+    "androidpolice.com",
+    "bbc.com",
+    "bestrecipes.com.au",
+    "bloomberg.com",
+    "branc.jp",
+    "cbr.com",
+    "cbsnews.com",
+    "chatgpt.com",
+    "climbing.com",
+    "cnn.com",
+    "collider.com",
+    "commonwealmagazine.org",
+    "csmonitor.com",
+    "cyberdaily.au",
+    "dailynewshungary.com",
+    "deepl.com",
+    "defenceconnect.com.au",
+    "democracynow.org",
+    "dualshockers.com",
+    "dutchnews.nl",
+    "fantasyfootballhub.co.uk",
+    "firstthings.com",
+    "gamerant.com",
+    "gmap-pedometer.com",
+    "hartfordbusiness.com",
+    "howtogeek.com",
+    "independent.co.uk",
+    "infowars.com",
+    "inquinte.ca",
+    "inscribed.app",
+    "investing.com",
+    "irishnews.com",
+    "kbtx.com",
+    "kptv.com",
+    "lawinsider.com",
+    "lawyersweekly.com.au",
+    "makeuseof.com",
+    "movieweb.com",
+    "nautil.us",
+    "nbcnews.com",
+    "neilpatel.com",
+    "niagarafallsreview.ca",
+    "nisanyansozluk.com",
+    "nypost.com",
+    "nzherald.co.nz",
+    "oceana.org",
+    "on.orf.at",
+    "opensecrets.org",
+    "pawread.com",
+    "perplexity.ai",
+    "plough.com",
+    "pocketnow.com",
+    "politico.com",
+    "politico.eu",
+    "quillbot.com",
+    "r34.app",
+    "realestatebusiness.com.au",
+    "redfin.com",
+    "reuters.com",
+    "rtings.com",
+    "rumble.com",
+    "science.org",
+    "screenrant.com",
+    "seekingalpha.com",
+    "semrush.com",
+    "smartpropertyinvestment.com.au",
+    "spiked-online.com",
+    "sportsbusinessjournal.com",
+    "startribune.com",
+    "statnews.com",
+    "stcatharinesstandard.ca",
+    "talkingpointsmemo.com",
+    "techinasia.com",
+    "theadviser.com.au",
+    "thebump.com",
+    "thegamer.com",
+    "theguardian.com",
+    "theintercept.com",
+    "thejournal.ie",
+    "themonthly.com.au",
+    "theolivepress.es",
+    "therecord.com",
+    "thesaturdaypaper.com.au",
+    "thespec.com",
+    "thestar.com",
+    "thetravel.com",
+    "theweek.com",
+    "today.com",
+    "triathlete.com",
+    "uploadvr.com",
+    "vox.com",
+    "wellandtribune.ca",
+    "wfaa.com",
+    "wkyc.com",
+    "xda-developers.com",
+    "zippia.com"
    ]
   }
  ],
  [
   "annoyances-notifications",
   {
+   "MAIN": [
+    "cosmos.so",
+    "daadscholarship.com",
+    "downace.com",
+    "news18.com",
+    "patreon.com",
+    "reddit.com",
+    "smocca.jp",
+    "zillow.com"
+   ],
    "ISOLATED": [
     "app.uniswap.org",
     "audius.co",
@@ -1096,26 +1107,16 @@
     "tvtropes.org",
     "vrbo.com",
     "wunderground.com"
-   ],
-   "MAIN": [
-    "cosmos.so",
-    "daadscholarship.com",
-    "downace.com",
-    "news18.com",
-    "patreon.com",
-    "reddit.com",
-    "smocca.jp",
-    "zillow.com"
    ]
   }
  ],
  [
   "ublock-experimental",
   {
-   "ISOLATED": [
+   "MAIN": [
     "www.youtube.com"
    ],
-   "MAIN": [
+   "ISOLATED": [
     "www.youtube.com"
    ]
   }
@@ -1131,6 +1132,9 @@
  [
   "chn-0",
   {
+   "MAIN": [
+    "*"
+   ],
    "ISOLATED": [
     "9xav.cc",
     "aiyifan.tv",
@@ -1140,54 +1144,12 @@
     "phone-book.tw",
     "subhd.com",
     "yfsp.tv"
-   ],
-   "MAIN": [
-    "*"
    ]
   }
  ],
  [
   "cze-0",
   {
-   "ISOLATED": [
-    "abicko.cz",
-    "ahaonline.cz",
-    "aktualne.cz",
-    "arome.cz",
-    "auto.cz",
-    "autorevue.cz",
-    "blesk.cz",
-    "cnews.cz",
-    "dama.cz",
-    "e15.cz",
-    "emimino.cz",
-    "expres.cz",
-    "extra.cz",
-    "fights.cz",
-    "g.cz",
-    "idnes.cz",
-    "iprima.cz",
-    "karaoketexty.cz",
-    "kinobox.cz",
-    "kupi.cz",
-    "labuznik.cz",
-    "lidovky.cz",
-    "maminka.cz",
-    "modnipeklo.cz",
-    "mojecelebrity.cz",
-    "mojezdravi.cz",
-    "nasepenize.cz",
-    "novinky.cz",
-    "onetv.cz",
-    "osobnosti.cz",
-    "reflex.cz",
-    "spisovatele.cz",
-    "super.cz",
-    "tiscali.cz",
-    "vitalion.cz",
-    "zeny.cz",
-    "zive.cz"
-   ],
    "MAIN": [
     "abicko.cz",
     "ahaonline.cz",
@@ -1306,6 +1268,45 @@
     "zeny.cz",
     "zive.cz",
     "zona.telly.cz"
+   ],
+   "ISOLATED": [
+    "abicko.cz",
+    "ahaonline.cz",
+    "aktualne.cz",
+    "arome.cz",
+    "auto.cz",
+    "autorevue.cz",
+    "blesk.cz",
+    "cnews.cz",
+    "dama.cz",
+    "e15.cz",
+    "emimino.cz",
+    "expres.cz",
+    "extra.cz",
+    "fights.cz",
+    "g.cz",
+    "idnes.cz",
+    "iprima.cz",
+    "karaoketexty.cz",
+    "kinobox.cz",
+    "kupi.cz",
+    "labuznik.cz",
+    "lidovky.cz",
+    "maminka.cz",
+    "modnipeklo.cz",
+    "mojecelebrity.cz",
+    "mojezdravi.cz",
+    "nasepenize.cz",
+    "novinky.cz",
+    "onetv.cz",
+    "osobnosti.cz",
+    "reflex.cz",
+    "spisovatele.cz",
+    "super.cz",
+    "tiscali.cz",
+    "vitalion.cz",
+    "zeny.cz",
+    "zive.cz"
    ]
   }
  ],
@@ -1322,13 +1323,6 @@
  [
   "fin-0",
   {
-   "ISOLATED": [
-    "aalto.fi",
-    "ap-cdn.sanomagames.com",
-    "finder.fi",
-    "srk.fi",
-    "vauva.fi"
-   ],
    "MAIN": [
     "afterdawn.com",
     "dawn.fi",
@@ -1341,12 +1335,22 @@
     "muropaketti.com",
     "s-kaupat.fi",
     "telsu.fi"
+   ],
+   "ISOLATED": [
+    "aalto.fi",
+    "ap-cdn.sanomagames.com",
+    "finder.fi",
+    "srk.fi",
+    "vauva.fi"
    ]
   }
  ],
  [
   "fra-0",
   {
+   "MAIN": [
+    "*"
+   ],
    "ISOLATED": [
     "hentaivost.fr",
     "jeune-gay.fr",
@@ -1354,9 +1358,6 @@
     "mapcustomizer.com",
     "monpetitforfait.com",
     "pianoweb.fr"
-   ],
-   "MAIN": [
-    "*"
    ]
   }
  ],
@@ -1381,21 +1382,6 @@
  [
   "hun-0",
   {
-   "ISOLATED": [
-    "erzsebetvaros.hu",
-    "fizz.hu",
-    "hetek.hu",
-    "magyarorszag.hu",
-    "mandiner.hu",
-    "myonlineradio.hu",
-    "onlinepenztarca.hu",
-    "otpportalok.hu",
-    "pcworld.hu",
-    "rubyvidhub.com",
-    "skanzen.hu",
-    "traffihunter.hu",
-    "vezess.hu"
-   ],
    "MAIN": [
     "24.hu",
     "angol-magyar-szotar.hu",
@@ -1431,12 +1417,30 @@
     "totalbike.hu",
     "totalcar.hu",
     "vezess.hu"
+   ],
+   "ISOLATED": [
+    "erzsebetvaros.hu",
+    "fizz.hu",
+    "hetek.hu",
+    "magyarorszag.hu",
+    "mandiner.hu",
+    "myonlineradio.hu",
+    "onlinepenztarca.hu",
+    "otpportalok.hu",
+    "pcworld.hu",
+    "rubyvidhub.com",
+    "skanzen.hu",
+    "traffihunter.hu",
+    "vezess.hu"
    ]
   }
  ],
  [
   "idn-0",
   {
+   "MAIN": [
+    "*"
+   ],
    "ISOLATED": [
     "3gpterbaru.com",
     "almaftuchin.com",
@@ -1454,39 +1458,12 @@
     "sukasex.tv",
     "tipskerja.com",
     "wisatalova.com"
-   ],
-   "MAIN": [
-    "*"
    ]
   }
  ],
  [
   "irn-0",
   {
-   "ISOLATED": [
-    "aparat.com",
-    "delta3da.cam",
-    "fontchi.com",
-    "hamtamovie.nl",
-    "iran-music.com",
-    "kihanb.ir",
-    "musiceman.net",
-    "najiremix.ir",
-    "offerdaily.ir",
-    "persian-fa.ir",
-    "public-psychology.ir",
-    "rasm.io",
-    "sclinic.ir",
-    "shahanmusic.ir",
-    "tamasha.com",
-    "tarafdari.com",
-    "tgju.org",
-    "uploadboy.com",
-    "vaamfaa.ir",
-    "virgool.io",
-    "zarebin.ir",
-    "zoomit.ir"
-   ],
    "MAIN": [
     "1da.ir",
     "1ea.ir",
@@ -1594,6 +1571,30 @@
     "xip.li",
     "yeknet.ir",
     "zeemusic.ir"
+   ],
+   "ISOLATED": [
+    "aparat.com",
+    "delta3da.cam",
+    "fontchi.com",
+    "hamtamovie.nl",
+    "iran-music.com",
+    "kihanb.ir",
+    "musiceman.net",
+    "najiremix.ir",
+    "offerdaily.ir",
+    "persian-fa.ir",
+    "public-psychology.ir",
+    "rasm.io",
+    "sclinic.ir",
+    "shahanmusic.ir",
+    "tamasha.com",
+    "tarafdari.com",
+    "tgju.org",
+    "uploadboy.com",
+    "vaamfaa.ir",
+    "virgool.io",
+    "zarebin.ir",
+    "zoomit.ir"
    ]
   }
  ],
@@ -1666,10 +1667,14 @@
  [
   "jpn-1",
   {
+   "MAIN": [
+    "*"
+   ],
    "ISOLATED": [
     "aidoly.net",
     "aikru.com",
     "arty-matome.com",
+    "ba-goods-search.com",
     "betweenjpandkr.blog",
     "blog.livedoor.jp",
     "bridalgown.work",
@@ -1721,15 +1726,15 @@
     "video.laxd.com",
     "weddinghall.work",
     "www.yahoo.co.jp"
-   ],
-   "MAIN": [
-    "*"
    ]
   }
  ],
  [
   "kor-1",
   {
+   "MAIN": [
+    "*"
+   ],
    "ISOLATED": [
     "dcinside.com",
     "excellesports.com",
@@ -1741,9 +1746,6 @@
     "oh-yes.co.kr",
     "ssodam.com",
     "www.naver.com"
-   ],
-   "MAIN": [
-    "*"
    ]
   }
  ],
@@ -1773,10 +1775,6 @@
  [
   "nld-0",
   {
-   "ISOLATED": [
-    "datumprikker.nl",
-    "looopings.nl"
-   ],
    "MAIN": [
     "538.nl",
     "autotrader.nl",
@@ -1801,6 +1799,10 @@
     "vtmgo.be",
     "webcams-texel.nl",
     "webcams-vlissingen.nl"
+   ],
+   "ISOLATED": [
+    "datumprikker.nl",
+    "looopings.nl"
    ]
   }
  ],
@@ -1815,9 +1817,6 @@
  [
   "pol-0",
   {
-   "ISOLATED": [
-    "epiotrkow.pl"
-   ],
    "MAIN": [
     "abczdrowie.pl",
     "animezone.pl",
@@ -1898,12 +1897,18 @@
     "www.elektroda.pl",
     "www.interia.pl",
     "www.wp.pl"
+   ],
+   "ISOLATED": [
+    "epiotrkow.pl"
    ]
   }
  ],
  [
   "rou-1",
   {
+   "MAIN": [
+    "*"
+   ],
    "ISOLATED": [
     "acasa.ro",
     "clujust.ro",
@@ -1914,19 +1919,16 @@
     "sampmoduri.ro",
     "softinfo.ro",
     "turdanews.net"
-   ],
-   "MAIN": [
-    "*"
    ]
   }
  ],
  [
   "rus-0",
   {
-   "ISOLATED": [
+   "MAIN": [
     "*"
    ],
-   "MAIN": [
+   "ISOLATED": [
     "*"
    ]
   }
@@ -1934,10 +1936,10 @@
  [
   "rus-1",
   {
-   "ISOLATED": [
+   "MAIN": [
     "*"
    ],
-   "MAIN": [
+   "ISOLATED": [
     "*"
    ]
   }
@@ -1945,10 +1947,10 @@
  [
   "spa-1",
   {
-   "ISOLATED": [
+   "MAIN": [
     "*"
    ],
-   "MAIN": [
+   "ISOLATED": [
     "*"
    ]
   }
@@ -1956,50 +1958,6 @@
  [
   "swe-1",
   {
-   "ISOLATED": [
-    "aftonbladet.se",
-    "allas.se",
-    "bio-link.se",
-    "byggahus.se",
-    "byggipedia.se",
-    "destination.se",
-    "dinbyggare.se",
-    "elle.se",
-    "expressen.se",
-    "familjeliv.se",
-    "femina.se",
-    "fempers.se",
-    "galamagasin.se",
-    "godare.se",
-    "golflivet.se",
-    "hant.se",
-    "inet.se",
-    "inredningsvis.se",
-    "internetodontologi.se",
-    "kandisvarlden.com",
-    "landetsfria.nu",
-    "leta.se",
-    "m3.se",
-    "mabra.com",
-    "macworld.se",
-    "medibok.se",
-    "motherhood.se",
-    "norpan.se",
-    "pcforalla.se",
-    "pilsner.nu",
-    "residencemagazine.se",
-    "rodeo.net",
-    "sistaminuten.se",
-    "skrattsajten.com",
-    "spelhubben.se",
-    "svenskdam.se",
-    "synonymer.se",
-    "tidningenglobal.se",
-    "tidningensyre.se",
-    "vitaestilo.se",
-    "web-tools.se",
-    "webhallen.com"
-   ],
    "MAIN": [
     "affarsstaden.se",
     "aktieskolan.se",
@@ -2154,7 +2112,6 @@
     "sverigespringer.se",
     "swedroid.se",
     "sydostran.se",
-    "temperatur.nu",
     "thatsup.se",
     "thelocal.se",
     "tidningencurie.se",
@@ -2185,15 +2142,55 @@
     "www.aftonbladet.se",
     "ystadsallehanda.se",
     "zeinaskitchen.se"
+   ],
+   "ISOLATED": [
+    "aftonbladet.se",
+    "allas.se",
+    "bio-link.se",
+    "byggahus.se",
+    "byggipedia.se",
+    "destination.se",
+    "dinbyggare.se",
+    "elle.se",
+    "expressen.se",
+    "familjeliv.se",
+    "femina.se",
+    "fempers.se",
+    "galamagasin.se",
+    "godare.se",
+    "golflivet.se",
+    "hant.se",
+    "inet.se",
+    "inredningsvis.se",
+    "internetodontologi.se",
+    "kandisvarlden.com",
+    "landetsfria.nu",
+    "leta.se",
+    "m3.se",
+    "mabra.com",
+    "macworld.se",
+    "medibok.se",
+    "motherhood.se",
+    "norpan.se",
+    "pcforalla.se",
+    "pilsner.nu",
+    "residencemagazine.se",
+    "rodeo.net",
+    "sistaminuten.se",
+    "skrattsajten.com",
+    "spelhubben.se",
+    "svenskdam.se",
+    "synonymer.se",
+    "tidningenglobal.se",
+    "tidningensyre.se",
+    "vitaestilo.se",
+    "web-tools.se"
    ]
   }
  ],
  [
   "tha-0",
   {
-   "ISOLATED": [
-    "nungkai.com"
-   ],
    "MAIN": [
     "fembeq.com",
     "movie2uhd.com",
@@ -2201,16 +2198,19 @@
     "subthai.tv",
     "thmovieshd.com",
     "www.nung2d.com"
+   ],
+   "ISOLATED": [
+    "nungkai.com"
    ]
   }
  ],
  [
   "tur-0",
   {
-   "ISOLATED": [
+   "MAIN": [
     "*"
    ],
-   "MAIN": [
+   "ISOLATED": [
     "*"
    ]
   }
@@ -2218,62 +2218,6 @@
  [
   "ukr-0",
   {
-   "ISOLATED": [
-    "3ivi.com",
-    "bestofkinopoisk.com",
-    "drezka.pl",
-    "flymaterez.net",
-    "hdrezka-home.tv",
-    "hdrezka-sex-city.net",
-    "hdrezka.ag",
-    "hdrezka.club",
-    "hdrezka.cm",
-    "hdrezka.co",
-    "hdrezka.in",
-    "hdrezka.inc",
-    "hdrezka.kim",
-    "hdrezka.me",
-    "hdrezka.name",
-    "hdrezka.pl",
-    "hdrezka.rest",
-    "hdrezka.sh",
-    "hdrezka.site",
-    "hdrezka.today",
-    "hdrezka.tv",
-    "hdrezka.vip",
-    "hdrezka.website",
-    "hdrezka19139.org",
-    "hdrezka1twwpb.org",
-    "hdrezka2tepnm.org",
-    "hdrezka2vmmty.org",
-    "hdrezka720dhh.org",
-    "hdrezka8bdhtq.org",
-    "hdrezka9bsbhq.org",
-    "hdrezka9fmskj.org",
-    "hdrezkaonline.com",
-    "hdrezkayou.com",
-    "hello-rezka.tv",
-    "kinopub.me",
-    "kvk.pub",
-    "meta-ratings.kz",
-    "metaratings.by",
-    "metaratings.ru",
-    "omnirezka.tv",
-    "pravda.com.ua",
-    "punisher-hdrezka.net",
-    "rezka-ua.in",
-    "rezka-ua.org",
-    "rezka-ua.pub",
-    "rezka-ua.tv",
-    "rezka.ag",
-    "rezka.fi",
-    "rezka.si",
-    "rezka.space",
-    "rezkery.com",
-    "rezkify.com",
-    "standby-rezka.tv",
-    "www.ukr.net"
-   ],
    "MAIN": [
     "13idei.ru",
     "1plus1.video",
@@ -2444,6 +2388,62 @@
     "zaxid.net",
     "zik.ua",
     "zikua.news"
+   ],
+   "ISOLATED": [
+    "3ivi.com",
+    "bestofkinopoisk.com",
+    "drezka.pl",
+    "flymaterez.net",
+    "hdrezka-home.tv",
+    "hdrezka-sex-city.net",
+    "hdrezka.ag",
+    "hdrezka.club",
+    "hdrezka.cm",
+    "hdrezka.co",
+    "hdrezka.in",
+    "hdrezka.inc",
+    "hdrezka.kim",
+    "hdrezka.me",
+    "hdrezka.name",
+    "hdrezka.pl",
+    "hdrezka.rest",
+    "hdrezka.sh",
+    "hdrezka.site",
+    "hdrezka.today",
+    "hdrezka.tv",
+    "hdrezka.vip",
+    "hdrezka.website",
+    "hdrezka19139.org",
+    "hdrezka1twwpb.org",
+    "hdrezka2tepnm.org",
+    "hdrezka2vmmty.org",
+    "hdrezka720dhh.org",
+    "hdrezka8bdhtq.org",
+    "hdrezka9bsbhq.org",
+    "hdrezka9fmskj.org",
+    "hdrezkaonline.com",
+    "hdrezkayou.com",
+    "hello-rezka.tv",
+    "kinopub.me",
+    "kvk.pub",
+    "meta-ratings.kz",
+    "metaratings.by",
+    "metaratings.ru",
+    "omnirezka.tv",
+    "pravda.com.ua",
+    "punisher-hdrezka.net",
+    "rezka-ua.in",
+    "rezka-ua.org",
+    "rezka-ua.pub",
+    "rezka-ua.tv",
+    "rezka.ag",
+    "rezka.fi",
+    "rezka.si",
+    "rezka.space",
+    "rezkery.com",
+    "rezkify.com",
+    "standby-rezka.tv",
+    "www.ukr.net"
    ]
   }
  ],
@@ -2454,23 +2454,21 @@
     "abysscdn.com",
     "afamily.vn",
     "anime47.best",
-    "animehay.id",
+    "animehay.today",
     "animet.info",
     "animevietsub.id",
     "animevietsub9.com",
     "aoe.vn",
     "audiotruyenfull.com",
-    "bajabaysurfntaco.com",
     "baomoi.com",
     "bluphim5.com",
     "buomtv.media",
     "cafef.vn",
-    "cap3.fit",
+    "cap3.cyou",
     "cdn.codexa.fun",
     "checkscam.vn",
     "chich69.men",
-    "chuyentiepanimehay.one",
-    "cliphot69.shop",
+    "cliphot69.hair",
     "cliphubs.com",
     "clipphot.vip",
     "cmangax16.com",
@@ -2479,7 +2477,8 @@
     "damconuong.ceo",
     "demo.14412882.com",
     "doctruyen3qhubz.net",
-    "dualeotruyenbx.com",
+    "dualeotruyendb.com",
+    "eile.ie",
     "forum.timfshare.com",
     "freeplayervideo.com",
     "game8.vn",
@@ -2490,7 +2489,7 @@
     "gocmod.com",
     "goctruyentranhvui19.com",
     "haysexvn.lol",
-    "hentaivcc.com",
+    "hentaizvn.net",
     "hh2d.top",
     "hh3dhay.life",
     "hhtq5.vip",
@@ -2513,14 +2512,15 @@
     "lrepacks.net",
     "luottruyen5.com",
     "lxmanga.space",
+    "michorussellweekend.ie",
+    "miendich-ahcc.com",
     "misskon.com",
-    "motchillc.sh",
-    "motchillk.fit",
+    "motchillk.you",
     "motchilltv.date",
     "motchilltvphim.com",
     "motchillzz.site",
     "motphim.pokemonviet.com",
-    "mphim.one",
+    "mphim.cc",
     "mv.dailyphimz.com",
     "mv.phimbathu.one",
     "mv.phimmoiaz.cc",
@@ -2529,15 +2529,14 @@
     "newtruyentranh10.com",
     "noitu.site",
     "onflix.my",
-    "ordersabiangthai.com",
     "pheclip.site",
     "phim.haysex.asia",
     "phim18hdxx.com",
     "phim18vip.top",
     "phimchill.life",
+    "phimech.net",
     "phimhdc.com",
     "phimlongtieng.net",
-    "phimmoichill.so",
     "phimnung3x.pro",
     "phimsexhayvne.com",
     "phimtho.cc",
@@ -2553,12 +2552,12 @@
     "s2.phimsexvn1.blog",
     "sachmoi.net",
     "saigon24.net",
-    "sayhentai.vc",
+    "sayhentai.sh",
     "sex.javnong.cc",
     "sex.xinh3x.me",
     "sexdiary.club",
     "sexdiaryx.to",
-    "sextop1.blue",
+    "sextop1.work",
     "soha.vn",
     "tailieumoi.vn",
     "teamlanhlung8.shop",
@@ -2569,9 +2568,9 @@
     "thanhnien.vn",
     "thefaplive.com",
     "thiendia3.com",
+    "tram3d.biz",
     "tram3d.com",
     "tram3d.online",
-    "tram3d.space",
     "trumtruyen.xyz",
     "truyen247.pro",
     "truyenfull.vision",
@@ -2589,16 +2588,16 @@
     "viet69.mu",
     "viet69hay.bar",
     "viet69vn.at",
+    "vietravel.ink",
     "vinaurl.net",
     "vn2.xvideos69.xxx",
     "vn6.sexviet88.xyz",
     "vndoc.com",
-    "weedposters.net",
     "www.asu.baby",
     "www.bachnguyetquang.online",
     "www.gvnvh18z.com",
     "www.iosviet.com",
-    "www.motchill54.com",
+    "www.motchill55.com",
     "www.nettruyenupp.com",
     "www.sieutamphim.pro",
     "www.toptruyenzone.com",
@@ -2609,8 +2608,8 @@
     "xfast.sbs",
     "xnhau.fan",
     "xnxx-sex-videos.com",
-    "xoilackh.tv",
-    "yanhh3d.app",
+    "xoilackk.tv",
+    "yanhh3d.net",
     "z.chinav.sex",
     "znews.vn",
     "zpic.biz"

@@ -260,5 +260,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kkl-jnf.org","kkl.org.il"],"resourceTypes":["image"],"urlFilter":"||kkl.org.il^*/files/banners/"},"id":259,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||hidabroot.org/themes/hdb/videojs/videojs.ads.min.js"},"id":260,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||frid.co.il/files/*/baner."},"id":261,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||frid.co.il/files/banners/"},"id":262,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||frid.co.il/files/banners/"},"id":262,"priority":30},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||hayeruka-ks.co.il/files/banners/"},"id":263,"priority":30},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||cashyo.co.il/js/cookiejar.js"},"id":264,"priority":30}
 ]

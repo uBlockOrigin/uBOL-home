@@ -309,6 +309,13 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?facilecompilare\\.it/noticia\\.php\\?token=ahr0c",
+  "steps": [
+   "?token",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?rd\\.remove\\.bg/cl0/http",
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",

@@ -215,7 +215,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["inatflix9.xyz"],"urlFilter":"/*.gif^"},"id":214,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["altin.in","m.pes24.com","mangawt.com","mordefter.com","myjest.com","ui.memoryhackers.org"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":215,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mansetmalatya.com/wp-content/uploads/*/*-banner-2.gif"},"id":216,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||tranimaci.com/*.mp4"},"id":217,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["tranimaci.com"],"urlFilter":"||videostream.can.re/gif/"},"id":217,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||dizibox.live/r/"},"id":218,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||bettercallsaulizle.com/son.js"},"id":219,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||superfilmgeldi.net/news*.js"},"id":220,"priority":10},
@@ -1283,5 +1283,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||blogger.googleusercontent.com/img/b/*/s320/prada-dizi-banner72890.gif"},"id":1282,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||turkifsahub.com/exoclick-popunder.js"},"id":1283,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||betewintv*.com/view/theme/safir/img/betetwinpageskin.jpg"},"id":1284,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||labvex.b-cdn.net/ads/"},"id":1285,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||labvex.b-cdn.net/ads/"},"id":1285,"priority":10},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["tranimaci.com"],"resourceTypes":["media"],"urlFilter":"||videostream.can.re/cdn/*.mp4"},"id":1286,"priority":11},
+{"action":{"type":"block"},"condition":{"urlFilter":"||com.tr/lib/adsv2_dist/"},"id":1287,"priority":10}
 ]

@@ -323,14 +323,16 @@
   "permissions": [
     "activeTab",
     "declarativeNetRequest",
+    "offscreen",
     "scripting",
-    "storage"
+    "storage",
+    "userScripts"
   ],
   "short_name": "uBO Lite",
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2026.412.1536",
+  "version": "2026.419.1519",
   "web_accessible_resources": [
     {
       "resources": [
@@ -404,8 +406,8 @@
         "web_accessible_resources/nobab2.js",
         "web_accessible_resources/nitropay_ads.js",
         "web_accessible_resources/chartbeat.js",
-        "web_accessible_resources/noeval-silent.js",
         "web_accessible_resources/noop.json",
+        "web_accessible_resources/noeval-silent.js",
         "web_accessible_resources/click2load.html"
       ],
       "matches": [

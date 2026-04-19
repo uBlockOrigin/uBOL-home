@@ -7,7 +7,11 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?embed\\.chatnode\\.ai[^%.0-9a-z_-]?.*",
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "chat.g4media.org",
+   "embed.chatnode.ai"
+  ],
   "resourceTypes": [
    "main_frame"
   ]

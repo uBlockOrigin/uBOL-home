@@ -41,9 +41,28 @@
   "type": "block"
  },
  "condition": {
-  "urlFilter": "||embed.chatnode.ai^"
+  "requestDomains": [
+   "chat.g4media.org",
+   "embed.chatnode.ai"
+  ]
  },
  "id": 4,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "nus.edu.sg"
+  ],
+  "resourceTypes": [
+   "script"
+  ],
+  "urlFilter": "||azurefd.net/cdns/copilot_v3.min.js"
+ },
+ "id": 5,
  "priority": 10
 }
 ]
