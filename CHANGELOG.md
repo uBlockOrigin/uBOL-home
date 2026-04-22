@@ -1,3 +1,12 @@
+- [regression] [Fix potentially broken custom cosmetic filters](https://github.com/gorhill/uBlock/commit/8f504f6edf)
+- [Add visual cue about invalid custom filters](https://github.com/gorhill/uBlock/commit/a7e2386219)
+- [Launch offscreen document only when there are `+js()` filters](https://github.com/gorhill/uBlock/commit/35f8dab29c)
+- Updated filter lists
+
+----------
+
+### 2026.419.1519
+
 - [Explicitly exclude no-filtering sites from custom filters](https://github.com/gorhill/uBlock/commit/9b76445e8e)
 - [Improve usability of "Custom filters" pane](https://github.com/gorhill/uBlock/commit/44d1eead39)
 - [Add aria-label attributes in filtering mode slider](https://github.com/gorhill/uBlock/commit/cf93f2864a)
