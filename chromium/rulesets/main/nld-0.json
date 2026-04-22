@@ -494,5 +494,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["matele.be"],"urlFilter":"||ssl.p.jwpcdn.com/player/v/*/vast.js"},"id":493,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["kijk.nl"],"urlFilter":"||ssl.p.jwpcdn.com/player/v/*/freewheel.js"},"id":494,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["npo.nl"],"urlFilter":"||cdn-ster-nl.akamaized.net/sterad_*.mp4"},"id":495,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||resources.planetnine.com/scripts/f1maximaal.nl.js"},"id":496,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||resources.planetnine.com/scripts/f1maximaal.nl.js"},"id":496,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["ad.nl"],"urlFilter":"||cdn.optoutadvertising.com^"},"id":497,"priority":10}
 ]
