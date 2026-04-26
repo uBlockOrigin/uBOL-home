@@ -1286,6 +1286,5 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||labvex.b-cdn.net/ads/"},"id":1285,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["tranimaci.com"],"resourceTypes":["media"],"urlFilter":"||videostream.can.re/cdn/*.mp4"},"id":1286,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"||com.tr/lib/adsv2_dist/"},"id":1287,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.r10.net/editor/*.gif"},"id":1288,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||dizimor*.com.tr/uploads/ad/"},"id":1289,"priority":10}
 ]

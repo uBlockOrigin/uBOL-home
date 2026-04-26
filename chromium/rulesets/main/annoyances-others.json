@@ -424,5 +424,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/akam-sw.js"},"id":423,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||client.salesmartly.com/setting/sounds/"},"id":424,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["mustsharenews.com"],"urlFilter":"||answers.sg^"},"id":425,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||mustsharenews.com/wp-content/plugins/answers-client/"},"id":426,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||mustsharenews.com/wp-content/plugins/answers-client/"},"id":426,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/particles.min.js"},"id":427,"priority":10}
 ]

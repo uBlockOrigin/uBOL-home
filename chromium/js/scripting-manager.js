@@ -371,10 +371,13 @@ function registerScriptlet(context, scriptletDetails) {
 
 export async function registerInjectables() {
     if ( browser.scripting === undefined ) { return false; }
+    registerInjectables.pendingOp =
+        registerInjectables.pendingOp.then(( ) => registerInjectables.register());
+    return registerInjectables.pendingOp;
+}
+registerInjectables.pendingOp = Promise.resolve();
 
-    if ( registerInjectables.barrier ) { return true; }
-    registerInjectables.barrier = true;
-
+registerInjectables.register = async function register() {
     const [
         filteringModeDetails,
         rulesetsDetails,
@@ -423,10 +426,8 @@ export async function registerInjectables() {
 
     await resetCSSCache();
 
-    registerInjectables.barrier = false;
-
     return true;
-}
+};
 
 /******************************************************************************/
 

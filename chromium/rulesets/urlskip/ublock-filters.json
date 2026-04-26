@@ -1270,6 +1270,12 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?zsp1\\.ah\\.nl/.*?/urhttp",
+  "steps": [
+   "/\\/UR(http.+)/"
+  ]
+ },
+ {
   "re": "/vp/player/to/\\?u=http",
   "steps": [
    "?u"
