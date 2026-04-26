@@ -1,5 +1,5 @@
-Secret: 7173aa2aa3dc3652
-Version: 2026.426.1536
+Secret: 23ffe01170cf36e6
+Version: 2026.426.1626
 ============================
 Listset for 'ublock-filters':
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/quick-fixes.min.txt
@@ -89,11 +89,11 @@ CSS-procedural: 1246 distinct filters for 1679 distinct hostnames
 ============================
 Listset for 'easylist':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist.txt
-Input filter count: 64334
-	Accepted filter count: 64310
+Input filter count: 64358
+	Accepted filter count: 64334
 	Rejected filter count: 19
 Output rule count: 3660
-	Pruning requestDomains: from 53970 to 53968
+	Pruning requestDomains: from 53994 to 53992
 	Static rules: 3640
 
 	Maybe good (regexes): 20
@@ -285,11 +285,11 @@ CSS-procedural: 109 distinct filters for 2747 distinct hostnames
 Listset for 'annoyances-overlays':
 	Fetching remote https://ublockorigin.github.io/uAssets/thirdparties/easylist-newsletters.txt
 	Fetching remote https://ublockorigin.github.io/uAssets/filters/annoyances-others.txt
-Input filter count: 471
-	Accepted filter count: 471
+Input filter count: 474
+	Accepted filter count: 474
 	Rejected filter count: 0
-Output rule count: 324
-	Static rules: 321
+Output rule count: 327
+	Static rules: 324
 
 	Maybe good (regexes): 0
 	urlskip=: 3

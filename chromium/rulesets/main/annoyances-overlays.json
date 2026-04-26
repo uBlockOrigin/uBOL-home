@@ -319,5 +319,8 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["player.real.gr"],"resourceTypes":["script"],"urlFilter":"||assets.mailerlite.com/js/universal.js"},"id":318,"priority":30},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||nichepcgamer.com/wp-content/themes/luxeritas/js/dragscroll.min.js"},"id":319,"priority":10},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["_t"]}}},"type":"redirect"},"condition":{"requestDomains":["tiktok.com"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^_t="},"id":320},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["bintvs.fun"],"resourceTypes":["script"],"urlFilter":"||cdn.jsdelivr.net/npm/disable-devtool@latest"},"id":321,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["bintvs.fun"],"resourceTypes":["script"],"urlFilter":"||cdn.jsdelivr.net/npm/disable-devtool@latest"},"id":321,"priority":10},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["mvlempyr.com","mvlempyr.io"],"resourceTypes":["script"],"urlFilter":"||pubfuture-ad.com^"},"id":322,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["mvlempyr.com","mvlempyr.io"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pubfuture-ad.com^"},"id":323,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.html"},"type":"redirect"},"condition":{"initiatorDomains":["mvlempyr.com","mvlempyr.io"],"resourceTypes":["sub_frame"],"urlFilter":"||ad.a-ads.com^"},"id":324,"priority":11}
 ]
