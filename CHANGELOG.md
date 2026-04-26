@@ -1,3 +1,15 @@
+- [Fix various concurrency issues with "Restore" operation](https://github.com/gorhill/uBlock/commit/83c51b12b1)
+- [Fix export button in "Custom filters" pane](https://github.com/gorhill/uBlock/commit/d8558aa56b)
+- [Fix visual of "Remove a custom filter" for procedural filters](https://github.com/gorhill/uBlock/commit/bdc3bace25)
+- [Add `topDomains`/`excludedTopDomains` conditions to DNR parser](https://github.com/gorhill/uBlock/commit/06eeaa2685)
+- [Fix custom procedural filters when no ruleset enabled](https://github.com/gorhill/uBlock/commit/33dc8a7ff0)
+- [safari] [Remove icons from Safari manifest](https://github.com/gorhill/uBlock/commit/04b1058007) by [sebastianlivoni](https://github.com/sebastianlivoni)
+- Updated filter lists
+
+----------
+
+### 2026.422.1301
+
 - [regression] [Fix potentially broken custom cosmetic filters](https://github.com/gorhill/uBlock/commit/8f504f6edf)
 - [Add visual cue about invalid custom filters](https://github.com/gorhill/uBlock/commit/a7e2386219)
 - [Launch offscreen document only when there are `+js()` filters](https://github.com/gorhill/uBlock/commit/35f8dab29c)
