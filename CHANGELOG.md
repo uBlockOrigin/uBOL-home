@@ -1,3 +1,4 @@
+- [Fix custom cosmetic filtering when pages load from "Preload Top Hit"](https://github.com/gorhill/uBlock/commit/19ebbe73b9)
 - Updated filter lists
 
 ----------
@@ -18,6 +19,7 @@
 
 ### 2026.503.1521
 
+- [Do not prevent creation of custom filters with no matching elements](https://github.com/gorhill/uBlock/commit/2434b8adad)
 - [Fix support of CSS selectors with pseudo-elements in custom filters](https://github.com/gorhill/uBlock/commit/8e3c4c7f16)
 - [Add support for highly generic cosmetic filter exceptions](https://github.com/gorhill/uBlock/commit/e2df53d0de)
 - [Support copying/pasting custom filters](https://github.com/gorhill/uBlock/commit/11b749e0a3)
