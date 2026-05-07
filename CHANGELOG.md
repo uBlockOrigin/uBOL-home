@@ -1,3 +1,6 @@
+- [Improve handling of manual editing of custom filters](https://github.com/gorhill/uBlock/commit/c2184441d8)
+- [Fix regression when editing custom cosmetic `#...` filters](https://github.com/gorhill/uBlock/commit/27dbdb202e)
+- [Improve contrast in dark mode](https://github.com/gorhill/uBlock/commit/7cd56887ff)
 - [Fix custom cosmetic filtering when pages load from "Preload Top Hit"](https://github.com/gorhill/uBlock/commit/19ebbe73b9)
 - Updated filter lists
 
