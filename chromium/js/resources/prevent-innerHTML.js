@@ -52,11 +52,14 @@ function freezeElementProperty(
     const logPrefix = safe.makeLogPrefix('freeze-element-property', property, selector, pattern);
     const matcher = safe.initPattern(pattern, { canNegate: true });
     const owner = (( ) => {
-        if ( Object.hasOwn(Element.prototype, property) ) {
-            return Element.prototype;
+        if ( Object.hasOwn(HTMLScriptElement.prototype, property) ) {
+            return HTMLScriptElement.prototype;
         }
         if ( Object.hasOwn(HTMLElement.prototype, property) ) {
             return HTMLElement.prototype;
+        }
+        if ( Object.hasOwn(Element.prototype, property) ) {
+            return Element.prototype;
         }
         if ( Object.hasOwn(Node.prototype, property) ) {
             return Node.prototype;

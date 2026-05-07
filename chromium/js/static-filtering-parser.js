@@ -584,6 +584,7 @@ const astTemplates = {
                     type: NODE_TYPE_EXT_PATTERN_COSMETIC,
                     beg: 0,
                     end: 0,
+                    register: true,
                 }],
             }],
         }],

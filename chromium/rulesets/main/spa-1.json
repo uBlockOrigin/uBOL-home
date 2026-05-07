@@ -880,6 +880,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||publi.forum.ad^"},"id":879,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||d2dvq461rdwooi.cloudfront.net/*/interna/spaces.js"},"id":880,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.bcdn.zip/scripts/aadirect*.min.js"},"id":881,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["nexustc18.com"],"urlFilter":"||nexustc18.com/oncc-adbanner.js"},"id":882,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["sub_frame"],"urlFilter":"||bpiexpressoimobiliario.pt^"},"id":883,"priority":10},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||seur.com^"},"id":884,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||img.wikicharlie.cl^"},"id":885,"priority":30},
@@ -887,5 +888,8 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||nuload.net/*/ad.js^"},"id":887,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||hentaihd.*.php|"},"id":888,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["file4go.lol"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||cdnpc.net^"},"id":889,"priority":11},
-{"action":{"type":"block"},"condition":{"urlFilter":"||blizzboygames.net/wp-content/plugins/notificationx/assets/public/js/frontend.js"},"id":890,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||blizzboygames.net/wp-content/plugins/notificationx/assets/public/js/frontend.js"},"id":890,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["as.com"],"urlFilter":"||fapi-top.prisasd.com/api/null/player/*?ignoreaccount"},"id":891,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["as.com"],"urlFilter":"||gapi.prisasd.com/api/"},"id":892,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hqerotico.com/open.js"},"id":893,"priority":10}
 ]

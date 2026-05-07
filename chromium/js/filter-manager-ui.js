@@ -96,10 +96,12 @@ async function removeSelectorsFromHostname(node) {
         qsa$(hostnameNode, 'li.selector.removed:not([data-ugly=""])')
     ).map(a => a.dataset.ugly);
     if ( selectors.length === 0 ) { return; }
+    dom.cl.add(dom.body, 'committing');
     updateContentEditability(false);
     await sendMessage({ what: 'removeCustomFilters', hostname, selectors });
     await debounceRenderCustomFilters();
     updateContentEditability(true);
+    dom.cl.remove(dom.body, 'committing');
 }
 
 async function unremoveSelectorsFromHostname(node) {
@@ -109,10 +111,12 @@ async function unremoveSelectorsFromHostname(node) {
     if ( hostname === undefined ) { return; }
     const selectors = selectorsFromNode(hostnameNode);
     if ( selectors.length === 0 ) { return; }
+    dom.cl.add(dom.body, 'committing');
     updateContentEditability(false);
     await sendMessage({ what: 'addCustomFilters', hostname, selectors });
     await debounceRenderCustomFilters();
     updateContentEditability(true);
+    dom.cl.remove(dom.body, 'committing');
 }
 
 /******************************************************************************/
@@ -281,13 +285,13 @@ async function onHostnameChanged(target, before, after) {
         return;
     }
 
+    dom.cl.add(dom.body, 'committing');
     // Remove old hostname from storage
     if ( hostnameNode.dataset.ugly ) {
         await sendMessage({ what: 'removeAllCustomFilters',
             hostname: hostnameNode.dataset.ugly,
         });
     }
-
     // Add selectors under new hostname to storage
     hostnameNode.dataset.ugly = uglyAfter;
     hostnameNode.dataset.pretty = after;
@@ -295,8 +299,8 @@ async function onHostnameChanged(target, before, after) {
         hostname: hostnameFromNode(target),
         selectors: selectorsFromNode(target),
     });
-
     await debounceRenderCustomFilters();
+    dom.cl.remove(dom.body, 'committing');
 }
 
 async function onSelectorChanged(target, before, after) {
@@ -312,14 +316,13 @@ async function onSelectorChanged(target, before, after) {
         return;
     }
 
+    dom.cl.add(dom.body, 'committing');
     const hostname = hostnameFromNode(target);
-
     // Remove old selector from storage
     await sendMessage({ what: 'removeCustomFilters',
         hostname,
         selectors: [ selectorNode.dataset.ugly ],
     });
-
     // Add new selector to storage
     selectorNode.dataset.ugly = ugly;
     selectorNode.dataset.pretty = pretty;
@@ -327,8 +330,8 @@ async function onSelectorChanged(target, before, after) {
         hostname,
         selectors: [ ugly ],
     });
-
     await debounceRenderCustomFilters();
+    dom.cl.remove(dom.body, 'committing');
 }
 
 async function onTextChanged(target) {
@@ -601,6 +604,7 @@ async function start() {
     dom.on('section[data-pane="filters"] [data-i18n="exportButton"]', 'click', exportToFile);
 
     browser.storage.local.onChanged.addListener((changes, area) => {
+        if ( dom.cl.has(dom.body, 'committing') ) { return; }
         if ( area !== undefined && area !== 'local' ) { return; }
         if ( Object.keys(changes).some(a => a.startsWith('site.')) ) {
             debounceRenderCustomFilters();

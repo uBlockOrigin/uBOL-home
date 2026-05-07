@@ -90,5 +90,20 @@
  },
  "id": 6,
  "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "domainType": "firstParty",
+  "isUrlFilterCaseSensitive": true,
+  "regexFilter": "^https:\\/\\/animefire\\.io\\/js\\/[a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9]\\.js$",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 7,
+ "priority": 10
 }
 ]
