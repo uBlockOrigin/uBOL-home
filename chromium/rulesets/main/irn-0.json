@@ -392,6 +392,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||tamasha.com/visid^"},"id":391,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||rozblog.com/theme/ads/banner.html^"},"id":392,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||oila.tj/storage/iframe^"},"id":393,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hooshang-umami-rjslgcdoxg.liara.run/api/send^"},"id":394,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","urlFilter":"||noorlib.ir/sentry^"},"id":396,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","requestMethods":["post"],"urlFilter":"||zarebin.ir/platform/api/supervisor/v1/events^"},"id":397,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["stylesheet"],"urlFilter":"||ejiga.com/content/player/css/rmp-vast.css^"},"id":398,"priority":10},

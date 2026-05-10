@@ -756,6 +756,7 @@ class ProceduralFilterer {
 
 self.ProceduralFiltererAPI = class {
     constructor() {
+        this.cssSheets = new Set();
         this.proceduralFilterer = null;
         this.domObserver = null;
     }
@@ -766,10 +767,18 @@ self.ProceduralFiltererAPI = class {
             this.domObserver.disconnect();
             this.domObserver = null;
         }
+        const promises = [];
         if ( this.proceduralFilterer ) {
-            await this.proceduralFilterer.reset();
+            promises.push(this.proceduralFilterer.reset());
             this.proceduralFilterer = null;
         }
+        for ( const css of this.cssSheets ) {
+            promises.push(
+                chrome.runtime.sendMessage({ what: 'removeCSS', css }).catch(( ) => { })
+            );
+        }
+        this.cssSheets.clear();
+        await Promise.all(promises);
     }
 
     addDeclaratives(selectors) {
@@ -806,9 +815,11 @@ self.ProceduralFiltererAPI = class {
             if ( ruleText === undefined ) { continue; }
             sheetText.push(ruleText);
         }
-        if ( sheetText.length !== 0 ) {
-            self.cssAPI.insert(sheetText.join('\n'));
-        }
+        if ( sheetText.length === 0 ) { return; }
+        const cssSheet = sheetText.join('\n');
+        if ( this.cssSheets.has(cssSheet) ) { return; }
+        this.cssSheets.add(cssSheet);
+        self.cssAPI.insert(cssSheet);
     }
 
     addProcedurals(selectors) {
@@ -827,6 +838,10 @@ self.ProceduralFiltererAPI = class {
 
     qsa(selector) {
         const o = JSON.parse(selector);
+        if ( o.cssable ) {
+            const selector = o.selector.replace(/::[a-z()-]+$/, '');
+            return Array.from(document.querySelectorAll(selector));
+        }
         const pselector = new PSelectorRoot(null, o);
         return pselector.exec();
     }

@@ -1423,5 +1423,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/code/video-steam/?id=*&vast="},"id":1422,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||vst.*/*?subid="},"id":1423,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/vast.php?partner_id="},"id":1424,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"/vast.xml?token=*c2nvcguioijwqvnuin0"},"id":1425,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"/vast.xml?token=*c2nvcguioijwqvnuin0"},"id":1425,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||vipapi.org/vast.xml"},"id":1426,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||vipapi.org/vast/ad-rotator/"},"id":1427,"priority":10}
 ]

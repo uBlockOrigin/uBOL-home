@@ -1793,5 +1793,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["lamoda.by","lamoda.kz","lamoda.ru"],"urlFilter":"||lmcdn.ru/static/*/assets/x-cookie-notify"},"id":1792,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["api.id.me"],"resourceTypes":["script"],"urlFilter":"||assets.id.me/cookie-consent/"},"id":1793,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["scientificamerican.com"],"resourceTypes":["script"],"urlFilter":"||cmp.springernature.com/production_live/"},"id":1794,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||cashyo.co.il/js/cookiejar.js"},"id":1795,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||cashyo.co.il/js/cookiejar.js"},"id":1795,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||icao.int/libraries/klaro/dist/klaro-no-translations-no-css.js"},"id":1796,"priority":10}
 ]
