@@ -1,3 +1,11 @@
+- [Fix potentially residual user styles when previewing custom filters](https://github.com/gorhill/uBlock/commit/cc56504273)
+- [Fix various quirks when previewing custom filters at creation time](https://github.com/gorhill/uBlock/commit/90e8212304)
+- Updated filter lists
+
+----------
+
+### 2026.507.2008
+
 - [Improve handling of manual editing of custom filters](https://github.com/gorhill/uBlock/commit/c2184441d8)
 - [Fix regression when editing custom cosmetic `#...` filters](https://github.com/gorhill/uBlock/commit/27dbdb202e)
 - [Improve contrast in dark mode](https://github.com/gorhill/uBlock/commit/7cd56887ff)
