@@ -1,3 +1,4 @@
+- [safari] [Fix Icon and delete metadata](https://github.com/uBlockOrigin/uBOL-home/commit/a932799467) by [6c67b9](https://github.com/6c67b9)
 - [Bring popup blocking out of experimental status](https://github.com/gorhill/uBlock/commit/1083daaf82)
 - [Allow custom cosmetic filters in embedded contexts](https://github.com/gorhill/uBlock/commit/8574d7162d)
 - Updated filter lists
