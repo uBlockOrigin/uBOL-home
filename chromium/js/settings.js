@@ -68,6 +68,11 @@ function renderWidgets() {
     }
 
     {
+        const input = qs$('#popupBlockMode input[type="checkbox"]');
+        input.checked = cachedRulesetData.popupBlockMode;
+    }
+
+    {
         const state = Boolean(cachedRulesetData.developerMode) &&
             cachedRulesetData.disabledFeatures?.includes('develop') !== true;
         dom.body.dataset.develop = `${state}`;
@@ -213,6 +218,13 @@ dom.on('#strictBlockMode input[type="checkbox"]', 'change', ev => {
     });
 });
 
+dom.on('#popupBlockMode input[type="checkbox"]', 'change', ev => {
+    sendMessage({
+        what: 'setPopupBlockMode',
+        state: ev.target.checked,
+    });
+});
+
 dom.on('#developerMode input[type="checkbox"]', 'change', ev => {
     const state = ev.target.checked;
     sendMessage({ what: 'setDeveloperMode', state });
@@ -275,6 +287,13 @@ listen.onmessage = ev => {
     if ( message.strictBlockMode !== undefined ) {
         if ( message.strictBlockMode !== local.strictBlockMode ) {
             local.strictBlockMode = message.strictBlockMode;
+            render = true;
+        }
+    }
+
+    if ( message.popupBlockMode !== undefined ) {
+        if ( message.popupBlockMode !== local.popupBlockMode ) {
+            local.popupBlockMode = message.popupBlockMode;
             render = true;
         }
     }

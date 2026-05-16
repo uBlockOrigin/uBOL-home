@@ -204,6 +204,8 @@ export async function registerCustomFilters(context) {
         id: 'css-user',
         js: [ '/js/scripting/css-user.js' ],
         matches: matchesFromHostnames(hostnames),
+        allFrames: true,
+        matchOriginAsFallback: true,
         runAt: 'document_start',
     };
     if ( excludeHostnames.length !== 0 ) {

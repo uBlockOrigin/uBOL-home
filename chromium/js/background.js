@@ -209,6 +209,17 @@ onPermissionsChanged.pending = [];
 
 /******************************************************************************/
 
+async function setPopupBlockMode(state) {
+    state = state === true;
+    if ( state === rulesetConfig.popupBlockMode ) { return; }
+    rulesetConfig.popupBlockMode = state;
+    await saveRulesetConfig();
+    await registerInjectables();
+    broadcastMessage({ popupBlockMode: rulesetConfig.popupBlockMode });
+}
+
+/******************************************************************************/
+
 function setDeveloperMode(state) {
     rulesetConfig.developerMode = state === true;
     toggleDeveloperMode(rulesetConfig.developerMode);
@@ -335,11 +346,16 @@ function onMessage(request, sender, callback) {
                 developerMode: defaultConfig.developerMode,
                 showBlockedCount: defaultConfig.showBlockedCount,
                 strictBlockMode: defaultConfig.strictBlockMode,
+                popupBlockMode: defaultConfig.popupBlockMode,
                 rulesets,
                 filteringModes: Object.assign(defaultFilteringModes),
             });
         });
         return true;
+
+    case 'getCurrentConfig':
+        callback(rulesetConfig);
+        break;
 
     case 'getOptionsPageData':
         Promise.all([
@@ -369,6 +385,7 @@ function onMessage(request, sender, callback) {
                 showBlockedCount: rulesetConfig.showBlockedCount,
                 canShowBlockedCount,
                 strictBlockMode: rulesetConfig.strictBlockMode,
+                popupBlockMode: rulesetConfig.popupBlockMode,
                 firstRun: process.firstRun,
                 isSideloaded,
                 developerMode: rulesetConfig.developerMode,
@@ -410,10 +427,6 @@ function onMessage(request, sender, callback) {
         });
         return true;
 
-    case 'getShowBlockedCount':
-        callback(rulesetConfig.showBlockedCount);
-        break;
-
     case 'setShowBlockedCount':
         rulesetConfig.showBlockedCount = request.state && true || false;
         if ( canShowBlockedCount ) {
@@ -431,6 +444,12 @@ function onMessage(request, sender, callback) {
         setStrictBlockMode(request.state).then(( ) => {
             callback();
             broadcastMessage({ strictBlockMode: rulesetConfig.strictBlockMode });
+        });
+        return true;
+
+    case 'setPopupBlockMode':
+        setPopupBlockMode(request.state).then(( ) => {
+            callback();
         });
         return true;
 

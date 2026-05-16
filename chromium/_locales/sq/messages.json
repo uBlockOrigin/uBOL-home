@@ -92,7 +92,7 @@
     "description": "Text label heading the import/export area of custom filters"
   },
   "customFiltersImportTextareaPlaceholder": {
-    "message": "Filtrat specifikë të personalizuar kalohen këtu",
+    "message": "Filtrat specifikë kozmetikë/skriptet shtohen këtu",
     "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
@@ -253,6 +253,14 @@
   },
   "enableStrictBlockLegend": {
     "message": "Uebsajtet potencialisht të padëshirueshme do të bllokohen dhe do t'ju jepet mundësia për të vazhduar.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "enablePopupBlockLabel": {
+    "message": "Enable pop-up blocking",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enablePopupBlockLegend": {
+    "message": "When active, matching filters will automatically close unwanted browser tabs created by websites.",
     "description": "Short description for a checkbox in the options page"
   },
   "developerModeLabel": {

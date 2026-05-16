@@ -522,7 +522,6 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||bos.ads.nexage.com/adserve?"},"id":522,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||olx.ua/i2/ajax/ad/"},"id":523,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||convertpad.com/ad/"},"id":524,"priority":30},
-{"action":{"type":"allow"},"condition":{"resourceTypes":["script"],"urlFilter":"||smedia2.intoday.in/aajtak_pwapp"},"id":525,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||ingress.com/intel?"},"id":526,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||b92.net/a/cmt_submit.php"},"id":527,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||t-mobile.com/mms/"},"id":528,"priority":30},

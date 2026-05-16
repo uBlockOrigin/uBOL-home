@@ -92,7 +92,7 @@
     "description": "Text label heading the import/export area of custom filters"
   },
   "customFiltersImportTextareaPlaceholder": {
-    "message": "Coller ici les filtres cosmétiques spécifiques à ajouter",
+    "message": "Coller ici les filtres cosmétiques/scriptlets spécifiques à ajouter",
     "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
@@ -253,6 +253,14 @@
   },
   "enableStrictBlockLegend": {
     "message": "La navigation vers des sites potentiellement indésirables sera bloquée, et vous aurez la possibilité de continuer",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "enablePopupBlockLabel": {
+    "message": "Activer le blocage pop-up",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enablePopupBlockLegend": {
+    "message": "Lorsque cette option est activée, les filtres correspondants fermeront automatiquement les onglets de navigateur indésirés créés par les sites Web.",
     "description": "Short description for a checkbox in the options page"
   },
   "developerModeLabel": {

@@ -426,5 +426,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["mustsharenews.com"],"urlFilter":"||answers.sg^"},"id":425,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mustsharenews.com/wp-content/plugins/answers-client/"},"id":426,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/particles.min.js"},"id":427,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||camel1.tv/media/"},"id":428,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||camel1.tv/media/"},"id":428,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["hochi.news"],"resourceTypes":["image"],"urlFilter":"||content-thumbnail.cxpublic.com^"},"id":429,"priority":30}
 ]

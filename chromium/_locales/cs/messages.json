@@ -92,7 +92,7 @@
     "description": "Text label heading the import/export area of custom filters"
   },
   "customFiltersImportTextareaPlaceholder": {
-    "message": "Vložte sem konkrétní kosmetické filtry, které chcete přidat",
+    "message": "Vložte sem konkrétní kosmetické/scriplet filtry, které chcete přidat",
     "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
@@ -253,6 +253,14 @@
   },
   "enableStrictBlockLegend": {
     "message": "Bude zablokována navigace na potenciálně nežádoucí stránky a bude Vám nabídnuta volba pro pokračování.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "enablePopupBlockLabel": {
+    "message": "Enable pop-up blocking",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enablePopupBlockLegend": {
+    "message": "When active, matching filters will automatically close unwanted browser tabs created by websites.",
     "description": "Short description for a checkbox in the options page"
   },
   "developerModeLabel": {

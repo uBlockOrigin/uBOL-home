@@ -92,7 +92,7 @@
     "description": "Text label heading the import/export area of custom filters"
   },
   "customFiltersImportTextareaPlaceholder": {
-    "message": "Kindlate kosmeetiliste filtrite lisamiseks asetage need siia",
+    "message": "Kindlate kosmeetiliste/scriptlet filtrite lisamiseks asetage need siia",
     "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
@@ -253,6 +253,14 @@
   },
   "enableStrictBlockLegend": {
     "message": "Kahtlastele veebilehtedele suunamist takistatakse ja pakutakse võimalust jätkamiseks.",
+    "description": "Short description for a checkbox in the options page"
+  },
+  "enablePopupBlockLabel": {
+    "message": "Luba hüpikute tõkestamine",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enablePopupBlockLegend": {
+    "message": "Lubamisel sulgevad ühtivad filtrid veebisaitide loodud soovimatud brauseri vahekaardid automaatselt.",
     "description": "Short description for a checkbox in the options page"
   },
   "developerModeLabel": {

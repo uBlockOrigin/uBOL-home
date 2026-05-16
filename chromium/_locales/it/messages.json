@@ -4,7 +4,7 @@
     "description": "extension name."
   },
   "extShortDesc": {
-    "message": "Un efficiente bloccatore di contenuti. Blocca annunci, tracker, minatori e altro ancora subito dopo l'installazione.",
+    "message": "Un efficiente blocca-contenuti. Blocca inserzioni, tracciatori, minatori e altro ancora subito dopo l'installazione.",
     "description": "this will be in the Chrome web store: must be 132 characters or less"
   },
   "perRulesetStats": {
@@ -255,6 +255,14 @@
     "message": "La navigazione verso siti potenzialmente indesiderati verrà bloccata e ti verrà offerta la possibilità di procedere.",
     "description": "Short description for a checkbox in the options page"
   },
+  "enablePopupBlockLabel": {
+    "message": "Abilita il blocco dei pop-up",
+    "description": "Label for a checkbox in the options page"
+  },
+  "enablePopupBlockLegend": {
+    "message": "Quando attivo, i filtri corrispondenti chiuderanno automaticamente le schede del browser indesiderate create dai siti web.",
+    "description": "Short description for a checkbox in the options page"
+  },
   "developerModeLabel": {
     "message": "Modalità sviluppatore",
     "description": "Label for a checkbox in the options page"
@@ -292,7 +300,7 @@
     "description": "Text informing about what is causing the page to be blocked"
   },
   "strictblockRedirectSentence1": {
-    "message": "La pagina bloccata vuole reindirizzare a un altro sito. Se scegli di procedere, navigherai direttamente su: {{url}}",
+    "message": "La pagina bloccata tenta di reindirizzare a un altro sito. Se scegli di procedere, navigherai direttamente verso: {{url}}",
     "description": "Text warning about an incoming redirect"
   },
   "strictblockNoParamsPrompt": {

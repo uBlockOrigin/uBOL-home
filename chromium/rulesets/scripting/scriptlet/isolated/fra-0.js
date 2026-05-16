@@ -567,20 +567,104 @@ function setCookieFn(
     return done;
 }
 
+function setLocalStorageItemFn(
+    which = 'local',
+    trusted = false,
+    key = '',
+    value = '',
+    options = {}
+) {
+    if ( key === '' ) { return; }
+
+    // For increased compatibility with AdGuard
+    if ( value === 'emptyArr' ) {
+        value = '[]';
+    } else if ( value === 'emptyObj' ) {
+        value = '{}';
+    }
+
+    const trustedValues = [
+        '',
+        'undefined', 'null',
+        '{}', '[]', '""',
+        '$remove$',
+        ...getSafeCookieValuesFn(),
+    ];
+
+    if ( trusted ) {
+        if ( value.includes('$now$') ) {
+            value = value.replaceAll('$now$', Date.now());
+        }
+        if ( value.includes('$currentDate$') ) {
+            value = value.replaceAll('$currentDate$', `${Date()}`);
+        }
+        if ( value.includes('$currentISODate$') ) {
+            value = value.replaceAll('$currentISODate$', (new Date()).toISOString());
+        }
+    } else {
+        const normalized = value.toLowerCase();
+        const match = /^("?)(.+)\1$/.exec(normalized);
+        const unquoted = match && match[2] || normalized;
+        if ( trustedValues.includes(unquoted) === false ) {
+            if ( /^-?\d+$/.test(unquoted) === false ) { return; }
+            const n = parseInt(unquoted, 10) || 0;
+            if ( n < -32767 || n > 32767 ) { return; }
+        }
+    }
+
+    let modified = false;
+
+    try {
+        const storage = self[`${which}Storage`];
+        if ( value === '$remove$' ) {
+            const safe = safeSelf();
+            const pattern = safe.patternToRegex(key, undefined, true );
+            const toRemove = [];
+            for ( let i = 0, n = storage.length; i < n; i++ ) {
+                const key = storage.key(i);
+                if ( pattern.test(key) ) { toRemove.push(key); }
+            }
+            modified = toRemove.length !== 0;
+            for ( const key of toRemove ) {
+                storage.removeItem(key);
+            }
+        } else {
+
+            const before = storage.getItem(key);
+            const after = `${value}`;
+            modified = after !== before;
+            if ( modified ) {
+                storage.setItem(key, after);
+            }
+        }
+    } catch {
+    }
+
+    if ( modified && typeof options.reload === 'number' ) {
+        setTimeout(( ) => { window.location.reload(); }, options.reload);
+    }
+}
+
+function setSessionStorageItem(key = '', value = '') {
+    const safe = safeSelf();
+    const options = safe.getExtraArgs(Array.from(arguments), 2)
+    setLocalStorageItemFn('session', false, key, value, options);
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 3 */
-[setCookie,removeClass,removeNodeText];
+const $scriptletFunctions$ = /* 4 */
+[setCookie,removeClass,setSessionStorageItem,removeNodeText];
 
-const $scriptletArgs$ = /* 10 */ ["warnadb","1","p_view","true","q_pop_noel","with-ad","div","mpf_popup_desktop","script","__ADX_slot_id"];
+const $scriptletArgs$ = /* 11 */ ["warnadb","1","p_view","true","q_pop_noel","with-ad","div","mpf_popup_desktop","unblock-video","script","__ADX_slot_id"];
 
-const $scriptletArglists$ = /* 6 */ "0,0,1;0,2,3;0,4,3;1,5,6;0,7,3;2,8,9";
+const $scriptletArglists$ = /* 7 */ "0,0,1;0,2,3;0,4,3;1,5,6;0,7,3;2,8,1;3,9,10";
 
-const $scriptletArglistRefs$ = /* 6 */ "2;0;1;5;3;4";
+const $scriptletArglistRefs$ = /* 7 */ "2;0;1;6;5;3;4";
 
-const $scriptletHostnames$ = /* 6 */ ["lexpress.fr","pianoweb.fr","jeune-gay.fr","hentaivost.fr","mapcustomizer.com","monpetitforfait.com"];
+const $scriptletHostnames$ = /* 7 */ ["lexpress.fr","pianoweb.fr","jeune-gay.fr","hentaivost.fr","nakastream.tv","mapcustomizer.com","monpetitforfait.com"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

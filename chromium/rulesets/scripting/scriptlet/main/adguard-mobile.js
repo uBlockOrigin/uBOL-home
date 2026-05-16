@@ -936,6 +936,72 @@ function collateFetchArgumentsFn(resource, options) {
     return out;
 }
 
+function generateContentFn(trusted, directive) {
+    const safe = safeSelf();
+    const randomize = len => {
+        const chunks = [];
+        let textSize = 0;
+        do {
+            const s = safe.Math_random().toString(36).slice(2);
+            chunks.push(s);
+            textSize += s.length;
+        }
+        while ( textSize < len );
+        return chunks.join(' ').slice(0, len);
+    };
+    if ( directive === 'true' ) {
+        return randomize(10);
+    }
+    if ( directive === 'emptyObj' ) {
+        return '{}';
+    }
+    if ( directive === 'emptyArr' ) {
+        return '[]';
+    }
+    if ( directive === 'emptyStr' ) {
+        return '';
+    }
+    if ( directive.startsWith('length:') ) {
+        const match = /^length:(\d+)(?:-(\d+))?$/.exec(directive);
+        if ( match === null ) { return ''; }
+        const min = parseInt(match[1], 10);
+        const extent = safe.Math_max(parseInt(match[2], 10) || 0, min) - min;
+        const len = safe.Math_min(min + extent * safe.Math_random(), 500000);
+        return randomize(len | 0);
+    }
+    if ( directive.startsWith('war:') ) {
+        if ( scriptletGlobals.warOrigin === undefined ) { return ''; }
+        return new Promise(resolve => {
+            const warOrigin = scriptletGlobals.warOrigin;
+            const warName = directive.slice(4);
+            const fullpath = [ warOrigin, '/', warName ];
+            const warSecret = scriptletGlobals.warSecret;
+            if ( warSecret !== undefined ) {
+                fullpath.push('?secret=', warSecret);
+            }
+            const warXHR = new safe.XMLHttpRequest();
+            warXHR.responseType = 'text';
+            warXHR.onloadend = ev => {
+                resolve(ev.target.responseText || '');
+            };
+            warXHR.open('GET', fullpath.join(''));
+            warXHR.send();
+        }).catch(( ) => '');
+    }
+    if ( directive.startsWith('join:') ) {
+        const parts = directive.slice(7)
+                .split(directive.slice(5, 7))
+                .map(a => generateContentFn(trusted, a));
+        return parts.some(a => a instanceof Promise)
+            ? Promise.all(parts).then(parts => parts.join(''))
+            : parts.join('');
+    }
+    if ( trusted ) {
+        return directive;
+    }
+    return '';
+}
+
 function getExceptionTokenFn() {
     const token = getRandomTokenFn();
     const oe = self.onerror;
@@ -1004,36 +1070,6 @@ function jsonEditFetchResponseFn(trusted, jsonq = '') {
             safe.uboErr(logPrefix, 'Error:', reason);
             return fetchPromise;
         });
-    });
-}
-
-function jsonPrune(
-    rawPrunePaths = '',
-    rawNeedlePaths = '',
-    stackNeedle = ''
-) {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
-    const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    proxyApplyFn('JSON.parse', function(context) {
-        const objBefore = context.reflect();
-        if ( rawPrunePaths === '' ) {
-            safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
-        }
-        const objAfter = objectPruneFn(
-            objBefore,
-            rawPrunePaths,
-            rawNeedlePaths,
-            stackNeedleDetails,
-            extraArgs
-        );
-        if ( objAfter === undefined ) { return objBefore; }
-        safe.uboLog(logPrefix, 'Pruned');
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
-        }
-        return objAfter;
     });
 }
 
@@ -1487,6 +1523,91 @@ function preventAddEventListener(
             });
         }
     }, extraArgs.runAt);
+}
+
+function preventFetch(...args) {
+    preventFetchFn(false, ...args);
+}
+
+function preventFetchFn(
+    trusted = false,
+    propsToMatch = '',
+    responseBody = '',
+    responseType = ''
+) {
+    const safe = safeSelf();
+    const setTimeout = self.setTimeout;
+    const scriptletName = `${trusted ? 'trusted-' : ''}prevent-fetch`;
+    const logPrefix = safe.makeLogPrefix(
+        scriptletName,
+        propsToMatch,
+        responseBody,
+        responseType
+    );
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 4);
+    const propNeedles = parsePropertiesToMatchFn(propsToMatch, 'url');
+    const validResponseProps = {
+        ok: [ false, true ],
+        status: [ 403 ],
+        statusText: [ '', 'Not Found' ],
+        type: [ 'basic', 'cors', 'default', 'error', 'opaque' ],
+    };
+    const responseProps = {
+        statusText: { value: 'OK' },
+    };
+    const responseHeaders = {};
+    if ( /^\{.*\}$/.test(responseType) ) {
+        try {
+            Object.entries(JSON.parse(responseType)).forEach(([ p, v ]) => {
+                if ( p === 'headers' && trusted ) {
+                    Object.assign(responseHeaders, v);
+                    return;
+                }
+                if ( validResponseProps[p] === undefined ) { return; }
+                if ( validResponseProps[p].includes(v) === false ) { return; }
+                responseProps[p] = { value: v };
+            });
+        }
+        catch { }
+    } else if ( responseType !== '' ) {
+        if ( validResponseProps.type.includes(responseType) ) {
+            responseProps.type = { value: responseType };
+        }
+    }
+    proxyApplyFn('fetch', function fetch(context) {
+        const { callArgs } = context;
+        const details = collateFetchArgumentsFn(...callArgs);
+        if ( safe.logLevel > 1 || propsToMatch === '' && responseBody === '' ) {
+            const out = Array.from(Object.entries(details)).map(a => `${a[0]}:${a[1]}`);
+            safe.uboLog(logPrefix, `Called: ${out.join('\n')}`);
+        }
+        if ( propsToMatch === '' && responseBody === '' ) {
+            return context.reflect();
+        }
+        const matched = matchObjectPropertiesFn(propNeedles, details);
+        if ( matched === undefined || matched.length === 0 ) {
+            return context.reflect();
+        }
+        return Promise.resolve(generateContentFn(trusted, responseBody)).then(text => {
+            safe.uboLog(logPrefix, `Prevented with response "${text}"`);
+            const headers = Object.assign({}, responseHeaders);
+            if ( headers['content-length'] === undefined ) {
+                headers['content-length'] = text.length;
+            }
+            const response = new Response(text, { headers });
+            const props = Object.assign(
+                { url: { value: details.url } },
+                responseProps
+            );
+            safe.Object_defineProperties(response, props);
+            if ( extraArgs.throttle ) {
+                return new Promise(resolve => {
+                    setTimeout(( ) => { resolve(response); }, extraArgs.throttle);
+                });
+            }
+            return response;
+        });
+    });
 }
 
 function preventSetTimeout(
@@ -2341,15 +2462,15 @@ function xmlPrune(
 const scriptletGlobals = {}; // eslint-disable-line
 
 const $scriptletFunctions$ = /* 16 */
-[trustedReplaceArgument,trustedJsonEditFetchResponse,setConstant,jsonPruneFetchResponse,jsonPruneXhrResponse,xmlPrune,preventSetTimeout,abortOnPropertyRead,preventAddEventListener,removeAttr,adjustSetInterval,adjustSetTimeout,abortCurrentScript,abortOnPropertyWrite,jsonPrune,abortOnStackTrace];
+[trustedReplaceArgument,trustedJsonEditFetchResponse,setConstant,jsonPruneFetchResponse,jsonPruneXhrResponse,xmlPrune,preventSetTimeout,preventFetch,abortOnPropertyRead,preventAddEventListener,removeAttr,adjustSetInterval,adjustSetTimeout,abortCurrentScript,abortOnPropertyWrite,abortOnStackTrace];
 
-const $scriptletArgs$ = /* 104 */ ["matchMedia.call","1","json:\"none\"","condition","max-width","..show_ads=false","propsToMatch","/statsig/initialize?","Object.prototype.hasAd","false","Object.prototype.isAdActive","Object.prototype.vastOptions","{}","advertising","","/player/metadata",".json","[breakId]","_VMAP_","bait","freeProConfig.btnRefresh","DOMContentLoaded","adBoxEl","mobiles","scroll","adBlockerCalled","DMP_IS_AUTOPLAY_ENABLED","createApp","load","document.cookie","id","#div-gpt-ad-header","inviewstitial_fired","true","(f-1)","*","0.001","firstLoad","300","style",".tadm_ad_unit","interstitial-popup","add_h2023","noopFunc","abp1","0","continueToVideoUrl","JSON.parse","/interstitial?viewkey=","player.postitialTimeout","returnAd","hidden","adformtag","[]","customAdlistMob","$","exoMobilePop","/^(?:scroll|touchmove|wheel)$/","preventDefault","/^(?:mousewheel|touchmove)$/","mobileAdvPop","data-universal-link","body","InfCustomSTAMobileFunc","bindPostitial","document.getElementsByClassName","adBlocked","initializeInterstitial","isPeriodic","0.02","PopUnder.bindEvent","exoUrl","undefined","organicPop","popUnderUrl","Object.prototype.vjsPlayer.ads","nor","nor.pageview","nor.eventURL","nor.pageviewURL","nor.setPageData","boosted_gifs","camera","eval","/ddnext|ddtop/","bw_no_ad","ads_every_x_videos","click","clkUnder","cache_loader","RecommendItems.RecommendInfo.[-].DataSource.[=].spsr RecommendInfo.[-].DataSource.[=].spsr","m/product/ajax/productPersonalization","height","iframe[src=\"https://dq.h1g.jp/img/ad/ad_heigu.html\"]","document.createElement","interstitialAdDiv","showme","pcc","jmp","Math","document.write","_rand","adsbyimobile","div[class*=\"site-header__with-mobile-leaderboard\"]"];
+const $scriptletArgs$ = /* 103 */ ["matchMedia.call","1","json:\"none\"","condition","max-width","..show_ads=false","propsToMatch","/statsig/initialize?","Object.prototype.hasAd","false","Object.prototype.isAdActive","Object.prototype.vastOptions","{}","advertising","","/player/metadata",".json","[breakId]","_VMAP_","bait","adsbygoogle","freeProConfig.btnRefresh","DOMContentLoaded","adBoxEl","mobiles","scroll","adBlockerCalled","DMP_IS_AUTOPLAY_ENABLED","createApp","load","document.cookie","id","#div-gpt-ad-header","inviewstitial_fired","true","(f-1)","*","0.001","firstLoad","300","style",".tadm_ad_unit","interstitial-popup","add_h2023","noopFunc","abp1","0","continueToVideoUrl","JSON.parse","/interstitial?viewkey=","player.postitialTimeout","returnAd","hidden","adformtag","[]","customAdlistMob","$","exoMobilePop","/^(?:scroll|touchmove|wheel)$/","preventDefault","/^(?:mousewheel|touchmove)$/","mobileAdvPop","data-universal-link","body","InfCustomSTAMobileFunc","bindPostitial","document.getElementsByClassName","adBlocked","initializeInterstitial","isPeriodic","0.02","PopUnder.bindEvent","exoUrl","undefined","organicPop","popUnderUrl","Object.prototype.vjsPlayer.ads","nor","nor.pageview","nor.eventURL","nor.pageviewURL","nor.setPageData","eval","/ddnext|ddtop/","bw_no_ad","ads_every_x_videos","click","clkUnder","cache_loader","RecommendItems.RecommendInfo.[-].DataSource.[=].spsr RecommendInfo.[-].DataSource.[=].spsr","m/product/ajax/productPersonalization","height","iframe[src=\"https://dq.h1g.jp/img/ad/ad_heigu.html\"]","document.createElement","interstitialAdDiv","showme","pcc","jmp","Math","document.write","_rand","adsbyimobile","div[class*=\"site-header__with-mobile-leaderboard\"]"];
 
-const $scriptletArglists$ = /* 69 */ "0,0,1,2,3,4;1,5,6,7;2,8,9;2,10,9;2,11,12;3,13,14,6,15;4,13,14,6,16;5,17,14,18;6,19;7,20;8,21,19;6,22;2,23,14;8,24,25;2,26,9;7,27;8,28,29;9,30,31;2,32,33;10,34,35,36;6,37,38;9,39,40;8,21,41;2,42,43;2,44,45;11,46,35,36;12,47,48;2,49,45;8,14,50;13,51;2,52,53;2,54,53;12,55,56;8,57,58;8,59;7,60;9,61,62;2,63,43;12,64;12,65,66;2,67,43;10,68,14,69;2,70,43;2,71,72;2,73,72;7,74;2,75,43;2,76,12;2,77,43;2,78,43;2,79,43;2,80,43;14,81;14,82;15,83,84;2,85,43;2,86,72;8,87,88;13,89;3,90,14,91;9,92,93;12,94,14;8,21,95;2,96,9;2,97,1;12,98,99;12,100,101;7,102;9,39,103";
+const $scriptletArglists$ = /* 68 */ "0,0,1,2,3,4;1,5,6,7;2,8,9;2,10,9;2,11,12;3,13,14,6,15;4,13,14,6,16;5,17,14,18;6,19;7,20;8,21;9,22,19;6,23;2,24,14;9,25,26;2,27,9;8,28;9,29,30;10,31,32;2,33,34;11,35,36,37;6,38,39;10,40,41;9,22,42;2,43,44;2,45,46;12,47,36,37;13,48,49;2,50,46;9,14,51;14,52;2,53,54;2,55,54;13,56,57;9,58,59;9,60;8,61;10,62,63;2,64,44;13,65;13,66,67;2,68,44;11,69,14,70;2,71,44;2,72,73;2,74,73;8,75;2,76,44;2,77,12;2,78,44;2,79,44;2,80,44;2,81,44;15,82,83;2,84,44;2,85,73;9,86,87;14,88;3,89,14,90;10,91,92;13,93,14;9,22,94;2,95,9;2,96,1;13,97,98;13,99,100;8,101;10,40,102";
 
-const $scriptletArglistRefs$ = /* 63 */ "60;66;47,48,49,50,51;30;41;61;27,35;20;4;12;-8;54;65;27,35;59;45;21;39;46;67;42;23;56,57;18;24,25,26;24;24;62;52,53;68;55;8;36;16;9;17;28,29;35;43,44;27;10;37;58;32;33;22;17;5,6,14;31;28;0,1,2;40;17;38;13;63,64;34;19;7;11;15;11;3";
+const $scriptletArglistRefs$ = /* 63 */ "59;65;48,49,50,51,52;31;42;60;28,36;21;4;13;-8;53;64;28,36;58;46;22;40;47;66;43;24;55,56;19;25,26,27;25;25;61;67;54;8;37;17;10;9;18;29,30;36;44,45;28;11;38;57;33;34;23;18;5,6,15;32;29;0,1,2;41;18;39;14;62,63;35;20;7;12;16;12;3";
 
-const $scriptletHostnames$ = /* 63 */ ["h1g.jp","blog.jp","news.jp","delfi.lt","m.iyf.tv","tu93.org","m.nuvid.*","nbc4i.com","redd.tube","erozine.jp","google.com","kbook8.com","komaki2.jp","m.hd21.com","newegg.com","pornhd.com","saveur.com","supleks.jp","usnews.com","gamerch.com","gotporn.com","m.efuxs.com","onlytik.com","oreno3d.com","pornhub.com","pornhub.net","pornhub.org","rakukan.net","redgifs.com","reuters.com","trashbox.ru","daotekno.com","idaprikol.ru","momon-ga.com","planetf1.com","youpouch.com","erobanach.com","m.drtuber.com","m.tnaflix.com","m.viptube.com","mangalivre.tv","mediafire.com","player4me.vip","m.sunporno.com","news.mynavi.jp","quiz-facts.com","soranews24.com","dailymotion.com","m.hellporno.com","openloadpro.com","www.nytimes.com","moneycontrol.com","rocketnews24.com","straitstimes.com","m.livehindustan.com","m.minixiaoshuow.com","mudainodocument.com","business-standard.com","www.dailymotion.com>>","nijimen.kusuguru.co.jp","wuxianxiaoshuowang.com","nazology.kusuguru.co.jp","timesofindia.indiatimes.com"];
+const $scriptletHostnames$ = /* 63 */ ["h1g.jp","blog.jp","news.jp","delfi.lt","m.iyf.tv","tu93.org","m.nuvid.*","nbc4i.com","redd.tube","erozine.jp","google.com","kbook8.com","komaki2.jp","m.hd21.com","newegg.com","pornhd.com","saveur.com","supleks.jp","usnews.com","gamerch.com","gotporn.com","m.efuxs.com","onlytik.com","oreno3d.com","pornhub.com","pornhub.net","pornhub.org","rakukan.net","reuters.com","trashbox.ru","daotekno.com","idaprikol.ru","momon-ga.com","planetf1.com","sht-link.com","youpouch.com","erobanach.com","m.drtuber.com","m.tnaflix.com","m.viptube.com","mangalivre.tv","mediafire.com","player4me.vip","m.sunporno.com","news.mynavi.jp","quiz-facts.com","soranews24.com","dailymotion.com","m.hellporno.com","openloadpro.com","www.nytimes.com","moneycontrol.com","rocketnews24.com","straitstimes.com","m.livehindustan.com","m.minixiaoshuow.com","mudainodocument.com","business-standard.com","www.dailymotion.com>>","nijimen.kusuguru.co.jp","wuxianxiaoshuowang.com","nazology.kusuguru.co.jp","timesofindia.indiatimes.com"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

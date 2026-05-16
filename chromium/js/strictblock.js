@@ -109,12 +109,11 @@ function fragmentFromTemplate(template, placeholder, text, details) {
 // Enforce popup filters
 
 (async ( ) => {
-    const filteringMode = await sendMessage({
-        what: 'getFilteringMode',
-        hostname: toURL.hostname,
+    const currentConfig = await sendMessage({
+        what: 'getCurrentConfig',
     });
     // Enforce popup filtering in complete mode only
-    if ( filteringMode < 3 ) { return; }
+    if ( currentConfig.popupBlockingMode !== true ) { return; }
     const rulesetDetails = await rulesetDetailsPromise;
     const toImport = [];
     for ( const details of rulesetDetails ) {
