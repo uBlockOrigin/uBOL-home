@@ -39,6 +39,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/newsletter-portlet/js/main.js"},"id":38,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/newsletter-signup.js"},"id":39,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/newsletter-signup.min.js"},"id":40,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||forms.blackhawks.com/newsletter-signup"},"id":41,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedResourceTypes":["main_frame","stylesheet"],"urlFilter":"/newsletter-subscription-"},"id":42,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/newsletter/popup-"},"id":43,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/newsletter/popup/"},"id":44,"priority":10},
@@ -321,5 +322,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["bintvs.fun"],"resourceTypes":["script"],"urlFilter":"||cdn.jsdelivr.net/npm/disable-devtool@latest"},"id":321,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["mvlempyr.com","mvlempyr.io"],"resourceTypes":["script"],"urlFilter":"||pubfuture-ad.com^"},"id":322,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["mvlempyr.com","mvlempyr.io"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pubfuture-ad.com^"},"id":323,"priority":11},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.html"},"type":"redirect"},"condition":{"initiatorDomains":["mvlempyr.com","mvlempyr.io"],"resourceTypes":["sub_frame"],"urlFilter":"||ad.a-ads.com^"},"id":324,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.html"},"type":"redirect"},"condition":{"initiatorDomains":["mvlempyr.com","mvlempyr.io"],"resourceTypes":["sub_frame"],"urlFilter":"||ad.a-ads.com^"},"id":324,"priority":11},
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||tdgardenapps.com/countdown/2024_game_clock.html"},"id":325,"priority":10}
 ]

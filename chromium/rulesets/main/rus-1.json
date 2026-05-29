@@ -497,7 +497,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||fxmail.ru/rating/"},"id":496,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||geo.wpforms.com/*/geolocate/"},"id":497,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||get4click.ru/wrapper."},"id":498,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedInitiatorDomains":["inforesist.org","starblast.io","timepad.ru","zakon.kz"],"urlFilter":"||googletagmanager.com/gtag/"},"id":499,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||iportal.ru/static/mediadash/tracker.iife.min.js"},"id":499,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||gostats."},"id":500,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||if6.ru/tools/"},"id":501,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||io.narrative.io/?"},"id":502,"priority":10},
@@ -961,5 +961,6 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["geo_block"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||zenithjs.ws/embed/*geo_block="},"id":960},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["geoBlock"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||zenithjs.ws/embed/*geoblock="},"id":961},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_to"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||alice.yandex.*/?utm_to="},"id":962},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||api.expf.ru/api/*/geo"},"id":963,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||api.expf.ru/api/*/geo"},"id":963,"priority":10},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/?from=sds"},"id":964}
 ]

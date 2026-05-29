@@ -44,7 +44,7 @@
     "description": "Label in the popup panel for the local tools section"
   },
   "popupTipReport": {
-    "message": "Segnala un problema con questo sito",
+    "message": "Segnala un problema",
     "description": "Tooltip used for the 'chat' icon in the panel"
   },
   "popupTipDashboard": {
@@ -92,7 +92,7 @@
     "description": "Text label heading the import/export area of custom filters"
   },
   "customFiltersImportTextareaPlaceholder": {
-    "message": "Incolla qui i filtri cosmetici specifici da aggiungere",
+    "message": "Incolla qui i filtri cosmetici o scriptlet specifici da aggiungere.",
     "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "aboutChangelog": {
@@ -263,6 +263,10 @@
     "message": "Quando attivo, i filtri corrispondenti chiuderanno automaticamente le schede del browser indesiderate create dai siti web.",
     "description": "Short description for a checkbox in the options page"
   },
+  "sandboxEditorLabel": {
+    "message": "Sandbox per la creazione di filtri",
+    "description": "Header for filter-creation section in the dashboard"
+  },
   "developerModeLabel": {
     "message": "Modalità sviluppatore",
     "description": "Label for a checkbox in the options page"
@@ -324,7 +328,7 @@
     "description": "A button to navigate to the blocked page"
   },
   "zapperTipEnter": {
-    "message": "Accedi alla modalità blocco rapido",
+    "message": "Rimuovi un elemento",
     "description": "Tooltip for the button used to enter zapper mode"
   },
   "zapperTipQuit": {

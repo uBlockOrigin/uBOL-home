@@ -281,5 +281,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||client.salesmartly.com/setting/sounds/"},"id":280,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedResourceTypes":["main_frame","stylesheet"],"urlFilter":"/push-notifications."},"id":281,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||unherd.com/push-worker.js"},"id":282,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||camel1.tv/media/"},"id":283,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||camel1.tv/media/"},"id":283,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||cdn.24liveblog.com/audio/"},"id":284,"priority":10}
 ]

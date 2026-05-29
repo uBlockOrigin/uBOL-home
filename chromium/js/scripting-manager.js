@@ -27,16 +27,12 @@ import {
     sessionKeys, sessionRead, sessionRemove, sessionWrite,
     webextFlavor,
 } from './ext.js';
-import {
-    isUserScriptsAvailable,
-    registerCustomFilters,
-    registerCustomScriptlets,
-} from './filter-manager.js';
 import { ubolErr, ubolLog } from './debug.js';
 
 import { fetchJSON } from './fetch.js';
 import { getEnabledRulesetsDetails } from './ruleset-manager.js';
 import { getFilteringModeDetails } from './mode-manager.js';
+import { registerCustomFilters } from './filter-manager.js';
 import { registerPreventPopup } from './prevent-popup.js';
 import { registerToolbarIconToggler } from './action.js';
 
@@ -169,17 +165,19 @@ function registerGeneric(context, genericDetails) {
 
 /******************************************************************************/
 
-async function registerCosmetic(realm, context) {
+async function registerCosmetic(context) {
     const { filteringModeDetails, rulesetsDetails } = context;
 
     {
         const keys = await localKeys();
-        localRemove(keys.filter(a => a.startsWith(`css.${realm}.`)));
+        localRemove(keys.filter(a => a.startsWith('css.specific.')));
+        // TODO: remove after a few versions after 2026.516.1652
+        localRemove(keys.filter(a => a.startsWith('css.procedural.')));
     }
 
     const rulesetIds = [];
     for ( const rulesetDetails of rulesetsDetails ) {
-        const count = rulesetDetails.css?.[realm] || 0;
+        const count = rulesetDetails.css?.specific ?? 0;
         if ( count === 0 ) { continue; }
         rulesetIds.push(rulesetDetails.id);
     }
@@ -196,8 +194,8 @@ async function registerCosmetic(realm, context) {
         const promises = [];
         for ( const id of rulesetIds ) {
             promises.push(
-                fetchJSON(`/rulesets/scripting/${realm}/${id}`).then(data => {
-                    return localWrite(`css.${realm}.${id}`, data);
+                fetchJSON(`/rulesets/scripting/specific/${id}`).then(data => {
+                    return localWrite(`css.specific.${id}`, data);
                 })
             );
         }
@@ -206,13 +204,12 @@ async function registerCosmetic(realm, context) {
 
     normalizeMatches(matches);
 
-    const realmid = `css-${realm}`;
-    const js = rulesetIds.map(id => `/rulesets/scripting/${realm}/${id}.js`);
+    const js = rulesetIds.map(id => `/rulesets/scripting/specific/${id}.js`);
     js.unshift('/js/scripting/css-api.js', '/js/scripting/isolated-api.js');
-    if ( realm === 'procedural' && webextFlavor === 'safari' ) {
+    if ( webextFlavor === 'safari' ) {
         js.push('/js/scripting/css-procedural-api.js');
     }
-    js.push(`/js/scripting/${realmid}.js`);
+    js.push('/js/scripting/css-specific.js');
 
     const excludeMatches = [];
     if ( none.has('all-urls') === false && basic.has('all-urls') === false ) {
@@ -226,7 +223,7 @@ async function registerCosmetic(realm, context) {
     }
 
     const directive = {
-        id: realmid,
+        id: 'css-specific',
         js,
         matches,
         allFrames: true,
@@ -309,15 +306,15 @@ function registerScriptlet(context, scriptletDetails) {
 // Issue: Safari appears to completely ignore excludeMatches
 // https://github.com/radiolondra/ExcludeMatches-Test
 
-export async function registerInjectables() {
+export async function registerContentScripts() {
     if ( browser.scripting === undefined ) { return false; }
-    registerInjectables.pendingOp =
-        registerInjectables.pendingOp.then(( ) => registerInjectables.register());
-    return registerInjectables.pendingOp;
+    registerContentScripts.pendingOp =
+        registerContentScripts.pendingOp.then(( ) => registerContentScripts.register());
+    return registerContentScripts.pendingOp;
 }
-registerInjectables.pendingOp = Promise.resolve();
+registerContentScripts.pendingOp = Promise.resolve();
 
-registerInjectables.register = async function register() {
+registerContentScripts.register = async function register() {
     const [
         filteringModeDetails,
         rulesetsDetails,
@@ -338,11 +335,9 @@ registerInjectables.register = async function register() {
 
     await Promise.all([
         registerScriptlet(context, scriptletDetails),
-        registerCosmetic('specific', context),
-        registerCosmetic('procedural', context),
+        registerCosmetic(context),
         registerGeneric(context, genericDetails),
         registerCustomFilters(context),
-        registerCustomScriptlets(context),
         registerPreventPopup(context),
         registerToolbarIconToggler(context),
     ]);
@@ -371,14 +366,8 @@ registerInjectables.register = async function register() {
 /******************************************************************************/
 
 export async function getRegisteredContentScripts() {
-    const promises = [
-        browser.scripting.getRegisteredContentScripts(),
-    ];
-    if ( isUserScriptsAvailable() ) {
-        promises.push(browser.userScripts.getScripts());
-    }
-    const scripts = await Promise.all(promises).catch(( ) => []);
-    return scripts.flat().map(a => a.id);
+    const scripts = await browser.scripting.getRegisteredContentScripts();
+    return scripts.map(a => a.id);
 }
 
 /******************************************************************************/

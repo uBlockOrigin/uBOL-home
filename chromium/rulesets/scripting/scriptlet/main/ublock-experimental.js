@@ -847,11 +847,11 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 2 */
 [trustedJsonEditXhrRequest,trustedJsonEditXhrResponse];
 
-const $scriptletArgs$ = /* 7 */ ["[?..userAgent*=\"adunit\"]..client[?.clientName==\"WEB\"]+={\"clientScreen\":\"ADUNIT\"}","propsToMatch","/player?","[?..userAgent*=\"lactmilli\"][?..graftUrl*=\"&list=\"]+={\"params\":\"8AUB\"}","[?..userAgent*=\"instream\"]..playbackContext[?.contentPlaybackContext]+={\"adPlaybackContext\":{\"adType\":\"AD_TYPE_INSTREAM\"}}","[?..userAgent*=\"eafg\"]+={\"params\":\"eAFgAQ\"}","[?..minimumPlaybackRate==100]..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200,\"defaultPlaybackRateOptions\":[{\"label\":\"1.0\",\"value\":100,\"isPremiumUpsell\":false,\"priority\":5},{\"label\":\"1.25\",\"value\":125,\"isPremiumUpsell\":false,\"priority\":2},{\"label\":\"1.5\",\"value\":150,\"isPremiumUpsell\":false,\"priority\":3},{\"label\":\"1.75\",\"value\":175,\"isPremiumUpsell\":false,\"priority\":0},{\"label\":\"2.0\",\"value\":200,\"isPremiumUpsell\":false,\"priority\":4},{\"label\":\"3.0\",\"value\":300,\"isPremiumUpsell\":true,\"priority\":1}]}"];
+const $scriptletArgs$ = /* 6 */ ["[?..userAgent*=\"adunit\"]..client[?.clientName==\"WEB\"]+={\"clientScreen\":\"ADUNIT\"}","propsToMatch","/player?","[?..userAgent*=\"instream\"]..playbackContext[?.contentPlaybackContext]+={\"adPlaybackContext\":{\"adType\":\"AD_TYPE_INSTREAM\"}}","[?..userAgent*=\"eafg\"]+={\"params\":\"eAFgAQ\"}","[?..minimumPlaybackRate==100]..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200,\"defaultPlaybackRateOptions\":[{\"label\":\"1.0\",\"value\":100,\"isPremiumUpsell\":false,\"priority\":5},{\"label\":\"1.25\",\"value\":125,\"isPremiumUpsell\":false,\"priority\":2},{\"label\":\"1.5\",\"value\":150,\"isPremiumUpsell\":false,\"priority\":3},{\"label\":\"1.75\",\"value\":175,\"isPremiumUpsell\":false,\"priority\":0},{\"label\":\"2.0\",\"value\":200,\"isPremiumUpsell\":false,\"priority\":4},{\"label\":\"3.0\",\"value\":300,\"isPremiumUpsell\":true,\"priority\":1}]}"];
 
-const $scriptletArglists$ = /* 5 */ "0,0,1,2;0,3,1,2;0,4,1,2;0,5,1,2;1,6,1,2";
+const $scriptletArglists$ = /* 4 */ "0,0,1,2;0,3,1,2;0,4,1,2;1,5,1,2";
 
-const $scriptletArglistRefs$ = /* 1 */ "0,1,2,3,4";
+const $scriptletArglistRefs$ = /* 1 */ "0,1,2,3";
 
 const $scriptletHostnames$ = /* 1 */ ["www.youtube.com"];
 

@@ -643,6 +643,98 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
     return needles;
 }
 
+function preventAddEventListener(
+    type = '',
+    pattern = ''
+) {
+    const safe = safeSelf();
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
+    const reType = safe.patternToRegex(type, undefined, true);
+    const rePattern = safe.patternToRegex(pattern);
+    const targetSelector = extraArgs.elements || undefined;
+    const elementMatches = elem => {
+        if ( targetSelector === 'window' ) { return elem === window; }
+        if ( targetSelector === 'document' ) { return elem === document; }
+        if ( elem && elem.matches && elem.matches(targetSelector) ) { return true; }
+        const elems = Array.from(document.querySelectorAll(targetSelector));
+        return elems.includes(elem);
+    };
+    const elementDetails = elem => {
+        if ( elem instanceof Window ) { return 'window'; }
+        if ( elem instanceof Document ) { return 'document'; }
+        if ( elem instanceof Element === false ) { return '?'; }
+        const parts = [];
+        // https://github.com/uBlockOrigin/uAssets/discussions/17907#discussioncomment-9871079
+        const id = String(elem.id);
+        if ( id !== '' ) { parts.push(`#${CSS.escape(id)}`); }
+        for ( let i = 0; i < elem.classList.length; i++ ) {
+            parts.push(`.${CSS.escape(elem.classList.item(i))}`);
+        }
+        for ( let i = 0; i < elem.attributes.length; i++ ) {
+            const attr = elem.attributes.item(i);
+            if ( attr.name === 'id' ) { continue; }
+            if ( attr.name === 'class' ) { continue; }
+            parts.push(`[${CSS.escape(attr.name)}="${attr.value}"]`);
+        }
+        return parts.join('');
+    };
+    const shouldPrevent = (thisArg, type, handler) => {
+        const matchesType = safe.RegExp_test.call(reType, type);
+        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesEither = matchesType || matchesHandler;
+        const matchesBoth = matchesType && matchesHandler;
+        if ( safe.logLevel > 1 && matchesEither ) {
+            debugger; // eslint-disable-line no-debugger
+        }
+        if ( matchesBoth && targetSelector !== undefined ) {
+            if ( elementMatches(thisArg) === false ) { return false; }
+        }
+        return matchesBoth;
+    };
+    const proxyFn = function(context) {
+        const { callArgs, thisArg } = context;
+        let t, h;
+        try {
+            t = String(callArgs[0]);
+            if ( typeof callArgs[1] === 'function' ) {
+                h = String(safe.Function_toString(callArgs[1]));
+            } else if ( typeof callArgs[1] === 'object' && callArgs[1] !== null ) {
+                if ( typeof callArgs[1].handleEvent === 'function' ) {
+                    h = String(safe.Function_toString(callArgs[1].handleEvent));
+                }
+            } else {
+                h = String(callArgs[1]);
+            }
+        } catch {
+        }
+        if ( type === '' && pattern === '' ) {
+            safe.uboLog(logPrefix, `Called: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        } else if ( shouldPrevent(thisArg, t, h) ) {
+            return safe.uboLog(logPrefix, `Prevented: ${t}\n${h}\n${elementDetails(thisArg)}`);
+        }
+        return context.reflect();
+    };
+    runAt(( ) => {
+        proxyApplyFn('EventTarget.prototype.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = EventTarget.prototype;
+            Object.defineProperty(EventTarget.prototype, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+        proxyApplyFn('document.addEventListener', proxyFn);
+        if ( extraArgs.protect ) {
+            const { addEventListener } = document;
+            Object.defineProperty(document, 'addEventListener', {
+                set() { },
+                get() { return addEventListener; }
+            });
+        }
+    }, extraArgs.runAt);
+}
+
 function preventFetch(...args) {
     preventFetchFn(false, ...args);
 }
@@ -1345,16 +1437,16 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 8 */
-[abortOnPropertyRead,preventFetch,abortCurrentScript,jsonPrune,setConstant,noWindowOpenIf,removeAttr,abortOnPropertyWrite];
+const $scriptletFunctions$ = /* 9 */
+[abortOnPropertyRead,preventFetch,abortCurrentScript,jsonPrune,setConstant,noWindowOpenIf,removeAttr,abortOnPropertyWrite,preventAddEventListener];
 
-const $scriptletArgs$ = /* 34 */ ["SIN.AdsLoader","pagead2.googlesyndication.com","adsBlocked","String.fromCharCode","!function()","/\\/\\*[0-9a-f]{40}\\*\\//","vast","jQuery","link_br","wpsite_clickable_data","u_global_data","ads_script","utarget_script","document.createElement","/загрузка/","amodule.data","[]","td_ad_background_click_link","undefined","parent.window.opener","/\\/special\\//","href",".ban_head","document.currentScript","admitad","/Function\\('return/","decodeURIComponent","delete window","script.onerror","eval","document.getElementsByTagName","html_brain_link","MarketGidJSON","fpm_adbDetect"];
+const $scriptletArgs$ = /* 35 */ ["SIN.AdsLoader","pagead2.googlesyndication.com","adsBlocked","String.fromCharCode","/\\/\\*[0-9a-f]{40}\\*\\//","vast","jQuery","link_br","wpsite_clickable_data","u_global_data","ads_script","utarget_script","document.createElement","/загрузка/","amodule.data","[]","td_ad_background_click_link","undefined","parent.window.opener","/\\/special\\//","href",".ban_head","document.currentScript","admitad","/Function\\('return/","decodeURIComponent","delete window","script.onerror","eval","document.getElementsByTagName","html_brain_link","MarketGidJSON","fpm_adbDetect","DOMContentLoaded","/linkUrl|loadBanner/"];
 
-const $scriptletArglists$ = /* 25 */ "0,0;1,1;0,2;2,3,4;2,3,5;3,6;2,7,8;0,9;0,10;0,11;2,10;0,12;2,13,14;4,15,16;4,17,18;0,19;5,20;6,21,22;2,23,24;2,3,25;2,26,27;2,28,29;2,30,31;2,32;7,33";
+const $scriptletArglists$ = /* 25 */ "0,0;1,1;0,2;2,3,4;3,5;2,6,7;0,8;0,9;0,10;2,9;0,11;2,12,13;4,14,15;4,16,17;0,18;5,19;6,20,21;2,22,23;2,3,24;2,25,26;2,27,28;2,29,30;2,31;7,32;8,33,34";
 
-const $scriptletArglistRefs$ = /* 169 */ "8,10;8;6,16;8;8;12;12;12;3;24;24;8;12;12;15;12;12;12;12;24;4;24;12;8,10;3;12;19;24;24;4;24;3,20;24;8;11;8;12;12;24;24;3;5;24;12;12;12;4;24;24;4;12;11;12;8;12;12;12;24;12;24;7;12,21,22;24;12;8;24;3;18;8;24;24;12;8;0;8;12;12;12;1;3;24;24;24;11;12;24;23;12;24;24;12;8;1;12;24;24;9;12;12;12;12;12;24;8;24;12;8;12;24;24;24;24;24;12;24;12;24;12;7;24;12;12;24;12;4;24;12;24;12;12;12;12;8;17;2;12;24;24;24;24;12;24;8,9;24;24;12;24;12;14;24;24;8;8;12;4;8;12;24;24;12;8;8;12;7;12;24;13;24;24";
+const $scriptletArglistRefs$ = /* 164 */ "7,9;7;5,15;7;7;11;11;11;23;23;7;11;11;14;11;11;11;11;23;3;23;11;7,9;11;18;23;23;3;23;19;23;7;10;7;11;11;23;23;4;23;11;11;11;3;23;23;3;11;10;11;7;11;11;11;23;11;23;6,24;11,20,21;23;11;7;23;17;7;23;23;11;7;0;7;11;11;11;1;23;23;23;10;11;23;22;11;23;23;11;7;1;11;23;23;8;11;11;11;11;11;23;7;23;11;7;11;23;23;23;23;23;11;23;11;23;11;6,24;23;11;11;23;11;3;23;11;23;11;11;11;11;7;16;2;11;23;23;23;23;11;23;7,8;23;23;11;23;11;13;23;23;7;7;11;3;7;11;23;23;11;7;7;11;6;11;23;12;23;23";
 
-const $scriptletHostnames$ = /* 169 */ ["at.ua","do.am","ain.ua","moy.su","my1.ru","ogo.ua","sud.ua","zik.ua","24tv.ua","azku.ru","bouw.ru","clan.su","elle.ua","grad.ua","silf.ua","tele.ru","viva.ua","womo.ua","4mama.ua","d-mod.ru","dengi.ua","diwis.ru","fakty.ua","narod.ru","ria-m.tv","vlast.kz","www.i.ua","13idei.ru","colady.ru","ex-fs.net","iklife.ru","isport.ua","ixtira.tv","jetvis.ru","kinogo.eu","kubik3.ru","kursiv.kz","molbuk.ua","oblcit.ru","toysew.ru","zaxid.net","aniqit.com","anisima.ru","bagnet.org","cbn.com.ua","glavnoe.ua","hvylya.net","kopomko.ru","lumpics.ru","mirknig.su","newsua.one","nnmclub.to","nr2.com.ua","rub.org.ua","rusjev.net","sibkray.ru","unn.com.ua","usatiki.ru","zikua.news","3witcher.ru","agronews.ua","comments.ua","dooralei.ru","golos.te.ua","igrul-ka.ru","it-doc.info","kurs.com.ru","kurs.com.ua","megomult.ru","menstois.ru","mydizajn.ru","pingvin.pro","selezen.net","sinoptik.ua","staroetv.su","teren.in.ua","times.km.ua","womanel.com","1plus1.video","allboxing.ru","baragozik.ru","brjunetka.ru","catfishes.ru","doramakun.ru","enovosty.com","ethnoboho.ru","freerutor.me","glavpost.com","idealsad.com","kulikavto.ru","newsoneua.tv","paravozik.tv","plus-plus.tv","provce.ck.ua","rusadmin.biz","subsidii.net","tapochek.net","tverigrad.ru","versii.if.ua","altyn-orda.kz","cikavosti.com","fainaidea.com","glav-dacha.ru","greenflash.su","guitarrist.ru","livekavkaz.ru","play-force.ru","procherk.info","rainbowsky.ru","rugraphics.ru","sam-sdelay.ru","sdelaicomp.ru","telefongid.ru","tenews.org.ua","viborprost.ru","vsviti.com.ua","zakonguru.com","4studio.com.ua","agroreview.com","antirodinka.ru","cheline.com.ua","dv-gazeta.info","info-effect.ru","kapital-rus.ru","kino-hd720.net","love-mother.ru","marieclaire.ua","megabitcomp.ru","mignews.com.ua","otvetnavse.com","plitkar.com.ua","portal.lviv.ua","pro-zakupki.ru","proagro.com.ua","prozoro.net.ua","redpost.com.ua","samelectrik.ru","snow-motion.ru","sprintotvet.ru","tehnika.expert","telegraf.in.ua","windowstune.ru","fanofnfs.3dn.ru","fitnavigator.ru","historynotes.ru","news.dks.com.ua","privivkainfo.ru","rivnepost.rv.ua","root-nation.com","russkiiyazyk.ru","serviceyard.net","tc-image.3dn.ru","elektronika56.ru","gorodkiev.com.ua","kino-fs.ucoz.net","kino-torrent.net","rivnenews.com.ua","selfmadetrip.com","svoimi-rykami.ru","volyninfa.com.ua","pokatushki-pmr.ru","legion-rus.clan.su","politnavigator.net","classicalmusicnews.ru","prichernomorie.com.ua","ustroim-prazdnik.info","cosmonova-broadcast.tv","sekreti-domovodstva.ru","programdownloadfree.com"];
+const $scriptletHostnames$ = /* 164 */ ["at.ua","do.am","ain.ua","moy.su","my1.ru","ogo.ua","sud.ua","zik.ua","azku.ru","bouw.ru","clan.su","elle.ua","grad.ua","silf.ua","tele.ru","viva.ua","womo.ua","4mama.ua","d-mod.ru","dengi.ua","diwis.ru","fakty.ua","narod.ru","vlast.kz","www.i.ua","13idei.ru","colady.ru","ex-fs.net","iklife.ru","isport.ua","ixtira.tv","jetvis.ru","kinogo.eu","kubik3.ru","kursiv.kz","molbuk.ua","oblcit.ru","toysew.ru","aniqit.com","anisima.ru","bagnet.org","cbn.com.ua","glavnoe.ua","hvylya.net","kopomko.ru","lumpics.ru","mirknig.su","newsua.one","nnmclub.to","nr2.com.ua","rub.org.ua","rusjev.net","sibkray.ru","unn.com.ua","usatiki.ru","zikua.news","3witcher.ru","agronews.ua","comments.ua","dooralei.ru","golos.te.ua","igrul-ka.ru","it-doc.info","kurs.com.ua","megomult.ru","menstois.ru","mydizajn.ru","pingvin.pro","selezen.net","sinoptik.ua","staroetv.su","teren.in.ua","times.km.ua","womanel.com","1plus1.video","baragozik.ru","brjunetka.ru","catfishes.ru","doramakun.ru","enovosty.com","ethnoboho.ru","freerutor.me","glavpost.com","idealsad.com","kulikavto.ru","newsoneua.tv","paravozik.tv","plus-plus.tv","provce.ck.ua","rusadmin.biz","subsidii.net","tapochek.net","tverigrad.ru","versii.if.ua","altyn-orda.kz","cikavosti.com","fainaidea.com","glav-dacha.ru","greenflash.su","guitarrist.ru","livekavkaz.ru","play-force.ru","procherk.info","rainbowsky.ru","rugraphics.ru","sam-sdelay.ru","sdelaicomp.ru","telefongid.ru","tenews.org.ua","viborprost.ru","vsviti.com.ua","zakonguru.com","4studio.com.ua","agroreview.com","antirodinka.ru","cheline.com.ua","dv-gazeta.info","info-effect.ru","kapital-rus.ru","kino-hd720.net","love-mother.ru","marieclaire.ua","megabitcomp.ru","mignews.com.ua","otvetnavse.com","plitkar.com.ua","portal.lviv.ua","pro-zakupki.ru","proagro.com.ua","prozoro.net.ua","redpost.com.ua","samelectrik.ru","snow-motion.ru","sprintotvet.ru","tehnika.expert","telegraf.in.ua","windowstune.ru","fanofnfs.3dn.ru","fitnavigator.ru","historynotes.ru","news.dks.com.ua","privivkainfo.ru","rivnepost.rv.ua","root-nation.com","russkiiyazyk.ru","serviceyard.net","tc-image.3dn.ru","elektronika56.ru","gorodkiev.com.ua","kino-fs.ucoz.net","kino-torrent.net","rivnenews.com.ua","selfmadetrip.com","svoimi-rykami.ru","volyninfa.com.ua","pokatushki-pmr.ru","legion-rus.clan.su","politnavigator.net","classicalmusicnews.ru","prichernomorie.com.ua","ustroim-prazdnik.info","cosmonova-broadcast.tv","sekreti-domovodstva.ru","programdownloadfree.com"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

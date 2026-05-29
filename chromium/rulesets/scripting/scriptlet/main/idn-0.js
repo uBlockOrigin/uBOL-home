@@ -1261,9 +1261,9 @@ const $scriptletArgs$ = /* 28 */ ["Math.random","arv_24","SGPB_POPUP_PARAMS","Mu
 
 const $scriptletArglists$ = /* 22 */ "0,0,1;1,2;2,3;0,4;0,5,6;0,7,8,9;3,10,11;3,12,13;3,14,15;1,16;1,17;1,18;4;5,19;5,20;5,21;5,22;6,23;7,24;8,25;8,26,27;9";
 
-const $scriptletArglistRefs$ = /* 39 */ "15,19;13;5;21;4;1;21;21;21;8;3;21;21;21;17;21;16;0;21;21;18;2;12,18;21;18;7;20;10;21;6;11;18;9;21;21;17,21;12;14;21";
+const $scriptletArglistRefs$ = /* 40 */ "15,19;13;5;21;4;1;21;21;21;21;8;3;21;21;21;17;21;16;0;21;21;18;2;12,18;21;18;7;20;10;21;6;11;18;9;21;21;17,21;12;14;21";
 
-const $scriptletHostnames$ = /* 39 */ ["netq.me","mudah.my","doroni.me","kiryuu.id","kuyhaa.me","dicrotin.*","igodesu.tv","indobo.com","kiryuu.org","kompas.com","lk21semi.*","nimegami.*","njavtv.com","sukasex.tv","tutwuri.id","anichin.top","moenime.com","semprot.com","sukasex.net","westmanga.*","5.253.86.213","animekompi.*","jenismac.com","kiryuu01.com","ainzscans.net","moutogami.com","moviekhhd.biz","3gpterbaru.com","animekompi.vip","info.vebma.com","sk21.sob4t.xyz","193.142.147.230","juraganfilm.ink","kimcilonly.site","komikcast02.com","jurnalistekno.id","bahasteknologi.com","thejakartapost.com","kisahterlarang.site"];
+const $scriptletHostnames$ = /* 40 */ ["netq.me","mudah.my","doroni.me","kiryuu.id","kuyhaa.me","dicrotin.*","igodesu.tv","indobo.com","kiryuu.org","kiryuu02.*","kompas.com","lk21semi.*","nimegami.*","njavtv.com","sukasex.tv","tutwuri.id","anichin.top","moenime.com","semprot.com","sukasex.net","westmanga.*","5.253.86.213","animekompi.*","jenismac.com","kiryuu01.com","ainzscans.net","moutogami.com","moviekhhd.biz","3gpterbaru.com","animekompi.vip","info.vebma.com","sk21.sob4t.xyz","193.142.147.230","juraganfilm.ink","kimcilonly.site","komikcast02.com","jurnalistekno.id","bahasteknologi.com","thejakartapost.com","kisahterlarang.site"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

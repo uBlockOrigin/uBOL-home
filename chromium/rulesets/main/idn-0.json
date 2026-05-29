@@ -140,6 +140,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/iklan_banner_"},"id":139,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/promosi-diskon-"},"id":140,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"-iklan-left|"},"id":141,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kotakgame.com/includea/bannermidloadmore.php"},"id":142,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||anibatch.*/wp-content/uploads/*.gif"},"id":143,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["image"],"urlFilter":"/pancatoto."},"id":144,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||animeindo.*/wp-content/uploads/*.gif"},"id":145,"priority":10},

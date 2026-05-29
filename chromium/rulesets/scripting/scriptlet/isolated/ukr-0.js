@@ -440,15 +440,15 @@ const $scriptletArgs$ = /* 6 */ ["script","!function(r,n,t,e)",",mr=function(r,"
 
 const $scriptletArglists$ = /* 4 */ "0,0,1;0,0,2;1,3;1,4,5";
 
-const $scriptletArglistRefs$ = /* 55 */ "3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;0;3;3;3;3;3;3;3;3;1;3;3;3;2;2;3;3;2;3;3;3;3;3;3;3;3;3;3;3;3;3";
+const $scriptletArglistRefs$ = /* 56 */ "3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;0;3;3;3;3;3;3;3;3;3;1;3;3;3;2;2;3;3;2;3;3;3;3;3;3;3;3;3;3;3;3;3";
 
-const $scriptletHostnames$ = /* 55 */ ["kvk.pub","3ivi.com","rezka.ag","rezka.fi","rezka.si","drezka.pl","hdrezka.ag","hdrezka.cm","hdrezka.co","hdrezka.in","hdrezka.me","hdrezka.pl","hdrezka.sh","hdrezka.tv","kinopub.me","hdrezka.inc","hdrezka.kim","hdrezka.vip","rezka-ua.co","rezka-ua.in","rezka-ua.tv","rezka.space","rezkery.com","rezkify.com","www.ukr.net","hdrezka.club","hdrezka.name","hdrezka.rest","hdrezka.site","omnirezka.tv","rezka-ua.org","rezka-ua.pub","hdrezka.today","pravda.com.ua","flymaterez.net","hdrezkayou.com","hello-rezka.tv","metaratings.by","metaratings.ru","hdrezka-home.tv","hdrezka.website","meta-ratings.kz","hdrezka19139.org","standby-rezka.tv","hdrezka1twwpb.org","hdrezka2tepnm.org","hdrezka2vmmty.org","hdrezka720dhh.org","hdrezka8bdhtq.org","hdrezka9bsbhq.org","hdrezka9fmskj.org","hdrezkaonline.com","bestofkinopoisk.com","hdrezka-sex-city.net","punisher-hdrezka.net"];
+const $scriptletHostnames$ = /* 56 */ ["kvk.pub","3ivi.com","rezka.ag","rezka.fi","rezka.si","drezka.pl","hdrezka.ag","hdrezka.cm","hdrezka.co","hdrezka.in","hdrezka.me","hdrezka.pl","hdrezka.sh","hdrezka.tv","kinopub.me","hdrezka.inc","hdrezka.kim","hdrezka.vip","rezka-ua.co","rezka-ua.in","rezka-ua.tv","rezka.space","rezkery.com","rezkify.com","www.ukr.net","hdrezka.club","hdrezka.fans","hdrezka.name","hdrezka.rest","hdrezka.site","omnirezka.tv","rezka-ua.org","rezka-ua.pub","hdrezka.today","pravda.com.ua","flymaterez.net","hdrezkayou.com","hello-rezka.tv","metaratings.by","metaratings.ru","hdrezka-home.tv","hdrezka.website","meta-ratings.kz","hdrezka19139.org","standby-rezka.tv","hdrezka1twwpb.org","hdrezka2tepnm.org","hdrezka2vmmty.org","hdrezka720dhh.org","hdrezka8bdhtq.org","hdrezka9bsbhq.org","hdrezka9fmskj.org","hdrezkaonline.com","bestofkinopoisk.com","hdrezka-sex-city.net","punisher-hdrezka.net"];
 
-const $scriptletFromRegexes$ = /* 0 */ [];
+const $scriptletFromRegexes$ = /* 1 */ ["rezka","rezka","3"];
 
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
-const $hasRegexes$ = false;
+const $hasRegexes$ = true;
 
 /******************************************************************************/
 
