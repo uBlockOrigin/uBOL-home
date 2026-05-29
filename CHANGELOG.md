@@ -1,3 +1,15 @@
+----------
+
+### 2026.529.1448
+
+- [Add old-school filter editor for filter list authors](https://github.com/gorhill/uBlock/commit/2479484ba9)
+- [Merge content scripts related to specific and procedural cosmetic filters](https://github.com/gorhill/uBlock/commit/2eebc7579d)
+- Updated filter lists
+
+----------
+
+### 2026.516.1652
+
 - [safari] [Fix Icon and delete metadata](https://github.com/uBlockOrigin/uBOL-home/commit/a932799467) by [6c67b9](https://github.com/6c67b9)
 - [Bring popup blocking out of experimental status](https://github.com/gorhill/uBlock/commit/1083daaf82)
 - [Allow custom cosmetic filters in embedded contexts](https://github.com/gorhill/uBlock/commit/8574d7162d)
