@@ -240,6 +240,10 @@
             <div class="pass"><div class="fail"></div></div>
             <code class="filter">##+js(prevent-innerHTML, #sf7 .fail, &lt;b&gt;)</code>
         </div>
+        <div id="sf8" class="tile">
+            <div class="pass"><div class="fail" onclick="this.style.display = 'none'"></div></div>
+            <code class="filter">##+js(trusted-click-element, '500, #sf8 .fail')</code>
+        </div>
     </div>
 </section>
 

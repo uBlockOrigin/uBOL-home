@@ -53,6 +53,7 @@ ublockorigin.github.io,localhost##+js(jsonl-edit-xhr-response, .b, propsToMatch,
 ublockorigin.github.io,localhost##+js(jsonl-edit-fetch-response, .b, propsToMatch, /sample.jsonl)
 ublockorigin.github.io,localhost##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, Element.prototype.getElementsByTagName)
 ublockorigin.github.io,localhost##+js(prevent-innerHTML, #sf7 .fail, <b>)
+ublockorigin.github.io,localhost##+js(trusted-click-element, '500, #sf8 .fail')
 
 ! Generic cosmetic filters
 ###gcf #gcf1 .fail
