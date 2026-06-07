@@ -1,3 +1,4 @@
+- [Fix test for header matching when using negated value](https://github.com/gorhill/uBlock/commit/fa027e219a)
 - [Fix binary search potentially not finding match in edge case](https://github.com/gorhill/uBlock/commit/bc5fa9fe9a)
 - [Show all dynamic/session rules in Develop pane](https://github.com/gorhill/uBlock/commit/c1cadb35d9)
 - [Prevent re-entrancy when compiling sandbox f
