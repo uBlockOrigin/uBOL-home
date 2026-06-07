@@ -20,7 +20,7 @@
 
 */
 
-// ruleset: annoyances-notifications
+// ruleset: ubol-tests
 
 // Important!
 // Isolate from global scope
@@ -30,135 +30,39 @@
 
 /******************************************************************************/
 
-function getCookieFn(
-    name = ''
-) {
+function getAllCookiesFn() {
     const safe = safeSelf();
-    for ( const s of safe.String_split.call(document.cookie, /\s*;\s*/) ) {
+    return safe.String_split.call(document.cookie, /\s*;\s*/).map(s => {
         const pos = s.indexOf('=');
-        if ( pos === -1 ) { continue; }
-        if ( s.slice(0, pos) !== name ) { continue; }
-        return s.slice(pos+1).trim();
-    }
+        if ( pos === 0 ) { return; }
+        if ( pos === -1 ) { return `${s.trim()}=`; }
+        const key = s.slice(0, pos).trim();
+        const value = s.slice(pos+1).trim();
+        return { key, value };
+    }).filter(s => s !== undefined);
 }
 
-function getSafeCookieValuesFn() {
-    return [
-        'accept', 'reject',
-        'accepted', 'rejected', 'notaccepted',
-        'allow', 'disallow', 'deny',
-        'allowed', 'denied',
-        'approved', 'disapproved',
-        'checked', 'unchecked',
-        'dismiss', 'dismissed',
-        'enable', 'disable',
-        'enabled', 'disabled',
-        'essential', 'nonessential',
-        'forbidden', 'forever',
-        'hide', 'hidden',
-        'necessary', 'required',
-        'ok',
-        'on', 'off',
-        'true', 't', 'false', 'f',
-        'yes', 'y', 'no', 'n',
-        'all', 'none', 'functional',
-        'granted', 'done',
-        'decline', 'declined',
-        'closed', 'next', 'mandatory',
-        'disagree', 'agree',
-    ];
+function getAllLocalStorageFn(which = 'localStorage') {
+    const storage = self[which];
+    const out = [];
+    for ( let i = 0; i < storage.length; i++ ) {
+        const key = storage.key(i);
+        const value = storage.getItem(key);
+        return { key, value };
+    }
+    return out;
 }
 
-function removeClass(
-    rawToken = '',
-    rawSelector = '',
-    behavior = ''
-) {
-    if ( typeof rawToken !== 'string' ) { return; }
-    if ( rawToken === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('remove-class', rawToken, rawSelector, behavior);
-    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
-    const selector = tokens
-        .map(a => `${rawSelector}.${CSS.escape(a)}`)
-        .join(',');
-    if ( safe.logLevel > 1 ) {
-        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
-    }
-    const mustStay = /\bstay\b/.test(behavior);
-    let timer;
-    const rmclass = ( ) => {
-        timer = undefined;
-        try {
-            const nodes = document.querySelectorAll(selector);
-            for ( const node of nodes ) {
-                node.classList.remove(...tokens);
-                safe.uboLog(logPrefix, 'Removed class(es)');
-            }
-        } catch {
-        }
-        if ( mustStay ) { return; }
-        if ( document.readyState !== 'complete' ) { return; }
-        observer.disconnect();
-    };
-    const mutationHandler = mutations => {
-        if ( timer !== undefined ) { return; }
-        let skip = true;
-        for ( let i = 0; i < mutations.length && skip; i++ ) {
-            const { type, addedNodes, removedNodes } = mutations[i];
-            if ( type === 'attributes' ) { skip = false; }
-            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
-                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
-                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-        }
-        if ( skip ) { return; }
-        timer = safe.onIdle(rmclass, { timeout: 67 });
-    };
-    const observer = new MutationObserver(mutationHandler);
-    const start = ( ) => {
-        rmclass();
-        observer.observe(document, {
-            attributes: true,
-            attributeFilter: [ 'class' ],
-            childList: true,
-            subtree: true,
-        });
-    };
-    runAt(( ) => {
-        start();
-    }, /\bcomplete\b/.test(behavior) ? 'idle' : 'loading');
-}
-
-function runAt(fn, when) {
-    const intFromReadyState = state => {
-        const targets = {
-            'loading': 1, 'asap': 1,
-            'interactive': 2, 'end': 2, '2': 2,
-            'complete': 3, 'idle': 3, '3': 3,
-        };
-        const tokens = Array.isArray(state) ? state : [ state ];
-        for ( const token of tokens ) {
-            const prop = `${token}`;
-            if ( Object.hasOwn(targets, prop) === false ) { continue; }
-            return targets[prop];
-        }
-        return 0;
-    };
-    const runAt = intFromReadyState(when);
-    if ( intFromReadyState(document.readyState) >= runAt ) {
-        fn(); return;
-    }
-    const onStateChange = ( ) => {
-        if ( intFromReadyState(document.readyState) < runAt ) { return; }
+function runAtHtmlElementFn(fn) {
+    if ( document.documentElement ) {
         fn();
-        safe.removeEventListener.apply(document, args);
-    };
-    const safe = safeSelf();
-    const args = [ 'readystatechange', onStateChange, { capture: true } ];
-    safe.addEventListener.apply(document, args);
+        return;
+    }
+    const observer = new MutationObserver(( ) => {
+        observer.disconnect();
+        fn();
+    });
+    observer.observe(document, { childList: true });
 }
 
 function safeSelf() {
@@ -352,209 +256,218 @@ function safeSelf() {
     return safe;
 }
 
-function setCookie(
-    name = '',
-    value = '',
-    path = ''
+function trustedClickElement(
+    selectors = '',
+    extraMatch = '',
+    delay = ''
 ) {
-    if ( name === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('set-cookie', name, value, path);
-    const normalized = value.toLowerCase();
-    const match = /^("?)(.+)\1$/.exec(normalized);
-    const unquoted = match && match[2] || normalized;
-    const validValues = getSafeCookieValuesFn();
-    if ( validValues.includes(unquoted) === false ) {
-        if ( /^-?\d+$/.test(unquoted) === false ) { return; }
-        const n = parseInt(value, 10) || 0;
-        if ( n < -32767 || n > 32767 ) { return; }
-    }
+    const logPrefix = safe.makeLogPrefix('trusted-click-element', selectors, extraMatch, delay);
 
-    const done = setCookieFn(
-        false,
-        name,
-        value,
-        '',
-        path,
-        safe.getExtraArgs(Array.from(arguments), 3)
-    );
-
-    if ( done ) {
-        safe.uboLog(logPrefix, 'Done');
-    }
-}
-
-function setCookieFn(
-    trusted = false,
-    name = '',
-    value = '',
-    expires = '',
-    path = '',
-    options = {},
-) {
-    // https://datatracker.ietf.org/doc/html/rfc2616#section-2.2
-    // https://github.com/uBlockOrigin/uBlock-issues/issues/2777
-    if ( trusted === false && /[^!#$%&'*+\-.0-9A-Z[\]^_`a-z|~]/.test(name) ) {
-        name = encodeURIComponent(name);
-    }
-    // https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.1
-    // The characters [",] are given a pass from the RFC requirements because
-    // apparently browsers do not follow the RFC to the letter.
-    if ( /[^ -:<-[\]-~]/.test(value) ) {
-        value = encodeURIComponent(value);
-    }
-
-    const cookieBefore = getCookieFn(name);
-    if ( cookieBefore !== undefined && options.dontOverwrite ) { return; }
-    if ( cookieBefore === value && options.reload ) { return; }
-
-    const cookieParts = [ name, '=', value ];
-    if ( expires !== '' ) {
-        cookieParts.push('; expires=', expires);
-    }
-
-    if ( path === '' ) { path = '/'; }
-    else if ( path === 'none' ) { path = ''; }
-    if ( path !== '' && path !== '/' ) { return; }
-    if ( path === '/' ) {
-        cookieParts.push('; path=/');
-    }
-
-    if ( trusted ) {
-        if ( options.domain ) {
-            let domain = options.domain;
-            if ( /^\/.+\//.test(domain) ) {
-                const baseURL = new URL(document.baseURI);
-                const reDomain = new RegExp(domain.slice(1, -1));
-                const match = reDomain.exec(baseURL.hostname);
-                domain = match ? match[0] : undefined;
+    if ( extraMatch !== '' ) {
+        const assertions = safe.String_split.call(extraMatch, ',').map(s => {
+            const pos1 = s.indexOf(':');
+            const s1 = pos1 !== -1 ? s.slice(0, pos1) : s;
+            const not = s1.startsWith('!');
+            const type = not ? s1.slice(1) : s1;
+            const s2 = pos1 !== -1 ? s.slice(pos1+1).trim() : '';
+            if ( s2 === '' ) { return; }
+            const out = { not, type };
+            const match = /^\/(.+)\/(i?)$/.exec(s2);
+            if ( match !== null ) {
+                out.re = new RegExp(match[1], match[2] || undefined);
+                return out;
             }
-            if ( domain ) {
-                cookieParts.push(`; domain=${domain}`);
+            const pos2 = s2.indexOf('=');
+            const key = pos2 !== -1 ? s2.slice(0, pos2).trim() : s2;
+            const value = pos2 !== -1 ? s2.slice(pos2+1).trim() : '';
+            out.re = new RegExp(`^${safe.escapeRegexChars(key)}=${safe.escapeRegexChars(value)}`);
+            return out;
+        }).filter(details => details !== undefined);
+        const allCookies = assertions.some(o => o.type === 'cookie')
+            ? getAllCookiesFn()
+            : [];
+        const allStorageItems = assertions.some(o => o.type === 'localStorage')
+            ? getAllLocalStorageFn()
+            : [];
+        const hasNeedle = (haystack, needle) => {
+            for ( const { key, value } of haystack ) {
+                if ( needle.test(`${key}=${value}`) ) { return true; }
+            }
+            return false;
+        };
+        for ( const { not, type, re } of assertions ) {
+            switch ( type ) {
+            case 'cookie':
+                if ( hasNeedle(allCookies, re) === not ) { return; }
+                break;
+            case 'localStorage':
+                if ( hasNeedle(allStorageItems, re) === not ) { return; }
+                break;
             }
         }
-        cookieParts.push('; Secure');
-    } else if ( /^__(Host|Secure)-/.test(name) ) {
-        cookieParts.push('; Secure');
     }
 
-    try {
-        document.cookie = cookieParts.join('');
-    } catch {
-    }
-
-    const done = getCookieFn(name) === value;
-    if ( done && options.reload ) {
-        window.location.reload();
-    }
-
-    return done;
-}
-
-function setLocalStorageItem(key = '', value = '') {
-    const safe = safeSelf();
-    const options = safe.getExtraArgs(Array.from(arguments), 2)
-    setLocalStorageItemFn('local', false, key, value, options);
-}
-
-function setLocalStorageItemFn(
-    which = 'local',
-    trusted = false,
-    key = '',
-    value = '',
-    options = {}
-) {
-    if ( key === '' ) { return; }
-
-    // For increased compatibility with AdGuard
-    if ( value === 'emptyArr' ) {
-        value = '[]';
-    } else if ( value === 'emptyObj' ) {
-        value = '{}';
-    }
-
-    const trustedValues = [
-        '',
-        'undefined', 'null',
-        '{}', '[]', '""',
-        '$remove$',
-        ...getSafeCookieValuesFn(),
-    ];
-
-    if ( trusted ) {
-        if ( value.includes('$now$') ) {
-            value = value.replaceAll('$now$', Date.now());
+    const getShadowRoot = elem => {
+        // Firefox
+        if ( elem.openOrClosedShadowRoot ) {
+            return elem.openOrClosedShadowRoot;
         }
-        if ( value.includes('$currentDate$') ) {
-            value = value.replaceAll('$currentDate$', `${Date()}`);
-        }
-        if ( value.includes('$currentISODate$') ) {
-            value = value.replaceAll('$currentISODate$', (new Date()).toISOString());
-        }
-    } else {
-        const normalized = value.toLowerCase();
-        const match = /^("?)(.+)\1$/.exec(normalized);
-        const unquoted = match && match[2] || normalized;
-        if ( trustedValues.includes(unquoted) === false ) {
-            if ( /^-?\d+$/.test(unquoted) === false ) { return; }
-            const n = parseInt(unquoted, 10) || 0;
-            if ( n < -32767 || n > 32767 ) { return; }
-        }
-    }
-
-    let modified = false;
-
-    try {
-        const storage = self[`${which}Storage`];
-        if ( value === '$remove$' ) {
-            const safe = safeSelf();
-            const pattern = safe.patternToRegex(key, undefined, true );
-            const toRemove = [];
-            for ( let i = 0, n = storage.length; i < n; i++ ) {
-                const key = storage.key(i);
-                if ( pattern.test(key) ) { toRemove.push(key); }
-            }
-            modified = toRemove.length !== 0;
-            for ( const key of toRemove ) {
-                storage.removeItem(key);
-            }
-        } else {
-
-            const before = storage.getItem(key);
-            const after = `${value}`;
-            modified = after !== before;
-            if ( modified ) {
-                storage.setItem(key, after);
+        // Chromium
+        if ( typeof chrome === 'object' ) {
+            if ( chrome.dom && chrome.dom.openOrClosedShadowRoot ) {
+                return chrome.dom.openOrClosedShadowRoot(elem);
             }
         }
-    } catch {
+        return elem.shadowRoot;
+    };
+
+    const queryOrEvaluateSelector = (selector, context) => {
+        if ( selector.startsWith('xpath:') === false ) {
+            return context.querySelector(selector);
+        }
+        const result = document.evaluate(selector.slice(6), context, null, 9, null);
+        if ( result.resultType !== 9 ) { return null; }
+        const elem = result.singleNodeValue;
+        if ( elem?.nodeType !== 1 ) { return null; }
+        return elem;
     }
 
-    if ( modified && typeof options.reload === 'number' ) {
-        setTimeout(( ) => { window.location.reload(); }, options.reload);
-    }
-}
+    const querySelectorEx = (selector, context = document) => {
+        const pos = selector.indexOf(' >>> ');
+        if ( pos === -1 ) { return queryOrEvaluateSelector(selector, context); }
+        const outside = selector.slice(0, pos).trim();
+        const inside = selector.slice(pos + 5).trim();
+        const elem = queryOrEvaluateSelector(outside, context);
+        if ( elem === null ) { return null; }
+        const shadowRoot = getShadowRoot(elem);
+        return shadowRoot && querySelectorEx(inside, shadowRoot);
+    };
 
-function setSessionStorageItem(key = '', value = '') {
-    const safe = safeSelf();
-    const options = safe.getExtraArgs(Array.from(arguments), 2)
-    setLocalStorageItemFn('session', false, key, value, options);
+    const steps = safe.String_split.call(selectors, /\s*,\s*/).map(a => {
+        if ( /^\d+$/.test(a) ) { return parseInt(a, 10); }
+        return a;
+    });
+    if ( steps.length === 0 ) { return; }
+    const clickDelay = parseInt(delay, 10) || 1;
+    for ( let i = steps.length-1; i > 0; i-- ) {
+        if ( typeof steps[i] !== 'string' ) { continue; }
+        if ( typeof steps[i-1] !== 'string' ) { continue; }
+        steps.splice(i, 0, clickDelay);
+    }
+    if ( steps.length === 1 && delay !== '' ) {
+        steps.unshift(clickDelay);
+    }
+    if ( typeof steps.at(-1) !== 'number' ) {
+        steps.push(11000);
+    }
+
+    const waitForTime = ms => {
+        return new Promise(resolve => {
+            safe.uboLog(logPrefix, `Waiting for ${ms} ms`);
+            waitForTime.timer = setTimeout(( ) => {
+                waitForTime.timer = undefined;
+                resolve();
+            }, ms);
+        });
+    };
+    waitForTime.cancel = ( ) => {
+        const { timer } = waitForTime;
+        if ( timer === undefined ) { return; }
+        clearTimeout(timer);
+        waitForTime.timer = undefined;
+    };
+
+    const waitForElement = selector => {
+        safe.uboLog(logPrefix, `Waiting for ${selector}`);
+        return new Promise(resolve => {
+            waitForElement.check(selector, resolve);
+        });
+    };
+    waitForElement.lookup = directive => {
+        const beVisible = directive.startsWith('when-visible:');
+        const selector = beVisible ? directive.slice(13) : directive;
+        const elem = querySelectorEx(selector);
+        if ( Boolean(elem) === false ) { return null; }
+        if ( beVisible !== true ) { return elem; }
+        const isVisible = elem.checkVisibility({
+            opacityProperty: true,
+            visibilityProperty: true,
+        });
+        return isVisible ? elem : null;
+    };
+    waitForElement.check = (directive, resolve) => {
+        const elem = waitForElement.lookup(directive);
+        if ( elem ) {
+            waitForElement.cbid = undefined;
+            elem.click();
+            return resolve();
+        }
+        waitForElement.cbid = safe.onIdle(( ) => {
+            waitForElement.check(directive, resolve);
+        }, { timeout: 67 });
+    };
+    waitForElement.cancel = ( ) => {
+        const { cbid } = waitForElement;
+        if ( cbid === undefined ) { return; }
+        waitForElement.cbid = undefined;
+        safe.offIdle(cbid);
+    };
+
+    const waitForTimeout = ms => {
+        waitForTimeout.cancel();
+        waitForTimeout.timer = setTimeout(( ) => {
+            waitForTimeout.timer = undefined;
+            terminate();
+            safe.uboLog(logPrefix, `Timed out after ${ms} ms`);
+        }, ms);
+    };
+    waitForTimeout.cancel = ( ) => {
+        if ( waitForTimeout.timer === undefined ) { return; }
+        clearTimeout(waitForTimeout.timer);
+        waitForTimeout.timer = undefined;
+    };
+
+    const terminate = ( ) => {
+        waitForTime.cancel();
+        waitForElement.cancel();
+        waitForTimeout.cancel();
+    };
+
+    const process = async ( ) => {
+        waitForTimeout(steps.pop());
+        while ( steps.length !== 0 ) {
+            const step = steps.shift();
+            if ( step === undefined ) { break; }
+            if ( typeof step === 'number' ) {
+                await waitForTime(step);
+                if ( step === 1 ) { continue; }
+                continue;
+            }
+            if ( step.startsWith('!') ) { continue; }
+            await waitForElement(step);
+            safe.uboLog(logPrefix, `Clicked ${step}`);
+        }
+        terminate();
+    };
+
+    runAtHtmlElementFn(process);
 }
 
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 4 */
-[setCookie,setSessionStorageItem,setLocalStorageItem,removeClass];
+const $scriptletFunctions$ = /* 1 */
+[trustedClickElement];
 
-const $scriptletArgs$ = /* 59 */ ["pushNotifications_popup_displayed_v2","true","barcelona_mobile_upsell_state","1","lodum","loggedOutCTAIsShown","modalDismissed","promotion-popup-closed","PromptLater","scroll-disabled","body","stay","xpromo-consolidation","rpl-scroll-lock","scroll-is-blocked","prevent-scrolling","webapp_first_open_cta","twilight.custom-smart-banner-dismissed","appDownloadBannerDismissed","hideMobileAppPromoBanner","smartBannerDismissed","mapslitepromosdismissed","nudgeStickyBannerHide","undefinedpopup-pdfpcouponoffer","entity-limiter-views","$remove$","rn","hideMacDesktopDialog","navBasedDialogManager","enable-sda","windows_prompt_shown_v3","push-notifications","no","scrollLock","","kumulos-background-mask-blur","no-scroll","html","show-app-bar","closeGuideRegisterTime","permission_open_push","open_in_browser","isDownloadAppBannerClosed","map_new_features_new_flightradar24_com_label_options","ErxModal","fn_cookie_whatsapp_alert","app-announcement-banner-count-guest","app-announcement-banner-guest","LMT_browserExtensionPromo.displayed","ndtvfood_isSubscribed_elex_v1","request-permission-modal","is_announcement_closed","ignore_language_guide","appCardSeen","has-uitk-sheet","app-banner-parent","smartbanner-active","o-push-alert","is-hidden"];
+const $scriptletArgs$ = /* 1 */ ["500, #sf8 .fail"];
 
-const $scriptletArglists$ = /* 51 */ "0,0,1;1,2,3;1,4,3;1,5,3;0,6,3;2,7,3;0,8,1;3,9,10,11;2,12,3;3,13,10,11;3,14,10,11;3,15,10,11;1,16,3;1,17,1;1,18,1;1,19,1;2,20,3;2,21,3;1,22,1;0,23,3;2,24,25;2,26,25;0,27,1;0,28,1;3,29,10,11;2,30,3;2,31,32;3,33,34,11;3,35,34,11;3,36,37,11;3,38,34,11;2,39,3;2,40,3;1,41,3;1,42,1;0,43,3;1,44,1;0,45,3;0,46,3;0,47,1;1,48,1;0,49,32;2,50,3;2,51,1;0,52,1;2,53,1;3,54,10,11;3,55,10,11;3,56,10;0,57,3;3,58,10";
+const $scriptletArglists$ = /* 1 */ "0,0";
 
-const $scriptletArglistRefs$ = /* 45 */ "6;4;46;27;40;17;0;49;7,8,9,10;50;12;25;22,23;43;16;45;13;28;1;1;11;37;38,39;41;2,3;14;44;42;26;20;34;29;33;47;15;48;24;31,32;35;30;19;36;21;5;18";
+const $scriptletArglistRefs$ = /* 2 */ "0;0";
 
-const $scriptletHostnames$ = /* 45 */ ["gq.co.za","ktoo.org","vrbo.com","audius.co","deepl.com","google.com","noovo.info","onedio.com","reddit.com","shufoo.net","tiktok.com","tubitv.com","tunein.com","belstad.com","bestbuy.com","deribit.com","m.twitch.tv","thestar.com","threads.com","threads.net","facebook.com","fogaonet.com","tvtropes.org","food.ndtv.com","instagram.com","perplexity.ai","s.tabelog.com","sammobile.com","sigmalive.com","crunchbase.com","foundit.com.ph","inews.hket.com","m.kaskus.co.id","similarweb.com","app.uniswap.org","mydramalist.com","wunderground.com","crealitycloud.com","flightradar24.com","jp-m.banggood.com","mypenndentist.org","shop-apotheke.com","themonthly.com.au","livesportsontv.com","m.economictimes.com"];
+const $scriptletHostnames$ = /* 2 */ ["localhost","ublockorigin.github.io"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

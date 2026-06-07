@@ -6,6 +6,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["news.tvchosun.com"],"regexFilter":"^https?:\\/\\/img\\.tvchosun\\.com\\/upload_img\\/rnbImg\\/[0-9]+\\."},"id":5,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["game.naver.com"],"regexFilter":"^https:\\/\\/nng-phinf\\.pstatic\\.net\\/.+\\/.+_naverads\\."},"id":6,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["chzzk.naver.com"],"regexFilter":"^https:\\/\\/nng-phinf\\.pstatic\\.net\\/[A-z]+\\/[A-z0-9._-]+\\/Banner_[A-z0-9_-]+\\.[A-z]+$"},"id":7,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["imancomics.com"],"regexFilter":"^https:\\/\\/imancomics\\.com\\/wp-content\\/uploads\\/[0-9]+"},"id":8,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["sedaily.com"],"regexFilter":"^https:\\/\\/img\\.sedaily\\.com\\/\\/?Html\\/Banner\\/"},"id":9,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["busan.com"],"regexFilter":"^https?:\\/\\/www\\.busan\\.com\\/nas\\/wcms\\/public\\/pc\\/images\\/new\\/[0-9]+[a-z]+([0-9]?|[a-z]+_[a-z]+_[a-z]+)\\."},"id":10,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["m.humoruniv.com"],"regexFilter":"^https?:\\/\\/timg\\.humoruniv\\.com\\/thumb_crop_resize\\.php\\?url=https?:\\/\\/[A-z0-9\\.]+\\/.+\\?SIZE=[0-9]+(x|X)[0-9]+\\?OPT=center"},"id":11,"priority":10},

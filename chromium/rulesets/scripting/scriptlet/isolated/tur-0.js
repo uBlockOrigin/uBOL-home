@@ -795,9 +795,9 @@ const $scriptletArgs$ = /* 33 */ ["script","ad_block","popundr0","7","lscache-po
 
 const $scriptletArglists$ = /* 23 */ "0,0,1;1,2,3;2,4,5;1,6,7;1,8,5;3,9,10;4,11,12,13;5,14;2,15,16;0,0,17;2,18,19;0,20,21;0,0,22;2,23,16;2,24,16;1,25,5;0,0,26;6;0,0,27;0,0,28;3,29,5;0,0,30;1,31,32";
 
-const $scriptletArglistRefs$ = /* 184 */ "3;12;3;2;17;7;16;7;6;8;4;3;3;11;9,13,14;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;3;10;15;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;20;20;20;20;20;20;20;20;19;19;19;19;19;19;19;19;19;7;0;3;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;18;18;18;18;15;1;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;5";
+const $scriptletArglistRefs$ = /* 135 */ "3;12;3;2;17;7;16;7;6;8;4;3;3;20;11;9,13,14;20;20;20;20;20;20;20;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;3;10;15;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;20;20;19;19;19;19;19;19;19;19;19;7;0;3;20;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;19;18;18;18;18;15;1;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;18;5";
 
-const $scriptletHostnames$ = /* 184 */ ["kgrt.net","sinema.*","halk54.com","turkanime.co","burdurweb.com","dizilla40.com","efullizle.com","flatscher.net","kanald.com.tr","diziyiizle.com","eksisozluk.com","gazeterize.com","haberlisin.com","bugunkibris.com","cizgivedizi.com","turkifsa40.site","turkifsa41.site","turkifsa42.site","turkifsa43.site","turkifsa44.site","turkifsa45.site","turkifsa46.site","turkifsa47.site","turkifsa48.site","turkifsa49.site","turkifsa50.site","turkifsa51.site","turkifsa52.site","turkifsa53.site","turkifsa54.site","turkifsa55.site","turkifsa56.site","turkifsa57.site","turkifsa58.site","turkifsa59.site","turkifsa60.site","turkifsa61.site","turkifsa62.site","turkifsa63.site","turkifsa64.site","turkifsa65.site","turkifsa66.site","turkifsa67.site","turkifsa68.site","turkifsa69.site","askimyavas54.com","askimyavas55.com","askimyavas56.com","askimyavas57.com","askimyavas58.com","askimyavas59.com","askimyavas60.com","askimyavas61.com","askimyavas62.com","askimyavas63.com","askimyavas64.com","askimyavas65.com","askimyavas66.com","askimyavas67.com","askimyavas68.com","askimyavas69.com","askimyavas70.com","askimyavas71.com","askimyavas72.com","askimyavas73.com","bursahaberdar.com","hdfilmcehennemi.*","klasikfilmler.net","mactanmaca791.sbs","mactanmaca792.sbs","mactanmaca793.sbs","mactanmaca794.sbs","mactanmaca795.sbs","mactanmaca796.sbs","mactanmaca797.sbs","mactanmaca798.sbs","mactanmaca799.sbs","mactanmaca800.sbs","mactanmaca801.sbs","mactanmaca802.sbs","mactanmaca803.sbs","mactanmaca804.sbs","mactanmaca805.sbs","mactanmaca806.sbs","mactanmaca807.sbs","mactanmaca808.sbs","mactanmaca809.sbs","mactanmaca810.sbs","turkifsalar2.site","turkifsalar3.site","turkifsalar4.site","turkifsalar5.site","turkifsalar6.site","turkifsalar7.site","turkifsalar8.site","turkifsalar9.site","turkporoclub1.sbs","turkporoclub2.sbs","turkporoclub3.sbs","turkporoclub4.sbs","turkporoclub5.sbs","turkporoclub6.sbs","turkporoclub7.sbs","turkporoclub8.sbs","turkporoclub9.sbs","yabancidiziio.com","birsenaltuntas.com","eskisehirhaber.com","turkifsalar10.site","turkifsalar11.site","turkifsalar12.site","turkifsalar13.site","turkifsalar14.site","turkifsalar15.site","turkifsalar16.site","turkifsalar17.site","turkifsalar18.site","turkifsalar19.site","turkifsalar20.site","turkifsalar21.site","turkifsalar22.site","turkifsalar23.site","turkifsalar24.site","turkifsalar25.site","turkifsalar26.site","turkifsalar27.site","turkifsalar28.site","turkifsalar29.site","turkifsalar30.site","turkifsalar31.site","turkporoclub10.sbs","turkporoclub11.sbs","turkporoclub12.sbs","turkporoclub13.sbs","turkporoclub14.sbs","turkporoclub15.sbs","turkporoclub16.sbs","turkporoclub17.sbs","turkporoclub18.sbs","turkporoclub19.sbs","turkporoclub20.sbs","turkporoclub21.sbs","turkporoclub22.sbs","turkporoclub23.sbs","turkporoclub24.sbs","turkporoclub25.sbs","turkporoclub26.sbs","turkporoclub27.sbs","turkporoclub28.sbs","turkporoclub29.sbs","turkporoclub30.sbs","doedaturkifsa6.blog","doedaturkifsa7.blog","doedaturkifsa8.blog","doedaturkifsa9.blog","erotizmfilmleri1.cc","filmseyretizlet.com","doedaturkifsa10.blog","doedaturkifsa11.blog","doedaturkifsa12.blog","doedaturkifsa13.blog","doedaturkifsa14.blog","doedaturkifsa15.blog","doedaturkifsa16.blog","doedaturkifsa17.blog","doedaturkifsa18.blog","doedaturkifsa19.blog","doedaturkifsa20.blog","doedaturkifsa21.blog","doedaturkifsa22.blog","doedaturkifsa23.blog","doedaturkifsa24.blog","doedaturkifsa25.blog","doedaturkifsa26.blog","doedaturkifsa27.blog","doedaturkifsa28.blog","doedaturkifsa29.blog","doedaturkifsa30.blog","doedaturkifsa31.blog","doedaturkifsa32.blog","doedaturkifsa33.blog","doedaturkifsa34.blog","doedaturkifsa35.blog","mobile.donanimhaber.com"];
+const $scriptletHostnames$ = /* 135 */ ["kgrt.net","sinema.*","halk54.com","turkanime.co","burdurweb.com","dizilla40.com","efullizle.com","flatscher.net","kanald.com.tr","diziyiizle.com","eksisozluk.com","gazeterize.com","haberlisin.com","turkifsa5.site","bugunkibris.com","cizgivedizi.com","turkifsa27.site","turkifsa32.site","turkifsa40.site","turkifsa41.site","turkifsa42.site","turkifsa44.site","turkifsa45.site","askimyavas54.com","askimyavas55.com","askimyavas56.com","askimyavas57.com","askimyavas58.com","askimyavas59.com","askimyavas60.com","askimyavas61.com","askimyavas62.com","askimyavas63.com","askimyavas64.com","askimyavas65.com","askimyavas66.com","askimyavas67.com","askimyavas68.com","askimyavas69.com","askimyavas70.com","askimyavas71.com","askimyavas72.com","askimyavas73.com","bursahaberdar.com","hdfilmcehennemi.*","klasikfilmler.net","mactanmaca791.sbs","mactanmaca792.sbs","mactanmaca793.sbs","mactanmaca794.sbs","mactanmaca795.sbs","mactanmaca796.sbs","mactanmaca797.sbs","mactanmaca798.sbs","mactanmaca799.sbs","mactanmaca800.sbs","mactanmaca801.sbs","mactanmaca802.sbs","mactanmaca803.sbs","mactanmaca804.sbs","mactanmaca805.sbs","mactanmaca806.sbs","mactanmaca807.sbs","mactanmaca808.sbs","mactanmaca809.sbs","mactanmaca810.sbs","turkifsalar2.site","turkifsalar4.site","turkporoclub1.sbs","turkporoclub2.sbs","turkporoclub3.sbs","turkporoclub4.sbs","turkporoclub5.sbs","turkporoclub6.sbs","turkporoclub7.sbs","turkporoclub8.sbs","turkporoclub9.sbs","yabancidiziio.com","birsenaltuntas.com","eskisehirhaber.com","turkifsalar10.site","turkporoclub10.sbs","turkporoclub11.sbs","turkporoclub12.sbs","turkporoclub13.sbs","turkporoclub14.sbs","turkporoclub15.sbs","turkporoclub16.sbs","turkporoclub17.sbs","turkporoclub18.sbs","turkporoclub19.sbs","turkporoclub20.sbs","turkporoclub21.sbs","turkporoclub22.sbs","turkporoclub23.sbs","turkporoclub24.sbs","turkporoclub25.sbs","turkporoclub26.sbs","turkporoclub27.sbs","turkporoclub28.sbs","turkporoclub29.sbs","turkporoclub30.sbs","doedaturkifsa6.blog","doedaturkifsa7.blog","doedaturkifsa8.blog","doedaturkifsa9.blog","erotizmfilmleri1.cc","filmseyretizlet.com","doedaturkifsa10.blog","doedaturkifsa11.blog","doedaturkifsa12.blog","doedaturkifsa13.blog","doedaturkifsa14.blog","doedaturkifsa15.blog","doedaturkifsa16.blog","doedaturkifsa17.blog","doedaturkifsa18.blog","doedaturkifsa19.blog","doedaturkifsa20.blog","doedaturkifsa21.blog","doedaturkifsa22.blog","doedaturkifsa23.blog","doedaturkifsa24.blog","doedaturkifsa25.blog","doedaturkifsa26.blog","doedaturkifsa27.blog","doedaturkifsa28.blog","doedaturkifsa29.blog","doedaturkifsa30.blog","doedaturkifsa31.blog","doedaturkifsa32.blog","doedaturkifsa33.blog","doedaturkifsa34.blog","doedaturkifsa35.blog","mobile.donanimhaber.com"];
 
 const $scriptletFromRegexes$ = /* 5 */ ["doedatur","doedaturkifsa\\d+\\.blog$","18","turkporo","turkporoclub\\d+\\.sbs$","19","turkifsa","turkifsa(lar)?\\d+\\.site$","20","askimyav","askimyavas\\d+\\.com","21","mactanma","mactanmaca\\d+\\.sbs","22"];
 
@@ -844,51 +844,51 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const collectArglistRefIndices = (out, hn, r) => {
-    let l = 0, i = 0, d = 0;
-    let candidate = '';
-    while ( l < r ) {
-        i = l + r >>> 1;
-        candidate = $scriptletHostnames$[i];
-        d = hn.length - candidate.length;
-        if ( d === 0 ) {
-            if ( hn === candidate ) {
-                out.add(i); break;
-            }
-            d = hn < candidate ? -1 : 1;
-        }
-        if ( d < 0 ) {
-            r = i;
-        } else {
-            l = i + 1;
-        }
-    }
-    return i;
-};
-
-const indicesFromHostname = (out, hnDetails, suffix = '') => {
-    if ( hnDetails.hns.length === 0 ) { return; }
-    let r = $scriptletHostnames$.length;
-    for ( const hn of hnDetails.hns ) {
-        r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
-    }
-    if ( $hasEntities$ ) {
-        let r = $scriptletHostnames$.length;
-        for ( const en of hnDetails.ens ) {
-            r = collectArglistRefIndices(out, `${en}${suffix}`, r);
-        }
-    }
-};
-
 const todoIndices = new Set();
-indicesFromHostname(todoIndices, entries[0]);
-if ( $hasAncestors$ ) {
-    for ( const entry of entries ) {
-        if ( entry.i === 0 ) { continue; }
-        indicesFromHostname(todoIndices, entry, '>>');
+if ( $scriptletHostnames$.length ) {
+    const collectArglistRefIndices = (out, hn, r) => {
+        let l = 0, i = 0, d = 0;
+        let candidate = '';
+        while ( l < r ) {
+            i = l + r >>> 1;
+            candidate = $scriptletHostnames$[i];
+            d = hn.length - candidate.length;
+            if ( d === 0 ) {
+                if ( hn === candidate ) {
+                    out.add(i); break;
+                }
+                d = hn < candidate ? -1 : 1;
+            }
+            if ( d < 0 ) {
+                r = i;
+            } else {
+                l = i + 1;
+            }
+        }
+        return i + 1;
+    };
+    const indicesFromHostname = (out, hnDetails, suffix = '') => {
+        if ( hnDetails.hns.length === 0 ) { return; }
+        let r = $scriptletHostnames$.length;
+        for ( const hn of hnDetails.hns ) {
+            r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
+        }
+        if ( $hasEntities$ ) {
+            let r = $scriptletHostnames$.length;
+            for ( const en of hnDetails.ens ) {
+                r = collectArglistRefIndices(out, `${en}${suffix}`, r);
+            }
+        }
+    };
+    indicesFromHostname(todoIndices, entries[0]);
+    if ( $hasAncestors$ ) {
+        for ( const entry of entries ) {
+            if ( entry.i === 0 ) { continue; }
+            indicesFromHostname(todoIndices, entry, '>>');
+        }
     }
+    $scriptletHostnames$.length = 0;
 }
-$scriptletHostnames$.length = 0;
 
 // Collect arglist references
 const todo = new Set();

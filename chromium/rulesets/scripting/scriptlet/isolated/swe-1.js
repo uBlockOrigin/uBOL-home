@@ -858,9 +858,9 @@ const $scriptletArgs$ = /* 39 */ ["a[href*=\"/t?a=\"]","?url","a[href*=\".io/c/\
 
 const $scriptletArglists$ = /* 29 */ "0,0,1;0,2,3;1,4,5;1,4,6;2,7,8;1,9;1,4,10;0,11,1;0,12,13;0,14,15;0,16,3;0,17,3;2,18,8;2,19,20;2,21,22;2,23,24;2,25,24;2,26,24;1,4,27;0,28,29;0,30,1;1,4,31;3,32;4,32,33;3,34;3,35;3,36;1,4,37;1,4,38";
 
-const $scriptletArglistRefs$ = /* 41 */ "20;0,1,7;1;12;19;1;0,1;0;1;18;0;24,25,26;21;21;27;0;20;0,7,8,9,10,11;0;20;0,1;22,23;27;2,3;5,6;0;1;28;0;0;4;0;24,25,26;4;0,13,14,15,16,17;18;24,25,26;21;24,25,26;1;18";
+const $scriptletArglistRefs$ = /* 40 */ "20;0,1,7;1;12;19;1;0,1;1;18;0;24,25,26;21;21;27;0;20;0,7,8,9,10,11;0;20;0,1;22,23;27;2,3;5,6;0;1;28;0;0;4;0;24,25,26;4;0,13,14,15,16,17;18;24,25,26;21;24,25,26;1;18";
 
-const $scriptletHostnames$ = /* 41 */ ["m3.se","elle.se","hant.se","inet.se","leta.se","allas.se","femina.se","godare.se","mabra.com","norpan.se","rodeo.net","fempers.se","medibok.se","pilsner.nu","bio-link.se","byggahus.se","macworld.se","expressen.se","golflivet.se","pcforalla.se","svenskdam.se","synonymer.se","web-tools.se","byggipedia.se","dinbyggare.se","familjeliv.se","motherhood.se","spelhubben.se","vitaestilo.se","aftonbladet.se","destination.se","galamagasin.se","landetsfria.nu","sistaminuten.se","inredningsvis.se","skrattsajten.com","tidningensyre.se","kandisvarlden.com","tidningenglobal.se","residencemagazine.se","internetodontologi.se"];
+const $scriptletHostnames$ = /* 40 */ ["m3.se","elle.se","hant.se","inet.se","leta.se","allas.se","femina.se","mabra.com","norpan.se","rodeo.net","fempers.se","medibok.se","pilsner.nu","bio-link.se","byggahus.se","macworld.se","expressen.se","golflivet.se","pcforalla.se","svenskdam.se","synonymer.se","web-tools.se","byggipedia.se","dinbyggare.se","familjeliv.se","motherhood.se","spelhubben.se","vitaestilo.se","aftonbladet.se","destination.se","galamagasin.se","landetsfria.nu","sistaminuten.se","inredningsvis.se","skrattsajten.com","tidningensyre.se","kandisvarlden.com","tidningenglobal.se","residencemagazine.se","internetodontologi.se"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 
@@ -907,51 +907,51 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const collectArglistRefIndices = (out, hn, r) => {
-    let l = 0, i = 0, d = 0;
-    let candidate = '';
-    while ( l < r ) {
-        i = l + r >>> 1;
-        candidate = $scriptletHostnames$[i];
-        d = hn.length - candidate.length;
-        if ( d === 0 ) {
-            if ( hn === candidate ) {
-                out.add(i); break;
-            }
-            d = hn < candidate ? -1 : 1;
-        }
-        if ( d < 0 ) {
-            r = i;
-        } else {
-            l = i + 1;
-        }
-    }
-    return i;
-};
-
-const indicesFromHostname = (out, hnDetails, suffix = '') => {
-    if ( hnDetails.hns.length === 0 ) { return; }
-    let r = $scriptletHostnames$.length;
-    for ( const hn of hnDetails.hns ) {
-        r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
-    }
-    if ( $hasEntities$ ) {
-        let r = $scriptletHostnames$.length;
-        for ( const en of hnDetails.ens ) {
-            r = collectArglistRefIndices(out, `${en}${suffix}`, r);
-        }
-    }
-};
-
 const todoIndices = new Set();
-indicesFromHostname(todoIndices, entries[0]);
-if ( $hasAncestors$ ) {
-    for ( const entry of entries ) {
-        if ( entry.i === 0 ) { continue; }
-        indicesFromHostname(todoIndices, entry, '>>');
+if ( $scriptletHostnames$.length ) {
+    const collectArglistRefIndices = (out, hn, r) => {
+        let l = 0, i = 0, d = 0;
+        let candidate = '';
+        while ( l < r ) {
+            i = l + r >>> 1;
+            candidate = $scriptletHostnames$[i];
+            d = hn.length - candidate.length;
+            if ( d === 0 ) {
+                if ( hn === candidate ) {
+                    out.add(i); break;
+                }
+                d = hn < candidate ? -1 : 1;
+            }
+            if ( d < 0 ) {
+                r = i;
+            } else {
+                l = i + 1;
+            }
+        }
+        return i + 1;
+    };
+    const indicesFromHostname = (out, hnDetails, suffix = '') => {
+        if ( hnDetails.hns.length === 0 ) { return; }
+        let r = $scriptletHostnames$.length;
+        for ( const hn of hnDetails.hns ) {
+            r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
+        }
+        if ( $hasEntities$ ) {
+            let r = $scriptletHostnames$.length;
+            for ( const en of hnDetails.ens ) {
+                r = collectArglistRefIndices(out, `${en}${suffix}`, r);
+            }
+        }
+    };
+    indicesFromHostname(todoIndices, entries[0]);
+    if ( $hasAncestors$ ) {
+        for ( const entry of entries ) {
+            if ( entry.i === 0 ) { continue; }
+            indicesFromHostname(todoIndices, entry, '>>');
+        }
     }
+    $scriptletHostnames$.length = 0;
 }
-$scriptletHostnames$.length = 0;
 
 // Collect arglist references
 const todo = new Set();

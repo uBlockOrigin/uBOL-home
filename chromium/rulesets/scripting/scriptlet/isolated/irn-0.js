@@ -841,13 +841,13 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 6 */
 [removeNodeText,hrefSanitizer,setLocalStorageItem,setAttr,removeCookie,setSessionStorageItem];
 
-const $scriptletArgs$ = /* 31 */ ["script","document.oncontextmenu =","a[href^=\"/goto/\"]","?url -base64","a[href^=\"https://hamtamovie.nl/dl/?url=\"]","?url","document.oncontextmenu=","/popTimes_|document\\.onkeydown|'contextmenu'/","window.location=","displayCountryInConsole","VisitedCompanies","$remove$","img[data-src]","src","[data-src]","tracker_visitor_id","popTimes_","ad.setAttribute","showScrollAlert","/captcha_key|last_file|_scrs_/","Event.MOUSEDOWN","a[href^=\"https://l.vrgl.ir/r?\"][href*=\"&l=http\"]","?l","videoPlayedCount","videoWatchCount","a[href^=\"/api/click?dest=\"]","?dest -base64","a[href^=\"https://offerdaily.ir/index.php?do=go&url=\"]","?url -base64 ?b64 -base64","a[href^=\"https://dgkl.io/api/v1/Click/b/\"][href*=\"?b64=\"]","?b64 -base64"];
+const $scriptletArgs$ = /* 32 */ ["script","document.oncontextmenu =","a[href^=\"/goto/\"]","?url -base64","a[href^=\"https://hamtamovie.nl/dl/?url=\"]","?url","document.oncontextmenu=","/popTimes_|document\\.onkeydown|'contextmenu'/","window.location=","displayCountryInConsole","VisitedCompanies","$remove$","img[data-src]","src","[data-src]","tracker_visitor_id","popTimes_","ad.setAttribute","showScrollAlert","/captcha_key|last_file|_scrs_/","Event.MOUSEDOWN","a[href^=\"https://l.vrgl.ir/r?\"][href*=\"&l=http\"]","?l","videoPlayedCount","videoWatchCount","a[href^=\"/api/click?dest=\"]","?dest -base64","a[href^=\"https://offerdaily.ir/index.php?do=go&url=\"]","?url -base64 ?b64 -base64","a[href^=\"https://dgkl.io/api/v1/Click/b/\"][href*=\"?b64=\"]","?b64 -base64","a[data-original-url]"];
 
-const $scriptletArglists$ = /* 21 */ "0,0,1;1,2,3;1,4,5;0,0,6;0,0,7;0,0,8;0,0,9;2,10,11;3,12,13,14;4,15;0,0,16;0,0,17;0,0,18;4,19;0,0,20;1,21,22;2,23,11;5,24,11;1,25,26;1,27,28;1,29,30";
+const $scriptletArglists$ = /* 22 */ "0,0,1;1,2,3;1,4,5;0,0,6;0,0,7;0,0,8;0,0,9;2,10,11;3,12,13,14;4,15;0,0,16;0,0,17;0,0,18;4,19;0,0,20;1,21,22;2,23,11;5,24,11;1,25,26;1,27,28;1,29,30;1,31,5";
 
-const $scriptletArglistRefs$ = /* 21 */ "7;11;3;16,17;0;14;15;1;9;0;5;2;4;19,20;6;12;13;10;8;18;0";
+const $scriptletArglistRefs$ = /* 22 */ "7;11;3;16,17;0;14;15;1;9;0;5;2;4;19,20;6;12;13;21;10;8;18;0";
 
-const $scriptletHostnames$ = /* 21 */ ["rasm.io","tgju.org","kihanb.ir","aparat.com","sclinic.ir","vaamfaa.ir","virgool.io","fontchi.com","tamasha.com","delta3da.cam","najiremix.ir","hamtamovie.nl","musiceman.net","offerdaily.ir","persian-fa.ir","tarafdari.com","uploadboy.com","iran-music.com","shahanmusic.ir","search.bertina.ir","public-psychology.ir"];
+const $scriptletHostnames$ = /* 22 */ ["rasm.io","tgju.org","kihanb.ir","aparat.com","sclinic.ir","vaamfaa.ir","virgool.io","fontchi.com","tamasha.com","delta3da.cam","najiremix.ir","hamtamovie.nl","musiceman.net","offerdaily.ir","persian-fa.ir","tarafdari.com","uploadboy.com","web.eitaa.com","iran-music.com","shahanmusic.ir","search.bertina.ir","public-psychology.ir"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 
@@ -894,51 +894,51 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const collectArglistRefIndices = (out, hn, r) => {
-    let l = 0, i = 0, d = 0;
-    let candidate = '';
-    while ( l < r ) {
-        i = l + r >>> 1;
-        candidate = $scriptletHostnames$[i];
-        d = hn.length - candidate.length;
-        if ( d === 0 ) {
-            if ( hn === candidate ) {
-                out.add(i); break;
-            }
-            d = hn < candidate ? -1 : 1;
-        }
-        if ( d < 0 ) {
-            r = i;
-        } else {
-            l = i + 1;
-        }
-    }
-    return i;
-};
-
-const indicesFromHostname = (out, hnDetails, suffix = '') => {
-    if ( hnDetails.hns.length === 0 ) { return; }
-    let r = $scriptletHostnames$.length;
-    for ( const hn of hnDetails.hns ) {
-        r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
-    }
-    if ( $hasEntities$ ) {
-        let r = $scriptletHostnames$.length;
-        for ( const en of hnDetails.ens ) {
-            r = collectArglistRefIndices(out, `${en}${suffix}`, r);
-        }
-    }
-};
-
 const todoIndices = new Set();
-indicesFromHostname(todoIndices, entries[0]);
-if ( $hasAncestors$ ) {
-    for ( const entry of entries ) {
-        if ( entry.i === 0 ) { continue; }
-        indicesFromHostname(todoIndices, entry, '>>');
+if ( $scriptletHostnames$.length ) {
+    const collectArglistRefIndices = (out, hn, r) => {
+        let l = 0, i = 0, d = 0;
+        let candidate = '';
+        while ( l < r ) {
+            i = l + r >>> 1;
+            candidate = $scriptletHostnames$[i];
+            d = hn.length - candidate.length;
+            if ( d === 0 ) {
+                if ( hn === candidate ) {
+                    out.add(i); break;
+                }
+                d = hn < candidate ? -1 : 1;
+            }
+            if ( d < 0 ) {
+                r = i;
+            } else {
+                l = i + 1;
+            }
+        }
+        return i + 1;
+    };
+    const indicesFromHostname = (out, hnDetails, suffix = '') => {
+        if ( hnDetails.hns.length === 0 ) { return; }
+        let r = $scriptletHostnames$.length;
+        for ( const hn of hnDetails.hns ) {
+            r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
+        }
+        if ( $hasEntities$ ) {
+            let r = $scriptletHostnames$.length;
+            for ( const en of hnDetails.ens ) {
+                r = collectArglistRefIndices(out, `${en}${suffix}`, r);
+            }
+        }
+    };
+    indicesFromHostname(todoIndices, entries[0]);
+    if ( $hasAncestors$ ) {
+        for ( const entry of entries ) {
+            if ( entry.i === 0 ) { continue; }
+            indicesFromHostname(todoIndices, entry, '>>');
+        }
     }
+    $scriptletHostnames$.length = 0;
 }
-$scriptletHostnames$.length = 0;
 
 // Collect arglist references
 const todo = new Set();

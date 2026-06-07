@@ -736,13 +736,13 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 6 */
 [setSessionStorageItem,removeCookie,setLocalStorageItem,setCookie,removeClass,removeNodeText];
 
-const $scriptletArgs$ = /* 93 */ ["sem30_popup_shown","1","br_mc","articlesRead","_zippia-popup-s_t","gatedSignupTimerCounter","$remove$","tce","when","scroll","gu.history.dailyArticleCount","gu.history.weeklyArticleCount","registration_modal_dismissed","true","nudges","statistics-appOpenedCount","vox_article_readcount","vox_article_readcount_count","total_page_views","2","oon-scroll-lock","body","stay","history","wp_dark_mode_active","REG_WALL_METER","perm_cnn_regwall_v1","ArcP","arc","current-pageviews","product-previews","kiosq_article_reset","kiosq_article_url_ack","tpm_article_views","tpm_page_views","apv","false","js-no-scroll","html","patreonAnnouncementShown","blocked","mfp-popup-exit-quiz-v2","","shouldShowAuthBannerAfterQuery","signUpBannerDismissed","dismissedUpgradePrompt","__tp-gaAccount","disabled","newYeradlariWebsiteHidden","stream","dn_alert_homescreen_closed","dn_donation_count","sbj_archiveStatus","arts","campaign_seen_today","countChapterNum","stickyBanner","issuem_lp","ArticlePaywallList","hasVisitedBefore","pum_popup_14631_page_views","xbc","/^tncms:meter:/","first_article_visited","oai/apps/noAuthHasDismissedSoftRateLimitModal","meter_haystack","hmmet","lifetime_page_view_count","page_view_count","Drupal_visitor_paywall","client_id","GSAPR26","STYXKEY_nh_count","STYXKEY_pro_count","premium_popup","AAJPaywall","modalViewed","script","userData_","mode-quills","articleGateData","MAID","csm_unique_stories","LMT_freeUserUsageBlock","onboardingData","HideDonationLightbox","jw-flag-floating","powa-sticky","sticky","styles_stuck__gtILi","video__docker_state_docked","floating","inc_optin_never_see_again-popup-1"];
+const $scriptletArgs$ = /* 94 */ ["sem30_popup_shown","1","sgID","br_mc","articlesRead","_zippia-popup-s_t","gatedSignupTimerCounter","$remove$","tce","when","scroll","gu.history.dailyArticleCount","gu.history.weeklyArticleCount","registration_modal_dismissed","true","nudges","statistics-appOpenedCount","vox_article_readcount","vox_article_readcount_count","total_page_views","2","oon-scroll-lock","body","stay","history","wp_dark_mode_active","REG_WALL_METER","perm_cnn_regwall_v1","ArcP","arc","current-pageviews","product-previews","kiosq_article_reset","kiosq_article_url_ack","tpm_article_views","tpm_page_views","apv","false","js-no-scroll","html","patreonAnnouncementShown","blocked","mfp-popup-exit-quiz-v2","","shouldShowAuthBannerAfterQuery","signUpBannerDismissed","dismissedUpgradePrompt","__tp-gaAccount","disabled","newYeradlariWebsiteHidden","stream","dn_alert_homescreen_closed","dn_donation_count","sbj_archiveStatus","arts","campaign_seen_today","countChapterNum","stickyBanner","issuem_lp","ArticlePaywallList","hasVisitedBefore","pum_popup_14631_page_views","xbc","/^tncms:meter:/","first_article_visited","oai/apps/noAuthHasDismissedSoftRateLimitModal","meter_haystack","hmmet","lifetime_page_view_count","page_view_count","Drupal_visitor_paywall","client_id","GSAPR26","STYXKEY_nh_count","STYXKEY_pro_count","premium_popup","AAJPaywall","modalViewed","script","userData_","mode-quills","articleGateData","MAID","csm_unique_stories","LMT_freeUserUsageBlock","onboardingData","HideDonationLightbox","jw-flag-floating","powa-sticky","sticky","styles_stuck__gtILi","video__docker_state_docked","floating","inc_optin_never_see_again-popup-1"];
 
-const $scriptletArglists$ = /* 80 */ "0,0,1;1,2;1,3;1,4;2,5,6;1,7,8,9;2,10,6;2,11,6;3,12,13;2,14,6;2,15,1;2,16,6;2,17,6;2,18,19;4,20,21,22;2,23,6;2,24,1;2,25,6;2,26,6;2,27,6;1,28;1,29;1,30;2,31,6;2,32,6;1,33;1,34;3,35,36;4,37,38,22;3,39,13;4,40,21,22;4,41,42,22;0,43,36;0,44,13;2,45,13;2,46,47;2,48,13;0,49,13;3,50,1;3,51,1;1,52;1,53;3,54,13;2,55,6;4,56,42,22;1,57;1,58;2,59,13;3,60,1;1,61;1,62;1,63;0,64,13;1,65;1,66;1,67;1,68;1,69;1,70;3,71,13;1,72;1,73;3,74,1;1,75;0,76,13;5,77,78;2,79,6;2,80,6;1,81;2,82,6;2,83,6;2,84,6;3,85,1;4,86,42,22;4,87,42,22;4,88,42,22;4,89,42,22;4,90,42,22;4,91,42,22;3,92,1";
+const $scriptletArglists$ = /* 81 */ "0,0,1;1,2;1,3;1,4;1,5;2,6,7;1,8,9,10;2,11,7;2,12,7;3,13,14;2,15,7;2,16,1;2,17,7;2,18,7;2,19,20;4,21,22,23;2,24,7;2,25,1;2,26,7;2,27,7;2,28,7;1,29;1,30;1,31;2,32,7;2,33,7;1,34;1,35;3,36,37;4,38,39,23;3,40,14;4,41,22,23;4,42,43,23;0,44,37;0,45,14;2,46,14;2,47,48;2,49,14;0,50,14;3,51,1;3,52,1;1,53;1,54;3,55,14;2,56,7;4,57,43,23;1,58;1,59;2,60,14;3,61,1;1,62;1,63;1,64;0,65,14;1,66;1,67;1,68;1,69;1,70;1,71;3,72,14;1,73;1,74;3,75,1;1,76;0,77,14;5,78,79;2,80,7;2,81,7;1,82;2,83,7;2,84,7;2,85,7;3,86,1;4,87,43,23;4,88,43,23;4,89,43,23;4,90,43,23;4,91,43,23;4,92,43,23;3,93,1";
 
-const $scriptletArglistRefs$ = /* 121 */ "49;2;17,18;10;11,12;79;74;74;60,61;77;77;70,71;20;14;76;49;72;46;44;21,22;62;3,4;78;52;30;76;43;49;19;68;0;8;50;50;23,24;49;2;38,39;2;37;51;2;49;66;49;2;34;15;69;67;2;47;55,56;19;2;31;32,33;2;13;50;2;73;5;27;2;41;49;48;28;58;6,7;42;2;35;65;45;2;73,75;9;67;49;50;1;29;36;54;59;2;54;16;53;67;54;54;54;67;50;54;25,26;57;54;54;54;67;54;54;54;50;49;54;54;64;54;54;54;67;40;63;54;54;67";
+const $scriptletArglistRefs$ = /* 122 */ "50;3;18,19;11;12,13;80;75;75;61,62;78;78;71,72;21;15;77;50;73;47;45;22,23;63;4,5;79;53;31;77;44;50;20;69;0;9;51;51;24,25;50;3;39,40;3;38;52;3;50;67;50;3;35;16;70;68;3;48;56,57;20;3;32;33,34;3;14;51;3;74;6;28;3;1;42;50;49;29;59;7,8;43;3;36;66;46;3;74,76;10;68;50;51;2;30;37;55;60;3;55;17;54;68;55;55;55;68;51;55;26,27;58;55;55;55;68;55;55;55;51;50;55;55;65;55;55;55;68;41;64;55;55;68";
 
-const $scriptletHostnames$ = /* 121 */ ["bbc.com","cbr.com","cnn.com","r34.app","vox.com","branc.jp","kbtx.com","kptv.com","usni.org","wfaa.com","wkyc.com","deepl.com","nautil.us","on.orf.at","today.com","nypost.com","oceana.org","plough.com","redfin.com","rtings.com","rumble.com","zippia.com","cbsnews.com","chatgpt.com","inquinte.ca","nbcnews.com","pawread.com","politico.eu","reuters.com","science.org","semrush.com","thebump.com","thespec.com","thestar.com","theweek.com","climbing.com","collider.com","dutchnews.nl","gamerant.com","infowars.com","medscape.com","movieweb.com","politico.com","quillbot.com","statnews.com","thegamer.com","uploadvr.com","bloomberg.com","csmonitor.com","cyberdaily.au","howtogeek.com","inscribed.app","investing.com","irishnews.com","makeuseof.com","neilpatel.com","perplexity.ai","pocketnow.com","thejournal.ie","therecord.com","thetravel.com","allrecipes.com","lawinsider.com","nzherald.co.nz","screenrant.com","techinasia.com","triathlete.com","firstthings.com","opensecrets.org","startribune.com","theguardian.com","democracynow.org","dualshockers.com","seekingalpha.com","theintercept.com","theolivepress.es","androidpolice.com","independent.co.uk","spiked-online.com","theadviser.com.au","themonthly.com.au","wellandtribune.ca","bestrecipes.com.au","gmap-pedometer.com","nisanyansozluk.com","vaccineadvisor.com","vajiramandravi.com","xda-developers.com","clinicaladvisor.com","dailynewshungary.com","hartfordbusiness.com","lawyersweekly.com.au","neurologyadvisor.com","optometryadvisor.com","sleepwakeadvisor.com","defenceconnect.com.au","niagarafallsreview.ca","psychiatryadvisor.com","talkingpointsmemo.com","commonwealmagazine.org","dermatologyadvisor.com","pulmonologyadvisor.com","rarediseaseadvisor.com","accountantsdaily.com.au","clinicalpainadvisor.com","renalandurologynews.com","rheumatologyadvisor.com","stcatharinesstandard.ca","thesaturdaypaper.com.au","cancertherapyadvisor.com","endocrinologyadvisor.com","fantasyfootballhub.co.uk","oncologynurseadvisor.com","ophthalmologyadvisor.com","thecardiologyadvisor.com","realestatebusiness.com.au","sportsbusinessjournal.com","americanaffairsjournal.org","gastroenterologyadvisor.com","infectiousdiseaseadvisor.com","smartpropertyinvestment.com.au"];
+const $scriptletHostnames$ = /* 122 */ ["bbc.com","cbr.com","cnn.com","r34.app","vox.com","branc.jp","kbtx.com","kptv.com","usni.org","wfaa.com","wkyc.com","deepl.com","nautil.us","on.orf.at","today.com","nypost.com","oceana.org","plough.com","redfin.com","rtings.com","rumble.com","zippia.com","cbsnews.com","chatgpt.com","inquinte.ca","nbcnews.com","pawread.com","politico.eu","reuters.com","science.org","semrush.com","thebump.com","thespec.com","thestar.com","theweek.com","climbing.com","collider.com","dutchnews.nl","gamerant.com","infowars.com","medscape.com","movieweb.com","politico.com","quillbot.com","statnews.com","thegamer.com","uploadvr.com","bloomberg.com","csmonitor.com","cyberdaily.au","howtogeek.com","inscribed.app","investing.com","irishnews.com","makeuseof.com","neilpatel.com","perplexity.ai","pocketnow.com","thejournal.ie","therecord.com","thetravel.com","allrecipes.com","lawinsider.com","nzherald.co.nz","screenrant.com","similarweb.com","techinasia.com","triathlete.com","firstthings.com","opensecrets.org","startribune.com","theguardian.com","democracynow.org","dualshockers.com","seekingalpha.com","theintercept.com","theolivepress.es","androidpolice.com","independent.co.uk","spiked-online.com","theadviser.com.au","themonthly.com.au","wellandtribune.ca","bestrecipes.com.au","gmap-pedometer.com","nisanyansozluk.com","vaccineadvisor.com","vajiramandravi.com","xda-developers.com","clinicaladvisor.com","dailynewshungary.com","hartfordbusiness.com","lawyersweekly.com.au","neurologyadvisor.com","optometryadvisor.com","sleepwakeadvisor.com","defenceconnect.com.au","niagarafallsreview.ca","psychiatryadvisor.com","talkingpointsmemo.com","commonwealmagazine.org","dermatologyadvisor.com","pulmonologyadvisor.com","rarediseaseadvisor.com","accountantsdaily.com.au","clinicalpainadvisor.com","renalandurologynews.com","rheumatologyadvisor.com","stcatharinesstandard.ca","thesaturdaypaper.com.au","cancertherapyadvisor.com","endocrinologyadvisor.com","fantasyfootballhub.co.uk","oncologynurseadvisor.com","ophthalmologyadvisor.com","thecardiologyadvisor.com","realestatebusiness.com.au","sportsbusinessjournal.com","americanaffairsjournal.org","gastroenterologyadvisor.com","infectiousdiseaseadvisor.com","smartpropertyinvestment.com.au"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 
@@ -789,51 +789,51 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const collectArglistRefIndices = (out, hn, r) => {
-    let l = 0, i = 0, d = 0;
-    let candidate = '';
-    while ( l < r ) {
-        i = l + r >>> 1;
-        candidate = $scriptletHostnames$[i];
-        d = hn.length - candidate.length;
-        if ( d === 0 ) {
-            if ( hn === candidate ) {
-                out.add(i); break;
-            }
-            d = hn < candidate ? -1 : 1;
-        }
-        if ( d < 0 ) {
-            r = i;
-        } else {
-            l = i + 1;
-        }
-    }
-    return i;
-};
-
-const indicesFromHostname = (out, hnDetails, suffix = '') => {
-    if ( hnDetails.hns.length === 0 ) { return; }
-    let r = $scriptletHostnames$.length;
-    for ( const hn of hnDetails.hns ) {
-        r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
-    }
-    if ( $hasEntities$ ) {
-        let r = $scriptletHostnames$.length;
-        for ( const en of hnDetails.ens ) {
-            r = collectArglistRefIndices(out, `${en}${suffix}`, r);
-        }
-    }
-};
-
 const todoIndices = new Set();
-indicesFromHostname(todoIndices, entries[0]);
-if ( $hasAncestors$ ) {
-    for ( const entry of entries ) {
-        if ( entry.i === 0 ) { continue; }
-        indicesFromHostname(todoIndices, entry, '>>');
+if ( $scriptletHostnames$.length ) {
+    const collectArglistRefIndices = (out, hn, r) => {
+        let l = 0, i = 0, d = 0;
+        let candidate = '';
+        while ( l < r ) {
+            i = l + r >>> 1;
+            candidate = $scriptletHostnames$[i];
+            d = hn.length - candidate.length;
+            if ( d === 0 ) {
+                if ( hn === candidate ) {
+                    out.add(i); break;
+                }
+                d = hn < candidate ? -1 : 1;
+            }
+            if ( d < 0 ) {
+                r = i;
+            } else {
+                l = i + 1;
+            }
+        }
+        return i + 1;
+    };
+    const indicesFromHostname = (out, hnDetails, suffix = '') => {
+        if ( hnDetails.hns.length === 0 ) { return; }
+        let r = $scriptletHostnames$.length;
+        for ( const hn of hnDetails.hns ) {
+            r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
+        }
+        if ( $hasEntities$ ) {
+            let r = $scriptletHostnames$.length;
+            for ( const en of hnDetails.ens ) {
+                r = collectArglistRefIndices(out, `${en}${suffix}`, r);
+            }
+        }
+    };
+    indicesFromHostname(todoIndices, entries[0]);
+    if ( $hasAncestors$ ) {
+        for ( const entry of entries ) {
+            if ( entry.i === 0 ) { continue; }
+            indicesFromHostname(todoIndices, entry, '>>');
+        }
     }
+    $scriptletHostnames$.length = 0;
 }
-$scriptletHostnames$.length = 0;
 
 // Collect arglist references
 const todo = new Set();

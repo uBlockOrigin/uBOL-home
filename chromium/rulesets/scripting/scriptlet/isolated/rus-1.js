@@ -507,9 +507,9 @@ const $scriptletArgs$ = /* 5 */ ["/ancQTZw|bltsr|HgGedof|KIykI/","wide-1|wide-2|
 
 const $scriptletArglists$ = /* 3 */ "0,0;1,1,2;2,3,4";
 
-const $scriptletArglistRefs$ = /* 3 */ "0;1,2;0";
+const $scriptletArglistRefs$ = /* 4 */ "0;1,2;0;0";
 
-const $scriptletHostnames$ = /* 3 */ ["ya.ru","4pda.*","dzen.ru"];
+const $scriptletHostnames$ = /* 4 */ ["ya.ru","4pda.*","dzen.ru","sportsdzen.ru"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 
@@ -556,51 +556,51 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const collectArglistRefIndices = (out, hn, r) => {
-    let l = 0, i = 0, d = 0;
-    let candidate = '';
-    while ( l < r ) {
-        i = l + r >>> 1;
-        candidate = $scriptletHostnames$[i];
-        d = hn.length - candidate.length;
-        if ( d === 0 ) {
-            if ( hn === candidate ) {
-                out.add(i); break;
-            }
-            d = hn < candidate ? -1 : 1;
-        }
-        if ( d < 0 ) {
-            r = i;
-        } else {
-            l = i + 1;
-        }
-    }
-    return i;
-};
-
-const indicesFromHostname = (out, hnDetails, suffix = '') => {
-    if ( hnDetails.hns.length === 0 ) { return; }
-    let r = $scriptletHostnames$.length;
-    for ( const hn of hnDetails.hns ) {
-        r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
-    }
-    if ( $hasEntities$ ) {
-        let r = $scriptletHostnames$.length;
-        for ( const en of hnDetails.ens ) {
-            r = collectArglistRefIndices(out, `${en}${suffix}`, r);
-        }
-    }
-};
-
 const todoIndices = new Set();
-indicesFromHostname(todoIndices, entries[0]);
-if ( $hasAncestors$ ) {
-    for ( const entry of entries ) {
-        if ( entry.i === 0 ) { continue; }
-        indicesFromHostname(todoIndices, entry, '>>');
+if ( $scriptletHostnames$.length ) {
+    const collectArglistRefIndices = (out, hn, r) => {
+        let l = 0, i = 0, d = 0;
+        let candidate = '';
+        while ( l < r ) {
+            i = l + r >>> 1;
+            candidate = $scriptletHostnames$[i];
+            d = hn.length - candidate.length;
+            if ( d === 0 ) {
+                if ( hn === candidate ) {
+                    out.add(i); break;
+                }
+                d = hn < candidate ? -1 : 1;
+            }
+            if ( d < 0 ) {
+                r = i;
+            } else {
+                l = i + 1;
+            }
+        }
+        return i + 1;
+    };
+    const indicesFromHostname = (out, hnDetails, suffix = '') => {
+        if ( hnDetails.hns.length === 0 ) { return; }
+        let r = $scriptletHostnames$.length;
+        for ( const hn of hnDetails.hns ) {
+            r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
+        }
+        if ( $hasEntities$ ) {
+            let r = $scriptletHostnames$.length;
+            for ( const en of hnDetails.ens ) {
+                r = collectArglistRefIndices(out, `${en}${suffix}`, r);
+            }
+        }
+    };
+    indicesFromHostname(todoIndices, entries[0]);
+    if ( $hasAncestors$ ) {
+        for ( const entry of entries ) {
+            if ( entry.i === 0 ) { continue; }
+            indicesFromHostname(todoIndices, entry, '>>');
+        }
     }
+    $scriptletHostnames$.length = 0;
 }
-$scriptletHostnames$.length = 0;
 
 // Collect arglist references
 const todo = new Set();

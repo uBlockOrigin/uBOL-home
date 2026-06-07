@@ -36,6 +36,33 @@ function getRandomTokenFn() {
         safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
 }
 
+function getSafeCookieValuesFn() {
+    return [
+        'accept', 'reject',
+        'accepted', 'rejected', 'notaccepted',
+        'allow', 'disallow', 'deny',
+        'allowed', 'denied',
+        'approved', 'disapproved',
+        'checked', 'unchecked',
+        'dismiss', 'dismissed',
+        'enable', 'disable',
+        'enabled', 'disabled',
+        'essential', 'nonessential',
+        'forbidden', 'forever',
+        'hide', 'hidden',
+        'necessary', 'required',
+        'ok',
+        'on', 'off',
+        'true', 't', 'false', 'f',
+        'yes', 'y', 'no', 'n',
+        'all', 'none', 'functional',
+        'granted', 'done',
+        'decline', 'declined',
+        'closed', 'next', 'mandatory',
+        'disagree', 'agree',
+    ];
+}
+
 function removeClass(
     rawToken = '',
     rawSelector = '',
@@ -429,22 +456,106 @@ function safeSelf() {
     return safe;
 }
 
+function setLocalStorageItem(key = '', value = '') {
+    const safe = safeSelf();
+    const options = safe.getExtraArgs(Array.from(arguments), 2)
+    setLocalStorageItemFn('local', false, key, value, options);
+}
+
+function setLocalStorageItemFn(
+    which = 'local',
+    trusted = false,
+    key = '',
+    value = '',
+    options = {}
+) {
+    if ( key === '' ) { return; }
+
+    // For increased compatibility with AdGuard
+    if ( value === 'emptyArr' ) {
+        value = '[]';
+    } else if ( value === 'emptyObj' ) {
+        value = '{}';
+    }
+
+    const trustedValues = [
+        '',
+        'undefined', 'null',
+        '{}', '[]', '""',
+        '$remove$',
+        ...getSafeCookieValuesFn(),
+    ];
+
+    if ( trusted ) {
+        if ( value.includes('$now$') ) {
+            value = value.replaceAll('$now$', Date.now());
+        }
+        if ( value.includes('$currentDate$') ) {
+            value = value.replaceAll('$currentDate$', `${Date()}`);
+        }
+        if ( value.includes('$currentISODate$') ) {
+            value = value.replaceAll('$currentISODate$', (new Date()).toISOString());
+        }
+    } else {
+        const normalized = value.toLowerCase();
+        const match = /^("?)(.+)\1$/.exec(normalized);
+        const unquoted = match && match[2] || normalized;
+        if ( trustedValues.includes(unquoted) === false ) {
+            if ( /^-?\d+$/.test(unquoted) === false ) { return; }
+            const n = parseInt(unquoted, 10) || 0;
+            if ( n < -32767 || n > 32767 ) { return; }
+        }
+    }
+
+    let modified = false;
+
+    try {
+        const storage = self[`${which}Storage`];
+        if ( value === '$remove$' ) {
+            const safe = safeSelf();
+            const pattern = safe.patternToRegex(key, undefined, true );
+            const toRemove = [];
+            for ( let i = 0, n = storage.length; i < n; i++ ) {
+                const key = storage.key(i);
+                if ( pattern.test(key) ) { toRemove.push(key); }
+            }
+            modified = toRemove.length !== 0;
+            for ( const key of toRemove ) {
+                storage.removeItem(key);
+            }
+        } else {
+
+            const before = storage.getItem(key);
+            const after = `${value}`;
+            modified = after !== before;
+            if ( modified ) {
+                storage.setItem(key, after);
+            }
+        }
+    } catch {
+    }
+
+    if ( modified && typeof options.reload === 'number' ) {
+        setTimeout(( ) => { window.location.reload(); }, options.reload);
+    }
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 2 */
-[removeNodeText,removeClass];
+const $scriptletFunctions$ = /* 3 */
+[removeNodeText,removeClass,setLocalStorageItem];
 
-const $scriptletArgs$ = /* 6 */ ["script","!function(r,n,t,e)",",mr=function(r,","MatchCarousel-module-scss-module__WcuM7G__hasBranding","active-brand","body"];
+const $scriptletArgs$ = /* 11 */ ["script","!function(r,n,t,e)",",mr=function(r,","attachShadow","MatchCarousel-module-scss-module__WcuM7G__hasBranding","active-brand","body","banner_closed","true","header_rg_2026","header"];
 
-const $scriptletArglists$ = /* 4 */ "0,0,1;0,0,2;1,3;1,4,5";
+const $scriptletArglists$ = /* 7 */ "0,0,1;0,0,2;0,0,3;1,4;1,5,6;2,7,8;1,9,10";
 
-const $scriptletArglistRefs$ = /* 56 */ "3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;3;0;3;3;3;3;3;3;3;3;3;1;3;3;3;2;2;3;3;2;3;3;3;3;3;3;3;3;3;3;3;3;3";
+const $scriptletArglistRefs$ = /* 59 */ "4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;0;4;4;4;4;4;4;4;4;4;1;4;4;4;2;3;3;5;6;4;4;3;4;4;4;4;4;4;4;4;4;4;4;4;4";
 
-const $scriptletHostnames$ = /* 56 */ ["kvk.pub","3ivi.com","rezka.ag","rezka.fi","rezka.si","drezka.pl","hdrezka.ag","hdrezka.cm","hdrezka.co","hdrezka.in","hdrezka.me","hdrezka.pl","hdrezka.sh","hdrezka.tv","kinopub.me","hdrezka.inc","hdrezka.kim","hdrezka.vip","rezka-ua.co","rezka-ua.in","rezka-ua.tv","rezka.space","rezkery.com","rezkify.com","www.ukr.net","hdrezka.club","hdrezka.fans","hdrezka.name","hdrezka.rest","hdrezka.site","omnirezka.tv","rezka-ua.org","rezka-ua.pub","hdrezka.today","pravda.com.ua","flymaterez.net","hdrezkayou.com","hello-rezka.tv","metaratings.by","metaratings.ru","hdrezka-home.tv","hdrezka.website","meta-ratings.kz","hdrezka19139.org","standby-rezka.tv","hdrezka1twwpb.org","hdrezka2tepnm.org","hdrezka2vmmty.org","hdrezka720dhh.org","hdrezka8bdhtq.org","hdrezka9bsbhq.org","hdrezka9fmskj.org","hdrezkaonline.com","bestofkinopoisk.com","hdrezka-sex-city.net","punisher-hdrezka.net"];
+const $scriptletHostnames$ = /* 59 */ ["kvk.pub","3ivi.com","rezka.ag","rezka.fi","rezka.si","drezka.pl","hdrezka.ag","hdrezka.cm","hdrezka.co","hdrezka.in","hdrezka.me","hdrezka.pl","hdrezka.sh","hdrezka.tv","kinopub.me","hdrezka.inc","hdrezka.kim","hdrezka.vip","rezka-ua.co","rezka-ua.in","rezka-ua.tv","rezka.space","rezkery.com","rezkify.com","www.ukr.net","hdrezka.club","hdrezka.fans","hdrezka.name","hdrezka.rest","hdrezka.site","omnirezka.tv","rezka-ua.org","rezka-ua.pub","hdrezka.today","pravda.com.ua","flymaterez.net","hdrezkayou.com","hello-rezka.tv","inforesist.org","metaratings.by","metaratings.ru","noworries.news","champion.com.ua","hdrezka-home.tv","hdrezka.website","meta-ratings.kz","hdrezka19139.org","standby-rezka.tv","hdrezka1twwpb.org","hdrezka2tepnm.org","hdrezka2vmmty.org","hdrezka720dhh.org","hdrezka8bdhtq.org","hdrezka9bsbhq.org","hdrezka9fmskj.org","hdrezkaonline.com","bestofkinopoisk.com","hdrezka-sex-city.net","punisher-hdrezka.net"];
 
-const $scriptletFromRegexes$ = /* 1 */ ["rezka","rezka","3"];
+const $scriptletFromRegexes$ = /* 1 */ ["rezka","rezka","4"];
 
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
@@ -489,51 +600,51 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const collectArglistRefIndices = (out, hn, r) => {
-    let l = 0, i = 0, d = 0;
-    let candidate = '';
-    while ( l < r ) {
-        i = l + r >>> 1;
-        candidate = $scriptletHostnames$[i];
-        d = hn.length - candidate.length;
-        if ( d === 0 ) {
-            if ( hn === candidate ) {
-                out.add(i); break;
-            }
-            d = hn < candidate ? -1 : 1;
-        }
-        if ( d < 0 ) {
-            r = i;
-        } else {
-            l = i + 1;
-        }
-    }
-    return i;
-};
-
-const indicesFromHostname = (out, hnDetails, suffix = '') => {
-    if ( hnDetails.hns.length === 0 ) { return; }
-    let r = $scriptletHostnames$.length;
-    for ( const hn of hnDetails.hns ) {
-        r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
-    }
-    if ( $hasEntities$ ) {
-        let r = $scriptletHostnames$.length;
-        for ( const en of hnDetails.ens ) {
-            r = collectArglistRefIndices(out, `${en}${suffix}`, r);
-        }
-    }
-};
-
 const todoIndices = new Set();
-indicesFromHostname(todoIndices, entries[0]);
-if ( $hasAncestors$ ) {
-    for ( const entry of entries ) {
-        if ( entry.i === 0 ) { continue; }
-        indicesFromHostname(todoIndices, entry, '>>');
+if ( $scriptletHostnames$.length ) {
+    const collectArglistRefIndices = (out, hn, r) => {
+        let l = 0, i = 0, d = 0;
+        let candidate = '';
+        while ( l < r ) {
+            i = l + r >>> 1;
+            candidate = $scriptletHostnames$[i];
+            d = hn.length - candidate.length;
+            if ( d === 0 ) {
+                if ( hn === candidate ) {
+                    out.add(i); break;
+                }
+                d = hn < candidate ? -1 : 1;
+            }
+            if ( d < 0 ) {
+                r = i;
+            } else {
+                l = i + 1;
+            }
+        }
+        return i + 1;
+    };
+    const indicesFromHostname = (out, hnDetails, suffix = '') => {
+        if ( hnDetails.hns.length === 0 ) { return; }
+        let r = $scriptletHostnames$.length;
+        for ( const hn of hnDetails.hns ) {
+            r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
+        }
+        if ( $hasEntities$ ) {
+            let r = $scriptletHostnames$.length;
+            for ( const en of hnDetails.ens ) {
+                r = collectArglistRefIndices(out, `${en}${suffix}`, r);
+            }
+        }
+    };
+    indicesFromHostname(todoIndices, entries[0]);
+    if ( $hasAncestors$ ) {
+        for ( const entry of entries ) {
+            if ( entry.i === 0 ) { continue; }
+            indicesFromHostname(todoIndices, entry, '>>');
+        }
     }
+    $scriptletHostnames$.length = 0;
 }
-$scriptletHostnames$.length = 0;
 
 // Collect arglist references
 const todo = new Set();

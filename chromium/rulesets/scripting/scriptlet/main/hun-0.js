@@ -956,13 +956,13 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 6 */
 [setConstant,preventSetTimeout,removeAttr,abortOnPropertyWrite,abortCurrentScript,preventAddEventListener];
 
-const $scriptletArgs$ = /* 54 */ ["getComputedStyle","undefined","E(!1)","show_modal","noopFunc","style","body","stay","oxyShowModal","oncontextmenu","href","[href*=\"ad.adverticum.net\"]","document.createElement","setTimeout","mouseleave","showFbPopup","FbExit","3000","mouseout","cookie_alert_overlay","load","reklám blokkolókat","window._ceCTSData","hirdetések","adblock","false","adstest","4000","document.head","currentScript.remove","AdHandler.adblocked","0","AdHandler.adBlockEnabled","AdHandler.checkAdblock","a2blckLayer","tie.ad_blocker_detector","document.addEventListener","ai_run_","document.getElementById","ENABLE_PAGE_LEVEL_ADS","true","document.body.style","fetch","mode","detect_adblock","falseFunc","gemiusStream","{}","gemiusStream.event","gemiusStream.init","window.ado","null","class","section[class=\"life-section l-section-main article-section l-section-article\"]"];
+const $scriptletArgs$ = /* 55 */ ["showVignette","falseFunc","getComputedStyle","undefined","E(!1)","show_modal","noopFunc","style","body","stay","oxyShowModal","oncontextmenu","href","[href*=\"ad.adverticum.net\"]","document.createElement","setTimeout","mouseleave","showFbPopup","FbExit","3000","mouseout","cookie_alert_overlay","load","reklám blokkolókat","window._ceCTSData","hirdetések","adblock","false","adstest","4000","document.head","currentScript.remove","AdHandler.adblocked","0","AdHandler.adBlockEnabled","AdHandler.checkAdblock","a2blckLayer","tie.ad_blocker_detector","document.addEventListener","ai_run_","document.getElementById","ENABLE_PAGE_LEVEL_ADS","true","document.body.style","fetch","mode","detect_adblock","gemiusStream","{}","gemiusStream.event","gemiusStream.init","window.ado","null","class","section[class=\"life-section l-section-main article-section l-section-article\"]"];
 
-const $scriptletArglists$ = /* 36 */ "0,0,1;1,2;0,3,4;2,5,6,7;3,8;2,9;2,10,11;4,12,13;5,14,15;1,16,17;5,14;5,18;0,19,4;5,20,21;4,22,23;0,24,25;1,26,27;4,28,29;0,30,31;0,32,31;0,33,4;4,22,34;0,35,1;3,0;4,36,37;4,38,37;0,39,40;3,41;4,42,43;0,44,45;0,46,47;0,48,4;0,49,4;0,50,51;2,52,53;2,5,6";
+const $scriptletArglists$ = /* 37 */ "0,0,1;0,2,3;1,4;0,5,6;2,7,8,9;3,10;2,11;2,12,13;4,14,15;5,16,17;1,18,19;5,16;5,20;0,21,6;5,22,23;4,24,25;0,26,27;1,28,29;4,30,31;0,32,33;0,34,33;0,35,6;4,24,36;0,37,3;3,2;4,38,39;4,40,39;0,41,42;3,43;4,44,45;0,46,1;0,47,48;0,49,6;0,50,6;0,51,52;2,53,54;2,7,8";
 
-const $scriptletArglistRefs$ = /* 36 */ "14;24,25;0;34;27;3;4;11,17;11,33;8,9;12;1;13;2;17;16;5;7;29;17;22;23;30,31,32;21;12;6;12;35;12;10;26;28;28;12;18,19,20;15";
+const $scriptletArglistRefs$ = /* 37 */ "15;25,26;1;35;28;4;5;0;12,18;12,34;9,10;13;2;14;3;18;17;6;8;30;18;23;24;31,32,33;22;13;7;13;36;13;11;27;29;29;13;19,20,21;16";
 
-const $scriptletHostnames$ = /* 36 */ ["24.hu","hang.hu","hoxa.hu","life.hu","port.hu","blikk.hu","hiros.hu","divany.hu","femina.hu","vezess.hu","foodker.hu","jofogas.hu","naphire.hu","arcanum.com","totalcar.hu","calculat.org","lifestory.hu","napiszar.com","rimkereso.hu","totalbike.hu","huaweiblog.hu","karpathir.com","player.rtl.hu","hazipatika.com","milestone66.hu","mindmegette.hu","paplanvilag.hu","sorozatwiki.hu","reformsziget.hu","stylemagazin.hu","myonlineradio.hu","online-filmek.ac","online-filmek.me","laptophardware.hu","embed.indavideo.hu","angol-magyar-szotar.hu"];
+const $scriptletHostnames$ = /* 37 */ ["24.hu","hang.hu","hoxa.hu","life.hu","port.hu","blikk.hu","hiros.hu","liked.hu","divany.hu","femina.hu","vezess.hu","foodker.hu","jofogas.hu","naphire.hu","arcanum.com","totalcar.hu","calculat.org","lifestory.hu","napiszar.com","rimkereso.hu","totalbike.hu","huaweiblog.hu","karpathir.com","player.rtl.hu","hazipatika.com","milestone66.hu","mindmegette.hu","paplanvilag.hu","sorozatwiki.hu","reformsziget.hu","stylemagazin.hu","myonlineradio.hu","online-filmek.ac","online-filmek.me","laptophardware.hu","embed.indavideo.hu","angol-magyar-szotar.hu"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 
@@ -1009,51 +1009,51 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const collectArglistRefIndices = (out, hn, r) => {
-    let l = 0, i = 0, d = 0;
-    let candidate = '';
-    while ( l < r ) {
-        i = l + r >>> 1;
-        candidate = $scriptletHostnames$[i];
-        d = hn.length - candidate.length;
-        if ( d === 0 ) {
-            if ( hn === candidate ) {
-                out.add(i); break;
-            }
-            d = hn < candidate ? -1 : 1;
-        }
-        if ( d < 0 ) {
-            r = i;
-        } else {
-            l = i + 1;
-        }
-    }
-    return i;
-};
-
-const indicesFromHostname = (out, hnDetails, suffix = '') => {
-    if ( hnDetails.hns.length === 0 ) { return; }
-    let r = $scriptletHostnames$.length;
-    for ( const hn of hnDetails.hns ) {
-        r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
-    }
-    if ( $hasEntities$ ) {
-        let r = $scriptletHostnames$.length;
-        for ( const en of hnDetails.ens ) {
-            r = collectArglistRefIndices(out, `${en}${suffix}`, r);
-        }
-    }
-};
-
 const todoIndices = new Set();
-indicesFromHostname(todoIndices, entries[0]);
-if ( $hasAncestors$ ) {
-    for ( const entry of entries ) {
-        if ( entry.i === 0 ) { continue; }
-        indicesFromHostname(todoIndices, entry, '>>');
+if ( $scriptletHostnames$.length ) {
+    const collectArglistRefIndices = (out, hn, r) => {
+        let l = 0, i = 0, d = 0;
+        let candidate = '';
+        while ( l < r ) {
+            i = l + r >>> 1;
+            candidate = $scriptletHostnames$[i];
+            d = hn.length - candidate.length;
+            if ( d === 0 ) {
+                if ( hn === candidate ) {
+                    out.add(i); break;
+                }
+                d = hn < candidate ? -1 : 1;
+            }
+            if ( d < 0 ) {
+                r = i;
+            } else {
+                l = i + 1;
+            }
+        }
+        return i + 1;
+    };
+    const indicesFromHostname = (out, hnDetails, suffix = '') => {
+        if ( hnDetails.hns.length === 0 ) { return; }
+        let r = $scriptletHostnames$.length;
+        for ( const hn of hnDetails.hns ) {
+            r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
+        }
+        if ( $hasEntities$ ) {
+            let r = $scriptletHostnames$.length;
+            for ( const en of hnDetails.ens ) {
+                r = collectArglistRefIndices(out, `${en}${suffix}`, r);
+            }
+        }
+    };
+    indicesFromHostname(todoIndices, entries[0]);
+    if ( $hasAncestors$ ) {
+        for ( const entry of entries ) {
+            if ( entry.i === 0 ) { continue; }
+            indicesFromHostname(todoIndices, entry, '>>');
+        }
     }
+    $scriptletHostnames$.length = 0;
 }
-$scriptletHostnames$.length = 0;
 
 // Collect arglist references
 const todo = new Set();

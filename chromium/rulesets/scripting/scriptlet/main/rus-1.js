@@ -1594,9 +1594,9 @@ const $scriptletArgs$ = /* 54 */ ["jsaction","#islsp c-wiz a[href^=\"http\"][dat
 
 const $scriptletArglists$ = /* 35 */ "0,0,1,2;1,3,4;2,5,6;0,7,8,2;0,9,10,2;3,11,12;3,13,14;3,15,16;3,17,18;3,19,18;4,20,21,22,23;5,24;1,25,4;3,26,27;3,28,27;6,29;7,30;3,31,14;7,32;7,33;5,34;0,35,10,2;3,36,14;8,37;0,38,39;9,40;7,41;3,42,14;3,43,14;2,44,45;2,46,45,47;10,48;3,49,14;10,50,51;1,52,53";
 
-const $scriptletArglistRefs$ = /* 63 */ "20,24,25,26,27,28;11,12;11,12;29,30,31,32;33,34;13,19,20;8,9;11,12;18;29,30,31;11,12;10;11,12;20,24,25,26,27,28;11,12;1;11,12;23;1;11,12;11,12;5;6,7;10;6,7;11,12;13;-21,-25,-27,-28,-29;6,7;17;11,12;1;11,12;4;1;1;1;5;11,12;0;13;11,12;-12,-13;21,22,-27,-28;2;5;5;5;6,7;-12,-13;-13;16;3;6,7;15;-12,-13;1;6,7;6,7;-26;14;13;13";
+const $scriptletArglistRefs$ = /* 65 */ "20,24,25,26,27,28;11,12;11,12;29,30,31,32;33,34;13,19,20;8,9;11,12;18;29,30,31;11,12;10;11,12;20,24,25,26,27,28;11,12;1;11,12;23;1;11,12;11,12;5;6,7;10;6,7;11,12;13;-21,-25,-27,-28,-29;6,7;17;11,12;1;11,12;4;1;1;1;5;19;11,12;0;13;11,12;-12,-13;21,22,-27,-28;2;5;5;5;6,7;29,30,31;-12,-13;-13;16;3;6,7;15;-12,-13;1;6,7;6,7;-26;14;13;13";
 
-const $scriptletHostnames$ = /* 63 */ ["ya.*","eda.*","wmj.*","ya.ru","4pda.*","dzen.*","ivi.ru","quto.*","auto.ru","dzen.ru","motor.*","anilib.*","lenta.ru","yandex.*","gazeta.ru","innal.top","letidor.*","meteum.ai","naylo.top","passion.*","rambler.*","rutr.life","shakko.ru","animelib.*","levik.blog","moslenta.*","naydex.net","yandex.net","periskop.su","shedevrum.*","championat.*","game4you.top","gazeta.press","mail.ukr.net","rustorka.com","rustorka.net","rustorka.top","rutracker.nl","www.afisha.*","www.google.*","yastatic.net","avtorambler.*","id.rambler.ru","mail.yandex.*","otvet.mail.ru","rutracker.lib","rutracker.net","rutracker.org","shiro-kino.ru","vp.rambler.ru","mail.rambler.*","nova.rambler.*","search.ukr.net","livejournal.com","music.youtube.*","quiz.rambler.ru","rustorkacom.lib","vadimrazumov.ru","olegmakarenko.ru","games.s3.yandex.net","horoscopes.rambler.*","widgets.kinopoisk.ru","frontend.vh.yandex.ru"];
+const $scriptletHostnames$ = /* 65 */ ["ya.*","eda.*","wmj.*","ya.ru","4pda.*","dzen.*","ivi.ru","quto.*","auto.ru","dzen.ru","motor.*","anilib.*","lenta.ru","yandex.*","gazeta.ru","innal.top","letidor.*","meteum.ai","naylo.top","passion.*","rambler.*","rutr.life","shakko.ru","animelib.*","levik.blog","moslenta.*","naydex.net","yandex.net","periskop.su","shedevrum.*","championat.*","game4you.top","gazeta.press","mail.ukr.net","rustorka.com","rustorka.net","rustorka.top","rutracker.nl","sportsdzen.*","www.afisha.*","www.google.*","yastatic.net","avtorambler.*","id.rambler.ru","mail.yandex.*","otvet.mail.ru","rutracker.lib","rutracker.net","rutracker.org","shiro-kino.ru","sportsdzen.ru","vp.rambler.ru","mail.rambler.*","nova.rambler.*","search.ukr.net","livejournal.com","music.youtube.*","quiz.rambler.ru","rustorkacom.lib","vadimrazumov.ru","olegmakarenko.ru","games.s3.yandex.net","horoscopes.rambler.*","widgets.kinopoisk.ru","frontend.vh.yandex.ru"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 
@@ -1643,51 +1643,51 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const collectArglistRefIndices = (out, hn, r) => {
-    let l = 0, i = 0, d = 0;
-    let candidate = '';
-    while ( l < r ) {
-        i = l + r >>> 1;
-        candidate = $scriptletHostnames$[i];
-        d = hn.length - candidate.length;
-        if ( d === 0 ) {
-            if ( hn === candidate ) {
-                out.add(i); break;
-            }
-            d = hn < candidate ? -1 : 1;
-        }
-        if ( d < 0 ) {
-            r = i;
-        } else {
-            l = i + 1;
-        }
-    }
-    return i;
-};
-
-const indicesFromHostname = (out, hnDetails, suffix = '') => {
-    if ( hnDetails.hns.length === 0 ) { return; }
-    let r = $scriptletHostnames$.length;
-    for ( const hn of hnDetails.hns ) {
-        r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
-    }
-    if ( $hasEntities$ ) {
-        let r = $scriptletHostnames$.length;
-        for ( const en of hnDetails.ens ) {
-            r = collectArglistRefIndices(out, `${en}${suffix}`, r);
-        }
-    }
-};
-
 const todoIndices = new Set();
-indicesFromHostname(todoIndices, entries[0]);
-if ( $hasAncestors$ ) {
-    for ( const entry of entries ) {
-        if ( entry.i === 0 ) { continue; }
-        indicesFromHostname(todoIndices, entry, '>>');
+if ( $scriptletHostnames$.length ) {
+    const collectArglistRefIndices = (out, hn, r) => {
+        let l = 0, i = 0, d = 0;
+        let candidate = '';
+        while ( l < r ) {
+            i = l + r >>> 1;
+            candidate = $scriptletHostnames$[i];
+            d = hn.length - candidate.length;
+            if ( d === 0 ) {
+                if ( hn === candidate ) {
+                    out.add(i); break;
+                }
+                d = hn < candidate ? -1 : 1;
+            }
+            if ( d < 0 ) {
+                r = i;
+            } else {
+                l = i + 1;
+            }
+        }
+        return i + 1;
+    };
+    const indicesFromHostname = (out, hnDetails, suffix = '') => {
+        if ( hnDetails.hns.length === 0 ) { return; }
+        let r = $scriptletHostnames$.length;
+        for ( const hn of hnDetails.hns ) {
+            r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
+        }
+        if ( $hasEntities$ ) {
+            let r = $scriptletHostnames$.length;
+            for ( const en of hnDetails.ens ) {
+                r = collectArglistRefIndices(out, `${en}${suffix}`, r);
+            }
+        }
+    };
+    indicesFromHostname(todoIndices, entries[0]);
+    if ( $hasAncestors$ ) {
+        for ( const entry of entries ) {
+            if ( entry.i === 0 ) { continue; }
+            indicesFromHostname(todoIndices, entry, '>>');
+        }
     }
+    $scriptletHostnames$.length = 0;
 }
-$scriptletHostnames$.length = 0;
 
 // Collect arglist references
 const todo = new Set();
