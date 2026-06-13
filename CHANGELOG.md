@@ -1,5 +1,10 @@
 - [Fix conversion of `top=` option to DNR's `topDomains`](https://github.com/gorhill/uBlock/commit/560a59bd61)
 - [Add `popupBlockMode` to admin-controlled settings](https://github.com/gorhill/uBlock/commit/3806141043)
+
+----------
+
+### 2026.607.1724
+
 - [Fix test for header matching when using negated value](https://github.com/gorhill/uBlock/commit/fa027e219a)
 - [Fix binary search potentially not finding match in edge case](https://github.com/gorhill/uBlock/commit/bc5fa9fe9a)
 - [Show all dynamic/session rules in Develop pane](https://github.com/gorhill/uBlock/commit/c1cadb35d9)
