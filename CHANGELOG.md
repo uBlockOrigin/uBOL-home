@@ -1,3 +1,4 @@
+- [Wrap troubleshooting info into `details` tag](https://github.com/gorhill/uBlock/commit/d86c0a0675)
 - [Fix conversion of `top=` option to DNR's `topDomains`](https://github.com/gorhill/uBlock/commit/560a59bd61)
 - [Add `popupBlockMode` to admin-controlled settings](https://github.com/gorhill/uBlock/commit/3806141043)
 
