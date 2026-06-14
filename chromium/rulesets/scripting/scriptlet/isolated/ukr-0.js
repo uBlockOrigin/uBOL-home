@@ -63,6 +63,13 @@ function getSafeCookieValuesFn() {
     ];
 }
 
+function onIdleFn(fn, options) {
+    if ( self.requestIdleCallback ) {
+        return self.requestIdleCallback(fn, options);
+    }
+    return self.requestAnimationFrame(fn);
+}
+
 function removeClass(
     rawToken = '',
     rawSelector = '',
@@ -109,7 +116,7 @@ function removeClass(
             }
         }
         if ( skip ) { return; }
-        timer = safe.onIdle(rmclass, { timeout: 67 });
+        timer = onIdleFn(rmclass, { timeout: 67 });
     };
     const observer = new MutationObserver(mutationHandler);
     const start = ( ) => {
@@ -385,18 +392,6 @@ function safeSelf() {
             }, []);
             return this.Object_fromEntries(entries);
         },
-        onIdle(fn, options) {
-            if ( self.requestIdleCallback ) {
-                return self.requestIdleCallback(fn, options);
-            }
-            return self.requestAnimationFrame(fn);
-        },
-        offIdle(id) {
-            if ( self.requestIdleCallback ) {
-                return self.cancelIdleCallback(id);
-            }
-            return self.cancelAnimationFrame(id);
-        }
     };
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
@@ -551,9 +546,9 @@ const $scriptletArgs$ = /* 11 */ ["script","!function(r,n,t,e)",",mr=function(r,
 
 const $scriptletArglists$ = /* 7 */ "0,0,1;0,0,2;0,0,3;1,4;1,5,6;2,7,8;1,9,10";
 
-const $scriptletArglistRefs$ = /* 59 */ "4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;0;4;4;4;4;4;4;4;4;4;1;4;4;4;2;3;3;5;6;4;4;3;4;4;4;4;4;4;4;4;4;4;4;4;4";
+const $scriptletArglistRefs$ = /* 60 */ "4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;2;4;4;4;4;4;4;4;4;4;0;4;4;4;4;4;4;4;4;4;1;4;4;4;2;3;3;5;6;4;4;3;4;4;4;4;4;4;4;4;4;4;4;4;4";
 
-const $scriptletHostnames$ = /* 59 */ ["kvk.pub","3ivi.com","rezka.ag","rezka.fi","rezka.si","drezka.pl","hdrezka.ag","hdrezka.cm","hdrezka.co","hdrezka.in","hdrezka.me","hdrezka.pl","hdrezka.sh","hdrezka.tv","kinopub.me","hdrezka.inc","hdrezka.kim","hdrezka.vip","rezka-ua.co","rezka-ua.in","rezka-ua.tv","rezka.space","rezkery.com","rezkify.com","www.ukr.net","hdrezka.club","hdrezka.fans","hdrezka.name","hdrezka.rest","hdrezka.site","omnirezka.tv","rezka-ua.org","rezka-ua.pub","hdrezka.today","pravda.com.ua","flymaterez.net","hdrezkayou.com","hello-rezka.tv","inforesist.org","metaratings.by","metaratings.ru","noworries.news","champion.com.ua","hdrezka-home.tv","hdrezka.website","meta-ratings.kz","hdrezka19139.org","standby-rezka.tv","hdrezka1twwpb.org","hdrezka2tepnm.org","hdrezka2vmmty.org","hdrezka720dhh.org","hdrezka8bdhtq.org","hdrezka9bsbhq.org","hdrezka9fmskj.org","hdrezkaonline.com","bestofkinopoisk.com","hdrezka-sex-city.net","punisher-hdrezka.net"];
+const $scriptletHostnames$ = /* 60 */ ["kvk.pub","3ivi.com","rezka.ag","rezka.fi","rezka.si","drezka.pl","hdrezka.ag","hdrezka.cm","hdrezka.co","hdrezka.in","hdrezka.me","hdrezka.pl","hdrezka.sh","hdrezka.tv","kinopub.me","tochka.net","hdrezka.inc","hdrezka.kim","hdrezka.vip","rezka-ua.co","rezka-ua.in","rezka-ua.tv","rezka.space","rezkery.com","rezkify.com","www.ukr.net","hdrezka.club","hdrezka.fans","hdrezka.name","hdrezka.rest","hdrezka.site","omnirezka.tv","rezka-ua.org","rezka-ua.pub","hdrezka.today","pravda.com.ua","flymaterez.net","hdrezkayou.com","hello-rezka.tv","inforesist.org","metaratings.by","metaratings.ru","noworries.news","champion.com.ua","hdrezka-home.tv","hdrezka.website","meta-ratings.kz","hdrezka19139.org","standby-rezka.tv","hdrezka1twwpb.org","hdrezka2tepnm.org","hdrezka2vmmty.org","hdrezka720dhh.org","hdrezka8bdhtq.org","hdrezka9bsbhq.org","hdrezka9fmskj.org","hdrezkaonline.com","bestofkinopoisk.com","hdrezka-sex-city.net","punisher-hdrezka.net"];
 
 const $scriptletFromRegexes$ = /* 1 */ ["rezka","rezka","4"];
 

@@ -157,7 +157,7 @@ function hrefSanitizer(
             if ( shouldSanitize ) { break; }
         }
         if ( shouldSanitize === false ) { return; }
-        timer = safe.onIdle(( ) => {
+        timer = onIdleFn(( ) => {
             timer = undefined;
             sanitize();
         });
@@ -171,6 +171,13 @@ function hrefSanitizer(
         });
     };
     runAt(( ) => { start(); }, 'interactive');
+}
+
+function onIdleFn(fn, options) {
+    if ( self.requestIdleCallback ) {
+        return self.requestIdleCallback(fn, options);
+    }
+    return self.requestAnimationFrame(fn);
 }
 
 function removeCookie(
@@ -504,18 +511,6 @@ function safeSelf() {
             }, []);
             return this.Object_fromEntries(entries);
         },
-        onIdle(fn, options) {
-            if ( self.requestIdleCallback ) {
-                return self.requestIdleCallback(fn, options);
-            }
-            return self.requestAnimationFrame(fn);
-        },
-        offIdle(id) {
-            if ( self.requestIdleCallback ) {
-                return self.cancelIdleCallback(id);
-            }
-            return self.cancelAnimationFrame(id);
-        }
     };
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }

@@ -36,6 +36,13 @@ function getRandomTokenFn() {
         safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
 }
 
+function onIdleFn(fn, options) {
+    if ( self.requestIdleCallback ) {
+        return self.requestIdleCallback(fn, options);
+    }
+    return self.requestAnimationFrame(fn);
+}
+
 function preventRefresh(
     delay = ''
 ) {
@@ -108,7 +115,7 @@ function removeClass(
             }
         }
         if ( skip ) { return; }
-        timer = safe.onIdle(rmclass, { timeout: 67 });
+        timer = onIdleFn(rmclass, { timeout: 67 });
     };
     const observer = new MutationObserver(mutationHandler);
     const start = ( ) => {
@@ -384,18 +391,6 @@ function safeSelf() {
             }, []);
             return this.Object_fromEntries(entries);
         },
-        onIdle(fn, options) {
-            if ( self.requestIdleCallback ) {
-                return self.requestIdleCallback(fn, options);
-            }
-            return self.requestAnimationFrame(fn);
-        },
-        offIdle(id) {
-            if ( self.requestIdleCallback ) {
-                return self.cancelIdleCallback(id);
-            }
-            return self.cancelAnimationFrame(id);
-        }
     };
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }

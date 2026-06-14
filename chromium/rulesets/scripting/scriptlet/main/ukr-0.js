@@ -622,6 +622,20 @@ function objectPruneFn(
     if ( outcome === 'match' ) { return obj; }
 }
 
+function offIdleFn(id) {
+    if ( self.requestIdleCallback ) {
+        return self.cancelIdleCallback(id);
+    }
+    return self.cancelAnimationFrame(id);
+}
+
+function onIdleFn(fn, options) {
+    if ( self.requestIdleCallback ) {
+        return self.requestIdleCallback(fn, options);
+    }
+    return self.requestAnimationFrame(fn);
+}
+
 function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
     const safe = safeSelf();
     const needles = new Map();
@@ -936,14 +950,14 @@ function removeAttr(
     let timerId;
     const rmattrAsync = ( ) => {
         if ( timerId !== undefined ) { return; }
-        timerId = safe.onIdle(( ) => {
+        timerId = onIdleFn(( ) => {
             timerId = undefined;
             rmattr();
         }, { timeout: 17 });
     };
     const rmattr = ( ) => {
         if ( timerId !== undefined ) {
-            safe.offIdle(timerId);
+            offIdleFn(timerId);
             timerId = undefined;
         }
         try {
@@ -1149,18 +1163,6 @@ function safeSelf() {
             }, []);
             return this.Object_fromEntries(entries);
         },
-        onIdle(fn, options) {
-            if ( self.requestIdleCallback ) {
-                return self.requestIdleCallback(fn, options);
-            }
-            return self.requestAnimationFrame(fn);
-        },
-        offIdle(id) {
-            if ( self.requestIdleCallback ) {
-                return self.cancelIdleCallback(id);
-            }
-            return self.cancelAnimationFrame(id);
-        }
     };
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }

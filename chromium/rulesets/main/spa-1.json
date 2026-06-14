@@ -149,7 +149,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||d.jornaldocomercio.com/includes/paginas/inove/api_banners.php"},"id":148,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["comando.la"],"urlFilter":"||ipify.org^"},"id":149,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||infopedia.pt/assets/ads/"},"id":150,"priority":10},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["13.cl","app.prende.tv","mediasetinfinity.es","mitele.es","nmas.com.mx","recordplus.com","southpark.lat","southparkstudios.com.br","venevisionplay.com"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3_dai.js"},"id":151,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["13.cl","app.prende.tv","mediasetinfinity.es","mitele.es","nmas.com.mx","recordplus.com","sbt.com.br","southpark.lat","southparkstudios.com.br","venevisionplay.com"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3_dai.js"},"id":151,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["laopinion.es"],"urlFilter":"||tinypass.com^"},"id":152,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||superembeds.com/*.xml"},"id":153,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||forodecostarica.com/skokka/"},"id":154,"priority":10},
@@ -899,5 +899,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||flixlatam.com/cucaracha.js"},"id":898,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||redisex.*/player3/query.js"},"id":899,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||documaniatv.com/player/*/vast.js"},"id":900,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||nintenderos.com/wp-content/themes/nintenderos-v3/assets/banners/banner_*.html"},"id":901,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||nintenderos.com/wp-content/themes/nintenderos-v3/assets/banners/banner_*.html"},"id":901,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["playerflixapi.com"],"urlFilter":"||developersone.com.br/load.php"},"id":902,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||mp.lura.live/live/vast.meta"},"id":903,"priority":10}
 ]

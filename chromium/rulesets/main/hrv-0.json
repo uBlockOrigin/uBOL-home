@@ -47,6 +47,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||arhivanalitika.hr/*/uploads/*/icam_*x"},"id":46,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||arhivanalitika.hr/*/uploads/*/bon.hr-*x"},"id":47,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"/image/baneri^"},"id":48,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||assets.tportal.hr/dt/native^"},"id":49,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["sportske.net"],"resourceTypes":["sub_frame"],"urlFilter":"||betwidget.admiralbet.rs^"},"id":50,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["slobodnadalmacija.hr","tportal.hr"],"resourceTypes":["script"],"urlFilter":"|https://html-load.com^"},"id":54,"priority":10},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ads.api.24ur.si/adserver/adblock."},"id":56,"priority":30},

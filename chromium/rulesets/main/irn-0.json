@@ -336,6 +336,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||ahlolbait.com/ads/script.js^"},"id":335,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||aparat.com/external/roost/v1/b/watchtime^"},"id":336,"priority":10},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||agahinet.com/adv^"},"id":337,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||bama.ir/uploads/bamaimages/campaignbanner^"},"id":338,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||t.me/bitbod_trading_club^"},"id":342,"priority":10},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["rssRedirect"]}}},"type":"redirect"},"condition":{"requestDomains":["eghtesadnews.com"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^rssRedirect="},"id":343},
 {"action":{"type":"block"},"condition":{"urlFilter":"||takvim.tj/animation/adv_top_slide^"},"id":344,"priority":10},

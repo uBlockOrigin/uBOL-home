@@ -134,6 +134,10 @@ class JSONPath {
         return (stringifier || JSON.stringify)(obj, ...args)
             .replace(/\//g, '\\/');
     }
+    static keys = Object.keys;
+    static entries = Object.entries;
+    static hasOwn = Object.hasOwn;
+    static Regex = RegExp;
     get value() {
         return this.#compiled && this.#compiled.rval;
     }
@@ -146,14 +150,17 @@ class JSONPath {
     }
     compile(query) {
         this.#compiled = undefined;
+        const v2 = query.startsWith('v2:');
+        if ( v2 ) { query = query.slice(3); }
         const r = this.#compile(query, 0);
         if ( r === undefined ) { return; }
         if ( r.i !== query.length ) {
             let val;
             if ( query.startsWith('=', r.i) ) {
-                if ( /^=repl\(.+\)$/.test(query.slice(r.i)) ) {
-                    r.modify = 'repl';
-                    val = query.slice(r.i+6, -1);
+                const match = this.#reRval.exec(query.slice(r.i));
+                if ( match ) {
+                    r.modify = match[1];
+                    val = match[2];
                 } else {
                     val = query.slice(r.i+1);
                 }
@@ -164,6 +171,7 @@ class JSONPath {
             try { r.rval = JSON.parse(val); }
             catch { return; }
         }
+        r.v2 = v2;
         this.#compiled = r;
     }
     evaluate(root) {
@@ -182,6 +190,7 @@ class JSONPath {
         if ( i === 0 ) { this.#root = null; return; }
         while ( i-- ) {
             const { obj, key } = this.#resolvePath(paths[i]);
+            if ( obj === undefined ) { continue; }
             if ( rval !== undefined ) {
                 this.#modifyVal(obj, key);
             } else if ( Array.isArray(obj) && typeof key === 'number' ) {
@@ -208,9 +217,12 @@ class JSONPath {
     #CURRENT = 2;
     #CHILDREN = 3;
     #DESCENDANTS = 4;
+    #QUANTIFIER = 5;
     #reUnquotedIdentifier = /^[A-Za-z_][\w]*|^\*/;
-    #reExpr = /^([!=^$*]=|[<>]=?)(.+?)\]/;
+    #reExpr = /^\s*([!=^$*]=|[<>]=?)\s*(.+?)\]/;
     #reIndice = /^-?\d+/;
+    #reRval = /^=([a-z]+)\((.+)\)$/;
+    #reQuantifier = /^\{(\d+|\d+,\d+|\d+,|,\d+)\};\$/;
     #root;
     #compiled;
     #compile(query, i) {
@@ -246,24 +258,54 @@ class JSONPath {
                 }
                 continue;
             }
+            if ( c === 0x3B /* ; */ ) {
+                if ( query.startsWith(';$', i) === false ) { return; }
+                steps.push(
+                    { mv: this.#QUANTIFIER, min: 1, max: 1e6 },
+                    { mv: this.#ROOT }
+                );
+                i += 2;
+                mv = this.#UNDEFINED;
+                continue;
+            }
+            if ( c === 0x7B /* { */ ) {
+                const match = this.#reQuantifier.exec(query.slice(i));
+                if ( match === null ) { return; }
+                const comma = match[1].indexOf(',');
+                let min, max;
+                if ( comma === -1 ) {
+                    min = max = parseInt(match[1]);
+                } else {
+                    min = parseInt(match[1].slice(0, comma)) || 0;
+                    max = parseInt(match[1].slice(comma+1)) || 1e6;
+                }
+                steps.push(
+                    { mv: this.#QUANTIFIER, min, max },
+                    { mv: this.#ROOT }
+                );
+                i += match[0].length;
+                mv = this.#UNDEFINED;
+                continue;
+            }
             if ( c !== 0x5B /* [ */ ) {
                 if ( mv === this.#UNDEFINED ) {
                     const step = steps.at(-1);
                     if ( step === undefined ) { return; }
-                    i = this.#compileExpr(query, step, i);
+                    const j = this.#compileExpr(query, step, i);
+                    if ( j ) { i = j; }
                     break;
                 }
-                const s = this.#consumeUnquotedIdentifier(query, i);
-                if  ( s === undefined ) { return; }
-                steps.push({ mv, k: s });
-                i += s.length;
+                const r = this.#consumeUnquotedIdentifier(query, i);
+                if  ( r === undefined ) { return; }
+                steps.push({ mv, k: r.s });
+                i = r.i;
                 mv = this.#UNDEFINED;
                 continue;
             }
             // Bracket accessor syntax
             if ( query.startsWith('[?', i) ) {
-                const not = query.charCodeAt(i+2) === 0x21 /* ! */;
-                const j = i + 2 + (not ? 1 : 0);
+                const not = query.charCodeAt(i+2) === 0x21 /* ! */ ? 1 : 0;
+                const j = i + 2 + not;
                 const r = this.#compile(query, j);
                 if ( r === undefined ) { return; }
                 if ( query.startsWith(']', r.i) === false ) { return; }
@@ -300,12 +342,26 @@ class JSONPath {
                 resultset = [ [ '$' ] ];
                 break;
             case this.#CURRENT:
+                if ( step.op ) {
+                    const { obj, key } = this.#resolvePath(pathin);
+                    if ( obj === undefined ) { return []; }
+                    const outcome = this.#evaluateExpr(step, obj, key);
+                    if ( outcome !== true ) { break; }
+                }
                 resultset = [ pathin ];
                 break;
             case this.#CHILDREN:
-            case this.#DESCENDANTS:
+            case this.#DESCENDANTS: {
+                if ( resultset.length === 0 ) { break; }
                 resultset = this.#getMatches(resultset, step);
                 break;
+            }
+            case this.#QUANTIFIER: {
+                const { length } = resultset;
+                if ( length < step.min || length > step.max ) { return []; }
+                resultset = [];
+                break;
+            }
             default:
                 break;
             }
@@ -316,60 +372,71 @@ class JSONPath {
         const listout = [];
         for ( const pathin of listin ) {
             const { value: owner } = this.#resolvePath(pathin);
-            if ( step.k === '*' ) {
-                this.#getMatchesFromAll(pathin, step, owner, listout);
-            } else if ( step.k !== undefined ) {
-                this.#getMatchesFromKeys(pathin, step, owner, listout);
-            } else if ( step.steps ) {
+            if ( owner === undefined ) { continue; }
+            if ( step.steps ) {
                 this.#getMatchesFromExpr(pathin, step, owner, listout);
+                continue;
+            }
+            const iter = this.#expandKey(owner, step.k);
+            if ( iter ) {
+                for ( const k of iter ) {
+                    const outcome = this.#evaluateExpr(step, owner, k);
+                    if ( outcome !== true ) { continue; }
+                    listout.push([ ...pathin, k ]);
+                }
+            }
+            if ( step.mv !== this.#DESCENDANTS ) { continue; }
+            for ( const { obj, key, path } of this.#getDescendants(owner, true) ) {
+                const iter = this.#expandKey(obj[key], step.k);
+                if ( iter === undefined ) { continue; }
+                for ( const k of iter ) {
+                    const outcome = this.#evaluateExpr(step, obj[key], k);
+                    if ( outcome !== true ) { continue; }
+                    listout.push([ ...pathin, ...path, k ]);
+                }
             }
         }
         return listout;
     }
-    #getMatchesFromAll(pathin, step, owner, out) {
-        const recursive = step.mv === this.#DESCENDANTS;
-        for ( const { path } of this.#getDescendants(owner, recursive) ) {
-            out.push([ ...pathin, ...path ]);
-        }
-    }
-    #getMatchesFromKeys(pathin, step, owner, out) {
-        const kk = Array.isArray(step.k) ? step.k : [ step.k ];
-        for ( const k of kk ) {
-            const normalized = this.#evaluateExpr(step, owner, k);
-            if ( normalized === undefined ) { continue; }
-            out.push([ ...pathin, normalized ]);
-        }
-        if ( step.mv !== this.#DESCENDANTS ) { return; }
-        for ( const { obj, key, path } of this.#getDescendants(owner, true) ) {
-            for ( const k of kk ) {
-                const normalized = this.#evaluateExpr(step, obj[key], k);
-                if ( normalized === undefined ) { continue; }
-                out.push([ ...pathin, ...path, normalized ]);
+    #expandKey(owner, k) {
+        if ( typeof owner !== 'object' ) { return; }
+        if ( Array.isArray(k) ) {
+            const out = [];
+            for ( const a of k ) {
+                const iter = this.#expandKey(owner, a);
+                if ( iter === undefined ) { continue; }
+                out.push(...iter);
             }
+            return out;
         }
+        if ( typeof k === 'number' ) {
+            if ( Array.isArray(owner) === false ) { return; }
+            return [ k >= 0 ? k : owner.length + k ];
+        }
+        if ( k === '*' ) {
+            if ( Array.isArray(owner) ) { return owner.keys(); }
+            return JSONPath.keys(owner);
+        }
+        if ( k instanceof JSONPath.Regex ) {
+            const out = [];
+            for ( const key of JSONPath.keys(owner) ) {
+                if ( k.test(key) === false ) { continue; }
+                out.push(key);
+            }
+            return out;
+        }
+        return [ k ];
     }
     #getMatchesFromExpr(pathin, step, owner, out) {
         const recursive = step.mv === this.#DESCENDANTS;
-        if ( Array.isArray(owner) === false ) {
-            const r = this.#evaluate(step.steps, pathin);
-            if ( r.length !== 0 ) { out.push(pathin); }
-            if ( recursive !== true ) { return; }
-        }
-        for ( const { obj, key, path } of this.#getDescendants(owner, recursive) ) {
-            if ( Array.isArray(obj[key]) ) { continue; }
-            const q = [ ...pathin, ...path ];
+        const v2 = this.#compiled.v2 || recursive || Array.isArray(owner);
+        for ( const { path } of this.#getDescendants(owner, recursive) ) {
+            const q = v2 ? [ ...pathin, ...path ] : pathin;
             const r = this.#evaluate(step.steps, q);
-            if ( r.length === 0 ) { continue; }
+            if ( Boolean(r?.length) === false ) { continue; }
             out.push(q);
+            if ( v2 === false ) { break; }
         }
-    }
-    #normalizeKey(owner, key) {
-        if ( typeof key === 'number' ) {
-            if ( Array.isArray(owner) ) {
-                return key >= 0 ? key : owner.length + key;
-            }
-        }
-        return key;
     }
     #getDescendants(v, recursive) {
         const iterator = {
@@ -398,7 +465,7 @@ class JSONPath {
                     if ( Array.isArray(v) ) {
                         this.stack.push({ obj: v, keys: v.keys() });
                     } else if ( typeof v === 'object' && v !== null ) {
-                        this.stack.push({ obj: v, keys: Object.keys(v).values() });
+                        this.stack.push({ obj: v, keys: JSONPath.keys(v).values() });
                     }
                 }
                 return this;
@@ -412,7 +479,7 @@ class JSONPath {
         if ( Array.isArray(v) ) {
             iterator.stack.push({ obj: v, keys: v.keys() });
         } else if ( typeof v === 'object' && v !== null ) {
-            iterator.stack.push({ obj: v, keys: Object.keys(v).values() });
+            iterator.stack.push({ obj: v, keys: JSONPath.keys(v).values() });
         }
         return iterator;
     }
@@ -421,7 +488,7 @@ class JSONPath {
         for (;;) {
             const c0 = query.charCodeAt(i);
             if ( c0 === 0x5D /* ] */ ) { break; }
-            if ( c0 === 0x2C /* , */ ) {
+            if ( c0 === 0x2C /* , */ || c0 === 0x20 /* SPACE */) {
                 i += 1;
                 continue;
             }
@@ -440,17 +507,24 @@ class JSONPath {
                 i += match[0].length;
                 continue;
             }
-            const s = this.#consumeUnquotedIdentifier(query, i);
-            if ( s === undefined ) { return; }
-            keys.push(s);
-            i += s.length;
+            const r = this.#consumeUnquotedIdentifier(query, i);
+            if ( r === undefined ) { return; }
+            keys.push(r.s);
+            i = r.i;
         }
         return { s: keys.length === 1 ? keys[0] : keys, i };
     }
     #consumeUnquotedIdentifier(query, i) {
+        if ( query.charCodeAt(i) === 0x2F /* / */ ) {
+            const r = this.#untilChar(query, 0x2F, i+1);
+            if ( r === undefined ) { return; }
+            let re;
+            try { re = new JSONPath.Regex(r.s); } catch { return; }
+            return { s: re, i: r.i };
+        }
         const match = this.#reUnquotedIdentifier.exec(query.slice(i));
         if ( match === null ) { return; }
-        return match[0];
+        return { s: match[0], i: i + match[0].length };
     }
     #untilChar(query, targetCharCode, i) {
         const len = query.length;
@@ -482,22 +556,27 @@ class JSONPath {
             if ( r === undefined ) { return i; }
             const match = /^[i]/.exec(query.slice(r.i));
             try {
-                step.rval = new RegExp(r.s, match && match[0] || undefined);
-            } catch {
-                return i;
-            }
+                step.rval = new JSONPath.Regex(r.s, match && match[0] || undefined);
+            } catch { return; }
             step.op = 're';
             if ( match ) { r.i += match[0].length; }
             return r.i;
         }
         const match = this.#reExpr.exec(query.slice(i));
-        if ( match === null ) { return i; }
-        try {
-            step.rval = JSON.parse(match[2]);
-            step.op = match[1];
-        } catch {
+        if ( match === null ) { return; }
+        const op = match[1], rval = match[2];
+        if ( rval.charCodeAt(0) === 0x27 /* ' */ ) {
+            const r = this.#untilChar(rval, 0x27, 1);
+            if ( r === undefined ) { return; }
+            step.rval = r.s;
+            step.op = op;
+        } else {
+            try {
+                step.rval = JSON.parse(rval);
+                step.op = op;
+            } catch { return; }
         }
-        return i + match[1].length + match[2].length;
+        return i + match[0].length - 1;
     }
     #resolvePath(path) {
         if ( path.length === 0 ) { return { value: this.#root }; }
@@ -505,34 +584,30 @@ class JSONPath {
         let obj = this.#root
         for ( let i = 0, n = path.length-1; i < n; i++ ) {
             obj = obj[path[i]];
+            if ( obj instanceof Object === false ) { return {}; }
         }
         return { obj, key, value: obj[key] };
     }
-    #evaluateExpr(step, owner, key) {
+    #evaluateExpr(step, owner, k) {
         if ( owner === undefined || owner === null ) { return; }
-        if ( typeof key === 'number' ) {
-            if ( Array.isArray(owner) === false ) { return; }
-        }
-        const k = this.#normalizeKey(owner, key);
-        const hasOwn = Object.hasOwn(owner, k);
+        const hasOwn = owner[k] !== undefined || JSONPath.hasOwn(owner, k);
         if ( step.op !== undefined && hasOwn === false ) { return; }
         const target = step.not !== true;
         const v = owner[k];
-        let outcome = false;
         switch ( step.op ) {
-        case '==': outcome = (v === step.rval) === target; break;
-        case '!=': outcome = (v !== step.rval) === target; break;
-        case  '<': outcome = (v < step.rval) === target; break;
-        case '<=': outcome = (v <= step.rval) === target; break;
-        case  '>': outcome = (v > step.rval) === target; break;
-        case '>=': outcome = (v >= step.rval) === target; break;
-        case '^=': outcome = `${v}`.startsWith(step.rval) === target; break;
-        case '$=': outcome = `${v}`.endsWith(step.rval) === target; break;
-        case '*=': outcome = `${v}`.includes(step.rval) === target; break;
-        case 're': outcome = step.rval.test(`${v}`); break;
-        default: outcome = hasOwn === target; break;
+        case '==': return (v === step.rval) === target;
+        case '!=': return (v !== step.rval) === target;
+        case  '<': return (v < step.rval) === target;
+        case '<=': return (v <= step.rval) === target;
+        case  '>': return (v > step.rval) === target;
+        case '>=': return (v >= step.rval) === target;
+        case '^=': return `${v}`.startsWith(step.rval) === target;
+        case '$=': return `${v}`.endsWith(step.rval) === target;
+        case '*=': return `${v}`.includes(step.rval) === target;
+        case 're': return step.rval.test(`${v}`);
+        default: break;
         }
-        if ( outcome ) { return k; }
+        return hasOwn === target;
     }
     #modifyVal(obj, key) {
         let { modify, rval } = this.#compiled;
@@ -548,9 +623,21 @@ class JSONPath {
             const lval = obj[key];
             if ( lval instanceof Object === false ) { return; }
             if ( Array.isArray(lval) ) { return; }
-            for ( const [ k, v ] of Object.entries(rval) ) {
+            for ( const [ k, v ] of JSONPath.entries(rval) ) {
                 lval[k] = v;
             }
+            break;
+        }
+        case 'call': {
+            const entries = rval.slice();
+            if ( entries.length < 2 ) { break; }
+            entries.forEach((a, i, aa) => {
+                if ( a === '${obj}' ) { aa[i] = obj; }
+                else if ( a === '${key}' ) { aa[i] = key; }
+                else if ( a === '${val}' ) { aa[i] = obj[key]; }
+            });
+            const instance = entries[0] ?? self;
+            instance[entries[1]](...entries.slice(2));
             break;
         }
         case 'repl': {
@@ -560,10 +647,9 @@ class JSONPath {
                 this.#compiled.re = null;
                 try {
                     this.#compiled.re = rval.regex !== undefined
-                        ? new RegExp(rval.regex, rval.flags)
-                        : new RegExp(rval.pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-                } catch {
-                }
+                        ? new JSONPath.Regex(rval.regex, rval.flags)
+                        : new JSONPath.Regex(rval.pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+                } catch { }
             }
             if ( this.#compiled.re === null ) { return; }
             obj[key] = lval.replace(this.#compiled.re, rval.replacement);
@@ -1390,6 +1476,20 @@ function objectPruneFn(
     if ( outcome === 'match' ) { return obj; }
 }
 
+function offIdleFn(id) {
+    if ( self.requestIdleCallback ) {
+        return self.cancelIdleCallback(id);
+    }
+    return self.cancelAnimationFrame(id);
+}
+
+function onIdleFn(fn, options) {
+    if ( self.requestIdleCallback ) {
+        return self.requestIdleCallback(fn, options);
+    }
+    return self.requestAnimationFrame(fn);
+}
+
 function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
     const safe = safeSelf();
     const needles = new Map();
@@ -1753,14 +1853,14 @@ function removeAttr(
     let timerId;
     const rmattrAsync = ( ) => {
         if ( timerId !== undefined ) { return; }
-        timerId = safe.onIdle(( ) => {
+        timerId = onIdleFn(( ) => {
             timerId = undefined;
             rmattr();
         }, { timeout: 17 });
     };
     const rmattr = ( ) => {
         if ( timerId !== undefined ) {
-            safe.offIdle(timerId);
+            offIdleFn(timerId);
             timerId = undefined;
         }
         try {
@@ -1966,18 +2066,6 @@ function safeSelf() {
             }, []);
             return this.Object_fromEntries(entries);
         },
-        onIdle(fn, options) {
-            if ( self.requestIdleCallback ) {
-                return self.requestIdleCallback(fn, options);
-            }
-            return self.requestAnimationFrame(fn);
-        },
-        offIdle(id) {
-            if ( self.requestIdleCallback ) {
-                return self.cancelIdleCallback(id);
-            }
-            return self.cancelAnimationFrame(id);
-        }
     };
     scriptletGlobals.safeSelf = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
@@ -2464,13 +2552,13 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 16 */
 [trustedReplaceArgument,trustedJsonEditFetchResponse,setConstant,jsonPruneFetchResponse,jsonPruneXhrResponse,xmlPrune,preventSetTimeout,preventFetch,abortOnPropertyRead,preventAddEventListener,removeAttr,adjustSetInterval,adjustSetTimeout,abortCurrentScript,abortOnPropertyWrite,abortOnStackTrace];
 
-const $scriptletArgs$ = /* 103 */ ["matchMedia.call","1","json:\"none\"","condition","max-width","..show_ads=false","propsToMatch","/statsig/initialize?","Object.prototype.hasAd","false","Object.prototype.isAdActive","Object.prototype.vastOptions","{}","advertising","","/player/metadata",".json","[breakId]","_VMAP_","bait","adsbygoogle","freeProConfig.btnRefresh","DOMContentLoaded","adBoxEl","mobiles","scroll","adBlockerCalled","DMP_IS_AUTOPLAY_ENABLED","createApp","load","document.cookie","id","#div-gpt-ad-header","inviewstitial_fired","true","(f-1)","*","0.001","firstLoad","300","style",".tadm_ad_unit","interstitial-popup","add_h2023","noopFunc","abp1","0","continueToVideoUrl","JSON.parse","/interstitial?viewkey=","player.postitialTimeout","returnAd","hidden","adformtag","[]","customAdlistMob","$","exoMobilePop","/^(?:scroll|touchmove|wheel)$/","preventDefault","/^(?:mousewheel|touchmove)$/","mobileAdvPop","data-universal-link","body","InfCustomSTAMobileFunc","bindPostitial","document.getElementsByClassName","adBlocked","initializeInterstitial","isPeriodic","0.02","PopUnder.bindEvent","exoUrl","undefined","organicPop","popUnderUrl","Object.prototype.vjsPlayer.ads","nor","nor.pageview","nor.eventURL","nor.pageviewURL","nor.setPageData","eval","/ddnext|ddtop/","bw_no_ad","ads_every_x_videos","click","clkUnder","cache_loader","RecommendItems.RecommendInfo.[-].DataSource.[=].spsr RecommendInfo.[-].DataSource.[=].spsr","m/product/ajax/productPersonalization","height","iframe[src=\"https://dq.h1g.jp/img/ad/ad_heigu.html\"]","document.createElement","interstitialAdDiv","showme","pcc","jmp","Math","document.write","_rand","adsbyimobile","div[class*=\"site-header__with-mobile-leaderboard\"]"];
+const $scriptletArgs$ = /* 104 */ ["matchMedia.call","1","json:\"none\"","condition","max-width","..show_ads=false","propsToMatch","/statsig/initialize?","Object.prototype.hasAd","false","Object.prototype.isAdActive","Object.prototype.vastOptions","{}","advertising","","/player/metadata",".json","[breakId]","_VMAP_","bait","Object.prototype.showInterstitialModalIfRequired","noopFunc","adsbygoogle","freeProConfig.btnRefresh","DOMContentLoaded","adBoxEl","mobiles","scroll","adBlockerCalled","DMP_IS_AUTOPLAY_ENABLED","createApp","load","document.cookie","id","#div-gpt-ad-header","inviewstitial_fired","true","(f-1)","*","0.001","firstLoad","300","style",".tadm_ad_unit","interstitial-popup","add_h2023","abp1","0","continueToVideoUrl","JSON.parse","/interstitial?viewkey=","player.postitialTimeout","returnAd","hidden","adformtag","[]","customAdlistMob","$","exoMobilePop","/^(?:scroll|touchmove|wheel)$/","preventDefault","/^(?:mousewheel|touchmove)$/","mobileAdvPop","data-universal-link","body","InfCustomSTAMobileFunc","bindPostitial","document.getElementsByClassName","adBlocked","initializeInterstitial","isPeriodic","0.02","PopUnder.bindEvent","exoUrl","undefined","organicPop","popUnderUrl","Object.prototype.vjsPlayer.ads","nor","nor.pageview","nor.eventURL","nor.pageviewURL","nor.setPageData","eval","/ddnext|ddtop/","bw_no_ad","ads_every_x_videos","click","clkUnder","cache_loader","RecommendItems.RecommendInfo.[-].DataSource.[=].spsr RecommendInfo.[-].DataSource.[=].spsr","m/product/ajax/productPersonalization","height","iframe[src=\"https://dq.h1g.jp/img/ad/ad_heigu.html\"]","document.createElement","interstitialAdDiv","showme","pcc","jmp","Math","document.write","_rand","adsbyimobile","div[class*=\"site-header__with-mobile-leaderboard\"]"];
 
-const $scriptletArglists$ = /* 68 */ "0,0,1,2,3,4;1,5,6,7;2,8,9;2,10,9;2,11,12;3,13,14,6,15;4,13,14,6,16;5,17,14,18;6,19;7,20;8,21;9,22,19;6,23;2,24,14;9,25,26;2,27,9;8,28;9,29,30;10,31,32;2,33,34;11,35,36,37;6,38,39;10,40,41;9,22,42;2,43,44;2,45,46;12,47,36,37;13,48,49;2,50,46;9,14,51;14,52;2,53,54;2,55,54;13,56,57;9,58,59;9,60;8,61;10,62,63;2,64,44;13,65;13,66,67;2,68,44;11,69,14,70;2,71,44;2,72,73;2,74,73;8,75;2,76,44;2,77,12;2,78,44;2,79,44;2,80,44;2,81,44;15,82,83;2,84,44;2,85,73;9,86,87;14,88;3,89,14,90;10,91,92;13,93,14;9,22,94;2,95,9;2,96,1;13,97,98;13,99,100;8,101;10,40,102";
+const $scriptletArglists$ = /* 69 */ "0,0,1,2,3,4;1,5,6,7;2,8,9;2,10,9;2,11,12;3,13,14,6,15;4,13,14,6,16;5,17,14,18;6,19;2,20,21;7,22;8,23;9,24,19;6,25;2,26,14;9,27,28;2,29,9;8,30;9,31,32;10,33,34;2,35,36;11,37,38,39;6,40,41;10,42,43;9,24,44;2,45,21;2,46,47;12,48,38,39;13,49,50;2,51,47;9,14,52;14,53;2,54,55;2,56,55;13,57,58;9,59,60;9,61;8,62;10,63,64;2,65,21;13,66;13,67,68;2,69,21;11,70,14,71;2,72,21;2,73,74;2,75,74;8,76;2,77,21;2,78,12;2,79,21;2,80,21;2,81,21;2,82,21;15,83,84;2,85,21;2,86,74;9,87,88;14,89;3,90,14,91;10,92,93;13,94,14;9,24,95;2,96,9;2,97,1;13,98,99;13,100,101;8,102;10,42,103";
 
-const $scriptletArglistRefs$ = /* 63 */ "59;65;48,49,50,51,52;31;42;60;28,36;21;4;13;-8;53;64;28,36;58;46;22;40;47;66;43;24;55,56;19;25,26,27;25;25;61;67;54;8;37;17;10;9;18;29,30;36;44,45;28;11;38;57;33;34;23;18;5,6,15;32;29;0,1,2;41;18;39;14;62,63;35;20;7;12;16;12;3";
+const $scriptletArglistRefs$ = /* 64 */ "60;66;49,50,51,52,53;32;43;61;29,37;22;4;14;-8;54;65;29,37;59;47;23;41;48;67;44;25;56,57;20;26,27,28;26;26;62;68;55;8;38;18;11;10;19;30,31;37;45,46;29;12;39;58;34;35;24;19;5,6,16;33;30;9;0,1,2;42;19;40;15;63,64;36;21;7;13;17;13;3";
 
-const $scriptletHostnames$ = /* 63 */ ["h1g.jp","blog.jp","news.jp","delfi.lt","m.iyf.tv","tu93.org","m.nuvid.*","nbc4i.com","redd.tube","erozine.jp","google.com","kbook8.com","komaki2.jp","m.hd21.com","newegg.com","pornhd.com","saveur.com","supleks.jp","usnews.com","gamerch.com","gotporn.com","m.efuxs.com","onlytik.com","oreno3d.com","pornhub.com","pornhub.net","pornhub.org","rakukan.net","reuters.com","trashbox.ru","daotekno.com","idaprikol.ru","momon-ga.com","planetf1.com","sht-link.com","youpouch.com","erobanach.com","m.drtuber.com","m.tnaflix.com","m.viptube.com","mangalivre.tv","mediafire.com","player4me.vip","m.sunporno.com","news.mynavi.jp","quiz-facts.com","soranews24.com","dailymotion.com","m.hellporno.com","openloadpro.com","www.nytimes.com","moneycontrol.com","rocketnews24.com","straitstimes.com","m.livehindustan.com","m.minixiaoshuow.com","mudainodocument.com","business-standard.com","www.dailymotion.com>>","nijimen.kusuguru.co.jp","wuxianxiaoshuowang.com","nazology.kusuguru.co.jp","timesofindia.indiatimes.com"];
+const $scriptletHostnames$ = /* 64 */ ["h1g.jp","blog.jp","news.jp","delfi.lt","m.iyf.tv","tu93.org","m.nuvid.*","nbc4i.com","redd.tube","erozine.jp","google.com","kbook8.com","komaki2.jp","m.hd21.com","newegg.com","pornhd.com","saveur.com","supleks.jp","usnews.com","gamerch.com","gotporn.com","m.efuxs.com","onlytik.com","oreno3d.com","pornhub.com","pornhub.net","pornhub.org","rakukan.net","reuters.com","trashbox.ru","daotekno.com","idaprikol.ru","momon-ga.com","planetf1.com","sht-link.com","youpouch.com","erobanach.com","m.drtuber.com","m.tnaflix.com","m.viptube.com","mangalivre.tv","mediafire.com","player4me.vip","m.sunporno.com","news.mynavi.jp","quiz-facts.com","soranews24.com","dailymotion.com","m.hellporno.com","openloadpro.com","planefinder.net","www.nytimes.com","moneycontrol.com","rocketnews24.com","straitstimes.com","m.livehindustan.com","m.minixiaoshuow.com","mudainodocument.com","business-standard.com","www.dailymotion.com>>","nijimen.kusuguru.co.jp","wuxianxiaoshuowang.com","nazology.kusuguru.co.jp","timesofindia.indiatimes.com"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 
