@@ -1,6 +1,14 @@
+- [Add ability to subscribe to filter lists from remote servers](https://github.com/gorhill/uBlock/commit/06deb19dfa)
+- Updated filter lists
+
+----------
+
+### 2026.614.1502
+
 - [Wrap troubleshooting info into `details` tag](https://github.com/gorhill/uBlock/commit/d86c0a0675)
 - [Fix conversion of `top=` option to DNR's `topDomains`](https://github.com/gorhill/uBlock/commit/560a59bd61)
 - [Add `popupBlockMode` to admin-controlled settings](https://github.com/gorhill/uBlock/commit/3806141043)
+- Updated filter lists
 
 ----------
 
@@ -10,6 +18,7 @@
 - [Fix binary search potentially not finding match in edge case](https://github.com/gorhill/uBlock/commit/bc5fa9fe9a)
 - [Show all dynamic/session rules in Develop pane](https://github.com/gorhill/uBlock/commit/c1cadb35d9)
 - [Prevent re-entrancy when compiling sandbox filters](https://github.com/gorhill/uBlock/commit/38eac0f0cb)
+- Updated filter lists
 
 ----------
 
