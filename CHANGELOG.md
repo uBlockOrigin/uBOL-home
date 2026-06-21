@@ -1,3 +1,13 @@
+----------
+
+### 2026.621.2046
+
+- [Add missing `browser` import](https://github.com/gorhill/uBlock/commit/83f0c2b64a)
+
+----------
+
+### 2026.621.1813
+
 - [firefox] [Fix "Develop" editor being unscrollable](https://github.com/gorhill/uBlock/commit/b20f355278)
 - [Use alarms API to manage low-priority deferred tasks](https://github.com/gorhill/uBlock/commit/174012e57d)
 - [Manually check for userScripts permission changes](https://github.com/gorhill/uBlock/commit/bf405035a9)
