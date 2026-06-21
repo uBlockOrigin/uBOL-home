@@ -367,7 +367,7 @@ const $scriptletArglists$ = /* 1 */ "0,0,1";
 
 const $scriptletArglistRefs$ = /* 1 */ "0";
 
-const $scriptletHostnames$ = /* 1 */ ["animehay05.site"];
+const $scriptletHostnames$ = /* 1 */ ["animehay06.site"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

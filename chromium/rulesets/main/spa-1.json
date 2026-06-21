@@ -331,7 +331,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["portaldacidade.com"],"urlFilter":"/img/publicity/"},"id":330,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||portaldacidade.com/banner"},"id":331,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||otempo.com.br/rest-services/ads-service"},"id":332,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["superembeds.com"],"urlFilter":"||p.jwpcdn.com/*/vast.js"},"id":333,"priority":40},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["sic.pt","sicnoticias.pt","statics.impresa.pt","superembeds.com"],"urlFilter":"||p.jwpcdn.com/*/vast.js"},"id":333,"priority":40},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["informacion.es","laprovincia.es","levante-emv.com"],"urlFilter":"||trafico.prensaiberica.es/adm/min/pb_wrapper/prebid.js"},"id":334,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||andaluciainformacion.es/*banner"},"id":335,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||profesionalreview.com/wp-content/uploads/*/skin*pr"},"id":336,"priority":10},
@@ -901,5 +901,10 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||documaniatv.com/player/*/vast.js"},"id":900,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||nintenderos.com/wp-content/themes/nintenderos-v3/assets/banners/banner_*.html"},"id":901,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["playerflixapi.com"],"urlFilter":"||developersone.com.br/load.php"},"id":902,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||mp.lura.live/live/vast.meta"},"id":903,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||mp.lura.live/live/vast.meta"},"id":903,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||wp.com/portalmie.com/wp-content/uploads/parceiros-portal/"},"id":904,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||portalmie.com/wp-content/plugins/parceiros_portalmie/"},"id":905,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||sapo.pt/assets/pub2."},"id":906,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||js.sapo.pt/projects/cpu/latest/prebid*.*_*.js"},"id":907,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||obj.ni.aws.newsgen.io/pub/campanhas/idealista/id-app-1920x1100.jpg"},"id":908,"priority":10}
 ]

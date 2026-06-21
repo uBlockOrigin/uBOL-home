@@ -653,13 +653,13 @@ const scriptletGlobals = {}; // eslint-disable-line
 const $scriptletFunctions$ = /* 4 */
 [removeNodeText,removeClass,setSessionStorageItem,setCookie];
 
-const $scriptletArgs$ = /* 12 */ ["#text","中間廣告","publicplay","#main-player","q-body--prevent-scroll","body","hassession","1","closeAd","script","yumayishop","getIsToJd"];
+const $scriptletArgs$ = /* 13 */ ["#text","中間廣告","publicplay","#main-player","q-body--prevent-scroll","body","hassession","1","script","/navigator\\.platform|new Function/","closeAd","yumayishop","getIsToJd"];
 
-const $scriptletArglists$ = /* 7 */ "0,0,1;1,2,3;1,4,5;2,6,7;3,8,7;0,9,10;3,11,7";
+const $scriptletArglists$ = /* 8 */ "0,0,1;1,2,3;1,4,5;2,6,7;0,8,9;3,10,7;0,8,11;3,12,7";
 
-const $scriptletArglistRefs$ = /* 9 */ "1;2;1;3;1;0;4;6;5";
+const $scriptletArglistRefs$ = /* 10 */ "1;2;1;3;1;0;5;7;4;6";
 
-const $scriptletHostnames$ = /* 9 */ ["iyf.tv","9xav.cc","yfsp.tv","subhd.com","aiyifan.tv","jmcomic1.me","xl02.com.de","nb.zol.com.cn","phone-book.tw"];
+const $scriptletHostnames$ = /* 10 */ ["iyf.tv","9xav.cc","yfsp.tv","subhd.com","aiyifan.tv","jmcomic1.me","xl02.com.de","nb.zol.com.cn","noslocker.com","phone-book.tw"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

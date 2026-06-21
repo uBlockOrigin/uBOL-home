@@ -412,5 +412,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||miscareaderezistenta.ro/*.gif"},"id":411,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"*fifa-banner"},"id":412,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["eventim.ro"],"resourceTypes":["sub_frame"],"urlFilter":"||stay22.com/embed/"},"id":413,"priority":30},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["botosaneanul.ro"],"resourceTypes":["image"],"urlFilter":".gif"},"id":414,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["botosaneanul.ro"],"resourceTypes":["image"],"urlFilter":".gif"},"id":414,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||dincolodesport.eu/wp-content/uploads/*/auto-service.jpg"},"id":415,"priority":10}
 ]
