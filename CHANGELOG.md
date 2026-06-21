@@ -1,3 +1,4 @@
+- [firefox] [Fix "Develop" editor being unscrollable](https://github.com/gorhill/uBlock/commit/b20f355278)
 - [Use alarms API to manage low-priority deferred tasks](https://github.com/gorhill/uBlock/commit/174012e57d)
 - [Manually check for userScripts permission changes](https://github.com/gorhill/uBlock/commit/bf405035a9)
 - [[edge] Remove the now possibly unnecessary patching of rulesets](https://github.com/gorhill/uBlock/commit/8839a9f7a8)
