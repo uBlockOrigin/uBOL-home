@@ -1,8 +1,12 @@
+- [Imported lists are meant to work without requiring developer mode](https://github.com/gorhill/uBlock/commit/86532aa1b5)
+- Updated filter lists
+
 ----------
 
 ### 2026.621.2046
 
 - [Add missing `browser` import](https://github.com/gorhill/uBlock/commit/83f0c2b64a)
+- Updated filter lists
 
 ----------
 
