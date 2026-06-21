@@ -1,11 +1,11 @@
-Secret: 71e39d05cab76579
-Version: 2026.621.1813
+Secret: e5500e6b67de0aae
+Version: 2026.621.2046
 ============================
 Listset for 'ublock-filters':
-Input filter count: 10214
-	Accepted filter count: 10192
+Input filter count: 10215
+	Accepted filter count: 10193
 	Rejected filter count: 1
-Output rule count: 5741
+Output rule count: 5742
 	Static rules: 5333
 		Salvaged rule by ignoring 1 unsupported domain= option: erotic-beauties.com|hardsex.cc|rule34.top|sex-movies.biz|tube18.sexy|xvideos.name|booru.*
 		Salvaged rule by ignoring 1 unsupported domain= option: 8boobs.com|angelgals.com|babesexy.com|babesinporn.com|fooxybabes.com|hotbabeswanted.com|hotstunners.com|mainbabes.com|nakedbabes.club|nakedgirlsroom.com|nudebabes.sexy|pleasuregirl.net|rabbitsfun.com|sexybabes.club|sexybabesart.com|wantedbabes.com|silkengirl.*
@@ -76,7 +76,7 @@ Output rule count: 5741
 		Salvaged rule by ignoring 1 unsupported domain= option: amazon.ae|amazon.ca|amazon.cn|amazon.co.jp|amazon.co.uk|amazon.com|amazon.com.au|amazon.de|amazon.es|amazon.fr|amazon.in|amazon.nl|amazon.sg|amazon.*
 		Salvaged rule by ignoring 19 unsupported domain= option: fullxh.com|megaxh.com|seexh.com|unlockxh4.com|xhaccess.com|xhadult2.com|xhadult3.com|xhamster.*|xhamster10.*|xhamster11.*|xhamster12.*|xhamster13.*|xhamster14.*|xhamster15.*|xhamster16.*|xhamster17.*|xhamster18.*|xhamster19.*|xhamster2.*|xhamster20.*|xhamster3.*|xhamster4.*|xhamster42.*|xhamster5.*|xhamster7.*|xhamster8.*|xhamsterporno.mx|xhbig.com|xhbranch5.com|xhchannel.com|xhdate.world|xhlease.world|xhmoon5.com|xhofficial.com|xhopen.com|xhplanet1.com|xhplanet2.com|xhreal2.com|xhreal3.com|xhspot.com|xhtotal.com|xhtree.com|xhvictory.com|xhwebsite.com|xhwebsite5.com|xhwide5.com
 	Maybe good (regexes): 189
-	urlskip=: 218
+	urlskip=: 219
 	Unsupported: 0
 
 CSS-generic-low: 157 plain CSS selectors
@@ -85,11 +85,11 @@ CSS-generic: 432 specific CSS exceptions
 CSS-specific: 6068 distinct filters for 5181 distinct hostnames
 ============================
 Listset for 'easylist':
-Input filter count: 57808
-	Accepted filter count: 57786
+Input filter count: 57841
+	Accepted filter count: 57819
 	Rejected filter count: 18
 Output rule count: 3685
-	Pruning requestDomains: from 48242 to 48239
+	Pruning requestDomains: from 48275 to 48272
 	Static rules: 3665
 
 	Maybe good (regexes): 20
@@ -194,11 +194,11 @@ Output rule count: 20
 
 ============================
 Listset for 'dpollock-0':
-Input filter count: 12828
-	Accepted filter count: 12818
+Input filter count: 12829
+	Accepted filter count: 12819
 	Rejected filter count: 10
 Output rule count: 1
-	Pruning requestDomains: from 12818 to 10603
+	Pruning requestDomains: from 12819 to 10604
 	Static rules: 1
 
 	Maybe good (regexes): 0

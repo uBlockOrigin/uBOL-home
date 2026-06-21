@@ -1462,6 +1462,13 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?click\\.convertkit-mail4\\.com/",
+  "steps": [
+   "/([^/]+$)/",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?www\\.google\\..*?/url\\?sa=.*?&source=.*?&cd=&ved=.*?&url=",
   "steps": [
    "?url"

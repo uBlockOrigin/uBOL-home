@@ -5613,7 +5613,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["allboxing.ru"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||s.zmctrack.net/z|"},"id":5612,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["sindom.ru"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||sindom.ru/ads/searchf"},"id":5613,"priority":30},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||snapo.ru/ads/props/"},"id":5614,"priority":30},
-{"action":{"type":"block"},"condition":{"excludedResourceTypes":["main_frame","stylesheet"],"urlFilter":"||kg-portal.ru/brandbook/"},"id":5615,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kg-portal.ru/brandbook/"},"id":5615,"priority":10},
 {"action":{"type":"allow"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||unpkg.com/devextreme^*/dblclick."},"id":5616,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["vak.minobrnauki.gov.ru"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||vak.minobrnauki.gov.ru/*/adverts_list.php"},"id":5617,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["7days.ru","vokrug.tv"],"resourceTypes":["sub_frame"],"urlFilter":"||rutube.ru/play/embed/*?autostart"},"id":5618,"priority":10},
