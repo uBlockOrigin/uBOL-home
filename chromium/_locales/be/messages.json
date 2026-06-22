@@ -88,15 +88,15 @@
     "description": "Header for a ruleset section in 'Filter lists pane'"
   },
   "3pGroupImported": {
-    "message": "Імпартаваныя спісы",
+    "message": "Imported lists",
     "description": "Header for a ruleset section in 'Filter lists pane'"
   },
   "customListImportLabel": {
-    "message": "Дадаць спіс фільтраў…",
+    "message": "Add filter list…",
     "description": "Text label heading the import area of custom filter lists"
   },
   "customListImportPlaceholder": {
-    "message": "Устаўце сюды URL-адрас спіса фільтраў, які трэба дадаць",
+    "message": "Paste here the URL of the filter list to add",
     "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "customFiltersImportExportLabel": {
@@ -104,11 +104,11 @@
     "description": "Text label heading the import/export area of custom filters"
   },
   "customFiltersImportTextareaPlaceholder": {
-    "message": "Устаўце сюды спецыяльныя касметычныя фільтры, якія трэба дадаць",
+    "message": "Устаўце сюды спецыяльныя касметычныя фільтры для дадання",
     "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "userScriptsInfo": {
-    "message": "Каб прымяніць касметычныя фільтры або фільтры скрыптлетаў да імпартаваных спісаў, вы павінны даць uBO Lite дазвол на запуск карыстальніцкіх скрыптоў. Адкрыйце старонку пашырэнняў вашага браўзера (<code>chrome://extensions</code> у Chrome або <code>about:addons</code> у Firefox), адкрыйце падрабязнасці <b>uBO Lite</b> і ўключыце <b>Дазволіць карыстальніцкія скрыпты</b> (таксама вядомыя як «неправераныя староннія скрыпты»).",
+    "message": "To enforce cosmetic or scriptlet filters from imported lists, you must grant uBO Lite permission to run user scripts. Open your browser's extensions page (<code>chrome://extensions</code> in Chrome or <code>about:addons</code> in Firefox), open <b>uBO Lite</b> details, and toggle on <b>Allow user scripts</b> (also referred to as “unverified third-party scripts”).",
     "description": "A notice to inform user that the enforcement of some filters requires permission to execute 'user scripts'"
   },
   "aboutChangelog": {
@@ -152,7 +152,7 @@
     "description": "Label of 'Troubleshooting information' section in 'Report a filter issue' page"
   },
   "supportS6P1S1": {
-    "message": "Каб не абцяжарваць добраахвотнікаў дубляванымі справаздачамі, праверце, ці не паведамлялі пра гэтую праблему раней. <b>Заўвага:</b> націсканне кнопкі прывядзе да адпраўкі паходжання старонкі на GitHub.",
+    "message": "Каб не абцяжарваць добраахвотнікаў дубляванымі справаздачамі, калі ласка, пераканайцеся, што пра гэтую праблему не паведамлялі раней.",
     "description": "A paragraph in the filter issue reporter section"
   },
   "supportFindSpecificButton": {
@@ -284,7 +284,7 @@
     "description": "Header for filter-creation section in the dashboard"
   },
   "developerModeLabel": {
-    "message": "Рэжым распрацоўшчыка",
+    "message": "Рэжым распрацоўніка",
     "description": "Label for a checkbox in the options page"
   },
   "developerModeLegend": {
@@ -412,11 +412,11 @@
     "description": "Text for buttons used to restore content"
   },
   "resetToDefaultButton": {
-    "message": "Скінуць да прадвызначаных налад…",
+    "message": "Скід да налад па змаўчанні…",
     "description": "Text for buttons used to reset configurations to default"
   },
   "resetToDefaultConfirm": {
-    "message": "Усе карыстальніцкія налады будуць выдалены. Вы сапраўды хочаце скінуць налады да прадвызначаных?",
+    "message": "Усе вашыя прыстасаваныя наладкі будуць выдалены. Вы сапраўды хочаце вярнуцца да налад па змаўчанні?",
     "description": "Message asking user to confirm reset to default settings"
   },
   "dnrRulesWarning": {

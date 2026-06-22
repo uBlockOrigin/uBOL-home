@@ -121,12 +121,8 @@ import {
     hasBroadHostPermissions,
 } from './ext-utils.js';
 
-import {
-    registerUserScripts,
-    updateCompiledFilters,
-} from './compiled-filters.js';
-
 import { dnr } from './ext-compat.js';
+import { registerCompiledFilters } from './compiled-filters.js';
 import { setPopupBlockMode } from './prevent-popup.js';
 import { supportsOffscreenDocument } from './ext-offscreen.js';
 import { toggleToolbarIcon } from './action.js';
@@ -230,25 +226,30 @@ onPermissionsChanged.pending = [];
 
 /******************************************************************************/
 
+async function registerDeclarativeAssets(
+    contentScripts = true,
+    userScripts = true,
+    userRules = true
+) {
+    const [ shouldUpdateUserRules ] = await Promise.all([
+        userScripts ? registerCompiledFilters() : false,
+        contentScripts ? registerContentScripts() : false,
+    ]);
+    if ( userRules && shouldUpdateUserRules ) {
+        await updateUserRules();
+    }
+}
+
+/******************************************************************************/
+
 async function applyRulesets(rulesets) {
     const result = await enableRulesets(rulesets);
     const stockUpdated = result.stockUpdated ?? false;
     const importedUpdated = result.importedUpdated ?? false;
-    if ( (stockUpdated || importedUpdated) === false ) { return; }
+    if ( stockUpdated === false && importedUpdated === false ) { return; }
     rulesetConfig.enabledRulesets = result.enabledRulesets;
     await saveRulesetConfig();
-    const promises = [];
-    if ( importedUpdated ) {
-        promises.push(
-            updateCompiledFilters().then(( ) =>
-                Promise.all([ registerUserScripts(), updateUserRules() ])
-            )
-        );
-    }
-    if ( stockUpdated ) {
-        promises.push(registerContentScripts());
-    }
-    await Promise.all(promises);
+    await registerDeclarativeAssets(stockUpdated, importedUpdated);
     broadcastMessage({ enabledRulesets: rulesetConfig.enabledRulesets });
 }
 
@@ -259,6 +260,8 @@ async function setDeveloperMode(state) {
     toggleDeveloperMode(rulesetConfig.developerMode);
     broadcastMessage({ developerMode: rulesetConfig.developerMode });
     await saveRulesetConfig();
+    await registerDeclarativeAssets(false, true, true);
+    await updateUserRules();
     return rulesetConfig.developerMode;
 }
 
@@ -489,7 +492,7 @@ async function onMessage(request, sender) {
         const beforeLevel = await getFilteringMode(request.hostname);
         if ( request.level === beforeLevel ) { return beforeLevel; }
         const afterLevel = await setFilteringMode(request.hostname, request.level);
-        await Promise.all([ registerContentScripts(), registerUserScripts() ]);
+        await registerDeclarativeAssets();
         return afterLevel;
     }
 
@@ -505,7 +508,7 @@ async function onMessage(request, sender) {
         const beforeLevel = await getDefaultFilteringMode();
         const afterLevel = await setDefaultFilteringMode(request.level);
         if ( afterLevel !== beforeLevel ) {
-            await Promise.all([ registerContentScripts(), registerUserScripts() ]);
+            await registerDeclarativeAssets();
         }
         return afterLevel;
     }
@@ -515,7 +518,7 @@ async function onMessage(request, sender) {
 
     case 'setFilteringModeDetails': {
         await setFilteringModeDetails(request.modes);
-        await Promise.all([ registerContentScripts(), registerUserScripts() ]);
+        await registerDeclarativeAssets();
         const defaultFilteringMode = await getDefaultFilteringMode();
         broadcastMessage({ defaultFilteringMode });
         return getFilteringModeDetails(true);
@@ -552,76 +555,39 @@ async function onMessage(request, sender) {
     case 'addCustomFilters': {
         const modified = await addCustomFilters(request.hostname, request.selectors);
         if ( modified !== true ) { return; }
-        const hasScriptletFilters = request.selectors.some(a => isScriptlet(a));
-        const hasPlainFilters = request.selectors.some(a => isScriptlet(a) === false);
-        const promises = [];
-        if ( hasPlainFilters ) {
-            promises.push(registerContentScripts());
-        }
-        if ( hasScriptletFilters ) {
-            promises.push(
-                updateCompiledFilters().then(( ) => registerUserScripts())
-            );
-        }
-        await Promise.all(promises);
-        return;
+        return registerDeclarativeAssets(true,
+            request.selectors.some(a => isScriptlet(a))
+        );
     }
 
     case 'addManyCustomFilters': {
         const promises = [];
         let hasScriptletFilters = false;
-        let hasPlainFilters = false;
         for ( const [ hostname, selectors ] of request.entries ) {
             if ( typeof hostname !== 'string' ) { continue; }
             if ( hostname === '' ) { continue; }
             if ( Array.isArray(selectors) === false ) { continue; }
             if ( selectors.length === 0 ) { continue; }
             hasScriptletFilters ||= selectors.some(a => isScriptlet(a));
-            hasPlainFilters ||= selectors.some(a => isScriptlet(a) === false);
             promises.push(addCustomFilters(hostname, selectors));
         }
         const results = await Promise.all(promises);
         if ( results.some(a => a) === false ) { return; }
-        promises.length = 0;
-        if ( hasPlainFilters ) {
-            promises.push(registerContentScripts());
-        }
-        if ( hasScriptletFilters ) {
-            promises.push(
-                updateCompiledFilters().then(( ) => registerUserScripts())
-            );
-        }
-        await Promise.all(promises);
-        return;
+        return registerDeclarativeAssets(true, hasScriptletFilters);
     }
 
     case 'removeCustomFilters': {
-        const { selectors } = request;
-        const modified = await removeCustomFilters(request.hostname, selectors);
+        const modified = await removeCustomFilters(request.hostname, request.selectors);
         if ( modified !== true ) { return; }
-        const hasScriptletFilters = selectors.some(a => isScriptlet(a));
-        const hasPlainFilters = selectors.some(a => isScriptlet(a) === false);
-        const promises = [];
-        if ( hasPlainFilters ) {
-            promises.push(registerContentScripts());
-        }
-        if ( hasScriptletFilters ) {
-            promises.push(
-                updateCompiledFilters().then(( ) => registerUserScripts())
-            );
-        }
-        await Promise.all(promises);
-        return;
+        return registerDeclarativeAssets(true,
+            request.selectors.some(a => isScriptlet(a))
+        );
     }
 
     case 'removeAllCustomFilters': {
         const modified = await removeAllCustomFilters(request.hostname);
         if ( modified !== true ) { return; }
-        await Promise.all([
-            registerContentScripts(),
-            updateCompiledFilters().then(( ) => registerUserScripts()),
-        ]);
-        return;
+        return registerDeclarativeAssets();
     }
 
     case 'getSandboxFilters':
@@ -629,9 +595,7 @@ async function onMessage(request, sender) {
 
     case 'setSandboxFilters': {
         await setSandboxFilters(request.text);
-        await updateCompiledFilters();
-        await Promise.all([ registerUserScripts(), updateUserRules() ]);
-        return;
+        return registerDeclarativeAssets(false);
     }
 
     case 'customFiltersFromHostname':
@@ -649,9 +613,10 @@ async function onMessage(request, sender) {
         const rulesets = await getEnabledRulesets();
         rulesets.push(request.url);
         applyRulesets(rulesets);
-        await updateCompiledFilters();
-        await Promise.all([ registerUserScripts(), updateUserRules() ]);
-        return;
+        if ( modified ) {
+            return registerDeclarativeAssets(false);
+        }
+        break;
     }
 
     case 'getImportedLists': {   
@@ -661,9 +626,7 @@ async function onMessage(request, sender) {
     case 'updateImportedLists': {
         const count = await updateImportedLists();
         if ( count === 0 ) { break; }
-        await updateCompiledFilters();
-        await Promise.all([ registerUserScripts(), updateUserRules() ]);
-        return;
+        return registerDeclarativeAssets(false);
     }
 
     case 'pruneCSSCache': {   
@@ -760,12 +723,14 @@ async function startSession() {
     const shouldInject = isNewVersion || permissionsUpdated ||
         isSideloaded && rulesetConfig.developerMode;
     if ( shouldInject || stockUpdated || importedUpdated ) {
-        await Promise.all([
-            registerContentScripts(),
-            updateCompiledFilters().then(( ) =>
-                Promise.all([ registerUserScripts(), updateUserRules() ])
-            ),
-        ]);
+        await registerDeclarativeAssets(
+            shouldInject || stockUpdated,
+            shouldInject || importedUpdated || userScriptsChanged,
+            false
+        );
+        if ( importedUpdated ) {
+            await updateUserRules();
+        }
     }
 
     // Cosmetic filtering-related content scripts cache fitlering data in

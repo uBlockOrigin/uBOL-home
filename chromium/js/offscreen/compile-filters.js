@@ -30,10 +30,6 @@ import { safeReplace } from './safe-replace.js';
 
 /******************************************************************************/
 
-const browser = (self.browser || self.chrome);
-
-/******************************************************************************/
-
 function parseExpires(s) {
     const matches = s.match(/(\d+)\s*([wdhm]?)/i);
     if ( matches === null ) { return; }
@@ -338,7 +334,7 @@ async function updateList(list) {
     });
     if ( Boolean(compiled) === false ) { return; }
 
-    await browser.runtime.sendMessage({
+    await chrome.runtime.sendMessage({
         what: 'compileFilters:updateImportedListData',
         listid: list.id,
         compiled: s14e.serialize(compiled, { compress: true }),
@@ -355,7 +351,7 @@ async function updateList(list) {
 /******************************************************************************/
 
 async function getCompiledListData(list) {
-    const result = await browser.runtime.sendMessage({
+    const result = await chrome.runtime.sendMessage({
         what: 'compileFilters:getImportedListCompiledData',
         listid: list.id,
     });
@@ -427,7 +423,7 @@ function mergeCompiledData(to, from) {
 /******************************************************************************/
 
 async function compileImportedList() {
-    const lists = await browser.runtime.sendMessage({
+    const lists = await chrome.runtime.sendMessage({
         what: 'compileFilters:getEnabledImportedLists'
     });
     if ( Boolean(lists?.length) === false ) { return; }
@@ -449,7 +445,7 @@ async function compileImportedList() {
 /******************************************************************************/
 
 async function compileSandboxFilters() {
-    const text = await browser.runtime.sendMessage({
+    const text = await chrome.runtime.sendMessage({
         what: 'compileFilters:getUserList'
     });
     if ( Boolean(text) === false ) { return; }
@@ -495,7 +491,7 @@ async function compileSandboxFilters() {
     if ( importedCompiled.dnrRules?.length ) {
         msg.imported.dnrRules = importedCompiled.dnrRules;
     }
-    browser.runtime.sendMessage(msg);
+    chrome.runtime.sendMessage(msg);
 })();
 
 /******************************************************************************/
