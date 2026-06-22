@@ -1,3 +1,6 @@
+- [Distinguish between need to update filters and need to update user scripts](https://github.com/gorhill/uBlock/commit/ef84281e77)
+- [Fix regression when converting removeparam= filters to DNR rules](https://github.com/gorhill/uBlock/commit/9722c9e9cf)
+- [Fix broken rendering of final URL in strict-block page](https://github.com/gorhill/uBlock/commit/f934cfb94b)
 - [Imported lists are meant to work without requiring developer mode](https://github.com/gorhill/uBlock/commit/86532aa1b5)
 - Updated filter lists
 
