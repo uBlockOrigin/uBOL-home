@@ -1,3 +1,11 @@
+- [Support specific-generic cosmetic and scriptlet user filters](https://github.com/gorhill/uBlock/commit/b29f6667e3)
+- [Bring back "CERT.PL's Warning List"](https://github.com/gorhill/uBlock/commit/e46c59b792)
+- [Fix conversion of `csp=`/`permissions=` exception filters](https://github.com/gorhill/uBlock/commit/90a13ba3e7)
+
+----------
+
+### 2026.622.2316
+
 - [Distinguish between need to update filters and need to update user scripts](https://github.com/gorhill/uBlock/commit/ef84281e77)
 - [Fix regression when converting removeparam= filters to DNR rules](https://github.com/gorhill/uBlock/commit/9722c9e9cf)
 - [Fix broken rendering of final URL in strict-block page](https://github.com/gorhill/uBlock/commit/f934cfb94b)
