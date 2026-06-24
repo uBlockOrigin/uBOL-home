@@ -1,8 +1,10 @@
 - [Add ability to view DNR rules of imported lists in "Develop" pane](https://github.com/gorhill/uBlock/commit/fedd40fde3)
 - [Compile imported lists using platform-specific resource types](https://github.com/gorhill/uBlock/commit/2803cf43c5)
+- [Fix multiple issues with imported lists feature](https://github.com/gorhill/uBlock/commit/1470ed462b)
 - [Support specific-generic cosmetic and scriptlet user filters](https://github.com/gorhill/uBlock/commit/b29f6667e3)
 - [Bring back "CERT.PL's Warning List"](https://github.com/gorhill/uBlock/commit/e46c59b792)
 - [Fix conversion of `csp=`/`permissions=` exception filters](https://github.com/gorhill/uBlock/commit/90a13ba3e7)
+- Updated filter lists
 
 ----------
 
