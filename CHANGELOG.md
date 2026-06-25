@@ -1,3 +1,5 @@
+- [Exclude redirect resource `click2load.html`](https://github.com/gorhill/uBlock/commit/3bf5076f9b)
+- [Fix priority of `important` redirects in locally-compiled filters](https://github.com/gorhill/uBlock/commit/a532fb11cd)
 - [Add ability to view DNR rules of imported lists in "Develop" pane](https://github.com/gorhill/uBlock/commit/fedd40fde3)
 - [Compile imported lists using platform-specific resource types](https://github.com/gorhill/uBlock/commit/2803cf43c5)
 - [Fix multiple issues with imported lists feature](https://github.com/gorhill/uBlock/commit/1470ed462b)
