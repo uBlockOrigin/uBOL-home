@@ -49,6 +49,7 @@ import {
     matchesFromHostnames,
 } from './utils.js';
 
+import { dnr } from './ext-compat.js';
 import { getFilteringModeDetails } from './mode-manager.js';
 import { supportsOffscreenDocument } from './ext-offscreen.js';
 import { ubolLog } from './debug.js';
@@ -81,6 +82,9 @@ async function parseRawFilters() {
     const handler = (request, sender, callback) => {
         if ( typeof request !== 'object' ) { return; }
         switch ( request?.what ) {
+        case 'compileFilters:getResourceTypes':
+            callback(Object.values(dnr.ResourceType));
+            break;
         case 'compileFilters:getUserList':
             getUserList().then(text => {
                 if ( text ) { ubolLog(`Compiling user filters`); }
@@ -117,7 +121,7 @@ async function parseRawFilters() {
         promise: timeoutPromise,
         resolve: timeoutResolve,
     } = Promise.withResolvers();
-    self.setTimeout(timeoutResolve, 30000);
+    self.setTimeout(timeoutResolve, 60000);
     const [ result ] = await Promise.all([
         Promise.race([ offscreenPromise, timeoutPromise ]),
         createOffscreenDocument('/js/offscreen/compile-filters.html'),

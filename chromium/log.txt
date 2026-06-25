@@ -1,12 +1,12 @@
-Secret: a5cd71331d05e7d6
-Version: 2026.622.2316
+Secret: df167f72e8b76608
+Version: 2026.625.1633
 ============================
 Listset for 'ublock-filters':
-Input filter count: 10229
-	Accepted filter count: 10207
+Input filter count: 10232
+	Accepted filter count: 10210
 	Rejected filter count: 1
-Output rule count: 5749
-	Static rules: 5338
+Output rule count: 5750
+	Static rules: 5339
 		Salvaged rule by ignoring 1 unsupported domain= option: erotic-beauties.com|hardsex.cc|rule34.top|sex-movies.biz|tube18.sexy|xvideos.name|booru.*
 		Salvaged rule by ignoring 1 unsupported domain= option: 8boobs.com|angelgals.com|babesexy.com|babesinporn.com|fooxybabes.com|hotbabeswanted.com|hotstunners.com|mainbabes.com|nakedbabes.club|nakedgirlsroom.com|nudebabes.sexy|pleasuregirl.net|rabbitsfun.com|sexybabes.club|sexybabesart.com|wantedbabes.com|silkengirl.*
 		Salvaged rule by ignoring 1 unsupported domain= option: web.de|gmx.*
@@ -25,7 +25,6 @@ Output rule count: 5749
 		Salvaged rule by ignoring 1 unsupported domain= option: metrolagu.cam|poop.*
 		Salvaged rule by ignoring 2 unsupported domain= option: 1337x.*|x1337x.*|1337x.ninjaproxy1.com
 		Salvaged rule by ignoring 2 unsupported domain= option: 1337x.*|x1337x.*|1337x.ninjaproxy1.com
-		Salvaged rule by ignoring 2 unsupported domain= option: anikai.*|anikai.to|animekai.*|animekai.fi|animekai.fo|animekai.gs|animekai.la|animekai.pw|animekai.to
 		Salvaged rule by ignoring 1 unsupported domain= option: miruro.bz|miruro.online|miruro.to|miruro.tv|miruro.*
 		Salvaged rule by ignoring 19 unsupported domain= option: fullxh.com|megaxh.com|seexh.com|unlockxh4.com|xhaccess.com|xhadult2.com|xhadult3.com|xhamster.*|xhamster10.*|xhamster11.*|xhamster12.*|xhamster13.*|xhamster14.*|xhamster15.*|xhamster16.*|xhamster17.*|xhamster18.*|xhamster19.*|xhamster2.*|xhamster20.*|xhamster3.*|xhamster4.*|xhamster42.*|xhamster5.*|xhamster7.*|xhamster8.*|xhamsterporno.mx|xhbig.com|xhbranch5.com|xhchannel.com|xhdate.world|xhlease.world|xhmoon5.com|xhofficial.com|xhopen.com|xhplanet1.com|xhplanet2.com|xhreal2.com|xhreal3.com|xhspot.com|xhtotal.com|xhtree.com|xhvictory.com|xhwebsite.com|xhwebsite5.com|xhwide5.com
 		Salvaged rule by ignoring 19 unsupported domain= option: fullxh.com|megaxh.com|seexh.com|unlockxh4.com|xhaccess.com|xhadult2.com|xhadult3.com|xhamster.*|xhamster10.*|xhamster11.*|xhamster12.*|xhamster13.*|xhamster14.*|xhamster15.*|xhamster16.*|xhamster17.*|xhamster18.*|xhamster19.*|xhamster2.*|xhamster20.*|xhamster3.*|xhamster4.*|xhamster42.*|xhamster5.*|xhamster7.*|xhamster8.*|xhamsterporno.mx|xhbig.com|xhbranch5.com|xhchannel.com|xhdate.world|xhlease.world|xhmoon5.com|xhofficial.com|xhopen.com|xhplanet1.com|xhplanet2.com|xhreal2.com|xhreal3.com|xhspot.com|xhtotal.com|xhtree.com|xhvictory.com|xhwebsite.com|xhwebsite5.com|xhwide5.com
@@ -79,34 +78,34 @@ Output rule count: 5749
 	urlskip=: 219
 	Unsupported: 0
 
-CSS-generic-low: 157 plain CSS selectors
+CSS-generic-low: 156 plain CSS selectors
 CSS-generic-high: 68 plain CSS selectors
 CSS-generic: 432 specific CSS exceptions
-CSS-specific: 6076 distinct filters for 5184 distinct hostnames
+CSS-specific: 6081 distinct filters for 5186 distinct hostnames
 ============================
 Listset for 'easylist':
-Input filter count: 57463
-	Accepted filter count: 57441
+Input filter count: 58275
+	Accepted filter count: 58253
 	Rejected filter count: 18
-Output rule count: 3686
-	Pruning requestDomains: from 47930 to 47927
-	Static rules: 3666
+Output rule count: 3688
+	Pruning requestDomains: from 48738 to 48735
+	Static rules: 3668
 
 	Maybe good (regexes): 20
 	urlskip=: 0
 	Unsupported: 0
 
-CSS-generic-low: 11432 plain CSS selectors
+CSS-generic-low: 11430 plain CSS selectors
 CSS-generic-high: 428 plain CSS selectors
-CSS-generic: 500 specific CSS exceptions
-CSS-specific: 10452 distinct filters for 8110 distinct hostnames
+CSS-generic: 494 specific CSS exceptions
+CSS-specific: 10465 distinct filters for 8161 distinct hostnames
 ============================
 Listset for 'easyprivacy':
-Input filter count: 55423
-	Accepted filter count: 55392
+Input filter count: 55450
+	Accepted filter count: 55419
 	Rejected filter count: 30
-Output rule count: 8811
-	Static rules: 8804
+Output rule count: 8825
+	Static rules: 8818
 		Salvaged rule by ignoring 1 unsupported domain= option: allmodern.com|birchlane.com|catbirdnyc.com|gametime.co|jossandmain.com|ladym.com|libertylondon.com|mediamarkt.de|nobullproject.com|paynow.pmnts.io|perigold.com|theathletesfoot.co.nz|theathletesfoot.com.au|wayfair.*
 	Maybe good (regexes): 7
 	urlskip=: 0
@@ -118,11 +117,11 @@ CSS-generic: 0 specific CSS exceptions
 CSS-specific: 3 distinct filters for 4 distinct hostnames
 ============================
 Listset for 'pgl':
-Input filter count: 3508
-	Accepted filter count: 3429
+Input filter count: 3509
+	Accepted filter count: 3430
 	Rejected filter count: 79
 Output rule count: 1
-	Pruning requestDomains: from 3429 to 3428
+	Pruning requestDomains: from 3430 to 3429
 	Static rules: 1
 
 	Maybe good (regexes): 0
@@ -131,8 +130,8 @@ Output rule count: 1
 
 ============================
 Listset for 'ublock-badware':
-Input filter count: 9742
-	Accepted filter count: 9714
+Input filter count: 9547
+	Accepted filter count: 9520
 	Rejected filter count: 0
 Output rule count: 419
 	Static rules: 405
@@ -147,11 +146,11 @@ CSS-generic: 0 specific CSS exceptions
 CSS-specific: 52 distinct filters for 204 distinct hostnames
 ============================
 Listset for 'urlhaus-full':
-Input filter count: 15143
-	Accepted filter count: 15143
+Input filter count: 14593
+	Accepted filter count: 14593
 	Rejected filter count: 0
 Output rule count: 1
-	Pruning requestDomains: from 15143 to 15133
+	Pruning requestDomains: from 14593 to 14583
 	Static rules: 1
 
 	Maybe good (regexes): 0
@@ -174,7 +173,7 @@ Output rule count: 564
 CSS-generic-low: 18 plain CSS selectors
 CSS-generic-high: 16 plain CSS selectors
 CSS-generic: 34 specific CSS exceptions
-CSS-specific: 6057 distinct filters for 4474 distinct hostnames
+CSS-specific: 6064 distinct filters for 4503 distinct hostnames
 Rejecting +js(trusted-replace-argument.js,matchMedia.call,1,json:"none",condition,max-width): adguard-mobile is not trusted
 Rejecting +js(trusted-json-edit-fetch-response.js,..show_ads=false,propsToMatch,/statsig/initialize?): adguard-mobile is not trusted
 Rejecting +js(trusted-replace-node-text.js,script,/^ipc\.loader\.queue\.jquery(\.push\(function\(\)\{\s*ipc\.loader\.script\(.+\/ipc\.watch\.js.+)/,ipc.loader.queue.ready$1): adguard-mobile is not trusted
@@ -194,11 +193,11 @@ Output rule count: 20
 
 ============================
 Listset for 'dpollock-0':
-Input filter count: 12829
-	Accepted filter count: 12819
+Input filter count: 12835
+	Accepted filter count: 12825
 	Rejected filter count: 10
 Output rule count: 1
-	Pruning requestDomains: from 12819 to 10604
+	Pruning requestDomains: from 12825 to 10610
 	Static rules: 1
 
 	Maybe good (regexes): 0
@@ -207,11 +206,11 @@ Output rule count: 1
 
 ============================
 Listset for 'adguard-spyware-url':
-Input filter count: 2539
-	Accepted filter count: 2525
+Input filter count: 2543
+	Accepted filter count: 2529
 	Rejected filter count: 0
-Output rule count: 2010
-	Static rules: 2010
+Output rule count: 2013
+	Static rules: 2013
 		Salvaged rule by ignoring 2 unsupported domain= option: adgardvpn-help.*|adguard-dns.io|adguard-vpn.*|adguard.com|adguard.info
 		Salvaged rule by ignoring 1 unsupported domain= option: ya.ru|yandex.*
 		Salvaged rule by ignoring 1 unsupported domain= option: ya.ru|yandex.*
@@ -238,7 +237,7 @@ Output rule count: 5
 CSS-generic-low: 2 plain CSS selectors
 CSS-generic-high: 0 plain CSS selectors
 CSS-generic: 0 specific CSS exceptions
-CSS-specific: 195 distinct filters for 130 distinct hostnames
+CSS-specific: 196 distinct filters for 130 distinct hostnames
 ============================
 Listset for 'annoyances-cookies':
 Input filter count: 2171
@@ -259,7 +258,7 @@ Output rule count: 1809
 CSS-generic-low: 12694 plain CSS selectors
 CSS-generic-high: 167 plain CSS selectors
 CSS-generic: 526 specific CSS exceptions
-CSS-specific: 7148 distinct filters for 19370 distinct hostnames
+CSS-specific: 7159 distinct filters for 19396 distinct hostnames
 Rejecting +js(trusted-click-element.js,button#W0wltc,,500): annoyances-cookies is not trusted
 Rejecting +js(trusted-click-element.js,button[data-test-id="reject-button"],,500): annoyances-cookies is not trusted
 Rejecting +js(trusted-click-element.js,form[action] button[jsname="tWT92d"]): annoyances-cookies is not trusted
@@ -528,6 +527,7 @@ Rejecting +js(trusted-set-cookie-reload.js,cookieConsent,onlyNeeded): annoyances
 Rejecting +js(trusted-set-local-storage-item.js,cookieConsent,"needed"): annoyances-cookies is not trusted
 Rejecting +js(trusted-set-cookie.js,cookiesOptin,false,,,domain,.ing.be): annoyances-cookies is not trusted
 Rejecting +js(trusted-set-local-storage-item.js,DTAG_GUEST_PRIVACY_FLAGS,{"infoService":null,"infoToBroadcasters":false,"infoToThirdParty":null,"marketing":false,"personalAdvertising":false,"personalizedUi":false,"productImprovements":false,"thirdParty":false}): annoyances-cookies is not trusted
+Rejecting +js(trusted-set-cookie.js,CONSENTMGR,c1:1|c2:0|c3:0|c4:0|c5:0|c6:0|c7:0|c8:0|c9:0|c10:0|c11:0|c12:0|c13:0|c14:0|c15:0|c16:0|ts:$now$|consent:true|id:0,,,domain,.bahn.de): annoyances-cookies is not trusted
 Rejecting +js(trusted-click-element.js,div[data-project="mol-fe-cmp"] button[class*="consent"]:not([class*="reject"])): annoyances-cookies is not trusted
 Rejecting +js(trusted-set-cookie.js,_EVAcookieaccept,Y,1year): annoyances-cookies is not trusted
 Rejecting +js(trusted-set-cookie.js,_EVAGDPRfunctional,Y,1year): annoyances-cookies is not trusted
@@ -2144,7 +2144,7 @@ Output rule count: 325
 CSS-generic-low: 1156 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
 CSS-generic: 14 specific CSS exceptions
-CSS-specific: 4599 distinct filters for 6090 distinct hostnames
+CSS-specific: 4610 distinct filters for 6098 distinct hostnames
 Rejecting +js(trusted-replace-node-text.js,script,"copyRProtection":true,"copyRProtection":false): annoyances-overlays is not trusted
 Rejecting +js(trusted-replace-node-text.js,style,@media print {body { display: none !important; }}): annoyances-overlays is not trusted
 Rejecting +js(trusted-replace-node-text.js,script,rcoverride < 1,false): annoyances-overlays is not trusted
@@ -2222,7 +2222,7 @@ Output rule count: 594
 CSS-generic-low: 8608 plain CSS selectors
 CSS-generic-high: 113 plain CSS selectors
 CSS-generic: 118 specific CSS exceptions
-CSS-specific: 3154 distinct filters for 4957 distinct hostnames
+CSS-specific: 3157 distinct filters for 4958 distinct hostnames
 ============================
 Listset for 'annoyances-widgets':
 Input filter count: 240
@@ -2256,11 +2256,11 @@ Output rule count: 432
 CSS-generic-low: 752 plain CSS selectors
 CSS-generic-high: 19 plain CSS selectors
 CSS-generic: 14 specific CSS exceptions
-CSS-specific: 2236 distinct filters for 2599 distinct hostnames
+CSS-specific: 2237 distinct filters for 2602 distinct hostnames
 ============================
 Listset for 'annoyances-notifications':
-Input filter count: 485
-	Accepted filter count: 484
+Input filter count: 486
+	Accepted filter count: 485
 	Rejected filter count: 1
 Output rule count: 286
 	Static rules: 286
@@ -2272,7 +2272,7 @@ Output rule count: 286
 CSS-generic-low: 262 plain CSS selectors
 CSS-generic-high: 11 plain CSS selectors
 CSS-generic: 21 specific CSS exceptions
-CSS-specific: 768 distinct filters for 1240 distinct hostnames
+CSS-specific: 769 distinct filters for 1241 distinct hostnames
 ============================
 Listset for 'ublock-experimental':
 Input filter count: 0
@@ -2352,11 +2352,11 @@ CSS-generic: 4 specific CSS exceptions
 CSS-specific: 414 distinct filters for 185 distinct hostnames
 ============================
 Listset for 'chn-0':
-Input filter count: 15451
-	Accepted filter count: 15439
+Input filter count: 15483
+	Accepted filter count: 15471
 	Rejected filter count: 4
 Output rule count: 6620
-	Pruning requestDomains: from 6253 to 6252
+	Pruning requestDomains: from 6282 to 6281
 	Pruning requestDomains: from 268 to 266
 	Static rules: 6594
 
@@ -2367,7 +2367,7 @@ Output rule count: 6620
 CSS-generic-low: 772 plain CSS selectors
 CSS-generic-high: 192 plain CSS selectors
 CSS-generic: 336 specific CSS exceptions
-CSS-specific: 7492 distinct filters for 3298 distinct hostnames
+CSS-specific: 7495 distinct filters for 3302 distinct hostnames
 ============================
 Listset for 'cze-0':
 Input filter count: 252
@@ -2399,7 +2399,7 @@ Output rule count: 1847
 CSS-generic-low: 340 plain CSS selectors
 CSS-generic-high: 35 plain CSS selectors
 CSS-generic: 43 specific CSS exceptions
-CSS-specific: 3203 distinct filters for 2124 distinct hostnames
+CSS-specific: 3205 distinct filters for 2125 distinct hostnames
 ============================
 Listset for 'est-0':
 Input filter count: 261
@@ -2434,8 +2434,8 @@ CSS-generic: 8 specific CSS exceptions
 CSS-specific: 1173 distinct filters for 552 distinct hostnames
 ============================
 Listset for 'fra-0':
-Input filter count: 11036
-	Accepted filter count: 10067
+Input filter count: 11196
+	Accepted filter count: 10227
 	Rejected filter count: 962
 Output rule count: 4199
 	Static rules: 4197
@@ -2487,8 +2487,8 @@ CSS-generic: 1 specific CSS exceptions
 CSS-specific: 361 distinct filters for 182 distinct hostnames
 ============================
 Listset for 'hun-0':
-Input filter count: 397
-	Accepted filter count: 395
+Input filter count: 398
+	Accepted filter count: 396
 	Rejected filter count: 1
 Output rule count: 240
 	Static rules: 239
@@ -2500,7 +2500,7 @@ Output rule count: 240
 CSS-generic-low: 56 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
 CSS-generic: 5 specific CSS exceptions
-CSS-specific: 1216 distinct filters for 502 distinct hostnames
+CSS-specific: 1219 distinct filters for 503 distinct hostnames
 ============================
 Listset for 'idn-0':
 Input filter count: 4130
@@ -2519,11 +2519,11 @@ CSS-generic: 16 specific CSS exceptions
 CSS-specific: 1309 distinct filters for 666 distinct hostnames
 ============================
 Listset for 'ind-0':
-Input filter count: 5221
-	Accepted filter count: 5221
+Input filter count: 5233
+	Accepted filter count: 5233
 	Rejected filter count: 0
-Output rule count: 5179
-	Static rules: 5179
+Output rule count: 5191
+	Static rules: 5191
 
 	Maybe good (regexes): 0
 	urlskip=: 0
@@ -2532,7 +2532,7 @@ Output rule count: 5179
 CSS-generic-low: 0 plain CSS selectors
 CSS-generic-high: 0 plain CSS selectors
 CSS-generic: 7 specific CSS exceptions
-CSS-specific: 5008 distinct filters for 5902 distinct hostnames
+CSS-specific: 5019 distinct filters for 5911 distinct hostnames
 ============================
 Listset for 'irn-0':
 Input filter count: 1350
@@ -2597,12 +2597,12 @@ CSS-generic: 7 specific CSS exceptions
 CSS-specific: 2593 distinct filters for 2794 distinct hostnames
 ============================
 Listset for 'jpn-1':
-Input filter count: 2362
-	Accepted filter count: 2362
+Input filter count: 2370
+	Accepted filter count: 2370
 	Rejected filter count: 0
-Output rule count: 1483
-	Pruning requestDomains: from 182 to 181
-	Static rules: 1476
+Output rule count: 1484
+	Pruning requestDomains: from 184 to 183
+	Static rules: 1477
 
 	Maybe good (regexes): 7
 	urlskip=: 0
@@ -2610,18 +2610,18 @@ Output rule count: 1483
 
 CSS-generic-low: 108 plain CSS selectors
 CSS-generic-high: 12 plain CSS selectors
-CSS-generic: 372 specific CSS exceptions
-CSS-specific: 9227 distinct filters for 5449 distinct hostnames
+CSS-generic: 373 specific CSS exceptions
+CSS-specific: 9233 distinct filters for 5450 distinct hostnames
 ============================
 Listset for 'kor-1':
-Input filter count: 1585
-	Accepted filter count: 1575
+Input filter count: 1587
+	Accepted filter count: 1577
 	Rejected filter count: 1
-Output rule count: 1085
+Output rule count: 1087
 	Pruning requestDomains: from 344 to 339
 	Static rules: 938
 
-	Maybe good (regexes): 147
+	Maybe good (regexes): 149
 	urlskip=: 0
 	Unsupported: 0
 
@@ -2716,21 +2716,34 @@ CSS-generic: 35 specific CSS exceptions
 CSS-specific: 1586 distinct filters for 836 distinct hostnames
 ============================
 Listset for 'pol-0':
-Input filter count: 1255
-	Accepted filter count: 1250
+Input filter count: 1242
+	Accepted filter count: 1237
 	Rejected filter count: 4
-Output rule count: 857
+Output rule count: 847
 	Pruning requestDomains: from 266 to 265
-	Static rules: 817
+	Static rules: 808
 
-	Maybe good (regexes): 40
+	Maybe good (regexes): 39
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 61 plain CSS selectors
 CSS-generic-high: 56 plain CSS selectors
 CSS-generic: 135 specific CSS exceptions
-CSS-specific: 4661 distinct filters for 3463 distinct hostnames
+CSS-specific: 4663 distinct filters for 3464 distinct hostnames
+============================
+Listset for 'pol-3':
+Input filter count: 21240
+	Accepted filter count: 21240
+	Rejected filter count: 0
+Output rule count: 1
+	Pruning requestDomains: from 21240 to 18470
+	Static rules: 1
+
+	Maybe good (regexes): 0
+	urlskip=: 0
+	Unsupported: 0
+
 ============================
 Listset for 'rou-1':
 Input filter count: 560
@@ -2750,8 +2763,8 @@ CSS-generic: 3 specific CSS exceptions
 CSS-specific: 1002 distinct filters for 492 distinct hostnames
 ============================
 Listset for 'rus-0':
-Input filter count: 19744
-	Accepted filter count: 19737
+Input filter count: 19745
+	Accepted filter count: 19738
 	Rejected filter count: 7
 Output rule count: 5962
 	Static rules: 5946
@@ -2763,7 +2776,7 @@ Output rule count: 5962
 CSS-generic-low: 313 plain CSS selectors
 CSS-generic-high: 618 plain CSS selectors
 CSS-generic: 350 specific CSS exceptions
-CSS-specific: 11956 distinct filters for 7682 distinct hostnames
+CSS-specific: 11969 distinct filters for 7685 distinct hostnames
 ============================
 Listset for 'rus-1':
 Input filter count: 1511
@@ -2793,9 +2806,9 @@ Output rule count: 967
 	Unsupported: 0
 
 CSS-generic-low: 1 plain CSS selectors
-CSS-generic-high: 24 plain CSS selectors
-CSS-generic: 6 specific CSS exceptions
-CSS-specific: 206 distinct filters for 105 distinct hostnames
+CSS-generic-high: 25 plain CSS selectors
+CSS-generic: 7 specific CSS exceptions
+CSS-specific: 207 distinct filters for 106 distinct hostnames
 ============================
 Listset for 'spa-0':
 Input filter count: 712
@@ -2828,7 +2841,7 @@ Output rule count: 915
 CSS-generic-low: 87 plain CSS selectors
 CSS-generic-high: 4 plain CSS selectors
 CSS-generic: 83 specific CSS exceptions
-CSS-specific: 3586 distinct filters for 1958 distinct hostnames
+CSS-specific: 3597 distinct filters for 1960 distinct hostnames
 ============================
 Listset for 'svn-0':
 Input filter count: 130
@@ -2847,11 +2860,11 @@ CSS-generic: 0 specific CSS exceptions
 CSS-specific: 366 distinct filters for 152 distinct hostnames
 ============================
 Listset for 'swe-1':
-Input filter count: 1789
-	Accepted filter count: 1789
+Input filter count: 1791
+	Accepted filter count: 1791
 	Rejected filter count: 0
-Output rule count: 1400
-	Static rules: 1399
+Output rule count: 1401
+	Static rules: 1400
 
 	Maybe good (regexes): 1
 	urlskip=: 0
@@ -2860,7 +2873,7 @@ Output rule count: 1400
 CSS-generic-low: 245 plain CSS selectors
 CSS-generic-high: 52 plain CSS selectors
 CSS-generic: 8 specific CSS exceptions
-CSS-specific: 1559 distinct filters for 1520 distinct hostnames
+CSS-specific: 1558 distinct filters for 1519 distinct hostnames
 ============================
 Listset for 'tha-0':
 Input filter count: 772
@@ -2879,8 +2892,8 @@ CSS-generic: 1 specific CSS exceptions
 CSS-specific: 630 distinct filters for 184 distinct hostnames
 ============================
 Listset for 'tur-0':
-Input filter count: 1629
-	Accepted filter count: 1628
+Input filter count: 1631
+	Accepted filter count: 1630
 	Rejected filter count: 0
 Output rule count: 1313
 	Static rules: 1294
@@ -2904,16 +2917,16 @@ Output rule count: 1313
 CSS-generic-low: 160 plain CSS selectors
 CSS-generic-high: 60 plain CSS selectors
 CSS-generic: 52 specific CSS exceptions
-CSS-specific: 3677 distinct filters for 4408 distinct hostnames
+CSS-specific: 3683 distinct filters for 4416 distinct hostnames
 ============================
 Listset for 'ukr-0':
-Input filter count: 3449
-	Accepted filter count: 3448
+Input filter count: 3455
+	Accepted filter count: 3454
 	Rejected filter count: 0
-Output rule count: 1468
-	Pruning requestDomains: from 400 to 397
+Output rule count: 1469
+	Pruning requestDomains: from 401 to 398
 	Pruning requestDomains: from 1378 to 1371
-	Static rules: 1448
+	Static rules: 1449
 		Salvaged rule by ignoring 3 unsupported domain= option: 100popugaev.ru|2recepta.com|4ertik.mobi|4systems.ru|7ogorod.ru|actual.today|agronomu.com|altyn-orda.kz|apnews.com.ua|bazliter.ru|bestweapon.ru|blackpantera.ru|carlasart.ru|cheb-live.ru|chelny-izvest.ru|chelseablues.ru|cooksy.ru|coronavirus-monitor.ru|crast.ru|doctorhouse.tv|dv-gazeta.info|e-news.su|ebalovo.porn|ebalovo.pro|ero-top.info|eropron.com|fastpic.org|felomena.com|freehat.cc|gastrot.ru|glavpost.ua|gorodarmavir.ru|great-tv.tv|greensotka.ru|hd01.ru|hd9.hdgo.site|hdxclub.tv|headphone-review.ru|homesantehnica.ru|hostboard.ru|huaweidevices.ru|imag.one|infohome.com.ua|inspectrum.su|internet-olimpiada.ru|kaluga-poisk.ru|kinovideo.tv|kinovilka.ru|kinozal.*|kontrakty.ua|kraj.by|kriminal.net.ua|krot.info|kuhniclub.ru|kztarif.ru|lifedon.com.ua|livekavkaz.ru|lrepacks.net|mashmaster.ru|math-prosto.ru|medsovukrpro.ru|mirvdochnovenia.ru|mister-robot.online|mobila.guru|molitvy.guru|mosgorsait.ru|my-calend.ru|nashbryansk.ru|nbnews.com.ua|new-rutor.org|newsbel.by|newsyou.info|next.2yxa.mobi|niceporn.space|nickgen.ru|nocopyright.ru|nudecelebs.pro|obmenvsem.org|ovgorskiy.ru|parnuha.video|peoples.ru|poleznii-site.ru|politnavigator.net|porno-chiks.org|porno-island.*|porno90.online|pornohype.mobi|pornomilf.vip|pravoslavy.ru|pro100tv.my1.ru|proautomarki.ru|programmy-dlya-android.ru|pronpic.org|real-vin.com|recepti24.ru|relasko.ru|ria-m.tv|ringtondom.ru|rivnepost.rv.ua|rsload.net|ruspolitnews.ru|ruspornvideos.net|rybkies.ru|sad24.ru|saucyintruder.org|sdelairukami.ru|sekreta.net|seksvideo.tv|selomoe.ru|sex-studentki.pro|sharij.net|showdream.org|slavasozidatelyam.ru|slavinfo.dn.ua|sobytiya.net|socportal.info|sort-ogurets.ru|sosalkino.art|sovetov.su|srrb.ru|stars-top.ru|tdnu.ru|theageoffootball.com|tipsforyou.ru|tizam.pw|tksilver.ru|tolknews.ru|torlook.info|torrent-stop.org|trans.firm.in|tunnel.ru|tvvse.my1.ru|ua.news|uniondht.org|vashynogi.com|vazhno.ru|vchaspik.ua|volkovysk.by|voyeyrist.com|vsedoramy.*|vteple.xyz|waysi.ru|web-shpargalka.ru|webspoon.ru|xcelebs.ru|xhdvideo.world|xn----8sbabr6ahc3e.xn--p1ai|xn--29-6kcd5bg.xn--p1ai|xn--80axn1a.xn--p1ai|yarnews.net|youxxx.cc|z-torrents.ru|zavtra.ru|zbirna.com|zrelki.top
 	Maybe good (regexes): 20
 	urlskip=: 0
@@ -2922,14 +2935,14 @@ Output rule count: 1468
 CSS-generic-low: 517 plain CSS selectors
 CSS-generic-high: 26 plain CSS selectors
 CSS-generic: 112 specific CSS exceptions
-CSS-specific: 1566 distinct filters for 1271 distinct hostnames
+CSS-specific: 1575 distinct filters for 1272 distinct hostnames
 ============================
 Listset for 'vie-1':
-Input filter count: 440
-	Accepted filter count: 440
+Input filter count: 437
+	Accepted filter count: 437
 	Rejected filter count: 0
-Output rule count: 317
-	Static rules: 315
+Output rule count: 314
+	Static rules: 312
 
 	Maybe good (regexes): 2
 	urlskip=: 0
@@ -2938,4 +2951,4 @@ Output rule count: 317
 CSS-generic-low: 20 plain CSS selectors
 CSS-generic-high: 4 plain CSS selectors
 CSS-generic: 19 specific CSS exceptions
-CSS-specific: 680 distinct filters for 374 distinct hostnames
+CSS-specific: 660 distinct filters for 370 distinct hostnames

@@ -32,6 +32,10 @@ import { safeReplace } from './safe-replace.js';
 
 const browser = (self.browser || self.chrome);
 
+const resourceTypes = await browser.runtime.sendMessage({
+    what: 'compileFilters:getResourceTypes'
+});
+
 /******************************************************************************/
 
 function parseExpires(s) {
@@ -99,12 +103,12 @@ function compileScriptletFilter(parser, output) {
             continue;
         }
         details.matches ??= [];
-        if ( details.matches.includes('*') ) { continue; }
-        if ( hn === '*' ) {
+        if ( details.matches[0] === '*' ) { continue; }
+        if ( hn !== '*' ) {
+            details.matches.push(hn);
+        } else if ( parser.options.trustedSource ) {
             details.matches = [ '*' ];
-            continue;
         }
-        details.matches.push(hn);
     }
 }
 
@@ -121,7 +125,12 @@ export function compileCosmeticFilter(parser, output) {
         if ( not && exception ) { continue; }
         if ( not || exception ) {
             excludeMatches.push(hn);
-        } else if ( hn !== '*' ) {
+        } else if ( hn === '*' ) {
+            if ( parser.options.trustedSource !== true ) { continue; }
+            matches.length = 0;
+            matches.push('*');
+        } else {
+            if ( matches[0] === '*' ) { continue; }
             matches.push(hn);
         }
     }
@@ -188,7 +197,9 @@ export function compileFilters(listid, text, context = {}) {
         }
         if ( parser.isNetworkFilter() ) {
             filterStats.total += 1;
-            const rule = parseNetworkFilter(parser);
+            const rule = parseNetworkFilter(parser, {
+                resourceTypes,
+            });
             if ( rule ) {
                 unminimizedRules.push(rule);
                 filterStats.accepted += 1;
@@ -237,7 +248,8 @@ export async function toMv3Data(rulesetid, compiledData) {
         const result = makeScriptlets.commit(rulesetid, template);
         if ( result.ISOLATED ) {
             const { hasRegexes, hasAncestors, hasEntities } = result.ISOLATED;
-            const hostnames = hasRegexes || hasAncestors || hasEntities
+            const hostnames = hasRegexes || hasAncestors || hasEntities ||
+                result.ISOLATED.hostnames.includes('*')
                 ? '*'
                 : result.ISOLATED.hostnames;
             isolated.push({
@@ -248,7 +260,8 @@ export async function toMv3Data(rulesetid, compiledData) {
         }
         if ( result.MAIN ) {
             const { hasRegexes, hasAncestors, hasEntities } = result.MAIN;
-            const hostnames = hasRegexes || hasAncestors || hasEntities
+            const hostnames = hasRegexes || hasAncestors || hasEntities ||
+                result.MAIN.hostnames.includes('*')
                 ? '*'
                 : result.MAIN.hostnames;
             main.push({
@@ -321,7 +334,9 @@ async function updateList(list) {
         ],
     };
     const asset = { urls: [ list.id ] };
-    const text = await fetchList(context, asset);
+    const text = await fetchList(context, asset, ( ) => {
+        browser.runtime.sendMessage({ what: 'keepAlive' });
+    });
     if ( Boolean(text) === false ) { return; }
 
     const metadata = extractMetadataFromList(text, [

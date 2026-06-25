@@ -1077,8 +1077,7 @@
   "re": "^[^:]+://(?:[^/]+\\.)?awstrack\\.me/l0/http",
   "steps": [
    "/\\/L0\\/(http[^\\/?#]+)/",
-   "-uricomponent",
-   "-blocked"
+   "-uricomponent"
   ]
  },
  {

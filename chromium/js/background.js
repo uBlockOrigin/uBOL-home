@@ -94,6 +94,7 @@ import {
     getEnabledRulesets,
     getEnabledRulesetsDetails,
     getRulesetDetails,
+    getRulesetRules,
     patchDefaultRulesets,
     setStrictBlockMode,
     updateDynamicAndSessionRules,
@@ -426,6 +427,9 @@ async function onMessage(request, sender) {
     case 'getEnabledRulesetsDetails':
         return getEnabledRulesetsDetails();
 
+    case 'getRulesetRules':
+        return getRulesetRules(request.id);
+
     case 'hasBroadHostPermissions':
         return hasBroadHostPermissions();
 
@@ -648,13 +652,11 @@ async function onMessage(request, sender) {
         if ( modified !== true ) { break; }
         const rulesets = await getEnabledRulesets();
         rulesets.push(request.url);
-        applyRulesets(rulesets);
-        await updateCompiledFilters();
-        await Promise.all([ registerUserScripts(), updateUserRules() ]);
+        await applyRulesets(rulesets);
         return;
     }
 
-    case 'getImportedLists': {   
+    case 'getImportedLists': {
         return getImportedLists();
     }
 
@@ -666,9 +668,14 @@ async function onMessage(request, sender) {
         return;
     }
 
-    case 'pruneCSSCache': {   
+    case 'pruneCSSCache': {
         return pruneCSSCache();
     }
+
+    // This is used to ensure we are not suspended while busy fetching filter
+    // lists from remote servers.
+    case 'keepAlive':
+        return;
 
     default:
         break;
@@ -757,15 +764,25 @@ async function startSession() {
     // "When an extension updates, content scripts are cleared"
     // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#extension_updates
     // "User scripts are cleared when an extension updates"
+    const promises = [];
     const shouldInject = isNewVersion || permissionsUpdated ||
         isSideloaded && rulesetConfig.developerMode;
-    if ( shouldInject || stockUpdated || importedUpdated || userScriptsChanged ) {
-        await Promise.all([
-            registerContentScripts(),
+    if ( shouldInject || stockUpdated ) {
+        promises.push(registerContentScripts());
+    }
+    if ( importedUpdated ) {
+        promises.push(
             updateCompiledFilters().then(( ) =>
                 Promise.all([ registerUserScripts(), updateUserRules() ])
-            ),
-        ]);
+            )
+        );
+    } else if ( shouldInject ) {
+        promises.push(registerUserScripts(), updateUserRules());
+    } else if ( userScriptsChanged ) {
+        promises.push(registerUserScripts());
+    }
+    if ( promises.length ) {
+        await Promise.all(promises);
     }
 
     // Cosmetic filtering-related content scripts cache fitlering data in

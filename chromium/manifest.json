@@ -248,6 +248,11 @@
         "path": "/rulesets/main/pol-0.json"
       },
       {
+        "id": "pol-3",
+        "enabled": false,
+        "path": "/rulesets/main/pol-3.json"
+      },
+      {
         "id": "rou-1",
         "enabled": false,
         "path": "/rulesets/main/rou-1.json"
@@ -334,7 +339,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2026.622.2316",
+  "version": "2026.625.1633",
   "web_accessible_resources": [
     {
       "resources": [
@@ -410,8 +415,7 @@
         "web_accessible_resources/nitropay_ads.js",
         "web_accessible_resources/chartbeat.js",
         "web_accessible_resources/noop.json",
-        "web_accessible_resources/noeval-silent.js",
-        "web_accessible_resources/click2load.html"
+        "web_accessible_resources/noeval-silent.js"
       ],
       "matches": [
         "<all_urls>"

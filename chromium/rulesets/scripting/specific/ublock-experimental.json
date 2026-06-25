@@ -1,1 +1,1 @@
-{"rulesetId":"ublock-experimental","selectors":["#toast:has(> #action-button a.yt-spec-button-shape-next[href^=\"https://support.google.com/youtube/answer/3037019\"])"],"selectorLists":["0"],"selectorListRefs":[0],"hostnames":["www.youtube.com"],"hasEntities":false,"regexes":[]}
+{"rulesetId":"ublock-experimental","selectors":["#toast:has(> #text-container > yt-formatted-string#text.yt-notification-action-renderer)"],"selectorLists":["0"],"selectorListRefs":[0],"hostnames":["www.youtube.com"],"hasEntities":false,"regexes":[]}

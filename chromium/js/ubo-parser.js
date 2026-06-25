@@ -25,7 +25,7 @@ import redirectResourceMap from './redirect-resources.js';
 
 /******************************************************************************/
 
-const validResourceTypes = [
+const safeResourceTypes = [
     'main_frame',
     'sub_frame',
     'stylesheet',
@@ -38,8 +38,6 @@ const validResourceTypes = [
     'csp_report',
     'media',
     'websocket',
-    'webtransport',
-    'webbundle',
     'other',
 ];
 
@@ -252,10 +250,11 @@ export function validateRules(rules) {
 //   Block important: 40
 //   Redirect important: 41-49
 
-export function parseNetworkFilter(parser) {
+export function parseNetworkFilter(parser, details = {}) {
     if ( parser.isNetworkFilter() === false ) { return; }
     if ( parser.hasError() ) { return; }
 
+    const validResourceTypes = details.resourceTypes ?? safeResourceTypes;
     const rule = {
         action: { type: 'block' },
         condition: { },
@@ -603,7 +602,7 @@ export function parseNetworkFilter(parser) {
                 delete rule.action.redirect;
                 priority = 20;
             } else {
-                priority = (isImportant ? 11 : 41) + subpriority;
+                priority = (isImportant ? 41 : 11) + subpriority;
             }
         } else if ( rule.action.redirect.transform?.queryTransform?.removeParams ) {
             if ( isException ) {
@@ -611,6 +610,11 @@ export function parseNetworkFilter(parser) {
                 delete rule.action.redirect;
             }
         } else if ( rule.action.redirect.regexSubstitution ) {
+        }
+    } else if ( rule.action.type === 'modifyHeaders' ) {
+        if ( isException ) {
+            rule.action.type = 'allow';
+            delete rule.action.responseHeaders;
         }
     }
     if ( priority !== 1 ) {
@@ -621,7 +625,7 @@ export function parseNetworkFilter(parser) {
 
 /******************************************************************************/
 
-export function parseFilters(text) {
+export function parseFilters(text, details) {
     if ( text.startsWith('---') ) { return; }
     if ( text.endsWith('---') ) { return; }
     const lines = text.split(/\n/);
@@ -631,7 +635,7 @@ export function parseFilters(text) {
     for ( const line of lines ) {
         parser.parse(line);
         if ( parser.isNetworkFilter() === false ) { continue; }
-        const rule = parseNetworkFilter(parser);
+        const rule = parseNetworkFilter(parser, details);
         if ( rule === undefined ) { continue; }
         rules.push(rule);
     }
