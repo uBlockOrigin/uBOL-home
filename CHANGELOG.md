@@ -1,3 +1,10 @@
+- [Fix improperly discarding trusted filters in mixed lists](https://github.com/gorhill/uBlock/commit/8dff81c5a0)
+- [Fix mismanagement of alarms potentially causing endless async loop](https://github.com/gorhill/uBlock/commit/e6f5b9a23a)
+
+----------
+
+### 2026.625.1633
+
 - [Exclude redirect resource `click2load.html`](https://github.com/gorhill/uBlock/commit/3bf5076f9b)
 - [Fix priority of `important` redirects in locally-compiled filters](https://github.com/gorhill/uBlock/commit/a532fb11cd)
 - [Add ability to view DNR rules of imported lists in "Develop" pane](https://github.com/gorhill/uBlock/commit/fedd40fde3)
