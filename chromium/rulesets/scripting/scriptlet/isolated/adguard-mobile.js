@@ -225,6 +225,15 @@ function removeNodeText(
     replaceNodeTextFn(nodeName, '', '', 'includes', includes || '', ...extraArgs);
 }
 
+function replaceNodeText(
+    nodeName,
+    pattern,
+    replacement,
+    ...extraArgs
+) {
+    replaceNodeTextFn(nodeName, pattern, replacement, ...extraArgs);
+}
+
 function replaceNodeTextFn(
     nodeName = '',
     pattern = '',
@@ -535,6 +544,76 @@ function safeSelf() {
     return safe;
 }
 
+function setAttrFn(
+    trusted = false,
+    logPrefix,
+    selector = '',
+    attr = '',
+    value = '',
+    options = {}
+) {
+    if ( selector === '' ) { return; }
+    if ( attr === '' ) { return; }
+
+    const safe = safeSelf();
+    const copyFrom = trusted === false && /^\[.+\]$/.test(value)
+        ? value.slice(1, -1)
+        : '';
+
+    const extractValue = elem => copyFrom !== ''
+        ? elem.getAttribute(copyFrom) || ''
+        : value;
+
+    const applySetAttr = ( ) => {
+        let elems;
+        try {
+            elems = document.querySelectorAll(selector);
+        } catch {
+            return false;
+        }
+        for ( const elem of elems ) {
+            const before = elem.getAttribute(attr);
+            const after = extractValue(elem);
+            if ( after === before ) { continue; }
+            if ( after !== '' && /^on/i.test(attr) ) {
+                if ( attr.toLowerCase() in elem ) { continue; }
+            }
+            elem.setAttribute(attr, after);
+            safe.uboLog(logPrefix, `${attr}="${after}"`);
+        }
+        return true;
+    };
+
+    let observer, timer;
+    const onDomChanged = mutations => {
+        if ( timer !== undefined ) { return; }
+        let shouldWork = false;
+        for ( const mutation of mutations ) {
+            if ( mutation.addedNodes.length === 0 ) { continue; }
+            for ( const node of mutation.addedNodes ) {
+                if ( node.nodeType !== 1 ) { continue; }
+                shouldWork = true;
+                break;
+            }
+            if ( shouldWork ) { break; }
+        }
+        if ( shouldWork === false ) { return; }
+        timer = self.requestAnimationFrame(( ) => {
+            timer = undefined;
+            applySetAttr();
+        });
+    };
+
+    const start = ( ) => {
+        if ( applySetAttr() === false ) { return; }
+        observer = new MutationObserver(onDomChanged);
+        const root = document.documentElement;
+        if ( root instanceof self.Node === false ) { return; }
+        observer.observe(root, { subtree: true, childList: true });
+    };
+    runAt(( ) => { start(); }, options.runAt || 'idle');
+}
+
 function setCookie(
     name = '',
     value = '',
@@ -728,20 +807,31 @@ function setSessionStorageItem(key = '', value = '') {
     setLocalStorageItemFn('session', false, key, value, options);
 }
 
+function trustedSetAttr(
+    selector = '',
+    attr = '',
+    value = ''
+) {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('trusted-set-attr', selector, attr, value);
+    const options = safe.getExtraArgs(Array.from(arguments), 3);
+    setAttrFn(true, logPrefix, selector, attr, value, options);
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 7 */
-[setCookie,setSessionStorageItem,removeNodeText,removeClass,removeCookie,setLocalStorageItem,setCookieReload];
+const $scriptletFunctions$ = /* 9 */
+[setCookie,replaceNodeText,trustedSetAttr,setSessionStorageItem,removeNodeText,removeClass,removeCookie,setLocalStorageItem,setCookieReload];
 
-const $scriptletArgs$ = /* 39 */ ["_ga","OK","","reload","1","views","gnrwdfreq","script","adblock","banners-brand","#page_content","in_m4","roadblocker","pageCount","$remove$","playcnt","no_postitial_content","fixed_ad","#header.fixed_ad","hasStickyHead","body.hasStickyHead","pt-[100px]","#main-container","no_postitial_video","mobile-sticky-ad-is-active","body","inter","branding","body[id=\"pagebody\"]","imrcinstfqpv","i4It-cmp2-toaster-visible",".i4It","pwa_show","true","adv_show","3","pShowMob","has-adhesion",".header-placeholder.has-adhesion"];
+const $scriptletArgs$ = /* 44 */ ["_ga","OK","","reload","1","views","script","/^ipc\\.loader\\.queue\\.jquery(\\.push\\(function\\(\\)\\{\\s*ipc\\.loader\\.script\\(.+\\/ipc\\.watch\\.js.+)/","ipc.loader.queue.ready$1","#gn-rwd-target-hidden","class","rewareded","gnrwdfreq","adblock","banners-brand","#page_content","in_m4","roadblocker","pageCount","$remove$","playcnt","no_postitial_content","fixed_ad","#header.fixed_ad","hasStickyHead","body.hasStickyHead","pt-[100px]","#main-container","no_postitial_video","mobile-sticky-ad-is-active","body","inter","branding","body[id=\"pagebody\"]","imrcinstfqpv","i4It-cmp2-toaster-visible",".i4It","pwa_show","true","adv_show","3","pShowMob","has-adhesion",".header-placeholder.has-adhesion"];
 
-const $scriptletArglists$ = /* 25 */ "0,0,1,2,3,4;0,5,4;1,6,4;2,7,8;3,9,10;0,11,4;2,7,12;1,13,14;0,15,4;0,16,4;4,5;3,17,18;3,19,20;3,21,22;0,23,4;3,24,25;0,26,4;3,27,28;1,29,14;3,30,31;5,32,33;0,34,35;3,27,25;6,36,33;3,37,38";
+const $scriptletArglists$ = /* 27 */ "0,0,1,2,3,4;0,5,4;1,6,7,8;2,9,10,11;3,12,4;4,6,13;5,14,15;0,16,4;4,6,17;3,18,19;0,20,4;0,21,4;6,5;5,22,23;5,24,25;5,26,27;0,28,4;5,29,30;0,31,4;5,32,33;3,34,19;5,35,36;7,37,38;0,39,40;5,32,30;8,41,38;5,42,43";
 
-const $scriptletArglistRefs$ = /* 89 */ "2;5;14;23;23;23;23;12;4;14;23;3;23;6;23;23;23;21;13;3;23;1,10;23;23;23;23;23;23;23;19;23;17;23;23;23;23;23;23;23;23;23;23;23;23;8,9;22;23;23;23;23;23;23;23;23;23;23;23;23;23;15;0;20;23;23;23;23;23;23;23;23;23;23;23;23;23;23;24;18;23;23;23;23;23;23;23;16;0;11;7";
+const $scriptletArglistRefs$ = /* 90 */ "3,4;7;16;25;25;25;25;14;6;16;25;5;25;8;25;25;25;23;15;5;25;1,12;25;25;25;25;25;25;25;21;25;19;25;25;25;25;25;25;25;25;25;25;25;25;10,11;24;25;25;25;25;25;25;25;25;25;25;25;25;25;17;0;22;25;25;25;25;25;25;25;25;25;25;25;25;25;25;26;20;25;25;25;25;25;25;25;18;0;2;13;9";
 
-const $scriptletHostnames$ = /* 89 */ ["mdpr.jp","hanime.tv","m.nuvid.*","seexh.com","xhbig.com","xhvid.com","fullxh.com","lepoint.fr","m.7days.ru","m.hd21.com","megaxh.com","nan-net.jp","openxh.com","tupaki.com","xhopen.com","xhspot.com","xhtree.com","m.viptube.*","mumsnet.com","nan-net.com","openxh1.com","pornhub.com","xhamster3.*","xhmoon5.com","xhtotal.com","xhwide1.com","xhwide2.com","xhwide5.com","interxh.site","kayak.com.tr","valuexh.life","www.ixbt.com","xhaccess.com","xhadult2.com","xhadult3.com","xhamster.com","xhamster.one","xhamster13.*","xhamster16.*","xhamster17.*","xhamster18.*","xhdate.world","aawweb.beauty","colourxh.site","m.proporn.com","slovoidilo.ua","stripchat.com","tr.usbxh.life","xhamster.desi","xhamster2.com","xhamster3.com","xhamster7.com","xhamster8.com","xhamster9.com","xhbranch5.com","xhchannel.com","xhlease.world","xhplanet2.com","galleryxh.site","liquipedia.net","m.dcinside.com","quotidiano.net","xhamster1.desi","xhamster10.com","xhamster12.com","xhamster14.com","xhamster15.com","xhamster19.com","xhamster2.desi","xhamster22.com","xhamster27.com","xhamster4.desi","xhamster40.com","xhamster5.desi","xhofficial.com","xhwebsite2.com","accuweather.com","fitnesslove.net","xhamster18.desi","xhamster19.desi","xhamster20.desi","xhamster42.desi","xhamster43.desi","xhamster44.desi","xhamsterporno.mx","m.economictimes.com","upload.dcinside.com","thestudentroom.co.uk","forum.donanimhaber.com"];
+const $scriptletHostnames$ = /* 90 */ ["mdpr.jp","hanime.tv","m.nuvid.*","seexh.com","xhbig.com","xhvid.com","fullxh.com","lepoint.fr","m.7days.ru","m.hd21.com","megaxh.com","nan-net.jp","openxh.com","tupaki.com","xhopen.com","xhspot.com","xhtree.com","m.viptube.*","mumsnet.com","nan-net.com","openxh1.com","pornhub.com","xhamster3.*","xhmoon5.com","xhtotal.com","xhwide1.com","xhwide2.com","xhwide5.com","interxh.site","kayak.com.tr","valuexh.life","www.ixbt.com","xhaccess.com","xhadult2.com","xhadult3.com","xhamster.com","xhamster.one","xhamster13.*","xhamster16.*","xhamster17.*","xhamster18.*","xhdate.world","aawweb.beauty","colourxh.site","m.proporn.com","slovoidilo.ua","stripchat.com","tr.usbxh.life","xhamster.desi","xhamster2.com","xhamster3.com","xhamster7.com","xhamster8.com","xhamster9.com","xhbranch5.com","xhchannel.com","xhlease.world","xhplanet2.com","galleryxh.site","liquipedia.net","m.dcinside.com","quotidiano.net","xhamster1.desi","xhamster10.com","xhamster12.com","xhamster14.com","xhamster15.com","xhamster19.com","xhamster2.desi","xhamster22.com","xhamster27.com","xhamster4.desi","xhamster40.com","xhamster5.desi","xhofficial.com","xhwebsite2.com","accuweather.com","fitnesslove.net","xhamster18.desi","xhamster19.desi","xhamster20.desi","xhamster42.desi","xhamster43.desi","xhamster44.desi","xhamsterporno.mx","m.economictimes.com","upload.dcinside.com","watch.impress.co.jp","thestudentroom.co.uk","forum.donanimhaber.com"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

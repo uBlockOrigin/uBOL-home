@@ -1,0 +1,20 @@
+[
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/inc/embed/video-js-new.php"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "\\/inc\\/embed\\/index\\.php",
+  "requestDomains": [
+   "embed.wcostream.com"
+  ],
+  "resourceTypes": [
+   "sub_frame"
+  ]
+ },
+ "id": 1
+}
+]

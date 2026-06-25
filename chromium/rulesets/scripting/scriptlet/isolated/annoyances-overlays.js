@@ -30,6 +30,29 @@
 
 /******************************************************************************/
 
+function getAllCookiesFn() {
+    const safe = safeSelf();
+    return safe.String_split.call(document.cookie, /\s*;\s*/).map(s => {
+        const pos = s.indexOf('=');
+        if ( pos === 0 ) { return; }
+        if ( pos === -1 ) { return `${s.trim()}=`; }
+        const key = s.slice(0, pos).trim();
+        const value = s.slice(pos+1).trim();
+        return { key, value };
+    }).filter(s => s !== undefined);
+}
+
+function getAllLocalStorageFn(which = 'localStorage') {
+    const storage = self[which];
+    const out = [];
+    for ( let i = 0; i < storage.length; i++ ) {
+        const key = storage.key(i);
+        const value = storage.getItem(key);
+        return { key, value };
+    }
+    return out;
+}
+
 function getCookieFn(
     name = ''
 ) {
@@ -73,6 +96,104 @@ function getSafeCookieValuesFn() {
         'closed', 'next', 'mandatory',
         'disagree', 'agree',
     ];
+}
+
+function lookupElementsFn(directive, until = 0) {
+    if ( lookupElementsFn.querySelectorEx === undefined ) {
+        lookupElementsFn.getShadowRoot = elem => {
+            if ( elem.openOrClosedShadowRoot ) { // Firefox
+                return elem.openOrClosedShadowRoot;
+            }
+            if ( typeof chrome === 'object' ) { // Chromium
+                if ( chrome.dom && chrome.dom.openOrClosedShadowRoot ) {
+                    return chrome.dom.openOrClosedShadowRoot(elem);
+                }
+            }
+            return elem.shadowRoot;
+        };
+        lookupElementsFn.queryOrEvaluateSelector = (selector, context) => {
+            if ( selector.startsWith('xpath:') === false ) {
+                return Array.from(context.querySelectorAll(selector));
+            }
+            const result = document.evaluate(selector.slice(6), context, null, 7, null);
+            const out = [];
+            if ( result.resultType === 7 ) {
+                for ( let i = 0; i < result.snapshotLength; i++ ) {
+                    out[i] = result.snapshotItem(i);
+                }
+            }
+            return out;
+        }
+        lookupElementsFn.querySelectorEx = (selector, context = document) => {
+            const pos = selector.indexOf(' >>> ');
+            if ( pos === -1 ) {
+                return lookupElementsFn.queryOrEvaluateSelector(selector, context);
+            }
+            const outside = selector.slice(0, pos).trim();
+            const inside = selector.slice(pos + 5).trim();
+            const elems = lookupElementsFn.queryOrEvaluateSelector(outside, context);
+            const out = [];
+            for ( let i = 0; i < elems.length; i++ ) {
+                const shadowRoot = lookupElementsFn.getShadowRoot(elems[i]);
+                if ( Boolean(shadowRoot) === false ) { continue; }
+                lookupElementsFn.querySelectorEx(inside, shadowRoot).forEach(a => out.push(a));
+            }
+            return out;
+        };
+        lookupElementsFn.lookup = directive => {
+            const beVisible = directive.startsWith('when-visible:');
+            const selector = beVisible ? directive.slice(13) : directive;
+            const elems = lookupElementsFn.querySelectorEx(selector);
+            if ( beVisible !== true ) { return elems; }
+            return elems.filter(a => a.checkVisibility({
+                opacityProperty: true,
+                visibilityProperty: true,
+            }));
+        };
+        lookupElementsFn.lookupAsync = details => {
+            const elems = lookupElementsFn.lookup(details.directive);
+            if ( elems.length || Date.now() >= details.until ) {
+                if ( details.observer ) {
+                    details.observer.disconnect();
+                    details.observer = undefined;
+                }
+                if ( details.timer ) {
+                    offIdleFn(details.timer);
+                    details.timer = undefined;
+                }
+                return details.resolve(elems);
+            }
+            if ( details.observer === undefined ) {
+                details.observer = new MutationObserver(( ) => {
+                    lookupElementsFn.lookupAsync(details);
+                });
+                details.observer.observe(document, {
+                    attributes: true,
+                    childList: true,
+                    subtree: true,
+                });
+            }
+            if ( details.timer === undefined ) {
+                details.timer = onIdleFn(( ) => {
+                    details.timer = undefined;
+                    lookupElementsFn.lookupAsync(details);
+                }, { timeout: 151 });
+            }
+        };
+    }
+    if ( until === 0 ) {
+        return lookupElementsFn.lookup(directive);
+    }
+    return new Promise(resolve => {
+        lookupElementsFn.lookupAsync({ directive, until, resolve });
+    });
+}
+
+function offIdleFn(id) {
+    if ( self.requestIdleCallback ) {
+        return self.cancelIdleCallback(id);
+    }
+    return self.cancelAnimationFrame(id);
 }
 
 function onIdleFn(fn, options) {
@@ -225,6 +346,15 @@ function removeNodeText(
     replaceNodeTextFn(nodeName, '', '', 'includes', includes || '', ...extraArgs);
 }
 
+function replaceNodeText(
+    nodeName,
+    pattern,
+    replacement,
+    ...extraArgs
+) {
+    replaceNodeTextFn(nodeName, pattern, replacement, ...extraArgs);
+}
+
 function replaceNodeTextFn(
     nodeName = '',
     pattern = '',
@@ -354,6 +484,18 @@ function runAt(fn, when) {
     const safe = safeSelf();
     const args = [ 'readystatechange', onStateChange, { capture: true } ];
     safe.addEventListener.apply(document, args);
+}
+
+function runAtHtmlElementFn(fn) {
+    if ( document.documentElement ) {
+        fn();
+        return;
+    }
+    const observer = new MutationObserver(( ) => {
+        observer.disconnect();
+        fn();
+    });
+    observer.observe(document, { childList: true });
 }
 
 function safeSelf() {
@@ -724,20 +866,277 @@ function setSessionStorageItem(key = '', value = '') {
     setLocalStorageItemFn('session', false, key, value, options);
 }
 
+function trustedClickElement(
+    selectors = '',
+    extraMatch = '',
+    delay = ''
+) {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('trusted-click-element', selectors, extraMatch, delay);
+
+    if ( extraMatch !== '' ) {
+        const assertions = safe.String_split.call(extraMatch, ',').map(s => {
+            const pos1 = s.indexOf(':');
+            const s1 = pos1 !== -1 ? s.slice(0, pos1) : s;
+            const not = s1.startsWith('!');
+            const type = not ? s1.slice(1) : s1;
+            const s2 = pos1 !== -1 ? s.slice(pos1+1).trim() : '';
+            if ( s2 === '' ) { return; }
+            const out = { not, type };
+            const match = /^\/(.+)\/(i?)$/.exec(s2);
+            if ( match !== null ) {
+                out.re = new RegExp(match[1], match[2] || undefined);
+                return out;
+            }
+            const pos2 = s2.indexOf('=');
+            const key = pos2 !== -1 ? s2.slice(0, pos2).trim() : s2;
+            const value = pos2 !== -1 ? s2.slice(pos2+1).trim() : '';
+            out.re = new RegExp(`^${safe.escapeRegexChars(key)}=${safe.escapeRegexChars(value)}`);
+            return out;
+        }).filter(details => details !== undefined);
+        const allCookies = assertions.some(o => o.type === 'cookie')
+            ? getAllCookiesFn()
+            : [];
+        const allStorageItems = assertions.some(o => o.type === 'localStorage')
+            ? getAllLocalStorageFn()
+            : [];
+        const hasNeedle = (haystack, needle) => {
+            for ( const { key, value } of haystack ) {
+                if ( needle.test(`${key}=${value}`) ) { return true; }
+            }
+            return false;
+        };
+        for ( const { not, type, re } of assertions ) {
+            switch ( type ) {
+            case 'cookie':
+                if ( hasNeedle(allCookies, re) === not ) { return; }
+                break;
+            case 'localStorage':
+                if ( hasNeedle(allStorageItems, re) === not ) { return; }
+                break;
+            }
+        }
+    }
+
+    const steps = safe.String_split.call(selectors, /\s*,\s*/).map(a => {
+        if ( /^\d+$/.test(a) ) { return parseInt(a, 10); }
+        return a;
+    });
+    if ( steps.length === 0 ) { return; }
+    const clickDelay = parseInt(delay, 10) || 1;
+    for ( let i = steps.length-1; i > 0; i-- ) {
+        if ( typeof steps[i] !== 'string' ) { continue; }
+        if ( typeof steps[i-1] !== 'string' ) { continue; }
+        steps.splice(i, 0, clickDelay);
+    }
+    if ( steps.length === 1 && delay !== '' ) {
+        steps.unshift(clickDelay);
+    }
+    if ( typeof steps.at(-1) !== 'number' ) {
+        steps.push(11000);
+    }
+
+    const timeout = steps.pop();
+
+    const waitForTime = ms => {
+        return new Promise(resolve => {
+            safe.uboLog(logPrefix, `Waiting for ${ms} ms`);
+            waitForTime.timer = setTimeout(( ) => {
+                waitForTime.timer = undefined;
+                resolve();
+            }, ms);
+        });
+    };
+
+    const waitForElement = directive => {
+        safe.uboLog(logPrefix, `Waiting for ${directive}`);
+        return lookupElementsFn(directive, Date.now() + timeout).then(elems => {
+            if ( elems.length === 0 ) { return false; }
+            elems[0].click();
+            safe.uboLog(logPrefix, `Clicked ${directive}`);
+            return true;
+        });
+    };
+
+    const process = async ( ) => {
+        while ( steps.length !== 0 ) {
+            const step = steps.shift();
+            if ( step === undefined ) { break; }
+            if ( typeof step === 'number' ) {
+                await waitForTime(step);
+                if ( step === 1 ) { continue; }
+                continue;
+            }
+            if ( step.startsWith('!') ) { continue; }
+            const clicked = await waitForElement(step);
+            if ( clicked ) { continue; }
+            safe.uboLog(logPrefix, `Timed out waiting on ${step}`);
+            break;
+        }
+    };
+
+    runAtHtmlElementFn(process);
+}
+
+function trustedCreateHTML(
+    parentSelector,
+    htmlStr = '',
+    durationStr = ''
+) {
+    if ( parentSelector === '' ) { return; }
+    if ( htmlStr === '' ) { return; }
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('trusted-create-html', parentSelector, htmlStr, durationStr);
+    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    // We do not want to recursively create elements
+    self.trustedCreateHTML = true;
+    let ancestor = self.frameElement;
+    while ( ancestor ) {
+        const doc = ancestor.ownerDocument;
+        if ( doc === null ) { break; }
+        const win = doc.defaultView;
+        if ( win === null ) { break; }
+        if ( win.trustedCreateHTML ) { return; }
+        ancestor = ancestor.frameElement;
+    }
+    const duration = parseInt(durationStr, 10);
+    const domParser = new DOMParser();
+    const externalDoc = domParser.parseFromString(htmlStr, 'text/html');
+    const toAppend = [];
+    while ( externalDoc.body.firstChild !== null ) {
+        toAppend.push(document.adoptNode(externalDoc.body.firstChild));
+    }
+    if ( toAppend.length === 0 ) { return; }
+    const toRemove = [];
+    const remove = ( ) => {
+        for ( const node of toRemove ) {
+            if ( node.parentNode === null ) { continue; }
+            node.parentNode.removeChild(node);
+        }
+        safe.uboLog(logPrefix, 'Node(s) removed');
+    };
+    const appendOne = (target, nodes) => {
+        for ( const node of nodes ) {
+            target.append(node);
+            if ( isNaN(duration) ) { continue; }
+            toRemove.push(node);
+        }
+    };
+    const append = ( ) => {
+        const targets = document.querySelectorAll(parentSelector);
+        if ( targets.length === 0 ) { return false; }
+        const limit = Math.min(targets.length, extraArgs.limit || 1) - 1;
+        for ( let i = 0; i < limit; i++ ) {
+            appendOne(targets[i], toAppend.map(a => a.cloneNode(true)));
+        }
+        appendOne(targets[limit], toAppend);
+        safe.uboLog(logPrefix, 'Node(s) appended');
+        if ( toRemove.length === 0 ) { return true; }
+        setTimeout(remove, duration);
+        return true;
+    };
+    const start = ( ) => {
+        if ( append() ) { return; }
+        const observer = new MutationObserver(( ) => {
+            if ( append() === false ) { return; }
+            observer.disconnect();
+        });
+        const observerOptions = {
+            childList: true,
+            subtree: true,
+        };
+        if ( /[#.[]/.test(parentSelector) ) {
+            observerOptions.attributes = true;
+            if ( parentSelector.includes('[') === false ) {
+                observerOptions.attributeFilter = [];
+                if ( parentSelector.includes('#') ) {
+                    observerOptions.attributeFilter.push('id');
+                }
+                if ( parentSelector.includes('.') ) {
+                    observerOptions.attributeFilter.push('class');
+                }
+            }
+        }
+        observer.observe(document, observerOptions);
+    };
+    runAt(start, extraArgs.runAt || 'loading');
+}
+
+function trustedSetCookie(
+    name = '',
+    value = '',
+    offsetExpiresSec = '',
+    path = ''
+) {
+    if ( name === '' ) { return; }
+
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('set-cookie', name, value, path);
+    const time = new Date();
+
+    if ( value.includes('$now$') ) {
+        value = value.replaceAll('$now$', time.getTime());
+    }
+    if ( value.includes('$currentDate$') ) {
+        value = value.replaceAll('$currentDate$', time.toUTCString());
+    }
+    if ( value.includes('$currentISODate$') ) {
+        value = value.replaceAll('$currentISODate$', time.toISOString());
+    }
+
+    let expires = '';
+    if ( offsetExpiresSec !== '' ) {
+        if ( offsetExpiresSec === '1day' ) {
+            time.setDate(time.getDate() + 1);
+        } else if ( offsetExpiresSec === '1year' ) {
+            time.setFullYear(time.getFullYear() + 1);
+        } else {
+            if ( /^\d+$/.test(offsetExpiresSec) === false ) { return; }
+            time.setSeconds(time.getSeconds() + parseInt(offsetExpiresSec, 10));
+        }
+        expires = time.toUTCString();
+    }
+
+    const done = setCookieFn(
+        true,
+        name,
+        value,
+        expires,
+        path,
+        safeSelf().getExtraArgs(Array.from(arguments), 4)
+    );
+
+    if ( done ) {
+        safe.uboLog(logPrefix, 'Done');
+    }
+}
+
+function trustedSetLocalStorageItem(key = '', value = '') {
+    const safe = safeSelf();
+    const options = safe.getExtraArgs(Array.from(arguments), 2)
+    setLocalStorageItemFn('local', true, key, value, options);
+}
+
+function trustedSetSessionStorageItem(key = '', value = '') {
+    const safe = safeSelf();
+    const options = safe.getExtraArgs(Array.from(arguments), 2)
+    setLocalStorageItemFn('session', true, key, value, options);
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 6 */
-[setCookie,setLocalStorageItem,removeClass,removeCookie,setSessionStorageItem,removeNodeText];
+const $scriptletFunctions$ = /* 12 */
+[setCookie,setLocalStorageItem,removeClass,removeCookie,setSessionStorageItem,removeNodeText,replaceNodeText,trustedSetLocalStorageItem,trustedClickElement,trustedSetCookie,trustedSetSessionStorageItem,trustedCreateHTML];
 
-const $scriptletArgs$ = /* 209 */ ["block-popuproadblock","true","aonehidepopupnewsletter1727208240","1","the_cookie719","useExitIntent","exit-intent","cp_style_3841","m6e-newsletter","popupIsClosed","emailLightBox","pum-open-overlay","body","stay","root-modal-container-open","hide-cookbook-modal-0","interstitial","aside","zephr-modal-open","newsletterPopupCount","blaize_session","blaize_tracking_id","open-pw","awpopup_450030403","popupShown","awpopup_501941328","popup_closed","email_modal","subscribe-pop-active","blocking-signup","html","huck-newsletter-popup","newsletterModal","enewsOptin","g1_popup_disabled","email-subscribe-check-41be04a9","false","SuppressInterstitial","","reload","marketing-modal-closed-1","2","r_p_s_n","viewedOuibounceModal","hidePopUp","modal-open","newsletter","js-show-newsletter-popup","bytes_signup_modal_viewed","iib_signup_popup","-1","dpp_paywall","pay_ent_msmp","pay_ent_pass","pum-9137","mm_f_45691","pum-605611","isNewsletterPopupShown","nbaSIBWidgetSeen","mailerlite:forms:shown:109925949413262377","floating-sign-up-dismissed","emailPopupDismissed","has-intro-popup","modal-in","show-intro-popup","pum-276000","uf_signup_bar","BRANCH_BANNER_PAGE_LOAD","EMAIL_CAPTURE_MODAL_STOP","show-email-intake-form","articleModalShown","sgID","st_newsletter_splash_desktop_seen","newsletter_signup_promo","newsletter_signup_views","hasShownPopup","jetpack_post_subscribe_modal_dismissed","CNN_MAIL_MAGAZIN","modalViewed","oxy-modal-active","newsletterLightboxDisplayed","emailSignupModal_isShown","MCPopupClosed","yes","welcome_modal_email_ts","signUpModalClosed_slot-paulaschoice_us-global-signUpModal-sfmcModal","newsletter-newsletter-popup","user_closed_pop_up","Columbia_AT_emailPopup","Columbia_DE_emailPopup","Columbia_ES_emailPopup","Columbia_FR_emailPopup","Columbia_IT_emailPopup","Columbia_UK_emailPopup","banner_session","mystery_popup","sws-gwpop","popup-newsletter","enews_popup_session","script","debugger","oncontextmenu","contextmenu","style","-ms-user-select: none","onselectstart","ctrlKey","__ADB_COOLDOWN__","adblock_modal_dismissed","DWEB_PIN_IMAGE_CLICK_COUNT","$remove$","unauthDownloadCount","/wccp|contextmenu/","/wccp|user-select/","disableSelection","copyprotect","/parseInt.*push.*setTimeout.*try.*catch/","/contextmenu|wpcp/","rprw","hasAdAlert","header","click-to-scroll","/disableclick|devtool/","social-qa/machineId","simple-funnel-name","/setTimeout.*style/","disable-selection","reEnable","stopPrntScr","kpwc","/adblock/i","stopRefreshSite","nocontextmenu","devtoolsDetector","console.clear","wccp_pro","initPopup","user-select","/contextmenu|devtool/","preventDefault","ezgwcc","wccp","isadb","e.preventDefault();","document.oncontextmenu","btnHtml","document.onselectstart","/$.*ready.*setInterval/","fs.adb.dis","disable_show_error","WkdGcGJIbEpiV0ZuWlVSaGRHRT0=","disable_copy","nocontext","XF","/articlesLimit|articlesRead|previousPage/","when","scroll keydown","/document.onkeydown|document.ondragstart/","fetch","devtools","while(!![]){try{var","ad_blocker","/closeWindow\\(\\)|clickIE\\(\\)|reEnable\\(\\)/","adblock","ab927c49cf1b","detectDevTool","/Clipboard|oncontextmenu|wpcp|keyCode/","/-webkit-user-select|webkit-appearance/","loc.hostname","disableselect","_ad","0","_ngViCo-SupporterPromo","selection","checkAdsBlocked","adblockNoticePermaDismiss","::selection","keyCode","window.location.href","/devtool|debugger/","/devtoolsDetector|keyCode|preventDefault/","leftPanelOpen","/^freeVideoFriendly/","contentprotector","/contextmenu|reEnable/","/adbl/i","/oncontextmenu|disableselect/","iAgree","firebox_3330","/contextmenu|oncopy/","getComputedStyle","onerror","/oncontextmenu|wccp/","dragscroll","clipboard_disabled","userData_","/wpcp|contextmenu|unselectable/","as_init","popupClosed","darken","no_scroll","complete","blurry","body > :not(.m-fbPopup)","_tsr_pc","FTR_Article_PageView","/oncontextmenu|onselectstart/","/wpcp|contextmenu/","TUTORIAL_VIEWED_SNACKS_HOME"];
+const $scriptletArgs$ = /* 284 */ ["block-popuproadblock","true","aonehidepopupnewsletter1727208240","1","the_cookie719","useExitIntent","exit-intent","cp_style_3841","m6e-newsletter","popupIsClosed","emailLightBox","pum-open-overlay","body","stay","root-modal-container-open","hide-cookbook-modal-0","interstitial","aside","zephr-modal-open","newsletterPopupCount","blaize_session","blaize_tracking_id","open-pw","awpopup_450030403","popupShown","awpopup_501941328","popup_closed","email_modal","subscribe-pop-active","blocking-signup","html","huck-newsletter-popup","newsletterModal","enewsOptin","g1_popup_disabled","email-subscribe-check-41be04a9","false","SuppressInterstitial","","reload","marketing-modal-closed-1","2","r_p_s_n","viewedOuibounceModal","hidePopUp","modal-open","newsletter","js-show-newsletter-popup","bytes_signup_modal_viewed","iib_signup_popup","-1","dpp_paywall","pay_ent_msmp","pay_ent_pass","pum-9137","mm_f_45691","pum-605611","isNewsletterPopupShown","nbaSIBWidgetSeen","mailerlite:forms:shown:109925949413262377","floating-sign-up-dismissed","emailPopupDismissed","has-intro-popup","modal-in","show-intro-popup","pum-276000","uf_signup_bar","BRANCH_BANNER_PAGE_LOAD","EMAIL_CAPTURE_MODAL_STOP","show-email-intake-form","articleModalShown","sgID","st_newsletter_splash_desktop_seen","newsletter_signup_promo","newsletter_signup_views","hasShownPopup","jetpack_post_subscribe_modal_dismissed","CNN_MAIL_MAGAZIN","modalViewed","oxy-modal-active","newsletterLightboxDisplayed","emailSignupModal_isShown","MCPopupClosed","yes","welcome_modal_email_ts","signUpModalClosed_slot-paulaschoice_us-global-signUpModal-sfmcModal","newsletter-newsletter-popup","user_closed_pop_up","Columbia_AT_emailPopup","Columbia_DE_emailPopup","Columbia_ES_emailPopup","Columbia_FR_emailPopup","Columbia_IT_emailPopup","Columbia_UK_emailPopup","banner_session","mystery_popup","sws-gwpop","popup-newsletter","enews_popup_session","script","debugger","oncontextmenu","\"copyRProtection\":true","\"copyRProtection\":false","style","@media print {body { display: none !important; }}","contextmenu","-ms-user-select: none","onselectstart","rcoverride < 1","ctrlKey","__ADB_COOLDOWN__","/^self\\./","(()=>{const a={apply:(a,e,o)=>(o[0]?.src?.includes?.(\"nitropay.com/ads\")&&setTimeout((()=>{window.nitroAds=window.nitroAds||{createAd:()=>{let n='function ye(e,t){var r;if(\"\"!=typeof t)return y.R.error(typeof t),y.R.error(t),null;const n=JSON.parse(JSON.stringify(t));if(t.acceptable)return null;if(t.sizes||=[],t.sizes&&t.sizes.length>0){const e=[];for(const r of t.sizes)2===r.length?e.push([Number(r[0]),Number(r[1])]):y.R.error(\"\");t.sizes=e}if(t.format&&t.format===w.e.Article)return(0,v.zL)(e,t,ve);if(t.format&&t.format===w.e.StickyStack)return(0,v.ek)(e,t,ve);if((0,c.zI)(t.format)||t.format===w.e.Rail){const n=me.findIndex((t=>e===t.id)),i=n>-1?me[n]:null;if(i&&i.createdAt&&Date.now()-i.createdAt<50)return y.R.debug(\"\"),null;const o=document.getElementById(e);if(o){try{y.R.debug(\"\"),o.remove(),i&&null!=(r=document.getElementById(i.id+\"\"))&&r.remove()}catch(e){y.R.debug(e)}return ve(e,t)}}return t.delayLoading?(0,v.hZ)(e,t,ve):t.format===w.e.SmartFlex?async function(e,t,r){const n=document.getElementById(e);if(!n)return y.R.warn(\"\"),[];t.format=w.e.SmartFlex,t.video||={},t.video.float=w.jz.Never;const i=[],o=W(n);if((o.width||o.maxWidth||window.innerWidth)<300)return y.R.warn(\"\"),n.remove(),[];n.style.maxWidth=\"\",n.style.width=\"\",n.style.height=\"\",n.style.display=\"\",n.style.flexWrap=\"\",n.style.flexDirection=\"\",n.style.placeContent=\"\";let l=document.getElementById(\"\");return l||(l=document.createElement(\"\"),l.id=\"\",n.appendChild(l)),t.sizes=L(n,{ignoreBounds:!0}),i.push(await r(\"\",t)),i}(e,t,ve):(y.R.getLevel()===y.R.levels.TRACE&&console.log(\"\",{id:e,originalOptions:n,options:t}),ve(e,t))}'},siteId:1487,addUserToken:()=>{},clearUserTokens:()=>{},blocklist:[],queue:[],loaded:!0,version:\"20251114 2dd5c12\",geo:\"\"}}),1e3),Reflect.apply(a,e,o))};window.HTMLBodyElement.prototype.appendChild=new Proxy(window.HTMLBodyElement.prototype.appendChild,a)})();self.","sedCount","adblock_modal_dismissed","adBlockerAlert_lastShown","$now$","adBlockedModal:lastDismiss","DWEB_PIN_IMAGE_CLICK_COUNT","$remove$","unauthDownloadCount",".chakra-portal .chakra-modal__content-container > section.chakra-modal__content > .chakra-modal__header:has(> .chakra-stack > a[href^=\"https://www.deezer.com/payment/go.php?origin=paywall_pressure\"]) + button.chakra-modal__close-btn","contextual-sign-in-modal-cool-off-hidden","/wccp|contextmenu/","/wccp|user-select/","disableSelection","copyprotect","/parseInt.*push.*setTimeout.*try.*catch/","/contextmenu|wpcp/","rprw","hasAdAlert","header","click-to-scroll",".np{",".dummy{","condition","@media print","/disableclick|devtool/","social-qa/machineId","simple-funnel-name","/setTimeout.*style/","disable-selection","reEnable","stopPrntScr","kpwc","/adblock/i","intro_popup_last_hidden_at","$currentDate$","stopRefreshSite","nocontextmenu","devtoolsDetector","console.clear","wccp_pro","initPopup","user-select","/contextmenu|devtool/","preventDefault","ezgwcc","wccp","isadb","e.preventDefault();","document.oncontextmenu","btnHtml","document.onselectstart","/$.*ready.*setInterval/","fs.adb.dis","disable_show_error","WkdGcGJIbEpiV0ZuWlVSaGRHRT0=","if(floovy()) {","if(false) {","disable_copy","nocontext","XF","/articlesLimit|articlesRead|previousPage/","when","scroll keydown","/document.onkeydown|document.ondragstart/","fetch","[data-automation=\"continue-to-ads-btn\"]","10000","devtools","while(!![]){try{var","ad_blocker","/closeWindow\\(\\)|clickIE\\(\\)|reEnable\\(\\)/","adblock","window.location.reload","ab927c49cf1b","detectDevTool","/Clipboard|oncontextmenu|wpcp|keyCode/","/-webkit-user-select|webkit-appearance/",".z_share_popover div.gap_2 > button.mt_24px.rounded_100vh + button.text_tint.disabled\\:opacity_0\\.4.h_50px","[data-testid=\"consentBanner\"] > button[data-testid=\"banner-button\"]","1000","1100","1200","1300","halfSheetAppBannerDismissed","{\"halfSheetAppBannerDismissed\":{\"expiration\":2000000000000,\"data\":true}}","loc.hostname","disableselect","status_of_app_redirect_half_modal_on_coordinate_list","{\"displayed\":true}","_ad","0","_ngViCo-SupporterPromo","#web-modal button.css-1d86b5p",".erc-existing-profile-onboarding-modal button[class^=\"modal-portal__close-button\"]","/\\.novel-box \\*:not\\(a\\)|@media print/g","selection","checkAdsBlocked","#com-onboarding-OnboardingWelcomeModal__title + div .com-a-Button--dark","adblockNoticePermaDismiss","lastViewTime","::selection","keyCode","window.location.href","/devtool|debugger/","/devtoolsDetector|keyCode|preventDefault/","leftPanelOpen","/^freeVideoFriendly/","contentprotector","/contextmenu|reEnable/",".seo-landing-modal-cancel-btn .design-system-button-container","500","/adbl/i","/oncontextmenu|disableselect/","reference_offer","__q_objt|{\"offer_type\":\"PROMOTION\"}","show_offer","__q_bool|0","show_offer_timestamp","__q_numb|9999999999999",".dig-Modal:has(div[data-testid=\"digTruncateTooltipTrigger\"]) > .dig-Modal-close-btn","2000","iAgree","adblockNotice","{\"dismissed\":true,\"impressionCount\":1}","firebox_3330","/contextmenu|oncopy/","getComputedStyle","onerror","xvmDialogLastShown","/oncontextmenu|wccp/","android-install-modal-skipped-until","9999999999999","dragscroll","clipboard_disabled",".com-onboarding-OnboardingWelcomeModal__button-wrapper > .com-a-Button--dark","userData_","mobile-app-recommend","{\"dismissed\":true,\"day\":30}","CopyrightLayer","abc","/wpcp|contextmenu|unselectable/","as_init","popupClosed","darken","no_scroll","complete","blurry","body > :not(.m-fbPopup)","_tsr_pc","keydown","ooo","onkeydown","ccc","FTR_Article_PageView","div[id^=\"alia-popup-root-alia-\"] div[aria-label=\"Close popup\"]","/oncontextmenu|onselectstart/","aichatPromoDismissal","{\"promoReleaseDate\":\"2026-01-05\",\"dismissedPromos\":[\"subscription\",\"browserUpsell\"],\"allPromosDismissed\":true}","appDownloadPromptDismissedV3Ttl","{\"value\":\"99999999999999\",\"expiresAt\":99999999999999}","main div[data-theater-mode] button[type=\"submit\"]","/wpcp|contextmenu/","<details open style='display:none' ontoggle='(function(){     window.addEventListener(\"contextmenu\", (e) => { e.stopImmediatePropagation(); return true; }, true);     const allow = (e) => { e.stopImmediatePropagation(); return true; };     document.addEventListener(\"selectstart\", allow, true);     document.addEventListener(\"copy\", allow, true);     window.addEventListener(\"keydown\", (e) => {         if ((e.ctrlKey || e.metaKey) && (e.key === \"c\" || e.key === \"a\")) {             e.stopImmediatePropagation();         }     }, true);     document.querySelectorAll(\"*\").forEach(el => {         el.oncontextmenu = null;         el.onselectstart = null;         el.oncopy = null;         el.onkeydown = null;         el.style.userSelect = \"auto\";     }); })();'></details>","TUTORIAL_CLOSED_SNACKS_HOME","fechado","TUTORIAL_VIEWED_SNACKS_HOME","timeLeft > 0","timeLeft = 0","includes","clearInterval"];
 
-const $scriptletArglists$ = /* 191 */ "0,0,1;0,2,3;0,4,1;1,5,1;0,6,1;0,7,1;0,8,3;0,9,3;1,10,1;2,11,12,13;2,14,12,13;1,15,1;2,16,17,13;2,18,12,13;1,19,3;3,20;3,21;2,22,12,13;0,23,3;0,24,1;0,25,3;0,26,1;0,27,1;2,28,12,13;2,29,30,13;0,31,1;0,32,1;0,33,3;0,34,3;1,35,36;0,37,1,38,39,3;0,40,41;0,42,3;0,43,1;0,44,1;2,45,38,13;0,46,1;2,47,38,13;0,48,3;0,49,50;3,51;3,52;3,53;0,54,1;0,55,1;0,56,1;0,57,36,38,39,3;1,58,1;0,59,3;4,60,1;4,61,3;2,62,30,13;2,63,30,13;2,64,30,13;0,65,1;2,45,12,13;0,66,3;1,67,3;1,68,3;1,69,36;4,70,1;3,71;0,72,1;0,73,1;0,74,3;1,75,1;0,76,1;0,77,3;1,78,3;2,79,12,13;0,80,1;4,81,1;0,82,83;0,84,3;1,85,3;0,86,1;1,87,1;0,88,3;0,89,3;0,90,3;0,91,3;0,92,3;0,93,3;4,94,1;0,95,1;0,96,3;0,97,1;4,98,3;5,99,100;5,99,101;5,99,102;5,103,104;5,99,105;5,99,106;5,99,107;4,108,1;1,109,110;1,111,110;5,99,112;5,103,113;5,99,114;5,99,115;5,99,116;5,99,117;1,118,110;2,119,120;2,121,12;5,99,122;1,123,110;1,124,110;5,99,125;2,126,12;5,99,127;5,99,128;3,129;5,99,130;5,99,131;5,99,132;5,99,133;5,99,134;5,99,135;5,99,136;5,103,137;5,99,138;5,99,139;0,140,3;5,99,141;5,99,142;5,99,143;5,99,144;5,99,145;5,99,146;5,99,147;4,148,3;5,99,149;1,150,110;5,99,151;5,99,152;5,99,153;3,154,155,156;5,99,157;5,99,158;5,99,159;5,99,160;1,161,36;5,99,162;4,163,1;5,99,164;5,99,165;5,99,166;5,103,167;5,99,168;5,99,163;5,99,169;0,170,171;3,172;5,103,173;5,99,174;1,175,1;5,103,176;5,99,177;5,99,178;5,99,179;5,99,180;0,181,171;1,182,110;5,99,183;5,99,184;5,99,185;5,99,186;0,187,3;0,188,3;5,99,189;5,99,190;5,99,191;5,99,192;2,193;5,99,194;5,99,195;5,99,196;5,99,197;4,198,1;2,45,12;2,199,12;2,12,200,201;2,202,203,13;0,204,171;0,205,41;5,99,206;5,99,207;1,208,1";
+const $scriptletArglists$ = /* 238 */ "0,0,1;0,2,3;0,4,1;1,5,1;0,6,1;0,7,1;0,8,3;0,9,3;1,10,1;2,11,12,13;2,14,12,13;1,15,1;2,16,17,13;2,18,12,13;1,19,3;3,20;3,21;2,22,12,13;0,23,3;0,24,1;0,25,3;0,26,1;0,27,1;2,28,12,13;2,29,30,13;0,31,1;0,32,1;0,33,3;0,34,3;1,35,36;0,37,1,38,39,3;0,40,41;0,42,3;0,43,1;0,44,1;2,45,38,13;0,46,1;2,47,38,13;0,48,3;0,49,50;3,51;3,52;3,53;0,54,1;0,55,1;0,56,1;0,57,36,38,39,3;1,58,1;0,59,3;4,60,1;4,61,3;2,62,30,13;2,63,30,13;2,64,30,13;0,65,1;2,45,12,13;0,66,3;1,67,3;1,68,3;1,69,36;4,70,1;3,71;0,72,1;0,73,1;0,74,3;1,75,1;0,76,1;0,77,3;1,78,3;2,79,12,13;0,80,1;4,81,1;0,82,83;0,84,3;1,85,3;0,86,1;1,87,1;0,88,3;0,89,3;0,90,3;0,91,3;0,92,3;0,93,3;4,94,1;0,95,1;0,96,3;0,97,1;4,98,3;5,99,100;5,99,101;6,99,102,103;6,104,105;5,99,106;5,104,107;5,99,108;6,99,109,36;5,99,110;5,99,111;6,99,112,113,114,3;4,115,1;7,116,117;7,118,117;1,119,120;1,121,120;8,122;7,123,117;5,99,124;5,104,125;5,99,126;5,99,127;5,99,128;5,99,129;1,130,120;2,131,132;2,133,12;6,104,134,135,136,137;5,99,138;1,139,120;1,140,120;5,99,141;2,142,12;5,99,143;5,99,144;3,145;5,99,146;9,147,148;5,99,149;5,99,150;5,99,151;5,99,152;5,99,153;5,99,154;5,104,155;5,99,156;5,99,157;0,158,3;5,99,159;5,99,160;5,99,161;5,99,162;5,99,163;5,99,164;5,99,165;4,166,3;5,99,167;1,168,120;6,99,169,170;5,99,171;5,99,172;5,99,173;3,174,175,176;5,99,177;5,99,178;8,179,38,180;5,99,181;5,99,182;1,183,36;5,99,184;4,185,1;6,99,186;5,99,187;5,99,188;5,99,189;5,104,190;8,191;8,192,38,193;8,192,38,194;8,192,38,195;8,192,38,196;7,197,198;5,99,199;5,99,185;5,99,200;10,201,202;0,203,204;3,205;8,206;8,207;6,104,137;6,104,208;5,104,209;5,99,210;8,211;1,212,1;7,213,148;5,104,214;5,99,215;5,99,216;5,99,217;5,99,218;0,219,204;1,220,120;5,99,221;5,99,222;8,223,38,224;5,99,225;5,99,226;7,227,228;7,229,230;7,231,232;8,233,38,234;0,235,3;7,236,237;0,238,3;5,99,239;5,99,240;5,99,241;7,242,117;5,99,243;7,244,245;2,246;5,99,247;8,248;5,99,249;7,250,251;6,99,252,253;5,99,254;5,99,255;4,256,1;2,45,12;2,257,12;2,12,258,259;2,260,261,13;0,262,204;6,99,263,264;6,99,265,264;6,99,106,266;0,267,41;8,268;5,99,269;7,270,271;7,272,273;8,274,38,193;5,99,275;11,30,276;7,277,278;1,279,1;6,99,280,281,282,283";
 
-const $scriptletArglistRefs$ = /* 394 */ "37;187;139;7;119;120;59;51,52,53;182;90;142;175;86;108,109;90;67;109;73;187;116;17;165;130;105;145;83;187;102;185;118;27;14;10;88;164;121;13;21;90,122;144;63,64;46;118;51,52,53;152;127;140;129;2;89;25;55;163;149,150;88;106;187;96,97;111;51,52,53;49;143;117;187;133;177;187;76;46;170;93;38;152;51,52,53;139;133;92;51,52,53;51,52,53;179;57,58;139;107;123;51,52,53;145;51,52,53;75;66;102;51,52,53;139;15,16;110;69;187;51,52,53;56;146;6;187;138;158;160;51,52,53;51,52,53;51,52,53;51,52,53;139;36;187;187;73;139;134;187;166;109;20;187;94;187;130;22;88;1;11;187;51,52,53;139;187;55;88;161;187;130;51,52,53;112;41,42;5;168;51,52,53;89;190;187;187;130;89;90;90;130;118;187;155;90;184;4;21;104;145;139;90;61;51,52,53;162;85;51,52,53;51,52,53;124;131;103;130;118;28;173;187;187;90;51,52,53;187;187;51,52,53;187;187;88;23;33;159;34;187;187;187;113;55;51,52,53;130;51,52,53;51,52,53;51,52,53;147;147;147;24;89;40;45;91;183;124;187;187;187;51,52,53;47;19;187;139;26;50;181;115;51,52,53;187;32;148;152,154;51,52,53;4;176;172;74;147;147;147;147;147;147;125;62;9;51,52,53;84;139;55;187;178;3;187;187;187;139;113;136,137;187;187;8;70;188;188;51,52,53;51,52,53;187;147;147;147;126;54;171;71;51,52,53;187;51,52,53;87;60;141;35;12;128;51,52,53;187;147;147;147;157;31;132;98,99;187;139;72;180;48;51,52,53;118;51,52,53;117;187;21;0;147;147;147;147;147;147;147;147;147;147;147;29;66;101;93;51,52,53;114;51,52,53;174;51,52,53;68;169;175;129;189;187;30;90;90;51,52,53;187;51,52,53;18;147;147;51,52,53;51,52,53;51,52,53;186;129;77;78;79;80;81;100;113,156;21;147;88;51,52,53;187;51,52,53;43;147;147;147;147;44;95;147;88;135;51,52,53;82;51,52,53;51,52,53;147;147;51,52,53;51,52,53;51,52,53;167;51,52,53;39;65;51,52,53;145;51,52,53;153;145;151;151;151;151;151;51,52,53;151;51,52,53;151;151;151;151;151;145";
+const $scriptletArglistRefs$ = /* 436 */ "37;227;165,166,167,168;150;230;209;7;129;130;173;176;182,212;59;51,52,53;219;92;154;208;86;224,225,226;117,118;92;67;118;73;227;126;17;191,232;140;113;157;83;227;110;164;222;128;27;14;10;159;224,225,226;88;104;125;190;131;13;21;207;95;92,132;156;63,64;46;128;51,52,53;171;137;151;139;2;200;209;89;25;91;55;189;162,163;88;114;169;227;102,103;120;51,52,53;49;155;127;227;143;211;227;76;46;201;197,198,199;96;38;171;184;231;51,52,53;150;143;146;94;51,52,53;51,52,53;216;105;57,58;150;115,116;98;133;51,52,53;157;51,52,53;75;66;110;51,52,53,125;150;15,16;119;69;227;51,52,53;56;228;158;6;227;149;183;186;51,52,53;51,52,53;51,52,53;51,52,53;150;36;227;227;73;150;144;227;153;192;118;20;227;97;227;140;22;88;1;11;214;227;51,52,53;150;227;55;88;187;227;140;51,52,53;121;41,42;5;195;202;51,52,53;89;235,236;227;227;140;89;92;90;178;92;194;140;128;227;175;92;221;4;21;112;157;150;92;61;51,52,53;188;85;51,52,53;51,52,53;134;141;111;140;128;28;205;227;177;227;234;92;101;51,52,53;227;227;51,52,53;227;227;88;23;33;185;34;227;227;227;122;55;51,52,53;140;51,52,53;51,52,53;51,52,53;160;160;160;24;89;40;45;93;220;134;227;227;227;51,52,53;47;19;227;150;26;50;218;124;51,52,53;227;32;161;171,174;100;51,52,53;4;210;204;74;160;160;160;160;160;160;135;62;9;51,52,53;84;150;55;227;213;3;227;227;227;150;122;147,148;227;227;8;209;215;237;70;229;229;51,52,53;51,52,53;227;160;160;160;136;54;203;71;51,52,53;227;51,52,53;87;60;152;35;12;138;51,52,53;227;160;160;160;181;31;142;106,107;227;150;72;217;48;51,52,53;98;128;51,52,53;127;227;21;0;160;160;160;160;160;160;160;160;160;160;160;29;66;109;96;98;51,52,53;123;51,52,53;206;51,52,53;68;196;208;139;233;227;30;92;92;51,52,53;227;51,52,53;18;160;160;51,52,53;51,52,53;51,52,53;223;139;77;78;79;80;81;108;122,180;21;160;88;51,52,53;227;51,52,53;43;179;160;160;160;160;44;99;160;88;145;51,52,53;82;51,52,53;51,52,53;160;160;51,52,53;51,52,53;51,52,53;193;51,52,53;39;65;51,52,53;157;125;51,52,53;172;157;170;170;170;170;170;51,52,53;170;51,52,53;170;170;170;170;170;157";
 
-const $scriptletHostnames$ = /* 394 */ ["dgb.de","t3.com","cbr.com","pbs.org","sbot.cf","tvhay.*","core.app","dkb.blog","hetek.hu","rds.live","vembed.*","2mnews.ro","assos.com","brainly.*","cespun.eu","cnn.co.jp","eodev.com","funko.com","itpro.com","jpost.com","money.com","nebula.tv","pling.com","pornhub.*","redisex.*","sears.com","space.com","strtape.*","vezess.hu","vidmoly.*","vokey.com","action.com","all3dp.com","camcaps.io","fandom.com","fjordd.com","forbes.com","lowpass.cc","oploverz.*","scenexe.io","snopes.com","toysrus.ca","watchx.top","webworm.co","xanimu.com","161.97.70.5","anascrie.ro","bg-gledai.*","diastixo.gr","hiphopa.net","huckmag.com","mandiner.hu","mostream.us","mrbenne.com","nicekkk.com","novelza.com","pcgamer.com","pinterest.*","postype.com","racket.news","semafor.com","stblion.xyz","teamkong.tk","theweek.com","270towin.com","adressit.com","advnture.com","audialab.com","babiesrus.ca","bangbros.com","bookto09.com","coinbase.com","cosxplay.com","flowstate.fm","gamerant.com","getemoji.com","kashiland.jp","kunstler.com","latent.space","liddread.com","magnolia.com","movieweb.com","novelpia.com","playertv.net","popular.info","redecanais.*","sambowman.co","saucerco.com","shojiwax.com","streamtape.*","substack.com","thegamer.com","theverge.com","valid.x86.fr","wahaca.co.uk","whathifi.com","wonkette.com","30seconds.com","afterclass.io","artribune.com","avnetwork.com","broncoshq.com","camspider.com","cyberdom.blog","dossier.today","elysian.press","eugyppius.com","gamefile.news","howtogeek.com","jingdaily.com","kiplinger.com","livingetc.com","loungefly.com","makeuseof.com","mathcrave.com","moneyweek.com","nihongoaz.com","nosdevoirs.fr","oled-info.com","petsradar.com","roleplayer.me","shortlist.com","store.kde.org","streamily.com","streamvid.net","sweet-shop.si","tastemade.com","techradar.com","theankler.com","thethings.com","tomsguide.com","tweaktown.com","up4stream.com","vyvymanga.net","wallpaper.com","xfce-look.org","afterbabel.com","bolugundem.com","bonappetit.com","breachmedia.ca","cowcotland.com","duffelblog.com","e-panigiria.gr","estadao.com.br","fitandwell.com","gamesradar.com","gnome-look.org","infotrucker.ro","iptvromania.ro","klartext-ne.de","linux-apps.com","moviesapi.club","musicradar.com","newgrounds.com","nullforums.net","otpportalok.hu","railsnotes.xyz","readergrev.com","realpython.com","redecanaistv.*","screenrant.com","seriesperu.com","similarweb.com","slowboring.com","streamruby.com","sweetwater.com","techemails.com","thebulwark.com","themeslide.com","zipcode.com.ng","android1pro.com","appimagehub.com","asumanaksoy.com","awardsradar.com","bangkokpost.com","cinemablend.com","cyclingnews.com","espressocafe.ro","forkingpaths.co","fourfourtwo.com","golfmonthly.com","goto10retro.com","guitarworld.com","idealhome.co.uk","ilovetoplay.xyz","insider.fitt.co","intellinews.com","japonhentai.com","kermitlynch.com","livescience.com","loudersound.com","marieclaire.com","medeberiya.site","mightyape.co.nz","noahpinion.blog","opendesktop.org","piratewires.com","platformer.news","publicnotice.co","puzzle-lits.com","puzzle-loop.com","puzzle-tapa.com","restofworld.org","streambuddy.net","thedriftmag.com","thelensnola.org","togetogebox.org","traffihunter.hu","warungkomik.com","whatculture.com","whattowatch.com","whowhatwear.com","asiasentinel.com","clutchpoints.com","commondreams.org","creativebloq.com","dualshockers.com","egopowerplus.com","empirical.health","erzsebetvaros.hu","freefilesync.org","garbageday.email","guitarplayer.com","in.investing.com","inattvcom117.xyz","klsescreener.com","michaelmoore.com","monarchmoney.com","nichepcgamer.com","ofertecatalog.ro","paulaschoice.com","puzzle-chess.com","puzzle-masyu.com","puzzle-pipes.com","puzzle-slant.com","puzzle-tents.com","puzzle-words.com","scitechdaily.com","seattletimes.com","securityweek.com","semianalysis.com","sharperimage.com","simpleflying.com","suzukicycles.com","techlearning.com","theintercept.com","timesnownews.com","tomshardware.com","tvtechnology.com","womanandhome.com","androidpolice.com","blog.tangwudi.com","brokensilenze.net","countrylife.co.uk","cyclingweekly.com","duluthtrading.com","girlscoutshop.com","googleapis.com.de","googleapis.com.do","hamiltonnolan.com","honest-broker.com","marieclaire.co.uk","puzzle-hitori.com","puzzle-kakuro.com","puzzle-sudoku.com","terramirabilis.ro","thefederalist.com","tmnascommunity.eu","virginvoyages.com","americasvoice.news","androidcentral.com","aporiamagazine.com","bcliquorstores.com","campaignlive.co.uk","cheersandgears.com","chicagotribune.com","cityandstateny.com","gdrivedescarga.com","henrikkarlsson.xyz","homebuilding.co.uk","puzzle-binairo.com","puzzle-bridges.com","puzzle-shikaku.com","readcomiconline.li","theinformation.com","thejakartapost.com","tunovelaligera.com","windowscentral.com","xda-developers.com","yvonnebennetti.com","canuckaudiomart.com","clevercreations.org","computerenhance.com","freshlifecircle.com","friendlyatheist.com","homegymreview.co.uk","homesandgardens.com","jointhefollowup.com","press.princeton.edu","puzzle-aquarium.com","puzzle-dominosa.com","puzzle-galaxies.com","puzzle-heyawake.com","puzzle-kakurasu.com","puzzle-light-up.com","puzzle-norinori.com","puzzle-nurikabe.com","puzzle-shingoki.com","puzzle-stitches.com","puzzle-yin-yang.com","scaleofuniverse.com","skepticalraptor.com","skidrowreloaded.com","smartkhabrinews.com","statsignificant.com","technologyreview.jp","theclimatebrink.com","toweroffantasy.info","understandingai.org","urbanoutfitters.com","zabawkahurtownia.pl","adevarurisecrete.com","aventurainromania.ro","camereliveromania.ro","gardeningknowhow.com","gourmetfoodstore.com","japanesewithtomo.com","lyrical-nonsense.com","moreisdifferent.blog","myvouchercodes.co.uk","persuasion.community","plantpowercouple.com","puzzle-futoshiki.com","puzzle-nonograms.com","secretsofprivacy.com","strangeloopcanon.com","thebignewsletter.com","thestudentroom.co.uk","audiologyresearch.org","columbiasportswear.at","columbiasportswear.de","columbiasportswear.es","columbiasportswear.fr","columbiasportswear.it","hebrew4christians.com","monitoruldevrancea.ro","objectivebayesian.com","puzzle-shakashaka.com","stream.hownetwork.xyz","americafirstreport.com","digitalcameraworld.com","fullstackeconomics.com","ghostinternational.com","puzzle-battleships.com","puzzle-minesweeper.com","puzzle-skyscrapers.com","puzzle-star-battle.com","thebarentsobserver.com","jailbreakchangelogs.xyz","puzzle-thermometers.com","tips97tech.blogspot.com","www.watermarkremover.io","antiracismnewsletter.com","columbiasportswear.co.uk","construction-physics.com","experimental-history.com","puzzle-jigsaw-sudoku.com","puzzle-killer-sudoku.com","read.perspectiveship.com","engineeringleadership.xyz","newsletter.banklesshq.com","astoryofmasasstruggles.com","blog.codingconfessions.com","informationisbeautiful.net","interestingengineering.com","theintrinsicperspective.com","xn--90afacv0cu2a3cr.xn--p1ai","newsletter.eng-leadership.com","noicetranslations.blogspot.com","xn--90afacv0clj6ac0dxa.xn--p1ai","www-devonlive-com.translate.goog","www-insider-co-uk.translate.goog","www-kentlive-news.translate.goog","www-themirror-com.translate.goog","www-essexlive-news.translate.goog","newsletter.maartengrootendorst.com","www-football-london.translate.goog","unchartedterritories.tomaspueyo.com","www-cornwalllive-com.translate.goog","www-glasgowlive-co-uk.translate.goog","www-leeds--live-co-uk.translate.goog","www-liverpoolecho-co-uk.translate.goog","www-lincolnshirelive-co-uk.translate.goog","xn-----0b4asja7ccgu2b4b0gd0edbjm2jpa1b1e9zva7a0347s4da2797e8qri.xn--1ck2e1b"];
+const $scriptletHostnames$ = /* 436 */ ["dgb.de","t3.com","bbc.com","cbr.com","duck.ai","fic.fan","pbs.org","sbot.cf","tvhay.*","wear.jp","wrtn.jp","abema.tv","core.app","dkb.blog","hetek.hu","rds.live","vembed.*","2mnews.ro","assos.com","bintv.fun","brainly.*","cespun.eu","cnn.co.jp","eodev.com","funko.com","itpro.com","jpost.com","money.com","nebula.tv","pling.com","pornhub.*","redisex.*","sears.com","space.com","strtape.*","teller.jp","vezess.hu","vidmoly.*","vokey.com","action.com","all3dp.com","baumbet.ro","bintvs.fun","camcaps.io","deezer.com","entra.news","fandom.com","fjordd.com","forbes.com","lowpass.cc","modxvm.com","nny360.com","oploverz.*","scenexe.io","snopes.com","toysrus.ca","watchx.top","webworm.co","xanimu.com","161.97.70.5","anascrie.ro","bg-gledai.*","diastixo.gr","dropbox.com","ficbook.net","hiphopa.net","huckmag.com","j-lyric.net","mandiner.hu","mostream.us","mrbenne.com","nicekkk.com","novelza.com","patreon.com","pcgamer.com","pinterest.*","postype.com","racket.news","semafor.com","stblion.xyz","teamkong.tk","theweek.com","270towin.com","adressit.com","advnture.com","audialab.com","babiesrus.ca","bangbros.com","bitchute.com","bookto09.com","coinbase.com","cosxplay.com","cu.tbs.co.jp","doordash.com","flowstate.fm","gamerant.com","getemoji.com","heidisql.com","kashiland.jp","kunstler.com","latent.space","liddread.com","linkedin.com","magnolia.com","movieweb.com","novelpia.com","paxdei.th.gl","playertv.net","popular.info","redecanais.*","sambowman.co","saucerco.com","shojiwax.com","streamtape.*","substack.com","thegamer.com","theverge.com","valid.x86.fr","wahaca.co.uk","whathifi.com","wonkette.com","30seconds.com","aeropress.com","afterclass.io","artribune.com","avnetwork.com","broncoshq.com","camspider.com","cyberdom.blog","dossier.today","elysian.press","eugyppius.com","gamefile.news","howtogeek.com","jingdaily.com","kiplinger.com","livingetc.com","loungefly.com","makeuseof.com","mathcrave.com","moneyweek.com","moovitapp.com","nihongoaz.com","nosdevoirs.fr","oled-info.com","petsradar.com","roleplayer.me","shortlist.com","store.kde.org","streamily.com","streamvid.net","sweet-shop.si","tastemade.com","teamblind.com","techradar.com","theankler.com","thethings.com","tomsguide.com","tweaktown.com","up4stream.com","vyvymanga.net","wallpaper.com","xfce-look.org","afterbabel.com","bolugundem.com","bonappetit.com","breachmedia.ca","cowcotland.com","duckduckgo.com","duffelblog.com","e-panigiria.gr","estadao.com.br","fitandwell.com","gamesradar.com","gnome-look.org","infotrucker.ro","iptvromania.ro","isekaitube.com","karsaz-law.com","klartext-ne.de","lemon8-app.com","linux-apps.com","moviesapi.club","musicradar.com","newgrounds.com","nullforums.net","otpportalok.hu","railsnotes.xyz","readergrev.com","realpython.com","redecanaistv.*","screenrant.com","seriesperu.com","similarweb.com","slowboring.com","streamruby.com","sweetwater.com","techemails.com","thebulwark.com","themeslide.com","zipcode.com.ng","android1pro.com","appimagehub.com","asumanaksoy.com","awardsradar.com","bangkokpost.com","cinemablend.com","crunchyroll.com","cyclingnews.com","dozaanimata.net","espressocafe.ro","flamecomics.xyz","forkingpaths.co","fourfourtwo.com","golfmonthly.com","goto10retro.com","guitarworld.com","idealhome.co.uk","ilovetoplay.xyz","insider.fitt.co","intellinews.com","japonhentai.com","kermitlynch.com","livescience.com","loudersound.com","marieclaire.com","medeberiya.site","mightyape.co.nz","noahpinion.blog","opendesktop.org","piratewires.com","platformer.news","publicnotice.co","puzzle-lits.com","puzzle-loop.com","puzzle-tapa.com","restofworld.org","streambuddy.net","thedriftmag.com","thelensnola.org","togetogebox.org","traffihunter.hu","warungkomik.com","whatculture.com","whattowatch.com","whowhatwear.com","asiasentinel.com","clutchpoints.com","commondreams.org","creativebloq.com","dualshockers.com","egopowerplus.com","empirical.health","erzsebetvaros.hu","freefilesync.org","garbageday.email","guitarplayer.com","in.investing.com","inattvcom117.xyz","klsescreener.com","lofi-nopixel.com","michaelmoore.com","monarchmoney.com","nichepcgamer.com","ofertecatalog.ro","paulaschoice.com","puzzle-chess.com","puzzle-masyu.com","puzzle-pipes.com","puzzle-slant.com","puzzle-tents.com","puzzle-words.com","scitechdaily.com","seattletimes.com","securityweek.com","semianalysis.com","sharperimage.com","simpleflying.com","suzukicycles.com","techlearning.com","theintercept.com","timesnownews.com","tomshardware.com","tvtechnology.com","womanandhome.com","androidpolice.com","blog.tangwudi.com","brokensilenze.net","countrylife.co.uk","cyclingweekly.com","duluthtrading.com","fanfictionero.com","foodnavigator.com","freemagazines.top","girlscoutshop.com","googleapis.com.de","googleapis.com.do","hamiltonnolan.com","honest-broker.com","marieclaire.co.uk","puzzle-hitori.com","puzzle-kakuro.com","puzzle-sudoku.com","terramirabilis.ro","thefederalist.com","tmnascommunity.eu","virginvoyages.com","americasvoice.news","androidcentral.com","aporiamagazine.com","bcliquorstores.com","campaignlive.co.uk","cheersandgears.com","chicagotribune.com","cityandstateny.com","gdrivedescarga.com","henrikkarlsson.xyz","homebuilding.co.uk","puzzle-binairo.com","puzzle-bridges.com","puzzle-shikaku.com","readcomiconline.li","theinformation.com","thejakartapost.com","tunovelaligera.com","windowscentral.com","xda-developers.com","yvonnebennetti.com","canuckaudiomart.com","clevercreations.org","computerenhance.com","duneawakening.th.gl","freshlifecircle.com","friendlyatheist.com","homegymreview.co.uk","homesandgardens.com","jointhefollowup.com","press.princeton.edu","puzzle-aquarium.com","puzzle-dominosa.com","puzzle-galaxies.com","puzzle-heyawake.com","puzzle-kakurasu.com","puzzle-light-up.com","puzzle-norinori.com","puzzle-nurikabe.com","puzzle-shingoki.com","puzzle-stitches.com","puzzle-yin-yang.com","scaleofuniverse.com","skepticalraptor.com","skidrowreloaded.com","smartkhabrinews.com","starresonance.th.gl","statsignificant.com","technologyreview.jp","theclimatebrink.com","toweroffantasy.info","understandingai.org","urbanoutfitters.com","zabawkahurtownia.pl","adevarurisecrete.com","aventurainromania.ro","camereliveromania.ro","gardeningknowhow.com","gourmetfoodstore.com","japanesewithtomo.com","lyrical-nonsense.com","moreisdifferent.blog","myvouchercodes.co.uk","persuasion.community","plantpowercouple.com","puzzle-futoshiki.com","puzzle-nonograms.com","secretsofprivacy.com","strangeloopcanon.com","thebignewsletter.com","thestudentroom.co.uk","audiologyresearch.org","columbiasportswear.at","columbiasportswear.de","columbiasportswear.es","columbiasportswear.fr","columbiasportswear.it","hebrew4christians.com","monitoruldevrancea.ro","objectivebayesian.com","puzzle-shakashaka.com","stream.hownetwork.xyz","americafirstreport.com","digitalcameraworld.com","fullstackeconomics.com","ghostinternational.com","mskmangaz.blogspot.com","puzzle-battleships.com","puzzle-minesweeper.com","puzzle-skyscrapers.com","puzzle-star-battle.com","thebarentsobserver.com","jailbreakchangelogs.xyz","puzzle-thermometers.com","tips97tech.blogspot.com","www.watermarkremover.io","antiracismnewsletter.com","columbiasportswear.co.uk","construction-physics.com","experimental-history.com","puzzle-jigsaw-sudoku.com","puzzle-killer-sudoku.com","read.perspectiveship.com","engineeringleadership.xyz","newsletter.banklesshq.com","astoryofmasasstruggles.com","blog.codingconfessions.com","informationisbeautiful.net","interestingengineering.com","theintrinsicperspective.com","xn--90afacv0cu2a3cr.xn--p1ai","microsoftsecurityinsights.com","newsletter.eng-leadership.com","noicetranslations.blogspot.com","xn--90afacv0clj6ac0dxa.xn--p1ai","www-devonlive-com.translate.goog","www-insider-co-uk.translate.goog","www-kentlive-news.translate.goog","www-themirror-com.translate.goog","www-essexlive-news.translate.goog","newsletter.maartengrootendorst.com","www-football-london.translate.goog","unchartedterritories.tomaspueyo.com","www-cornwalllive-com.translate.goog","www-glasgowlive-co-uk.translate.goog","www-leeds--live-co-uk.translate.goog","www-liverpoolecho-co-uk.translate.goog","www-lincolnshirelive-co-uk.translate.goog","xn-----0b4asja7ccgu2b4b0gd0edbjm2jpa1b1e9zva7a0347s4da2797e8qri.xn--1ck2e1b"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

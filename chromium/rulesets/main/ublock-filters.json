@@ -5337,5 +5337,6 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["ssaiProfile"]}}},"type":"redirect"},"condition":{"initiatorDomains":["adultswim.com"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||medium.ngtv.io/v2/media/*^ssaiProfile="},"id":5336},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["yo.asd"]}}},"type":"redirect"},"condition":{"initiatorDomains":["adultswim.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||adultswim-vodlive.cdn.turner.com/csm/extlive/*^yo.asd="},"id":5337},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||openlua.cloud/*.js?_="},"id":5338,"priority":30},
-{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.adsninja.ca/biddertypelibrary/"},"id":5339,"priority":40}
+{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.adsninja.ca/biddertypelibrary/"},"id":5339,"priority":40},
+{"action":{"type":"block"},"condition":{"urlFilter":"||streamcash.to/embed/ping/"},"id":5340,"priority":10}
 ]
