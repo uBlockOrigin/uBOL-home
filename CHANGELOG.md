@@ -1,3 +1,11 @@
+- [Excluded resource types must exclude `main_frame`
+](https://github.com/gorhill/uBlock/commit/a2ed727d21)
+- Updated filter lists
+
+----------
+
+### 2026.625.2148
+
 - [Fix improperly discarding trusted filters in mixed lists](https://github.com/gorhill/uBlock/commit/8dff81c5a0)
 - [Fix mismanagement of alarms potentially causing endless async loop](https://github.com/gorhill/uBlock/commit/e6f5b9a23a)
 - Updated filter lists
