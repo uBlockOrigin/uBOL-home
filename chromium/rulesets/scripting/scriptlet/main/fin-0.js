@@ -683,35 +683,6 @@ function proxyApplyFn(
     context[prop] = proxiedTarget;
 }
 
-function runAt(fn, when) {
-    const intFromReadyState = state => {
-        const targets = {
-            'loading': 1, 'asap': 1,
-            'interactive': 2, 'end': 2, '2': 2,
-            'complete': 3, 'idle': 3, '3': 3,
-        };
-        const tokens = Array.isArray(state) ? state : [ state ];
-        for ( const token of tokens ) {
-            const prop = `${token}`;
-            if ( Object.hasOwn(targets, prop) === false ) { continue; }
-            return targets[prop];
-        }
-        return 0;
-    };
-    const runAt = intFromReadyState(when);
-    if ( intFromReadyState(document.readyState) >= runAt ) {
-        fn(); return;
-    }
-    const onStateChange = ( ) => {
-        if ( intFromReadyState(document.readyState) < runAt ) { return; }
-        fn();
-        safe.removeEventListener.apply(document, args);
-    };
-    const safe = safeSelf();
-    const args = [ 'readystatechange', onStateChange, { capture: true } ];
-    safe.addEventListener.apply(document, args);
-}
-
 function runAtHtmlElementFn(fn) {
     if ( document.documentElement ) {
         fn();
@@ -903,217 +874,9 @@ function safeSelf() {
     return safe;
 }
 
-function setConstant(
-    ...args
-) {
-    setConstantFn(false, ...args);
-}
-
-function setConstantFn(
-    trusted = false,
-    chain = '',
-    rawValue = ''
-) {
-    if ( chain === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-    function setConstant(chain, rawValue) {
-        const trappedProp = (( ) => {
-            const pos = chain.lastIndexOf('.');
-            if ( pos === -1 ) { return chain; }
-            return chain.slice(pos+1);
-        })();
-        const cloakFunc = fn => {
-            safe.Object_defineProperty(fn, 'name', { value: trappedProp });
-            return new Proxy(fn, {
-                defineProperty(target, prop) {
-                    if ( prop !== 'toString' ) {
-                        return Reflect.defineProperty(...arguments);
-                    }
-                    return true;
-                },
-                deleteProperty(target, prop) {
-                    if ( prop !== 'toString' ) {
-                        return Reflect.deleteProperty(...arguments);
-                    }
-                    return true;
-                },
-                get(target, prop) {
-                    if ( prop === 'toString' ) {
-                        return function() {
-                            return `function ${trappedProp}() { [native code] }`;
-                        }.bind(null);
-                    }
-                    return Reflect.get(...arguments);
-                },
-            });
-        };
-        if ( trappedProp === '' ) { return; }
-        const thisScript = document.currentScript;
-        let normalValue = validateConstantFn(trusted, rawValue, extraArgs);
-        if ( rawValue === 'noopFunc' || rawValue === 'trueFunc' || rawValue === 'falseFunc' ) {
-            normalValue = cloakFunc(normalValue);
-        }
-        let aborted = false;
-        const mustAbort = function(v) {
-            if ( trusted ) { return false; }
-            if ( aborted ) { return true; }
-            aborted =
-                (v !== undefined && v !== null) &&
-                (normalValue !== undefined && normalValue !== null) &&
-                (typeof v !== typeof normalValue);
-            if ( aborted ) {
-                safe.uboLog(logPrefix, `Aborted because value set to ${v}`);
-            }
-            return aborted;
-        };
-        // https://github.com/uBlockOrigin/uBlock-issues/issues/156
-        //   Support multiple trappers for the same property.
-        const trapProp = function(owner, prop, configurable, handler) {
-            if ( handler.init(configurable ? owner[prop] : normalValue) === false ) { return; }
-            const odesc = safe.Object_getOwnPropertyDescriptor(owner, prop);
-            let prevGetter, prevSetter;
-            if ( odesc instanceof safe.Object ) {
-                owner[prop] = normalValue;
-                if ( odesc.get instanceof Function ) {
-                    prevGetter = odesc.get;
-                }
-                if ( odesc.set instanceof Function ) {
-                    prevSetter = odesc.set;
-                }
-            }
-            try {
-                safe.Object_defineProperty(owner, prop, {
-                    configurable,
-                    get() {
-                        if ( prevGetter !== undefined ) {
-                            prevGetter();
-                        }
-                        return handler.getter();
-                    },
-                    set(a) {
-                        if ( prevSetter !== undefined ) {
-                            prevSetter(a);
-                        }
-                        handler.setter(a);
-                    }
-                });
-                safe.uboLog(logPrefix, 'Trap installed');
-            } catch(ex) {
-                safe.uboErr(logPrefix, ex);
-            }
-        };
-        const trapChain = function(owner, chain) {
-            const pos = chain.indexOf('.');
-            if ( pos === -1 ) {
-                trapProp(owner, chain, false, {
-                    v: undefined,
-                    init: function(v) {
-                        if ( mustAbort(v) ) { return false; }
-                        this.v = v;
-                        return true;
-                    },
-                    getter: function() {
-                        if ( document.currentScript === thisScript ) {
-                            return this.v;
-                        }
-                        safe.uboLog(logPrefix, 'Property read');
-                        return normalValue;
-                    },
-                    setter: function(a) {
-                        if ( mustAbort(a) === false ) { return; }
-                        normalValue = a;
-                    }
-                });
-                return;
-            }
-            const prop = chain.slice(0, pos);
-            const v = owner[prop];
-            chain = chain.slice(pos + 1);
-            if ( v instanceof safe.Object || typeof v === 'object' && v !== null ) {
-                trapChain(v, chain);
-                return;
-            }
-            trapProp(owner, prop, true, {
-                v: undefined,
-                init: function(v) {
-                    this.v = v;
-                    return true;
-                },
-                getter: function() {
-                    return this.v;
-                },
-                setter: function(a) {
-                    this.v = a;
-                    if ( a instanceof safe.Object ) {
-                        trapChain(a, chain);
-                    }
-                }
-            });
-        };
-        trapChain(window, chain);
-    }
-    runAt(( ) => {
-        setConstant(chain, rawValue);
-    }, extraArgs.runAt);
-}
-
 function shouldDebug(details) {
     if ( details instanceof Object === false ) { return false; }
     return scriptletGlobals.canDebug && details.debug;
-}
-
-function validateConstantFn(trusted, raw, extraArgs = {}) {
-    const safe = safeSelf();
-    let value;
-    if ( raw === 'undefined' ) {
-        value = undefined;
-    } else if ( raw === 'false' ) {
-        value = false;
-    } else if ( raw === 'true' ) {
-        value = true;
-    } else if ( raw === 'null' ) {
-        value = null;
-    } else if ( raw === "''" || raw === '' ) {
-        value = '';
-    } else if ( raw === '[]' || raw === 'emptyArr' ) {
-        value = [];
-    } else if ( raw === '{}' || raw === 'emptyObj' ) {
-        value = {};
-    } else if ( raw === 'noopFunc' ) {
-        value = function(){};
-    } else if ( raw === 'trueFunc' ) {
-        value = function(){ return true; };
-    } else if ( raw === 'falseFunc' ) {
-        value = function(){ return false; };
-    } else if ( raw === 'throwFunc' ) {
-        value = function(){ throw ''; };
-    } else if ( /^-?\d+$/.test(raw) ) {
-        value = parseInt(raw);
-        if ( isNaN(raw) ) { return; }
-        if ( Math.abs(raw) > 0x7FFF ) { return; }
-    } else if ( trusted ) {
-        if ( raw.startsWith('json:') ) {
-            try { value = safe.JSON_parse(raw.slice(5)); } catch { return; }
-        } else if ( raw.startsWith('{') && raw.endsWith('}') ) {
-            try { value = safe.JSON_parse(raw).value; } catch { return; }
-        }
-    } else {
-        return;
-    }
-    if ( extraArgs.as !== undefined ) {
-        if ( extraArgs.as === 'function' ) {
-            return ( ) => value;
-        } else if ( extraArgs.as === 'callback' ) {
-            return ( ) => (( ) => value);
-        } else if ( extraArgs.as === 'resolved' ) {
-            return Promise.resolve(value);
-        } else if ( extraArgs.as === 'rejected' ) {
-            return Promise.reject(value);
-        }
-    }
-    return value;
 }
 
 function xmlPrune(
@@ -1259,16 +1022,16 @@ function xmlPrune(
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 7 */
-[preventSetTimeout,abortCurrentScript,abortOnPropertyRead,jsonPrune,setConstant,jsonPruneFetchResponse,xmlPrune];
+const $scriptletFunctions$ = /* 6 */
+[preventSetTimeout,abortCurrentScript,abortOnPropertyRead,jsonPrune,jsonPruneFetchResponse,xmlPrune];
 
-const $scriptletArgs$ = /* 15 */ ["f.parentNode.removeChild(f)","100","testPrebid","Object.prototype.adUnits","props.pageProps.contentfulState.frontPage.sections.[].fields.hasCitrusAdSlot props.pageProps.contentfulState.frontPage.sections.[].fields.isCitrusAdGrid","setnp","0","bumpers","","propsToMatch","url:/playback2.a2d.tv\\/play/","playbackItem.isStitched","prism.a2d.tv","MediaFile","fi-mtv3.videoplaza.tv/proxy/distributor"];
+const $scriptletArgs$ = /* 13 */ ["f.parentNode.removeChild(f)","100","testPrebid","Object.prototype.adUnits","props.pageProps.contentfulState.frontPage.sections.[].fields.hasCitrusAdSlot props.pageProps.contentfulState.frontPage.sections.[].fields.isCitrusAdGrid","bumpers","","propsToMatch","url:/playback2.a2d.tv\\/play/","playbackItem.isStitched","prism.a2d.tv","MediaFile","fi-mtv3.videoplaza.tv/proxy/distributor"];
 
-const $scriptletArglists$ = /* 8 */ "0,0,1;1,2;2,3;3,4;4,5,6;5,7,8,9,10;5,11,8,9,12;6,13,8,14";
+const $scriptletArglists$ = /* 7 */ "0,0,1;1,2;2,3;3,4;4,5,6,7,8;4,9,6,7,10;5,11,6,12";
 
-const $scriptletArglistRefs$ = /* 11 */ "5,6,7;0;0;4;1;0;3;0;5,6,7;2;0";
+const $scriptletArglistRefs$ = /* 10 */ "4,5,6;0;0;1;0;3;0;4,5,6;2;0";
 
-const $scriptletHostnames$ = /* 11 */ ["mtv.fi","dawn.fi","high.fi","telsu.fi","findit.fi","download.fi","s-kaupat.fi","afterdawn.com","mtvuutiset.fi","happypancake.fi","muropaketti.com"];
+const $scriptletHostnames$ = /* 10 */ ["mtv.fi","dawn.fi","high.fi","findit.fi","download.fi","s-kaupat.fi","afterdawn.com","mtvuutiset.fi","happypancake.fi","muropaketti.com"];
 
 const $scriptletFromRegexes$ = /* 0 */ [];
 

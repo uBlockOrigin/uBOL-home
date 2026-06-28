@@ -244,6 +244,12 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?shortnest\\.com/st\\?",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?pelistop\\.xyz/.*?&url=http",
   "steps": [
    "?url",

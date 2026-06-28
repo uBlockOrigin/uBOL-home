@@ -93,7 +93,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.shortpixel.ai/client/to_webp,q_glossy,ret_img/http://www.thamilan.lk/wp-content/uploads/2020/06/19.jpg"},"id":92,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.shortpixel.ai/client/to_webp,q_glossy,ret_img/http://www.thamilan.lk/wp-content/uploads/2020/12/blue-ocean.gif"},"id":93,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_240/http://punjabguardian.com/wp-content/uploads/2017/12/punjab-forex-front-pbfx-add-paper.jpg"},"id":94,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["banglakatha.com.au","dailydhakareport.com","infokhabar.com","janachasotimes.com","kashilive.com","keralaonlive.com","lalmonibarta.com","nepali.ictkhabar.com","nepalipatra.com","nepalkhabar.com","newsfirst.lk","sangbadsarabela.com","thahapati.com","thereport24.com","timesofpradesh.com"],"urlFilter":"/advertisements/"},"id":95,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["banglakatha.com.au","dailydhakareport.com","infokhabar.com","janachasotimes.com","kashilive.com","keralaonlive.com","lalmonibarta.com","lumbinivoice.com","nepali.ictkhabar.com","nepalipatra.com","nepalkhabar.com","newsfirst.lk","sangbadsarabela.com","thahapati.com","thereport24.com","timesofpradesh.com"],"urlFilter":"/advertisements/"},"id":95,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.telugu.gulte.com/wp-content/uploads/2020/06/amaravati-v2.gif"},"id":96,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.vvimgs.com/wp-content/uploads/2024/07/pulsar.webp"},"id":97,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["samugammedia.com"],"urlFilter":"||cineweb.s3.amazonaws.com/new_images_dev/m9dir5hfjqjjrxygl8svth6fqhfnaydqakrubjuv.jpg"},"id":98,"priority":10},
@@ -4303,8 +4303,8 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||ottrancheithi.com/wp-content/uploads/2024/10/vettaiyan_banner_background.gif"},"id":4302,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||speednewskannada.com/v-uploads/v-ads/"},"id":4303,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||storage.googleapis.com/navtejcms/advertisement/"},"id":4304,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||vinayexpress.in^*/b321d8882f0e44548ceb5f3c2afc979c-324x400.jpg"},"id":4305,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||vinayexpress.in^*/img-20241212-wa0160"},"id":4306,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||atmnews.com.np/wp-content/uploads/2025/08/fb_img_1754313351155.jpg"},"id":4305,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||chitrawannews.com/wp-content/uploads/2026/05/admission-open-npi-scaled.jpeg"},"id":4306,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||virakesari.lk/uploads/ad/advert_image/"},"id":4307,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||visalaandhra.com^*-add-*.jpg"},"id":4308,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||vishban.com/wp-content/uploads/2019/04/lalit-graphics"},"id":4309,"priority":10},
@@ -5189,5 +5189,12 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||samaynewslive.com/wp-content/uploads/2026/06/img_20260605_092431"},"id":5188,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tarafnews24.com/wp-content/uploads/2018/11/bijoy-biggapon.jpg"},"id":5189,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||samatalonline.com/wp-content/uploads/2026/02/gif-bombay-1.gif"},"id":5190,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||saptakoshionline.com/uploads/advertise/"},"id":5191,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||saptakoshionline.com/uploads/advertise/"},"id":5191,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||chitrawannews.com/wp-content/uploads/2026/06/aarambha.jpeg"},"id":5192,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||deshpradeshnews.com/content/upload/post_image/702621121-1908482146417213-1838133430250938661-njpgljsf970m6.jpg"},"id":5193,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||deshpradeshnews.com/content/upload/post_image/whatsapp-image-2026-03-31-at-51521-pmjpeg3ufx4ayyu.jpeg"},"id":5194,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||jugobarta.com/public/assets/img/ads.jpg"},"id":5195,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||newsnepaltv.com/wp-content/uploads/2020/09/mb.webp"},"id":5196,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||newstodaytamil.in/admin/images/banner/"},"id":5197,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||sambadonline.com/uploads/advertise/"},"id":5198,"priority":10}
 ]

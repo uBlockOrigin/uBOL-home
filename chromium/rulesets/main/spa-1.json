@@ -906,5 +906,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||portalmie.com/wp-content/plugins/parceiros_portalmie/"},"id":905,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||sapo.pt/assets/pub2."},"id":906,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||js.sapo.pt/projects/cpu/latest/prebid*.*_*.js"},"id":907,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||obj.ni.aws.newsgen.io/pub/campanhas/idealista/id-app-1920x1100.jpg"},"id":908,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||obj.ni.aws.newsgen.io/pub/campanhas/idealista/id-app-1920x1100.jpg"},"id":908,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||fucsia.co/pf/resources/js/arcads.js"},"id":909,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||soho.co/pf/resources/js/arcads.js"},"id":910,"priority":10}
 ]

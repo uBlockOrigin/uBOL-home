@@ -65,5 +65,18 @@
  },
  "id": 5,
  "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "support.whoop.com"
+  ],
+  "urlFilter": "||cdn.whoop.com/v0/chat/chat.js"
+ },
+ "id": 6,
+ "priority": 10
 }
 ]
