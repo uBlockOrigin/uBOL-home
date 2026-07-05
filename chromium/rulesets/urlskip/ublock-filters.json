@@ -80,10 +80,13 @@
   ]
  },
  {
-  "re": "^[^:]+:\\/\\/([^:/]+\\.)?pdrl\\.fm[^%.0-9a-z_-]?",
+  "re": "^",
   "steps": [
    "/pdrl\\.fm\\/\\w+\\/([^?]+)/",
    "+https"
+  ],
+  "hostnames": [
+   "pdrl.fm"
   ]
  },
  {
@@ -292,6 +295,13 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?sonixgvn\\.net/dark/\\?ahr0c",
+  "steps": [
+   "&1",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?jpopsingles\\.eu/to/ahr0c",
   "steps": [
    "/\\/to\\/(aHR0c[^?#]+)/",
@@ -339,9 +349,12 @@
   ]
  },
  {
-  "re": "^[^:]+:\\/\\/([^:/]+\\.)?link\\.onlinekosh\\.com[^%.0-9a-z_-]?",
+  "re": "^",
   "steps": [
    "?url"
+  ],
+  "hostnames": [
+   "link.onlinekosh.com"
   ]
  },
  {
@@ -1350,6 +1363,12 @@
  },
  {
   "re": "^[^:]+://(?:[^/]+\\.)?donanimhaber\\.com/externallinkredirect\\?.*?(?:[^%.0-9a-z_-]|$)url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[^:]+://(?:[^/]+\\.)?f6s\\.com/redirect\\?url=http",
   "steps": [
    "?url"
   ]

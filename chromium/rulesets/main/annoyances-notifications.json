@@ -7,7 +7,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["birdeye.com"],"urlFilter":"||cloudfront.net/prod/media/"},"id":6,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["tribunnews.com"],"resourceTypes":["script"],"urlFilter":"/firebase-messaging.js"},"id":7,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["iltalehti.fi"],"resourceTypes":["script"],"urlFilter":"||assets.ilcdn.fi/questback.popup-"},"id":8,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["oct8ne.com"],"resourceTypes":["media"],"urlFilter":"||azureedge.neti^"},"id":9,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["oct8ne.com"],"requestDomains":["azureedge.neti"],"resourceTypes":["media"]},"id":9,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["bankofamerica.com"],"resourceTypes":["media"],"urlFilter":"||bac-assets.com/chat/spa-assets/"},"id":10,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["bankofamerica.com"],"resourceTypes":["media"],"urlFilter":"||bac-assets.com/spa/widgets/www-chat/"},"id":11,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["komputronik.pl"],"urlFilter":"||snrcdn.net/sdk/3.0/synerise-javascript-sdk.min.js"},"id":12,"priority":30},
@@ -284,5 +284,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||camel1.tv/media/"},"id":283,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||cdn.24liveblog.com/audio/"},"id":284,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/onesignalsdk.page.js"},"id":285,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||asiae.co.kr/js/asia_fcm.js"},"id":286,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||asiae.co.kr/js/asia_fcm.js"},"id":286,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"/larapush-popup-"},"id":287,"priority":10}
 ]

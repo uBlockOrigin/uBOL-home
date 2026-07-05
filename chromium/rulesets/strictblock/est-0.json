@@ -7,7 +7,10 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?openx\\.static\\.kava\\.ee[^%.0-9a-z_-]?.*",
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "openx.static.kava.ee"
+  ],
   "resourceTypes": [
    "main_frame"
   ]

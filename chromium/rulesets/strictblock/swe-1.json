@@ -95,12 +95,124 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?aftonbladet\\.se\\..*?\\..*",
+  "regexFilter": "^.*\\/aftonbladet\\/crypt\\/\\?lpkey.*",
   "resourceTypes": [
    "main_frame"
   ]
  },
  "id": 2,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^.*\\/expressen\\/crypt\\/\\?lpkey.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 3,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^.*\\/prylguiden-expressen.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 4,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^.*\\/www\\.swedbank-.*?\\/telegram.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 5,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?aftonbladet\\.se\\..*?\\..*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 6,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?best-prizes-now\\..*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 7,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?online\\.swedbank\\.se\\.swedd\\..*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 8,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?s\\.arclk\\.net\\/tr\\?.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 9,
  "priority": 29
 }
 ]

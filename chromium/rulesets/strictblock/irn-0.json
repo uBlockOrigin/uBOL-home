@@ -307,12 +307,44 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?github\\.com\\/rcycc\\/-.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?10\\.10\\.34\\..*",
   "resourceTypes": [
    "main_frame"
   ]
  },
  "id": 3,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?github\\.com\\/rcycc\\/-.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 4,
+ "priority": 29
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "/strictblock.html#\\0"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?t\\.me\\/bitbod_trading_club[^%.0-9a-z_-]?.*",
+  "resourceTypes": [
+   "main_frame"
+  ]
+ },
+ "id": 5,
  "priority": 29
 }
 ]

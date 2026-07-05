@@ -9,8 +9,10 @@
  "condition": {
   "regexFilter": "^https?://.*",
   "requestDomains": [
+   "chat.cdn-plain.com",
    "chat.g4media.org",
-   "embed.chatnode.ai"
+   "embed.chatnode.ai",
+   "widget.indexfox.ai"
   ],
   "resourceTypes": [
    "main_frame"

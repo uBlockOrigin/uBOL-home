@@ -5,23 +5,6 @@
  },
  "condition": {
   "initiatorDomains": [
-   "trafictube.ro"
-  ],
-  "regexFilter": "trafictube\\.ro\\/[a-zA-Z0-9=,.?&]+$",
-  "resourceTypes": [
-   "image",
-   "script"
-  ]
- },
- "id": 1,
- "priority": 10
-},
-{
- "action": {
-  "type": "block"
- },
- "condition": {
-  "initiatorDomains": [
    "razvanbb.ro"
   ],
   "regexFilter": "razvanbb\\.ro\\/[a-zA-Z0-9=,.?&-]+$",

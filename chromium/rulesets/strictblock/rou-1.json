@@ -40,6 +40,7 @@
    "crwdcntrl.net",
    "cumult.com",
    "deltarockme.com",
+   "femeisingure.net",
    "flx1.com",
    "gazeta-romaneasca.ro",
    "get-in-shape.beauty",
@@ -109,7 +110,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?femeisingure\\.net[^%.0-9a-z_-]?.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?easyaff\\.net\\/\\?ref.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -125,7 +126,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?easyaff\\.net\\/\\?ref.*",
+  "regexFilter": "^.*\\/click\\?impid=.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -141,28 +142,12 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^.*\\/click\\?impid=.*",
-  "resourceTypes": [
-   "main_frame"
-  ]
- },
- "id": 4,
- "priority": 29
-},
-{
- "action": {
-  "redirect": {
-   "regexSubstitution": "/strictblock.html#\\0"
-  },
-  "type": "redirect"
- },
- "condition": {
   "regexFilter": "^.*&ad_campaign_id.*",
   "resourceTypes": [
    "main_frame"
   ]
  },
- "id": 5,
+ "id": 4,
  "priority": 29
 }
 ]

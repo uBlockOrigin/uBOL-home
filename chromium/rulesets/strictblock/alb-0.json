@@ -7,7 +7,10 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?gjc\\.gjirafa\\.com[^%.0-9a-z_-]?.*",
+  "regexFilter": "^https?://.*",
+  "requestDomains": [
+   "gjc.gjirafa.com"
+  ],
   "resourceTypes": [
    "main_frame"
   ]

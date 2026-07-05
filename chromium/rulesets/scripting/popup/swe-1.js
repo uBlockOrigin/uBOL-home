@@ -23,7 +23,7 @@
 // Isolate from global scope
 (function uBOL_preventPopup() {
 
-    const details = {"id":"swe-1","block":{"hostnames":[],"regexes":["i/offer?","\\/offer\\?prod"]},"allow":{"hostnames":[],"regexes":[]}};
+    const details = {"id":"swe-1","block":{"hostnames":[],"regexes":["i/aftonb","\\/aftonbladet\\/crypt\\/\\?lpkey","i/expres","\\/expressen\\/crypt\\/\\?lpkey","i/offer?","\\/offer\\?prod","i/prylgu","\\/prylguiden-expressen","i/www.sw","\\/www\\.swedbank-.*?\\/telegram","ibest-pr","^[^:]+:\\/\\/([^:/]+\\.)?best-prizes-now\\.","ionline.","^[^:]+:\\/\\/([^:/]+\\.)?online\\.swedbank\\.se\\.swedd\\.","is.arclk","^[^:]+:\\/\\/([^:/]+\\.)?s\\.arclk\\.net\\/tr\\?"]},"allow":{"hostnames":[],"regexes":[]}};
 
     self.preventPopupDetails = self.preventPopupDetails || [];
     self.preventPopupDetails.push(details);
