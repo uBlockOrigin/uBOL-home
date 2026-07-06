@@ -1,4 +1,14 @@
+----------
+
+### 2026.705.2152
+
 - [Discard rules with `topDomains` condition when not supported](https://github.com/gorhill/uBlock/commit/993d42c374)
+- Updated filter lists
+
+----------
+
+### 2026.628.2035
+
 - [Excluded resource types must exclude `main_frame`](https://github.com/gorhill/uBlock/commit/a2ed727d21)
 - Updated filter lists
 
