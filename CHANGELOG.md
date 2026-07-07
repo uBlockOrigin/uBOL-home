@@ -1,3 +1,7 @@
+- [Add support for excluded hostnames in `popup` filters](https://github.com/gorhill/uBlock/commit/0d0f4d6406)
+- [Fix processing of preparse directives in imported lists](https://github.com/gorhill/uBlock/commit/4dae710c34)
+- Updated filter lists
+
 ----------
 
 ### 2026.705.2152
