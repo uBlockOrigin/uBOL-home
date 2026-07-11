@@ -633,6 +633,70 @@ function preventAddEventListener(
     }, extraArgs.runAt);
 }
 
+function preventBab() {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('prevent-bab');
+    const signatures = [
+        [ 'blockadblock' ],
+        [ 'babasbm' ],
+        [ /getItem\('babn'\)/ ],
+        [
+            'getElementById',
+            'String.fromCharCode',
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+            'charAt',
+            'DOMContentLoaded',
+            'AdBlock',
+            'addEventListener',
+            'doScroll',
+            'fromCharCode',
+            '<<2|r>>4',
+            'sessionStorage',
+            'clientWidth',
+            'localStorage',
+            'Math',
+            'random',
+        ],
+    ];
+    const check = function(s) {
+        if ( typeof s !== 'string' ) { return false; }
+        for ( const tokens of signatures ) {
+            let match = 0;
+            for ( const token of tokens ) {
+                const hit = token instanceof RegExp
+                    ? token.test(s)
+                    : s.includes(token);
+                if ( hit ) { match += 1; }
+            }
+            if ( (match / tokens.length) >= 0.8 ) { return true; }
+        }
+        return false;
+    };
+    proxyApplyFn('eval', function(context) {
+        const a = context.callArgs[0];
+        if ( !check(a) ) {
+            return context.reflect();
+        }
+        safe.uboLog(logPrefix, 'Prevented');
+        if ( document.body ) {
+            document.body.style.removeProperty('visibility');
+        }
+        const el = document.getElementById('babasbmsgx');
+        if ( el ) {
+            el.parentNode.removeChild(el);
+        }
+    });
+    proxyApplyFn('setTimeout', function(context) {
+        const { callArgs } = context;
+        const a = callArgs[0];
+        if ( typeof a === 'string'  && /\.bab_elementid.$/.test(a) ) {
+            callArgs[0] = ( ) => { };
+            safe.uboLog(logPrefix, 'Prevented');
+        }
+        return context.reflect();
+    });
+}
+
 function preventFetch(...args) {
     preventFetchFn(false, ...args);
 }
@@ -1055,8 +1119,8 @@ function runAtHtmlElementFn(fn) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -1175,7 +1239,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -1242,19 +1306,7 @@ function shouldDebug(details) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 10 */
-[abortCurrentScript,abortOnPropertyRead,abortOnPropertyWrite,preventAddEventListener,adjustSetInterval,preventFetch,preventXhr,noEvalIf,preventSetTimeout,noWindowOpenIf];
-
-const $scriptletArgs$ = /* 26 */ ["Math.random","arv_24","SGPB_POPUP_PARAMS","MutationObserver","chp_ads_blocker_detector","document.addEventListener","window.open","getComputedStyle","","cpm","click","linkOpened","load","/adblock/i","$.magnificPopup.open","LieDetector","popup_custom_data","ads.google.com","adsbygoogle","clarity.ms","trafficbass.com","googlesyndication","/chp_?ad/","console","location.href","3000"];
-
-const $scriptletArglists$ = /* 21 */ "0,0,1;1,2;2,3;0,4;0,5,6;0,7,8,9;3,10,11;3,12,13;1,14;1,15;1,16;4;5,17;5,18;5,19;5,20;6,21;7,22;8,23;8,24,25;9";
-
-const $scriptletArglistRefs$ = /* 42 */ "14,18;12;5;20;4;1;20;20;20;20;3;20;20;20;16;20;15;0;20;20;17;2;11,17;20;17;20;20;7;19;9;20;6;10;17;8;20;20;20;16,20;11;13;20";
-
-const $scriptletHostnames$ = /* 42 */ ["netq.me","mudah.my","doroni.me","kiryuu.id","kuyhaa.me","dicrotin.*","igodesu.tv","indobo.com","kiryuu.org","kiryuu02.*","lk21semi.*","nimegami.*","njavtv.com","sukasex.tv","tutwuri.id","anichin.top","moenime.com","semprot.com","sukasex.net","westmanga.*","5.253.86.213","animekompi.*","jenismac.com","kiryuu01.com","ainzscans.net","bokepindo69.*","cosmicscans.*","moutogami.com","moviekhhd.biz","3gpterbaru.com","animekompi.vip","info.vebma.com","sk21.sob4t.xyz","193.142.147.230","juraganfilm.ink","kimcilonly.site","komikcast02.com","ngicstream.site","jurnalistekno.id","bahasteknologi.com","thejakartapost.com","kisahterlarang.site"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = true;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -1303,7 +1355,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 44 */ ["netq.me","mudah.my","doroni.me","kiryuu.id","kuyhaa.me","dicrotin.*","igodesu.tv","indobo.com","kiryuu.org","kiryuu02.*","lk21semi.*","nimegami.*","njavtv.com","sukasex.tv","tutwuri.id","anichin.top","moenime.com","semprot.com","sukasex.net","westmanga.*","5.253.86.213","animekompi.*","asalunik.com","jenismac.com","kiryuu01.com","ainzscans.net","bokepindo69.*","cosmicscans.*","moutogami.com","moviekhhd.biz","3gpterbaru.com","animekompi.vip","bokepgemoy.com","info.vebma.com","sk21.sob4t.xyz","193.142.147.230","juraganfilm.ink","kimcilonly.site","komikcast02.com","ngicstream.site","jurnalistekno.id","bahasteknologi.com","thejakartapost.com","kisahterlarang.site"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1345,12 +1398,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 44 */ "14,19;12;5;21;4;1;21;21;21;21;3;21;21;21;16;21;15;0;21;21;18;2;17;11,18;21;18;21;21;7;20;9;21;17;6;10;18;8;21;21;21;16,21;11;13;21";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1359,6 +1412,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1379,6 +1433,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 11 */
+[abortCurrentScript,abortOnPropertyRead,abortOnPropertyWrite,preventAddEventListener,adjustSetInterval,preventFetch,preventXhr,preventBab,noEvalIf,preventSetTimeout,noWindowOpenIf];
+    const $scriptletArgs$ = /* 26 */ ["Math.random","arv_24","SGPB_POPUP_PARAMS","MutationObserver","chp_ads_blocker_detector","document.addEventListener","window.open","getComputedStyle","","cpm","click","linkOpened","load","/adblock/i","$.magnificPopup.open","LieDetector","popup_custom_data","ads.google.com","adsbygoogle","clarity.ms","trafficbass.com","googlesyndication","/chp_?ad/","console","location.href","3000"];
+    const $scriptletArglists$ = /* 22 */ "0,0,1;1,2;2,3;0,4;0,5,6;0,7,8,9;3,10,11;3,12,13;1,14;1,15;1,16;4;5,17;5,18;5,19;5,20;6,21;7;8,22;9,23;9,24,25;10";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

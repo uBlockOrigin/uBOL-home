@@ -908,5 +908,8 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||js.sapo.pt/projects/cpu/latest/prebid*.*_*.js"},"id":907,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||obj.ni.aws.newsgen.io/pub/campanhas/idealista/id-app-1920x1100.jpg"},"id":908,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||fucsia.co/pf/resources/js/arcads.js"},"id":909,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||soho.co/pf/resources/js/arcads.js"},"id":910,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||soho.co/pf/resources/js/arcads.js"},"id":910,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hentaisama.net/res/bl_1.php"},"id":911,"priority":10},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||mincetur.gob.pe/webcasinos/index.aspx?po=frmregistros_ad.aspx"},"id":912,"priority":30},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||mincetur.gob.pe/webcasinos/sistema/publico/frmregistros_ad.aspx"},"id":913,"priority":30}
 ]

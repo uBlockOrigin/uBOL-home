@@ -666,8 +666,8 @@ function runAt(fn, when) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -786,7 +786,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -1056,19 +1056,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 7 */
-[preventSetTimeout,preventSetInterval,abortOnPropertyRead,setConstant,jsonPrune,preventAddEventListener,removeAttr];
-
-const $scriptletArgs$ = /* 19 */ ["_waitingAuth0Counter","/onGatedSignupPopupTrigger|zippia-popup/","premiumShown","window.loginStateChange.subscribe","custom-modal-create-account-link","defaultbackgroundimg","document.oncontextmenu","noopFunc","document.onmousedown","overlay.bottomSheetOverlayRenderer","overlay.bottomSheetOverlayRenderer.displayImmediately","scroll","/^(mouseout|mouseleave)$/","mouseleave","oncontextmenu|onselectstart|ondragstart|oncopy|oncut|onpaste|onbeforecopy","playerResponse.messages.[].youThereRenderer messages.[].youThereRenderer","isOpen","loginModal","ads.[].imageUrl"];
-
-const $scriptletArglists$ = /* 17 */ "0,0;1,1;0,2;0,3;0,4;2,5;3,6,7;3,8,7;4,9,10;5,11;5,12;5,13;6,14;4,15;0,16;0,17;4,18";
-
-const $scriptletArglistRefs$ = /* 101 */ "11;10;9;10;10;5;9;10;9;10;10;9;9;11;9;10;10;10;10;10;10;10;10;10;10;10;10;9,10;10;9;9;10;9;10;10;10;9;16;10;10;10;9;0;11;10;9;9;10;10;1;9,10;11;10;9;9;12;16;16;16;16;9;10;11;6,7;8;9;10;11;9;9;9;16;4;10;9;16;16;16;9;9;9;9;9;3;16;9;13;9;10;9;15;14;9;10;16;16;2;10;16;16;10";
-
-const $scriptletHostnames$ = /* 101 */ ["x.com","wiz.io","abc.com","ajc.com","10tv.com","4399.com","abc7.com","cbs8.com","kark.com","khou.com","ksdk.com","ktla.com","ktsm.com","temu.com","wavy.com","wbir.com","wcnc.com","wfaa.com","wgrz.com","wkyc.com","wltx.com","wnep.com","wqad.com","wsvn.com","wthr.com","wtol.com","wtsp.com","9news.com","abc10.com","abc11.com","abc13.com","abc15.com","abc30.com","fox61.com","kens5.com","king5.com","nbc4i.com","sushi.ski","wusa9.com","wwltv.com","12news.com","abc7ny.com","clarin.com","dhgate.com","kare11.com","nbcdfw.com","news10.com","whas11.com","wzzm13.com","zippia.com","11alive.com","alibaba.com","fox2now.com","thehill.com","abc7news.com","banistmo.com","buttersc.one","mivatter.com","mk.yopo.work","nijimiss.moe","theverge.com","13newsnow.com","aliexpress.us","gmarket.co.kr","m.youtube.com","nbcboston.com","wfmynews2.com","aliexpress.com","nbcbayarea.com","nbcchicago.com","nbcnewyork.com","oekakiskey.com","tekinvestor.no","5newsonline.com","abc7chicago.com","gp.tsukimi.club","misskey.systems","msk.kitazawa.me","myarklamiss.com","mytwintiers.com","nbcsandiego.com","nwahomepage.com","telemundopr.com","tradingview.com","voskey.icalo.net","finance.yahoo.com","music.youtube.com","nbclosangeles.com","firstcoastnews.com","nbcconnecticut.com","analyticsvidhya.com","gadgetizedpanda.com","nbcphiladelphia.com","newscentermaine.com","misskey.gamelore.fun","novelskey.tarbin.net","flightconnections.com","winnipegfreepress.com","invillage-outvillage.com","side.misskey.productions","timesofindia.indiatimes.com"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -1117,7 +1105,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 101 */ ["x.com","wiz.io","abc.com","ajc.com","10tv.com","4399.com","abc7.com","cbs8.com","kark.com","khou.com","ksdk.com","ktla.com","ktsm.com","temu.com","wavy.com","wbir.com","wcnc.com","wfaa.com","wgrz.com","wkyc.com","wltx.com","wnep.com","wqad.com","wsvn.com","wthr.com","wtol.com","wtsp.com","9news.com","abc10.com","abc11.com","abc13.com","abc15.com","abc30.com","fox61.com","kens5.com","king5.com","nbc4i.com","sushi.ski","wusa9.com","wwltv.com","12news.com","abc7ny.com","clarin.com","dhgate.com","kare11.com","nbcdfw.com","news10.com","whas11.com","wzzm13.com","zippia.com","11alive.com","alibaba.com","fox2now.com","thehill.com","abc7news.com","banistmo.com","buttersc.one","mivatter.com","mk.yopo.work","nijimiss.moe","theverge.com","13newsnow.com","aliexpress.us","gmarket.co.kr","m.youtube.com","nbcboston.com","wfmynews2.com","aliexpress.com","nbcbayarea.com","nbcchicago.com","nbcnewyork.com","oekakiskey.com","tekinvestor.no","5newsonline.com","abc7chicago.com","gp.tsukimi.club","misskey.systems","msk.kitazawa.me","myarklamiss.com","mytwintiers.com","nbcsandiego.com","nwahomepage.com","telemundopr.com","tradingview.com","voskey.icalo.net","finance.yahoo.com","music.youtube.com","nbclosangeles.com","firstcoastnews.com","nbcconnecticut.com","analyticsvidhya.com","gadgetizedpanda.com","nbcphiladelphia.com","newscentermaine.com","misskey.gamelore.fun","novelskey.tarbin.net","flightconnections.com","winnipegfreepress.com","invillage-outvillage.com","side.misskey.productions","timesofindia.indiatimes.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1159,12 +1148,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 101 */ "11;10;9;10;10;5;9;10;9;10;10;9;9;11;9;10;10;10;10;10;10;10;10;10;10;10;10;9,10;10;9;9;10;9;10;10;10;9;16;10;10;10;9;0;11;10;9;9;10;10;1;9,10;11;10;9;9;12;16;16;16;16;9;10;11;6,7;8;9;10;11;9;9;9;16;4;10;9;16;16;16;9;9;9;9;9;3;16;9;13;9;10;9;15;14;9;10;16;16;2;10;16;16;10";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1173,6 +1162,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1193,6 +1183,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 7 */
+[preventSetTimeout,preventSetInterval,abortOnPropertyRead,setConstant,jsonPrune,preventAddEventListener,removeAttr];
+    const $scriptletArgs$ = /* 19 */ ["_waitingAuth0Counter","/onGatedSignupPopupTrigger|zippia-popup/","premiumShown","window.loginStateChange.subscribe","custom-modal-create-account-link","defaultbackgroundimg","document.oncontextmenu","noopFunc","document.onmousedown","overlay.bottomSheetOverlayRenderer","overlay.bottomSheetOverlayRenderer.displayImmediately","scroll","/^(mouseout|mouseleave)$/","mouseleave","oncontextmenu|onselectstart|ondragstart|oncopy|oncut|onpaste|onbeforecopy","playerResponse.messages.[].youThereRenderer messages.[].youThereRenderer","isOpen","loginModal","ads.[].imageUrl"];
+    const $scriptletArglists$ = /* 17 */ "0,0;1,1;0,2;0,3;0,4;2,5;3,6,7;3,8,7;4,9,10;5,11;5,12;5,13;6,14;4,15;0,16;0,17;4,18";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

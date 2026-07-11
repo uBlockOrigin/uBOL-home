@@ -409,8 +409,8 @@ function runAt(fn, when) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -529,7 +529,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -874,19 +874,7 @@ function urlSkip(url, blocked, steps) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 7 */
-[removeNodeText,setCookie,removeClass,hrefSanitizer,preventRefresh,setCookieReload,setAttr];
-
-const $scriptletArgs$ = /* 51 */ ["script","detectAdBlocker","detectAdBlock","adset","off","adset2","visited","#oRslt li a.visited","stay","#text","/スポンサードリンク：?|楽天広告：/","selectRandomProduct","PR:","関連動画","【広告】","/\\[vkExUnit_ad area=(after|before)\\]/","with-ad","section.main","/スポンサード?リンク/","has-topbanner","body > header.has-topbanner","a[href^=\"https://app.adjust.com/\"]","?redirect","/^PR\\s$/","a[href*=\"a8ejpredirect\"]","?a8ejpredirect","/^\\s*PR\\s*$/","a[href^=\"/link?fallback_url=\"]","?fallback_url","a[href^=\"https://af.moshimo.com/af/c/click?\"][href*=\"&url=\"]","?url","a[href^=\"https://al.dmm.com/?lurl=\"]","?lurl","a[href^=\"https://affiliate.suruga-ya.jp/modules/af/af_jump.php?\"]","?goods_url","a[href*=\"hb.afl.rakuten.co.jp/\"][href*=\"pc=\"]","?pc","a[href*=\"ck.jp.ap.valuecommerce.com/servlet/referral?\"][href*=\"&vc_url=\"]","?vc_url","a[href^=\"https://al.fanza.co.jp/?lurl=\"]","discarded-search-interstitial-cta-banner","true","is-collaboration-jack","body","okwave_rwd","/^\\s*PR$/","a[href^=\"https://adclick.g.doubleclick.net/\"][href*=\"adurl=\"]","?adurl","span[class] img.lazyload[width]","src","[data-src]"];
-
-const $scriptletArglists$ = /* 32 */ "0,0,1;0,0,2;1,3,4;1,5,4;2,6,7,8;0,9,10;0,0,11;0,9,12;0,9,13;0,9,14;0,9,15;2,16,17;0,9,18;2,19,20;3,21,22;0,9,23;3,24,25;0,9,26;3,27,28;3,29,30;3,31,32;3,33,34;3,35,36;3,37,38;4;3,39,32;5,40,41;2,42,43;5,44,41;0,9,45;3,46,47;6,48,49,50";
-
-const $scriptletArglistRefs$ = /* 57 */ "24;12;4;28;12;8;25;25;1;22,23;20,21,22,23;26,27;23;18,22,23;12;13,31;15;25;12;25;19,20;25;2,3;9;29;20;2,3;11;12;2,3;10;12;12;14;6;16;12;5;2,3;12;2,3;2,3;12;16;7;2,3;16,22,23;12;17;25;12;2,3;2,3;2,3;12;0;30";
-
-const $scriptletHostnames$ = /* 57 */ ["ebbs.jp","aikru.com","o-dan.net","okwave.jp","aidoly.net","dvdrev.com","eromon.net","moez-m.com","rxlife.net","chimolog.co","figsoku.net","gamewith.jp","livefans.jp","my-best.com","negisoku.com","phileweb.com","sinsimmd.com","ura-akiba.jp","ch-review.net","idol-blog.com","mantan-web.jp","okazurand.net","tapestry.work","fm.sekkaku.net","geinoukame.com","hobbylabon.com","nailcolor.work","video.laxd.com","arty-matome.com","bridalgown.work","lifematome.blog","rank1-media.com","resizer.myct.jp","www.yahoo.co.jp","blog.livedoor.jp","figure-times.com","kabegami.jpn.org","kasegeru.blog.jp","studioglass.work","tcg-bloglife.com","teaceremony.work","weddinghall.work","ranky-ranking.net","ba-goods-search.com","betweenjpandkr.blog","contents-group.work","hayamimi-gunpla.com","seikeidouga.blog.jp","tyoieronews.blog.jp","nihon-bijo-zukan.com","ideal2ch.livedoor.biz","inkbrushpainting.work","liquidfoundation.work","heisei-housewarming.work","gametohkenranbu.sakuraweb.com","pretravel.kawasaki-create.com","safeframe.googlesyndication.com"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -935,7 +923,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 58 */ ["ebbs.jp","aikru.com","o-dan.net","okwave.jp","aidoly.net","dvdrev.com","eromon.net","moez-m.com","rxlife.net","chimolog.co","figsoku.net","gamewith.jp","livefans.jp","my-best.com","negisoku.com","phileweb.com","sinsimmd.com","ura-akiba.jp","ch-review.net","idol-blog.com","mantan-web.jp","okazurand.net","tapestry.work","fm.sekkaku.net","geinoukame.com","hobbylabon.com","nailcolor.work","video.laxd.com","arty-matome.com","bridalgown.work","lifematome.blog","rank1-media.com","resizer.myct.jp","www.yahoo.co.jp","blog.livedoor.jp","figure-times.com","kabegami.jpn.org","kasegeru.blog.jp","studioglass.work","tcg-bloglife.com","teaceremony.work","vk.sportsbull.jp","weddinghall.work","ranky-ranking.net","ba-goods-search.com","betweenjpandkr.blog","contents-group.work","hayamimi-gunpla.com","seikeidouga.blog.jp","tyoieronews.blog.jp","nihon-bijo-zukan.com","ideal2ch.livedoor.biz","inkbrushpainting.work","liquidfoundation.work","heisei-housewarming.work","gametohkenranbu.sakuraweb.com","pretravel.kawasaki-create.com","safeframe.googlesyndication.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -977,12 +966,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 58 */ "24;12;4;28;12;8;25;25;1;22,23;20,21,22,23;26,27;23;18,22,23;12;13,31;15;25;12;25;19,20;25;2,3;9;29;20;2,3;11;12;2,3;10;12;12;14;6;16;12;5;2,3;12;2,3;32;2,3;12;16;7;2,3;16,22,23;12;17;25;12;2,3;2,3;2,3;12;0;30";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -991,6 +980,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1011,6 +1001,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 7 */
+[removeNodeText,setCookie,removeClass,hrefSanitizer,preventRefresh,setCookieReload,setAttr];
+    const $scriptletArgs$ = /* 53 */ ["script","detectAdBlocker","detectAdBlock","adset","off","adset2","visited","#oRslt li a.visited","stay","#text","/スポンサードリンク：?|楽天広告：/","selectRandomProduct","PR:","関連動画","【広告】","/\\[vkExUnit_ad area=(after|before)\\]/","with-ad","section.main","/スポンサード?リンク/","has-topbanner","body > header.has-topbanner","a[href^=\"https://app.adjust.com/\"]","?redirect","/^PR\\s$/","a[href*=\"a8ejpredirect\"]","?a8ejpredirect","/^\\s*PR\\s*$/","a[href^=\"/link?fallback_url=\"]","?fallback_url","a[href^=\"https://af.moshimo.com/af/c/click?\"][href*=\"&url=\"]","?url","a[href^=\"https://al.dmm.com/?lurl=\"]","?lurl","a[href^=\"https://affiliate.suruga-ya.jp/modules/af/af_jump.php?\"]","?goods_url","a[href*=\"hb.afl.rakuten.co.jp/\"][href*=\"pc=\"]","?pc","a[href*=\"ck.jp.ap.valuecommerce.com/servlet/referral?\"][href*=\"&vc_url=\"]","?vc_url","a[href^=\"https://al.fanza.co.jp/?lurl=\"]","discarded-search-interstitial-cta-banner","true","is-collaboration-jack","body","okwave_rwd","/^\\s*PR$/","a[href^=\"https://adclick.g.doubleclick.net/\"][href*=\"adurl=\"]","?adurl","span[class] img.lazyload[width]","src","[data-src]","hidden-by-ima","#vid1_html5_api"];
+    const $scriptletArglists$ = /* 33 */ "0,0,1;0,0,2;1,3,4;1,5,4;2,6,7,8;0,9,10;0,0,11;0,9,12;0,9,13;0,9,14;0,9,15;2,16,17;0,9,18;2,19,20;3,21,22;0,9,23;3,24,25;0,9,26;3,27,28;3,29,30;3,31,32;3,33,34;3,35,36;3,37,38;4;3,39,32;5,40,41;2,42,43;5,44,41;0,9,45;3,46,47;6,48,49,50;2,51,52";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

@@ -560,8 +560,8 @@ function runAtHtmlElementFn(fn) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -680,7 +680,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -955,19 +955,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 6 */
-[setConstant,preventSetTimeout,removeAttr,abortOnPropertyWrite,abortCurrentScript,preventAddEventListener];
-
-const $scriptletArgs$ = /* 56 */ ["exitpopup_overlay","noopFunc","showVignette","falseFunc","getComputedStyle","undefined","E(!1)","show_modal","style","body","stay","oxyShowModal","oncontextmenu","href","[href*=\"ad.adverticum.net\"]","document.createElement","setTimeout","mouseleave","showFbPopup","FbExit","3000","mouseout","cookie_alert_overlay","load","reklám blokkolókat","window._ceCTSData","hirdetések","adblock","false","adstest","4000","document.head","currentScript.remove","AdHandler.adblocked","0","AdHandler.adBlockEnabled","AdHandler.checkAdblock","a2blckLayer","tie.ad_blocker_detector","document.addEventListener","ai_run_","document.getElementById","ENABLE_PAGE_LEVEL_ADS","true","document.body.style","fetch","mode","detect_adblock","gemiusStream","{}","gemiusStream.event","gemiusStream.init","window.ado","null","class","section[class=\"life-section l-section-main article-section l-section-article\"]"];
-
-const $scriptletArglists$ = /* 38 */ "0,0,1;0,2,3;0,4,5;1,6;0,7,1;2,8,9,10;3,11;2,12;2,13,14;4,15,16;5,17,18;1,19,20;5,17;5,21;0,22,1;5,23,24;4,25,26;0,27,28;1,29,30;4,31,32;0,33,34;0,35,34;0,36,1;4,25,37;0,38,5;3,4;4,39,40;4,41,40;0,42,43;3,44;4,45,46;0,47,3;0,48,49;0,50,1;0,51,1;0,52,53;2,54,55;2,8,9";
-
-const $scriptletArglistRefs$ = /* 38 */ "16;26,27;2;36;29;5;6;1;13,19;13,35;10,11;14;3;15;4;19;18;7;9;31;0;19;24;25;32,33,34;23;14;8;14;37;14;12;28;30;30;14;20,21,22;17";
-
-const $scriptletHostnames$ = /* 38 */ ["24.hu","hang.hu","hoxa.hu","life.hu","port.hu","blikk.hu","hiros.hu","liked.hu","divany.hu","femina.hu","vezess.hu","foodker.hu","jofogas.hu","naphire.hu","arcanum.com","totalcar.hu","calculat.org","lifestory.hu","napiszar.com","rimkereso.hu","speedshop.hu","totalbike.hu","huaweiblog.hu","karpathir.com","player.rtl.hu","hazipatika.com","milestone66.hu","mindmegette.hu","paplanvilag.hu","sorozatwiki.hu","reformsziget.hu","stylemagazin.hu","myonlineradio.hu","online-filmek.ac","online-filmek.me","laptophardware.hu","embed.indavideo.hu","angol-magyar-szotar.hu"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -1016,7 +1004,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 36 */ ["24.hu","hang.hu","hoxa.hu","life.hu","port.hu","blikk.hu","hiros.hu","liked.hu","divany.hu","femina.hu","vezess.hu","foodker.hu","jofogas.hu","naphire.hu","arcanum.com","totalcar.hu","calculat.org","lifestory.hu","napiszar.com","rimkereso.hu","speedshop.hu","totalbike.hu","huaweiblog.hu","karpathir.com","player.rtl.hu","hazipatika.com","milestone66.hu","mindmegette.hu","paplanvilag.hu","sorozatwiki.hu","reformsziget.hu","stylemagazin.hu","myonlineradio.hu","laptophardware.hu","embed.indavideo.hu","angol-magyar-szotar.hu"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1058,12 +1047,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 36 */ "16;26,27;2;35;29;5;6;1;13,19;13,34;10,11;14;3;15;4;19;18;7;9;30;0;19;24;25;31,32,33;23;14;8;14;36;14;12;28;14;20,21,22;17";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1072,6 +1061,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1092,6 +1082,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 6 */
+[setConstant,preventSetTimeout,removeAttr,abortOnPropertyWrite,abortCurrentScript,preventAddEventListener];
+    const $scriptletArgs$ = /* 54 */ ["exitpopup_overlay","noopFunc","showVignette","falseFunc","getComputedStyle","undefined","E(!1)","show_modal","style","body","stay","oxyShowModal","oncontextmenu","href","[href*=\"ad.adverticum.net\"]","document.createElement","setTimeout","mouseleave","showFbPopup","FbExit","3000","mouseout","cookie_alert_overlay","load","reklám blokkolókat","window._ceCTSData","hirdetések","adblock","false","adstest","4000","document.head","currentScript.remove","AdHandler.adblocked","0","AdHandler.adBlockEnabled","AdHandler.checkAdblock","a2blckLayer","tie.ad_blocker_detector","document.addEventListener","ai_run_","document.getElementById","ENABLE_PAGE_LEVEL_ADS","true","document.body.style","detect_adblock","gemiusStream","{}","gemiusStream.event","gemiusStream.init","window.ado","null","class","section[class=\"life-section l-section-main article-section l-section-article\"]"];
+    const $scriptletArglists$ = /* 37 */ "0,0,1;0,2,3;0,4,5;1,6;0,7,1;2,8,9,10;3,11;2,12;2,13,14;4,15,16;5,17,18;1,19,20;5,17;5,21;0,22,1;5,23,24;4,25,26;0,27,28;1,29,30;4,31,32;0,33,34;0,35,34;0,36,1;4,25,37;0,38,5;3,4;4,39,40;4,41,40;0,42,43;3,44;0,45,3;0,46,47;0,48,1;0,49,1;0,50,51;2,52,53;2,8,9";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

@@ -655,8 +655,8 @@ function runAtHtmlElementFn(fn) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -775,7 +775,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -1050,19 +1050,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 9 */
-[preventSetTimeout,noWindowOpenIf,abortCurrentScript,preventSetInterval,abortOnPropertyRead,setConstant,abortOnPropertyWrite,noEvalIf,preventAddEventListener];
-
-const $scriptletArgs$ = /* 28 */ ["ai_","Math.floor","offsetHeight","onload","noBackPlease","adsbygoogle","show","location","setTimeout","admc","doSecondPop","adblockcheck","false","_pop","","10","ai_adb","ads","_blank","tool","document.write","unescape","load","ADS","click","_0x","1","appendChild"];
-
-const $scriptletArglists$ = /* 22 */ "0,0;1;2,1,2;2,3,4;0,5;0,6;3,7;2,8,9;4,10;5,11,12;6,13;1,14,15;0,16;7,17;1,18,15;0,7;3,19;2,20,21;8,22,23;8,24,25;1,14,26;0,27";
-
-const $scriptletArglistRefs$ = /* 35 */ "18;1;21;19;1;21;1;21;4;1;13;21;1,9;8;5;3;21;1,6,7;14,15,16;20;21;21;0;18;21;12;1;10,11;10;21;1;1;2;17;8";
-
-const $scriptletHostnames$ = /* 35 */ ["eporno.ro","tvmd.info","xxx1.link","e-porno.ro","fsplayer.*","futai.live","nosteam.ro","pizde.live","vwforum.ro","embedsun.cc","lovendal.ro","pornobi.net","vzlinks.com","yoixmzo.xyz","bloground.ro","cool-etv.net","filmebro.com","posturi.live","canale-tv.com","canale-tv.net","filmexxx.live","nimfomane.org","turdanews.net","filme-porno.ro","pornobrand.com","boardingpass.ro","nosteamgames.ro","onlyplay.online","filme2023.online","pornofilmexxx.net","filmeonline123.com","filmeserialegratis.*","competentedigitale.ro","player.desenefaine.net","filmeonlinesubtitrate.org"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = true;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -1111,7 +1099,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 37 */ ["buzau.net","eporno.ro","tvmd.info","xxx1.link","e-porno.ro","fsplayer.*","futai.live","nosteam.ro","pizde.live","vwforum.ro","embedsun.cc","lovendal.ro","pornobi.net","vzlinks.com","yoixmzo.xyz","bloground.ro","cool-etv.net","filmebro.com","posturi.live","canale-tv.com","canale-tv.net","filmexxx.live","nimfomane.org","turdanews.net","vasluianul.ro","filme-porno.ro","pornobrand.com","boardingpass.ro","nosteamgames.ro","onlyplay.online","filme2023.online","pornofilmexxx.net","filmeonline123.com","filmeserialegratis.*","competentedigitale.ro","player.desenefaine.net","filmeonlinesubtitrate.org"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1153,12 +1142,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 37 */ "22;18;1;21;19;1;21;1;21;4;1;13;21;1,9;8;5;3;21;1,6,7;14,15,16;20;21;21;0;1;18;21;12;1;10,11;10;21;1;1;2;17;8";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1167,6 +1156,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1187,6 +1177,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 9 */
+[preventSetTimeout,noWindowOpenIf,abortCurrentScript,preventSetInterval,abortOnPropertyRead,setConstant,abortOnPropertyWrite,noEvalIf,preventAddEventListener];
+    const $scriptletArgs$ = /* 29 */ ["ai_","Math.floor","offsetHeight","onload","noBackPlease","adsbygoogle","show","location","setTimeout","admc","doSecondPop","adblockcheck","false","_pop","","10","ai_adb","ads","_blank","tool","document.write","unescape","load","ADS","click","_0x","1","appendChild","contextmenu"];
+    const $scriptletArglists$ = /* 23 */ "0,0;1;2,1,2;2,3,4;0,5;0,6;3,7;2,8,9;4,10;5,11,12;6,13;1,14,15;0,16;7,17;1,18,15;0,7;3,19;2,20,21;8,22,23;8,24,25;1,14,26;0,27;8,28";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

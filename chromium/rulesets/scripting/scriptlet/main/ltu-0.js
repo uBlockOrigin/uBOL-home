@@ -490,8 +490,8 @@ function runAtHtmlElementFn(fn) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -610,7 +610,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -885,19 +885,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 5 */
-[abortCurrentScript,preventSetTimeout,setConstant,abortOnPropertyRead,noWindowOpenIf];
-
-const $scriptletArgs$ = /* 14 */ ["onload","shuffleArray","location","Banner","_dlf.adfree","1","BetterJsPop","","10","obj","canRunAds","_renderAdblock","isASFailed","true"];
-
-const $scriptletArglists$ = /* 10 */ "0,0,1;1,2;1,3;2,4,5;3,6;4,7,8,9;3,10;4;3,11;2,12,13";
-
-const $scriptletArglistRefs$ = /* 8 */ "8,9;1,2,3;0;0;7;4,5;4;6";
-
-const $scriptletHostnames$ = /* 8 */ ["15min.lt","delfi.lt","torrent.ai","torrent.lt","37.16.75.37","player.filmux.to","player.eltitbus.xyz","simpsonaionline.net"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -946,7 +934,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 8 */ ["15min.lt","delfi.lt","torrent.ai","torrent.lt","37.16.75.37","player.filmux.to","player.eltitbus.xyz","simpsonaionline.net"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -988,12 +977,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 8 */ "8,9;1,2,3;0;0;7;4,5;4;6";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1002,6 +991,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1022,6 +1012,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 5 */
+[abortCurrentScript,preventSetTimeout,setConstant,abortOnPropertyRead,noWindowOpenIf];
+    const $scriptletArgs$ = /* 14 */ ["onload","shuffleArray","location","Banner","_dlf.adfree","1","BetterJsPop","","10","obj","canRunAds","_renderAdblock","isASFailed","true"];
+    const $scriptletArglists$ = /* 10 */ "0,0,1;1,2;1,3;2,4,5;3,6;4,7,8,9;3,10;4;3,11;2,12,13";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

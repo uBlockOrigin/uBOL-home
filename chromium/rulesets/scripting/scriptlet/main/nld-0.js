@@ -1105,8 +1105,8 @@ function runAtHtmlElementFn(fn) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -1225,7 +1225,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -1639,19 +1639,7 @@ function xmlPrune(
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 10 */
-[abortCurrentScript,preventSetTimeout,abortOnPropertyRead,preventXhr,preventFetch,xmlPrune,preventAddEventListener,setConstant,jsonPrune,adjustSetTimeout];
-
-const $scriptletArgs$ = /* 32 */ ["document.createElement","adsbygoogle.js","throw i(r+\"err\",[o,a,e],d,c),e}finally{i(","50","ckad","Object.prototype.autoRecov","assets.prod.webx.talpa.digital/ad/view/",".height() === 0","securepubads.g.doubleclick.net","v.fwmrm.net","adsbygoogle","/a[ab]\\.tweakers\\.nl/","Period[id*=\"-ad-\"]","",".mpd","pubads.g.doubleclick.net/gampad/ads","Flags.autoRecov","DAB","noopFunc","Object.prototype.disableAb","Math","Flags.newInject","assets.preroll","BannerManager","undefined","function () { [native code] }","6000","0.001","cookie","true","[native code]","adUrl"];
-
-const $scriptletArglists$ = /* 22 */ "0,0,1;1,2,3;1,4;2,5;3,6;1,7;4,8;4,9;0,0,10;4,11;5,12,13,14;4,15;6,13,16;7,17,18;2,19;0,20,21;8,22;7,23,24;9,25,26,27;7,28,29;9,30,26,27;8,31";
-
-const $scriptletArglistRefs$ = /* 24 */ "4;21;16;4;10,11;7;10,11;1,4;16;19;2,13;18;3,9;3;3,12,17;6;20;5;4;8;4;14,15;4;0";
-
-const $scriptletHostnames$ = /* 24 */ ["538.nl","nos.nl","npo.nl","kijk.nl","play.tv","vtmgo.be","goplay.be","radio10.nl","avrotros.nl","dailybuzz.nl","forum.fok.nl","geenstijl.nl","tweakers.net","autotrader.nl","hardware.info","filmvandaag.nl","omroepbrabant.nl","topkleurplaat.nl","vandaaginside.nl","webcams-texel.nl","nieuwsvandedag.nl","indeleiderstrui.nl","hartvannederland.nl","webcams-vlissingen.nl"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -1700,7 +1688,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 24 */ ["538.nl","nos.nl","npo.nl","kijk.nl","play.tv","vtmgo.be","goplay.be","radio10.nl","avrotros.nl","dailybuzz.nl","forum.fok.nl","geenstijl.nl","tweakers.net","autotrader.nl","hardware.info","filmvandaag.nl","omroepbrabant.nl","topkleurplaat.nl","vandaaginside.nl","webcams-texel.nl","nieuwsvandedag.nl","indeleiderstrui.nl","hartvannederland.nl","webcams-vlissingen.nl"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1742,12 +1731,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 24 */ "4;21;16;4;10,11;7;10,11;1,4;16;19;2,13;18;3,9;3;3,12,17;6;20;5;4;8;4;14,15;4;0";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1756,6 +1745,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1776,6 +1766,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 10 */
+[abortCurrentScript,preventSetTimeout,abortOnPropertyRead,preventXhr,preventFetch,xmlPrune,preventAddEventListener,setConstant,jsonPrune,adjustSetTimeout];
+    const $scriptletArgs$ = /* 32 */ ["document.createElement","adsbygoogle.js","throw i(r+\"err\",[o,a,e],d,c),e}finally{i(","50","ckad","Object.prototype.autoRecov","assets.prod.webx.talpa.digital/ad/view/",".height() === 0","securepubads.g.doubleclick.net","v.fwmrm.net","adsbygoogle","/a[ab]\\.tweakers\\.nl/","Period[id*=\"-ad-\"]","",".mpd","pubads.g.doubleclick.net/gampad/ads","Flags.autoRecov","DAB","noopFunc","Object.prototype.disableAb","Math","Flags.newInject","assets.preroll","BannerManager","undefined","function () { [native code] }","6000","0.001","cookie","true","[native code]","adUrl"];
+    const $scriptletArglists$ = /* 22 */ "0,0,1;1,2,3;1,4;2,5;3,6;1,7;4,8;4,9;0,0,10;4,11;5,12,13,14;4,15;6,13,16;7,17,18;2,19;0,20,21;8,22;7,23,24;9,25,26,27;7,28,29;9,30,26,27;8,31";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

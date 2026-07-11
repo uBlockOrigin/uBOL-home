@@ -963,5 +963,6 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_to"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||alice.yandex.*/?utm_to="},"id":962},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||api.expf.ru/api/*/geo"},"id":963,"priority":10},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/?from=sds"},"id":964},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"?from=smi2agg"},"id":965}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"?from=smi2agg"},"id":965},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kinomania.ru/modules/contrib/visitors/js/tracker.min.js"},"id":966,"priority":10}
 ]

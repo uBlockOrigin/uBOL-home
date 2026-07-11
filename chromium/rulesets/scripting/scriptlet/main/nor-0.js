@@ -1016,8 +1016,8 @@ function runAtHtmlElementFn(fn) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -1136,7 +1136,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -1411,19 +1411,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 9 */
-[setConstant,abortOnPropertyRead,removeAttr,abortCurrentScript,jsonPrune,abortOnPropertyWrite,preventFetch,preventAddEventListener,preventSetTimeout];
-
-const $scriptletArgs$ = /* 33 */ ["showAd","false","document.dispatchEvent","data-track","dfpConfig","loadAds","enabled","testhide","onload","damoh","adclick","__AB__","contextmenu","adblock","adblockDetector","load","concat","adblockEnabled","noopFunc","trackAdblock","AdsReloadConfig","adblockerAlert","class",".dfp-loaded","EventTarget.prototype.addEventListener","window.TextDecoder","pbjs.onEvent","__INITIAL_STATE__.features.should-show-snow","gpt.js","v.fwmrm.net/ad/g/1","adsbygoogle.js","/doCheck\\(.,.\\)/","pagead2.googlesyndication.com"];
-
-const $scriptletArglists$ = /* 26 */ "0,0,1;1,2;2,3;3,4,5;4,6,7;5,8;6,9;1,10;5,11;7,12;0,13,1;3,14;7,15,16;0,17,18;0,19,18;3,20;0,21,18;2,22,23;3,24,25;0,26,18;0,27,1;6,28;6,29;3,24,30;8,31;6,32";
-
-const $scriptletArglistRefs$ = /* 33 */ "17;21;3;6,8,12;8;8;4,11;18;8;4;-18;0;3,8;25;20;16;-18;-18;9;23;10;5;5;13,14,15;1;7;19;19;24;2;22;6;4";
-
-const $scriptletHostnames$ = /* 33 */ ["no","bt.dk","tu.no","vg.no","e24.no","tek.no","tv2.no","bold.dk","digi.no","vgtv.no","bankid.*","blogg.no","gamer.no","senest.dk","spleis.no","connery.dk","postnord.*","3dsecure.no","eurosport.*","inputmag.dk","techstart.dk","tvkampen.com","tvsporten.dk","gamereactor.*","nakenprat.com","norges.online","downdetector.dk","downdetector.no","maskinbladet.dk","sonderborgnyt.dk","embed.viaplay.com","www-vg-no.translate.goog","www-tv2-no.translate.goog"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = true;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -1472,7 +1460,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 33 */ ["no","bt.dk","tu.no","vg.no","e24.no","tek.no","tv2.no","bold.dk","digi.no","vgtv.no","bankid.*","blogg.no","gamer.no","senest.dk","spleis.no","connery.dk","postnord.*","3dsecure.no","eurosport.*","inputmag.dk","techstart.dk","tvkampen.com","tvsporten.dk","gamereactor.*","nakenprat.com","norges.online","downdetector.dk","downdetector.no","maskinbladet.dk","sonderborgnyt.dk","embed.viaplay.com","www-vg-no.translate.goog","www-tv2-no.translate.goog"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1514,12 +1503,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 33 */ "17;21;3;6,8,12;8;8;4,11;18;8;4;-18;0;3,8;25;20;16;-18;-18;9;23;10;5;5;13,14,15;1;7;19;19;24;2;22;6;4";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1528,6 +1517,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1548,6 +1538,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 9 */
+[setConstant,abortOnPropertyRead,removeAttr,abortCurrentScript,jsonPrune,abortOnPropertyWrite,preventFetch,preventAddEventListener,preventSetTimeout];
+    const $scriptletArgs$ = /* 33 */ ["showAd","false","document.dispatchEvent","data-track","dfpConfig","loadAds","enabled","testhide","onload","damoh","adclick","__AB__","contextmenu","adblock","adblockDetector","load","concat","adblockEnabled","noopFunc","trackAdblock","AdsReloadConfig","adblockerAlert","class",".dfp-loaded","EventTarget.prototype.addEventListener","window.TextDecoder","pbjs.onEvent","__INITIAL_STATE__.features.should-show-snow","gpt.js","v.fwmrm.net/ad/g/1","adsbygoogle.js","/doCheck\\(.,.\\)/","pagead2.googlesyndication.com"];
+    const $scriptletArglists$ = /* 26 */ "0,0,1;1,2;2,3;3,4,5;4,6,7;5,8;6,9;1,10;5,11;7,12;0,13,1;3,14;7,15,16;0,17,18;0,19,18;3,20;0,21,18;2,22,23;3,24,25;0,26,18;0,27,1;6,28;6,29;3,24,30;8,31;6,32";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

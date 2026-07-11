@@ -357,8 +357,8 @@ function runAt(fn, when) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -477,7 +477,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -728,19 +728,7 @@ function setSessionStorageItem(key = '', value = '') {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 6 */
-[setSessionStorageItem,removeClass,setLocalStorageItem,setCookie,removeCookie,removeNodeText];
-
-const $scriptletArgs$ = /* 24 */ ["popupClosed","true","modal-open","body","stay","darken","no_scroll","complete","blurry","body > :not(.m-fbPopup)","felhasznalo_cookie_preferencia","0","cookie.consent.finished","1","gdpr_level","bottom-l","bottom-s","skanzen-cookie-consent","false","stpdsck","adblock","have-ad","script","undefined"];
-
-const $scriptletArglists$ = /* 16 */ "0,0,1;1,2,3;1,2,3,4;1,5,3;1,3,6,7;1,8,9,4;2,10,11;3,12,13;3,14,13;1,15,3,4;1,16,3,4;2,17,18;3,19,13;4,20;1,21,3;5,22,23";
-
-const $scriptletArglistRefs$ = /* 13 */ "7,8;1;5;14;11;2;4;15;9,10;3;0;12,13;6";
-
-const $scriptletHostnames$ = /* 13 */ ["fizz.hu","hetek.hu","vezess.hu","pcworld.hu","skanzen.hu","mandiner.hu","otpportalok.hu","rubyvidhub.com","magyarorszag.hu","traffihunter.hu","erzsebetvaros.hu","myonlineradio.hu","onlinepenztarca.hu"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -789,7 +777,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 13 */ ["fizz.hu","hetek.hu","vezess.hu","pcworld.hu","skanzen.hu","mandiner.hu","otpportalok.hu","rubyvidhub.com","magyarorszag.hu","traffihunter.hu","erzsebetvaros.hu","myonlineradio.hu","onlinepenztarca.hu"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -831,12 +820,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 13 */ "7,8;1;5;14;11;2;4;15;9,10;3;0;12,13;6";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -845,6 +834,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -865,6 +855,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 6 */
+[setSessionStorageItem,removeClass,setLocalStorageItem,setCookie,removeCookie,removeNodeText];
+    const $scriptletArgs$ = /* 24 */ ["popupClosed","true","modal-open","body","stay","darken","no_scroll","complete","blurry","body > :not(.m-fbPopup)","felhasznalo_cookie_preferencia","0","cookie.consent.finished","1","gdpr_level","bottom-l","bottom-s","skanzen-cookie-consent","false","stpdsck","adblock","have-ad","script","undefined"];
+    const $scriptletArglists$ = /* 16 */ "0,0,1;1,2,3;1,2,3,4;1,5,3;1,3,6,7;1,8,9,4;2,10,11;3,12,13;3,14,13;1,15,3,4;1,16,3,4;2,17,18;3,19,13;4,20;1,21,3;5,22,23";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

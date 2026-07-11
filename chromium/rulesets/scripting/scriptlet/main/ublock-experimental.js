@@ -209,6 +209,7 @@ class JSONPath {
                 continue;
             }
             // Bracket accessor syntax
+            if ( mv === this.#CHILDREN ) { return; }
             if ( query.startsWith('[?', i) ) {
                 const not = query.charCodeAt(i+2) === 0x21 /* ! */ ? 1 : 0;
                 const j = i + 2 + not;
@@ -391,11 +392,18 @@ class JSONPath {
     }
     #consumeIdentifier(query, i) {
         const keys = [];
-        for (;;) {
+        let needIdentifier = true;
+        while ( i < query.length ) {
             const c0 = query.charCodeAt(i);
             if ( c0 === 0x5D /* ] */ ) { break; }
-            if ( c0 === 0x2C /* , */ || c0 === 0x20 /* SPACE */) {
+            if ( c0 === 0x20 /* SPACE */ ) {
                 i += 1;
+                continue;
+            }
+            if ( c0 === 0x2C /* , */ ) {
+                if ( needIdentifier ) { return; }
+                i += 1;
+                needIdentifier = true;
                 continue;
             }
             if ( c0 === 0x22 /* " */ || c0 === 0x27 /* ' */ ) {
@@ -403,6 +411,7 @@ class JSONPath {
                 if ( r === undefined ) { return; }
                 keys.push(r.s);
                 i = r.i;
+                needIdentifier = false;
                 continue;
             }
             if ( c0 === 0x2D /* - */ || c0 >= 0x30 && c0 <= 0x39 ) {
@@ -411,13 +420,16 @@ class JSONPath {
                 const indice = parseInt(query.slice(i), 10);
                 keys.push(indice);
                 i += match[0].length;
+                needIdentifier = false;
                 continue;
             }
+            if ( this.#compiled.v2 ) { return; }
             const r = this.#consumeUnquotedIdentifier(query, i);
             if ( r === undefined ) { return; }
             keys.push(r.s);
             i = r.i;
         }
+        if ( needIdentifier ) { return; }
         return { s: keys.length === 1 ? keys[0] : keys, i };
     }
     #consumeUnquotedIdentifier(query, i) {
@@ -1024,8 +1036,8 @@ function proxyApplyFn(
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -1144,7 +1156,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -1214,19 +1226,7 @@ function trustedJsonEditXhrResponse(jsonq = '', ...args) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 3 */
-[trustedJsonEditXhrRequest,trustedJsonEditXhrResponse,jsonPrune];
-
-const $scriptletArgs$ = /* 7 */ ["[?..userAgent*=\"adunit\"]..client[?.clientName==\"WEB\"]+={\"clientScreen\":\"ADUNIT\"}","propsToMatch","/player?","[?..userAgent*=\"instream\"]..playbackContext[?.contentPlaybackContext]+={\"adPlaybackContext\":{\"adType\":\"AD_TYPE_INSTREAM\"}}","[?..userAgent*=\"eafg\"]+={\"params\":\"eAFgAQ\"}","[?..minimumPlaybackRate==100]..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200,\"defaultPlaybackRateOptions\":[{\"label\":\"1.0\",\"value\":100,\"isPremiumUpsell\":false,\"priority\":5},{\"label\":\"1.25\",\"value\":125,\"isPremiumUpsell\":false,\"priority\":2},{\"label\":\"1.5\",\"value\":150,\"isPremiumUpsell\":false,\"priority\":3},{\"label\":\"1.75\",\"value\":175,\"isPremiumUpsell\":false,\"priority\":0},{\"label\":\"2.0\",\"value\":200,\"isPremiumUpsell\":false,\"priority\":4},{\"label\":\"3.0\",\"value\":300,\"isPremiumUpsell\":true,\"priority\":1}]}","contents.twoColumnBrowseResultsRenderer.tabs.[].tabRenderer.content.richGridRenderer.contents.[-].richItemRenderer.content.adSlotRenderer"];
-
-const $scriptletArglists$ = /* 5 */ "0,0,1,2;0,3,1,2;0,4,1,2;1,5,1,2;2,6";
-
-const $scriptletArglistRefs$ = /* 1 */ "0,1,2,3,4";
-
-const $scriptletHostnames$ = /* 1 */ ["www.youtube.com"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -1275,7 +1275,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 1 */ ["www.youtube.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1317,12 +1318,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 1 */ "0,1,2,3,4";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1331,6 +1332,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1351,6 +1353,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 3 */
+[trustedJsonEditXhrRequest,trustedJsonEditXhrResponse,jsonPrune];
+    const $scriptletArgs$ = /* 7 */ ["[?..userAgent*=\"adunit\"]..client[?.clientName==\"WEB\"]+={\"clientScreen\":\"ADUNIT\"}","propsToMatch","/player?","[?..userAgent*=\"instream\"]..playbackContext[?.contentPlaybackContext]+={\"adPlaybackContext\":{\"adType\":\"AD_TYPE_INSTREAM\"}}","[?..userAgent*=\"eafg\"]+={\"params\":\"eAFgAQ\"}","[?..minimumPlaybackRate==100]..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200,\"defaultPlaybackRateOptions\":[{\"label\":\"1.0\",\"value\":100,\"isPremiumUpsell\":false,\"priority\":5},{\"label\":\"1.25\",\"value\":125,\"isPremiumUpsell\":false,\"priority\":2},{\"label\":\"1.5\",\"value\":150,\"isPremiumUpsell\":false,\"priority\":3},{\"label\":\"1.75\",\"value\":175,\"isPremiumUpsell\":false,\"priority\":0},{\"label\":\"2.0\",\"value\":200,\"isPremiumUpsell\":false,\"priority\":4},{\"label\":\"3.0\",\"value\":300,\"isPremiumUpsell\":true,\"priority\":1}]}","contents.twoColumnBrowseResultsRenderer.tabs.[].tabRenderer.content.richGridRenderer.contents.[-].richItemRenderer.content.adSlotRenderer"];
+    const $scriptletArglists$ = /* 5 */ "0,0,1,2;0,3,1,2;0,4,1,2;1,5,1,2;2,6";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

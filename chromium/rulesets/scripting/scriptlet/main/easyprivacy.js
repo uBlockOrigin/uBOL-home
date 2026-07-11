@@ -209,6 +209,7 @@ class JSONPath {
                 continue;
             }
             // Bracket accessor syntax
+            if ( mv === this.#CHILDREN ) { return; }
             if ( query.startsWith('[?', i) ) {
                 const not = query.charCodeAt(i+2) === 0x21 /* ! */ ? 1 : 0;
                 const j = i + 2 + not;
@@ -391,11 +392,18 @@ class JSONPath {
     }
     #consumeIdentifier(query, i) {
         const keys = [];
-        for (;;) {
+        let needIdentifier = true;
+        while ( i < query.length ) {
             const c0 = query.charCodeAt(i);
             if ( c0 === 0x5D /* ] */ ) { break; }
-            if ( c0 === 0x2C /* , */ || c0 === 0x20 /* SPACE */) {
+            if ( c0 === 0x20 /* SPACE */ ) {
                 i += 1;
+                continue;
+            }
+            if ( c0 === 0x2C /* , */ ) {
+                if ( needIdentifier ) { return; }
+                i += 1;
+                needIdentifier = true;
                 continue;
             }
             if ( c0 === 0x22 /* " */ || c0 === 0x27 /* ' */ ) {
@@ -403,6 +411,7 @@ class JSONPath {
                 if ( r === undefined ) { return; }
                 keys.push(r.s);
                 i = r.i;
+                needIdentifier = false;
                 continue;
             }
             if ( c0 === 0x2D /* - */ || c0 >= 0x30 && c0 <= 0x39 ) {
@@ -411,13 +420,16 @@ class JSONPath {
                 const indice = parseInt(query.slice(i), 10);
                 keys.push(indice);
                 i += match[0].length;
+                needIdentifier = false;
                 continue;
             }
+            if ( this.#compiled.v2 ) { return; }
             const r = this.#consumeUnquotedIdentifier(query, i);
             if ( r === undefined ) { return; }
             keys.push(r.s);
             i = r.i;
         }
+        if ( needIdentifier ) { return; }
         return { s: keys.length === 1 ? keys[0] : keys, i };
     }
     #consumeUnquotedIdentifier(query, i) {
@@ -1366,8 +1378,8 @@ function runAtHtmlElementFn(fn) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -1486,7 +1498,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -1761,19 +1773,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 6 */
-[setConstant,abortCurrentScript,abortOnStackTrace,jsonEdit,preventFetch,preventXhr];
-
-const $scriptletArgs$ = /* 22 */ ["Navigator.prototype.globalPrivacyControl","false","navigator.globalPrivacyControl","document.getElementsByTagName","gtm.js","document.createElement","admiral",".pubads","HTMLElement.prototype.insertBefore","/[A-Z] .+chunks\\/\\d{4}\\./",".js?","decodeURI","/(?=^(?!.*\\.js))/","..props.children.*[?.key==\"admiral-script\"]","noopFunc","gnt.x.adm","","keen-tracking","stella","ncbi.sg","{}","ncbi.sg.ping"];
-
-const $scriptletArglists$ = /* 16 */ "0,0,1;0,2,1;1,3,4;1,5,6;1,3,7;2,8,9;2,6,10;2,11,12;3,13;0,6,14;0,15,16;1,5,17;4,18;5,18;0,19,20;0,21,14";
-
-const $scriptletArglistRefs$ = /* 182 */ "0,1;3,7;7;3;0,1;3;11;3;4;3;0,1;0,1;3;3;0,1;0,1;4;3;0,1;0,1;0,1;3;3,7;3,7;0,1;0,1;0,1;4;0,1;0,1;0,1;4;0,1;0,1;7;0,1;3;5;0,1;3;0,1;4;2;0,1;3;3;7;3,9;0,1;4;3;3;0,1;0,1;6;4;3;0,1;3;0,1;4;0,1;0,1;4;3;4;4;0,1;0,1;3;3;3;3;0,1;0,1;3;0,1;3;7;12,13;3;4;7;3;0,1;3;0,1;9,10;3;3;4;3;3;4;3;3;4;3;3;4;0,1;4;3;3;3;0,1;4;3;3;0,1;7;3,4;0,1;0,1;3,4;7;4;3;3,7;0,1;0,1,4;7;0,1;4;3;3;0,1;0,1;3;0,1;7;7;0,1;7;8;3;0,1;3;3;3;4;3;3;3;0,1;3;4;14,15;3;4;3;3;7;4;3;0,1;4;0,1;4;0,1;0,1;4;3;3,4;3;3;3;3;3;7;7;3;3;7;7;4;3;0,1;0,1;3;3;0,1";
-
-const $scriptletHostnames$ = /* 182 */ ["x.com","al.com","nj.com","cbr.com","dnb.com","ijr.com","mwed.jp","wnd.com","wwd.com","cwtv.com","espn.com","kkrt.com","money.it","omg.blog","uber.com","usaa.com","vibe.com","wral.com","chime.com","delta.com","dnb.co.uk","freep.com","mlive.com","pcwelt.de","qobuz.com","tidal.com","vimeo.com","apnews.com","boston.com","costco.com","deezer.com","driving.ca","filson.com","hopwtr.com","macwelt.de","norton.com","nypost.com","ranker.com","rivals.com","silive.com","subway.com","artnews.com","bolighub.dk","capezio.com","cattime.com","dogtime.com","gamepur.com","gbatemp.net","geizhals.de","lfpress.com","nbcnews.com","neopets.com","pandora.com","porsche.com","reuters.com","sherdog.com","sporcle.com","spotify.com","titantv.com","twitter.com","variety.com","visible.com","weather.com","artforum.com","collider.com","deadline.com","dpreview.com","engadget.com","formula1.com","gamerant.com","grabify.link","hemmings.com","inquirer.net","jdsports.com","madewell.com","masslive.com","mazdausa.com","movieweb.com","news8000.com","nicovideo.jp","pennlive.com","sidereel.com","syracuse.com","thegamer.com","tirerack.com","topspeed.com","ubereats.com","usatoday.com","webmail.wiki","247sports.com","billboard.com","cleveland.com","fresnobee.com","goldderby.com","hancinema.net","howtogeek.com","indiewire.com","magesypro.pro","makeuseof.com","nbcsports.com","newyorker.com","ottawasun.com","pwinsider.com","savvytime.com","thelayoff.com","www.yahoo.com","calgarysun.com","cheatsheet.com","comingsoon.net","eventbrite.com","gameskinny.com","golfdigest.com","mail.yahoo.com","milesplit.live","oregonlive.com","primagames.com","robbreport.com","screenrant.com","siliconera.com","soundcloud.com","techcrunch.com","themarysue.com","ticketmaster.*","torontosun.com","twinfinite.net","videogamer.com","accuweather.com","acmemarkets.com","arstechnica.com","crunchyroll.com","destructoid.com","edmontonsun.com","flyfrontier.com","lgbtqnation.com","mensjournal.com","order-order.com","payment.nba.com","techlicious.com","technicpack.net","theprovince.com","windsorstar.com","wrestlezone.com","esportstales.com","knowyourmeme.com","lenscrafters.com","motorbiscuit.com","nationalpost.com","ncbi.nlm.nih.gov","nofilmschool.com","rollingstone.com","simpleflying.com","thenerdstash.com","touchtapplay.com","vancouversun.com","wrestlinginc.com","wunderground.com","calgaryherald.com","dollargeneral.com","financialpost.com","harborfreight.com","monsterenergy.com","superherohype.com","bringmethenews.com","crooksandliars.com","insider-gaming.com","nationalreview.com","thefashionspot.com","xda-developers.com","forums.hfboards.com","gamerjournalist.com","lehighvalleylivecom","stealthoptional.com","thedraftnetwork.com","wegotthiscovered.com","attackofthefanboy.com","hollywoodreporter.com","informazionefiscale.it","gladiatorgarageworks.com","livewithkellyandmark.com","playstationlifestyle.net","worldpopulationreview.com","aiskillsnavigator.microsoft.com"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = true;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -1822,7 +1822,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 182 */ ["x.com","al.com","nj.com","cbr.com","dnb.com","ijr.com","mwed.jp","wnd.com","wwd.com","cwtv.com","espn.com","kkrt.com","money.it","omg.blog","uber.com","usaa.com","vibe.com","wral.com","chime.com","delta.com","dnb.co.uk","freep.com","mlive.com","pcwelt.de","qobuz.com","tidal.com","vimeo.com","apnews.com","boston.com","costco.com","deezer.com","driving.ca","filson.com","hopwtr.com","macwelt.de","norton.com","nypost.com","ranker.com","rivals.com","silive.com","subway.com","artnews.com","bolighub.dk","capezio.com","cattime.com","dogtime.com","gamepur.com","gbatemp.net","geizhals.de","lfpress.com","nbcnews.com","neopets.com","pandora.com","porsche.com","reuters.com","sherdog.com","sporcle.com","spotify.com","titantv.com","twitter.com","variety.com","visible.com","weather.com","artforum.com","collider.com","deadline.com","dpreview.com","engadget.com","formula1.com","gamerant.com","grabify.link","hemmings.com","inquirer.net","jdsports.com","madewell.com","masslive.com","mazdausa.com","movieweb.com","news8000.com","nicovideo.jp","pennlive.com","sidereel.com","syracuse.com","thegamer.com","tirerack.com","topspeed.com","ubereats.com","usatoday.com","webmail.wiki","247sports.com","billboard.com","cleveland.com","fresnobee.com","goldderby.com","hancinema.net","howtogeek.com","indiewire.com","magesypro.pro","makeuseof.com","nbcsports.com","newyorker.com","ottawasun.com","pwinsider.com","savvytime.com","thelayoff.com","www.yahoo.com","calgarysun.com","cheatsheet.com","comingsoon.net","eventbrite.com","gameskinny.com","golfdigest.com","mail.yahoo.com","milesplit.live","oregonlive.com","primagames.com","robbreport.com","screenrant.com","siliconera.com","soundcloud.com","techcrunch.com","themarysue.com","ticketmaster.*","torontosun.com","twinfinite.net","videogamer.com","accuweather.com","acmemarkets.com","arstechnica.com","crunchyroll.com","destructoid.com","edmontonsun.com","flyfrontier.com","lgbtqnation.com","mensjournal.com","order-order.com","payment.nba.com","techlicious.com","technicpack.net","theprovince.com","windsorstar.com","wrestlezone.com","esportstales.com","knowyourmeme.com","lenscrafters.com","motorbiscuit.com","nationalpost.com","ncbi.nlm.nih.gov","nofilmschool.com","rollingstone.com","simpleflying.com","thenerdstash.com","touchtapplay.com","vancouversun.com","wrestlinginc.com","wunderground.com","calgaryherald.com","dollargeneral.com","financialpost.com","harborfreight.com","monsterenergy.com","superherohype.com","bringmethenews.com","crooksandliars.com","insider-gaming.com","nationalreview.com","thefashionspot.com","xda-developers.com","forums.hfboards.com","gamerjournalist.com","lehighvalleylivecom","stealthoptional.com","thedraftnetwork.com","wegotthiscovered.com","attackofthefanboy.com","hollywoodreporter.com","informazionefiscale.it","gladiatorgarageworks.com","livewithkellyandmark.com","playstationlifestyle.net","worldpopulationreview.com","aiskillsnavigator.microsoft.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1864,12 +1865,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 182 */ "0,1;3,7;7;3;0,1;3;11;3;4;3;0,1;0,1;3;3;0,1;0,1;4;3;0,1;0,1;0,1;3;3,7;3,7;0,1;0,1;0,1;4;0,1;0,1;0,1;4;0,1;0,1;7;0,1;3;5;0,1;3;0,1;4;2;0,1;3;3;7;3,9;0,1;4;3;3;0,1;0,1;6;4;3;0,1;3;0,1;4;0,1;0,1;4;3;4;4;0,1;0,1;3;3;3;3;0,1;0,1;3;0,1;3;7;12,13;3,7;4;7;3;0,1;3;0,1;9,10;3;3;4;3;3;4;3;3;4;3;3;4;0,1;4;3;3;3;0,1;4;3;3;0,1;7;3,4;0,1;0,1;3,4;7;4;3;3,7;0,1;0,1,4;7;0,1;4;3;3;0,1;0,1;3;0,1;7;7;0,1;7;8;3;0,1;3;3;3;4;3;3;3;0,1;3;4;14,15;3;4;3;3;7;4;3;0,1;4;0,1;4;0,1;0,1;4;3;3,4;3;3;3;3;3;7;7;3;3;7;7;4;3;0,1;0,1;3;3;0,1";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1878,6 +1879,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1898,6 +1900,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 6 */
+[setConstant,abortCurrentScript,abortOnStackTrace,jsonEdit,preventFetch,preventXhr];
+    const $scriptletArgs$ = /* 22 */ ["Navigator.prototype.globalPrivacyControl","false","navigator.globalPrivacyControl","document.getElementsByTagName","gtm.js","document.createElement","admiral",".pubads","HTMLElement.prototype.insertBefore","/[A-Z] .+chunks\\/\\d{4}\\./",".js?","decodeURI","/(?=^(?!.*\\.js))/","..props.children.*[?.key==\"admiral-script\"]","noopFunc","gnt.x.adm","","keen-tracking","stella","ncbi.sg","{}","ncbi.sg.ping"];
+    const $scriptletArglists$ = /* 16 */ "0,0,1;0,2,1;1,3,4;1,5,6;1,3,7;2,8,9;2,6,10;2,11,12;3,13;0,6,14;0,15,16;1,5,17;4,18;5,18;0,19,20;0,21,14";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

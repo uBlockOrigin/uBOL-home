@@ -696,8 +696,8 @@ function runAtHtmlElementFn(fn) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -816,7 +816,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -1022,19 +1022,7 @@ function xmlPrune(
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 6 */
-[preventSetTimeout,abortCurrentScript,abortOnPropertyRead,jsonPrune,jsonPruneFetchResponse,xmlPrune];
-
-const $scriptletArgs$ = /* 13 */ ["f.parentNode.removeChild(f)","100","testPrebid","Object.prototype.adUnits","props.pageProps.contentfulState.frontPage.sections.[].fields.hasCitrusAdSlot props.pageProps.contentfulState.frontPage.sections.[].fields.isCitrusAdGrid","bumpers","","propsToMatch","url:/playback2.a2d.tv\\/play/","playbackItem.isStitched","prism.a2d.tv","MediaFile","fi-mtv3.videoplaza.tv/proxy/distributor"];
-
-const $scriptletArglists$ = /* 7 */ "0,0,1;1,2;2,3;3,4;4,5,6,7,8;4,9,6,7,10;5,11,6,12";
-
-const $scriptletArglistRefs$ = /* 10 */ "4,5,6;0;0;1;0;3;0;4,5,6;2;0";
-
-const $scriptletHostnames$ = /* 10 */ ["mtv.fi","dawn.fi","high.fi","findit.fi","download.fi","s-kaupat.fi","afterdawn.com","mtvuutiset.fi","happypancake.fi","muropaketti.com"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -1083,7 +1071,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 10 */ ["mtv.fi","dawn.fi","high.fi","findit.fi","download.fi","s-kaupat.fi","afterdawn.com","mtvuutiset.fi","happypancake.fi","muropaketti.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1125,12 +1114,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 10 */ "4,5,6;0;0;1;0;3;0;4,5,6;2;0";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1139,6 +1128,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1159,6 +1149,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 6 */
+[preventSetTimeout,abortCurrentScript,abortOnPropertyRead,jsonPrune,jsonPruneFetchResponse,xmlPrune];
+    const $scriptletArgs$ = /* 13 */ ["f.parentNode.removeChild(f)","100","testPrebid","Object.prototype.adUnits","props.pageProps.contentfulState.frontPage.sections.[].fields.hasCitrusAdSlot props.pageProps.contentfulState.frontPage.sections.[].fields.isCitrusAdGrid","bumpers","","propsToMatch","url:/playback2.a2d.tv\\/play/","playbackItem.isStitched","prism.a2d.tv","MediaFile","fi-mtv3.videoplaza.tv/proxy/distributor"];
+    const $scriptletArglists$ = /* 7 */ "0,0,1;1,2;2,3;3,4;4,5,6,7,8;4,9,6,7,10;5,11,6,12";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

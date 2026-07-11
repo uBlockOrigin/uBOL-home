@@ -474,6 +474,7 @@
 {"action":{"type":"allow"},"condition":{"requestDomains":["oddstips.norsktippingpartner.no"]},"id":473,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","requestDomains":["bestill.help.no"]},"id":474,"priority":30},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"://aj2*.bid^"},"id":475,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||tronderporten.no/wp-content/uploads/20*/1450mmx350mm"},"id":476,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["dk","no","se"],"resourceTypes":["main_frame"],"urlFilter":"||minklarna."},"id":515,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["discoveryplus.com"],"requestDomains":["akamaihd.net","dnitv.com"],"resourceTypes":["media"]},"id":522,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["eyjafrettir.is"],"resourceTypes":["image"],"urlFilter":"_1170x400."},"id":523,"priority":10},

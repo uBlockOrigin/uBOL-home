@@ -285,8 +285,8 @@ function runAt(fn, when) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -405,7 +405,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -566,19 +566,7 @@ function setCookieFn(
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 3 */
-[removeNodeText,removeClass,setCookie];
-
-const $scriptletArgs$ = /* 12 */ ["script","adsbygoogle","_bannerTop1","/jQuery.*reload/","document.head.appendChild","ai_adb","document.body.classList.add","fwp_wpm_","1","/skin|insertAdjacentHTML|netflix/","var Data","appendChild"];
-
-const $scriptletArglists$ = /* 10 */ "0,0,1;1,2;0,0,3;0,0,4;0,0,5;0,0,6;2,7,8;0,0,9;0,0,10;0,0,11";
-
-const $scriptletArglistRefs$ = /* 10 */ "5;6;9;4;7;8;2;0;3;1";
-
-const $scriptletHostnames$ = /* 10 */ ["gsp.ro","acasa.ro","tvmd.info","clujust.ro","hotnews.ro","softinfo.ro","sampmoduri.ro","turdanews.net","filme2023.online","myradioonline.ro"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -627,7 +615,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 10 */ ["gsp.ro","acasa.ro","tvmd.info","clujust.ro","hotnews.ro","softinfo.ro","sampmoduri.ro","turdanews.net","filme2023.online","myradioonline.ro"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -669,12 +658,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 10 */ "5;6;9;4;7;8;2;0;3;1";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -683,6 +672,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -703,6 +693,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 3 */
+[removeNodeText,removeClass,setCookie];
+    const $scriptletArgs$ = /* 12 */ ["script","adsbygoogle","_bannerTop1","/jQuery.*reload/","document.head.appendChild","ai_adb","document.body.classList.add","fwp_wpm_","1","/skin|insertAdjacentHTML|netflix/","var Data","appendChild"];
+    const $scriptletArglists$ = /* 10 */ "0,0,1;1,2;0,0,3;0,0,4;0,0,5;0,0,6;2,7,8;0,0,9;0,0,10;0,0,11";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

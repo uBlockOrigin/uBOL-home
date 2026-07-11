@@ -627,8 +627,8 @@ function runAtHtmlElementFn(fn) {
 }
 
 function safeSelf() {
-    if ( scriptletGlobals.safeSelf ) {
-        return scriptletGlobals.safeSelf;
+    if ( safeSelf.safe ) {
+        return safeSelf.safe;
     }
     const self = globalThis;
     const safe = {
@@ -747,7 +747,7 @@ function safeSelf() {
             return this.Object_fromEntries(entries);
         },
     };
-    scriptletGlobals.safeSelf = safe;
+    safeSelf.safe = safe;
     if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
     // This is executed only when the logger is opened
     safe.logLevel = scriptletGlobals.logLevel || 1;
@@ -930,19 +930,7 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 
 const scriptletGlobals = {}; // eslint-disable-line
 
-const $scriptletFunctions$ = /* 5 */
-[preventAddEventListener,noEvalIf,abortCurrentScript,trustedReplaceArgument,abortOnStackTrace];
-
-const $scriptletArgs$ = /* 18 */ ["DOMContentLoaded","fullscreenEnabled","tigervip2","atob","new Function(atob(","String.prototype.includes","0","undefined","condition","/^checkout$/","WebSocket","event.data","XMLHttpRequest","/wp-content","open","executeCode","Array.prototype.indexOf","isWin"];
-
-const $scriptletArglists$ = /* 8 */ "0,0,1;1,2;2,3,4;3,5,6,7,8,9;2,10,11;4,12,13;2,14,15;4,16,17";
-
-const $scriptletArglistRefs$ = /* 26 */ "4;4;3;4;4;2;4;3;4;4;5;4;4;4;4;4;4;6;4;4;3;1;7;3;0;2";
-
-const $scriptletHostnames$ = /* 26 */ ["ojworld.it","forqueen.cz","red17.co.uk","tvojstyl.sk","up-shop.org","crimsonav.com","adrissa.com.co","lundracing.com","jollibee.com.vn","kitapsan.com.tr","rapidkil.com.au","yairalon.com.br","joinusonline.net","mebelinovdom.com","qualityrental.com","szaszmotorshop.hu","americansoda.co.uk","weightlossdiet.top","casteloforte.com.br","centerfabril.com.br","energiasolare100.it","www.cambe.pr.gov.br","sport.elwatannews.com","workplace-products.co.uk","z13.web.core.windows.net","ngsingleissues.nationalgeographic.com"];
-
-const $scriptletFromRegexes$ = /* 0 */ [];
-
+const $hasHostnames$ = true;
 const $hasEntities$ = false;
 const $hasAncestors$ = false;
 const $hasRegexes$ = false;
@@ -991,7 +979,8 @@ const entries = (( ) => {
 if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
-if ( $scriptletHostnames$.length ) {
+if ( $hasHostnames$ ) {
+    const $scriptletHostnames$ = /* 26 */ ["ojworld.it","forqueen.cz","red17.co.uk","tvojstyl.sk","up-shop.org","crimsonav.com","adrissa.com.co","lundracing.com","jollibee.com.vn","kitapsan.com.tr","rapidkil.com.au","yairalon.com.br","joinusonline.net","mebelinovdom.com","qualityrental.com","szaszmotorshop.hu","americansoda.co.uk","weightlossdiet.top","casteloforte.com.br","centerfabril.com.br","energiasolare100.it","www.cambe.pr.gov.br","sport.elwatannews.com","workplace-products.co.uk","z13.web.core.windows.net","ngsingleissues.nationalgeographic.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1033,12 +1022,12 @@ if ( $scriptletHostnames$.length ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-    $scriptletHostnames$.length = 0;
 }
 
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
+    const $scriptletArglistRefs$ = /* 26 */ "4;4;3;4;4;2;4;3;4;4;5;4;4;4;4;4;4;6;4;4;3;1;7;3;0;2";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1047,6 +1036,7 @@ if ( todoIndices.size !== 0 ) {
     }
 }
 if ( $hasRegexes$ ) {
+    const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -1067,6 +1057,10 @@ if ( todo.size === 0 ) { return; }
 
 // Execute scriplets
 {
+    const $scriptletFunctions$ = /* 5 */
+[preventAddEventListener,noEvalIf,abortCurrentScript,trustedReplaceArgument,abortOnStackTrace];
+    const $scriptletArgs$ = /* 18 */ ["DOMContentLoaded","fullscreenEnabled","tigervip2","atob","new Function(atob(","String.prototype.includes","0","undefined","condition","/^checkout$/","WebSocket","event.data","XMLHttpRequest","/wp-content","open","executeCode","Array.prototype.indexOf","isWin"];
+    const $scriptletArglists$ = /* 8 */ "0,0,1;1,2;2,3,4;3,5,6,7,8,9;2,10,11;4,12,13;2,14,15;4,16,17";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {
