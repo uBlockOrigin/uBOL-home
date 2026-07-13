@@ -1,3 +1,9 @@
+- [Cache fetched lists on a per platform basis](https://github.com/gorhill/uBlock/commit/031b52ba4d)
+
+----------
+
+### 2026.711.25
+
 - [Add support for excluded hostnames in `popup` filters](https://github.com/gorhill/uBlock/commit/0d0f4d6406)
 - [Fix processing of preparse directives in imported lists](https://github.com/gorhill/uBlock/commit/4dae710c34)
 - Updated filter lists
