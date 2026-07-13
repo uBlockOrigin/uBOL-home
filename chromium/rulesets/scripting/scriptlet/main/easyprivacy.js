@@ -1870,7 +1870,7 @@ if ( $hasHostnames$ ) {
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 182 */ "0,1;3,7;7;3;0,1;3;11;3;4;3;0,1;0,1;3;3;0,1;0,1;4;3;0,1;0,1;0,1;3;3,7;3,7;0,1;0,1;0,1;4;0,1;0,1;0,1;4;0,1;0,1;7;0,1;3;5;0,1;3;0,1;4;2;0,1;3;3;7;3,9;0,1;4;3;3;0,1;0,1;6;4;3;0,1;3;0,1;4;0,1;0,1;4;3;4;4;0,1;0,1;3;3;3;3;0,1;0,1;3;0,1;3;7;12,13;3,7;4;7;3;0,1;3;0,1;9,10;3;3;4;3;3;4;3;3;4;3;3;4;0,1;4;3;3;3;0,1;4;3;3;0,1;7;3,4;0,1;0,1;3,4;7;4;3;3,7;0,1;0,1,4;7;0,1;4;3;3;0,1;0,1;3;0,1;7;7;0,1;7;8;3;0,1;3;3;3;4;3;3;3;0,1;3;4;14,15;3;4;3;3;7;4;3;0,1;4;0,1;4;0,1;0,1;4;3;3,4;3;3;3;3;3;7;7;3;3;7;7;4;3;0,1;0,1;3;3;0,1";
+    const $scriptletArglistRefs$ = /* 182 */ "0,1,16,17;3,7;7;3;0,1;3;11;3;4;3;0,1;0,1;3;3;0,1;0,1;4;3;0,1;0,1;0,1;3;3,7;3,7;0,1;0,1;0,1;4;0,1;0,1;0,1;4;0,1;0,1;7;0,1;3;5;0,1;3;0,1;4;2;0,1;3;3;7;3,9;0,1;4;3;3;0,1;0,1;6;4;3;0,1;3;0,1;4;0,1;0,1;4;3;4;4;0,1;0,1;3;3;3;3;0,1;0,1;3;0,1;3;7;12,13;3,7;4;7;3;0,1;3;0,1;9,10;3;3;4;3;3;4;3;3;4;3;3;4;0,1;4;3;3;3;0,1;4;3;3;0,1;7;3,4;0,1;0,1;3,4;7;4;3;3,7;0,1;0,1,4;7;0,1;4;3;3;0,1;0,1;3;0,1;7;7;0,1;7;8;3;0,1;3;3;3;4;3;3;3;0,1;3;4;14,15;3;4;3;3;7;4;3;0,1;4;0,1;4;0,1;0,1;4;3;3,4;3;3;3;3;3;7;7;3;3;7;7;4;3;0,1;0,1;3;3;0,1";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1902,8 +1902,8 @@ if ( todo.size === 0 ) { return; }
 {
     const $scriptletFunctions$ = /* 6 */
 [setConstant,abortCurrentScript,abortOnStackTrace,jsonEdit,preventFetch,preventXhr];
-    const $scriptletArgs$ = /* 22 */ ["Navigator.prototype.globalPrivacyControl","false","navigator.globalPrivacyControl","document.getElementsByTagName","gtm.js","document.createElement","admiral",".pubads","HTMLElement.prototype.insertBefore","/[A-Z] .+chunks\\/\\d{4}\\./",".js?","decodeURI","/(?=^(?!.*\\.js))/","..props.children.*[?.key==\"admiral-script\"]","noopFunc","gnt.x.adm","","keen-tracking","stella","ncbi.sg","{}","ncbi.sg.ping"];
-    const $scriptletArglists$ = /* 16 */ "0,0,1;0,2,1;1,3,4;1,5,6;1,3,7;2,8,9;2,6,10;2,11,12;3,13;0,6,14;0,15,16;1,5,17;4,18;5,18;0,19,20;0,21,14";
+    const $scriptletArgs$ = /* 24 */ ["Navigator.prototype.globalPrivacyControl","false","navigator.globalPrivacyControl","document.getElementsByTagName","gtm.js","document.createElement","admiral",".pubads","HTMLElement.prototype.insertBefore","/[A-Z] .+chunks\\/\\d{4}\\./",".js?","decodeURI","/(?=^(?!.*\\.js))/","..props.children.*[?.key==\"admiral-script\"]","noopFunc","gnt.x.adm","","keen-tracking","stella","ncbi.sg","{}","ncbi.sg.ping","__INITIAL_STATE__.featureSwitch.defaultConfig.rweb_home_jot_context_enabled.value","__INITIAL_STATE__.featureSwitch.user.config.rweb_home_jot_context_enabled.value"];
+    const $scriptletArglists$ = /* 18 */ "0,0,1;0,2,1;1,3,4;1,5,6;1,3,7;2,8,9;2,6,10;2,11,12;3,13;0,6,14;0,15,16;1,5,17;4,18;5,18;0,19,20;0,21,14;0,22,1;0,23,1";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

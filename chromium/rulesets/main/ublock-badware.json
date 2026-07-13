@@ -72,7 +72,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||azuki-*.vercel.app^"},"id":71,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedRequestDomains":["getgrass.io"],"requestDomains":["cc","vip"],"urlFilter":"||grass-io."},"id":72,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["web.core.windows.net"],"requestDomains":["ipwho.is"],"resourceTypes":["xmlhttprequest"]},"id":73,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||roblox.com."},"id":74,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedRequestDomains":["cloudflare.net"],"urlFilter":"||roblox.com."},"id":74,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||testra*-covid.weebly.com^"},"id":75,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||legder.*.us.com^"},"id":76,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["fitgirl-repacks.site"],"requestDomains":["fitgirl-repacks-site.org","fitgirl.cc"],"resourceTypes":["main_frame"]},"id":77,"priority":10},

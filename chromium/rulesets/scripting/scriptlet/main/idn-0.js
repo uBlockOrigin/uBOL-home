@@ -1356,7 +1356,7 @@ if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 44 */ ["netq.me","mudah.my","doroni.me","kiryuu.id","kuyhaa.me","dicrotin.*","igodesu.tv","indobo.com","kiryuu.org","kiryuu02.*","lk21semi.*","nimegami.*","njavtv.com","sukasex.tv","tutwuri.id","anichin.top","moenime.com","semprot.com","sukasex.net","westmanga.*","5.253.86.213","animekompi.*","asalunik.com","jenismac.com","kiryuu01.com","ainzscans.net","bokepindo69.*","cosmicscans.*","moutogami.com","moviekhhd.biz","3gpterbaru.com","animekompi.vip","bokepgemoy.com","info.vebma.com","sk21.sob4t.xyz","193.142.147.230","juraganfilm.ink","kimcilonly.site","komikcast02.com","ngicstream.site","jurnalistekno.id","bahasteknologi.com","thejakartapost.com","kisahterlarang.site"];
+    const $scriptletHostnames$ = /* 46 */ ["netq.me","mudah.my","doroni.me","kiryuu.id","kuyhaa.me","dicrotin.*","igodesu.tv","indobo.com","kiryuu.org","kiryuu02.*","lk21semi.*","nimegami.*","njavtv.com","sukasex.tv","tutwuri.id","anichin.top","kingbokep.*","moenime.com","semprot.com","sukasex.net","westmanga.*","5.253.86.213","animekompi.*","asalunik.com","jenismac.com","kiryuu01.com","ainzscans.net","bokepindo69.*","cosmicscans.*","moutogami.com","moviekhhd.biz","3gpterbaru.com","animekompi.vip","bokepgemoy.com","info.vebma.com","sk21.sob4t.xyz","193.142.147.230","juraganfilm.ink","kimcilonly.site","komikcast02.com","ngicstream.site","jurnalistekno.id","tantecentil.fans","bahasteknologi.com","thejakartapost.com","kisahterlarang.site"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1403,7 +1403,7 @@ if ( $hasHostnames$ ) {
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 44 */ "14,19;12;5;21;4;1;21;21;21;21;3;21;21;21;16;21;15;0;21;21;18;2;17;11,18;21;18;21;21;7;20;9;21;17;6;10;18;8;21;21;21;16,21;11;13;21";
+    const $scriptletArglistRefs$ = /* 46 */ "15,20;13;6;22;5;1;22;22;22;22;4;22;22;22;17;22;3,22;16;0;22;22;19;2;18;12,19;22;19;22;22;8;21;10;22;18;7;11;19;9;22;22;22;17,22;22;12;14;22";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1435,8 +1435,8 @@ if ( todo.size === 0 ) { return; }
 {
     const $scriptletFunctions$ = /* 11 */
 [abortCurrentScript,abortOnPropertyRead,abortOnPropertyWrite,preventAddEventListener,adjustSetInterval,preventFetch,preventXhr,preventBab,noEvalIf,preventSetTimeout,noWindowOpenIf];
-    const $scriptletArgs$ = /* 26 */ ["Math.random","arv_24","SGPB_POPUP_PARAMS","MutationObserver","chp_ads_blocker_detector","document.addEventListener","window.open","getComputedStyle","","cpm","click","linkOpened","load","/adblock/i","$.magnificPopup.open","LieDetector","popup_custom_data","ads.google.com","adsbygoogle","clarity.ms","trafficbass.com","googlesyndication","/chp_?ad/","console","location.href","3000"];
-    const $scriptletArglists$ = /* 22 */ "0,0,1;1,2;2,3;0,4;0,5,6;0,7,8,9;3,10,11;3,12,13;1,14;1,15;1,16;4;5,17;5,18;5,19;5,20;6,21;7;8,22;9,23;9,24,25;10";
+    const $scriptletArgs$ = /* 27 */ ["Math.random","arv_24","SGPB_POPUP_PARAMS","MutationObserver","checkAdsStatus","chp_ads_blocker_detector","document.addEventListener","window.open","getComputedStyle","","cpm","click","linkOpened","load","/adblock/i","$.magnificPopup.open","LieDetector","popup_custom_data","ads.google.com","adsbygoogle","clarity.ms","trafficbass.com","googlesyndication","/chp_?ad/","console","location.href","3000"];
+    const $scriptletArglists$ = /* 23 */ "0,0,1;1,2;2,3;0,4;0,5;0,6,7;0,8,9,10;3,11,12;3,13,14;1,15;1,16;1,17;4;5,18;5,19;5,20;5,21;6,22;7;8,23;9,24;9,25,26;10";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

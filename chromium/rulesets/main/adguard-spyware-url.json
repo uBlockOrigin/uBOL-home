@@ -2020,5 +2020,6 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["jumpReferrer"]}}},"type":"redirect"},"condition":{"requestDomains":["livesex.com"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^jumpReferrer="},"id":2019},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["mr"]}}},"type":"redirect"},"condition":{"requestDomains":["livesex.com"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^mr="},"id":2020},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["meta_redirectid"]}}},"type":"redirect"},"condition":{"requestDomains":["onetwotrip.com"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^meta_redirectid="},"id":2021},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["srcmarker2"]}}},"type":"redirect"},"condition":{"requestDomains":["onetwotrip.com"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^srcmarker2="},"id":2022}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["srcmarker2"]}}},"type":"redirect"},"condition":{"requestDomains":["onetwotrip.com"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^srcmarker2="},"id":2022},
+{"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"/authentication/*login?analytics_trace_id="},"id":2023}
 ]

@@ -1039,5 +1039,5 @@
 {"action":{"redirect":{"regexSubstitution":"/strictblock.html#\\0"},"type":"redirect"},"condition":{"regexFilter":"^[^:]+:\\/\\/([^:/]+\\.)?unic0re\\..*","resourceTypes":["main_frame"]},"id":1038,"priority":29},
 {"action":{"redirect":{"regexSubstitution":"/strictblock.html#\\0"},"type":"redirect"},"condition":{"regexFilter":"^[^:]+:\\/\\/([^:/]+\\.)?legder\\..*?\\.us\\.com[^%.0-9a-z_-]?.*","resourceTypes":["main_frame"]},"id":1039,"priority":29},
 {"action":{"redirect":{"regexSubstitution":"/strictblock.html#\\0"},"type":"redirect"},"condition":{"regexFilter":"^.*\\/checking\\.php\\?t=[a-zA-Z0-9%]+$","resourceTypes":["main_frame"]},"id":1040,"priority":29},
-{"action":{"redirect":{"regexSubstitution":"/strictblock.html#\\0"},"type":"redirect"},"condition":{"regexFilter":"^[^:]+:\\/\\/([^:/]+\\.)?roblox\\.com\\..*","resourceTypes":["main_frame"]},"id":1041,"priority":29}
+{"action":{"redirect":{"regexSubstitution":"/strictblock.html#\\0"},"type":"redirect"},"condition":{"excludedRequestDomains":["cloudflare.net"],"regexFilter":"^[^:]+:\\/\\/([^:/]+\\.)?roblox\\.com\\..*","resourceTypes":["main_frame"]},"id":1041,"priority":29}
 ]
