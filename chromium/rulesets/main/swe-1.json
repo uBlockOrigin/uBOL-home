@@ -549,7 +549,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/tracking/cts.js"},"id":548,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/tracking/fpc.js"},"id":549,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["hemmanytt.se","sanghafte.se","wernamaten.se","xn--gtboken-exa.se"],"requestDomains":["gatekeeperconsent.com"]},"id":550,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["destination.se","sistaminuten.se"],"urlFilter":"/track.js"},"id":551,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["destination.se","idrottensaffarer.se","sistaminuten.se"],"urlFilter":"/track.js"},"id":551,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/trafikfonden/"},"id":552,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["folkbladet.nu","lokaltidningen.nu","mellanbygden.nu","nordsverige.se","vasterbottningen.se","vk.se"],"urlFilter":"/trail?concepts"},"id":553,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["forsvarstidningen.se","skargardsradion.se","stromsundsgratistidning.se","sverigerunt.se"],"urlFilter":"/events.js"},"id":554,"priority":10},
@@ -1407,5 +1407,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"/optimization-detective/*/url-metrics"},"id":1406,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"/www/delivery/asyncspc"},"id":1407,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["tvmatchen.nu"],"urlFilter":"/rt/poolbetting"},"id":1408,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["fotbollsthlm.se"],"urlFilter":"/getrandomad"},"id":1409,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["fotbollsthlm.se"],"urlFilter":"/getrandomad"},"id":1409,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"/track/t.php"},"id":1410,"priority":10}
 ]
