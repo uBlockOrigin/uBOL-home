@@ -1,4 +1,15 @@
+----------
+
+### 2026.714.1952
+
+- Updated filter lists
+
+----------
+
+### 2026.713.1408
+
 - [Cache fetched lists on a per platform basis](https://github.com/gorhill/uBlock/commit/031b52ba4d)
+- Updated filter lists
 
 ----------
 
