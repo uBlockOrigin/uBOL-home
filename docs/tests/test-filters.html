@@ -244,6 +244,11 @@
             <div class="pass"><div class="fail" onclick="this.style.display = 'none'"></div></div>
             <code class="filter">##+js(trusted-click-element, '500, #sf8 .fail')</code>
         </div>
+        <div id="sf9" class="tile">
+            <div class="pass"><div class="fail"></div></div>
+            <code class="filter">##+js(abort-current-script, document.createElement, sf9Sentinel)</code>
+            <script>document.createElement('b'); self.sf9Sentinel = true</script>
+        </div>
     </div>
 </section>
 

@@ -153,6 +153,11 @@ jobs.push(function sf7() {
     hide('#sf7 .fail');
 });
 
+jobs.push(function sf9() {
+    if ( self.sf9Sentinel === true ) { return; }
+    hide('#sf9 .fail');
+});
+
 jobs.push(async function x() {
     const obj = await self.ffubo1Sentinel;
     if ( obj instanceof Object === false ) { return; }
