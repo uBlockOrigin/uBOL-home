@@ -1494,6 +1494,13 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?1shortlink\\.com/api/v1/full-pages\\?api_key=.*?&url=",
+  "steps": [
+   "?url",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?www\\.google\\..*?/url\\?sa=.*?&source=.*?&cd=&ved=.*?&url=",
   "steps": [
    "?url"

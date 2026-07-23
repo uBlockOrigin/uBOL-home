@@ -616,7 +616,7 @@ if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 10 */ ["gsp.ro","acasa.ro","tvmd.info","clujust.ro","hotnews.ro","softinfo.ro","sampmoduri.ro","turdanews.net","filme2023.online","myradioonline.ro"];
+    const $scriptletHostnames$ = /* 11 */ ["gsp.ro","acasa.ro","tvmd.info","clujust.ro","hotnews.ro","filmexxx.ro","softinfo.ro","sampmoduri.ro","turdanews.net","myradioonline.ro","competentedigitale.ro"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -663,7 +663,7 @@ if ( $hasHostnames$ ) {
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 10 */ "5;6;9;4;7;8;2;0;3;1";
+    const $scriptletArglistRefs$ = /* 11 */ "5;6;9;4;7;10;8;3;0;2;1";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -695,8 +695,8 @@ if ( todo.size === 0 ) { return; }
 {
     const $scriptletFunctions$ = /* 3 */
 [removeNodeText,removeClass,setCookie];
-    const $scriptletArgs$ = /* 12 */ ["script","adsbygoogle","_bannerTop1","/jQuery.*reload/","document.head.appendChild","ai_adb","document.body.classList.add","fwp_wpm_","1","/skin|insertAdjacentHTML|netflix/","var Data","appendChild"];
-    const $scriptletArglists$ = /* 10 */ "0,0,1;1,2;0,0,3;0,0,4;0,0,5;0,0,6;2,7,8;0,0,9;0,0,10;0,0,11";
+    const $scriptletArgs$ = /* 13 */ ["script","adsbygoogle","/adb/i","_bannerTop1","/jQuery.*reload/","ai_adb","document.body.classList.add","fwp_wpm_","1","/skin|insertAdjacentHTML|netflix/","var Data","appendChild","window.location.href"];
+    const $scriptletArglists$ = /* 11 */ "0,0,1;0,0,2;1,3;0,0,4;0,0,5;0,0,6;2,7,8;0,0,9;0,0,10;0,0,11;0,0,12";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

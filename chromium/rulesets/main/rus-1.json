@@ -249,7 +249,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||narod.kz/img.php?"},"id":248,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||net.kg/img.php?id="},"id":249,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||newsharecounts.com/count.json"},"id":250,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||nfshome.com/track.php?id="},"id":251,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["comments.rambler.ru","ferra.ru","gazeta.press","gazeta.ru","indicator.ru","lenta.news","lenta.ru","letidor.ru","moslenta.ru","motor.ru","passion.ru","quto.ru","secretmag.ru","wmj.ru"],"resourceTypes":["script"],"urlFilter":"||st.top100.ru/top100/top100.js|"},"id":251,"priority":30},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["olx.pl"],"urlFilter":"||ninja.data.olxcdn.com/ninja-cee.js"},"id":252,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||nomery.ru/p.php"},"id":253,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||odnoklassniki.ru/dk?*&uid=odklcnt0&ref="},"id":254,"priority":10},
@@ -375,7 +375,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||video-stats.video.google."},"id":374,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||youtube-nocookie.com/gen_204?"},"id":375,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||youtube-nocookie.com/robots.txt?"},"id":376,"priority":10},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["comments.rambler.ru","ferra.ru","gazeta.press","gazeta.ru","indicator.ru","lenta.ru","letidor.ru","moslenta.ru","motor.ru","passion.ru","quto.ru","secretmag.ru","wmj.ru"],"resourceTypes":["script"],"urlFilter":"||st.top100.ru/top100/top100.js|"},"id":377,"priority":30},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["kritika24.ru","nfshome.com"],"urlFilter":"/track.php?id="},"id":377,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/gen_204?"},"id":378,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/get_video?"},"id":379,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/player_204?"},"id":380,"priority":10},
@@ -983,5 +983,10 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["src"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||yandex.*/search/*^src="},"id":982},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["suggest_reqid"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||yandex.*/search/*^suggest_reqid="},"id":983},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||yandex.*=tabbar*^from="},"id":984},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["source"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||yandex.*=tabbar*^source="},"id":985}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["source"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||yandex.*=tabbar*^source="},"id":985},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["geo_block"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ortified.ws/embed/*geo_block="},"id":986},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["geoBlock"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ortified.ws/embed/*geoblock="},"id":987},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["block"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||stravers.live/*block="},"id":988},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["source"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||ya.ru/images/*^source="},"id":989},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["source"]}}},"type":"redirect"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||yandex.*/images/*^source="},"id":990}
 ]

@@ -25,8 +25,8 @@
 // Isolate from global scope
 (function uBOL_cssGenericImport() {
 
-const lowlyGeneric = new Map(/* 2 */[[56789,"#gist-answers-widget"],[46697,"#kapa-widget-container"]]);
-const highlyGeneric = /* 0 */"";
+const lowlyGeneric = new Map(/* 3 */[[56789,"#gist-answers-widget"],[46697,"#kapa-widget-container"],[15140,"#molin-chat-custom-button"]]);
+const highlyGeneric = /* 1 */"molin-shop-ai";
 const exceptions = /* 0 */[];
 const hostnames = /* 0 */[];
 const hasEntities = false;

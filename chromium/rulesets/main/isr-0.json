@@ -267,5 +267,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||api.srugim.co.il/v1/ads|"},"id":266,"priority":10},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||biupress.co.il/files/banners/"},"id":267,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||sadanpublishing.co.il/files/banners/"},"id":268,"priority":30},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||api.srugim.co.il/v1/ads/"},"id":269,"priority":11}
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||api.srugim.co.il/v1/ads/"},"id":269,"priority":11},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||mizug-avir.org/files/banners/"},"id":270,"priority":30}
 ]

@@ -16,5 +16,23 @@
   ]
  },
  "id": 1
+},
+{
+ "action": {
+  "redirect": {
+   "regexSubstitution": "\\1embed.wcostream.com/inc/video-js\\2"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "embed.wcostream.com"
+  ],
+  "regexFilter": "(^https:\\/\\/)vjs\\.zencdn\\.net\\/[0-9]+\\.[0-9]+\\.[0-9]+(\\/video\\.min\\.js)$",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 2
 }
 ]

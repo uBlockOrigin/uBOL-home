@@ -51,26 +51,35 @@ function preventClipboardWrite(needle = '') {
     const pattern = safe.initPattern(needle);
     const extraArgs = safe.getExtraArgs(Array.from(arguments), 1);
     const domAlert = clipboardText => {
-        const match = /^([^|]+)\s*\|\s*(.+)/.exec(extraArgs.domAlert);
-        if ( Boolean(match) === false ) { return; }
-        const elem = document.querySelector(match[1]);
-        if ( elem === null ) { return; }
-        const div = document.createElement('div');
-        const placeholder = /\$\{text\}/.exec(match[2]);
+        const doc = document;
+        const div = doc.createElement('div');
+        const span = doc.createElement('span');
+        span.style = 'flex-grow:1;padding:0.5em 0 0.5em 0.5em;';
+        const { domAlert } = extraArgs;
+        const placeholder = /\$\{text\}/.exec(domAlert);
         if ( placeholder ) {
-            const code = document.createElement('code');
-            code.style = 'background-color:#ddc;padding:0.25em;user-select:none;word-break:break-all';
+            const code = doc.createElement('code');
+            code.style = 'background-color:#ddc;font-family:monospace;padding:0.25em;user-select:none;word-break:break-all';
             code.textContent = clipboardText;
-            div.append(
-                match[2].slice(0, placeholder.index),
+            span.append(
+                domAlert.slice(0, placeholder.index),
                 code,
-                match[2].slice(placeholder.index + placeholder[0].length)
+                domAlert.slice(placeholder.index + placeholder[0].length)
             );
         } else {
-            div.append(match[2]);
+            span.append(domAlert);
         }
-        div.style = 'background-color:beige;color:black;border:1px solid black;font-size:medium;padding:0.5em;position:absolute;text-align:center;top:0;width:100%;z-index:2147483647';
-        elem.append(div);
+        const button = doc.createElement('button');
+        button.style = 'padding:1em';
+        button.textContent = '×';
+        button.addEventListener('click', ( ) => {
+            if ( currentAlert === null ) { return; }
+            currentAlert.remove();
+            currentAlert = null;
+        });
+        div.append(span, button);
+        div.style = 'background-color:beige;color:black;border:1px solid black;display:flex;font-size:medium;position:fixed;text-align:center;top:0;width:100%;z-index:2147483647';
+        doc.documentElement.append(div);
         if ( currentAlert ) {
             currentAlert.remove();
         }

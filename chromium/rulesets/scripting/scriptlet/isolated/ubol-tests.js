@@ -59,10 +59,8 @@ function lookupElementsFn(directive, until = 0) {
             if ( elem.openOrClosedShadowRoot ) { // Firefox
                 return elem.openOrClosedShadowRoot;
             }
-            if ( typeof chrome === 'object' ) { // Chromium
-                if ( chrome.dom && chrome.dom.openOrClosedShadowRoot ) {
-                    return chrome.dom.openOrClosedShadowRoot(elem);
-                }
+            if ( self.chrome?.dom?.openOrClosedShadowRoot ) { // Chromium
+                return self.chrome.dom.openOrClosedShadowRoot(elem);
             }
             return elem.shadowRoot;
         };

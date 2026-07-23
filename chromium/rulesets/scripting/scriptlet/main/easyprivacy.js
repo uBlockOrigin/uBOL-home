@@ -596,28 +596,7 @@ function abortCurrentScriptFn(
     const logPrefix = safe.makeLogPrefix('abort-current-script', target, needle, context);
     const reNeedle = safe.patternToRegex(needle);
     const reContext = safe.patternToRegex(context);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
     const thisScript = document.currentScript;
-    const chain = safe.String_split.call(target, '.');
-    let owner = window;
-    let prop;
-    for (;;) {
-        prop = chain.shift();
-        if ( chain.length === 0 ) { break; }
-        if ( prop in owner === false ) { break; }
-        owner = owner[prop];
-        if ( owner instanceof Object === false ) { return; }
-    }
-    let value;
-    let desc = Object.getOwnPropertyDescriptor(owner, prop);
-    if (
-        desc instanceof Object === false ||
-        desc.get instanceof Function === false
-    ) {
-        value = owner[prop];
-        desc = undefined;
-    }
-    const debug = shouldDebug(extraArgs);
     const exceptionToken = getExceptionTokenFn();
     const scriptTexts = new WeakMap();
     const textContentGetter = Object.getOwnPropertyDescriptor(Node.prototype, 'textContent').get;
@@ -625,8 +604,7 @@ function abortCurrentScriptFn(
         let text = textContentGetter.call(elem);
         if ( text.trim() !== '' ) { return text; }
         if ( scriptTexts.has(elem) ) { return scriptTexts.get(elem); }
-        const [ , mime, content ] =
-            /^data:([^,]*),(.+)$/.exec(elem.src.trim()) ||
+        const [ , mime, content ] = /^data:([^,]*),(.+)$/.exec(elem.src.trim()) ||
             [ '', '', '' ];
         try {
             switch ( true ) {
@@ -646,50 +624,28 @@ function abortCurrentScriptFn(
         const e = document.currentScript;
         if ( e instanceof HTMLScriptElement === false ) { return; }
         if ( e === thisScript ) { return; }
-        if ( context !== '' && reContext.test(e.src) === false ) {
-            // eslint-disable-next-line no-debugger
-            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }
-            return;
-        }
+        if ( context !== '' && reContext.test(e.src) === false ) { return; }
         if ( safe.logLevel > 1 && context !== '' ) {
             safe.uboLog(logPrefix, `Matched src\n${e.src}`);
         }
         const scriptText = getScriptText(e);
-        if ( reNeedle.test(scriptText) === false ) {
-            // eslint-disable-next-line no-debugger
-            if ( debug === 'nomatch' || debug === 'all' ) { debugger; }
-            return;
-        }
+        if ( reNeedle.test(scriptText) === false ) { return; }
         if ( safe.logLevel > 1 ) {
             safe.uboLog(logPrefix, `Matched text\n${scriptText}`);
         }
-        // eslint-disable-next-line no-debugger
-        if ( debug === 'match' || debug === 'all' ) { debugger; }
         safe.uboLog(logPrefix, 'Aborted');
         throw new ReferenceError(exceptionToken);
     };
-    // eslint-disable-next-line no-debugger
-    if ( debug === 'install' ) { debugger; }
-    try {
-        Object.defineProperty(owner, prop, {
-            get: function() {
-                validate();
-                return desc instanceof Object
-                    ? desc.get.call(owner)
-                    : value;
-            },
-            set: function(a) {
-                validate();
-                if ( desc instanceof Object ) {
-                    desc.set.call(owner, a);
-                } else {
-                    value = a;
-                }
-            }
-        });
-    } catch(ex) {
-        safe.uboErr(logPrefix, `Error: ${ex}`);
-    }
+    let currentValue = trapPropertyFn(target, {
+        get: function() {
+            validate();
+            return currentValue;
+        },
+        set: function(a) {
+            validate();
+            currentValue = a;
+        }
+    }, { canThrow: true });
 }
 
 function abortOnStackTrace(
@@ -1069,7 +1025,7 @@ function preventFetchFn(
 }
 
 function preventXhr(...args) {
-    return preventXhrFn(false, ...args);
+    preventXhrFn(false, ...args);
 }
 
 function preventXhrFn(
@@ -1303,20 +1259,22 @@ function proxyApplyFn(
         };
         proxyApplyFn.isCtor = new Map();
         proxyApplyFn.proxies = new WeakMap();
-        proxyApplyFn.nativeToString = Function.prototype.toString;
-        const proxiedToString = new Proxy(Function.prototype.toString, {
-            apply(target, thisArg) {
-                let proxied = thisArg;
-                for(;;) {
-                    const fn = proxyApplyFn.proxies.get(proxied);
-                    if ( fn === undefined ) { break; }
-                    proxied = fn;
+        if ( proxyApplyFn.skipToString !== true ) {
+            proxyApplyFn.nativeToString = Function.prototype.toString;
+            const proxiedToString = new Proxy(Function.prototype.toString, {
+                apply(target, thisArg) {
+                    let proxied = thisArg;
+                    for(;;) {
+                        const fn = proxyApplyFn.proxies.get(proxied);
+                        if ( fn === undefined ) { break; }
+                        proxied = fn;
+                    }
+                    return proxyApplyFn.nativeToString.call(proxied);
                 }
-                return proxyApplyFn.nativeToString.call(proxied);
-            }
-        });
-        proxyApplyFn.proxies.set(proxiedToString, proxyApplyFn.nativeToString);
-        Function.prototype.toString = proxiedToString;
+            });
+            proxyApplyFn.proxies.set(proxiedToString, proxyApplyFn.nativeToString);
+            Function.prototype.toString = proxiedToString;
+        }
     }
     if ( proxyApplyFn.isCtor.has(target) === false ) {
         proxyApplyFn.isCtor.set(target, fn.prototype?.constructor === fn);
@@ -1712,9 +1670,77 @@ function setConstantFn(
     }, extraArgs.runAt);
 }
 
-function shouldDebug(details) {
-    if ( details instanceof Object === false ) { return false; }
-    return scriptletGlobals.canDebug && details.debug;
+function trapPropertyFn(propChain, handler, options = {}) {
+    if ( propChain === '' ) { return; }
+    let owner = self;
+    let prop = propChain;
+    for (;;) {
+        const pos = prop.indexOf('.');
+        if ( pos === -1 ) { break; }
+        owner = owner[prop.slice(0, pos)];
+        if ( owner instanceof Object === false ) { return; }
+        prop = prop.slice(pos + 1);
+    }
+    const safe = safeSelf();
+    if ( trapPropertyFn.db === undefined ) {
+        trapPropertyFn.db = new WeakMap();
+        trapPropertyFn.entryFromContext = (owner, prop) => {
+            const handlers = trapPropertyFn.db.get(owner);
+            return handlers?.get(prop);
+        };
+        trapPropertyFn.getter = (owner, prop) => {
+            const entry = trapPropertyFn.entryFromContext(owner, prop);
+            if ( entry === undefined ) { return; }
+            let r = entry.value;
+            for ( const desc of entry.stack ) {
+                try { r = desc.get(); } catch (e) {
+                    if ( entry.canThrow ) { throw e; }
+                }
+            }
+            return r;
+        };
+        trapPropertyFn.setter = (owner, prop, value) => {
+            const entry = trapPropertyFn.entryFromContext(owner, prop);
+            if ( entry === undefined ) { return; }
+            entry.value = value;
+            for ( const desc of entry.stack ) {
+                try { desc.set(value); } catch (e) {
+                    if ( entry.canThrow ) { throw e; }
+                }
+            }
+        };
+    }
+    const { db } = trapPropertyFn;
+    const handlers = db.get(owner) || new Map();
+    if ( handlers.size === 0 ) {
+        db.set(owner, handlers);
+    }
+    const entry = handlers.get(prop) || {
+        value: owner[prop],
+        stack: [],
+    };
+    entry.stack.push(handler);
+    if ( entry.stack.length > 1 ) { return entry.value; }
+    Object.assign(entry, options);
+    handlers.set(prop, entry);
+    const desc = safe.Object_getOwnPropertyDescriptor(owner, prop);
+    if ( desc instanceof safe.Object ) {
+        if ( desc.get || desc.set ) {
+            entry.stack.push(desc);
+        }
+    }
+    try {
+        safe.Object_defineProperty(owner, prop, {
+            get() {
+                return trapPropertyFn.getter(owner, prop);
+            },
+            set(value) {
+                trapPropertyFn.setter(owner, prop, value);
+            }
+        });
+    } catch {
+    }
+    return entry.value;
 }
 
 function validateConstantFn(trusted, raw, extraArgs = {}) {
@@ -1823,7 +1849,7 @@ if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 182 */ ["x.com","al.com","nj.com","cbr.com","dnb.com","ijr.com","mwed.jp","wnd.com","wwd.com","cwtv.com","espn.com","kkrt.com","money.it","omg.blog","uber.com","usaa.com","vibe.com","wral.com","chime.com","delta.com","dnb.co.uk","freep.com","mlive.com","pcwelt.de","qobuz.com","tidal.com","vimeo.com","apnews.com","boston.com","costco.com","deezer.com","driving.ca","filson.com","hopwtr.com","macwelt.de","norton.com","nypost.com","ranker.com","rivals.com","silive.com","subway.com","artnews.com","bolighub.dk","capezio.com","cattime.com","dogtime.com","gamepur.com","gbatemp.net","geizhals.de","lfpress.com","nbcnews.com","neopets.com","pandora.com","porsche.com","reuters.com","sherdog.com","sporcle.com","spotify.com","titantv.com","twitter.com","variety.com","visible.com","weather.com","artforum.com","collider.com","deadline.com","dpreview.com","engadget.com","formula1.com","gamerant.com","grabify.link","hemmings.com","inquirer.net","jdsports.com","madewell.com","masslive.com","mazdausa.com","movieweb.com","news8000.com","nicovideo.jp","pennlive.com","sidereel.com","syracuse.com","thegamer.com","tirerack.com","topspeed.com","ubereats.com","usatoday.com","webmail.wiki","247sports.com","billboard.com","cleveland.com","fresnobee.com","goldderby.com","hancinema.net","howtogeek.com","indiewire.com","magesypro.pro","makeuseof.com","nbcsports.com","newyorker.com","ottawasun.com","pwinsider.com","savvytime.com","thelayoff.com","www.yahoo.com","calgarysun.com","cheatsheet.com","comingsoon.net","eventbrite.com","gameskinny.com","golfdigest.com","mail.yahoo.com","milesplit.live","oregonlive.com","primagames.com","robbreport.com","screenrant.com","siliconera.com","soundcloud.com","techcrunch.com","themarysue.com","ticketmaster.*","torontosun.com","twinfinite.net","videogamer.com","accuweather.com","acmemarkets.com","arstechnica.com","crunchyroll.com","destructoid.com","edmontonsun.com","flyfrontier.com","lgbtqnation.com","mensjournal.com","order-order.com","payment.nba.com","techlicious.com","technicpack.net","theprovince.com","windsorstar.com","wrestlezone.com","esportstales.com","knowyourmeme.com","lenscrafters.com","motorbiscuit.com","nationalpost.com","ncbi.nlm.nih.gov","nofilmschool.com","rollingstone.com","simpleflying.com","thenerdstash.com","touchtapplay.com","vancouversun.com","wrestlinginc.com","wunderground.com","calgaryherald.com","dollargeneral.com","financialpost.com","harborfreight.com","monsterenergy.com","superherohype.com","bringmethenews.com","crooksandliars.com","insider-gaming.com","nationalreview.com","thefashionspot.com","xda-developers.com","forums.hfboards.com","gamerjournalist.com","lehighvalleylivecom","stealthoptional.com","thedraftnetwork.com","wegotthiscovered.com","attackofthefanboy.com","hollywoodreporter.com","informazionefiscale.it","gladiatorgarageworks.com","livewithkellyandmark.com","playstationlifestyle.net","worldpopulationreview.com","aiskillsnavigator.microsoft.com"];
+    const $scriptletHostnames$ = /* 185 */ ["x.com","al.com","nj.com","cbr.com","dnb.com","ijr.com","mwed.jp","wnd.com","wwd.com","cwtv.com","espn.com","kkrt.com","money.it","omg.blog","uber.com","usaa.com","vibe.com","wral.com","wtsp.com","chime.com","delta.com","dnb.co.uk","freep.com","mlive.com","pcwelt.de","qobuz.com","tidal.com","vimeo.com","apnews.com","boston.com","costco.com","deezer.com","driving.ca","filson.com","hopwtr.com","macwelt.de","norton.com","nypost.com","ranker.com","rivals.com","silive.com","subway.com","artnews.com","bolighub.dk","capezio.com","cattime.com","dogtime.com","gamepur.com","gbatemp.net","geizhals.de","lfpress.com","nbcnews.com","neopets.com","pandora.com","porsche.com","reuters.com","sherdog.com","sporcle.com","spotify.com","titantv.com","twitter.com","variety.com","visible.com","weather.com","artforum.com","collider.com","deadline.com","dpreview.com","engadget.com","formula1.com","gamerant.com","grabify.link","hemmings.com","inquirer.net","jdsports.com","madewell.com","masslive.com","mazdausa.com","michaels.com","movieweb.com","news8000.com","nicovideo.jp","pennlive.com","sidereel.com","syracuse.com","thegamer.com","tirerack.com","topspeed.com","ubereats.com","usatoday.com","webmail.wiki","247sports.com","billboard.com","cleveland.com","fresnobee.com","goldderby.com","hancinema.net","howtogeek.com","indiewire.com","magesypro.pro","makeuseof.com","nbcsports.com","newyorker.com","ottawasun.com","pwinsider.com","savvytime.com","thelayoff.com","www.yahoo.com","calgarysun.com","cheatsheet.com","comingsoon.net","eventbrite.com","gameskinny.com","golfdigest.com","mail.yahoo.com","milesplit.live","oregonlive.com","primagames.com","robbreport.com","screenrant.com","siliconera.com","soundcloud.com","techcrunch.com","themarysue.com","ticketmaster.*","torontosun.com","twinfinite.net","videogamer.com","accuweather.com","acmemarkets.com","arstechnica.com","crunchyroll.com","destructoid.com","edmontonsun.com","flyfrontier.com","lgbtqnation.com","mensjournal.com","order-order.com","payment.nba.com","techlicious.com","technicpack.net","theprovince.com","windsorstar.com","wrestlezone.com","esportstales.com","knowyourmeme.com","lenscrafters.com","motorbiscuit.com","nationalpost.com","ncbi.nlm.nih.gov","nofilmschool.com","rollingstone.com","simpleflying.com","thenerdstash.com","touchtapplay.com","vancouversun.com","wrestlinginc.com","wunderground.com","calgaryherald.com","dollargeneral.com","financialpost.com","harborfreight.com","monsterenergy.com","progameguides.com","superherohype.com","bringmethenews.com","crooksandliars.com","insider-gaming.com","nationalreview.com","thefashionspot.com","xda-developers.com","forums.hfboards.com","gamerjournalist.com","lehighvalleylivecom","stealthoptional.com","thedraftnetwork.com","wegotthiscovered.com","attackofthefanboy.com","hollywoodreporter.com","informazionefiscale.it","gladiatorgarageworks.com","livewithkellyandmark.com","playstationlifestyle.net","worldpopulationreview.com","aiskillsnavigator.microsoft.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1870,7 +1896,7 @@ if ( $hasHostnames$ ) {
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 182 */ "0,1,16,17;3,7;7;3;0,1;3;11;3;4;3;0,1;0,1;3;3;0,1;0,1;4;3;0,1;0,1;0,1;3;3,7;3,7;0,1;0,1;0,1;4;0,1;0,1;0,1;4;0,1;0,1;7;0,1;3;5;0,1;3;0,1;4;2;0,1;3;3;7;3,9;0,1;4;3;3;0,1;0,1;6;4;3;0,1;3;0,1;4;0,1;0,1;4;3;4;4;0,1;0,1;3;3;3;3;0,1;0,1;3;0,1;3;7;12,13;3,7;4;7;3;0,1;3;0,1;9,10;3;3;4;3;3;4;3;3;4;3;3;4;0,1;4;3;3;3;0,1;4;3;3;0,1;7;3,4;0,1;0,1;3,4;7;4;3;3,7;0,1;0,1,4;7;0,1;4;3;3;0,1;0,1;3;0,1;7;7;0,1;7;8;3;0,1;3;3;3;4;3;3;3;0,1;3;4;14,15;3;4;3;3;7;4;3;0,1;4;0,1;4;0,1;0,1;4;3;3,4;3;3;3;3;3;7;7;3;3;7;7;4;3;0,1;0,1;3;3;0,1";
+    const $scriptletArglistRefs$ = /* 185 */ "0,1,16;3,7;7;3;0,1;3;11;3;4;3;0,1;0,1;3;3;0,1;0,1;4;3;4;0,1;0,1;0,1;3;3,7;3,7;0,1;0,1;0,1;4;0,1;0,1;0,1;4;0,1;0,1;7;0,1;3;5;0,1;3;0,1;4;2;0,1;3;3;7;3,9;0,1;4;3;3;0,1;0,1;6;4;3;0,1;3;0,1;4;0,1;0,1;4;3;4;4;0,1;0,1;3;3;3;3;0,1;0,1;3;0,1;0,1;3;7;12,13;3,7;4;7;3;0,1;3;0,1;9,10;3;3;4;3;3;4;3;3;4;3;3;4;0,1;4;3;3;3;0,1;4;3;3;0,1;7;3,4;0,1;0,1;3,4;7;4;3;3,7;0,1;0,1,4;7;0,1;4;3;3;0,1;0,1;3;0,1;7;7;0,1;7;8;3;0,1;3;3;3;4;3;3;3;0,1;3;4;14,15;3;4;3;3;7;4;3;0,1;4;0,1;4;0,1;0,1;7;4;3;3,4;3;3;3;3;3;7;7;3;3;7;7;4;3;0,1;0,1;3;3;0,1";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1902,8 +1928,8 @@ if ( todo.size === 0 ) { return; }
 {
     const $scriptletFunctions$ = /* 6 */
 [setConstant,abortCurrentScript,abortOnStackTrace,jsonEdit,preventFetch,preventXhr];
-    const $scriptletArgs$ = /* 24 */ ["Navigator.prototype.globalPrivacyControl","false","navigator.globalPrivacyControl","document.getElementsByTagName","gtm.js","document.createElement","admiral",".pubads","HTMLElement.prototype.insertBefore","/[A-Z] .+chunks\\/\\d{4}\\./",".js?","decodeURI","/(?=^(?!.*\\.js))/","..props.children.*[?.key==\"admiral-script\"]","noopFunc","gnt.x.adm","","keen-tracking","stella","ncbi.sg","{}","ncbi.sg.ping","__INITIAL_STATE__.featureSwitch.defaultConfig.rweb_home_jot_context_enabled.value","__INITIAL_STATE__.featureSwitch.user.config.rweb_home_jot_context_enabled.value"];
-    const $scriptletArglists$ = /* 18 */ "0,0,1;0,2,1;1,3,4;1,5,6;1,3,7;2,8,9;2,6,10;2,11,12;3,13;0,6,14;0,15,16;1,5,17;4,18;5,18;0,19,20;0,21,14;0,22,1;0,23,1";
+    const $scriptletArgs$ = /* 23 */ ["Navigator.prototype.globalPrivacyControl","false","navigator.globalPrivacyControl","document.getElementsByTagName","gtm.js","document.createElement","admiral",".pubads","HTMLElement.prototype.insertBefore","/[A-Z] .+chunks\\/\\d{4}\\./",".js?","decodeURI","/(?=^(?!.*\\.js))/","..props.children.*[?.key==\"admiral-script\"]","noopFunc","gnt.x.adm","","keen-tracking","stella","ncbi.sg","{}","ncbi.sg.ping","/i/api/1.1/flow/viewer.json"];
+    const $scriptletArglists$ = /* 17 */ "0,0,1;0,2,1;1,3,4;1,5,6;1,3,7;2,8,9;2,6,10;2,11,12;3,13;0,6,14;0,15,16;1,5,17;4,18;5,18;0,19,20;0,21,14;5,22";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

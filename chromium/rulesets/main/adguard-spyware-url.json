@@ -2033,5 +2033,10 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_to"]}}},"type":"redirect"},"condition":{"requestDomains":["alice.yandex.ru"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^utm_to="},"id":2032},
 {"action":{"type":"block"},"condition":{"urlFilter":"||tiktok.com/view/product/$removeheader=request:referer"},"id":2033,"priority":10},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["lp_asin"]}}},"type":"redirect"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||amazon.*/stores/*^lp_asin="},"id":2034},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["store_ref"]}}},"type":"redirect"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||amazon.*/stores/*^store_ref="},"id":2035}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["store_ref"]}}},"type":"redirect"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||amazon.*/stores/*^store_ref="},"id":2035},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["adplacementid"]}}},"type":"redirect"},"condition":{"requestDomains":["fairstone.ca"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^adplacementid="},"id":2036},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["jumpsource"]}}},"type":"redirect"},"condition":{"requestDomains":["loan.fairstone.ca"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^jumpsource="},"id":2037},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["priority"]}}},"type":"redirect"},"condition":{"requestDomains":["loan.fairstone.ca"],"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^priority="},"id":2038},
+{"action":{"type":"allow"},"condition":{"resourceTypes":["main_frame"],"urlFilter":"||audible.*/search-redirection*^ref="},"id":2039},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["utm_roistat"]}}},"type":"redirect"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"^utm_roistat="},"id":2040}
 ]
