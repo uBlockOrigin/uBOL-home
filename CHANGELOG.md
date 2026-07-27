@@ -1,3 +1,9 @@
+- Updated filter lists
+
+----------
+
+### 2026.723.1724
+
 - [Add support to move stock lists to imported lists](https://github.com/gorhill/uBlock/commit/64deacc98c)
 - [Hide list group which have no list](https://github.com/gorhill/uBlock/commit/52e66ff81a)
 - Updated filter lists
