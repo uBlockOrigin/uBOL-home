@@ -1,3 +1,5 @@
+- [Fix unintended skipping of applying enabled rulesets](https://github.com/gorhill/uBlock/commit/1b782e417e)
+- [Add link to documentation](https://github.com/gorhill/uBlock/commit/7a614ccf5d)
 - Updated filter lists
 
 ----------
