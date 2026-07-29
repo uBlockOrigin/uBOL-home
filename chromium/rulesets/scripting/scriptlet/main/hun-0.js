@@ -309,7 +309,8 @@ function preventSetTimeout(
 
 function proxyApplyFn(
     target = '',
-    handler = ''
+    handler = '',
+    options = {}
 ) {
     let context = globalThis;
     let prop = target;
@@ -370,7 +371,7 @@ function proxyApplyFn(
         };
         proxyApplyFn.isCtor = new Map();
         proxyApplyFn.proxies = new WeakMap();
-        if ( proxyApplyFn.skipToString !== true ) {
+        if ( (options.skipToString || proxyApplyFn.skipToString) !== true ) {
             proxyApplyFn.nativeToString = Function.prototype.toString;
             const proxiedToString = new Proxy(Function.prototype.toString, {
                 apply(target, thisArg) {

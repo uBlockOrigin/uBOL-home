@@ -603,13 +603,13 @@
   ]
  },
  {
-  "re": "^[^:]+://(?:[^/]+\\.)?track\\.flexlinks\\.com/a\\.ashx.*?(?:[^%.0-9a-z_-]|$)url=http",
+  "re": "^[^:]+://(?:[^/]+\\.)?track\\.flexlinks\\.com/.*?(?:[^%.0-9a-z_-]|$)url=http",
   "steps": [
    "?url"
   ]
  },
  {
-  "re": "^[^:]+://(?:[^/]+\\.)?track\\.flexlinkspro\\.com/a\\.ashx.*?(?:[^%.0-9a-z_-]|$)url=http",
+  "re": "^[^:]+://(?:[^/]+\\.)?track\\.flexlinkspro\\.com/.*?(?:[^%.0-9a-z_-]|$)url=http",
   "steps": [
    "?url"
   ]
