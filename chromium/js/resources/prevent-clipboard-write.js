@@ -31,25 +31,29 @@ import { safeSelf } from './safe-self.js';
  * @description
  * Prevent the clipboard from being overwritten.
  * 
- * @param needle
+ * @param matches
  * A pattern or regex to match against the text for the prevention to occur.
+ * 
+ * @param excludeMatches
+ * Optional. A vararg to be used as a pattern or regex to match against the
+ * text for the prevention to NOT occur.
  * 
  * @param domAlert
  * Optional. A vararg to be used to alert the user in case a clipboard write
- * operation was prevented. The parameter is composed of two parts separated by
- * `|`: the first part is a CSS selector used to lookup the DOM element to be
- * used as container of the text found in the second part.
+ * operation was prevented.
  * 
  * @example 
- * ##+js(prevent-clipboard-write, /^bash <<</, domAlert, Clickfix attempt defused)
+ * ##+js(prevent-clipboard-write, /^bash <<</, , domAlert, Clickfix attempt defused)
  * 
  * */
 
-function preventClipboardWrite(needle = '') {
+function preventClipboardWrite(matches = '') {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('prevent-clipboard-write');
-    const pattern = safe.initPattern(needle);
+    const pattern = safe.initPattern(matches);
     const extraArgs = safe.getExtraArgs(Array.from(arguments), 1);
+    const excludePattern = extraArgs.excludeMatches &&
+        safe.initPattern(extraArgs.excludeMatches);
     const domAlert = clipboardText => {
         const doc = document;
         const div = doc.createElement('div');
@@ -90,6 +94,9 @@ function preventClipboardWrite(needle = '') {
         if ( typeof text !== 'string' ) { return; }
         text = text.trim();
         if ( safe.testPattern(pattern, text) !== true ) { return; }
+        if ( extraArgs.excludeMatches ) {
+            if ( safe.testPattern(excludePattern, text) ) { return; }
+        }
         if ( extraArgs.domAlert ) {
             domAlert(text);
         }
@@ -97,7 +104,7 @@ function preventClipboardWrite(needle = '') {
         return true;
     };
     const installTraps = ( ) => {
-        proxyApplyFn('navigator.clipboard.writeText', function(context) {
+        proxyApplyFn('navigator.clipboard.writeText', async function(context) {
             const text = `${context.callArgs[0]}`;
             if ( prevent(text) ) { return; }
             return context.reflect();
@@ -106,7 +113,7 @@ function preventClipboardWrite(needle = '') {
             const { callArgs } = context;
             if ( callArgs[0] === 'copy' || callArgs[0] === 'cut' ) {
                 const text = document.getSelection()?.toString();
-                if ( text && prevent(text) ) { return Promise.resolve(); }
+                if ( text && prevent(text) ) { return false; }
             }
             return context.reflect();
         }, { skipToString: true });

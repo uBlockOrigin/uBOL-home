@@ -914,5 +914,8 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||mincetur.gob.pe/webcasinos/sistema/publico/frmregistros_ad.aspx"},"id":913,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||static.elchorrillero.com/cpm/?"},"id":914,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||superflixapi.pro/player/pop-signal?"},"id":915,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||streamverde.net/core-metrics.js"},"id":916,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||streamverde.net/core-metrics.js"},"id":916,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||nexustoons.com/api/settings/pop-ads"},"id":917,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||nexustoons.com/api/settings/ads"},"id":918,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||nexustoons.com/api/ads"},"id":919,"priority":10}
 ]

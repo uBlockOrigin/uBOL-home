@@ -552,5 +552,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["m.mydrivers.com"],"urlFilter":"||kkeji.com/img/*.gif"},"id":551,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||adapi*.boomplaymusic.com^"},"id":552,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||m.xp600.com/js/*.js?v="},"id":553,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||apis.pchome.com.tw/pfb_ad.php"},"id":554,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||apis.pchome.com.tw/pfb_ad.php"},"id":554,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||farsroid.com/wp-content/uploads/farsroid-ads-"},"id":555,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||thetv.jp/js/common/kjbox-unit-loader_*.js"},"id":556,"priority":10}
 ]

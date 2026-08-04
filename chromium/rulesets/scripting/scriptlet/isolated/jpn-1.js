@@ -924,7 +924,7 @@ if ( entries.length === 0 ) { return; }
 
 const todoIndices = new Set();
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 58 */ ["ebbs.jp","aikru.com","o-dan.net","okwave.jp","aidoly.net","dvdrev.com","eromon.net","moez-m.com","rxlife.net","chimolog.co","figsoku.net","gamewith.jp","livefans.jp","my-best.com","negisoku.com","phileweb.com","sinsimmd.com","ura-akiba.jp","ch-review.net","idol-blog.com","mantan-web.jp","okazurand.net","tapestry.work","fm.sekkaku.net","geinoukame.com","hobbylabon.com","nailcolor.work","video.laxd.com","arty-matome.com","bridalgown.work","lifematome.blog","rank1-media.com","resizer.myct.jp","www.yahoo.co.jp","blog.livedoor.jp","figure-times.com","kabegami.jpn.org","kasegeru.blog.jp","studioglass.work","tcg-bloglife.com","teaceremony.work","vk.sportsbull.jp","weddinghall.work","ranky-ranking.net","ba-goods-search.com","betweenjpandkr.blog","contents-group.work","hayamimi-gunpla.com","seikeidouga.blog.jp","tyoieronews.blog.jp","nihon-bijo-zukan.com","ideal2ch.livedoor.biz","inkbrushpainting.work","liquidfoundation.work","heisei-housewarming.work","gametohkenranbu.sakuraweb.com","pretravel.kawasaki-create.com","safeframe.googlesyndication.com"];
+    const $scriptletHostnames$ = /* 59 */ ["ebbs.jp","game8.jp","aikru.com","o-dan.net","okwave.jp","aidoly.net","dvdrev.com","eromon.net","moez-m.com","rxlife.net","chimolog.co","figsoku.net","gamewith.jp","livefans.jp","my-best.com","negisoku.com","phileweb.com","sinsimmd.com","ura-akiba.jp","ch-review.net","idol-blog.com","mantan-web.jp","okazurand.net","tapestry.work","fm.sekkaku.net","geinoukame.com","hobbylabon.com","nailcolor.work","video.laxd.com","arty-matome.com","bridalgown.work","lifematome.blog","rank1-media.com","resizer.myct.jp","www.yahoo.co.jp","blog.livedoor.jp","figure-times.com","kabegami.jpn.org","kasegeru.blog.jp","studioglass.work","tcg-bloglife.com","teaceremony.work","vk.sportsbull.jp","weddinghall.work","ranky-ranking.net","ba-goods-search.com","betweenjpandkr.blog","contents-group.work","hayamimi-gunpla.com","seikeidouga.blog.jp","tyoieronews.blog.jp","nihon-bijo-zukan.com","ideal2ch.livedoor.biz","inkbrushpainting.work","liquidfoundation.work","heisei-housewarming.work","gametohkenranbu.sakuraweb.com","pretravel.kawasaki-create.com","safeframe.googlesyndication.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -971,7 +971,7 @@ if ( $hasHostnames$ ) {
 // Collect arglist references
 const todo = new Set();
 if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 58 */ "24;12;4;28;12;8;25;25;1;22,23;20,21,22,23;26,27;23;18,22,23;12;13,31;15;25;12;25;19,20;25;2,3;9;29;20;2,3;11;12;2,3;10;12;12;14;6;16;12;5;2,3;12;2,3;32;2,3;12;16;7;2,3;16,22,23;12;17;25;12;2,3;2,3;2,3;12;0;30";
+    const $scriptletArglistRefs$ = /* 59 */ "24;22;12;4;28;12;8;25;25;1;22,23;20,21,22,23;26,27;23;18,22,23;12;13,31;15;25;12;25;19,20;25;2,3;9;29;20;2,3;11;12;2,3;10;12;12;14;6;16;12;5;2,3;12;2,3;32;2,3;12;16;7;2,3;16,22,23;12;17;25;12;2,3;2,3;2,3;12;0;30";
     const arglistRefs = $scriptletArglistRefs$.split(';');
     for ( const i of todoIndices ) {
         for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
