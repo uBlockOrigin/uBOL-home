@@ -1,3 +1,13 @@
+- [Add support for broad scriptlet exception (`#@#js()`)](https://github.com/gorhill/uBlock/commit/fd67cde545)
+- [Fix "Imported lists" section not updating properly](https://github.com/gorhill/uBlock/commit/2e13a766c5)
+- [Patch `removeParams` rules with `main_frame` & `initiatorDomains` properties](https://github.com/gorhill/uBlock/commit/a873fd2b29)
+- [Add "user scripts" permission warning for sandbox filters](https://github.com/gorhill/uBlock/commit/5c34167eb4)
+- Updated filter lists
+
+----------
+
+### 2026.804.1652
+
 - Updated filter lists
 
 ----------
