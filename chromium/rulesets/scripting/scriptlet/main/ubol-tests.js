@@ -789,7 +789,7 @@ function jsonlEditFetchResponse(jsonq = '', ...args) {
     jsonlEditFetchResponseFn(false, jsonq, ...args);
 }
 
-function jsonlEditFetchResponseFn(trusted, jsonq = '') {
+function jsonlEditFetchResponseFn(trusted, jsonq = '', ...varargs) {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix(
         `${trusted ? 'trusted-' : ''}jsonl-edit-fetch-response`,
@@ -799,7 +799,7 @@ function jsonlEditFetchResponseFn(trusted, jsonq = '') {
     if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
         return safe.uboLog(logPrefix, 'Bad JSONPath query');
     }
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
     const logall = jsonq === '';
     proxyApplyFn('fetch', function(context) {
@@ -874,7 +874,7 @@ function jsonlEditXhrResponse(jsonq = '', ...args) {
     jsonlEditXhrResponseFn(false, jsonq, ...args);
 }
 
-function jsonlEditXhrResponseFn(trusted, jsonq = '') {
+function jsonlEditXhrResponseFn(trusted, jsonq = '', ...varargs) {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix(
         `${trusted ? 'trusted-' : ''}jsonl-edit-xhr-response`,
@@ -885,7 +885,7 @@ function jsonlEditXhrResponseFn(trusted, jsonq = '') {
     if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
         return safe.uboLog(logPrefix, 'Bad JSONPath query');
     }
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
     self.XMLHttpRequest = class extends self.XMLHttpRequest {
         open(method, url, ...args) {
@@ -1256,15 +1256,14 @@ function safeSelf() {
             }
             return /^/;
         },
-        getExtraArgs(args, offset = 0) {
-            const entries = args.slice(offset).reduce((out, v, i, a) => {
-                if ( (i & 1) === 0 ) {
-                    const rawValue = a[i+1];
-                    const value = /^\d+$/.test(rawValue)
-                        ? parseInt(rawValue, 10)
-                        : rawValue;
-                    out.push([ a[i], value ]);
-                }
+        parseVarargs(varargs) {
+            const entries = varargs.reduce((out, v, i, a) => {
+                if ( i & 1 ) { return out; }
+                const rawValue = a[i+1];
+                const value = /^\d+$/.test(rawValue)
+                    ? parseInt(rawValue, 10)
+                    : rawValue;
+                out.push([ a[i], value ]);
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
@@ -1337,12 +1336,13 @@ function setConstant(
 function setConstantFn(
     trusted = false,
     chain = '',
-    rawValue = ''
+    rawValue = '',
+    ...varargs
 ) {
     if ( chain === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     function setConstant(chain, rawValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -1702,7 +1702,8 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const todoIndices = new Set();
+const todo = new Set();
+
 if ( $hasHostnames$ ) {
     const $scriptletHostnames$ = /* 4 */ ["localhost","localhost>>","ublockorigin.github.io","ublockorigin.github.io>>"];
     const collectArglistRefIndices = (out, hn, r) => {
@@ -1739,6 +1740,7 @@ if ( $hasHostnames$ ) {
             }
         }
     };
+    const todoIndices = new Set();
     indicesFromHostname(todoIndices, entries[0]);
     if ( $hasAncestors$ ) {
         for ( const entry of entries ) {
@@ -1746,19 +1748,18 @@ if ( $hasHostnames$ ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-}
-
-// Collect arglist references
-const todo = new Set();
-if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 4 */ "0,1,3,4,5,6,7,8;2;0,1,3,4,5,6,7,8;2";
-    const arglistRefs = $scriptletArglistRefs$.split(';');
-    for ( const i of todoIndices ) {
-        for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
-            todo.add(ref);
+    // Collect arglist references
+    if ( todoIndices.size ) {
+        const $scriptletArglistRefs$ = /* 4 */ "1,2,4,5,6,7,8,9;3;1,2,4,5,6,7,8,9;3";
+        const arglistRefs = $scriptletArglistRefs$.split(';');
+        for ( const i of todoIndices ) {
+            for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
+                todo.add(ref);
+            }
         }
     }
 }
+
 if ( $hasRegexes$ ) {
     const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
@@ -1777,14 +1778,13 @@ if ( $hasRegexes$ ) {
         }
     }
 }
-if ( todo.size === 0 ) { return; }
 
-// Execute scriplets
-{
+// Execute scriptlets
+if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 7 */
 [setConstant,preventSetTimeout,jsonlEditXhrResponse,jsonlEditFetchResponse,trustedPreventDomBypass,preventInnerHTML,abortCurrentScript];
     const $scriptletArgs$ = /* 14 */ ["sf1Sentinel","undefined","sf2Sentinel","sf3Sentinel",".b","propsToMatch","/sample.jsonl","Node.prototype.appendChild","Element.prototype.getElementsByTagName","#sf7 .fail","<b>","document.createElement","5F953nt1n3l","sf9Sentinel"];
-    const $scriptletArglists$ = /* 9 */ "0,0,1;1,2;0,3,1;2,4,5,6;3,4,5,6;4,7,8;5,9,10;6,11,12;6,11,13";
+    const $scriptletArglists$ = /* 10 */ ";0,0,1;1,2;0,3,1;2,4,5,6;3,4,5,6;4,7,8;5,9,10;6,11,12;6,11,13";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

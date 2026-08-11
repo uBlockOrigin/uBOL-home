@@ -26,6 +26,25 @@
   ]
  },
  {
+  "re": "^",
+  "steps": [
+   "?url"
+  ],
+  "hostnames": [
+   "c.pc.qq.com",
+   "link.onlinekosh.com"
+  ]
+ },
+ {
+  "re": "^",
+  "steps": [
+   "?pfurl"
+  ],
+  "hostnames": [
+   "c.pc.qq.com"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?youtube\\.com/redirect\\?.*?(?:[^%.0-9a-z_-]|$)q=http",
   "steps": [
    "?q",
@@ -274,6 +293,12 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?urlshortlink\\.top/.*?(?:[^%.0-9a-z_-]|$)url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?meong\\.club/go/\\?ahr0c",
   "steps": [
    "/\\/go\\/\\?(aHR0c.+)/",
@@ -346,15 +371,6 @@
   "steps": [
    "?link",
    "-base64"
-  ]
- },
- {
-  "re": "^",
-  "steps": [
-   "?url"
-  ],
-  "hostnames": [
-   "link.onlinekosh.com"
   ]
  },
  {
@@ -1371,6 +1387,42 @@
   "re": "^[^:]+://(?:[^/]+\\.)?f6s\\.com/redirect\\?url=http",
   "steps": [
    "?url"
+  ]
+ },
+ {
+  "re": "^[^:]+://(?:[^/]+\\.)?douban\\.com/link2/\\?url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[^:]+://(?:[^/]+\\.)?ref\\.gamer\\.com\\.tw/redir\\.php\\?url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[^:]+://(?:[^/]+\\.)?landian\\.news/go\\?url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[^:]+://(?:[^/]+\\.)?link\\.zhihu\\.com/\\?target=http",
+  "steps": [
+   "?target"
+  ]
+ },
+ {
+  "re": "^[^:]+://(?:[^/]+\\.)?touchgal\\.ink/redirect\\?url=http",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
+  "re": "^[^:]+://(?:[^/]+\\.)?sspai\\.com/link\\?target=http",
+  "steps": [
+   "?target"
   ]
  },
  {

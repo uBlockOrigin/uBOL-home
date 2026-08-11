@@ -146,12 +146,13 @@ function removeClass(
 }
 
 function removeCookie(
-    needle = ''
+    needle = '',
+    ...varargs
 ) {
     if ( typeof needle !== 'string' ) { return; }
     const safe = safeSelf();
     const reName = safe.patternToRegex(needle);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 1);
+    const extraArgs = safe.parseVarargs(varargs);
     const throttle = (fn, ms = 500) => {
         if ( throttle.timer !== undefined ) { return; }
         throttle.timer = setTimeout(( ) => {
@@ -228,13 +229,14 @@ function removeNodeText(
 function replaceNodeTextFn(
     nodeName = '',
     pattern = '',
-    replacement = ''
+    replacement = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('replace-node-text.fn', ...Array.from(arguments));
     const reNodeName = safe.patternToRegex(nodeName, 'i', true);
     const rePattern = safe.patternToRegex(pattern, 'gms');
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     const reIncludes = extraArgs.includes || extraArgs.condition
         ? safe.patternToRegex(extraArgs.includes || extraArgs.condition, 'ms')
         : null;
@@ -463,15 +465,14 @@ function safeSelf() {
             }
             return /^/;
         },
-        getExtraArgs(args, offset = 0) {
-            const entries = args.slice(offset).reduce((out, v, i, a) => {
-                if ( (i & 1) === 0 ) {
-                    const rawValue = a[i+1];
-                    const value = /^\d+$/.test(rawValue)
-                        ? parseInt(rawValue, 10)
-                        : rawValue;
-                    out.push([ a[i], value ]);
-                }
+        parseVarargs(varargs) {
+            const entries = varargs.reduce((out, v, i, a) => {
+                if ( i & 1 ) { return out; }
+                const rawValue = a[i+1];
+                const value = /^\d+$/.test(rawValue)
+                    ? parseInt(rawValue, 10)
+                    : rawValue;
+                out.push([ a[i], value ]);
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
@@ -538,7 +539,8 @@ function safeSelf() {
 function setCookie(
     name = '',
     value = '',
-    path = ''
+    path = '',
+    ...varargs
 ) {
     if ( name === '' ) { return; }
     const safe = safeSelf();
@@ -559,7 +561,7 @@ function setCookie(
         value,
         '',
         path,
-        safe.getExtraArgs(Array.from(arguments), 3)
+        safe.parseVarargs(varargs)
     );
 
     if ( done ) {
@@ -634,9 +636,9 @@ function setCookieFn(
     return done;
 }
 
-function setLocalStorageItem(key = '', value = '') {
+function setLocalStorageItem(key = '', value = '', ...varargs) {
     const safe = safeSelf();
-    const options = safe.getExtraArgs(Array.from(arguments), 2)
+    const options = safe.parseVarargs(varargs)
     setLocalStorageItemFn('local', false, key, value, options);
 }
 
@@ -718,9 +720,9 @@ function setLocalStorageItemFn(
     }
 }
 
-function setSessionStorageItem(key = '', value = '') {
+function setSessionStorageItem(key = '', value = '', ...varargs) {
     const safe = safeSelf();
-    const options = safe.getExtraArgs(Array.from(arguments), 2)
+    const options = safe.parseVarargs(varargs)
     setLocalStorageItemFn('session', false, key, value, options);
 }
 
@@ -776,7 +778,8 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const todoIndices = new Set();
+const todo = new Set();
+
 if ( $hasHostnames$ ) {
     const $scriptletHostnames$ = /* 13 */ ["fizz.hu","hetek.hu","vezess.hu","pcworld.hu","skanzen.hu","mandiner.hu","otpportalok.hu","rubyvidhub.com","magyarorszag.hu","traffihunter.hu","erzsebetvaros.hu","myonlineradio.hu","onlinepenztarca.hu"];
     const collectArglistRefIndices = (out, hn, r) => {
@@ -813,6 +816,7 @@ if ( $hasHostnames$ ) {
             }
         }
     };
+    const todoIndices = new Set();
     indicesFromHostname(todoIndices, entries[0]);
     if ( $hasAncestors$ ) {
         for ( const entry of entries ) {
@@ -820,19 +824,18 @@ if ( $hasHostnames$ ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-}
-
-// Collect arglist references
-const todo = new Set();
-if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 13 */ "7,8;1;5;14;11;2;4;15;9,10;3;0;12,13;6";
-    const arglistRefs = $scriptletArglistRefs$.split(';');
-    for ( const i of todoIndices ) {
-        for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
-            todo.add(ref);
+    // Collect arglist references
+    if ( todoIndices.size ) {
+        const $scriptletArglistRefs$ = /* 13 */ "8,9;2;6;15;12;3;5;16;10,11;4;1;13,14;7";
+        const arglistRefs = $scriptletArglistRefs$.split(';');
+        for ( const i of todoIndices ) {
+            for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
+                todo.add(ref);
+            }
         }
     }
 }
+
 if ( $hasRegexes$ ) {
     const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
@@ -851,14 +854,13 @@ if ( $hasRegexes$ ) {
         }
     }
 }
-if ( todo.size === 0 ) { return; }
 
-// Execute scriplets
-{
+// Execute scriptlets
+if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 6 */
 [setSessionStorageItem,removeClass,setLocalStorageItem,setCookie,removeCookie,removeNodeText];
     const $scriptletArgs$ = /* 24 */ ["popupClosed","true","modal-open","body","stay","darken","no_scroll","complete","blurry","body > :not(.m-fbPopup)","felhasznalo_cookie_preferencia","0","cookie.consent.finished","1","gdpr_level","bottom-l","bottom-s","skanzen-cookie-consent","false","stpdsck","adblock","have-ad","script","undefined"];
-    const $scriptletArglists$ = /* 16 */ "0,0,1;1,2,3;1,2,3,4;1,5,3;1,3,6,7;1,8,9,4;2,10,11;3,12,13;3,14,13;1,15,3,4;1,16,3,4;2,17,18;3,19,13;4,20;1,21,3;5,22,23";
+    const $scriptletArglists$ = /* 17 */ ";0,0,1;1,2,3;1,2,3,4;1,5,3;1,3,6,7;1,8,9,4;2,10,11;3,12,13;3,14,13;1,15,3,4;1,16,3,4;2,17,18;3,19,13;4,20;1,21,3;5,22,23";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

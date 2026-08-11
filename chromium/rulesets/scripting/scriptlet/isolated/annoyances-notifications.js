@@ -275,15 +275,14 @@ function safeSelf() {
             }
             return /^/;
         },
-        getExtraArgs(args, offset = 0) {
-            const entries = args.slice(offset).reduce((out, v, i, a) => {
-                if ( (i & 1) === 0 ) {
-                    const rawValue = a[i+1];
-                    const value = /^\d+$/.test(rawValue)
-                        ? parseInt(rawValue, 10)
-                        : rawValue;
-                    out.push([ a[i], value ]);
-                }
+        parseVarargs(varargs) {
+            const entries = varargs.reduce((out, v, i, a) => {
+                if ( i & 1 ) { return out; }
+                const rawValue = a[i+1];
+                const value = /^\d+$/.test(rawValue)
+                    ? parseInt(rawValue, 10)
+                    : rawValue;
+                out.push([ a[i], value ]);
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
@@ -350,7 +349,8 @@ function safeSelf() {
 function setCookie(
     name = '',
     value = '',
-    path = ''
+    path = '',
+    ...varargs
 ) {
     if ( name === '' ) { return; }
     const safe = safeSelf();
@@ -371,7 +371,7 @@ function setCookie(
         value,
         '',
         path,
-        safe.getExtraArgs(Array.from(arguments), 3)
+        safe.parseVarargs(varargs)
     );
 
     if ( done ) {
@@ -446,9 +446,9 @@ function setCookieFn(
     return done;
 }
 
-function setLocalStorageItem(key = '', value = '') {
+function setLocalStorageItem(key = '', value = '', ...varargs) {
     const safe = safeSelf();
-    const options = safe.getExtraArgs(Array.from(arguments), 2)
+    const options = safe.parseVarargs(varargs)
     setLocalStorageItemFn('local', false, key, value, options);
 }
 
@@ -530,9 +530,9 @@ function setLocalStorageItemFn(
     }
 }
 
-function setSessionStorageItem(key = '', value = '') {
+function setSessionStorageItem(key = '', value = '', ...varargs) {
     const safe = safeSelf();
-    const options = safe.getExtraArgs(Array.from(arguments), 2)
+    const options = safe.parseVarargs(varargs)
     setLocalStorageItemFn('session', false, key, value, options);
 }
 
@@ -588,7 +588,8 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const todoIndices = new Set();
+const todo = new Set();
+
 if ( $hasHostnames$ ) {
     const $scriptletHostnames$ = /* 46 */ ["gq.co.za","ktoo.org","vrbo.com","audius.co","deepl.com","google.com","noovo.info","onedio.com","reddit.com","shufoo.net","tiktok.com","tubitv.com","tunein.com","belstad.com","bestbuy.com","deribit.com","m.twitch.tv","thestar.com","threads.com","threads.net","facebook.com","fogaonet.com","tvtropes.org","food.ndtv.com","goodreads.com","instagram.com","perplexity.ai","s.tabelog.com","sammobile.com","sigmalive.com","crunchbase.com","foundit.com.ph","inews.hket.com","m.kaskus.co.id","similarweb.com","app.uniswap.org","mydramalist.com","wunderground.com","crealitycloud.com","flightradar24.com","jp-m.banggood.com","mypenndentist.org","shop-apotheke.com","themonthly.com.au","livesportsontv.com","m.economictimes.com"];
     const collectArglistRefIndices = (out, hn, r) => {
@@ -625,6 +626,7 @@ if ( $hasHostnames$ ) {
             }
         }
     };
+    const todoIndices = new Set();
     indicesFromHostname(todoIndices, entries[0]);
     if ( $hasAncestors$ ) {
         for ( const entry of entries ) {
@@ -632,19 +634,18 @@ if ( $hasHostnames$ ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-}
-
-// Collect arglist references
-const todo = new Set();
-if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 46 */ "6;4;47;28;41;18;0;50;8,9,10,11;51;13;26;23,24;44;17;46;14;29;1;1;12;38;39,40;42;7;2,3;15;45;43;27;21;35;30;34;48;16;49;25;32,33;36;31;20;37;22;5;19";
-    const arglistRefs = $scriptletArglistRefs$.split(';');
-    for ( const i of todoIndices ) {
-        for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
-            todo.add(ref);
+    // Collect arglist references
+    if ( todoIndices.size ) {
+        const $scriptletArglistRefs$ = /* 46 */ "7;5;48;29;42;19;1;51;9,10,11,12;52;14;27;24,25;45;18;47;15;30;2;2;13;39;40,41;43;8;3,4;16;46;44;28;22;36;31;35;49;17;50;26;33,34;37;32;21;38;23;6;20";
+        const arglistRefs = $scriptletArglistRefs$.split(';');
+        for ( const i of todoIndices ) {
+            for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
+                todo.add(ref);
+            }
         }
     }
 }
+
 if ( $hasRegexes$ ) {
     const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
@@ -663,14 +664,13 @@ if ( $hasRegexes$ ) {
         }
     }
 }
-if ( todo.size === 0 ) { return; }
 
-// Execute scriplets
-{
+// Execute scriptlets
+if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 4 */
 [setCookie,setSessionStorageItem,setLocalStorageItem,removeClass];
     const $scriptletArgs$ = /* 60 */ ["pushNotifications_popup_displayed_v2","true","barcelona_mobile_upsell_state","1","lodum","loggedOutCTAIsShown","modalDismissed","promotion-popup-closed","PromptLater","blocking_sign_in_interstitial","scroll-disabled","body","stay","xpromo-consolidation","rpl-scroll-lock","scroll-is-blocked","prevent-scrolling","webapp_first_open_cta","twilight.custom-smart-banner-dismissed","appDownloadBannerDismissed","hideMobileAppPromoBanner","smartBannerDismissed","mapslitepromosdismissed","nudgeStickyBannerHide","undefinedpopup-pdfpcouponoffer","entity-limiter-views","$remove$","rn","hideMacDesktopDialog","navBasedDialogManager","enable-sda","windows_prompt_shown_v3","push-notifications","no","scrollLock","","kumulos-background-mask-blur","no-scroll","html","show-app-bar","closeGuideRegisterTime","permission_open_push","open_in_browser","isDownloadAppBannerClosed","map_new_features_new_flightradar24_com_label_options","ErxModal","fn_cookie_whatsapp_alert","app-announcement-banner-count-guest","app-announcement-banner-guest","LMT_browserExtensionPromo.displayed","ndtvfood_isSubscribed_elex_v1","request-permission-modal","is_announcement_closed","ignore_language_guide","appCardSeen","has-uitk-sheet","app-banner-parent","smartbanner-active","o-push-alert","is-hidden"];
-    const $scriptletArglists$ = /* 52 */ "0,0,1;1,2,3;1,4,3;1,5,3;0,6,3;2,7,3;0,8,1;0,9,1;3,10,11,12;2,13,3;3,14,11,12;3,15,11,12;3,16,11,12;1,17,3;1,18,1;1,19,1;1,20,1;2,21,3;2,22,3;1,23,1;0,24,3;2,25,26;2,27,26;0,28,1;0,29,1;3,30,11,12;2,31,3;2,32,33;3,34,35,12;3,36,35,12;3,37,38,12;3,39,35,12;2,40,3;2,41,3;1,42,3;1,43,1;0,44,3;1,45,1;0,46,3;0,47,3;0,48,1;1,49,1;0,50,33;2,51,3;2,52,1;0,53,1;2,54,1;3,55,11,12;3,56,11,12;3,57,11;0,58,3;3,59,11";
+    const $scriptletArglists$ = /* 53 */ ";0,0,1;1,2,3;1,4,3;1,5,3;0,6,3;2,7,3;0,8,1;0,9,1;3,10,11,12;2,13,3;3,14,11,12;3,15,11,12;3,16,11,12;1,17,3;1,18,1;1,19,1;1,20,1;2,21,3;2,22,3;1,23,1;0,24,3;2,25,26;2,27,26;0,28,1;0,29,1;3,30,11,12;2,31,3;2,32,33;3,34,35,12;3,36,35,12;3,37,38,12;3,39,35,12;2,40,3;2,41,3;1,42,3;1,43,1;0,44,3;1,45,1;0,46,3;0,47,3;0,48,1;1,49,1;0,50,33;2,51,3;2,52,1;0,53,1;2,54,1;3,55,11,12;3,56,11,12;3,57,11;0,58,3;3,59,11";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

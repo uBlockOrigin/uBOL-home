@@ -278,12 +278,13 @@ function getRandomTokenFn() {
 
 function jsonPruneXhrResponse(
     rawPrunePaths = '',
-    rawNeedlePaths = ''
+    rawNeedlePaths = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('json-prune-xhr-response', rawPrunePaths, rawNeedlePaths);
     const xhrInstances = new WeakMap();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
     const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
     self.XMLHttpRequest = class extends self.XMLHttpRequest {
@@ -567,10 +568,11 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
 
 function preventAddEventListener(
     type = '',
-    pattern = ''
+    pattern = '',
+    ...varargs
 ) {
     const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
     const reType = safe.patternToRegex(type, undefined, true);
     const rePattern = safe.patternToRegex(pattern);
@@ -1095,15 +1097,14 @@ function safeSelf() {
             }
             return /^/;
         },
-        getExtraArgs(args, offset = 0) {
-            const entries = args.slice(offset).reduce((out, v, i, a) => {
-                if ( (i & 1) === 0 ) {
-                    const rawValue = a[i+1];
-                    const value = /^\d+$/.test(rawValue)
-                        ? parseInt(rawValue, 10)
-                        : rawValue;
-                    out.push([ a[i], value ]);
-                }
+        parseVarargs(varargs) {
+            const entries = varargs.reduce((out, v, i, a) => {
+                if ( i & 1 ) { return out; }
+                const rawValue = a[i+1];
+                const value = /^\d+$/.test(rawValue)
+                    ? parseInt(rawValue, 10)
+                    : rawValue;
+                out.push([ a[i], value ]);
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
@@ -1176,12 +1177,13 @@ function setConstant(
 function setConstantFn(
     trusted = false,
     chain = '',
-    rawValue = ''
+    rawValue = '',
+    ...varargs
 ) {
     if ( chain === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     function setConstant(chain, rawValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -1500,7 +1502,8 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const todoIndices = new Set();
+const todo = new Set();
+
 if ( $hasHostnames$ ) {
     const $scriptletHostnames$ = /* 117 */ ["g.cz","cc.cz","e15.cz","auto.cz","csfd.cz","csfd.sk","dama.cz","ewrc.cz","kupi.cz","root.cz","zeny.cz","zive.cz","arome.cz","blesk.cz","cnews.cz","drbna.cz","extra.cz","fzone.cz","hokej.cz","idnes.cz","kurzy.cz","libli.tv","magio.tv","onetv.cz","sauto.cz","super.cz","abicko.cz","expres.cz","fdrive.cz","fights.cz","impuls.cz","iprima.cz","reflex.cz","seznam.cz","stream.cz","tv.htn.cz","tv.nuo.sk","ctrlv.link","emimino.cz","kinobox.cz","lidovky.cz","maminka.cz","markiza.sk","nerdfix.cz","novinky.cz","tiscali.cz","tn.nova.cz","aktualne.cz","itv.satt.cz","jon.4net.tv","labuznik.cz","onlajny.com","rychlost.cz","rychlost.sk","sprintel.tv","sreality.cz","titulky.com","tv.e-max.sk","tv.tv2go.eu","tvnoviny.sk","vitalion.cz","zdopravy.cz","ahaonline.cz","autorevue.cz","chip.4net.tv","indian-tv.cz","live.4net.tv","live.rete.cz","media.joj.sk","mobilenet.cz","osobnosti.cz","tv.itcity.sk","tv.sauron.cz","warforum.xyz","modnipeklo.cz","mojezdravi.cz","nasepenize.cz","pegas.4net.tv","prime.4net.tv","tv.giganet.sk","tv.maxicom.cz","tv.selfnet.cz","winet.4net.tv","zona.telly.cz","live.chiptv.cz","pamico.4net.tv","spisovatele.cz","tv.rainside.sk","karaoketexty.cz","live.kabelko.sk","live.martico.sk","live.metrotv.sk","martico.4net.tv","online.pecka.tv","seznamzpravy.cz","svetandroida.cz","tv.tes-media.sk","doubrava.4net.tv","games.tiscali.cz","live-new.4net.tv","live.rapidnet.tv","mojecelebrity.cz","profinet.4net.tv","rapidnet.4net.tv","live-rete.4net.tv","live.swan.4net.tv","prestonet.4net.tv","live.artos.4net.tv","navratdoreality.cz","podcasty.seznam.cz","tv.nejpripojeni.cz","muj.internethned.cz","parlamentnilisty.cz","media.cms.markiza.sk","sleduj.interaktivni.tv","tvadmin.pamico-czech.cz","gemnet.4net.tvhtn.4net.tv"];
     const collectArglistRefIndices = (out, hn, r) => {
@@ -1537,6 +1540,7 @@ if ( $hasHostnames$ ) {
             }
         }
     };
+    const todoIndices = new Set();
     indicesFromHostname(todoIndices, entries[0]);
     if ( $hasAncestors$ ) {
         for ( const entry of entries ) {
@@ -1544,19 +1548,18 @@ if ( $hasHostnames$ ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-}
-
-// Collect arglist references
-const todo = new Set();
-if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 117 */ "40,41;0;40,41;40,41;2;2;40,41;5;40,41;23;40,41;35,40,41;40,41;40,41;40,41;4;40,41;15,16;7;40,41,42;10;1;11;40,41;25;28,38,39,40,41;40,41;40,41;15,16;40,41;8;40,41;40,41;26,38;38;1;1;3;40,41;40,41;40,41;40,41;12;9;38,40,41;40,41;33;40,41;1;1;40,41;19;24;24;1;27;30,31,32;1;1;12;40,41;36,37;40,41;40,41;1;9;1;1;13,14;15,16;40,41;1;1;34;40,41;40,41;40,41;1;1;1;1;1;1;1;1;1;40,41;1;40,41;1;1;1;1;1;38;29;1;1;6;1;1;40,41;1;1;1;1;1;1;17,18;21,22;1;1;20;13;1;1;1";
-    const arglistRefs = $scriptletArglistRefs$.split(';');
-    for ( const i of todoIndices ) {
-        for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
-            todo.add(ref);
+    // Collect arglist references
+    if ( todoIndices.size ) {
+        const $scriptletArglistRefs$ = /* 117 */ "41,42;1;41,42;41,42;3;3;41,42;6;41,42;24;41,42;36,41,42;41,42;41,42;41,42;5;41,42;16,17;8;41,42,43;11;2;12;41,42;26;29,39,40,41,42;41,42;41,42;16,17;41,42;9;41,42;41,42;27,39;39;2;2;4;41,42;41,42;41,42;41,42;13;10;39,41,42;41,42;34;41,42;2;2;41,42;20;25;25;2;28;31,32,33;2;2;13;41,42;37,38;41,42;41,42;2;10;2;2;14,15;16,17;41,42;2;2;35;41,42;41,42;41,42;2;2;2;2;2;2;2;2;2;41,42;2;41,42;2;2;2;2;2;39;30;2;2;7;2;2;41,42;2;2;2;2;2;2;18,19;22,23;2;2;21;14;2;2;2";
+        const arglistRefs = $scriptletArglistRefs$.split(';');
+        for ( const i of todoIndices ) {
+            for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
+                todo.add(ref);
+            }
         }
     }
 }
+
 if ( $hasRegexes$ ) {
     const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
@@ -1575,14 +1578,13 @@ if ( $hasRegexes$ ) {
         }
     }
 }
-if ( todo.size === 0 ) { return; }
 
-// Execute scriplets
-{
+// Execute scriptlets
+if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 12 */
 [abortOnPropertyRead,jsonPruneXhrResponse,abortCurrentScript,setConstant,preventAddEventListener,preventSetTimeout,adjustSetTimeout,preventBab,adjustSetInterval,abortOnPropertyWrite,preventSetInterval,removeAttr];
     const $scriptletArgs$ = /* 60 */ ["App.branding","ad_blocks.[-].id_program","","propsToMatch","/api/advertisement/getAllStreamAdBlocks/","$","Ads","adsAllowed","fancyBanner","checkAdsBlocked","noopFunc","HTMLIFrameElement.prototype.contentWindow","canRunAds","true","first","false","click","location","img_ab_s","3000","adBlocks.[-].id","/schedules/ads","t()","*","settings.ads","Rmp.params.genderSelectionUrl","undefined","App.pos.init","App.ft.detected","ended","PartnerRedirectAction","sssp.config","sssp","{}","Gallery.prototype.setAdsForGallery","ntmt_retest_btn_countdown_do","1000","vendor-load","Fisher","checkRods","style","body","detectAdBlocker","load","document.cookie","xmxalr","foolish_script","useSeznamAds","codeAddress","window.addEventListener",":visible","atob","hasUserActiveSubscription","message","fishing","_0x","beforeunload","()","document.createElement","adbDetect"];
-    const $scriptletArglists$ = /* 43 */ "0,0;1,1,2,3,4;2,5,6;0,7;2,5,8;3,9,10;0,11;3,12,13;3,14,15;4,16,17;5,18,19;1,20,2,3,21;6,22,23;3,24,15;3,25,26;3,27,10;3,28,15;4,29;7;2,5,30;0,6;3,31,10;3,32,33;3,34,10;8,35,36;6,37,19;9,38;10,39;11,40,41;0,42;4,43,44;3,45,2;2,46;3,47,15;2,48;2,49,50;0,51;3,52,13;4,53,54;4,53,55;4,56,57;2,58,59;2,11";
+    const $scriptletArglists$ = /* 44 */ ";0,0;1,1,2,3,4;2,5,6;0,7;2,5,8;3,9,10;0,11;3,12,13;3,14,15;4,16,17;5,18,19;1,20,2,3,21;6,22,23;3,24,15;3,25,26;3,27,10;3,28,15;4,29;7;2,5,30;0,6;3,31,10;3,32,33;3,34,10;8,35,36;6,37,19;9,38;10,39;11,40,41;0,42;4,43,44;3,45,2;2,46;3,47,15;2,48;2,49,50;0,51;3,52,13;4,53,54;4,53,55;4,56,57;2,58,59;2,11";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

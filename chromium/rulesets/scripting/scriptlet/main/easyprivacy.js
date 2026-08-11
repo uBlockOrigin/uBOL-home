@@ -650,12 +650,13 @@ function abortCurrentScriptFn(
 
 function abortOnStackTrace(
     chain = '',
-    needle = ''
+    needle = '',
+    ...varargs
 ) {
     if ( typeof chain !== 'string' ) { return; }
     const safe = safeSelf();
     const needleDetails = safe.initPattern(needle, { canNegate: true });
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     if ( needle === '' ) { extraArgs.log = 'all'; }
     const makeProxy = function(owner, chain) {
         const pos = chain.indexOf('.');
@@ -735,34 +736,6 @@ function collateFetchArgumentsFn(resource, options) {
         collateFetchArgumentsFn.collateKnownProps(options, out);
     }
     return out;
-}
-
-function editOutboundObjectFn(
-    trusted = false,
-    propChain = '',
-    jsonq = '',
-) {
-    if ( propChain === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix(
-        `${trusted ? 'trusted-' : ''}edit-outbound-object`,
-        propChain,
-        jsonq
-    );
-    const jsonp = JSONPath.create(jsonq);
-    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
-        return safe.uboLog(logPrefix, 'Bad JSONPath query');
-    }
-    proxyApplyFn(propChain, function(context) {
-        const obj = context.reflect();
-        const objAfter = jsonp.apply(obj);
-        if ( objAfter === undefined ) { return obj; }
-        safe.uboLog(logPrefix, 'Edited');
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, `After edit:\n${safe.JSON_stringify(objAfter, null, 2)}`);
-        }
-        return objAfter;
-    });
 }
 
 function generateContentFn(trusted, directive) {
@@ -849,8 +822,35 @@ function getRandomTokenFn() {
         safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
 }
 
-function jsonEdit(jsonq = '') {
-    editOutboundObjectFn(false, 'JSON.parse', jsonq);
+function jsonEdit(jsonq = '', ...varargs) {
+    jsonEditFn(false, jsonq, ...varargs);
+}
+
+function jsonEditFn(trusted = false, jsonq = '', ...varargs) {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix(
+        `${trusted ? 'trusted-' : ''}json-edit`,
+        jsonq,
+        ...varargs
+    );
+    const jsonp = JSONPath.create(jsonq);
+    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
+        return safe.uboLog(logPrefix, 'Bad JSONPath query');
+    }
+    const extraArgs = safe.parseVarargs(varargs);
+    const pattern = extraArgs.matches && safe.initPattern(extraArgs.matches);
+    proxyApplyFn('JSON.parse', function(context) {
+        const json = context.callArgs[0];
+        const obj = context.reflect();
+        if ( pattern && safe.testPattern(pattern, json) === false ) { return obj; }
+        const objAfter = jsonp.apply(obj);
+        if ( objAfter === undefined ) { return obj; }
+        safe.uboLog(logPrefix, 'Edited');
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `After edit:\n${safe.JSON_stringify(objAfter, null, 2)}`);
+        }
+        return objAfter;
+    });
 }
 
 function matchObjectPropertiesFn(propNeedles, ...objs) {
@@ -947,7 +947,8 @@ function preventFetchFn(
     trusted = false,
     propsToMatch = '',
     responseBody = '',
-    responseType = ''
+    responseType = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const setTimeout = self.setTimeout;
@@ -958,7 +959,7 @@ function preventFetchFn(
         responseBody,
         responseType
     );
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 4);
+    const extraArgs = safe.parseVarargs(varargs);
     const propNeedles = parsePropertiesToMatchFn(propsToMatch, 'url');
     const validResponseProps = {
         ok: [ false, true ],
@@ -1443,15 +1444,14 @@ function safeSelf() {
             }
             return /^/;
         },
-        getExtraArgs(args, offset = 0) {
-            const entries = args.slice(offset).reduce((out, v, i, a) => {
-                if ( (i & 1) === 0 ) {
-                    const rawValue = a[i+1];
-                    const value = /^\d+$/.test(rawValue)
-                        ? parseInt(rawValue, 10)
-                        : rawValue;
-                    out.push([ a[i], value ]);
-                }
+        parseVarargs(varargs) {
+            const entries = varargs.reduce((out, v, i, a) => {
+                if ( i & 1 ) { return out; }
+                const rawValue = a[i+1];
+                const value = /^\d+$/.test(rawValue)
+                    ? parseInt(rawValue, 10)
+                    : rawValue;
+                out.push([ a[i], value ]);
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
@@ -1524,12 +1524,13 @@ function setConstant(
 function setConstantFn(
     trusted = false,
     chain = '',
-    rawValue = ''
+    rawValue = '',
+    ...varargs
 ) {
     if ( chain === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     function setConstant(chain, rawValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -1848,9 +1849,10 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const todoIndices = new Set();
+const todo = new Set();
+
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 204 */ ["x.com","al.com","nj.com","cbr.com","dnb.com","ijr.com","kgw.com","mwed.jp","wnd.com","wwd.com","cbs19.tv","cbs8.com","cwtv.com","espn.com","kkrt.com","krem.com","kvue.com","money.it","omg.blog","uber.com","usaa.com","vibe.com","wbir.com","wfaa.com","wgrz.com","wltx.com","wqad.com","wral.com","wthr.com","wtol.com","wtsp.com","9news.com","chime.com","delta.com","dnb.co.uk","freep.com","mlive.com","pcwelt.de","qobuz.com","tidal.com","vimeo.com","apnews.com","boston.com","costco.com","deezer.com","driving.ca","filson.com","hopwtr.com","kcentv.com","macwelt.de","norton.com","nypost.com","ranker.com","rivals.com","silive.com","subway.com","11alive.com","artnews.com","bolighub.dk","capezio.com","cattime.com","dogtime.com","gamepur.com","gbatemp.net","geizhals.de","lfpress.com","nbcnews.com","neopets.com","pandora.com","porsche.com","reuters.com","sherdog.com","sporcle.com","spotify.com","titantv.com","twitter.com","variety.com","visible.com","weather.com","artforum.com","collider.com","deadline.com","dpreview.com","engadget.com","formula1.com","gamerant.com","grabify.link","hemmings.com","inquirer.net","jdsports.com","madewell.com","masslive.com","mazdausa.com","michaels.com","movieweb.com","news8000.com","nicovideo.jp","pennlive.com","sidereel.com","syracuse.com","thegamer.com","tirerack.com","topspeed.com","ubereats.com","usatoday.com","webmail.wiki","12newsnow.com","247sports.com","billboard.com","cleveland.com","fresnobee.com","goldderby.com","hancinema.net","howtogeek.com","indiewire.com","magesypro.pro","makeuseof.com","nbcsports.com","newswest9.com","newyorker.com","ottawasun.com","pwinsider.com","savvytime.com","thelayoff.com","weareiowa.com","www.yahoo.com","calgarysun.com","cheatsheet.com","comingsoon.net","eventbrite.com","gameskinny.com","golfdigest.com","mail.yahoo.com","milesplit.live","oregonlive.com","primagames.com","robbreport.com","screenrant.com","siliconera.com","soundcloud.com","techcrunch.com","themarysue.com","ticketmaster.*","torontosun.com","twinfinite.net","videogamer.com","accuweather.com","acmemarkets.com","arstechnica.com","crunchyroll.com","destructoid.com","edmontonsun.com","flyfrontier.com","lgbtqnation.com","mensjournal.com","order-order.com","payment.nba.com","techlicious.com","technicpack.net","theprovince.com","windsorstar.com","wrestlezone.com","esportstales.com","knowyourmeme.com","lenscrafters.com","motorbiscuit.com","nationalpost.com","ncbi.nlm.nih.gov","nofilmschool.com","rollingstone.com","simpleflying.com","thenerdstash.com","touchtapplay.com","vancouversun.com","wrestlinginc.com","wunderground.com","calgaryherald.com","dollargeneral.com","financialpost.com","harborfreight.com","monsterenergy.com","progameguides.com","superherohype.com","bringmethenews.com","crooksandliars.com","insider-gaming.com","nationalreview.com","thefashionspot.com","xda-developers.com","forums.hfboards.com","gamerjournalist.com","lehighvalleylivecom","newscentermaine.com","stealthoptional.com","thedraftnetwork.com","wegotthiscovered.com","attackofthefanboy.com","hollywoodreporter.com","informazionefiscale.it","gladiatorgarageworks.com","livewithkellyandmark.com","playstationlifestyle.net","worldpopulationreview.com","aiskillsnavigator.microsoft.com"];
+    const $scriptletHostnames$ = /* 223 */ ["x.com","al.com","nj.com","cbr.com","dnb.com","ijr.com","kgw.com","mwed.jp","wnd.com","wwd.com","10tv.com","cbs19.tv","cbs8.com","cwtv.com","espn.com","kkrt.com","krem.com","ktvb.com","kvue.com","money.it","omg.blog","uber.com","usaa.com","vibe.com","wbir.com","wfaa.com","wgrz.com","wkyc.com","wltx.com","wnep.com","wqad.com","wral.com","wthr.com","wtol.com","wtsp.com","9news.com","chime.com","delta.com","dnb.co.uk","fox43.com","fox61.com","freep.com","king5.com","mlive.com","pcwelt.de","qobuz.com","thv11.com","tidal.com","vimeo.com","13wmaz.com","apnews.com","boston.com","costco.com","deezer.com","driving.ca","filson.com","hopwtr.com","kare11.com","kcentv.com","kiiitv.com","macwelt.de","norton.com","nypost.com","ranker.com","rivals.com","silive.com","subway.com","whas11.com","wzzm13.com","11alive.com","artnews.com","bolighub.dk","capezio.com","cattime.com","dogtime.com","gamepur.com","gbatemp.net","geizhals.de","lfpress.com","nbcnews.com","neopets.com","pandora.com","porsche.com","queerty.com","reuters.com","sherdog.com","sporcle.com","spotify.com","titantv.com","twitter.com","variety.com","visible.com","weather.com","artforum.com","collider.com","deadline.com","dpreview.com","engadget.com","formula1.com","gamerant.com","grabify.link","hemmings.com","inquirer.net","jdsports.com","madewell.com","masslive.com","mazdausa.com","michaels.com","movieweb.com","news8000.com","nicovideo.jp","pennlive.com","sidereel.com","syracuse.com","thegamer.com","tirerack.com","topspeed.com","ubereats.com","usatoday.com","webmail.wiki","12newsnow.com","13newsnow.com","247sports.com","billboard.com","cleveland.com","fresnobee.com","goldderby.com","hancinema.net","howtogeek.com","indiewire.com","magesypro.pro","makeuseof.com","myfoxzone.com","nbcsports.com","newswest9.com","newyorker.com","ottawasun.com","pwinsider.com","savvytime.com","thelayoff.com","weareiowa.com","www.yahoo.com","calgarysun.com","cheatsheet.com","comingsoon.net","eventbrite.com","gameskinny.com","golfdigest.com","mail.yahoo.com","milesplit.live","oregonlive.com","primagames.com","robbreport.com","screenrant.com","siliconera.com","soundcloud.com","techcrunch.com","themarysue.com","ticketmaster.*","torontosun.com","twinfinite.net","videogamer.com","5newsonline.com","accuweather.com","acmemarkets.com","arstechnica.com","crunchyroll.com","destructoid.com","edmontonsun.com","flyfrontier.com","lgbtqnation.com","mensjournal.com","order-order.com","payment.nba.com","techlicious.com","technicpack.net","theprovince.com","windsorstar.com","wrestlezone.com","esportstales.com","knowyourmeme.com","lenscrafters.com","localmemphis.com","motorbiscuit.com","nationalpost.com","ncbi.nlm.nih.gov","nofilmschool.com","rollingstone.com","simpleflying.com","thenerdstash.com","touchtapplay.com","vancouversun.com","wrestlinginc.com","wunderground.com","calgaryherald.com","dollargeneral.com","financialpost.com","harborfreight.com","monsterenergy.com","progameguides.com","superherohype.com","bringmethenews.com","crooksandliars.com","firstcoastnews.com","insider-gaming.com","nationalreview.com","thefashionspot.com","xda-developers.com","forums.hfboards.com","gamerjournalist.com","lehighvalleylivecom","newscentermaine.com","stealthoptional.com","thedraftnetwork.com","wegotthiscovered.com","attackofthefanboy.com","hollywoodreporter.com","informazionefiscale.it","gladiatorgarageworks.com","livewithkellyandmark.com","playstationlifestyle.net","worldpopulationreview.com","aiskillsnavigator.microsoft.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1885,6 +1887,7 @@ if ( $hasHostnames$ ) {
             }
         }
     };
+    const todoIndices = new Set();
     indicesFromHostname(todoIndices, entries[0]);
     if ( $hasAncestors$ ) {
         for ( const entry of entries ) {
@@ -1892,19 +1895,18 @@ if ( $hasHostnames$ ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-}
-
-// Collect arglist references
-const todo = new Set();
-if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 204 */ "0,1,16;3,7;7;3;0,1;3;4;11;3;4;4;4;3;0,1;0,1;4;4;3;3;0,1;0,1;4;4;4;4;4;4;3;4;4;4;4;0,1;0,1;0,1;3;3,7;3,7;0,1;0,1;0,1;4;0,1;0,1;0,1;4;0,1;0,1;4;7;0,1;3;5;0,1;3;0,1;4;4;2;0,1;3;3;7;3,9;0,1;4;3;3;0,1;0,1;6;4;3;0,1;3;0,1;4;0,1;0,1;4;3;4;4;0,1;0,1;3;3;3;3;0,1;0,1;3;0,1;0,1;3;7;12,13;3,7;4;7;3;0,1;3;0,1;9,10;3;4;3;4;3;3;4;3;3;4;3;3;4;4;0,1;4;3;3;3;4;0,1;4;3;3;0,1;7;3,4;0,1;0,1;3,4,7;7;4;3;3,7;0,1;0,1,4;7;0,1;4;3;3;0,1;0,1;3;0,1;7;7;0,1;7;8;3;0,1;3;3;3;4;3;3;3;0,1;3;4;14,15;3;4;3;3;7;4;3;0,1;4;0,1;4;0,1;0,1;7;4;3;3,4;3;3;3;3;3;7;7;4;3;3;7;7;4;3;0,1;0,1;3;3;0,1";
-    const arglistRefs = $scriptletArglistRefs$.split(';');
-    for ( const i of todoIndices ) {
-        for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
-            todo.add(ref);
+    // Collect arglist references
+    if ( todoIndices.size ) {
+        const $scriptletArglistRefs$ = /* 223 */ "1,2,17;4,8;8;4;1,2;4;5;12;4;5;5;5;5;4;1,2;1,2;5;5;5;4;4;1,2;1,2;5;5;5;5;5;5;5;5;4;5;5;5;5;1,2;1,2;1,2;5;5;4;5;4,8;4,8;1,2;5;1,2;1,2;5;5;1,2;1,2;1,2;5;1,2;1,2;5;5;5;8;1,2;4;6;1,2;4;1,2;5;5;5;5;3;1,2;4;4;8;4,10;1,2;5;4;4;1,2;1,2;8;7;5;4;1,2;4;1,2;5;1,2;1,2;5;4;5;5;1,2;1,2;4;4;4;4;1,2;1,2;4;1,2;1,2;4;8;13,14;4,8;5;8;4;1,2;4;1,2;10,11;4;5;5;4;5;4;4;5;4;4;5;4;4;5;5;5;1,2;5;4;4;4;5;1,2;5;4;4;1,2;8;4,5;1,2;1,2;4,5;8;5;4;4,8;1,2;1,2,5;8;1,2;5;4;4;5;1,2;1,2;4;1,2;8;8;1,2;8;9;4;1,2;4;4;4;5;4;4;4;1,2;5;4;5;15,16;4;5;4;4;8;5;4;1,2;5;1,2;5;1,2;1,2;8;5;4;4,5;5;4;4;4;4;4;8;8;5;4;4;8;8;5;4;1,2;1,2;4;4;1,2";
+        const arglistRefs = $scriptletArglistRefs$.split(';');
+        for ( const i of todoIndices ) {
+            for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
+                todo.add(ref);
+            }
         }
     }
 }
+
 if ( $hasRegexes$ ) {
     const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
@@ -1923,14 +1925,13 @@ if ( $hasRegexes$ ) {
         }
     }
 }
-if ( todo.size === 0 ) { return; }
 
-// Execute scriplets
-{
+// Execute scriptlets
+if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 6 */
 [setConstant,abortCurrentScript,abortOnStackTrace,jsonEdit,preventFetch,preventXhr];
     const $scriptletArgs$ = /* 23 */ ["Navigator.prototype.globalPrivacyControl","false","navigator.globalPrivacyControl","document.getElementsByTagName","gtm.js","document.createElement","admiral",".pubads","HTMLElement.prototype.insertBefore","/[A-Z] .+chunks\\/\\d{4}\\./",".js?","decodeURI","/(?=^(?!.*\\.js))/","..props.children.*[?.key==\"admiral-script\"]","noopFunc","gnt.x.adm","","keen-tracking","stella","ncbi.sg","{}","ncbi.sg.ping","/i/api/1.1/flow/viewer.json"];
-    const $scriptletArglists$ = /* 17 */ "0,0,1;0,2,1;1,3,4;1,5,6;1,3,7;2,8,9;2,6,10;2,11,12;3,13;0,6,14;0,15,16;1,5,17;4,18;5,18;0,19,20;0,21,14;5,22";
+    const $scriptletArglists$ = /* 18 */ ";0,0,1;0,2,1;1,3,4;1,5,6;1,3,7;2,8,9;2,6,10;2,11,12;3,13;0,6,14;0,15,16;1,5,17;4,18;5,18;0,19,20;0,21,14;5,22";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

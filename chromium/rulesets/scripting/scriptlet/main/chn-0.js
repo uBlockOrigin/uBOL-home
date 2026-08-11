@@ -204,12 +204,13 @@ function abortOnPropertyWrite(
 
 function abortOnStackTrace(
     chain = '',
-    needle = ''
+    needle = '',
+    ...varargs
 ) {
     if ( typeof chain !== 'string' ) { return; }
     const safe = safeSelf();
     const needleDetails = safe.initPattern(needle, { canNegate: true });
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     if ( needle === '' ) { extraArgs.log = 'all'; }
     const makeProxy = function(owner, chain) {
         const pos = chain.indexOf('.');
@@ -500,12 +501,13 @@ function getRandomTokenFn() {
 function jsonPrune(
     rawPrunePaths = '',
     rawNeedlePaths = '',
-    stackNeedle = ''
+    stackNeedle = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
     const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     proxyApplyFn('JSON.parse', function(context) {
         const objBefore = context.reflect();
         if ( rawPrunePaths === '' ) {
@@ -843,10 +845,11 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
 
 function preventAddEventListener(
     type = '',
-    pattern = ''
+    pattern = '',
+    ...varargs
 ) {
     const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
     const reType = safe.patternToRegex(type, undefined, true);
     const rePattern = safe.patternToRegex(pattern);
@@ -942,7 +945,8 @@ function preventFetchFn(
     trusted = false,
     propsToMatch = '',
     responseBody = '',
-    responseType = ''
+    responseType = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const setTimeout = self.setTimeout;
@@ -953,7 +957,7 @@ function preventFetchFn(
         responseBody,
         responseType
     );
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 4);
+    const extraArgs = safe.parseVarargs(varargs);
     const propNeedles = parsePropertiesToMatchFn(propsToMatch, 'url');
     const validResponseProps = {
         ok: [ false, true ],
@@ -1571,15 +1575,14 @@ function safeSelf() {
             }
             return /^/;
         },
-        getExtraArgs(args, offset = 0) {
-            const entries = args.slice(offset).reduce((out, v, i, a) => {
-                if ( (i & 1) === 0 ) {
-                    const rawValue = a[i+1];
-                    const value = /^\d+$/.test(rawValue)
-                        ? parseInt(rawValue, 10)
-                        : rawValue;
-                    out.push([ a[i], value ]);
-                }
+        parseVarargs(varargs) {
+            const entries = varargs.reduce((out, v, i, a) => {
+                if ( i & 1 ) { return out; }
+                const rawValue = a[i+1];
+                const value = /^\d+$/.test(rawValue)
+                    ? parseInt(rawValue, 10)
+                    : rawValue;
+                out.push([ a[i], value ]);
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
@@ -1652,12 +1655,13 @@ function setConstant(
 function setConstantFn(
     trusted = false,
     chain = '',
-    rawValue = ''
+    rawValue = '',
+    ...varargs
 ) {
     if ( chain === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     function setConstant(chain, rawValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -2094,7 +2098,8 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const todoIndices = new Set();
+const todo = new Set();
+
 if ( $hasHostnames$ ) {
     const $scriptletHostnames$ = /* 240 */ ["8se.me","ddys.*","ebb.io","iyf.tv","le.com","msn.cn","qq.com","4gtv.tv","5278.cc","beqg.cc","cnys.tv","crxs.me","ddrk.me","jptt.tv","logi.im","now.com","slit.cn","wnacg.*","yfsp.tv","2urs.com","520cc.cc","69xx.one","av6k.com","avcao.cc","bde4.com","bde4.icu","huya.com","itdog.cn","jkpan.cc","koyi.pub","mxdm.xyz","nanai.tw","noy1.top","o8tv.com","poedb.tw","sohu.com","t66y.com","tstrs.me","v.qq.com","xchina.*","xkyn.com","123pan.cn","233tw.com","51cg1.com","51zxw.net","akkxs.net","applnn.cc","axjbt.com","daybuy.tw","efuxs.com","fsbot.xyz","fxshu.top","ggjav.com","hboav.com","huavod.cc","iqiyi.com","linetv.tw","moeci.com","mpyit.com","nivod2.tv","nodejs.cn","playav.cc","qciss.net","rjno1.com","sssam.com","theav.xyz","wnacg1.cc","x99av.com","xvideo.cc","youku.com","123865.com","360lele.cc","445nan.com","520call.me","85tube.com","aiyifan.tv","caq98i.top","cidetxt.cc","douyin.com","dqzboy.com","enhuku.com","hanjuk.com","huavod.com","huavod.net","huavod.top","huoqwk.com","iplark.com","itbaoku.cn","jav777.xyz","laosu.tech","lpl.qq.com","m.86kl.com","m.lwxs.com","mcappx.com","mrds66.com","new.qq.com","nivod2.com","nivod4.com","nivod5.com","nunuju.net","pcbeta.com","pixnet.net","porn87.com","surirt.com","theporn.cc","tingfm.com","tsubasa.im","vikacg.com","wandhi.com","wnacg05.cc","www.qq.com","1090ys8.com","18comic.org","18comic.vip","3dmgame.com","69shumi.com","88files.net","91porna.com","bigpixel.cn","bingfeng.tw","bz88888.net","clp126.shop","ekamus.info","erciyan.com","free.com.tw","hsq233.shop","huanqiu.com","huaren.live","jav224.shop","jianshu.com","jkptgbf.xyz","m.13xsw.com","m.91zww.com","m.nivod2.tv","m.nivod4.tv","m.nivod5.tv","m.nivod7.tv","m.nivod8.tv","m.nivod9.tv","m.youku.com","mfulbvu.xyz","news.qq.com","nunuyy3.org","papalah.com","ttp229.shop","umbooks.com","v.ifeng.com","v.youku.com","vxetable.cn","xl02.com.de","youneed.win","youziks.com","1keydata.com","baomidou.com","bilibili.com","bukaivip.com","candylife.tw","docsmall.com","freedidi.com","gamersky.com","getitfree.cn","goodav17.com","m.nivod2.com","m.nivod4.com","ohmanhua.com","pansearch.me","pornbest.org","wikisport.cc","wxredian.com","xbeibeix.com","xiebruce.top","axu.pages.dev","axutongxue.cn","bilinovel.com","biquge321.com","biquge543.com","cocomanga.com","colamanga.com","embedrise.com","freejavbt.com","ftchinese.com","haoweichi.com","hentaicomic.*","linovelib.com","m.1024txt.com","macromicro.me","onemanhua.com","pg-wuming.com","pincong.rocks","slashlook.com","slashview.com","soft8ware.com","sports.qq.com","uptogo.com.tw","xgcartoon.com","yeshuyuan.com","zhenbuka3.com","174.127.195.98","axutongxue.com","axutongxue.net","axutongxue.vip","dianyingim.com","hanime1-me.icu","hanime1-me.top","iwatchme2u.com","javlibrary.com","m.shuhaige.net","moegirl.org.cn","ruanyifeng.com","tangdoucdn.com","v-wb.youku.com","wenxuecity.com","dogfight360.com","jmcomic-zzz.org","pokemonhubs.com","youranshare.com","axutongxue.space","foodieteller.com","haiwaishubao.com","league-funny.com","m.biqiugege8.com","player.hboav.com","banzhu1111111.com","banzhu2222222.com","banzhu3333333.com","banzhu4444444.com","banzhu5555555.com","banzhu6666666.com","banzhu7777777.com","banzhu8888888.com","banzhu9999999.com","m.biquge12345.com","wap.biqugewx.info","wap.yushuwu.cloud","work.weixin.qq.com","hamivideo.hinet.net","helper-employer.com","edc1014070.pixnet.net","axutongxue.onrender.com","taiwanlibrarysearch.herokuapp.com"];
     const collectArglistRefIndices = (out, hn, r) => {
@@ -2131,6 +2136,7 @@ if ( $hasHostnames$ ) {
             }
         }
     };
+    const todoIndices = new Set();
     indicesFromHostname(todoIndices, entries[0]);
     if ( $hasAncestors$ ) {
         for ( const entry of entries ) {
@@ -2138,19 +2144,18 @@ if ( $hasHostnames$ ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-}
-
-// Collect arglist references
-const todo = new Set();
-if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 240 */ "21,189;79,80;68,69;104,105;191,192;123,124,125;207;13;92,141;174;93;155;79,80;145;44;95,96,97;57;135;104,105;22;18,42,114;142;173;132;140;52;190,203;37;40,58,59;48;217;193,194;27;121;67;154;71;10;197,204,205,206;21,189;112;103;60;147;115;99;94;132;193,194;169;13;198;139;90,91,92;5,6,7,8,9;176,202;63,64,65,66;47;13;209,210,211,212,213,214,215;24,29,30,156;15;130;46;83;142;135;102;122;128;103;198;19,177,178,179,180,181;18,51;113;104,105;28;164;166;14;199;144;5,6,7,8,9;5,6,7,8,9;5,6,7,8,9;198;168;40;72;1;204,205;131;99,100;16;147;206;209,210,211,212,213,214,215;209,210,211,212,213,214,215;209,210,211,212,213,214,215;163;61;136;139;17,18;142;52,55,56;75,76;175;25;153;206;50;31,32;31,32;98;174;103;182;40;70;163;4,150;44,45;170;193,194;4,150;38,39;5,6,7,8,9,103;4,150;109;182;200;106;216;216;216;216;216;216;129;182;206;110;50;4,150;103,165;171;129;33;149;85;172;36;24;208;137;193,194;24;2;146;77;126;216;216;86,87,88,89;35;107;103,151,162;3;41;78;195,196;195,196;26;174;174;43,86,87,88;43;103;103;23;82;135;53,54;201;160,161;86,87,88;84;49;52;13;0;204,205,206,-208;193,194;143;152;137;20;195,196;195,196;195,196;118;157,158,159;157,158,159;119,120;133;183,184,185,186,187;148;62;116,117;127;73;111;31,32;193,194;74;195,196;193,194;167;81;138;101;163;163;163;163;163;163;163;163;163;174;198;188,200;-208;108;11,12;134;195,196;34";
-    const arglistRefs = $scriptletArglistRefs$.split(';');
-    for ( const i of todoIndices ) {
-        for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
-            todo.add(ref);
+    // Collect arglist references
+    if ( todoIndices.size ) {
+        const $scriptletArglistRefs$ = /* 240 */ "22,190;80,81;69,70;105,106;192,193;124,125,126;208;14;93,142;175;94;156;80,81;146;45;96,97,98;58;136;105,106;23;19,43,115;143;174;133;141;53;191,204;38;41,59,60;49;218;194,195;28;122;68;155;72;11;198,205,206,207;22,190;113;104;61;148;116;100;95;133;194,195;170;14;199;140;91,92,93;6,7,8,9,10;177,203;64,65,66,67;48;14;210,211,212,213,214,215,216;25,30,31,157;16;131;47;84;143;136;103;123;129;104;199;20,178,179,180,181,182;19,52;114;105,106;29;165;167;15;200;145;6,7,8,9,10;6,7,8,9,10;6,7,8,9,10;199;169;41;73;2;205,206;132;100,101;17;148;207;210,211,212,213,214,215,216;210,211,212,213,214,215,216;210,211,212,213,214,215,216;164;62;137;140;18,19;143;53,56,57;76,77;176;26;154;207;51;32,33;32,33;99;175;104;183;41;71;164;5,151;45,46;171;194,195;5,151;39,40;6,7,8,9,10,104;5,151;110;183;201;107;217;217;217;217;217;217;130;183;207;111;51;5,151;104,166;172;130;34;150;86;173;37;25;209;138;194,195;25;3;147;78;127;217;217;87,88,89,90;36;108;104,152,163;4;42;79;196,197;196,197;27;175;175;44,87,88,89;44;104;104;24;83;136;54,55;202;161,162;87,88,89;85;50;53;14;1;205,206,207,-209;194,195;144;153;138;21;196,197;196,197;196,197;119;158,159,160;158,159,160;120,121;134;184,185,186,187,188;149;63;117,118;128;74;112;32,33;194,195;75;196,197;194,195;168;82;139;102;164;164;164;164;164;164;164;164;164;175;199;189,201;-209;109;12,13;135;196,197;35";
+        const arglistRefs = $scriptletArglistRefs$.split(';');
+        for ( const i of todoIndices ) {
+            for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
+                todo.add(ref);
+            }
         }
     }
 }
+
 if ( $hasRegexes$ ) {
     const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
@@ -2169,14 +2174,13 @@ if ( $hasRegexes$ ) {
         }
     }
 }
-if ( todo.size === 0 ) { return; }
 
-// Execute scriplets
-{
+// Execute scriptlets
+if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 19 */
 [preventSetTimeout,preventAddEventListener,abortOnPropertyRead,setConstant,abortOnStackTrace,abortCurrentScript,preventFetch,spoofCSS,abortOnPropertyWrite,preventXhr,preventSetInterval,noEvalIf,noWindowOpenIf,adjustSetTimeout,adjustSetInterval,jsonPrune,preventInnerHTML,removeAttr,evaldataPrune];
     const $scriptletArgs$ = /* 242 */ ["triggerAdBlockModal","DOMContentLoaded","detectAdBlocker","SPM_CONFIG.adblockOnly","checkAdScript","noopFunc","](getComputedStyle,","Element.prototype.attachShadow","Object.Score","document.querySelector","isAdblocked","MutationObserver","/bait\\.offsetHeight===0|isAdblocked|requestAnimationFrame\\(|AdBlock|AdGuard/","showModal","offsetHeight === 0","adsbygoogle.js",".adsbygoogle","display","block","pagead2.googlesyndication.com","EventTarget.prototype.addEventListener","window.getComputedStyle","document.getElementById","adBlockDetected","alert",".onerror","ad_id_for_555","","all520dddaaa2022ccc","true",".offsetHeight == 0","checkAdblock","/DOMContentLoaded|load|complete/","/check|detected/","ads",".offsetHeight","_AdBlockInit","/googlesyndication\\.com|doubleclick\\.net/","offsetHeig\\'+\\'ht\\']","/api/ads","alertadmodal","adsbygoogle","{}","adsbygoogle.loaded","float_right > div","document.dispatchEvent","/getexoloader/","decodeURIComponent","pagead","www3.doubleclick.net","adblock_tip","AD_SURVEY_Add_AdPos","AD_SURVEY_Add_AdPos_Simple","killads","/\\.height\\(\\) == 0|adsbygoogle/","myModal","loadErrorTip","ins.adsbygoogle","isAdsDisplayed","error","event.target.tagName","_0x","fuzqingAdPlus","Ad Block","all520dddaaa2022aaa","undefined","canRunAds","adBlock","adblock","0","can_run_ads","typeof(ad)","jQuery","\\u","document.writeln","发现严重BUG","document.createElement","make_rand_div","checker","google_tag_manager","/pagead2\\.googlesyndication\\.com|\\/fbevents\\.js/","google.ima.AdError","/#myModal'\\)\\.modal/","ga","google_empty_script_included","setTimeout","COOKIE_NAME","html","ADS_BLOCKED","$","adskilltest","/home/?adblock=","/!document\\.getElementById\\([\\s\\S]*?\\.style\\.display=/","showRemoveAdBlocker","Object.prototype.cnobpreroll_","Object.prototype.canobpreroll_","ad_num_show","!document.getElementById(btoa","daau_app","NativeAd","__jsadsuccess","checkSiteNormalLoad","__DOMAIN","onload","null","adbk","false","/ad block stop|warm_msg/","config.group","encodeURIComponent","preBid","preBid.displayAd","preBid.getPrerollVASTUrl","adStart","eval","document.write","player.VastADPlugin","ADSOBJET","Object.prototype.pgmp","invokeInterstitial","Object.prototype.ShouldLoadAds","delCookie","injectPops","myPlayer.adDisplay","NEWS_FEED","infoid","document.write(ad);","conone_lmg","location.href","3000","adCountDown","0.02",".s--","Object.prototype.ad_switch","dy_card_dyrun","/bit\\.ly|kbtv/","video-ad-timeout","*","tips","poped","*.*","adFeedbackData adType adServedUrls","list.*.link.ad list.*.link.kicker","configs.*.properties.slideshowWCSettings.interstitialNativeAds configs.*.properties.fullScreenSlideshowSettings.interstitialNativeAds properties.componentConfigs.slideshowConfigs.interstitialNativeAds properties.componentConfigs.slideshowConfigs.slideshowSettings.interstitialNativeAds","popunder","Object.prototype.adData","Object.prototype._adData","qciss.net","akumtagcc","myclick","/getCookie[\\s\\S]*?\\(\"\\\\x/","MM_openBrWindow","/\\.(gif|php)/","window.leave","CloseAd","lists","timerAdCountdown","88p2p.com","is_show","mount_adsqrt_ad","new Function","player.adList","localStorage","showAd","DPLAYER_PREROLL_AD.attachPreRollAd","sponsored","Function",".map(function","/<script src=.*Math\\.floor\\(Date\\.now\\(\\)/","click","window.open","adbyunion","Math.floor","data.*.list.[-].resourceData.adData","visitUrl","adRender","addImageAd","Uint8Array","loadAd","createFixedBottomBannerWithClose","/deposit-bonus?platform=26&utm_source=","mmPopup() {","div","_mtj","document.getElementsByTagName","try{e()}catch(e){if(t[e.message])return;",".current=setTimeout","5000","0.001","position:","window.location.href","allData.safeLevel","1","ecjkox.com","ads_codes","touchend","!/external","adUI","1000","appData","[]","topData","midData","btmData","coupletData","data-ads_url","[data-ads_url]","parentNode.insertBefore","1500","navigator","Math.random","return a.split","WebSocket","adModal","adInfo","isAdLoaded","Object.prototype.noAD","__PROXY_META","__ad_unblock_id_obfuscation","/getCookie|checkCK|checkCookie|checkC00kie|checkCoookie|checkCookiiiie|document\\.cookie|buttonClose|exptime/","infoList","data.CardList.[].children_list.ad_list data.CardList.[-].params.advertiser_name","addEventListener(\"touchstart\"","adObj","clientheight","/(?=^(?![\\s\\S]*(static|jquery)))/","data.[-].ad.adScene items.*.video.*.data.[-].ad.adScene data.template.tabs.*.blocks.*.data.data.*.videos.feature_ad data.template.tabs.*.blocks.*.data.data.videos.*.ad","style","#banner[style*=\"background-image:url\"]","CreativePlayerwebPlugin.AD_EVENT.AD_DESTROY","CreativePlayerwebPlugin.AD_EVENT.AD_LOAD_START","ad","data.cm_info.ads","pageData.__banners.0.commercial.mediaUrl","pageData.__banners.0.commercial.jumpUrl","pageData.__banners.0.commercial.title","pageData.__banners.1.commercial.mediaUrl","pageData.__banners.1.commercial.jumpUrl","pageData.__banners.1.commercial.title","detailParams.is_ad_play","entity.commercial","new Function(document["];
-    const $scriptletArglists$ = /* 218 */ "0,0;1,1,2;2,3;3,4,5;0,6;4,7,8;4,9,10;5,11,10;0,12;1,1,13;0,14;6,15;7,16,17,18;6,19;5,20,21;5,22,23;4,24,25;3,26,27;3,28,29;0,30;8,31;1,32,33;2,34;0,35;3,36,5;6,37;0,38;9,39;2,40;3,41,42;3,43,29;0,44;5,45,46;5,47,48;6,49;9,41;5,9,21;0,50;3,51,5;3,52,5;3,53,29;0,54;0,55;0,56;0,57;3,58,29;1,59,60;0,61;3,62,42;10,63;2,23;3,64,65;3,66,29;1,1,67;3,68,69;3,70,29;0,68;5,24,71;5,72,73;5,74,73;0,75;4,76,77;0,78;3,79,42;9,19;6,80;3,81,5;5,22,82;3,83,5;3,84,29;5,85,86;0,87;11,88;3,41,5;5,89,90;0,91;10,91;5,22,92;1,27,93;3,94,29;3,95,29;0,96;0,41;3,34,27;5,89,97;2,98;3,99,5;3,100,29;0,101;8,102;3,103,104;3,105,106;0,107;3,108,27;11,109;3,110,42;3,111,5;3,112,5;8,113;5,114,61;5,115,61;3,116,5;3,117,42;12;4,118,119;2,120;8,121;5,72,122;3,123,65;3,124,5;5,89,125;5,115,126;3,127,5;1,1,76;0,128,129;13,130,27,131;14,132,27,131;3,133,69;3,134,65;12,135;13,136,137,131;5,115,138;3,139,29;15,140,141;15,137,142;15,143;2,144;3,145,42;13,27,27,131;3,146,42;12,69,147;2,148;2,149;5,115,150;3,151,5;5,115,152;5,153;13,154,27,131;3,155,65;5,89,144;14,156,27,131;12,157;3,158,106;4,76,159;5,76,160;3,161,42;5,162,163;3,164,5;1,1,165;5,166,167;5,115,168;1,169,170;2,171;5,172,138;15,173;5,76,174;3,175,5;2,176;4,177,178;2,179;5,89,180;5,89,181;16,182,183;5,184,183;0,185;5,74;13,186,187,188;5,115;1,1,162;5,115,189;0,190;3,191,192;0,193;5,115,194;1,195,190;12,196;14,197,198,131;3,199,200;3,201,200;3,202,200;3,203,200;3,204,200;17,205,206;0,207,198;0,207,208;5,209,128;5,210,207;5,76,211;11,212;5,89,213;3,214,42;3,215,29;3,216,29;8,217;8,218;0,219;3,220,200;15,221;0,222;3,223,5;1,195,224;4,76,225;15,226;17,227,228;3,229,27;3,230,27;15,34;15,231;15,232;3,233,27;3,234,27;3,235,27;3,236,27;3,237,27;3,238,27;3,239,106;18,240;5,166,241";
+    const $scriptletArglists$ = /* 219 */ ";0,0;1,1,2;2,3;3,4,5;0,6;4,7,8;4,9,10;5,11,10;0,12;1,1,13;0,14;6,15;7,16,17,18;6,19;5,20,21;5,22,23;4,24,25;3,26,27;3,28,29;0,30;8,31;1,32,33;2,34;0,35;3,36,5;6,37;0,38;9,39;2,40;3,41,42;3,43,29;0,44;5,45,46;5,47,48;6,49;9,41;5,9,21;0,50;3,51,5;3,52,5;3,53,29;0,54;0,55;0,56;0,57;3,58,29;1,59,60;0,61;3,62,42;10,63;2,23;3,64,65;3,66,29;1,1,67;3,68,69;3,70,29;0,68;5,24,71;5,72,73;5,74,73;0,75;4,76,77;0,78;3,79,42;9,19;6,80;3,81,5;5,22,82;3,83,5;3,84,29;5,85,86;0,87;11,88;3,41,5;5,89,90;0,91;10,91;5,22,92;1,27,93;3,94,29;3,95,29;0,96;0,41;3,34,27;5,89,97;2,98;3,99,5;3,100,29;0,101;8,102;3,103,104;3,105,106;0,107;3,108,27;11,109;3,110,42;3,111,5;3,112,5;8,113;5,114,61;5,115,61;3,116,5;3,117,42;12;4,118,119;2,120;8,121;5,72,122;3,123,65;3,124,5;5,89,125;5,115,126;3,127,5;1,1,76;0,128,129;13,130,27,131;14,132,27,131;3,133,69;3,134,65;12,135;13,136,137,131;5,115,138;3,139,29;15,140,141;15,137,142;15,143;2,144;3,145,42;13,27,27,131;3,146,42;12,69,147;2,148;2,149;5,115,150;3,151,5;5,115,152;5,153;13,154,27,131;3,155,65;5,89,144;14,156,27,131;12,157;3,158,106;4,76,159;5,76,160;3,161,42;5,162,163;3,164,5;1,1,165;5,166,167;5,115,168;1,169,170;2,171;5,172,138;15,173;5,76,174;3,175,5;2,176;4,177,178;2,179;5,89,180;5,89,181;16,182,183;5,184,183;0,185;5,74;13,186,187,188;5,115;1,1,162;5,115,189;0,190;3,191,192;0,193;5,115,194;1,195,190;12,196;14,197,198,131;3,199,200;3,201,200;3,202,200;3,203,200;3,204,200;17,205,206;0,207,198;0,207,208;5,209,128;5,210,207;5,76,211;11,212;5,89,213;3,214,42;3,215,29;3,216,29;8,217;8,218;0,219;3,220,200;15,221;0,222;3,223,5;1,195,224;4,76,225;15,226;17,227,228;3,229,27;3,230,27;15,34;15,231;15,232;3,233,27;3,234,27;3,235,27;3,236,27;3,237,27;3,238,27;3,239,106;18,240;5,166,241";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

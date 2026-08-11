@@ -204,12 +204,13 @@ function abortOnPropertyWrite(
 
 function abortOnStackTrace(
     chain = '',
-    needle = ''
+    needle = '',
+    ...varargs
 ) {
     if ( typeof chain !== 'string' ) { return; }
     const safe = safeSelf();
     const needleDetails = safe.initPattern(needle, { canNegate: true });
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     if ( needle === '' ) { extraArgs.log = 'all'; }
     const makeProxy = function(owner, chain) {
         const pos = chain.indexOf('.');
@@ -434,12 +435,13 @@ function getRandomTokenFn() {
 function jsonPrune(
     rawPrunePaths = '',
     rawNeedlePaths = '',
-    stackNeedle = ''
+    stackNeedle = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
     const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     proxyApplyFn('JSON.parse', function(context) {
         const objBefore = context.reflect();
         if ( rawPrunePaths === '' ) {
@@ -756,10 +758,11 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
 
 function preventAddEventListener(
     type = '',
-    pattern = ''
+    pattern = '',
+    ...varargs
 ) {
     const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
     const reType = safe.patternToRegex(type, undefined, true);
     const rePattern = safe.patternToRegex(pattern);
@@ -855,7 +858,8 @@ function preventFetchFn(
     trusted = false,
     propsToMatch = '',
     responseBody = '',
-    responseType = ''
+    responseType = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const setTimeout = self.setTimeout;
@@ -866,7 +870,7 @@ function preventFetchFn(
         responseBody,
         responseType
     );
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 4);
+    const extraArgs = safe.parseVarargs(varargs);
     const propNeedles = parsePropertiesToMatchFn(propsToMatch, 'url');
     const validResponseProps = {
         ok: [ false, true ],
@@ -1450,15 +1454,14 @@ function safeSelf() {
             }
             return /^/;
         },
-        getExtraArgs(args, offset = 0) {
-            const entries = args.slice(offset).reduce((out, v, i, a) => {
-                if ( (i & 1) === 0 ) {
-                    const rawValue = a[i+1];
-                    const value = /^\d+$/.test(rawValue)
-                        ? parseInt(rawValue, 10)
-                        : rawValue;
-                    out.push([ a[i], value ]);
-                }
+        parseVarargs(varargs) {
+            const entries = varargs.reduce((out, v, i, a) => {
+                if ( i & 1 ) { return out; }
+                const rawValue = a[i+1];
+                const value = /^\d+$/.test(rawValue)
+                    ? parseInt(rawValue, 10)
+                    : rawValue;
+                out.push([ a[i], value ]);
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
@@ -1531,12 +1534,13 @@ function setConstant(
 function setConstantFn(
     trusted = false,
     chain = '',
-    rawValue = ''
+    rawValue = '',
+    ...varargs
 ) {
     if ( chain === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     function setConstant(chain, rawValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -1855,7 +1859,8 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const todoIndices = new Set();
+const todo = new Set();
+
 if ( $hasHostnames$ ) {
     const $scriptletHostnames$ = /* 106 */ ["ac.ir","1da.ir","1ea.ir","2ad.ir","fam.ir","iwo.ir","tmk.ir","anaj.ir","blog.ir","lenz.ir","oila.tj","up44.ir","bizma.ir","mopon.ir","opizo.me","rebec.ir","farnet.io","my.mci.ir","subf2m.ir","tabnak.ir","vakil.net","alaatv.com","fidibo.com","filmnet.ir","jeyran.net","karbord.io","musichi.ir","noorlib.ir","pwa.mci.ir","sclinic.ir","subkade.ir","tak3da.com","themez.top","tinroid.ir","uptrack.ir","uupload.ir","appiroid.ir","binanews.ir","digiform.ir","fontyab.com","jafekri.com","msbmusic.ir","musicdel.ir","musictag.ir","takmili.com","tamasha.com","targoman.ir","zeemusic.ir","animelist.tv","fileboro.com","hamkelasi.ir","iranstar.com","itarfand.com","jobvision.ir","khabarpu.com","najiremix.ir","naslmusic.ir","netgasht.com","saednews.com","texahang.org","artmusics.top","barcanews.org","behtaraneh.ir","coffeeapps.ir","elmefarda.com","getandroid.ir","gold-team.org","likeemusic.ir","musiceman.net","musicpars3.ir","myhastidl.cam","nab-music.com","p30konkor.com","searchline.ir","takhfifan.com","tarfandha.org","app.snapp.taxi","autosafkar.com","bandmoviez.one","dailymobile.ir","downloadha.com","iran-music.com","ketabesabz.com","lahzeakhar.com","musickhone.com","play.namava.ir","power-music.ir","s-moshaver.com","shahanmusic.ir","skyroom.online","tabanmusic.com","tigatravel.com","up.20script.ir","androidparsi.ir","androidtime.com","app.blubank.com","ganjipakhsh.com","musicguitars.ir","mybia4music.com","salamatnews.com","androidgozar.com","javan-musics.com","hamisheonline.com","anesthesianotes.ir","play.radiojavan.com","player.telewebion.com"];
     const collectArglistRefIndices = (out, hn, r) => {
@@ -1892,6 +1897,7 @@ if ( $hasHostnames$ ) {
             }
         }
     };
+    const todoIndices = new Set();
     indicesFromHostname(todoIndices, entries[0]);
     if ( $hasAncestors$ ) {
         for ( const entry of entries ) {
@@ -1899,19 +1905,18 @@ if ( $hasHostnames$ ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-}
-
-// Collect arglist references
-const todo = new Set();
-if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 106 */ "9;19;19;19;22;37;70;2,3,4;1;46;87;86;15;51;58;60;31;28,29,30,49,50;0;82;40;91,92,93,94,95,96;28,29,30;25;40;43;0;54;28,29,30,49,50;5,6;61;71;19;69;0;37;0;18;89,90;26,27;39,40,41,42;52;48;0;40,75,76,77,78,79,80;72,73,74;68;0;8;23,24;61;34,35;36;38;44;0;0;52;66,67;12,13;0;14;12,13;5,6;21;0;37;0;13;0;52;55;5,6;40;84,85;10;65;7;17;10;20;12,13;45;47;0;56,57;0;21,63;62;64;12,13;81;88;10;0;16;32;0;53;2,3,4;11;12,13;33;5,6;59;83";
-    const arglistRefs = $scriptletArglistRefs$.split(';');
-    for ( const i of todoIndices ) {
-        for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
-            todo.add(ref);
+    // Collect arglist references
+    if ( todoIndices.size ) {
+        const $scriptletArglistRefs$ = /* 106 */ "10;20;20;20;23;38;71;3,4,5;2;47;88;87;16;52;59;61;32;29,30,31,50,51;1;83;41;92,93,94,95,96,97;29,30,31;26;41;44;1;55;29,30,31,50,51;6,7;62;72;20;70;1;38;1;19;90,91;27,28;40,41,42,43;53;49;1;41,76,77,78,79,80,81;73,74,75;69;1;9;24,25;62;35,36;37;39;45;1;1;53;67,68;13,14;1;15;13,14;6,7;22;1;38;1;14;1;53;56;6,7;41;85,86;11;66;8;18;11;21;13,14;46;48;1;57,58;1;22,64;63;65;13,14;82;89;11;1;17;33;1;54;3,4,5;12;13,14;34;6,7;60;84";
+        const arglistRefs = $scriptletArglistRefs$.split(';');
+        for ( const i of todoIndices ) {
+            for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
+                todo.add(ref);
+            }
         }
     }
 }
+
 if ( $hasRegexes$ ) {
     const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
@@ -1930,14 +1935,13 @@ if ( $hasRegexes$ ) {
         }
     }
 }
-if ( todo.size === 0 ) { return; }
 
-// Execute scriplets
-{
+// Execute scriptlets
+if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 14 */
 [noWindowOpenIf,setConstant,abortOnPropertyRead,abortCurrentScript,preventAddEventListener,adjustSetInterval,removeAttr,jsonPrune,abortOnPropertyWrite,preventXhr,preventFetch,adjustSetTimeout,preventSetTimeout,abortOnStackTrace];
     const $scriptletArgs$ = /* 118 */ ["constant.copyText","","jscd","{}","document.URL","undefined","document.referrer","nocontext","disableSelection","reEnable","scroll","return\"undefined\"","timeLeft","*","0.02","chromeOS","true","vc_url","ShowPopUp","false","load","contextmenu","onmousedown|onselectstart","body","adsShow","/contextmenu|copy|cut/","preventDefault","document.onclick","checkCookie","openTelegram","noopFunc","blurred","DOMContentLoaded","ajax_tptn_tracker","props.children.[].props.children.[].props.children.props.advertisment","document.onselectstart","killCopy","document.oncopy","trace data.vast_url data.ads","time1","0","time30","navigator.userAgent","navigator.appVersion","navigator.appName","eif","t.preventDefault","Hamisheonlinepaps","onselectstart|oncopy|oncontextmenu","jQuery","Drupal","candidatelogapi method:POST","document.oncontextmenu","wccp_pro","clear_body_at_all_for_extentions","SearchiaClick","document.getElementById","0.01","KetabrahPopup","elements","div#rmpPlayer","customnotify","runScript","window.screen.width","window.screen.height","click","720","needpop","pa_vc_url","copy","throw","result.commercialUrl result.watermark","PlayReports","count","appConfig.skips_limit","60000","/contextmenu|keydown|dragstart|mousemove/","countdown","show_wpcp_message","result.adsText result.adsLink","data.geocampaigns","videojs.ads","fixedPostGroups","updateAdContents","tinPa","data","data.vast data.content data.ad_id","SGPB_POPUP_PARAMS","socketUrl","VASTEnabled","vastURL","[]","disable_copy","disable_drag_text","disable_hot_keys","disable_drag_images","dealWithPrintScrKey","draggable","stay","document.createElement","join_telegram","document.write","renderAds","body.productStatus","_paq","_paq.push","window.LOCO_DATA.copyrightTranslation","tick","oncopy|oncut|onpaste","complete","/pageshow|focus|blur|visibilitychange|resume|freeze/","logStateChange","Metrix","Metrix.deauthorizeUser","Metrix.init","zebline","zebline.event","zebline.event.track"];
-    const $scriptletArglists$ = /* 97 */ "0;1,0,1;1,2,3;1,4,5;1,6,5;2,7;3,8,9;4,10,11;5,12,13,14;1,15,16;3,17;1,18,19;4,20,21;6,22,23;1,24,16;4,25,11;4,21,26;3,27,28;1,29,30;1,31,19;4,32,33;4,21;7,34;3,35,36;8,37;7,38;1,39,40;1,41,40;1,42,1;1,43,1;1,44,1;3,45;4,1,46;3,27,47;6,48,23;3,49,50;3,49,21;5;9,51;3,9;3,52;3,49,53;3,54;10,55;11,56,13,57;1,58,30;4,21,26,59,60;1,61,30;1,62,19;1,63,40;1,64,40;4,65,66;1,67,40;3,68;4,69,70;2,17;7,71;9,72;1,73,40;1,74,75;4,76,11;5,77;2,78;1,8,30;7,79;7,80;4,32,81;2,82;12,83;2,84;7,85,86;2,87;1,88,5;1,89,19;1,90,91;1,92,30;1,93,30;1,94,30;1,95,30;1,96,30;6,97,1,98;13,99,100;3,101,102;7,103;1,104,91;1,105,30;5,1,1,40;2,106;11,107;6,108,23,109;4,110,111;1,112,3;1,113,30;1,114,30;1,115,3;1,116,3;1,117,30";
+    const $scriptletArglists$ = /* 98 */ ";0;1,0,1;1,2,3;1,4,5;1,6,5;2,7;3,8,9;4,10,11;5,12,13,14;1,15,16;3,17;1,18,19;4,20,21;6,22,23;1,24,16;4,25,11;4,21,26;3,27,28;1,29,30;1,31,19;4,32,33;4,21;7,34;3,35,36;8,37;7,38;1,39,40;1,41,40;1,42,1;1,43,1;1,44,1;3,45;4,1,46;3,27,47;6,48,23;3,49,50;3,49,21;5;9,51;3,9;3,52;3,49,53;3,54;10,55;11,56,13,57;1,58,30;4,21,26,59,60;1,61,30;1,62,19;1,63,40;1,64,40;4,65,66;1,67,40;3,68;4,69,70;2,17;7,71;9,72;1,73,40;1,74,75;4,76,11;5,77;2,78;1,8,30;7,79;7,80;4,32,81;2,82;12,83;2,84;7,85,86;2,87;1,88,5;1,89,19;1,90,91;1,92,30;1,93,30;1,94,30;1,95,30;1,96,30;6,97,1,98;13,99,100;3,101,102;7,103;1,104,91;1,105,30;5,1,1,40;2,106;11,107;6,108,23,109;4,110,111;1,112,3;1,113,30;1,114,30;1,115,3;1,116,3;1,117,30";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

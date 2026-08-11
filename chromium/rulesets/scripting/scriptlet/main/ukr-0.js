@@ -293,12 +293,13 @@ function getRandomTokenFn() {
 function jsonPrune(
     rawPrunePaths = '',
     rawNeedlePaths = '',
-    stackNeedle = ''
+    stackNeedle = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
     const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     proxyApplyFn('JSON.parse', function(context) {
         const objBefore = context.reflect();
         if ( rawPrunePaths === '' ) {
@@ -615,10 +616,11 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
 
 function preventAddEventListener(
     type = '',
-    pattern = ''
+    pattern = '',
+    ...varargs
 ) {
     const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
     const reType = safe.patternToRegex(type, undefined, true);
     const rePattern = safe.patternToRegex(pattern);
@@ -714,7 +716,8 @@ function preventFetchFn(
     trusted = false,
     propsToMatch = '',
     responseBody = '',
-    responseType = ''
+    responseType = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const setTimeout = self.setTimeout;
@@ -725,7 +728,7 @@ function preventFetchFn(
         responseBody,
         responseType
     );
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 4);
+    const extraArgs = safe.parseVarargs(varargs);
     const propNeedles = parsePropertiesToMatchFn(propsToMatch, 'url');
     const validResponseProps = {
         ok: [ false, true ],
@@ -1110,15 +1113,14 @@ function safeSelf() {
             }
             return /^/;
         },
-        getExtraArgs(args, offset = 0) {
-            const entries = args.slice(offset).reduce((out, v, i, a) => {
-                if ( (i & 1) === 0 ) {
-                    const rawValue = a[i+1];
-                    const value = /^\d+$/.test(rawValue)
-                        ? parseInt(rawValue, 10)
-                        : rawValue;
-                    out.push([ a[i], value ]);
-                }
+        parseVarargs(varargs) {
+            const entries = varargs.reduce((out, v, i, a) => {
+                if ( i & 1 ) { return out; }
+                const rawValue = a[i+1];
+                const value = /^\d+$/.test(rawValue)
+                    ? parseInt(rawValue, 10)
+                    : rawValue;
+                out.push([ a[i], value ]);
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
@@ -1191,12 +1193,13 @@ function setConstant(
 function setConstantFn(
     trusted = false,
     chain = '',
-    rawValue = ''
+    rawValue = '',
+    ...varargs
 ) {
     if ( chain === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     function setConstant(chain, rawValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -1515,7 +1518,8 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const todoIndices = new Set();
+const todo = new Set();
+
 if ( $hasHostnames$ ) {
     const $scriptletHostnames$ = /* 164 */ ["at.ua","do.am","ain.ua","moy.su","my1.ru","ogo.ua","sud.ua","zik.ua","azku.ru","bouw.ru","clan.su","elle.ua","grad.ua","silf.ua","tele.ru","viva.ua","womo.ua","4mama.ua","d-mod.ru","dengi.ua","diwis.ru","fakty.ua","narod.ru","vlast.kz","www.i.ua","13idei.ru","colady.ru","ex-fs.net","iklife.ru","isport.ua","ixtira.tv","jetvis.ru","kinogo.eu","kubik3.ru","kursiv.kz","molbuk.ua","oblcit.ru","toysew.ru","aniqit.com","anisima.ru","bagnet.org","cbn.com.ua","glavnoe.ua","hvylya.net","kopomko.ru","lumpics.ru","mirknig.su","newsua.one","nnmclub.to","nr2.com.ua","rub.org.ua","rusjev.net","sibkray.ru","unn.com.ua","usatiki.ru","zikua.news","3witcher.ru","agronews.ua","comments.ua","dooralei.ru","golos.te.ua","igrul-ka.ru","it-doc.info","kurs.com.ua","megomult.ru","menstois.ru","mydizajn.ru","pingvin.pro","selezen.net","sinoptik.ua","staroetv.su","teren.in.ua","times.km.ua","womanel.com","1plus1.video","baragozik.ru","brjunetka.ru","catfishes.ru","doramakun.ru","enovosty.com","ethnoboho.ru","freerutor.me","glavpost.com","idealsad.com","kulikavto.ru","newsoneua.tv","paravozik.tv","plus-plus.tv","provce.ck.ua","rusadmin.biz","subsidii.net","tapochek.net","tverigrad.ru","versii.if.ua","altyn-orda.kz","cikavosti.com","fainaidea.com","glav-dacha.ru","greenflash.su","guitarrist.ru","livekavkaz.ru","play-force.ru","procherk.info","rainbowsky.ru","rugraphics.ru","sam-sdelay.ru","sdelaicomp.ru","telefongid.ru","tenews.org.ua","viborprost.ru","vsviti.com.ua","zakonguru.com","4studio.com.ua","agroreview.com","antirodinka.ru","cheline.com.ua","dv-gazeta.info","info-effect.ru","kapital-rus.ru","kino-hd720.net","love-mother.ru","marieclaire.ua","megabitcomp.ru","mignews.com.ua","otvetnavse.com","plitkar.com.ua","portal.lviv.ua","pro-zakupki.ru","proagro.com.ua","prozoro.net.ua","redpost.com.ua","samelectrik.ru","snow-motion.ru","sprintotvet.ru","tehnika.expert","telegraf.in.ua","windowstune.ru","fanofnfs.3dn.ru","fitnavigator.ru","historynotes.ru","news.dks.com.ua","privivkainfo.ru","rivnepost.rv.ua","root-nation.com","russkiiyazyk.ru","serviceyard.net","tc-image.3dn.ru","elektronika56.ru","gorodkiev.com.ua","kino-fs.ucoz.net","kino-torrent.net","rivnenews.com.ua","selfmadetrip.com","svoimi-rykami.ru","volyninfa.com.ua","pokatushki-pmr.ru","legion-rus.clan.su","politnavigator.net","classicalmusicnews.ru","prichernomorie.com.ua","ustroim-prazdnik.info","cosmonova-broadcast.tv","sekreti-domovodstva.ru","programdownloadfree.com"];
     const collectArglistRefIndices = (out, hn, r) => {
@@ -1552,6 +1556,7 @@ if ( $hasHostnames$ ) {
             }
         }
     };
+    const todoIndices = new Set();
     indicesFromHostname(todoIndices, entries[0]);
     if ( $hasAncestors$ ) {
         for ( const entry of entries ) {
@@ -1559,19 +1564,18 @@ if ( $hasHostnames$ ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-}
-
-// Collect arglist references
-const todo = new Set();
-if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 164 */ "7,9;7;5,15;7;7;11;11;11;23;23;7;11;11;14;11;11;11;11;23;3;23;11;7,9;11;18;23;23;3;23;19;23;7;10;7;11;11;23;23;4;23;11;11;11;3;23;23;3;11;10;11;7;11;11;11;23;11;23;6,24;11,20,21;23;11;7;23;17;7;23;23;11;7;0;7;11;11;11;1;23;23;23;10;11;23;22;11;23;23;11;7;1;11;23;23;8;11;11;11;11;11;23;7;23;11;7;11;23;23;23;23;23;11;23;11;23;11;6,24;23;11;11;23;11;3;23;11;23;11;11;11;11;7;16;2;11;23;23;23;23;11;23;7,8;23;23;11;23;11;13;23;23;7;7;11;3;7;11;23;23;11;7;7;11;6;11;23;12;23;23";
-    const arglistRefs = $scriptletArglistRefs$.split(';');
-    for ( const i of todoIndices ) {
-        for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
-            todo.add(ref);
+    // Collect arglist references
+    if ( todoIndices.size ) {
+        const $scriptletArglistRefs$ = /* 164 */ "8,10;8;6,16;8;8;12;12;12;24;24;8;12;12;15;12;12;12;12;24;4;24;12;8,10;12;19;24;24;4;24;20;24;8;11;8;12;12;24;24;5;24;12;12;12;4;24;24;4;12;11;12;8;12;12;12;24;12;24;7,25;12,21,22;24;12;8;24;18;8;24;24;12;8;1;8;12;12;12;2;24;24;24;11;12;24;23;12;24;24;12;8;2;12;24;24;9;12;12;12;12;12;24;8;24;12;8;12;24;24;24;24;24;12;24;12;24;12;7,25;24;12;12;24;12;4;24;12;24;12;12;12;12;8;17;3;12;24;24;24;24;12;24;8,9;24;24;12;24;12;14;24;24;8;8;12;4;8;12;24;24;12;8;8;12;7;12;24;13;24;24";
+        const arglistRefs = $scriptletArglistRefs$.split(';');
+        for ( const i of todoIndices ) {
+            for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
+                todo.add(ref);
+            }
         }
     }
 }
+
 if ( $hasRegexes$ ) {
     const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
@@ -1590,14 +1594,13 @@ if ( $hasRegexes$ ) {
         }
     }
 }
-if ( todo.size === 0 ) { return; }
 
-// Execute scriplets
-{
+// Execute scriptlets
+if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 9 */
 [abortOnPropertyRead,preventFetch,abortCurrentScript,jsonPrune,setConstant,noWindowOpenIf,removeAttr,abortOnPropertyWrite,preventAddEventListener];
     const $scriptletArgs$ = /* 35 */ ["SIN.AdsLoader","pagead2.googlesyndication.com","adsBlocked","String.fromCharCode","/\\/\\*[0-9a-f]{40}\\*\\//","vast","jQuery","link_br","wpsite_clickable_data","u_global_data","ads_script","utarget_script","document.createElement","/загрузка/","amodule.data","[]","td_ad_background_click_link","undefined","parent.window.opener","/\\/special\\//","href",".ban_head","document.currentScript","admitad","/Function\\('return/","decodeURIComponent","delete window","script.onerror","eval","document.getElementsByTagName","html_brain_link","MarketGidJSON","fpm_adbDetect","DOMContentLoaded","/linkUrl|loadBanner/"];
-    const $scriptletArglists$ = /* 25 */ "0,0;1,1;0,2;2,3,4;3,5;2,6,7;0,8;0,9;0,10;2,9;0,11;2,12,13;4,14,15;4,16,17;0,18;5,19;6,20,21;2,22,23;2,3,24;2,25,26;2,27,28;2,29,30;2,31;7,32;8,33,34";
+    const $scriptletArglists$ = /* 26 */ ";0,0;1,1;0,2;2,3,4;3,5;2,6,7;0,8;0,9;0,10;2,9;0,11;2,12,13;4,14,15;4,16,17;0,18;5,19;6,20,21;2,22,23;2,3,24;2,25,26;2,27,28;2,29,30;2,31;7,32;8,33,34";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

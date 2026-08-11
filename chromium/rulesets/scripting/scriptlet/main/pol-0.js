@@ -204,12 +204,13 @@ function abortOnPropertyWrite(
 
 function abortOnStackTrace(
     chain = '',
-    needle = ''
+    needle = '',
+    ...varargs
 ) {
     if ( typeof chain !== 'string' ) { return; }
     const safe = safeSelf();
     const needleDetails = safe.initPattern(needle, { canNegate: true });
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     if ( needle === '' ) { extraArgs.log = 'all'; }
     const makeProxy = function(owner, chain) {
         const pos = chain.indexOf('.');
@@ -498,10 +499,11 @@ function onIdleFn(fn, options) {
 
 function preventAddEventListener(
     type = '',
-    pattern = ''
+    pattern = '',
+    ...varargs
 ) {
     const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
     const reType = safe.patternToRegex(type, undefined, true);
     const rePattern = safe.patternToRegex(pattern);
@@ -962,15 +964,14 @@ function safeSelf() {
             }
             return /^/;
         },
-        getExtraArgs(args, offset = 0) {
-            const entries = args.slice(offset).reduce((out, v, i, a) => {
-                if ( (i & 1) === 0 ) {
-                    const rawValue = a[i+1];
-                    const value = /^\d+$/.test(rawValue)
-                        ? parseInt(rawValue, 10)
-                        : rawValue;
-                    out.push([ a[i], value ]);
-                }
+        parseVarargs(varargs) {
+            const entries = varargs.reduce((out, v, i, a) => {
+                if ( i & 1 ) { return out; }
+                const rawValue = a[i+1];
+                const value = /^\d+$/.test(rawValue)
+                    ? parseInt(rawValue, 10)
+                    : rawValue;
+                out.push([ a[i], value ]);
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
@@ -1043,12 +1044,13 @@ function setConstant(
 function setConstantFn(
     trusted = false,
     chain = '',
-    rawValue = ''
+    rawValue = '',
+    ...varargs
 ) {
     if ( chain === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     function setConstant(chain, rawValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -1367,9 +1369,10 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const todoIndices = new Set();
+const todo = new Set();
+
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 81 */ ["wp.pl","v10.pl","gala.pl","open.fm","money.pl","otube.pl","tv.wp.pl","cda-tv.pl","garnek.pl","gry.wp.pl","purepc.pl","www.wp.pl","bankier.pl","ebd.cda.pl","filiser.tv","film.wp.pl","filmweb.pl","filmy69.pl","kobieta.pl","komixxy.pl","otomoto.pl","pcworld.pl","pudelek.pl","tech.wp.pl","anyfiles.pl","autokult.pl","dziennik.pl","ekino-tv.pl","facet.wp.pl","pilot.wp.pl","playpuls.pl","streamin.to","wideo.wp.pl","animezone.pl","eurogamer.pl","kafeteria.pl","naekranie.pl","parenting.pl","poczta.wp.pl","pogoda.wp.pl","polygamia.pl","profil.wp.pl","abczdrowie.pl","czasdzieci.pl","echirurgia.pl","fitness.wp.pl","fotoblogia.pl","gry-online.pl","gwiazdy.wp.pl","jegostrona.pl","kobieta.wp.pl","medycyna24.pl","menshealth.pl","tubagliwic.pl","twojeip.wp.pl","autocentrum.pl","calcoolator.pl","hdtvpolska.com","horoskop.wp.pl","joemonster.org","teleshow.wp.pl","transfery.info","wawalove.wp.pl","www.interia.pl","demotywatory.pl","gadzetomania.pl","komorkomania.pl","swiatfilmow.com","tubawyszkowa.pl","womenshealth.pl","facetemjestem.pl","filmowakraina.tv","pl.vpnmentor.com","runners-world.pl","wiadomosci.wp.pl","www.elektroda.pl","opensubtitles.org","motocykl-online.pl","sportowefakty.wp.pl","www.dobreprogramy.pl","auto-motor-i-sport.pl"];
+    const $scriptletHostnames$ = /* 82 */ ["wp.pl","v10.pl","gala.pl","open.fm","money.pl","otube.pl","tv.wp.pl","cda-tv.pl","garnek.pl","gry.wp.pl","purepc.pl","www.wp.pl","bankier.pl","ebd.cda.pl","filiser.tv","film.wp.pl","filmweb.pl","filmy69.pl","kobieta.pl","komixxy.pl","otomoto.pl","pcworld.pl","pudelek.pl","tech.wp.pl","anyfiles.pl","autokult.pl","dziennik.pl","ekino-tv.pl","facet.wp.pl","pilot.wp.pl","playpuls.pl","streamin.to","wideo.wp.pl","animezone.pl","eurogamer.pl","kafeteria.pl","naekranie.pl","parenting.pl","poczta.wp.pl","pogoda.wp.pl","polygamia.pl","profil.wp.pl","abczdrowie.pl","czasdzieci.pl","echirurgia.pl","fitness.wp.pl","fotoblogia.pl","gry-online.pl","gwiazdy.wp.pl","jegostrona.pl","kobieta.wp.pl","medycyna24.pl","menshealth.pl","tubagliwic.pl","twojeip.wp.pl","autocentrum.pl","calcoolator.pl","hdtvpolska.com","horoskop.wp.pl","joemonster.org","teleshow.wp.pl","transfery.info","wawalove.wp.pl","www.interia.pl","demotywatory.pl","gadzetomania.pl","komorkomania.pl","swiatfilmow.com","tubawyszkowa.pl","womenshealth.pl","dobreprogramy.pl","facetemjestem.pl","filmowakraina.tv","pl.vpnmentor.com","runners-world.pl","wiadomosci.wp.pl","www.elektroda.pl","opensubtitles.org","motocykl-online.pl","sportowefakty.wp.pl","www.dobreprogramy.pl","auto-motor-i-sport.pl"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1404,6 +1407,7 @@ if ( $hasHostnames$ ) {
             }
         }
     };
+    const todoIndices = new Set();
     indicesFromHostname(todoIndices, entries[0]);
     if ( $hasAncestors$ ) {
         for ( const entry of entries ) {
@@ -1411,19 +1415,18 @@ if ( $hasHostnames$ ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-}
-
-// Collect arglist references
-const todo = new Set();
-if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 81 */ "6,18;2;2;12,16,17;11,12,13,19;47;19;46;2;19;28;8,9,10,19;24;0;25;19;4,5;45;2;2;48;34;16,17;19;27;19;2;38;7;-7;1;26;19;29;31;16,17;21,22,23;19;-7;19;16,17;15;19;40;19;19;19;2;7,19;2;19;19;44;42;19;2;30;41;19;2;7,19;2;19;35,36;2;19;19;39;42;44;2;43;33;44;19;37;32;44;-7,14,19,20;3;44";
-    const arglistRefs = $scriptletArglistRefs$.split(';');
-    for ( const i of todoIndices ) {
-        for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
-            todo.add(ref);
+    // Collect arglist references
+    if ( todoIndices.size ) {
+        const $scriptletArglistRefs$ = /* 82 */ "7,19;3;3;13,17,18,-14;12,13,14,20;50;20;49;3;20;31;9,10,11,20;27;1;28;20;5,6;48;3;3;51;37;17,18;20;30;20;3;41;8;-8;2;29;20;32;34;17,18;24,25,26;20;-8;20;17,18;16;20,-23;43;20;20;20;3;8,20;3;20;20;47;45;20;3;33;44;20;3;8,20;3;20;38,39;3;20;20;42;45;47;-24;3;46;36;47;20;40;35;47;-8,15,20,21;4;47";
+        const arglistRefs = $scriptletArglistRefs$.split(';');
+        for ( const i of todoIndices ) {
+            for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
+                todo.add(ref);
+            }
         }
     }
 }
+
 if ( $hasRegexes$ ) {
     const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
@@ -1442,14 +1445,13 @@ if ( $hasRegexes$ ) {
         }
     }
 }
-if ( todo.size === 0 ) { return; }
 
-// Execute scriplets
-{
+// Execute scriptlets
+if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 13 */
 [noWindowOpenIf,abortOnPropertyWrite,preventSetTimeout,abortCurrentScript,abortOnPropertyRead,setConstant,abortOnStackTrace,preventAddEventListener,preventSetInterval,noEvalIf,removeAttr,adjustSetTimeout,adjustSetInterval];
-    const $scriptletArgs$ = /* 68 */ ["ads","ub_ct_load","PrebidDamOpen","800","decodeURIComponent","newAdblockBoardDisplayed","addEventListener","/faBar[\\s\\S]*?insertAdjacentElement/","WP.inline","iaqExt","__headpayload","WP.gaf.loadBunch","noopFunc","WP","r https","Object.prototype.rekids","undefined","Object.prototype.gafSlot","Object.prototype.advViewability","Object.prototype.loadBunch","Object.prototype.loadAndRunBunch","HubAPI","3000","message","t.origin===k","/getComputedStyle[\\s\\S]*?style\\.display=\"none\"[\\s\\S]*?styleBlocked[\\s\\S]*?detected/","WP.prebid","onLoad","Object.prototype.bodyCode","function neTick(){neTickCounter++;if(neTickCounter<=neTickCountLimit){neTickAjax=$.ajax({type:\"POST\"","url:adminAjaxUrl+\"?action=ne_tick\"","dataType:\"json\"","success:function(data){neTickResponseAction(data)}})}}","10000","function check(){console.log(\"checked\");if($(\".adform\").children().length>3){console.log(\"its more\");$(\".adform\").children(\".adform-banner\").show();clearTimeout(check)}}","1000","$","/loadData|halfpage|welcome|screening|placement|adtitle/","detectAB","_yhbog","RTCPeerConnection","launchOpenWindow","ubfix()","o6c6e","no-ads-info","yafaIt","displayed","false","bioEp.showPopup","uabpd3","scrolling","iframe#sg-iframe[scrolling=\"no\"]","stay","#iwa_source=timeout","15000","0.02","loadElement","function","billboard750","jQuery","#sdWelcomeScreen","#AdPopup","redirectId","document.querySelectorAll","popMagic","TheLink","Math.random","_blank"];
-    const $scriptletArglists$ = /* 49 */ "0;1,0;1,1;2,2,3;3,4,5;3,6,7;4,8;1,9;4,10;5,11,12;6,13,14;5,15,16;5,17,16;5,18,16;5,19,12;5,20,12;2,21,22;7,23,24;2,25;6,26,27;4,28;8,29,30,31,32,33;2,34,35;3,36,37;1,38;1,39;9,40;4,41;2,42;4,43;2,44;1,45;5,46,47;2,48;4,49;10,50,51,52;11,53,54,55;5,56,12;11;11,57,35,55;3,58;3,59,60;3,36,61;12;12,62;3,63,64;11,65;3,66;0,67";
+    const $scriptletArgs$ = /* 71 */ ["ads","ub_ct_load","PrebidDamOpen","800","decodeURIComponent","newAdblockBoardDisplayed","addEventListener","/faBar[\\s\\S]*?insertAdjacentElement/","WP.inline","iaqExt","__headpayload","WP.gaf.loadBunch","noopFunc","WP","r https","Object.prototype.rekids","undefined","Object.prototype.gafSlot","Object.prototype.advViewability","Object.prototype.loadBunch","Object.prototype.loadAndRunBunch","HubAPI","3000","message","t.origin===k","/getComputedStyle[\\s\\S]*?style\\.display=\"none\"[\\s\\S]*?styleBlocked[\\s\\S]*?detected/","WP.prebid","onLoad","Object.prototype.bodyCode","visibility","0","wp_consent_color","function neTick(){neTickCounter++;if(neTickCounter<=neTickCountLimit){neTickAjax=$.ajax({type:\"POST\"","url:adminAjaxUrl+\"?action=ne_tick\"","dataType:\"json\"","success:function(data){neTickResponseAction(data)}})}}","10000","function check(){console.log(\"checked\");if($(\".adform\").children().length>3){console.log(\"its more\");$(\".adform\").children(\".adform-banner\").show();clearTimeout(check)}}","1000","$","/loadData|halfpage|welcome|screening|placement|adtitle/","detectAB","_yhbog","RTCPeerConnection","launchOpenWindow","ubfix()","o6c6e","no-ads-info","yafaIt","displayed","false","bioEp.showPopup","uabpd3","scrolling","iframe#sg-iframe[scrolling=\"no\"]","stay","#iwa_source=timeout","15000","0.02","loadElement","function","billboard750","jQuery","#sdWelcomeScreen","#AdPopup","redirectId","document.querySelectorAll","popMagic","TheLink","Math.random","_blank"];
+    const $scriptletArglists$ = /* 52 */ ";0;1,0;1,1;2,2,3;3,4,5;3,6,7;4,8;1,9;4,10;5,11,12;6,13,14;5,15,16;5,17,16;5,18,16;5,19,12;5,20,12;2,21,22;7,23,24;2,25;6,26,27;4,28;2,29,30;4,31;8,32,33,34,35,36;2,37,38;3,39,40;1,41;1,42;9,43;4,44;2,45;4,46;2,47;1,48;5,49,50;2,51;4,52;10,53,54,55;11,56,57,58;5,59,12;11;11,60,38,58;3,61;3,62,63;3,39,64;12;12,65;3,66,67;11,68;3,69;0,70";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

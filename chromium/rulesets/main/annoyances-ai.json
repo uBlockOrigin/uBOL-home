@@ -46,6 +46,7 @@
    "chat.cdn-plain.com",
    "chat.g4media.org",
    "embed.chatnode.ai",
+   "urbandictionary.ai",
    "widget.indexfox.ai"
   ]
  },
@@ -79,6 +80,16 @@
   "urlFilter": "||cdn.whoop.com/v0/chat/chat.js"
  },
  "id": 6,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "urlFilter": "/cxrobotsdkjs.js"
+ },
+ "id": 7,
  "priority": 10
 }
 ]

@@ -399,10 +399,11 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
 
 function preventAddEventListener(
     type = '',
-    pattern = ''
+    pattern = '',
+    ...varargs
 ) {
     const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
     const reType = safe.patternToRegex(type, undefined, true);
     const rePattern = safe.patternToRegex(pattern);
@@ -498,7 +499,8 @@ function preventFetchFn(
     trusted = false,
     propsToMatch = '',
     responseBody = '',
-    responseType = ''
+    responseType = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const setTimeout = self.setTimeout;
@@ -509,7 +511,7 @@ function preventFetchFn(
         responseBody,
         responseType
     );
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 4);
+    const extraArgs = safe.parseVarargs(varargs);
     const propNeedles = parsePropertiesToMatchFn(propsToMatch, 'url');
     const validResponseProps = {
         ok: [ false, true ],
@@ -876,15 +878,14 @@ function safeSelf() {
             }
             return /^/;
         },
-        getExtraArgs(args, offset = 0) {
-            const entries = args.slice(offset).reduce((out, v, i, a) => {
-                if ( (i & 1) === 0 ) {
-                    const rawValue = a[i+1];
-                    const value = /^\d+$/.test(rawValue)
-                        ? parseInt(rawValue, 10)
-                        : rawValue;
-                    out.push([ a[i], value ]);
-                }
+        parseVarargs(varargs) {
+            const entries = varargs.reduce((out, v, i, a) => {
+                if ( i & 1 ) { return out; }
+                const rawValue = a[i+1];
+                const value = /^\d+$/.test(rawValue)
+                    ? parseInt(rawValue, 10)
+                    : rawValue;
+                out.push([ a[i], value ]);
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
@@ -957,12 +958,13 @@ function setConstant(
 function setConstantFn(
     trusted = false,
     chain = '',
-    rawValue = ''
+    rawValue = '',
+    ...varargs
 ) {
     if ( chain === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     function setConstant(chain, rawValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -1281,7 +1283,8 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const todoIndices = new Set();
+const todo = new Set();
+
 if ( $hasHostnames$ ) {
     const $scriptletHostnames$ = /* 33 */ ["buzau.net","eporno.ro","tvmd.info","xxx1.link","e-porno.ro","fsplayer.*","futai.live","nosteam.ro","pizde.live","vwforum.ro","embedsun.cc","filmexxx.ro","lovendal.ro","pornobi.net","vzlinks.com","bloground.ro","cool-etv.net","filmebro.com","canale-tv.com","canale-tv.net","filmexxx.live","nimfomane.org","turdanews.net","vasluianul.ro","filme-porno.ro","nosteam.com.ro","pornobrand.com","boardingpass.ro","nosteamgames.ro","pornofilmexxx.net","filmeonline123.com","filmeserialegratis.*","player.desenefaine.net"];
     const collectArglistRefIndices = (out, hn, r) => {
@@ -1318,6 +1321,7 @@ if ( $hasHostnames$ ) {
             }
         }
     };
+    const todoIndices = new Set();
     indicesFromHostname(todoIndices, entries[0]);
     if ( $hasAncestors$ ) {
         for ( const entry of entries ) {
@@ -1325,19 +1329,18 @@ if ( $hasHostnames$ ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-}
-
-// Collect arglist references
-const todo = new Set();
-if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 33 */ "16;12;1;15;13;1;15;1;15;3;1;17;7;15;1,5;4;2;15;8,9,10;14;15;15;0;1;12;1;15;6;1;15;1;1;11";
-    const arglistRefs = $scriptletArglistRefs$.split(';');
-    for ( const i of todoIndices ) {
-        for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
-            todo.add(ref);
+    // Collect arglist references
+    if ( todoIndices.size ) {
+        const $scriptletArglistRefs$ = /* 33 */ "17;13;2;16;14;2;16;2;16;4;2;18;8;16;2,6;5;3;16;9,10,11;15;16;16;1;2;13;2;16;7;2;16;2;2;12";
+        const arglistRefs = $scriptletArglistRefs$.split(';');
+        for ( const i of todoIndices ) {
+            for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
+                todo.add(ref);
+            }
         }
     }
 }
+
 if ( $hasRegexes$ ) {
     const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
@@ -1356,14 +1359,13 @@ if ( $hasRegexes$ ) {
         }
     }
 }
-if ( todo.size === 0 ) { return; }
 
-// Execute scriplets
-{
+// Execute scriptlets
+if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 8 */
 [preventSetTimeout,noWindowOpenIf,abortCurrentScript,setConstant,noEvalIf,preventSetInterval,preventAddEventListener,preventFetch];
     const $scriptletArgs$ = /* 24 */ ["ai_","onload","noBackPlease","adsbygoogle","show","adblockcheck","false","ai_adb","ads","_blank","10","location","tool","document.write","unescape","load","ADS","click","_0x","","1","appendChild","contextmenu","php"];
-    const $scriptletArglists$ = /* 18 */ "0,0;1;2,1,2;0,3;0,4;3,5,6;0,7;4,8;1,9,10;0,11;5,12;2,13,14;6,15,16;6,17,18;1,19,20;0,21;6,22;7,23";
+    const $scriptletArglists$ = /* 19 */ ";0,0;1;2,1,2;0,3;0,4;3,5,6;0,7;4,8;1,9,10;0,11;5,12;2,13,14;6,15,16;6,17,18;1,19,20;0,21;6,22;7,23";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

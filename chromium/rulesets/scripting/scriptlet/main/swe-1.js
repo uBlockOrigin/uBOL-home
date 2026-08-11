@@ -313,12 +313,13 @@ function getRandomTokenFn() {
 function jsonPrune(
     rawPrunePaths = '',
     rawNeedlePaths = '',
-    stackNeedle = ''
+    stackNeedle = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
     const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     proxyApplyFn('JSON.parse', function(context) {
         const objBefore = context.reflect();
         if ( rawPrunePaths === '' ) {
@@ -342,11 +343,12 @@ function jsonPrune(
 
 function jsonPruneFetchResponse(
     rawPrunePaths = '',
-    rawNeedlePaths = ''
+    rawNeedlePaths = '',
+    ...varargs
 ) {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('json-prune-fetch-response', rawPrunePaths, rawNeedlePaths);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
     const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
     const logall = rawPrunePaths === '';
@@ -619,10 +621,11 @@ function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
 
 function preventAddEventListener(
     type = '',
-    pattern = ''
+    pattern = '',
+    ...varargs
 ) {
     const safe = safeSelf();
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+    const extraArgs = safe.parseVarargs(varargs);
     const logPrefix = safe.makeLogPrefix('prevent-addEventListener', type, pattern);
     const reType = safe.patternToRegex(type, undefined, true);
     const rePattern = safe.patternToRegex(pattern);
@@ -1183,15 +1186,14 @@ function safeSelf() {
             }
             return /^/;
         },
-        getExtraArgs(args, offset = 0) {
-            const entries = args.slice(offset).reduce((out, v, i, a) => {
-                if ( (i & 1) === 0 ) {
-                    const rawValue = a[i+1];
-                    const value = /^\d+$/.test(rawValue)
-                        ? parseInt(rawValue, 10)
-                        : rawValue;
-                    out.push([ a[i], value ]);
-                }
+        parseVarargs(varargs) {
+            const entries = varargs.reduce((out, v, i, a) => {
+                if ( i & 1 ) { return out; }
+                const rawValue = a[i+1];
+                const value = /^\d+$/.test(rawValue)
+                    ? parseInt(rawValue, 10)
+                    : rawValue;
+                out.push([ a[i], value ]);
                 return out;
             }, []);
             return this.Object_fromEntries(entries);
@@ -1264,12 +1266,13 @@ function setConstant(
 function setConstantFn(
     trusted = false,
     chain = '',
-    rawValue = ''
+    rawValue = '',
+    ...varargs
 ) {
     if ( chain === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     function setConstant(chain, rawValue) {
         const trappedProp = (( ) => {
             const pos = chain.lastIndexOf('.');
@@ -1539,14 +1542,15 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
 function xmlPrune(
     selector = '',
     selectorCheck = '',
-    urlPattern = ''
+    urlPattern = '',
+    ...varargs
 ) {
     if ( typeof selector !== 'string' ) { return; }
     if ( selector === '' ) { return; }
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('xml-prune', selector, selectorCheck, urlPattern);
     const reUrl = safe.patternToRegex(urlPattern);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+    const extraArgs = safe.parseVarargs(varargs);
     const queryAll = (xmlDoc, selector) => {
         const isXpath = /^xpath\(.+\)$/.test(selector);
         if ( isXpath === false ) {
@@ -1727,7 +1731,8 @@ const entries = (( ) => {
 })();
 if ( entries.length === 0 ) { return; }
 
-const todoIndices = new Set();
+const todo = new Set();
+
 if ( $hasHostnames$ ) {
     const $scriptletHostnames$ = /* 186 */ ["bt.se","di.se","fz.se","gp.se","hn.se","m3.se","nt.se","pt.se","sn.se","tv.nu","ut.se","vf.se","vk.se","vt.se","blt.se","klt.nu","mvt.se","nkp.se","nlt.se","nsd.se","nsk.se","nvp.se","nwt.se","skd.se","sla.se","smp.se","svd.se","tv4.se","unt.se","cafe.se","elle.se","hant.se","nyan.ax","allas.se","byrum.se","feber.se","klart.se","koket.se","mitti.se","tjock.se","ttela.se","conpot.se","corren.se","femina.se","findit.se","guiden.se","ibnytt.se","illvet.se","kurera.se","lwcdn.com","mabra.com","norran.se","recept.se","boktugg.se","eposten.se","golfing.se","kamrat.com","kuriren.nu","lokalti.se","matspar.se","realtid.se","stallet.se","thatsup.se","tinyurl.se","tv4play.se","byggahus.se","ekuriren.se","fragbite.se","fssweden.se","kkuriren.se","kritiker.se","macworld.se","stadshem.se","swedroid.se","thelocal.se","viivilla.se","babyhjalp.se","expressen.se","fotosidan.se","hejaolika.se","lundagard.se","matsafari.nu","nyheter24.se","ordbokpro.se","pcforalla.se","rocknytt.net","sexpacket.se","streamio.com","svenskdam.se","sydostran.se","alekuriren.se","barometern.se","byggipedia.se","familjeliv.se","folkbladet.nu","folkbladet.se","kt-kuriren.se","markposten.se","morotsliv.com","motherhood.se","naringsliv.ax","svenskgolf.se","villalivet.se","aftonbladet.se","aktieskolan.se","enkelteknik.se","etunawebben.se","gamereactor.se","helagotland.se","lchfarkivet.se","nordsverige.se","nuosteraker.se","sttidningen.se","trafikskola.se","vaxjobladet.se","affarsstaden.se","allagodating.se","classicmotor.se","datormagazin.se","happypancake.se","husbilsplats.se","jobsinsweden.se","kattannonser.se","kingmagazine.se","mellanbygden.nu","norrahalland.se","nyadagbladet.se","olandsbladet.se","utslappsratt.se","arvikanyheter.se","bohuslaningen.se","dalslanningen.se","densistavilan.se","harrydaposten.se","heleneholmsif.se","passioneffect.se","upphandling24.se","zeinaskitchen.se","automotorsport.se","computersweden.se","embed.viaplay.com","hallandsposten.se","kandisvarlden.com","kungalvsposten.se","lakartidningen.se","lokaltidningen.nu","mobilanyheter.net","molndalsposten.se","polistidningen.se","tidningencurie.se","trafiksakerhet.se","alingsastidning.se","fotbollskanalen.se","fryksdalsbygden.se","husbilskompisar.se","modernpsykologi.se","partilletidning.se","saffletidningen.se","sverigespringer.se","vasterastidning.se","vimmerbytidning.se","vinochmatguiden.se","www.aftonbladet.se","ystadsallehanda.se","alltforforaldrar.se","idrottensaffarer.se","kungsbackaposten.se","mellerudsnyheter.se","provinstidningen.se","skaraborgsbygden.se","strengnastidning.se","varldenshistoria.se","vasterbottningen.se","dagensarbetsmiljo.se","fastighetsvarlden.se","filipstadstidning.se","livsmedelsnyheter.se","residencemagazine.se","stromstadstidning.se","vadhanderisverige.se","praktisktbatagande.se","kristianstadsbladet.se","mariestadstidningen.se","trelleborgsallehanda.se","discoveringtheplanet.com","melodifestivalklubben.se"];
     const collectArglistRefIndices = (out, hn, r) => {
@@ -1764,6 +1769,7 @@ if ( $hasHostnames$ ) {
             }
         }
     };
+    const todoIndices = new Set();
     indicesFromHostname(todoIndices, entries[0]);
     if ( $hasAncestors$ ) {
         for ( const entry of entries ) {
@@ -1771,19 +1777,18 @@ if ( $hasHostnames$ ) {
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
-}
-
-// Collect arglist references
-const todo = new Set();
-if ( todoIndices.size !== 0 ) {
-    const $scriptletArglistRefs$ = /* 186 */ "13;12,13;19;32;32;33,34;13;13;13;0;13;13;51,52;13;13;13;13;13;13;13;13;13;13;13;13;13;0;46,47;13;13;1,2;1,2;42;1,2;13;14,15,16;0;46,47;13,36;14,15,16;32;6,7;13;1,2;17;56,57;13;42;58;31,32;1,2;13;13;54,55,58;13;13;27,28;13;13;35;13;41;44;19;46,47;3;13;13;19;13;30;33,34;59;43;13;13;13;11,12,13;18;22;58;54,55;13;39;33,34;56,57;40;42;1,2;13;13;13;4;13;13,51,52;13;13;32;48,49,58;1,2;38;13;54,55,56,57;0;54,55;56,57;10;20;13;13;51,52;13;32;48,49;13;58;58;56,57;56,57;21;25;26;29;13;51,52;13;48,49,56,57;13;48,49;13;32;13;56,57;32;48,49;56,57;56,57;54,55;13;5,33,34;47;32;8,25;32;54,55;51,52;37;32;56,57;45;54,55;32;46,47;13;23,24;56,57;32;13;13;13;13;50;53;13;13;13;32;32;13;13;13;42;51,52;60;54,55;13;56,57;1,2;32;56,57;13,36;13;13;13;8,9;48,49";
-    const arglistRefs = $scriptletArglistRefs$.split(';');
-    for ( const i of todoIndices ) {
-        for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
-            todo.add(ref);
+    // Collect arglist references
+    if ( todoIndices.size ) {
+        const $scriptletArglistRefs$ = /* 186 */ "14;13,14;20;33;33;34,35;14;14;14;1;14;14;52,53;14;14;14;14;14;14;14;14;14;14;14;14;14;1;47,48;14;14;2,3;2,3;43;2,3;14;15,16,17;1;47,48;14,37;15,16,17;33;7,8;14;2,3;18;57,58;14;43;59;32,33;2,3;14;14;55,56,59;14;14;28,29;14;14;36;14;42;45;20;47,48;4;14;14;20;14;31;34,35;60;44;14;14;14;12,13,14;19;23;59;55,56;14;40;34,35;57,58;41;43;2,3;14;14;14;5;14;14,52,53;14;14;33;49,50,59;2,3;39;14;55,56,57,58;1;55,56;57,58;11;21;14;14;52,53;14;33;49,50;14;59;59;57,58;57,58;22;26;27;30;14;52,53;14;49,50,57,58;14;49,50;14;33;14;57,58;33;49,50;57,58;57,58;55,56;14;6,34,35;48;33;9,26;33;55,56;52,53;38;33;57,58;46;55,56;33;47,48;14;24,25;57,58;33;14;14;14;14;51;54;14;14;14;33;33;14;14;14;43;52,53;61;55,56;14;57,58;2,3;33;57,58;14,37;14;14;14;9,10;49,50";
+        const arglistRefs = $scriptletArglistRefs$.split(';');
+        for ( const i of todoIndices ) {
+            for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
+                todo.add(ref);
+            }
         }
     }
 }
+
 if ( $hasRegexes$ ) {
     const $scriptletFromRegexes$ = /* 0 */ [];
     const { hns } = entries[0];
@@ -1802,14 +1807,13 @@ if ( $hasRegexes$ ) {
         }
     }
 }
-if ( todo.size === 0 ) { return; }
 
-// Execute scriplets
-{
+// Execute scriptlets
+if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 12 */
 [setConstant,preventAddEventListener,abortOnPropertyRead,abortCurrentScript,preventSetTimeout,jsonPrune,preventSetInterval,noEvalIf,preventXhr,jsonPruneFetchResponse,alertBuster,xmlPrune];
     const $scriptletArgs$ = /* 77 */ ["advertoryFluepapir","true","blur","i.focusPlayerElement","scroll","t.view.updateBounds","/adblockDetector|adsInserted|partnerExternalLinkClick/","ai_set_cookie","noopFunc","_sp_","square_array1","null","square_arraytop","disableEnterKey","document.ondragstart","ad","click","e.preventDefault","elements","a.js-ct","contextmenu",".disabled","autoplay","addtonativesFrontPageOne","checkGDPRInt","dovideostuffAD","testPrebid","","showCopyrightBox","adblock","false","adblockEnabled","falseFunc","Object.prototype.adUnits","advads_passive_placements","props.initialAds","ad_location","document.oncontextmenu","eazy_ad_unblocker","showAds","trap","adbEnableForPage","adsbygoogle","/^(?:adBlocker|contextmenu)$/","propsToMatch","url:ljsp.lwcdn.com","dataLayer.push","fireGtm","document.createElement","admiral","payload.ads campaigns.*","helpers.scroll(id)","ai_run_scripts","popup","ab_disp","/contextmenu|cut|copy|paste/","checkAdsBlocked","canShowAds",".showModal","playbackItem.isStitched","url:a2d.tv/play","Ad","/fwmrm.net\\/ad\\/g/","em_track_user","exactmetrics_frontend","undefined","window.WURFL","1","uesUrlFallback","manualAutoplay_","TAKEOVER","monsterinsights_frontend","mi_track_user","advads","advanced_ads","wheel","e.defaultPrevented"];
-    const $scriptletArglists$ = /* 61 */ "0,0,1;1,2,3;1,4,5;1,6;0,7,8;2,9;0,10,11;0,12,11;3,13;3,14;4,15;1,16,17,18,19;1,20,21;5,22;3,23;6,24;0,25,8;0,26,8;1,20,27,28;0,29,30;0,31,32;2,33;3,34;5,35;4,36;3,37;0,38,11;0,39,30;0,40,8;7,41;8,42;1,43;9,22,27,44,45;3,46,47;3,48,49;5,50;1,4,51;0,52,8;4,53;0,54,8;1,55;10;1,20;0,56,8;0,57,1;4,58;9,59,27,44,60;11,61,27,62;0,63,30;0,64,65;0,66,67;5,68;0,69,8;4,70;3,71;0,72,30;3,73;3,74;1,75;1,75,4;1,75,76";
+    const $scriptletArglists$ = /* 62 */ ";0,0,1;1,2,3;1,4,5;1,6;0,7,8;2,9;0,10,11;0,12,11;3,13;3,14;4,15;1,16,17,18,19;1,20,21;5,22;3,23;6,24;0,25,8;0,26,8;1,20,27,28;0,29,30;0,31,32;2,33;3,34;5,35;4,36;3,37;0,38,11;0,39,30;0,40,8;7,41;8,42;1,43;9,22,27,44,45;3,46,47;3,48,49;5,50;1,4,51;0,52,8;4,53;0,54,8;1,55;10;1,20;0,56,8;0,57,1;4,58;9,59,27,44,60;11,61,27,62;0,63,30;0,64,65;0,66,67;5,68;0,69,8;4,70;3,71;0,72,30;3,73;3,74;1,75;1,75,4;1,75,76";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

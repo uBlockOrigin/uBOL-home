@@ -81,6 +81,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["oma.posti.fi"],"requestDomains":["service.force.com"]},"id":80,"priority":30},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["caid"]}}},"type":"redirect"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"||v.fwmrm.net/ad/g/1*^caid="},"id":81},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["elisa.fi"],"requestDomains":["conductrics.com"],"resourceTypes":["script"]},"id":82,"priority":30},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["stadissa.fi"],"resourceTypes":["image"],"urlFilter":"||stadissa.fi/images/stadissa/ads/*.jpg"},"id":83,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["pohjanmaanhyvinvointi.fi"],"urlFilter":"||googletagmanager.com/gtm.js"},"id":86,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["verkkopalvelu.turva.fi"],"requestDomains":["adobedtm.com"],"resourceTypes":["script"]},"id":87,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.netrauta.fi"],"resourceTypes":["image"],"urlFilter":"/media/banners/"},"id":88,"priority":30},

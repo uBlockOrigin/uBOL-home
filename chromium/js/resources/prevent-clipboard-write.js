@@ -47,11 +47,11 @@ import { safeSelf } from './safe-self.js';
  * 
  * */
 
-function preventClipboardWrite(matches = '') {
+function preventClipboardWrite(matches = '', ...varargs) {
     const safe = safeSelf();
     const logPrefix = safe.makeLogPrefix('prevent-clipboard-write');
     const pattern = safe.initPattern(matches);
-    const extraArgs = safe.getExtraArgs(Array.from(arguments), 1);
+    const extraArgs = safe.parseVarargs(varargs);
     const excludePattern = extraArgs.excludeMatches &&
         safe.initPattern(extraArgs.excludeMatches);
     const domAlert = clipboardText => {
@@ -113,7 +113,7 @@ function preventClipboardWrite(matches = '') {
             const { callArgs } = context;
             if ( callArgs[0] === 'copy' || callArgs[0] === 'cut' ) {
                 const text = document.getSelection()?.toString();
-                if ( text && prevent(text) ) { return false; }
+                if ( prevent(text) ) { return true; }
             }
             return context.reflect();
         }, { skipToString: true });
