@@ -91,5 +91,15 @@
  },
  "id": 7,
  "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "urlFilter": "||api.coinmarketcap.com/chatbot/"
+ },
+ "id": 8,
+ "priority": 10
 }
 ]

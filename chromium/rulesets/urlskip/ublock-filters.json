@@ -45,6 +45,15 @@
   ]
  },
  {
+  "re": "^",
+  "steps": [
+   "?target"
+  ],
+  "hostnames": [
+   "link.csdn.net"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?youtube\\.com/redirect\\?.*?(?:[^%.0-9a-z_-]|$)q=http",
   "steps": [
    "?q",
@@ -1357,6 +1366,13 @@
   "re": "^[^:]+://(?:[^/]+\\.)?zsp1\\.ah\\.nl/.*?/urhttp",
   "steps": [
    "/\\/UR(http.+)/"
+  ]
+ },
+ {
+  "re": "^https:\\/\\/link\\.theverge\\.com\\/click\\/[0-9]+\\.[0-9]+\\/aHR0c",
+  "steps": [
+   "/(aHR0c[a-zA-Z0-9%_-]+)/",
+   "-base64"
   ]
  },
  {
