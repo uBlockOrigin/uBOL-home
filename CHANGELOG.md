@@ -1,4 +1,5 @@
-- [Reject popup filters with excluded origins](https://github.com/gorhill/uBlock/commit/37a2ce19d3)
+- [Reject `popup` filters with excluded origins](https://github.com/gorhill/uBlock/commit/37a2ce19d3)
+- [Mind `to=` option when converting `popup` filters](https://github.com/gorhill/uBlock/commit/c68df492fd)
 - Updated filter lists
 
 ----------
