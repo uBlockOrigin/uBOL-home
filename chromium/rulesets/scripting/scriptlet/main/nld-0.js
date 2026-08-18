@@ -1767,7 +1767,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 24 */ "5;22;17;5;11,12;8;11,12;2,5;17;20;3,14;19;4,10;4;4,13,18;7;21;6;5;9;5;15,16;5;1";
+        const $scriptletArglistRefs$ = /* 24 */ "4;21;16;4;10,11;7;10,11;4;16;19;2,13;18;3,9;3;3,12,17;6;20;5;4;8;4;14,15;4;1";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1800,8 +1800,8 @@ if ( $hasRegexes$ ) {
 if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 10 */
 [abortCurrentScript,preventSetTimeout,abortOnPropertyRead,preventXhr,preventFetch,xmlPrune,preventAddEventListener,setConstant,jsonPrune,adjustSetTimeout];
-    const $scriptletArgs$ = /* 32 */ ["document.createElement","adsbygoogle.js","throw i(r+\"err\",[o,a,e],d,c),e}finally{i(","50","ckad","Object.prototype.autoRecov","assets.prod.webx.talpa.digital/ad/view/",".height() === 0","securepubads.g.doubleclick.net","v.fwmrm.net","adsbygoogle","/a[ab]\\.tweakers\\.nl/","Period[id*=\"-ad-\"]","",".mpd","pubads.g.doubleclick.net/gampad/ads","Flags.autoRecov","DAB","noopFunc","Object.prototype.disableAb","Math","Flags.newInject","assets.preroll","BannerManager","undefined","function () { [native code] }","6000","0.001","cookie","true","[native code]","adUrl"];
-    const $scriptletArglists$ = /* 23 */ ";0,0,1;1,2,3;1,4;2,5;3,6;1,7;4,8;4,9;0,0,10;4,11;5,12,13,14;4,15;6,13,16;7,17,18;2,19;0,20,21;8,22;7,23,24;9,25,26,27;7,28,29;9,30,26,27;8,31";
+    const $scriptletArgs$ = /* 30 */ ["document.createElement","adsbygoogle.js","ckad","Object.prototype.autoRecov","assets.prod.webx.talpa.digital/ad/view/",".height() === 0","securepubads.g.doubleclick.net","v.fwmrm.net","adsbygoogle","/a[ab]\\.tweakers\\.nl/","Period[id*=\"-ad-\"]","",".mpd","pubads.g.doubleclick.net/gampad/ads","Flags.autoRecov","DAB","noopFunc","Object.prototype.disableAb","Math","Flags.newInject","assets.preroll","BannerManager","undefined","function () { [native code] }","6000","0.001","cookie","true","[native code]","adUrl"];
+    const $scriptletArglists$ = /* 22 */ ";0,0,1;1,2;2,3;3,4;1,5;4,6;4,7;0,0,8;4,9;5,10,11,12;4,13;6,11,14;7,15,16;2,17;0,18,19;8,20;7,21,22;9,23,24,25;7,26,27;9,28,24,25;8,29";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

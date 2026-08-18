@@ -6,6 +6,13 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?bstsrs\\.in/globin\\?link=",
+  "steps": [
+   "?link",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?click\\.redditmail\\.com/cl0/",
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",
@@ -980,13 +987,6 @@
   ]
  },
  {
-  "re": "^[^:]+://(?:[^/]+\\.)?bing\\.com/ck/a.*?(?:[^%.0-9a-z_-]|$)u=a1ahr0c",
-  "steps": [
-   "/[?&]u=a1(aHR0c[^&#]+)/",
-   "-safebase64"
-  ]
- },
- {
   "re": "^[^:]+://(?:[^/]+\\.)?bing\\.com/rebates/welcome\\?url=http",
   "steps": [
    "?url"
@@ -996,6 +996,14 @@
   "re": "^[^:]+://(?:[^/]+\\.)?bing\\.com/alink/link\\?url=http",
   "steps": [
    "?url"
+  ]
+ },
+ {
+  "re": "^[^:]+://(?:[^/]+\\.)?bing\\.com/ck/a.*?u=a1",
+  "steps": [
+   "?u",
+   "/^a1(.*)$/",
+   "-safebase64"
   ]
  },
  {

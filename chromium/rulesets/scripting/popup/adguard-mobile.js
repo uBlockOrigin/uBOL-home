@@ -23,7 +23,7 @@
 // Isolate from global scope
 (function uBOL_preventPopup() {
 
-    const details = {"id":"adguard-mobile","block":{"hostnames":[],"regexes":["ihoiplay","^[^:]+:\\/\\/([^:/]+\\.)?hoiplay\\.com\\/tm_popup\\.html"]},"allow":{"hostnames":[],"regexes":[]}};
+    const details = {"id":"adguard-mobile","block":{"hostnames":[],"regexes":["hoiplay","[{\"re\":\"^[^:]+:\\\\/\\\\/([^:/]+\\\\.)?hoiplay\\\\.com\\\\/tm_popup\\\\.html\",\"f\":\"i\"}]"]},"allow":{"hostnames":[],"regexes":[]}};
 
     self.preventPopupDetails = self.preventPopupDetails || [];
     self.preventPopupDetails.push(details);

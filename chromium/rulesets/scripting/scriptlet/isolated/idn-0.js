@@ -505,7 +505,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 16 */ ["inews.id","sukasex.tv","okezone.com","sukasex.net","gramedia.com","layarwibu.com","sindonews.com","tipskerja.com","3gpterbaru.com","carisinyal.com","duniaseksi.com","katadata.co.id","wisatalova.com","almaftuchin.com","indokontraktor.com","kisahterlarang.site"];
+    const $scriptletHostnames$ = /* 17 */ ["inews.id","sukasex.tv","okezone.com","sukasex.net","gramedia.com","layarwibu.com","sindonews.com","tipskerja.com","3gpterbaru.com","carisinyal.com","duniaseksi.com","katadata.co.id","pemersatu.link","wisatalova.com","almaftuchin.com","indokontraktor.com","kisahterlarang.site"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -550,7 +550,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 16 */ "2;9;1;9;10;9;3;4;5;11;5;8;7;6;6;9";
+        const $scriptletArglistRefs$ = /* 17 */ "2;9;1;9;10;9;3;4;5;11;5;8;12;7;6;6;9";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -583,8 +583,8 @@ if ( $hasRegexes$ ) {
 if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 3 */
 [removeClass,preventRefresh,removeNodeText];
-    const $scriptletArgs$ = /* 13 */ ["content-wrap","content-wrap|wrap-all","t480","script","/decodeURIComponent\\(escape|fairAdblock/","adblock","hargamenu","modalAdsPopup","popupUrl","replaceState","condition","shope.ee","showModal"];
-    const $scriptletArglists$ = /* 12 */ ";0,0;0,1;0,2;1;2,3,4;2,3,5;2,3,6;2,3,7;2,3,8;2,3,9,10,11;2,3,12";
+    const $scriptletArgs$ = /* 14 */ ["content-wrap","content-wrap|wrap-all","t480","script","/decodeURIComponent\\(escape|fairAdblock/","adblock","hargamenu","modalAdsPopup","popupUrl","replaceState","condition","shope.ee","showModal","__PEX__"];
+    const $scriptletArglists$ = /* 13 */ ";0,0;0,1;0,2;1;2,3,4;2,3,5;2,3,6;2,3,7;2,3,8;2,3,9,10,11;2,3,12;2,3,13";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

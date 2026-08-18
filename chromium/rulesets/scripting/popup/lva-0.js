@@ -23,7 +23,7 @@
 // Isolate from global scope
 (function uBOL_preventPopup() {
 
-    const details = {"id":"lva-0","block":{"hostnames":["olybet.lv","optibet.lv","openx.diena.lv"],"regexes":["irunabil","^[^:]+:\\/\\/([^:/]+\\.)?runabildes\\.lv\\/\\?acx_onclick"]},"allow":{"hostnames":[],"regexes":[]}};
+    const details = {"id":"lva-0","block":{"hostnames":["olybet.lv","optibet.lv","openx.diena.lv"],"regexes":["runabil","[{\"re\":\"^[^:]+:\\\\/\\\\/([^:/]+\\\\.)?runabildes\\\\.lv\\\\/\\\\?acx_onclick\",\"f\":\"i\"}]"]},"allow":{"hostnames":[],"regexes":[]}};
 
     self.preventPopupDetails = self.preventPopupDetails || [];
     self.preventPopupDetails.push(details);

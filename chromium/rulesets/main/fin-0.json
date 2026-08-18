@@ -70,7 +70,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["vertaa.fi"],"resourceTypes":["script"],"urlFilter":"||vertaa.fi^*/showads.js"},"id":69,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["seutumajakka.fi"],"resourceTypes":["xmlhttprequest"],"urlFilter":"/common-column-ads"},"id":70,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"initiatorDomains":["ruutu.fi","supla.fi"],"resourceTypes":["media"],"urlFilter":"||nelonenmedia-pmd-ads-*.nm-stream.nelonenmedia.fi^"},"id":71,"priority":11},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["browser"]}}},"type":"redirect"},"condition":{"initiatorDomains":["mtv.fi","mtvuutiset.fi"],"resourceTypes":["xmlhttprequest"],"urlFilter":"&browser=mozillafirefox"},"id":72},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["iltalehti.fi"],"resourceTypes":["script"],"urlFilter":"||adsdk.bing.net/ast/ast.js"},"id":72,"priority":11},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["keskustelu.kaksplus.fi"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||kaksplus.fi/wp-json/feeds/ad-feed"},"id":73,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["kotikarjala.fi"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||kotikarjala.fi/eneo?tem=ndap_ilmoitus&"},"id":74,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["telsu.fi"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||adservice.google.com/adsid/integrator.js"},"id":75,"priority":11},

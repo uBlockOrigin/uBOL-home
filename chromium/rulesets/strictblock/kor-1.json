@@ -23,7 +23,6 @@
    "ad-img.ebaykorea.com",
    "ad-insight.sellermill.com",
    "ad-mapps.com",
-   "ad-pulse.kakaobank.cloud",
    "ad-script.viewus.co.kr",
    "ad.3dpop.kr",
    "ad.a-ads.com",
@@ -118,7 +117,6 @@
    "admixer.co.kr",
    "admize.io",
    "admonseller.com",
-   "adn.admixer.co.kr",
    "adpacker.net",
    "adplex.co.kr",
    "adpnut.com",
@@ -129,7 +127,6 @@
    "ads-partners.coupang.com",
    "ads-twitter.com",
    "ads.aceplanet.co.kr",
-   "ads.adaptv.advertising.com",
    "ads.admaru.com",
    "ads.adoffice.11st.co.kr",
    "ads.ahnlab.com",
@@ -232,7 +229,6 @@
    "delivery.pryzmads.com",
    "deployads.com",
    "dhgywazgeek0d.cloudfront.net",
-   "display.admonseller.com",
    "displayad.lotteon.com",
    "displayad.zum.com",
    "displayadimg.zumst.com",
@@ -279,7 +275,6 @@
    "mobwithad.com",
    "ms.applvn.com",
    "msadsense.com",
-   "mtag.mman.kr",
    "n4403ad.doubleclick.net",
    "nad.tf.co.kr",
    "naverpa-phinf.pstatic.net",
@@ -296,7 +291,6 @@
    "optad360.io",
    "optbeacon.net",
    "pagead2.googlesyndication.com",
-   "partner.googleadservices.com",
    "piclick.kr",
    "planad.net",
    "pltapad.com",
@@ -349,7 +343,7 @@
    "vntsm.com",
    "vrixon.com",
    "vungle.com",
-   "wmars-client.wemakeprice.com",
+   "whoas.xyz",
    "worker.gsr-ads.co.kr",
    "wtg-ads.com",
    "wwwads.seoul.co.kr",
@@ -357,8 +351,7 @@
    "xdsp.snadx.com",
    "xlviirdr.com",
    "xn--s-4z5e652a53k.com",
-   "z.o00.kr",
-   "zumads.vrixon.com"
+   "z.o00.kr"
   ],
   "resourceTypes": [
    "main_frame"
@@ -407,7 +400,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?playwares\\.com\\/api\\/redirectad\\.php.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?cultureland\\.co\\.kr\\/etc\\/main_ad_.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -423,7 +416,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?cultureland\\.co\\.kr\\/etc\\/main_ad_.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?ppomppu\\.co\\.kr\\/inform_ad_click\\.php.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -439,7 +432,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?ppomppu\\.co\\.kr\\/inform_ad_click\\.php.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?prod\\.danawa\\.com\\/bridge\\/loadingbridgepowerclick\\.php.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -455,7 +448,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?prod\\.danawa\\.com\\/bridge\\/loadingbridgepowerclick\\.php.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?news\\.imaeil\\.com\\/wcms_ad\\.php.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -471,7 +464,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?news\\.imaeil\\.com\\/wcms_ad\\.php.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?bodnara\\.co\\.kr\\/advert\\/click\\.php.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -487,28 +480,12 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?bodnara\\.co\\.kr\\/advert\\/click\\.php.*",
-  "resourceTypes": [
-   "main_frame"
-  ]
- },
- "id": 9,
- "priority": 29
-},
-{
- "action": {
-  "redirect": {
-   "regexSubstitution": "/strictblock.html#\\0"
-  },
-  "type": "redirect"
- },
- "condition": {
   "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?dothome\\.co\\.kr\\/ad\\/ad_windowsforum\\.php.*",
   "resourceTypes": [
    "main_frame"
   ]
  },
- "id": 10,
+ "id": 9,
  "priority": 29
 }
 ]

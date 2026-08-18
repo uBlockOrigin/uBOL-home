@@ -23,7 +23,7 @@
 // Isolate from global scope
 (function uBOL_preventPopup() {
 
-    const details = {"id":"isr-0","block":{"hostnames":["banners.news1.co.il"],"regexes":["iinn.co.","^[^:]+:\\/\\/([^:/]+\\.)?inn\\.co\\.il\\/leads\\/view\\/","ikipa.co","^[^:]+:\\/\\/([^:/]+\\.)?kipa\\.co\\.il\\/minisites\\/go\\.asp","ilanding","^[^:]+:\\/\\/([^:/]+\\.)?landing\\.kipa\\.co\\.il\\/\\?id="]},"allow":{"hostnames":[],"regexes":[]}};
+    const details = {"id":"isr-0","block":{"hostnames":["banners.news1.co.il"],"regexes":["inn.co.","[{\"re\":\"^[^:]+:\\\\/\\\\/([^:/]+\\\\.)?inn\\\\.co\\\\.il\\\\/leads\\\\/view\\\\/\",\"f\":\"i\"}]","kipa.co","[{\"re\":\"^[^:]+:\\\\/\\\\/([^:/]+\\\\.)?kipa\\\\.co\\\\.il\\\\/minisites\\\\/go\\\\.asp\",\"f\":\"i\"}]","landing","[{\"re\":\"^[^:]+:\\\\/\\\\/([^:/]+\\\\.)?landing\\\\.kipa\\\\.co\\\\.il\\\\/\\\\?id=\",\"f\":\"i\"}]"]},"allow":{"hostnames":[],"regexes":[]}};
 
     self.preventPopupDetails = self.preventPopupDetails || [];
     self.preventPopupDetails.push(details);

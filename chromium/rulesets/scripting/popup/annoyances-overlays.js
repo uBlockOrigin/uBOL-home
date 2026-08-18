@@ -23,7 +23,7 @@
 // Isolate from global scope
 (function uBOL_preventPopup() {
 
-    const details = {"id":"annoyances-overlays","block":{"hostnames":[],"regexes":["iawebsto","^[^:]+:\\/\\/([^:/]+\\.)?awebstories\\.com\\/wp-content\\/plugins\\/secure-copy-content-protection[^%.0-9a-z_-]?"]},"allow":{"hostnames":[],"regexes":[]}};
+    const details = {"id":"annoyances-overlays","block":{"hostnames":[],"regexes":["awebsto","[{\"re\":\"^[^:]+:\\\\/\\\\/([^:/]+\\\\.)?awebstories\\\\.com\\\\/wp-content\\\\/plugins\\\\/secure-copy-content-protection[^%.0-9a-z_-]?\",\"f\":\"i\"}]"]},"allow":{"hostnames":[],"regexes":[]}};
 
     self.preventPopupDetails = self.preventPopupDetails || [];
     self.preventPopupDetails.push(details);

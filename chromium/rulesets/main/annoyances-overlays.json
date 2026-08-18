@@ -325,5 +325,7 @@
 {"action":{"responseHeaders":[{"header":"content-security-policy","operation":"append","value":"script-src * 'unsafe-eval' 'unsafe-inline'"}],"type":"modifyHeaders"},"condition":{"requestDomains":["articlesmania.me"],"resourceTypes":["main_frame","sub_frame"]},"id":324},
 {"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||tdgardenapps.com/countdown/2024_game_clock.html"},"id":325,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/google-ima.js"},"type":"redirect"},"condition":{"initiatorDomains":["studyflix.de"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":326,"priority":11},
-{"action":{"type":"block"},"condition":{"urlFilter":"||vidwish.live/lib/devtools-detector"},"id":327,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||vidwish.live/lib/devtools-detector"},"id":327,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||inews.co.uk/wp-content/client-mu-plugins/piano/piano-loader.js"},"id":328,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||tvzonehd.com/anti-copy.js"},"id":329,"priority":10}
 ]
