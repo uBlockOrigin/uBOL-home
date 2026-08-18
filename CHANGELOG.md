@@ -1,3 +1,16 @@
+- [Reject popup filters with excluded origins](https://github.com/gorhill/uBlock/commit/37a2ce19d3)
+- Updated filter lists
+
+----------
+
+### 2026.812.1211
+
+- Updated filter lists
+
+----------
+
+### 2026.811.1529
+
 - [Add support for broad scriptlet exception (`#@#js()`)](https://github.com/gorhill/uBlock/commit/fd67cde545)
 - [Fix "Imported lists" section not updating properly](https://github.com/gorhill/uBlock/commit/2e13a766c5)
 - [Patch `removeParams` rules with `main_frame` & `initiatorDomains` properties](https://github.com/gorhill/uBlock/commit/a873fd2b29)
