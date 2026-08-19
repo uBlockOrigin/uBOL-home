@@ -1818,5 +1818,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||abendblatt.de^*/consent-manager.js"},"id":1817,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ztat.net/pnl/consent-ui/latest/zalando/consent.js"},"id":1818,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||portaldoeleitor.pt^*/jquery.cookie.1.4.1.min.js"},"id":1819,"priority":10},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||gearnews.com/wp-content/uploads/borlabs-cookie/"},"id":1820,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||gearnews.com/wp-content/uploads/borlabs-cookie/"},"id":1820,"priority":30},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["konzum.hr"],"resourceTypes":["script"],"urlFilter":"||cdn.consent.hr/delivery/customdata/"},"id":1821,"priority":10}
 ]
