@@ -1,3 +1,9 @@
+- Updated filter lists
+
+----------
+
+### 2026.819.1210
+
 - [Fix performance issue when importing large lists](https://github.com/gorhill/uBlock/commit/10ae629288)
 - Updated filter lists
 
