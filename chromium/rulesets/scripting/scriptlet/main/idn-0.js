@@ -1595,7 +1595,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 66 */ ["netq.me","mudah.my","vicek.id","01ntn.top","123av.com","doroni.me","kiryuu.id","kuyhaa.me","91porn.com","dicrotin.*","igodesu.tv","indobo.com","kiryuu.org","kiryuu02.*","lk21semi.*","nimegami.*","njavtv.com","nokephub.*","sukasex.tv","tutwuri.id","anichin.moe","anichin.top","i-jav.space","javsubid.sx","kingbokep.*","moenime.com","pemersatu.*","semprot.com","sukasex.net","westmanga.*","5.253.86.213","anichin.cafe","animekompi.*","asalunik.com","brobokep.org","jenismac.com","kimcilonly.*","kiryuu01.com","simontokx.tv","ainzscans.net","bokepindo69.*","cosmicscans.*","moutogami.com","moviekhhd.biz","3gpterbaru.com","animekompi.vip","info.vebma.com","kawanfilm21.co","sk21.sob4t.xyz","193.142.147.230","bokepindo24.com","juraganfilm.ink","komikcast02.com","komikdewasa.art","ngicstream.site","indoporntube.com","jurnalistekno.id","tantecentil.fans","websitebokep.com","02.cosmicscans.to","luciferdonghua.in","bahasteknologi.com","thejakartapost.com","tv1.lk21official.*","gudangmovies21.chat","kisahterlarang.site"];
+    const $scriptletHostnames$ = /* 66 */ ["netq.me","mudah.my","vicek.id","01ntn.top","123av.com","doroni.me","kiryuu.id","kuyhaa.me","91porn.com","dicrotin.*","igodesu.tv","indobo.com","kiryuu.org","kiryuu02.*","lk21semi.*","nimegami.*","njavtv.com","nokephub.*","sukasex.tv","tutwuri.id","anichin.moe","anichin.top","i-jav.space","kingbokep.*","moenime.com","pemersatu.*","semprot.com","sukasex.net","westmanga.*","5.253.86.213","anichin.cafe","animekompi.*","asalunik.com","brobokep.org","jenismac.com","kimcilonly.*","kiryuu01.com","simontokx.tv","ainzscans.net","bokepindo69.*","cosmicscans.*","moutogami.com","moviekhhd.biz","streamget.win","3gpterbaru.com","animekompi.vip","info.vebma.com","kawanfilm21.co","sk21.sob4t.xyz","193.142.147.230","bokepindo24.com","juraganfilm.ink","komikcast02.com","komikdewasa.art","ngicstream.site","indoporntube.com","jurnalistekno.id","tantecentil.fans","websitebokep.com","02.cosmicscans.to","luciferdonghua.in","bahasteknologi.com","thejakartapost.com","tv1.lk21official.*","gudangmovies21.chat","kisahterlarang.site"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1640,7 +1640,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 66 */ "20,25;18;28;8;27;7;27;6;8;2;27;27;27;27;5;27;27;2;27;22;27;27;29;8;4,27;21;29;1;27;27;24;27;3;23;27;17,24;27;27;16,27;24;27;27;12;26;14;27;9;27;15;24;8;13;27;11;27;27,30;22,27;27;10;8;8;17;19;27;2;27";
+        const $scriptletArglistRefs$ = /* 66 */ "20,25;18;28;8;27;7;27;6;8;2;27;27;27;27;5;27;27;2;27;22;27;27;29;4,27;21;29;1;27;27;24;27;3;23;27;17,24;27;27;16,27;24;27;27;12;26;27;14;27;9;27;15;24;8;13;27;11;27;27,30;22,27;27;10;8;8;17;19;27;2;27";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
