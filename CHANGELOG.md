@@ -1,3 +1,6 @@
+- [Replace List-KR with filterslists-KO](https://github.com/gorhill/uBlock/commit/20d3c5b9d0)
+- [Add missing configuration items from backup/restore](https://github.com/gorhill/uBlock/commit/39a0106ffc)
+- [Fix "Filter lists" rendering on reset/restore](https://github.com/gorhill/uBlock/commit/f94bf63c91)
 - Updated filter lists
 
 ----------
