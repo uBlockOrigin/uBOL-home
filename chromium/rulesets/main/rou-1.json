@@ -442,5 +442,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||dambovitanews.com/wp-content/uploads/*/ddd"},"id":441,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||ziarulderoman.ro/wp-content/uploads/2016/05/danlinxxl.jpg"},"id":442,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||sportulbistritean.ro/*.gif"},"id":443,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedRequestDomains":["facebook.net"],"initiatorDomains":["versmuzica.ro"],"resourceTypes":["script"]},"id":444,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","excludedRequestDomains":["facebook.net"],"initiatorDomains":["versmuzica.ro"],"resourceTypes":["script"]},"id":444,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||financiarpress.ro/wp-content/uploads/2026/07/garanta*.png"},"id":445,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||curier.ro/wp-content/uploads/2024/04/hotel_360x300*.jpg"},"id":446,"priority":10}
 ]

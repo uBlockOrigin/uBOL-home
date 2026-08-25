@@ -198,14 +198,14 @@ function replaceNodeTextFn(
         const before = node.textContent;
         if ( reIncludes ) {
             reIncludes.lastIndex = 0;
-            if ( safe.RegExp_test.call(reIncludes, before) === false ) { return true; }
+            if ( safe.RegExp_test(reIncludes, before) === false ) { return true; }
         }
         if ( reExcludes ) {
             reExcludes.lastIndex = 0;
-            if ( safe.RegExp_test.call(reExcludes, before) ) { return true; }
+            if ( safe.RegExp_test(reExcludes, before) ) { return true; }
         }
         rePattern.lastIndex = 0;
-        if ( safe.RegExp_test.call(rePattern, before) === false ) { return true; }
+        if ( safe.RegExp_test(rePattern, before) === false ) { return true; }
         rePattern.lastIndex = 0;
         const after = pattern !== ''
             ? before.replace(rePattern, replacement)
@@ -295,8 +295,7 @@ function safeSelf() {
     const safe = {
         'Array_from': Array.from,
         'Error': self.Error,
-        'Function_toStringFn': self.Function.prototype.toString,
-        'Function_toString': thisArg => safe.Function_toStringFn.call(thisArg),
+        'Function_toString': Function.prototype.call.bind(self.Function.prototype.toString),
         'Math_floor': Math.floor,
         'Math_max': Math.max,
         'Math_min': Math.min,
@@ -309,7 +308,7 @@ function safeSelf() {
         'Object_hasOwn': Object.hasOwn.bind(Object),
         'Object_toString': Object.prototype.toString,
         'RegExp': self.RegExp,
-        'RegExp_test': self.RegExp.prototype.test,
+        'RegExp_test': Function.prototype.call.bind(self.RegExp.prototype.test),
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
         'String': self.String,
@@ -320,10 +319,8 @@ function safeSelf() {
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
         'JSON': self.JSON,
-        'JSON_parseFn': self.JSON.parse,
-        'JSON_stringifyFn': self.JSON.stringify,
-        'JSON_parse': (...args) => safe.JSON_parseFn.call(safe.JSON, ...args),
-        'JSON_stringify': (...args) => safe.JSON_stringifyFn.call(safe.JSON, ...args),
+        'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
+        'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
         'log': console.log.bind(console),
         // Properties
         logLevel: 0,
@@ -376,7 +373,7 @@ function safeSelf() {
         testPattern(details, haystack) {
             if ( details.matchAll ) { return true; }
             if ( details.re ) {
-                return this.RegExp_test.call(details.re, haystack) === details.expect;
+                return this.RegExp_test(details.re, haystack) === details.expect;
             }
             return haystack.includes(details.pattern) === details.expect;
         },
@@ -620,7 +617,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 11 */ ["gsp.ro","acasa.ro","tvmd.info","clujust.ro","hotnews.ro","filmexxx.ro","softinfo.ro","sampmoduri.ro","turdanews.net","myradioonline.ro","competentedigitale.ro"];
+    const $scriptletHostnames$ = /* 12 */ ["gsp.ro","acasa.ro","curier.ro","tvmd.info","clujust.ro","hotnews.ro","filmexxx.ro","softinfo.ro","sampmoduri.ro","turdanews.net","myradioonline.ro","competentedigitale.ro"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -665,7 +662,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 11 */ "6;7;10;5;8;11;9;4;1;3;2";
+        const $scriptletArglistRefs$ = /* 12 */ "6;7;12;10;5;8;11;9;4;1;3;2";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -698,8 +695,8 @@ if ( $hasRegexes$ ) {
 if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 3 */
 [removeNodeText,removeClass,setCookie];
-    const $scriptletArgs$ = /* 13 */ ["script","adsbygoogle","/adb/i","_bannerTop1","/jQuery.*reload/","ai_adb","document.body.classList.add","fwp_wpm_","1","/skin|insertAdjacentHTML|netflix/","var Data","appendChild","window.location.href"];
-    const $scriptletArglists$ = /* 12 */ ";0,0,1;0,0,2;1,3;0,0,4;0,0,5;0,0,6;2,7,8;0,0,9;0,0,10;0,0,11;0,0,12";
+    const $scriptletArgs$ = /* 14 */ ["script","adsbygoogle","/adb/i","_bannerTop1","/jQuery.*reload/","ai_adb","document.body.classList.add","fwp_wpm_","1","/skin|insertAdjacentHTML|netflix/","var Data","appendChild","window.location.href","atob"];
+    const $scriptletArglists$ = /* 13 */ ";0,0,1;0,0,2;1,3;0,0,4;0,0,5;0,0,6;2,7,8;0,0,9;0,0,10;0,0,11;0,0,12;0,0,13";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

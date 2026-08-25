@@ -322,14 +322,14 @@ function replaceNodeTextFn(
         const before = node.textContent;
         if ( reIncludes ) {
             reIncludes.lastIndex = 0;
-            if ( safe.RegExp_test.call(reIncludes, before) === false ) { return true; }
+            if ( safe.RegExp_test(reIncludes, before) === false ) { return true; }
         }
         if ( reExcludes ) {
             reExcludes.lastIndex = 0;
-            if ( safe.RegExp_test.call(reExcludes, before) ) { return true; }
+            if ( safe.RegExp_test(reExcludes, before) ) { return true; }
         }
         rePattern.lastIndex = 0;
-        if ( safe.RegExp_test.call(rePattern, before) === false ) { return true; }
+        if ( safe.RegExp_test(rePattern, before) === false ) { return true; }
         rePattern.lastIndex = 0;
         const after = pattern !== ''
             ? before.replace(rePattern, replacement)
@@ -419,8 +419,7 @@ function safeSelf() {
     const safe = {
         'Array_from': Array.from,
         'Error': self.Error,
-        'Function_toStringFn': self.Function.prototype.toString,
-        'Function_toString': thisArg => safe.Function_toStringFn.call(thisArg),
+        'Function_toString': Function.prototype.call.bind(self.Function.prototype.toString),
         'Math_floor': Math.floor,
         'Math_max': Math.max,
         'Math_min': Math.min,
@@ -433,7 +432,7 @@ function safeSelf() {
         'Object_hasOwn': Object.hasOwn.bind(Object),
         'Object_toString': Object.prototype.toString,
         'RegExp': self.RegExp,
-        'RegExp_test': self.RegExp.prototype.test,
+        'RegExp_test': Function.prototype.call.bind(self.RegExp.prototype.test),
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
         'String': self.String,
@@ -444,10 +443,8 @@ function safeSelf() {
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
         'JSON': self.JSON,
-        'JSON_parseFn': self.JSON.parse,
-        'JSON_stringifyFn': self.JSON.stringify,
-        'JSON_parse': (...args) => safe.JSON_parseFn.call(safe.JSON, ...args),
-        'JSON_stringify': (...args) => safe.JSON_stringifyFn.call(safe.JSON, ...args),
+        'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
+        'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
         'log': console.log.bind(console),
         // Properties
         logLevel: 0,
@@ -500,7 +497,7 @@ function safeSelf() {
         testPattern(details, haystack) {
             if ( details.matchAll ) { return true; }
             if ( details.re ) {
-                return this.RegExp_test.call(details.re, haystack) === details.expect;
+                return this.RegExp_test(details.re, haystack) === details.expect;
             }
             return haystack.includes(details.pattern) === details.expect;
         },
@@ -587,98 +584,6 @@ function safeSelf() {
         };
     }
     return safe;
-}
-
-function setAttr(
-    selector = '',
-    attr = '',
-    value = '',
-    ...varargs
-) {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('set-attr', selector, attr, value);
-    const validValues = [ '', 'false', 'true' ];
-    if ( validValues.includes(value.toLowerCase()) === false ) {
-        if ( /^\d+$/.test(value) ) {
-            const n = parseInt(value, 10);
-            if ( n >= 32768 ) { return; }
-            value = `${n}`;
-        } else if ( /^\[.+\]$/.test(value) === false ) {
-            return;
-        }
-    }
-    const options = safe.parseVarargs(varargs);
-    setAttrFn(false, logPrefix, selector, attr, value, options);
-}
-
-function setAttrFn(
-    trusted = false,
-    logPrefix,
-    selector = '',
-    attr = '',
-    value = '',
-    options = {}
-) {
-    if ( selector === '' ) { return; }
-    if ( attr === '' ) { return; }
-
-    const safe = safeSelf();
-    const copyFrom = trusted === false && /^\[.+\]$/.test(value)
-        ? value.slice(1, -1)
-        : '';
-
-    const extractValue = elem => copyFrom !== ''
-        ? elem.getAttribute(copyFrom) || ''
-        : value;
-
-    const applySetAttr = ( ) => {
-        let elems;
-        try {
-            elems = document.querySelectorAll(selector);
-        } catch {
-            return false;
-        }
-        for ( const elem of elems ) {
-            const before = elem.getAttribute(attr);
-            const after = extractValue(elem);
-            if ( after === before ) { continue; }
-            if ( after !== '' && /^on/i.test(attr) ) {
-                if ( attr.toLowerCase() in elem ) { continue; }
-            }
-            elem.setAttribute(attr, after);
-            safe.uboLog(logPrefix, `${attr}="${after}"`);
-        }
-        return true;
-    };
-
-    let observer, timer;
-    const onDomChanged = mutations => {
-        if ( timer !== undefined ) { return; }
-        let shouldWork = false;
-        for ( const mutation of mutations ) {
-            if ( mutation.addedNodes.length === 0 ) { continue; }
-            for ( const node of mutation.addedNodes ) {
-                if ( node.nodeType !== 1 ) { continue; }
-                shouldWork = true;
-                break;
-            }
-            if ( shouldWork ) { break; }
-        }
-        if ( shouldWork === false ) { return; }
-        timer = self.requestAnimationFrame(( ) => {
-            timer = undefined;
-            applySetAttr();
-        });
-    };
-
-    const start = ( ) => {
-        if ( applySetAttr() === false ) { return; }
-        observer = new MutationObserver(onDomChanged);
-        const root = document.documentElement;
-        if ( root instanceof self.Node === false ) { return; }
-        observer.observe(root, { subtree: true, childList: true });
-    };
-    runAt(( ) => { start(); }, options.runAt || 'idle');
 }
 
 function setCookie(
@@ -929,7 +834,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 62 */ ["ebbs.jp","icon.jp","game8.jp","aikru.com","o-dan.net","okwave.jp","aidoly.net","dvdrev.com","eromon.net","moez-m.com","rxlife.net","chimolog.co","figsoku.net","gamewith.jp","livefans.jp","my-best.com","negisoku.com","phileweb.com","sinsimmd.com","ura-akiba.jp","ch-review.net","idol-blog.com","kimootoko.net","mantan-web.jp","okazurand.net","tapestry.work","fm.sekkaku.net","geinoukame.com","hobbylabon.com","nailcolor.work","video.laxd.com","arty-matome.com","bridalgown.work","lifematome.blog","rank1-media.com","resizer.myct.jp","www.yahoo.co.jp","blog.livedoor.jp","figure-times.com","kabegami.jpn.org","kasegeru.blog.jp","studioglass.work","tcg-bloglife.com","teaceremony.work","vk.sportsbull.jp","weddinghall.work","ranky-ranking.net","ba-goods-search.com","betweenjpandkr.blog","contents-group.work","hayamimi-gunpla.com","seikeidouga.blog.jp","tyoieronews.blog.jp","nihon-bijo-zukan.com","ideal2ch.livedoor.biz","inkbrushpainting.work","liquidfoundation.work","lovelive-petitsoku.com","heisei-housewarming.work","gametohkenranbu.sakuraweb.com","pretravel.kawasaki-create.com","safeframe.googlesyndication.com"];
+    const $scriptletHostnames$ = /* 63 */ ["ebbs.jp","icon.jp","game8.jp","aikru.com","o-dan.net","okwave.jp","aidoly.net","dvdrev.com","eromon.net","moez-m.com","rxlife.net","chimolog.co","figsoku.net","gamewith.jp","livefans.jp","my-best.com","negisoku.com","phileweb.com","sinsimmd.com","ura-akiba.jp","ch-review.net","idol-blog.com","kimootoko.net","mantan-web.jp","okazurand.net","tapestry.work","fm.sekkaku.net","geinoukame.com","hobbylabon.com","nailcolor.work","video.laxd.com","arty-matome.com","bridalgown.work","lifematome.blog","rank1-media.com","resizer.myct.jp","www.yahoo.co.jp","blog.livedoor.jp","figure-times.com","kabegami.jpn.org","kasegeru.blog.jp","news.yahoo.co.jp","studioglass.work","tcg-bloglife.com","teaceremony.work","vk.sportsbull.jp","weddinghall.work","ranky-ranking.net","ba-goods-search.com","betweenjpandkr.blog","contents-group.work","hayamimi-gunpla.com","seikeidouga.blog.jp","tyoieronews.blog.jp","nihon-bijo-zukan.com","ideal2ch.livedoor.biz","inkbrushpainting.work","liquidfoundation.work","lovelive-petitsoku.com","heisei-housewarming.work","gametohkenranbu.sakuraweb.com","pretravel.kawasaki-create.com","safeframe.googlesyndication.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -974,7 +879,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 62 */ "26;18;24;13;5;30;13;9;27;27;2;24,25;22,23,24,25;28,29;25;20,24,25;13;14,33;17;27;13;27;27;21,22;27;3,4;10;31;22;3,4;12;13;3,4;11;13;13;16;7;18;13;6;3,4;13;3,4;34;3,4;13;18;8;3,4;18,24,25;13;19;27;13;3,4;3,4;15;3,4;13;1;32";
+        const $scriptletArglistRefs$ = /* 63 */ "27;19;25;13;5;31;13;9;28;28;2;25,26;23,24,25,26;29,30;26;21,25,26;13;14;18;28;13;28;28;22,23;28;3,4;10;32;23;3,4;12;13;3,4;11;13;13;17;7;19;13;6;15;3,4;13;3,4;34;3,4;13;19;8;3,4;19,25,26;13;20;28;13;3,4;3,4;16;3,4;13;1;33";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1005,10 +910,10 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 7 */
-[removeNodeText,setCookie,removeClass,hrefSanitizer,preventRefresh,setCookieReload,setAttr];
-    const $scriptletArgs$ = /* 54 */ ["script","detectAdBlocker","detectAdBlock","adset","off","adset2","visited","#oRslt li a.visited","stay","#text","/スポンサードリンク：?|楽天広告：/","selectRandomProduct","PR:","関連動画","【広告】","/\\[vkExUnit_ad area=(after|before)\\]/","with-ad","section.main","/スポンサード?リンク/","has-topbanner","body > header.has-topbanner","[PR]","a[href^=\"https://app.adjust.com/\"]","?redirect","/^PR\\s$/","a[href*=\"a8ejpredirect\"]","?a8ejpredirect","/^\\s*PR\\s*$/","a[href^=\"/link?fallback_url=\"]","?fallback_url","a[href^=\"https://af.moshimo.com/af/c/click?\"][href*=\"&url=\"]","?url","a[href^=\"https://al.dmm.com/?lurl=\"]","?lurl","a[href^=\"https://affiliate.suruga-ya.jp/modules/af/af_jump.php?\"]","?goods_url","a[href*=\"hb.afl.rakuten.co.jp/\"][href*=\"pc=\"]","?pc","a[href*=\"ck.jp.ap.valuecommerce.com/servlet/referral?\"][href*=\"&vc_url=\"]","?vc_url","a[href^=\"https://al.fanza.co.jp/?lurl=\"]","discarded-search-interstitial-cta-banner","true","is-collaboration-jack","body","okwave_rwd","/^\\s*PR$/","a[href^=\"https://adclick.g.doubleclick.net/\"][href*=\"adurl=\"]","?adurl","span[class] img.lazyload[width]","src","[data-src]","hidden-by-ima","#vid1_html5_api"];
-    const $scriptletArglists$ = /* 35 */ ";0,0,1;0,0,2;1,3,4;1,5,4;2,6,7,8;0,9,10;0,0,11;0,9,12;0,9,13;0,9,14;0,9,15;2,16,17;0,9,18;2,19,20;0,9,21;3,22,23;0,9,24;3,25,26;0,9,27;3,28,29;3,30,31;3,32,33;3,34,35;3,36,37;3,38,39;4;3,40,33;5,41,42;2,43,44;5,45,42;0,9,46;3,47,48;6,49,50,51;2,52,53";
+    const $scriptletFunctions$ = /* 6 */
+[removeNodeText,setCookie,removeClass,hrefSanitizer,preventRefresh,setCookieReload];
+    const $scriptletArgs$ = /* 54 */ ["script","detectAdBlocker","detectAdBlock","adset","off","adset2","visited","#oRslt li a.visited","stay","#text","/スポンサードリンク：?|楽天広告：/","selectRandomProduct","PR:","関連動画","【広告】","/\\[vkExUnit_ad area=(after|before)\\]/","with-ad","section.main","/スポンサード?リンク/","has-topbanner","body > header.has-topbanner","a[href^=\"https://www.j-cast.com/\"]","[href]","removeParam","[PR]","a[href^=\"https://app.adjust.com/\"]","?redirect","/^PR\\s$/","a[href*=\"a8ejpredirect\"]","?a8ejpredirect","/^\\s*PR\\s*$/","a[href^=\"/link?fallback_url=\"]","?fallback_url","a[href^=\"https://af.moshimo.com/af/c/click?\"][href*=\"&url=\"]","?url","a[href^=\"https://al.dmm.com/?lurl=\"]","?lurl","a[href^=\"https://affiliate.suruga-ya.jp/modules/af/af_jump.php?\"]","?goods_url","a[href*=\"hb.afl.rakuten.co.jp/\"][href*=\"pc=\"]","?pc","a[href*=\"ck.jp.ap.valuecommerce.com/servlet/referral?\"][href*=\"&vc_url=\"]","?vc_url","a[href^=\"https://al.fanza.co.jp/?lurl=\"]","discarded-search-interstitial-cta-banner","true","is-collaboration-jack","body","okwave_rwd","/^\\s*PR$/","a[href^=\"https://adclick.g.doubleclick.net/\"][href*=\"adurl=\"]","?adurl","hidden-by-ima","#vid1_html5_api"];
+    const $scriptletArglists$ = /* 35 */ ";0,0,1;0,0,2;1,3,4;1,5,4;2,6,7,8;0,9,10;0,0,11;0,9,12;0,9,13;0,9,14;0,9,15;2,16,17;0,9,18;2,19,20;3,21,22,23;0,9,24;3,25,26;0,9,27;3,28,29;0,9,30;3,31,32;3,33,34;3,35,36;3,37,38;3,39,40;3,41,42;4;3,43,36;5,44,45;2,46,47;5,48,45;0,9,49;3,50,51;2,52,53";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

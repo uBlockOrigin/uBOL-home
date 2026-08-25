@@ -77,6 +77,76 @@ function getSafeCookieValuesFn() {
     ];
 }
 
+function onIdleFn(fn, options) {
+    if ( self.requestIdleCallback ) {
+        return self.requestIdleCallback(fn, options);
+    }
+    return self.requestAnimationFrame(fn);
+}
+
+function removeClass(
+    rawToken = '',
+    rawSelector = '',
+    behavior = ''
+) {
+    if ( typeof rawToken !== 'string' ) { return; }
+    if ( rawToken === '' ) { return; }
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('remove-class', rawToken, rawSelector, behavior);
+    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
+    const selector = tokens
+        .map(a => `${rawSelector}.${CSS.escape(a)}`)
+        .join(',');
+    if ( safe.logLevel > 1 ) {
+        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
+    }
+    const mustStay = /\bstay\b/.test(behavior);
+    let timer;
+    const rmclass = ( ) => {
+        timer = undefined;
+        try {
+            const nodes = document.querySelectorAll(selector);
+            for ( const node of nodes ) {
+                node.classList.remove(...tokens);
+                safe.uboLog(logPrefix, 'Removed class(es)');
+            }
+        } catch {
+        }
+        if ( mustStay ) { return; }
+        if ( document.readyState !== 'complete' ) { return; }
+        observer.disconnect();
+    };
+    const mutationHandler = mutations => {
+        if ( timer !== undefined ) { return; }
+        let skip = true;
+        for ( let i = 0; i < mutations.length && skip; i++ ) {
+            const { type, addedNodes, removedNodes } = mutations[i];
+            if ( type === 'attributes' ) { skip = false; }
+            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
+                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
+            }
+            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
+                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
+            }
+        }
+        if ( skip ) { return; }
+        timer = onIdleFn(rmclass, { timeout: 67 });
+    };
+    const observer = new MutationObserver(mutationHandler);
+    const start = ( ) => {
+        rmclass();
+        observer.observe(document, {
+            attributes: true,
+            attributeFilter: [ 'class' ],
+            childList: true,
+            subtree: true,
+        });
+    };
+    runAt(( ) => {
+        start();
+    }, /\bcomplete\b/.test(behavior) ? 'idle' : 'loading');
+}
+
 function removeCookie(
     needle = '',
     ...varargs
@@ -201,14 +271,14 @@ function replaceNodeTextFn(
         const before = node.textContent;
         if ( reIncludes ) {
             reIncludes.lastIndex = 0;
-            if ( safe.RegExp_test.call(reIncludes, before) === false ) { return true; }
+            if ( safe.RegExp_test(reIncludes, before) === false ) { return true; }
         }
         if ( reExcludes ) {
             reExcludes.lastIndex = 0;
-            if ( safe.RegExp_test.call(reExcludes, before) ) { return true; }
+            if ( safe.RegExp_test(reExcludes, before) ) { return true; }
         }
         rePattern.lastIndex = 0;
-        if ( safe.RegExp_test.call(rePattern, before) === false ) { return true; }
+        if ( safe.RegExp_test(rePattern, before) === false ) { return true; }
         rePattern.lastIndex = 0;
         const after = pattern !== ''
             ? before.replace(rePattern, replacement)
@@ -298,8 +368,7 @@ function safeSelf() {
     const safe = {
         'Array_from': Array.from,
         'Error': self.Error,
-        'Function_toStringFn': self.Function.prototype.toString,
-        'Function_toString': thisArg => safe.Function_toStringFn.call(thisArg),
+        'Function_toString': Function.prototype.call.bind(self.Function.prototype.toString),
         'Math_floor': Math.floor,
         'Math_max': Math.max,
         'Math_min': Math.min,
@@ -312,7 +381,7 @@ function safeSelf() {
         'Object_hasOwn': Object.hasOwn.bind(Object),
         'Object_toString': Object.prototype.toString,
         'RegExp': self.RegExp,
-        'RegExp_test': self.RegExp.prototype.test,
+        'RegExp_test': Function.prototype.call.bind(self.RegExp.prototype.test),
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
         'String': self.String,
@@ -323,10 +392,8 @@ function safeSelf() {
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
         'JSON': self.JSON,
-        'JSON_parseFn': self.JSON.parse,
-        'JSON_stringifyFn': self.JSON.stringify,
-        'JSON_parse': (...args) => safe.JSON_parseFn.call(safe.JSON, ...args),
-        'JSON_stringify': (...args) => safe.JSON_stringifyFn.call(safe.JSON, ...args),
+        'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
+        'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
         'log': console.log.bind(console),
         // Properties
         logLevel: 0,
@@ -379,7 +446,7 @@ function safeSelf() {
         testPattern(details, haystack) {
             if ( details.matchAll ) { return true; }
             if ( details.re ) {
-                return this.RegExp_test.call(details.re, haystack) === details.expect;
+                return this.RegExp_test(details.re, haystack) === details.expect;
             }
             return haystack.includes(details.pattern) === details.expect;
         },
@@ -799,7 +866,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 13 */ ["muko.kr","maple.gg","ssodam.com","dcinside.com","m.11st.co.kr","m.danawa.com","oh-yes.co.kr","m.dcinside.com","m.humoruniv.com","excellesports.com","gall.dcinside.com","lottecinema.co.kr","mlbpark.donga.com"];
+    const $scriptletHostnames$ = /* 12 */ ["maple.gg","loawa.com","ssodam.com","dcinside.com","m.danawa.com","oh-yes.co.kr","www.naver.com","m.dcinside.com","m.humoruniv.com","excellesports.com","gall.dcinside.com","mlbpark.donga.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -844,7 +911,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 13 */ "15;4;6;8;14;2;5;9,10;1;3;11,12;13;7";
+        const $scriptletArglistRefs$ = /* 12 */ "5;2;8;10;3;7;6;11,12;1;4;13,14;9";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -875,10 +942,10 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 5 */
-[removeNodeText,setCookie,setAttr,removeCookie,setLocalStorageItem];
-    const $scriptletArgs$ = /* 23 */ ["script","/run[\\s\\S]*?data[\\s\\S]*?OnClick[\\s\\S]*?ad\\d_/","hideMainBottomSheet","Y","popup_view","disable","hideFrontPagePopup","true","ld_ac_timeout","adv","1","#cmtFormTable textarea","cols","50","gaejuki_ad","find_ab","/adblock_detected/","$remove$","/background:[\\s\\S]+setTimeout\\( *\\( *\\) *=> *[A-Za-z0-9]+\\.remove\\( *\\)[\\s\\S]+Math\\.random\\( *\\) *< *percent *\\/ *100/","/finally *{\\n* *document.documentElement.removeChild\\( *[A-Za-z0-9]+ *\\) *;\\n* *}([ \\n]|.)+_ad\"]\\);/","MainPopup","web2AppPopupDisable","muko_gs_modal_dismissed"];
-    const $scriptletArglists$ = /* 16 */ ";0,0,1;1,2,3;1,4,5;1,6,7;1,8,3;1,9,10;2,11,12,13;3,14;3,15;4,16,17;0,0,18;0,0,19;1,20,7;1,21,3;1,22,10";
+    const $scriptletFunctions$ = /* 6 */
+[removeNodeText,setCookie,removeClass,setAttr,removeCookie,setLocalStorageItem];
+    const $scriptletArgs$ = /* 23 */ ["script","/run[\\s\\S]*?data[\\s\\S]*?OnClick[\\s\\S]*?ad\\d_/","ad_popup_hide_36","1","hideMainBottomSheet","Y","popup_view","disable","hideFrontPagePopup","true","type_ad","#shortcutArea","ld_ac_timeout","adv","#cmtFormTable textarea","cols","50","gaejuki_ad","find_ab","/adblock_detected/","$remove$","/background:[\\s\\S]+setTimeout\\( *\\( *\\) *=> *[A-Za-z0-9]+\\.remove\\( *\\)[\\s\\S]+Math\\.random\\( *\\) *< *percent *\\/ *100/","/finally *{\\n* *document.documentElement.removeChild\\( *[A-Za-z0-9]+ *\\) *;\\n* *}([ \\n]|.)+_ad\"]\\);/"];
+    const $scriptletArglists$ = /* 15 */ ";0,0,1;1,2,3;1,4,5;1,6,7;1,8,9;2,10,11;1,12,5;1,13,3;3,14,15,16;4,17;4,18;5,19,20;0,0,21;0,0,22";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

@@ -535,8 +535,8 @@ function preventAddEventListener(
         return parts.join('');
     };
     const shouldPrevent = (thisArg, type, handler) => {
-        const matchesType = safe.RegExp_test.call(reType, type);
-        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesType = safe.RegExp_test(reType, type);
+        const matchesHandler = safe.RegExp_test(rePattern, handler);
         const matchesEither = matchesType || matchesHandler;
         const matchesBoth = matchesType && matchesHandler;
         if ( safe.logLevel > 1 && matchesEither ) {
@@ -865,8 +865,7 @@ function safeSelf() {
     const safe = {
         'Array_from': Array.from,
         'Error': self.Error,
-        'Function_toStringFn': self.Function.prototype.toString,
-        'Function_toString': thisArg => safe.Function_toStringFn.call(thisArg),
+        'Function_toString': Function.prototype.call.bind(self.Function.prototype.toString),
         'Math_floor': Math.floor,
         'Math_max': Math.max,
         'Math_min': Math.min,
@@ -879,7 +878,7 @@ function safeSelf() {
         'Object_hasOwn': Object.hasOwn.bind(Object),
         'Object_toString': Object.prototype.toString,
         'RegExp': self.RegExp,
-        'RegExp_test': self.RegExp.prototype.test,
+        'RegExp_test': Function.prototype.call.bind(self.RegExp.prototype.test),
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
         'String': self.String,
@@ -890,10 +889,8 @@ function safeSelf() {
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
         'JSON': self.JSON,
-        'JSON_parseFn': self.JSON.parse,
-        'JSON_stringifyFn': self.JSON.stringify,
-        'JSON_parse': (...args) => safe.JSON_parseFn.call(safe.JSON, ...args),
-        'JSON_stringify': (...args) => safe.JSON_stringifyFn.call(safe.JSON, ...args),
+        'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
+        'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
         'log': console.log.bind(console),
         // Properties
         logLevel: 0,
@@ -946,7 +943,7 @@ function safeSelf() {
         testPattern(details, haystack) {
             if ( details.matchAll ) { return true; }
             if ( details.re ) {
-                return this.RegExp_test.call(details.re, haystack) === details.expect;
+                return this.RegExp_test(details.re, haystack) === details.expect;
             }
             return haystack.includes(details.pattern) === details.expect;
         },
@@ -1417,7 +1414,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 82 */ "7,19;3;3;13,17,18,-14;12,13,14,20;50;20;49;3;20;31;9,10,11,20;27;1;28;20;5,6;48;3;3;51;37;17,18;20;30;20;3;41;8;-8;2;29;20;32;34;17,18;24,25,26;20;-8;20;17,18;16;20,-23;43;20;20;20;3;8,20;3;20;20;47;45;20;3;33;44;20;3;8,20;3;20;38,39;3;20;20;42;45;47;-24;3;46;36;47;20;40;35;47;-8,15,20,21;4;47";
+        const $scriptletArglistRefs$ = /* 82 */ "8,20;3;3;14,18,19,-15;13,14,15,21;52;21;51;3;21;32,46;10,11,12,21;28;1;29;21;6,7;50;3;3;53;38;18,19;21;31;21;3;42;9;-9;2;30;21;33;35;18,19;25,26,27;21;-9;21;18,19;17;21,-24;44;21;21;21;3;9,21;3;21;21;49;47;21;3;34;45;21;3;9,21;3;21;39,40;3;21;21;43;47;49;-25;3;48;37;49;21;41;36;49;-9,16,21,22;4,5;49";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1449,9 +1446,9 @@ if ( $hasRegexes$ ) {
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 13 */
-[noWindowOpenIf,abortOnPropertyWrite,preventSetTimeout,abortCurrentScript,abortOnPropertyRead,setConstant,abortOnStackTrace,preventAddEventListener,preventSetInterval,noEvalIf,removeAttr,adjustSetTimeout,adjustSetInterval];
-    const $scriptletArgs$ = /* 71 */ ["ads","ub_ct_load","PrebidDamOpen","800","decodeURIComponent","newAdblockBoardDisplayed","addEventListener","/faBar[\\s\\S]*?insertAdjacentElement/","WP.inline","iaqExt","__headpayload","WP.gaf.loadBunch","noopFunc","WP","r https","Object.prototype.rekids","undefined","Object.prototype.gafSlot","Object.prototype.advViewability","Object.prototype.loadBunch","Object.prototype.loadAndRunBunch","HubAPI","3000","message","t.origin===k","/getComputedStyle[\\s\\S]*?style\\.display=\"none\"[\\s\\S]*?styleBlocked[\\s\\S]*?detected/","WP.prebid","onLoad","Object.prototype.bodyCode","visibility","0","wp_consent_color","function neTick(){neTickCounter++;if(neTickCounter<=neTickCountLimit){neTickAjax=$.ajax({type:\"POST\"","url:adminAjaxUrl+\"?action=ne_tick\"","dataType:\"json\"","success:function(data){neTickResponseAction(data)}})}}","10000","function check(){console.log(\"checked\");if($(\".adform\").children().length>3){console.log(\"its more\");$(\".adform\").children(\".adform-banner\").show();clearTimeout(check)}}","1000","$","/loadData|halfpage|welcome|screening|placement|adtitle/","detectAB","_yhbog","RTCPeerConnection","launchOpenWindow","ubfix()","o6c6e","no-ads-info","yafaIt","displayed","false","bioEp.showPopup","uabpd3","scrolling","iframe#sg-iframe[scrolling=\"no\"]","stay","#iwa_source=timeout","15000","0.02","loadElement","function","billboard750","jQuery","#sdWelcomeScreen","#AdPopup","redirectId","document.querySelectorAll","popMagic","TheLink","Math.random","_blank"];
-    const $scriptletArglists$ = /* 52 */ ";0;1,0;1,1;2,2,3;3,4,5;3,6,7;4,8;1,9;4,10;5,11,12;6,13,14;5,15,16;5,17,16;5,18,16;5,19,12;5,20,12;2,21,22;7,23,24;2,25;6,26,27;4,28;2,29,30;4,31;8,32,33,34,35,36;2,37,38;3,39,40;1,41;1,42;9,43;4,44;2,45;4,46;2,47;1,48;5,49,50;2,51;4,52;10,53,54,55;11,56,57,58;5,59,12;11;11,60,38,58;3,61;3,62,63;3,39,64;12;12,65;3,66,67;11,68;3,69;0,70";
+[noWindowOpenIf,abortOnPropertyWrite,removeAttr,preventSetTimeout,abortCurrentScript,abortOnPropertyRead,setConstant,abortOnStackTrace,preventAddEventListener,preventSetInterval,noEvalIf,adjustSetTimeout,adjustSetInterval];
+    const $scriptletArgs$ = /* 74 */ ["ads","ub_ct_load","style","#phContent_avastBadge","stay","PrebidDamOpen","800","decodeURIComponent","newAdblockBoardDisplayed","addEventListener","/faBar[\\s\\S]*?insertAdjacentElement/","WP.inline","iaqExt","__headpayload","WP.gaf.loadBunch","noopFunc","WP","r https","Object.prototype.rekids","undefined","Object.prototype.gafSlot","Object.prototype.advViewability","Object.prototype.loadBunch","Object.prototype.loadAndRunBunch","HubAPI","3000","message","t.origin===k","/getComputedStyle[\\s\\S]*?style\\.display=\"none\"[\\s\\S]*?styleBlocked[\\s\\S]*?detected/","WP.prebid","onLoad","Object.prototype.bodyCode","visibility","0","wp_consent_color","function neTick(){neTickCounter++;if(neTickCounter<=neTickCountLimit){neTickAjax=$.ajax({type:\"POST\"","url:adminAjaxUrl+\"?action=ne_tick\"","dataType:\"json\"","success:function(data){neTickResponseAction(data)}})}}","10000","function check(){console.log(\"checked\");if($(\".adform\").children().length>3){console.log(\"its more\");$(\".adform\").children(\".adform-banner\").show();clearTimeout(check)}}","1000","$","/loadData|halfpage|welcome|screening|placement|adtitle/","detectAB","_yhbog","RTCPeerConnection","launchOpenWindow","ubfix()","o6c6e","no-ads-info","yafaIt","displayed","false","bioEp.showPopup","uabpd3","scrolling","iframe#sg-iframe[scrolling=\"no\"]","#iwa_source=timeout","15000","0.02","loadElement","function","billboard750","jQuery","#sdWelcomeScreen","[href^=\"https://www.purepc.pl/red1r.php\"]","#AdPopup","redirectId","document.querySelectorAll","popMagic","TheLink","Math.random","_blank"];
+    const $scriptletArglists$ = /* 54 */ ";0;1,0;1,1;2,2,3,4;3,5,6;4,7,8;4,9,10;5,11;1,12;5,13;6,14,15;7,16,17;6,18,19;6,20,19;6,21,19;6,22,15;6,23,15;3,24,25;8,26,27;3,28;7,29,30;5,31;3,32,33;5,34;9,35,36,37,38,39;3,40,41;4,42,43;1,44;1,45;10,46;5,47;3,48;5,49;3,50;1,51;6,52,53;3,54;5,55;2,56,57,4;11,58,59,60;6,61,15;11;11,62,41,60;4,63;4,64,65;2,2,66;4,42,67;12;12,68;4,69,70;11,71;4,72;0,73";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

@@ -19,7 +19,9 @@
    "askmiso.com",
    "cdn.gist.ai",
    "gotolstoy.com",
+   "sdk.whtvr.ai",
    "srv.divee.ai",
+   "widget.brambles.ai",
    "widget.kapa.ai",
    "widget.prod.equally.ai"
   ]
@@ -100,6 +102,16 @@
   "urlFilter": "||api.coinmarketcap.com/chatbot/"
  },
  "id": 8,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "urlFilter": "||mydrivers.com//v2/pc/aisummaryhandler.ashx?"
+ },
+ "id": 9,
  "priority": 10
 }
 ]

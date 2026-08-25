@@ -327,5 +327,7 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/google-ima.js"},"type":"redirect"},"condition":{"initiatorDomains":["studyflix.de"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/js/sdkloader/ima3.js"},"id":326,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"||vidwish.live/lib/devtools-detector"},"id":327,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||inews.co.uk/wp-content/client-mu-plugins/piano/piano-loader.js"},"id":328,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||tvzonehd.com/anti-copy.js"},"id":329,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||tvzonehd.com/anti-copy.js"},"id":329,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||calcalist.co.il/mvc/long/2019/ctechnewsletter/signup/"},"id":330,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||canale-tv.net/channel/disy.js^"},"id":331,"priority":10}
 ]

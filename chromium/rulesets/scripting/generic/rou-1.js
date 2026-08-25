@@ -27,8 +27,8 @@
 
 const lowlyGeneric = new Map(/* 10 */[[51371,"#digi-fm-live-stream"],[63309,".only-desktop.promotii-wrapper"],[24895,".only_desktop.related_on_top.parteneri.sectiune"],[10573,".SC_TBlock"],[25189,".strawberry_ads_container"],[39774,".strawberry-ads__pretty-container"],[40254,".strawberry-ads-manager-container"],[34679,".strawberry-ad-card"],[39851,".strawberry-ad"],[3896,"#sam_branding[style=\"min-height:250px;\"]"]]);
 const highlyGeneric = /* 4 */"[href^=\"https://serve.efortuna.ro/\"],\n[href^=\"https://banners.livepartners.com/\"],\n[href=\"https://www.patriotromania.ro/\"],\n[href*=\"/add.php\"]";
-const exceptions = /* 3 */["#ad-carousel","[href=\"https://www.patriotromania.ro/\"]",".adsbygoogle"];
-const hostnames = /* 3 */["dez.ro","patriotromania.ro","televiziunea-medicala.ro"];
+const exceptions = /* 4 */["#ad-carousel","html > #bw-cf-root","[href=\"https://www.patriotromania.ro/\"]",".adsbygoogle"];
+const hostnames = /* 4 */["dez.ro","curier.ro","patriotromania.ro","televiziunea-medicala.ro"];
 const hasEntities = false;
 
 self.genericSelectorMaps = self.genericSelectorMaps ?? [];

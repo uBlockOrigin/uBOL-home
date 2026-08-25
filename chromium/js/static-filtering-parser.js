@@ -604,6 +604,7 @@ export const preparserIfTokens = new Set([
     'ext_ublock',
     'ext_ubol',
     'ext_devbuild',
+    'env_brave',
     'env_chromium',
     'env_edge',
     'env_firefox',
@@ -4230,6 +4231,7 @@ export const utils = (( ) => {
         [ 'ext_ublock', 'ublock' ],
         [ 'ext_ubol', 'ubol' ],
         [ 'ext_devbuild', 'devbuild' ],
+        [ 'env_brave', 'brave' ],
         [ 'env_chromium', 'chromium' ],
         [ 'env_edge', 'edge' ],
         [ 'env_firefox', 'firefox' ],
@@ -4238,7 +4240,6 @@ export const utils = (( ) => {
         [ 'env_mv3', 'mv3' ],
         [ 'env_safari', 'safari' ],
         [ 'cap_html_filtering', 'html_filtering' ],
-        [ 'cap_user_stylesheet', 'user_stylesheet' ],
         [ 'cap_ipaddress', 'ipaddress' ],
         [ 'false', 'false' ],
         // Hoping ABP-only list maintainers can at least make use of it to

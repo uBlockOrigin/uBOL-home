@@ -776,6 +776,20 @@ function objectPruneFn(
     if ( outcome === 'match' ) { return obj; }
 }
 
+function offIdleFn(id) {
+    if ( self.requestIdleCallback ) {
+        return self.cancelIdleCallback(id);
+    }
+    return self.cancelAnimationFrame(id);
+}
+
+function onIdleFn(fn, options) {
+    if ( self.requestIdleCallback ) {
+        return self.requestIdleCallback(fn, options);
+    }
+    return self.requestAnimationFrame(fn);
+}
+
 function parsePropertiesToMatchFn(propsToMatch, implicit = '') {
     const safe = safeSelf();
     const needles = new Map();
@@ -835,8 +849,8 @@ function preventAddEventListener(
         return parts.join('');
     };
     const shouldPrevent = (thisArg, type, handler) => {
-        const matchesType = safe.RegExp_test.call(reType, type);
-        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesType = safe.RegExp_test(reType, type);
+        const matchesHandler = safe.RegExp_test(rePattern, handler);
         const matchesEither = matchesType || matchesHandler;
         const matchesBoth = matchesType && matchesHandler;
         if ( safe.logLevel > 1 && matchesEither ) {
@@ -1366,6 +1380,78 @@ function proxyApplyFn(
     context[prop] = proxiedTarget;
 }
 
+function removeAttr(
+    rawToken = '',
+    rawSelector = '',
+    behavior = ''
+) {
+    if ( typeof rawToken !== 'string' ) { return; }
+    if ( rawToken === '' ) { return; }
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('remove-attr', rawToken, rawSelector, behavior);
+    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
+    const selector = tokens
+        .map(a => `${rawSelector}[${CSS.escape(a)}]`)
+        .join(',');
+    if ( safe.logLevel > 1 ) {
+        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
+    }
+    const asap = /\basap\b/.test(behavior);
+    let timerId;
+    const rmattrAsync = ( ) => {
+        if ( timerId !== undefined ) { return; }
+        timerId = onIdleFn(( ) => {
+            timerId = undefined;
+            rmattr();
+        }, { timeout: 17 });
+    };
+    const rmattr = ( ) => {
+        if ( timerId !== undefined ) {
+            offIdleFn(timerId);
+            timerId = undefined;
+        }
+        try {
+            const nodes = document.querySelectorAll(selector);
+            for ( const node of nodes ) {
+                for ( const attr of tokens ) {
+                    if ( node.hasAttribute(attr) === false ) { continue; }
+                    node.removeAttribute(attr);
+                    safe.uboLog(logPrefix, `Removed attribute '${attr}'`);
+                }
+            }
+        } catch {
+        }
+    };
+    const mutationHandler = mutations => {
+        if ( timerId !== undefined ) { return; }
+        let skip = true;
+        for ( let i = 0; i < mutations.length && skip; i++ ) {
+            const { type, addedNodes, removedNodes } = mutations[i];
+            if ( type === 'attributes' ) { skip = false; }
+            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
+                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
+            }
+            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
+                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
+            }
+        }
+        if ( skip ) { return; }
+        asap ? rmattr() : rmattrAsync();
+    };
+    const start = ( ) => {
+        rmattr();
+        if ( /\bstay\b/.test(behavior) === false ) { return; }
+        const observer = new MutationObserver(mutationHandler);
+        observer.observe(document, {
+            attributes: true,
+            attributeFilter: tokens,
+            childList: true,
+            subtree: true,
+        });
+    };
+    runAt(( ) => { start(); }, safe.String_split.call(behavior, /\s+/));
+}
+
 function runAt(fn, when) {
     const intFromReadyState = state => {
         const targets = {
@@ -1415,8 +1501,7 @@ function safeSelf() {
     const safe = {
         'Array_from': Array.from,
         'Error': self.Error,
-        'Function_toStringFn': self.Function.prototype.toString,
-        'Function_toString': thisArg => safe.Function_toStringFn.call(thisArg),
+        'Function_toString': Function.prototype.call.bind(self.Function.prototype.toString),
         'Math_floor': Math.floor,
         'Math_max': Math.max,
         'Math_min': Math.min,
@@ -1429,7 +1514,7 @@ function safeSelf() {
         'Object_hasOwn': Object.hasOwn.bind(Object),
         'Object_toString': Object.prototype.toString,
         'RegExp': self.RegExp,
-        'RegExp_test': self.RegExp.prototype.test,
+        'RegExp_test': Function.prototype.call.bind(self.RegExp.prototype.test),
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
         'String': self.String,
@@ -1440,10 +1525,8 @@ function safeSelf() {
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
         'JSON': self.JSON,
-        'JSON_parseFn': self.JSON.parse,
-        'JSON_stringifyFn': self.JSON.stringify,
-        'JSON_parse': (...args) => safe.JSON_parseFn.call(safe.JSON, ...args),
-        'JSON_stringify': (...args) => safe.JSON_stringifyFn.call(safe.JSON, ...args),
+        'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
+        'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
         'log': console.log.bind(console),
         // Properties
         logLevel: 0,
@@ -1496,7 +1579,7 @@ function safeSelf() {
         testPattern(details, haystack) {
             if ( details.matchAll ) { return true; }
             if ( details.re ) {
-                return this.RegExp_test.call(details.re, haystack) === details.expect;
+                return this.RegExp_test(details.re, haystack) === details.expect;
             }
             return haystack.includes(details.pattern) === details.expect;
         },
@@ -2040,7 +2123,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 140 */ ["kio.ac","asdn.kr","cpsp.kr","heye.kr","zum.com","dfast.kr","imbc.com","meeco.kr","te31.com","youtu.co","avdbs.com","cfnews.kr","enuri.com","jootc.com","kilho.net","naver.com","nesin.com","noonnu.cc","sbs.co.kr","sogirl.so","x86.co.kr","deokhu.com","laftel.net","mjmedi.com","newneek.co","sjtoday.kr","yachuk.com","333aaa.site","3dpchip.com","dicoall.com","domin.co.kr","ehpub.co.kr","hub.zum.com","keela.co.kr","newsn24.com","plankim.com","remiz.co.kr","ssulwar.com","tistory.com","untitle.org","zuzunza.com","cheatdot.com","koreapas.com","love.asdn.kr","lover932.net","lover933.net","lover934.net","lover935.net","lover936.net","lover937.net","lover938.net","lover939.net","lover940.net","lover941.net","momkim.co.kr","namechart.kr","poketory.com","sajuplus.net","sysnet.pe.kr","tv.kakao.com","tvchosun.com","withukor.com","blackkiwi.net","etoland.co.kr","jiwootube.com","m.fmkorea.com","map.naver.com","skysky138.com","tv.jtbc.co.kr","www.naver.com","bikesell.co.kr","blog.dalso.org","dpg.danawa.com","eftlibrary.com","errornight.com","filetender.com","m.dcinside.com","mplay.mk.co.kr","spotvnow.co.kr","stockinfo7.com","10000recipe.com","auto.danawa.com","chzzk.naver.com","digitstar77.com","doctornow.co.kr","iphonedev.co.kr","m.humoruniv.com","mememedia.co.kr","mvod.jtbc.co.kr","news.jtbc.co.kr","picknpicker.com","stock.naver.com","windowsforum.kr","aannm.cafe24.com","actingbaum.co.kr","healthfeed.co.kr","itinformation.kr","kakaotv.daum.net","mylocation.co.kr","onair.jtbc.co.kr","platformgreat.kr","postincome.co.kr","smartinpress.com","sotrychatter.com","vod.sooplive.com","whathappen.co.kr","dinfo.3dpchip.com","enjoytaiwan.co.kr","gall.dcinside.com","goodmorningcc.com","hub.weirdhost.xyz","humors.zigcou.com","m.place.naver.com","moneyissues.co.kr","moneytoring.co.kr","play-tv.kakao.com","search.11st.co.kr","detegice.github.io","news.ssongyi.co.kr","thelabyrinth.co.kr","focuskr.tistory.com","genshin.gamedot.org","hashnews.cafe24.com","ilsangt.tistory.com","minipol.tistory.com","seo-marketing.co.kr","enjoyplan.tistory.com","pcmap.place.naver.com","shoppinghow.kakao.com","watchfreejavonline.co","www.cultureland.co.kr","beomil09121.cafe24.com","shopping.interpark.com","xn--wh1b751afvcpsb.com","checkwhoiam.tistory.com","luckyquiz3.blogspot.com","1004lucifer.blogspot.com","search.shopping.naver.com","msearch.shopping.naver.com","singingdalong.blogspot.com"];
+    const $scriptletHostnames$ = /* 145 */ ["asdn.kr","cpsp.kr","heye.kr","zum.com","dfast.kr","fafan.kr","hasha.in","imbc.com","meeco.kr","pping.kr","te31.com","youtu.co","zzzz.lol","cfnews.kr","enuri.com","jootc.com","kilho.net","nesin.com","noonnu.cc","sbs.co.kr","sogirl.so","x86.co.kr","deokhu.com","laftel.net","mjmedi.com","newneek.co","sjtoday.kr","yachuk.com","333aaa.site","3dpchip.com","domin.co.kr","ehpub.co.kr","hub.zum.com","inven.co.kr","keela.co.kr","newsn24.com","plankim.com","remiz.co.kr","ssulwar.com","tistory.com","untitle.org","zuzunza.com","cheatdot.com","chzzkban.xyz","klauncher.kr","koreapas.com","love.asdn.kr","lover932.net","lover933.net","lover934.net","lover935.net","lover936.net","lover937.net","lover938.net","lover939.net","lover940.net","lover941.net","momkim.co.kr","namechart.kr","poketory.com","sajuplus.net","sysnet.pe.kr","tv.kakao.com","tvchosun.com","withukor.com","blackkiwi.net","etoland.co.kr","jiwootube.com","m.fmkorea.com","map.naver.com","skysky138.com","tv.jtbc.co.kr","www.naver.com","bikesell.co.kr","blog.dalso.org","dpg.danawa.com","eftlibrary.com","errornight.com","filetender.com","m.dcinside.com","mplay.mk.co.kr","spotvnow.co.kr","stockinfo7.com","10000recipe.com","auto.danawa.com","digitstar77.com","doctornow.co.kr","fun-iyagi.co.kr","iphonedev.co.kr","kyobobook.co.kr","m.humoruniv.com","mememedia.co.kr","mvod.jtbc.co.kr","news.jtbc.co.kr","picknpicker.com","stock.naver.com","windowsforum.kr","aannm.cafe24.com","actingbaum.co.kr","healthfeed.co.kr","itinformation.kr","kakaotv.daum.net","mylocation.co.kr","onair.jtbc.co.kr","platformgreat.kr","postincome.co.kr","smartinpress.com","sotrychatter.com","timecoffee.co.kr","vod.sooplive.com","whathappen.co.kr","dinfo.3dpchip.com","enjoytaiwan.co.kr","gall.dcinside.com","goodmorningcc.com","hub.weirdhost.xyz","humors.zigcou.com","m.place.naver.com","moneyissues.co.kr","moneytoring.co.kr","play-tv.kakao.com","search.11st.co.kr","detegice.github.io","news.ssongyi.co.kr","thelabyrinth.co.kr","focuskr.tistory.com","genshin.gamedot.org","hashnews.cafe24.com","ilsangt.tistory.com","minipol.tistory.com","seo-marketing.co.kr","enjoyplan.tistory.com","pcmap.place.naver.com","shoppinghow.kakao.com","watchfreejavonline.co","www.cultureland.co.kr","beomil09121.cafe24.com","shopping.interpark.com","xn--wh1b751afvcpsb.com","checkwhoiam.tistory.com","luckyquiz3.blogspot.com","1004lucifer.blogspot.com","search.shopping.naver.com","msearch.shopping.naver.com","singingdalong.blogspot.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -2085,7 +2168,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 140 */ "67;70;82;19;1;33;63;78;73;33;106;55;18,48;75;24,64;61;51;81;39,49;112;73;102;27,53;52;20;56;43;46;102,103,104;120;50;75;32;45;41;74;70,93;109;70,71,72,73,116;70;71;90;62;70;117;117;117;117;117;117;117;117;117;117;42;97;70;116;105;76,77;54;70;97;89;45;12;21,68;45;91;15;70;72;59,60;97;108;57;83,84,85;25;79,80,81,82;115;29;121;13,14,118,119;37;28;71;3,4,5,6,7,8,9,10,11;34;91;95;45;17;88;44;45;70;37;76,77;92;91,95;23;37;41;45;16;42;98;70;86;69;99,100;36;22;45;37;76,77;30;110;45;87;113;107;47;111;96;70;26;22;58;2;31;44;38;45;94;101;73;40;35;114";
+        const $scriptletArglistRefs$ = /* 145 */ "70;82;18;1;32;72;118;65;78;60;73;32;68;57;17,48;75;23,66;51;81;38,49;113;73;104;26,55;54;19;58;42;45;104,105,106;50;75;31;46;44;40;74;70,94;110;70,71,72,73,117;70;71;91;87;100;64;70;119;119;119;119;119;119;119;119;119;119;41;98;70;117;107;76,77;56;70;98;90;44;12;20;44;92;14;70;72;62,63;98;109;59;83,84,85;24;79,80,81,82;116;28;120;36;27;45;71;52,53;3,4,5,6,7,8,9,10,11;33;92;96;44;16;89;43;44;70;36;76,77;93;92,96;22;36;40;44;45;15;41;99;70;86;13;101,102;35;21;44;36;76,77;29;111;44;88;114;108;47;112;97;70;25;21;61;2;30;43;37;44;95;103;73;39;34;115";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -2096,7 +2179,7 @@ if ( $hasHostnames$ ) {
 }
 
 if ( $hasRegexes$ ) {
-    const $scriptletFromRegexes$ = /* 1 */ ["lover","lover[0-9]\\.net","65,66"];
+    const $scriptletFromRegexes$ = /* 1 */ ["lover","lover[0-9]\\.net","67,69"];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -2116,10 +2199,10 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 16 */
-[setConstant,abortCurrentScript,preventSetTimeout,abortOnStackTrace,jsonPrune,jsonPruneXhrResponse,noWindowOpenIf,preventXhr,preventSetInterval,preventAddEventListener,abortOnPropertyRead,adjustSetTimeout,preventBab,preventFetch,spoofCSS,abortOnPropertyWrite];
-    const $scriptletArgs$ = /* 153 */ ["_ads_zum_main_initbanner_750_zum_main_br_widget_336","true","popMagic.init","list_end_run_read_top_boom","noopFunc","list_end_run_pds_notice_boom","list_end_run_comment_bottom_boom","list_end_run_center_boom","list_end_run_list_bottom_boom","height && 1 <= height && height <= 20","list_end_run","$.prototype.html","_boom","/\\/images\\/[A-z0-9-_]+\\.?(jpg|gif)/","tpl apply","tpl.[].c","ads.[-].eventTracking.ackImpressions.[].url","ads.[].adInfo.responseSize","propsToMatch","url:api.chzzk.naver.com/service/t/","adBreaks.[-].adSources.[].withRemindAd","videoAdScheduleId","EAGER-DATA.CAS-MINICONTENT-PC-WHALE-BANNER-BOTTOM","null","data.adballoon","","station/video/a/view","MobileDetect","getPowerLink","pandalive.co.kr/evt/","api-v2.adrop.io/request","layers.[-].metadata.name.{=}.POI_Ads","url:/PCWeb_Real.json","[].data.poiRecommendations.recommendations.[].items.[-].adClickLog.clickUrl","commonTrailer","undefined","jQuery",".adsbygoogle","ad.smartmediarep.com/NetInsight/video/smr","length:300","coupangAd","[native code]","1000","data","data.getBannerAdExchange","popup_goods","powerLink","powerLink.ads","String.prototype.substring","/checkCookie.+main\\.do/","Math.uuid","as","function","hashchange","#viewus-explore-more","jQuery.fn.getUrlParameter","adRecommend.adUnits.[]","window.__NEXT_DATA__.props.pageProps.initialState.post.adhistory","{}","piBlock","$is.powerLink.loadPowerLink","SbsHtml5PlayerContainer.prototype.renderAdSequence","data.BrandAd","jQuery.prototype.load","is_coupang","DOMContentLoaded","link.coupang.com","coupang_dont_show_prompty_interval","jQuery.prototype.on","pum_vars","pum_popups","data.supertopADNos","player.renderAdSequence","bannerpop.popup","open","/\\/popup\\//","api/avods/v1/advertisement","player.advertisement_finished","window.open","/gears/popup/default.aspx","notice_view_html.php","15000","ads","$","/danawa-dpg-common-sponsorBanner-/","myScript[myScript.length - 1 ]","getAdcrUrl","random_imglink","vrixadsdk","hahaha","click","popMagic","closeBtn.innerHTML","*","0.001","200","items.[-].adId","___popup","document.addEventListener","/adscale_slot_id/","/\\.displayMessage\\(/","adBlockDetected","ai_adb.init","ai_run_scripts","/^https.\\/\\/videoads\\.kakao\\.com\\/adserver\\/api\\/v[0-9]{1,2}\\/vmap$/","adsBlocked","imasdk.googleapis.com/js/sdkloader/ima3.js","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js","addc.dcinside.com","pageshow","/\\.persisted *&& *interval_Ad *&& *clearInterval\\( *interval_Ad *\\)/","emptyStr","blockedState","pagead2.googlesyndication.com method:HEAD","load","banner.offsetHeight","/pagead2.googlesyndication.com|googleads.g.doubleclick.net|googletagservices.com|securepubads.g.doubleclick.net|googleads.g.doubleclick.net|google-analytics.com|googlesyndication.com|doubleclick.net/","window.getComputedStyle(t).display","getComputedStyle(t).getPropertyValue(\"visibility\")","adBlockedMessage","display","block","adblockChecker",".ad-banner.adsbox.ad-unit.ad-zone","checkAdBlock","www3.doubleclick.net","linkPass","adblockanalytics.com","adsbygoogle.js","adsbygoogle","chp_ads_blocker_detector","/compass.adop.cc|adsbygoogle|taboola/","HTMLAnchorElement.prototype.onclick","banner_book","ad_blk","blockCheck2022","alert","chk_adBlock","document.getElementById","adblock","$.prototype.fadeIn",".adsense-area","DHAntiAdBlocker","addEventListener","fuckadblock.min.js","#ad_center","ad.innerHTML.replace","checkAds","document[_0x",".banner_ad_wrapper","/(veta.naver.com\\/vas|veta.naver.com\\/gfp|veta.naver.com\\/call)/ method:OPTIONS","fundingchoicesmessages.google.com/b/pub-1437333416759682 method:HEAD","NAVER_ADPOST_V2"];
-    const $scriptletArglists$ = /* 122 */ ";0,0,1;1,2;0,3,4;0,5,4;0,6,4;0,7,4;0,8,4;2,9;0,10,4;3,11,12;1,11,13;4,14,15;5,16,17,18,19;5,20,21,18,19;0,22,23;5,24,25,18,26;0,27,4;0,28,4;6,29;7,30;5,31,25,18,32;4,33;0,34,35;1,36,37;7,38,39;2,40;8,41,42;4,43,44;2,45;4,46,47;3,48,49;0,50,25,51,52;9,53,54;0,55,25,51,52;4,56;0,57,58;2,59;0,60,4;0,61,4;4,62;1,63,64;9,65,66;1,36,66;1,36,67;1,68,64;0,69,35;10,70;4,71;0,72,35;0,73,4;1,74,75;1,73;7,76;0,77,1;1,78,79;1,78,80;2,25,81;4,82;1,83,84;1,83,85;0,86,25;0,87,4;0,88,35;0,89,4;9,90,91;11,92,93,94;2,25,95;4,96;0,97,35;1,98,99;2,100;12;10,101;1,102;1,103;7,104;13,104;0,105,4;7,106;13,106;7,107;13,107;2,108;9,109,110;7,108,111;0,112,25;13,113;9,114,115;13,116;2,117;2,118;2,119;14,37,120,121;0,122,4;14,123,120,121;0,124,35;13,125;0,126,1;13,127;13,128;7,129;1,130;7,131,111;15,132;2,133;1,83,134;2,135;3,136,137;1,138,139;10,140;1,83,141;0,142,1;1,143,144;1,83,145;2,146;0,147,4;2,148;14,149,120,121;7,150;13,151;0,152,4";
+    const $scriptletFunctions$ = /* 17 */
+[setConstant,abortCurrentScript,preventSetTimeout,abortOnStackTrace,jsonPrune,noWindowOpenIf,jsonPruneXhrResponse,preventXhr,preventSetInterval,preventAddEventListener,removeAttr,abortOnPropertyRead,adjustSetTimeout,preventBab,preventFetch,spoofCSS,abortOnPropertyWrite];
+    const $scriptletArgs$ = /* 149 */ ["_ads_zum_main_initbanner_750_zum_main_br_widget_336","true","popMagic.init","list_end_run_read_top_boom","noopFunc","list_end_run_pds_notice_boom","list_end_run_comment_bottom_boom","list_end_run_center_boom","list_end_run_list_bottom_boom","height && 1 <= height && height <= 20","list_end_run","$.prototype.html","_boom","/\\/images\\/[A-z0-9-_]+\\.?(jpg|gif)/","tpl apply","tpl.[].c","bannerpop/popup.html","EAGER-DATA.CAS-MINICONTENT-PC-WHALE-BANNER-BOTTOM","null","data.adballoon","","station/video/a/view","MobileDetect","getPowerLink","pandalive.co.kr/evt/","api-v2.adrop.io/request","layers.[-].metadata.name.{=}.POI_Ads","propsToMatch","url:/PCWeb_Real.json","[].data.poiRecommendations.recommendations.[].items.[-].adClickLog.clickUrl","commonTrailer","undefined","jQuery",".adsbygoogle","ad.smartmediarep.com/NetInsight/video/smr","length:300","coupangAd","[native code]","1000","data","data.getBannerAdExchange","popup_goods","powerLink","powerLink.ads","String.prototype.substring","/checkCookie.+main\\.do/","Math.uuid","asFunction","hashchange","#viewus-explore-more","jQuery.fn.getUrlParameter","adRecommend.adUnits.[]","window.__NEXT_DATA__.props.pageProps.initialState.post.adhistory","{}","piBlock","$is.powerLink.loadPowerLink","SbsHtml5PlayerContainer.prototype.renderAdSequence","data.BrandAd","jQuery.prototype.load","is_coupang","DOMContentLoaded","link.coupang.com","coupang_dont_show_prompty_interval","jQuery.prototype.on","pum_vars","placeholder","#webzineHeadmenuF1 input[placeholder][autocomplete=\"off\"]","pum_popups","data.supertopADNos","player.renderAdSequence","bannerpop.popup","open","/\\/popup\\//","input#searchMainKeyword","input#searchKeyword","api/avods/v1/advertisement","player.advertisement_finished","window.open","/gears/popup/default.aspx","notice_view_html.php","15000","input.search_input","asap stay","ads","$","/danawa-dpg-common-sponsorBanner-/","myScript[myScript.length - 1 ]","random_imglink","vrixadsdk","hahaha","click","'opMagic","animationEffects[settings.animation.effect]","closeBtn.innerHTML","0.001","document.addEventListener","/adscale_slot_id/","/\\.displayMessage\\(/","adBlockDetected","ai_adb.init","ai_run_scripts","/^https.\\/\\/videoads\\.kakao\\.com\\/adserver\\/api\\/v[0-9]{1,2}\\/vmap$/","adsBlocked","imasdk.googleapis.com/js/sdkloader/ima3.js","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js","addc.dcinside.com","pageshow","/\\.persisted *&& *interval_Ad *&& *clearInterval\\( *interval_Ad *\\)/","emptyStr","blockedState","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js method:HEAD","pagead2.googlesyndication.com method:HEAD","load","banner.offsetHeight","/pagead2.googlesyndication.com|googleads.g.doubleclick.net|googletagservices.com|securepubads.g.doubleclick.net|googleads.g.doubleclick.net|google-analytics.com|googlesyndication.com|doubleclick.net/","window.getComputedStyle(t).display","getComputedStyle(t).getPropertyValue(\"visibility\")","adBlockedMessage","display","block","adblockChecker",".ad-banner.adsbox.ad-unit.ad-zone","checkAdBlock","www3.doubleclick.net","linkPass","_0x","adblockanalytics.com","adsbygoogle.js","adsbygoogle","chp_ads_blocker_detector","/compass.adop.cc|adsbygoogle|taboola/","HTMLAnchorElement.prototype.onclick","banner_book","blockCheck2022","alert","chk_adBlock","document.getElementById","adblock","$.prototype.fadeIn",".adsense-area","DHAntiAdBlocker","addEventListener","fuckadblock.min.js","#ad_center","ad.innerHTML.replace","checkAds","adManager.js","document[_0x","NAVER_ADPOST_V2"];
+    const $scriptletArglists$ = /* 121 */ ";0,0,1;1,2;0,3,4;0,5,4;0,6,4;0,7,4;0,8,4;2,9;0,10,4;3,11,12;1,11,13;4,14,15;5,16;0,17,18;6,19,20,21;0,22,4;0,23,4;5,24;7,25;6,26,20,27,28;4,29;0,30,31;1,32,33;7,34,35;2,36;8,37,38;4,39,40;2,41;4,42,43;3,44,45;0,46,20,20,47;9,48,49;0,50,20,47;4,51;0,52,53;2,54;0,55,4;0,56,4;4,57;1,58,59;9,60,61;1,32,61;1,32,62;1,63,59;0,64,31;10,65,66;11,67;4,68;0,69,31;0,70,4;1,71,72;10,65,73;10,65,74;1,70;7,75;0,76,1;1,77,78;1,77,79;2,20,80;10,65,81,82;4,83;1,84,85;1,84,86;0,87,4;0,88,31;0,89,4;9,90,91;8,92;12,93,20,94;1,95,96;2,97;13;11,98;1,99;1,100;7,101;14,101;0,102,4;7,103;14,103;7,104;14,104;2,105;9,106,107;7,105,108;0,109,20;14,110,108;14,111;9,112,113;14,114;2,115;2,116;2,117;15,33,118,119;0,120,4;15,121,118,119;0,122,31;14,123;0,124,1;9,112,125;14,126;14,127;7,128;1,129;7,130,108;16,131;2,132;2,133;3,134,135;1,136,137;11,138;1,84,139;0,140,1;1,141,142;1,84,143;2,144;0,145,4;14,146;2,147;0,148,4";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

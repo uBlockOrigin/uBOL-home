@@ -392,8 +392,8 @@ function preventAddEventListener(
         return parts.join('');
     };
     const shouldPrevent = (thisArg, type, handler) => {
-        const matchesType = safe.RegExp_test.call(reType, type);
-        const matchesHandler = safe.RegExp_test.call(rePattern, handler);
+        const matchesType = safe.RegExp_test(reType, type);
+        const matchesHandler = safe.RegExp_test(rePattern, handler);
         const matchesEither = matchesType || matchesHandler;
         const matchesBoth = matchesType && matchesHandler;
         if ( safe.logLevel > 1 && matchesEither ) {
@@ -596,8 +596,7 @@ function safeSelf() {
     const safe = {
         'Array_from': Array.from,
         'Error': self.Error,
-        'Function_toStringFn': self.Function.prototype.toString,
-        'Function_toString': thisArg => safe.Function_toStringFn.call(thisArg),
+        'Function_toString': Function.prototype.call.bind(self.Function.prototype.toString),
         'Math_floor': Math.floor,
         'Math_max': Math.max,
         'Math_min': Math.min,
@@ -610,7 +609,7 @@ function safeSelf() {
         'Object_hasOwn': Object.hasOwn.bind(Object),
         'Object_toString': Object.prototype.toString,
         'RegExp': self.RegExp,
-        'RegExp_test': self.RegExp.prototype.test,
+        'RegExp_test': Function.prototype.call.bind(self.RegExp.prototype.test),
         'RegExp_exec': self.RegExp.prototype.exec,
         'Request_clone': self.Request.prototype.clone,
         'String': self.String,
@@ -621,10 +620,8 @@ function safeSelf() {
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
         'JSON': self.JSON,
-        'JSON_parseFn': self.JSON.parse,
-        'JSON_stringifyFn': self.JSON.stringify,
-        'JSON_parse': (...args) => safe.JSON_parseFn.call(safe.JSON, ...args),
-        'JSON_stringify': (...args) => safe.JSON_stringifyFn.call(safe.JSON, ...args),
+        'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
+        'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
         'log': console.log.bind(console),
         // Properties
         logLevel: 0,
@@ -677,7 +674,7 @@ function safeSelf() {
         testPattern(details, haystack) {
             if ( details.matchAll ) { return true; }
             if ( details.re ) {
-                return this.RegExp_test.call(details.re, haystack) === details.expect;
+                return this.RegExp_test(details.re, haystack) === details.expect;
             }
             return haystack.includes(details.pattern) === details.expect;
         },
@@ -891,7 +888,7 @@ function trustedReplaceArgument(
         }
         const argBefore = getArg(context);
         if ( extraArgs.condition !== undefined ) {
-            if ( safe.RegExp_test.call(reCondition, argBefore) === false ) {
+            if ( safe.RegExp_test(reCondition, argBefore) === false ) {
                 return context.reflect();
             }
         }
@@ -1011,7 +1008,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 26 */ ["ojworld.it","forqueen.cz","red17.co.uk","tvojstyl.sk","up-shop.org","crimsonav.com","adrissa.com.co","lundracing.com","jollibee.com.vn","kitapsan.com.tr","rapidkil.com.au","yairalon.com.br","joinusonline.net","mebelinovdom.com","qualityrental.com","szaszmotorshop.hu","americansoda.co.uk","weightlossdiet.top","casteloforte.com.br","centerfabril.com.br","energiasolare100.it","www.cambe.pr.gov.br","sport.elwatannews.com","workplace-products.co.uk","z13.web.core.windows.net","ngsingleissues.nationalgeographic.com"];
+    const $scriptletHostnames$ = /* 27 */ ["ojworld.it","forqueen.cz","red17.co.uk","tvojstyl.sk","up-shop.org","crimsonav.com","adrissa.com.co","lundracing.com","jollibee.com.vn","kitapsan.com.tr","rapidkil.com.au","yairalon.com.br","joinusonline.net","mebelinovdom.com","qualityrental.com","szaszmotorshop.hu","americansoda.co.uk","weightlossdiet.top","casteloforte.com.br","centerfabril.com.br","energiasolare100.it","www.cambe.pr.gov.br","web.core.windows.net","sport.elwatannews.com","workplace-products.co.uk","z13.web.core.windows.net","ngsingleissues.nationalgeographic.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1056,7 +1053,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 26 */ "5;5;4;5;5;3;5;4;5;5;6;5;5;5;5;5;5;7;5;5;4;2;8;4;1;3";
+        const $scriptletArglistRefs$ = /* 27 */ "6;6;5;6;6;4;6;5;6;6;7;6;6;6;6;6;6;8;6;6;5;3;2;9;5;1;4";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1089,8 +1086,8 @@ if ( $hasRegexes$ ) {
 if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 5 */
 [preventAddEventListener,noEvalIf,abortCurrentScript,trustedReplaceArgument,abortOnStackTrace];
-    const $scriptletArgs$ = /* 18 */ ["DOMContentLoaded","fullscreenEnabled","tigervip2","atob","new Function(atob(","String.prototype.includes","0","undefined","condition","/^checkout$/","WebSocket","event.data","XMLHttpRequest","/wp-content","open","executeCode","Array.prototype.indexOf","isWin"];
-    const $scriptletArglists$ = /* 9 */ ";0,0,1;1,2;2,3,4;3,5,6,7,8,9;2,10,11;4,12,13;2,14,15;4,16,17";
+    const $scriptletArgs$ = /* 20 */ ["DOMContentLoaded","fullscreenEnabled","beforeunload","workerBomb","tigervip2","atob","new Function(atob(","String.prototype.includes","0","undefined","condition","/^checkout$/","WebSocket","event.data","XMLHttpRequest","/wp-content","open","executeCode","Array.prototype.indexOf","isWin"];
+    const $scriptletArglists$ = /* 10 */ ";0,0,1;0,2,3;1,4;2,5,6;3,7,8,9,10,11;2,12,13;4,14,15;2,16,17;4,18,19";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {
