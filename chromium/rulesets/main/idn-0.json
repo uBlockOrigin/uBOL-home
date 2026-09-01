@@ -3179,5 +3179,6 @@
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||digitaloceanspaces.com/nokephub/"},"id":3178,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"resourceTypes":["media"],"urlFilter":"||serverx16.online/hls/"},"id":3179,"priority":11},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||anichin.cafe/wp-content/uploads/*hp-*777"},"id":3180,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||gamma.cachefly.net/js/ad-exchange.js"},"id":3181,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||gamma.cachefly.net/js/ad-exchange.js"},"id":3181,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["kingbokep.media","simontok.vu"],"resourceTypes":["script"],"urlFilter":"||play.simplepaste.site/embed"},"id":3182,"priority":10}
 ]

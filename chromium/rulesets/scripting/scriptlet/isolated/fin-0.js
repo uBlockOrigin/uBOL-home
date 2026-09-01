@@ -77,76 +77,6 @@ function getSafeCookieValuesFn() {
     ];
 }
 
-function onIdleFn(fn, options) {
-    if ( self.requestIdleCallback ) {
-        return self.requestIdleCallback(fn, options);
-    }
-    return self.requestAnimationFrame(fn);
-}
-
-function removeClass(
-    rawToken = '',
-    rawSelector = '',
-    behavior = ''
-) {
-    if ( typeof rawToken !== 'string' ) { return; }
-    if ( rawToken === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('remove-class', rawToken, rawSelector, behavior);
-    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
-    const selector = tokens
-        .map(a => `${rawSelector}.${CSS.escape(a)}`)
-        .join(',');
-    if ( safe.logLevel > 1 ) {
-        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
-    }
-    const mustStay = /\bstay\b/.test(behavior);
-    let timer;
-    const rmclass = ( ) => {
-        timer = undefined;
-        try {
-            const nodes = document.querySelectorAll(selector);
-            for ( const node of nodes ) {
-                node.classList.remove(...tokens);
-                safe.uboLog(logPrefix, 'Removed class(es)');
-            }
-        } catch {
-        }
-        if ( mustStay ) { return; }
-        if ( document.readyState !== 'complete' ) { return; }
-        observer.disconnect();
-    };
-    const mutationHandler = mutations => {
-        if ( timer !== undefined ) { return; }
-        let skip = true;
-        for ( let i = 0; i < mutations.length && skip; i++ ) {
-            const { type, addedNodes, removedNodes } = mutations[i];
-            if ( type === 'attributes' ) { skip = false; }
-            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
-                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
-                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-        }
-        if ( skip ) { return; }
-        timer = onIdleFn(rmclass, { timeout: 67 });
-    };
-    const observer = new MutationObserver(mutationHandler);
-    const start = ( ) => {
-        rmclass();
-        observer.observe(document, {
-            attributes: true,
-            attributeFilter: [ 'class' ],
-            childList: true,
-            subtree: true,
-        });
-    };
-    runAt(( ) => {
-        start();
-    }, /\bcomplete\b/.test(behavior) ? 'idle' : 'loading');
-}
-
 function removeNodeText(
     nodeName,
     includes,
@@ -617,7 +547,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 4 */ ["srk.fi","aalto.fi","vauva.fi","ap-cdn.sanomagames.com"];
+    const $scriptletHostnames$ = /* 3 */ ["srk.fi","aalto.fi","vauva.fi"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -662,7 +592,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 4 */ "2;4,5,6,7;3;1";
+        const $scriptletArglistRefs$ = /* 3 */ "1;3,4,5,6;2";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -693,10 +623,10 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 3 */
-[removeClass,setCookie,removeNodeText];
-    const $scriptletArgs$ = /* 13 */ ["st__hidden","#gamewrapper","cookielaw_accepted","1","","reload","script","async-hide","cookiebot-consent--necessary","cookiebot-consent--preferences","cookiebot-consent--marketing","0","cookiebot-consent--statistics"];
-    const $scriptletArglists$ = /* 8 */ ";0,0,1;1,2,3,4,5,3;2,6,7;1,8,3;1,9,3;1,10,11;1,12,11";
+    const $scriptletFunctions$ = /* 2 */
+[setCookie,removeNodeText];
+    const $scriptletArgs$ = /* 11 */ ["cookielaw_accepted","1","","reload","script","async-hide","cookiebot-consent--necessary","cookiebot-consent--preferences","cookiebot-consent--marketing","0","cookiebot-consent--statistics"];
+    const $scriptletArglists$ = /* 7 */ ";0,0,1,2,3,1;1,4,5;0,6,1;0,7,1;0,8,9;0,10,9";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

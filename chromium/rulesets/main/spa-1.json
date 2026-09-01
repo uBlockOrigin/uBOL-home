@@ -397,7 +397,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||webimg.hispavista.com/autobl/*728_ab.gif"},"id":396,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||webimg.hispavista.com/autobl/*300_ab.gif"},"id":397,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["forum.lfspro.net","funzen.net","kepahoo.com","monarcamanga.com"],"resourceTypes":["script","xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":398,"priority":41},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["energytv.es","novizer.com","telecinco.es","tv0800.tv","xerifetech.com"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":399,"priority":11},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["energytv.es","hardwarepremium.com","novizer.com","telecinco.es","tv0800.tv","xerifetech.com"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":399,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["descargaseriestv.com","dicasvalores.com"],"resourceTypes":["script"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":400,"priority":41},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.js"},"type":"redirect"},"condition":{"initiatorDomains":["southpark.lat","southparkstudios.com.br"],"resourceTypes":["script"],"urlFilter":"||imasdk.googleapis.com/pal/sdkloader/pal.js"},"id":401,"priority":11},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/googletagservices_gpt.js"},"type":"redirect"},"condition":{"initiatorDomains":["jn.pt","suamusica.com.br"],"resourceTypes":["script"],"urlFilter":"||securepubads.g.doubleclick.net/tag/js/gpt.js"},"id":402,"priority":11},
@@ -918,5 +918,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||nexustoons.com/api/settings/pop-ads"},"id":917,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||nexustoons.com/api/settings/ads"},"id":918,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||nexustoons.com/api/ads"},"id":919,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||olympusxyz.com/ad-*.js"},"id":920,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||olympusxyz.com/ad-*.js"},"id":920,"priority":10},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["hardwarepremium.com"],"resourceTypes":["image","media","other","script","stylesheet","sub_frame","xmlhttprequest"],"urlFilter":"||googleads.g.doubleclick.net/pagead/id"},"id":921,"priority":11}
 ]

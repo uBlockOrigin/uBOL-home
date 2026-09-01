@@ -406,7 +406,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 3 */ ["casabasics.es","gemfellowship.org","longhall.consulting"];
+    const $scriptletHostnames$ = /* 4 */ ["casabasics.es","cizitensports.com","gemfellowship.org","longhall.consulting"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -451,7 +451,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 3 */ "3;1;2";
+        const $scriptletArglistRefs$ = /* 4 */ "3;4;1;2";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -484,8 +484,8 @@ if ( $hasRegexes$ ) {
 if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 1 */
 [removeNodeText];
-    const $scriptletArgs$ = /* 4 */ ["script","TextDecoder","/document\\.currentScript\\.remove|0x0/","String.fromCharCode"];
-    const $scriptletArglists$ = /* 4 */ ";0,0,1;0,0,2;0,0,3";
+    const $scriptletArgs$ = /* 5 */ ["script","TextDecoder","/document\\.currentScript\\.remove|0x0/","String.fromCharCode","randomUUID"];
+    const $scriptletArglists$ = /* 5 */ ";0,0,1;0,0,2;0,0,3;0,0,4";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

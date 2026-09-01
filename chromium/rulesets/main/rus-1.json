@@ -46,7 +46,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/piwiktracker."},"id":45,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/pixel.gif?"},"id":46,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/pixel.php?"},"id":47,"priority":10},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"excludedRequestDomains":["account.mail.ru","auth.mail.ru","light.mail.ru"],"requestDomains":["3dnews.ru","7days.ru","auto.ru","autodaily.ru","autonews.ru","autopilot.ru","habr.com","igromania.ru","klops.ru","kommersant.ru","kp.ru","mail.ru","metro-cc.ru","mk.ru","myweekend.ru","ntv.ru","ozon.ru","peers.tv","rbc.ru","rbcautonews.ru","rbclifemedia.ru","rbcrealty.ru","ridus.ru","sportmail.ru","sportrbc.ru","sports.ru","vedomosti.ru","vkplay.ru"],"resourceTypes":["main_frame"],"urlFilter":"?from="},"id":48},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"excludedRequestDomains":["account.mail.ru","auth.mail.ru","light.mail.ru","o2.mail.ru"],"requestDomains":["3dnews.ru","7days.ru","auto.ru","autodaily.ru","autonews.ru","autopilot.ru","habr.com","igromania.ru","klops.ru","kommersant.ru","kp.ru","mail.ru","metro-cc.ru","mk.ru","myweekend.ru","ntv.ru","ozon.ru","peers.tv","rbc.ru","rbcautonews.ru","rbclifemedia.ru","rbcrealty.ru","ridus.ru","sportmail.ru","sportrbc.ru","sports.ru","vedomosti.ru","vkplay.ru"],"resourceTypes":["main_frame"],"urlFilter":"?from="},"id":48},
 {"action":{"type":"block"},"condition":{"urlFilter":"/pixel/?token="},"id":49,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/player/stats.php?"},"id":50,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/px.gif?"},"id":51,"priority":10},
@@ -1061,5 +1061,6 @@
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["sberbank.ru"],"urlFilter":"/pixel.png?"},"id":1060,"priority":10},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["cdwuid_attempt"]}}},"type":"redirect"},"condition":{"requestDomains":["t-j.ru"],"resourceTypes":["main_frame"],"urlFilter":"^cdwuid_attempt="},"id":1061},
 {"action":{"type":"block"},"condition":{"urlFilter":"||rnti.online/api/tracking/"},"id":1062,"priority":10},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["geoblock"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ashdi.vip/*geoblock="},"id":1063}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["geoblock"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||ashdi.vip/*geoblock="},"id":1063},
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["block"]}}},"type":"redirect"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||online-serial.com/*block="},"id":1064}
 ]

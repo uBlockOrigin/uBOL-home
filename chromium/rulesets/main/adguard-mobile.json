@@ -554,5 +554,8 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||m.xp600.com/js/*.js?v="},"id":553,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||apis.pchome.com.tw/pfb_ad.php"},"id":554,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||farsroid.com/wp-content/uploads/farsroid-ads-"},"id":555,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||thetv.jp/js/common/kjbox-unit-loader_*.js"},"id":556,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||thetv.jp/js/common/kjbox-unit-loader_*.js"},"id":556,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||katitube.com/kati/mobil/"},"id":557,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||cdn.*.com/sdk/v*/dd.master.spot.js"},"id":558,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||cdn.*.com/sdk/v*/dd.interstitial.ts.js"},"id":559,"priority":10}
 ]

@@ -502,7 +502,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 17 */ ["inews.id","sukasex.tv","okezone.com","sukasex.net","gramedia.com","layarwibu.com","sindonews.com","tipskerja.com","3gpterbaru.com","carisinyal.com","duniaseksi.com","katadata.co.id","pemersatu.link","wisatalova.com","almaftuchin.com","indokontraktor.com","kisahterlarang.site"];
+    const $scriptletHostnames$ = /* 18 */ ["inews.id","niadi.net","sukasex.tv","okezone.com","sukasex.net","gramedia.com","layarwibu.com","sindonews.com","tipskerja.com","3gpterbaru.com","carisinyal.com","duniaseksi.com","katadata.co.id","pemersatu.link","wisatalova.com","almaftuchin.com","indokontraktor.com","kisahterlarang.site"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -547,7 +547,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 17 */ "2;9;1;9;10;9;3;4;5;11;5;8;12;7;6;6;9";
+        const $scriptletArglistRefs$ = /* 18 */ "2;6;9;1;9;10;9;3;4;5;11;5;8;12;7;6;6;9";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {

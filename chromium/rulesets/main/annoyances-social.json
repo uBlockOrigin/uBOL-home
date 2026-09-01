@@ -449,6 +449,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["telechargerunevideo.com"],"resourceTypes":["script"],"urlFilter":"/jquery.bpopup."},"id":448,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/wp-content/plugins/videolock/"},"id":449,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||po.st/share/"},"id":450,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||line-scdn.net/line_add_friends/edge/btn/"},"id":451,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||assets.pinterest.com/js/pinit.js"},"id":453,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||assets.pinterest.com/pidget.html"},"id":454,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||bloglovin.com/widget/"},"id":455,"priority":10},
