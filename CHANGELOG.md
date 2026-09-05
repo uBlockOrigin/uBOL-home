@@ -1,3 +1,10 @@
+- [Fix admin `noFiltering` not taking precedence over user changes](https://github.com/gorhill/uBlock/commit/6edba1597f)
+- Updated filter lists
+
+----------
+
+### 2026.901.1442
+
 - Updated filter lists
 
 ----------
