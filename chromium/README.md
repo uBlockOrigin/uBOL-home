@@ -9,8 +9,8 @@ The following assumes a linux environment.
 3. `cd uBlock`
 4. `git submodule init`
 5. `git submodule update`
-6. `make mv3-[platform]`, where `[platform]` is either `chromium`, `edge`, `firefox`, or `safari`
-7. This will fully build uBO Lite, and during the process filter lists will be downloaded from their respective remote servers
+9. `make mv3-[platform]`, where `[platform]` is either `chromium`, `edge`, `firefox`, or `safari`
+10. This will fully build uBO Lite, and during the process filter lists will be downloaded from their respective remote servers
 
 Upon completion of the script, the resulting extension package will become present in:
 

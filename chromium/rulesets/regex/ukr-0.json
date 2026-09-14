@@ -19,5 +19,9 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["usite.pro"],"regexFilter":"usite\\.(pro|org|ru|com|ua)\\/[A-Za-z0-9_%]{3,12}\\/.*\\?[A-Za-z0-9%]{70,100}$","resourceTypes":["script"]},"id":18,"priority":10},
 {"action":{"type":"block"},"condition":{"regexFilter":"clan.su\\/\\?[A-Za-z0-9]+%21.+%5E","resourceTypes":["script"]},"id":19,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"\\.com\\/jsonp\\.php\\?[A-Za-z0-9]{300,}"},"id":20,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"dbp\\/pre","resourceTypes":["script"]},"id":21,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"dbp\\/pre","resourceTypes":["script"]},"id":21,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"^https:\\/\\/vveu.[a-z0-9]+\\.[a-z]+\\/.*\\/[a-z0-9]+\\.[a-z][a-z][a-z]$","resourceTypes":["media","other","xmlhttprequest"]},"id":22,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"^https:\\/\\/vveu.[a-z0-9]+\\.[a-z]+\\/.*\\/[a-z0-9]+\\.[a-z][a-z][a-z][a-z]$","resourceTypes":["media","other","xmlhttprequest"]},"id":23,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"^https:\\/\\/vveu.[a-z0-9]+\\.[a-z]+\\/.*\\/[a-z0-9]+\\.[a-z][a-z][a-z][?&]","resourceTypes":["media","other","xmlhttprequest"]},"id":24,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"^https:\\/\\/vveu.[a-z0-9]+\\.[a-z]+\\/.*\\/[a-z0-9]+\\.[a-z][a-z][a-z][a-z][?&]","resourceTypes":["media","other","xmlhttprequest"]},"id":25,"priority":10}
 ]

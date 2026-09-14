@@ -921,5 +921,8 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||olympusxyz.com/ad-*.js"},"id":920,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop.txt"},"type":"redirect"},"condition":{"initiatorDomains":["hardwarepremium.com"],"resourceTypes":["image","media","other","script","stylesheet","sub_frame","xmlhttprequest"],"urlFilter":"||googleads.g.doubleclick.net/pagead/id"},"id":921,"priority":11},
 {"action":{"type":"block"},"condition":{"urlFilter":"||s.zst.com.br/prod/brickz^"},"id":922,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||embed69.org/bw.xml"},"id":923,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||embed69.org/bw.xml"},"id":923,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hispajav.com/samoari/hta-300x250"},"id":924,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||animegratis.net/js/layout-deferred-loader.js"},"id":925,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||xheti.net/300x250.html"},"id":926,"priority":10}
 ]

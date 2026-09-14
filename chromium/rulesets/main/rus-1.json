@@ -95,8 +95,8 @@
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["tns-counter.ru"],"urlFilter":"://tns-counter.ru/"},"id":94,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||24smi.org/api/metrics/"},"id":95,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||24support.cc/js/stats.js"},"id":96,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||2gis.ru/_/log"},"id":97,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||2gis.ru/_/metrics"},"id":98,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||2gis.*/_/log|"},"id":97,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||2gis.*/_/metrics|"},"id":98,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||7days.ru/statistics/*/hit?id="},"id":99,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||a.lifehacker.ru/lifehacker/tracker"},"id":100,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||abt.s3.yandex.net/expjs/latest/exp.js"},"id":101,"priority":10},
@@ -1073,5 +1073,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||mon.avito.ru/"},"id":1072,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ozon.ru/p-api/tracker/"},"id":1073,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||st.ozone.ru/*/client-metrics/"},"id":1074,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||stats.avito.ru/"},"id":1075,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||stats.avito.ru/"},"id":1075,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||bss.2gis.com/bss-ext/"},"id":1076,"priority":10}
 ]

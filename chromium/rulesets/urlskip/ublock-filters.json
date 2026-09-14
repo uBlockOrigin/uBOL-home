@@ -195,6 +195,12 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?www\\.google\\.com/url\\?.*?q=",
+  "steps": [
+   "?q"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?safelinks\\.protection\\.outlook\\.com/\\?url=",
   "steps": [
    "?url"
@@ -279,6 +285,14 @@
   "steps": [
    "/\\/\\d{6}\\/\\d{6}\\/(https.+)/",
    "-uricomponent"
+  ]
+ },
+ {
+  "re": "^[^:]+://(?:[^/]+\\.)?igorslab\\.de/\\?ilgha_jump=",
+  "steps": [
+   "/\\?ilgha_jump=(ey[^.]+)\\..+/",
+   "-base64",
+   "/\"u\":\"(https?:[^\"]+)\"/"
   ]
  },
  {

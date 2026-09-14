@@ -1109,71 +1109,95 @@ function proxyApplyFn(
 function removeAttr(
     rawToken = '',
     rawSelector = '',
-    behavior = ''
+    behavior = '',
+    ...varargs
 ) {
     if ( typeof rawToken !== 'string' ) { return; }
     if ( rawToken === '' ) { return; }
     const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('remove-attr', rawToken, rawSelector, behavior);
+    const logPrefix = safe.makeLogPrefix('remove-attr',
+        rawToken, rawSelector, behavior, ...varargs
+    );
     const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
-    const selector = tokens
-        .map(a => `${rawSelector}[${CSS.escape(a)}]`)
-        .join(',');
+    const selector = tokens.map(a => {
+        const b = CSS.escape(a);
+        return rawSelector.includes(`[${b}]`) ? rawSelector : `${rawSelector}[${b}]`;
+    }).join(',');
+    const lazily = /\basap\b/.test(behavior) === false;
+    const options = safe.parseVarargs(varargs);
     if ( safe.logLevel > 1 ) {
         safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
     }
-    const asap = /\basap\b/.test(behavior);
-    let timerId;
-    const rmattrAsync = ( ) => {
-        if ( timerId !== undefined ) { return; }
-        timerId = onIdleFn(( ) => {
-            timerId = undefined;
+    const rmattrFromNode = node => {
+        for ( const attr of tokens ) {
+            if ( node.hasAttribute(attr) === false ) { continue; }
+            node.removeAttribute(attr);
+            safe.uboLog(logPrefix, `Removed attribute '${attr}'`);
+        }
+    };
+    const rmattr = nodes => {
+        for ( const node of nodes ?? document.querySelectorAll(selector) ) {
+            rmattrFromNode(node);
+        }
+    };
+    const rmAttrLazily = ( ) => {
+        if ( rmAttrLazily.timer !== undefined ) { return; }
+        rmAttrLazily.timer = onIdleFn(( ) => {
+            rmAttrLazily.timer = undefined;
             rmattr();
         }, { timeout: 17 });
     };
-    const rmattr = ( ) => {
-        if ( timerId !== undefined ) {
-            offIdleFn(timerId);
-            timerId = undefined;
-        }
-        try {
-            const nodes = document.querySelectorAll(selector);
-            for ( const node of nodes ) {
-                for ( const attr of tokens ) {
-                    if ( node.hasAttribute(attr) === false ) { continue; }
-                    node.removeAttribute(attr);
-                    safe.uboLog(logPrefix, `Removed attribute '${attr}'`);
+    const mutationHandler = mutations => {
+        for ( const { addedNodes, removedNodes } of mutations ) {
+            for ( const node of addedNodes ) {
+                if ( node.nodeType !== 1 ) { continue; }
+                if ( lazily ) { return rmAttrLazily(); }
+                if ( node.matches(selector) ) {
+                    rmattrFromNode(node);
+                }
+                if ( node.childElementCount ) {
+                    rmattr(node.querySelectorAll(selector));
                 }
             }
-        } catch {
+            if ( lazily ) { return; }
+            for ( const node of removedNodes ) {
+                if ( node.nodeType !== 1 ) { continue; }
+                if ( node.matches(selector) ) {
+                    rmattrFromNode(node);
+                }
+            }
         }
     };
-    const mutationHandler = mutations => {
-        if ( timerId !== undefined ) { return; }
-        let skip = true;
-        for ( let i = 0; i < mutations.length && skip; i++ ) {
-            const { type, addedNodes, removedNodes } = mutations[i];
-            if ( type === 'attributes' ) { skip = false; }
-            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
-                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
-                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
+    const stop = ( ) => {
+        if ( start.observer ) {
+            start.observer.disconnect();
+            start.observer = undefined;
         }
-        if ( skip ) { return; }
-        asap ? rmattr() : rmattrAsync();
+        if ( rmAttrLazily.timer ) {
+            offIdleFn(rmAttrLazily.timer);
+            rmAttrLazily.timer = undefined;
+        }
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, 'Quitting');
+        }
     };
     const start = ( ) => {
         rmattr();
-        if ( /\bstay\b/.test(behavior) === false ) { return; }
-        const observer = new MutationObserver(mutationHandler);
-        observer.observe(document, {
+        if ( /\bstay\b/.test(behavior) === false ) {
+            if ( options.quitAfter === undefined ) { return; }
+        }
+        start.observer = new MutationObserver(mutationHandler);
+        start.observer.observe(document, {
             attributes: true,
             attributeFilter: tokens,
             childList: true,
             subtree: true,
         });
+        if ( options.quitAfter ) {
+            runAt(( ) => {
+                self.setTimeout(stop, options.quitAfter * 1000);
+            }, 'load');
+        }
     };
     runAt(( ) => { start(); }, safe.String_split.call(behavior, /\s+/));
 }
@@ -1691,7 +1715,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 72 */ "23,26,27,28,29,30,31;13,14;13,14;32,33,34,35;36,37;15,22,23;10,11;13,14;21;32,33,34;13,14;12;13;23,26,27,28,29,30,31;13,14;2;13,14;26;2;13,14;13,14;7;8,9;12;13;8,9;13,14;15;4;-24,-27,-28,-30,-31,-32;8,9;19;13,14;2;13,14;4;6;2;2;2;7;4;22;13,14;1;15;13,14;-14,-15;24,25,-27,-30,-31;3;7;7;7;8,9;32,33,34;-14,-15;-14;18;4;5;8,9;17;-14,-15;2;8,9;20;8,9;-29;14;16;15;15";
+        const $scriptletArglistRefs$ = /* 72 */ "23,26,27,28,29,30,31;13,14;13,14;32,33,34,35,36;37,38;15,22,23;10,11;13,14;21;32,33,34,35;13,14;12;13;23,26,27,28,29,30,31;13,14;2;13,14;26;2;13,14;13,14;7;8,9;12;13;8,9;13,14;15;4;-24,-27,-28,-30,-31,-32;8,9;19;13,14;2;13,14;4;6;2;2;2;7;4;22;13,14;1;15;13,14;-14,-15;24,25,-27,-30,-31;3;7;7;7;8,9;32,33,34,35;-14,-15;-14;18;4;5;8,9;17;-14,-15;2;8,9;20;8,9;-29;14;16;15;15";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1724,8 +1748,8 @@ if ( $hasRegexes$ ) {
 if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 11 */
 [removeAttr,abortOnStackTrace,preventAddEventListener,jsonPrune,setConstant,jsonPruneXhrResponse,preventFetch,abortOnPropertyRead,abortOnPropertyWrite,preventXhr,preventSetTimeout];
-    const $scriptletArgs$ = /* 57 */ ["jsaction","#islsp c-wiz a[href^=\"http\"][data-ved][target]","stay","document.head.appendChild","inlineScript","click","externalLink","is_vpn","data-cturl",".searchresults a","data-safe-proxy-url","a","BB.disableRefLinks","true","Object.prototype.Begun","undefined","Object.prototype.antiadblock","false","Object.prototype.canShowMoreAds","noopFunc","Object.prototype.hasAdv","meta.country","","propsToMatch","/api/anime","Object.prototype.getBaseFingerprint","Blocks","Object.prototype.hasPreroll","null","Object.prototype.needShowAlicePopup","/generate_204","Object.prototype.AdvManager","Object.prototype.isNonEmptyString","history.replaceState","trueFunc","Object.prototype.renderTrackingUrl","Object.prototype.setBlockId","direct rtb seatbid data.*.attributes.blockId","data-link-id","Object.prototype.DirectLine","__pcodeAllActiveTestIds","data-counter","#search-result > .serp-item a","yabs.yandex.ru/count/","__activeTestIds","Object.prototype.initPcode","Object.prototype.Rtb","/beforeunload|pagehide/","0x","DOMContentLoaded","document","/BLOCKERS|NOT_BLOCKED/","Object.prototype.AdblockCookieMatchingType","removeAttr","setTimeout","document.referrer","https://4pda.to/"];
-    const $scriptletArglists$ = /* 38 */ ";0,0,1,2;1,3,4;2,5,6;3,7;0,8,9,2;0,10,11,2;4,12,13;4,14,15;4,16,17;4,18,19;4,20,19;5,21,22,23,24;1,25,4;3,26;4,27,28;4,29,28;6,30;7,31;4,32,15;4,33,34;7,35;7,36;3,37;0,38,11,2;4,39,15;8,40;0,41,42;9,43;7,44;4,45,15;4,46,15;2,47,48;2,49,48,50;10,51;4,52,15;10,53,54;1,55,56";
+    const $scriptletArgs$ = /* 59 */ ["jsaction","#islsp c-wiz a[href^=\"http\"][data-ved][target]","stay","document.head.appendChild","inlineScript","click","externalLink","is_vpn","data-cturl",".searchresults a","data-safe-proxy-url","a","BB.disableRefLinks","true","Object.prototype.Begun","undefined","Object.prototype.antiadblock","false","Object.prototype.canShowMoreAds","noopFunc","Object.prototype.hasAdv","meta.country","","propsToMatch","/api/anime","Object.prototype.getBaseFingerprint","Blocks","Object.prototype.hasPreroll","null","Object.prototype.needShowAlicePopup","/generate_204","Object.prototype.AdvManager","Object.prototype.isNonEmptyString","history.replaceState","trueFunc","Object.prototype.renderTrackingUrl","Object.prototype.setBlockId","direct rtb seatbid data.*.attributes.blockId","data-link-id","Object.prototype.DirectLine","__pcodeAllActiveTestIds","data-counter","#search-result > .serp-item a","yabs.yandex.ru/count/","__activeTestIds","Object.prototype.initPcode","Object.prototype.Rtb","/beforeunload|pagehide/","0x","DOMContentLoaded","document","beforeunload","defaultPrevented||this.setCookies","/BLOCKERS|NOT_BLOCKED/","Object.prototype.AdblockCookieMatchingType","removeAttr","setTimeout","document.referrer","https://4pda.to/"];
+    const $scriptletArglists$ = /* 39 */ ";0,0,1,2;1,3,4;2,5,6;3,7;0,8,9,2;0,10,11,2;4,12,13;4,14,15;4,16,17;4,18,19;4,20,19;5,21,22,23,24;1,25,4;3,26;4,27,28;4,29,28;6,30;7,31;4,32,15;4,33,34;7,35;7,36;3,37;0,38,11,2;4,39,15;8,40;0,41,42;9,43;7,44;4,45,15;4,46,15;2,47,48;2,49,48,50;2,51,52;10,53;4,54,15;10,55,56;1,57,58";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

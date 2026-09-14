@@ -1033,7 +1033,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 37 */ ["ojworld.it","forqueen.cz","red17.co.uk","skybap.shop","tvojstyl.sk","up-shop.org","webrick.com","aptisweb.com","crimsonav.com","strand-co.com","adrissa.com.co","lundracing.com","jollibee.com.vn","kitapsan.com.tr","rapidkil.com.au","yairalon.com.br","caesarjaco.co.id","joinusonline.net","mebelinovdom.com","qualityrental.com","szaszmotorshop.hu","americansoda.co.uk","https-xhamster.com","ondigitalocean.app","weightlossdiet.top","casteloforte.com.br","centerfabril.com.br","energiasolare100.it","www.cambe.pr.gov.br","igualdad.iaa.csic.es","web.core.windows.net","abogadosrosarinos.com","avene-hebergement.com","sport.elwatannews.com","workplace-products.co.uk","z13.web.core.windows.net","ngsingleissues.nationalgeographic.com"];
+    const $scriptletHostnames$ = /* 38 */ ["ojworld.it","forqueen.cz","red17.co.uk","skybap.shop","tvojstyl.sk","up-shop.org","webrick.com","aptisweb.com","pentest.blog","crimsonav.com","strand-co.com","adrissa.com.co","lundracing.com","jollibee.com.vn","kitapsan.com.tr","rapidkil.com.au","yairalon.com.br","caesarjaco.co.id","joinusonline.net","mebelinovdom.com","qualityrental.com","szaszmotorshop.hu","americansoda.co.uk","https-xhamster.com","ondigitalocean.app","weightlossdiet.top","casteloforte.com.br","centerfabril.com.br","energiasolare100.it","www.cambe.pr.gov.br","igualdad.iaa.csic.es","web.core.windows.net","abogadosrosarinos.com","avene-hebergement.com","sport.elwatannews.com","workplace-products.co.uk","z13.web.core.windows.net","ngsingleissues.nationalgeographic.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1078,7 +1078,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 37 */ "12;12;11;4,5;12;12;8;4,5;10;6;12;11;12;12;13;12;4,5;12;12;12;12;12;4,5;3;14;12;12;11;9;7;2;4,5;4,5;15;11;1;10";
+        const $scriptletArglistRefs$ = /* 38 */ "13;13;12;4,5;13;13;8;4,5;9;11;6;13;12;13;13;14;13;4,5;13;13;13;13;13;4,5;3;15;13;13;12;10;7;2;4,5;4,5;16;12;1;11";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1111,8 +1111,8 @@ if ( $hasRegexes$ ) {
 if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 6 */
 [preventAddEventListener,abortCurrentScript,abortOnPropertyWrite,noEvalIf,trustedReplaceArgument,abortOnStackTrace];
-    const $scriptletArgs$ = /* 31 */ ["DOMContentLoaded","fullscreenEnabled","beforeunload","/[Ww]orker/","mousemove","loadSecret","fetch","_0x","/^data:/","ai_front","document.createElement",".onerror","String.prototype.toLowerCase","Contract","atob","Uint8Array","tigervip2","new Function(atob(","String.prototype.includes","0","undefined","condition","/^checkout$/","WebSocket","event.data","XMLHttpRequest","/wp-content","open","executeCode","Array.prototype.indexOf","isWin"];
-    const $scriptletArglists$ = /* 16 */ ";0,0,1;0,2,3;0,4,5;1,6,7,8;2,9;1,10,11;1,12,13;1,14,15;3,16;1,14,17;4,18,19,20,21,22;1,23,24;5,25,26;1,27,28;5,29,30";
+    const $scriptletArgs$ = /* 32 */ ["DOMContentLoaded","fullscreenEnabled","beforeunload","/[Ww]orker/","mousemove","loadSecret","fetch","_0x","/^data:/","ai_front","document.createElement",".onerror","String.prototype.toLowerCase","Contract","atob","Uint8Array","new","tigervip2","new Function(atob(","String.prototype.includes","0","undefined","condition","/^checkout$/","WebSocket","event.data","XMLHttpRequest","/wp-content","open","executeCode","Array.prototype.indexOf","isWin"];
+    const $scriptletArglists$ = /* 17 */ ";0,0,1;0,2,3;0,4,5;1,6,7,8;2,9;1,10,11;1,12,13;1,14,15;1,14,16;3,17;1,14,18;4,19,20,21,22,23;1,24,25;5,26,27;1,28,29;5,30,31";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

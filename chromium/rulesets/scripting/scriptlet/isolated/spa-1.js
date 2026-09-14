@@ -1028,7 +1028,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 62 */ ["1i1.in","4br.me","enrt.eu","ent4.net","fir3.net","cl1ca.com","elpais.bo","seulink.*","3xyaoi.com","animeid.tv","estacio.br","pelis1.com","canalnet.tv","fgtd.online","homecine.cc","homecine.to","homecine.tv","maxvip.site","pornhot.net","hentai-id.tv","iputitas.net","pelisflix2.*","pelismart.tv","plplayer.com","redecanais.*","encurtalink.*","pelispedia.is","smartpelis.tv","techdiniz.com","flixseries.org","guiasaude.info","infoinvest.org","malfollado.com","redecanaistv.*","beachcam.meo.pt","dev.encurta.app","devilnovels.com","gastroponto.com","metroseries.net","seriesmetro.net","trueliketop.org","cursomecanet.com","papayaseries.net","saudeecomida.com","seriesbanana.com","esportesdavez.com","guiacripto.online","meufinanceiro.org","portecnologia.com","receitastop.click","redirectnflix.com","guiavidaesaude.com","sabornutritivo.com","blog.whatsappgb.top","comidaefamilia.food","saopaulosecreto.com","nutricaohoje.website","fomedereceitas.online","receitasdocheff.online","diariodocomercio.com.br","investimentosfacil.online","receitasoncaseiras.online"];
+    const $scriptletHostnames$ = /* 64 */ ["1i1.in","4br.me","enrt.eu","ent4.net","fir3.net","cl1ca.com","elpais.bo","seulink.*","3xyaoi.com","animeid.tv","estacio.br","pelis1.com","canalnet.tv","fgtd.online","homecine.cc","homecine.to","homecine.tv","maxvip.site","pornhot.net","hentai-id.tv","iputitas.net","pelisflix2.*","pelismart.tv","plplayer.com","redecanais.*","encurtalink.*","pelispedia.is","smartpelis.tv","techdiniz.com","flixseries.org","guiasaude.info","infoinvest.org","malfollado.com","portalyaoi.com","redecanaistv.*","animegratis.org","beachcam.meo.pt","dev.encurta.app","devilnovels.com","gastroponto.com","metroseries.net","seriesmetro.net","trueliketop.org","cursomecanet.com","papayaseries.net","saudeecomida.com","seriesbanana.com","esportesdavez.com","guiacripto.online","meufinanceiro.org","portecnologia.com","receitastop.click","redirectnflix.com","guiavidaesaude.com","sabornutritivo.com","blog.whatsappgb.top","comidaefamilia.food","saopaulosecreto.com","nutricaohoje.website","fomedereceitas.online","receitasdocheff.online","diariodocomercio.com.br","investimentosfacil.online","receitasoncaseiras.online"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1073,7 +1073,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 62 */ "14;22;22;22;22;22;27;22;1;28;16;29;18;3;29;29;29;12;29;23;29;15;17,29;26;4,5,6,7;22;29;29;9;29;13;12;29;4,5,6,7;19;22;2;12;29;29;9;8;29;12;29;25;10;12;21;12;25;12;10;12;12;11;20;12;12;24;12;20";
+        const $scriptletArglistRefs$ = /* 64 */ "14;22;22;22;22;22;29;22;1;30;16;31;18;3;31;31;31;12;31;23;31;15;17,31;28;4,5,6,7;22;31;31;9;31;13;12;31;24;4,5,6,7;25;19;22;2;12;31;31;9;8;31;12;31;27;10;12;21;12;27;12;10;12;12;11;20;12;12;26;12;20";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1106,8 +1106,8 @@ if ( $hasRegexes$ ) {
 if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 9 */
 [removeNodeText,setLocalStorageItem,setCookie,setSessionStorageItem,hrefSanitizer,setCookieReload,removeClass,preventRefresh,setAttr];
-    const $scriptletArgs$ = /* 40 */ ["script","/_adBlockDetectorExecuted|checkForbiddenBrowsers/","/^adblock/","$remove$","unlock","1","modalVisited","true","adsCompleted","finalReloadDone","modifiedParagraphs.add","force_ad","2","visited","a[href^=\"https://adesampa.com.br/\"]","[href]","removeParam","last_ads","yes","Ads","clicked_ads","adtura","modal_promo",".download-links a[href^=\"https://unlock.uberxviral.com/#\"]","base64decode","_theme-banner-upper","html","bgPartners2019",".videoContainer > div.beachPartners + div","CLI_02_Dxxxxxxxxxxxxxxx","a[href*=\"://ouo.io/\"]","?s","adwallLocked","nf_done_clicks_v3_new","3","a[data-stream][target=\"_blank\"]","data-clicks","ads-popup","url_popup","player"];
-    const $scriptletArglists$ = /* 30 */ ";0,0,1;1,2,3;2,4,5;2,6,7;2,8,5;3,9,5;1,9,5;0,0,10;2,11,12;2,13,5;4,14,15,16;1,17,18;2,19,12;2,20,12;5,21,5;2,22,5;4,23,15,24;6,25,26;6,27,28;2,13,18;2,29,5;7;4,30,31;1,32,3;3,33,34;8,35,36,12;0,0,37;0,0,38;2,39,5";
+    const $scriptletArgs$ = /* 46 */ ["script","/_adBlockDetectorExecuted|checkForbiddenBrowsers/","/^adblock/","$remove$","unlock","1","modalVisited","true","adsCompleted","finalReloadDone","modifiedParagraphs.add","force_ad","2","visited","a[href^=\"https://adesampa.com.br/\"]","[href]","removeParam","last_ads","yes","Ads","clicked_ads","adtura","modal_promo",".download-links a[href^=\"https://unlock.uberxviral.com/#\"]","base64decode","_theme-banner-upper","html","bgPartners2019",".videoContainer > div.beachPartners + div","CLI_02_Dxxxxxxxxxxxxxxx","a[href*=\"://ouo.io/\"]","?s","a.reward_ads[data-url]","href","[data-url]","iframe[data-src]","src","[data-src]","adwallLocked","nf_done_clicks_v3_new","3","a[data-stream][target=\"_blank\"]","data-clicks","ads-popup","url_popup","player"];
+    const $scriptletArglists$ = /* 32 */ ";0,0,1;1,2,3;2,4,5;2,6,7;2,8,5;3,9,5;1,9,5;0,0,10;2,11,12;2,13,5;4,14,15,16;1,17,18;2,19,12;2,20,12;5,21,5;2,22,5;4,23,15,24;6,25,26;6,27,28;2,13,18;2,29,5;7;4,30,31;8,32,33,34;8,35,36,37;1,38,3;3,39,40;8,41,42,12;0,0,43;0,0,44;2,45,5";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

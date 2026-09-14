@@ -835,7 +835,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["tsuvod.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":834,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||semoi.kr/data/file/ad"},"id":835,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||photo.jtbc.co.kr/news/cms/etc/"},"id":836,"priority":10},
-{"action":{"redirect":{"extensionPath":"/web_accessible_resources/2x2.png"},"type":"redirect"},"condition":{"initiatorDomains":["kakaotv.daum.net","play-tv.kakao.com","tv.kakao.com"],"urlFilter":"/embed/player/image/ads.png"},"id":837,"priority":11},
+{"action":{"type":"block"},"condition":{"urlFilter":"||amazing.today/_next/image?url=%2fads%2f2"},"id":837,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||theceluv.com/banner/"},"id":838,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||celuvmedia.com/ad/"},"id":839,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||deliverypoint.co.kr/data/file/ad"},"id":840,"priority":10},

@@ -180,5 +180,6 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["superpesis.fi"],"resourceTypes":["image"],"urlFilter":"||datocms-assets.com/*banneri"},"id":179,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["superpesis.fi"],"resourceTypes":["image"],"urlFilter":"||datocms-assets.com/*980x400"},"id":180,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["superpesis.fi"],"resourceTypes":["image"],"urlFilter":"||datocms-assets.com/*600x600"},"id":181,"priority":10},
-{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["mainos.lol"],"urlFilter":"/mainos."},"id":182,"priority":10}
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["mainos.lol"],"urlFilter":"/mainos."},"id":182,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["tilannemedia.fi"],"resourceTypes":["script"],"urlFilter":"||cdn.nuload.net/tilannemedia_fi/ad.js"},"id":183,"priority":10}
 ]
