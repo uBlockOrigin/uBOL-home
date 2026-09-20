@@ -67,5 +67,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||r.mobirisesite.com/*/assets/chatbutton/script.js"},"id":66,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||singaporeair.com/assets/chatbotvs/"},"id":67,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||virtualspirits.com/vsa/chat.js"},"id":68,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||apigateway.co/webchat-client."},"id":69,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||apigateway.co/webchat-client."},"id":69,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["klipy.com"],"urlFilter":"||klipy.atlassian.net/csm/widget/"},"id":70,"priority":10}
 ]

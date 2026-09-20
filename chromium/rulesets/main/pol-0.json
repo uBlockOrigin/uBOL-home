@@ -732,6 +732,7 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kobieta.wp.pl"],"resourceTypes":["stylesheet"],"urlFilter":"||dot.wp.pl/*/dot.gif?rmt=css"},"id":731,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["plus.pl","polsatbox.pl"],"urlFilter":"||www.cloudflare.com/cdn-cgi/trace"},"id":732,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["kobieta.wp.pl"],"resourceTypes":["image"],"urlFilter":"||std.wpcdn.pl/images/adv/placeholder_wp.svg"},"id":733,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["njumobile.pl"],"requestDomains":["googletagmanager.com"]},"id":734,"priority":30},
 {"action":{"type":"allow"},"condition":{"requestDomains":["adwords.radom.pl","telekonsultacje-v2.neuca.pl"]},"id":781,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["www.buliba.pl"],"resourceTypes":["stylesheet"],"urlFilter":"||www.buliba.pl/css/overlayad.css"},"id":784,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["google.pl"],"resourceTypes":["script","stylesheet"],"urlFilter":".pl/ads/*/static/"},"id":785,"priority":30},

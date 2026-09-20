@@ -1826,5 +1826,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||green-market.by/js/modules/cookies.js"},"id":1825,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["costco.ca","costcobusinesscentre.ca"],"urlFilter":"||mobilecontent.costco.com/consent-ui/costco-consent-manager.iife.js"},"id":1826,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||korpiaho.net/wp-content/plugins/talentree-gdpr/js/main.js"},"id":1827,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.shopify.com/extensions/*/gdpr-cookie-consent-"},"id":1828,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||cdn.shopify.com/extensions/*/gdpr-cookie-consent-"},"id":1828,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["support.theguardian.com"],"urlFilter":"||cdn.privacy-mgmt.com/consent/"},"id":1829,"priority":40},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["script"],"urlFilter":"||gus.etsmtl.ca/c2atom/scripts/atom/managers/cookiesmanager.js"},"id":1830,"priority":30}
 ]

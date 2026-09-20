@@ -558,5 +558,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||katitube.com/kati/mobil/"},"id":557,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||cdn.*.com/sdk/v*/dd.master.spot.js"},"id":558,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["script"],"urlFilter":"||cdn.*.com/sdk/v*/dd.interstitial.ts.js"},"id":559,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||m.xtales.top/static/images/wm-banner-"},"id":560,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||m.xtales.top/static/images/wm-banner-"},"id":560,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||gamekillerapp.com/ad-top.html"},"id":561,"priority":10}
 ]

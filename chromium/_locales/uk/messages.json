@@ -63,6 +63,10 @@
     "message": "Менше",
     "description": "Label to be used to hide popup panel sections"
   },
+  "popupNoWebsite": {
+    "message": "це не вебсайт",
+    "description": "Used when popup panel is opened for a local web page"
+  },
   "3pGroupDefault": {
     "message": "Типово",
     "description": "Header for a ruleset section in 'Filter lists pane'"
@@ -100,7 +104,7 @@
     "description": "Text label heading the import area of custom filter lists"
   },
   "customListImportPlaceholder": {
-    "message": "Вставте сюди URL-адресу списку фільтрів, який потрібно додати",
+    "message": "URL-адреса списку фільтрів, який потрібно додати",
     "description": "Placeholder text which describes the purpose of the textarea widget"
   },
   "customListImportUserScriptsInfo": {

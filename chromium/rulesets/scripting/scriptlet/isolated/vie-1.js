@@ -36,6 +36,35 @@ function getRandomTokenFn() {
         safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
 }
 
+function getSafeCookieValuesFn() {
+    return [
+        'accept', 'reject',
+        'accepted', 'rejected', 'notaccepted',
+        'allow', 'disallow', 'deny',
+        'allowed', 'denied',
+        'approved', 'disapproved',
+        'checked', 'unchecked',
+        'dismiss', 'dismissed',
+        'enable', 'disable',
+        'enabled', 'disabled',
+        'essential', 'nonessential',
+        'forbidden', 'forever',
+        'hide', 'hidden',
+        'necessary', 'required',
+        'ok',
+        'on', 'off',
+        'true', 't', 'false', 'f',
+        'yes', 'y', 'no', 'n',
+        'all', 'none', 'functional',
+        'granted', 'done',
+        'decline', 'declined',
+        'closed', 'next', 'mandatory',
+        'disagree', 'agree',
+        'set', 'unset',
+        'given',
+    ];
+}
+
 function removeNodeText(
     nodeName,
     includes,
@@ -363,6 +392,90 @@ function safeSelf() {
     return safe;
 }
 
+function setLocalStorageItemFn(
+    which = 'local',
+    trusted = false,
+    key = '',
+    value = '',
+    options = {}
+) {
+    if ( key === '' ) { return; }
+
+    // For increased compatibility with AdGuard
+    if ( value === 'emptyArr' ) {
+        value = '[]';
+    } else if ( value === 'emptyObj' ) {
+        value = '{}';
+    }
+
+    const trustedValues = [
+        '',
+        'undefined', 'null',
+        '{}', '[]', '""',
+        '$remove$',
+        ...getSafeCookieValuesFn(),
+    ];
+
+    if ( trusted ) {
+        if ( value.includes('$now$') ) {
+            value = value.replaceAll('$now$', Date.now());
+        }
+        if ( value.includes('$currentDate$') ) {
+            value = value.replaceAll('$currentDate$', `${Date()}`);
+        }
+        if ( value.includes('$currentISODate$') ) {
+            value = value.replaceAll('$currentISODate$', (new Date()).toISOString());
+        }
+    } else {
+        const normalized = value.toLowerCase();
+        const match = /^("?)(.+)\1$/.exec(normalized);
+        const unquoted = match && match[2] || normalized;
+        if ( trustedValues.includes(unquoted) === false ) {
+            if ( /^-?\d+$/.test(unquoted) === false ) { return; }
+            const n = parseInt(unquoted, 10) || 0;
+            if ( n < -32767 || n > 32767 ) { return; }
+        }
+    }
+
+    let modified = false;
+
+    try {
+        const storage = self[`${which}Storage`];
+        if ( value === '$remove$' ) {
+            const safe = safeSelf();
+            const pattern = safe.patternToRegex(key, undefined, true );
+            const toRemove = [];
+            for ( let i = 0, n = storage.length; i < n; i++ ) {
+                const key = storage.key(i);
+                if ( pattern.test(key) ) { toRemove.push(key); }
+            }
+            modified = toRemove.length !== 0;
+            for ( const key of toRemove ) {
+                storage.removeItem(key);
+            }
+        } else {
+
+            const before = storage.getItem(key);
+            const after = `${value}`;
+            modified = after !== before;
+            if ( modified ) {
+                storage.setItem(key, after);
+            }
+        }
+    } catch {
+    }
+
+    if ( modified && typeof options.reload === 'number' ) {
+        setTimeout(( ) => { window.location.reload(); }, options.reload);
+    }
+}
+
+function setSessionStorageItem(key = '', value = '', ...varargs) {
+    const safe = safeSelf();
+    const options = safe.parseVarargs(varargs)
+    setLocalStorageItemFn('session', false, key, value, options);
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
@@ -418,7 +531,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 1 */ ["animehay12.site"];
+    const $scriptletHostnames$ = /* 2 */ ["animehay12.site","phimmoihd.it.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -463,7 +576,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 1 */ "1";
+        const $scriptletArglistRefs$ = /* 2 */ "1;2";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -494,10 +607,10 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 1 */
-[removeNodeText];
-    const $scriptletArgs$ = /* 2 */ ["script","popup"];
-    const $scriptletArglists$ = /* 2 */ ";0,0,1";
+    const $scriptletFunctions$ = /* 2 */
+[removeNodeText,setSessionStorageItem];
+    const $scriptletArgs$ = /* 4 */ ["script","popup","preroll-played","1"];
+    const $scriptletArglists$ = /* 3 */ ";0,0,1;1,2,3";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

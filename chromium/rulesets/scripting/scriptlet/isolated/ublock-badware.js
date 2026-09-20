@@ -418,7 +418,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 5 */ ["pentest.blog","casabasics.es","cizitensports.com","gemfellowship.org","longhall.consulting"];
+    const $scriptletHostnames$ = /* 6 */ ["pentest.blog","casabasics.es","aspireatlas.com","cizitensports.com","gemfellowship.org","longhall.consulting"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -463,7 +463,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 5 */ "5;3;4;1;2";
+        const $scriptletArglistRefs$ = /* 6 */ "5;3;3;4;1;2";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {

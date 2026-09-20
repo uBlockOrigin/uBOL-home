@@ -910,7 +910,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 87 */ ["kgrt.net","sinema.*","halk54.com","turkanime.co","burdurweb.com","dizilla40.com","efullizle.com","flatscher.net","kanald.com.tr","diziyiizle.com","eksisozluk.com","gazeterize.com","haberlisin.com","bugunkibris.com","cizgivedizi.com","turkifsalar.art","bursahaberdar.com","hdfilmcehennemi.*","klasikfilmler.net","mactanmaca549.sbs","turkporoclub1.sbs","turkporoclub2.sbs","turkporoclub3.sbs","turkporoclub4.sbs","turkporoclub5.sbs","turkporoclub6.sbs","turkporoclub7.sbs","turkporoclub8.sbs","turkporoclub9.sbs","yabancidiziio.com","birsenaltuntas.com","eskisehirhaber.com","turkporoclub10.sbs","turkporoclub11.sbs","turkporoclub12.sbs","turkporoclub13.sbs","turkporoclub14.sbs","turkporoclub15.sbs","turkporoclub16.sbs","turkporoclub17.sbs","turkporoclub18.sbs","turkporoclub19.sbs","turkporoclub20.sbs","turkporoclub21.sbs","turkporoclub22.sbs","turkporoclub23.sbs","turkporoclub24.sbs","turkporoclub25.sbs","turkporoclub26.sbs","turkporoclub27.sbs","turkporoclub28.sbs","turkporoclub29.sbs","turkporoclub30.sbs","doedaturkifsa6.blog","doedaturkifsa7.blog","doedaturkifsa8.blog","doedaturkifsa9.blog","erotizmfilmleri1.cc","filmseyretizlet.com","sinefilmizlesem.com","doedaturkifsa10.blog","doedaturkifsa11.blog","doedaturkifsa12.blog","doedaturkifsa13.blog","doedaturkifsa14.blog","doedaturkifsa15.blog","doedaturkifsa16.blog","doedaturkifsa17.blog","doedaturkifsa18.blog","doedaturkifsa19.blog","doedaturkifsa20.blog","doedaturkifsa21.blog","doedaturkifsa22.blog","doedaturkifsa23.blog","doedaturkifsa24.blog","doedaturkifsa25.blog","doedaturkifsa26.blog","doedaturkifsa27.blog","doedaturkifsa28.blog","doedaturkifsa29.blog","doedaturkifsa30.blog","doedaturkifsa31.blog","doedaturkifsa32.blog","doedaturkifsa33.blog","doedaturkifsa34.blog","doedaturkifsa35.blog","mobile.donanimhaber.com"];
+    const $scriptletHostnames$ = /* 88 */ ["kgrt.net","sinema.*","halk54.com","turkanime.co","burdurweb.com","dizilla40.com","efullizle.com","flatscher.net","kanald.com.tr","diziyiizle.com","eksisozluk.com","gazeterize.com","haberlisin.com","macboxtv29.xyz","bugunkibris.com","cizgivedizi.com","turkifsalar.art","bursahaberdar.com","hdfilmcehennemi.*","klasikfilmler.net","mactanmaca549.sbs","turkporoclub1.sbs","turkporoclub2.sbs","turkporoclub3.sbs","turkporoclub4.sbs","turkporoclub5.sbs","turkporoclub6.sbs","turkporoclub7.sbs","turkporoclub8.sbs","turkporoclub9.sbs","yabancidiziio.com","birsenaltuntas.com","eskisehirhaber.com","turkporoclub10.sbs","turkporoclub11.sbs","turkporoclub12.sbs","turkporoclub13.sbs","turkporoclub14.sbs","turkporoclub15.sbs","turkporoclub16.sbs","turkporoclub17.sbs","turkporoclub18.sbs","turkporoclub19.sbs","turkporoclub20.sbs","turkporoclub21.sbs","turkporoclub22.sbs","turkporoclub23.sbs","turkporoclub24.sbs","turkporoclub25.sbs","turkporoclub26.sbs","turkporoclub27.sbs","turkporoclub28.sbs","turkporoclub29.sbs","turkporoclub30.sbs","doedaturkifsa6.blog","doedaturkifsa7.blog","doedaturkifsa8.blog","doedaturkifsa9.blog","erotizmfilmleri1.cc","filmseyretizlet.com","sinefilmizlesem.com","doedaturkifsa10.blog","doedaturkifsa11.blog","doedaturkifsa12.blog","doedaturkifsa13.blog","doedaturkifsa14.blog","doedaturkifsa15.blog","doedaturkifsa16.blog","doedaturkifsa17.blog","doedaturkifsa18.blog","doedaturkifsa19.blog","doedaturkifsa20.blog","doedaturkifsa21.blog","doedaturkifsa22.blog","doedaturkifsa23.blog","doedaturkifsa24.blog","doedaturkifsa25.blog","doedaturkifsa26.blog","doedaturkifsa27.blog","doedaturkifsa28.blog","doedaturkifsa29.blog","doedaturkifsa30.blog","doedaturkifsa31.blog","doedaturkifsa32.blog","doedaturkifsa33.blog","doedaturkifsa34.blog","doedaturkifsa35.blog","mobile.donanimhaber.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -955,7 +955,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 87 */ "4;14;4;3;19;9;18;9;8;10;5;4;4;13;11,15,16;22;4;12;17;23;21;21;21;21;21;21;21;21;21;9;1;4;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;20;20;20;20;17;2;7;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;20;6";
+        const $scriptletArglistRefs$ = /* 88 */ "4;14;4;3;19;9;18;9;8;10;5;4;4;20;13;11,15,16;23;4;12;17;24;22;22;22;22;22;22;22;22;22;9;1;4;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;22;21;21;21;21;17;2;7;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;21;6";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -966,7 +966,7 @@ if ( $hasHostnames$ ) {
 }
 
 if ( $hasRegexes$ ) {
-    const $scriptletFromRegexes$ = /* 4 */ ["doedatur","doedaturkifsa\\d+\\.blog$","20","turkporo","turkporoclub\\d+\\.sbs$","21","turkifsa","turkifsa(lar)?\\d*\\.(site|art)$","22","mactanma","mactanmaca\\d+\\.sbs","23"];
+    const $scriptletFromRegexes$ = /* 5 */ ["macboxtv","macboxtv\\d+\\.xyz$","20","doedatur","doedaturkifsa\\d+\\.blog$","21","turkporo","turkporoclub\\d+\\.sbs$","22","turkifsa","turkifsa(lar)?\\d*\\.(site|art)$","23","mactanma","mactanmaca\\d+\\.sbs","24"];
     const { hns } = entries[0];
     for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
         const needle = $scriptletFromRegexes$[i+0];
@@ -988,8 +988,8 @@ if ( $hasRegexes$ ) {
 if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 8 */
 [removeNodeText,setCookie,setLocalStorageItem,setSessionStorageItem,removeClass,setAttr,removeCookie,preventRefresh];
-    const $scriptletArgs$ = /* 35 */ ["script","ad_block","popundr0","7","lscache-pop","1","modalads","yes","notheme","pageCount","0","yildiz-pageskin","body",".player-container","data-ad","false","showAllDaFull","redirected_to_home","true","/lastAdTime|openPopup/","/^totalPlayTime/","$remove$","#text","reklam_linki","pbrk","adShown","adSkipped","mrr_1","openRandomSite","popUnder","LAST_POP","preroll_view_count","4","reklamgosterimx","ok"];
-    const $scriptletArglists$ = /* 24 */ ";0,0,1;1,2,3;2,4,5;1,6,7;1,8,5;3,9,10;4,11,12;5,13,14,15;6,16;2,17,18;0,0,19;2,20,21;0,22,23;0,0,24;2,25,18;2,26,18;1,27,5;0,0,28;7;0,0,29;0,0,30;3,31,32;1,33,34";
+    const $scriptletArgs$ = /* 37 */ ["script","ad_block","popundr0","7","lscache-pop","1","modalads","yes","notheme","pageCount","0","yildiz-pageskin","body",".player-container","data-ad","false","showAllDaFull","redirected_to_home","true","/lastAdTime|openPopup/","/^totalPlayTime/","$remove$","#text","reklam_linki","pbrk","adShown","adSkipped","mrr_1","openRandomSite",".player-box","data-preroll-enabled","popUnder","LAST_POP","preroll_view_count","4","reklamgosterimx","ok"];
+    const $scriptletArglists$ = /* 25 */ ";0,0,1;1,2,3;2,4,5;1,6,7;1,8,5;3,9,10;4,11,12;5,13,14,15;6,16;2,17,18;0,0,19;2,20,21;0,22,23;0,0,24;2,25,18;2,26,18;1,27,5;0,0,28;7;5,29,30,10;0,0,31;0,0,32;3,33,34;1,35,36";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {
