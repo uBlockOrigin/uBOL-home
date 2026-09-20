@@ -1,3 +1,8 @@
+- [Preemptively inject user styles locally](https://github.com/gorhill/uBlock/commit/272007789b)
+- [Move managed custom scriptlet filters to sandbox](https://github.com/gorhill/uBlock/commit/cd8b675634)
+- [Make popup panel ready to deal with non-website web pages](https://github.com/gorhill/uBlock/commit/dd5c1bae63)
+- Updated filter lists
+
 ----------
 
 ### 2026.914.1325
