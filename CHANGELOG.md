@@ -1,3 +1,5 @@
+- [Add support for editor commands as buttons](https://github.com/gorhill/uBlock/commit/a3185dc14a)
+- [Improve detection of non-website pages](https://github.com/gorhill/uBlock/commit/815627024c)
 - [Add support for web_accessible_resources-based scriptlet filters](https://github.com/gorhill/uBlock/commit/bf7c4764fc)
 - Updated filter lists
 
