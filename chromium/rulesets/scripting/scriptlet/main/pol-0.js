@@ -1338,6 +1338,18 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
     return value;
 }
 
+function zeta_movh4xh5() { // noeval.js
+(function() {
+    'use strict';
+    const log = console.log.bind(console);
+    window.eval = new Proxy(window.eval, {          // jshint ignore: line
+        apply: function(target, thisArg, args) {
+            log(`Document tried to eval... ${args[0]}\n`);
+        }
+    });
+})();
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
@@ -1393,7 +1405,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 82 */ ["wp.pl","v10.pl","gala.pl","open.fm","money.pl","otube.pl","tv.wp.pl","cda-tv.pl","garnek.pl","gry.wp.pl","purepc.pl","www.wp.pl","bankier.pl","ebd.cda.pl","filiser.tv","film.wp.pl","filmweb.pl","filmy69.pl","kobieta.pl","komixxy.pl","otomoto.pl","pcworld.pl","pudelek.pl","tech.wp.pl","anyfiles.pl","autokult.pl","dziennik.pl","ekino-tv.pl","facet.wp.pl","pilot.wp.pl","playpuls.pl","streamin.to","wideo.wp.pl","animezone.pl","eurogamer.pl","kafeteria.pl","naekranie.pl","parenting.pl","poczta.wp.pl","pogoda.wp.pl","polygamia.pl","profil.wp.pl","abczdrowie.pl","czasdzieci.pl","echirurgia.pl","fitness.wp.pl","fotoblogia.pl","gry-online.pl","gwiazdy.wp.pl","jegostrona.pl","kobieta.wp.pl","medycyna24.pl","menshealth.pl","tubagliwic.pl","twojeip.wp.pl","autocentrum.pl","calcoolator.pl","hdtvpolska.com","horoskop.wp.pl","joemonster.org","teleshow.wp.pl","transfery.info","wawalove.wp.pl","www.interia.pl","demotywatory.pl","gadzetomania.pl","komorkomania.pl","swiatfilmow.com","tubawyszkowa.pl","womenshealth.pl","dobreprogramy.pl","facetemjestem.pl","filmowakraina.tv","pl.vpnmentor.com","runners-world.pl","wiadomosci.wp.pl","www.elektroda.pl","opensubtitles.org","motocykl-online.pl","sportowefakty.wp.pl","www.dobreprogramy.pl","auto-motor-i-sport.pl"];
+    const $scriptletHostnames$ = /* 84 */ ["wp.pl","v10.pl","gala.pl","iitv.pl","open.fm","money.pl","otube.pl","tv.wp.pl","cda-tv.pl","garnek.pl","gry.wp.pl","purepc.pl","raptu.com","www.wp.pl","bankier.pl","ebd.cda.pl","filiser.tv","film.wp.pl","filmweb.pl","filmy69.pl","kobieta.pl","komixxy.pl","otomoto.pl","pcworld.pl","pudelek.pl","tech.wp.pl","anyfiles.pl","autokult.pl","dziennik.pl","ekino-tv.pl","facet.wp.pl","pilot.wp.pl","playpuls.pl","streamin.to","wideo.wp.pl","animezone.pl","eurogamer.pl","kafeteria.pl","naekranie.pl","parenting.pl","poczta.wp.pl","pogoda.wp.pl","polygamia.pl","profil.wp.pl","abczdrowie.pl","czasdzieci.pl","echirurgia.pl","fitness.wp.pl","fotoblogia.pl","gry-online.pl","gwiazdy.wp.pl","jegostrona.pl","kobieta.wp.pl","medycyna24.pl","menshealth.pl","tubagliwic.pl","twojeip.wp.pl","autocentrum.pl","calcoolator.pl","hdtvpolska.com","horoskop.wp.pl","joemonster.org","teleshow.wp.pl","transfery.info","wawalove.wp.pl","www.interia.pl","demotywatory.pl","gadzetomania.pl","komorkomania.pl","swiatfilmow.com","tubawyszkowa.pl","womenshealth.pl","dobreprogramy.pl","facetemjestem.pl","filmowakraina.tv","pl.vpnmentor.com","runners-world.pl","wiadomosci.wp.pl","www.elektroda.pl","opensubtitles.org","motocykl-online.pl","sportowefakty.wp.pl","www.dobreprogramy.pl","auto-motor-i-sport.pl"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1438,7 +1450,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 82 */ "8,20;3;3;14,18,19,-15;13,14,15,21;52;21;51;3;21;32,46;10,11,12,21;28;1;29;21;6,7;50;3;3;53;38;18,19;21;31;21;3;42;9;-9;2;30;21;33;35;18,19;25,26,27;21;-9;21;18,19;17;21,-24;44;21;21;21;3;9,21;3;21;21;49;47;21;3;34;45;21;3;9,21;3;21;39,40;3;21;21;43;47;49;-25;3;48;37;49;21;41;36;49;-9,16,21,22;4,5;49";
+        const $scriptletArglistRefs$ = /* 84 */ "8,20;3;3;25;14,18,19,-15;13,14,15,21;53;21;52;3;21;33,47;25;10,11,12,21;29;1;30;21;6,7;51;3;3;54;39;18,19;21;32;21;3;43;9;-9;2;31;21;34;36;18,19;26,27,28;21;-9;21;18,19;17;21,-24;45;21;21;21;3;9,21;3;21;21;50;48;21;3;35;46;21;3;9,21;3;21;40,41;3;21;21;44;48;50;-25;3;49;38;50;21;42;37;50;-9,16,21,22;4,5;50";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1469,10 +1481,10 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 13 */
-[noWindowOpenIf,abortOnPropertyWrite,removeAttr,preventSetTimeout,abortCurrentScript,abortOnPropertyRead,setConstant,abortOnStackTrace,preventAddEventListener,preventSetInterval,noEvalIf,adjustSetTimeout,adjustSetInterval];
+    const $scriptletFunctions$ = /* 14 */
+[noWindowOpenIf,abortOnPropertyWrite,removeAttr,preventSetTimeout,abortCurrentScript,abortOnPropertyRead,setConstant,abortOnStackTrace,preventAddEventListener,zeta_movh4xh5,preventSetInterval,noEvalIf,adjustSetTimeout,adjustSetInterval];
     const $scriptletArgs$ = /* 74 */ ["ads","ub_ct_load","style","#phContent_avastBadge","stay","PrebidDamOpen","800","decodeURIComponent","newAdblockBoardDisplayed","addEventListener","/faBar[\\s\\S]*?insertAdjacentElement/","WP.inline","iaqExt","__headpayload","WP.gaf.loadBunch","noopFunc","WP","r https","Object.prototype.rekids","undefined","Object.prototype.gafSlot","Object.prototype.advViewability","Object.prototype.loadBunch","Object.prototype.loadAndRunBunch","HubAPI","3000","message","t.origin===k","/getComputedStyle[\\s\\S]*?style\\.display=\"none\"[\\s\\S]*?styleBlocked[\\s\\S]*?detected/","WP.prebid","onLoad","Object.prototype.bodyCode","visibility","0","wp_consent_color","function neTick(){neTickCounter++;if(neTickCounter<=neTickCountLimit){neTickAjax=$.ajax({type:\"POST\"","url:adminAjaxUrl+\"?action=ne_tick\"","dataType:\"json\"","success:function(data){neTickResponseAction(data)}})}}","10000","function check(){console.log(\"checked\");if($(\".adform\").children().length>3){console.log(\"its more\");$(\".adform\").children(\".adform-banner\").show();clearTimeout(check)}}","1000","$","/loadData|halfpage|welcome|screening|placement|adtitle/","detectAB","_yhbog","RTCPeerConnection","launchOpenWindow","ubfix()","o6c6e","no-ads-info","yafaIt","displayed","false","bioEp.showPopup","uabpd3","scrolling","iframe#sg-iframe[scrolling=\"no\"]","#iwa_source=timeout","15000","0.02","loadElement","function","billboard750","jQuery","#sdWelcomeScreen","[href^=\"https://www.purepc.pl/red1r.php\"]","#AdPopup","redirectId","document.querySelectorAll","popMagic","TheLink","Math.random","_blank"];
-    const $scriptletArglists$ = /* 54 */ ";0;1,0;1,1;2,2,3,4;3,5,6;4,7,8;4,9,10;5,11;1,12;5,13;6,14,15;7,16,17;6,18,19;6,20,19;6,21,19;6,22,15;6,23,15;3,24,25;8,26,27;3,28;7,29,30;5,31;3,32,33;5,34;9,35,36,37,38,39;3,40,41;4,42,43;1,44;1,45;10,46;5,47;3,48;5,49;3,50;1,51;6,52,53;3,54;5,55;2,56,57,4;11,58,59,60;6,61,15;11;11,62,41,60;4,63;4,64,65;2,2,66;4,42,67;12;12,68;4,69,70;11,71;4,72;0,73";
+    const $scriptletArglists$ = /* 55 */ ";0;1,0;1,1;2,2,3,4;3,5,6;4,7,8;4,9,10;5,11;1,12;5,13;6,14,15;7,16,17;6,18,19;6,20,19;6,21,19;6,22,15;6,23,15;3,24,25;8,26,27;3,28;7,29,30;5,31;3,32,33;5,34;9;10,35,36,37,38,39;3,40,41;4,42,43;1,44;1,45;11,46;5,47;3,48;5,49;3,50;1,51;6,52,53;3,54;5,55;2,56,57,4;12,58,59,60;6,61,15;12;12,62,41,60;4,63;4,64,65;2,2,66;4,42,67;13;13,68;4,69,70;12,71;4,72;0,73";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

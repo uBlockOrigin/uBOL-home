@@ -967,5 +967,8 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||graynews.co.kr/img/cms/*pc."},"id":966,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["pokergosu.com"],"urlFilter":"ipokergosu.com/banner/"},"id":967,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||scripts.mediavine.com/creativeblocks"},"id":968,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||pam-assets.dak.gg/creatives/"},"id":969,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||pam-assets.dak.gg/creatives/"},"id":969,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||lover*.net/staticwrite/vmplayer0.js"},"id":970,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||lover*.net/staticwrite/videoplaymasterfile.js"},"id":971,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||ds-cdn.inicis.com/ad/"},"id":972,"priority":10}
 ]

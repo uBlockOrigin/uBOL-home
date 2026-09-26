@@ -1459,6 +1459,55 @@ function validateConstantFn(trusted, raw, extraArgs = {}) {
     return value;
 }
 
+function zeta_8echnktd() { // nofab.js
+(function() {
+    'use strict';
+    const noopfn = function() {
+    };
+    const Fab = function() {};
+    Fab.prototype.check = noopfn;
+    Fab.prototype.clearEvent = noopfn;
+    Fab.prototype.emitEvent = noopfn;
+    Fab.prototype.on = function(a, b) {
+        if ( !a ) { b(); }
+        return this;
+    };
+    Fab.prototype.onDetected = function() {
+        return this;
+    };
+    Fab.prototype.onNotDetected = function(a) {
+        a();
+        return this;
+    };
+    Fab.prototype.setOption = noopfn;
+    Fab.prototype.options = {
+        set: noopfn,
+        get: noopfn,
+    };
+    const fab = new Fab();
+    const getSetFab = {
+        get: function() { return Fab; },
+        set: function() {}
+    };
+    const getsetfab = {
+        get: function() { return fab; },
+        set: function() {}
+    };
+    if ( window.hasOwnProperty('FuckAdBlock') ) { window.FuckAdBlock = Fab; }
+    else { Object.defineProperty(window, 'FuckAdBlock', getSetFab); }
+    if ( window.hasOwnProperty('BlockAdBlock') ) { window.BlockAdBlock = Fab; }
+    else { Object.defineProperty(window, 'BlockAdBlock', getSetFab); }
+    if ( window.hasOwnProperty('SniffAdBlock') ) { window.SniffAdBlock = Fab; }
+    else { Object.defineProperty(window, 'SniffAdBlock', getSetFab); }
+    if ( window.hasOwnProperty('fuckAdBlock') ) { window.fuckAdBlock = fab; }
+    else { Object.defineProperty(window, 'fuckAdBlock', getsetfab); }
+    if ( window.hasOwnProperty('blockAdBlock') ) { window.blockAdBlock = fab; }
+    else { Object.defineProperty(window, 'blockAdBlock', getsetfab); }
+    if ( window.hasOwnProperty('sniffAdBlock') ) { window.sniffAdBlock = fab; }
+    else { Object.defineProperty(window, 'sniffAdBlock', getsetfab); }
+})();
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
@@ -1559,7 +1608,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 33 */ "18;22;4;7,9,13;9;9;5,12;19;9;5;-19;1;4,9;26;21;17;-19;-19;10;24;11;6;6;14,15,16;2;8;20;20;25;3;23;7;5";
+        const $scriptletArglistRefs$ = /* 33 */ "18;23;4;7,9,13;9;9;5,12;19,20;9;5;-19;1;4,9;27;22;17;-19;-19;10;25;11;6;6;14,15,16;2;8;21;21;26;3;24;7;5";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1590,10 +1639,10 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 9 */
-[setConstant,abortOnPropertyRead,removeAttr,abortCurrentScript,jsonPrune,abortOnPropertyWrite,preventFetch,preventAddEventListener,preventSetTimeout];
+    const $scriptletFunctions$ = /* 10 */
+[setConstant,abortOnPropertyRead,removeAttr,abortCurrentScript,jsonPrune,abortOnPropertyWrite,preventFetch,preventAddEventListener,zeta_8echnktd,preventSetTimeout];
     const $scriptletArgs$ = /* 33 */ ["showAd","false","document.dispatchEvent","data-track","dfpConfig","loadAds","enabled","testhide","onload","damoh","adclick","__AB__","contextmenu","adblock","adblockDetector","load","concat","adblockEnabled","noopFunc","trackAdblock","AdsReloadConfig","adblockerAlert","class",".dfp-loaded","EventTarget.prototype.addEventListener","window.TextDecoder","pbjs.onEvent","__INITIAL_STATE__.features.should-show-snow","gpt.js","v.fwmrm.net/ad/g/1","adsbygoogle.js","/doCheck\\(.,.\\)/","pagead2.googlesyndication.com"];
-    const $scriptletArglists$ = /* 27 */ ";0,0,1;1,2;2,3;3,4,5;4,6,7;5,8;6,9;1,10;5,11;7,12;0,13,1;3,14;7,15,16;0,17,18;0,19,18;3,20;0,21,18;2,22,23;3,24,25;0,26,18;0,27,1;6,28;6,29;3,24,30;8,31;6,32";
+    const $scriptletArglists$ = /* 28 */ ";0,0,1;1,2;2,3;3,4,5;4,6,7;5,8;6,9;1,10;5,11;7,12;0,13,1;3,14;7,15,16;0,17,18;0,19,18;3,20;0,21,18;2,22,23;3,24,25;8;0,26,18;0,27,1;6,28;6,29;3,24,30;9,31;6,32";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

@@ -2236,6 +2236,635 @@ function xmlPrune(
     });
 }
 
+function zeta_j7s0f4ys() { // google-ima.js
+'use strict';
+
+
+
+
+
+if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
+  const VERSION = "3.764.0";
+  const ima = {};
+
+  class AdDisplayContainer {
+    constructor(containerElement) {
+      const divElement = document.createElement("div");
+      divElement.style.setProperty("display", "none", "important");
+      divElement.style.setProperty("visibility", "collapse", "important");
+      containerElement.appendChild(divElement);
+    }
+    destroy() {}
+    initialize() {}
+  }
+
+  class ImaSdkSettings {
+    constructor() {
+      this.c = true;
+      this.f = {};
+      this.i = false;
+      this.l = "";
+      this.p = "";
+      this.r = 0;
+      this.t = "";
+      this.v = "";
+    }
+    getCompanionBackfill() {}
+    getDisableCustomPlaybackForIOS10Plus() {
+      return this.i;
+    }
+    getFeatureFlags() {
+      return this.f;
+    }
+    getLocale() {
+      return this.l;
+    }
+    getNumRedirects() {
+      return this.r;
+    }
+    getPlayerType() {
+      return this.t;
+    }
+    getPlayerVersion() {
+      return this.v;
+    }
+    getPpid() {
+      return this.p;
+    }
+    isCookiesEnabled() {
+      return this.c;
+    }
+    setAutoPlayAdBreaks() {}
+    setCompanionBackfill() {}
+    setCookiesEnabled(c) {
+      this.c = !!c;
+    }
+    setDisableCustomPlaybackForIOS10Plus(i) {
+      this.i = !!i;
+    }
+    setFeatureFlags(f) {
+      this.f = f;
+    }
+    setLocale(l) {
+      this.l = l;
+    }
+    setNumRedirects(r) {
+      this.r = r;
+    }
+    setPlayerType(t) {
+      this.t = t;
+    }
+    setPlayerVersion(v) {
+      this.v = v;
+    }
+    setPpid(p) {
+      this.p = p;
+    }
+    setSessionId() {}
+    setVpaidAllowed() {}
+    setVpaidMode() {}
+
+    // https://github.com/uBlockOrigin/uBlock-issues/issues/2265#issuecomment-1637094149
+    getDisableFlashAds() {
+    }
+    setDisableFlashAds() {
+    }
+  }
+  ImaSdkSettings.CompanionBackfillMode = {
+    ALWAYS: "always",
+    ON_MASTER_AD: "on_master_ad",
+  };
+  ImaSdkSettings.VpaidMode = {
+    DISABLED: 0,
+    ENABLED: 1,
+    INSECURE: 2,
+  };
+
+  class EventHandler {
+    constructor() {
+      this.listeners = new Map();
+    }
+
+    _dispatch(e) {
+      let listeners = this.listeners.get(e.type);
+      listeners = listeners ? Array.from(listeners.values()) : [];
+      for (const listener of listeners) {
+        try {
+          listener(e);
+        } catch (r) {
+          console.error(r);
+        }
+      }
+    }
+
+    addEventListener(types, c, options, context) {
+      if (!Array.isArray(types)) {
+        types = [types];
+      }
+
+      for (const t of types) {
+        if (!this.listeners.has(t)) {
+          this.listeners.set(t, new Map());
+        }
+        this.listeners.get(t).set(c, c.bind(context || this));
+      }
+    }
+
+    removeEventListener(types, c) {
+      if (!Array.isArray(types)) {
+        types = [types];
+      }
+
+      for (const t of types) {
+        const typeSet = this.listeners.get(t);
+        if (typeSet) {
+          typeSet.delete(c);
+        }
+      }
+    }
+  }
+
+  class AdsLoader extends EventHandler {
+    constructor() {
+      super();
+      this.settings = new ImaSdkSettings();
+    }
+    contentComplete() {}
+    destroy() {}
+    getSettings() {
+      return this.settings;
+    }
+    getVersion() {
+      return VERSION;
+    }
+    requestAds(_r, _c) {
+      requestAnimationFrame(() => {
+        const { ADS_MANAGER_LOADED } = AdsManagerLoadedEvent.Type;
+        const event = new ima.AdsManagerLoadedEvent(ADS_MANAGER_LOADED, _r, _c);
+        this._dispatch(event);
+      });
+      const error = new ima.AdError(
+        "adPlayError",
+        1205, 1205,
+        "The browser prevented playback initiated without user interaction.",
+        _r, _c
+      );
+      requestAnimationFrame( () => {
+        this._dispatch(new ima.AdErrorEvent(error));
+      });
+    }
+  }
+
+  class AdsManager extends EventHandler {
+    constructor() {
+      super();
+      this.volume = 1;
+      this._enablePreloading = false;
+    }
+    collapse() {}
+    configureAdsManager() {}
+    destroy() {}
+    discardAdBreak() {}
+    expand() {}
+    focus() {}
+    getAdSkippableState() {
+      return false;
+    }
+    getCuePoints() {
+      return [0];
+    }
+    getCurrentAd() {
+      return currentAd;
+    }
+    getCurrentAdCuePoints() {
+      return [];
+    }
+    getRemainingTime() {
+      return 0;
+    }
+    getVolume() {
+      return this.volume;
+    }
+    init() {
+      if (this._enablePreloading) {
+        this._dispatch(new ima.AdEvent(AdEvent.Type.LOADED));
+      }
+    }
+    isCustomClickTrackingUsed() {
+      return false;
+    }
+    isCustomPlaybackUsed() {
+      return false;
+    }
+    pause() {}
+    requestNextAdBreak() {}
+    resize() {}
+    resume() {}
+    setVolume(v) {
+      this.volume = v;
+    }
+    skip() {}
+    start() {
+      requestAnimationFrame(() => {
+        for (const type of [
+          AdEvent.Type.LOADED,
+          AdEvent.Type.STARTED,
+          AdEvent.Type.CONTENT_PAUSE_REQUESTED,
+          AdEvent.Type.AD_BUFFERING,
+          AdEvent.Type.FIRST_QUARTILE,
+          AdEvent.Type.MIDPOINT,
+          AdEvent.Type.THIRD_QUARTILE,
+          AdEvent.Type.COMPLETE,
+          AdEvent.Type.ALL_ADS_COMPLETED,
+          AdEvent.Type.CONTENT_RESUME_REQUESTED,
+        ]) {
+          try {
+            this._dispatch(new ima.AdEvent(type));
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      });
+    }
+    stop() {}
+    updateAdsRenderingSettings() {}
+  }
+
+  class AdsRenderingSettings {}
+
+  class AdsRequest {
+    setAdWillAutoPlay() {}
+    setAdWillPlayMuted() {}
+    setContinuousPlayback() {}
+  }
+
+  class AdPodInfo {
+    getAdPosition() {
+      return 1;
+    }
+    getIsBumper() {
+      return false;
+    }
+    getMaxDuration() {
+      return -1;
+    }
+    getPodIndex() {
+      return 1;
+    }
+    getTimeOffset() {
+      return 0;
+    }
+    getTotalAds() {
+      return 1;
+    }
+  }
+
+  class Ad {
+    constructor() {
+      this._pi = new AdPodInfo();
+    }
+    getAdId() {
+      return "";
+    }
+    getAdPodInfo() {
+      return this._pi;
+    }
+    getAdSystem() {
+      return "";
+    }
+    getAdvertiserName() {
+      return "";
+    }
+    getApiFramework() {
+      return null;
+    }
+    getCompanionAds() {
+      return [];
+    }
+    getContentType() {
+      return "";
+    }
+    getCreativeAdId() {
+      return "";
+    }
+    getCreativeId() {
+      return "";
+    }
+    getDealId() {
+      return "";
+    }
+    getDescription() {
+      return "";
+    }
+    getDuration() {
+      return 8.5;
+    }
+    getHeight() {
+      return 0;
+    }
+    getMediaUrl() {
+      return null;
+    }
+    getMinSuggestedDuration() {
+      return -2;
+    }
+    getSkipTimeOffset() {
+      return -1;
+    }
+    getSurveyUrl() {
+      return null;
+    }
+    getTitle() {
+      return "";
+    }
+    getTraffickingParameters() {
+      return {};
+    }
+    getTraffickingParametersString() {
+      return "";
+    }
+    getUiElements() {
+      return [""];
+    }
+    getUniversalAdIdRegistry() {
+      return "unknown";
+    }
+    getUniversalAdIds() {
+      return [new UniversalAdIdInfo()];
+    }
+    getUniversalAdIdValue() {
+      return "unknown";
+    }
+    getVastMediaBitrate() {
+      return 0;
+    }
+    getVastMediaHeight() {
+      return 0;
+    }
+    getVastMediaWidth() {
+      return 0;
+    }
+    getWidth() {
+      return 0;
+    }
+    getWrapperAdIds() {
+      return [""];
+    }
+    getWrapperAdSystems() {
+      return [""];
+    }
+    getWrapperCreativeIds() {
+      return [""];
+    }
+    isLinear() {
+      return true;
+    }
+    isSkippable() {
+      return true;
+    }
+  }
+
+  class CompanionAd {
+    getAdSlotId() {
+      return "";
+    }
+    getContent() {
+      return "";
+    }
+    getContentType() {
+      return "";
+    }
+    getHeight() {
+      return 1;
+    }
+    getWidth() {
+      return 1;
+    }
+  }
+
+  class AdError {
+    constructor(type, code, vast, message, request, context) {
+      this.errorCode = code;
+      this.message = message;
+      this.type = type;
+      this.adsRequest = request;
+      this.userRequestContext = context;
+      this.vastErrorCode = vast;
+    }
+    getErrorCode() {
+      return this.errorCode;
+    }
+    getInnerError() {
+        return null;
+    }
+    getMessage() {
+      return this.message;
+    }
+    getType() {
+      return this.type;
+    }
+    getVastErrorCode() {
+      return this.vastErrorCode;
+    }
+    toString() {
+      return `AdError ${this.errorCode}: ${this.message}`;
+    }
+  }
+  AdError.ErrorCode = {};
+  AdError.Type = {};
+
+  const isEngadget = () => {
+    try {
+      for (const ctx of Object.values(window.vidible._getContexts())) {
+        const player = ctx.getPlayer();
+        if (!player) { continue;}
+        const div = player.div;
+        if (!div) { continue; }
+        if (div.innerHTML.includes("www.engadget.com")) {
+          return true;
+        }
+      }
+    } catch {
+    }
+    return false;
+  };
+
+  const currentAd = isEngadget() ? undefined : new Ad();
+
+  class AdEvent {
+    constructor(type) {
+      this.type = type;
+    }
+    getAd() {
+      return currentAd;
+    }
+    getAdData() {
+      return {};
+    }
+  }
+  AdEvent.Type = {
+    AD_BREAK_READY: "adBreakReady",
+    AD_BUFFERING: "adBuffering",
+    AD_CAN_PLAY: "adCanPlay",
+    AD_METADATA: "adMetadata",
+    AD_PROGRESS: "adProgress",
+    ALL_ADS_COMPLETED: "allAdsCompleted",
+    CLICK: "click",
+    COMPLETE: "complete",
+    CONTENT_PAUSE_REQUESTED: "contentPauseRequested",
+    CONTENT_RESUME_REQUESTED: "contentResumeRequested",
+    DURATION_CHANGE: "durationChange",
+    EXPANDED_CHANGED: "expandedChanged",
+    FIRST_QUARTILE: "firstQuartile",
+    IMPRESSION: "impression",
+    INTERACTION: "interaction",
+    LINEAR_CHANGE: "linearChange",
+    LINEAR_CHANGED: "linearChanged",
+    LOADED: "loaded",
+    LOG: "log",
+    MIDPOINT: "midpoint",
+    PAUSED: "pause",
+    RESUMED: "resume",
+    SKIPPABLE_STATE_CHANGED: "skippableStateChanged",
+    SKIPPED: "skip",
+    STARTED: "start",
+    THIRD_QUARTILE: "thirdQuartile",
+    USER_CLOSE: "userClose",
+    VIDEO_CLICKED: "videoClicked",
+    VIDEO_ICON_CLICKED: "videoIconClicked",
+    VIEWABLE_IMPRESSION: "viewable_impression",
+    VOLUME_CHANGED: "volumeChange",
+    VOLUME_MUTED: "mute",
+  };
+
+  class AdErrorEvent {
+    constructor(error) {
+      this.type = "adError";
+      this.error = error;
+    }
+    getError() {
+      return this.error;
+    }
+    getUserRequestContext() {
+      return this.error?.userRequestContext || {};
+    }
+  }
+  AdErrorEvent.Type = {
+    AD_ERROR: "adError",
+  };
+
+  const manager = new AdsManager();
+
+  class AdsManagerLoadedEvent {
+    constructor(type, request, context) {
+      this.type = type;
+      this.adsRequest = request;
+      this.userRequestContext = context;
+    }
+    getAdsManager(c, settings) {
+      if (settings && settings.enablePreloading) {
+        manager._enablePreloading = true;
+      }
+      return manager;
+    }
+    getUserRequestContext() {
+      return this.userRequestContext || {};
+    }
+  }
+  AdsManagerLoadedEvent.Type = {
+    ADS_MANAGER_LOADED: "adsManagerLoaded",
+  };
+
+  class CustomContentLoadedEvent {}
+  CustomContentLoadedEvent.Type = {
+    CUSTOM_CONTENT_LOADED: "deprecated-event",
+  };
+
+  class CompanionAdSelectionSettings {}
+  CompanionAdSelectionSettings.CreativeType = {
+    ALL: "All",
+    FLASH: "Flash",
+    IMAGE: "Image",
+  };
+  CompanionAdSelectionSettings.ResourceType = {
+    ALL: "All",
+    HTML: "Html",
+    IFRAME: "IFrame",
+    STATIC: "Static",
+  };
+  CompanionAdSelectionSettings.SizeCriteria = {
+    IGNORE: "IgnoreSize",
+    SELECT_EXACT_MATCH: "SelectExactMatch",
+    SELECT_NEAR_MATCH: "SelectNearMatch",
+  };
+
+  class AdCuePoints {
+    getCuePoints() {
+      return [];
+    }
+  }
+
+  class AdProgressData {}
+
+  class UniversalAdIdInfo {
+    getAdIdRegistry() {
+      return "";
+    }
+    getAdIdValue() {
+      return "";
+    }
+  }
+
+  Object.assign(ima, {
+    AdCuePoints,
+    AdDisplayContainer,
+    AdError,
+    AdErrorEvent,
+    AdEvent,
+    AdPodInfo,
+    AdProgressData,
+    AdsLoader,
+    AdsManager: manager,
+    AdsManagerLoadedEvent,
+    AdsRenderingSettings,
+    AdsRequest,
+    CompanionAd,
+    CompanionAdSelectionSettings,
+    CustomContentLoadedEvent,
+    gptProxyInstance: {},
+    ImaSdkSettings,
+    OmidAccessMode: {
+      DOMAIN: "domain",
+      FULL: "full",
+      LIMITED: "limited",
+    },
+    OmidVerificationVendor: {
+      1: "OTHER",
+      2: "GOOGLE",
+      GOOGLE: 2,
+      OTHER: 1
+    },
+    settings: new ImaSdkSettings(),
+    UiElements: {
+      AD_ATTRIBUTION: "adAttribution",
+      COUNTDOWN: "countdown",
+    },
+    UniversalAdIdInfo,
+    VERSION,
+    ViewMode: {
+      FULLSCREEN: "fullscreen",
+      NORMAL: "normal",
+    },
+  });
+
+  if (!window.google) {
+    window.google = {};
+  }
+
+  window.google.ima = ima;
+}
+}
+
 /******************************************************************************/
 
 const scriptletGlobals = {}; // eslint-disable-line
@@ -2291,7 +2920,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 483 */ ["1i1.in","atv.pe","mdr.ar","r7.com","gnula.*","leak.pt","rde.lat","tn23.tv","vix.com","movidy.*","safez.es","anitube.*","arlx.site","cuevana.*","depor.com","goyabu.us","los40.com","netcine.*","payad.lat","redisex.*","tivify.tv","topflix.*","3xyaoi.com","acortaz.es","anitube.us","atomixhq.*","atomtt.com","c9n.com.py","cinetux.to","comando.to","csrevo.com","cuevana2.*","cuevana3.*","doceru.com","elmundo.es","escplus.es","fiuxy2.com","fotise.com","futemax.at","g37.com.br","gnula.club","gnulahd.nu","istigo.net","listas.pro","nartag.com","netcinez.*","pcworld.es","pirlotv.es","playdede.*","redirdx.in","rqp.com.bo","solopc.net","suaads.com","suaurl.com","subsbr.net","tulink.org","uol.com.br","vtv.com.hn","xataka.com","zpaste.net","animesbr.cc","anitube.vip","askflix.biz","atomohd.com","autotop.net","brazzpw.xyz","cinehax.com","embed69.org","eshentai.tv","espinof.com","fakings.com","fgtd.online","file4go.com","file4go.net","genbeta.com","hartico.com","hentaila.tv","htforum.net","kumanga.com","meocloud.pt","netcinetv.*","novizer.com","nptmedia.tv","nupload.top","okpeliz.com","pelispop.me","pornsub.org","satcesc.com","superhq.net","yyyx.online","zonaaps.com","20minutos.es","3djuegos.com","adclicker.io","anime-jl.net","anime-jl.top","animefire.io","animeflv.net","animeocs.com","anitube.news","aqualapp.com","casperhd.com","chapintv.com","darkmahou.io","deemixer.com","docer.com.ar","embedder.net","enlacito.com","fichajes.com","gashita.info","geeknetic.es","goanimes.vip","gourlpro.com","hentai-id.tv","hentaijl.com","illamadas.es","legendei.net","lineup11.net","luggames.com","manga-mx.com","megafire.net","miukt.com.br","netccine.lat","oliberal.com","otakustv.com","perisxxx.com","playertv.org","plplayer.com","pobreflix.do","redecanais.*","repretel.com","seireshd.com","sussytoons.*","terra.com.br","texto.kom.gt","tioeroge.com","veohentai.io","vernaruto.tv","viciados.net","videosad.net","vitonica.com","xupalace.org","acortados.com","acortalink.me","adslayuda.com","allfeeds.live","animeblix.com","animesup.info","animeyabu.net","animeyabu.org","anitube22.vip","app.prende.tv","bandab.com.br","barmonrey.com","bebesymas.com","cadenaser.com","canale-tv.net","cinemitas.org","cozinhabr.top","cuevana-3.wtf","culinaria.top","darkmahou.org","deemixweb.com","docero.com.br","drstonebr.com","elespanol.com","erosanime.com","firepaste.com","firesload.com","ggames.com.br","gourlcero.com","hentai-ia.com","hentaikai.com","latamtoon.com","lectulandia.*","luratoons.com","mangacrab.com","mangacrab.org","manhastro.net","mundopolo.net","muyzorras.com","netcinebs.lat","nexustc18.com","niusdiario.es","pelismart.com","pkproject.net","playpaste.com","playpaste.net","pobreflix.foo","pridevana.com","redecanais.pk","repelisgt.net","servertwo.xyz","skynovels.net","softwarepc.es","southpark.lat","sub100.com.br","tiohentai.xyz","toonscrab.com","unlimplay.com","vidaextra.com","3djuegospc.com","allcalidad.pro","animefire.plus","animepelix.net","antena7.com.do","applesfera.com","arnolds.com.br","azuretoons.com","blizzpaste.com","botinnifit.com","canal12.com.sv","cine-calidad.*","cinecalidad2.*","cinelatino.net","compucalitv.tv","cuevanapro.org","cuitonline.com","devoracine.com","dicasgeeks.net","doramasmp4.com","ecartelera.com","elcomercio.com","expertplay.net","gadgetzona.net","gourlpaste.com","hinatasoul.com","informacion.es","isekaitube.cfd","laprovincia.es","lura-toons.com","lycantoons.com","meuwindows.com","multipaste.org","mundolucha.com","novelaplay.com","packsmega.info","peliplayhd.org","peliseries.xyz","player.gnula.*","portalyaoi.com","poseidonhd2.co","redecanaistv.*","ricoysuave.com","seriesflix.onl","seriesflixhd.*","seriesperu.com","short.7hd.club","sololatino.net","starckfilmes.*","streamx-hd.com","todo-anime.net","topmanhuas.org","tubeonline.net","uberxviral.com","veo-hentai.com","vertvcable.com","xatakafoto.com","xatakahome.com","xerifetech.com","yomucomics.com","zona-leros.com","animenew.com.br","animeonline.lat","animeshouse.net","atresplayer.com","cineplus123.org","comunidades.net","devilnovels.com","documaniatv.com","emperorscan.com","hentaiporno.xxx","hentaistube.com","hentaitokyo.net","infojobs.com.br","it-swarm-es.com","kitsuneyako.com","latinpornhd.com","levante-emv.com","luchaonline.com","megafilmeshd.si","meutimao.com.br","monoschino2.com","motorpasion.com","mundodevalor.me","mundoxiaomi.com","oceans14.com.br","otakufilmes.org","panelacheia.top","paste4free.site","peliculas8k.com","pelismarthd.com","pelispedia.life","pelisxporno.net","pepeliculas.org","pornolandia.xxx","readhunters.xyz","redecanaistv.pk","reidoplacar.com","seriesmaxhd.com","seriesretro.com","smartdoing.tech","softwareany.net","trendencias.com","verpelis.gratis","warezstream.net","xatakamovil.com","anime-latino.com","aquariumgays.com","cursomecanet.com","dattebayo-br.com","dicasreceita.com","elblogsalmon.com","embedplayer2.xyz","guideautoweb.com","infomatricula.pt","isekaibrasil.com","latinohentai.com","latinohentai.vip","monumental.co.cr","mundodonghua.com","netmovies.com.br","notipostingt.com","otakuanimess.net","player.cuevana.*","playnewserie.xyz","remedioscase.xyz","sejasaudavel.net","seriesflixhd.win","seriesgratis.biz","superflixapi.fit","superflixapi.pro","teleculinaria.pt","todoandroid.live","todostartups.com","tribunaavila.com","tvplusgratis.com","twobluescans.com","xatakandroid.com","3djuegosguias.com","acortame-esto.com","animeonline.ninja","animesonlinecc.us","canal13mexico.com","cinemastervip.com","clickjogos.com.br","coempregos.com.br","compradiccion.com","cuevana2espanol.*","daemon-hentai.com","diaridegirona.cat","dicasgostosas.com","eldiario24hrs.com","futbolfantasy.com","genshinpro.com.br","googleapis.com.do","guiacripto.online","hostingunlock.com","irmaosdotados.net","jogoscompleto.xyz","lectorhub.j5z.xyz","manhwa-latino.com","modescanlator.com","modescanlator.net","mundoperfecto.net","myfirstdollar.org","neworldtravel.com","ouniversodatv.com","outerspace.com.br","paraveronline.org","player.cuevana2.*","player.cuevana3.*","playerflixapi.com","pornoenspanish.es","portecnologia.com","puromarketing.com","qwanturankpro.com","qwanturankpro.net","redeflixapi.store","seriesdonghua.com","superflixapi.buzz","url.firepaste.com","vejaideias.com.br","verfutbollibre.pe","xatakaciencia.com","xatakawindows.com","alarmadefraude.com","animesonliner4.com","baixedetudo.net.br","elcorreogallego.es","foodiesgallery.com","guianoticiario.net","guiavidaesaude.com","httpmangacrab2.com","link-descarga.site","maringapost.com.br","minhasdelicias.com","modsimuladores.com","mundodeportivo.com","sabornutritivo.com","sushianimes.com.br","todamateria.com.br","tuhentaionline.com","tunovelaligera.com","tvserieslatino.com","brjogostorrents.com","chinesetubex.com.es","comandotorrents.org","constanteonline.com","dicasdereceitas.net","empregoestagios.com","financasdeouro.info","financialtrust.info","forodecostarica.com","hardwarepremium.com","hentailegendado.com","minhaconexao.com.br","motorpasionmoto.com","multicanaistt.space","player.pelisgod.com","pymesyautonomos.com","redbolivision.tv.bo","resenhasglobais.com","seriesemcena.com.br","torrentjogos.com.br","tudoesportes.online","aquiyahorajuegos.net","colegialasdeverdad.*","costumbresmexico.com","descargaseriestv.com","diariodegoias.com.br","diariodelviajero.com","directoalpaladar.com","inuyashadowns.com.br","laopiniondezamora.es","megaseriesonline.pro","nutricaohoje.website","play.mercadolibre.cl","player.seriesgod.com","receitascaseiras.xyz","receitasdaora.online","ricasdelicias.online","verdragonball.online","comicspornohentai.com","descargarhentaimf.xyz","dragonball.sullca.com","meuplayeronlinehd.com","negociosecommerce.com","olimpicastereo.com.co","player.malfollado.com","player.poseidonhd2.co","trendenciashombre.com","independentespanol.com","informetecnologico.com","mundohentaioficial.com","player.hentaistube.com","serieslatinoamerica.tv","verpeliculasonline.org","lawebdelprogramador.com","mrvideospornogratis.xxx","raulprietofernandez.net","southparkstudios.com.br","assistirfilmeshdgratis.*","descargaranimehentai.com","play.mercadolibre.com.ar","play.mercadolivre.com.br","player.cuevana2espanol.*","ver-peliculas-online.com","ver-peliculas-online.org","caroloportunidades.com.br","impactoespananoticias.com","receitasoncaseiras.online","cozinha.minhasdelicias.com","gamesperu2021.blogspot.com","jilliandescribecompany.com","infohojeonline.blogspot.com","jornaldacidadeonline.com.br","gamesteelstudio.blogspot.com","videos.mrvideospornogratis.xxx","xn--kcksk7a2bl5le7b6doc1h3f.com","descargas2024gratis.blogspot.com","gamesteelstudioplus.blogspot.com","canalnatelinhaonline.blogspot.com"];
+    const $scriptletHostnames$ = /* 486 */ ["1i1.in","atv.pe","mdr.ar","r7.com","gnula.*","leak.pt","rde.lat","tn23.tv","vix.com","movidy.*","safez.es","anitube.*","arlx.site","cuevana.*","depor.com","goyabu.us","los40.com","netcine.*","payad.lat","redisex.*","tivify.tv","topflix.*","3xyaoi.com","acortaz.es","anitube.us","atomixhq.*","atomtt.com","c9n.com.py","cinetux.to","comando.to","csrevo.com","cuevana2.*","cuevana3.*","doceru.com","elmundo.es","escplus.es","fiuxy2.com","fotise.com","futemax.at","g37.com.br","gnula.club","gnulahd.nu","istigo.net","listas.pro","nartag.com","netcinez.*","pcworld.es","pirlotv.es","playdede.*","redirdx.in","rqp.com.bo","sbt.com.br","solopc.net","suaads.com","suaurl.com","subsbr.net","tulink.org","uol.com.br","vtv.com.hn","xataka.com","zpaste.net","animesbr.cc","anitube.vip","askflix.biz","atomohd.com","autotop.net","brazzpw.xyz","cinehax.com","embed69.org","eshentai.tv","espinof.com","fakings.com","fgtd.online","file4go.com","file4go.net","genbeta.com","hartico.com","hentaila.tv","htforum.net","kumanga.com","meocloud.pt","netcinetv.*","novizer.com","nptmedia.tv","nupload.top","okpeliz.com","pelispop.me","pornsub.org","satcesc.com","superhq.net","yyyx.online","zonaaps.com","20minutos.es","3djuegos.com","adclicker.io","anime-jl.net","anime-jl.top","animefire.io","animeflv.net","animeocs.com","anitube.news","aqualapp.com","casperhd.com","chapintv.com","darkmahou.io","deemixer.com","docer.com.ar","embedder.net","enlacito.com","fichajes.com","gashita.info","geeknetic.es","goanimes.vip","gourlpro.com","hentai-id.tv","hentaijl.com","illamadas.es","legendei.net","lineup11.net","luggames.com","manga-mx.com","megafire.net","miukt.com.br","netccine.lat","oliberal.com","otakustv.com","perisxxx.com","playertv.org","plplayer.com","pobreflix.do","redecanais.*","repretel.com","seireshd.com","sussytoons.*","terra.com.br","texto.kom.gt","tioeroge.com","veohentai.io","vernaruto.tv","viciados.net","videosad.net","vitonica.com","xupalace.org","acortados.com","acortalink.me","adslayuda.com","allfeeds.live","animeblix.com","animesup.info","animeyabu.net","animeyabu.org","anitube22.vip","app.prende.tv","bandab.com.br","barmonrey.com","bebesymas.com","cadenaser.com","canale-tv.net","cinemitas.org","cozinhabr.top","cuevana-3.wtf","culinaria.top","darkmahou.org","deemixweb.com","docero.com.br","drstonebr.com","elespanol.com","erosanime.com","firepaste.com","firesload.com","ggames.com.br","gourlcero.com","hentai-ia.com","hentaikai.com","latamtoon.com","lectulandia.*","luratoons.com","mangacrab.com","mangacrab.org","manhastro.net","mundopolo.net","muyzorras.com","netcinebs.lat","nexustc18.com","niusdiario.es","pelismart.com","pkproject.net","playpaste.com","playpaste.net","pobreflix.foo","pridevana.com","redecanais.pk","repelisgt.net","servertwo.xyz","skynovels.net","softwarepc.es","southpark.lat","sub100.com.br","tiohentai.xyz","toonscrab.com","unlimplay.com","vidaextra.com","3djuegospc.com","allcalidad.pro","animefire.plus","animepelix.net","antena7.com.do","applesfera.com","arnolds.com.br","azuretoons.com","blizzpaste.com","botinnifit.com","canal12.com.sv","cine-calidad.*","cinecalidad2.*","cinelatino.net","compucalitv.tv","cuevanapro.org","cuitonline.com","devoracine.com","dicasgeeks.net","doramasmp4.com","ecartelera.com","elcomercio.com","expertplay.net","gadgetzona.net","gourlpaste.com","hinatasoul.com","informacion.es","isekaitube.cfd","laprovincia.es","lura-toons.com","lycantoons.com","meuwindows.com","multipaste.org","mundolucha.com","novelaplay.com","packsmega.info","peliplayhd.org","peliseries.xyz","player.gnula.*","portalyaoi.com","poseidonhd2.co","redecanaistv.*","ricoysuave.com","seriesflix.onl","seriesflixhd.*","seriesperu.com","short.7hd.club","sololatino.net","starckfilmes.*","streamx-hd.com","todo-anime.net","topmanhuas.org","tubeonline.net","uberxviral.com","veo-hentai.com","vertvcable.com","xatakafoto.com","xatakahome.com","xerifetech.com","yomucomics.com","zona-leros.com","animenew.com.br","animeonline.lat","animeshouse.net","atresplayer.com","cineplus123.org","comunidades.net","devilnovels.com","documaniatv.com","emperorscan.com","hentaiporno.xxx","hentaistube.com","hentaitokyo.net","infojobs.com.br","it-swarm-es.com","kitsuneyako.com","latinpornhd.com","levante-emv.com","luchaonline.com","megafilmeshd.si","meutimao.com.br","monoschino2.com","motorpasion.com","mundodevalor.me","mundoxiaomi.com","oceans14.com.br","otakufilmes.org","panelacheia.top","paste4free.site","peliculas8k.com","pelismarthd.com","pelispedia.life","pelisxporno.net","pepeliculas.org","pornolandia.xxx","readhunters.xyz","redecanaistv.pk","reidoplacar.com","seriesmaxhd.com","seriesretro.com","smartdoing.tech","softwareany.net","trendencias.com","verpelis.gratis","warezstream.net","xatakamovil.com","anime-latino.com","aquariumgays.com","cursomecanet.com","dattebayo-br.com","dicasreceita.com","elblogsalmon.com","embedplayer2.xyz","guideautoweb.com","infomatricula.pt","isekaibrasil.com","latinohentai.com","latinohentai.vip","monumental.co.cr","mundodonghua.com","netmovies.com.br","notipostingt.com","otakuanimess.net","player.cuevana.*","playnewserie.xyz","remedioscase.xyz","sejasaudavel.net","seriesflixhd.win","seriesgratis.biz","superflixapi.fit","superflixapi.pro","teleculinaria.pt","todoandroid.live","todostartups.com","tribunaavila.com","tvplusgratis.com","twobluescans.com","xatakandroid.com","3djuegosguias.com","acortame-esto.com","animeonline.ninja","animesonlinecc.us","canal13mexico.com","cinemastervip.com","clickjogos.com.br","coempregos.com.br","compradiccion.com","cuevana2espanol.*","daemon-hentai.com","diaridegirona.cat","dicasgostosas.com","eldiario24hrs.com","futbolfantasy.com","genshinpro.com.br","googleapis.com.do","guiacripto.online","hostingunlock.com","irmaosdotados.net","jogoscompleto.xyz","lectorhub.j5z.xyz","manhwa-latino.com","modescanlator.com","modescanlator.net","mundoperfecto.net","myfirstdollar.org","neworldtravel.com","ouniversodatv.com","outerspace.com.br","paraveronline.org","player.cuevana2.*","player.cuevana3.*","playerflixapi.com","pornoenspanish.es","portecnologia.com","puromarketing.com","qwanturankpro.com","qwanturankpro.net","redeflixapi.store","seriesdonghua.com","superflixapi.buzz","url.firepaste.com","vejaideias.com.br","verfutbollibre.pe","xatakaciencia.com","xatakawindows.com","alarmadefraude.com","animesonliner4.com","baixedetudo.net.br","elcorreogallego.es","foodiesgallery.com","guianoticiario.net","guiavidaesaude.com","httpmangacrab2.com","link-descarga.site","maringapost.com.br","minhasdelicias.com","modsimuladores.com","mundodeportivo.com","sabornutritivo.com","sushianimes.com.br","todamateria.com.br","tuhentaionline.com","tunovelaligera.com","tvserieslatino.com","venevisionplay.com","brjogostorrents.com","chinesetubex.com.es","comandotorrents.org","constanteonline.com","dicasdereceitas.net","empregoestagios.com","financasdeouro.info","financialtrust.info","forodecostarica.com","hardwarepremium.com","hentailegendado.com","minhaconexao.com.br","motorpasionmoto.com","multicanaistt.space","player.pelisgod.com","pymesyautonomos.com","redbolivision.tv.bo","resenhasglobais.com","seriesemcena.com.br","torrentjogos.com.br","tudoesportes.online","aquiyahorajuegos.net","colegialasdeverdad.*","costumbresmexico.com","descargaseriestv.com","diariodegoias.com.br","diariodelviajero.com","directoalpaladar.com","inuyashadowns.com.br","laopiniondezamora.es","megaseriesonline.pro","nutricaohoje.website","play.mercadolibre.cl","player.seriesgod.com","receitascaseiras.xyz","receitasdaora.online","ricasdelicias.online","verdragonball.online","comicspornohentai.com","descargarhentaimf.xyz","dragonball.sullca.com","meuplayeronlinehd.com","negociosecommerce.com","olimpicastereo.com.co","player.malfollado.com","player.poseidonhd2.co","trendenciashombre.com","independentespanol.com","informetecnologico.com","mundohentaioficial.com","player.hentaistube.com","serieslatinoamerica.tv","verpeliculasonline.org","lawebdelprogramador.com","mrvideospornogratis.xxx","raulprietofernandez.net","southparkstudios.com.br","assistirfilmeshdgratis.*","descargaranimehentai.com","play.mercadolibre.com.ar","play.mercadolivre.com.br","player.cuevana2espanol.*","starckfilmestorrent.site","ver-peliculas-online.com","ver-peliculas-online.org","caroloportunidades.com.br","impactoespananoticias.com","receitasoncaseiras.online","cozinha.minhasdelicias.com","gamesperu2021.blogspot.com","jilliandescribecompany.com","infohojeonline.blogspot.com","jornaldacidadeonline.com.br","gamesteelstudio.blogspot.com","videos.mrvideospornogratis.xxx","xn--kcksk7a2bl5le7b6doc1h3f.com","descargas2024gratis.blogspot.com","gamesteelstudioplus.blogspot.com","canalnatelinhaonline.blogspot.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -2336,7 +2965,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 483 */ "170;111,112,113;114;35;193,227;46;193;111,112,113;200,201,202,203,204,205,206,207,208,209,210;257;234;183;26,193;193,226,227;95;81,82;35;128,129,193;234;193;76;250;2,197;234;88,163,164,165,166;247;247;111,112,113;67,271,272;151;136;193,227;193,227;175;222;143;236;109;193;220;221;20;35;35;18;55;138;274;326;278;111,112,113;234;35,131,132,133,134,135;35,131,132,133,134,135,229,230,231,232;281;62,109;198,199;111,112,113;8,94;218;215;88,163,164,165,166;56;247;64;324;23;334,335;193;94;276;58,59,60;162;80,184;94;178;311;6;79;115;55;44;127;193;193;248;350;172,173;224,225;55;40,41;148;94;234;39,193;289;81,82,193,333;315;193,212;313;99;35;111,112,113;5,37;26,193;175;193,212,213;62;118;166;193;81,82;35,234;273;193,212;155;193,298,299;11,12,13;33;171;193,217,336;7;55;130;193,259,260;34;86;193,315,316,317;67;67,68,69,70,71,288;111,112,113;269,270;76;196;150;350;350;193;31;14;94;228;62,109;230;180;253;193,266,268;81,82;81,82;81,82;166;251;153;303,304;174;149;294;67;84;193,249;53;35,38,193;26,193;175;81,82,166;97;193,324;73,336;35;35;35;193,323,324;225;42;265;91,92;102;338;47,48,49,50,51,52;234;193;55;21;122,223;193;29;193,218,219;218;347;283;288;193;193;114;35;108;216;245,246;102,348,349;24;94;94;350;81,82,333;193,309;111,112,113;94;239;16,17;314;114;93,111,112,113;255;254;33,67;329;334,335;62;292;85;182;176;111,112,113;35;62;35;88,120,121,163,164,165;31;305;31;91,92;9,10;177;233;77;28,301;89,90,194,195;328;341,342,343,344;228;3,282;193,227;67,68,69,70,71,288;188;193,337;193,287;345,346,351;35;193,290;54;193,290;355;338;356;234;322;284,285;94;94;123,124,125;72;116;32;328;185;75;67;306;43;144;35;264;256;327;152;147;19;74;31;114;67;35;193,307,308,309;174;100;94;43;5;63;22;103,104,345,346,352;193;193,227;193;67;262;318;288;35,131,132,133,134,135,229;350;159;141;110;94;67;193;94;353,354;275;78;166;53;94,174;293;168;35,36;83;67,193,357;67,193,357;111,112,113;35,186,187;156;50,109;81,82;228;193,240;1;241;193,287;238;293;193;1;62;35,119;158;157;338;94;94;62;358;81,82;111,112,113;61;191;88,163,164,165,166;94;193,227;87,310;31;35,84,160;234;126;147;193;106,107;45;263;280;65;295;35;35;300;234;62,109;154;169,181;67;228;228;293,312;27;244;35,119;62;109;193,291;186,187;193;193;280;297;94;94;35;166;25;66;160,161;139,140;57;102;35;153;114;280;189;35,84,105;30;302;279;145,146;340;190;193;179,267;234;85;172,173;53;62,109;214;4;296;114,142;174;15;193;174;111,112,113;141;96;258;53;101;193;137;88;169;174;94,174;25;66;193;252;319,320,321;193;53;160,161;84;258;261;242;330,331;15;35,119;286;193;228;94;113;35;332;235;67;339;35;325;99,237;108;67;277;319,320,321;319,320,321;228;339;339;160,161;114;35,243;167;86,192;193;98,211;35;98;193;193;35;98;117";
+        const $scriptletArglistRefs$ = /* 486 */ "172;113,114,115;116;37;195,229;48;195;113,114,115;202,203,204,205,206,207,208,209,210,211,212;259;236;185;28,195;195,228,229;97;83,84;37;130,131,195;236;195;78;252;3,199;236;90,165,166,167,168;249;249;113,114,115;69,273,274;153;138;195,229;195,229;177;224;145;238;111;195;222;223;22;37;37;20;57;140;276;328;280;113,114,115;16;236;37,133,134,135,136,137;37,133,134,135,136,137,231,232,233,234;283;64,111;200,201;113,114,115;9,96;220;217;90,165,166,167,168;58;249;66;326;25;336,337;195;96;278;60,61,62;164;82,186;96;180;313;7;81;117;57;46;129;195;195;250;352;174,175;226,227;57;42,43;150;96;236;41,195;291;83,84,195,335;317;195,214;315;101;37;113,114,115;6,39;28,195;177;195,214,215;64;120;168;195;83,84;37,236;275;195,214;157;195,300,301;12,13,14;35;173;195,219,338;8;57;132;195,261,262;36;88;195,317,318,319;69;69,70,71,72,73,290;113,114,115;271,272;78;198;152;352;352;195;33;15;96;230;64,111;232;182;255;195,268,270;83,84;83,84;83,84;168;253;155;305,306;176;151;296;69;86;195,251;55;37,40,195;28,195;177;83,84,168;99;195,326;75,338;37;37;37;195,325,326;227;44;267;93,94;104;340;49,50,51,52,53,54;236;195;57;23;124,225;195;31;195,220,221;220;349;285;290;195;195;116;37;16,110;218;247,248;104,350,351;26;96;96;352;83,84,335;195,311;113,114,115;96;241;18,19;316;116;95,113,114,115;257;256;35,69;331;336,337;64;294;87;184;178;113,114,115;37;64;37;90,122,123,165,166,167;33;307;33;93,94;10,11;179;235;79;30,303;91,92,196,197;330;343,344,345,346;230;4,284;195,229;69,70,71,72,73,290;190;195,339;195,289;347,348,353;37;195,292;56;195,292;357;340;358;236;324;286,287;96;96;125,126,127;74;118;34;330;187;77;69;308;45;146;37;266;258;329;154;149;21;76;33;116;69;37;195,309,310,311;176;102;96;45;6;65;24;105,106,347,348,354;195;195,229;195;69;264;320;290;37,133,134,135,136,137,231;352;161;143;112;96;69;195;96;355,356;277;80;168;55;96,176;295;170;37,38;85;69,195,359;69,195,359;113,114,115;37,188,189;158;52,111;83,84;230;195,242;2;243;195,289;240;295;195;2;64;37,121;160;159;340;96;96;64;360;83,84;113,114,115;63;193;90,165,166,167,168;96;195,229;89,312;33;37,86,162;236;128;149;195;108,109;47;265;282;67;297;37;37;302;236;64,111;156;171,183;69;230;230;295,314;29;246;37,121;64;111;195,293;188,189;195;195;282;299;96;96;37;168;27;68;162,163;141,142;59;104;37;155;116;282;191;37,86,107;32;304;281;147,148;342;16;192;195;181,269;236;87;174,175;55;64,111;216;5;298;116,144;176;17;195;176;113,114,115;143;98;260;55;103;195;139;90;171;176;96,176;27;68;195;254;321,322,323;195;55;162,163;86;260;263;244;332,333;17;37,121;288;195;230;96;115;37;334;237;69;341;37;327;101,239;16,110;69;279;321,322,323;321,322,323;230;1;341;341;162,163;116;37,245;169;88,194;195;100,213;37;100;195;195;37;100;119";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -2367,10 +2996,10 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 19 */
-[preventFetch,abortCurrentScript,abortOnStackTrace,preventSetTimeout,preventAddEventListener,removeAttr,preventSetInterval,setConstant,abortOnPropertyWrite,noEvalIf,preventRequestAnimationFrame,adjustSetTimeout,adjustSetInterval,abortOnPropertyRead,preventXhr,noWindowOpenIf,jsonPrune,m3uPrune,xmlPrune];
-    const $scriptletArgs$ = /* 361 */ ["adsbygoogle","RegExp.prototype.test","/detect/i","document.getElementById","triggerBlock","adsenseCargo","DOMContentLoaded","adblock","onerror","script[src*=\"googlesyndication.com\"]","asap",".offsetHeight === 0","offsetHeight===0","/google-analytics\\.com|pubadx\\.one/","offsetHeight","visibilitychange","bs()","/pagead2\\.googlesyndication\\.com|adsbygoogle/","cloudfront.net","300","doubleclick","document.createElement","detect","load","innerHTML","Image","error","/ads/banner","popunders","noopFunc","/\\.offsetHeight\\s*?===\\s*?0/","adsBlocked","false","EventTarget.prototype.addEventListener","detectAdBlock","scriptObj","bait","detected","googlesyndication","checkAdBlock","offsetHeight === 0","pagead2.googlesyndication.com","/=window\\.setInterval\\([\\s\\S]*?\\.push\\(/","showAdblockAlert","/adsbygoogle.js","__ANTI_ADBLOCK_CORE__","/detect|\\.onerror|window\\.open/","decodeURIComponent(atob","advanced_ads_check_adblocker","googleads.g.doubleclick.net","googletagmanager.com","connect.facebook.net","static.ads-twitter.com","google-analytics.com","ULTIMATE_BAIT_REMOVED","click","overlay-notification","break;case",".offsetParent===","/window\\.getComputedStyle|adblock-/","unlock","*","0.001","seconds","popads.net","blockAdBlock","method:HEAD","isAdBlocked","String.fromCharCode(_0x","_an.ABMode","undefined","href","a[href]#clickfakeplayer","_0x","500","mode:no-cors","adClickCount","0","close","atob","wp-content/","checkAdsStatus","DHAntiAdBlocker","true","/pagead2\\.googlesyndication.com/ method:HEAD","www3.doubleclick.net","siteAccessPopup()","Por favor","console[_0x","widgets.outbrain.com","window.getComputedStyle","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js","widgets.outbrain.com/outbrain.js","hasAdblock","contador","adsbygoogle.js","detectedAdblock","ad blocker","/mopinion\\.com|iubenda\\.com|bannersnack\\.com|unblockia\\.com|googlesyndication\\.com/","block_ads","fetch","/alert|bloqueador|\\.catch|\\.type/","adBlockerOn","hasAdblocker","banner-ads",".clientHeight","setNptTechAdblockerCookie","possivelAdblockDetectado","eazyAdUnBlockerHttp","antiAdBlockerStyle","Promise[\\'all\\'](urls","/googlesyndication\\.com|iubenda\\.com|unblockia\\.com|bannersnack\\.com|mopinion\\.com/",".html(","/adBlock|\\.height\\(\\)/","playFunction","imasdk.googleapis.com","AdBlockDetector.prototype.test","falseFunc","detect-modal","googletag","{}","googletag._loaded_","securepubads.g.doubleclick.net/pagead/ppub_config","canRunAds","blockAdBlock._options","checkAdblockUser","addEventListener","displayMessage","adManagerBlocked","call-zone-adxs","adBlockFunction","document.getElementsByTagName","$MICROSITE_INFO.blockAdBlock","","adblock.check","app.AdBlock.init","/pagead2\\.googlesyndication\\.com|ads-api\\.twitter\\.com/","alert","eval","history.go","$","blockWall","/^(?!.*(chrome-extension:)).*$/ method:HEAD","Por favor, desative","/adblock|Por favor, desative|adsbygoogle\\.js/","cdo","document.addEventListener",".innerHTML","!document.getElementById(","ads-twitter.com","Object.prototype.autoRecov","/Adblock|\\.height\\(\\)/","jQuery","/Adblock|dummy|detect/","]]=== 0",".adsbygoogle","adregain_wall","ad_nodes","hb_now","Object.prototype.adblockerEnabled","adsbygoogle.loaded","adBlockCheck","pp_show_popupmessage","easySettings.adblock","onload","AdBlock","adblockDetected","null","gothamBatAdblock","/hasAdblock|window\\.getComputedStyle/","PLAYER LIBERADO","/hasAdblock|detectadb|ad-placement/","/outbrain\\.com|adligature\\.com|quantserve\\.com|srvtrck\\.com/","//cdn.taboola.com/libtrc/unpkg/tfa.js","Bl0ckAdBl0ckCo","ppAdblocks","mMCheckAgainBlock","daadb_get_data","adsbygoogle.length","WSL2.config.enableAdblockEcommerce","ads_unblocked","Adblock","ai_front","cicklow_","better_ads_adblock","adBlockDetected","isAdsDisplayed","ATESTADO","1","Lata","/;return \\{clear:function\\(\\)\\{/","/Tamamo_Blocker|aadb_recheck/","loadingAds","dclm_ajax_var.disclaimer_redirect_url","e(!0)","popunder","ShowRewards","window.open","userout","String.prototype.concat","popup","resumeVideoFromAd","initPopunder","URL_VAST_YOUTUBE","__configuredDFPTags","vast_meta_url","ads","ads.policy.skipMode","vmap_ad_breaks interstitials","vmap_ad_breaks preroll","vmap_ad_breaks midroll-1","vmap_ad_breaks midroll-2","vmap_ad_breaks midroll-3","vmap_ad_breaks midroll-4","vmap_ad_breaks midroll-5","type=ad",".m3u8","xpath(//*[name()=\"Period\"][.//*[name()=\"BaseURL\" and contains(text(),\".mp.lura.live/prod/\")]] | //*[name()=\"MPD\"]/@mediaPresentationDuration | //*[name()=\"Period\"][.//SegmentList[@presentationTimeOffset=\"0\"]])",".mpd","getid","initPu","adJsView","redirectpage","*.media.*.advertisement_id","contadorClics","enlace","document.write","li[onclick^=\"go_to_player\"] > a[target=\"_blank\"][href]","Object.prototype.adSlot","google.ima.OmidVerificationVendor","exopop","protData","cJsEdge","countdown","acdl","window.location.href","notficationAd","open","excludeDomains","global.noobMaxTry","player.preroll","lolaop","pUrlArray","adsdirect","videoliberado","0.02","anunciotag",".style.display","loadXMLDoc","PLAYER","liberaDownload","create_","!/download\\/|link|atomtt\\.com\\//","adk_pdisp","Loading...","adsHandle_noclick","ads breaks cuepoints times","10000","popurl","the_crakien","allclick_Public","checkCookieClick","onclick","?key=","clickd","_impspcabe","xxxStore","/_0x[\\s\\S]*?parentNode[\\s\\S]*?appendChild/","vidorev_jav_plugin_video_ads_object.vid_ads_m_video_ads","redirect","rot_url pop_type","videoTag","passeura","scriptwz_url","host","window.btoa","smrtSB","asgPopScript",".one(\"click\"","smrtSP","_cpp","a_consola","pub","redirdx.in/go/","Pub2","/atualizar|hided/","tick","elements","a.reward_ads[href]","inyectarBanner","javaUpdateAjax","_blank","Object.prototype.prerollShown","__POP_AD_LOCK__","openEnlace","localStorage","openFullscreenAdOnce","overlay","SmartAdsSafeStorage","NEW_LINK","trigger","preventDefault","redirigi","sg_gabarito_ads_config.adFrequency","1000","adUrl","openAdOnce","playerAds ads","puTS","__SMARTLINKS__","random","pumConfig","vast popup adblock","about:blank","JSON.stringify","data:text/javascript","noopener noreferrer","LieDetector","Popunder","a[data-stream][href][target=\"_blank\"]","window.gpp","__PRELOADED_STATE__.view.components.player.playbackContext.ads","adn_placement components.player.playbackContext.ads adnPlacement avails.* dashAvailabilityStartTime hlsAnchorMediaSequenceNumber nextToken nonLinearAvails","xpath(//*[name()=\"Period\"][./*[name()=\"EventStream\"][contains(@schemeIdUri, \":advertising-\")]] | //*[name()=\"Period\"]/@start)","PopunderData","showPopunder","clickCount","adpreload","vastPlayer.completed","sourceAd","start_preroll","anuncioConfig","setRandomBanner","Node.prototype.insertBefore","popns","VASTVideoPlayer","go_to_playerVast","/abrirVentanasEmergentes|abrirNuevaVentana|Popunder/","pop[_0x","Storage","/interstitial|redirectCount/","pframe","setInterval","doTabUnder","cnt1max","ifrconta","clickmax","#frm > a[href][onclick]","manejar","setTimeout","#fakeplayer > a","JSON.parse","showPopup","redirigido","redirigir","w-content","a.elementor-icon[target=\"_blank\"][rel][href]","window.location;","anuncios","/Popunder|Popup/","area51"];
-    const $scriptletArglists$ = /* 359 */ ";0,0;1,1,2;2,3,4;3,5;4,6,7;5,8,9,10;4,6,11;3,12;0,13;3,14;4,15,16;3,16;6,16;1,3,17;0,18;3,14,19;0,20;2,21,22;4,23,24;1,25,26;0,27;7,28,29;3,30;7,31,32;1,21,7;1,33,34;3,35;4,6,36;3,7;3,37;0,38;3,36;7,39,29;4,6,40;0,41;3,42;2,3,43;4,6,44;1,21,22;8,45;1,33,46;4,23,41;1,33,7;3,24;9,47;7,48,29;0,49;0,50;0,51;0,52;0,53;10,54;1,33,0;4,55,56;9,57;1,33,58;4,6,59;11,60,61,62;12,63,61,62;0,64;13,65;0,66;2,3,67;13,67;9,68;7,69,70;5,71,72;3,73,74;0,75;7,76,77;7,78,70;2,79,80;8,81;7,82,83;0,84;0,85;3,86;3,87;6,88;14,89;3,90;0,91;14,92;3,93;11,94,61,62;1,21,95;2,21,73;7,96,29;3,97;0,98;13,99;1,100,101;4,102;7,103,32;4,23,104;10,105;13,106;1,33,95;14,41;13,107;13,108;13,109;3,110;0,111;11,112,61,62;3,113;11,114,61,62;0,115;7,116,117;4,23,118;7,119,120;7,121,83;0,122;7,123,83;7,124,29;3,125;1,126,127;7,128,70;0,129;13,130;1,131,95;7,132,32;3,73;4,133,73;7,134,29;7,135,29;0,136;2,137,138;2,139,138;1,140,141;0,142;3,143;6,144;7,145,77;1,146,147;1,140,148;0,149;13,150;3,151;1,152,153;3,154;14,122;3,155;3,11;8,156;13,157;3,0;13,158;7,159,32;7,160,83;13,7;7,161,83;7,162,29;7,163,77;1,164,165;0,44;13,166;7,164,167;13,168;14,64;3,169;1,100,73;11,170,61,62;3,171;0,172;14,173;13,174;4,34;13,175;13,176;8,7;4,23,177;7,178,70;7,179,77;7,180,83;1,140,181;8,182;3,183;7,7,83;7,184,83;7,185,32;7,186,83;7,187,188;7,189,188;1,146,190;3,191;7,192,83;7,193,133;11,194,61,62;13,195;7,196,29;1,146,197;15;13,198;1,199,200;11,201,61,62;7,202,29;7,203,120;7,204,120;16,61,205;16,206,207;16,208;16,209;16,210;16,211;16,212;16,213;16,214;17,215,216;18,217,133,218;12,219,61,62;1,33,197;13,220;3,221;8,222;16,61,223;7,224,188;1,140,197;1,225,226;4,6,226;5,71,227;7,228,133;7,229,120;8,230;8,231;4,23,73;13,232;12,233,61,62;7,234,29;3,235;1,140,236;1,237,3;1,146,238;7,239,77;7,240,29;13,241;8,242;3,243;11,244,61,245;7,246,29;12,247,61,245;4,55,248;11,249,61,245;11,250,61,245;7,192,70;1,146,251;15,252;13,253;12,254,133,245;12,255,133,245;16,256,206;11,170,257,245;13,258;13,259;13,260;13,261;1,131,262;15,263;7,55,188;7,264,188;9,265;7,266,70;4,23,267;7,268,133;11,269,61,245;16,270;4,6,271;15,272;13,273;1,274,275;13,276;13,277;1,140,278;13,279;13,280;7,281,29;13,282;15,283;13,284;11,285,61,62;11,286;4,55,133,287,288;4,6,289;13,290;15,291,188;7,292,83;7,293,83;4,55,73;2,237,294;4,55,295;4,55,296;4,6,297;15,291;15,133,188;8,298;8,202;4,6,299;1,33,300;4,133,300;4,55,301;4,55,302;7,303,304;1,146,305;4,55,306;16,307;1,164,308;7,309,70;4,6,309;4,55,310;13,311;16,312;4,55,313;2,314,315;1,33,316;13,317;2,21,318;5,71,319;1,33,320;7,321,70;16,322;18,323,133,218;13,324;7,325,29;4,55,326;3,327;7,328,83;4,6,329;4,55,318;12,330,61,62;8,331;8,332;4,133,195;1,333,334;7,335,29;7,336,29;4,133,337;1,33,338;1,339,340;11,341,61,62;1,342,343;7,344,77;7,345,77;7,346,77;5,71,347;4,55,348;1,349,291;5,71,350;2,351,352;1,146,352;4,55,197;7,353,83;7,354,29;11,355,61,62;5,71,356;1,146,357;1,100,358;1,33,359;13,360";
+    const $scriptletFunctions$ = /* 20 */
+[abortOnStackTrace,preventFetch,abortCurrentScript,preventSetTimeout,preventAddEventListener,removeAttr,preventSetInterval,zeta_j7s0f4ys,setConstant,abortOnPropertyWrite,noEvalIf,preventRequestAnimationFrame,adjustSetTimeout,adjustSetInterval,abortOnPropertyRead,preventXhr,noWindowOpenIf,jsonPrune,m3uPrune,xmlPrune];
+    const $scriptletArgs$ = /* 362 */ ["console.log","detectAdBlock","adsbygoogle","RegExp.prototype.test","/detect/i","document.getElementById","triggerBlock","adsenseCargo","DOMContentLoaded","adblock","onerror","script[src*=\"googlesyndication.com\"]","asap",".offsetHeight === 0","offsetHeight===0","/google-analytics\\.com|pubadx\\.one/","offsetHeight","visibilitychange","bs()","/pagead2\\.googlesyndication\\.com|adsbygoogle/","cloudfront.net","300","doubleclick","document.createElement","detect","load","innerHTML","Image","error","/ads/banner","popunders","noopFunc","/\\.offsetHeight\\s*?===\\s*?0/","adsBlocked","false","EventTarget.prototype.addEventListener","scriptObj","bait","detected","googlesyndication","checkAdBlock","offsetHeight === 0","pagead2.googlesyndication.com","/=window\\.setInterval\\([\\s\\S]*?\\.push\\(/","showAdblockAlert","/adsbygoogle.js","__ANTI_ADBLOCK_CORE__","/detect|\\.onerror|window\\.open/","decodeURIComponent(atob","advanced_ads_check_adblocker","googleads.g.doubleclick.net","googletagmanager.com","connect.facebook.net","static.ads-twitter.com","google-analytics.com","ULTIMATE_BAIT_REMOVED","click","overlay-notification","break;case",".offsetParent===","/window\\.getComputedStyle|adblock-/","unlock","*","0.001","seconds","popads.net","blockAdBlock","method:HEAD","isAdBlocked","String.fromCharCode(_0x","_an.ABMode","undefined","href","a[href]#clickfakeplayer","_0x","500","mode:no-cors","adClickCount","0","close","atob","wp-content/","checkAdsStatus","DHAntiAdBlocker","true","/pagead2\\.googlesyndication.com/ method:HEAD","www3.doubleclick.net","siteAccessPopup()","Por favor","console[_0x","widgets.outbrain.com","window.getComputedStyle","pagead2.googlesyndication.com/pagead/js/adsbygoogle.js","widgets.outbrain.com/outbrain.js","hasAdblock","contador","adsbygoogle.js","detectedAdblock","ad blocker","/mopinion\\.com|iubenda\\.com|bannersnack\\.com|unblockia\\.com|googlesyndication\\.com/","block_ads","fetch","/alert|bloqueador|\\.catch|\\.type/","adBlockerOn","hasAdblocker","banner-ads",".clientHeight","setNptTechAdblockerCookie","possivelAdblockDetectado","eazyAdUnBlockerHttp","antiAdBlockerStyle","Promise[\\'all\\'](urls","/googlesyndication\\.com|iubenda\\.com|unblockia\\.com|bannersnack\\.com|mopinion\\.com/",".html(","/adBlock|\\.height\\(\\)/","playFunction","imasdk.googleapis.com","AdBlockDetector.prototype.test","falseFunc","detect-modal","googletag","{}","googletag._loaded_","securepubads.g.doubleclick.net/pagead/ppub_config","canRunAds","blockAdBlock._options","checkAdblockUser","addEventListener","displayMessage","adManagerBlocked","call-zone-adxs","adBlockFunction","document.getElementsByTagName","$MICROSITE_INFO.blockAdBlock","","adblock.check","app.AdBlock.init","/pagead2\\.googlesyndication\\.com|ads-api\\.twitter\\.com/","alert","eval","history.go","$","blockWall","/^(?!.*(chrome-extension:)).*$/ method:HEAD","Por favor, desative","/adblock|Por favor, desative|adsbygoogle\\.js/","cdo","document.addEventListener",".innerHTML","!document.getElementById(","ads-twitter.com","Object.prototype.autoRecov","/Adblock|\\.height\\(\\)/","jQuery","/Adblock|dummy|detect/","]]=== 0",".adsbygoogle","adregain_wall","ad_nodes","hb_now","Object.prototype.adblockerEnabled","adsbygoogle.loaded","adBlockCheck","pp_show_popupmessage","easySettings.adblock","onload","AdBlock","adblockDetected","null","gothamBatAdblock","/hasAdblock|window\\.getComputedStyle/","PLAYER LIBERADO","/hasAdblock|detectadb|ad-placement/","/outbrain\\.com|adligature\\.com|quantserve\\.com|srvtrck\\.com/","//cdn.taboola.com/libtrc/unpkg/tfa.js","Bl0ckAdBl0ckCo","ppAdblocks","mMCheckAgainBlock","daadb_get_data","adsbygoogle.length","WSL2.config.enableAdblockEcommerce","ads_unblocked","Adblock","ai_front","cicklow_","better_ads_adblock","adBlockDetected","isAdsDisplayed","ATESTADO","1","Lata","/;return \\{clear:function\\(\\)\\{/","/Tamamo_Blocker|aadb_recheck/","loadingAds","dclm_ajax_var.disclaimer_redirect_url","e(!0)","popunder","ShowRewards","window.open","userout","String.prototype.concat","popup","resumeVideoFromAd","initPopunder","URL_VAST_YOUTUBE","__configuredDFPTags","vast_meta_url","ads","ads.policy.skipMode","vmap_ad_breaks interstitials","vmap_ad_breaks preroll","vmap_ad_breaks midroll-1","vmap_ad_breaks midroll-2","vmap_ad_breaks midroll-3","vmap_ad_breaks midroll-4","vmap_ad_breaks midroll-5","type=ad",".m3u8","xpath(//*[name()=\"Period\"][.//*[name()=\"BaseURL\" and contains(text(),\".mp.lura.live/prod/\")]] | //*[name()=\"MPD\"]/@mediaPresentationDuration | //*[name()=\"Period\"][.//SegmentList[@presentationTimeOffset=\"0\"]])",".mpd","getid","initPu","adJsView","redirectpage","*.media.*.advertisement_id","contadorClics","enlace","document.write","li[onclick^=\"go_to_player\"] > a[target=\"_blank\"][href]","Object.prototype.adSlot","google.ima.OmidVerificationVendor","exopop","protData","cJsEdge","countdown","acdl","window.location.href","notficationAd","open","excludeDomains","global.noobMaxTry","player.preroll","lolaop","pUrlArray","adsdirect","videoliberado","0.02","anunciotag",".style.display","loadXMLDoc","PLAYER","liberaDownload","create_","!/download\\/|link|atomtt\\.com\\//","adk_pdisp","Loading...","adsHandle_noclick","ads breaks cuepoints times","10000","popurl","the_crakien","allclick_Public","checkCookieClick","onclick","?key=","clickd","_impspcabe","xxxStore","/_0x[\\s\\S]*?parentNode[\\s\\S]*?appendChild/","vidorev_jav_plugin_video_ads_object.vid_ads_m_video_ads","redirect","rot_url pop_type","videoTag","passeura","scriptwz_url","host","window.btoa","smrtSB","asgPopScript",".one(\"click\"","smrtSP","_cpp","a_consola","pub","redirdx.in/go/","Pub2","/atualizar|hided/","tick","elements","a.reward_ads[href]","inyectarBanner","javaUpdateAjax","_blank","Object.prototype.prerollShown","__POP_AD_LOCK__","openEnlace","localStorage","openFullscreenAdOnce","overlay","SmartAdsSafeStorage","NEW_LINK","trigger","preventDefault","redirigi","sg_gabarito_ads_config.adFrequency","1000","adUrl","openAdOnce","playerAds ads","puTS","__SMARTLINKS__","random","pumConfig","vast popup adblock","about:blank","JSON.stringify","data:text/javascript","noopener noreferrer","LieDetector","Popunder","a[data-stream][href][target=\"_blank\"]","window.gpp","__PRELOADED_STATE__.view.components.player.playbackContext.ads","adn_placement components.player.playbackContext.ads adnPlacement avails.* dashAvailabilityStartTime hlsAnchorMediaSequenceNumber nextToken nonLinearAvails","xpath(//*[name()=\"Period\"][./*[name()=\"EventStream\"][contains(@schemeIdUri, \":advertising-\")]] | //*[name()=\"Period\"]/@start)","PopunderData","showPopunder","clickCount","adpreload","vastPlayer.completed","sourceAd","start_preroll","anuncioConfig","setRandomBanner","Node.prototype.insertBefore","popns","VASTVideoPlayer","go_to_playerVast","/abrirVentanasEmergentes|abrirNuevaVentana|Popunder/","pop[_0x","Storage","/interstitial|redirectCount/","pframe","setInterval","doTabUnder","cnt1max","ifrconta","clickmax","#frm > a[href][onclick]","manejar","setTimeout","#fakeplayer > a","JSON.parse","showPopup","redirigido","redirigir","w-content","a.elementor-icon[target=\"_blank\"][rel][href]","window.location;","anuncios","/Popunder|Popup/","area51"];
+    const $scriptletArglists$ = /* 361 */ ";0,0,1;1,2;2,3,4;0,5,6;3,7;4,8,9;5,10,11,12;4,8,13;3,14;1,15;3,16;4,17,18;3,18;6,18;2,5,19;7;1,20;3,16,21;1,22;0,23,24;4,25,26;2,27,28;1,29;8,30,31;3,32;8,33,34;2,23,9;2,35,1;3,36;4,8,37;3,9;3,38;1,39;3,37;8,40,31;4,8,41;1,42;3,43;0,5,44;4,8,45;2,23,24;9,46;2,35,47;4,25,42;2,35,9;3,26;10,48;8,49,31;1,50;1,51;1,52;1,53;1,54;11,55;2,35,2;4,56,57;10,58;2,35,59;4,8,60;12,61,62,63;13,64,62,63;1,65;14,66;1,67;0,5,68;14,68;10,69;8,70,71;5,72,73;3,74,75;1,76;8,77,78;8,79,71;0,80,81;9,82;8,83,84;1,85;1,86;3,87;3,88;6,89;15,90;3,91;1,92;15,93;3,94;12,95,62,63;2,23,96;0,23,74;8,97,31;3,98;1,99;14,100;2,101,102;4,103;8,104,34;4,25,105;11,106;14,107;2,35,96;15,42;14,108;14,109;14,110;3,111;1,112;12,113,62,63;3,114;12,115,62,63;1,116;8,117,118;4,25,119;8,120,121;8,122,84;1,123;8,124,84;8,125,31;3,126;2,127,128;8,129,71;1,130;14,131;2,132,96;8,133,34;3,74;4,134,74;8,135,31;8,136,31;1,137;0,138,139;0,140,139;2,141,142;1,143;3,144;6,145;8,146,78;2,147,148;2,141,149;1,150;14,151;3,152;2,153,154;3,155;15,123;3,156;3,13;9,157;14,158;3,2;14,159;8,160,34;8,161,84;14,9;8,162,84;8,163,31;8,164,78;2,165,166;1,45;14,167;8,165,168;14,169;15,65;3,170;2,101,74;12,171,62,63;3,172;1,173;15,174;14,175;4,1;14,176;14,177;9,9;4,25,178;8,179,71;8,180,78;8,181,84;2,141,182;9,183;3,184;8,9,84;8,185,84;8,186,34;8,187,84;8,188,189;8,190,189;2,147,191;3,192;8,193,84;8,194,134;12,195,62,63;14,196;8,197,31;2,147,198;16;14,199;2,200,201;12,202,62,63;8,203,31;8,204,121;8,205,121;17,62,206;17,207,208;17,209;17,210;17,211;17,212;17,213;17,214;17,215;18,216,217;19,218,134,219;13,220,62,63;2,35,198;14,221;3,222;9,223;17,62,224;8,225,189;2,141,198;2,226,227;4,8,227;5,72,228;8,229,134;8,230,121;9,231;9,232;4,25,74;14,233;13,234,62,63;8,235,31;3,236;2,141,237;2,238,5;2,147,239;8,240,78;8,241,31;14,242;9,243;3,244;12,245,62,246;8,247,31;13,248,62,246;4,56,249;12,250,62,246;12,251,62,246;8,193,71;2,147,252;16,253;14,254;13,255,134,246;13,256,134,246;17,257,207;12,171,258,246;14,259;14,260;14,261;14,262;2,132,263;16,264;8,56,189;8,265,189;10,266;8,267,71;4,25,268;8,269,134;12,270,62,246;17,271;4,8,272;16,273;14,274;2,275,276;14,277;14,278;2,141,279;14,280;14,281;8,282,31;14,283;16,284;14,285;12,286,62,63;12,287;4,56,134,288,289;4,8,290;14,291;16,292,189;8,293,84;8,294,84;4,56,74;0,238,295;4,56,296;4,56,297;4,8,298;16,292;16,134,189;9,299;9,203;4,8,300;2,35,301;4,134,301;4,56,302;4,56,303;8,304,305;2,147,306;4,56,307;17,308;2,165,309;8,310,71;4,8,310;4,56,311;14,312;17,313;4,56,314;0,315,316;2,35,317;14,318;0,23,319;5,72,320;2,35,321;8,322,71;17,323;19,324,134,219;14,325;8,326,31;4,56,327;3,328;8,329,84;4,8,330;4,56,319;13,331,62,63;9,332;9,333;4,134,196;2,334,335;8,336,31;8,337,31;4,134,338;2,35,339;2,340,341;12,342,62,63;2,343,344;8,345,78;8,346,78;8,347,78;5,72,348;4,56,349;2,350,292;5,72,351;0,352,353;2,147,353;4,56,198;8,354,84;8,355,31;12,356,62,63;5,72,357;2,147,358;2,101,359;2,35,360;14,361";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

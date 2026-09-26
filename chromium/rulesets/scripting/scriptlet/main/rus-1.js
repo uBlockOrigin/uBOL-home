@@ -1670,7 +1670,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 72 */ ["ya.*","eda.*","wmj.*","ya.ru","4pda.*","dzen.*","ivi.ru","quto.*","auto.ru","dzen.ru","motor.*","anilib.*","lenta.ru","yandex.*","gazeta.ru","innal.top","letidor.*","meteum.ai","naylo.top","passion.*","rambler.*","rutr.life","shakko.ru","animelib.*","lenta.news","levik.blog","moslenta.*","naydex.net","tv.mail.ru","yandex.net","periskop.su","shedevrum.*","championat.*","game4you.top","gazeta.press","kino.mail.ru","mail.ukr.net","rustorka.com","rustorka.net","rustorka.top","rutracker.nl","sportmail.ru","sportsdzen.*","www.afisha.*","www.google.*","yastatic.net","avtorambler.*","id.rambler.ru","mail.yandex.*","otvet.mail.ru","rutracker.lib","rutracker.net","rutracker.org","shiro-kino.ru","sportsdzen.ru","vp.rambler.ru","mail.rambler.*","nova.rambler.*","pogoda.mail.ru","search.ukr.net","livejournal.com","music.youtube.*","quiz.rambler.ru","rustorkacom.lib","vadimrazumov.ru","www.kinopoisk.*","olegmakarenko.ru","games.s3.yandex.net","lenta.news.lenta.ru","horoscopes.rambler.*","widgets.kinopoisk.ru","frontend.vh.yandex.ru"];
+    const $scriptletHostnames$ = /* 70 */ ["ya.*","eda.*","wmj.*","ya.ru","4pda.*","dzen.*","ivi.ru","quto.*","auto.ru","dzen.ru","motor.*","anilib.*","lenta.ru","yandex.*","gazeta.ru","innal.top","letidor.*","meteum.ai","naylo.top","passion.*","rambler.*","rutr.life","shakko.ru","animelib.*","lenta.news","moslenta.*","naydex.net","tv.mail.ru","yandex.net","periskop.su","shedevrum.*","championat.*","game4you.top","gazeta.press","kino.mail.ru","mail.ukr.net","rustorka.com","rustorka.net","rustorka.top","rutracker.nl","sportmail.ru","sportsdzen.*","www.afisha.*","www.google.*","yastatic.net","id.rambler.ru","mail.yandex.*","otvet.mail.ru","rutracker.lib","rutracker.net","rutracker.org","shiro-kino.ru","sportsdzen.ru","vp.rambler.ru","mail.rambler.*","nova.rambler.*","pogoda.mail.ru","search.ukr.net","livejournal.com","music.youtube.*","quiz.rambler.ru","rustorkacom.lib","vadimrazumov.ru","www.kinopoisk.*","olegmakarenko.ru","games.s3.yandex.net","lenta.news.lenta.ru","horoscopes.rambler.*","widgets.kinopoisk.ru","frontend.vh.yandex.ru"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1715,7 +1715,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 72 */ "23,26,27,28,29,30,31;13,14;13,14;32,33,34,35,36;37,38;15,22,23;10,11;13,14;21;32,33,34,35;13,14;12;13;23,26,27,28,29,30,31;13,14;2;13,14;26;2;13,14;13,14;7;8,9;12;13;8,9;13,14;15;4;-24,-27,-28,-30,-31,-32;8,9;19;13,14;2;13,14;4;6;2;2;2;7;4;22;13,14;1;15;13,14;-14,-15;24,25,-27,-30,-31;3;7;7;7;8,9;32,33,34,35;-14,-15;-14;18;4;5;8,9;17;-14,-15;2;8,9;20;8,9;-29;14;16;15;15";
+        const $scriptletArglistRefs$ = /* 70 */ "23,26,27,28,29,30,31;13,14;13,14;32,33,34,35,36;37,38;15,22,23;10,11;13,14;21;32,33,34,35;13,14;12;13;23,26,27,28,29,30,31;13,14;2;13,14;26;2;13,14;13,14;7;8,9;12;13;13,14;15;4;-24,-27,-28,-30,-31,-32;8,9;19;13,14;2;13,14;4;6;2;2;2;7;4;22;13,14;1;15;-14,-15;24,25,-27,-30,-31;3;7;7;7;8,9;32,33,34,35;-14,-15;-14;18;4;5;8,9;17;-14,-15;2;8,9;20;8,9;-29;14;16;15;15";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {

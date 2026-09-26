@@ -1637,7 +1637,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 66 */ "19,24;17;27;8;26;7;26;6;8;2;26;26;26;26;5;26;26;2;26;21;26;26;28;4,26;20;28;1;26;26;23;26;3;22;26;16,23;26;26;8;15,26;23;26;26;12;25;26;14;26;9;26;23;8;13;26;11;26;26,29;21,26;26;10;8;8;16;18;26;2;26";
+        const $scriptletArglistRefs$ = /* 66 */ "19,24;17;27;8;26;7;26;6;8;2;26;26;26;26;5;26;26;2;26;21;26;26;29;4,26;20;29;1;26;26;23;26;3;22;26;16,23;26;26;8;15,26;23;26;26;12;25;26;14;26;9;26;23;8;13;26;11;26;26,28;21,26;26;10;8;8;16;18;26;2;26";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1670,8 +1670,8 @@ if ( $hasRegexes$ ) {
 if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 12 */
 [abortCurrentScript,abortOnPropertyRead,abortOnPropertyWrite,preventAddEventListener,adjustSetInterval,preventFetch,preventXhr,preventBab,noEvalIf,preventSetTimeout,noWindowOpenIf,setConstant];
-    const $scriptletArgs$ = /* 33 */ ["Math.random","arv_24","SGPB_POPUP_PARAMS","MutationObserver","checkAdsStatus","chp_ads_blocker_detector","document.addEventListener","window.open","getComputedStyle","","cpm","click","linkOpened","player.seeking","tampilkanUrl","load","/adblock/i","$.magnificPopup.open","LieDetector","ujiPopups","ads.google.com","adsbygoogle","clarity.ms","trafficbass.com","googlesyndication","/chp_?ad/","console","location.href","3000","VK_DIRECT_AD","undefined","document.body.innerHTML","document.querySelector"];
-    const $scriptletArglists$ = /* 30 */ ";0,0,1;1,2;2,3;0,4;0,5;0,6,7;0,8,9,10;3;3,11,12;3,11,13;3,11,14;3,15,16;1,17;1,18;1,19;4;5,20;5,21;5,22;5,23;6,24;7;8,25;9,26;9,27,28;10;11,29,30;2,31;0,32,21";
+    const $scriptletArgs$ = /* 33 */ ["Math.random","arv_24","SGPB_POPUP_PARAMS","MutationObserver","checkAdsStatus","chp_ads_blocker_detector","document.addEventListener","window.open","getComputedStyle","","cpm","click","linkOpened","player.seeking","tampilkanUrl","load","/adblock/i","$.magnificPopup.open","LieDetector","ujiPopups","ads.google.com","adsbygoogle","clarity.ms","trafficbass.com","googlesyndication","/chp_?ad/","console","location.href","3000","VK_DIRECT_AD","undefined","document.querySelector","document.body.innerHTML"];
+    const $scriptletArglists$ = /* 30 */ ";0,0,1;1,2;2,3;0,4;0,5;0,6,7;0,8,9,10;3;3,11,12;3,11,13;3,11,14;3,15,16;1,17;1,18;1,19;4;5,20;5,21;5,22;5,23;6,24;7;8,25;9,26;9,27,28;10;11,29,30;0,31,21;2,32";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

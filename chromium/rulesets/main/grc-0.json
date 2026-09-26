@@ -433,5 +433,12 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||jobfind.gr/clientfiles/banner2025/"},"id":432,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||money-tourism.gr/wp-content/uploads/2026/03/ferragamo-02-low*.jpg"},"id":433,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||money-tourism.gr/wp-content/uploads/2024/02/e-shop*.jpg"},"id":434,"priority":10},
-{"action":{"type":"block"},"condition":{"requestDomains":["madinad-data.s3.amazonaws.com"],"resourceTypes":["sub_frame"]},"id":435,"priority":10}
+{"action":{"type":"block"},"condition":{"requestDomains":["madinad-data.s3.amazonaws.com"],"resourceTypes":["sub_frame"]},"id":435,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||diastixo.gr/images/banners"},"id":436,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||diastixo.gr/images/*-banner-"},"id":437,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||elniplex.com/*_banners_"},"id":438,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||elniplex.com/*/banner_"},"id":439,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||elniplex.com/*banner_"},"id":440,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||elniplex.com/*/dioptra_"},"id":441,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||elniplex.com/*/mobile_popup_*.jpg"},"id":442,"priority":10}
 ]

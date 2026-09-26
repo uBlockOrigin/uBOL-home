@@ -574,6 +574,12 @@ function setCookieFn(
     return done;
 }
 
+function setLocalStorageItem(key = '', value = '', ...varargs) {
+    const safe = safeSelf();
+    const options = safe.parseVarargs(varargs)
+    setLocalStorageItemFn('local', false, key, value, options);
+}
+
 function setLocalStorageItemFn(
     which = 'local',
     trusted = false,
@@ -713,7 +719,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 11 */ ["iyf.tv","9xav.cc","yfsp.tv","subhd.com","aiyifan.tv","jmcomic1.me","xl02.com.de","nb.zol.com.cn","noslocker.com","peachring.com","phone-book.tw"];
+    const $scriptletHostnames$ = /* 14 */ ["4hu.tv","iyf.tv","9xav.cc","yfsp.tv","subhd.com","aiyifan.tv","d44t95.com","g655p8.com","jmcomic1.me","xl02.com.de","nb.zol.com.cn","noslocker.com","peachring.com","phone-book.tw"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -758,7 +764,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 11 */ "2;3;2;4;2;1;7;9;6;5;8";
+        const $scriptletArglistRefs$ = /* 14 */ "5;2;3;2;4;2;5;5;1;8;10;7;6;9";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -789,10 +795,10 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 4 */
-[removeNodeText,removeClass,setSessionStorageItem,setCookie];
-    const $scriptletArgs$ = /* 15 */ ["#text","中間廣告","publicplay","#main-player","q-body--prevent-scroll","body","hassession","1","hv-pending","html","script","/navigator\\.platform|new Function/","closeAd","yumayishop","getIsToJd"];
-    const $scriptletArglists$ = /* 10 */ ";0,0,1;1,2,3;1,4,5;2,6,7;1,8,9;0,10,11;3,12,7;0,10,13;3,14,7";
+    const $scriptletFunctions$ = /* 5 */
+[removeNodeText,removeClass,setSessionStorageItem,setLocalStorageItem,setCookie];
+    const $scriptletArgs$ = /* 17 */ ["#text","中間廣告","publicplay","#main-player","q-body--prevent-scroll","body","hassession","1","/^__ad/","$remove$","hv-pending","html","script","/navigator\\.platform|new Function/","closeAd","yumayishop","getIsToJd"];
+    const $scriptletArglists$ = /* 11 */ ";0,0,1;1,2,3;1,4,5;2,6,7;3,8,9;1,10,11;0,12,13;4,14,7;0,12,15;4,16,7";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

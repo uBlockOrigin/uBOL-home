@@ -531,7 +531,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 2 */ ["animehay12.site","phimmoihd.it.com"];
+    const $scriptletHostnames$ = /* 2 */ ["animehay13.site","phimmoihd.it.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
