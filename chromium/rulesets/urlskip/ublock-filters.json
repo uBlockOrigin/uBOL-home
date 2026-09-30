@@ -303,6 +303,13 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?securepaste\\.top/\\?url=",
+  "steps": [
+   "?url",
+   "-base64"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?anylinks\\.in/full.*?(?:[^%.0-9a-z_-]|$)url=ahr0c",
   "steps": [
    "?url",

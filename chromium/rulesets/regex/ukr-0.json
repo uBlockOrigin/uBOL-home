@@ -23,5 +23,6 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"^https:\\/\\/vveu.[a-z0-9]+\\.[a-z]+\\/.*\\/[a-z0-9]+\\.[a-z][a-z][a-z]$","resourceTypes":["media","other","xmlhttprequest"]},"id":22,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"^https:\\/\\/vveu.[a-z0-9]+\\.[a-z]+\\/.*\\/[a-z0-9]+\\.[a-z][a-z][a-z][a-z]$","resourceTypes":["media","other","xmlhttprequest"]},"id":23,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"^https:\\/\\/vveu.[a-z0-9]+\\.[a-z]+\\/.*\\/[a-z0-9]+\\.[a-z][a-z][a-z][?&]","resourceTypes":["media","other","xmlhttprequest"]},"id":24,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"^https:\\/\\/vveu.[a-z0-9]+\\.[a-z]+\\/.*\\/[a-z0-9]+\\.[a-z][a-z][a-z][a-z][?&]","resourceTypes":["media","other","xmlhttprequest"]},"id":25,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","regexFilter":"^https:\\/\\/vveu.[a-z0-9]+\\.[a-z]+\\/.*\\/[a-z0-9]+\\.[a-z][a-z][a-z][a-z][?&]","resourceTypes":["media","other","xmlhttprequest"]},"id":25,"priority":10},
+{"action":{"type":"block"},"condition":{"regexFilter":"[_-].*\\.(jpg|jpeg|png|webp)","resourceTypes":["media"]},"id":26,"priority":10}
 ]

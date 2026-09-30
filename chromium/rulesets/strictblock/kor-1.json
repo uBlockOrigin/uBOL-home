@@ -379,7 +379,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?go\\.bandisoft\\.com\\/coupang\\.bandizip$",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?prod\\.danawa\\.com\\/bridge\\/loadingbridgepowerclick\\.php.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -395,7 +395,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?mjmedi\\.com\\/bannerpop\\/popup\\.html.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?go\\.bandisoft\\.com\\/coupang\\.bandizip$",
   "resourceTypes": [
    "main_frame"
   ]
@@ -411,7 +411,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?playwares\\.com\\/api\\/redirectad\\.php.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?mjmedi\\.com\\/bannerpop\\/popup\\.html.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -427,7 +427,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?cultureland\\.co\\.kr\\/etc\\/main_ad_.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?playwares\\.com\\/api\\/redirectad\\.php.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -443,7 +443,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?ppomppu\\.co\\.kr\\/inform_ad_click\\.php.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?cultureland\\.co\\.kr\\/etc\\/main_ad_.*",
   "resourceTypes": [
    "main_frame"
   ]
@@ -459,7 +459,7 @@
   "type": "redirect"
  },
  "condition": {
-  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?prod\\.danawa\\.com\\/bridge\\/loadingbridgepowerclick\\.php.*",
+  "regexFilter": "^[^:]+:\\/\\/([^:/]+\\.)?ppomppu\\.co\\.kr\\/inform_ad_click\\.php.*",
   "resourceTypes": [
    "main_frame"
   ]

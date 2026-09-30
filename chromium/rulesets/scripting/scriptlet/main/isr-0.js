@@ -202,6 +202,34 @@ function abortOnPropertyWrite(
     });
 }
 
+function adjustSetTimeout(
+    needleArg = '',
+    delayArg = '',
+    boostArg = ''
+) {
+    if ( typeof needleArg !== 'string' ) { return; }
+    const safe = safeSelf();
+    const reNeedle = safe.patternToRegex(needleArg);
+    let delay = delayArg !== '*' ? parseInt(delayArg, 10) : -1;
+    if ( isNaN(delay) || isFinite(delay) === false ) { delay = 1000; }
+    let boost = parseFloat(boostArg);
+    boost = isNaN(boost) === false && isFinite(boost)
+        ? Math.min(Math.max(boost, 0.001), 50)
+        : 0.05;
+    self.setTimeout = new Proxy(self.setTimeout, {
+        apply: function(target, thisArg, args) {
+            const [ a, b ] = args;
+            if (
+                (delay === -1 || b === delay) &&
+                reNeedle.test(a.toString())
+            ) {
+                args[1] = b * boost;
+            }
+            return target.apply(thisArg, args);
+        }
+    });
+}
+
 function collateFetchArgumentsFn(resource, options) {
     const safe = safeSelf();
     const props = [
@@ -1384,7 +1412,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 59 */ "5,6,10,11;15,16;5;5;5,8,9;5,6;5,6;5,6,7;5;5;2,3,4,5;5,8,9;6;5;14;5;5;1;1;5,12,13;5;5,12,13;5,6;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;5;1;17,18;5,12,13,19,20;5,12,13";
+        const $scriptletArglistRefs$ = /* 59 */ "5,6,12,13;17,18;5;5;5,8,9,10,11;5,6;5,6;5,6,7;5;5;2,3,4,5;5,8,9,10,11;6;5;16;5;5;1;1;5,14,15;5;5,14,15;5,6;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;5;1;19,20;5,14,15,21,22;5,14,15";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1415,10 +1443,10 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 9 */
-[abortOnPropertyRead,noWebrtc,preventSetTimeout,preventFetch,abortOnPropertyWrite,noWindowOpenIf,preventAddEventListener,setConstant,abortCurrentScript];
-    const $scriptletArgs$ = /* 25 */ ["btoa","isMobileasokita","()","1500","adsbygoogle","upManager","offsetHeight","doubleclick","googlesyndication","popup","","hblocked","showAds","true","document.createElement","admiral","mdp_deblocker","mdpDeBlocker","document.blocked_var","1","____ads_js_blocked","false","load","$","AdBlockUtil"];
-    const $scriptletArglists$ = /* 21 */ ";0,0;0,1;1;2,2,3;3,4;4,5;2,6;3,7;3,8;2,9;5;6,10,11;7,12,13;8,14,15;0,16;2,17;7,18,19;7,20,21;6,22,11;8,23,24";
+    const $scriptletFunctions$ = /* 10 */
+[abortOnPropertyRead,noWebrtc,preventSetTimeout,preventFetch,abortOnPropertyWrite,adjustSetTimeout,noWindowOpenIf,preventAddEventListener,setConstant,abortCurrentScript];
+    const $scriptletArgs$ = /* 30 */ ["btoa","isMobileasokita","()","1500","adsbygoogle","upManager","offsetHeight","doubleclick","googlesyndication","taboola timeout","*","0.001","clearInterval(run)","5000","popup","","hblocked","showAds","true","document.createElement","admiral","mdp_deblocker","mdpDeBlocker","document.blocked_var","1","____ads_js_blocked","false","load","$","AdBlockUtil"];
+    const $scriptletArglists$ = /* 23 */ ";0,0;0,1;1;2,2,3;3,4;4,5;2,6;3,7;3,8;5,9,10,11;5,12,13,11;2,14;6;7,15,16;8,17,18;9,19,20;0,21;2,22;8,23,24;8,25,26;7,27,16;9,28,29";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {

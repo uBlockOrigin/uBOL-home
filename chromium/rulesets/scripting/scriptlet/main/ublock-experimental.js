@@ -579,6 +579,61 @@ class JSONPath {
     }
 }
 
+function editInboundObjectFn(
+    trusted = false,
+    propChain = '',
+    argPosRaw = '',
+    jsonq = '',
+) {
+    if ( propChain === '' ) { return; }
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix(
+        `${trusted ? 'trusted-' : ''}edit-inbound-object`,
+        propChain,
+        jsonq
+    );
+    const jsonp = JSONPath.create(jsonq);
+    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
+        return safe.uboLog(logPrefix, 'Bad JSONPath query');
+    }
+    const argPos = parseInt(argPosRaw, 10);
+    if ( isNaN(argPos) ) { return; }
+    const getArgPos = args => {
+        if ( Array.isArray(args) === false ) { return; }
+        if ( argPos >= 0 ) {
+            if ( args.length <= argPos ) { return; }
+            return argPos;
+        }
+        if ( args.length < -argPos ) { return; }
+        return args.length + argPos;
+    };
+    const editObj = obj => {
+        let clone;
+        try {
+            clone = safe.JSON_parse(safe.JSON_stringify(obj));
+        } catch {
+        }
+        if ( typeof clone !== 'object' || clone === null ) { return; }
+        const objAfter = jsonp.apply(clone);
+        if ( objAfter === undefined ) { return; }
+        safe.uboLog(logPrefix, 'Edited');
+        if ( safe.logLevel > 1 ) {
+            safe.uboLog(logPrefix, `After edit:\n${safe.JSON_stringify(objAfter, null, 2)}`);
+        }
+        return objAfter;
+    };
+    proxyApplyFn(propChain, function(context) {
+        const i = getArgPos(context.callArgs);
+        if ( i !== undefined ) {
+            const obj = editObj(context.callArgs[i]);
+            if ( obj ) {
+                context.callArgs[i] = obj;
+            }
+        }
+        return context.reflect();
+    });
+}
+
 function getExceptionTokenFn() {
     const token = getRandomTokenFn();
     const oe = self.onerror;
@@ -595,57 +650,6 @@ function getRandomTokenFn() {
     const safe = safeSelf();
     return safe.String_fromCharCode(Date.now() % 26 + 97) +
         safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
-}
-
-function jsonEditXhrRequestFn(trusted, jsonq = '', ...varargs) {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix(
-        `${trusted ? 'trusted-' : ''}json-edit-xhr-request`,
-        jsonq
-    );
-    const xhrInstances = new WeakMap();
-    const jsonp = JSONPath.create(jsonq);
-    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
-        return safe.uboLog(logPrefix, 'Bad JSONPath query');
-    }
-    const extraArgs = safe.parseVarargs(varargs);
-    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
-    self.XMLHttpRequest = class extends self.XMLHttpRequest {
-        open(method, url, ...args) {
-            const xhrDetails = { method, url };
-            const matched = propNeedles.size === 0 ||
-                matchObjectPropertiesFn(propNeedles, xhrDetails);
-            if ( matched ) {
-                if ( safe.logLevel > 1 && Array.isArray(matched) ) {
-                    safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
-                }
-                xhrInstances.set(this, xhrDetails);
-            }
-            return super.open(method, url, ...args);
-        }
-        send(body) {
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails ) {
-                body = this.#filterBody(body) || body;
-            }
-            super.send(body);
-        }
-        #filterBody(body) {
-            if ( typeof body !== 'string' ) { return; }
-            let data;
-            try { data = safe.JSON_parse(body); }
-            catch { }
-            if ( data instanceof Object === false ) { return; }
-            const objAfter = jsonp.apply(data);
-            if ( objAfter === undefined ) { return; }
-            body = safe.JSON_stringify(objAfter);
-            safe.uboLog(logPrefix, 'Edited');
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `After edit:\n${body}`);
-            }
-            return body;
-        }
-    };
 }
 
 function jsonEditXhrResponseFn(trusted, jsonq = '', ...varargs) {
@@ -745,6 +749,89 @@ function jsonPrune(
         }
         return objAfter;
     });
+}
+
+function jsonPruneXhrResponse(
+    rawPrunePaths = '',
+    rawNeedlePaths = '',
+    ...varargs
+) {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix('json-prune-xhr-response', rawPrunePaths, rawNeedlePaths);
+    const xhrInstances = new WeakMap();
+    const extraArgs = safe.parseVarargs(varargs);
+    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
+    const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
+    self.XMLHttpRequest = class extends self.XMLHttpRequest {
+        open(method, url, ...args) {
+            const xhrDetails = { method, url };
+            let outcome = 'match';
+            if ( propNeedles.size !== 0 ) {
+                if ( matchObjectPropertiesFn(propNeedles, xhrDetails) === undefined ) {
+                    outcome = 'nomatch';
+                }
+            }
+            if ( outcome === 'match' ) {
+                if ( safe.logLevel > 1 ) {
+                    safe.uboLog(logPrefix, `Matched optional "propsToMatch", "${extraArgs.propsToMatch}"`);
+                }
+                xhrInstances.set(this, xhrDetails);
+            }
+            return super.open(method, url, ...args);
+        }
+        get response() {
+            const innerResponse = super.response;
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined ) {
+                return innerResponse;
+            }
+            const responseLength = typeof innerResponse === 'string'
+                ? innerResponse.length
+                : undefined;
+            if ( xhrDetails.lastResponseLength !== responseLength ) {
+                xhrDetails.response = undefined;
+                xhrDetails.lastResponseLength = responseLength;
+            }
+            if ( xhrDetails.response !== undefined ) {
+                return xhrDetails.response;
+            }
+            let objBefore;
+            if ( typeof innerResponse === 'object' ) {
+                objBefore = innerResponse;
+            } else if ( typeof innerResponse === 'string' ) {
+                try {
+                    objBefore = safe.JSON_parse(innerResponse);
+                } catch {
+                }
+            }
+            if ( typeof objBefore !== 'object' ) {
+                return (xhrDetails.response = innerResponse);
+            }
+            const objAfter = objectPruneFn(
+                objBefore,
+                rawPrunePaths,
+                rawNeedlePaths,
+                stackNeedle,
+                extraArgs
+            );
+            let outerResponse;
+            if ( typeof objAfter === 'object' ) {
+                outerResponse = typeof innerResponse === 'string'
+                    ? safe.JSON_stringify(objAfter)
+                    : objAfter;
+                safe.uboLog(logPrefix, 'Pruned');
+            } else {
+                outerResponse = innerResponse;
+            }
+            return (xhrDetails.response = outerResponse);
+        }
+        get responseText() {
+            const response = this.response;
+            return typeof response !== 'string'
+                ? super.responseText
+                : response;
+        }
+    };
 }
 
 function matchObjectPropertiesFn(propNeedles, ...objs) {
@@ -1214,8 +1301,8 @@ function safeSelf() {
     return safe;
 }
 
-function trustedJsonEditXhrRequest(jsonq = '', ...args) {
-    jsonEditXhrRequestFn(true, jsonq, ...args);
+function trustedEditInboundObject(propChain = '', argPos = '', jsonq = '') {
+    editInboundObjectFn(true, propChain, argPos, jsonq);
 }
 
 function trustedJsonEditXhrResponse(jsonq = '', ...args) {
@@ -1322,7 +1409,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 1 */ "1,2,3,4,5";
+        const $scriptletArglistRefs$ = /* 1 */ "1,2,3,4,5,6";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1353,10 +1440,10 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 3 */
-[trustedJsonEditXhrRequest,trustedJsonEditXhrResponse,jsonPrune];
-    const $scriptletArgs$ = /* 7 */ ["[?.context.client.userAgent*=\"adunit\"].context.client[?.clientName==\"WEB\"]+={\"clientScreen\":\"ADUNIT\"}","propsToMatch","/player?","[?.context.client.userAgent*=\"inline\"].playbackContext.contentPlaybackContext+={\"isInlinePlaybackNoAd\":true}","[?.context.client.userAgent*=\"eafg\"]+={\"params\":\"eAFgAQ\"}","[?..minimumPlaybackRate==100]..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200,\"defaultPlaybackRateOptions\":[{\"label\":\"1.0\",\"value\":100,\"isPremiumUpsell\":false,\"priority\":5},{\"label\":\"1.25\",\"value\":125,\"isPremiumUpsell\":false,\"priority\":2},{\"label\":\"1.5\",\"value\":150,\"isPremiumUpsell\":false,\"priority\":3},{\"label\":\"1.75\",\"value\":175,\"isPremiumUpsell\":false,\"priority\":0},{\"label\":\"2.0\",\"value\":200,\"isPremiumUpsell\":false,\"priority\":4},{\"label\":\"3.0\",\"value\":300,\"isPremiumUpsell\":true,\"priority\":1}]}","contents.twoColumnBrowseResultsRenderer.tabs.[].tabRenderer.content.richGridRenderer.contents.[-].richItemRenderer.content.adSlotRenderer"];
-    const $scriptletArglists$ = /* 6 */ ";0,0,1,2;0,3,1,2;0,4,1,2;1,5,1,2;2,6";
+    const $scriptletFunctions$ = /* 4 */
+[trustedEditInboundObject,trustedJsonEditXhrResponse,jsonPrune,jsonPruneXhrResponse];
+    const $scriptletArgs$ = /* 12 */ ["JSON.stringify","0","[?.attestationRequest][?.context.client.userAgent*=\"adunit\"].context.client[?.clientName==\"WEB\"]+={\"clientScreen\":\"ADUNIT\"}","[?.attestationRequest][?.context.client.userAgent*=\"inline\"].playbackContext.contentPlaybackContext+={\"isInlinePlaybackNoAd\":true}","[?.attestationRequest][?.context.client.userAgent*=\"eafg\"]+={\"params\":\"eAFgAQ\"}","[?..minimumPlaybackRate==100]..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200,\"defaultPlaybackRateOptions\":[{\"label\":\"1.0\",\"value\":100,\"isPremiumUpsell\":false,\"priority\":5},{\"label\":\"1.25\",\"value\":125,\"isPremiumUpsell\":false,\"priority\":2},{\"label\":\"1.5\",\"value\":150,\"isPremiumUpsell\":false,\"priority\":3},{\"label\":\"1.75\",\"value\":175,\"isPremiumUpsell\":false,\"priority\":0},{\"label\":\"2.0\",\"value\":200,\"isPremiumUpsell\":false,\"priority\":4},{\"label\":\"3.0\",\"value\":300,\"isPremiumUpsell\":true,\"priority\":1}]}","propsToMatch","/player?","contents.twoColumnBrowseResultsRenderer.tabs.[].tabRenderer.content.richGridRenderer.contents.[-].richItemRenderer.content.adSlotRenderer","contents.tvBrowseRenderer.content.tvSurfaceContentRenderer.content.sectionListRenderer.contents.[-].adSlotRenderer contents.tvBrowseRenderer.content.tvSurfaceContentRenderer.content.sectionListRenderer.contents.[].shelfRenderer.content.horizontalListRenderer.items.[-].adSlotRenderer","","url:/browse"];
+    const $scriptletArglists$ = /* 7 */ ";0,0,1,2;0,0,1,3;0,0,1,4;1,5,6,7;2,8;3,9,10,6,11";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {
