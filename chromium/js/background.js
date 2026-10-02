@@ -211,15 +211,19 @@ async function onPermissionsAdded(permissions) {
     const details = pendingPermissionRequest;
     pendingPermissionRequest = undefined;
     const { origins = [] } = permissions;
-    return details !== undefined
-        ? onPermissionGrantedThruExtension(details, origins)
-        : onPermissionGrantedThruBrowser(origins);
+    if ( details !== undefined ) {
+        const hostnames = hostnamesFromMatches(origins);
+        if ( hostnames.includes(details.hostname) ) {
+            return onPermissionGrantedThruExtension(details, origins);
+        }
+    }
+    return onPermissionGrantedThruBrowser(origins);
 }
 
 async function onPermissionsRemoved() {
     const modified = await syncWithBrowserPermissions();
     if ( modified === false ) { return false; }
-    registerContentScripts();
+    await registerContentScripts();
     return true;
 }
 
