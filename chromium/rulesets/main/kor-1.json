@@ -971,5 +971,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||lover*.net/staticwrite/vmplayer0.js"},"id":970,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||lover*.net/staticwrite/videoplaymasterfile.js"},"id":971,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||ds-cdn.inicis.com/ad/"},"id":972,"priority":10},
-{"action":{"type":"allow"},"condition":{"urlFilter":"||img.danawa.com/ui_category/topbanner/topbannerpc_47032_20251117105656.png"},"id":973,"priority":30}
+{"action":{"type":"allow"},"condition":{"urlFilter":"||img.danawa.com/ui_category/topbanner/topbannerpc_47032_20251117105656.png"},"id":973,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||avsee.*/player/ad-gate.js?v="},"id":974,"priority":10}
 ]

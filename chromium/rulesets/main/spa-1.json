@@ -924,5 +924,8 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||embed69.org/bw.xml"},"id":923,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||hispajav.com/samoari/hta-300x250"},"id":924,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||animegratis.net/js/layout-deferred-loader.js"},"id":925,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||xheti.net/300x250.html"},"id":926,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||xheti.net/300x250.html"},"id":926,"priority":10},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["minhatela.xyz"],"urlFilter":"||minhatela.xyz/sticky_ads.js"},"id":927,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hdfullcdn.cc/templates/hdfull/images/gg/"},"id":928,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||pplware.sapo.pt/wp-content/uploads/*/banner_"},"id":929,"priority":10}
 ]

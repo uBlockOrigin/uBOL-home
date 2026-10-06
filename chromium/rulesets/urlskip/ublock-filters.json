@@ -1415,7 +1415,7 @@
   "re": "^https:\\/\\/link\\.theverge\\.com\\/click\\/[0-9]+\\.[0-9]+\\/aHR0c",
   "steps": [
    "/(aHR0c[a-zA-Z0-9%_-]+)/",
-   "-base64"
+   "-safebase64"
   ]
  },
  {

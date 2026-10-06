@@ -1033,7 +1033,7 @@ if ( entries.length === 0 ) { return; }
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 39 */ ["ojworld.it","forqueen.cz","red17.co.uk","skybap.shop","tvojstyl.sk","up-shop.org","webrick.com","aptisweb.com","pentest.blog","crimsonav.com","strand-co.com","adrissa.com.co","lundracing.com","jollibee.com.vn","kitapsan.com.tr","rapidkil.com.au","yairalon.com.br","caesarjaco.co.id","joinusonline.net","mebelinovdom.com","qualityrental.com","szaszmotorshop.hu","americansoda.co.uk","https-xhamster.com","ondigitalocean.app","weightlossdiet.top","casteloforte.com.br","centerfabril.com.br","energiasolare100.it","www.cambe.pr.gov.br","igualdad.iaa.csic.es","web.core.windows.net","abogadosrosarinos.com","avene-hebergement.com","sport.elwatannews.com","workplace-products.co.uk","z13.web.core.windows.net","darumasushiantofagasta.cl","ngsingleissues.nationalgeographic.com"];
+    const $scriptletHostnames$ = /* 40 */ ["ojworld.it","forqueen.cz","red17.co.uk","skybap.shop","tvojstyl.sk","up-shop.org","webrick.com","aptisweb.com","pentest.blog","crimsonav.com","strand-co.com","adrissa.com.co","lundracing.com","msm-wroclaw.pl","jollibee.com.vn","kitapsan.com.tr","rapidkil.com.au","yairalon.com.br","caesarjaco.co.id","joinusonline.net","mebelinovdom.com","qualityrental.com","szaszmotorshop.hu","americansoda.co.uk","https-xhamster.com","ondigitalocean.app","weightlossdiet.top","casteloforte.com.br","centerfabril.com.br","energiasolare100.it","www.cambe.pr.gov.br","igualdad.iaa.csic.es","web.core.windows.net","abogadosrosarinos.com","avene-hebergement.com","sport.elwatannews.com","workplace-products.co.uk","z13.web.core.windows.net","darumasushiantofagasta.cl","ngsingleissues.nationalgeographic.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -1078,7 +1078,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 39 */ "14;14;13;4,5;14;14;8;4,5;9;12;6;14;13;14;14;15;14;4,5;14;14;14;14;14;4,5;3;16;14;14;13;11;7;2;4,5;4,5;17;13;1;10;12";
+        const $scriptletArglistRefs$ = /* 40 */ "14;14;13;4,5;14;14;8;4,5;9;12;6;14;13;18;14;14;15;14;4,5;14;14;14;14;14;4,5;3;16;14;14;13;11;7;2;4,5;4,5;17;13;1;10;12";
         const arglistRefs = $scriptletArglistRefs$.split(';');
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
@@ -1112,7 +1112,7 @@ if ( todo.size && todo.has(0) === false ) {
     const $scriptletFunctions$ = /* 6 */
 [preventAddEventListener,abortCurrentScript,abortOnPropertyWrite,abortOnStackTrace,noEvalIf,trustedReplaceArgument];
     const $scriptletArgs$ = /* 34 */ ["DOMContentLoaded","fullscreenEnabled","beforeunload","/[Ww]orker/","mousemove","loadSecret","fetch","_0x","/^data:/","ai_front","document.createElement",".onerror","String.prototype.toLowerCase","Contract","atob","Uint8Array","new","Function","/bxslider|wow/","tigervip2","new Function(atob(","String.prototype.includes","0","undefined","condition","/^checkout$/","WebSocket","event.data","XMLHttpRequest","/wp-content","open","executeCode","Array.prototype.indexOf","isWin"];
-    const $scriptletArglists$ = /* 18 */ ";0,0,1;0,2,3;0,4,5;1,6,7,8;2,9;1,10,11;1,12,13;1,14,15;1,14,16;3,17,18;4,19;1,14,20;5,21,22,23,24,25;1,26,27;3,28,29;1,30,31;3,32,33";
+    const $scriptletArglists$ = /* 19 */ ";0,0,1;0,2,3;0,4,5;1,6,7,8;2,9;1,10,11;1,12,13;1,14,15;1,14,16;3,17,18;4,19;1,14,20;5,21,22,23,24,25;1,26,27;3,28,29;1,30,31;3,32,33;4,7";
     const arglists = $scriptletArglists$.split(';');
     const args = $scriptletArgs$;
     for ( const ref of todo ) {
