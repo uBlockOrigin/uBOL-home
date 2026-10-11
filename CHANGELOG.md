@@ -1,3 +1,16 @@
+- [De-duplicate scriptlet functions across rulesets](https://github.com/gorhill/uBlock/commit/b711687470)
+- Updated filter lists
+
+----------
+
+### 2026.1006.1931
+
+- Updated filter lists
+
+----------
+
+### 2026.930.1227
+
 - Updated filter lists
 
 ----------
