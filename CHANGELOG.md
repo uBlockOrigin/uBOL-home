@@ -1,3 +1,4 @@
+- [Remove access to filter creation in popup when "no filtering"](https://github.com/gorhill/uBlock/commit/610c2431dc)
 - [De-duplicate scriptlet functions across rulesets](https://github.com/gorhill/uBlock/commit/b711687470)
 - Updated filter lists
 
