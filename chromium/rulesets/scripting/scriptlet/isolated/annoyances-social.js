@@ -26,329 +26,15 @@
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_scriptlets() {
+(function uBOL_scriptlets($SECRET_ID$) {
 
 /******************************************************************************/
 
-function getCookieFn(
-    name = ''
-) {
-    const safe = safeSelf();
-    for ( const s of safe.String_split.call(document.cookie, /\s*;\s*/) ) {
-        const pos = s.indexOf('=');
-        if ( pos === -1 ) { continue; }
-        if ( s.slice(0, pos) !== name ) { continue; }
-        return s.slice(pos+1).trim();
-    }
-}
+const scriptletGlobals = self[$SECRET_ID$];
 
-function getSafeCookieValuesFn() {
-    return [
-        'accept', 'reject',
-        'accepted', 'rejected', 'notaccepted',
-        'allow', 'disallow', 'deny',
-        'allowed', 'denied',
-        'approved', 'disapproved',
-        'checked', 'unchecked',
-        'dismiss', 'dismissed',
-        'enable', 'disable',
-        'enabled', 'disabled',
-        'essential', 'nonessential',
-        'forbidden', 'forever',
-        'hide', 'hidden',
-        'necessary', 'required',
-        'ok',
-        'on', 'off',
-        'true', 't', 'false', 'f',
-        'yes', 'y', 'no', 'n',
-        'all', 'none', 'functional',
-        'granted', 'done',
-        'decline', 'declined',
-        'closed', 'next', 'mandatory',
-        'disagree', 'agree',
-        'set', 'unset',
-        'given',
-    ];
-}
-
-function safeSelf() {
-    if ( safeSelf.safe ) {
-        return safeSelf.safe;
-    }
-    const self = globalThis;
-    const safe = {
-        'Array_from': Array.from,
-        'Error': self.Error,
-        'Function_toString': Function.prototype.call.bind(self.Function.prototype.toString),
-        'Math_floor': Math.floor,
-        'Math_max': Math.max,
-        'Math_min': Math.min,
-        'Math_random': Math.random,
-        'Object': Object,
-        'Object_defineProperty': Object.defineProperty.bind(Object),
-        'Object_defineProperties': Object.defineProperties.bind(Object),
-        'Object_fromEntries': Object.fromEntries.bind(Object),
-        'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
-        'Object_hasOwn': Object.hasOwn.bind(Object),
-        'Object_toString': Object.prototype.toString,
-        'RegExp': self.RegExp,
-        'RegExp_test': Function.prototype.call.bind(self.RegExp.prototype.test),
-        'RegExp_exec': self.RegExp.prototype.exec,
-        'Request_clone': self.Request.prototype.clone,
-        'String': self.String,
-        'String_fromCharCode': String.fromCharCode,
-        'String_split': String.prototype.split,
-        'XMLHttpRequest': self.XMLHttpRequest,
-        'addEventListener': self.EventTarget.prototype.addEventListener,
-        'removeEventListener': self.EventTarget.prototype.removeEventListener,
-        'fetch': self.fetch,
-        'JSON': self.JSON,
-        'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
-        'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
-        'log': console.log.bind(console),
-        // Properties
-        logLevel: 0,
-        // Methods
-        makeLogPrefix(...args) {
-            return this.sendToLogger && `[${args.join(' \u205D ')}]` || '';
-        },
-        uboLog(...args) {
-            if ( this.sendToLogger === undefined ) { return; }
-            if ( args === undefined || args[0] === '' ) { return; }
-            return this.sendToLogger('info', ...args);
-            
-        },
-        uboErr(...args) {
-            if ( this.sendToLogger === undefined ) { return; }
-            if ( args === undefined || args[0] === '' ) { return; }
-            return this.sendToLogger('error', ...args);
-        },
-        escapeRegexChars(s) {
-            return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        },
-        initPattern(pattern, options = {}) {
-            if ( pattern === '' ) {
-                return { matchAll: true, expect: true };
-            }
-            const expect = (options.canNegate !== true || pattern.startsWith('!') === false);
-            if ( expect === false ) {
-                pattern = pattern.slice(1);
-            }
-            const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
-            if ( match !== null ) {
-                return {
-                    re: new this.RegExp(
-                        match[1],
-                        match[2] || options.flags
-                    ),
-                    expect,
-                };
-            }
-            if ( options.flags !== undefined ) {
-                return {
-                    re: new this.RegExp(this.escapeRegexChars(pattern),
-                        options.flags
-                    ),
-                    expect,
-                };
-            }
-            return { pattern, expect };
-        },
-        testPattern(details, haystack) {
-            if ( details.matchAll ) { return true; }
-            if ( details.re ) {
-                return this.RegExp_test(details.re, haystack) === details.expect;
-            }
-            return haystack.includes(details.pattern) === details.expect;
-        },
-        patternToRegex(pattern, flags = undefined, verbatim = false) {
-            if ( pattern === '' ) { return /^/; }
-            const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
-            if ( match === null ) {
-                const reStr = this.escapeRegexChars(pattern);
-                return new RegExp(verbatim ? `^${reStr}$` : reStr, flags);
-            }
-            try {
-                return new RegExp(match[1], match[2] || undefined);
-            }
-            catch {
-            }
-            return /^/;
-        },
-        parseVarargs(varargs) {
-            const entries = varargs.reduce((out, v, i, a) => {
-                if ( i & 1 ) { return out; }
-                const rawValue = a[i+1];
-                const value = /^\d+$/.test(rawValue)
-                    ? parseInt(rawValue, 10)
-                    : rawValue;
-                out.push([ a[i], value ]);
-                return out;
-            }, []);
-            return this.Object_fromEntries(entries);
-        },
-    };
-    safeSelf.safe = safe;
-    if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
-    // This is executed only when the logger is opened
-    safe.logLevel = scriptletGlobals.logLevel || 1;
-    let lastLogType = '';
-    let lastLogText = '';
-    let lastLogTime = 0;
-    safe.toLogText = (type, ...args) => {
-        if ( args.length === 0 ) { return; }
-        const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
-        if ( text === lastLogText && type === lastLogType ) {
-            if ( (Date.now() - lastLogTime) < 5000 ) { return; }
-        }
-        lastLogType = type;
-        lastLogText = text;
-        lastLogTime = Date.now();
-        return text;
-    };
-    try {
-        const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
-        let bcBuffer = [];
-        safe.sendToLogger = (type, ...args) => {
-            const text = safe.toLogText(type, ...args);
-            if ( text === undefined ) { return; }
-            if ( bcBuffer === undefined ) {
-                return bc.postMessage({ what: 'messageToLogger', type, text });
-            }
-            bcBuffer.push({ type, text });
-        };
-        bc.onmessage = ev => {
-            const msg = ev.data;
-            switch ( msg ) {
-            case 'iamready!':
-                if ( bcBuffer === undefined ) { break; }
-                bcBuffer.forEach(({ type, text }) =>
-                    bc.postMessage({ what: 'messageToLogger', type, text })
-                );
-                bcBuffer = undefined;
-                break;
-            case 'setScriptletLogLevelToOne':
-                safe.logLevel = 1;
-                break;
-            case 'setScriptletLogLevelToTwo':
-                safe.logLevel = 2;
-                break;
-            }
-        };
-        bc.postMessage('areyouready?');
-    } catch {
-        safe.sendToLogger = (type, ...args) => {
-            const text = safe.toLogText(type, ...args);
-            if ( text === undefined ) { return; }
-            safe.log(`uBO ${text}`);
-        };
-    }
-    return safe;
-}
-
-function setCookie(
-    name = '',
-    value = '',
-    path = '',
-    ...varargs
-) {
-    if ( name === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('set-cookie', name, value, path);
-    const normalized = value.toLowerCase();
-    const match = /^("?)(.+)\1$/.exec(normalized);
-    const unquoted = match && match[2] || normalized;
-    const validValues = getSafeCookieValuesFn();
-    if ( validValues.includes(unquoted) === false ) {
-        if ( /^-?\d+$/.test(unquoted) === false ) { return; }
-        const n = parseInt(value, 10) || 0;
-        if ( n < -32767 || n > 32767 ) { return; }
-    }
-
-    const done = setCookieFn(
-        false,
-        name,
-        value,
-        '',
-        path,
-        safe.parseVarargs(varargs)
-    );
-
-    if ( done ) {
-        safe.uboLog(logPrefix, 'Done');
-    }
-}
-
-function setCookieFn(
-    trusted = false,
-    name = '',
-    value = '',
-    expires = '',
-    path = '',
-    options = {},
-) {
-    // https://datatracker.ietf.org/doc/html/rfc2616#section-2.2
-    // https://github.com/uBlockOrigin/uBlock-issues/issues/2777
-    if ( trusted === false && /[^!#$%&'*+\-.0-9A-Z[\]^_`a-z|~]/.test(name) ) {
-        name = encodeURIComponent(name);
-    }
-    // https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.1
-    // The characters [",] are given a pass from the RFC requirements because
-    // apparently browsers do not follow the RFC to the letter.
-    if ( /[^ -:<-[\]-~]/.test(value) ) {
-        value = encodeURIComponent(value);
-    }
-
-    const cookieBefore = getCookieFn(name);
-    if ( cookieBefore !== undefined && options.dontOverwrite ) { return; }
-    if ( cookieBefore === value && options.reload ) { return; }
-
-    const cookieParts = [ name, '=', value ];
-    if ( expires !== '' ) {
-        cookieParts.push('; expires=', expires);
-    }
-
-    if ( path === '' ) { path = '/'; }
-    else if ( path === 'none' ) { path = ''; }
-    if ( path !== '' && path !== '/' ) { return; }
-    if ( path === '/' ) {
-        cookieParts.push('; path=/');
-    }
-
-    if ( trusted ) {
-        if ( options.domain ) {
-            let domain = options.domain;
-            if ( /^\/.+\//.test(domain) ) {
-                const baseURL = new URL(document.baseURI);
-                const reDomain = new RegExp(domain.slice(1, -1));
-                const match = reDomain.exec(baseURL.hostname);
-                domain = match ? match[0] : undefined;
-            }
-            if ( domain ) {
-                cookieParts.push(`; domain=${domain}`);
-            }
-        }
-        cookieParts.push('; Secure');
-    } else if ( /^__(Host|Secure)-/.test(name) ) {
-        cookieParts.push('; Secure');
-    }
-
-    try {
-        document.cookie = cookieParts.join('');
-    } catch {
-    }
-
-    const done = getCookieFn(name) === value;
-    if ( done && options.reload ) {
-        window.location.reload();
-    }
-
-    return done;
-}
+if ( scriptletGlobals.origins.length === 0 ) { return; }
 
 /******************************************************************************/
-
-const scriptletGlobals = {}; // eslint-disable-line
 
 const $hasHostnames$ = true;
 const $hasEntities$ = true;
@@ -357,57 +43,16 @@ const $hasRegexes$ = false;
 
 /******************************************************************************/
 
-const entries = (( ) => {
-    const docloc = document.location;
-    const origins = [ docloc.origin ];
-    if ( docloc.ancestorOrigins ) {
-        origins.push(...docloc.ancestorOrigins);
-    }
-    return origins.map((origin, i) => {
-        const beg = origin.indexOf('://');
-        if ( beg === -1 ) { return; }
-        const hn1 = origin.slice(beg+3)
-        const end = hn1.indexOf(':');
-        const hn2 = end === -1 ? hn1 : hn1.slice(0, end);
-        if ( hn2.length === 0 ) { return; }
-        const hns = [ hn2 ];
-        for ( let pos = 0; ; ) {
-            pos = hn2.indexOf('.', pos) + 1;
-            if ( pos === 0 ) { break; }
-            hns.push(hn2.slice(pos));
-        }
-        hns.push('*');
-        const ens = [];
-        if ( $hasEntities$ ) {
-            for ( let hn of hns ) {
-                for (;;) {
-                    const pos = hn.lastIndexOf('.');
-                    if ( pos === -1 ) { break; }
-                    hn = hn.slice(0, pos);
-                    ens.push(`${hn}.*`);
-                }
-            }
-            ens.sort((a, b) => {
-                const d = b.length - a.length;
-                if ( d !== 0 ) { return d; }
-                return a > b ? -1 : 1;
-            });
-        }
-        return { hns, ens, i };
-    }).filter(a => a);
-})();
-if ( entries.length === 0 ) { return; }
-
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 11 */ ["sflix.to","actvid.rs","fmovies.*","himovies.*","yuppow.com","gomovies.sx","moviesjoy.*","yesmovies.*","myflixerz.to","hurawatchz.to","swatchseries.*"];
+    const scriptletHostnames = /* 11 */ ["sflix.to","actvid.rs","fmovies.*","himovies.*","yuppow.com","gomovies.sx","moviesjoy.*","yesmovies.*","myflixerz.to","hurawatchz.to","swatchseries.*"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
         while ( l < r ) {
             i = l + r >>> 1;
-            candidate = $scriptletHostnames$[i];
+            candidate = scriptletHostnames[i];
             d = hn.length - candidate.length;
             if ( d === 0 ) {
                 if ( hn === candidate ) {
@@ -425,29 +70,28 @@ if ( $hasHostnames$ ) {
     };
     const indicesFromHostname = (out, hnDetails, suffix = '') => {
         if ( hnDetails.hns.length === 0 ) { return; }
-        let r = $scriptletHostnames$.length;
+        let r = scriptletHostnames.length;
         for ( const hn of hnDetails.hns ) {
             r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
         }
         if ( $hasEntities$ ) {
-            let r = $scriptletHostnames$.length;
+            let r = scriptletHostnames.length;
             for ( const en of hnDetails.ens ) {
                 r = collectArglistRefIndices(out, `${en}${suffix}`, r);
             }
         }
     };
     const todoIndices = new Set();
-    indicesFromHostname(todoIndices, entries[0]);
+    indicesFromHostname(todoIndices, scriptletGlobals.origins[0]);
     if ( $hasAncestors$ ) {
-        for ( const entry of entries ) {
+        for ( const entry of scriptletGlobals.origins ) {
             if ( entry.i === 0 ) { continue; }
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 11 */ "1;1;1;1;1;1;1;1;1;1;1";
-        const arglistRefs = $scriptletArglistRefs$.split(';');
+        const arglistRefs = /* 11 */ ["1","1","1","1","1","1","1","1","1","1","1"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -457,18 +101,18 @@ if ( $hasHostnames$ ) {
 }
 
 if ( $hasRegexes$ ) {
-    const $scriptletFromRegexes$ = /* 0 */ [];
-    const { hns } = entries[0];
-    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
-        const needle = $scriptletFromRegexes$[i+0];
+    const scriptletFromRegexes = /* 0 */ [];
+    const { hns } = scriptletGlobals.origins[0];
+    for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 3 ) {
+        const needle = scriptletFromRegexes[i+0];
         let regex;
         for ( const hn of hns ) {
             if ( hn.includes(needle) === false ) { continue; }
             if ( regex === undefined ) {
-                regex = new RegExp($scriptletFromRegexes$[i+1]);
+                regex = new RegExp(scriptletFromRegexes[i+1]);
             }
             if ( regex.test(hn) === false ) { continue; }
-            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+            for ( const ref of JSON.parse(`[${scriptletFromRegexes[i+2]}]`) ) {
                 todo.add(ref);
             }
         }
@@ -477,17 +121,14 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 1 */
-[setCookie];
-    const $scriptletArgs$ = /* 2 */ ["show_share","true"];
-    const $scriptletArglists$ = /* 2 */ ";0,0,1";
-    const arglists = $scriptletArglists$.split(';');
-    const args = $scriptletArgs$;
+    const arglists = /* 2 */ ["","8,0,1"];
+    const args = /* 2 */ ["show_share","true"];
+    const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
         if ( ref < 0 ) { continue; }
         if ( todo.has(~ref) ) { continue; }
         const arglist = JSON.parse(`[${arglists[ref]}]`);
-        const fn = $scriptletFunctions$[arglist[0]];
+        const fn = functionRefs[arglist[0]];
         try { fn(...arglist.slice(1).map(a => args[a])); }
         catch { }
     }
@@ -496,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})();
+})("eb67c4fa-700a-4c20-bf4f-852ab9b7ca91");
 
 void 0;

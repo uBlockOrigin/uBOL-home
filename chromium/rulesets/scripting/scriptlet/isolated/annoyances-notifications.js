@@ -26,518 +26,15 @@
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_scriptlets() {
+(function uBOL_scriptlets($SECRET_ID$) {
 
 /******************************************************************************/
 
-function getCookieFn(
-    name = ''
-) {
-    const safe = safeSelf();
-    for ( const s of safe.String_split.call(document.cookie, /\s*;\s*/) ) {
-        const pos = s.indexOf('=');
-        if ( pos === -1 ) { continue; }
-        if ( s.slice(0, pos) !== name ) { continue; }
-        return s.slice(pos+1).trim();
-    }
-}
+const scriptletGlobals = self[$SECRET_ID$];
 
-function getSafeCookieValuesFn() {
-    return [
-        'accept', 'reject',
-        'accepted', 'rejected', 'notaccepted',
-        'allow', 'disallow', 'deny',
-        'allowed', 'denied',
-        'approved', 'disapproved',
-        'checked', 'unchecked',
-        'dismiss', 'dismissed',
-        'enable', 'disable',
-        'enabled', 'disabled',
-        'essential', 'nonessential',
-        'forbidden', 'forever',
-        'hide', 'hidden',
-        'necessary', 'required',
-        'ok',
-        'on', 'off',
-        'true', 't', 'false', 'f',
-        'yes', 'y', 'no', 'n',
-        'all', 'none', 'functional',
-        'granted', 'done',
-        'decline', 'declined',
-        'closed', 'next', 'mandatory',
-        'disagree', 'agree',
-        'set', 'unset',
-        'given',
-    ];
-}
-
-function onIdleFn(fn, options) {
-    if ( self.requestIdleCallback ) {
-        return self.requestIdleCallback(fn, options);
-    }
-    return self.requestAnimationFrame(fn);
-}
-
-function removeClass(
-    rawToken = '',
-    rawSelector = '',
-    behavior = ''
-) {
-    if ( typeof rawToken !== 'string' ) { return; }
-    if ( rawToken === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('remove-class', rawToken, rawSelector, behavior);
-    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
-    const selector = tokens
-        .map(a => `${rawSelector}.${CSS.escape(a)}`)
-        .join(',');
-    if ( safe.logLevel > 1 ) {
-        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
-    }
-    const mustStay = /\bstay\b/.test(behavior);
-    let timer;
-    const rmclass = ( ) => {
-        timer = undefined;
-        try {
-            const nodes = document.querySelectorAll(selector);
-            for ( const node of nodes ) {
-                node.classList.remove(...tokens);
-                safe.uboLog(logPrefix, 'Removed class(es)');
-            }
-        } catch {
-        }
-        if ( mustStay ) { return; }
-        if ( document.readyState !== 'complete' ) { return; }
-        observer.disconnect();
-    };
-    const mutationHandler = mutations => {
-        if ( timer !== undefined ) { return; }
-        let skip = true;
-        for ( let i = 0; i < mutations.length && skip; i++ ) {
-            const { type, addedNodes, removedNodes } = mutations[i];
-            if ( type === 'attributes' ) { skip = false; }
-            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
-                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
-                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-        }
-        if ( skip ) { return; }
-        timer = onIdleFn(rmclass, { timeout: 67 });
-    };
-    const observer = new MutationObserver(mutationHandler);
-    const start = ( ) => {
-        rmclass();
-        observer.observe(document, {
-            attributes: true,
-            attributeFilter: [ 'class' ],
-            childList: true,
-            subtree: true,
-        });
-    };
-    runAt(( ) => {
-        start();
-    }, /\bcomplete\b/.test(behavior) ? 'idle' : 'loading');
-}
-
-function runAt(fn, when) {
-    const intFromReadyState = state => {
-        const targets = {
-            'loading': 1, 'asap': 1,
-            'interactive': 2, 'end': 2, '2': 2,
-            'complete': 3, 'idle': 3, '3': 3,
-        };
-        const tokens = Array.isArray(state) ? state : [ state ];
-        for ( const token of tokens ) {
-            const prop = `${token}`;
-            if ( Object.hasOwn(targets, prop) === false ) { continue; }
-            return targets[prop];
-        }
-        return 0;
-    };
-    const runAt = intFromReadyState(when);
-    if ( intFromReadyState(document.readyState) >= runAt ) {
-        fn(); return;
-    }
-    const onStateChange = ( ) => {
-        if ( intFromReadyState(document.readyState) < runAt ) { return; }
-        fn();
-        safe.removeEventListener.apply(document, args);
-    };
-    const safe = safeSelf();
-    const args = [ 'readystatechange', onStateChange, { capture: true } ];
-    safe.addEventListener.apply(document, args);
-}
-
-function safeSelf() {
-    if ( safeSelf.safe ) {
-        return safeSelf.safe;
-    }
-    const self = globalThis;
-    const safe = {
-        'Array_from': Array.from,
-        'Error': self.Error,
-        'Function_toString': Function.prototype.call.bind(self.Function.prototype.toString),
-        'Math_floor': Math.floor,
-        'Math_max': Math.max,
-        'Math_min': Math.min,
-        'Math_random': Math.random,
-        'Object': Object,
-        'Object_defineProperty': Object.defineProperty.bind(Object),
-        'Object_defineProperties': Object.defineProperties.bind(Object),
-        'Object_fromEntries': Object.fromEntries.bind(Object),
-        'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
-        'Object_hasOwn': Object.hasOwn.bind(Object),
-        'Object_toString': Object.prototype.toString,
-        'RegExp': self.RegExp,
-        'RegExp_test': Function.prototype.call.bind(self.RegExp.prototype.test),
-        'RegExp_exec': self.RegExp.prototype.exec,
-        'Request_clone': self.Request.prototype.clone,
-        'String': self.String,
-        'String_fromCharCode': String.fromCharCode,
-        'String_split': String.prototype.split,
-        'XMLHttpRequest': self.XMLHttpRequest,
-        'addEventListener': self.EventTarget.prototype.addEventListener,
-        'removeEventListener': self.EventTarget.prototype.removeEventListener,
-        'fetch': self.fetch,
-        'JSON': self.JSON,
-        'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
-        'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
-        'log': console.log.bind(console),
-        // Properties
-        logLevel: 0,
-        // Methods
-        makeLogPrefix(...args) {
-            return this.sendToLogger && `[${args.join(' \u205D ')}]` || '';
-        },
-        uboLog(...args) {
-            if ( this.sendToLogger === undefined ) { return; }
-            if ( args === undefined || args[0] === '' ) { return; }
-            return this.sendToLogger('info', ...args);
-            
-        },
-        uboErr(...args) {
-            if ( this.sendToLogger === undefined ) { return; }
-            if ( args === undefined || args[0] === '' ) { return; }
-            return this.sendToLogger('error', ...args);
-        },
-        escapeRegexChars(s) {
-            return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        },
-        initPattern(pattern, options = {}) {
-            if ( pattern === '' ) {
-                return { matchAll: true, expect: true };
-            }
-            const expect = (options.canNegate !== true || pattern.startsWith('!') === false);
-            if ( expect === false ) {
-                pattern = pattern.slice(1);
-            }
-            const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
-            if ( match !== null ) {
-                return {
-                    re: new this.RegExp(
-                        match[1],
-                        match[2] || options.flags
-                    ),
-                    expect,
-                };
-            }
-            if ( options.flags !== undefined ) {
-                return {
-                    re: new this.RegExp(this.escapeRegexChars(pattern),
-                        options.flags
-                    ),
-                    expect,
-                };
-            }
-            return { pattern, expect };
-        },
-        testPattern(details, haystack) {
-            if ( details.matchAll ) { return true; }
-            if ( details.re ) {
-                return this.RegExp_test(details.re, haystack) === details.expect;
-            }
-            return haystack.includes(details.pattern) === details.expect;
-        },
-        patternToRegex(pattern, flags = undefined, verbatim = false) {
-            if ( pattern === '' ) { return /^/; }
-            const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
-            if ( match === null ) {
-                const reStr = this.escapeRegexChars(pattern);
-                return new RegExp(verbatim ? `^${reStr}$` : reStr, flags);
-            }
-            try {
-                return new RegExp(match[1], match[2] || undefined);
-            }
-            catch {
-            }
-            return /^/;
-        },
-        parseVarargs(varargs) {
-            const entries = varargs.reduce((out, v, i, a) => {
-                if ( i & 1 ) { return out; }
-                const rawValue = a[i+1];
-                const value = /^\d+$/.test(rawValue)
-                    ? parseInt(rawValue, 10)
-                    : rawValue;
-                out.push([ a[i], value ]);
-                return out;
-            }, []);
-            return this.Object_fromEntries(entries);
-        },
-    };
-    safeSelf.safe = safe;
-    if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
-    // This is executed only when the logger is opened
-    safe.logLevel = scriptletGlobals.logLevel || 1;
-    let lastLogType = '';
-    let lastLogText = '';
-    let lastLogTime = 0;
-    safe.toLogText = (type, ...args) => {
-        if ( args.length === 0 ) { return; }
-        const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
-        if ( text === lastLogText && type === lastLogType ) {
-            if ( (Date.now() - lastLogTime) < 5000 ) { return; }
-        }
-        lastLogType = type;
-        lastLogText = text;
-        lastLogTime = Date.now();
-        return text;
-    };
-    try {
-        const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
-        let bcBuffer = [];
-        safe.sendToLogger = (type, ...args) => {
-            const text = safe.toLogText(type, ...args);
-            if ( text === undefined ) { return; }
-            if ( bcBuffer === undefined ) {
-                return bc.postMessage({ what: 'messageToLogger', type, text });
-            }
-            bcBuffer.push({ type, text });
-        };
-        bc.onmessage = ev => {
-            const msg = ev.data;
-            switch ( msg ) {
-            case 'iamready!':
-                if ( bcBuffer === undefined ) { break; }
-                bcBuffer.forEach(({ type, text }) =>
-                    bc.postMessage({ what: 'messageToLogger', type, text })
-                );
-                bcBuffer = undefined;
-                break;
-            case 'setScriptletLogLevelToOne':
-                safe.logLevel = 1;
-                break;
-            case 'setScriptletLogLevelToTwo':
-                safe.logLevel = 2;
-                break;
-            }
-        };
-        bc.postMessage('areyouready?');
-    } catch {
-        safe.sendToLogger = (type, ...args) => {
-            const text = safe.toLogText(type, ...args);
-            if ( text === undefined ) { return; }
-            safe.log(`uBO ${text}`);
-        };
-    }
-    return safe;
-}
-
-function setCookie(
-    name = '',
-    value = '',
-    path = '',
-    ...varargs
-) {
-    if ( name === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('set-cookie', name, value, path);
-    const normalized = value.toLowerCase();
-    const match = /^("?)(.+)\1$/.exec(normalized);
-    const unquoted = match && match[2] || normalized;
-    const validValues = getSafeCookieValuesFn();
-    if ( validValues.includes(unquoted) === false ) {
-        if ( /^-?\d+$/.test(unquoted) === false ) { return; }
-        const n = parseInt(value, 10) || 0;
-        if ( n < -32767 || n > 32767 ) { return; }
-    }
-
-    const done = setCookieFn(
-        false,
-        name,
-        value,
-        '',
-        path,
-        safe.parseVarargs(varargs)
-    );
-
-    if ( done ) {
-        safe.uboLog(logPrefix, 'Done');
-    }
-}
-
-function setCookieFn(
-    trusted = false,
-    name = '',
-    value = '',
-    expires = '',
-    path = '',
-    options = {},
-) {
-    // https://datatracker.ietf.org/doc/html/rfc2616#section-2.2
-    // https://github.com/uBlockOrigin/uBlock-issues/issues/2777
-    if ( trusted === false && /[^!#$%&'*+\-.0-9A-Z[\]^_`a-z|~]/.test(name) ) {
-        name = encodeURIComponent(name);
-    }
-    // https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.1
-    // The characters [",] are given a pass from the RFC requirements because
-    // apparently browsers do not follow the RFC to the letter.
-    if ( /[^ -:<-[\]-~]/.test(value) ) {
-        value = encodeURIComponent(value);
-    }
-
-    const cookieBefore = getCookieFn(name);
-    if ( cookieBefore !== undefined && options.dontOverwrite ) { return; }
-    if ( cookieBefore === value && options.reload ) { return; }
-
-    const cookieParts = [ name, '=', value ];
-    if ( expires !== '' ) {
-        cookieParts.push('; expires=', expires);
-    }
-
-    if ( path === '' ) { path = '/'; }
-    else if ( path === 'none' ) { path = ''; }
-    if ( path !== '' && path !== '/' ) { return; }
-    if ( path === '/' ) {
-        cookieParts.push('; path=/');
-    }
-
-    if ( trusted ) {
-        if ( options.domain ) {
-            let domain = options.domain;
-            if ( /^\/.+\//.test(domain) ) {
-                const baseURL = new URL(document.baseURI);
-                const reDomain = new RegExp(domain.slice(1, -1));
-                const match = reDomain.exec(baseURL.hostname);
-                domain = match ? match[0] : undefined;
-            }
-            if ( domain ) {
-                cookieParts.push(`; domain=${domain}`);
-            }
-        }
-        cookieParts.push('; Secure');
-    } else if ( /^__(Host|Secure)-/.test(name) ) {
-        cookieParts.push('; Secure');
-    }
-
-    try {
-        document.cookie = cookieParts.join('');
-    } catch {
-    }
-
-    const done = getCookieFn(name) === value;
-    if ( done && options.reload ) {
-        window.location.reload();
-    }
-
-    return done;
-}
-
-function setLocalStorageItem(key = '', value = '', ...varargs) {
-    const safe = safeSelf();
-    const options = safe.parseVarargs(varargs)
-    setLocalStorageItemFn('local', false, key, value, options);
-}
-
-function setLocalStorageItemFn(
-    which = 'local',
-    trusted = false,
-    key = '',
-    value = '',
-    options = {}
-) {
-    if ( key === '' ) { return; }
-
-    // For increased compatibility with AdGuard
-    if ( value === 'emptyArr' ) {
-        value = '[]';
-    } else if ( value === 'emptyObj' ) {
-        value = '{}';
-    }
-
-    const trustedValues = [
-        '',
-        'undefined', 'null',
-        '{}', '[]', '""',
-        '$remove$',
-        ...getSafeCookieValuesFn(),
-    ];
-
-    if ( trusted ) {
-        if ( value.includes('$now$') ) {
-            value = value.replaceAll('$now$', Date.now());
-        }
-        if ( value.includes('$currentDate$') ) {
-            value = value.replaceAll('$currentDate$', `${Date()}`);
-        }
-        if ( value.includes('$currentISODate$') ) {
-            value = value.replaceAll('$currentISODate$', (new Date()).toISOString());
-        }
-    } else {
-        const normalized = value.toLowerCase();
-        const match = /^("?)(.+)\1$/.exec(normalized);
-        const unquoted = match && match[2] || normalized;
-        if ( trustedValues.includes(unquoted) === false ) {
-            if ( /^-?\d+$/.test(unquoted) === false ) { return; }
-            const n = parseInt(unquoted, 10) || 0;
-            if ( n < -32767 || n > 32767 ) { return; }
-        }
-    }
-
-    let modified = false;
-
-    try {
-        const storage = self[`${which}Storage`];
-        if ( value === '$remove$' ) {
-            const safe = safeSelf();
-            const pattern = safe.patternToRegex(key, undefined, true );
-            const toRemove = [];
-            for ( let i = 0, n = storage.length; i < n; i++ ) {
-                const key = storage.key(i);
-                if ( pattern.test(key) ) { toRemove.push(key); }
-            }
-            modified = toRemove.length !== 0;
-            for ( const key of toRemove ) {
-                storage.removeItem(key);
-            }
-        } else {
-
-            const before = storage.getItem(key);
-            const after = `${value}`;
-            modified = after !== before;
-            if ( modified ) {
-                storage.setItem(key, after);
-            }
-        }
-    } catch {
-    }
-
-    if ( modified && typeof options.reload === 'number' ) {
-        setTimeout(( ) => { window.location.reload(); }, options.reload);
-    }
-}
-
-function setSessionStorageItem(key = '', value = '', ...varargs) {
-    const safe = safeSelf();
-    const options = safe.parseVarargs(varargs)
-    setLocalStorageItemFn('session', false, key, value, options);
-}
+if ( scriptletGlobals.origins.length === 0 ) { return; }
 
 /******************************************************************************/
-
-const scriptletGlobals = {}; // eslint-disable-line
 
 const $hasHostnames$ = true;
 const $hasEntities$ = false;
@@ -546,57 +43,16 @@ const $hasRegexes$ = false;
 
 /******************************************************************************/
 
-const entries = (( ) => {
-    const docloc = document.location;
-    const origins = [ docloc.origin ];
-    if ( docloc.ancestorOrigins ) {
-        origins.push(...docloc.ancestorOrigins);
-    }
-    return origins.map((origin, i) => {
-        const beg = origin.indexOf('://');
-        if ( beg === -1 ) { return; }
-        const hn1 = origin.slice(beg+3)
-        const end = hn1.indexOf(':');
-        const hn2 = end === -1 ? hn1 : hn1.slice(0, end);
-        if ( hn2.length === 0 ) { return; }
-        const hns = [ hn2 ];
-        for ( let pos = 0; ; ) {
-            pos = hn2.indexOf('.', pos) + 1;
-            if ( pos === 0 ) { break; }
-            hns.push(hn2.slice(pos));
-        }
-        hns.push('*');
-        const ens = [];
-        if ( $hasEntities$ ) {
-            for ( let hn of hns ) {
-                for (;;) {
-                    const pos = hn.lastIndexOf('.');
-                    if ( pos === -1 ) { break; }
-                    hn = hn.slice(0, pos);
-                    ens.push(`${hn}.*`);
-                }
-            }
-            ens.sort((a, b) => {
-                const d = b.length - a.length;
-                if ( d !== 0 ) { return d; }
-                return a > b ? -1 : 1;
-            });
-        }
-        return { hns, ens, i };
-    }).filter(a => a);
-})();
-if ( entries.length === 0 ) { return; }
-
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 46 */ ["gq.co.za","ktoo.org","vrbo.com","audius.co","deepl.com","google.com","noovo.info","onedio.com","reddit.com","shufoo.net","tiktok.com","tubitv.com","tunein.com","belstad.com","bestbuy.com","deribit.com","m.twitch.tv","thestar.com","threads.com","threads.net","facebook.com","fogaonet.com","tvtropes.org","food.ndtv.com","goodreads.com","instagram.com","perplexity.ai","s.tabelog.com","sammobile.com","sigmalive.com","crunchbase.com","foundit.com.ph","inews.hket.com","m.kaskus.co.id","similarweb.com","app.uniswap.org","mydramalist.com","wunderground.com","crealitycloud.com","flightradar24.com","jp-m.banggood.com","mypenndentist.org","shop-apotheke.com","themonthly.com.au","livesportsontv.com","m.economictimes.com"];
+    const scriptletHostnames = /* 46 */ ["gq.co.za","ktoo.org","vrbo.com","audius.co","deepl.com","google.com","noovo.info","onedio.com","reddit.com","shufoo.net","tiktok.com","tubitv.com","tunein.com","belstad.com","bestbuy.com","deribit.com","m.twitch.tv","thestar.com","threads.com","threads.net","facebook.com","fogaonet.com","tvtropes.org","food.ndtv.com","goodreads.com","instagram.com","perplexity.ai","s.tabelog.com","sammobile.com","sigmalive.com","crunchbase.com","foundit.com.ph","inews.hket.com","m.kaskus.co.id","similarweb.com","app.uniswap.org","mydramalist.com","wunderground.com","crealitycloud.com","flightradar24.com","jp-m.banggood.com","mypenndentist.org","shop-apotheke.com","themonthly.com.au","livesportsontv.com","m.economictimes.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
         while ( l < r ) {
             i = l + r >>> 1;
-            candidate = $scriptletHostnames$[i];
+            candidate = scriptletHostnames[i];
             d = hn.length - candidate.length;
             if ( d === 0 ) {
                 if ( hn === candidate ) {
@@ -614,29 +70,28 @@ if ( $hasHostnames$ ) {
     };
     const indicesFromHostname = (out, hnDetails, suffix = '') => {
         if ( hnDetails.hns.length === 0 ) { return; }
-        let r = $scriptletHostnames$.length;
+        let r = scriptletHostnames.length;
         for ( const hn of hnDetails.hns ) {
             r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
         }
         if ( $hasEntities$ ) {
-            let r = $scriptletHostnames$.length;
+            let r = scriptletHostnames.length;
             for ( const en of hnDetails.ens ) {
                 r = collectArglistRefIndices(out, `${en}${suffix}`, r);
             }
         }
     };
     const todoIndices = new Set();
-    indicesFromHostname(todoIndices, entries[0]);
+    indicesFromHostname(todoIndices, scriptletGlobals.origins[0]);
     if ( $hasAncestors$ ) {
-        for ( const entry of entries ) {
+        for ( const entry of scriptletGlobals.origins ) {
             if ( entry.i === 0 ) { continue; }
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 46 */ "7;5;48;29;42;19;1;51;9,10,11,12;52;14;27;24,25;45;18;47;15;30;2;2;13;39;40,41;43;8;3,4;16;46;44;28;22;36;31;35;49;17;50;26;33,34;37;32;21;38;23;6;20";
-        const arglistRefs = $scriptletArglistRefs$.split(';');
+        const arglistRefs = /* 46 */ ["7","5","48","29","42","19","1","51","9,10,11,12","52","14","27","24,25","45","18","47","15","30","2","2","13","39","40,41","43","8","3,4","16","46","44","28","22","36","31","35","49","17","50","26","33,34","37","32","21","38","23","6","20"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -646,18 +101,18 @@ if ( $hasHostnames$ ) {
 }
 
 if ( $hasRegexes$ ) {
-    const $scriptletFromRegexes$ = /* 0 */ [];
-    const { hns } = entries[0];
-    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
-        const needle = $scriptletFromRegexes$[i+0];
+    const scriptletFromRegexes = /* 0 */ [];
+    const { hns } = scriptletGlobals.origins[0];
+    for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 3 ) {
+        const needle = scriptletFromRegexes[i+0];
         let regex;
         for ( const hn of hns ) {
             if ( hn.includes(needle) === false ) { continue; }
             if ( regex === undefined ) {
-                regex = new RegExp($scriptletFromRegexes$[i+1]);
+                regex = new RegExp(scriptletFromRegexes[i+1]);
             }
             if ( regex.test(hn) === false ) { continue; }
-            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+            for ( const ref of JSON.parse(`[${scriptletFromRegexes[i+2]}]`) ) {
                 todo.add(ref);
             }
         }
@@ -666,17 +121,14 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 4 */
-[setCookie,setSessionStorageItem,setLocalStorageItem,removeClass];
-    const $scriptletArgs$ = /* 60 */ ["pushNotifications_popup_displayed_v2","true","barcelona_mobile_upsell_state","1","lodum","loggedOutCTAIsShown","modalDismissed","promotion-popup-closed","PromptLater","blocking_sign_in_interstitial","scroll-disabled","body","stay","xpromo-consolidation","rpl-scroll-lock","scroll-is-blocked","prevent-scrolling","webapp_first_open_cta","twilight.custom-smart-banner-dismissed","appDownloadBannerDismissed","hideMobileAppPromoBanner","smartBannerDismissed","mapslitepromosdismissed","nudgeStickyBannerHide","undefinedpopup-pdfpcouponoffer","entity-limiter-views","$remove$","rn","hideMacDesktopDialog","navBasedDialogManager","enable-sda","windows_prompt_shown_v3","push-notifications","no","scrollLock","","kumulos-background-mask-blur","no-scroll","html","show-app-bar","closeGuideRegisterTime","permission_open_push","open_in_browser","isDownloadAppBannerClosed","map_new_features_new_flightradar24_com_label_options","ErxModal","fn_cookie_whatsapp_alert","app-announcement-banner-count-guest","app-announcement-banner-guest","LMT_browserExtensionPromo.displayed","ndtvfood_isSubscribed_elex_v1","request-permission-modal","is_announcement_closed","ignore_language_guide","appCardSeen","has-uitk-sheet","app-banner-parent","smartbanner-active","o-push-alert","is-hidden"];
-    const $scriptletArglists$ = /* 53 */ ";0,0,1;1,2,3;1,4,3;1,5,3;0,6,3;2,7,3;0,8,1;0,9,1;3,10,11,12;2,13,3;3,14,11,12;3,15,11,12;3,16,11,12;1,17,3;1,18,1;1,19,1;1,20,1;2,21,3;2,22,3;1,23,1;0,24,3;2,25,26;2,27,26;0,28,1;0,29,1;3,30,11,12;2,31,3;2,32,33;3,34,35,12;3,36,35,12;3,37,38,12;3,39,35,12;2,40,3;2,41,3;1,42,3;1,43,1;0,44,3;1,45,1;0,46,3;0,47,3;0,48,1;1,49,1;0,50,33;2,51,3;2,52,1;0,53,1;2,54,1;3,55,11,12;3,56,11,12;3,57,11;0,58,3;3,59,11";
-    const arglists = $scriptletArglists$.split(';');
-    const args = $scriptletArgs$;
+    const arglists = /* 53 */ ["","8,0,1","15,2,3","15,4,3","15,5,3","8,6,3","5,7,3","8,8,1","8,9,1","13,10,11,12","5,13,3","13,14,11,12","13,15,11,12","13,16,11,12","15,17,3","15,18,1","15,19,1","15,20,1","5,21,3","5,22,3","15,23,1","8,24,3","5,25,26","5,27,26","8,28,1","8,29,1","13,30,11,12","5,31,3","5,32,33","13,34,35,12","13,36,35,12","13,37,38,12","13,39,35,12","5,40,3","5,41,3","15,42,3","15,43,1","8,44,3","15,45,1","8,46,3","8,47,3","8,48,1","15,49,1","8,50,33","5,51,3","5,52,1","8,53,1","5,54,1","13,55,11,12","13,56,11,12","13,57,11","8,58,3","13,59,11"];
+    const args = /* 60 */ ["pushNotifications_popup_displayed_v2","true","barcelona_mobile_upsell_state","1","lodum","loggedOutCTAIsShown","modalDismissed","promotion-popup-closed","PromptLater","blocking_sign_in_interstitial","scroll-disabled","body","stay","xpromo-consolidation","rpl-scroll-lock","scroll-is-blocked","prevent-scrolling","webapp_first_open_cta","twilight.custom-smart-banner-dismissed","appDownloadBannerDismissed","hideMobileAppPromoBanner","smartBannerDismissed","mapslitepromosdismissed","nudgeStickyBannerHide","undefinedpopup-pdfpcouponoffer","entity-limiter-views","$remove$","rn","hideMacDesktopDialog","navBasedDialogManager","enable-sda","windows_prompt_shown_v3","push-notifications","no","scrollLock","","kumulos-background-mask-blur","no-scroll","html","show-app-bar","closeGuideRegisterTime","permission_open_push","open_in_browser","isDownloadAppBannerClosed","map_new_features_new_flightradar24_com_label_options","ErxModal","fn_cookie_whatsapp_alert","app-announcement-banner-count-guest","app-announcement-banner-guest","LMT_browserExtensionPromo.displayed","ndtvfood_isSubscribed_elex_v1","request-permission-modal","is_announcement_closed","ignore_language_guide","appCardSeen","has-uitk-sheet","app-banner-parent","smartbanner-active","o-push-alert","is-hidden"];
+    const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
         if ( ref < 0 ) { continue; }
         if ( todo.has(~ref) ) { continue; }
         const arglist = JSON.parse(`[${arglists[ref]}]`);
-        const fn = $scriptletFunctions$[arglist[0]];
+        const fn = functionRefs[arglist[0]];
         try { fn(...arglist.slice(1).map(a => args[a])); }
         catch { }
     }
@@ -685,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})();
+})("eb67c4fa-700a-4c20-bf4f-852ab9b7ca91");
 
 void 0;

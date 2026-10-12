@@ -26,445 +26,15 @@
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_scriptlets() {
+(function uBOL_scriptlets($SECRET_ID$) {
 
 /******************************************************************************/
 
-function abortOnStackTrace(
-    chain = '',
-    needle = '',
-    ...varargs
-) {
-    if ( typeof chain !== 'string' ) { return; }
-    const safe = safeSelf();
-    const needleDetails = safe.initPattern(needle, { canNegate: true });
-    const extraArgs = safe.parseVarargs(varargs);
-    if ( needle === '' ) { extraArgs.log = 'all'; }
-    const makeProxy = function(owner, chain) {
-        const pos = chain.indexOf('.');
-        if ( pos === -1 ) {
-            let v = owner[chain];
-            Object.defineProperty(owner, chain, {
-                get: function() {
-                    const log = safe.logLevel > 1 ? 'all' : 'match';
-                    if ( matchesStackTraceFn(needleDetails, log) ) {
-                        throw new ReferenceError(getExceptionTokenFn());
-                    }
-                    return v;
-                },
-                set: function(a) {
-                    const log = safe.logLevel > 1 ? 'all' : 'match';
-                    if ( matchesStackTraceFn(needleDetails, log) ) {
-                        throw new ReferenceError(getExceptionTokenFn());
-                    }
-                    v = a;
-                },
-            });
-            return;
-        }
-        const prop = chain.slice(0, pos);
-        let v = owner[prop];
-        chain = chain.slice(pos + 1);
-        if ( v ) {
-            makeProxy(v, chain);
-            return;
-        }
-        const desc = Object.getOwnPropertyDescriptor(owner, prop);
-        if ( desc && desc.set !== undefined ) { return; }
-        Object.defineProperty(owner, prop, {
-            get: function() { return v; },
-            set: function(a) {
-                v = a;
-                if ( a instanceof Object ) {
-                    makeProxy(a, chain);
-                }
-            }
-        });
-    };
-    const owner = window;
-    makeProxy(owner, chain);
-}
+const scriptletGlobals = self[$SECRET_ID$];
 
-function getExceptionTokenFn() {
-    const token = getRandomTokenFn();
-    const oe = self.onerror;
-    self.onerror = function(msg, ...args) {
-        if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
-        if ( oe instanceof Function ) {
-            return oe.call(this, msg, ...args);
-        }
-    }.bind();
-    return token;
-}
-
-function getRandomTokenFn() {
-    const safe = safeSelf();
-    return safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
-}
-
-function matchesStackTraceFn(
-    needleDetails,
-    logLevel = ''
-) {
-    const safe = safeSelf();
-    const exceptionToken = getExceptionTokenFn();
-    const error = new safe.Error(exceptionToken);
-    const docURL = new URL(self.location.href);
-    docURL.hash = '';
-    // Normalize stack trace
-    const reLine = /(.*?@)?(\S+)(:\d+):\d+\)?$/;
-    const lines = [];
-    for ( let line of safe.String_split.call(error.stack, /[\n\r]+/) ) {
-        if ( line.includes(exceptionToken) ) { continue; }
-        line = line.trim();
-        const match = safe.RegExp_exec.call(reLine, line);
-        if ( match === null ) { continue; }
-        let url = match[2];
-        if ( url.startsWith('(') ) { url = url.slice(1); }
-        if ( url === docURL.href ) {
-            url = 'inlineScript';
-        } else if ( url.startsWith('<anonymous>') ) {
-            url = 'injectedScript';
-        }
-        let fn = match[1] !== undefined
-            ? match[1].slice(0, -1)
-            : line.slice(0, match.index).trim();
-        if ( fn.startsWith('at') ) { fn = fn.slice(2).trim(); }
-        let rowcol = match[3];
-        lines.push(' ' + `${fn} ${url}${rowcol}:1`.trim());
-    }
-    lines[0] = `stackDepth:${lines.length-1}`;
-    const stack = lines.join('\t');
-    const r = needleDetails.matchAll !== true &&
-        safe.testPattern(needleDetails, stack);
-    if (
-        logLevel === 'all' ||
-        logLevel === 'match' && r ||
-        logLevel === 'nomatch' && !r
-    ) {
-        safe.uboLog(stack.replace(/\t/g, '\n'));
-    }
-    return r;
-}
-
-function offIdleFn(id) {
-    if ( self.requestIdleCallback ) {
-        return self.cancelIdleCallback(id);
-    }
-    return self.cancelAnimationFrame(id);
-}
-
-function onIdleFn(fn, options) {
-    if ( self.requestIdleCallback ) {
-        return self.requestIdleCallback(fn, options);
-    }
-    return self.requestAnimationFrame(fn);
-}
-
-function removeAttr(
-    rawToken = '',
-    rawSelector = '',
-    behavior = '',
-    ...varargs
-) {
-    if ( typeof rawToken !== 'string' ) { return; }
-    if ( rawToken === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('remove-attr',
-        rawToken, rawSelector, behavior, ...varargs
-    );
-    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
-    const selector = tokens.map(a => {
-        const b = CSS.escape(a);
-        return rawSelector.includes(`[${b}]`) ? rawSelector : `${rawSelector}[${b}]`;
-    }).join(',');
-    const lazily = /\basap\b/.test(behavior) === false;
-    const options = safe.parseVarargs(varargs);
-    if ( safe.logLevel > 1 ) {
-        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
-    }
-    const rmattrFromNode = node => {
-        for ( const attr of tokens ) {
-            if ( node.hasAttribute(attr) === false ) { continue; }
-            node.removeAttribute(attr);
-            safe.uboLog(logPrefix, `Removed attribute '${attr}'`);
-        }
-    };
-    const rmattr = nodes => {
-        for ( const node of nodes ?? document.querySelectorAll(selector) ) {
-            rmattrFromNode(node);
-        }
-    };
-    const rmAttrLazily = ( ) => {
-        if ( rmAttrLazily.timer !== undefined ) { return; }
-        rmAttrLazily.timer = onIdleFn(( ) => {
-            rmAttrLazily.timer = undefined;
-            rmattr();
-        }, { timeout: 17 });
-    };
-    const mutationHandler = mutations => {
-        for ( const { addedNodes, removedNodes } of mutations ) {
-            for ( const node of addedNodes ) {
-                if ( node.nodeType !== 1 ) { continue; }
-                if ( lazily ) { return rmAttrLazily(); }
-                if ( node.matches(selector) ) {
-                    rmattrFromNode(node);
-                }
-                if ( node.childElementCount ) {
-                    rmattr(node.querySelectorAll(selector));
-                }
-            }
-            if ( lazily ) { return; }
-            for ( const node of removedNodes ) {
-                if ( node.nodeType !== 1 ) { continue; }
-                if ( node.matches(selector) ) {
-                    rmattrFromNode(node);
-                }
-            }
-        }
-    };
-    const stop = ( ) => {
-        if ( start.observer ) {
-            start.observer.disconnect();
-            start.observer = undefined;
-        }
-        if ( rmAttrLazily.timer ) {
-            offIdleFn(rmAttrLazily.timer);
-            rmAttrLazily.timer = undefined;
-        }
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, 'Quitting');
-        }
-    };
-    const start = ( ) => {
-        rmattr();
-        if ( /\bstay\b/.test(behavior) === false ) {
-            if ( options.quitAfter === undefined ) { return; }
-        }
-        start.observer = new MutationObserver(mutationHandler);
-        start.observer.observe(document, {
-            attributes: true,
-            attributeFilter: tokens,
-            childList: true,
-            subtree: true,
-        });
-        if ( options.quitAfter ) {
-            runAt(( ) => {
-                self.setTimeout(stop, options.quitAfter * 1000);
-            }, 'load');
-        }
-    };
-    runAt(( ) => { start(); }, safe.String_split.call(behavior, /\s+/));
-}
-
-function runAt(fn, when) {
-    const intFromReadyState = state => {
-        const targets = {
-            'loading': 1, 'asap': 1,
-            'interactive': 2, 'end': 2, '2': 2,
-            'complete': 3, 'idle': 3, '3': 3,
-        };
-        const tokens = Array.isArray(state) ? state : [ state ];
-        for ( const token of tokens ) {
-            const prop = `${token}`;
-            if ( Object.hasOwn(targets, prop) === false ) { continue; }
-            return targets[prop];
-        }
-        return 0;
-    };
-    const runAt = intFromReadyState(when);
-    if ( intFromReadyState(document.readyState) >= runAt ) {
-        fn(); return;
-    }
-    const onStateChange = ( ) => {
-        if ( intFromReadyState(document.readyState) < runAt ) { return; }
-        fn();
-        safe.removeEventListener.apply(document, args);
-    };
-    const safe = safeSelf();
-    const args = [ 'readystatechange', onStateChange, { capture: true } ];
-    safe.addEventListener.apply(document, args);
-}
-
-function safeSelf() {
-    if ( safeSelf.safe ) {
-        return safeSelf.safe;
-    }
-    const self = globalThis;
-    const safe = {
-        'Array_from': Array.from,
-        'Error': self.Error,
-        'Function_toString': Function.prototype.call.bind(self.Function.prototype.toString),
-        'Math_floor': Math.floor,
-        'Math_max': Math.max,
-        'Math_min': Math.min,
-        'Math_random': Math.random,
-        'Object': Object,
-        'Object_defineProperty': Object.defineProperty.bind(Object),
-        'Object_defineProperties': Object.defineProperties.bind(Object),
-        'Object_fromEntries': Object.fromEntries.bind(Object),
-        'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
-        'Object_hasOwn': Object.hasOwn.bind(Object),
-        'Object_toString': Object.prototype.toString,
-        'RegExp': self.RegExp,
-        'RegExp_test': Function.prototype.call.bind(self.RegExp.prototype.test),
-        'RegExp_exec': self.RegExp.prototype.exec,
-        'Request_clone': self.Request.prototype.clone,
-        'String': self.String,
-        'String_fromCharCode': String.fromCharCode,
-        'String_split': String.prototype.split,
-        'XMLHttpRequest': self.XMLHttpRequest,
-        'addEventListener': self.EventTarget.prototype.addEventListener,
-        'removeEventListener': self.EventTarget.prototype.removeEventListener,
-        'fetch': self.fetch,
-        'JSON': self.JSON,
-        'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
-        'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
-        'log': console.log.bind(console),
-        // Properties
-        logLevel: 0,
-        // Methods
-        makeLogPrefix(...args) {
-            return this.sendToLogger && `[${args.join(' \u205D ')}]` || '';
-        },
-        uboLog(...args) {
-            if ( this.sendToLogger === undefined ) { return; }
-            if ( args === undefined || args[0] === '' ) { return; }
-            return this.sendToLogger('info', ...args);
-            
-        },
-        uboErr(...args) {
-            if ( this.sendToLogger === undefined ) { return; }
-            if ( args === undefined || args[0] === '' ) { return; }
-            return this.sendToLogger('error', ...args);
-        },
-        escapeRegexChars(s) {
-            return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        },
-        initPattern(pattern, options = {}) {
-            if ( pattern === '' ) {
-                return { matchAll: true, expect: true };
-            }
-            const expect = (options.canNegate !== true || pattern.startsWith('!') === false);
-            if ( expect === false ) {
-                pattern = pattern.slice(1);
-            }
-            const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
-            if ( match !== null ) {
-                return {
-                    re: new this.RegExp(
-                        match[1],
-                        match[2] || options.flags
-                    ),
-                    expect,
-                };
-            }
-            if ( options.flags !== undefined ) {
-                return {
-                    re: new this.RegExp(this.escapeRegexChars(pattern),
-                        options.flags
-                    ),
-                    expect,
-                };
-            }
-            return { pattern, expect };
-        },
-        testPattern(details, haystack) {
-            if ( details.matchAll ) { return true; }
-            if ( details.re ) {
-                return this.RegExp_test(details.re, haystack) === details.expect;
-            }
-            return haystack.includes(details.pattern) === details.expect;
-        },
-        patternToRegex(pattern, flags = undefined, verbatim = false) {
-            if ( pattern === '' ) { return /^/; }
-            const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
-            if ( match === null ) {
-                const reStr = this.escapeRegexChars(pattern);
-                return new RegExp(verbatim ? `^${reStr}$` : reStr, flags);
-            }
-            try {
-                return new RegExp(match[1], match[2] || undefined);
-            }
-            catch {
-            }
-            return /^/;
-        },
-        parseVarargs(varargs) {
-            const entries = varargs.reduce((out, v, i, a) => {
-                if ( i & 1 ) { return out; }
-                const rawValue = a[i+1];
-                const value = /^\d+$/.test(rawValue)
-                    ? parseInt(rawValue, 10)
-                    : rawValue;
-                out.push([ a[i], value ]);
-                return out;
-            }, []);
-            return this.Object_fromEntries(entries);
-        },
-    };
-    safeSelf.safe = safe;
-    if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
-    // This is executed only when the logger is opened
-    safe.logLevel = scriptletGlobals.logLevel || 1;
-    let lastLogType = '';
-    let lastLogText = '';
-    let lastLogTime = 0;
-    safe.toLogText = (type, ...args) => {
-        if ( args.length === 0 ) { return; }
-        const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
-        if ( text === lastLogText && type === lastLogType ) {
-            if ( (Date.now() - lastLogTime) < 5000 ) { return; }
-        }
-        lastLogType = type;
-        lastLogText = text;
-        lastLogTime = Date.now();
-        return text;
-    };
-    try {
-        const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
-        let bcBuffer = [];
-        safe.sendToLogger = (type, ...args) => {
-            const text = safe.toLogText(type, ...args);
-            if ( text === undefined ) { return; }
-            if ( bcBuffer === undefined ) {
-                return bc.postMessage({ what: 'messageToLogger', type, text });
-            }
-            bcBuffer.push({ type, text });
-        };
-        bc.onmessage = ev => {
-            const msg = ev.data;
-            switch ( msg ) {
-            case 'iamready!':
-                if ( bcBuffer === undefined ) { break; }
-                bcBuffer.forEach(({ type, text }) =>
-                    bc.postMessage({ what: 'messageToLogger', type, text })
-                );
-                bcBuffer = undefined;
-                break;
-            case 'setScriptletLogLevelToOne':
-                safe.logLevel = 1;
-                break;
-            case 'setScriptletLogLevelToTwo':
-                safe.logLevel = 2;
-                break;
-            }
-        };
-        bc.postMessage('areyouready?');
-    } catch {
-        safe.sendToLogger = (type, ...args) => {
-            const text = safe.toLogText(type, ...args);
-            if ( text === undefined ) { return; }
-            safe.log(`uBO ${text}`);
-        };
-    }
-    return safe;
-}
+if ( scriptletGlobals.origins.length === 0 ) { return; }
 
 /******************************************************************************/
-
-const scriptletGlobals = {}; // eslint-disable-line
 
 const $hasHostnames$ = true;
 const $hasEntities$ = false;
@@ -473,57 +43,16 @@ const $hasRegexes$ = false;
 
 /******************************************************************************/
 
-const entries = (( ) => {
-    const docloc = document.location;
-    const origins = [ docloc.origin ];
-    if ( docloc.ancestorOrigins ) {
-        origins.push(...docloc.ancestorOrigins);
-    }
-    return origins.map((origin, i) => {
-        const beg = origin.indexOf('://');
-        if ( beg === -1 ) { return; }
-        const hn1 = origin.slice(beg+3)
-        const end = hn1.indexOf(':');
-        const hn2 = end === -1 ? hn1 : hn1.slice(0, end);
-        if ( hn2.length === 0 ) { return; }
-        const hns = [ hn2 ];
-        for ( let pos = 0; ; ) {
-            pos = hn2.indexOf('.', pos) + 1;
-            if ( pos === 0 ) { break; }
-            hns.push(hn2.slice(pos));
-        }
-        hns.push('*');
-        const ens = [];
-        if ( $hasEntities$ ) {
-            for ( let hn of hns ) {
-                for (;;) {
-                    const pos = hn.lastIndexOf('.');
-                    if ( pos === -1 ) { break; }
-                    hn = hn.slice(0, pos);
-                    ens.push(`${hn}.*`);
-                }
-            }
-            ens.sort((a, b) => {
-                const d = b.length - a.length;
-                if ( d !== 0 ) { return d; }
-                return a > b ? -1 : 1;
-            });
-        }
-        return { hns, ens, i };
-    }).filter(a => a);
-})();
-if ( entries.length === 0 ) { return; }
-
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 3 */ ["kolydas.gr","kavalanews.gr","arcadiaportal.gr"];
+    const scriptletHostnames = /* 3 */ ["kolydas.gr","kavalanews.gr","arcadiaportal.gr"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
         while ( l < r ) {
             i = l + r >>> 1;
-            candidate = $scriptletHostnames$[i];
+            candidate = scriptletHostnames[i];
             d = hn.length - candidate.length;
             if ( d === 0 ) {
                 if ( hn === candidate ) {
@@ -541,29 +70,28 @@ if ( $hasHostnames$ ) {
     };
     const indicesFromHostname = (out, hnDetails, suffix = '') => {
         if ( hnDetails.hns.length === 0 ) { return; }
-        let r = $scriptletHostnames$.length;
+        let r = scriptletHostnames.length;
         for ( const hn of hnDetails.hns ) {
             r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
         }
         if ( $hasEntities$ ) {
-            let r = $scriptletHostnames$.length;
+            let r = scriptletHostnames.length;
             for ( const en of hnDetails.ens ) {
                 r = collectArglistRefIndices(out, `${en}${suffix}`, r);
             }
         }
     };
     const todoIndices = new Set();
-    indicesFromHostname(todoIndices, entries[0]);
+    indicesFromHostname(todoIndices, scriptletGlobals.origins[0]);
     if ( $hasAncestors$ ) {
-        for ( const entry of entries ) {
+        for ( const entry of scriptletGlobals.origins ) {
             if ( entry.i === 0 ) { continue; }
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 3 */ "4;3;1,2";
-        const arglistRefs = $scriptletArglistRefs$.split(';');
+        const arglistRefs = /* 3 */ ["4","3","1,2"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -573,18 +101,18 @@ if ( $hasHostnames$ ) {
 }
 
 if ( $hasRegexes$ ) {
-    const $scriptletFromRegexes$ = /* 0 */ [];
-    const { hns } = entries[0];
-    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
-        const needle = $scriptletFromRegexes$[i+0];
+    const scriptletFromRegexes = /* 0 */ [];
+    const { hns } = scriptletGlobals.origins[0];
+    for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 3 ) {
+        const needle = scriptletFromRegexes[i+0];
         let regex;
         for ( const hn of hns ) {
             if ( hn.includes(needle) === false ) { continue; }
             if ( regex === undefined ) {
-                regex = new RegExp($scriptletFromRegexes$[i+1]);
+                regex = new RegExp(scriptletFromRegexes[i+1]);
             }
             if ( regex.test(hn) === false ) { continue; }
-            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+            for ( const ref of JSON.parse(`[${scriptletFromRegexes[i+2]}]`) ) {
                 todo.add(ref);
             }
         }
@@ -593,17 +121,14 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 2 */
-[abortOnStackTrace,removeAttr];
-    const $scriptletArgs$ = /* 7 */ ["Drupal","copyprevention","oncopy","body","complete","onselectstart|oncopy","onselectstart|oncopy|oncontextmenu"];
-    const $scriptletArglists$ = /* 5 */ ";0,0,1;1,2,3,4;1,5,3,4;1,6,3,4";
-    const arglists = $scriptletArglists$.split(';');
-    const args = $scriptletArgs$;
+    const arglists = /* 5 */ ["","23,0,1","17,2,3,4","17,5,3,4","17,6,3,4"];
+    const args = /* 7 */ ["Drupal","copyprevention","oncopy","body","complete","onselectstart|oncopy","onselectstart|oncopy|oncontextmenu"];
+    const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
         if ( ref < 0 ) { continue; }
         if ( todo.has(~ref) ) { continue; }
         const arglist = JSON.parse(`[${arglists[ref]}]`);
-        const fn = $scriptletFunctions$[arglist[0]];
+        const fn = functionRefs[arglist[0]];
         try { fn(...arglist.slice(1).map(a => args[a])); }
         catch { }
     }
@@ -612,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})();
+})("eb67c4fa-700a-4c20-bf4f-852ab9b7ca91");
 
 void 0;

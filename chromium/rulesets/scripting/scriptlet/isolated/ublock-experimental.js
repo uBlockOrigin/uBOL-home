@@ -26,347 +26,15 @@
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_scriptlets() {
+(function uBOL_scriptlets($SECRET_ID$) {
 
 /******************************************************************************/
 
-function getRandomTokenFn() {
-    const safe = safeSelf();
-    return safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
-}
+const scriptletGlobals = self[$SECRET_ID$];
 
-function replaceNodeText(
-    nodeName,
-    pattern,
-    replacement,
-    ...extraArgs
-) {
-    replaceNodeTextFn(nodeName, pattern, replacement, ...extraArgs);
-}
-
-function replaceNodeTextFn(
-    nodeName = '',
-    pattern = '',
-    replacement = '',
-    ...varargs
-) {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('replace-node-text.fn', ...Array.from(arguments));
-    const reNodeName = safe.patternToRegex(nodeName, 'i', true);
-    const rePattern = safe.patternToRegex(pattern, 'gms');
-    const extraArgs = safe.parseVarargs(varargs);
-    const reIncludes = extraArgs.includes || extraArgs.condition
-        ? safe.patternToRegex(extraArgs.includes || extraArgs.condition, 'ms')
-        : null;
-    const reExcludes = extraArgs.excludes
-        ? safe.patternToRegex(extraArgs.excludes, 'ms')
-        : null;
-    const textContentFactory = (( ) => {
-        const out = { createScript: s => s };
-        const { trustedTypes: tt } = self;
-        if ( tt instanceof Object ) {
-            if ( typeof tt.getPropertyType === 'function' ) {
-                if ( tt.getPropertyType('script', 'textContent') === 'TrustedScript' ) {
-                    return tt.createPolicy(getRandomTokenFn(), out);
-                }
-            }
-        }
-        return out;
-    })();
-    let sedCount = extraArgs.sedCount ?? Number.MAX_SAFE_INTEGER;
-    const handleNode = node => {
-        const before = node.textContent;
-        if ( reIncludes ) {
-            reIncludes.lastIndex = 0;
-            if ( safe.RegExp_test(reIncludes, before) === false ) { return; }
-        }
-        if ( reExcludes ) {
-            reExcludes.lastIndex = 0;
-            if ( safe.RegExp_test(reExcludes, before) ) { return; }
-        }
-        rePattern.lastIndex = 0;
-        if ( safe.RegExp_test(rePattern, before) === false ) { return; }
-        rePattern.lastIndex = 0;
-        const after = pattern !== ''
-            ? before.replace(rePattern, replacement)
-            : replacement;
-        node.textContent = node.nodeName === 'SCRIPT'
-            ? textContentFactory.createScript(after)
-            : after;
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, `Text before:\n${before.trim()}`);
-        }
-        safe.uboLog(logPrefix, `Text after:\n${after.trim()}`);
-        sedCount -= 1;
-    };
-    const handleTree = root => {
-        const treeWalker = document.createTreeWalker(root,
-            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT
-        );
-        const { currentScript } = document;
-        let count = 0;
-        for (;;) {
-            const node = treeWalker.nextNode();
-            if ( node === null ) { break; }
-            count += 1;
-            if ( node === currentScript ) { continue; }
-            if ( reNodeName.test(node.nodeName) ) {
-                handleNode(node);
-            } else if ( node.nodeName === 'TEMPLATE' ) {
-                count += handleTree(node.content);
-            } else {
-                continue;
-            }
-            if ( sedCount === 0 ) { break; }
-        }
-        return count;
-    };
-    if ( document.documentElement ) {
-        const count = handleTree(document.documentElement);
-        safe.uboLog(logPrefix, `${count} nodes present before installing mutation observer`);
-    }
-    const stay = Boolean(extraArgs.stay);
-    if ( sedCount === 0 && stay === false ) { return; }
-    const stop = (takeRecord = true) => {
-        const mutations = takeRecord ? observer.takeRecords() : [];
-        observer.disconnect();
-        handleMutations(mutations);
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, 'Quitting');
-        }
-    };
-    const handleMutations = mutations => {
-        for ( const mutation of mutations ) {
-            for ( const node of mutation.addedNodes ) {
-                if ( reNodeName.test(node.nodeName) ) {
-                    handleNode(node);
-                } else if ( node.nodeName === 'TEMPLATE' ) {
-                    handleTree(node.content);
-                } else {
-                    continue;
-                }
-                if ( sedCount === 0 ) { return stop(false); }
-            }
-        }
-    };
-    const observer = new MutationObserver(handleMutations);
-    observer.observe(document, { childList: true, subtree: true });
-    if ( stay ) { return; }
-    runAt(( ) => {
-        const quitAfter = extraArgs.quitAfter ?? 0;
-        if ( quitAfter === 0 ) { return stop(); }
-        setTimeout(( ) => { stop(); }, quitAfter);
-    }, 'interactive');
-}
-
-function runAt(fn, when) {
-    const intFromReadyState = state => {
-        const targets = {
-            'loading': 1, 'asap': 1,
-            'interactive': 2, 'end': 2, '2': 2,
-            'complete': 3, 'idle': 3, '3': 3,
-        };
-        const tokens = Array.isArray(state) ? state : [ state ];
-        for ( const token of tokens ) {
-            const prop = `${token}`;
-            if ( Object.hasOwn(targets, prop) === false ) { continue; }
-            return targets[prop];
-        }
-        return 0;
-    };
-    const runAt = intFromReadyState(when);
-    if ( intFromReadyState(document.readyState) >= runAt ) {
-        fn(); return;
-    }
-    const onStateChange = ( ) => {
-        if ( intFromReadyState(document.readyState) < runAt ) { return; }
-        fn();
-        safe.removeEventListener.apply(document, args);
-    };
-    const safe = safeSelf();
-    const args = [ 'readystatechange', onStateChange, { capture: true } ];
-    safe.addEventListener.apply(document, args);
-}
-
-function safeSelf() {
-    if ( safeSelf.safe ) {
-        return safeSelf.safe;
-    }
-    const self = globalThis;
-    const safe = {
-        'Array_from': Array.from,
-        'Error': self.Error,
-        'Function_toString': Function.prototype.call.bind(self.Function.prototype.toString),
-        'Math_floor': Math.floor,
-        'Math_max': Math.max,
-        'Math_min': Math.min,
-        'Math_random': Math.random,
-        'Object': Object,
-        'Object_defineProperty': Object.defineProperty.bind(Object),
-        'Object_defineProperties': Object.defineProperties.bind(Object),
-        'Object_fromEntries': Object.fromEntries.bind(Object),
-        'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
-        'Object_hasOwn': Object.hasOwn.bind(Object),
-        'Object_toString': Object.prototype.toString,
-        'RegExp': self.RegExp,
-        'RegExp_test': Function.prototype.call.bind(self.RegExp.prototype.test),
-        'RegExp_exec': self.RegExp.prototype.exec,
-        'Request_clone': self.Request.prototype.clone,
-        'String': self.String,
-        'String_fromCharCode': String.fromCharCode,
-        'String_split': String.prototype.split,
-        'XMLHttpRequest': self.XMLHttpRequest,
-        'addEventListener': self.EventTarget.prototype.addEventListener,
-        'removeEventListener': self.EventTarget.prototype.removeEventListener,
-        'fetch': self.fetch,
-        'JSON': self.JSON,
-        'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
-        'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
-        'log': console.log.bind(console),
-        // Properties
-        logLevel: 0,
-        // Methods
-        makeLogPrefix(...args) {
-            return this.sendToLogger && `[${args.join(' \u205D ')}]` || '';
-        },
-        uboLog(...args) {
-            if ( this.sendToLogger === undefined ) { return; }
-            if ( args === undefined || args[0] === '' ) { return; }
-            return this.sendToLogger('info', ...args);
-            
-        },
-        uboErr(...args) {
-            if ( this.sendToLogger === undefined ) { return; }
-            if ( args === undefined || args[0] === '' ) { return; }
-            return this.sendToLogger('error', ...args);
-        },
-        escapeRegexChars(s) {
-            return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        },
-        initPattern(pattern, options = {}) {
-            if ( pattern === '' ) {
-                return { matchAll: true, expect: true };
-            }
-            const expect = (options.canNegate !== true || pattern.startsWith('!') === false);
-            if ( expect === false ) {
-                pattern = pattern.slice(1);
-            }
-            const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
-            if ( match !== null ) {
-                return {
-                    re: new this.RegExp(
-                        match[1],
-                        match[2] || options.flags
-                    ),
-                    expect,
-                };
-            }
-            if ( options.flags !== undefined ) {
-                return {
-                    re: new this.RegExp(this.escapeRegexChars(pattern),
-                        options.flags
-                    ),
-                    expect,
-                };
-            }
-            return { pattern, expect };
-        },
-        testPattern(details, haystack) {
-            if ( details.matchAll ) { return true; }
-            if ( details.re ) {
-                return this.RegExp_test(details.re, haystack) === details.expect;
-            }
-            return haystack.includes(details.pattern) === details.expect;
-        },
-        patternToRegex(pattern, flags = undefined, verbatim = false) {
-            if ( pattern === '' ) { return /^/; }
-            const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
-            if ( match === null ) {
-                const reStr = this.escapeRegexChars(pattern);
-                return new RegExp(verbatim ? `^${reStr}$` : reStr, flags);
-            }
-            try {
-                return new RegExp(match[1], match[2] || undefined);
-            }
-            catch {
-            }
-            return /^/;
-        },
-        parseVarargs(varargs) {
-            const entries = varargs.reduce((out, v, i, a) => {
-                if ( i & 1 ) { return out; }
-                const rawValue = a[i+1];
-                const value = /^\d+$/.test(rawValue)
-                    ? parseInt(rawValue, 10)
-                    : rawValue;
-                out.push([ a[i], value ]);
-                return out;
-            }, []);
-            return this.Object_fromEntries(entries);
-        },
-    };
-    safeSelf.safe = safe;
-    if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
-    // This is executed only when the logger is opened
-    safe.logLevel = scriptletGlobals.logLevel || 1;
-    let lastLogType = '';
-    let lastLogText = '';
-    let lastLogTime = 0;
-    safe.toLogText = (type, ...args) => {
-        if ( args.length === 0 ) { return; }
-        const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
-        if ( text === lastLogText && type === lastLogType ) {
-            if ( (Date.now() - lastLogTime) < 5000 ) { return; }
-        }
-        lastLogType = type;
-        lastLogText = text;
-        lastLogTime = Date.now();
-        return text;
-    };
-    try {
-        const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
-        let bcBuffer = [];
-        safe.sendToLogger = (type, ...args) => {
-            const text = safe.toLogText(type, ...args);
-            if ( text === undefined ) { return; }
-            if ( bcBuffer === undefined ) {
-                return bc.postMessage({ what: 'messageToLogger', type, text });
-            }
-            bcBuffer.push({ type, text });
-        };
-        bc.onmessage = ev => {
-            const msg = ev.data;
-            switch ( msg ) {
-            case 'iamready!':
-                if ( bcBuffer === undefined ) { break; }
-                bcBuffer.forEach(({ type, text }) =>
-                    bc.postMessage({ what: 'messageToLogger', type, text })
-                );
-                bcBuffer = undefined;
-                break;
-            case 'setScriptletLogLevelToOne':
-                safe.logLevel = 1;
-                break;
-            case 'setScriptletLogLevelToTwo':
-                safe.logLevel = 2;
-                break;
-            }
-        };
-        bc.postMessage('areyouready?');
-    } catch {
-        safe.sendToLogger = (type, ...args) => {
-            const text = safe.toLogText(type, ...args);
-            if ( text === undefined ) { return; }
-            safe.log(`uBO ${text}`);
-        };
-    }
-    return safe;
-}
+if ( scriptletGlobals.origins.length === 0 ) { return; }
 
 /******************************************************************************/
-
-const scriptletGlobals = {}; // eslint-disable-line
 
 const $hasHostnames$ = true;
 const $hasEntities$ = false;
@@ -375,57 +43,16 @@ const $hasRegexes$ = false;
 
 /******************************************************************************/
 
-const entries = (( ) => {
-    const docloc = document.location;
-    const origins = [ docloc.origin ];
-    if ( docloc.ancestorOrigins ) {
-        origins.push(...docloc.ancestorOrigins);
-    }
-    return origins.map((origin, i) => {
-        const beg = origin.indexOf('://');
-        if ( beg === -1 ) { return; }
-        const hn1 = origin.slice(beg+3)
-        const end = hn1.indexOf(':');
-        const hn2 = end === -1 ? hn1 : hn1.slice(0, end);
-        if ( hn2.length === 0 ) { return; }
-        const hns = [ hn2 ];
-        for ( let pos = 0; ; ) {
-            pos = hn2.indexOf('.', pos) + 1;
-            if ( pos === 0 ) { break; }
-            hns.push(hn2.slice(pos));
-        }
-        hns.push('*');
-        const ens = [];
-        if ( $hasEntities$ ) {
-            for ( let hn of hns ) {
-                for (;;) {
-                    const pos = hn.lastIndexOf('.');
-                    if ( pos === -1 ) { break; }
-                    hn = hn.slice(0, pos);
-                    ens.push(`${hn}.*`);
-                }
-            }
-            ens.sort((a, b) => {
-                const d = b.length - a.length;
-                if ( d !== 0 ) { return d; }
-                return a > b ? -1 : 1;
-            });
-        }
-        return { hns, ens, i };
-    }).filter(a => a);
-})();
-if ( entries.length === 0 ) { return; }
-
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 1 */ ["www.youtube.com"];
+    const scriptletHostnames = /* 1 */ ["www.youtube.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
         while ( l < r ) {
             i = l + r >>> 1;
-            candidate = $scriptletHostnames$[i];
+            candidate = scriptletHostnames[i];
             d = hn.length - candidate.length;
             if ( d === 0 ) {
                 if ( hn === candidate ) {
@@ -443,29 +70,28 @@ if ( $hasHostnames$ ) {
     };
     const indicesFromHostname = (out, hnDetails, suffix = '') => {
         if ( hnDetails.hns.length === 0 ) { return; }
-        let r = $scriptletHostnames$.length;
+        let r = scriptletHostnames.length;
         for ( const hn of hnDetails.hns ) {
             r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
         }
         if ( $hasEntities$ ) {
-            let r = $scriptletHostnames$.length;
+            let r = scriptletHostnames.length;
             for ( const en of hnDetails.ens ) {
                 r = collectArglistRefIndices(out, `${en}${suffix}`, r);
             }
         }
     };
     const todoIndices = new Set();
-    indicesFromHostname(todoIndices, entries[0]);
+    indicesFromHostname(todoIndices, scriptletGlobals.origins[0]);
     if ( $hasAncestors$ ) {
-        for ( const entry of entries ) {
+        for ( const entry of scriptletGlobals.origins ) {
             if ( entry.i === 0 ) { continue; }
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 1 */ "-2,-3,3";
-        const arglistRefs = $scriptletArglistRefs$.split(';');
+        const arglistRefs = /* 1 */ ["-2,-3,3"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -475,18 +101,18 @@ if ( $hasHostnames$ ) {
 }
 
 if ( $hasRegexes$ ) {
-    const $scriptletFromRegexes$ = /* 0 */ [];
-    const { hns } = entries[0];
-    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
-        const needle = $scriptletFromRegexes$[i+0];
+    const scriptletFromRegexes = /* 0 */ [];
+    const { hns } = scriptletGlobals.origins[0];
+    for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 3 ) {
+        const needle = scriptletFromRegexes[i+0];
         let regex;
         for ( const hn of hns ) {
             if ( hn.includes(needle) === false ) { continue; }
             if ( regex === undefined ) {
-                regex = new RegExp($scriptletFromRegexes$[i+1]);
+                regex = new RegExp(scriptletFromRegexes[i+1]);
             }
             if ( regex.test(hn) === false ) { continue; }
-            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+            for ( const ref of JSON.parse(`[${scriptletFromRegexes[i+2]}]`) ) {
                 todo.add(ref);
             }
         }
@@ -495,17 +121,14 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 1 */
-[replaceNodeText];
-    const $scriptletArgs$ = /* 11 */ ["script","/(\\(function serverContract\\(\\)|^if \\(window\\.ytcsi)/","(()=>{if(\"YOUTUBE_PREMIUM_LOGO\"===window.ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType||\"YOUTUBE_PREMIUM_LOGO\"===document.getElementById(\"masthead\").attributes[\"logo-type\"].value||location.href.startsWith(\"https://www.youtube.com/tv#/\")||location.href.startsWith(\"https://www.youtube.com/embed/\"))return;const e=window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent,t=[\"channel\",\"lactmilli\",\"instream\",\"yahi\"];let r=!1,o=t;const n=t=>{if(t){let r=e?.match?.(/Mozilla\\/5\\.0 \\([^)]+/)?.[0];window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=r?e.replace?.(r,r+\"; \"+t):e}else window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=e},a=()=>{let e=document.getElementById(\"movie_player\");return{player:e,response:e?.getPlayerResponse?.(),stats:e?.getStatsForNerds?.(),progress:e?.getProgressState?.(),buffer:e?.getPlayerStateObject?.()?.isBuffering}},s=(e,t,r)=>e&&\"0.00 s\"===t?.buffer_health_seconds&&\"0x0\"===t?.resolution&&r.length>0,l=()=>{let{player:e,response:t,stats:n,buffer:l}=a();e&&s(l,n,o)&&(t?.playbackTracking?.videostatsPlaybackUrl?.baseUrl?.includes?.(\"reloadxhr\")&&(o=o.slice(1)),r=!0)};document.addEventListener(\"DOMContentLoaded\",(function(){const e=()=>{let e,l,{player:i,response:d,stats:c,progress:p,buffer:y}=a();if(i&&window.location.href.includes(\"/watch?\")){if(p&&p.duration>0&&(p.loaded<p.duration||p.duration-p.current>1)||d?.videoDetails?.isLive){if(!c?.debug_info?.startsWith?.(\"SSAP, AD\")){const t=d.videoDetails?.videoId,a=d.playerConfig?.playbackStartConfig?.startSeconds??0,u=d.playabilityStatus?.errorScreen,g=JSON.stringify(u?.playerErrorMessageRenderer?.subreason?.runs||u?.playerInterstitialRenderer?.content?.interstitialViewModel?.description?.commandRuns);return void(\"UNPLAYABLE\"===d?.playabilityStatus?.status&&!u?.playerErrorMessageRenderer?.playerCaptchaViewModel&&g?.includes?.(\"WEB_PAGE_TYPE_UNKNOWN\")&&g?.includes?.(\"https://support.google.com/youtube/answer/3037019\")?(o=o.slice(1),o.length>0?n(o[0]):n(\"\"),r=!1,i.loadVideoById(t,a)):0===o.length?(r=!1,n(\"\")):s(y,c,o)&&r?(n(o[0]),r=!1,i.loadVideoById(t,a)):!r&&p.current-a<5&&location.href.includes(\"&list=\")&&null===i.getPlaylistId?.()&&(e=document.querySelector(\"yt-playlist-manager\"),l=e?.getPlaylistData?.(),l&&(e.setPlaylistData?.(l),e.setPlayerPlaybackControlData?.({playlistPanelRenderer:l}))))}p.duration>0&&i.seekTo?.(p.duration)}}else o=t};e(),new MutationObserver((()=>{e()})).observe(document,{childList:!0,subtree:!0})})),window.Map.prototype.has=new Proxy(window.Map.prototype.has,{apply:(e,t,o)=>(\"onSnackbarMessage\"!==o?.[0]||r||l(),Reflect.apply(e,t,o))}),window.Array.prototype.push=new Proxy(window.Array.prototype.push,{apply:(e,t,r)=>{let o=r?.[0];return!o||\"object\"!=typeof o||\"Uint8Array\"!==o.constructor.name||o.buffer?.byteLength!==o.length||105!==o.length&&104!==o.length||l(),Reflect.apply(e,t,r)}});const i={apply:(e,t,r)=>{const o=r[0];return\"function\"==typeof o&&o.toString().includes(\"onAbnormalityDetected\")&&(r[0]=function(){}),Reflect.apply(e,t,r)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then,i)})();$1","sedCount","1","excludes","MutationObserver","condition","/serverContract|js_ld/","(()=>{if(\"YOUTUBE_PREMIUM_LOGO\"===window.ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType||\"YOUTUBE_PREMIUM_LOGO\"===document.getElementById(\"masthead\").attributes[\"logo-type\"].value||location.href.startsWith(\"https://www.youtube.com/tv#/\")||location.href.startsWith(\"https://www.youtube.com/embed/\"))return;for(let e of document.querySelectorAll(\"script\"))if(e!==document.currentScript&&e.textContent.includes(\"MutationObserver\"))return;const e=window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent,t=[\"channel\",\"lactmilli\",\"instream\",\"yahi\"];let r=!1,o=t;const n=t=>{if(t){let r=e?.match?.(/Mozilla\\/5\\.0 \\([^)]+/)?.[0];window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=r?e.replace?.(r,r+\"; \"+t):e}else window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=e},a=()=>{let e=document.getElementById(\"movie_player\");return{player:e,response:e?.getPlayerResponse?.(),stats:e?.getStatsForNerds?.(),progress:e?.getProgressState?.(),buffer:e?.getPlayerStateObject?.()?.isBuffering}},l=(e,t,r)=>e&&\"0.00 s\"===t?.buffer_health_seconds&&\"0x0\"===t?.resolution&&r.length>0,s=()=>{let{player:e,response:t,stats:n,buffer:s}=a();e&&l(s,n,o)&&(t?.playbackTracking?.videostatsPlaybackUrl?.baseUrl?.includes?.(\"reloadxhr\")&&(o=o.slice(1)),r=!0)};document.addEventListener(\"DOMContentLoaded\",(function(){const e=()=>{let e,s,{player:i,response:c,stats:d,progress:p,buffer:u}=a();if(i&&window.location.href.includes(\"/watch?\")){if(p&&p.duration>0&&(p.loaded<p.duration||p.duration-p.current>1)||c?.videoDetails?.isLive){if(!d?.debug_info?.startsWith?.(\"SSAP, AD\")){const t=c.videoDetails?.videoId,a=c.playerConfig?.playbackStartConfig?.startSeconds??0,y=c.playabilityStatus?.errorScreen,g=JSON.stringify(y?.playerErrorMessageRenderer?.subreason?.runs||y?.playerInterstitialRenderer?.content?.interstitialViewModel?.description?.commandRuns);return void(\"UNPLAYABLE\"===c?.playabilityStatus?.status&&!y?.playerErrorMessageRenderer?.playerCaptchaViewModel&&g?.includes?.(\"WEB_PAGE_TYPE_UNKNOWN\")&&g?.includes?.(\"https://support.google.com/youtube/answer/3037019\")?(o=o.slice(1),o.length>0?n(o[0]):n(\"\"),r=!1,i.loadVideoById(t,a)):0===o.length?(r=!1,n(\"\")):l(u,d,o)&&r?(n(o[0]),r=!1,i.loadVideoById(t,a)):!r&&p.current-a<5&&location.href.includes(\"&list=\")&&null===i.getPlaylistId?.()&&(e=document.querySelector(\"yt-playlist-manager\"),s=e?.getPlaylistData?.(),s&&(e.setPlaylistData?.(s),e.setPlayerPlaybackControlData?.({playlistPanelRenderer:s}))))}p.duration>0&&i.seekTo?.(p.duration)}}else o=t};e(),new MutationObserver((()=>{e()})).observe(document,{childList:!0,subtree:!0})})),window.Map.prototype.has=new Proxy(window.Map.prototype.has,{apply:(e,t,o)=>(\"onSnackbarMessage\"!==o?.[0]||r||s(),Reflect.apply(e,t,o))}),window.Array.prototype.push=new Proxy(window.Array.prototype.push,{apply:(e,t,r)=>{let o=r?.[0];return!o||\"object\"!=typeof o||\"Uint8Array\"!==o.constructor.name||o.buffer?.byteLength!==o.length||105!==o.length&&104!==o.length||s(),Reflect.apply(e,t,r)}});const i={apply:(e,t,r)=>{const o=r[0];return\"function\"==typeof o&&o.toString().includes(\"onAbnormalityDetected\")&&(r[0]=function(){}),Reflect.apply(e,t,r)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then,i)})();$1","(()=>{if(\"YOUTUBE_PREMIUM_LOGO\"===window.ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType||\"YOUTUBE_PREMIUM_LOGO\"===document.getElementById(\"masthead\").attributes[\"logo-type\"].value||location.href.startsWith(\"https://www.youtube.com/tv#/\")||location.href.startsWith(\"https://www.youtube.com/embed/\"))return;const e=window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent,t=[\"channel\",\"lactmilli\",\"yahi\",\"instream\",\"adunit\",\"inline\",\"eafg\"];let r=!1,o=t;const n=t=>{if(t){let r=e?.match?.(/Mozilla\\/5\\.0 \\([^)]+/)?.[0];window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=r?e.replace?.(r,r+\"; \"+t):e}else window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=e},a=()=>{let e=document.getElementById(\"movie_player\");return{player:e,response:e?.getPlayerResponse?.(),stats:e?.getStatsForNerds?.(),progress:e?.getProgressState?.(),buffer:e?.getPlayerStateObject?.()?.isBuffering}},s=(e,t,r)=>e&&\"0.00 s\"===t?.buffer_health_seconds&&\"0x0\"===t?.resolution&&r.length>0,l=()=>{let{player:e,response:t,stats:n,buffer:l}=a();e&&s(l,n,o)&&(t?.playbackTracking?.videostatsPlaybackUrl?.baseUrl?.includes?.(\"reloadxhr\")&&(o=o.slice(1)),r=!0)};document.addEventListener(\"DOMContentLoaded\",(function(){const e=()=>{let e,l,{player:i,response:d,stats:c,progress:p,buffer:y}=a();if(i&&window.location.href.includes(\"/watch?\")){if(p&&p.duration>0&&(p.loaded<p.duration||p.duration-p.current>1)||d?.videoDetails?.isLive){if(!c?.debug_info?.startsWith?.(\"SSAP, AD\")){const t=d.videoDetails?.videoId,a=d.playerConfig?.playbackStartConfig?.startSeconds??0,u=d.playabilityStatus?.errorScreen,g=JSON.stringify(u?.playerErrorMessageRenderer?.subreason?.runs||u?.playerInterstitialRenderer?.content?.interstitialViewModel?.description?.commandRuns);return void(\"UNPLAYABLE\"===d?.playabilityStatus?.status&&!u?.playerErrorMessageRenderer?.playerCaptchaViewModel&&g?.includes?.(\"WEB_PAGE_TYPE_UNKNOWN\")&&g?.includes?.(\"https://support.google.com/youtube/answer/3037019\")?(o=o.slice(1),o.length>0?n(o[0]):n(\"\"),r=!1,i.loadVideoById(t,a)):0===o.length?(r=!1,n(\"\")):s(y,c,o)&&r?(n(o[0]),r=!1,i.loadVideoById(t,a)):!r&&p.current-a<5&&location.href.includes(\"&list=\")&&null===i.getPlaylistId?.()&&(e=document.querySelector(\"yt-playlist-manager\"),l=e?.getPlaylistData?.(),l&&(e.setPlaylistData?.(l),e.setPlayerPlaybackControlData?.({playlistPanelRenderer:l}))))}p.duration>0&&i.seekTo?.(p.duration)}}else o=t};e(),new MutationObserver((()=>{e()})).observe(document,{childList:!0,subtree:!0})})),window.Map.prototype.has=new Proxy(window.Map.prototype.has,{apply:(e,t,o)=>(\"onSnackbarMessage\"!==o?.[0]||r||l(),Reflect.apply(e,t,o))}),window.Array.prototype.push=new Proxy(window.Array.prototype.push,{apply:(e,t,r)=>{let o=r?.[0];return!o||\"object\"!=typeof o||\"Uint8Array\"!==o.constructor.name||o.buffer?.byteLength!==o.length||105!==o.length&&104!==o.length||l(),Reflect.apply(e,t,r)}});const i={apply:(e,t,r)=>{const o=r[0];return\"function\"==typeof o&&o.toString().includes(\"onAbnormalityDetected\")&&(r[0]=function(){}),Reflect.apply(e,t,r)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then,i)})();$1"];
-    const $scriptletArglists$ = /* 4 */ ";0,0,1,2,3,4,5,6,7,8;0,0,1,9,3,4,5,6,7,8;0,0,1,10,3,4,5,6,7,8";
-    const arglists = $scriptletArglists$.split(';');
-    const args = $scriptletArgs$;
+    const arglists = /* 4 */ ["","0,0,1,2,3,4,5,6,7,8","0,0,9,10,3,4,5,6,7,11","0,0,1,12,3,4,5,6,7,8"];
+    const args = /* 13 */ ["script","/(\\(function serverContract\\(\\)|^if \\(window\\.ytcsi)/","(()=>{if(\"YOUTUBE_PREMIUM_LOGO\"===window.ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType||\"YOUTUBE_PREMIUM_LOGO\"===document.getElementById(\"masthead\").attributes[\"logo-type\"].value||location.href.startsWith(\"https://www.youtube.com/tv#/\")||location.href.startsWith(\"https://www.youtube.com/embed/\"))return;const e=window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent,t=[\"channel\",\"lactmilli\",\"instream\",\"yahi\"];let r=!1,o=t;const a=t=>{if(t){let r=e?.match?.(/Mozilla\\/5\\.0 \\([^)]+/)?.[0];window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=r?e.replace?.(r,r+\"; \"+t):e}else window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=e},n=()=>{let e=document.getElementById(\"movie_player\");return{player:e,response:e?.getPlayerResponse?.(),stats:e?.getStatsForNerds?.(),progress:e?.getProgressState?.(),buffer:e?.getPlayerStateObject?.()?.isBuffering}},s=(e,t,r)=>e&&\"0.00 s\"===t?.buffer_health_seconds&&\"0x0\"===t?.resolution&&r.length>0,l=()=>{let{player:e,response:t,stats:a,buffer:l}=n();e&&s(l,a,o)&&(t?.playbackTracking?.videostatsPlaybackUrl?.baseUrl?.includes?.(\"reloadxhr\")&&(o=o.slice(1)),r=!0)};document.addEventListener(\"DOMContentLoaded\",(function(){const e=()=>{let e,l,{player:i,response:d,stats:c,progress:p,buffer:y}=n();if(i&&window.location.href.includes(\"/watch?\")){if(p&&p.duration>0&&(p.loaded<p.duration||p.duration-p.current>1)||d?.videoDetails?.isLive){if(!c?.debug_info?.startsWith?.(\"SSAP, AD\")){const t=new URLSearchParams(window.location.search),n=d.videoDetails?.videoId,u=d.playerConfig?.playbackStartConfig?.startSeconds||parseInt(t.get(\"t\"),10)||0,g=d.playabilityStatus?.errorScreen,w=JSON.stringify(g?.playerErrorMessageRenderer?.subreason?.runs||g?.playerInterstitialRenderer?.content?.interstitialViewModel?.description?.commandRuns);return void(\"UNPLAYABLE\"===d?.playabilityStatus?.status&&!g?.playerErrorMessageRenderer?.playerCaptchaViewModel&&w?.includes?.(\"WEB_PAGE_TYPE_UNKNOWN\")&&w?.includes?.(\"https://support.google.com/youtube/answer/3037019\")?(o=o.slice(1),o.length>0?a(o[0]):a(\"\"),r=!1,i.loadVideoById(n,u)):0===o.length?(r=!1,a(\"\")):s(y,c,o)&&r?(a(o[0]),r=!1,i.loadVideoById(n,u)):!r&&p.current-u>.1&&p.current-u<5&&location.href.includes(\"&list=\")&&null===i.getPlaylistId?.()&&(e=document.querySelector(\"yt-playlist-manager\"),l=e?.getPlaylistData?.(),l&&(e.setPlaylistData?.(l),e.setPlayerPlaybackControlData?.({playlistPanelRenderer:l}))))}p.duration>0&&i.seekTo?.(p.duration)}}else o=t};e(),new MutationObserver((()=>{e()})).observe(document,{childList:!0,subtree:!0})})),window.Map.prototype.has=new Proxy(window.Map.prototype.has,{apply:(e,t,o)=>(\"onSnackbarMessage\"!==o?.[0]||r||l(),Reflect.apply(e,t,o))}),window.Array.prototype.push=new Proxy(window.Array.prototype.push,{apply:(e,t,r)=>{let o=r?.[0];return!o||\"object\"!=typeof o||\"Uint8Array\"!==o.constructor.name||o.buffer?.byteLength!==o.length||105!==o.length&&104!==o.length||l(),Reflect.apply(e,t,r)}});const i={apply:(e,t,r)=>{const o=r[0];return\"function\"==typeof o&&o.toString().includes(\"onAbnormalityDetected\")&&(r[0]=function(){}),Reflect.apply(e,t,r)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then,i)})();$1","sedCount","1","excludes","MutationObserver","condition","/serverContract|js_ld/","/(\\(function serverContract\\(\\)|^if \\(window\\.ytcsi|^writeEmbed\\(\\))/","(()=>{if(\"YOUTUBE_PREMIUM_LOGO\"===window.ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType||\"YOUTUBE_PREMIUM_LOGO\"===document.getElementById(\"masthead\")?.attributes?.[\"logo-type\"]?.value||location.href.startsWith(\"https://www.youtube.com/tv#/\"))return;const e=window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent,t=[\"channel\",\"lactmilli\",\"inline\",\"yahi\"];let r=!1,n=t;const o=t=>{if(t){let r=e?.match?.(/Mozilla\\/5\\.0 \\([^)]+/)?.[0];window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=r?e.replace?.(r,r+\"; \"+t):e}else window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=e},a=()=>{let e=document.getElementById(\"movie_player\");return{player:e,response:e?.getPlayerResponse?.(),stats:e?.getStatsForNerds?.(),progress:e?.getProgressState?.(),buffer:e?.getPlayerStateObject?.()?.isBuffering}},s=(e,t,r)=>e&&\"0.00 s\"===t?.buffer_health_seconds&&\"0x0\"===t?.resolution&&r.length>0,l=()=>{let{player:e,response:t,stats:o,buffer:l}=a();e&&s(l,o,n)&&(t?.playbackTracking?.videostatsPlaybackUrl?.baseUrl?.includes?.(\"reloadxhr\")&&(n=n.slice(1)),r=!0)};document.addEventListener(\"DOMContentLoaded\",(function(){const e=()=>{let e,l,{player:i,response:d,stats:c,progress:p,buffer:y}=a();if(i&&(window.location.href.includes(\"/watch?\")||window.location.href.includes(\"/embed/\"))){if(p&&p.duration>0&&(p.loaded<p.duration||p.duration-p.current>1)||d?.videoDetails?.isLive){if(!c?.debug_info?.startsWith?.(\"SSAP, AD\")){const t=new URLSearchParams(window.location.search),a=d.videoDetails?.videoId,u=d.playerConfig?.playbackStartConfig?.startSeconds||parseInt(t.get(\"t\"),10)||0,g=d.playabilityStatus?.errorScreen,w=JSON.stringify(g?.playerErrorMessageRenderer?.subreason?.runs||g?.playerInterstitialRenderer?.content?.interstitialViewModel?.description?.commandRuns);return void(\"UNPLAYABLE\"===d?.playabilityStatus?.status&&!g?.playerErrorMessageRenderer?.playerCaptchaViewModel&&w?.includes?.(\"WEB_PAGE_TYPE_UNKNOWN\")&&w?.includes?.(\"https://support.google.com/youtube/answer/3037019\")?(n=n.slice(1),n.length>0?o(n[0]):o(\"\"),r=!1,i.loadVideoById(a,u)):0===n.length?(r=!1,o(\"\")):s(y,c,n)&&r?(o(n[0]),r=!1,i.loadVideoById(a,u)):!r&&p.current-u>.1&&p.current-u<5&&location.href.includes(\"&list=\")&&null===i.getPlaylistId?.()&&(e=document.querySelector(\"yt-playlist-manager\"),l=e?.getPlaylistData?.(),l&&(e.setPlaylistData?.(l),e.setPlayerPlaybackControlData?.({playlistPanelRenderer:l}))))}p.duration>0&&i.seekTo?.(p.duration)}}else n=t};e(),new MutationObserver((()=>{e()})).observe(document,{childList:!0,subtree:!0})})),window.Map.prototype.has=new Proxy(window.Map.prototype.has,{apply:(e,t,n)=>(\"onSnackbarMessage\"!==n?.[0]||r||l(),Reflect.apply(e,t,n))}),window.Array.prototype.push=new Proxy(window.Array.prototype.push,{apply:(e,t,r)=>{let n=r?.[0];return!n||\"object\"!=typeof n||\"Uint8Array\"!==n.constructor.name||n.buffer?.byteLength!==n.length||105!==n.length&&104!==n.length||l(),Reflect.apply(e,t,r)}});const i={apply:(e,t,r)=>{const n=r[0];return\"function\"==typeof n&&n.toString().includes(\"onAbnormalityDetected\")&&(r[0]=function(){}),Reflect.apply(e,t,r)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then,i)})();$1","/serverContract|js_ld|writeEmbed/","(()=>{if(\"YOUTUBE_PREMIUM_LOGO\"===window.ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType||\"YOUTUBE_PREMIUM_LOGO\"===document.getElementById(\"masthead\").attributes[\"logo-type\"].value||location.href.startsWith(\"https://www.youtube.com/tv#/\")||location.href.startsWith(\"https://www.youtube.com/embed/\"))return;const e=window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent,t=[\"channel\",\"lactmilli\",\"yahi\",\"instream\",\"adunit\",\"inline\",\"eafg\"];let r=!1,o=t;const a=t=>{if(t){let r=e?.match?.(/Mozilla\\/5\\.0 \\([^)]+/)?.[0];window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=r?e.replace?.(r,r+\"; \"+t):e}else window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=e},n=()=>{let e=document.getElementById(\"movie_player\");return{player:e,response:e?.getPlayerResponse?.(),stats:e?.getStatsForNerds?.(),progress:e?.getProgressState?.(),buffer:e?.getPlayerStateObject?.()?.isBuffering}},s=(e,t,r)=>e&&\"0.00 s\"===t?.buffer_health_seconds&&\"0x0\"===t?.resolution&&r.length>0,l=()=>{let{player:e,response:t,stats:a,buffer:l}=n();e&&s(l,a,o)&&(t?.playbackTracking?.videostatsPlaybackUrl?.baseUrl?.includes?.(\"reloadxhr\")&&(o=o.slice(1)),r=!0)};document.addEventListener(\"DOMContentLoaded\",(function(){const e=()=>{let e,l,{player:i,response:d,stats:c,progress:p,buffer:y}=n();if(i&&window.location.href.includes(\"/watch?\")){if(p&&p.duration>0&&(p.loaded<p.duration||p.duration-p.current>1)||d?.videoDetails?.isLive){if(!c?.debug_info?.startsWith?.(\"SSAP, AD\")){const t=new URLSearchParams(window.location.search),n=d.videoDetails?.videoId,u=d.playerConfig?.playbackStartConfig?.startSeconds||parseInt(t.get(\"t\"),10)||0,g=d.playabilityStatus?.errorScreen,w=JSON.stringify(g?.playerErrorMessageRenderer?.subreason?.runs||g?.playerInterstitialRenderer?.content?.interstitialViewModel?.description?.commandRuns);return void(\"UNPLAYABLE\"===d?.playabilityStatus?.status&&!g?.playerErrorMessageRenderer?.playerCaptchaViewModel&&w?.includes?.(\"WEB_PAGE_TYPE_UNKNOWN\")&&w?.includes?.(\"https://support.google.com/youtube/answer/3037019\")?(o=o.slice(1),o.length>0?a(o[0]):a(\"\"),r=!1,i.loadVideoById(n,u)):0===o.length?(r=!1,a(\"\")):s(y,c,o)&&r?(a(o[0]),r=!1,i.loadVideoById(n,u)):!r&&p.current-u>.1&&p.current-u<5&&location.href.includes(\"&list=\")&&null===i.getPlaylistId?.()&&(e=document.querySelector(\"yt-playlist-manager\"),l=e?.getPlaylistData?.(),l&&(e.setPlaylistData?.(l),e.setPlayerPlaybackControlData?.({playlistPanelRenderer:l}))))}p.duration>0&&i.seekTo?.(p.duration)}}else o=t};e(),new MutationObserver((()=>{e()})).observe(document,{childList:!0,subtree:!0})})),window.Map.prototype.has=new Proxy(window.Map.prototype.has,{apply:(e,t,o)=>(\"onSnackbarMessage\"!==o?.[0]||r||l(),Reflect.apply(e,t,o))}),window.Array.prototype.push=new Proxy(window.Array.prototype.push,{apply:(e,t,r)=>{let o=r?.[0];return!o||\"object\"!=typeof o||\"Uint8Array\"!==o.constructor.name||o.buffer?.byteLength!==o.length||105!==o.length&&104!==o.length||l(),Reflect.apply(e,t,r)}});const i={apply:(e,t,r)=>{const o=r[0];return\"function\"==typeof o&&o.toString().includes(\"onAbnormalityDetected\")&&(r[0]=function(){}),Reflect.apply(e,t,r)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then,i)})();$1"];
+    const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
         if ( ref < 0 ) { continue; }
         if ( todo.has(~ref) ) { continue; }
         const arglist = JSON.parse(`[${arglists[ref]}]`);
-        const fn = $scriptletFunctions$[arglist[0]];
+        const fn = functionRefs[arglist[0]];
         try { fn(...arglist.slice(1).map(a => args[a])); }
         catch { }
     }
@@ -514,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})();
+})("eb67c4fa-700a-4c20-bf4f-852ab9b7ca91");
 
 void 0;

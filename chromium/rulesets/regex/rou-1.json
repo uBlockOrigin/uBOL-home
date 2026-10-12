@@ -4,6 +4,16 @@
   "type": "block"
  },
  "condition": {
+  "regexFilter": "sitefilme\\.com\\/.*.js\\?\\d+"
+ },
+ "id": 1,
+ "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
   "initiatorDomains": [
    "razvanbb.ro"
   ],

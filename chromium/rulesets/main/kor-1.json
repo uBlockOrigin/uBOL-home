@@ -972,5 +972,10 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||lover*.net/staticwrite/videoplaymasterfile.js"},"id":971,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||ds-cdn.inicis.com/ad/"},"id":972,"priority":10},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||img.danawa.com/ui_category/topbanner/topbannerpc_47032_20251117105656.png"},"id":973,"priority":30},
-{"action":{"type":"block"},"condition":{"urlFilter":"||avsee.*/player/ad-gate.js?v="},"id":974,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||avsee.*/player/ad-gate.js?v="},"id":974,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kkutugame.kr/api/ad-config"},"id":975,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kkutugame.kr/css/site-ads.css"},"id":976,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||api.bunjang.co.kr/api/pms/v1/external-ads/"},"id":977,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||kkutugame.kr/*/adblock-gate."},"id":978,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||linkani.tv/tvwiki-banners/"},"id":979,"priority":10}
 ]

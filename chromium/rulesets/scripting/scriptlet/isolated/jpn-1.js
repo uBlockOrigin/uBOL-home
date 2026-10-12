@@ -26,774 +26,15 @@
 // Isolate from global scope
 
 // Start of local scope
-(function uBOL_scriptlets() {
+(function uBOL_scriptlets($SECRET_ID$) {
 
 /******************************************************************************/
 
-function getCookieFn(
-    name = ''
-) {
-    const safe = safeSelf();
-    for ( const s of safe.String_split.call(document.cookie, /\s*;\s*/) ) {
-        const pos = s.indexOf('=');
-        if ( pos === -1 ) { continue; }
-        if ( s.slice(0, pos) !== name ) { continue; }
-        return s.slice(pos+1).trim();
-    }
-}
+const scriptletGlobals = self[$SECRET_ID$];
 
-function getRandomTokenFn() {
-    const safe = safeSelf();
-    return safe.String_fromCharCode(Date.now() % 26 + 97) +
-        safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
-}
-
-function getSafeCookieValuesFn() {
-    return [
-        'accept', 'reject',
-        'accepted', 'rejected', 'notaccepted',
-        'allow', 'disallow', 'deny',
-        'allowed', 'denied',
-        'approved', 'disapproved',
-        'checked', 'unchecked',
-        'dismiss', 'dismissed',
-        'enable', 'disable',
-        'enabled', 'disabled',
-        'essential', 'nonessential',
-        'forbidden', 'forever',
-        'hide', 'hidden',
-        'necessary', 'required',
-        'ok',
-        'on', 'off',
-        'true', 't', 'false', 'f',
-        'yes', 'y', 'no', 'n',
-        'all', 'none', 'functional',
-        'granted', 'done',
-        'decline', 'declined',
-        'closed', 'next', 'mandatory',
-        'disagree', 'agree',
-        'set', 'unset',
-        'given',
-    ];
-}
-
-function hrefSanitizer(
-    selector = '',
-    source = ''
-) {
-    if ( typeof selector !== 'string' ) { return; }
-    if ( selector === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('href-sanitizer', selector, source);
-    if ( source === '' ) { source = 'text'; }
-    const sanitizeCopycats = (href, text) => {
-        let elems = [];
-        try {
-            elems = document.querySelectorAll(`a[href="${href}"`);
-        }
-        catch {
-        }
-        for ( const elem of elems ) {
-            elem.setAttribute('href', text);
-        }
-        return elems.length;
-    };
-    const validateURL = text => {
-        if ( typeof text !== 'string' ) { return ''; }
-        if ( text === '' ) { return ''; }
-        if ( /[\x00-\x20\x7f]/.test(text) ) { return ''; }
-        try {
-            const url = new URL(text, document.location);
-            return url.href;
-        } catch {
-        }
-        return '';
-    };
-    const extractURL = (elem, source) => {
-        if ( /^\[.*\]$/.test(source) ) {
-            return elem.getAttribute(source.slice(1,-1).trim()) || '';
-        }
-        if ( source === 'text' ) {
-            return elem.textContent
-                .replace(/^[^\x21-\x7e]+/, '')  // remove leading invalid characters
-                .replace(/[^\x21-\x7e]+$/, ''); // remove trailing invalid characters
-        }
-        const steps = source.replace(/(\S)\?/g, '\\1 ?').split(/\s+/);
-        const url = urlSkip(elem.href, false, steps);
-        if ( url === undefined ) { return; }
-        return url.replace(/ /g, '%20');
-    };
-    const sanitize = ( ) => {
-        let elems = [];
-        try {
-            elems = document.querySelectorAll(selector);
-        }
-        catch {
-            return false;
-        }
-        for ( const elem of elems ) {
-            if ( elem.localName !== 'a' ) { continue; }
-            if ( elem.hasAttribute('href') === false ) { continue; }
-            const href = elem.getAttribute('href');
-            const text = extractURL(elem, source);
-            const hrefAfter = validateURL(text);
-            if ( hrefAfter === '' ) { continue; }
-            if ( hrefAfter === href ) { continue; }
-            elem.setAttribute('href', hrefAfter);
-            const count = sanitizeCopycats(href, hrefAfter);
-            safe.uboLog(logPrefix, `Sanitized ${count+1} links to\n${hrefAfter}`);
-        }
-        return true;
-    };
-    let observer, timer;
-    const onDomChanged = mutations => {
-        if ( timer !== undefined ) { return; }
-        let shouldSanitize = false;
-        for ( const mutation of mutations ) {
-            if ( mutation.addedNodes.length === 0 ) { continue; }
-            for ( const node of mutation.addedNodes ) {
-                if ( node.nodeType !== 1 ) { continue; }
-                shouldSanitize = true;
-                break;
-            }
-            if ( shouldSanitize ) { break; }
-        }
-        if ( shouldSanitize === false ) { return; }
-        timer = onIdleFn(( ) => {
-            timer = undefined;
-            sanitize();
-        });
-    };
-    const start = ( ) => {
-        if ( sanitize() === false ) { return; }
-        observer = new MutationObserver(onDomChanged);
-        observer.observe(document.body, {
-            subtree: true,
-            childList: true,
-        });
-    };
-    runAt(( ) => { start(); }, 'interactive');
-}
-
-function onIdleFn(fn, options) {
-    if ( self.requestIdleCallback ) {
-        return self.requestIdleCallback(fn, options);
-    }
-    return self.requestAnimationFrame(fn);
-}
-
-function preventRefresh(
-    delay = ''
-) {
-    if ( typeof delay !== 'string' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('prevent-refresh', delay);
-    const stop = content => {
-        window.stop();
-        safe.uboLog(logPrefix, `Prevented "${content}"`);
-    };
-    const defuse = ( ) => {
-        const meta = document.querySelector('meta[http-equiv="refresh" i][content]');
-        if ( meta === null ) { return; }
-        const content = meta.getAttribute('content') || '';
-        const ms = delay === ''
-            ? Math.max(parseFloat(content) || 0, 0) * 500
-            : 0;
-        if ( ms === 0 ) {
-            stop(content);
-        } else {
-            setTimeout(( ) => { stop(content); }, ms);
-        }
-    };
-    self.addEventListener('load', defuse, { capture: true, once: true });
-}
-
-function removeClass(
-    rawToken = '',
-    rawSelector = '',
-    behavior = ''
-) {
-    if ( typeof rawToken !== 'string' ) { return; }
-    if ( rawToken === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('remove-class', rawToken, rawSelector, behavior);
-    const tokens = safe.String_split.call(rawToken, /\s*\|\s*/);
-    const selector = tokens
-        .map(a => `${rawSelector}.${CSS.escape(a)}`)
-        .join(',');
-    if ( safe.logLevel > 1 ) {
-        safe.uboLog(logPrefix, `Target selector:\n\t${selector}`);
-    }
-    const mustStay = /\bstay\b/.test(behavior);
-    let timer;
-    const rmclass = ( ) => {
-        timer = undefined;
-        try {
-            const nodes = document.querySelectorAll(selector);
-            for ( const node of nodes ) {
-                node.classList.remove(...tokens);
-                safe.uboLog(logPrefix, 'Removed class(es)');
-            }
-        } catch {
-        }
-        if ( mustStay ) { return; }
-        if ( document.readyState !== 'complete' ) { return; }
-        observer.disconnect();
-    };
-    const mutationHandler = mutations => {
-        if ( timer !== undefined ) { return; }
-        let skip = true;
-        for ( let i = 0; i < mutations.length && skip; i++ ) {
-            const { type, addedNodes, removedNodes } = mutations[i];
-            if ( type === 'attributes' ) { skip = false; }
-            for ( let j = 0; j < addedNodes.length && skip; j++ ) {
-                if ( addedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-            for ( let j = 0; j < removedNodes.length && skip; j++ ) {
-                if ( removedNodes[j].nodeType === 1 ) { skip = false; break; }
-            }
-        }
-        if ( skip ) { return; }
-        timer = onIdleFn(rmclass, { timeout: 67 });
-    };
-    const observer = new MutationObserver(mutationHandler);
-    const start = ( ) => {
-        rmclass();
-        observer.observe(document, {
-            attributes: true,
-            attributeFilter: [ 'class' ],
-            childList: true,
-            subtree: true,
-        });
-    };
-    runAt(( ) => {
-        start();
-    }, /\bcomplete\b/.test(behavior) ? 'idle' : 'loading');
-}
-
-function removeNodeText(
-    nodeName,
-    includes,
-    ...extraArgs
-) {
-    replaceNodeTextFn(nodeName, '', '', 'includes', includes || '', ...extraArgs);
-}
-
-function replaceNodeTextFn(
-    nodeName = '',
-    pattern = '',
-    replacement = '',
-    ...varargs
-) {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('replace-node-text.fn', ...Array.from(arguments));
-    const reNodeName = safe.patternToRegex(nodeName, 'i', true);
-    const rePattern = safe.patternToRegex(pattern, 'gms');
-    const extraArgs = safe.parseVarargs(varargs);
-    const reIncludes = extraArgs.includes || extraArgs.condition
-        ? safe.patternToRegex(extraArgs.includes || extraArgs.condition, 'ms')
-        : null;
-    const reExcludes = extraArgs.excludes
-        ? safe.patternToRegex(extraArgs.excludes, 'ms')
-        : null;
-    const textContentFactory = (( ) => {
-        const out = { createScript: s => s };
-        const { trustedTypes: tt } = self;
-        if ( tt instanceof Object ) {
-            if ( typeof tt.getPropertyType === 'function' ) {
-                if ( tt.getPropertyType('script', 'textContent') === 'TrustedScript' ) {
-                    return tt.createPolicy(getRandomTokenFn(), out);
-                }
-            }
-        }
-        return out;
-    })();
-    let sedCount = extraArgs.sedCount ?? Number.MAX_SAFE_INTEGER;
-    const handleNode = node => {
-        const before = node.textContent;
-        if ( reIncludes ) {
-            reIncludes.lastIndex = 0;
-            if ( safe.RegExp_test(reIncludes, before) === false ) { return; }
-        }
-        if ( reExcludes ) {
-            reExcludes.lastIndex = 0;
-            if ( safe.RegExp_test(reExcludes, before) ) { return; }
-        }
-        rePattern.lastIndex = 0;
-        if ( safe.RegExp_test(rePattern, before) === false ) { return; }
-        rePattern.lastIndex = 0;
-        const after = pattern !== ''
-            ? before.replace(rePattern, replacement)
-            : replacement;
-        node.textContent = node.nodeName === 'SCRIPT'
-            ? textContentFactory.createScript(after)
-            : after;
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, `Text before:\n${before.trim()}`);
-        }
-        safe.uboLog(logPrefix, `Text after:\n${after.trim()}`);
-        sedCount -= 1;
-    };
-    const handleTree = root => {
-        const treeWalker = document.createTreeWalker(root,
-            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT
-        );
-        const { currentScript } = document;
-        let count = 0;
-        for (;;) {
-            const node = treeWalker.nextNode();
-            if ( node === null ) { break; }
-            count += 1;
-            if ( node === currentScript ) { continue; }
-            if ( reNodeName.test(node.nodeName) ) {
-                handleNode(node);
-            } else if ( node.nodeName === 'TEMPLATE' ) {
-                count += handleTree(node.content);
-            } else {
-                continue;
-            }
-            if ( sedCount === 0 ) { break; }
-        }
-        return count;
-    };
-    if ( document.documentElement ) {
-        const count = handleTree(document.documentElement);
-        safe.uboLog(logPrefix, `${count} nodes present before installing mutation observer`);
-    }
-    const stay = Boolean(extraArgs.stay);
-    if ( sedCount === 0 && stay === false ) { return; }
-    const stop = (takeRecord = true) => {
-        const mutations = takeRecord ? observer.takeRecords() : [];
-        observer.disconnect();
-        handleMutations(mutations);
-        if ( safe.logLevel > 1 ) {
-            safe.uboLog(logPrefix, 'Quitting');
-        }
-    };
-    const handleMutations = mutations => {
-        for ( const mutation of mutations ) {
-            for ( const node of mutation.addedNodes ) {
-                if ( reNodeName.test(node.nodeName) ) {
-                    handleNode(node);
-                } else if ( node.nodeName === 'TEMPLATE' ) {
-                    handleTree(node.content);
-                } else {
-                    continue;
-                }
-                if ( sedCount === 0 ) { return stop(false); }
-            }
-        }
-    };
-    const observer = new MutationObserver(handleMutations);
-    observer.observe(document, { childList: true, subtree: true });
-    if ( stay ) { return; }
-    runAt(( ) => {
-        const quitAfter = extraArgs.quitAfter ?? 0;
-        if ( quitAfter === 0 ) { return stop(); }
-        setTimeout(( ) => { stop(); }, quitAfter);
-    }, 'interactive');
-}
-
-function runAt(fn, when) {
-    const intFromReadyState = state => {
-        const targets = {
-            'loading': 1, 'asap': 1,
-            'interactive': 2, 'end': 2, '2': 2,
-            'complete': 3, 'idle': 3, '3': 3,
-        };
-        const tokens = Array.isArray(state) ? state : [ state ];
-        for ( const token of tokens ) {
-            const prop = `${token}`;
-            if ( Object.hasOwn(targets, prop) === false ) { continue; }
-            return targets[prop];
-        }
-        return 0;
-    };
-    const runAt = intFromReadyState(when);
-    if ( intFromReadyState(document.readyState) >= runAt ) {
-        fn(); return;
-    }
-    const onStateChange = ( ) => {
-        if ( intFromReadyState(document.readyState) < runAt ) { return; }
-        fn();
-        safe.removeEventListener.apply(document, args);
-    };
-    const safe = safeSelf();
-    const args = [ 'readystatechange', onStateChange, { capture: true } ];
-    safe.addEventListener.apply(document, args);
-}
-
-function safeSelf() {
-    if ( safeSelf.safe ) {
-        return safeSelf.safe;
-    }
-    const self = globalThis;
-    const safe = {
-        'Array_from': Array.from,
-        'Error': self.Error,
-        'Function_toString': Function.prototype.call.bind(self.Function.prototype.toString),
-        'Math_floor': Math.floor,
-        'Math_max': Math.max,
-        'Math_min': Math.min,
-        'Math_random': Math.random,
-        'Object': Object,
-        'Object_defineProperty': Object.defineProperty.bind(Object),
-        'Object_defineProperties': Object.defineProperties.bind(Object),
-        'Object_fromEntries': Object.fromEntries.bind(Object),
-        'Object_getOwnPropertyDescriptor': Object.getOwnPropertyDescriptor.bind(Object),
-        'Object_hasOwn': Object.hasOwn.bind(Object),
-        'Object_toString': Object.prototype.toString,
-        'RegExp': self.RegExp,
-        'RegExp_test': Function.prototype.call.bind(self.RegExp.prototype.test),
-        'RegExp_exec': self.RegExp.prototype.exec,
-        'Request_clone': self.Request.prototype.clone,
-        'String': self.String,
-        'String_fromCharCode': String.fromCharCode,
-        'String_split': String.prototype.split,
-        'XMLHttpRequest': self.XMLHttpRequest,
-        'addEventListener': self.EventTarget.prototype.addEventListener,
-        'removeEventListener': self.EventTarget.prototype.removeEventListener,
-        'fetch': self.fetch,
-        'JSON': self.JSON,
-        'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
-        'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
-        'log': console.log.bind(console),
-        // Properties
-        logLevel: 0,
-        // Methods
-        makeLogPrefix(...args) {
-            return this.sendToLogger && `[${args.join(' \u205D ')}]` || '';
-        },
-        uboLog(...args) {
-            if ( this.sendToLogger === undefined ) { return; }
-            if ( args === undefined || args[0] === '' ) { return; }
-            return this.sendToLogger('info', ...args);
-            
-        },
-        uboErr(...args) {
-            if ( this.sendToLogger === undefined ) { return; }
-            if ( args === undefined || args[0] === '' ) { return; }
-            return this.sendToLogger('error', ...args);
-        },
-        escapeRegexChars(s) {
-            return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        },
-        initPattern(pattern, options = {}) {
-            if ( pattern === '' ) {
-                return { matchAll: true, expect: true };
-            }
-            const expect = (options.canNegate !== true || pattern.startsWith('!') === false);
-            if ( expect === false ) {
-                pattern = pattern.slice(1);
-            }
-            const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
-            if ( match !== null ) {
-                return {
-                    re: new this.RegExp(
-                        match[1],
-                        match[2] || options.flags
-                    ),
-                    expect,
-                };
-            }
-            if ( options.flags !== undefined ) {
-                return {
-                    re: new this.RegExp(this.escapeRegexChars(pattern),
-                        options.flags
-                    ),
-                    expect,
-                };
-            }
-            return { pattern, expect };
-        },
-        testPattern(details, haystack) {
-            if ( details.matchAll ) { return true; }
-            if ( details.re ) {
-                return this.RegExp_test(details.re, haystack) === details.expect;
-            }
-            return haystack.includes(details.pattern) === details.expect;
-        },
-        patternToRegex(pattern, flags = undefined, verbatim = false) {
-            if ( pattern === '' ) { return /^/; }
-            const match = /^\/(.+)\/([gimsu]*)$/.exec(pattern);
-            if ( match === null ) {
-                const reStr = this.escapeRegexChars(pattern);
-                return new RegExp(verbatim ? `^${reStr}$` : reStr, flags);
-            }
-            try {
-                return new RegExp(match[1], match[2] || undefined);
-            }
-            catch {
-            }
-            return /^/;
-        },
-        parseVarargs(varargs) {
-            const entries = varargs.reduce((out, v, i, a) => {
-                if ( i & 1 ) { return out; }
-                const rawValue = a[i+1];
-                const value = /^\d+$/.test(rawValue)
-                    ? parseInt(rawValue, 10)
-                    : rawValue;
-                out.push([ a[i], value ]);
-                return out;
-            }, []);
-            return this.Object_fromEntries(entries);
-        },
-    };
-    safeSelf.safe = safe;
-    if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
-    // This is executed only when the logger is opened
-    safe.logLevel = scriptletGlobals.logLevel || 1;
-    let lastLogType = '';
-    let lastLogText = '';
-    let lastLogTime = 0;
-    safe.toLogText = (type, ...args) => {
-        if ( args.length === 0 ) { return; }
-        const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
-        if ( text === lastLogText && type === lastLogType ) {
-            if ( (Date.now() - lastLogTime) < 5000 ) { return; }
-        }
-        lastLogType = type;
-        lastLogText = text;
-        lastLogTime = Date.now();
-        return text;
-    };
-    try {
-        const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
-        let bcBuffer = [];
-        safe.sendToLogger = (type, ...args) => {
-            const text = safe.toLogText(type, ...args);
-            if ( text === undefined ) { return; }
-            if ( bcBuffer === undefined ) {
-                return bc.postMessage({ what: 'messageToLogger', type, text });
-            }
-            bcBuffer.push({ type, text });
-        };
-        bc.onmessage = ev => {
-            const msg = ev.data;
-            switch ( msg ) {
-            case 'iamready!':
-                if ( bcBuffer === undefined ) { break; }
-                bcBuffer.forEach(({ type, text }) =>
-                    bc.postMessage({ what: 'messageToLogger', type, text })
-                );
-                bcBuffer = undefined;
-                break;
-            case 'setScriptletLogLevelToOne':
-                safe.logLevel = 1;
-                break;
-            case 'setScriptletLogLevelToTwo':
-                safe.logLevel = 2;
-                break;
-            }
-        };
-        bc.postMessage('areyouready?');
-    } catch {
-        safe.sendToLogger = (type, ...args) => {
-            const text = safe.toLogText(type, ...args);
-            if ( text === undefined ) { return; }
-            safe.log(`uBO ${text}`);
-        };
-    }
-    return safe;
-}
-
-function setCookie(
-    name = '',
-    value = '',
-    path = '',
-    ...varargs
-) {
-    if ( name === '' ) { return; }
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix('set-cookie', name, value, path);
-    const normalized = value.toLowerCase();
-    const match = /^("?)(.+)\1$/.exec(normalized);
-    const unquoted = match && match[2] || normalized;
-    const validValues = getSafeCookieValuesFn();
-    if ( validValues.includes(unquoted) === false ) {
-        if ( /^-?\d+$/.test(unquoted) === false ) { return; }
-        const n = parseInt(value, 10) || 0;
-        if ( n < -32767 || n > 32767 ) { return; }
-    }
-
-    const done = setCookieFn(
-        false,
-        name,
-        value,
-        '',
-        path,
-        safe.parseVarargs(varargs)
-    );
-
-    if ( done ) {
-        safe.uboLog(logPrefix, 'Done');
-    }
-}
-
-function setCookieFn(
-    trusted = false,
-    name = '',
-    value = '',
-    expires = '',
-    path = '',
-    options = {},
-) {
-    // https://datatracker.ietf.org/doc/html/rfc2616#section-2.2
-    // https://github.com/uBlockOrigin/uBlock-issues/issues/2777
-    if ( trusted === false && /[^!#$%&'*+\-.0-9A-Z[\]^_`a-z|~]/.test(name) ) {
-        name = encodeURIComponent(name);
-    }
-    // https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.1
-    // The characters [",] are given a pass from the RFC requirements because
-    // apparently browsers do not follow the RFC to the letter.
-    if ( /[^ -:<-[\]-~]/.test(value) ) {
-        value = encodeURIComponent(value);
-    }
-
-    const cookieBefore = getCookieFn(name);
-    if ( cookieBefore !== undefined && options.dontOverwrite ) { return; }
-    if ( cookieBefore === value && options.reload ) { return; }
-
-    const cookieParts = [ name, '=', value ];
-    if ( expires !== '' ) {
-        cookieParts.push('; expires=', expires);
-    }
-
-    if ( path === '' ) { path = '/'; }
-    else if ( path === 'none' ) { path = ''; }
-    if ( path !== '' && path !== '/' ) { return; }
-    if ( path === '/' ) {
-        cookieParts.push('; path=/');
-    }
-
-    if ( trusted ) {
-        if ( options.domain ) {
-            let domain = options.domain;
-            if ( /^\/.+\//.test(domain) ) {
-                const baseURL = new URL(document.baseURI);
-                const reDomain = new RegExp(domain.slice(1, -1));
-                const match = reDomain.exec(baseURL.hostname);
-                domain = match ? match[0] : undefined;
-            }
-            if ( domain ) {
-                cookieParts.push(`; domain=${domain}`);
-            }
-        }
-        cookieParts.push('; Secure');
-    } else if ( /^__(Host|Secure)-/.test(name) ) {
-        cookieParts.push('; Secure');
-    }
-
-    try {
-        document.cookie = cookieParts.join('');
-    } catch {
-    }
-
-    const done = getCookieFn(name) === value;
-    if ( done && options.reload ) {
-        window.location.reload();
-    }
-
-    return done;
-}
-
-function setCookieReload(name, value, path, ...args) {
-    setCookie(name, value, path, 'reload', '1', ...args);
-}
-
-function urlSkip(url, blocked, steps) {
-    try {
-        let redirectBlocked = false;
-        let urlout = url;
-        for ( const step of steps ) {
-            const urlin = urlout;
-            const c0 = step.charCodeAt(0);
-            // Extract from hash
-            if ( c0 === 0x23 && step === '#' ) { // #
-                const pos = urlin.indexOf('#');
-                urlout = pos !== -1 ? urlin.slice(pos+1) : '';
-                continue;
-            }
-            // Extract from URL parameter name at position i
-            if ( c0 === 0x26 ) { // &
-                const i = (parseInt(step.slice(1)) || 0) - 1;
-                if ( i < 0 ) { return; }
-                const url = new URL(urlin);
-                if ( i >= url.searchParams.size ) { return; }
-                const params = Array.from(url.searchParams.keys());
-                urlout = decodeURIComponent(params[i]);
-                continue;
-            }
-            // Enforce https
-            if ( c0 === 0x2B && step === '+https' ) { // +
-                const s = urlin.replace(/^https?:\/\//, '');
-                if ( /^[\w-]:\/\//.test(s) ) { return; }
-                urlout = `https://${s}`;
-                continue;
-            }
-            // Decode
-            if ( c0 === 0x2D ) { // -
-                // Base64
-                if ( step === '-base64' ) {
-                    urlout = self.atob(urlin);
-                    continue;
-                }
-                // Safe Base64
-                if ( step === '-safebase64' ) {
-                    if ( urlSkip.safeBase64Replacer === undefined ) {
-                        urlSkip.safeBase64Map = { '-': '+', '_': '/' };
-                        urlSkip.safeBase64Replacer = s => urlSkip.safeBase64Map[s];
-                    }
-                    urlout = urlin.replace(/[-_]/g, urlSkip.safeBase64Replacer);
-                    urlout = self.atob(urlout);
-                    continue;
-                }
-                // URI component
-                if ( step === '-uricomponent' ) {
-                    urlout = decodeURIComponent(urlin);
-                    continue;
-                }
-                // Enable skip of blocked requests
-                if ( step === '-blocked' ) {
-                    redirectBlocked = true;
-                    continue;
-                }
-            }
-            // Regex extraction from first capture group
-            if ( c0 === 0x2F ) { // /
-                const re = new RegExp(step.slice(1, -1));
-                const match = re.exec(urlin);
-                if ( match === null ) { return; }
-                if ( match.length <= 1 ) { return; }
-                urlout = match[1];
-                continue;
-            }
-            // Extract from URL parameter
-            if ( c0 === 0x3F ) { // ?
-                urlout = (new URL(urlin)).searchParams.get(step.slice(1));
-                if ( urlout === null ) { return; }
-                if ( urlout.includes(' ') ) {
-                    urlout = urlout.replace(/ /g, '%20');
-                }
-                continue;
-            }
-            // Unknown directive
-            return;
-        }
-        const urlfinal = new URL(urlout);
-        if ( urlfinal.protocol !== 'https:' ) {
-            if ( urlfinal.protocol !== 'http:' ) { return; }
-        }
-        if ( blocked && redirectBlocked !== true ) { return; }
-        return urlout;
-    } catch {
-    }
-}
+if ( scriptletGlobals.origins.length === 0 ) { return; }
 
 /******************************************************************************/
-
-const scriptletGlobals = {}; // eslint-disable-line
 
 const $hasHostnames$ = true;
 const $hasEntities$ = false;
@@ -802,57 +43,16 @@ const $hasRegexes$ = false;
 
 /******************************************************************************/
 
-const entries = (( ) => {
-    const docloc = document.location;
-    const origins = [ docloc.origin ];
-    if ( docloc.ancestorOrigins ) {
-        origins.push(...docloc.ancestorOrigins);
-    }
-    return origins.map((origin, i) => {
-        const beg = origin.indexOf('://');
-        if ( beg === -1 ) { return; }
-        const hn1 = origin.slice(beg+3)
-        const end = hn1.indexOf(':');
-        const hn2 = end === -1 ? hn1 : hn1.slice(0, end);
-        if ( hn2.length === 0 ) { return; }
-        const hns = [ hn2 ];
-        for ( let pos = 0; ; ) {
-            pos = hn2.indexOf('.', pos) + 1;
-            if ( pos === 0 ) { break; }
-            hns.push(hn2.slice(pos));
-        }
-        hns.push('*');
-        const ens = [];
-        if ( $hasEntities$ ) {
-            for ( let hn of hns ) {
-                for (;;) {
-                    const pos = hn.lastIndexOf('.');
-                    if ( pos === -1 ) { break; }
-                    hn = hn.slice(0, pos);
-                    ens.push(`${hn}.*`);
-                }
-            }
-            ens.sort((a, b) => {
-                const d = b.length - a.length;
-                if ( d !== 0 ) { return d; }
-                return a > b ? -1 : 1;
-            });
-        }
-        return { hns, ens, i };
-    }).filter(a => a);
-})();
-if ( entries.length === 0 ) { return; }
-
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const $scriptletHostnames$ = /* 64 */ ["ebbs.jp","icon.jp","game8.jp","aikru.com","o-dan.net","okwave.jp","aidoly.net","dvdrev.com","eromon.net","moez-m.com","rxlife.net","chimolog.co","famitsu.com","figsoku.net","gamewith.jp","livefans.jp","my-best.com","negisoku.com","phileweb.com","sinsimmd.com","ura-akiba.jp","ch-review.net","idol-blog.com","kimootoko.net","mantan-web.jp","okazurand.net","tapestry.work","fm.sekkaku.net","geinoukame.com","hobbylabon.com","nailcolor.work","video.laxd.com","arty-matome.com","bridalgown.work","lifematome.blog","rank1-media.com","resizer.myct.jp","www.yahoo.co.jp","blog.livedoor.jp","figure-times.com","kabegami.jpn.org","kasegeru.blog.jp","nichepcgamer.com","studioglass.work","tcg-bloglife.com","teaceremony.work","vk.sportsbull.jp","weddinghall.work","ranky-ranking.net","ba-goods-search.com","betweenjpandkr.blog","contents-group.work","hayamimi-gunpla.com","seikeidouga.blog.jp","tyoieronews.blog.jp","nihon-bijo-zukan.com","ideal2ch.livedoor.biz","inkbrushpainting.work","liquidfoundation.work","lovelive-petitsoku.com","heisei-housewarming.work","gametohkenranbu.sakuraweb.com","pretravel.kawasaki-create.com","safeframe.googlesyndication.com"];
+    const scriptletHostnames = /* 68 */ ["ebbs.jp","icon.jp","game8.jp","aikru.com","o-dan.net","okwave.jp","aidoly.net","dvdrev.com","eromon.net","moez-m.com","rxlife.net","chimolog.co","famitsu.com","figsoku.net","gamewith.jp","livefans.jp","my-best.com","negisoku.com","phileweb.com","sinsimmd.com","ura-akiba.jp","ch-review.net","idol-blog.com","kimootoko.net","mantan-web.jp","okazurand.net","tapestry.work","yamiisoku.com","fm.sekkaku.net","geinoukame.com","hobbylabon.com","nailcolor.work","video.laxd.com","arty-matome.com","bridalgown.work","lifematome.blog","monhan-soku.com","rank1-media.com","resizer.myct.jp","www.yahoo.co.jp","blog.livedoor.jp","figure-times.com","genshin-soku.com","kabegami.jpn.org","kasegeru.blog.jp","nichepcgamer.com","studioglass.work","tcg-bloglife.com","teaceremony.work","vk.sportsbull.jp","weddinghall.work","ranky-ranking.net","ba-goods-search.com","betweenjpandkr.blog","contents-group.work","hayamimi-gunpla.com","seikeidouga.blog.jp","tyoieronews.blog.jp","nihon-bijo-zukan.com","ideal2ch.livedoor.biz","inkbrushpainting.work","liquidfoundation.work","lovelive-petitsoku.com","xn--gckdevd5myivf.site","heisei-housewarming.work","gametohkenranbu.sakuraweb.com","pretravel.kawasaki-create.com","safeframe.googlesyndication.com"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
         while ( l < r ) {
             i = l + r >>> 1;
-            candidate = $scriptletHostnames$[i];
+            candidate = scriptletHostnames[i];
             d = hn.length - candidate.length;
             if ( d === 0 ) {
                 if ( hn === candidate ) {
@@ -870,29 +70,28 @@ if ( $hasHostnames$ ) {
     };
     const indicesFromHostname = (out, hnDetails, suffix = '') => {
         if ( hnDetails.hns.length === 0 ) { return; }
-        let r = $scriptletHostnames$.length;
+        let r = scriptletHostnames.length;
         for ( const hn of hnDetails.hns ) {
             r = collectArglistRefIndices(out, `${hn}${suffix}`, r);
         }
         if ( $hasEntities$ ) {
-            let r = $scriptletHostnames$.length;
+            let r = scriptletHostnames.length;
             for ( const en of hnDetails.ens ) {
                 r = collectArglistRefIndices(out, `${en}${suffix}`, r);
             }
         }
     };
     const todoIndices = new Set();
-    indicesFromHostname(todoIndices, entries[0]);
+    indicesFromHostname(todoIndices, scriptletGlobals.origins[0]);
     if ( $hasAncestors$ ) {
-        for ( const entry of entries ) {
+        for ( const entry of scriptletGlobals.origins ) {
             if ( entry.i === 0 ) { continue; }
             indicesFromHostname(todoIndices, entry, '>>');
         }
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const $scriptletArglistRefs$ = /* 64 */ "26;18;24;13;5;30;13;9;27;27;2;24,25;24;22,23,24,25;28,29;25;20,24,25;13;14;17;27;13;27;27;21,22;27;3,4;10;31;22;3,4;12;13;3,4;11;13;13;16;7;18;13;6;25;3,4;13;3,4;33;3,4;13;18;8;3,4;18,24,25;13;19;27;13;3,4;3,4;15;3,4;13;1;32";
-        const arglistRefs = $scriptletArglistRefs$.split(';');
+        const arglistRefs = /* 68 */ ["27","19","25","14","6","31","14","10","28","28","3","25,26","25","23,24,25,26","29,30","26","21,25,26","14","15","18","28","14","28","28","22,23","28","4,5","1","11","32","23","4,5","13","14","4,5","12","1","14","14","17","8","19","1","14","7","26","4,5","14","4,5","34","4,5","14","19","9","4,5","19,25,26","14","20","28","14","4,5","4,5","16","1","4,5","14","2","33"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -902,18 +101,18 @@ if ( $hasHostnames$ ) {
 }
 
 if ( $hasRegexes$ ) {
-    const $scriptletFromRegexes$ = /* 0 */ [];
-    const { hns } = entries[0];
-    for ( let i = 0, n = $scriptletFromRegexes$.length; i < n; i += 3 ) {
-        const needle = $scriptletFromRegexes$[i+0];
+    const scriptletFromRegexes = /* 0 */ [];
+    const { hns } = scriptletGlobals.origins[0];
+    for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 3 ) {
+        const needle = scriptletFromRegexes[i+0];
         let regex;
         for ( const hn of hns ) {
             if ( hn.includes(needle) === false ) { continue; }
             if ( regex === undefined ) {
-                regex = new RegExp($scriptletFromRegexes$[i+1]);
+                regex = new RegExp(scriptletFromRegexes[i+1]);
             }
             if ( regex.test(hn) === false ) { continue; }
-            for ( const ref of JSON.parse(`[${$scriptletFromRegexes$[i+2]}]`) ) {
+            for ( const ref of JSON.parse(`[${scriptletFromRegexes[i+2]}]`) ) {
                 todo.add(ref);
             }
         }
@@ -922,17 +121,14 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const $scriptletFunctions$ = /* 6 */
-[removeNodeText,setCookie,removeClass,hrefSanitizer,preventRefresh,setCookieReload];
-    const $scriptletArgs$ = /* 51 */ ["script","detectAdBlocker","detectAdBlock","adset","off","adset2","visited","#oRslt li a.visited","stay","#text","/スポンサードリンク：?|楽天広告：/","selectRandomProduct","PR:","関連動画","【広告】","/\\[vkExUnit_ad area=(after|before)\\]/","with-ad","section.main","/スポンサード?リンク/","has-topbanner","body > header.has-topbanner","[PR]","a[href^=\"https://app.adjust.com/\"]","?redirect","/^PR\\s$/","a[href*=\"a8ejpredirect\"]","?a8ejpredirect","/^\\s*PR\\s*$/","a[href^=\"/link?fallback_url=\"]","?fallback_url","a[href^=\"https://af.moshimo.com/af/c/click?\"][href*=\"&url=\"]","?url","a[href^=\"https://al.dmm.com/?lurl=\"]","?lurl","a[href^=\"https://affiliate.suruga-ya.jp/modules/af/af_jump.php?\"]","?goods_url","a[href*=\"hb.afl.rakuten.co.jp/\"][href*=\"pc=\"]","?pc","a[href*=\"ck.jp.ap.valuecommerce.com/servlet/referral?\"][href*=\"&vc_url=\"]","?vc_url","a[href^=\"https://al.fanza.co.jp/?lurl=\"]","discarded-search-interstitial-cta-banner","true","is-collaboration-jack","body","okwave_rwd","/^\\s*PR$/","a[href^=\"https://adclick.g.doubleclick.net/\"][href*=\"adurl=\"]","?adurl","hidden-by-ima","#vid1_html5_api"];
-    const $scriptletArglists$ = /* 34 */ ";0,0,1;0,0,2;1,3,4;1,5,4;2,6,7,8;0,9,10;0,0,11;0,9,12;0,9,13;0,9,14;0,9,15;2,16,17;0,9,18;2,19,20;0,9,21;3,22,23;0,9,24;3,25,26;0,9,27;3,28,29;3,30,31;3,32,33;3,34,35;3,36,37;3,38,39;4;3,40,33;5,41,42;2,43,44;5,45,42;0,9,46;3,47,48;2,49,50";
-    const arglists = $scriptletArglists$.split(';');
-    const args = $scriptletArgs$;
+    const arglists = /* 35 */ ["","1,0,1","1,0,2","1,0,3","8,4,5","8,6,5","13,7,8,9","1,10,11","1,0,12","1,10,13","1,10,14","1,10,15","1,10,16","13,17,18","1,10,19","13,20,21","1,10,22","11,23,24","1,10,25","11,26,27","1,10,28","11,29,30","11,31,32","11,33,34","11,35,36","11,37,38","11,39,40","7","11,41,34","20,42,43","13,44,45","20,46,43","1,10,47","11,48,49","13,50,51"];
+    const args = /* 52 */ ["script","adsbygoogle","detectAdBlocker","detectAdBlock","adset","off","adset2","visited","#oRslt li a.visited","stay","#text","/スポンサードリンク：?|楽天広告：/","selectRandomProduct","PR:","関連動画","【広告】","/\\[vkExUnit_ad area=(after|before)\\]/","with-ad","section.main","/スポンサード?リンク/","has-topbanner","body > header.has-topbanner","[PR]","a[href^=\"https://app.adjust.com/\"]","?redirect","/^PR\\s$/","a[href*=\"a8ejpredirect\"]","?a8ejpredirect","/^\\s*PR\\s*$/","a[href^=\"/link?fallback_url=\"]","?fallback_url","a[href^=\"https://af.moshimo.com/af/c/click?\"][href*=\"&url=\"]","?url","a[href^=\"https://al.dmm.com/?lurl=\"]","?lurl","a[href^=\"https://affiliate.suruga-ya.jp/modules/af/af_jump.php?\"]","?goods_url","a[href*=\"hb.afl.rakuten.co.jp/\"][href*=\"pc=\"]","?pc","a[href*=\"ck.jp.ap.valuecommerce.com/servlet/referral?\"][href*=\"&vc_url=\"]","?vc_url","a[href^=\"https://al.fanza.co.jp/?lurl=\"]","discarded-search-interstitial-cta-banner","true","is-collaboration-jack","body","okwave_rwd","/^\\s*PR$/","a[href^=\"https://adclick.g.doubleclick.net/\"][href*=\"adurl=\"]","?adurl","hidden-by-ima","#vid1_html5_api"];
+    const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
         if ( ref < 0 ) { continue; }
         if ( todo.has(~ref) ) { continue; }
         const arglist = JSON.parse(`[${arglists[ref]}]`);
-        const fn = $scriptletFunctions$[arglist[0]];
+        const fn = functionRefs[arglist[0]];
         try { fn(...arglist.slice(1).map(a => args[a])); }
         catch { }
     }
@@ -941,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})();
+})("eb67c4fa-700a-4c20-bf4f-852ab9b7ca91");
 
 void 0;

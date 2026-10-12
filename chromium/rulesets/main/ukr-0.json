@@ -1456,5 +1456,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/ay/loader.js?"},"id":1455,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["glee-hdrezka.net","kinovod.pro","kinozo.cam","mentalist-hdrezka.net"],"resourceTypes":["xmlhttprequest"],"urlFilter":".link^"},"id":1456,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["glee-hdrezka.net","kinozo.cam","mentalist-hdrezka.net"],"resourceTypes":["xmlhttprequest"],"urlFilter":".bid^"},"id":1457,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":".link/*?*=*&referer="},"id":1458,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":".link/*?*=*&referer="},"id":1458,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||yandex.ru./ads/adfox/"},"id":1459,"priority":10}
 ]

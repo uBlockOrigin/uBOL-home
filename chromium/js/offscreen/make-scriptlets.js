@@ -28,8 +28,6 @@ import { safeReplace } from './safe-replace.js';
 const resourceDetails = new Map();
 const resourceAliases = new Map();
 const worldTemplate = {
-    scriptletFunctions: new Map(),
-    allFunctions: new Map(),
     args: new Map(),
     arglists: new Map([['',0]]),
     hostnames: new Map(),
@@ -42,14 +40,21 @@ const worlds = {
     ISOLATED: structuredClone(worldTemplate),
     MAIN: structuredClone(worldTemplate),
 };
+const frameworkTemplate = {
+    scriptletFunctions: new Map(),
+    allFunctions: new Map(),
+};
+const worldFrameworks = {
+    ISOLATED: structuredClone(frameworkTemplate),
+    MAIN: structuredClone(frameworkTemplate),
+};
 
 /******************************************************************************/
 
-function createScriptletCoreCode(worldDetails, resourceEntry) {
-    const { allFunctions } = worldDetails;
+function createScriptletCoreCode(allFunctions, resourceEntry) {
     allFunctions.set(resourceEntry.name, resourceEntry.code);
-    const dependencies = resourceEntry.dependencies &&
-        resourceEntry.dependencies.slice() || [];
+    if ( Boolean(resourceEntry.dependencies?.length) === false ) { return; }
+    const dependencies = resourceEntry.dependencies.slice();
     while ( dependencies.length !== 0 ) {
         const token = dependencies.shift();
         const details = resourceDetails.get(token);
@@ -91,6 +96,18 @@ export function reset() {
     worlds.MAIN = structuredClone(worldTemplate);
 }
 
+export function resetFramework() {
+    reset();
+    worldFrameworks.ISOLATED = structuredClone(frameworkTemplate);
+    worldFrameworks.MAIN = structuredClone(frameworkTemplate);
+}
+
+export function resetAll() {
+    resetFramework();
+    resourceDetails.clear();
+    resourceAliases.clear();
+}
+
 /******************************************************************************/
 
 export function compile(rulesetId, details) {
@@ -114,10 +131,10 @@ export function compile(rulesetId, details) {
         return;
     }
     const worldDetails = worlds[resourceEntry.world];
-    const { scriptletFunctions } = worldDetails;
+    const { allFunctions, scriptletFunctions } = worldFrameworks[resourceEntry.world];
     if ( scriptletFunctions.has(resourceEntry.name) === false ) {
         scriptletFunctions.set(resourceEntry.name, scriptletFunctions.size);
-        createScriptletCoreCode(worldDetails, resourceEntry);
+        createScriptletCoreCode(allFunctions, resourceEntry);
     }
     // Convert args to arg indices
     const arglist = details.args.slice();
@@ -183,12 +200,11 @@ export function compile(rulesetId, details) {
 
 /******************************************************************************/
 
-export function commit(rulesetId, template) {
+export function commit(rulesetId, template, secret) {
     const stats = {};
     for ( const world of Object.keys(worlds) ) {
         const worldDetails = worlds[world];
-        const { scriptletFunctions, allFunctions, args, arglists } = worldDetails;
-        if ( scriptletFunctions.size === 0 ) { continue; }
+        const { args, arglists } = worldDetails;
         const hostnames = Array.from(worldDetails.hostnames).toSorted((a, b) =>
             hostnameCompare(a[0], b[0])
         ).map(a => ([ a[0], JSON.stringify(Array.from(a[1]).map(a => JSON.parse(a))).slice(1,-1)]));
@@ -202,7 +218,9 @@ export function commit(rulesetId, template) {
                     JSON.stringify(Array.from(a[1])).slice(1,-1),
                 ];
             }).flat();
-        let content = safeReplace(template, 'self.$hasHostnames$', JSON.stringify(hostnames.length !== 0));
+        if ( hostnames.length === 0 && scriptletFromRegexes.length === 0 ) { continue; }
+        let content = safeReplace(template, 'self.$scriptletSecret$', JSON.stringify(secret));
+        content = safeReplace(content, 'self.$hasHostnames$', JSON.stringify(hostnames.length !== 0));
         content = safeReplace(content, 'self.$hasEntities$', JSON.stringify(worldDetails.hasEntities));
         content = safeReplace(content, 'self.$hasAncestors$', JSON.stringify(worldDetails.hasAncestors));
         content = safeReplace(content, 'self.$hasRegexes$', JSON.stringify(scriptletFromRegexes.length !== 0));
@@ -216,23 +234,15 @@ export function commit(rulesetId, template) {
         );
         content = safeReplace(content,
             'self.$scriptletArglistRefs$',
-            `/* ${hostnames.length} */ ${JSON.stringify(hostnames.map(a => a[1]).join(';'))}`
+            `/* ${hostnames.length} */ ${JSON.stringify(hostnames.map(a => a[1]))}`
         );
         content = safeReplace(content,
             'self.$scriptletArglists$',
-            `/* ${arglists.size} */ ${JSON.stringify(Array.from(arglists.keys()).join(';'))}`
+            `/* ${arglists.size} */ ${JSON.stringify(Array.from(arglists.keys()))}`
         );
         content = safeReplace(content,
             'self.$scriptletArgs$',
             `/* ${args.size} */ ${JSON.stringify(Array.from(args.keys()))}`
-        );
-        content = safeReplace(content,
-            'self.$scriptletFunctions$',
-            `/* ${scriptletFunctions.size} */\n[${Array.from(scriptletFunctions.keys()).join(',')}]`
-        );
-        content = safeReplace(content,
-            'self.$scriptletCode$',
-            Array.from(allFunctions.values()).sort().join('\n\n')
         );
         content = safeReplace(content, /\$rulesetId\$/, rulesetId, 0);
         stats[world] = {
@@ -248,26 +258,44 @@ export function commit(rulesetId, template) {
 
 /******************************************************************************/
 
-export async function importScriptlet(details) {
+export function commitFramework(beginTemplate, endTemplate, secret) {
+    const stats = {};
+    for ( const world of Object.keys(worldFrameworks) ) {
+        const { scriptletFunctions, allFunctions } = worldFrameworks[world];
+        let beginCode = safeReplace(beginTemplate, 'self.$scriptletSecret$', JSON.stringify(secret));
+        beginCode = safeReplace(beginCode, 'self.$scriptletFunctionRefs$',
+            `/* ${scriptletFunctions.size} */ [${Array.from(scriptletFunctions.keys()).join(',')}]`
+        );
+        beginCode = safeReplace(beginCode, 'self.$scriptletFunctions$',
+            Array.from(allFunctions.values()).sort().join('\n\n')
+        );
+        let endCode = safeReplace(endTemplate, 'self.$scriptletSecret$', JSON.stringify(secret));
+        stats[world] = { beginCode, endCode };
+    }
+    return stats;
+}
+
+/******************************************************************************/
+
+export function importScriptlet(details) {
     const funcBody = details.code.replace(/\/\*.+?\*\//gs, '').trim();
-    const textEncoder = new TextEncoder();
-    const funcBuf = textEncoder.encode(funcBody);
-    const hashBuf = await globalThis.crypto.subtle.digest('SHA-256', funcBuf);
-    const digestBuf = new Uint32Array(hashBuf);
-    const digestStr = [ digestBuf[0], digestBuf[1] ]
-        .map(a => a.toString(36).slice(-4).padStart(4,'0'))
-        .join('');
-    const funcName = `zeta_${digestStr}`;
+    const funcName = `zeta_${globalThis.crypto.randomUUID().replaceAll('-', '')}`;
     const { name } = details;
-    const entry = {
-        name: funcName,
-        code: `function ${funcName}() { // ${name}\n${funcBody}\n}`,
-        world: 'MAIN',
+    const code = /^function\s+[^(]+\(.*?\)\s*\{.*\}$/s.test(funcBody)
+        ? `function ${funcName}(...args) { // ${name}\n(${funcBody})(...args)\n}`
+        : `function ${funcName}() { // ${name}\n${funcBody}\n}`;
+    const entry = { name: funcName, code, world: details.world ?? 'MAIN',
         requiresTrust: details.requiresTrust === true,
     };
-    resourceDetails.set(funcName, entry);
-    resourceAliases.set(name, funcName);
-    if ( typeof details.alias === 'string' ) {
+    if ( Array.isArray(details.dependencies) ) {
+        entry.dependencies = [ ...details.dependencies ];
+    }
+    resourceDetails.set(name, entry);
+    if ( Array.isArray(details.aliases) ) {
+        for ( const alias of details.aliases ) {
+            resourceAliases.set(alias, funcName);
+        }
+    } else if ( typeof details.alias === 'string' ) {
         resourceAliases.set(details.alias, funcName);
     } else if ( Array.isArray(details.alias) ) {
         for ( const alias of details.alias ) {
