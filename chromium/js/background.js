@@ -225,14 +225,17 @@ async function onPermissionsRemoved() {
 
 async function onPermissionsChanged(op, permissions) {
     await isFullyInitialized;
-    const { pending } = onPermissionsChanged;
-    await Promise.all(pending);
-    const promise = op === 'removed'
-        ? onPermissionsRemoved()
-        : onPermissionsAdded(permissions);
-    pending.push(promise);
+    const promise = onPermissionsChanged.pending.then(( ) =>
+        op === 'removed'
+            ? onPermissionsRemoved()
+            : onPermissionsAdded(permissions)
+    );
+    onPermissionsChanged.pending = promise.catch(reason => {
+        ubolErr(`onPermissionsChanged/${reason}`);
+    });
+    return promise;
 }
-onPermissionsChanged.pending = [];
+onPermissionsChanged.pending = Promise.resolve();
 
 /******************************************************************************/
 
@@ -750,9 +753,10 @@ async function startSession() {
 
     // Toggling "user scripts" permission doesn't cause a permissions change
     // event.
-    const userScriptsChanged = supportsUserScripts() !== rulesetConfig.userScripts;
+    const userScripts = supportsUserScripts();
+    const userScriptsChanged = userScripts !== rulesetConfig.userScripts;
     if ( userScriptsChanged ) {
-        rulesetConfig.userScripts = !rulesetConfig.userScripts;
+        rulesetConfig.userScripts = userScripts;
         saveRulesetConfig();
     }
 
