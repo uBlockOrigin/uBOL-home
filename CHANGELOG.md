@@ -1,3 +1,15 @@
+----------
+
+### 2026.1018.2229
+
+- [Remove no longer needed Safari workaround in overlay tools](https://github.com/gorhill/uBlock/commit/dfca51bea2)
+- [Fix unstyled frame quirk when launching overlay tools](https://github.com/gorhill/uBlock/commit/91ac031726)
+- [Remove access to filter creation in popup when "no filtering"](https://github.com/gorhill/uBlock/commit/610c2431dc)
+
+----------
+
+### 2026.1012.1545
+
 - [Remove access to filter creation in popup when "no filtering"](https://github.com/gorhill/uBlock/commit/610c2431dc)
 - [De-duplicate scriptlet functions across rulesets](https://github.com/gorhill/uBlock/commit/b711687470)
 - Updated filter lists
