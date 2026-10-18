@@ -1584,14 +1584,6 @@
   ]
  },
  {
-  "re": "^[^:]+://(?:[^/]+\\.)?pornhub\\..*?/redirect/",
-  "steps": [
-   "/(https%253A%252F%252F[^?#]+)/",
-   "-uricomponent",
-   "-uricomponent"
-  ]
- },
- {
   "re": "^[^:]+://(?:[^/]+\\.)?af\\.moshimo\\.com/af/c/click\\?.*?&url=",
   "steps": [
    "?url"

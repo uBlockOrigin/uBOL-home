@@ -755,7 +755,14 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["nung2-hdd.com"],"resourceTypes":["image"],"urlFilter":"/wp-content/uploads/*.gif"},"id":754,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"/ufathai24-1.mp4"},"id":755,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/1x1.gif"},"type":"redirect"},"condition":{"initiatorDomains":["shopee.co.th"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||shopee.co.th/__t__"},"id":756,"priority":11},
+{"action":{"type":"block"},"condition":{"urlFilter":"||24-hda.com/wp-content/uploads/*.gif"},"id":757,"priority":10},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-1s.mp4"},"type":"redirect"},"condition":{"initiatorDomains":["thmovieshd.com"],"resourceTypes":["media"],"urlFilter":"||b-cdn.net/ssd1/ads/*.mp4"},"id":758,"priority":41},
 {"action":{"redirect":{"extensionPath":"/web_accessible_resources/noop-0.1s.mp3"},"type":"redirect"},"condition":{"domainType":"thirdParty","initiatorDomains":["hdd.moviefun24.com"],"resourceTypes":["media"]},"id":759,"priority":11},
-{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||veewin.top/*banner"},"id":760,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||veewin.top/*banner"},"id":760,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||24-hda.com/link_to.php?url="},"id":761,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hd432.com/ads/player-header.php"},"id":762,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hd432.com/ads/player-top.php"},"id":763,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hd432.com/ads/player-under.php"},"id":764,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||hd432.com/ads/player-footer.php"},"id":765,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||ok-hd.com/ad/warpav.xml"},"id":766,"priority":10}
 ]
