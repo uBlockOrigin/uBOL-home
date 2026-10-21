@@ -4524,7 +4524,105 @@ function xmlPrune(
     });
 }
 
-function zeta_0726caff1b4542a194f1d15c2cadaae7() { // google-ima.js
+function zeta_113d2e93b786432083df0280c3b2c64f() { // nofab.js
+(function() {
+    'use strict';
+    const noopfn = function() {
+    };
+    const Fab = function() {};
+    Fab.prototype.check = noopfn;
+    Fab.prototype.clearEvent = noopfn;
+    Fab.prototype.emitEvent = noopfn;
+    Fab.prototype.on = function(a, b) {
+        if ( !a ) { b(); }
+        return this;
+    };
+    Fab.prototype.onDetected = function() {
+        return this;
+    };
+    Fab.prototype.onNotDetected = function(a) {
+        a();
+        return this;
+    };
+    Fab.prototype.setOption = noopfn;
+    Fab.prototype.options = {
+        set: noopfn,
+        get: noopfn,
+    };
+    const fab = new Fab();
+    const getSetFab = {
+        get: function() { return Fab; },
+        set: function() {}
+    };
+    const getsetfab = {
+        get: function() { return fab; },
+        set: function() {}
+    };
+    if ( window.hasOwnProperty('FuckAdBlock') ) { window.FuckAdBlock = Fab; }
+    else { Object.defineProperty(window, 'FuckAdBlock', getSetFab); }
+    if ( window.hasOwnProperty('BlockAdBlock') ) { window.BlockAdBlock = Fab; }
+    else { Object.defineProperty(window, 'BlockAdBlock', getSetFab); }
+    if ( window.hasOwnProperty('SniffAdBlock') ) { window.SniffAdBlock = Fab; }
+    else { Object.defineProperty(window, 'SniffAdBlock', getSetFab); }
+    if ( window.hasOwnProperty('fuckAdBlock') ) { window.fuckAdBlock = fab; }
+    else { Object.defineProperty(window, 'fuckAdBlock', getsetfab); }
+    if ( window.hasOwnProperty('blockAdBlock') ) { window.blockAdBlock = fab; }
+    else { Object.defineProperty(window, 'blockAdBlock', getsetfab); }
+    if ( window.hasOwnProperty('sniffAdBlock') ) { window.sniffAdBlock = fab; }
+    else { Object.defineProperty(window, 'sniffAdBlock', getsetfab); }
+})();
+}
+
+function zeta_2238fb9c424b4209bc6266885d087009() { // fingerprint2.js
+// Reference:
+// https://github.com/fingerprintjs/fingerprintjs/tree/v2
+
+(function() {
+    'use strict';
+    const hex32 = len => {
+        return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)
+            .toString(16)
+            .slice(-len)
+            .padStart(len, '0');
+    };
+    const browserId = `${hex32(8)}${hex32(8)}${hex32(8)}${hex32(8)}`;
+    const fp2 = function(){};
+    fp2.get = function(opts, cb) {
+        if ( !cb  ) { cb = opts; }
+        setTimeout(( ) => { cb([]); }, 1);
+    };
+    fp2.getPromise = function() {
+        return Promise.resolve([]);
+    };
+    fp2.getV18 = function() {
+        return browserId;
+    };
+    fp2.x64hash128 = function() {
+        return browserId;
+    };
+    fp2.prototype = {
+        get: function(opts, cb) {
+            if ( !cb  ) { cb = opts; }
+            setTimeout(( ) => { cb(browserId, []); }, 1);
+        },
+    };
+    self.Fingerprint2 = self.Fingerprint = fp2;
+})();
+}
+
+function zeta_242ac6c354ec419eac44ca855dbbee4c() { // noeval.js
+(function() {
+    'use strict';
+    const log = console.log.bind(console);
+    window.eval = new Proxy(window.eval, {          // jshint ignore: line
+        apply: function(target, thisArg, args) {
+            log(`Document tried to eval... ${args[0]}\n`);
+        }
+    });
+})();
+}
+
+function zeta_b0d57943e4654533af771a5e70b4afbb() { // google-ima.js
 'use strict';
 
 
@@ -5153,80 +5251,7 @@ if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
 }
 }
 
-function zeta_1a2d72eea1e04151b58d846767b1a319() { // popads-dummy.js
-(function() {
-    'use strict';
-    delete window.PopAds;
-    delete window.popns;
-    Object.defineProperties(window, {
-        PopAds: { value: {} },
-        popns: { value: {} }
-    });
-})();
-}
-
-function zeta_44a04fd809524252b297af2499376989() { // nofab.js
-(function() {
-    'use strict';
-    const noopfn = function() {
-    };
-    const Fab = function() {};
-    Fab.prototype.check = noopfn;
-    Fab.prototype.clearEvent = noopfn;
-    Fab.prototype.emitEvent = noopfn;
-    Fab.prototype.on = function(a, b) {
-        if ( !a ) { b(); }
-        return this;
-    };
-    Fab.prototype.onDetected = function() {
-        return this;
-    };
-    Fab.prototype.onNotDetected = function(a) {
-        a();
-        return this;
-    };
-    Fab.prototype.setOption = noopfn;
-    Fab.prototype.options = {
-        set: noopfn,
-        get: noopfn,
-    };
-    const fab = new Fab();
-    const getSetFab = {
-        get: function() { return Fab; },
-        set: function() {}
-    };
-    const getsetfab = {
-        get: function() { return fab; },
-        set: function() {}
-    };
-    if ( window.hasOwnProperty('FuckAdBlock') ) { window.FuckAdBlock = Fab; }
-    else { Object.defineProperty(window, 'FuckAdBlock', getSetFab); }
-    if ( window.hasOwnProperty('BlockAdBlock') ) { window.BlockAdBlock = Fab; }
-    else { Object.defineProperty(window, 'BlockAdBlock', getSetFab); }
-    if ( window.hasOwnProperty('SniffAdBlock') ) { window.SniffAdBlock = Fab; }
-    else { Object.defineProperty(window, 'SniffAdBlock', getSetFab); }
-    if ( window.hasOwnProperty('fuckAdBlock') ) { window.fuckAdBlock = fab; }
-    else { Object.defineProperty(window, 'fuckAdBlock', getsetfab); }
-    if ( window.hasOwnProperty('blockAdBlock') ) { window.blockAdBlock = fab; }
-    else { Object.defineProperty(window, 'blockAdBlock', getsetfab); }
-    if ( window.hasOwnProperty('sniffAdBlock') ) { window.sniffAdBlock = fab; }
-    else { Object.defineProperty(window, 'sniffAdBlock', getsetfab); }
-})();
-}
-
-function zeta_9bb3e0f119fd46e7864cb910bf1be57b() { // noeval.js
-(function() {
-    'use strict';
-    const log = console.log.bind(console);
-    window.eval = new Proxy(window.eval, {          // jshint ignore: line
-        apply: function(target, thisArg, args) {
-            log(`Document tried to eval... ${args[0]}\n`);
-        }
-    });
-})();
-}
-
-function zeta_a2a5eb4f84c845caaeea69cc87b8bab1() { // nobab2.js
+function zeta_b41c4f560d45433f83814831d805821d() { // nobab2.js
 (function() {
     'use strict';
     const script = document.currentScript;
@@ -5250,40 +5275,15 @@ function zeta_a2a5eb4f84c845caaeea69cc87b8bab1() { // nobab2.js
 })();
 }
 
-function zeta_f99f996762c5478fa9d4339059929664() { // fingerprint2.js
-// Reference:
-// https://github.com/fingerprintjs/fingerprintjs/tree/v2
-
+function zeta_bc404a15727342509be7b25f6a3a7b06() { // popads-dummy.js
 (function() {
     'use strict';
-    const hex32 = len => {
-        return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)
-            .toString(16)
-            .slice(-len)
-            .padStart(len, '0');
-    };
-    const browserId = `${hex32(8)}${hex32(8)}${hex32(8)}${hex32(8)}`;
-    const fp2 = function(){};
-    fp2.get = function(opts, cb) {
-        if ( !cb  ) { cb = opts; }
-        setTimeout(( ) => { cb([]); }, 1);
-    };
-    fp2.getPromise = function() {
-        return Promise.resolve([]);
-    };
-    fp2.getV18 = function() {
-        return browserId;
-    };
-    fp2.x64hash128 = function() {
-        return browserId;
-    };
-    fp2.prototype = {
-        get: function(opts, cb) {
-            if ( !cb  ) { cb = opts; }
-            setTimeout(( ) => { cb(browserId, []); }, 1);
-        },
-    };
-    self.Fingerprint2 = self.Fingerprint = fp2;
+    delete window.PopAds;
+    delete window.popns;
+    Object.defineProperties(window, {
+        PopAds: { value: {} },
+        popns: { value: {} }
+    });
 })();
 }
 
@@ -5329,11 +5329,11 @@ scriptletGlobals.origins = (( ) => {
     return out;
 })();
 
-scriptletGlobals.functionRefs = /* 59 */ [trustedEditInboundObject,adjustSetTimeout,jsonPruneFetchResponse,jsonPruneXhrResponse,trustedReplaceXhrResponse,trustedReplaceFetchResponse,trustedPreventDomBypass,jsonPrune,jsonEdit,jsonlEditXhrResponse,noWindowOpenIf,setConstant,abortCurrentScript,preventXhr,preventSetTimeout,preventFetch,trustedReplaceArgument,removeAttr,trustedOverrideElementMethod,abortOnPropertyRead,trustedReplaceOutboundText,trustedSuppressNativeMethod,preventAddEventListener,abortOnStackTrace,preventSetInterval,preventInnerHTML,adjustSetInterval,zeta_f99f996762c5478fa9d4339059929664,trustedSetConstant,jsonEditFetchResponse,zeta_9bb3e0f119fd46e7864cb910bf1be57b,abortOnPropertyWrite,noWebrtc,zeta_44a04fd809524252b297af2499376989,zeta_1a2d72eea1e04151b58d846767b1a319,preventRequestAnimationFrame,noEvalIf,preventBab,trustedPreventFetch,disableNewtabLinks,trustedJsonEditFetchResponse,editObjectOnSetter,trustedJsonEdit,trustedJsonEditXhrResponse,preventClipboardWrite,jsonEditXhrResponse,xmlPrune,m3uPrune,trustedPreventXhr,spoofCSS,zeta_0726caff1b4542a194f1d15c2cadaae7,alertBuster,preventCanvas,mpegdashPrune,jsonEditFetchRequest,proxyApplyConfig,jsonlEditFetchResponse,evaldataPrune,zeta_a2a5eb4f84c845caaeea69cc87b8bab1];
+scriptletGlobals.functionRefs = /* 59 */ [trustedEditInboundObject,adjustSetTimeout,jsonPruneFetchResponse,jsonPruneXhrResponse,trustedReplaceXhrResponse,trustedReplaceFetchResponse,trustedPreventDomBypass,jsonPrune,jsonEdit,jsonlEditXhrResponse,noWindowOpenIf,setConstant,abortCurrentScript,preventXhr,preventSetTimeout,preventFetch,trustedReplaceArgument,removeAttr,trustedOverrideElementMethod,abortOnPropertyRead,trustedReplaceOutboundText,trustedSuppressNativeMethod,preventAddEventListener,abortOnStackTrace,preventSetInterval,preventInnerHTML,adjustSetInterval,zeta_2238fb9c424b4209bc6266885d087009,trustedSetConstant,jsonEditFetchResponse,zeta_242ac6c354ec419eac44ca855dbbee4c,abortOnPropertyWrite,noWebrtc,zeta_113d2e93b786432083df0280c3b2c64f,zeta_bc404a15727342509be7b25f6a3a7b06,preventRequestAnimationFrame,noEvalIf,preventBab,trustedPreventFetch,disableNewtabLinks,trustedJsonEditFetchResponse,editObjectOnSetter,trustedJsonEdit,trustedJsonEditXhrResponse,preventClipboardWrite,jsonEditXhrResponse,xmlPrune,m3uPrune,trustedPreventXhr,spoofCSS,zeta_b0d57943e4654533af771a5e70b4afbb,alertBuster,preventCanvas,mpegdashPrune,jsonEditFetchRequest,proxyApplyConfig,jsonlEditFetchResponse,evaldataPrune,zeta_b41c4f560d45433f83814831d805821d];
 
 /******************************************************************************/
 
 // End of local scope
-})("74f9600a-13a3-47bc-b856-40c6da158b89");
+})("18a6405d-4634-4b3a-ae38-e2d275e6b586");
 
 void 0;

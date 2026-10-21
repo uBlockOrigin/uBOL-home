@@ -101,7 +101,7 @@ if ( $hasHostnames$ ) {
 }
 
 if ( $hasRegexes$ ) {
-    const scriptletFromRegexes = /* 1 */ ["lover","lover[0-9]\\.net","68,70"];
+    const scriptletFromRegexes = /* 1 */ ["lover","lover[0-9]+\\.net","68,70"];
     const { hns } = scriptletGlobals.origins[0];
     for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 3 ) {
         const needle = scriptletFromRegexes[i+0];
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("74f9600a-13a3-47bc-b856-40c6da158b89");
+})("18a6405d-4634-4b3a-ae38-e2d275e6b586");
 
 void 0;

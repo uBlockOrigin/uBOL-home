@@ -117,7 +117,6 @@
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["2mdn.net"],"urlFilter":"||imasdk.googleapis.com/native/core*/native_bridge__*.js"},"id":116,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["cnn.com"],"urlFilter":"||cnn.com^*/ad_policy.xml"},"id":117,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["wtf.nl"],"requestDomains":["google-analytics.com"]},"id":118,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["mlb.com"],"urlFilter":"||livefyre.com/wjs/v1.0/javascripts/commentcount.js"},"id":119,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["cnet.com"],"requestDomains":["imasdk.googleapis.com"]},"id":120,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["hochi.news"],"requestDomains":["speee-ad.akamaized.net"],"resourceTypes":["image"]},"id":121,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["hochi.news"],"resourceTypes":["script"],"urlFilter":"||click.speee-ad.jp/v1/recwid?"},"id":122,"priority":30},

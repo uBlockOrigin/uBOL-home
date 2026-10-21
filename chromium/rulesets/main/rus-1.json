@@ -1080,5 +1080,7 @@
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["from"]}}},"type":"redirect"},"condition":{"resourceTypes":["image","main_frame","sub_frame","xmlhttprequest"],"urlFilter":"?from=rcm-"},"id":1079},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["onelink_id"]}}},"type":"redirect"},"condition":{"initiatorDomains":["ozon.ru"],"resourceTypes":["image","sub_frame","xmlhttprequest"],"urlFilter":"^onelink_id="},"id":1080},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["onelink_id"]}}},"type":"redirect"},"condition":{"requestDomains":["ozon.ru"],"resourceTypes":["main_frame"],"urlFilter":"^onelink_id="},"id":1081},
-{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["snr"]}}},"type":"redirect"},"condition":{"requestDomains":["steamcommunity.com","steamgames.com","steampowered.com"],"resourceTypes":["main_frame"],"urlFilter":"^snr="},"id":1082}
+{"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["snr"]}}},"type":"redirect"},"condition":{"requestDomains":["steamcommunity.com","steamgames.com","steampowered.com"],"resourceTypes":["main_frame"],"urlFilter":"^snr="},"id":1082},
+{"action":{"type":"block"},"condition":{"urlFilter":"||fenixplay.xyz/api/stats/event"},"id":1083,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["xmlhttprequest"],"urlFilter":"/api/track|"},"id":1084,"priority":10}
 ]

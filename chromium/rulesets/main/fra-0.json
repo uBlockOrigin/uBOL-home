@@ -68,7 +68,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||homad-global-configs-eu-fra.schneevonmorgen.com.s3.amazonaws.com/www.clubic.com/config.json?cache=player.m6web.fr"},"id":67,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||static.lequipe.fr/v6/js/popinvideo.js"},"id":68,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||empire-streaming.*/serviceworker.js"},"id":69,"priority":10},
-{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["neads.co","neads.io"],"urlFilter":"/neads."},"id":70,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||fmovies.*/sw.js"},"id":71,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||static1.purepeople.com/skins/autop.png"},"id":72,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"&ad_count="},"id":73,"priority":10},

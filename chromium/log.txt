@@ -1,11 +1,11 @@
-Secret: 74f9600a-13a3-47bc-b856-40c6da158b89
-Version: 2026.1018.2229
+Secret: 18a6405d-4634-4b3a-ae38-e2d275e6b586
+Version: 2026.1021.1354
 ============================
 Listset for 'ublock-filters':
-Input filter count: 10745
-	Accepted filter count: 10721
+Input filter count: 10749
+	Accepted filter count: 10725
 	Rejected filter count: 1
-Output rule count: 7283
+Output rule count: 7288
 	Pruning requestDomains: from 484 to 482
 		Salvaged rule by ignoring 1 unsupported domain= option: erotic-beauties.com|hardsex.cc|rule34.top|sex-movies.biz|tube18.sexy|xvideos.name|booru.*
 		Salvaged rule by ignoring 1 unsupported domain= option: 8boobs.com|angelgals.com|babesexy.com|babesinporn.com|fooxybabes.com|hotbabeswanted.com|hotstunners.com|mainbabes.com|nakedbabes.club|nakedgirlsroom.com|nudebabes.sexy|pleasuregirl.net|rabbitsfun.com|sexybabes.club|sexybabesart.com|wantedbabes.com|silkengirl.*
@@ -104,42 +104,42 @@ Output rule count: 7283
 		Salvaged rule by ignoring 1 unsupported domain= option: amazon.ae|amazon.ca|amazon.cn|amazon.co.jp|amazon.co.uk|amazon.com|amazon.com.au|amazon.de|amazon.es|amazon.fr|amazon.in|amazon.nl|amazon.sg|amazon.*
 		Salvaged rule by ignoring 20 unsupported domain= option: fullxh.com|megaxh.com|seexh.com|unlockxh4.com|xhaccess.com|xhadult2.com|xhadult3.com|xhamster.*|xhamster10.*|xhamster11.*|xhamster12.*|xhamster13.*|xhamster14.*|xhamster15.*|xhamster16.*|xhamster17.*|xhamster18.*|xhamster19.*|xhamster2.*|xhamster20.*|xhamster3.*|xhamster4.*|xhamster42.*|xhamster46.*|xhamster5.*|xhamster7.*|xhamster8.*|xhamsterporno.mx|xhbig.com|xhbranch5.com|xhchannel.com|xhdate.world|xhlease.world|xhmoon5.com|xhofficial.com|xhopen.com|xhplanet1.com|xhplanet2.com|xhreal2.com|xhreal3.com|xhspot.com|xhtotal.com|xhtree.com|xhvictory.com|xhwebsite.com|xhwebsite5.com|xhwide5.com
 	Maybe good regexes (raw/minimized): 251/208
-	Static rules (raw/minimized): 6795/5615
+	Static rules (raw/minimized): 6800/5618
 	urlskip=: 239
 	Unsupported: 0
 
 CSS-generic-low: 169 plain CSS selectors
 CSS-generic-high: 69 plain CSS selectors
 CSS-generic: 435 specific CSS exceptions
-CSS-specific: 6182 distinct filters for 5153 distinct hostnames
-make-scriptlets.js / compile(): Can't find zeta_37bf9a05db174e84bf8ebaeed2448989 scriptlet
+CSS-specific: 6184 distinct filters for 5156 distinct hostnames
+make-scriptlets.js / compile(): Can't find zeta_58446c85565e4581b10ecbf7936c2d34 scriptlet
 ============================
 Listset for 'easylist':
-Input filter count: 59239
-	Accepted filter count: 59209
+Input filter count: 60124
+	Accepted filter count: 60094
 	Rejected filter count: 18
-Output rule count: 3835
-	Pruning requestDomains: from 49799 to 49791
+Output rule count: 3836
+	Pruning requestDomains: from 50683 to 50675
 
 	Maybe good regexes (raw/minimized): 21/18
-	Static rules (raw/minimized): 3814/3710
+	Static rules (raw/minimized): 3815/3711
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 11407 plain CSS selectors
 CSS-generic-high: 427 plain CSS selectors
 CSS-generic: 495 specific CSS exceptions
-CSS-specific: 10890 distinct filters for 8295 distinct hostnames
+CSS-specific: 10897 distinct filters for 8298 distinct hostnames
 ============================
 Listset for 'easyprivacy':
-Input filter count: 56354
-	Accepted filter count: 56323
+Input filter count: 56387
+	Accepted filter count: 56356
 	Rejected filter count: 29
-Output rule count: 9150
-	Pruning requestDomains: from 43237 to 43236
+Output rule count: 9157
+	Pruning requestDomains: from 43263 to 43262
 		Salvaged rule by ignoring 1 unsupported domain= option: allmodern.com|birchlane.com|catbirdnyc.com|gametime.co|jossandmain.com|ladym.com|libertylondon.com|mediamarkt.de|nobullproject.com|paynow.pmnts.io|perigold.com|theathletesfoot.co.nz|theathletesfoot.com.au|wayfair.*
 	Maybe good regexes (raw/minimized): 9/7
-	Static rules (raw/minimized): 9141/9061
+	Static rules (raw/minimized): 9148/9068
 	urlskip=: 0
 	Unsupported: 0
 
@@ -149,11 +149,11 @@ CSS-generic: 0 specific CSS exceptions
 CSS-specific: 3 distinct filters for 4 distinct hostnames
 ============================
 Listset for 'pgl':
-Input filter count: 3569
-	Accepted filter count: 3489
+Input filter count: 3572
+	Accepted filter count: 3492
 	Rejected filter count: 80
 Output rule count: 1
-	Pruning requestDomains: from 3489 to 3477
+	Pruning requestDomains: from 3492 to 3480
 
 	Maybe good regexes (raw/minimized): 0/0
 	Static rules (raw/minimized): 1/1
@@ -162,8 +162,8 @@ Output rule count: 1
 
 ============================
 Listset for 'ublock-badware':
-Input filter count: 9693
-	Accepted filter count: 9676
+Input filter count: 10324
+	Accepted filter count: 10307
 	Rejected filter count: 0
 Output rule count: 509
 
@@ -178,11 +178,11 @@ CSS-generic: 0 specific CSS exceptions
 CSS-specific: 55 distinct filters for 209 distinct hostnames
 ============================
 Listset for 'urlhaus-full':
-Input filter count: 2074
-	Accepted filter count: 2074
+Input filter count: 1797
+	Accepted filter count: 1797
 	Rejected filter count: 0
 Output rule count: 1
-	Pruning requestDomains: from 2074 to 2051
+	Pruning requestDomains: from 1797 to 1774
 
 	Maybe good regexes (raw/minimized): 0/0
 	Static rules (raw/minimized): 1/1
@@ -191,21 +191,21 @@ Output rule count: 1
 
 ============================
 Listset for 'adguard-mobile':
-Input filter count: 1583
-	Accepted filter count: 1579
+Input filter count: 1582
+	Accepted filter count: 1578
 	Rejected filter count: 4
-Output rule count: 623
+Output rule count: 622
 	Pruning requestDomains: from 925 to 917
 
 	Maybe good regexes (raw/minimized): 10/9
-	Static rules (raw/minimized): 612/564
+	Static rules (raw/minimized): 611/563
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 20 plain CSS selectors
 CSS-generic-high: 16 plain CSS selectors
 CSS-generic: 35 specific CSS exceptions
-CSS-specific: 6276 distinct filters for 4641 distinct hostnames
+CSS-specific: 6278 distinct filters for 4643 distinct hostnames
 ============================
 Listset for 'block-lan':
 Input filter count: 93
@@ -251,7 +251,7 @@ Output rule count: 10
 CSS-generic-low: 3 plain CSS selectors
 CSS-generic-high: 1 plain CSS selectors
 CSS-generic: 0 specific CSS exceptions
-CSS-specific: 249 distinct filters for 155 distinct hostnames
+CSS-specific: 250 distinct filters for 156 distinct hostnames
 ============================
 Listset for 'annoyances-cookies':
 Input filter count: 2204
@@ -259,7 +259,7 @@ Input filter count: 2204
 	Rejected filter count: 0
 Output rule count: 1883
 	Pruning requestDomains: from 132 to 131
-		Salvaged rule by ignoring 2 unsupported domain= option: 1001games.com|1001hry.cz|1001jeux.fr|1001jocuri.ro|1001jogos.com.br|1001jogos.pt|1001pelit.com|1001spiele.de|10play.com.au|20min.ch|24kitchen.pt|3sat.de|a1.ro|aachener-zeitung.de|abc.com|abola.pt|account.t-mobile.com|acmemarkets.com|albertsons.com|aljazeera.com|all.accor.com|antena3.ro|automobiles.honda.com|avon.uk.com|balduccis.com|beko.com|beobachter.ch|bergfreunde.de|bet.com|bigbearmountainresort.com|biletix.com|bk.com|blaklader.be|blaklader.ca|blaklader.ch|blaklader.com|blaklader.cz|blaklader.de|blaklader.dk|blaklader.ee|blaklader.es|blaklader.fi|blaklader.fr|blaklader.ie|blaklader.nl|blaklader.pl|blaklader.se|blaklader.uk|blick.ch|bongo.be|booking.com|boomerang-tv.pl|bostad.stockholm.se|breitbart.com|canadiantire.ca|carrsqc.com|caterpillar.com|cbs.com|cbslocal.com|cbsnews.com|cbssports.com|cc.com|channel5.com|chvnoticias.cl|ci.ford.com|cmore.fi|cnet.com|comicbook.com|computerbase.de|cookielaw.org|costco.ca|costco.com|costcobusinessdelivery.com|costcopharmacy.ca|crunchyroll.com|cwtv.com|darkreading.com|de.hgtv.com|delta.com|developer.confluent.io|dhl.de|digi24.ro|digitaltrends.com|disney.co.uk|disney.de|disney.dk|disney.es|disney.fi|disney.fr|disney.it|disney.nl|disney.no|disney.pl|disney.pt|disney.se|dmax.de|docs.vmware.com|drafthouse.com|e-ladestation.aldi-sued.de|elisa.fi|elkspel.nl|elle.se|elsevier.support|embed.sportsline.com|epicgames.com|eu.usatoday.com|eurogamer.cz|eurogamer.de|eurogamer.es|eurogamer.it|eurogamer.net|eurogamer.nl|eurogamer.pl|eurogamer.pt|eurosport.de|filiale.kaufland.de|financemagnates.com|foodandwine.com|fordblueadvantage.com|foxchannels.com.tr|ga.de|games.miamiherald.com|gamescom.global|gamespot.com|geappliances.com|geizhals.at|giantbomb.com|giochixl.it|glamour.de|globalblue.com|glovoapp.com|gmx.co.uk|gmx.com|gmx.fr|gq-magazine.co.uk|gqmagazine.fr|grajteraz.pl|haggen.com|heute.at|homedepot.ca|id.trimble.com|ikea.com|ikonpass.com|indiewire.com|informationweek.com|insideevs.com|isladejuegos.com|itau.com.br|jatekokxl.hu|jetztspielen.ws|jewelosco.com|juegosjuegos.ws|kanald.ro|karriere.mcdonalds.de|kawasaki.com|khanacademy.org|kijk.nl|kingsfoodmarkets.com|kizi.com|kralmuzik.com.tr|larousse.fr|lippu.fi|listen.tidal.com|locator.dhl.com|louvrehotels.com|mail.com|mcdelivery.de|mensjournal.com|mesta.net|metabomb.net|metacritic.com|metrobyt-mobile.com|midomi.com|milwaukeetool.eu|motorsport-total.com|movistar.es|mtv.com|mtvuutiset.fi|muscleandfitness.com|nachrichten.at|nascar.com|natgeotv.com|nationalgeographic.de|nbcolympics.com|nbcsports.com|netzwelt.de|new.cappex.com|newegg.com|newyorkcityfc.com|newyorker.com|next.co.uk|nhl.com|nintendo.at|nintendo.be|nintendo.ch|nintendo.co.uk|nintendo.co.za|nintendo.com|nintendo.de|nintendo.es|nintendo.fr|nintendo.it|nintendo.pt|nintendo.ru|nowtv.com.tr|npr.org|ns.nl|ntv.com.tr|nutmeg.com|observatornews.ro|oe24.at|olx.pl|olympics.com|omnipod.com|onlinebanking.natwest.com|paixnidiaxl.gr|palisadestahoe.com|papajohns.com|paramountplus.com|parkside-diy.com|patagonia.com|pavilions.com|payback.at|peacocktv.com|pearson.com|peta.de|pitchfork.com|player.pl|pluto.tv|popculture.com|popeyes.com|popeyeschicken.ca|popsugar.co.uk|porn300.com|pricerunner.com|pricerunner.dk|pricerunner.se|proximus.be|proximus.com|publicstorage.com|pumpkin.care|questdiagnostics.com|quora.com|rackroomshoes.com|randalls.com|rd.com|redbull.com|redbullracing.com|reuters.com|roastmarket.de|rockpapershotgun.com|rp-online.de|rte.ie|rtl.nl|rtlplay.be|rtlxl.nl|rts.ch|ryobitools.eu|saal-digital.at|saal-digital.bg|saal-digital.ch|saal-digital.com|saal-digital.cz|saal-digital.de|saal-digital.dk|saal-digital.ee|saal-digital.es|saal-digital.eu|saal-digital.fi|saal-digital.fr|saal-digital.gr|saal-digital.hu|saal-digital.lt|saal-digital.lv|saal-digital.nl|saal-digital.pl|saal-digital.pt|saal-digital.ro|saal-digital.se|saal-digital.si|saal-digital.sk|saarbruecker-zeitung.de|safeway.com|salesforce.com|schindler.com|scopely.com|sebrae.com.br|shaws.com|shop.mango.com|shopamigos.com|skateboarding.transworld.net|sony.*|sony.pl|soundcloud.com|southpark.de|southpark.lat|southparkstudios.co.uk|southparkstudios.com|southparkstudios.com.br|southparkstudios.nu|spektrum.de|spel.nl|spelletjes.nl|spelo.se|spiele.bild.de|spiele.stern.de|spillespill.no|spilxl.dk|sportiva.shueisha.co.jp|squareup.com|starmarket.com|start.gg|starwarscelebration.com|steamboat.com|stirileprotv.ro|subway.com|superporn.com|surfer.com|syfy.com|ted.com|teenvogue.com|telenet.be|thejournal.ie|thetrainline.com|theverge.com|tickethour.com|ticketmaster.ae|ticketmaster.at|ticketmaster.be|ticketmaster.ca|ticketmaster.ch|ticketmaster.cl|ticketmaster.co.il|ticketmaster.co.nz|ticketmaster.co.uk|ticketmaster.co.za|ticketmaster.com|ticketmaster.com.au|ticketmaster.com.br|ticketmaster.com.mx|ticketmaster.cz|ticketmaster.de|ticketmaster.dk|ticketmaster.es|ticketmaster.fi|ticketmaster.fr|ticketmaster.gr|ticketmaster.ie|ticketmaster.it|ticketmaster.nl|ticketmaster.no|ticketmaster.pe|ticketmaster.pl|ticketmaster.se|ticketmaster.sg|tio.ch|tips.at|tixcraft.com|tntsports.co.uk|tokfm.pl|tomthumb.com|toteraz.pl|travelandleisure.com|tredz.co.uk|tripadvisor.at|tripadvisor.be|tripadvisor.ca|tripadvisor.ch|tripadvisor.cl|tripadvisor.cn|tripadvisor.co|tripadvisor.co.id|tripadvisor.co.il|tripadvisor.co.kr|tripadvisor.co.nz|tripadvisor.co.uk|tripadvisor.co.za|tripadvisor.com|tripadvisor.com.ar|tripadvisor.com.au|tripadvisor.com.br|tripadvisor.com.eg|tripadvisor.com.gr|tripadvisor.com.hk|tripadvisor.com.mx|tripadvisor.com.my|tripadvisor.com.pe|tripadvisor.com.ph|tripadvisor.com.sg|tripadvisor.com.tr|tripadvisor.com.tw|tripadvisor.com.ve|tripadvisor.com.vn|tripadvisor.de|tripadvisor.dk|tripadvisor.es|tripadvisor.fr|tripadvisor.ie|tripadvisor.in|tripadvisor.it|tripadvisor.jp|tripadvisor.nl|tripadvisor.pt|tripadvisor.ru|tripadvisor.se|trustpilot.com|trustradius.com|tt.com|tunein.com|tvguide.com|tvn.pl|tvn24.pl|uber-platz.de|udemy.com|uefa.com|unity.com|upc.pl|uphold.com|usanetwork.com|usmagazine.com|uw.co.uk|vanityfair.com|vg247.com|victorinox.com|videoland.com|vimeo.com|vinted.*|vizio.com|vkmag.com|vogue.co.jp|vogue.co.uk|vogue.com|vogue.com.tw|vogue.de|vogue.es|vogue.fr|vogue.in|vogue.it|vogue.mx|vogue.ph|vol.at|volksfreund.de|vons.com|wallapop.com|wargaming.net|watson.ch|webuyanycar.com|weddingbee.com|westernunion.com|wetter.at|wired.com|wizzair.com|worldmarathonmajors.com|worldoftanks.ru|worldsurfleague.com|wpb.shueisha.co.jp|wrangler.com|wrc.com|wz.de|yallo.tv|yvesrocher.com.tr|zdf.de|zdnet.com|zoom.us
+		Salvaged rule by ignoring 2 unsupported domain= option: 1001games.com|1001hry.cz|1001jeux.fr|1001jocuri.ro|1001jogos.com.br|1001jogos.pt|1001pelit.com|1001spiele.de|10play.com.au|20min.ch|24kitchen.pt|3sat.de|a1.ro|aachener-zeitung.de|abc.com|abola.pt|account.t-mobile.com|acmemarkets.com|albertsons.com|aljazeera.com|all.accor.com|antena3.ro|automobiles.honda.com|avon.uk.com|balduccis.com|beko.com|beobachter.ch|bergfreunde.de|bet.com|bigbearmountainresort.com|biletix.com|bk.com|blaklader.be|blaklader.ca|blaklader.ch|blaklader.com|blaklader.cz|blaklader.de|blaklader.dk|blaklader.ee|blaklader.es|blaklader.fi|blaklader.fr|blaklader.ie|blaklader.nl|blaklader.pl|blaklader.se|blaklader.uk|blick.ch|bongo.be|booking.com|boomerang-tv.pl|bostad.stockholm.se|breitbart.com|canadiantire.ca|carrsqc.com|caterpillar.com|cbs.com|cbslocal.com|cbsnews.com|cbssports.com|cc.com|channel5.com|chvnoticias.cl|ci.ford.com|cmore.fi|cnet.com|cnn.com|comicbook.com|computerbase.de|cookielaw.org|costco.ca|costco.com|costcobusinessdelivery.com|costcopharmacy.ca|crunchyroll.com|cwtv.com|darkreading.com|de.hgtv.com|delta.com|developer.confluent.io|dhl.de|digi24.ro|digitaltrends.com|disney.co.uk|disney.de|disney.dk|disney.es|disney.fi|disney.fr|disney.it|disney.nl|disney.no|disney.pl|disney.pt|disney.se|dmax.de|docs.vmware.com|drafthouse.com|e-ladestation.aldi-sued.de|elisa.fi|elkspel.nl|elle.se|elsevier.support|embed.sportsline.com|epicgames.com|eu.usatoday.com|eurogamer.cz|eurogamer.de|eurogamer.es|eurogamer.it|eurogamer.net|eurogamer.nl|eurogamer.pl|eurogamer.pt|eurosport.de|filiale.kaufland.de|financemagnates.com|foodandwine.com|fordblueadvantage.com|foxchannels.com.tr|ga.de|games.miamiherald.com|gamescom.global|gamespot.com|geappliances.com|geizhals.at|giantbomb.com|giochixl.it|glamour.de|globalblue.com|glovoapp.com|gmx.co.uk|gmx.com|gmx.fr|gq-magazine.co.uk|gqmagazine.fr|grajteraz.pl|haggen.com|heute.at|homedepot.ca|id.trimble.com|ikea.com|ikonpass.com|indiewire.com|informationweek.com|insideevs.com|isladejuegos.com|itau.com.br|jatekokxl.hu|jetztspielen.ws|jewelosco.com|juegosjuegos.ws|kanald.ro|karriere.mcdonalds.de|kawasaki.com|khanacademy.org|kijk.nl|kingsfoodmarkets.com|kizi.com|kralmuzik.com.tr|larousse.fr|lippu.fi|listen.tidal.com|locator.dhl.com|louvrehotels.com|mail.com|mcdelivery.de|mensjournal.com|mesta.net|metabomb.net|metacritic.com|metrobyt-mobile.com|midomi.com|milwaukeetool.eu|motorsport-total.com|movistar.es|mtv.com|mtvuutiset.fi|muscleandfitness.com|nachrichten.at|nascar.com|natgeotv.com|nationalgeographic.de|nbcolympics.com|nbcsports.com|netzwelt.de|new.cappex.com|newegg.com|newyorkcityfc.com|newyorker.com|next.co.uk|nhl.com|nintendo.at|nintendo.be|nintendo.ch|nintendo.co.uk|nintendo.co.za|nintendo.com|nintendo.de|nintendo.es|nintendo.fr|nintendo.it|nintendo.pt|nintendo.ru|nowtv.com.tr|npr.org|ns.nl|ntv.com.tr|nutmeg.com|observatornews.ro|oe24.at|olx.pl|olympics.com|omnipod.com|onlinebanking.natwest.com|paixnidiaxl.gr|palisadestahoe.com|papajohns.com|paramountplus.com|parkside-diy.com|patagonia.com|pavilions.com|payback.at|peacocktv.com|pearson.com|peta.de|pitchfork.com|player.pl|pluto.tv|popculture.com|popeyes.com|popeyeschicken.ca|popsugar.co.uk|porn300.com|pricerunner.com|pricerunner.dk|pricerunner.se|proximus.be|proximus.com|publicstorage.com|pumpkin.care|questdiagnostics.com|quora.com|rackroomshoes.com|randalls.com|rd.com|redbull.com|redbullracing.com|reuters.com|roastmarket.de|rockpapershotgun.com|rp-online.de|rte.ie|rtl.nl|rtlplay.be|rtlxl.nl|rts.ch|ryobitools.eu|saal-digital.at|saal-digital.bg|saal-digital.ch|saal-digital.com|saal-digital.cz|saal-digital.de|saal-digital.dk|saal-digital.ee|saal-digital.es|saal-digital.eu|saal-digital.fi|saal-digital.fr|saal-digital.gr|saal-digital.hu|saal-digital.lt|saal-digital.lv|saal-digital.nl|saal-digital.pl|saal-digital.pt|saal-digital.ro|saal-digital.se|saal-digital.si|saal-digital.sk|saarbruecker-zeitung.de|safeway.com|salesforce.com|schindler.com|scopely.com|sebrae.com.br|shaws.com|shop.mango.com|shopamigos.com|skateboarding.transworld.net|sony.*|sony.pl|soundcloud.com|southpark.de|southpark.lat|southparkstudios.co.uk|southparkstudios.com|southparkstudios.com.br|southparkstudios.nu|spektrum.de|spel.nl|spelletjes.nl|spelo.se|spiele.bild.de|spiele.stern.de|spillespill.no|spilxl.dk|sportiva.shueisha.co.jp|squareup.com|starmarket.com|start.gg|starwarscelebration.com|steamboat.com|stirileprotv.ro|subway.com|superporn.com|surfer.com|syfy.com|ted.com|teenvogue.com|telenet.be|thejournal.ie|thetrainline.com|theverge.com|tickethour.com|ticketmaster.ae|ticketmaster.at|ticketmaster.be|ticketmaster.ca|ticketmaster.ch|ticketmaster.cl|ticketmaster.co.il|ticketmaster.co.nz|ticketmaster.co.uk|ticketmaster.co.za|ticketmaster.com|ticketmaster.com.au|ticketmaster.com.br|ticketmaster.com.mx|ticketmaster.cz|ticketmaster.de|ticketmaster.dk|ticketmaster.es|ticketmaster.fi|ticketmaster.fr|ticketmaster.gr|ticketmaster.ie|ticketmaster.it|ticketmaster.nl|ticketmaster.no|ticketmaster.pe|ticketmaster.pl|ticketmaster.se|ticketmaster.sg|tio.ch|tips.at|tixcraft.com|tntsports.co.uk|tokfm.pl|tomthumb.com|toteraz.pl|travelandleisure.com|tredz.co.uk|tripadvisor.at|tripadvisor.be|tripadvisor.ca|tripadvisor.ch|tripadvisor.cl|tripadvisor.cn|tripadvisor.co|tripadvisor.co.id|tripadvisor.co.il|tripadvisor.co.kr|tripadvisor.co.nz|tripadvisor.co.uk|tripadvisor.co.za|tripadvisor.com|tripadvisor.com.ar|tripadvisor.com.au|tripadvisor.com.br|tripadvisor.com.eg|tripadvisor.com.gr|tripadvisor.com.hk|tripadvisor.com.mx|tripadvisor.com.my|tripadvisor.com.pe|tripadvisor.com.ph|tripadvisor.com.sg|tripadvisor.com.tr|tripadvisor.com.tw|tripadvisor.com.ve|tripadvisor.com.vn|tripadvisor.de|tripadvisor.dk|tripadvisor.es|tripadvisor.fr|tripadvisor.ie|tripadvisor.in|tripadvisor.it|tripadvisor.jp|tripadvisor.nl|tripadvisor.pt|tripadvisor.ru|tripadvisor.se|trustpilot.com|trustradius.com|tt.com|tunein.com|tvguide.com|tvn.pl|tvn24.pl|uber-platz.de|udemy.com|uefa.com|unity.com|upc.pl|uphold.com|usanetwork.com|usmagazine.com|uw.co.uk|vanityfair.com|vg247.com|victorinox.com|videoland.com|vimeo.com|vinted.*|vizio.com|vkmag.com|vogue.co.jp|vogue.co.uk|vogue.com|vogue.com.tw|vogue.de|vogue.es|vogue.fr|vogue.in|vogue.it|vogue.mx|vogue.ph|vol.at|volksfreund.de|vons.com|wallapop.com|wargaming.net|watson.ch|webuyanycar.com|weddingbee.com|westernunion.com|wetter.at|wired.com|wizzair.com|worldmarathonmajors.com|worldoftanks.ru|worldsurfleague.com|wpb.shueisha.co.jp|wrangler.com|wrc.com|wz.de|yallo.tv|yvesrocher.com.tr|zdf.de|zdnet.com|zoom.us
 		Salvaged rule by ignoring 2 unsupported domain= option: southpark.*|southpark.cc.com|southpark.de|southpark.lat|southpark.su|southparkstudios.*|southparkstudios.co.uk|southparkstudios.com|southparkstudios.com.br|southparkstudios.nu
 		Salvaged rule by ignoring 1 unsupported domain= option: cbs.com|cbsnews.com|chipotle.com|realtruck.com|southpark.cc.com|southparkstudios.*
 		Salvaged rule by ignoring 1 unsupported domain= option: alternate.de|andrewgriffith.cpa|atv.at|bayer04.de|bsr.de|cambio-carsharing.de|casino.psk.hr|dfbplay.tv|douglas.de|dr-beckmann.com|falke.com|festool.at|festool.be|festool.bg|festool.ch|festool.cn|festool.co.kr|festool.co.uk|festool.co.za|festool.com|festool.cz|festool.de|festool.dk|festool.es|festool.fi|festool.fr|festool.hu|festool.ie|festool.it|festool.lt|festool.nl|festool.no|festool.pl|festool.pt|festool.ro|festool.ru|festool.se|festool.sk|festool.ua|festoolcanada.com|festoolusa.com|flaschenpost.de|hamburg-business.com|highsnobiety.com|hornbach.nl|hypofriend.de|immowelt.de|joyn.at|joyn.de|kicker.de|mbusa.com|meubelo.nl|meubles.fr|moebel.de|moebel24.at|moebel24.ch|morenutrition.de|oeamtc.at|paketshop.myhermes.de|personio.com|poco.de|post.ch|postbank.de|prosieben.at|puls4.com|radiobob.de|ran.de|rts.ch|s-pankki.fi|salzburg.info|sat1.at|schlager.radio|sportdeutschland.tv|srf.ch|verivox.de|wetter.com|zalando.*
@@ -275,7 +275,7 @@ Output rule count: 1883
 CSS-generic-low: 12694 plain CSS selectors
 CSS-generic-high: 167 plain CSS selectors
 CSS-generic: 519 specific CSS exceptions
-CSS-specific: 7498 distinct filters for 20598 distinct hostnames
+CSS-specific: 7509 distinct filters for 20628 distinct hostnames
 ============================
 Listset for 'annoyances-overlays':
 Input filter count: 480
@@ -307,7 +307,7 @@ Output rule count: 598
 CSS-generic-low: 8573 plain CSS selectors
 CSS-generic-high: 119 plain CSS selectors
 CSS-generic: 119 specific CSS exceptions
-CSS-specific: 3334 distinct filters for 5148 distinct hostnames
+CSS-specific: 3335 distinct filters for 5149 distinct hostnames
 ============================
 Listset for 'annoyances-widgets':
 Input filter count: 251
@@ -341,7 +341,7 @@ Output rule count: 433
 CSS-generic-low: 751 plain CSS selectors
 CSS-generic-high: 19 plain CSS selectors
 CSS-generic: 14 specific CSS exceptions
-CSS-specific: 2281 distinct filters for 2646 distinct hostnames
+CSS-specific: 2282 distinct filters for 2647 distinct hostnames
 ============================
 Listset for 'annoyances-notifications':
 Input filter count: 495
@@ -436,22 +436,22 @@ CSS-generic: 4 specific CSS exceptions
 CSS-specific: 414 distinct filters for 185 distinct hostnames
 ============================
 Listset for 'chn-0':
-Input filter count: 14175
-	Accepted filter count: 14166
+Input filter count: 14184
+	Accepted filter count: 14174
 	Rejected filter count: 3
-Output rule count: 6105
-	Pruning requestDomains: from 5677 to 5676
+Output rule count: 6084
+	Pruning requestDomains: from 5706 to 5705
 	Pruning requestDomains: from 257 to 255
 
 	Maybe good regexes (raw/minimized): 26/24
-	Static rules (raw/minimized): 6079/5957
+	Static rules (raw/minimized): 6058/5936
 	urlskip=: 0
 	Unsupported: 0
 
-CSS-generic-low: 619 plain CSS selectors
+CSS-generic-low: 617 plain CSS selectors
 CSS-generic-high: 139 plain CSS selectors
 CSS-generic: 331 specific CSS exceptions
-CSS-specific: 7153 distinct filters for 3133 distinct hostnames
+CSS-specific: 7161 distinct filters for 3131 distinct hostnames
 ============================
 Listset for 'cze-0':
 Input filter count: 252
@@ -470,20 +470,20 @@ CSS-generic: 12 specific CSS exceptions
 CSS-specific: 356 distinct filters for 223 distinct hostnames
 ============================
 Listset for 'deu-0':
-Input filter count: 2317
-	Accepted filter count: 2314
+Input filter count: 2315
+	Accepted filter count: 2312
 	Rejected filter count: 3
-Output rule count: 1882
+Output rule count: 1881
 
 	Maybe good regexes (raw/minimized): 6/4
-	Static rules (raw/minimized): 1876/1834
+	Static rules (raw/minimized): 1875/1833
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 340 plain CSS selectors
 CSS-generic-high: 35 plain CSS selectors
 CSS-generic: 43 specific CSS exceptions
-CSS-specific: 3293 distinct filters for 2135 distinct hostnames
+CSS-specific: 3289 distinct filters for 2133 distinct hostnames
 ============================
 Listset for 'est-0':
 Input filter count: 261
@@ -518,10 +518,10 @@ CSS-generic: 6 specific CSS exceptions
 CSS-specific: 902 distinct filters for 543 distinct hostnames
 ============================
 Listset for 'fra-0':
-Input filter count: 12505
-	Accepted filter count: 11583
+Input filter count: 12504
+	Accepted filter count: 11582
 	Rejected filter count: 905
-Output rule count: 4177
+Output rule count: 4176
 	Pruning requestDomains: from 5195 to 5194
 		Salvaged rule by ignoring 1 unsupported domain= option: dl-protect.link|fsmirror93.lol|sushiscan.st|zone-telechargement.*
 		Salvaged rule by ignoring 1 unsupported domain= option: raijin-scans.fr|zone-telechargement.*
@@ -530,14 +530,14 @@ Output rule count: 4177
 		Salvaged rule by ignoring 2 unsupported domain= option: gentside.*|ohmymag.*|maxisciences.com
 		Salvaged rule by ignoring 2 unsupported domain= option: gentside.*|ohmymag.*|maxisciences.com
 	Maybe good regexes (raw/minimized): 4/2
-	Static rules (raw/minimized): 4173/4052
+	Static rules (raw/minimized): 4172/4051
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 1640 plain CSS selectors
 CSS-generic-high: 29 plain CSS selectors
 CSS-generic: 177 specific CSS exceptions
-CSS-specific: 2572 distinct filters for 1699 distinct hostnames
+CSS-specific: 2574 distinct filters for 1701 distinct hostnames
 ============================
 Listset for 'grc-0':
 Input filter count: 473
@@ -572,8 +572,8 @@ CSS-generic: 1 specific CSS exceptions
 CSS-specific: 377 distinct filters for 188 distinct hostnames
 ============================
 Listset for 'hun-0':
-Input filter count: 393
-	Accepted filter count: 391
+Input filter count: 392
+	Accepted filter count: 390
 	Rejected filter count: 1
 Output rule count: 239
 
@@ -598,26 +598,26 @@ Output rule count: 3280
 	urlskip=: 0
 	Unsupported: 0
 
-CSS-generic-low: 404 plain CSS selectors
-CSS-generic-high: 3935 plain CSS selectors
+CSS-generic-low: 402 plain CSS selectors
+CSS-generic-high: 3934 plain CSS selectors
 CSS-generic: 14 specific CSS exceptions
-CSS-specific: 1493 distinct filters for 883 distinct hostnames
+CSS-specific: 1471 distinct filters for 863 distinct hostnames
 ============================
 Listset for 'ind-0':
-Input filter count: 5381
-	Accepted filter count: 5381
+Input filter count: 5384
+	Accepted filter count: 5384
 	Rejected filter count: 0
-Output rule count: 5356
+Output rule count: 5359
 
 	Maybe good regexes (raw/minimized): 0/0
-	Static rules (raw/minimized): 5356/5339
+	Static rules (raw/minimized): 5359/5342
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 0 plain CSS selectors
 CSS-generic-high: 0 plain CSS selectors
 CSS-generic: 7 specific CSS exceptions
-CSS-specific: 5155 distinct filters for 6183 distinct hostnames
+CSS-specific: 5163 distinct filters for 6192 distinct hostnames
 ============================
 Listset for 'irn-0':
 Input filter count: 1350
@@ -682,38 +682,38 @@ CSS-generic: 7 specific CSS exceptions
 CSS-specific: 2610 distinct filters for 2800 distinct hostnames
 ============================
 Listset for 'jpn-1':
-Input filter count: 2450
-	Accepted filter count: 2450
+Input filter count: 2452
+	Accepted filter count: 2452
 	Rejected filter count: 0
-Output rule count: 1629
+Output rule count: 1631
 	Pruning requestDomains: from 178 to 177
 
 	Maybe good regexes (raw/minimized): 7/7
-	Static rules (raw/minimized): 1622/1554
+	Static rules (raw/minimized): 1624/1556
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 108 plain CSS selectors
 CSS-generic-high: 14 plain CSS selectors
 CSS-generic: 380 specific CSS exceptions
-CSS-specific: 9446 distinct filters for 5520 distinct hostnames
+CSS-specific: 9452 distinct filters for 5522 distinct hostnames
 ============================
 Listset for 'kor-1':
-Input filter count: 1641
-	Accepted filter count: 1631
+Input filter count: 1642
+	Accepted filter count: 1632
 	Rejected filter count: 1
 Output rule count: 1145
 	Pruning requestDomains: from 352 to 347
 
-	Maybe good regexes (raw/minimized): 150/150
-	Static rules (raw/minimized): 995/980
+	Maybe good regexes (raw/minimized): 149/149
+	Static rules (raw/minimized): 996/981
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 10 plain CSS selectors
 CSS-generic-high: 73 plain CSS selectors
 CSS-generic: 42 specific CSS exceptions
-CSS-specific: 1943 distinct filters for 987 distinct hostnames
+CSS-specific: 1944 distinct filters for 989 distinct hostnames
 make-scriptlets.js / compile(): Can't find scis.js scriptlet
 ============================
 Listset for 'ltu-0':
@@ -781,31 +781,31 @@ CSS-generic: 39 specific CSS exceptions
 CSS-specific: 1263 distinct filters for 1036 distinct hostnames
 ============================
 Listset for 'nor-0':
-Input filter count: 2088
-	Accepted filter count: 2086
+Input filter count: 2092
+	Accepted filter count: 2090
 	Rejected filter count: 0
-Output rule count: 776
+Output rule count: 789
 		Salvaged rule by ignoring 2 unsupported domain= option: eurosport.*|gamereactor.*|vg.no
 		Salvaged rule by ignoring 2 unsupported domain= option: eurosport.*|gamereactor.*|vg.no
 	Maybe good regexes (raw/minimized): 5/5
-	Static rules (raw/minimized): 771/691
+	Static rules (raw/minimized): 784/695
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 244 plain CSS selectors
 CSS-generic-high: 62 plain CSS selectors
 CSS-generic: 42 specific CSS exceptions
-CSS-specific: 1606 distinct filters for 839 distinct hostnames
+CSS-specific: 1612 distinct filters for 840 distinct hostnames
 make-scriptlets.js / compile(): Can't find golem.de.js scriptlet
 Rejecting +js(trusted-click-element.js,.btns-container > button[title="Tilpass cookies"]): nor-0 is not trusted
 make-scriptlets.js / compile(): Can't find std.js scriptlet
 ============================
 Listset for 'pol-0':
-Input filter count: 1246
-	Accepted filter count: 1239
+Input filter count: 1247
+	Accepted filter count: 1240
 	Rejected filter count: 6
 Output rule count: 897
-	Pruning requestDomains: from 270 to 269
+	Pruning requestDomains: from 271 to 270
 
 	Maybe good regexes (raw/minimized): 50/39
 	Static rules (raw/minimized): 847/809
@@ -824,11 +824,11 @@ make-scriptlets.js / compile(): Can't find ac.js scriptlet
 make-scriptlets.js / compile(): Can't find ac.js scriptlet
 ============================
 Listset for 'pol-3':
-Input filter count: 16718
-	Accepted filter count: 16718
+Input filter count: 17468
+	Accepted filter count: 17468
 	Rejected filter count: 0
 Output rule count: 1
-	Pruning requestDomains: from 16718 to 12829
+	Pruning requestDomains: from 17468 to 13580
 
 	Maybe good regexes (raw/minimized): 0/0
 	Static rules (raw/minimized): 1/1
@@ -854,27 +854,27 @@ CSS-generic: 4 specific CSS exceptions
 CSS-specific: 1177 distinct filters for 593 distinct hostnames
 ============================
 Listset for 'rus-0':
-Input filter count: 19856
-	Accepted filter count: 19849
+Input filter count: 19868
+	Accepted filter count: 19861
 	Rejected filter count: 7
-Output rule count: 6215
+Output rule count: 6216
 
 	Maybe good regexes (raw/minimized): 16/16
-	Static rules (raw/minimized): 6199/6003
+	Static rules (raw/minimized): 6200/6004
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 316 plain CSS selectors
-CSS-generic-high: 631 plain CSS selectors
+CSS-generic-high: 632 plain CSS selectors
 CSS-generic: 325 specific CSS exceptions
-CSS-specific: 12212 distinct filters for 7722 distinct hostnames
+CSS-specific: 12227 distinct filters for 7723 distinct hostnames
 make-scriptlets.js / compile(): Can't find twitch-videoad.js scriptlet
 ============================
 Listset for 'rus-1':
-Input filter count: 1556
-	Accepted filter count: 1555
+Input filter count: 1558
+	Accepted filter count: 1557
 	Rejected filter count: 1
-Output rule count: 1028
+Output rule count: 1030
 	Pruning requestDomains: from 405 to 404
 		Salvaged rule by ignoring 1 unsupported domain= option: dzen.ru|ya.ru|yandex.by|yandex.kz|yandex.lv|yandex.ru|yandex.uz|yandex.*
 		Salvaged rule by ignoring 1 unsupported domain= option: auto.ru|dzen.ru|sportsdzen.ru|ya.ru|yandex.by|yandex.kz|yandex.lv|yandex.ru|yandex.uz|yandex.*
@@ -886,7 +886,7 @@ Output rule count: 1028
 		Salvaged rule by ignoring 1 unsupported domain= option: yandex.by|yandex.kz|yandex.lv|yandex.ru|yandex.uz|yandex.*
 		Salvaged rule by ignoring 1 unsupported domain= option: dzen.ru|sportsdzen.ru|ya.ru|yandex.by|yandex.kz|yandex.lv|yandex.ru|yandex.uz|yandex.*
 	Maybe good regexes (raw/minimized): 1/1
-	Static rules (raw/minimized): 1099/1082
+	Static rules (raw/minimized): 1101/1084
 	urlskip=: 0
 	Unsupported: 0
 
@@ -927,7 +927,7 @@ Output rule count: 1065
 CSS-generic-low: 87 plain CSS selectors
 CSS-generic-high: 4 plain CSS selectors
 CSS-generic: 83 specific CSS exceptions
-CSS-specific: 3718 distinct filters for 2016 distinct hostnames
+CSS-specific: 3723 distinct filters for 2017 distinct hostnames
 ============================
 Listset for 'svn-0':
 Input filter count: 130
@@ -946,20 +946,20 @@ CSS-generic: 0 specific CSS exceptions
 CSS-specific: 366 distinct filters for 152 distinct hostnames
 ============================
 Listset for 'swe-1':
-Input filter count: 1852
-	Accepted filter count: 1852
+Input filter count: 1856
+	Accepted filter count: 1856
 	Rejected filter count: 0
-Output rule count: 1475
+Output rule count: 1477
 
 	Maybe good regexes (raw/minimized): 1/1
-	Static rules (raw/minimized): 1474/1445
+	Static rules (raw/minimized): 1476/1448
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 246 plain CSS selectors
 CSS-generic-high: 53 plain CSS selectors
 CSS-generic: 9 specific CSS exceptions
-CSS-specific: 1575 distinct filters for 1513 distinct hostnames
+CSS-specific: 1578 distinct filters for 1516 distinct hostnames
 ============================
 Listset for 'tha-0':
 Input filter count: 779
@@ -975,7 +975,7 @@ Output rule count: 770
 CSS-generic-low: 0 plain CSS selectors
 CSS-generic-high: 6 plain CSS selectors
 CSS-generic: 1 specific CSS exceptions
-CSS-specific: 680 distinct filters for 205 distinct hostnames
+CSS-specific: 685 distinct filters for 206 distinct hostnames
 ============================
 Listset for 'tur-0':
 Input filter count: 1712
@@ -1004,7 +1004,7 @@ Output rule count: 1427
 CSS-generic-low: 166 plain CSS selectors
 CSS-generic-high: 61 plain CSS selectors
 CSS-generic: 55 specific CSS exceptions
-CSS-specific: 3836 distinct filters for 4061 distinct hostnames
+CSS-specific: 3837 distinct filters for 4063 distinct hostnames
 ============================
 Listset for 'ukr-0':
 Input filter count: 3568
@@ -1025,17 +1025,17 @@ CSS-generic: 112 specific CSS exceptions
 CSS-specific: 1586 distinct filters for 1280 distinct hostnames
 ============================
 Listset for 'vie-1':
-Input filter count: 427
-	Accepted filter count: 427
+Input filter count: 433
+	Accepted filter count: 433
 	Rejected filter count: 0
-Output rule count: 326
+Output rule count: 331
 
 	Maybe good regexes (raw/minimized): 2/2
-	Static rules (raw/minimized): 324/304
+	Static rules (raw/minimized): 329/309
 	urlskip=: 0
 	Unsupported: 0
 
 CSS-generic-low: 20 plain CSS selectors
 CSS-generic-high: 4 plain CSS selectors
 CSS-generic: 21 specific CSS exceptions
-CSS-specific: 638 distinct filters for 353 distinct hostnames
+CSS-specific: 639 distinct filters for 354 distinct hostnames

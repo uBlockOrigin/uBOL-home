@@ -1156,6 +1156,8 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||yamiisoku.com/wp-content/themes/cocoon-master/plugins/lozad.js-master/dist/lozad.min.js"},"id":1155,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||yamiisoku.com/wp-content/themes/cocoon-master/plugins/stickyfill/dist/stickyfill.min.js"},"id":1156,"priority":30},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||yamiisoku.com/wp-includes/js/comment-reply.min.js"},"id":1157,"priority":30},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["kasemato.net"],"urlFilter":"||kasemato.net/myframe/"},"id":1158,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||plicy.net/js/pw-guard.js"},"id":1159,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["rakuten.dreamchance.net"],"urlFilter":"||js.gsspcln.jp/w/ad_format/reward/gnsrwdmod.js"},"id":1176,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","urlFilter":"||coron.tech/wp-content/uploads/*.jpg.webp"},"id":1180,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||www.ne.jp/asahi/asame/shinbun/tmpmng210"},"id":1181,"priority":10},

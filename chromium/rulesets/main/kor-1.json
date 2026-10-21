@@ -978,5 +978,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||api.bunjang.co.kr/api/pms/v1/external-ads/"},"id":977,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||kkutugame.kr/*/adblock-gate."},"id":978,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||linkani.tv/tvwiki-banners/"},"id":979,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["search.naver.com"],"resourceTypes":["script"],"urlFilter":"||ssl.pstatic.net/sstatic/fe/sfe/whale-dl-banner/"},"id":980,"priority":10}
+{"action":{"type":"block"},"condition":{"initiatorDomains":["search.naver.com"],"resourceTypes":["script"],"urlFilter":"||ssl.pstatic.net/sstatic/fe/sfe/whale-dl-banner/"},"id":980,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||rest.memic.at/*/ad-campaigns/banners"},"id":981,"priority":10}
 ]
