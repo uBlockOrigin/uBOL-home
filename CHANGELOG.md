@@ -2,6 +2,12 @@
 
 ----------
 
+### 2026.1021.1354
+
+- Updated filter lists
+
+----------
+
 ### 2026.1018.2229
 
 - [Remove no longer needed Safari workaround in overlay tools](https://github.com/gorhill/uBlock/commit/dfca51bea2)
