@@ -2,6 +2,14 @@
 
 ----------
 
+### 2026.1026.1812
+
+- [Fix permission grant routing](https://github.com/uBlockOrigin/uBOL-home/pull/773) by @gitbyapp
+- [Fix permission change serialization and userScripts state caching](https://github.com/uBlockOrigin/uBOL-home/pull/772) by @gitbyapp
+- Updated filter lists
+
+----------
+
 ### 2026.1021.1354
 
 - Updated filter lists
