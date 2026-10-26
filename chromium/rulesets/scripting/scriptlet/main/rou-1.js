@@ -46,7 +46,7 @@ const $hasRegexes$ = false;
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const scriptletHostnames = /* 34 */ ["buzau.net","eporno.ro","tvmd.info","xxx1.link","e-porno.ro","fsplayer.*","futai.live","nosteam.ro","pizde.live","vwforum.ro","embedsun.cc","filmexxx.ro","lovendal.ro","pornobi.net","vzlinks.com","bloground.ro","cool-etv.net","filmebro.com","canale-tv.com","canale-tv.net","filmexxx.live","nimfomane.org","sitefilme.com","turdanews.net","vasluianul.ro","filme-porno.ro","nosteam.com.ro","pornobrand.com","boardingpass.ro","nosteamgames.ro","pornofilmexxx.net","filmeonline123.com","filmeserialegratis.*","player.desenefaine.net"];
+    const scriptletHostnames = /* 35 */ ["buzau.net","eporno.ro","tvmd.info","xxx1.link","e-porno.ro","fsplayer.*","futai.live","gaqghe.com","nosteam.ro","pizde.live","vwforum.ro","embedsun.cc","filmexxx.ro","lovendal.ro","pornobi.net","vzlinks.com","bloground.ro","cool-etv.net","filmebro.com","canale-tv.com","canale-tv.net","filmexxx.live","nimfomane.org","sitefilme.com","turdanews.net","vasluianul.ro","filme-porno.ro","nosteam.com.ro","pornobrand.com","boardingpass.ro","nosteamgames.ro","pornofilmexxx.net","filmeonline123.com","filmeserialegratis.*","player.desenefaine.net"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -91,7 +91,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const arglistRefs = /* 34 */ ["17","13","2","16","14","2","16","2","16","4","2","18","8","16","2,6","5","3","16","9,10,11","15","16","16","19","1","2","13","2","16","7","2","16","2","2","12"];
+        const arglistRefs = /* 35 */ ["17","13","2","16","14","2","16","2","2","16","4","2","18","8","16","2,6","5","3","16","9,10,11","15","16","16","19","1","2","13","2","16","7","2","16","2","2","12"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 20 */ ["","14,0","10","12,1,2","14,3","14,4","11,5,6","14,7","36,8","10,9,10","14,11","24,12","12,13,14","22,15,16","22,17,18","10,19,20","14,21","22,22","15,23","14,24"];
+    const arglists = /* 20 */ ["","14,0","10","12,1,2","14,3","14,4","11,5,6","14,7","36,8","10,9,10","14,11","25,12","12,13,14","22,15,16","22,17,18","10,19,20","14,21","22,22","15,23","14,24"];
     const args = /* 25 */ ["ai_","onload","noBackPlease","adsbygoogle","show","adblockcheck","false","ai_adb","ads","_blank","10","location","tool","document.write","unescape","load","ADS","click","_0x","","1","appendChild","contextmenu","php","loadScript"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("18a6405d-4634-4b3a-ae38-e2d275e6b586");
+})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
 
 void 0;

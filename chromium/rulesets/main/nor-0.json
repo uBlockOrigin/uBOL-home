@@ -499,6 +499,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"/pustehullet/betting-header.png^"},"id":498,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||service.tekhus.dk/*.jpg^"},"id":499,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||skisverige.dk/*banner_*.gif^"},"id":500,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||piopio.dk/sites/default/files/simpleads^"},"id":501,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["dk","no","se"],"resourceTypes":["main_frame"],"urlFilter":"||minklarna."},"id":515,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["discoveryplus.com"],"requestDomains":["akamaihd.net","dnitv.com"],"resourceTypes":["media"]},"id":522,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"firstParty","initiatorDomains":["eyjafrettir.is"],"resourceTypes":["image"],"urlFilter":"_1170x400."},"id":523,"priority":10},

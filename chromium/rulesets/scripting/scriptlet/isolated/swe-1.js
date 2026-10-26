@@ -46,7 +46,7 @@ const $hasRegexes$ = false;
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const scriptletHostnames = /* 40 */ ["m3.se","elle.se","hant.se","inet.se","leta.se","allas.se","femina.se","mabra.com","norpan.se","rodeo.net","fempers.se","medibok.se","pilsner.nu","bio-link.se","byggahus.se","macworld.se","expressen.se","golflivet.se","pcforalla.se","svenskdam.se","synonymer.se","web-tools.se","byggipedia.se","dinbyggare.se","familjeliv.se","motherhood.se","vitaestilo.se","aftonbladet.se","destination.se","galamagasin.se","landetsfria.se","sistaminuten.se","inredningsvis.se","skrattsajten.com","tidningensyre.se","kandisvarlden.com","husbilskompisar.se","tidningenglobal.se","residencemagazine.se","internetodontologi.se"];
+    const scriptletHostnames = /* 42 */ ["m3.se","elle.se","hant.se","inet.se","leta.se","allas.se","feber.se","tjock.se","femina.se","mabra.com","norpan.se","rodeo.net","fempers.se","medibok.se","pilsner.nu","bio-link.se","byggahus.se","macworld.se","expressen.se","golflivet.se","pcforalla.se","svenskdam.se","synonymer.se","web-tools.se","byggipedia.se","dinbyggare.se","familjeliv.se","motherhood.se","vitaestilo.se","aftonbladet.se","destination.se","galamagasin.se","landetsfria.se","sistaminuten.se","inredningsvis.se","skrattsajten.com","tidningensyre.se","kandisvarlden.com","husbilskompisar.se","tidningenglobal.se","residencemagazine.se","internetodontologi.se"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -91,7 +91,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const arglistRefs = /* 40 */ ["22","1,2,8","2","14","21","2","1,2","2","20","1","26,27,28","23","23","29","1","22","1,8,9,10,11,12","1","22","1,2","24,25","29","3,4","6,7","1","2","1","1","5","1","26,27,28","5","1,15,16,17,18,19","20","26,27,28","23","13","26,27,28","2","20"];
+        const arglistRefs = /* 42 */ ["23","1,2,8","2","15","22","2","13","13","1,2","2","21","1","27,28,29","24","24","30","1","23","1,8,9,10,11,12","1","23","1,2","25,26","30","3,4","6,7","1","2","1","1","5","1","27,28,29","5","1,16,17,18,19,20","21","27,28,29","24","14","27,28,29","2","21"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -121,8 +121,8 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 30 */ ["","11,0,1","11,2,3","1,4,5","1,4,6","8,7,8","1,9","1,4,10","11,11,1","11,12,13","11,14,15","11,16,3","11,17,3","5,18,19","8,20,8","8,21,22","8,23,24","8,25,26","8,27,26","8,28,26","1,4,29","11,30,31","11,32,1","1,4,33","9,34","5,34,35","9,36","9,37","9,38","1,4,39"];
-    const args = /* 40 */ ["a[href*=\"/t?a=\"]","?url","a[href*=\".io/c/\"]","?u","script","contextmenu","e.keyCode","CM_cookieConsent","0","noscript","/wccp_pro/","a[href*=\"/click\"]","a[href*=\"&amp;u\"]","?amp;u","a[href*=\"&ued=\"]","?ued","a[href*=\".pxf.io\"]","a[href*=\".sjv.io\"]","cookie_consent","denied","allow-marketing-cookies","cmplz_banner-status","dismissed","cmplz_functional","allow","cmplz_marketing","deny","cmplz_preferences","cmplz_statistics","e.preventDefault","a[href*=\"&cpdir\"]","?cpdir","a[href*=\"/idg.digidip.net/\"]","decodeURIComponent","/^ev_did|ev_sid/","$remove$","article_count","read_articles","wordpress_sezz_id","request_ads_to_display"];
+    const arglists = /* 31 */ ["","11,0,1","11,2,3","1,4,5","1,4,6","8,7,8","1,9","1,4,10","11,11,1","11,12,13","11,14,15","11,16,3","11,17,3","15,18,19","5,20,21","8,22,8","8,23,24","8,25,26","8,27,28","8,29,28","8,30,28","1,4,31","11,32,33","11,34,1","1,4,35","9,36","5,36,37","9,38","9,39","9,40","1,4,41"];
+    const args = /* 42 */ ["a[href*=\"/t?a=\"]","?url","a[href*=\".io/c/\"]","?u","script","contextmenu","e.keyCode","CM_cookieConsent","0","noscript","/wccp_pro/","a[href*=\"/click\"]","a[href*=\"&amp;u\"]","?amp;u","a[href*=\"&ued=\"]","?ued","a[href*=\".pxf.io\"]","a[href*=\".sjv.io\"]","fs","1","cookie_consent","denied","allow-marketing-cookies","cmplz_banner-status","dismissed","cmplz_functional","allow","cmplz_marketing","deny","cmplz_preferences","cmplz_statistics","e.preventDefault","a[href*=\"&cpdir\"]","?cpdir","a[href*=\"/idg.digidip.net/\"]","decodeURIComponent","/^ev_did|ev_sid/","$remove$","article_count","read_articles","wordpress_sezz_id","request_ads_to_display"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
         if ( ref < 0 ) { continue; }
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("18a6405d-4634-4b3a-ae38-e2d275e6b586");
+})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
 
 void 0;

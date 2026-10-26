@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 45 */ ["","19,0","3,1,2,3,4","12,5,6","19,7","12,5,8","11,9,10","19,11","11,12,13","11,14,15","22,16,17","14,18,19","33","3,20,2,3,21","1,22,23","11,24,15","11,25,26","11,27,10","11,28,15","22,29","37","12,5,30","19,6","11,31,10","11,32,33","11,34,10","26,35,36","1,37,19","31,38","24,39","17,40,41","19,42","22,43,44","11,45,2","12,46","11,47,15","12,48","12,49,50","19,51","11,52,13","22,53,54","22,53,55","22,56,57","12,58,59","12,11"];
+    const arglists = /* 45 */ ["","19,0","3,1,2,3,4","12,5,6","19,7","12,5,8","11,9,10","19,11","11,12,13","11,14,15","22,16,17","14,18,19","33","3,20,2,3,21","1,22,23","11,24,15","11,25,26","11,27,10","11,28,15","22,29","37","12,5,30","19,6","11,31,10","11,32,33","11,34,10","26,35,36","1,37,19","31,38","25,39","17,40,41","19,42","22,43,44","11,45,2","12,46","11,47,15","12,48","12,49,50","19,51","11,52,13","22,53,54","22,53,55","22,56,57","12,58,59","12,11"];
     const args = /* 60 */ ["App.branding","ad_blocks.[-].id_program","","propsToMatch","/api/advertisement/getAllStreamAdBlocks/","$","Ads","adsAllowed","fancyBanner","checkAdsBlocked","noopFunc","HTMLIFrameElement.prototype.contentWindow","canRunAds","true","first","false","click","location","img_ab_s","3000","adBlocks.[-].id","/schedules/ads","t()","*","settings.ads","Rmp.params.genderSelectionUrl","undefined","App.pos.init","App.ft.detected","ended","PartnerRedirectAction","sssp.config","sssp","{}","Gallery.prototype.setAdsForGallery","ntmt_retest_btn_countdown_do","1000","vendor-load","Fisher","checkRods","style","body","detectAdBlocker","load","document.cookie","xmxalr","foolish_script","useSeznamAds","codeAddress","window.addEventListener",":visible","atob","hasUserActiveSubscription","message","fishing","_0x","beforeunload","()","document.createElement","adbDetect"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("18a6405d-4634-4b3a-ae38-e2d275e6b586");
+})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
 
 void 0;

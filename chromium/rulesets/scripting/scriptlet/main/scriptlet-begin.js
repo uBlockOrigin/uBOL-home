@@ -640,7 +640,12 @@ class JSONPath {
             if ( rval instanceof Object === false ) { return; }
             const lval = obj[key];
             if ( lval instanceof Object === false ) { return; }
-            if ( Array.isArray(lval) ) { return; }
+            if ( Array.isArray(lval) ) {
+                if ( Array.isArray(rval) ) {
+                    lval.push(...rval); break;
+                }
+                lval.push(rval); break;
+            }
             for ( const [ k, v ] of JSONPath.entries(rval) ) {
                 lval[k] = v;
             }
@@ -1487,6 +1492,172 @@ function jsonEditXhrResponseFn(trusted, jsonq = '', ...varargs) {
     };
 }
 
+function jsonlEditFetchResponse(jsonq = '', ...args) {
+    jsonlEditFetchResponseFn(false, jsonq, ...args);
+}
+
+function jsonlEditFetchResponseFn(trusted, jsonq = '', ...varargs) {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix(
+        `${trusted ? 'trusted-' : ''}jsonl-edit-fetch-response`,
+        jsonq
+    );
+    const jsonp = JSONPath.create(jsonq);
+    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
+        return safe.uboLog(logPrefix, 'Bad JSONPath query');
+    }
+    const extraArgs = safe.parseVarargs(varargs);
+    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
+    const jsonExtract = extraArgs.jsonExtract
+        ? new RegExp(extraArgs.jsonExtract)
+        : /^(.*)$/;
+    const logall = jsonq === '';
+    proxyApplyFn('fetch', function(context) {
+        const args = context.callArgs;
+        const fetchPromise = context.reflect();
+        if ( propNeedles.size !== 0 ) {
+            const props = collateFetchArgumentsFn(...args);
+            const matched = matchObjectPropertiesFn(propNeedles, props);
+            if ( matched === undefined ) { return fetchPromise; }
+            if ( safe.logLevel > 1 ) {
+                safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
+            }
+        }
+        return fetchPromise.then(responseBefore => {
+            const response = responseBefore.clone();
+            return response.text().then(textBefore => {
+                if ( typeof textBefore !== 'string' ) { return textBefore; }
+                if ( logall ) {
+                    safe.uboLog(logPrefix, textBefore);
+                    return responseBefore;
+                }
+                const textAfter = jsonlEditFn(jsonp, textBefore, jsonExtract);
+                if ( textAfter === textBefore ) { return responseBefore; }
+                safe.uboLog(logPrefix, 'Pruned');
+                const responseAfter = new Response(textAfter, {
+                    status: responseBefore.status,
+                    statusText: responseBefore.statusText,
+                    headers: responseBefore.headers,
+                });
+                Object.defineProperties(responseAfter, {
+                    ok: { value: responseBefore.ok },
+                    redirected: { value: responseBefore.redirected },
+                    type: { value: responseBefore.type },
+                    url: { value: responseBefore.url },
+                });
+                return responseAfter;
+            }).catch(reason => {
+                safe.uboErr(logPrefix, 'Error:', reason);
+                return responseBefore;
+            });
+        }).catch(reason => {
+            safe.uboErr(logPrefix, 'Error:', reason);
+            return fetchPromise;
+        });
+    });
+}
+
+function jsonlEditFn(jsonp, text = '', jsonExtract) {
+    const safe = safeSelf();
+    const lineSeparator = /\r?\n/.exec(text)?.[0] || '\n';
+    const linesBefore = text.split('\n');
+    const linesAfter = [];
+    for ( const lineBefore of linesBefore ) {
+        const match = jsonExtract.exec(lineBefore);
+        if ( match === null ) {
+            linesAfter.push(lineBefore);
+            continue;
+        }
+        const jsonBefore = match[1];
+        let obj;
+        try { obj = safe.JSON_parse(jsonBefore); } catch { }
+        if ( typeof obj !== 'object' || obj === null ) {
+            linesAfter.push(lineBefore);
+            continue;
+        }
+        const objAfter = jsonp.apply(obj);
+        if ( objAfter === undefined ) {
+            linesAfter.push(lineBefore);
+            continue;
+        }
+        const jsonAfter = safe.JSON_stringify(objAfter);
+        const lineAfter = [
+            lineBefore.slice(0, match.index),
+            jsonAfter,
+            lineBefore.slice(match.index + jsonBefore.length),
+        ].join('');
+        linesAfter.push(lineAfter);
+    }
+    return linesAfter.join(lineSeparator);
+}
+
+function jsonlEditXhrResponse(jsonq = '', ...args) {
+    jsonlEditXhrResponseFn(false, jsonq, ...args);
+}
+
+function jsonlEditXhrResponseFn(trusted, jsonq = '', ...varargs) {
+    const safe = safeSelf();
+    const logPrefix = safe.makeLogPrefix(
+        `${trusted ? 'trusted-' : ''}jsonl-edit-xhr-response`,
+        jsonq
+    );
+    const xhrInstances = new WeakMap();
+    const jsonp = JSONPath.create(jsonq);
+    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
+        return safe.uboLog(logPrefix, 'Bad JSONPath query');
+    }
+    const extraArgs = safe.parseVarargs(varargs);
+    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
+    const jsonExtract = extraArgs.jsonExtract
+        ? new RegExp(extraArgs.jsonExtract)
+        : /^(.*)$/;
+    self.XMLHttpRequest = class extends self.XMLHttpRequest {
+        open(method, url, ...args) {
+            const xhrDetails = { method, url };
+            const matched = propNeedles.size === 0 ||
+                matchObjectPropertiesFn(propNeedles, xhrDetails);
+            if ( matched ) {
+                if ( safe.logLevel > 1 && Array.isArray(matched) ) {
+                    safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
+                }
+                xhrInstances.set(this, xhrDetails);
+            }
+            return super.open(method, url, ...args);
+        }
+        get response() {
+            const innerResponse = super.response;
+            const xhrDetails = xhrInstances.get(this);
+            if ( xhrDetails === undefined ) {
+                return innerResponse;
+            }
+            const responseLength = typeof innerResponse === 'string'
+                ? innerResponse.length
+                : undefined;
+            if ( xhrDetails.lastResponseLength !== responseLength ) {
+                xhrDetails.response = undefined;
+                xhrDetails.lastResponseLength = responseLength;
+            }
+            if ( xhrDetails.response !== undefined ) {
+                return xhrDetails.response;
+            }
+            if ( typeof innerResponse !== 'string' ) {
+                return (xhrDetails.response = innerResponse);
+            }
+            const outerResponse = jsonlEditFn(jsonp, innerResponse, jsonExtract);
+            if ( outerResponse !== innerResponse ) {
+                safe.uboLog(logPrefix, 'Pruned');
+            }
+            return (xhrDetails.response = outerResponse);
+        }
+        get responseText() {
+            const response = this.response;
+            return typeof response !== 'string'
+                ? super.responseText
+                : response;
+        }
+    };
+}
+
 function jsonPrune(
     rawPrunePaths = '',
     rawNeedlePaths = '',
@@ -1665,172 +1836,6 @@ function jsonPruneXhrResponse(
     };
 }
 
-function jsonlEditFetchResponse(jsonq = '', ...args) {
-    jsonlEditFetchResponseFn(false, jsonq, ...args);
-}
-
-function jsonlEditFetchResponseFn(trusted, jsonq = '', ...varargs) {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix(
-        `${trusted ? 'trusted-' : ''}jsonl-edit-fetch-response`,
-        jsonq
-    );
-    const jsonp = JSONPath.create(jsonq);
-    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
-        return safe.uboLog(logPrefix, 'Bad JSONPath query');
-    }
-    const extraArgs = safe.parseVarargs(varargs);
-    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
-    const jsonExtract = extraArgs.jsonExtract
-        ? new RegExp(extraArgs.jsonExtract)
-        : /^(.*)$/;
-    const logall = jsonq === '';
-    proxyApplyFn('fetch', function(context) {
-        const args = context.callArgs;
-        const fetchPromise = context.reflect();
-        if ( propNeedles.size !== 0 ) {
-            const props = collateFetchArgumentsFn(...args);
-            const matched = matchObjectPropertiesFn(propNeedles, props);
-            if ( matched === undefined ) { return fetchPromise; }
-            if ( safe.logLevel > 1 ) {
-                safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
-            }
-        }
-        return fetchPromise.then(responseBefore => {
-            const response = responseBefore.clone();
-            return response.text().then(textBefore => {
-                if ( typeof textBefore !== 'string' ) { return textBefore; }
-                if ( logall ) {
-                    safe.uboLog(logPrefix, textBefore);
-                    return responseBefore;
-                }
-                const textAfter = jsonlEditFn(jsonp, textBefore, jsonExtract);
-                if ( textAfter === textBefore ) { return responseBefore; }
-                safe.uboLog(logPrefix, 'Pruned');
-                const responseAfter = new Response(textAfter, {
-                    status: responseBefore.status,
-                    statusText: responseBefore.statusText,
-                    headers: responseBefore.headers,
-                });
-                Object.defineProperties(responseAfter, {
-                    ok: { value: responseBefore.ok },
-                    redirected: { value: responseBefore.redirected },
-                    type: { value: responseBefore.type },
-                    url: { value: responseBefore.url },
-                });
-                return responseAfter;
-            }).catch(reason => {
-                safe.uboErr(logPrefix, 'Error:', reason);
-                return responseBefore;
-            });
-        }).catch(reason => {
-            safe.uboErr(logPrefix, 'Error:', reason);
-            return fetchPromise;
-        });
-    });
-}
-
-function jsonlEditFn(jsonp, text = '', jsonExtract) {
-    const safe = safeSelf();
-    const lineSeparator = /\r?\n/.exec(text)?.[0] || '\n';
-    const linesBefore = text.split('\n');
-    const linesAfter = [];
-    for ( const lineBefore of linesBefore ) {
-        const match = jsonExtract.exec(lineBefore);
-        if ( match === null ) {
-            linesAfter.push(lineBefore);
-            continue;
-        }
-        const jsonBefore = match[1];
-        let obj;
-        try { obj = safe.JSON_parse(jsonBefore); } catch { }
-        if ( typeof obj !== 'object' || obj === null ) {
-            linesAfter.push(lineBefore);
-            continue;
-        }
-        const objAfter = jsonp.apply(obj);
-        if ( objAfter === undefined ) {
-            linesAfter.push(lineBefore);
-            continue;
-        }
-        const jsonAfter = safe.JSON_stringify(objAfter);
-        const lineAfter = [
-            lineBefore.slice(0, match.index),
-            jsonAfter,
-            lineBefore.slice(match.index + jsonBefore.length),
-        ].join('');
-        linesAfter.push(lineAfter);
-    }
-    return linesAfter.join(lineSeparator);
-}
-
-function jsonlEditXhrResponse(jsonq = '', ...args) {
-    jsonlEditXhrResponseFn(false, jsonq, ...args);
-}
-
-function jsonlEditXhrResponseFn(trusted, jsonq = '', ...varargs) {
-    const safe = safeSelf();
-    const logPrefix = safe.makeLogPrefix(
-        `${trusted ? 'trusted-' : ''}jsonl-edit-xhr-response`,
-        jsonq
-    );
-    const xhrInstances = new WeakMap();
-    const jsonp = JSONPath.create(jsonq);
-    if ( jsonp.valid === false || jsonp.value !== undefined && trusted !== true ) {
-        return safe.uboLog(logPrefix, 'Bad JSONPath query');
-    }
-    const extraArgs = safe.parseVarargs(varargs);
-    const propNeedles = parsePropertiesToMatchFn(extraArgs.propsToMatch, 'url');
-    const jsonExtract = extraArgs.jsonExtract
-        ? new RegExp(extraArgs.jsonExtract)
-        : /^(.*)$/;
-    self.XMLHttpRequest = class extends self.XMLHttpRequest {
-        open(method, url, ...args) {
-            const xhrDetails = { method, url };
-            const matched = propNeedles.size === 0 ||
-                matchObjectPropertiesFn(propNeedles, xhrDetails);
-            if ( matched ) {
-                if ( safe.logLevel > 1 && Array.isArray(matched) ) {
-                    safe.uboLog(logPrefix, `Matched "propsToMatch":\n\t${matched.join('\n\t')}`);
-                }
-                xhrInstances.set(this, xhrDetails);
-            }
-            return super.open(method, url, ...args);
-        }
-        get response() {
-            const innerResponse = super.response;
-            const xhrDetails = xhrInstances.get(this);
-            if ( xhrDetails === undefined ) {
-                return innerResponse;
-            }
-            const responseLength = typeof innerResponse === 'string'
-                ? innerResponse.length
-                : undefined;
-            if ( xhrDetails.lastResponseLength !== responseLength ) {
-                xhrDetails.response = undefined;
-                xhrDetails.lastResponseLength = responseLength;
-            }
-            if ( xhrDetails.response !== undefined ) {
-                return xhrDetails.response;
-            }
-            if ( typeof innerResponse !== 'string' ) {
-                return (xhrDetails.response = innerResponse);
-            }
-            const outerResponse = jsonlEditFn(jsonp, innerResponse, jsonExtract);
-            if ( outerResponse !== innerResponse ) {
-                safe.uboLog(logPrefix, 'Pruned');
-            }
-            return (xhrDetails.response = outerResponse);
-        }
-        get responseText() {
-            const response = this.response;
-            return typeof response !== 'string'
-                ? super.responseText
-                : response;
-        }
-    };
-}
-
 function m3uPrune(
     m3uPattern = '',
     urlPattern = ''
@@ -1990,26 +1995,6 @@ function m3uPrune(
     });
 }
 
-function matchObjectPropertiesFn(propNeedles, ...objs) {
-    const safe = safeSelf();
-    const matched = [];
-    for ( const obj of objs ) {
-        if ( obj instanceof Object === false ) { continue; }
-        for ( const [ prop, details ] of propNeedles ) {
-            let value = obj[prop];
-            if ( value === undefined ) { continue; }
-            if ( typeof value !== 'string' ) {
-                try { value = safe.JSON_stringify(value); }
-                catch { }
-                if ( typeof value !== 'string' ) { continue; }
-            }
-            if ( safe.testPattern(details, value) === false ) { return; }
-            matched.push(`${prop}: ${value}`);
-        }
-    }
-    return matched;
-}
-
 function matchesStackTraceFn(
     needleDetails,
     logLevel = ''
@@ -2053,6 +2038,26 @@ function matchesStackTraceFn(
         safe.uboLog(stack.replace(/\t/g, '\n'));
     }
     return r;
+}
+
+function matchObjectPropertiesFn(propNeedles, ...objs) {
+    const safe = safeSelf();
+    const matched = [];
+    for ( const obj of objs ) {
+        if ( obj instanceof Object === false ) { continue; }
+        for ( const [ prop, details ] of propNeedles ) {
+            let value = obj[prop];
+            if ( value === undefined ) { continue; }
+            if ( typeof value !== 'string' ) {
+                try { value = safe.JSON_stringify(value); }
+                catch { }
+                if ( typeof value !== 'string' ) { continue; }
+            }
+            if ( safe.testPattern(details, value) === false ) { return; }
+            matched.push(`${prop}: ${value}`);
+        }
+    }
+    return matched;
 }
 
 function modifyXhrResponseFn(
@@ -4524,56 +4529,7 @@ function xmlPrune(
     });
 }
 
-function zeta_113d2e93b786432083df0280c3b2c64f() { // nofab.js
-(function() {
-    'use strict';
-    const noopfn = function() {
-    };
-    const Fab = function() {};
-    Fab.prototype.check = noopfn;
-    Fab.prototype.clearEvent = noopfn;
-    Fab.prototype.emitEvent = noopfn;
-    Fab.prototype.on = function(a, b) {
-        if ( !a ) { b(); }
-        return this;
-    };
-    Fab.prototype.onDetected = function() {
-        return this;
-    };
-    Fab.prototype.onNotDetected = function(a) {
-        a();
-        return this;
-    };
-    Fab.prototype.setOption = noopfn;
-    Fab.prototype.options = {
-        set: noopfn,
-        get: noopfn,
-    };
-    const fab = new Fab();
-    const getSetFab = {
-        get: function() { return Fab; },
-        set: function() {}
-    };
-    const getsetfab = {
-        get: function() { return fab; },
-        set: function() {}
-    };
-    if ( window.hasOwnProperty('FuckAdBlock') ) { window.FuckAdBlock = Fab; }
-    else { Object.defineProperty(window, 'FuckAdBlock', getSetFab); }
-    if ( window.hasOwnProperty('BlockAdBlock') ) { window.BlockAdBlock = Fab; }
-    else { Object.defineProperty(window, 'BlockAdBlock', getSetFab); }
-    if ( window.hasOwnProperty('SniffAdBlock') ) { window.SniffAdBlock = Fab; }
-    else { Object.defineProperty(window, 'SniffAdBlock', getSetFab); }
-    if ( window.hasOwnProperty('fuckAdBlock') ) { window.fuckAdBlock = fab; }
-    else { Object.defineProperty(window, 'fuckAdBlock', getsetfab); }
-    if ( window.hasOwnProperty('blockAdBlock') ) { window.blockAdBlock = fab; }
-    else { Object.defineProperty(window, 'blockAdBlock', getsetfab); }
-    if ( window.hasOwnProperty('sniffAdBlock') ) { window.sniffAdBlock = fab; }
-    else { Object.defineProperty(window, 'sniffAdBlock', getsetfab); }
-})();
-}
-
-function zeta_2238fb9c424b4209bc6266885d087009() { // fingerprint2.js
+function zeta_a72cc9af22ed465a81e99e78c3fead35() { // fingerprint2.js
 // Reference:
 // https://github.com/fingerprintjs/fingerprintjs/tree/v2
 
@@ -4610,19 +4566,7 @@ function zeta_2238fb9c424b4209bc6266885d087009() { // fingerprint2.js
 })();
 }
 
-function zeta_242ac6c354ec419eac44ca855dbbee4c() { // noeval.js
-(function() {
-    'use strict';
-    const log = console.log.bind(console);
-    window.eval = new Proxy(window.eval, {          // jshint ignore: line
-        apply: function(target, thisArg, args) {
-            log(`Document tried to eval... ${args[0]}\n`);
-        }
-    });
-})();
-}
-
-function zeta_b0d57943e4654533af771a5e70b4afbb() { // google-ima.js
+function zeta_2b85f65fa6e64388aba57a01a43b7efe() { // google-ima.js
 'use strict';
 
 
@@ -5251,7 +5195,7 @@ if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
 }
 }
 
-function zeta_b41c4f560d45433f83814831d805821d() { // nobab2.js
+function zeta_4e474d1e7f8f458482cb778fe683ca68() { // nobab2.js
 (function() {
     'use strict';
     const script = document.currentScript;
@@ -5275,7 +5219,68 @@ function zeta_b41c4f560d45433f83814831d805821d() { // nobab2.js
 })();
 }
 
-function zeta_bc404a15727342509be7b25f6a3a7b06() { // popads-dummy.js
+function zeta_6d60f3677d16437ba2608cf895ce269d() { // noeval.js
+(function() {
+    'use strict';
+    const log = console.log.bind(console);
+    window.eval = new Proxy(window.eval, {          // jshint ignore: line
+        apply: function(target, thisArg, args) {
+            log(`Document tried to eval... ${args[0]}\n`);
+        }
+    });
+})();
+}
+
+function zeta_4bbafa64714749cca0531075a6ab4203() { // nofab.js
+(function() {
+    'use strict';
+    const noopfn = function() {
+    };
+    const Fab = function() {};
+    Fab.prototype.check = noopfn;
+    Fab.prototype.clearEvent = noopfn;
+    Fab.prototype.emitEvent = noopfn;
+    Fab.prototype.on = function(a, b) {
+        if ( !a ) { b(); }
+        return this;
+    };
+    Fab.prototype.onDetected = function() {
+        return this;
+    };
+    Fab.prototype.onNotDetected = function(a) {
+        a();
+        return this;
+    };
+    Fab.prototype.setOption = noopfn;
+    Fab.prototype.options = {
+        set: noopfn,
+        get: noopfn,
+    };
+    const fab = new Fab();
+    const getSetFab = {
+        get: function() { return Fab; },
+        set: function() {}
+    };
+    const getsetfab = {
+        get: function() { return fab; },
+        set: function() {}
+    };
+    if ( window.hasOwnProperty('FuckAdBlock') ) { window.FuckAdBlock = Fab; }
+    else { Object.defineProperty(window, 'FuckAdBlock', getSetFab); }
+    if ( window.hasOwnProperty('BlockAdBlock') ) { window.BlockAdBlock = Fab; }
+    else { Object.defineProperty(window, 'BlockAdBlock', getSetFab); }
+    if ( window.hasOwnProperty('SniffAdBlock') ) { window.SniffAdBlock = Fab; }
+    else { Object.defineProperty(window, 'SniffAdBlock', getSetFab); }
+    if ( window.hasOwnProperty('fuckAdBlock') ) { window.fuckAdBlock = fab; }
+    else { Object.defineProperty(window, 'fuckAdBlock', getsetfab); }
+    if ( window.hasOwnProperty('blockAdBlock') ) { window.blockAdBlock = fab; }
+    else { Object.defineProperty(window, 'blockAdBlock', getsetfab); }
+    if ( window.hasOwnProperty('sniffAdBlock') ) { window.sniffAdBlock = fab; }
+    else { Object.defineProperty(window, 'sniffAdBlock', getsetfab); }
+})();
+}
+
+function zeta_f95909bd71f9407888a8930a4b62ee5a() { // popads-dummy.js
 (function() {
     'use strict';
     delete window.PopAds;
@@ -5329,11 +5334,11 @@ scriptletGlobals.origins = (( ) => {
     return out;
 })();
 
-scriptletGlobals.functionRefs = /* 59 */ [trustedEditInboundObject,adjustSetTimeout,jsonPruneFetchResponse,jsonPruneXhrResponse,trustedReplaceXhrResponse,trustedReplaceFetchResponse,trustedPreventDomBypass,jsonPrune,jsonEdit,jsonlEditXhrResponse,noWindowOpenIf,setConstant,abortCurrentScript,preventXhr,preventSetTimeout,preventFetch,trustedReplaceArgument,removeAttr,trustedOverrideElementMethod,abortOnPropertyRead,trustedReplaceOutboundText,trustedSuppressNativeMethod,preventAddEventListener,abortOnStackTrace,preventSetInterval,preventInnerHTML,adjustSetInterval,zeta_2238fb9c424b4209bc6266885d087009,trustedSetConstant,jsonEditFetchResponse,zeta_242ac6c354ec419eac44ca855dbbee4c,abortOnPropertyWrite,noWebrtc,zeta_113d2e93b786432083df0280c3b2c64f,zeta_bc404a15727342509be7b25f6a3a7b06,preventRequestAnimationFrame,noEvalIf,preventBab,trustedPreventFetch,disableNewtabLinks,trustedJsonEditFetchResponse,editObjectOnSetter,trustedJsonEdit,trustedJsonEditXhrResponse,preventClipboardWrite,jsonEditXhrResponse,xmlPrune,m3uPrune,trustedPreventXhr,spoofCSS,zeta_b0d57943e4654533af771a5e70b4afbb,alertBuster,preventCanvas,mpegdashPrune,jsonEditFetchRequest,proxyApplyConfig,jsonlEditFetchResponse,evaldataPrune,zeta_b41c4f560d45433f83814831d805821d];
+scriptletGlobals.functionRefs = /* 59 */ [trustedEditInboundObject,adjustSetTimeout,jsonPruneFetchResponse,jsonPruneXhrResponse,trustedReplaceXhrResponse,trustedReplaceFetchResponse,trustedPreventDomBypass,jsonPrune,jsonEdit,jsonlEditXhrResponse,noWindowOpenIf,setConstant,abortCurrentScript,preventXhr,preventSetTimeout,preventFetch,trustedReplaceArgument,removeAttr,trustedOverrideElementMethod,abortOnPropertyRead,trustedReplaceOutboundText,trustedSuppressNativeMethod,preventAddEventListener,abortOnStackTrace,preventInnerHTML,preventSetInterval,adjustSetInterval,zeta_a72cc9af22ed465a81e99e78c3fead35,trustedSetConstant,jsonEditFetchResponse,zeta_6d60f3677d16437ba2608cf895ce269d,abortOnPropertyWrite,noWebrtc,zeta_4bbafa64714749cca0531075a6ab4203,zeta_f95909bd71f9407888a8930a4b62ee5a,preventRequestAnimationFrame,noEvalIf,preventBab,trustedPreventFetch,disableNewtabLinks,trustedJsonEditFetchResponse,editObjectOnSetter,trustedJsonEdit,trustedJsonEditXhrResponse,preventClipboardWrite,jsonEditXhrResponse,xmlPrune,m3uPrune,trustedPreventXhr,spoofCSS,zeta_2b85f65fa6e64388aba57a01a43b7efe,alertBuster,preventCanvas,mpegdashPrune,jsonEditFetchRequest,proxyApplyConfig,jsonlEditFetchResponse,evaldataPrune,zeta_4e474d1e7f8f458482cb778fe683ca68];
 
 /******************************************************************************/
 
 // End of local scope
-})("18a6405d-4634-4b3a-ae38-e2d275e6b586");
+})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
 
 void 0;

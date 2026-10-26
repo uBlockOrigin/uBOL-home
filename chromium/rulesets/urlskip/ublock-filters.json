@@ -181,6 +181,13 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?dlaf\\.jp/home/dlaf/=/aid/.*?/url/",
+  "steps": [
+   "/\\/url\\/(http.+)/",
+   "-uricomponent"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?prod\\.outgoing\\.prod\\.webservices\\.mozgcp\\.net/v1/",
   "steps": [
    "/\\/v1\\/\\w+\\/(http.+)$/",

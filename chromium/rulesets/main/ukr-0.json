@@ -1460,5 +1460,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||yandex.*/ads/adfox/"},"id":1459,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||yandex.*/adfox/"},"id":1460,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||kinogomy.net/uploads/kgi/intro."},"id":1461,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||yandex.ru./ads/system/adsdk.js"},"id":1462,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||yandex.ru./ads/system/adsdk.js"},"id":1462,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["sub_frame"],"urlFilter":"||kinofilms.ua/images/r/"},"id":1463,"priority":10}
 ]
