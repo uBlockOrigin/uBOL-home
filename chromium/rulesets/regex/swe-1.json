@@ -21,5 +21,21 @@
  },
  "id": 1,
  "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "teknikgeek.se"
+  ],
+  "regexFilter": "https?:\\/\\/(www\\.)?teknikgeek\\.se\\/[A-Za-z0-9]+\\.js",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 2,
+ "priority": 10
 }
 ]

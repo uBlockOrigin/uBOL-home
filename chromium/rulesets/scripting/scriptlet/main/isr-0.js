@@ -46,7 +46,7 @@ const $hasRegexes$ = false;
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const scriptletHostnames = /* 59 */ ["inn.co.il","jmusic.me","n12.co.il","one.co.il","13tv.co.il","mako.co.il","yad2.co.il","ynet.co.il","sheee.co.il","tvbee.co.il","walla.co.il","13news.co.il","globes.co.il","hwzone.co.il","morfix.co.il","sport5.co.il","tech12.co.il","b.walla.co.il","e.walla.co.il","haaretz.co.il","isramedia.net","themarker.com","calcalist.co.il","mag.walla.co.il","vod.walla.co.il","www.walla.co.il","cars.walla.co.il","euro.walla.co.il","food.walla.co.il","home.walla.co.il","kids.walla.co.il","news.walla.co.il","nick.walla.co.il","tags.walla.co.il","tech.walla.co.il","viva.walla.co.il","6days.walla.co.il","buzzit.walla.co.il","celebs.walla.co.il","movies.walla.co.il","nadlan.walla.co.il","sports.walla.co.il","travel.walla.co.il","animals.walla.co.il","fashion.walla.co.il","finance.walla.co.il","healthy.walla.co.il","judaism.walla.co.il","mundial.walla.co.il","weather.walla.co.il","olympics.walla.co.il","tv-guide.walla.co.il","astrology.walla.co.il","elections.walla.co.il","foodsdictionary.co.il","usaelections.walla.co.il","www-globes-co-il.eu1.proxy.openathens.net","www-haaretz-co-il.eu1.proxy.openathens.net","www-themarker-com.eu1.proxy.openathens.net"];
+    const scriptletHostnames = /* 25 */ ["inn.co.il","jmusic.me","n12.co.il","one.co.il","13tv.co.il","mako.co.il","yad2.co.il","ynet.co.il","sheee.co.il","tvbee.co.il","walla.co.il","13news.co.il","globes.co.il","hwzone.co.il","morfix.co.il","sport5.co.il","tech12.co.il","haaretz.co.il","isramedia.net","themarker.com","calcalist.co.il","foodsdictionary.co.il","www-globes-co-il.eu1.proxy.openathens.net","www-haaretz-co-il.eu1.proxy.openathens.net","www-themarker-com.eu1.proxy.openathens.net"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -91,7 +91,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const arglistRefs = /* 59 */ ["5,6,12,13","17,18","5","5","5,8,9,10,11","5,6","5,6","5,6,7","5","5","2,3,4,5","5,8,9,10,11","6","5","16","5","5","1","1","5,14,15","5","5,14,15","5,6","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","5","1","19,20","5,14,15,21,22","5,14,15"];
+        const arglistRefs = /* 25 */ ["4,5,11,12","16,17","4,5","4","4,7,8,9,10","4,5","4,5","4,5,6","4","4","1,2,3,4","4,7,8,9,10","5","4","15","4","4","4,13,14","4","4,13,14","4,5","4","18,19","4,13,14,20,21","4,13,14"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -121,8 +121,8 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 23 */ ["","19,0","19,1","32","14,2,3","15,4","31,5","14,6","15,7","15,8","1,9,10,11","1,12,13,11","14,14","10","22,15,16","11,17,18","12,19,20","19,21","14,22","11,23,24","11,25,26","22,27,16","12,28,29"];
-    const args = /* 30 */ ["btoa","isMobileasokita","()","1500","adsbygoogle","upManager","offsetHeight","doubleclick","googlesyndication","taboola timeout","*","0.001","clearInterval(run)","5000","popup","","hblocked","showAds","true","document.createElement","admiral","mdp_deblocker","mdpDeBlocker","document.blocked_var","1","____ads_js_blocked","false","load","$","AdBlockUtil"];
+    const arglists = /* 22 */ ["","17,0","31","14,1,2","15,3","30,4","14,5","1,6,7,8","1,9,10,8","15,11","15,12","14,13","10","22,14,15","11,16,17","12,18,19","17,20","14,21","11,22,23","11,24,25","12,26,27","22,28,15"];
+    const args = /* 29 */ ["isMobileasokita","()","1500","adsbygoogle","upManager","offsetHeight","clearInterval(run)","5000","0.001","taboola timeout","*","doubleclick","googlesyndication","popup","","hblocked","showAds","true","document.createElement","admiral","mdp_deblocker","mdpDeBlocker","____ads_js_blocked","false","document.blocked_var","1","$","AdBlockUtil","load"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
         if ( ref < 0 ) { continue; }
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
+})("dc258953-addd-43ba-88a8-66e22006432e");
 
 void 0;

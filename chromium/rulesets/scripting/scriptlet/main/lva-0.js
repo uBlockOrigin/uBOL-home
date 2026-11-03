@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 6 */ ["","26","11,0,1","11,2,3","11,4,5","11,6,7"];
+    const arglists = /* 6 */ ["","24","11,0,1","11,2,3","11,4,5","11,6,7"];
     const args = /* 8 */ ["window.LIEPAJNIEKIEM_ADBLOCK","null","window.LIEPAJNIEKIEM_ADBLOCK_COUNTER","999","window.LIEPAJNIEKIEM_HAS_ADBLOCK","0","window.liepajniekiemStats.event","function() {}"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
+})("dc258953-addd-43ba-88a8-66e22006432e");
 
 void 0;

@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 7 */ ["","19,0","11,1,2","7,3","26,4,5,6","17,7,8","26,9,10"];
+    const arglists = /* 7 */ ["","17,0","11,1,2","7,3","24,4,5,6","18,7,8","24,9,10"];
     const args = /* 11 */ ["open","adSettings","[]","MU_ads","#close_preload","1000","0","style",".viddeo > .video__","กดเพื่อดูหนัง","*"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
+})("dc258953-addd-43ba-88a8-66e22006432e");
 
 void 0;

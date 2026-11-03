@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 5 */ ["","23,0,1","17,2,3,4","17,5,3,4","17,6,3,4"];
+    const arglists = /* 5 */ ["","23,0,1","18,2,3,4","18,5,3,4","18,6,3,4"];
     const args = /* 7 */ ["Drupal","copyprevention","oncopy","body","complete","onselectstart|oncopy","onselectstart|oncopy|oncontextmenu"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
+})("dc258953-addd-43ba-88a8-66e22006432e");
 
 void 0;

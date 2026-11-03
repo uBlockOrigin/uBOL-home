@@ -476,6 +476,7 @@
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||facebook.com^*/plugins/page.php?"},"id":475,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||facebook.com^*/plugins/share_button.php?"},"id":476,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||feedly.com/img/follows/"},"id":477,"priority":10},
+{"action":{"type":"allow"},"condition":{"urlFilter":"||b.hatena.ne.jp/-/webextension/"},"id":478,"priority":30},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||flipboard.com/web/buttons/"},"id":479,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||getbutton.io/widget-send-button/"},"id":480,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","urlFilter":"||getsocial.io/widget/"},"id":481,"priority":10},

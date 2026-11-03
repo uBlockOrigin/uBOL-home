@@ -933,5 +933,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||subsbr.net/xbr-gaming-videos-api.php"},"id":932,"priority":10},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["font","image","script","stylesheet","xmlhttprequest"],"urlFilter":"||publicidad.animepelis.com/"},"id":933,"priority":30},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["latribuna.hn"],"requestDomains":["pyrsahn.com"]},"id":934,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||xtusubs.com/wpp/img/rux37ex29kmf1.gif"},"id":935,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||xtusubs.com/wpp/img/rux37ex29kmf1.gif"},"id":935,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||js.sapo.pt/projects/cpu/"},"id":936,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||lycantoons.com/api/spotlight|"},"id":937,"priority":10}
 ]

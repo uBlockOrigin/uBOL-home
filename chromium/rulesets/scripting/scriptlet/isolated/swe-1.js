@@ -46,7 +46,7 @@ const $hasRegexes$ = false;
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const scriptletHostnames = /* 42 */ ["m3.se","elle.se","hant.se","inet.se","leta.se","allas.se","feber.se","tjock.se","femina.se","mabra.com","norpan.se","rodeo.net","fempers.se","medibok.se","pilsner.nu","bio-link.se","byggahus.se","macworld.se","expressen.se","golflivet.se","pcforalla.se","svenskdam.se","synonymer.se","web-tools.se","byggipedia.se","dinbyggare.se","familjeliv.se","motherhood.se","vitaestilo.se","aftonbladet.se","destination.se","galamagasin.se","landetsfria.se","sistaminuten.se","inredningsvis.se","skrattsajten.com","tidningensyre.se","kandisvarlden.com","husbilskompisar.se","tidningenglobal.se","residencemagazine.se","internetodontologi.se"];
+    const scriptletHostnames = /* 41 */ ["m3.se","elle.se","hant.se","inet.se","leta.se","allas.se","feber.se","tjock.se","femina.se","mabra.com","norpan.se","rodeo.net","fempers.se","medibok.se","pilsner.nu","bio-link.se","byggahus.se","macworld.se","expressen.se","golflivet.se","pcforalla.se","svenskdam.se","synonymer.se","byggipedia.se","dinbyggare.se","familjeliv.se","motherhood.se","vitaestilo.se","aftonbladet.se","destination.se","galamagasin.se","landetsfria.se","sistaminuten.se","inredningsvis.se","skrattsajten.com","tidningensyre.se","kandisvarlden.com","husbilskompisar.se","tidningenglobal.se","residencemagazine.se","internetodontologi.se"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -91,7 +91,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const arglistRefs = /* 42 */ ["23","1,2,8","2","15","22","2","13","13","1,2","2","21","1","27,28,29","24","24","30","1","23","1,8,9,10,11,12","1","23","1,2","25,26","30","3,4","6,7","1","2","1","1","5","1","27,28,29","5","1,16,17,18,19,20","21","27,28,29","24","14","27,28,29","2","21"];
+        const arglistRefs = /* 41 */ ["23","1,2,8","2","15","22","2","13","13","1,2","2","21","1","27,28,29","24","24","30","1","23","1,8,9,10,11,12","1","23","1,2","25,26","3,4","6,7","1","2","1","1","5","1","27,28,29","5","1,16,17,18,19,20","21","27,28,29","24","14","27,28,29","2","21"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
+})("dc258953-addd-43ba-88a8-66e22006432e");
 
 void 0;

@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 39 */ ["","17,0,1,2","23,3,4","22,5,6","7,7","17,8,9,2","17,10,11,2","11,12,13","11,14,15","11,16,17","11,18,19","11,20,19","3,21,22,23,24","23,25,4","7,26","11,27,28","11,29,28","15,30","19,31","11,32,15","11,33,34","19,35","19,36","7,37","17,38,11,2","11,39,15","31,40","17,41,42","13,43","19,44","11,45,15","11,46,15","22,47,48","22,49,48,50","22,51,52","14,53","11,54,15","14,55,56","23,57,58"];
+    const arglists = /* 39 */ ["","18,0,1,2","23,3,4","22,5,6","7,7","18,8,9,2","18,10,11,2","11,12,13","11,14,15","11,16,17","11,18,19","11,20,19","3,21,22,23,24","23,25,4","7,26","11,27,28","11,29,28","15,30","17,31","11,32,15","11,33,34","17,35","17,36","7,37","18,38,11,2","11,39,15","30,40","18,41,42","13,43","17,44","11,45,15","11,46,15","22,47,48","22,49,48,50","22,51,52","14,53","11,54,15","14,55,56","23,57,58"];
     const args = /* 59 */ ["jsaction","#islsp c-wiz a[href^=\"http\"][data-ved][target]","stay","document.head.appendChild","inlineScript","click","externalLink","is_vpn","data-cturl",".searchresults a","data-safe-proxy-url","a","BB.disableRefLinks","true","Object.prototype.Begun","undefined","Object.prototype.antiadblock","false","Object.prototype.canShowMoreAds","noopFunc","Object.prototype.hasAdv","meta.country","","propsToMatch","/api/anime","Object.prototype.getBaseFingerprint","Blocks","Object.prototype.hasPreroll","null","Object.prototype.needShowAlicePopup","/generate_204","Object.prototype.AdvManager","Object.prototype.isNonEmptyString","history.replaceState","trueFunc","Object.prototype.renderTrackingUrl","Object.prototype.setBlockId","direct rtb seatbid data.*.attributes.blockId","data-link-id","Object.prototype.DirectLine","__pcodeAllActiveTestIds","data-counter","#search-result > .serp-item a","yabs.yandex.ru/count/","__activeTestIds","Object.prototype.initPcode","Object.prototype.Rtb","/beforeunload|pagehide/","0x","DOMContentLoaded","document","beforeunload","defaultPrevented||this.setCookies","/BLOCKERS|NOT_BLOCKED/","Object.prototype.AdblockCookieMatchingType","removeAttr","setTimeout","document.referrer","https://4pda.to/"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
+})("dc258953-addd-43ba-88a8-66e22006432e");
 
 void 0;

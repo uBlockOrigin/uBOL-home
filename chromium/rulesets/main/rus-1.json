@@ -455,7 +455,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||g.ivi.ru/track|"},"id":454,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||groot.ivi.ru/track|"},"id":455,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||media-trend.mail.ru/api/*/video/metric/|"},"id":456,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["russian.rt.com"],"resourceTypes":["xmlhttprequest"],"urlFilter":"||nbc.rt.com/nbc/*/|"},"id":457,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||pikabu.ru/ajax/save_stories_stat.php|"},"id":458,"priority":10},
 {"action":{"redirect":{"transform":{"queryTransform":{"removeParams":["ref"]}}},"type":"redirect"},"condition":{"initiatorDomains":["dtf.ru","mail.ru","sportmail.ru","sports.ru","vc.ru"],"resourceTypes":["image","sub_frame","xmlhttprequest"],"urlFilter":"^ref="},"id":459},
 {"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||sports.kz/ajax/bannerviewscounter"},"id":460,"priority":10},

@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 13 */ ["","14,0,1","12,2","19,3","11,4,5","7,6","22,7,8,9,10","23,11,12","35,13","14,14,15","2,16,8,17,18","46,19,8,20","46,21,8,22"];
+    const arglists = /* 13 */ ["","14,0,1","12,2","17,3","11,4,5","7,6","22,7,8,9,10","23,11,12","34,13","14,14,15","2,16,8,17,18","46,19,8,20","46,21,8,22"];
     const args = /* 23 */ ["f.parentNode.removeChild(f)","100","testPrebid","Object.prototype.adUnits","Object.prototype.useAds","false","props.pageProps.contentfulState.frontPage.sections.[].fields.hasCitrusAdSlot props.pageProps.contentfulState.frontPage.sections.[].fields.isCitrusAdGrid","transitionend","","elements","div[style*=\"-9999px\"][style*=\"outline-offset\"]","Animation.prototype.finished","/telsu\\.fi\\/js\\/[a-z\\d]+\\.js\\?v=\\d+/","/const\\s+([$\\w]+)=[$\\w]+\\(\\)-[$\\w]+;if\\(\\1>=[\\s\\S]*?\\x2C\\1>=[\\s\\S]*?\\)\\{[$\\w]+\\(\\);return;\\}window\\[[^\\]]+\\]\\([$\\w]+\\);/","/const\\s+([$\\w]+)=\\[(?:[$\\w]+\\x2C){3}[$\\w]+\\];for\\(let\\s+([$\\w]+)=[^;]+;\\2<\\1\\[[^\\]]+\\];\\2\\+\\+\\)if\\(!\\1\\[\\2\\]\\)return;[$\\w]+\\(\\);/","2600-3399","bumpers playbackItem.isStitched","propsToMatch","a2d.tv/play/","Ad","/fwmrm.net\\/ad\\/g/","MediaFile","fi-mtv3.videoplaza.tv/proxy/distributor"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
+})("dc258953-addd-43ba-88a8-66e22006432e");
 
 void 0;

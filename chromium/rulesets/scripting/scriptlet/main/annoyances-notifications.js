@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 11 */ ["","12,0","12,1","11,2,3","22,4","22,5","22,6","17,7","31,8","11,9,10","22,5,11"];
+    const arglists = /* 11 */ ["","12,0","12,1","11,2,3","22,4","22,5","22,6","18,7","30,8","11,9,10","22,5,11"];
     const args = /* 12 */ ["requestPermission","serviceworker.register","Object.prototype.disablePaginationLimitForLoggedOut","true","block-body-scrolling","touchmove","/^(mouseout|mouseleave)$/","oncontextmenu|ondragstart|onselectstart|onkeydown|oncopy|oncut|onclick","LaraPush","history.state","undefined","preventDefault"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
+})("dc258953-addd-43ba-88a8-66e22006432e");
 
 void 0;

@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 11 */ ["","12,0,1","14,2","14,3","11,4,5","19,6","10,7,8,9","19,10","10","19,11","11,12,13"];
+    const arglists = /* 11 */ ["","12,0,1","14,2","14,3","11,4,5","17,6","10,7,8,9","17,10","10","17,11","11,12,13"];
     const args = /* 14 */ ["onload","shuffleArray","location","Banner","_dlf.adfree","1","BetterJsPop","","10","obj","canRunAds","_renderAdblock","isASFailed","true"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
+})("dc258953-addd-43ba-88a8-66e22006432e");
 
 void 0;

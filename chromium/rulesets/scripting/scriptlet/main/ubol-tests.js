@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 10 */ ["","11,0,1","14,2","11,3,1","9,4,5,6","56,4,5,6","6,7,8","24,9,10","12,11,12","12,11,13"];
+    const arglists = /* 10 */ ["","11,0,1","14,2","11,3,1","9,4,5,6","56,4,5,6","6,7,8","40,9,10","12,11,12","12,11,13"];
     const args = /* 14 */ ["sf1Sentinel","undefined","sf2Sentinel","sf3Sentinel",".b","propsToMatch","/sample.jsonl","Node.prototype.appendChild","Element.prototype.getElementsByTagName","#sf7 .fail","<b>","document.createElement","5F953nt1n3l","sf9Sentinel"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("fb7f2f86-ef87-4c15-a912-62a035b1c974");
+})("dc258953-addd-43ba-88a8-66e22006432e");
 
 void 0;
