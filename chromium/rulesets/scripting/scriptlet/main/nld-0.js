@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 23 */ ["","12,0,1","14,2","17,3","13,4","14,5","15,6","15,7","12,0,8","15,9","46,10,11,12","15,13","22,11,14","11,15,16","17,17","12,18,19","7,20","11,21,22","50","1,23,24,25","11,26,27","1,28,24,25","7,29"];
+    const arglists = /* 23 */ ["","12,0,1","14,2","17,3","13,4","14,5","15,6","15,7","12,0,8","15,9","47,10,11,12","15,13","22,11,14","11,15,16","17,17","12,18,19","7,20","11,21,22","50","1,23,24,25","11,26,27","1,28,24,25","7,29"];
     const args = /* 30 */ ["document.createElement","adsbygoogle.js","ckad","Object.prototype.autoRecov","assets.prod.webx.talpa.digital/ad/view/",".height() === 0","securepubads.g.doubleclick.net","v.fwmrm.net","adsbygoogle","/a[ab]\\.tweakers\\.nl/","Period[id*=\"-ad-\"]","",".mpd","pubads.g.doubleclick.net/gampad/ads","Flags.autoRecov","DAB","noopFunc","Object.prototype.disableAb","Math","Flags.newInject","assets.preroll","BannerManager","undefined","function () { [native code] }","6000","0.001","cookie","true","[native code]","adUrl"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("dc258953-addd-43ba-88a8-66e22006432e");
+})("05723a46-3114-4ba9-ac80-1c775003e606");
 
 void 0;

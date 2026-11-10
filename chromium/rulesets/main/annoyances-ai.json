@@ -9,5 +9,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||api.coinmarketcap.com/chatbot/"},"id":8,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||mydrivers.com//v2/pc/aisummaryhandler.ashx?"},"id":9,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["klipy.com"],"urlFilter":"||klipy.atlassian.net/csm/widget/"},"id":10,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||embed.vaile.ai/chat-widget-magic.iife.js"},"id":11,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||embed.vaile.ai/chat-widget-magic.iife.js"},"id":11,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["widget.sitegpt.ai"],"resourceTypes":["sub_frame"]},"id":12,"priority":10}
 ]

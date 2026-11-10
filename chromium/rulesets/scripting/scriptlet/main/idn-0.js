@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 30 */ ["","12,0,1","17,2","30,3","12,4","12,5,6","12,7","12,8,9","12,10,11,12","22","22,13,14","22,13,15","22,13,16","22,17,18","17,19","17,20","30,21","24","15,22","15,6","15,23","15,24","13,25","36","35,26","14,27","14,28,29","10","11,30,31","30,32"];
+    const arglists = /* 30 */ ["","12,0,1","17,2","32,3","12,4","12,5,6","12,7","12,8,9","12,10,11,12","22","22,13,14","22,13,15","22,13,16","22,17,18","17,19","17,20","32,21","26","15,22","15,6","15,23","15,24","13,25","38","37,26","14,27","14,28,29","10","11,30,31","32,32"];
     const args = /* 33 */ ["Math.random","arv_24","SGPB_POPUP_PARAMS","MutationObserver","checkAdsStatus","document.querySelector","adsbygoogle","chp_ads_blocker_detector","document.addEventListener","window.open","getComputedStyle","","cpm","click","linkOpened","player.seeking","tampilkanUrl","load","/adblock/i","LieDetector","ujiPopups","document.body.innerHTML","ads.google.com","clarity.ms","trafficbass.com","googlesyndication","/chp_?ad/","console","location.href","3000","bait_b3j4hu231","true","ai_front"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("dc258953-addd-43ba-88a8-66e22006432e");
+})("05723a46-3114-4ba9-ac80-1c775003e606");
 
 void 0;

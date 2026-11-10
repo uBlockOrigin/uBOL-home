@@ -144,7 +144,9 @@ function jsonEditFn(trusted = false, jsonq = '', ...varargs) {
     proxyApplyFn('JSON.parse', function(context) {
         const json = context.callArgs[0];
         const obj = context.reflect();
-        if ( pattern && safe.testPattern(pattern, json) === false ) { return obj; }
+        if ( pattern && typeof json === 'string' ) {
+            if ( safe.testPattern(pattern, json) === false ) { return obj; }
+        }
         const objAfter = jsonp.apply(obj);
         if ( objAfter === undefined ) { return obj; }
         safe.uboLog(logPrefix, 'Edited');
@@ -254,7 +256,7 @@ function editInboundObjectFn(
     const editObj = obj => {
         let clone;
         try {
-            clone = safe.JSON_parse(safe.JSON_stringify(obj));
+            clone = safe.structuredClone(obj);
         } catch {
         }
         if ( typeof clone !== 'object' || clone === null ) { return; }
@@ -269,9 +271,12 @@ function editInboundObjectFn(
     proxyApplyFn(propChain, function(context) {
         const i = getArgPos(context.callArgs);
         if ( i !== undefined ) {
-            const obj = editObj(context.callArgs[i]);
-            if ( obj ) {
-                context.callArgs[i] = obj;
+            const objBefore = context.callArgs[i];
+            if ( typeof objBefore === 'object' ) {
+                const objAfter = editObj(objBefore);
+                if ( objAfter ) {
+                    context.callArgs[i] = objAfter;
+                }
             }
         }
         return context.reflect();

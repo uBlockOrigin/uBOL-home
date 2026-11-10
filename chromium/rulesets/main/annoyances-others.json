@@ -276,6 +276,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["heraldnet.com"],"requestDomains":["sp-marketing-assets.s3.us-west-2.amazonaws.com"]},"id":275,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||column.valx.jp/wp-content/themes/jin/img/bnr_wpc.png"},"id":276,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"page_view_count"},"id":277,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||vaticannews.va/widget.js"},"id":278,"priority":10},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["9tsu.vip"],"urlFilter":"||jsdelivr.net/npm/devtools-detector"},"id":279,"priority":30},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||wp.com/www.feedburner.com/fb/"},"id":280,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["breakingdefense.com"],"resourceTypes":["script"],"urlFilter":"/jquery.simplemodal."},"id":281,"priority":10},

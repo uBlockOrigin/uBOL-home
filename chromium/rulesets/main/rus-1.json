@@ -86,7 +86,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||ru/cnt/?"},"id":85,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["yandex.by","yandex.kz","yandex.ru","yandex.uz"],"urlFilter":"||ru/count/"},"id":86,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ru/img.php?id"},"id":87,"priority":10},
-{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["allsocial.ru","barcodes.olegon.ru","be1.ru","metrika.yandex.ru","mobtop.ru","proships.ru","sms-track.ru","sports.ru","textovod.com","wordstat.yandex.ru"],"urlFilter":"||ru/stat/"},"id":88,"priority":10},
+{"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["allsocial.ru","barcodes.olegon.ru","be1.ru","championat.com","championat.ru","metrika.yandex.ru","mobtop.ru","proships.ru","sms-track.ru","sports.ru","textovod.com","wordstat.yandex.ru"],"urlFilter":"||ru/stat/"},"id":88,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||su/stat/"},"id":89,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["fotomag.com.ua"],"urlFilter":"||ua/stat/"},"id":90,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["maximum.ru","montecarlo.ru"],"urlFilter":"/metrics.js"},"id":91,"priority":10},

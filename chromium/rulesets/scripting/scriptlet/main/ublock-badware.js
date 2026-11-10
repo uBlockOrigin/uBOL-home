@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 19 */ ["","22,0,1","22,2,3","22,4,5","12,6,7,8","30,9","12,10,11","12,12,13","12,14,15","12,14,16","23,17,18","35,19","12,14,20","16,21,22,23,24,25","12,26,27","23,28,29","12,30,31","23,32,33","35,7"];
+    const arglists = /* 19 */ ["","22,0,1","22,2,3","22,4,5","12,6,7,8","32,9","12,10,11","12,12,13","12,14,15","12,14,16","23,17,18","37,19","12,14,20","16,21,22,23,24,25","12,26,27","23,28,29","12,30,31","23,32,33","37,7"];
     const args = /* 34 */ ["DOMContentLoaded","fullscreenEnabled","beforeunload","/[Ww]orker/","mousemove","loadSecret","fetch","_0x","/^data:/","ai_front","document.createElement",".onerror","String.prototype.toLowerCase","Contract","atob","Uint8Array","new","Function","/bxslider|wow/","tigervip2","new Function(atob(","String.prototype.includes","0","undefined","condition","/^checkout$/","WebSocket","event.data","XMLHttpRequest","/wp-content","open","executeCode","Array.prototype.indexOf","isWin"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("dc258953-addd-43ba-88a8-66e22006432e");
+})("05723a46-3114-4ba9-ac80-1c775003e606");
 
 void 0;

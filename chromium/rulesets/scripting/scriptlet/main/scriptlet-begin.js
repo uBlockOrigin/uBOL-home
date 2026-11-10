@@ -468,12 +468,13 @@ class JSONPath {
                     path: this.path.slice(),
                 };
                 const v = this.value.obj[this.value.key];
-                if ( recursive ) {
+                if ( recursive && typeof v === 'object' && v !== null && this.seen.has(v) === false ) {
                     if ( Array.isArray(v) ) {
                         this.stack.push({ obj: v, keys: v.keys() });
-                    } else if ( typeof v === 'object' && v !== null ) {
+                    } else {
                         this.stack.push({ obj: v, keys: JSONPath.keys(v).values() });
                     }
+                    this.seen.add(v);
                 }
                 return this;
             },
@@ -481,6 +482,7 @@ class JSONPath {
             value: undefined,
             done: false,
             stack: [],
+            seen: new WeakSet(),
             [Symbol.iterator]() { return this; },
         };
         if ( Array.isArray(v) ) {
@@ -1061,7 +1063,7 @@ function editInboundObjectFn(
     const editObj = obj => {
         let clone;
         try {
-            clone = safe.JSON_parse(safe.JSON_stringify(obj));
+            clone = safe.structuredClone(obj);
         } catch {
         }
         if ( typeof clone !== 'object' || clone === null ) { return; }
@@ -1076,9 +1078,12 @@ function editInboundObjectFn(
     proxyApplyFn(propChain, function(context) {
         const i = getArgPos(context.callArgs);
         if ( i !== undefined ) {
-            const obj = editObj(context.callArgs[i]);
-            if ( obj ) {
-                context.callArgs[i] = obj;
+            const objBefore = context.callArgs[i];
+            if ( typeof objBefore === 'object' ) {
+                const objAfter = editObj(objBefore);
+                if ( objAfter ) {
+                    context.callArgs[i] = objAfter;
+                }
             }
         }
         return context.reflect();
@@ -1228,23 +1233,8 @@ function generateContentFn(trusted, directive) {
         return randomize(len | 0);
     }
     if ( directive.startsWith('war:') ) {
-        if ( scriptletGlobals.warOrigin === undefined ) { return ''; }
-        return new Promise(resolve => {
-            const warOrigin = scriptletGlobals.warOrigin;
-            const warName = directive.slice(4);
-            const fullpath = [ warOrigin, '/', warName ];
-            const warSecret = scriptletGlobals.warSecret;
-            if ( warSecret !== undefined ) {
-                fullpath.push('?secret=', warSecret);
-            }
-            const warXHR = new safe.XMLHttpRequest();
-            warXHR.responseType = 'text';
-            warXHR.onloadend = ev => {
-                resolve(ev.target.responseText || '');
-            };
-            warXHR.open('GET', fullpath.join(''));
-            warXHR.send();
-        }).catch(( ) => '');
+        // TODO: resources should be fetched by messaging ISOLATED world
+        return '';
     }
     if ( directive.startsWith('join:') ) {
         const parts = directive.slice(7)
@@ -1409,7 +1399,9 @@ function jsonEditFn(trusted = false, jsonq = '', ...varargs) {
     proxyApplyFn('JSON.parse', function(context) {
         const json = context.callArgs[0];
         const obj = context.reflect();
-        if ( pattern && safe.testPattern(pattern, json) === false ) { return obj; }
+        if ( pattern && typeof json === 'string' ) {
+            if ( safe.testPattern(pattern, json) === false ) { return obj; }
+        }
         const objAfter = jsonp.apply(obj);
         if ( objAfter === undefined ) { return obj; }
         safe.uboLog(logPrefix, 'Edited');
@@ -3512,14 +3504,18 @@ function safeSelf() {
         'Request_clone': self.Request.prototype.clone,
         'String': self.String,
         'String_fromCharCode': String.fromCharCode,
+        'String_includes': String.prototype.includes,
         'String_split': String.prototype.split,
         'XMLHttpRequest': self.XMLHttpRequest,
+        'XMLHttpRequest_open': Function.prototype.call.bind(self.XMLHttpRequest.prototype.open),
+        'XMLHttpRequest_send': Function.prototype.call.bind(self.XMLHttpRequest.prototype.send),
         'addEventListener': self.EventTarget.prototype.addEventListener,
         'removeEventListener': self.EventTarget.prototype.removeEventListener,
         'fetch': self.fetch,
         'JSON': self.JSON,
         'JSON_parse': Function.prototype.call.bind(self.JSON.parse, self.JSON),
         'JSON_stringify': Function.prototype.call.bind(self.JSON.stringify, self.JSON),
+        'structuredClone': Function.prototype.call.bind(self.structuredClone, self),
         'log': console.log.bind(console),
         // Properties
         logLevel: 0,
@@ -3574,7 +3570,7 @@ function safeSelf() {
             if ( details.re ) {
                 return this.RegExp_test(details.re, haystack) === details.expect;
             }
-            return haystack.includes(details.pattern) === details.expect;
+            return this.String_includes.call(`${haystack}`, details.pattern) === details.expect;
         },
         patternToRegex(pattern, flags = undefined, verbatim = false) {
             if ( pattern === '' ) { return /^/; }
@@ -4079,16 +4075,18 @@ function trustedPreventDomBypass(
                     }
                 }
                 if ( targetProp !== '' ) {
+                    const chains = targetProp.split(/\s+/);
                     let me = self, it = elem.contentWindow;
-                    let chain = targetProp;
-                    for (;;) {
-                        const pos = chain.indexOf('.');
-                        if ( pos === -1 ) { break; }
-                        const prop = chain.slice(0, pos);
-                        me = me[prop]; it = it[prop];
-                        chain = chain.slice(pos+1);
+                    for ( let chain of chains ) {
+                        for (;;) {
+                            const pos = chain.indexOf('.');
+                            if ( pos === -1 ) { break; }
+                            const prop = chain.slice(0, pos);
+                            me = me[prop]; it = it[prop];
+                            chain = chain.slice(pos+1);
+                        }
+                        it[chain] = me[chain];
                     }
-                    it[chain] = me[chain];
                 } else {
                     Object.defineProperty(elem, 'contentWindow', { value: self });
                 }
@@ -4529,7 +4527,7 @@ function xmlPrune(
     });
 }
 
-function zeta_429be1bd951c4ec6812797a97cdb5fd8() { // fingerprint2.js
+function zeta_581517b0591349ada9381bc6b2b2d5a2() { // fingerprint2.js
 // Reference:
 // https://github.com/fingerprintjs/fingerprintjs/tree/v2
 
@@ -4566,7 +4564,7 @@ function zeta_429be1bd951c4ec6812797a97cdb5fd8() { // fingerprint2.js
 })();
 }
 
-function zeta_809e6fe73b564ebb94740c7c3ba7bfbc() { // google-ima.js
+function zeta_4a8ac0757d764d059a57276ea4599ad1() { // google-ima.js
 'use strict';
 
 
@@ -5195,7 +5193,7 @@ if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
 }
 }
 
-function zeta_c5410e7dc9de4c079ac4a3797fed52c4() { // nobab2.js
+function zeta_02c096ce627444eaad3da997996f7875() { // nobab2.js
 (function() {
     'use strict';
     const script = document.currentScript;
@@ -5219,7 +5217,7 @@ function zeta_c5410e7dc9de4c079ac4a3797fed52c4() { // nobab2.js
 })();
 }
 
-function zeta_3a530b4fd163430dbd09650442d0c5c9() { // noeval.js
+function zeta_ea8514673e554c5c866a57afb86728f8() { // noeval.js
 (function() {
     'use strict';
     const log = console.log.bind(console);
@@ -5231,7 +5229,7 @@ function zeta_3a530b4fd163430dbd09650442d0c5c9() { // noeval.js
 })();
 }
 
-function zeta_30e9a6e5f0ce48fb9690a1658fd95396() { // nofab.js
+function zeta_3a8fe7e4325949348464d43fff4072c0() { // nofab.js
 (function() {
     'use strict';
     const noopfn = function() {
@@ -5280,7 +5278,7 @@ function zeta_30e9a6e5f0ce48fb9690a1658fd95396() { // nofab.js
 })();
 }
 
-function zeta_69ea8e00da264e4daae544fc4560b38a() { // popads-dummy.js
+function zeta_06aa865c7fda4c4e918b6cebddc3c5b5() { // popads-dummy.js
 (function() {
     'use strict';
     delete window.PopAds;
@@ -5297,8 +5295,13 @@ function zeta_69ea8e00da264e4daae544fc4560b38a() { // popads-dummy.js
 scriptletGlobals.origins = (( ) => {
     const docloc = document.location;
     const origins = [ docloc.origin ];
-    if ( docloc.ancestorOrigins ) {
-        origins.push(...docloc.ancestorOrigins);
+    if ( docloc.ancestorOrigins?.length ) {
+        const topOrigin = docloc.ancestorOrigins[docloc.ancestorOrigins.length-1];
+        if ( topOrigin !== 'null' ) {
+            origins.push(topOrigin);
+        } else if ( scriptletGlobals.topOrigin ) {
+            origins.push(scriptletGlobals.topOrigin);
+        }
     }
     const out = [];
     for ( let i = 0; i < origins.length; i++ ) {
@@ -5334,11 +5337,11 @@ scriptletGlobals.origins = (( ) => {
     return out;
 })();
 
-scriptletGlobals.functionRefs = /* 59 */ [trustedEditInboundObject,adjustSetTimeout,jsonPruneFetchResponse,jsonPruneXhrResponse,trustedReplaceXhrResponse,trustedReplaceFetchResponse,trustedPreventDomBypass,jsonPrune,jsonEdit,jsonlEditXhrResponse,noWindowOpenIf,setConstant,abortCurrentScript,preventXhr,preventSetTimeout,preventFetch,trustedReplaceArgument,abortOnPropertyRead,removeAttr,trustedOverrideElementMethod,trustedReplaceOutboundText,trustedSuppressNativeMethod,preventAddEventListener,abortOnStackTrace,adjustSetInterval,preventSetInterval,zeta_429be1bd951c4ec6812797a97cdb5fd8,trustedSetConstant,jsonEditFetchResponse,zeta_3a530b4fd163430dbd09650442d0c5c9,abortOnPropertyWrite,noWebrtc,zeta_30e9a6e5f0ce48fb9690a1658fd95396,zeta_69ea8e00da264e4daae544fc4560b38a,preventRequestAnimationFrame,noEvalIf,preventBab,trustedPreventFetch,disableNewtabLinks,trustedJsonEditFetchResponse,preventInnerHTML,editObjectOnSetter,trustedJsonEdit,trustedJsonEditXhrResponse,preventClipboardWrite,jsonEditXhrResponse,xmlPrune,m3uPrune,trustedPreventXhr,spoofCSS,zeta_809e6fe73b564ebb94740c7c3ba7bfbc,alertBuster,preventCanvas,mpegdashPrune,jsonEditFetchRequest,proxyApplyConfig,jsonlEditFetchResponse,evaldataPrune,zeta_c5410e7dc9de4c079ac4a3797fed52c4];
+scriptletGlobals.functionRefs = /* 59 */ [trustedEditInboundObject,adjustSetTimeout,jsonPruneFetchResponse,jsonPruneXhrResponse,trustedReplaceXhrResponse,trustedReplaceFetchResponse,trustedPreventDomBypass,jsonPrune,jsonEdit,jsonlEditXhrResponse,noWindowOpenIf,setConstant,abortCurrentScript,preventXhr,preventSetTimeout,preventFetch,trustedReplaceArgument,abortOnPropertyRead,removeAttr,trustedOverrideElementMethod,trustedReplaceOutboundText,trustedSuppressNativeMethod,preventAddEventListener,abortOnStackTrace,trustedPreventFetch,trustedPreventXhr,adjustSetInterval,preventSetInterval,zeta_581517b0591349ada9381bc6b2b2d5a2,trustedSetConstant,jsonEditFetchResponse,zeta_ea8514673e554c5c866a57afb86728f8,abortOnPropertyWrite,noWebrtc,zeta_3a8fe7e4325949348464d43fff4072c0,zeta_06aa865c7fda4c4e918b6cebddc3c5b5,preventRequestAnimationFrame,noEvalIf,preventBab,disableNewtabLinks,trustedJsonEditFetchResponse,preventInnerHTML,editObjectOnSetter,trustedJsonEdit,trustedJsonEditXhrResponse,preventClipboardWrite,jsonEditXhrResponse,xmlPrune,m3uPrune,spoofCSS,zeta_4a8ac0757d764d059a57276ea4599ad1,alertBuster,preventCanvas,mpegdashPrune,jsonEditFetchRequest,proxyApplyConfig,jsonlEditFetchResponse,evaldataPrune,zeta_02c096ce627444eaad3da997996f7875];
 
 /******************************************************************************/
 
 // End of local scope
-})("dc258953-addd-43ba-88a8-66e22006432e");
+})("05723a46-3114-4ba9-ac80-1c775003e606");
 
 void 0;

@@ -332,5 +332,6 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||canale-tv.net/channel/disy.js^"},"id":331,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ctctyo.com/cdn/shop/t/8/assets/popup.js"},"id":332,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["respawnfirst.com"],"requestDomains":["respawnfirst.kit.com"]},"id":333,"priority":10},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||washingtonpost.com/newsletters/api/v1/newsletters/"},"id":334,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||washingtonpost.com/newsletters/api/v1/newsletters/"},"id":334,"priority":30},
+{"action":{"type":"block"},"condition":{"urlFilter":"||link.box.blick.ch/join/7m4/signup-shopping-tipps"},"id":335,"priority":10}
 ]

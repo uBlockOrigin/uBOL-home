@@ -121,7 +121,7 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 63 */ ["","11,0,1","22,2,3","22,4,5","22,6","11,7,8","17,9","11,10,11","11,12,11","12,13","12,14","14,15","22,16,17,18,19","22,20,21","7,22","11,23,24","11,25,8","11,26,8","22,20,27,28","11,29,24","11,30,31","17,32","12,33","7,34","14,35","12,36","11,37,11","11,38,24","11,39,8","35,40","13,41","22,42","2,22,27,43,44","12,45,46","7,47","22,4,48","11,49,8","14,50","11,51,8","7,52","22,53,54","22,55","12,56","51","22,20","11,57,8","11,58,1","14,59","2,60,27,43,61","46,62,27,63","11,64,24","11,65,66","11,67,68","7,69","11,70,8","14,71","12,72","11,73,24","12,74","12,75","22,53","22,53,4","22,53,76"];
+    const arglists = /* 63 */ ["","11,0,1","22,2,3","22,4,5","22,6","11,7,8","17,9","11,10,11","11,12,11","12,13","12,14","14,15","22,16,17,18,19","22,20,21","7,22","11,23,24","11,25,8","11,26,8","22,20,27,28","11,29,24","11,30,31","17,32","12,33","7,34","14,35","12,36","11,37,11","11,38,24","11,39,8","37,40","13,41","22,42","2,22,27,43,44","12,45,46","7,47","22,4,48","11,49,8","14,50","11,51,8","7,52","22,53,54","22,55","12,56","51","22,20","11,57,8","11,58,1","14,59","2,60,27,43,61","47,62,27,63","11,64,24","11,65,66","11,67,68","7,69","11,70,8","14,71","12,72","11,73,24","12,74","12,75","22,53","22,53,4","22,53,76"];
     const args = /* 77 */ ["advertoryFluepapir","true","blur","i.focusPlayerElement","scroll","t.view.updateBounds","/adblockDetector|adsInserted|partnerExternalLinkClick/","ai_set_cookie","noopFunc","_sp_","square_array1","null","square_arraytop","disableEnterKey","document.ondragstart","ad","click","e.preventDefault","elements","a.js-ct","contextmenu",".disabled","autoplay","B.ab","false","dovideostuffAD","testPrebid","","showCopyrightBox","adblock","adblockEnabled","falseFunc","Object.prototype.adUnits","advads_passive_placements","props.initialAds","ad_location","document.oncontextmenu","eazy_ad_unblocker","showAds","trap","adbEnableForPage","adsbygoogle","/^(?:adBlocker|contextmenu)$/","propsToMatch","url:ljsp.lwcdn.com","document.createElement","admiral","payload.ads campaigns.*","helpers.scroll(id)","ai_run_scripts","popup","ab_disp","__SETTINGS__.siteSettings.ads_settings","wheel","window.height","/contextmenu|cut|copy|paste/","AB_AP1","checkAdsBlocked","canShowAds",".showModal","playbackItem.isStitched","url:a2d.tv/play","Ad","/fwmrm.net\\/ad\\/g/","em_track_user","exactmetrics_frontend","undefined","window.WURFL","1","uesUrlFallback","manualAutoplay_","TAKEOVER","monsterinsights_frontend","mi_track_user","advads","advanced_ads","e.defaultPrevented"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("dc258953-addd-43ba-88a8-66e22006432e");
+})("05723a46-3114-4ba9-ac80-1c775003e606");
 
 void 0;

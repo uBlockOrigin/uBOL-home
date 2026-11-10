@@ -616,7 +616,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["muzaffarpurnow.in","muznow.in"],"urlFilter":"-1024x1024.jpeg|"},"id":615,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["dailyfenchugonj.com"],"urlFilter":"-1024x256"},"id":616,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["khojinews.co.in"],"urlFilter":"-500x300"},"id":617,"priority":10},
-{"action":{"type":"block"},"condition":{"initiatorDomains":["atharvnews.com"],"urlFilter":"-ad-"},"id":618,"priority":10},
+{"action":{"type":"block"},"condition":{"initiatorDomains":["atharvnews.com","raftartoday.com"],"urlFilter":"-ad-"},"id":618,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["bihardootnews.com"],"urlFilter":"-ad-banner-"},"id":619,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["dmpnews.org"],"urlFilter":"-ad-final-"},"id":620,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["swatvasamachar.com"],"urlFilter":"-ad-new.jpeg|"},"id":621,"priority":10},
@@ -5226,7 +5226,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||suvanepal.com/wp-content/uploads/2022/09/b7109057e34c4115895ada97fe2aa4c11-768x111.jpg"},"id":5225,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||banglapress24.com/storage/9981/bangla-banner.jpeg"},"id":5226,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||barisalmuktokhabor.com/wp-content/uploads/2026/07/ads-scaled.jpg"},"id":5227,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||dailybangladhara.com/public/uploads/advertisement/"},"id":5228,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","initiatorDomains":["dailyalokitosakal.net"],"requestDomains":["img.utdstc.com"]},"id":5228,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||gyanmandu.com/advertisements/"},"id":5229,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||khabarfast.com/upload/ads/"},"id":5230,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||knewsodisha.com/wp-content/uploads/2026/07/omcknews"},"id":5231,"priority":10},
@@ -5361,5 +5361,14 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||thekhabardesk.com/wp-content/uploads/2026/10/1793119534_970x250-middle-"},"id":5360,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||thekhabardesk.com/wp-content/uploads/2026/10/970x250-middle-"},"id":5361,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||timebanglanews.com/uploads/ad/-1618325818-samara%20add-1.jpg"},"id":5362,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||ukmalayalamnews.com/adimages/"},"id":5363,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||ukmalayalamnews.com/adimages/"},"id":5363,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||crimeexpress.net/uploads/top-feature.gif"},"id":5364,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||dailyalokitosakal.net/ad-img/greatit.jpg"},"id":5365,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||harmudda.com/uploads/images/2026/08/image_750x_6a7ec12785501.jpg"},"id":5366,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||raftartoday.com/public/upload/site/1791298440_websited-development-service.jpg"},"id":5367,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||risingcumilla.com^*/ad-"},"id":5368,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||risingcumilla.com^*/rtt-web-banner-"},"id":5369,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||rupalibangladesh.com/media/creative/exim-bank-happiness.jpg"},"id":5370,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||sangbadporikrama.com//media/advertisement/bashundharagroup-02202226.jpg"},"id":5371,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||shadhinnewsbd.com/wp-content/uploads/2026/11/add2-"},"id":5372,"priority":10}
 ]
