@@ -1,3 +1,11 @@
+- [Do not report user styles injection failure as error](https://github.com/gorhill/uBlock/commit/b4979e4b6b)
+- [Valid secret required to launch interactive tool overlays](https://github.com/gorhill/uBlock/commit/ead588aa5c)
+- Updated filter lists
+
+----------
+
+### 2026.1103.1743
+
 - Updated filter lists
 
 ----------
