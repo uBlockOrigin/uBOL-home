@@ -73,12 +73,21 @@ jobs:
           tools/make-mv3.sh safari ${{ env.TAGNAME }}
           echo "SAFARI_PACKAGE=uBOLite_${{ env.TAGNAME }}.safari.zip" >> $GITHUB_ENV
           cd - > /dev/null
+      # Keep the write-capable token out of third-party actions.
       - name: Commit uBOLite MV3 package files
-        # https://github.com/marketplace/actions/github-action-for-committing-changes-to-a-repository
-        uses: devops-infra/action-commit-push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: "[workflow] Update uBOLite MV3 package files for ${{ env.TAGNAME }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- chromium
+          if git diff --cached --quiet; then
+            echo "No Chromium package changes to commit"
+            exit 0
+          fi
+          git commit -m "[workflow] Update uBOLite MV3 package files for ${{ env.TAGNAME }}"
+          gh auth setup-git
+          git push origin "HEAD:${GITHUB_REF_NAME}"
       - name: Assemble release text
         run: |
           sed -e 's/%tag%/${{ env.TAGNAME }}/g' .github/workflows/RELEASE_BODY.md > release_body0.txt
