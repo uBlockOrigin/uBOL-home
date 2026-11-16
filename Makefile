@@ -54,7 +54,7 @@ publish-edge:
 		ghtag=$(version) \
 		ghasset=edge \
 		storeid=cimighlppcgcoapaliogpjjdehbnofhn \
-		productid=$(shell secret-tool lookup token ubol_edge_id) \
+		productid=ubol_edge_id \
 		notes="See release notes at https://github.com/uBlockOrigin/uBOL-home/releases"
 
 # make publish-firefox version=[github tag]
