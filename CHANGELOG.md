@@ -1,3 +1,10 @@
+- [[security] Conceal DOM of overlay-based tools inside a shadow DOM](https://github.com/gorhill/uBlock/commit/1765528bec)
+- Updated filter lists
+
+----------
+
+### 2026.1116.1650
+
 - [Report html/body elements in element picker](https://github.com/gorhill/uBlock/commit/9510a0b38c)
 - Updated filter lists
 
