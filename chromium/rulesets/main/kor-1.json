@@ -968,6 +968,8 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["pokergosu.com"],"urlFilter":"ipokergosu.com/banner/"},"id":967,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||scripts.mediavine.com/creativeblocks"},"id":968,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||pam-assets.dak.gg/creatives/"},"id":969,"priority":10},
+{"action":{"redirect":{"extensionPath":"/web_accessible_resources/googlesyndication_adsbygoogle.js"},"type":"redirect"},"condition":{"initiatorDomains":["ads.coupang.com"],"urlFilter":"||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"},"id":970,"priority":11},
+{"action":{"type":"block"},"condition":{"urlFilter":"||ad.syncad.kr"},"id":971,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||ds-cdn.inicis.com/ad/"},"id":972,"priority":10},
 {"action":{"type":"allow"},"condition":{"urlFilter":"||img.danawa.com/ui_category/topbanner/topbannerpc_47032_20251117105656.png"},"id":973,"priority":30},
 {"action":{"type":"block"},"condition":{"urlFilter":"||avsee.*/player/ad-gate.js?v="},"id":974,"priority":10},

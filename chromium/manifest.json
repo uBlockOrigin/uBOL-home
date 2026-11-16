@@ -334,7 +334,7 @@
   "storage": {
     "managed_schema": "managed_storage.json"
   },
-  "version": "2026.1110.1816",
+  "version": "2026.1116.1650",
   "web_accessible_resources": [
     {
       "resources": [
@@ -411,6 +411,7 @@
         "web_accessible_resources/nitropay_ads.js",
         "web_accessible_resources/chartbeat.js",
         "web_accessible_resources/noop.json",
+        "web_accessible_resources/freestar_pubfig.js",
         "web_accessible_resources/noeval-silent.js"
       ],
       "matches": [

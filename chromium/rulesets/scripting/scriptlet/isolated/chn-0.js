@@ -46,7 +46,7 @@ const $hasRegexes$ = false;
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const scriptletHostnames = /* 14 */ ["4hu.tv","iyf.tv","9xav.cc","yfsp.tv","subhd.com","aiyifan.tv","d44t95.com","g655p8.com","jmcomic1.me","xl02.com.de","nb.zol.com.cn","noslocker.com","peachring.com","phone-book.tw"];
+    const scriptletHostnames = /* 15 */ ["4hu.tv","iyf.tv","9xav.cc","kubb.tv","yfsp.tv","subhd.com","aiyifan.tv","d44t95.com","g655p8.com","jmcomic1.me","xl02.com.de","nb.zol.com.cn","noslocker.com","peachring.com","phone-book.tw"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -91,7 +91,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const arglistRefs = /* 14 */ ["5","2","3","2","4","2","5","5","1","8","10","7","6","9"];
+        const arglistRefs = /* 15 */ ["5","2","3","2","2","4","2","5","5","1","8","10","7","6","9"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("05723a46-3114-4ba9-ac80-1c775003e606");
+})("9dc37916-c431-474d-8d61-287e89f3b66b");
 
 void 0;

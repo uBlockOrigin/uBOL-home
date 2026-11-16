@@ -1614,6 +1614,6 @@ scriptletGlobals.functionRefs = /* 22 */ [replaceNodeText,removeNodeText,trusted
 /******************************************************************************/
 
 // End of local scope
-})("05723a46-3114-4ba9-ac80-1c775003e606");
+})("9dc37916-c431-474d-8d61-287e89f3b66b");
 
 void 0;

@@ -46,7 +46,7 @@ const $hasRegexes$ = false;
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const scriptletHostnames = /* 35 */ ["buzau.net","eporno.ro","tvmd.info","xxx1.link","e-porno.ro","fsplayer.*","futai.live","gaqghe.com","nosteam.ro","pizde.live","vwforum.ro","embedsun.cc","filmexxx.ro","lovendal.ro","pornobi.net","vzlinks.com","bloground.ro","cool-etv.net","filmebro.com","canale-tv.com","canale-tv.net","filmexxx.live","nimfomane.org","sitefilme.com","turdanews.net","vasluianul.ro","filme-porno.ro","nosteam.com.ro","pornobrand.com","boardingpass.ro","nosteamgames.ro","pornofilmexxx.net","filmeonline123.com","filmeserialegratis.*","player.desenefaine.net"];
+    const scriptletHostnames = /* 37 */ ["buzau.net","eporno.ro","tvmd.info","xxx1.link","e-porno.ro","fsplayer.*","futai.live","gaqghe.com","nosteam.ro","pizde.live","vwforum.ro","embedsun.cc","filmexxx.ro","lovendal.ro","pornobi.net","vzlinks.com","bloground.ro","cool-etv.net","filmebro.com","canale-tv.com","canale-tv.net","filmexxx.live","frstream.life","nimfomane.org","sitefilme.com","turdanews.net","vasluianul.ro","filme-porno.ro","nosteam.com.ro","pornobrand.com","boardingpass.ro","mxzhxco8dft.com","nosteamgames.ro","pornofilmexxx.net","filmeonline123.com","filmeserialegratis.*","player.desenefaine.net"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -91,7 +91,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const arglistRefs = /* 35 */ ["17","13","2","16","14","2","16","2","2","16","4","2","18","8","16","2,6","5","3","16","9,10,11","15","16","16","19","1","2","13","2","16","7","2","16","2","2","12"];
+        const arglistRefs = /* 37 */ ["17","13","2","16","14","2","16","2","2","16","4","2","18","8","16","2,6","5","3","16","9,10,11","15","16","2","16","19","1","2","13","2","16","7","2","2","16","2","2","12"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("05723a46-3114-4ba9-ac80-1c775003e606");
+})("9dc37916-c431-474d-8d61-287e89f3b66b");
 
 void 0;
