@@ -101,18 +101,20 @@ if ( $hasHostnames$ ) {
 }
 
 if ( $hasRegexes$ ) {
-    const scriptletFromRegexes = /* 42 */ ["turkifsa","turkifsa\\d+\\.best$","6","turkleak","turkleak\\d+.live$","13","canlimac","canlimacizlemax\\d+\\.top","67","hdselcuk","hdselcuksports\\d+\\.top","67,81","sporcafe","sporcafe\\d+\\.top","67","justintv","justintvizle\\d+\\.top","67,81","www.trgo","^www\\.trgoals\\d+\\.top$","67,203","inattviz","inattvizle\\d+\\.top","67,81","papazspo","papazsports\\d+\\.pro","67","webteizl","^webteizle\\d+\\.xyz","68","trgoals","trgoals\\d+\\.xyz$","68,170","milanotv","milanotv\\d+\\.shop$","69","taratv","taratv\\d+\\.shop$","69","kodamant","kodamantv\\d*\\.com$","81","hdfilmce","hdfilmcehennemi\\d+.org","81","turkleak","turkleak\\d+\\.live$","132","turkifsa","^turkifsalar\\d+\\.space$","132,184","beintvca","beintvcanliizle\\d+.com","159","turkifsa","turkifsa\\d?.porn$","160","dizipalx","dizipalx\\d+.com","160","turkporo","turkporoclub\\d+\\.sbs$","180","turkzzer","^turkzzersifsa\\d+\\.blog$","181,182","turkifsa","^turkifsalife\\d+\\.(blog|lat)$","181,182,183","sotwetur","^sotweturkifsa\\d+\\.blog$","181,182","yavasgir","yavasgir\\d+\\.(com|live)","185","cimcime","cimcime\\d+\\.\\w+$","185","zeustv","zeustv\\d+\\.com","186","canlimac","canlimaclar\\d+\\.sbs","186","macizlev","macizlevip\\d+\\.sbs","186","bossspor","bosssports\\d+\\.com","187","betivotv","betivotv\\d+\\.com","188","goley90c","goley90canlitv\\d+\\.site","189","hentaizm","hentaizm\\d+.online","190","klasikfi","klasikfilmler\\d+\\.cc","191","diziyou","diziyou\\d+\\.com","193","dizilla","dizilla\\d*\\.(club|com|nl)","194","main.uxs","^main\\.uxsyplayer[a-z0-9]+\\.click$","195,196","dcdl","dcdl[a-z0-9-]+\\.xyz$","196",".strmrdr","^i\\[a-z\\]*\\.strmrdr\\[a-z0-9\\]+\\..*","197","mackeyfi","mackeyfi\\d+\\.sbs$","197","tvboff","tvboff\\d+\\.com","198","dizipal","^dizipal\\d+\\.com\\.tr","201"];
-    const { hns } = scriptletGlobals.origins[0];
-    for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 3 ) {
-        const needle = scriptletFromRegexes[i+0];
-        let regex;
-        for ( const hn of hns ) {
-            if ( hn.includes(needle) === false ) { continue; }
-            if ( regex === undefined ) {
-                regex = new RegExp(scriptletFromRegexes[i+1]);
+    const scriptletFromRegexes = /* 42 */ [{"needle":"turkifsa","hn":"turkifsa\\d+\\.best$"},"6",{"needle":"turkleak","hn":"turkleak\\d+.live$"},"13",{"needle":"canlimacizlemax","hn":"canlimacizlemax\\d+\\.top"},"67",{"needle":"hdselcuksports","hn":"hdselcuksports\\d+\\.top"},"67,81",{"needle":"sporcafe","hn":"sporcafe\\d+\\.top"},"67",{"needle":"justintvizle","hn":"justintvizle\\d+\\.top"},"67,81",{"needle":"www.trgoals","hn":"^www\\.trgoals\\d+\\.top$"},"67,203",{"needle":"inattvizle","hn":"inattvizle\\d+\\.top"},"67,81",{"needle":"papazsports","hn":"papazsports\\d+\\.pro"},"67",{"needle":"webteizle","hn":"^webteizle\\d+\\.xyz"},"68",{"needle":"trgoals","hn":"trgoals\\d+\\.xyz$"},"68,170",{"needle":"milanotv","hn":"milanotv\\d+\\.shop$"},"69",{"needle":"taratv","hn":"taratv\\d+\\.shop$"},"69",{"needle":"kodamantv","hn":"kodamantv\\d*\\.com$"},"81",{"needle":"hdfilmcehennemi","hn":"hdfilmcehennemi\\d+.org"},"81",{"needle":"turkleak","hn":"turkleak\\d+\\.live$"},"132",{"needle":"turkifsalar","hn":"^turkifsalar\\d+\\.space$"},"132,184",{"needle":"beintvcanliizle","hn":"beintvcanliizle\\d+.com"},"159",{"needle":"turkifsa","hn":"turkifsa\\d?.porn$"},"160",{"needle":"dizipalx","hn":"dizipalx\\d+.com"},"160",{"needle":"turkporoclub","hn":"turkporoclub\\d+\\.sbs$"},"180",{"needle":"turkzzersifsa","hn":"^turkzzersifsa\\d+\\.blog$"},"181,182",{"needle":"turkifsalife","hn":"^turkifsalife\\d+\\.(blog|lat)$"},"181,182,183",{"needle":"sotweturkifsa","hn":"^sotweturkifsa\\d+\\.blog$"},"181,182",{"needle":"yavasgir","hn":"yavasgir\\d+\\.(com|live)"},"185",{"needle":"cimcime","hn":"cimcime\\d+\\.\\w+$"},"185",{"needle":"zeustv","hn":"zeustv\\d+\\.com"},"186",{"needle":"canlimaclar","hn":"canlimaclar\\d+\\.sbs"},"186",{"needle":"macizlevip","hn":"macizlevip\\d+\\.sbs"},"186",{"needle":"bosssports","hn":"bosssports\\d+\\.com"},"187",{"needle":"betivotv","hn":"betivotv\\d+\\.com"},"188",{"needle":"goley90canlitv","hn":"goley90canlitv\\d+\\.site"},"189",{"needle":"hentaizm","hn":"hentaizm\\d+.online"},"190",{"needle":"klasikfilmler","hn":"klasikfilmler\\d+\\.cc"},"191",{"needle":"diziyou","hn":"diziyou\\d+\\.com"},"193",{"needle":"dizilla","hn":"dizilla\\d*\\.(club|com|nl)"},"194",{"needle":"main.uxsyplayer","hn":"^main\\.uxsyplayer[a-z0-9]+\\.click$"},"195,196",{"needle":"dcdl","hn":"dcdl[a-z0-9-]+\\.xyz$"},"196",{"needle":".strmrdr[a-z0-9","hn":"^i\\[a-z\\]*\\.strmrdr\\[a-z0-9\\]+\\..*"},"197",{"needle":"mackeyfi","hn":"mackeyfi\\d+\\.sbs$"},"197",{"needle":"tvboff","hn":"tvboff\\d+\\.com"},"198",{"needle":"dizipal","hn":"^dizipal\\d+\\.com\\.tr"},"201"];
+    const { hns, path } = scriptletGlobals.origins[0];
+    for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 2 ) {
+        const { needle, hn, pn } = scriptletFromRegexes[i+0];
+        let rehn, repn;
+        for ( const target of hns ) {
+            if ( target.includes(needle) === false ) { continue; }
+            if ( rehn === undefined ) { rehn = new RegExp(hn); }
+            if ( rehn.test(target) === false ) { continue; }
+            if ( pn && path ) {
+                if ( repn === undefined ) { repn = new RegExp(pn); }
+                if ( repn.test(path) === false ) { continue; }
             }
-            if ( regex.test(hn) === false ) { continue; }
-            for ( const ref of JSON.parse(`[${scriptletFromRegexes[i+2]}]`) ) {
+            for ( const ref of JSON.parse(`[${scriptletFromRegexes[i+1]}]`) ) {
                 todo.add(ref);
             }
         }
@@ -137,6 +139,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("4766c992-7c7a-4637-902a-ec7068557622");
+})("28049053-2f06-4210-9323-9d4634fd8974");
 
 void 0;

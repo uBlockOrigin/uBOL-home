@@ -36,15 +36,7 @@ self.ubolOverlay = {
     url: new URL(document.baseURI),
     port: null,
     highlightedElements: [],
-    secretAttr: (( ) => {
-        let secret = String.fromCharCode((Math.random() * 26) + 97);
-        do {
-            secret += (Math.floor(Math.random() * 2147483647) + 2147483647)
-                .toString(36)
-                .slice(2);
-        } while ( secret.length < 8 );
-        return secret;
-    })(),
+    secretAttr: `z${self.crypto.randomUUID().replaceAll('-', '').slice(16)}`,
 
     start() {
         const cssStyle = [
@@ -76,9 +68,9 @@ self.ubolOverlay = {
             ''
         ].join(' !important;\n');
         this.pickerCSS = [
-            `:root > [${this.secretAttr}] { ${cssStyle} }`,
-            `:root > [${this.secretAttr}-loaded] { visibility: visible !important; }`,
-            `:root > [${this.secretAttr}-click] { pointer-events: none !important; }`,
+            `[${this.secretAttr}] { ${cssStyle} }`,
+            `[${this.secretAttr}][loaded] { visibility: visible !important; }`,
+            `[${this.secretAttr}][clicked] { cursor: crosshair !important; pointer-events: none !important; }`,
         ].join('\n');
         self.addEventListener('scroll', this.onViewportChanged, { passive: true });
         self.addEventListener('resize', this.onViewportChanged, { passive: true });
@@ -94,6 +86,10 @@ self.ubolOverlay = {
         self.removeEventListener('scroll', this.onViewportChanged, { passive: true });
         self.removeEventListener('resize', this.onViewportChanged, { passive: true });
         self.removeEventListener('keydown', this.onKeyPressed, true);
+        if ( this.frameContainer ) {
+            this.frameContainer.remove();
+            this.frameContainer = null;
+        }
         if ( this.frame ) {
             this.frame.remove();
             this.frame = null;
@@ -286,14 +282,13 @@ self.ubolOverlay = {
         } else {
             return null;
         }
-        const magicAttr = `${this.secretAttr}-click`;
-        this.frame.setAttribute(magicAttr, '');
+        this.frame.setAttribute('clicked', '');
         let elem = document.elementFromPoint(x, y);
         if ( elem === document.body || elem === document.documentElement ) {
             elem = null;
         }
         // https://github.com/uBlockOrigin/uBlock-issues/issues/380
-        this.frame.removeAttribute(magicAttr);
+        this.frame.removeAttribute('clicked');
         return elem;
     },
 
@@ -314,17 +309,25 @@ self.ubolOverlay = {
     async install(file, onmessage) {
         this.file = file;
         const dynamicURL = new URL(this.webext.runtime.getURL(file));
-        const toolOverlaySecret = await this.sendMessage({
-            what: 'getToolOverlaySecret'
+        const toolOverlayPairing = await this.sendMessage({
+            what: 'toolOverlayPairing'
         });
+        if ( Boolean(toolOverlayPairing?.password) === false ) { return; }
         const { promise, resolve } = Promise.withResolvers();
         const frame = document.createElement('iframe');
         const secretAttr = this.secretAttr;
         frame.setAttribute(secretAttr, '');
         frame.style.visibility = 'hidden';
-        const onLoad = ( ) => {
-            frame.onload = null;
-            frame.setAttribute(`${secretAttr}-loaded`, '');
+        this.frameContainer = document.createElement('div');
+        const shadowRoot = this.frameContainer.attachShadow({
+            mode: 'closed',
+            delegatesFocus: true,
+        });
+        shadowRoot.append(frame);
+        const onMessage = msg => {
+            this.webext.runtime.onMessage.removeListener(onMessage);
+            if ( msg.what !== 'toolOverlayPairing' ) { return; }
+            frame.setAttribute('loaded', '');
             const channel = new MessageChannel();
             const port = channel.port1;
             port.onmessage = ev => {
@@ -341,7 +344,7 @@ self.ubolOverlay = {
             frame.contentWindow.postMessage(
                 {
                     what: 'startOverlay',
-                    secret: toolOverlaySecret,
+                    password: toolOverlayPairing.password,
                     url: document.baseURI,
                     width: self.innerWidth,
                     height: self.innerHeight,
@@ -355,11 +358,9 @@ self.ubolOverlay = {
             self.ubolOverlay.frame = frame;
             resolve(true);
         };
-        frame.onload = ( ) => {
-            frame.onload = onLoad;
-            frame.contentWindow.location = dynamicURL.href;
-        };
-        document.documentElement.append(frame);
+        this.webext.runtime.onMessage.addListener(onMessage);
+        document.documentElement.append(this.frameContainer);
+        frame.contentWindow.location = dynamicURL.href;
         return promise;
     },
 };

@@ -101,18 +101,20 @@ if ( $hasHostnames$ ) {
 }
 
 if ( $hasRegexes$ ) {
-    const scriptletFromRegexes = /* 9 */ ["-embed.c","^moon(?:-[a-z0-9]+)?-embed\\.com$","71,72","moonfile","^moonfile-[a-z0-9-]+\\.com$","71,72",".","^[0-9a-z]{5,8}\\.(art|cfd|fun|icu|info|live|pro|sbs|world)$","71,72","-mkay.co","^moo-[a-z0-9]+(-[a-z0-9]+)*-mkay\\.com$","71,72","file-","^file-[a-z0-9]+(-[a-z0-9]+)*-(moon|embed)\\.com$","71,72","-moo.com","^fle-[a-z0-9]+(-[a-z0-9]+)*-moo\\.com$","71,72","filemoon","^filemoon-[a-z0-9]+(?:-[a-z0-9]+)*\\.(?:com|xyz)$","71,72","tamilpri","(\\d{0,1})?tamilprint(\\d{1,2})?\\.[a-z]{3,7}","148,1570,2578",".com/e/","^[0-9a-z]{5,12}\\.com\\/e\\/[0-9A-Za-z]{10,15}$","1945"];
-    const { hns } = scriptletGlobals.origins[0];
-    for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 3 ) {
-        const needle = scriptletFromRegexes[i+0];
-        let regex;
-        for ( const hn of hns ) {
-            if ( hn.includes(needle) === false ) { continue; }
-            if ( regex === undefined ) {
-                regex = new RegExp(scriptletFromRegexes[i+1]);
+    const scriptletFromRegexes = /* 9 */ [{"needle":"-embed.com","hn":"^moon(?:-[a-z0-9]+)?-embed\\.com$"},"71,72",{"needle":"moonfile-","hn":"^moonfile-[a-z0-9-]+\\.com$"},"71,72",{"needle":".","hn":"^[0-9a-z]{5,8}\\.(art|cfd|fun|icu|info|live|pro|sbs|world)$"},"71,72",{"needle":"-mkay.com","hn":"^moo-[a-z0-9]+(-[a-z0-9]+)*-mkay\\.com$"},"71,72",{"needle":"file-","hn":"^file-[a-z0-9]+(-[a-z0-9]+)*-(moon|embed)\\.com$"},"71,72",{"needle":"-moo.com","hn":"^fle-[a-z0-9]+(-[a-z0-9]+)*-moo\\.com$"},"71,72",{"needle":"filemoon-","hn":"^filemoon-[a-z0-9]+(?:-[a-z0-9]+)*\\.(?:com|xyz)$"},"71,72",{"needle":"tamilprint","hn":"(\\d{0,1})?tamilprint(\\d{1,2})?\\.[a-z]{3,7}"},"148,1570,2578",{"needle":".com","hn":"^[0-9a-z]{5,12}\\.com$","pn":"^\\/e\\/[0-9A-Za-z]{10,15}$"},"1945"];
+    const { hns, path } = scriptletGlobals.origins[0];
+    for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 2 ) {
+        const { needle, hn, pn } = scriptletFromRegexes[i+0];
+        let rehn, repn;
+        for ( const target of hns ) {
+            if ( target.includes(needle) === false ) { continue; }
+            if ( rehn === undefined ) { rehn = new RegExp(hn); }
+            if ( rehn.test(target) === false ) { continue; }
+            if ( pn && path ) {
+                if ( repn === undefined ) { repn = new RegExp(pn); }
+                if ( repn.test(path) === false ) { continue; }
             }
-            if ( regex.test(hn) === false ) { continue; }
-            for ( const ref of JSON.parse(`[${scriptletFromRegexes[i+2]}]`) ) {
+            for ( const ref of JSON.parse(`[${scriptletFromRegexes[i+1]}]`) ) {
                 todo.add(ref);
             }
         }
@@ -137,6 +139,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("4766c992-7c7a-4637-902a-ec7068557622");
+})("28049053-2f06-4210-9323-9d4634fd8974");
 
 void 0;

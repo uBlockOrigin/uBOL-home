@@ -1566,18 +1566,18 @@ function urlSkip(url, blocked, steps) {
 
 scriptletGlobals.origins = (( ) => {
     const docloc = document.location;
-    const origins = [ docloc.origin ];
+    const origins = [{ origin: docloc.origin, path: docloc.pathname }];
     if ( docloc.ancestorOrigins?.length ) {
         const topOrigin = docloc.ancestorOrigins[docloc.ancestorOrigins.length-1];
         if ( topOrigin !== 'null' ) {
-            origins.push(topOrigin);
+            origins.push({ origin: topOrigin });
         } else if ( scriptletGlobals.topOrigin ) {
-            origins.push(scriptletGlobals.topOrigin);
+            origins.push({ origin: scriptletGlobals.topOrigin });
         }
     }
     const out = [];
     for ( let i = 0; i < origins.length; i++ ) {
-        const origin = origins[i];
+        const { origin, path } = origins[i];
         const beg = origin.indexOf('://') + 3;
         if ( beg === 2 ) { continue; }
         const end = origin.indexOf(':', beg);
@@ -1604,7 +1604,7 @@ scriptletGlobals.origins = (( ) => {
             if ( d !== 0 ) { return d; }
             return a > b ? -1 : 1;
         });
-        out.push({ hns, ens, i });
+        out.push({ hns, ens, path, i });
     }
     return out;
 })();
@@ -1614,6 +1614,6 @@ scriptletGlobals.functionRefs = /* 22 */ [replaceNodeText,removeNodeText,trusted
 /******************************************************************************/
 
 // End of local scope
-})("4766c992-7c7a-4637-902a-ec7068557622");
+})("28049053-2f06-4210-9323-9d4634fd8974");
 
 void 0;

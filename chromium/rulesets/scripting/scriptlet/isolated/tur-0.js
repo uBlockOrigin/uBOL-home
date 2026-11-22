@@ -101,18 +101,20 @@ if ( $hasHostnames$ ) {
 }
 
 if ( $hasRegexes$ ) {
-    const scriptletFromRegexes = /* 5 */ ["macboxtv","macboxtv\\d+\\.xyz$","20","doedatur","doedaturkifsa\\d+\\.blog$","21","turkporo","turkporoclub\\d+\\.sbs$","22","turkifsa","turkifsa(lar)?\\d*\\.(site|art)$","23","turkifsa","^turkifsalife\\d+\\.(blog|lat)$","24"];
-    const { hns } = scriptletGlobals.origins[0];
-    for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 3 ) {
-        const needle = scriptletFromRegexes[i+0];
-        let regex;
-        for ( const hn of hns ) {
-            if ( hn.includes(needle) === false ) { continue; }
-            if ( regex === undefined ) {
-                regex = new RegExp(scriptletFromRegexes[i+1]);
+    const scriptletFromRegexes = /* 5 */ [{"needle":"macboxtv","hn":"macboxtv\\d+\\.xyz$"},"20",{"needle":"doedaturkifsa","hn":"doedaturkifsa\\d+\\.blog$"},"21",{"needle":"turkporoclub","hn":"turkporoclub\\d+\\.sbs$"},"22",{"needle":"turkifsa","hn":"turkifsa(lar)?\\d*\\.(site|art)$"},"23",{"needle":"turkifsalife","hn":"^turkifsalife\\d+\\.(blog|lat)$"},"24"];
+    const { hns, path } = scriptletGlobals.origins[0];
+    for ( let i = 0, n = scriptletFromRegexes.length; i < n; i += 2 ) {
+        const { needle, hn, pn } = scriptletFromRegexes[i+0];
+        let rehn, repn;
+        for ( const target of hns ) {
+            if ( target.includes(needle) === false ) { continue; }
+            if ( rehn === undefined ) { rehn = new RegExp(hn); }
+            if ( rehn.test(target) === false ) { continue; }
+            if ( pn && path ) {
+                if ( repn === undefined ) { repn = new RegExp(pn); }
+                if ( repn.test(path) === false ) { continue; }
             }
-            if ( regex.test(hn) === false ) { continue; }
-            for ( const ref of JSON.parse(`[${scriptletFromRegexes[i+2]}]`) ) {
+            for ( const ref of JSON.parse(`[${scriptletFromRegexes[i+1]}]`) ) {
                 todo.add(ref);
             }
         }
@@ -137,6 +139,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("4766c992-7c7a-4637-902a-ec7068557622");
+})("28049053-2f06-4210-9323-9d4634fd8974");
 
 void 0;

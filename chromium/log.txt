@@ -1,5 +1,5 @@
-Secret: 4766c992-7c7a-4637-902a-ec7068557622
-Version: 2026.1122.1940
+Secret: 28049053-2f06-4210-9323-9d4634fd8974
+Version: 2026.1122.1948
 ============================
 Listset for 'ublock-filters':
 Input filter count: 10774
@@ -111,7 +111,7 @@ CSS-generic-low: 174 plain CSS selectors
 CSS-generic-high: 70 plain CSS selectors
 CSS-generic: 432 specific CSS exceptions
 CSS-specific: 6212 distinct filters for 5118 distinct hostnames
-make-scriptlets.js / compile(): Can't find zeta_fd79f681017a474fbcf9e1c6a8561201 scriptlet
+make-scriptlets.js / compile(): Can't find zeta_bdd1f28288ab42c9bdbba6437b66412f scriptlet
 ============================
 Listset for 'easylist':
 Input filter count: 54503
@@ -148,11 +148,11 @@ CSS-generic: 0 specific CSS exceptions
 CSS-specific: 3 distinct filters for 4 distinct hostnames
 ============================
 Listset for 'pgl':
-Input filter count: 3555
-	Accepted filter count: 3475
+Input filter count: 3556
+	Accepted filter count: 3476
 	Rejected filter count: 80
 Output rule count: 1
-	Pruning requestDomains: from 3475 to 3463
+	Pruning requestDomains: from 3476 to 3464
 
 	Maybe good regexes (raw/minimized): 0/0
 	Static rules (raw/minimized): 1/1
@@ -825,11 +825,11 @@ make-scriptlets.js / compile(): Can't find ac.js scriptlet
 make-scriptlets.js / compile(): Can't find ac.js scriptlet
 ============================
 Listset for 'pol-3':
-Input filter count: 22901
-	Accepted filter count: 22901
+Input filter count: 22895
+	Accepted filter count: 22895
 	Rejected filter count: 0
 Output rule count: 1
-	Pruning requestDomains: from 22901 to 17198
+	Pruning requestDomains: from 22895 to 17192
 
 	Maybe good regexes (raw/minimized): 0/0
 	Static rules (raw/minimized): 1/1
@@ -868,7 +868,7 @@ Output rule count: 6234
 CSS-generic-low: 316 plain CSS selectors
 CSS-generic-high: 632 plain CSS selectors
 CSS-generic: 325 specific CSS exceptions
-CSS-specific: 12283 distinct filters for 7737 distinct hostnames
+CSS-specific: 12286 distinct filters for 7738 distinct hostnames
 make-scriptlets.js / compile(): Can't find twitch-videoad.js scriptlet
 ============================
 Listset for 'rus-1':
