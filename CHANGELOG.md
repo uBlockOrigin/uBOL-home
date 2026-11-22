@@ -1,5 +1,5 @@
 - [[scriptlets] Add support for path-based targets](https://github.com/gorhill/uBlock/commit/a23b117141)
-- [[picker] Fix unpleasant flickering of mouse cursor in picking mode](https://github.com/gorhill/uBlock/commit/765c51daa1)
+- [Improve launch reliability of overlay-based tools](https://github.com/gorhill/uBlock/commit/686d00432e)
 - [[security] Conceal DOM of overlay-based tools inside a shadow DOM](https://github.com/gorhill/uBlock/commit/1765528bec)
 - Updated filter lists
 
