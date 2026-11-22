@@ -288,5 +288,6 @@
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||heichal-hm.co.il/files/banners/"},"id":287,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||israelprintcenter.co.il/files/banners/"},"id":288,"priority":30},
 {"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||seamall.co.il/wp-content/uploads/*_baner_"},"id":289,"priority":30},
-{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||4chef.co.il/cdn/shop/files/baner_"},"id":290,"priority":30}
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","resourceTypes":["image"],"urlFilter":"||4chef.co.il/cdn/shop/files/baner_"},"id":290,"priority":30},
+{"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||hamal.co.il/advertising/"},"id":291,"priority":10}
 ]

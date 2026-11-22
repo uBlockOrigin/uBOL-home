@@ -37,5 +37,21 @@
  },
  "id": 2,
  "priority": 10
+},
+{
+ "action": {
+  "type": "block"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "tranakampsport.se"
+  ],
+  "regexFilter": "https?:\\/\\/(www\\.)?tranakampsport\\.se\\/[^\\/]+\\/[^\\/]+\\/?$",
+  "resourceTypes": [
+   "script"
+  ]
+ },
+ "id": 3,
+ "priority": 10
 }
 ]

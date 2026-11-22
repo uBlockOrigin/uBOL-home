@@ -2296,7 +2296,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||ruskweb.ru/bannerbro/"},"id":2295,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ruspicbox.ru/tpl/"},"id":2296,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||ruspicbox.ru^*/clicunder.js"},"id":2297,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||rusradio.ru/uploads/pixel.js"},"id":2298,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||rusradio.ru/static/heart-widget.js"},"id":2298,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||russian.fi/include/banners.php"},"id":2299,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["lk.rt.ru"],"urlFilter":"||wink.ru/omnichat/*/trailer"},"id":2300,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||russiandc.com/ebs_show.php?"},"id":2301,"priority":10},
@@ -3864,7 +3864,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||org/rtr/"},"id":3863,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||pl/rtr/"},"id":3864,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||ro/rtr/"},"id":3865,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||sovsport.ru/api/smarttablewidget"},"id":3866,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||sib.fm/storage/banner/"},"id":3866,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||so/rtr/"},"id":3867,"priority":10},
 {"action":{"type":"block"},"condition":{"excludedInitiatorDomains":["oczuevka.moy.su"],"resourceTypes":["script"],"urlFilter":"||su/rtr/"},"id":3868,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||tv/rtr/"},"id":3869,"priority":10},
@@ -6019,5 +6019,7 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||strm.yandex.*/vh-adfo*-converted/"},"id":6018,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["xmlhttprequest"],"urlFilter":".bid/vast/"},"id":6019,"priority":10},
 {"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["xmlhttprequest"],"urlFilter":"/ybn3j9e?"},"id":6020,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["xmlhttprequest"],"urlFilter":"/adfox/*/getcode?"},"id":6021,"priority":10}
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","resourceTypes":["xmlhttprequest"],"urlFilter":"/adfox/*/getcode?"},"id":6021,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||sovsport.ru/api/bonus-rating"},"id":6022,"priority":10},
+{"action":{"type":"allow"},"condition":{"domainType":"firstParty","urlFilter":"||192.168.*."},"id":6023,"priority":30}
 ]

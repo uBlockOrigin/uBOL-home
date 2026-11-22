@@ -1,6 +1,6 @@
 [
 {"action":{"type":"block"},"condition":{"urlFilter":"||mfgpt.milanofinanza.it/widget/widget.js"},"id":1,"priority":10},
-{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["alhena.ai","askmiso.com","booosted.com","callnowbutton.com","cdn.gist.ai","cdn.spiffy.ai","engagelab.com","gotolstoy.com","octaneai.com","sdk.whtvr.ai","srv.divee.ai","w.replied.chat","widget.brambles.ai","widget.kapa.ai","widget.prod.equally.ai"]},"id":2,"priority":10},
+{"action":{"type":"block"},"condition":{"domainType":"thirdParty","requestDomains":["agents.cloud.google.com","alhena.ai","askmiso.com","booosted.com","callnowbutton.com","cdn.gist.ai","cdn.spiffy.ai","dappier.com","engagelab.com","gotolstoy.com","octaneai.com","sdk.whtvr.ai","srv.divee.ai","w.replied.chat","widget.brambles.ai","widget.kapa.ai","widget.prod.equally.ai"]},"id":2,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||asus-brand-assistant.asus.com/brand-assistant.js"},"id":3,"priority":10},
 {"action":{"type":"block"},"condition":{"requestDomains":["chat.cdn-plain.com","chat.g4media.org","embed.chatnode.ai","urbandictionary.ai","widget.indexfox.ai"]},"id":4,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["nus.edu.sg"],"resourceTypes":["script"],"urlFilter":"||azurefd.net/cdns/copilot_v3.min.js"},"id":5,"priority":10},

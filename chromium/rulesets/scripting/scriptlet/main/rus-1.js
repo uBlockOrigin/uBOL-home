@@ -91,7 +91,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const arglistRefs = /* 70 */ ["23,26,27,28,29,30,31","13,14","13,14","32,33,34,35,36","37,38","15,22,23","10,11","13,14","21","32,33,34,35","13,14","12","13","23,26,27,28,29,30,31","13,14","2","13,14","26","2","13,14","13,14","7","8,9","12","13","13,14","15","4","-24,-27,-28,-30,-31,-32","8,9","19","13,14","2","13,14","4","6","2","2","2","7","4","22","13,14","1","15","-14,-15","24,25,-27,-30,-31","3","7","7","7","8,9","32,33,34,35","-14,-15","-14","18","4","5","8,9","17","-14,-15","2","8,9","20","8,9","-29","14","16","15","15"];
+        const arglistRefs = /* 70 */ ["23,27,28,29,30,31","13,14","13,14","32,33,34,35,36","37,38","15,22,23","10,11","13,14","21","32,33,34,35","13,14","12","13","23,27,28,29,30,31","13,14","2","13,14","26","2","13,14","13,14","7","8,9","12","13","13,14","15","4","-24,-28,-30,-31,-32","8,9","19","13,14","2","13,14","4","6","2","2","2","7","4","22","13,14","1","15","-14,-15","24,25,-30","3","7","7","7","8,9","32,33,34,35","-14,-15","-14","18","4","5","8,9","17","-14,-15","2","8,9","20","8,9","-29","14","16","15","15"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -121,8 +121,8 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 39 */ ["","18,0,1,2","23,3,4","22,5,6","7,7","18,8,9,2","18,10,11,2","11,12,13","11,14,15","11,16,17","11,18,19","11,20,19","3,21,22,23,24","23,25,4","7,26","11,27,28","11,29,28","15,30","17,31","11,32,15","11,33,34","17,35","17,36","7,37","18,38,11,2","11,39,15","32,40","18,41,42","13,43","17,44","11,45,15","11,46,15","22,47,48","22,49,48,50","22,51,52","14,53","11,54,15","14,55,56","23,57,58"];
-    const args = /* 59 */ ["jsaction","#islsp c-wiz a[href^=\"http\"][data-ved][target]","stay","document.head.appendChild","inlineScript","click","externalLink","is_vpn","data-cturl",".searchresults a","data-safe-proxy-url","a","BB.disableRefLinks","true","Object.prototype.Begun","undefined","Object.prototype.antiadblock","false","Object.prototype.canShowMoreAds","noopFunc","Object.prototype.hasAdv","meta.country","","propsToMatch","/api/anime","Object.prototype.getBaseFingerprint","Blocks","Object.prototype.hasPreroll","null","Object.prototype.needShowAlicePopup","/generate_204","Object.prototype.AdvManager","Object.prototype.isNonEmptyString","history.replaceState","trueFunc","Object.prototype.renderTrackingUrl","Object.prototype.setBlockId","direct rtb seatbid data.*.attributes.blockId","data-link-id","Object.prototype.DirectLine","__pcodeAllActiveTestIds","data-counter","#search-result > .serp-item a","yabs.yandex.ru/count/","__activeTestIds","Object.prototype.initPcode","Object.prototype.Rtb","/beforeunload|pagehide/","0x","DOMContentLoaded","document","beforeunload","defaultPrevented||this.setCookies","/BLOCKERS|NOT_BLOCKED/","Object.prototype.AdblockCookieMatchingType","removeAttr","setTimeout","document.referrer","https://4pda.to/"];
+    const arglists = /* 39 */ ["","18,0,1,2","23,3,4","22,5,6","7,7","18,8,9,2","18,10,11,2","11,12,13","11,14,15","11,16,17","11,18,19","11,20,19","3,21,22,23,24","23,25,4","7,26","11,27,28","11,29,28","15,30","17,31","11,32,15","11,33,34","17,35","17,36","7,37","18,38,11,2","11,39,15","32,40","18,41,42","13,43","11,44,15","17,45","11,46,15","22,47,48","22,49,48,50","22,51,52","14,53","11,54,15","14,55,56","23,57,58"];
+    const args = /* 59 */ ["jsaction","#islsp c-wiz a[href^=\"http\"][data-ved][target]","stay","document.head.appendChild","inlineScript","click","externalLink","is_vpn","data-cturl",".searchresults a","data-safe-proxy-url","a","BB.disableRefLinks","true","Object.prototype.Begun","undefined","Object.prototype.antiadblock","false","Object.prototype.canShowMoreAds","noopFunc","Object.prototype.hasAdv","meta.country","","propsToMatch","/api/anime","Object.prototype.getBaseFingerprint","Blocks","Object.prototype.hasPreroll","null","Object.prototype.needShowAlicePopup","/generate_204","Object.prototype.AdvManager","Object.prototype.isNonEmptyString","history.replaceState","trueFunc","Object.prototype.renderTrackingUrl","Object.prototype.setBlockId","direct rtb seatbid data.*.attributes.blockId","data-link-id","Object.prototype.DirectLine","__pcodeAllActiveTestIds","data-counter","#search-result > .serp-item a","yabs.yandex.ru/count/","Object.prototype.initPcode","AdFox_getCodeScript","Object.prototype.Rtb","/beforeunload|pagehide/","0x","DOMContentLoaded","document","beforeunload","defaultPrevented||this.setCookies","/BLOCKERS|NOT_BLOCKED/","Object.prototype.AdblockCookieMatchingType","removeAttr","setTimeout","document.referrer","https://4pda.to/"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
         if ( ref < 0 ) { continue; }
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("9dc37916-c431-474d-8d61-287e89f3b66b");
+})("4766c992-7c7a-4637-902a-ec7068557622");
 
 void 0;

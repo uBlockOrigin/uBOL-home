@@ -46,7 +46,7 @@ const $hasRegexes$ = false;
 const todo = new Set();
 
 if ( $hasHostnames$ ) {
-    const scriptletHostnames = /* 2 */ ["animehay16.site","phimmoihd.store"];
+    const scriptletHostnames = /* 2 */ ["animehay17.site","phimmoihd.store"];
     const collectArglistRefIndices = (out, hn, r) => {
         let l = 0, i = 0, d = 0;
         let candidate = '';
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("9dc37916-c431-474d-8d61-287e89f3b66b");
+})("4766c992-7c7a-4637-902a-ec7068557622");
 
 void 0;

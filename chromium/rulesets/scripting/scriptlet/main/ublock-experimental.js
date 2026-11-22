@@ -91,7 +91,7 @@ if ( $hasHostnames$ ) {
     }
     // Collect arglist references
     if ( todoIndices.size ) {
-        const arglistRefs = /* 1 */ ["1,2,3,4,5,6"];
+        const arglistRefs = /* 1 */ ["1,2,3,4,5,6,7"];
         for ( const i of todoIndices ) {
             for ( const ref of JSON.parse(`[${arglistRefs[i]}]`) ) {
                 todo.add(ref);
@@ -121,8 +121,8 @@ if ( $hasRegexes$ ) {
 
 // Execute scriptlets
 if ( todo.size && todo.has(0) === false ) {
-    const arglists = /* 7 */ ["","0,0,1,2","0,0,1,3","0,0,1,4","44,5,6,7","7,8","3,9,10,6,11"];
-    const args = /* 12 */ ["JSON.stringify","0","[?.attestationRequest][?.context.client.userAgent*=\"adunit\"].context.client[?.clientName==\"WEB\"]+={\"clientScreen\":\"ADUNIT\"}","[?.attestationRequest][?.context.client.userAgent*=\"eafg\"]+={\"params\":\"eAFgAQ\"}","[?.attestationRequest][?.context.client.userAgent*=\"yaf4\"]+={\"params\":\"YAF4AaIGAS4\"}","[?..minimumPlaybackRate==100]..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200,\"defaultPlaybackRateOptions\":[{\"label\":\"1.0\",\"value\":100,\"isPremiumUpsell\":false,\"priority\":5},{\"label\":\"1.25\",\"value\":125,\"isPremiumUpsell\":false,\"priority\":2},{\"label\":\"1.5\",\"value\":150,\"isPremiumUpsell\":false,\"priority\":3},{\"label\":\"1.75\",\"value\":175,\"isPremiumUpsell\":false,\"priority\":0},{\"label\":\"2.0\",\"value\":200,\"isPremiumUpsell\":false,\"priority\":4},{\"label\":\"3.0\",\"value\":300,\"isPremiumUpsell\":true,\"priority\":1}]}","propsToMatch","/player?","contents.twoColumnBrowseResultsRenderer.tabs.[].tabRenderer.content.richGridRenderer.contents.[-].richItemRenderer.content.adSlotRenderer","contents.tvBrowseRenderer.content.tvSurfaceContentRenderer.content.sectionListRenderer.contents.[-].adSlotRenderer contents.tvBrowseRenderer.content.tvSurfaceContentRenderer.content.sectionListRenderer.contents.[].shelfRenderer.content.horizontalListRenderer.items.[-].adSlotRenderer","","url:/browse"];
+    const arglists = /* 8 */ ["","0,0,1,2","0,0,1,3","0,0,1,4","44,5,6,7","0,0,1,8","7,9","3,10,11,6,12"];
+    const args = /* 13 */ ["JSON.stringify","0","[?.attestationRequest][?.context.client.userAgent*=\"adunit\"].context.client[?.clientName==\"WEB\"]+={\"clientScreen\":\"ADUNIT\"}","[?.attestationRequest][?.context.client.userAgent*=\"eafg\"]+={\"params\":\"eAFgAQ\"}","[?.attestationRequest][?.context.client.userAgent*=\"yaf4\"]+={\"params\":\"YAF4AaIGAS4\"}","[?..minimumPlaybackRate==100]..playerConfig.granularVariableSpeedConfig+={\"minimumPlaybackRate\":25,\"maximumPlaybackRate\":200,\"defaultPlaybackRateOptions\":[{\"label\":\"1.0\",\"value\":100,\"isPremiumUpsell\":false,\"priority\":5},{\"label\":\"1.25\",\"value\":125,\"isPremiumUpsell\":false,\"priority\":2},{\"label\":\"1.5\",\"value\":150,\"isPremiumUpsell\":false,\"priority\":3},{\"label\":\"1.75\",\"value\":175,\"isPremiumUpsell\":false,\"priority\":0},{\"label\":\"2.0\",\"value\":200,\"isPremiumUpsell\":false,\"priority\":4},{\"label\":\"3.0\",\"value\":300,\"isPremiumUpsell\":true,\"priority\":1}]}","propsToMatch","/player?","[?.serializedThirdPartyEmbedConfig][?.context.client.userAgent*=\"yaf4\"]+={\"params\":\"YAF4AaIGAS4\"}","contents.twoColumnBrowseResultsRenderer.tabs.[].tabRenderer.content.richGridRenderer.contents.[-].richItemRenderer.content.adSlotRenderer","contents.tvBrowseRenderer.content.tvSurfaceContentRenderer.content.sectionListRenderer.contents.[-].adSlotRenderer contents.tvBrowseRenderer.content.tvSurfaceContentRenderer.content.sectionListRenderer.contents.[].shelfRenderer.content.horizontalListRenderer.items.[-].adSlotRenderer","","url:/browse"];
     const { functionRefs } = scriptletGlobals;
     for ( const ref of todo ) {
         if ( ref < 0 ) { continue; }
@@ -137,6 +137,6 @@ if ( todo.size && todo.has(0) === false ) {
 /******************************************************************************/
 
 // End of local scope
-})("9dc37916-c431-474d-8d61-287e89f3b66b");
+})("4766c992-7c7a-4637-902a-ec7068557622");
 
 void 0;
