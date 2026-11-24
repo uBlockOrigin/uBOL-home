@@ -45,6 +45,7 @@ self.ubolOverlay = {
             'border-radius: 0',
             'box-shadow: none',
             'color-scheme: light dark',
+            'cursor: crosshair',
             'display: block',
             'filter: none',
             'height: 100vh',
@@ -310,7 +311,8 @@ self.ubolOverlay = {
         this.file = file;
         const dynamicURL = new URL(this.webext.runtime.getURL(file));
         const toolOverlayPairing = await this.sendMessage({
-            what: 'toolOverlayPairing'
+            what: 'toolOverlayPairing',
+            contentScript: true,
         });
         if ( Boolean(toolOverlayPairing?.password) === false ) { return; }
         const { promise, resolve } = Promise.withResolvers();
@@ -318,15 +320,12 @@ self.ubolOverlay = {
         const secretAttr = this.secretAttr;
         frame.setAttribute(secretAttr, '');
         frame.style.visibility = 'hidden';
-        this.frameContainer = document.createElement('div');
-        const shadowRoot = this.frameContainer.attachShadow({
-            mode: 'closed',
-            delegatesFocus: true,
-        });
-        shadowRoot.append(frame);
         const onMessage = msg => {
             this.webext.runtime.onMessage.removeListener(onMessage);
-            if ( msg.what !== 'toolOverlayPairing' ) { return; }
+            if ( msg?.what !== 'toolOverlayPairing' || msg?.succeed !== true ) {
+                resolve(false);
+                return stop();
+            }
             frame.setAttribute('loaded', '');
             const channel = new MessageChannel();
             const port = channel.port1;
@@ -359,7 +358,17 @@ self.ubolOverlay = {
             resolve(true);
         };
         this.webext.runtime.onMessage.addListener(onMessage);
-        document.documentElement.append(this.frameContainer);
+        if ( dynamicURL.href.startsWith('safari-web-extension:') ) {
+            document.documentElement.append(frame);
+        } else {
+            this.frameContainer = document.createElement('div');
+            document.documentElement.append(this.frameContainer);
+            const shadowRoot = this.frameContainer.attachShadow({
+                mode: 'closed',
+                delegatesFocus: true,
+            });
+            shadowRoot.append(frame);
+        }
         frame.contentWindow.location = dynamicURL.href;
         return promise;
     },

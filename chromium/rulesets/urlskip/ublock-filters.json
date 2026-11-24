@@ -13,6 +13,12 @@
   ]
  },
  {
+  "re": "^[^:]+://(?:[^/]+\\.)?short\\.askingtips\\.com/.*?\\.php\\?url=",
+  "steps": [
+   "?url"
+  ]
+ },
+ {
   "re": "^[^:]+://(?:[^/]+\\.)?click\\.redditmail\\.com/cl0/",
   "steps": [
    "/\\/CL0\\/(http.*?)\\/\\d\\/[a-f0-9-]+\\//",

@@ -432,5 +432,6 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["media"],"urlFilter":"||cdn.24liveblog.com/audio/"},"id":431,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||predict-v4.getwair.com/default/predict.js"},"id":432,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||eowf.alc.co.jp/content/js/popup_control.js"},"id":433,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||equalexchange.coop/apps/theme-core/p/api/check-ip"},"id":434,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||equalexchange.coop/apps/theme-core/p/api/check-ip"},"id":434,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||catbox.moe/*/pic.js"},"id":435,"priority":10}
 ]
