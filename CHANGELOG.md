@@ -1,3 +1,9 @@
+- Updated filter lists
+
+----------
+
+### 2026.1122.1948
+
 - [[scriptlets] Add support for path-based targets](https://github.com/gorhill/uBlock/commit/a23b117141)
 - [Improve launch reliability of overlay-based tools](https://github.com/gorhill/uBlock/commit/686d00432e)
 - [[security] Conceal DOM of overlay-based tools inside a shadow DOM](https://github.com/gorhill/uBlock/commit/1765528bec)
