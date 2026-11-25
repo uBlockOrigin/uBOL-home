@@ -21,7 +21,7 @@
 */
 
 const qs$ = s => document.querySelector(s);
-const hide = s => { qs$(s).style.display = 'none'; }
+const hide = s => { qs$(s).dataset.ok = ''; }
 const jobs = [];
 
 /******************************************************************************/
@@ -90,6 +90,32 @@ jobs.push(function anf3() {
     if ( params.has('a') === false ) { return; }
     if ( params.getAll('c').length !== 2 ) { return; }
     hide('#anf3 .fail');
+});
+
+jobs.push(async function anf4() {
+    const getXHR = url => {
+        const { promise, resolve } = Promise.withResolvers();
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+        xhr.onload = ( ) => {
+            resolve({ ok: true, text: xhr.responseText, url: xhr.responseURL });
+        };
+        xhr.onerror = ( ) => { resolve({}); };
+        xhr.send();
+        return promise;
+    };
+    const r0 = await getXHR('/anf4.js');
+    if ( r0.ok === true && r0.text?.includes('function') ) {
+        hide('#anf4 .fail0');
+    }
+    const url0 = new URL(r0.url ?? 'https://example.com/');
+    if ( /\bextension\b/.test(url0.protocol) ) {
+        const r1 = await getXHR(r0.url);
+        if ( r1.ok === true ) { return; }
+    } else {
+        hide('#anf4 .fail1');
+    }
+    hide('#anf4 .fail2');
 });
 
 jobs.push(function pcf18() {

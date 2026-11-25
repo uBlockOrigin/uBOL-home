@@ -68,6 +68,10 @@
             <iframe src="anf3.html?a=1&amp;b=2&amp;c=3&amp;c=4"></iframe>
             <code class="filter">/anf3.html$removeparam=b,to=…</code>
         </div>
+        <div id="anf4" class="tile">
+            <div class="pass"><div class="fail fail0"></div><div class="fail fail1"></div><div class="fail fail2"></div></div>
+            <code class="filter">/anf4.js$xhr,redirect=noop.js,to=…</code>
+        </div>
     </div>
 </section>
 
@@ -273,16 +277,16 @@
     </ul>
     <div id="ef" class="tests">
         <div id="gcf2" class="tile exception">
-            <div class="pass"><div class="fail"></div></div>
+            <div class="fail"><div class="pass"></div></div>
             <code class="filter">#@##ef #gcf2 .fail</code>
         </div>
         <div id="bnf3" class="tile exception">
-            <div class="pass"><div class="fail"></div></div>
+            <div class="fail"><div class="pass"></div></div>
             <code class="filter">@@/bnf3\.js$/$from=…</code>
             <script src="bnf3.js" async></script>
         </div>
         <div id="bnf4" class="tile exception">
-            <div class="pass"><div class="fail"></div></div>
+            <div class="fail"><div class="pass"></div></div>
             <code class="filter">[very long URL]</code>
         </div>
     </div>

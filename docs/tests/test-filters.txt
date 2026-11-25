@@ -12,6 +12,7 @@
 /anf1.$image,redirect=32x32.png,from=ublockorigin.github.io|localhost
 /anf2.html$frame,csp=script-src 'none',to=ublockorigin.github.io|localhost
 /anf3.html$removeparam=b,to=ublockorigin.github.io|localhost
+/anf4.js$xhr,redirect=noop.js,from=ublockorigin.github.io|localhost
 
 ! Specific cosmetic filtering
 ublockorigin.github.io,localhost###ccf1 .fail
@@ -29,7 +30,7 @@ ublockorigin.github.io,localhost#?##pcf6 .fail:not(:has(c))
 ublockorigin.github.io,localhost#?##pcf7 .fail:has-text(needle)
 ublockorigin.github.io,localhost#?##pcf8 .fail:has-text(/NEEDLE/i)
 ublockorigin.github.io,localhost#?##pcf9 .fail:not(:has-text(haystack))
-ublockorigin.github.io,localhost#?##pcf10 .fail:matches-css(position: absolute)
+ublockorigin.github.io,localhost#?##pcf10 .fail:matches-css(z-index: 1000)
 ublockorigin.github.io,localhost#?##pcf11 .fail:has(a:matches-css-before(opacity: 0))
 ublockorigin.github.io,localhost#?##pcf12 .fail:has(b:matches-css-after(opacity: 0))
 ublockorigin.github.io,localhost#?##pcf13 .fail > a > b:upward(2)
@@ -70,4 +71,4 @@ ublockorigin.github.io,localhost#@##ef #gcf2 .fail
 
 ! Firefox MV2 uBO
 /sample.json|$xhr,replace='json:..price=0',to=ublockorigin.github.io|localhost
-ublockorigin.github.io/uBOL-home/tests/test-filters,localhost/test-filters.html##^#ffubo2 > script
+ublockorigin.github.io/uBOL-home/tests/test-filters,localhost/tests/test-filters.html##^#ffubo2 > script
