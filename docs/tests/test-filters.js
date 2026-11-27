@@ -118,6 +118,24 @@ jobs.push(async function anf4() {
     hide('#anf4 .fail2');
 });
 
+jobs.push(async function anf5() {
+    const r0 = await fetch('/anf5.html');
+    if ( r0.ok === true ) {
+        const text = await r0.text();
+        if ( text?.includes('<body></body>') ) {
+            hide('#anf5 .fail0');
+        }
+    }
+    const url0 = new URL(r0.url ?? 'https://example.com/');
+    if ( /\bextension\b/.test(url0.protocol) ) {
+        const r1 = await fetch(r0.url).catch(( ) => ({ }));
+        if ( r1.ok === true ) { return; }
+    } else {
+        hide('#anf5 .fail1');
+    }
+    hide('#anf5 .fail2');
+});
+
 jobs.push(function pcf18() {
     self.setTimeout(( ) => {
         qs$('.watchattr1 .pass > .pass').className = 'fail';
@@ -203,9 +221,13 @@ jobs.push(function ffubo2() {
 
 /******************************************************************************/
 
-self.addEventListener('load', ( ) => {
+self.addEventListener('load', async ( ) => {
     while ( jobs.length !== 0 ) {
         const job = jobs.shift();
-        try { job(); } catch { }
+        try {
+            await job();
+        } catch(reason) {
+            console.error(reason);
+        }
     }
 }, { once: true });
