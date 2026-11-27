@@ -440,5 +440,12 @@
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||elniplex.com/*/banner_"},"id":439,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||elniplex.com/*banner_"},"id":440,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||elniplex.com/*/dioptra_"},"id":441,"priority":10},
-{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||elniplex.com/*/mobile_popup_*.jpg"},"id":442,"priority":10}
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||elniplex.com/*/mobile_popup_*.jpg"},"id":442,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||evros-news.gr/wp-content/uploads/*.gif"},"id":443,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||evros-news.gr/wp-content/uploads/*/istikbal-therapy-plus-*.jpg"},"id":444,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||evros-news.gr/wp-content/uploads/*/ktel.png"},"id":445,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||evros-news.gr/wp-content/uploads/*/new_kriton_banner_*.jpg"},"id":446,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||evros-news.gr/wp-content/uploads/*/sialakis-*.jpg"},"id":447,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||filathlos.gr/wp-content/uploads/2025/04/eac0704f-82e3-4af0-a2a7-46c5865aca41.jpg"},"id":448,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["xmlhttprequest"],"urlFilter":"||lexigram.gr/lex/abusers.php"},"id":449,"priority":10}
 ]

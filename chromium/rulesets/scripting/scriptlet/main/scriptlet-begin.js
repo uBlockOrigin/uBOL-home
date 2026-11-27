@@ -4528,7 +4528,7 @@ function xmlPrune(
     });
 }
 
-function zeta_0b51be8045e44975a2128a59b866fb2a() { // fingerprint2.js
+function zeta_dbc0c472d8174fa69e402cc6270fd0fd() { // fingerprint2.js
 // Reference:
 // https://github.com/fingerprintjs/fingerprintjs/tree/v2
 
@@ -4565,7 +4565,7 @@ function zeta_0b51be8045e44975a2128a59b866fb2a() { // fingerprint2.js
 })();
 }
 
-function zeta_20deb752973740c1a854d6d9e3a4d2c9() { // google-ima.js
+function zeta_04806aa3734542e296214821744fedca() { // google-ima.js
 'use strict';
 
 
@@ -5194,7 +5194,7 @@ if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
 }
 }
 
-function zeta_0fe45a4b118a4311b1f1ecf10ed1492b() { // nobab2.js
+function zeta_b53b812c550a41e99ff6c60c1e9f227e() { // nobab2.js
 (function() {
     'use strict';
     const script = document.currentScript;
@@ -5218,7 +5218,7 @@ function zeta_0fe45a4b118a4311b1f1ecf10ed1492b() { // nobab2.js
 })();
 }
 
-function zeta_6a5a55a7ae2f40be8b5810b333e9610c() { // noeval.js
+function zeta_68ed4b1bb6074e3992fa634520342543() { // noeval.js
 (function() {
     'use strict';
     const log = console.log.bind(console);
@@ -5230,7 +5230,7 @@ function zeta_6a5a55a7ae2f40be8b5810b333e9610c() { // noeval.js
 })();
 }
 
-function zeta_cb7db66892b84018a5fa18203d4b33a1() { // nofab.js
+function zeta_84f62d5c93c14b47bfcac97afa974235() { // nofab.js
 (function() {
     'use strict';
     const noopfn = function() {
@@ -5279,7 +5279,7 @@ function zeta_cb7db66892b84018a5fa18203d4b33a1() { // nofab.js
 })();
 }
 
-function zeta_d6ea5d3bf47c4d7e87cb4f93c48153d9() { // popads-dummy.js
+function zeta_5c38fef28a9d47c7a77fe5d9172c2a13() { // popads-dummy.js
 (function() {
     'use strict';
     delete window.PopAds;
@@ -5338,11 +5338,11 @@ scriptletGlobals.origins = (( ) => {
     return out;
 })();
 
-scriptletGlobals.functionRefs = /* 59 */ [trustedEditInboundObject,adjustSetTimeout,jsonPruneFetchResponse,jsonPruneXhrResponse,trustedReplaceXhrResponse,trustedReplaceFetchResponse,trustedPreventDomBypass,jsonPrune,jsonEdit,jsonlEditXhrResponse,noWindowOpenIf,setConstant,abortCurrentScript,preventXhr,preventSetTimeout,preventFetch,trustedReplaceArgument,abortOnPropertyRead,removeAttr,trustedOverrideElementMethod,trustedReplaceOutboundText,trustedSuppressNativeMethod,preventAddEventListener,abortOnStackTrace,trustedPreventFetch,trustedPreventXhr,adjustSetInterval,preventSetInterval,zeta_0b51be8045e44975a2128a59b866fb2a,trustedSetConstant,jsonEditFetchResponse,zeta_6a5a55a7ae2f40be8b5810b333e9610c,abortOnPropertyWrite,noWebrtc,zeta_cb7db66892b84018a5fa18203d4b33a1,zeta_d6ea5d3bf47c4d7e87cb4f93c48153d9,preventRequestAnimationFrame,noEvalIf,preventBab,disableNewtabLinks,trustedJsonEditFetchResponse,preventInnerHTML,editObjectOnSetter,trustedJsonEdit,trustedJsonEditXhrResponse,preventClipboardWrite,jsonEditXhrResponse,xmlPrune,m3uPrune,spoofCSS,zeta_20deb752973740c1a854d6d9e3a4d2c9,alertBuster,preventCanvas,mpegdashPrune,jsonEditFetchRequest,proxyApplyConfig,jsonlEditFetchResponse,evaldataPrune,zeta_0fe45a4b118a4311b1f1ecf10ed1492b];
+scriptletGlobals.functionRefs = /* 59 */ [trustedEditInboundObject,adjustSetTimeout,jsonPruneFetchResponse,jsonPruneXhrResponse,trustedReplaceXhrResponse,trustedReplaceFetchResponse,trustedPreventDomBypass,jsonPrune,jsonEdit,jsonlEditXhrResponse,noWindowOpenIf,setConstant,abortCurrentScript,preventXhr,preventSetTimeout,preventFetch,trustedReplaceArgument,abortOnPropertyRead,removeAttr,trustedOverrideElementMethod,trustedReplaceOutboundText,trustedSuppressNativeMethod,preventAddEventListener,abortOnStackTrace,trustedPreventFetch,trustedPreventXhr,adjustSetInterval,preventSetInterval,zeta_dbc0c472d8174fa69e402cc6270fd0fd,trustedSetConstant,jsonEditFetchResponse,zeta_68ed4b1bb6074e3992fa634520342543,abortOnPropertyWrite,noWebrtc,zeta_84f62d5c93c14b47bfcac97afa974235,zeta_5c38fef28a9d47c7a77fe5d9172c2a13,preventRequestAnimationFrame,noEvalIf,preventBab,disableNewtabLinks,trustedJsonEditFetchResponse,preventInnerHTML,editObjectOnSetter,trustedJsonEdit,trustedJsonEditXhrResponse,preventClipboardWrite,jsonEditXhrResponse,xmlPrune,m3uPrune,spoofCSS,zeta_04806aa3734542e296214821744fedca,alertBuster,preventCanvas,mpegdashPrune,jsonEditFetchRequest,proxyApplyConfig,jsonlEditFetchResponse,evaldataPrune,zeta_b53b812c550a41e99ff6c60c1e9f227e];
 
 /******************************************************************************/
 
 // End of local scope
-})("be769aed-639e-4eca-8576-829041f0f963");
+})("53fcf4d2-49bb-4393-a71d-8b50f97f973d");
 
 void 0;

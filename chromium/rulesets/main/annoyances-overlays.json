@@ -185,6 +185,7 @@
 {"action":{"type":"block"},"condition":{"initiatorDomains":["hulnews.top"],"resourceTypes":["script"],"urlFilter":"||files.vi.zone/player/"},"id":184,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/wp-content/plugins/image-watermark/"},"id":185,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/wp-content/plugins/ungrabber/js/"},"id":186,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||cinevid.sbs/protect.js"},"id":187,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"||thresholdforum.s3.us-east-2.amazonaws.com/arn:aws:s3:::thresholdforum/javascript_adblockdetector/"},"id":188,"priority":10},
 {"action":{"type":"block"},"condition":{"initiatorDomains":["closeload.com"],"resourceTypes":["script"],"urlFilter":"/dev-console-detect.js"},"id":189,"priority":10},
 {"action":{"type":"block"},"condition":{"resourceTypes":["script"],"urlFilter":"/wp-content/plugins/wp-extra/js/copy.min.js"},"id":190,"priority":10},

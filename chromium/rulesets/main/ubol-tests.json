@@ -150,5 +150,45 @@
  },
  "id": 8,
  "priority": 10
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.js"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "/anf4.js"
+ },
+ "id": 9,
+ "priority": 11
+},
+{
+ "action": {
+  "redirect": {
+   "extensionPath": "/web_accessible_resources/noop.html"
+  },
+  "type": "redirect"
+ },
+ "condition": {
+  "initiatorDomains": [
+   "localhost",
+   "ublockorigin.github.io"
+  ],
+  "resourceTypes": [
+   "xmlhttprequest"
+  ],
+  "urlFilter": "/anf5."
+ },
+ "id": 10,
+ "priority": 11
 }
 ]

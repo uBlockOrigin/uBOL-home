@@ -80,6 +80,8 @@ export default new Map([
     [ 'freestar_pubfig.js', {
         data: 'text',
     } ],
+    [ 'fundingchoices-reject.js', {
+    } ],
     [ 'google-analytics_analytics.js', {
         alias: [
             'google-analytics.com/analytics.js',
@@ -155,6 +157,7 @@ export default new Map([
     } ],
     [ 'noop.html', {
         alias: 'noopframe',
+        data: 'text',
     } ],
     [ 'noop.js', {
         alias: [ 'noopjs', 'abp-resource:blank-js' ],
@@ -206,5 +209,7 @@ export default new Map([
     } ],
     [ 'sensors-analytics.js', {
         data: 'text',
+    } ],
+    [ 'transcend-reject.js', {
     } ],
 ]);

@@ -808,7 +808,7 @@
 {"action":{"type":"allow"},"condition":{"urlFilter":"||muirim.com/admin/data/banner/"},"id":807,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["ichannela.com"],"urlFilter":"||advimg.ad-mapps.com/sdk/js/ver/*/ad_movie_script.js"},"id":808,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["naver.com"],"urlFilter":"||ssl.pstatic.net/adimg*.search/adpost/js/ad.js"},"id":809,"priority":30},
-{"action":{"type":"allow"},"condition":{"initiatorDomains":["dongbanmall.com","laftel.net","pindirectshop.com"],"urlFilter":"||t1.daumcdn.net/adfit/static/kp.js"},"id":810,"priority":30},
+{"action":{"type":"allow"},"condition":{"initiatorDomains":["dongbanmall.com","laftel.net","m.ticket.melon.com","pindirectshop.com"],"urlFilter":"||t1.daumcdn.net/adfit/static/kp.js"},"id":810,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["dasibogo.net"],"urlFilter":"||dasibogo.net/wp-content/uploads/sites/23/2024/04/dasibogologo"},"id":811,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["t.hi098123.com"],"urlFilter":"||pagead2.googlesyndication.com/pagead/managed/js/adsense/*/show_ads_impl_fy2021.js"},"id":812,"priority":30},
 {"action":{"type":"allow"},"condition":{"initiatorDomains":["maxmovie.com"],"urlFilter":"||advimg.ad-mapps.com/sdk/js/ver/200/ad_script.js"},"id":813,"priority":30},
@@ -986,5 +986,7 @@
 {"action":{"type":"block"},"condition":{"urlFilter":"||pam.dakgg.io/sdk/pam.js"},"id":985,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||cdn.mania.kr/wepoll/file/ad/"},"id":986,"priority":10},
 {"action":{"type":"block"},"condition":{"urlFilter":"||deeplol.gg/images/ad/"},"id":987,"priority":10},
-{"action":{"type":"block"},"condition":{"urlFilter":"||tvwiki*.net/data/banner/"},"id":988,"priority":10}
+{"action":{"type":"block"},"condition":{"urlFilter":"||tvwiki*.net/data/banner/"},"id":988,"priority":10},
+{"action":{"type":"block"},"condition":{"urlFilter":"||webtoonguide.com/api-v2/ad-"},"id":989,"priority":10},
+{"action":{"type":"block"},"condition":{"resourceTypes":["image"],"urlFilter":"||kotbc2.com/storage/banners/"},"id":990,"priority":10}
 ]
